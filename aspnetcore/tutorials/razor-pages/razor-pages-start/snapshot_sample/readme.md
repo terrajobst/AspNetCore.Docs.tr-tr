@@ -1,0 +1,1 @@
+Bu klasördeki anlık görüntüleri Razor sayfalarının serisinden zamanında kodudur.
