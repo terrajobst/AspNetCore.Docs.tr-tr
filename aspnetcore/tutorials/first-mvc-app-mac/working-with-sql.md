@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/working-with-sql
 ms.openlocfilehash: ea93fa9b13c4ca25317bd1b098089aff2aa1f0e4
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/sql.md)]
 
 >[!div class="step-by-step"]
-<span data-ttu-id="0579f-104">[Önceki - model ekleme](adding-model.md)
-[sonraki - denetleyici yöntemlerine ve görünümler](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="0579f-104">[Previous - Add a model](adding-model.md)
+<span data-ttu-id="51640-104">[Önceki - model ekleme](adding-model.md)
+[sonraki - denetleyici yöntemlerine ve görünümler](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="51640-104">[Previous - Add a model](adding-model.md)
 [Next - Controller methods and views](controller-methods-views.md)</span></span>
