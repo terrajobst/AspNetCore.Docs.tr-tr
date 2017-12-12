@@ -12,7 +12,7 @@
 
 * Bazı yerlerde tarih biçimini belirtmeniz gerekir. Vurgulanmış kodu aşağıya bakın.
 
-[!code-csharp[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
 
 Biz hakkında konuşun `DataAnnotations` öğreticide daha sonra.
 

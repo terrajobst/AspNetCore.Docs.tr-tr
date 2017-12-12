@@ -1,0 +1,1 @@
+Bu proje için parçacıkları sağlamak için kullanılan [EF MVC çekirdek öğretici serisi](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro). Öğreticiler izleyerek yerleşik örnek proje https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final ' dir.

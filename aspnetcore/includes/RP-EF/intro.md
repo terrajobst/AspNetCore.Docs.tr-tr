@@ -1,0 +1,1 @@
+Contoso University web uygulaması EF çekirdek ve Visual Studio kullanarak Razor sayfalarının web uygulamaları oluşturmak nasıl gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [ilk öğreticide](xref:data/ef-rp/intro).

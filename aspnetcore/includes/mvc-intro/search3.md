@@ -27,7 +27,7 @@ Aşağıdaki biçimlendirmede değişiklik gösterir `form` etiketi:
 
 Aşağıdakileri ekleyin `MovieGenreViewModel` sınıfının *modelleri* klasörü:
 
-[!code-csharp[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
 Film Tarz görünüm modeli içerir:
 
@@ -37,11 +37,11 @@ Film Tarz görünüm modeli içerir:
 
 Değiştir `Index` yönteminde `MoviesController.cs` aşağıdaki kod ile:
 
-[!code-csharp[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
 Aşağıdaki kod bir `LINQ` tüm türler veritabanından alır sorgu.
 
-[!code-csharp[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
 `SelectList` Türler (sizi istemiyorsanız yinelenen türler için bizim seçim listesi) farklı türler yansıtma tarafından oluşturulur.
 
@@ -53,7 +53,7 @@ movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
 
 Güncelleştirme `Index.cshtml` gibi:
 
-[!code-HTML[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
+[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
 
 Aşağıdaki HTML Yardımcısı kullanılan lambda ifadesi inceleyin:
 
