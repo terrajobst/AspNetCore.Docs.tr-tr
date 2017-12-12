@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
 ms.openlocfilehash: 87ce5dca011a7bc37d34799db159d933c158cba1
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>ASP.NET Core MVC Mac, Linux veya Windows ile çalışmaya başlama
 
@@ -71,7 +71,7 @@ Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz k
 ## <a name="visual-studio-code-help"></a>Visual Studio Code Yardım
 
 - [Başlarken](https://code.visualstudio.com/docs)
-- [Hata ayıklama](https://code.visualstudio.com/docs/editor/debugging)
+- [Hata Ayıklama](https://code.visualstudio.com/docs/editor/debugging)
 - [Tümleşik terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Klavye kısayolları](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 

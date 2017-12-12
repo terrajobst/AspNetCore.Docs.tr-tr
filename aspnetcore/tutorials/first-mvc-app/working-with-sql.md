@@ -11,11 +11,11 @@ ms.assetid: ff8fd9b8-7c98-424d-8641-7524e23bf541
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: e44b6de13540d93337bf9a128d287808cffbfb46
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
-ms.translationtype: HT
+ms.openlocfilehash: 67894d05bfd44b0406d10cbbe30ddfdaf0d66636
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="working-with-sql-server-localdb"></a>SQL Server yerel veritabanı ile çalışma
 
@@ -25,11 +25,11 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosyası:
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosyası:
 
-[!code-javascript[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-Bir test veya üretim sunucusuna uygulama dağıtırken, bir ortam değişkeni veya başka bir kullanabilirsiniz yaklaşım gerçek bir SQL Server bağlantı dizesini ayarlayın. Bkz: [yapılandırma](xref:fundamentals/configuration) daha fazla bilgi için.
+Bir test veya üretim sunucusuna uygulama dağıtırken, bir ortam değişkeni veya başka bir kullanabilirsiniz yaklaşım gerçek bir SQL Server bağlantı dizesini ayarlayın. Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla bilgi için.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 

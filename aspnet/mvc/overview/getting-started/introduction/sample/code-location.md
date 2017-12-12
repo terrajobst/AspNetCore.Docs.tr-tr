@@ -1,0 +1,2 @@
+> [!NOTE]
+> Bu belgede yer [ASP.NET MVC 5 ile çalışmaya başlama](xref:mvc/overview/getting-started/introduction/getting-started) Öğreticisi. Öğretici için son kaynak bulunan [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)

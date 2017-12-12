@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: 8960853438d3227de3ef7c50936626149d8d5997
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="controller-methods-and-views"></a>Denetleyici yöntemlerine ve görünümler
 
@@ -27,7 +27,7 @@ Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal de
 
 Açık *Models/Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları ekleyin:
 
-[!code-csharp[Ana](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
 
 Bir kırmızı dalgalı satıra sağ tıklayın **> Hızlı Eylemler ve yapan yeniden düzenlemeler**.
 
@@ -46,7 +46,7 @@ Bir kırmızı dalgalı satıra sağ tıklayın **> Hızlı Eylemler ve yapan ye
 
 Güncelleştirilmiş kod:
 
-[!code-csharp[Ana](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
+[!code-csharp[Main](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
 
 <!-- include start -->
 

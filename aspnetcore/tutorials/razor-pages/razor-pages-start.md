@@ -10,17 +10,23 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 9d647657f21dd7e952808e5fe020f7a9e8767cd8
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
-ms.translationtype: HT
+ms.openlocfilehash: 5c58b5156f62572687755c9c0878db10c3c14eb1
+ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında ile çalışmaya başlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici, bir ASP.NET Core Razor sayfalarının web uygulaması oluşturmanın temel öğretir. Tamamlamanız önerilir [Razor sayfalarının giriş](xref:mvc/razor-pages/index) bu öğreticiye başlamadan önce. Razor sayfalarının ASP.NET Core web uygulamaları için kullanıcı Arabirimi oluşturmak için önerilen yöntem olduğu.
+
+Bu öğretici için üç sürümü vardır:
+
+* Windows: Bu öğretici
+* MacOS: [Mac için Visual Studio ile Razor sayfaları ile Başlarken](xref:tutorials/razor-pages-mac/razor-pages-start)
+* macOS, Linux ve Windows: [Visual Studio Code ile ASP.NET Core Razor sayfalarında ile çalışmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
 
 ## <a name="prerequisites"></a>Önkoşullar
 

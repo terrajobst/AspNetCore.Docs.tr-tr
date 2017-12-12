@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-mac/controller-methods-views
 ms.openlocfilehash: 846a78a09cdde0cfdbcf35bb899c1822ebe8fea2
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="controller-methods-and-views-in-an-aspnet-core-mvc-app"></a>Denetleyici yöntemlerine ve ASP.NET Core MVC uygulama görünümler
 
@@ -27,7 +27,7 @@ Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal de
 
 Açık *Models/Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları ekleyin:
 
-[!code-csharp[Ana](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
 
 Derleme ve uygulamayı çalıştırın.
 

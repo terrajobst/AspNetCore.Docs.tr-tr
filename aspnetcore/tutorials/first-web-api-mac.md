@@ -12,10 +12,10 @@ ms.technology: aspnet
 keywords: "ASP.NET Core, Webapı, Web API'si, REST, mac, macOS, HTTP, hizmeti, HTTP hizmeti"
 manager: wpickett
 ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
-ms.translationtype: HT
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Mac için ASP.NET Core MVC ve Visual Studio ile Web API oluşturma
 
