@@ -16,7 +16,7 @@ Bu örnek ASP.NET Core için Azure anahtar kasası yapılandırma sağlayıcıs�
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Örnek uygulamayı Azure Active Directory ile kaydedin.
-  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToKeys list,get`.
+  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
 2. Uygulamanın güncelleştirme *appsettings.json* değerlerini dosyasıyla `Vault`, `ClientId`, ve `ClientSecret`.
 3. Kendi yapılandırma değerlerini alır örnek uygulamayı çalıştırma `IConfigurationRoot` gizli adıyla aynı ada sahip.
   * Hiyerarşik olmayan değerleri: değeri `SecretName` ile elde `config["SecretName"]`.

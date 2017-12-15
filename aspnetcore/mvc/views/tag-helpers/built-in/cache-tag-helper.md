@@ -11,16 +11,15 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 1710a5781fb69aaa6101270d6b4fd44f92c7f06c
-ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
+ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC etiketi yardımcı önbelleğe alma
 
 Tarafından [Peter Kellner](http://peterkellner.net) 
-
 
 Önbellek etiket Yardımcısı iç ASP.NET Core önbelleği sağlayıcısı için içeriği önbelleğe alarak, ASP.NET Core uygulamanızın performansını önemli ölçüde artırmak için yeteneği sağlar.
 
@@ -29,7 +28,7 @@ Razor görüntüleme altyapısı varsayılan ayarlar `expires-after` yirmi dakik
 Aşağıdaki Razor biçimlendirme tarih/saat önbelleğe alır:
 
 ```cshtml
-<Cache>@DateTime.Now<Cache>
+<cache>@DateTime.Now</cache>
 ```
 
 İçeren sayfaya yapılan ilk istek `CacheTagHelper` geçerli tarih görüntülenir. Önbellek (varsayılan 20 dakika) süresi dolana veya bellek baskısı tarafından çıkarılacak kadar ek istekleri önbelleğe alınan değeri gösterir.
@@ -54,9 +53,9 @@ Aşağıdaki özniteliklerle önbellek süresini ayarlayabilirsiniz:
 Örnek:
 
 ```cshtml
-<Cache enabled="true">
+<cache enabled="true">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -73,9 +72,9 @@ Bir mutlak sona erme tarihi ayarlar. Aşağıdaki örnek, 17:02:00 saatleri 29 O
 Örnek:
 
 ```cshtml
-<Cache expires-on="@new DateTime(2025,1,29,17,02,0)">
+<cache expires-on="@new DateTime(2025,1,29,17,02,0)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -92,9 +91,9 @@ Süre içeriği önbelleğe almak için ilk istek saati ayarlar.
 Örnek:
 
 ```cshtml
-<Cache expires-after="@TimeSpan.FromSeconds(120)">
+<cache expires-after="@TimeSpan.FromSeconds(120)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -111,9 +110,9 @@ Değil erişilen, önbellek girişi çıkarılacak süreyi ayarlar.
 Örnek:
 
 ```cshtml
-<Cache expires-sliding="@TimeSpan.FromSeconds(60)">
+<cache expires-sliding="@TimeSpan.FromSeconds(60)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -130,9 +129,9 @@ Bir tek üstbilgi değeri veya bir önbellek yenileme bunlar değiştirdiğinizd
 Örnek:
 
 ```cshtml
-<Cache vary-by-header="User-Agent">
+<cache vary-by-header="User-Agent">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -149,9 +148,9 @@ Bir tek üstbilgi değeri veya bir önbellek yenileme üstbilgi değeri değişt
 Örnek:
 
 ```cshtml
-<Cache vary-by-query="Make,Model">
+<cache vary-by-query="Make,Model">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -176,9 +175,9 @@ routes.MapRoute(
 *Index.cshtml*
 
 ```cshtml
-<Cache vary-by-route="Make,Model">
+<cache vary-by-route="Make,Model">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -195,9 +194,9 @@ Bir tek üstbilgi değeri veya bir önbellek yenileme (s) üstbilgi değerleri d
 Örnek:
 
 ```cshtml
-<Cache vary-by-cookie=".AspNetCore.Identity.Application">
+<cache vary-by-cookie=".AspNetCore.Identity.Application">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -216,9 +215,9 @@ Aşağıdaki örnek, geçerli kullanıcının oturum bakar.
 Örnek:
 
 ```cshtml
-<Cache vary-by-user="true">
+<cache vary-by-user="true">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 Bu öznitelik kullanarak oturum açması ve günlük genişletme döngüsü boyunca Önbellekteki içeriği tutar.  Kullanırken `vary-by-user="true"`, bir oturum açma ve oturum genişletme eylemi önbellek kimliği doğrulanmış kullanıcı için geçersiz kılar.  Yeni bir benzersiz tanımlama bilgisi değerini oturum açma üretildiği için önbellek geçersiz kılınır. Tanımlama bilgisi mevcut olduğunda veya süresi dolmuş önbelleği için anonim durumu korunur. Bu, hiçbir kullanıcı oturum açtıysa, önbellek sürdürüleceği anlamına gelir.
@@ -254,9 +253,9 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 *Index.cshtml*
 
 ```cshtml
-<Cache vary-by="@Model"">
+<cache vary-by="@Model"">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -275,9 +274,9 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 Örnek:
 
 ```cshtml
-<Cache priority="High">
+<cache priority="High">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 `priority` Özniteliği önbellek bekletme belirli bir düzeyde garanti etmez. `CacheItemPriority`yalnızca bir öneridir. Bu öznitelik ayarını `NeverRemove` önbelleği her zaman korunması garanti etmez. Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için.

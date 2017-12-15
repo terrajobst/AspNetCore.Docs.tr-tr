@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC ve Entity Framework Visual Studio (1 / 10) kullanarak çekirdek ile çalışmaya başlama
 
@@ -244,15 +244,10 @@ CRUD eylem yöntemleri ve görünümler otomatik olarak oluşturulmasını yapı
 
 * Sağ **denetleyicileri** klasöründe **Çözüm Gezgini** seçip **Ekle > Yeni iskele kurulmuş öğe**.
 
-* İçinde **MVC bağımlılıkları ekleyin** iletişim kutusunda **en az bağımlılıkları**seçip **Ekle**.
+Varsa **MVC bağımlılıkları ekleyin** iletişim kutusu görüntülenir:
 
-  ![Bağımlılıkları ekleyin.](intro/_static/add-depend.png)
-
-  Visual Studio bir denetleyici iskele için gerekli bağımlılıkların ekler. Yalnızca proje dosyasında eklenmesi değişikliktir `Microsoft.VisualStudio.Web.CodeGeneration.Design` paket.
-
-  A *ScaffoldingReadMe.txt* dosyası oluşturuldu, silebilirsiniz.
-
-* Bir kez daha sağ **denetleyicileri** klasöründe **Çözüm Gezgini** seçip **Ekle > Yeni iskele kurulmuş öğe**.
+* [Visual Studio en son sürüme güncelleştirin](https://www.visualstudio.com/downloads/). Visual Studio sürümleri 15,5 önce bu iletişim kutusunu göster.
+* Update yapılamıyor, seçin **Ekle**ve ardından Ekle denetleyicisi adımları yeniden uygulayın.
 
 * İçinde **İskele Ekle** iletişim kutusunda:
 
@@ -371,4 +366,4 @@ Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek
 Şimdi, depolamak ve verileri görüntülemek için Entity Framework Çekirdek ve SQL Server Express LocalDB kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD gerçekleştirme öğreneceksiniz (Oluştur, oku, Güncelleştir, Sil) işlemleri.
 
 >[!div class="step-by-step"]
-[Sonraki](crud.md)  
+[Next](crud.md)  

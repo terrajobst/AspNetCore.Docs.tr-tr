@@ -11,15 +11,15 @@ ms.assetid: 959ff4ca-be2d-1638-ac04-789e7f7146ff
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/index
-ms.openlocfilehash: 8a6fa695a1b1ad660f7f5b1aeb520d5372a273a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4083dea74548099ee3ba8d963110bb2c3c8ae00a
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a>Visual Studio Code ile ASP.NET Core MVC uygulaması oluşturma
 
-Bu öğreticiler dizi Visual Studio kullanarak bir ASP.NET Core MVC web uygulaması oluşturmanın temel öğretir. 
+Bu öğreticiler dizi Visual Studio Code kullanarak bir ASP.NET Core MVC web uygulaması oluşturmanın temel öğretir. 
 
 [!INCLUDE[consider RP](../../includes/razor.md)]
 

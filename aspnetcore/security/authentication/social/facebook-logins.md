@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 058670b4f699288e1acbe76bae08dcebf69346b8
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Facebook kimlik doğrulamasını yapılandırma
 
@@ -25,9 +25,9 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
 ## <a name="create-the-app-in-facebook"></a>İçinde Facebook uygulaması oluşturma
 
-*  Gidin [geliştiriciler için Facebook](https://developers.facebook.com) sayfasında ve oturum açın. Bir Facebook hesabıyla zaten yoksa kullanmak **Facebook için kaydolun** bağlantısı oluşturmak için oturum açma sayfası.
+*  Gidin [Facebook geliştiricilerin uygulama](https://developers.facebook.com/apps/) sayfasında ve oturum açın. Bir Facebook hesabıyla zaten yoksa kullanmak **Facebook için kaydolun** bağlantısı oluşturmak için oturum açma sayfası.
 
-* Dokunun **oluşturma uygulama** yeni bir uygulama kimliği oluşturmak için sağ üst köşesinde düğmesi
+* Dokunun **yeni bir uygulama eklemek** yeni bir uygulama kimliği oluşturmak için sağ üst köşesinde düğmesi
 
    ![Geliştiriciler portalı için Facebook Microsoft Edge'de açın](index/_static/FBMyApps.png)
 
@@ -35,10 +35,10 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
    ![Yeni uygulama kimliği formu oluşturma](index/_static/FBNewAppId.png)
 
-* İle sunulan zaman **bir ürün seçmek** isteminde tıklatın **Ayarla** üzerinde **Facebook oturum açma** kart.
+* Üzerinde **bir ürün seçmek** sayfasında, **Ayarla** üzerinde **Facebook oturum açma** kart.
 
    ![Ürün kurulum sayfası](index/_static/FBProductSetup.png)
-
+  
 * **Hızlı Başlangıç** Sihirbazı ile başlar **bir Platform seçin** ilk sayfası. Sihirbazı'nı tıklatarak şimdilik atlama **ayarları** soldaki menüde bağlantı:
 
    ![Atla hızlı başlangıç](index/_static/FBSkipQuickStart.png)
@@ -72,13 +72,6 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Facebook kimlik doğrulamasını yapılandırma
 
-Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paket zaten yüklü.
-
-* Visual Studio 2017 ile bu paketi yüklemek için projeyi sağ tıklatın ve **NuGet paketlerini Yönet**.
-* .NET Core CLI ile yüklemek için proje dizininde aşağıdakileri yürütün:
-
-   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
-
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
 
 Facebook hizmetinde eklemek `ConfigureServices` yönteminde *haline* dosyası:
@@ -98,6 +91,13 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+
+Yükleme [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paket.
+
+* Visual Studio 2017 ile bu paketi yüklemek için projeyi sağ tıklatın ve **NuGet paketlerini Yönet**.
+* .NET Core CLI ile yüklemek için proje dizininde aşağıdakileri yürütün:
+
+   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
 Facebook Ara yazılımında eklemek `Configure` yönteminde *haline* dosyası:
 

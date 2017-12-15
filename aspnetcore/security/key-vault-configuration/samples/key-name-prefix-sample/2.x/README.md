@@ -12,7 +12,7 @@ Bu örnek ASP.NET Core için Azure anahtar kasası yapılandırma sağlayıcıs�
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Örnek uygulamayı Azure Active Directory ile kaydedin.
-  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToKeys list,get`.
+  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
 2. Uygulamanın güncelleştirme *appsettings.json* değerlerini dosyasıyla `Vault`, `ClientId`, ve `ClientSecret`.
 3. Kendi yapılandırma değerlerini alır örnek uygulamayı çalıştırma `IConfigurationRoot` ile aynı adı taşıyan önekli gizli. Bu örnekte, için sağlanan uygulamanın sürüm önektir `PrefixKeyVaultSecretManager` Azure anahtar kasası yapılandırma sağlayıcısı eklediğiniz zaman. Değeri `AppSecret` ile elde `config["AppSecret"]`.
 4. Proje dosyasından uygulama derlemede sürümünü değiştirmek `5.0.0.0` için `5.1.0.0` ve uygulamayı yeniden çalıştırın. Bu süre, döndürülen gizli değerdir `5.1.0.0_secret_value`.

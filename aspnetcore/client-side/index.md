@@ -11,23 +11,24 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2e4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/index
-ms.openlocfilehash: 875dfda8794aff69ea3d13c43d21ae805a199ed2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b4770a91a735cf9c7304e03b848f9593bacb1455
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="client-side-development-in-aspnet-core"></a>ASP.NET Core istemci-tarafı geliştirme
 
-- [Gulp kullanma](using-gulp.md)
-- [Grunt kullanma](using-grunt.md)
-- [İstemci tarafı paketleri Bower ile yönetme](bower.md)
-- [Önyükleme güzel, yanıt veren siteleriyle oluşturma](bootstrap.md)
-- [Knockout.js MVVM Framework](knockout.md)
-- [AngularJS tek sayfa uygulamaları (SPAs) kullanma](angular.md)
-- [Tek sayfa uygulamaları (SPAs) JavaScriptServices kullanma](spa-services.md)
-- [Daha az uygulamalarla, Sass ve yazı tipi harika stil oluşturma](less-sass-fa.md)
-- [Paketleme ve küçültme](bundling-and-minification.md)
+- [Gulp kullanma](xref:client-side/using-gulp)
+- [Grunt kullanma](xref:client-side/using-grunt)
+- [İstemci tarafı paketleri Bower ile yönetme](xref:client-side/bower)
+- [Önyükleme güzel, yanıt veren siteleriyle oluşturma](xref:client-side/bootstrap)
+- [Daha az uygulamalarla, Sass ve yazı tipi harika stil oluşturma](xref:client-side/less-sass-fa)
+- [Paketleme ve küçültme](xref:client-side/bundling-and-minification)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
-- [Yeoman ile proje oluşturma](yeoman.md)
-- [Tarayıcı bağlantısı kullanma](using-browserlink.md)
+- [Tarayıcı bağlantısı kullanma](xref:client-side/using-browserlink)
+- [JavaScriptServices SPAs için kullanma](xref:client-side/spa-services)
+- [SPA proje şablonları (Önizleme) kullanma](xref:spa/index)
+    - [Açısal proje şablonu](xref:spa/angular)
+    - [Proje şablonu tepki](xref:spa/react)
+    - [Redux proje şablonu ile tepki](xref:spa/react-with-redux)

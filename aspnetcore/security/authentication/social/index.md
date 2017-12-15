@@ -11,11 +11,11 @@ ms.assetid: eda7ee17-f38c-462e-8d1d-63f459901cf3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/social/index
-ms.openlocfilehash: 9fc0d6c3e9691f8c3fa0d769ac53c3337d822fc5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cc637f469dcb7097ee1b3996fde8a4ebac8d7ff
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="enabling-authentication-using-facebook-google-and-other-external-providers"></a>Facebook, Google ve diğer dış sağlayıcılarını kullanarak kimlik doğrulamasını etkinleştirme
 
@@ -46,6 +46,13 @@ Not: Burada sunulan paketleri OAuth kimlik doğrulaması akışı karmaşıklı�
 ![Yeni Web uygulaması iletişim kutusu](index/_static/select-project.png)
 
 Not: Bu öğreticide Sihirbazı'nın en üstte seçilebilir ASP.NET Core 2.0 SDK sürümü için geçerlidir.
+
+## <a name="apply-migrations"></a>Geçişleri uygulayın
+
+* Uygulamayı çalıştırın ve seçin **oturum** bağlantı.
+* Seçin **kayıt yeni bir kullanıcı olarak** bağlantı.
+* Yeni hesap için e-posta ve parola girin ve ardından **kaydetmek**.
+* Geçişler uygulamak için yönergeleri izleyin.
 
 ## <a name="require-ssl"></a>SSL iste
 

@@ -1,21 +1,21 @@
 ---
 title: "ASP.NET Core üzerinde kimliğini giriş"
 author: rick-anderson
-description: "Bir ASP.NET Core uygulamayla kimliğini kullanarak"
+description: "Bir ASP.NET Core uygulamayla kimliğini kullan"
 keywords: "ASP.NET Core, kimlik, yetkilendirme, güvenlik"
 ms.author: riande
 manager: wpickett
-ms.date: 07/07/2017
+ms.date: 12/15/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -23,7 +23,7 @@ Tarafından [Pranav Rastogi](https://github.com/rustd), [Rick Anderson](https://
 
 ASP.NET Core, uygulamanıza oturum açma işlevsellik eklemesine olanak tanıyan bir üyelik sistemi kimliğidir. Kullanıcılar bir kullanıcı adıyla bir hesap ve oturum açma oluşturabilir ve parola veya bir dış oturum açma sağlayıcısı Facebook, Google, Microsoft Account, Twitter veya diğerleri gibi kullanabilirsiniz.
 
-ASP.NET Core kimliği kullanıcı adları, parolalar ve profil verileri depolamak için bir SQL Server veritabanını kullanmak üzere yapılandırabilirsiniz. Alternatif olarak, örneğin Azure Table Storage kendi kalıcı depoya kullanabilirsiniz. Bu belge, CLI kullanarak için ve Visual Studio için yönergeler içerir.
+ASP.NET Core kimliği kullanıcı adları, parolalar ve profil verileri depolamak için bir SQL Server veritabanını kullanmak üzere yapılandırabilirsiniz. Alternatif olarak, örneğin, bir Azure Table Storage kendi kalıcı depoya kullanabilirsiniz. Bu belge, CLI kullanarak için ve Visual Studio için yönergeler içerir.
 
 ## <a name="overview-of-identity"></a>Kimliği'ne genel bakış
 
@@ -38,10 +38,10 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
  
     ![Yeni Proje iletişim kutusu](identity/_static/01-mvc_2.png)
     
-    # <a name="net-core-clitabnetcore-cli"></a>[.NET core CLI](#tab/netcore-cli)
-    .NET Core CLI kullanıyorsanız, yeni projesi oluşturun ``dotnet new mvc --auth Individual``. Bu, Visual Studio oluşturur aynı kimlik şablonu kodu ile yeni bir proje oluşturur.
+    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+    .NET Core CLI kullanıyorsanız, yeni projesi oluşturun ``dotnet new mvc --auth Individual``. Bu komut, Visual Studio oluşturur aynı kimlik şablonu kodu ile yeni bir proje oluşturur.
  
-    Oluşturulan projeyi içeren `Microsoft.AspNetCore.Identity.EntityFrameworkCore` kimlik verileri ve SQL Server'ı kullanarak şeması korunur paket [Entity Framework Çekirdek](https://docs.microsoft.com/ef/).
+    Oluşturulan projeyi içeren `Microsoft.AspNetCore.Identity.EntityFrameworkCore` kimlik veri ve şema SQL Server kullanmaya devam ederse paket [Entity Framework Çekirdek](https://docs.microsoft.com/ef/).
     
     ---
  

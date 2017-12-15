@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e42e7e469e411d2d4bc1bd1b3a3995a77c355ebd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core kurulmuş Razor sayfalarında
 
@@ -28,7 +28,7 @@ Bu öğretici Razor önceki öğretici konusunda yapı iskelesi tarafından olu�
 
 İncelemek *Pages/Movies/Index.cshtml.cs* arka plan kod dosyası:[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
-Razor sayfalarının türetilir `PageModel`. Kural tarafından `PageModel`-türetilmiş sınıf çağrılır `<PageName>Model`. Oluşturucusu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) eklemek için `MovieContext` sayfası. Bu yol kurulmuş tüm sayfaları izler.
+Razor sayfalarının türetilir `PageModel`. Kural tarafından `PageModel`-türetilmiş sınıf çağrılır `<PageName>Model`. Oluşturucusu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) eklemek için `MovieContext` sayfası. Bu yol kurulmuş tüm sayfaları izler. Bkz: [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) Entity Framework zaman uyumsuz programing hakkında daha fazla bilgi için.
 
 Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi Razor sayfasına filmler listesini döndürür. `OnGetAsync`veya `OnGet` sayfası için durum başlatmak için bir Razor sayfasında olarak adlandırılır. Bu durumda, `OnGetAsync` görüntülenecek filmler listesini alır.
 

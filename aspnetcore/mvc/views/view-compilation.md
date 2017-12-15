@@ -5,17 +5,17 @@ description: "MVC Razor görünüm derleme ve ASP.NET Core uygulamalarında ön 
 keywords: "ASP.NET Core, Razor görünüm derleme, Razor pre-derleme, Razor ön derlemesi"
 ms.author: riande
 manager: wpickett
-ms.date: 12/05/2017
+ms.date: 12/13/2017
 ms.topic: article
 ms.assetid: ab4705b7-1638-1638-bc97-ea7f292fe92a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 873f6203f9e7b5bb14968dcec3f8d8e5548bd834
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 6839892c104673af0fd0fd074d368f3f42259d76
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor görünüm derleme ve ASP.NET Core içinde ön derlemesi
 
@@ -23,7 +23,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Görünüm çağrıldığında razor görünümleri çalışma zamanında derlenir. ASP.NET Core 1.1.0 ve daha yüksek isteğe bağlı olarak Razor görünümleri derlemek ve uygulamayla dağıtmadan&mdash;ön derlemesi da bilinen bir işlem. ASP.NET Core 2.x proje şablonları ön derlemesi varsayılan olarak etkinleştirir.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Razor görünüm ön derlemesi şu anda kullanılamıyor gerçekleştirirken bir [müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) ASP.NET Core 2.0. 2.1 bıraktığında özellik SCDs için kullanılabilir olacak. Daha fazla bilgi için bkz: [görünüm derleme başarısız cross-Windows Linux için derlerken](https://github.com/aspnet/MvcPrecompilation/issues/102).
 
 Ön derleme dikkate alınacak noktalar:
@@ -54,6 +54,12 @@ Ayarlama `MvcRazorCompileOnPublish` için `true`ve bir paket başvuru eklemek `M
 [!code-xml[Main](view-compilation\sample\MvcRazorCompileOnPublish.csproj?highlight=5,12)]
 
 ---
+
+Uygulama için hazırlama bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd) proje kökündeki aşağıdaki gibi bir komutu çalıştırarak:
+
+```console
+dotnet publish -c Release
+```
 
 A *< project_name >. PrecompiledViews.dll* derlenmiş Razor görünümleri içeren dosyası ön derlemesi başarılı olduğunda oluşturulur. Örneğin, aşağıdaki ekran görüntüsünde içeriğini gösterir *Index.cshtml* içine *WebApplication1.PrecompiledViews.dll*:
 

@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c7401657486a8e5dbc8213d79dcfd5e0ec76585
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>ASP.NET Core Nginx ile Linux için bir barındırma ortamını ayarlama ve dağıtma
 
@@ -45,8 +45,6 @@ ASP.NET Core uygulama ne olursa olsun Aracı (SCP, FTP, vb.) iş akışınıza t
  - Komut satırından çalıştırma`dotnet yourapp.dll`
  - Bir tarayıcıda gidin `http://<serveraddress>:<port>` uygulama Linux üzerinde çalıştığını doğrulayın. 
  
-**Not:** kullanım [Yeoman](xref:client-side/yeoman) yeni bir proje için yeni bir ASP.NET Core uygulaması oluşturmak için.
-
 ## <a name="configure-a-reverse-proxy-server"></a>Ters proxy sunucusunu yapılandırın
 
 Ters proxy dinamik web uygulamaları için ortak bir kurulur. Ters proxy HTTP isteği sonlandırır ve ASP.NET Core uygulamaya iletir.

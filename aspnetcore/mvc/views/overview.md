@@ -5,21 +5,22 @@ description: "Görünümler, uygulamanın veri sunumu ve ASP.NET Core MVC kullan
 keywords: "ASP.NET Core, görüntülemek, MVC, razor, viewmodel, viewdata, Görünüm Paketi"
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.com/guardrex)
+
+Bu belgede ASP.NET Core MVC uygulamalarında kullanılan görünümler açıklanmaktadır. Razor sayfalarında daha fazla bilgi için bkz: [Razor sayfalarının giriş](xref:mvc/razor-pages/index).
 
 İçinde **M**odel -**V**görünümü -**C**ontroller (MVC) deseni *Görünüm* uygulamanın veri sunu ve kullanıcı etkileşimini işler. Bir HTML şablonu görünümdür ile katıştırılmış [Razor biçimlendirme](xref:mvc/views/razor). Razor biçimlendirme istemciye gönderilen bir Web sayfası oluşturmak için HTML biçimlendirmesi etkileşimde kodudur.
 

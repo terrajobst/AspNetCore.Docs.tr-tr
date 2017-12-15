@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -24,7 +24,7 @@ Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Chris fillerin](https
 > [!NOTE]
 > Bu konuda, yalnızca ASP.NET Core 2.0 ve daha sonra uygulanır. ASP.NET Core önceki sürümlerde HTTP.sys adlı [WebListener](xref:fundamentals/servers/weblistener).
 
-HTTP.sys olan bir [web sunucusu için ASP.NET Core](index.md) yalnızca Windows üzerinde çalışır. Yerleşik olan [Http.Sys çekirdek modu sürücüsü](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys olan alternatif [Kestrel](kestrel.md) Kestel olmayan bazı özellikler sunar. **HTTP.sys IIS veya kullanılamaz IIS Express ile uyumlu değil olarak [ASP.NET Core Modülü](aspnet-core-module.md).**
+HTTP.sys olan bir [web sunucusu için ASP.NET Core](index.md) yalnızca Windows üzerinde çalışır. Yerleşik olan [Http.Sys çekirdek modu sürücüsü](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys olan alternatif [Kestrel](kestrel.md) Kestel olmayan bazı özellikler sunar. **HTTP.sys IIS veya kullanılamaz IIS Express ile uyumlu olarak [ASP.NET Core Modülü](aspnet-core-module.md).**
 
 HTTP.sys aşağıdaki özellikleri destekler:
 
@@ -166,7 +166,7 @@ Başvuru belgelerini işte *netsh.exe*:
 
 Aşağıdaki kaynaklar, çeşitli senaryoları için ayrıntılı yönergeler sağlar. Her ikisi de Http.Sys üzerinde tabanlı olarak HttpListener için başvuran makaleleri HTTP.sys için eşit olarak uygulanır.
 
-* [Nasıl yapılır: bir SSL sertifikası ile bir bağlantı noktası yapılandırın](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Nasıl Yapılır: SSL Sertifikası ile Bir Bağlantı Noktasını Yapılandırma](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS iletişimi - HttpListener tabanlı barındırma ve istemci sertifikası](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) bu üçüncü taraf blog ve oldukça eski ancak hala yararlı bilgiler.
 * [Nasıl yapılır: Kod (C++) bir SSL basit sunucu olarak izlenecek kullanarak HttpListener veya Http sunucusu yönetilmeyen](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) çok yararlı bilgiler ile daha eski bir blog budur.
 

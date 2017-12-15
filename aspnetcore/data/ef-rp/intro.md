@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 98fe1b0c2dcf2e133d921b2cc8695bd2056c5ec0
-ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
+ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 
@@ -251,6 +251,14 @@ The system cannot find the file specified.
 
 Komutu yeniden çalıştırın ve sayfanın sonundaki bir yorum yazın.
 
+Hatayı alırsanız:
+  ```
+No executable found matching command "dotnet-aspnet-codegenerator"
+  ```
+
+Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
+
+
 Projeyi oluşturun. Derleme hataları aşağıdaki gibi oluşturur:
 
  `1>Pages\Students\Index.cshtml.cs(26,38,26,45): error CS1061: 'SchoolContext' does not contain a definition for 'Student'`
@@ -339,4 +347,4 @@ EF çekirdek kullanan zaman uyumsuz kodu yazarken dikkat edilmesi gereken bazı 
 Sonraki öğreticide, temel CRUD (Oluştur, oku, Güncelleştir, Sil) işlemleri incelenmesini.
 
 >[!div class="step-by-step"]
-[Sonraki](xref:data/ef-rp/crud)
+[Next](xref:data/ef-rp/crud)

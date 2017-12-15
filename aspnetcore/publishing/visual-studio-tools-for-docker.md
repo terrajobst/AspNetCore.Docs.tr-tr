@@ -1,132 +1,142 @@
 ---
 title: "ASP.NET çekirdeği ile Docker için Visual Studio Araçları"
-description: "Bu makalede, Visual Studio 2017 araçları ve Windows için Docker ASP.NET Core uygulamanın containerize kullanmayı kılavuzluk."
-keywords: "Docker,ASP.NET çekirdek, Visual Studio, kapsayıcı"
 author: spboyer
-ms.author: scaddie
+description: "Visual Studio 2017 araçları ve Windows için Docker ASP.NET Core uygulama containerize için nasıl kullanılacağını öğrenin."
+keywords: "Docker için ASP.NET Core, Docker, VS araçları"
 manager: wpickett
-ms.date: 09/26/2017
-ms.topic: article
-ms.prod: asp.net-core
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 12/12/2017
+ms.devlang: csharp
+ms.prod: aspnet-core
 ms.technology: aspnet
-ms.assetid: 1f3b9a68-4dea-4b60-8cb3-f46164eedbbf
+ms.topic: article
 uid: publishing/vs-tools-for-docker
-ms.openlocfilehash: 2d8e337141ae4e0d0258f1d7546510b0ab077e39
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bdd9317a69a1e9f1178d203595e25bc84881811
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="visual-studio-tools-for-docker"></a>Docker için Visual Studio Araçları
+# <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET çekirdeği ile Docker için Visual Studio Araçları
 
-[Microsoft Visual Studio 2017](https://www.visualstudio.com/) ile [Windows için Docker](https://docs.docker.com/docker-for-windows/install/) oluşturma, hata ayıklama ve çalıştırma Windows ve Linux kapsayıcıları kullanarak .NET Framework ve .NET Core web ve konsol uygulamaları destekler.
+[Visual Studio 2017](https://www.visualstudio.com/) oluşturma, hata ayıklama ve ASP.NET Core uygulamaları .NET Framework veya .NET Core hedefleme çalıştırma destekler. Hem Windows hem de Linux kapsayıcıları desteklenir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Microsoft Visual Studio 2017](https://www.visualstudio.com/) .NET Core iş yükü ile
+- [Visual Studio 2017](https://www.visualstudio.com/) ile **.NET Core platformlar arası geliştirme** iş yükü
 - [Windows için docker](https://docs.docker.com/docker-for-windows/install/)
 
 ## <a name="installation-and-setup"></a>Yükleme ve Kurulum
 
-Yükleme [Microsoft Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) .NET Core iş yükü ile. Visual Studio yüklüyse zaten varsa, [Visual Studio yüklemenizin değiştirme](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) .NET Core iş yükü eklemek için.
-
 Docker yükleme için bilgileri gözden geçirmeniz [Windows için Docker: yüklemeden önce bilmeniz gerekenler](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) yükleyip [Docker için Windows](https://docs.docker.com/docker-for-windows/install/).
 
-Kurulum için gerekli yapılandırmadır  **[paylaşılan sürücüleri](https://docs.docker.com/docker-for-windows/#shared-drives)**  Windows için Docker. Ayar birim eşleme ve hata ayıklama desteği için gereklidir.
-
-Sistem tepsisindeki Docker simgesine sağ tıklayın, **ayarları**seçip **paylaşılan sürücüleri**. Docker burada ve dosyalarınızı depolamak değişiklikleri uygulamak sürücüyü seçin.
+**[Sürücüleri paylaşılan](https://docs.docker.com/docker-for-windows/#shared-drives)**  Windows için Docker birimi eşlemenin ve hata ayıklama desteklemek için yapılandırılması gerekir. Sistem tepsisi'nın Docker simgesine sağ tıklayın, **ayarları...** seçip **paylaşılan sürücüleri**. Docker dosyalarınızı depoladığı sürücüyü seçin ve'ı tıklatın **Uygula**.
 
 ![Paylaşılan sürücüler](./visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
-## <a name="create-an-aspnet-web-application-and-add-docker-support"></a>ASP.NET Web uygulaması oluşturma ve Docker desteği ekleme
+> [!TIP]
+> Visual Studio 2017 15.6 ve sonraki sürümleri isteminde zaman **paylaşılan sürücüleri** yapılandırılmamışlardır.
 
-Visual Studio kullanarak, yeni bir ASP.NET çekirdek Web uygulaması oluşturun. Uygulama yüklendiğinde ya da seçin **Docker destek eklemek** gelen **proje menüsü** ya da Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Ekle**  >  **Docker Destek**.
+## <a name="add-docker-support-to-an-app"></a>Docker desteği için bir uygulama ekleyin
 
-*Proje menüsü*
+ASP.NET Core projenin hedef çerçevesi desteklenen kapsayıcı türleri belirler. Proje .NET Core hedefleme hem Linux hem de Windows kapsayıcıları destekler. Proje yalnızca .NET Framework hedefleme Windows kapsayıcıları destekler.
 
-![Proje Docker desteği ekleme](./visual-studio-tools-for-docker/_static/project-add-docker-support.png)
+Docker destek projenize eklerken, bir Windows ya da Linux kapsayıcısı seçin. Docker ana bilgisayar aynı kapsayıcı türü çalıştırması gerekir. Kapsayıcı türü çalışan Docker örneğinde değiştirmek için sistem tepsisi'nın Docker simgesini sağ tıklatın ve seçin **geçiş Windows kapsayıcılara...**  veya **geçiş Linux kapsayıcılara...** .
 
-*Proje bağlam menüsü*
+### <a name="new-app"></a>Yeni uygulama
 
-![Sağ tıklatın, Docker desteği ekleme](./visual-studio-tools-for-docker/_static/right-click-add-docker-support.png)
+Yeni bir uygulamayla oluştururken **ASP.NET çekirdek Web uygulaması** proje şablonları, select **Docker desteğini etkinleştir** onay kutusu:
 
-Projeniz için Docker desteği eklediğinizde, Windows veya Linux kapsayıcıları seçebilirsiniz. (Docker ana bilgisayar aynı kapsayıcı türü çalıştırması gerekir. Kapsayıcı türü çalışan Docker örneğinde değiştirirseniz sağ **Docker** sistem tepsisi simgesi ve seçin **geçiş Windows kapsayıcılara** veya **geçiş için Linux kapsayıcıları**.) 
+![Docker destek onay kutusunu etkinleştir](./visual-studio-tools-for-docker/_static/enable-docker-support-checkbox.png)
 
-Aşağıdaki dosyaları projeye eklendi:
+Hedef çerçevesini .NET Core ise **OS** açılan için bir kapsayıcı türü seçimi sağlar.
 
-- **Dockerfile**: ASP.NET Core uygulamaları için Docker dosyasını dayanır [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) görüntü. Bu görüntü öncesi jitted iyileştirme başlangıç performans silinmiş ASP.NET Core NuGet paketlerini içerir. .NET Core konsol uygulamaları oluştururken, Dockerfile gelen en son başvurur [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet) görüntü.   
-- **docker-compose.yml**: yerleşik ve birlikte çalışma docker görüntülerin koleksiyonunu tanımlamak için kullanılan temel Docker Compose dosya-yapı/Çalıştır oluşturun.   
-- **docker compose.dev.debug.yml**: ek yapılandırmanızı hata ayıklamak için ayarlandığında dosyasıyla yinelemeli değişiklikler için docker-oluşturun. Visual Studio -f docker-compose.yml - f docker-bu arada birleştirmek için compose.dev.debug.yml çağırır. Bu oluşturma dosya Visual Studio geliştirme araçları tarafından kullanılır.   
-- **docker compose.dev.release.yml**: sürüm tanımınızı hata ayıklamak için ek Docker Compose dosya. İçinde birim bağlama hata ayıklayıcı üretim görüntü içeriğini değiştirmez şekilde.  
+### <a name="existing-app"></a>Mevcut uygulama
 
-*Docker-compose.yml* dosya Projeyi çalıştırdığınızda oluşturduğunuz görüntünün adını içerir. 
+Docker için Visual Studio Araçları, .NET Framework'ü hedefleme mevcut bir ASP.NET Core projesine Docker ekleme desteklemez. .NET Core hedefleme ASP.NET Core projeleri için araç üzerinden Docker desteği eklemek için iki seçenek vardır. Visual Studio'da projeyi açın ve aşağıdaki seçeneklerden birini seçin:
 
-```
-version '2'
+- Seçin **Docker Destek** gelen **proje** menüsü.
+- Çözüm Gezgini'nde projeye sağ tıklayıp **Ekle** > **Docker Destek**.
 
-services:
-  hellodockertools:
-    image:  user/hellodockertools${TAG}
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "80"
-``` 
+## <a name="docker-assets-overview"></a>Docker varlıklar genel bakış
 
-Bu örnekte, `image: user/hellodockertools${TAG}` görüntü oluşturur `user/hellodockertools:dev` uygulama çalıştırıldığında **hata ayıklama** modu ve `user/hellodockertools:latest` içinde **sürüm** modu sırasıyla. 
+Docker için Visual Studio Araçları Ekle bir *docker-oluşturan* proje çözüme aşağıdakileri içeren:
+- *.dockerignore*: bir yapı bağlamı oluşturulurken dışlanacak dosya ve dizin desenlerinin bir listesi içerir.
+- *docker-compose.yml*: temel [Docker Compose](https://docs.docker.com/compose/overview/) oluşturulur ve çalıştırmak için resimler koleksiyonunu tanımlamak için kullanılan dosya `docker-compose build` ve `docker-compose run`sırasıyla.
+- *docker compose.override.yml*: isteğe bağlı bir dosya okuma Docker Compose tarafından yapılandırmasını içeren hizmetler için geçersiz kılar. Visual Studio yürütür `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` bu dosyaları birleştirmek için.
 
-Değiştirmek istediğiniz `user` için [Docker hub'a](https://hub.docker.com/) kayıt defterine Görüntü göndermeyi planlıyorsanız, kullanıcı adı. Örneğin, `spboyer/hellodockertools`, veya özel kayıt defteri URL'nizi değiştirme `privateregistry.domain.com/` yapılandırmanıza bağlı olarak.
+A *Dockerfile*, son Docker görüntü oluşturmak için tarif proje köküne eklenir. Başvurmak [Dockerfile başvuru](https://docs.docker.com/engine/reference/builder/) içindeki komutları anlaşılması için. Bu belirli *Dockerfile* kullanan bir [çok aşama yapı](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) adlı derleme aşamaları dört farklı içeren:
 
-### <a name="debugging"></a>Hata Ayıklama
+[!code-text[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
 
-Seçin **Docker** hata ayıklama açılır araç çubuğu ve kullanım uygulama hata ayıklamayı başlatmak için F5'ndan. 
+*Dockerfile* dayanır [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) görüntü. Bu temel görüntü başlangıç performansını artırmak için pre-jitted silinmiş ASP.NET Core NuGet paketlerini içerir.
 
-- *Microsoft/aspnetcore* görüntü edinilen (henüz önbelleğindeki, varsa)
-- *ASPNETCORE_ENVIRONMENT* geliştirme kapsayıcı içinde ayarlama
-- Bağlantı noktası 80 GÖSTERİLİR ve localhost için dinamik olarak atanmış bir bağlantı noktası eşlenir. Bağlantı noktası docker ana bilgisayarı tarafından belirlenir ve docker ps ile sorgulanabilir. 
+*Docker-compose.yml* dosyası projeye çalıştığında oluşturduğunuz görüntü adı içerir:
+
+[!code-yaml[](visual-studio-tools-for-docker/samples/HelloDockerTools/docker-compose.yml?highlight=5)]
+
+Önceki örnekte `image: hellodockertools` görüntü oluşturur `hellodockertools:dev` uygulama çalıştırıldığında **hata ayıklama** modu. `hellodockertools:latest` Görüntü uygulama çalıştırıldığında oluşturulan **sürüm** modu.
+
+Görüntü adı ile önek, [Docker hub'a](https://hub.docker.com/) kullanıcı adı (örneğin, `dockerhubusername/hellodockertools`) kayıt defterine Görüntü göndermeyi planlıyorsanız. Alternatif olarak, özel kayıt defteri URL'nizi içerecek şekilde görüntü adı değiştirin (örneğin, `privateregistry.domain.com/hellodockertools`) yapılandırmanıza bağlı olarak.
+
+## <a name="debug"></a>Hata ayıklama
+
+Seçin **Docker** gelen hata ayıklama açılır araç ve uygulama hata ayıklamayı Başlat. **Docker** görünümünü **çıkış** penceresi, aşağıdaki eylemler alma yeri gösterir:
+
+- *Microsoft/aspnetcore* çalışma zamanı görüntü edinilen (henüz önbelleğindeki, varsa).
+- *Aspnetcore/microsoft-yapı* derleme ve yayımlama görüntü edinilen (henüz önbelleğindeki, varsa).
+- *ASPNETCORE_ENVIRONMENT* ortam değişkeni ayarlanır `Development` kapsayıcı içinde.
+- Bağlantı noktası 80 kullanıma sunulan ve localhost için dinamik olarak atanan bir bağlantı noktası eşlenir. Bağlantı noktası Docker ana bilgisayarı tarafından belirlenir ve ile sorgulanabilir `docker ps` komutu.
 - Uygulamanız için kapsayıcı kopyalanır.
 - Varsayılan tarayıcı dinamik olarak atanan bağlantı noktasını kullanan kapsayıcıya hata ayıklayıcısı ekli başlatılır. 
 
-Yerleşik elde edilen Docker görüntü *geliştirme* uygulamanızla görüntüsü *microsoft/aspnetcore* temel görüntü olarak görüntüler.
-
-**Not:** hata ayıklama yapılandırmaları yinelemeli deneyimi sağlamak için birim bağlama kullandıkça geliştirme görüntü, uygulama içeriğini boştur. Bir görüntü göndermek için yayın yapılandırmasını kullanın.
+Sonuçta elde edilen Docker görüntü *geliştirme* , uygulamanızın görüntüsü ile *microsoft/aspnetcore* temel görüntü olarak görüntüler. Çalıştırma `docker images` komutunu **Paket Yöneticisi Konsolu** (PMC) penceresi. Makinenizde görüntüleri görüntülenir:
 
 ```console
-REPOSITORY                  TAG         IMAGE ID            CREATED         SIZE
-spboyer/hellodockertools    dev         0b6e2e44b3df        4 minutes ago   268.9 MB
-microsoft/aspnetcore        1.0.1       189ad4312ce7        5 days ago      268.9 MB
+REPOSITORY                   TAG                   IMAGE ID            CREATED             SIZE
+hellodockertools             latest                f8f9d6c923e2        About an hour ago   391MB
+hellodockertools             dev                   85c5ffee5258        About an hour ago   389MB
+microsoft/aspnetcore-build   2.0-nanoserver-1709   d7cce94e3eb0        15 hours ago        1.86GB
+microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours ago        389MB
 ```
 
-Uygulamayı çalıştırarak görebilirsiniz kapsayıcısı kullanarak çalıştıran `docker ps` komutu.
+> [!NOTE]
+> Geliştirme görüntü olarak, uygulama içeriği eksik **hata ayıklama** yapılandırmaları yinelemeli deneyimi sağlamak için birim bağlama kullanın. Bir görüntü göndermek için kullanmanız **sürüm** yapılandırma.
+
+Çalıştırma `docker ps` PMC komutu. Bir kapsayıcı kullanılarak uygulama çalışırken dikkat edin:
 
 ```console
-CONTAINER ID        IMAGE                          COMMAND               CREATED             STATUS              PORTS                   NAMES
-3f240cf686c9        spboyer/hellodockertools:dev   "tail -f /dev/null"   4 minutes ago       Up 4 minutes        0.0.0.0:32769->80/tcp   hellodockertools_hellodockertools_1
+CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
+baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   21 seconds ago      Up 19 seconds       0.0.0.0:37630->80/tcp   dockercompose4642749010770307127_hellodockertools_1
 ```
 
-### <a name="edit-and-continue"></a>Düzenle ve Devam Et
+## <a name="edit-and-continue"></a>Düzenle ve devam et
 
-Statik dosyaları ve/veya bir razor şablon dosyalarını değiştirir (*.cshtml*) bir derleme adımı gerek olmadan otomatik olarak güncelleştirilir. Kaydet ve güncelleştirme görüntülemek için tarayıcıda yenileme dokunun değişikliği yapın.  
+Statik dosyalar ve Razor görünümleri yapılan değişiklikler, bir derleme adımı gerek kalmadan otomatik olarak güncelleştirilir. Kaydet ve güncelleştirme görüntülemek için tarayıcıyı yenilemeniz değişikliği yapın.  
 
-Kod dosyaları yapılan değişiklikler, derleme ve Kestrel kapsayıcı içinde bir yeniden başlatma gerektirir. Değişikliği yaptıktan sonra işlemi gerçekleştirmek ve kapsayıcı içinde uygulamayı başlatmak için CTRL + F5 kullanın. Docker kapsayıcısı yeniden oluşturulduğunda veya durdurulmuş değil; kullanarak `docker ps` komut satırında, özgün kapsayıcı itibariyle 10 dakika önce hala çalıştığını görebilirsiniz. 
+Kod dosyaları yapılan değişiklikler, derleme ve Kestrel kapsayıcı içinde bir yeniden başlatma gerektirir. Değişikliği yaptıktan sonra kapsayıcı içinde uygulamayı başlatın ve işlemi gerçekleştirmek için CTRL + F5 kullanın. Docker kapsayıcısı yeniden oluşturulduğunda veya durdurulmuş değil. Çalıştırma `docker ps` PMC komutu. Özgün kapsayıcı itibariyle 10 dakika önce hala çalışıyor dikkat edin:
 
 ```console
-CONTAINER ID        IMAGE                          COMMAND               CREATED             STATUS              PORTS                   NAMES
-3f240cf686c9        spboyer/hellodockertools:dev   "tail -f /dev/null"   10 minutes ago      Up 10 minutes       0.0.0.0:32769->80/tcp   hellodockertools_hellodockertools_1
+CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
+baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes ago      Up 10 minutes       0.0.0.0:37630->80/tcp   dockercompose4642749010770307127_hellodockertools_1
 ```
 
-### <a name="publishing-docker-images"></a>Yayımlama Docker görüntüleri
+## <a name="publish-docker-images"></a>Docker görüntüleri yayımlama
 
-Uygulamanızı geliştirme ve hata ayıklama döngüsünü tamamladıktan sonra Docker için Visual Studio Araçları uygulamanızı üretim görüntüsünü oluşturmak yardımcı olur. Hata ayıklama açılır değiştirme **sürüm** ve uygulamayı yapılandırın. Araç görüntüyle üretecektir `:latest` özel kayıt defteri ya da Docker hub'a anında etiketi. 
+Uygulamanızı geliştirme ve hata ayıklama döngüsünü tamamladıktan sonra Docker için Visual Studio Araçları uygulamanızı üretim görüntüsü oluşturmanıza yardımcı olması. Aşağı açılan yapılandırmasını değiştirme **sürüm** ve uygulama oluşturun. Araç ile görüntü üretiyor *son* özel kayıt defteri ya da Docker hub'a anında etiketi. 
 
-Kullanarak `docker images` komutu, görüntüleri listesini görebilirsiniz.
+Çalıştırma `docker images` görüntüleri listesini görmek için PMC komutunu:
 
 ```console
-REPOSITORY                 TAG                 IMAGE ID            CREATED             SIZE
-spboyer/hellodockertools   latest              8184ae38ba91        5 seconds ago       278.4 MB
-spboyer/hellodockertools   dev                 0b6e2e44b3df        About an hour ago   268.9 MB
-microsoft/aspnetcore       1.0.1               189ad4312ce7        5 days ago          268.9 MB
+REPOSITORY                   TAG                   IMAGE ID            CREATED             SIZE
+hellodockertools             latest                4cb1fca533f0        19 seconds ago      391MB
+hellodockertools             dev                   85c5ffee5258        About an hour ago   389MB
+microsoft/aspnetcore-build   2.0-nanoserver-1709   d7cce94e3eb0        16 hours ago        1.86GB
+microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours ago        389MB
 ```
 
-Karşılaştırma için boyutu daha küçük olacak şekilde üretim veya yayın görüntüsü için bir Beklenti olabilir **geliştirme** ; ancak, birimi eşlemenin kullanımı ile uygulama ve hata ayıklayıcı gerçekte yerel bilgisayardan çalıştırılmakta görüntüsü Makine kapsayıcısı içinde değil ve. **Son** görüntü bir konak makinesi üzerinde uygulamayı çalıştırmak için gerekli tüm uygulama kodu paketlenmiş, bu nedenle, delta uygulama kodunuz boyutudur.
+> [!NOTE]
+> `docker images` Komut deposu adları ara görüntülerle döndürür ve etiketleri tanımlanan olarak  *\<Hiçbiri >* (Yukarıda listelenmeyen). Bu görüntüleri adlandırılmamış tarafından üretilen [çok aşama yapı](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile*. Son görüntü oluşturmanın verimliliğini artırmak&mdash;değişiklik olduğunda yalnızca gerekli Katmanlar yeniden oluşturulur. Aracı görüntüleri artık gerektiğinde, bunları silin kullanarak [docker RMI](https://docs.docker.com/engine/reference/commandline/rmi/) komutu.
+
+Karşılaştırma için boyutu daha küçük olacak şekilde üretim veya yayın görüntüsü için bir Beklenti olabilir *geliştirme* görüntü. Hata ayıklayıcı ve uygulama birimi eşlemenin nedeniyle yerel makinenize ve kapsayıcıdaki çalışıyordu. *Son* görüntü bir konak makinesi üzerinde uygulamayı çalıştırmak için gerekli uygulama kodu paketlenmiş. Bu nedenle, delta uygulama kodunuzun boyutudur.

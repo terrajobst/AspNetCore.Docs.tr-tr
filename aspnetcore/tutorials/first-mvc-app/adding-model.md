@@ -5,25 +5,22 @@ description: "Bir model için basit bir ASP.NET Core uygulama ekleyin."
 keywords: "ASP.NET Çekirdeği"
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.date: 12/8/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 03c16e523fe2f91cae5c71357835684d813e3a1f
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Not: ASP.NET Core 2.0 şablonlarını içeren *modelleri* klasör.
 
-Çözüm Gezgini'nde sağ tıklayın **MvcMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
-
-Sağ tıklayın *modelleri* klasörü > **Ekle** > **sınıfı**. Sınıf adını **film** ve aşağıdaki özellikleri ekleyin:
+Sağ *modelleri* klasörü > **Ekle** > **sınıfı**. Sınıf adını **film** ve aşağıdaki özellikleri ekleyin:
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
@@ -37,15 +34,10 @@ Herhangi bir hata yoksa doğrulamak için projeyi oluşturun. Artık elinizde bi
 
 ![Yukarıdaki adımı görünümü](adding-model/_static/add_controller.png)
 
-İçinde **MVC bağımlılıkları ekleyin** iletişim kutusunda **en az bağımlılıkları**seçip **Ekle**.
+Varsa **MVC bağımlılıkları ekleyin** iletişim kutusu görüntülenir:
 
-![Yukarıdaki adımı görünümü](adding-model/_static/add_depend.png)
-
-Visual Studio bir denetleyici iskele için gerekli bağımlılıkların ekler, ancak denetleyicisi oluşturulmadı. Sonraki Invoke **> Ekle > denetleyicisi** denetleyiciyi oluşturur. 
-
-İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasörü **> Ekle > denetleyicisi**.
-
-![Yukarıdaki adımı görünümü](adding-model/_static/add_controller.png)
+* [Visual Studio en son sürüme güncelleştirin](https://www.visualstudio.com/downloads/). Visual Studio sürümleri 15,5 önce bu iletişim kutusunu göster.
+* Update yapılamıyor, seçin **Ekle**ve ardından Ekle denetleyicisi adımları yeniden uygulayın.
 
 İçinde **İskele Ekle** iletişim, dokunun **görünümleri ile MVC Entity Framework kullanarak denetleyicisi > Ekle**.
 
@@ -72,7 +64,7 @@ Visual Studio oluşturur:
 
 Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemleri ve görünümler olarak bilinir *iskele*. En kısa sürede bir filmi veritabanı yönetmenizi sağlayan bir tam olarak işlevsel bir web uygulaması gerekir.
 
-Uygulamayı çalıştırın ve tıklayın, **Mvc film** bağlantı, alacaksınız hata aşağıdakine benzer:
+Uygulamayı çalıştırın ve tıklayın, **Mvc film** bağlantı, aldığınız hata aşağıdakine benzer:
 
 ```
 An unhandled exception occurred while processing the request.
