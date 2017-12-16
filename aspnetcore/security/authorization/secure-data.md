@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 8eeb5d71575fd819239da6dd63dd31e323fb0556
-ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
+ms.openlocfilehash: db95d46dafdd300d4ec13e8cc31a3d995016ab92
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -58,7 +58,7 @@ A `ContactIsOwnerAuthorizationHandler` yetkilendirme işleyicisi sağlar kullan�
 Bu bir başlangıç Öğreticisi değildir. Hakkında bilginiz olması gerekir:
 
 * [ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc)
-* [Entity Framework Çekirdek](xref:data/ef-mvc/intro)
+* [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ## <a name="the-starter-and-completed-app"></a>Tamamlanan uygulama ve başlangıç
 

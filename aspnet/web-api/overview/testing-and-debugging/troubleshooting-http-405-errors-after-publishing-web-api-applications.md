@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 2455bbed891179466de8fb6ade3b0a8e66eadee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b87ae7420e1295030e90c30e97b1e331413ce263
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/15/2017
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>HTTP sorun giderme 405 hataları yayımlama sonra Web API 2 uygulamaları
 ====================
@@ -44,7 +44,7 @@ Kısa bir gözden geçirme İşte birkaç en sık kullanılan HTTP yöntemleri R
 | **AL** | Bu yöntem, verileri bir URI ve bunu büyük olasılıkla en sık kullanılan HTTP yöntemini almak için kullanılır. |
 | **HEAD** | Bu yöntem GET yöntemi benzer olduğunu gerçekte istek URI'si veri almıyorsa - yalnızca HTTP durum alır dışında. |
 | **YAYINLA** | Bu yöntem, genellikle URI'si yeni veri göndermek için kullanılır; POST genellikle form verileri göndermek için kullanılır. |
-| **PUT** | Bu yöntem, genellikle ham verileri URI için kullanılır; PUT genellikle Web API uygulamaları JSON veya XML veri göndermek için kullanılır. |
+| **PUT** | Bu yöntem, genellikle URI ham verileri göndermek için kullanılır; PUT genellikle Web API uygulamaları JSON veya XML veri göndermek için kullanılır. |
 | **SİL** | Bu yöntem, verileri bir URİ'den kaldırmak için kullanılır. |
 | **SEÇENEKLER** | Bu yöntem, genellikle bir URI için desteklenen HTTP yöntemleri listesini almak için kullanılır. |
 | **KOPYALAMA TAŞIMA** | Bu iki yöntem WebDAV ile kullanılır ve bunların amaçla kendinden açıklamalıdır. |
