@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 24c6a35a6b663ebb0f8d0e3e7988322fa5d9018c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
+ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/27/2017
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET yapmanız gerekenler ve bunun yerine yapmanız gerekenler
 ====================
@@ -49,7 +49,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
     - [UrlPathEncode](#urlpathencode)
 - [Güvenilirlik ve performans](#performance)
 
-    - [PreSendRequestHeaders ve PreSendRequestContext](#presend)
+    - [PreSendRequestHeaders ve PreSendRequestContent](#presend)
     - [Web Forms ile zaman uyumsuz sayfası olayları](#asyncevents)
     - [Yangın ve unut çalışma](#fire)
     - [İstek Varlık gövdesi](#requestentity)
@@ -200,11 +200,13 @@ Aşağıdaki örnek, bir köprü denetim için bir sorgu dizesi parametresi olar
 
 <a id="presend"></a>
 
-### <a name="presendrequestheaders-and-presendrequestcontext"></a>PreSendRequestHeaders ve PreSendRequestContext
+### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders ve PreSendRequestContent
 
 Öneri: Bu olayları ile yönetilen modüller kullanmayın. Bunun yerine, gerekli görev gerçekleştirmek için yerel bir IIS modül yazma. Bkz: [yerel kodlu HTTP modülleri oluşturma](https://msdn.microsoft.com/en-us/library/ms693629.aspx).
 
-Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContext](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri olaylarla ancak bunları IHttpModule uygulayan yönetilen modülleri kullanmayın. Bu özellikleri ayarlama ile zaman uyumsuz istekleri sorunlara neden olabilir.
+Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri olan olaylar.
+> [!WARNING]
+> Kullanmayın `PreSendRequestHeaders` ve `PreSendRequestContent` uygulamak yönetilen modüller ile `IHttpModule`. Bu özellikleri ayarlama ile zaman uyumsuz istekleri sorunlara neden olabilir. Uygulama istenen yönlendirme (ARR) ve websockets birleşimi w3wp çökmesine neden olabilir erişim ihlali özel durumlara neden olabilir. Örneğin, iiscore! W3_CONTEXT_BASE::GetIsLastNotification + iiscore.dll 68 bir erişim ihlali özel durumu (0xC0000005) neden.
 
 <a id="asyncevents"></a>
 

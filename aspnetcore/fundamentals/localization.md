@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
+ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -124,7 +124,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ASP.NET Core iki kültür değerleri belirtmenize olanak verir `SupportedCultures` ve `SupportedUICultures`. [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) için nesne `SupportedCultures` tarih, saat, sayı ve para birimi biçimlendirme gibi kültüre bağlı işlevleri sonuçlarını belirler. `SupportedCultures`Ayrıca, metin, büyük/küçük harf kuralları ve dize karşılaştırmaları sıralama düzenini belirler. Bkz: [CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) nasıl sunucu kültürü alır hakkında daha fazla bilgi için. `SupportedUICultures` Hangi dizeleri çevirir belirler (gelen *.resx* dosyaları) tarafından aranır [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). `ResourceManager` Yalnızca tarafından belirlenen kültüre özgü dizeleri arar `CurrentUICulture`. Her iş parçacığı .NET içinde `CurrentCulture` ve `CurrentUICulture` nesneleri. ASP.NET Core kültüre bağlı işlevleri oluşturulurken bu değerleri inceler. Örneğin, "en-US" (İngilizce, Amerika Birleşik Devletleri), geçerli iş parçacığının kültür ayarlanırsa `DateTime.Now.ToLongDateString()` , ancak "Perşembe 18 Şubat 2016,", görüntüler `CurrentCulture` ayarlanır "es-ES için" (İspanyolca, İspanya) çıktı olur "jueves, 18 de febrero de 2016".
 
-## <a name="working-with-resource-files"></a>Kaynak dosyaları ile çalışma
+## <a name="resource-files"></a>Kaynak dosyaları
 
 Kaynak dosyası kodunuzdan yerelleştirilebilir dizeler ayırmak için kullanışlı bir mekanizmadır. Varsayılan olmayan dil çevrilen dizeleri yalıtılmış *.resx* kaynak dosyaları. Örneğin, İspanyolca kaynak dosyası adlı oluşturmak isteyebilirsiniz *Welcome.es.resx* içeren çevrilen dizeleri. "es" İspanyolca dil kodudur. Visual Studio'da bu kaynak dosyası oluşturmak için:
 
@@ -172,19 +172,21 @@ Kaynak dosyaları kullanarak `@inject IViewLocalizer` Razor görünümleri benze
 
 Kullanmazsanız `ResourcesPath` seçeneği *.resx* bir görünümü Görünüm olarak aynı klasörde bulunması için dosya.
 
-".Fr" kültür Belirleyicisi kaldırın ve Fransızca (tanımlama bilgisi veya başka bir mekanizma) ayarlamak kültür varsa, varsayılan kaynak dosyasını okumak ve dizeleri yerelleştirilmiş. Hiçbir şey *.resx dosyayı bir kültür Belirleyicisi olmadan sunulan, istenen kültürü karşıladığında Kaynak Yöneticisi'ni bir varsayılan veya geri dönüş kaynağı belirtir. İstenen kültür için bir kaynak eksik varsayılan kaynak dosyası olmamalıdır yalnızca anahtar döndürülecek istiyorsanız.
+## <a name="culture-fallback-behavior"></a>Kültüre geri dönüş davranışı
 
-### <a name="generating-resource-files-with-visual-studio"></a>Visual Studio ile kaynak dosyalar oluşturma
+Örneğin, ".fr" kültür Belirleyicisi kaldırın ve Fransızca kültür varsa, varsayılan kaynak dosyasını okuma ve dizeleri yerelleştirilmiş. Hiçbir şey istenen kültürü karşıladığında varsayılan veya geri dönüş kaynağı için Kaynak Yöneticisi'ni belirler. İstenen kültür için bir kaynak eksik varsayılan kaynak dosyası olmamalıdır yalnızca anahtar döndürülecek istiyorsanız.
+
+### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio ile kaynak dosyaları üretilemedi
 
 Dosya adında bir kültür olmadan Visual Studio'da bir kaynak dosyası oluşturmak istiyorsanız (örneğin, *Welcome.resx*), Visual Studio, her bir dize için bir özellik ile bir C# sınıfı oluşturur. Genellikle, ASP.NET Core ile istediğinizi değil olan; Tipik bir varsayılan yok *.resx* kaynak dosyası (A *.resx* dosyayı kültür adı olmadan). Oluşturduğunuz önerdiğimiz *.resx* bir kültür adı dosyasıyla (örneğin *Welcome.fr.resx*). Oluştururken bir *.resx* bir kültür adı, Visual Studio dosyası değil sınıf dosyası oluşturun. Çoğu geliştiricinin olacağı düşündüğünüz **değil** bir varsayılan dil kaynak dosyası oluşturun.
 
-### <a name="adding-other-cultures"></a>Diğer kültürler ekleme
+### <a name="add-other-cultures"></a>Diğer kültürler ekleme
 
 Her dil ve kültür birleşimi (dışında varsayılan dil) bir benzersiz kaynak dosyası gerektirir. ISO dil kodlarını dosya adının bir parçası olan yeni kaynak dosyaları oluşturarak farklı kültürler ve yerel ayarlar için kaynak dosyaları oluşturun (örneğin, **en-us**, **fr-ca**, ve  **tr gb**). Bu ISO kodları arasında dosya adı yerleştirilir ve *.resx* dosya adı uzantısı olarak *Welcome.es MX.resx* (İspanyolca/Meksika). Bir culturally dilden belirtmek için ülke kodunu Kaldır (`MX` önceki örnekte). İspanyolca culturally dilden bağımsız kaynak dosya adı *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Her istek için dil/kültür seçmek için bir strateji uygulama  
 
-### <a name="configuring-localization"></a>Yerelleştirme yapılandırma
+### <a name="configure-localization"></a>Yerelleştirme yapılandırın
 
 Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
 
@@ -236,7 +238,7 @@ Yalnızca bir kültür bilgisi ve UI kültürü belirtirseniz, belirtilen kült�
 
 [Accept-Language üstbilgi](https://www.w3.org/International/questions/qa-accept-lang-locales) çoğu tarayıcıda ayarlanabilir ve kullanıcının dil belirtmek için tasarlanmıştır. Bu ayar ne tarayıcı göndermesi için ayarlanmasının veya temel işletim sisteminden devralınan izinlere sahip gösterir. Bir tarayıcı isteğini Accept-Language HTTP başlığından kullanıcının tercih edilen dili algılamak için infallible bir yol değil (bkz [bir tarayıcıda dil tercihlerini ayarlama](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Bir üretim uygulaması kültür kendi seçtikleri özelleştirmek bir kullanıcı için bir yol içermelidir.
 
-### <a name="setting-the-accept-language-http-header-in-ie"></a>Accept-Language HTTP üstbilgisi IE ayarlama
+### <a name="set-the-accept-language-http-header-in-ie"></a>IE Accept-Language HTTP üstbilgisi kümesi
 
 1. Dişli simgesinden dokunun **Internet Seçenekleri**.
 
@@ -252,7 +254,7 @@ Yalnızca bir kültür bilgisi ve UI kültürü belirtirseniz, belirtilen kült�
 
 6. Dile dokunun, ardından dokunun **Yukarı Taşı**.
 
-### <a name="using-a-custom-provider"></a>Özel bir sağlayıcı kullanarak
+### <a name="use-a-custom-provider"></a>Özel bir sağlayıcı kullanacak
 
 Kullanıcıların dil ve kültür veritabanınızda depolamak, müşterilerin istediğinizi varsayalım. Kullanıcı için bu değerleri aramak için bir sağlayıcı yazabilirsiniz. Aşağıdaki kod, özel bir sağlayıcı eklemek gösterilmektedir:
 
@@ -281,7 +283,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 Kullanım `RequestLocalizationOptions` yerelleştirme sağlayıcıları eklemek veya kaldırmak için.
 
-### <a name="setting-the-culture-programmatically"></a>Kültürü programlı olarak ayarlama
+### <a name="set-the-culture-programmatically"></a>Kültür programlı olarak ayarlama
 
 Bu örnek **Localization.StarterWeb** üzerinde proje [GitHub](https://github.com/aspnet/entropy) ayarlamak için kullanıcı Arabirimi içeren `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* dosya kültürü desteklenen kültürler listesinden olanak tanır:
 

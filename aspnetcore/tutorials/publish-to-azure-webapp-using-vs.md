@@ -2,21 +2,22 @@
 title: "Visual Studio kullanarak Azure ASP.NET Core uygulama yayımlama"
 author: rick-anderson
 description: 
-keywords: "ASP.NET Çekirdeği"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 10/05/2017
+ms.date: 12/16/2017
 ms.topic: get-started-article
-ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 6f697ed4d8876a19cd058533e4f6a5d4f7cdc2fb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fdd439a5e4fd41e72fd7a3c602183d4a4e9e0aa5
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/19/2017
 ---
+/en-ABD
+
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama yayımlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs), ve [Rachel Appel](https://twitter.com/rachelappel)
@@ -36,9 +37,7 @@ Visual Studio Başlangıç sayfasında, seçin **Dosya > Yeni > Proje...**
 Tamamlamak **yeni proje** iletişim:
 
 * Sol bölmede seçin **.NET Core**.
-
 * Orta bölmede seçin **ASP.NET çekirdek Web uygulaması**.
-
 * Seçin **Tamam**.
 
 ![Yeni Proje iletişim kutusu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
@@ -46,7 +45,6 @@ Tamamlamak **yeni proje** iletişim:
 İçinde **çekirdek yeni bir ASP.NET Web uygulaması** iletişim:
 
 * Seçin **Web uygulaması**.
-
 * Seçin **değiştirmek kimlik doğrulama**.
 
 ![Yeni Proje iletişim kutusu](publish-to-azure-webapp-using-vs/_static/new_prj_2.png)
@@ -54,25 +52,24 @@ Tamamlamak **yeni proje** iletişim:
 **Kimlik doğrulamayı Değiştir** iletişim kutusu görüntülenir. 
 
 * Seçin **bireysel kullanıcı hesapları**.
-
 * Seçin **Tamam** geri dönmek için **çekirdek yeni bir ASP.NET Web uygulaması**seçeneğini belirleyip **Tamam** yeniden.
 
 ![Yeni ASP.NET çekirdek Web kimlik doğrulaması iletişim kutusu](publish-to-azure-webapp-using-vs/_static/new_prj_auth.png) 
 
 Visual Studio çözümü oluşturur.
 
-## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
+## <a name="run-the-app"></a>Uygulama Çalıştırma
 
-* Seçin **hata ayıklama** sonra **hata ayıklama olmadan Başlat** uygulamayı yerel olarak çalıştırmak için.
-
-* Tıklatın **hakkında** ve **kişi** web uygulama çalıştığını doğrulamak için bağlantılar.
+* Projeyi çalıştırmak için CTRL + F5 tuşuna basın.
+* Test **hakkında** ve **kişi** bağlantılar.
 
 ![Web uygulamasını localhost üzerinde Microsoft Edge'de açın](publish-to-azure-webapp-using-vs/_static/show.png)
+
+### <a name="register-a-user"></a>Bir kullanıcı kaydı
 
 * Seçin **kaydetmek** ve yeni bir kullanıcı kaydedin. Kurgusal bir e-posta adresini kullanabilirsiniz. Gönderdiğinizde, aşağıdaki hata sayfasını görüntüler:
 
     *"Dahili Sunucu hatası: veritabanı işlemi başarısız oldu istek işlenirken. SQL özel durumu: veritabanı açılamıyor. Uygulama DB bağlamı için varolan geçişler uygulama bu sorun çözülebilir."*
-
 * Seçin **uygulamak geçişler** ve Sayfa güncelleştirmelerini Yenile sonra sayfa.
 
 ![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: veritabanı açılamıyor. Uygulama DB bağlamı için varolan geçişler uygulama bu sorun çözülebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
@@ -83,23 +80,24 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 
 ## <a name="deploy-the-app-to-azure"></a>Uygulamayı Azure'a dağıtma
 
-Visual Studio için dönüş web sayfasını kapatın ve seçin **durdurma hata ayıklama** gelen **hata ayıklama** menüsü.
-
 Çözüm Gezgini'nde projeye sağ tıklayın ve **Yayımla...** .
 
 ![Bağlamsal menü vurgulanmış Yayımla bağlantısıyla Aç](publish-to-azure-webapp-using-vs/_static/pub.png)
 
-İçinde **Yayımla** iletişim kutusunda **Microsoft Azure App Service** tıklatıp **Yayımla**.
+İçinde **Yayımla** iletişim:
+
+* Seçin **Microsoft Azure uygulama hizmeti**.
+* Dişli simgesini seçin ve ardından **profili oluştur**.
+* Seçin **profili oluşturma**.
 
 ![Yayımlama iletişim kutusu](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-* Uygulamanın benzersiz bir adı. 
+### <a name="create-azure-resources"></a>Azure kaynakları oluşturun
 
-* Bir abonelik seçin.
+**App Service Oluştur** iletişim kutusu görüntülenir:
 
-* Seçin **yeni...**  kaynak grubu ve yeni kaynak grubu için bir ad girin.
-
-* Seçin **yeni...**  uygulama hizmeti planı ve yakın bir konum seçin. Varsayılan olarak oluşturulan adı kullanmaya devam edebilir.
+* Aboneliğinizi girin.
+* **App Name**, **kaynak grubu**, ve **App Service planı** giriş alanları doldurulur. Bu adları tutun veya onları değiştirebilirsiniz.
 
 ![App Service iletişim](publish-to-azure-webapp-using-vs/_static/newrg1.png)
 
@@ -115,9 +113,7 @@ Visual Studio için dönüş web sayfasını kapatın ve seçin **durdurma hata 
 
 **SQL Server'ı Yapılandır** iletişim kutusu görüntülenir.
 
-* Bir yönetici kullanıcı adı ve parola girin ve ardından **Tamam**. Kullanıcı adı ve bu adımda oluşturduğunuz parola unutmayın. Varsayılan tutabilirsiniz **sunucu adı**. 
-
-* Veritabanı ve bağlantı dizesi için adları girin.
+* Bir yönetici kullanıcı adı ve parola girin ve ardından **Tamam**. Varsayılan tutabilirsiniz **sunucu adı**. 
 
 > [!NOTE]
 > Yönetici kullanıcı adı olarak "Yönetici" izin verilmiyor.
@@ -132,21 +128,22 @@ Visual Studio döner **App Service Oluştur** iletişim.
 
 ![SQL veritabanı iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-* Tıklatın **ayarları** bağlamak **Yayımla** iletişim.
+Visual Studio, Azure üzerinde SQL Server ve Web uygulaması oluşturur. Bu adım birkaç dakika sürebilir. Oluşturulan kaynakları hakkında daha fazla bilgi için bkz: [cihazıyla kaynakları](#additonal-resources).
 
-![Yayımlama iletişim kutusu: bağlantı paneli](publish-to-azure-webapp-using-vs/_static/pubc.png)
+Dağıtım tamamlandığında seçin **ayarları**:
+
+![SQL Server iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/set.png)
 
 Üzerinde **ayarları** sayfasında **Yayımla** iletişim:
 
   * Genişletme **veritabanları** ve denetleme **çalışma zamanında Bu bağlantı dizesini kullan**.
-
   * Genişletme **Entity Framework geçişler** ve denetleme **bu geçiş yayımlama Uygula**.
 
 * Seçin **kaydetmek**. Visual Studio döner **Yayımla** iletişim. 
 
 ![Yayımlama iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Tıklatın **yayımlama**. Visual Studio için Azure uygulamanızı yayımlama ve tarayıcınızda bulut uygulamasını başlatın.
+Tıklatın **yayımlama**. Visual Studio publishs uygulamanızı azure'a. Depoyment tamamlandığında uygulamayı tarayıcıda açılır.
 
 ### <a name="test-your-app-in-azure"></a>Azure'da uygulamanızı test etme
 
@@ -158,9 +155,7 @@ Tıklatın **yayımlama**. Visual Studio için Azure uygulamanızı yayımlama v
 
 ### <a name="update-the-app"></a>Uygulamayı güncelleştirme
 
-* Düzen *Pages/About.cshtml* Razor sayfasında ve içeriğini değiştirin. Örneğin, "Merhaba ASP.NET Core!" söylemek için paragraf değiştirebilirsiniz:
-
-    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Düzen *Pages/About.cshtml* Razor sayfasında ve içeriğini değiştirin. Örneğin, "Merhaba ASP.NET Core!" söylemek için paragraf değiştirebilirsiniz:[!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Sağ tıklatın ve proje **Yayımla...**  yeniden.
 
@@ -187,3 +182,10 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portal](https:/
 ### <a name="next-steps"></a>Sonraki adımlar
 
 * [Visual Studio ve Git ile Azure için sürekli dağıtım](../publishing/azure-continuous-deployment.md)
+
+
+## <a name="additonal-resources"></a>Diğer kaynaklar
+
+* [Azure uygulama hizmeti](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview)
+* [Azure kaynak grupları](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Azure SQL veritabanı](https://docs.microsoft.com/en-us/azure/sql-database/)

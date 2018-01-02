@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0258315e0e24d662086a3171b58112e08b9a40ab
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: aa329002f78ea48755d65a662f54425013b9a30e
+ms.sourcegitcommit: f273cc3b7409cde063140aa0bd7a81aa50f00571
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
@@ -25,7 +25,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](htt
 > [!IMPORTANT]
 > Bower korunur, ancak bunlar farklı bir çözüme kullanmanızı öneririz. Yarn Webpack ile kendisi için popüler bir alternatif olan [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir.
 
-[Bower](https://bower.io/) kendisini "İçin bir paket yöneticisi web." çağırır .NET ekosistemi içinde statik içerik dosyaları NuGet verilmemesine göre sol void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıklara devralınan [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
+[Bower](https://bower.io/) kendisini "web için bir paket Yöneticisi" çağırır. .NET ekosistemi içinde statik içerik dosyaları NuGet verilmemesine göre sol void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıklara devralınan [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
 
 İstemci-tarafı ayarlamak ASP.NET Core proje şablonları ile oluşturulan yeni projeler derleme işlemi. [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/) yüklü olan ve Bower desteklenir.
 

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a66b5ea32c2090b9944cd61f90f7fe011a823e82
-ms.sourcegitcommit: 3511552becb081fb860a23d6c9b6c4efcab74577
+ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -55,7 +55,7 @@ Oluşturulan açmak *.csproj* Visual Studio dosyasından Mac için
 
 Çalıştırma `dotnet new razor` komut satırından.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[.NET core CLI](#tab/netcore-cli) 
+#   <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 Çalıştırma `dotnet new razor` komut satırından.
 
@@ -165,7 +165,7 @@ Arka plan kod *Index.cshtml.cs* dosyası:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Yer işareti etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan [asp - rota-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) düzenleme sayfasını bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantıyı içeren kimliği Örneğin, `http://localhost:5000/Edit/1`.
+[Yer işareti etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan `asp-route-{value}` düzenleme sayfasını bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantıyı içeren kimliği Örneğin, `http://localhost:5000/Edit/1`.
 
 *Pages/Edit.cshtml* dosyası:
 
@@ -415,7 +415,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
 * [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-convention-features)
 * [Razor sayfalarının birim ve tümleştirme sınaması](xref:testing/razor-pages-testing)

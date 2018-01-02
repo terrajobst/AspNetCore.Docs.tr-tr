@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 7eb1537df47fcf0b24db2a7d843b655a6f6f8f21
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 3dd2a744d2272e7ce01fbfed218d70a83cea46d1
+ms.sourcegitcommit: 019e5a0342fd49a94056d14fc7a1a1d0f81d2a39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -131,14 +131,7 @@ Yoksa bir *web.config* ile yayımladığınızda, proje dosyasında *dotnet yay�
 
 1. Hedef IIS sistem, uygulamanın yayımlanan klasörleri ve açıklanan dosyaları içermesi için bir klasör oluşturun [dizin yapısını](xref:hosting/directory-structure).
 
-2. Oluşturduğunuz klasörü içinde bir *günlükleri* (başlatma sorunlarını gidermek için günlük kaydını etkinleştirmeyi planlıyorsanız) stdout günlükleri tutmak için klasör. Uygulamanızla birlikte dağıtmayı planlıyorsanız, bir *günlükleri* klasörü yükünde, bu adımı atlayabilirsiniz. Var olan bir [açmak klasörü otomatik olarak oluşturmak için sorun](https://github.com/aspnet/AspNetCoreModule/issues/30). Oluşturmak için MSBuild isterseniz *günlük* klasör, aşağıdakileri ekleyin `Target` proje dosyanıza:
-
-   ```xml
-   <Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
-     <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
-     <MakeDir Directories="$(PublishUrl)logs" Condition="!Exists('$(PublishUrl)logs')" />
-   </Target>
-   ```
+2. Klasörü içinde bir *günlükleri* stdout günlük kaydı etkinleştirildiğinde stdout günlükleri tutmak için klasör. Uygulama ile dağıtılırsa bir *günlükleri* yükü klasöründe bu adımı atlayın. MSBuild oluşturma yapma hakkında yönergeler için *günlükleri* klasörü, bkz: [dizin yapısını](xref:hosting/directory-structure) konu.
 
 3. İçinde **IIS Yöneticisi'ni**, yeni bir Web sitesi oluşturun. Sağlayan bir **Site adı** ve ayarlayın **fiziksel yolu** , oluşturduğunuz uygulamanın dağıtım klasörü için. Sağlamak **bağlama** yapılandırma ve Web sitesi oluşturun.
 

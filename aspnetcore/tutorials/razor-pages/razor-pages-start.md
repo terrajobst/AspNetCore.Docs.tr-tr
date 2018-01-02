@@ -5,18 +5,18 @@ description: "ASP.NET Core Razor sayfalarında ile çalışmaya başlama"
 keywords: "ASP.NET Core, Razor sayfalarının Razor, MVC"
 ms.author: riande
 manager: wpickett
-ms.date: 08/27/2017
+ms.date: 12/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: d76f993a9843de6ecb6e90c411e46bf7eff0672c
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında ile çalışmaya başlama
+# <a name="get-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında kullanmaya başlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -40,7 +40,11 @@ Bu öğretici için üç sürümü vardır:
 * Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. Proje adı **RazorPagesMovie**. Proje adı önemlidir *RazorPagesMovie* ad alanları, kopyala/yapıştır kod zaman eşleşecek şekilde.
   ![Yeni ASP.NET çekirdek Web uygulaması](../../mvc/razor-pages/index/_static/np.png)
 * Seçin **ASP.NET Core 2.0** açılır ve ardından **Web uygulaması**.
-  ![Web uygulaması (Razor sayfalarının)](../../mvc/razor-pages/index/_static/np2.png)
+
+> [!NOTE]
+> .NET Framework üzerinde ASP.NET Core kullanmak istiyorsanız, önce seçmelisiniz **.NET Framework** soldaki aşağı açılır listeden iletişim kutusunda, ardından istediğiniz ASP.NET Core sürümü seçebilirsiniz.
+
+  ![Web uygulaması (Razor sayfalarının)](razor-pages-start/_static/np2.png)
 
 Visual Studio şablon bir başlangıç projesi oluşturur:
 

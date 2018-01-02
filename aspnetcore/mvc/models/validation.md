@@ -5,18 +5,17 @@ description: "ASP.NET Core MVC model doğrulama hakkında bilgi edinin."
 keywords: "ASP.NET Core, MVC, doğrulama"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 12/18/2016
 ms.topic: article
 ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3f3f7010d7744d59ce2dd88b323418423b3ae08
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
+ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
 
@@ -84,7 +83,7 @@ MVC alanları kadar ulaştığında doğrulama hatası (200 varsayılan olarak) 
 
 ## <a name="handling-model-state-errors"></a>İşleme Model durumu hataları
 
-Model doğrulama çağrılan her denetleyici eylemi önce gerçekleşir ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki. Çoğu durumda uygun tepki ideal neden model doğrulama başarısızlık nedenini ayrıntılı hata yanıtı çeşit getirmektir.
+Model doğrulama çağrılan her denetleyici eylemi önce gerçekleşir ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki. Çoğu durumda uygun tepki ideal neden model doğrulama başarısızlık nedenini ayrıntılı bir hata yanıtı getirmektir.
 
 Bazı uygulamalar, model doğrulama hataları, durum filtre böyle bir ilke uygulamak için uygun bir yerdir olabilir ilgilenmek için standart bir kuralı izlemek seçeceksiniz. Geçerli ve geçersiz model durumlarıyla eylemlerinizi nasıl davranacağını test etmeniz gerekir.
 
@@ -98,7 +97,7 @@ Doğrulama el ile çalıştırmanız gerekebilir. Bunu yapmak için arama `TryVa
 
 ## <a name="custom-validation"></a>Özel doğrulama
 
-Doğrulama özniteliklerinin çoğu doğrulama ihtiyaçları için çalışır. Ancak, yalnızca bir alan sağlama gibi genel veri doğrulama gerekli değildir veya değer aralığı için uyumlu olmadıklarını gibi bazı doğrulama kuralları, iş için özeldir. Bu senaryolarda, özel doğrulama öznitelikleri harika bir çözümdür. MVC'de kendi özel doğrulama öznitelikleri oluşturmak kolaydır. Yalnızca devralınan `ValidationAttribute`ve geçersiz kılma `IsValid` yöntemi. `IsValid` Yöntemi iki parametre kabul eden ilk adlı bir nesnedir *değeri* ve ikincisi ise bir `ValidationContext` adlı nesne *validationContext*. *Değer* özel Doğrulayıcı doğrulama alanından gerçek değeri gösterir.
+Doğrulama özniteliklerinin çoğu doğrulama ihtiyaçları için çalışır. Ancak, bazı doğrulama kuralları, işletmenizle özgüdür. Kurallarınızı, gerekli bir alan sağlama veya değer aralığı için uyumlu olduğunu gibi ortak veri doğrulama teknikleri olmayabilir. Bu senaryolarda, özel doğrulama öznitelikleri harika bir çözümdür. MVC'de kendi özel doğrulama öznitelikleri oluşturmak kolaydır. Yalnızca devralınan `ValidationAttribute`ve geçersiz kılma `IsValid` yöntemi. `IsValid` Yöntemi iki parametre kabul eden ilk adlı bir nesnedir *değeri* ve ikincisi ise bir `ValidationContext` adlı nesne *validationContext*. *Değer* özel Doğrulayıcı doğrulama alanından gerçek değeri gösterir.
 
 Kullanıcılar bir tarzını ayarlamaz, aşağıdaki örnekte, bir iş kuralı durumları *Klasik* 1960 sonra yayımlanan film için. `[ClassicMovie]` Özniteliği Tarz ilk denetler ve klasik ise, yayın tarihi 1960 sonraki olup olmadığını denetler. 1960 sonra yayımlanan doğrulama başarısız olur. Öznitelik verileri doğrulamak için kullanabileceğiniz yılı temsil eden bir tamsayı parametresini kabul eder. Aşağıda gösterildiği gibi özniteliğin oluşturucuda parametresinin değeri yakalamak için:
 
@@ -145,11 +144,11 @@ Yukarıdaki etiket Yardımcıları HTML işleme. Dikkat `data-` HTML öznitelikl
 </form>
 ```
 
-Bu nedenle, formun geçerli olana kadar istemci tarafı doğrulama gönderimi engeller. Gönder düğmesine formu gönderdikten veya hata iletileri görüntüler JavaScript çalışır.
+Formu geçerli olana kadar istemci tarafı doğrulama gönderimi engeller. Gönder düğmesine formu gönderdikten veya hata iletileri görüntüler JavaScript çalışır.
 
 MVC belirler türü öznitelik değerleri büyük olasılıkla kullanarak geçersiz kılınan bir özellik .NET veri türüne göre `[DataType]` öznitelikleri. Temel `[DataType]` öznitelik hiçbir gerçek sunucu tarafında doğrulama yapar. Tarayıcılar kendi hata iletileri seçin ve bu hataların ancak istedikleri, ancak jQuery doğrulama örtük paket iletileri geçersiz kılar ve bunları tutarlı bir şekilde başkalarıyla görüntülemek görüntüleyin. Bu en açıkça kullanıcılar uygulandığında gerçekleşir `[DataType]` gibi alt sınıfların `[EmailAddress]`.
 
-### <a name="adding-validation-to-dynamic-forms"></a>Doğrulama için dinamik formlar ekleme:
+### <a name="add-validation-to-dynamic-forms"></a>Dinamik formlarına doğrulama ekleme
 
 Sayfa ilk kez yüklediğinde jQuery örtük doğrulama doğrulama mantığını ve parametreleri jQuery doğrulama atladığı için dinamik olarak üretilen forms otomatik olarak doğrulama sergiler değil. Bunun yerine, jQuery hemen oluşturduktan sonra dinamik formun ayrıştırmak için örtük doğrulama bildirmeniz gerekir. Örneğin, aşağıdaki kodu, AJAX eklenen bir form üzerinde istemci tarafı doğrulamasını nasıl ayarlayabilir gösterir.
 
@@ -172,7 +171,7 @@ $.get({
 
 `$.validator.unobtrusive.parse()` Yöntemi için bağımsız değişken jQuery Seçici kabul eder. Bu yöntem jQuery ayrıştırmak için örtük doğrulama söyler `data-` forms seçicinin içinde öznitelikleri. Böylece form istenen istemci tarafı doğrulama kurallarını sergiler özniteliklerle değerlerini sonra jQuery doğrulama eklentisi için geçirilir.
 
-### <a name="adding-validation-to-dynamic-controls"></a>Doğrulama için dinamik denetimleri ekleme:
+### <a name="add-validation-to-dynamic-controls"></a>Doğrulama için dinamik denetimleri ekleme
 
 Tek denetimleri gibi bir form üzerinde doğrulama kuralları da güncelleştirebilirsiniz `<input/>`s ve `<select/>`s, dinamik olarak oluşturulur. Bu öğeler için seçiciler geçiremezsiniz `parse()` yöntemi doğrudan çünkü çevresindeki formu zaten ayrıştırılır ve değil güncelleştirir.  Bunun yerine, önce varolan doğrulama verileri kaldırın, ardından aşağıda gösterildiği gibi tüm formu yeniden ayrıştırma:
 
