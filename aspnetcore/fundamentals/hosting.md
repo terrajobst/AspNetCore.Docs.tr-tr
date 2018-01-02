@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
-ms.translationtype: MT
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET çekirdek barındırma
 
@@ -254,7 +254,7 @@ Bu özellik ASP.NET Core kullanılamıyor 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Başlangıç barındırma engelle
 
-Başlangıç derlemelere, uygulamanın derleme dahil barındırma otomatik yüklenmesini engeller.
+Uygulamanın derlemesi tarafından yapılandırılan başlangıç derlemeleri barındırma dahil olmak üzere başlangıç derlemeleri barındırma otomatik yüklenmesini engeller. Bkz: [IHostingStartup kullanarak bir dış derlemeden uygulama özelliklerini eklemek](xref:hosting/ihostingstartup) daha fazla bilgi için.
 
 **Anahtar**: preventHostingStartup  
 **Tür**: *bool* (`true` veya `1`)  
