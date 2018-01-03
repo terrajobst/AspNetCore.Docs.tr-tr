@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek nasıl gösterir. Seri tamamladığınızdan varsayar th..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web sayfaları sunarak - veritabanı verileri güncelleştirme
 ====================
 tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
-> Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek nasıl gösterir. Seri aracılığıyla tamamladığınızdan varsayar [veri girişi tarafından Forms kullanarak ASP.NET Web sayfalarını kullanma](https://go.microsoft.com/fwlink/?LinkId=251582).
+> Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek nasıl gösterir. Seri aracılığıyla tamamladığınızdan varsayar [veri girişi tarafından Forms kullanarak ASP.NET Web sayfalarını kullanma](entering-data.md).
 > 
 > Öğrenecekleriniz:
 > 
@@ -143,7 +143,7 @@ Adlı bir sayfa oluşturma *EditMovie.cshtml* ve dosyasında, aşağıdaki biçi
 
 Bu biçimlendirme ve kodun, sahip benzer *AddMovie* sayfası. Gönder düğmesine metninde küçük bir fark yoktur. İle *AddMovie* sayfasında, var olan bir `Html.ValidationSummary` varsa, doğrulama hataları görüntüler çağrısı. Biz bırakarak çağrıları çıkışı bu kez `Validation.Message`, bu yana hataları doğrulama özeti görüntülenir. Önceki öğreticide belirtildiği gibi çeşitli bileşimlerde doğrulama özeti ve tek tek hata iletileri kullanabilirsiniz.
 
-Yeniden dikkat `method` özniteliği `<form>` ayarlanır `post`. İle *AddMovie.cshtml* sayfası, bu sayfayı yapar değişiklikleri veritabanına. Bu nedenle, bu formu gerçekleştirmesi gereken bir `POST` işlemi. (Arasındaki fark hakkında daha fazla bilgi için `GET` ve `POST` işlemleri görmek [GET, POST ve HTTP fiili güvenliği](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) kenar HTML formları öğreticideki.)
+Yeniden dikkat `method` özniteliği `<form>` ayarlanır `post`. İle *AddMovie.cshtml* sayfası, bu sayfayı yapar değişiklikleri veritabanına. Bu nedenle, bu formu gerçekleştirmesi gereken bir `POST` işlemi. (Arasındaki fark hakkında daha fazla bilgi için `GET` ve `POST` işlemleri görmek [GET, POST ve HTTP fiili güvenliği](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) kenar HTML formları öğreticideki.)
 
 Bir önceki öğreticide gördüğünüz gibi `value` metin kutuları özniteliklerini ayarlanır Razor kodu ile bunları önceden yüklemek için. Bu süre, yine de değişkenler gibi kullandığınız `title` ve `genre` yerine bu görev için `Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ Kod kullanan sonra `db.Execute` çalıştırmak için `Update` deyimi, burada g�
 > 
 > Elbette, `Query` yöntemi yalnızca bir veritabanı satır döndürebilir. Ancak, ASP.NET sonuçlarını her zaman davranır `Query` yöntemi bir koleksiyon olarak. Yöntem yalnızca tek bir satır döndürüyorsa bile koleksiyondan tek satır ayıklamanız gerekir. Bu nedenle, durumlarda Burada, *bilmeniz* yalnızca bir satır geri alırsınız, kullanmak daha kullanışlı bir bit `QuerySingle`.
 > 
-> Belirli türlerdeki veritabanı işlemleri gerçekleştirmek birkaç yöntem vardır. Veritabanı yöntemleri listesini bulabilirsiniz [ASP.NET Web sayfaları API hızlı başvuru](https://go.microsoft.com/fwlink/?LinkID=202907#Data).
+> Belirli türlerdeki veritabanı işlemleri gerçekleştirmek birkaç yöntem vardır. Veritabanı yöntemleri listesini bulabilirsiniz [ASP.NET Web sayfaları API hızlı başvuru](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Doğrulama Kimliği daha fazla bilgi için sağlam hale getirme
@@ -308,7 +308,7 @@ Sonraki öğreticide film kaydını silmek nasıl görürsünüz.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](introducing-razor-syntax-c.md)
 - [SQL güncelleştirme deyimini](http://www.w3schools.com/sql/sql_update.asp) W3Schools sitesinde
 
 >[!div class="step-by-step"]

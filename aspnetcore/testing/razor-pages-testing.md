@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi
 
@@ -30,9 +30,9 @@ ASP.NET Core, birim ve tümleştirme Razor sayfalarının uygulamalarını test 
 Bu konu, Razor sayfalarının uygulamaların, birim testi ve tümleştirme ilgili temel bilgilere sahip olduğunuzu varsayar test etme. Razor sayfalarının uygulamaları veya test kavramları emin değilseniz aşağıdaki konulara bakın:
 
 * [Razor sayfalarının giriş](xref:mvc/razor-pages/index)
-* [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Birim testi C# .NET çekirdek dotnet test ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Tümleştirme sınaması](xref:testing/integration-testing)
+* [Tümleştirme testi](xref:testing/integration-testing)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/razor-pages-testing/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -57,7 +57,7 @@ dotnet test
 * Bir ileti tarafından açıklanan `Message` sınıfı (*Data/Message.cs*) iki özelliklere sahip: `Id` (anahtar) ve `Text` (ileti). `Text` Özelliği gereklidir ve 200 karakterle sınırlıdır.
 * İletileri kullanarak depolanır [Entity Framework'ün bellek içi veritabanı](/ef/core/providers/in-memory/)&#8224;.
 * Uygulama bir veri erişim katmanı (DAL), veritabanı bağlamı sınıfının içeren `AppDbContext` (*Data/AppDbContext.cs*). DAL yöntemleri işaretlenmiş `virtual`, testleri kullanımı için yöntemleri mocking izin verir.
-* Geliştirme ortamında ileti deposunu üç iletilerle başlatılır. Bunlar *sağlanmış iletileri* testinde de kullanılır.
+* Veritabanı uygulama başlangıçta boş ise, ileti deposunu üç iletileri ile başlatıldı. Bunlar *sağlanmış iletileri* testinde de kullanılır.
 
 &#8224; EF konu [Inmemory ile test](/ef/core/miscellaneous/testing/in-memory), mstest'i ile test etmek için bir bellek içi veritabanı kullanımı açıklanmaktadır. Bu konuda kullanan [xUnit](https://xunit.github.io/) framework test etme. Sınama kavramları ve test uygulamaları farklı test çerçevelerini arasında benzer, ancak aynı değildir.
 
@@ -231,7 +231,7 @@ Tümleştirme testleri, ayrıca uygulamanın yanıt davranışını test etmek i
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Birim testi C# .NET çekirdek dotnet test ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Tümleştirme sınaması](xref:testing/integration-testing)
+* [Tümleştirme testi](xref:testing/integration-testing)
 * [Test denetleyicileri](xref:mvc/controllers/testing)
 * [Birim testi kodunuzu](/visualstudio/test/unit-test-your-code) (Visual Studio)
 * [xUnit.net](https://xunit.github.io/)

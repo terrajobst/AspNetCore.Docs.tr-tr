@@ -18,7 +18,7 @@ Menü Bağlantılar'a dokunun (**MvcMovie**, **giriş**, **hakkında**). Her bir
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Düzen dosyasını başlığı ve menü bağlantıyı değiştirme
 
-Title öğesi içeriğini değiştirin. Düzen şablonunu bağlantı metinde "Film uygulaması" ve denetleyicisinden değiştirmek `Home` için `Movies` aşağıda vurgulanan:
+Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metinde değiştirmek `MvcMovie` için `Mvc Movie` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
 
 Not: ASP.NET Core 2.0 sürümü biraz farklıdır. Bunu içermiyor `@inject ApplicationInsights` ve `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -29,9 +29,9 @@ Not: ASP.NET Core 2.0 sürümü biraz farklıdır. Bunu içermiyor `@inject Appl
 
 Yaptığınız değişiklikleri kaydedin ve dokunun **hakkında** bağlantı. Nasıl başlık tarayıcı sekmesinde şimdi görüntülendiğine dikkat edin **- film uygulaması hakkında** yerine **hakkında - Mvc film**: 
 
-![Hakkında sekmesi](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Hakkında sekmesi](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Dokunun **kişi** bağlamak ve ayrıca görüntülendiğine dikkat edin **film uygulaması**. Düzen şablonda değişiklik kez bulduk ve sahip sitesindeki tüm sayfalara yansıtmak yeni bağlantı metnini ve yeni başlığı.
+Dokunun **kişi** başlık ve bağlantı metni ayrıca görüntüle dikkat edin ve bağlama **film uygulaması**. Düzen şablonda değişiklik kez bulduk ve sahip sitesindeki tüm sayfalara yansıtmak yeni bağlantı metnini ve yeni başlığı.
 
 İncelemek *Views/_ViewStart.cshtml* dosyası:
 
@@ -105,7 +105,7 @@ Yaptığınız değişiklikleri kaydedin ve aşağıdaki URL'ye gidin:
 
 Veri URL'den alınır ve denetleyici kullanmaya geçirilen [MVC model bağlayıcı](xref:mvc/models/model-binding) . Denetleyici verileri paketleri bir `ViewData` sözlük ve nesne görünümüne geçirir. Görünümü sonra verileri tarayıcıya HTML olarak işler.
 
-![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick deyimi gösteren görünüm hakkında](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick deyimi gösteren görünüm hakkında](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 Yukarıdaki örnekte, kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticide daha sonra bir denetleyicisinden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli genellikle çok tercih edilen üzerinden yaklaşımdır `ViewData` sözlük yaklaşım. Bkz: [ViewModel vs ViewData vs ViewBag vs TempData vs MVC oturumunda](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) daha fazla bilgi için.
 

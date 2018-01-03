@@ -11,11 +11,11 @@ keywords: "ASP.NET Core, Webapı, Web API'si, REST, Mac, Linux, HTTP, hizmeti, H
 manager: wpickett
 ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: caf40ee1c2d45d2fbf33b07d707fa4f1be98d31c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40f9259101e5d006378562a27e97948641e29450
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>ASP.NET Core MVC ve Linux, macOS ve Windows Visual Studio Code ile Web API oluşturun
 
@@ -57,7 +57,7 @@ Açık *TodoApi* Visual Studio Code (VS Code) ve select klasöründe *haline* do
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
-![Derleme ve hata ayıklama VS koduyla gerekli uyar varlıklar 'TodoApi' eksik. Bunları eklensin mi? Evet ve ayrıca bilgisi yeniden şimdi değil sorma - çözümlenmemiş bağımlılıklar vardır - Restore - Kapat](web-api-vsc/_static/vsc_restore.png)
+![Derleme ve hata ayıklama VS koduyla gerekli uyar varlıklar 'TodoApi' eksik. Bunları eklensin mi? Şimdi değil Evet sorma](web-api-vsc/_static/vsc_restore.png)
 
 Tuşuna **hata ayıklama** derlemek ve programı çalıştırmak için (F5). Bir tarayıcıda http://localhost: 5000/api/değerleri gidin. Aşağıdaki görüntülenir:
 
@@ -67,11 +67,9 @@ Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) VS Code kullanma hak
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Çekirdek desteği ekleme
 
-Düzen *TodoApi.csproj* yüklemek için dosya [Entity Framework Çekirdek Inmemory](https://docs.microsoft.com/ef/core/providers/in-memory/) veritabanı sağlayıcısı. Bu veritabanı sağlayıcısı bir bellek içi veritabanı ile kullanılacak Entity Framework Çekirdek sağlar.
+.NET Core 2. 0 ' yeni bir proje oluşturma ekler 'Microsoft.AspNetCore.All' Sağlayıcısında *TodoApi.csproj* dosya. Yüklemek için gerek yoktur [Entity Framework Çekirdek Inmemory](https://docs.microsoft.com/ef/core/providers/in-memory/) sağlayıcı ayrı olarak veritabanı. Bu veritabanı sağlayıcısı bir bellek içi veritabanı ile kullanılacak Entity Framework Çekirdek sağlar.
 
 [!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
-
-Çalıştırma `dotnet restore` indirip EF çekirdek Inmemory DB Sağlayıcısı'nı yükleyin. Çalıştırabilirsiniz `dotnet restore` terminalde girin veya `⌘⇧P` (macOS) veya `Ctrl+Shift+P` (Linux) VS Code ve ardından yazın **.NET**. Seçin **.NET: geri yükleme paketleri**.
 
 ## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
