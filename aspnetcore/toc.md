@@ -37,6 +37,18 @@
 ### [İlgili verileri güncelleştirme](xref:data/ef-rp/update-related-data)
 ### [Eşzamanlılık çakışmalarını işleme](xref:data/ef-rp/concurrency)
 
+## [Veri erişimi - EF Çekirdekli MVC](data/ef-mvc/index.md)
+### [Başlarken](data/ef-mvc/intro.md)
+### [İşlem Oluşturma, Okuma, Güncelleştirme ve Silme](data/ef-mvc/crud.md)
+### [Sıralama, filtreleme, disk belleği ve gruplandırma](data/ef-mvc/sort-filter-page.md)
+### [Geçişler](data/ef-mvc/migrations.md)
+### [Karmaşık veri modeli oluşturma](data/ef-mvc/complex-data-model.md)
+### [İlgili verileri okuma](data/ef-mvc/read-related-data.md)
+### [İlgili verileri güncelleştirme](data/ef-mvc/update-related-data.md)
+### [Eşzamanlılık çakışmalarını işleme](data/ef-mvc/concurrency.md)
+### [Devralma](data/ef-mvc/inheritance.md)
+### [Gelişmiş konular](data/ef-mvc/advanced.md)
+
 ## [Mobil uygulamalar için arka uç hizmetleri oluşturma](mobile/native-mobile-backend.md)
 ## [Web API'leri oluşturma](mvc/web-api/index.md)
 ## [Web API'si oluşturma](xref:tutorials/first-web-api-mac)
