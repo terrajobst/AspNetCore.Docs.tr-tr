@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Bu, veritabanı verilerde güncelleştirme ASP.NET Web Pa aracılığıyla serisini tamamladınız varsayar..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfaları sunarak - veritabanı verileri silme
 ====================
 tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
-> Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Seri aracılığıyla tamamladığınızdan varsayar [güncelleştirme veritabanı veri ASP.NET Web Pages'de](https://go.microsoft.com/fwlink/?LinkId=251583).
+> Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Seri aracılığıyla tamamladığınızdan varsayar [güncelleştirme veritabanı veri ASP.NET Web Pages'de](updating-data.md).
 > 
 > Öğrenecekleriniz:
 > 
@@ -76,7 +76,7 @@ Yeni bir sütun bağlantıyı gösterir (`<a>` öğesi) "Delete" metnini söyler
 
 Bu bağlantıyı adlı bir sayfaya çağıracağı *DeleteMovie* ve seçtiğiniz film Kimliğini geçirin.
 
-Neredeyse aynı olduğu için bu öğreticiyi bu bağlantıyı nasıl oluşturulur, ayrıntılı gitmesi olmaz **Düzenle** önceki öğretici bağlantısından ([güncelleştirme veritabanı veri ASP.NET Web Pages'de](https://go.microsoft.com/fwlink/?LinkId=251583)).
+Neredeyse aynı olduğu için bu öğreticiyi bu bağlantıyı nasıl oluşturulur, ayrıntılı gitmesi olmaz **Düzenle** önceki öğretici bağlantısından ([güncelleştirme veritabanı veri ASP.NET Web Pages'de](updating-data.md)).
 
 ## <a name="creating-the-delete-page"></a>Delete sayfası oluşturma
 
@@ -137,7 +137,7 @@ Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğün
   
  AND  
   
-** `buttonDelete` *Düğmesi formun gönderilen düğmesi oluştu.*
+*Düğmesi* `buttonDelete`*formun gönderilen düğmesi oluştu.*
 
 Bu form (aslında, bu sayfayı) yalnızca bir düğme, bu nedenle içerir için ek sınama `buttonDelete` teknik gerekli değildir. Yine de, verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Böylece olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi yaptığınızdan emin olmak istiyor. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri kendisine eklenmiş olduğunu varsayalım. Yalnızca film siler kodu dahi sonra çalıştıracak `buttonDelete` düğmesine tıklanana.
 
@@ -169,7 +169,7 @@ Sonraki öğretici ortak bir görünüm ve düzeni sitenizdeki tüm sayfaları k
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](../introducing-razor-syntax-c.md)
 - [SQL DELETE deyimi](http://www.w3schools.com/sql/sql_delete.asp) W3Schools sitesinde
 
 >[!div class="step-by-step"]
