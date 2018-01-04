@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
-ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
+ms.openlocfilehash: d1f8cf5607fdd08bf0dadc224ae0fdba7ec696bc
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -25,7 +25,7 @@ ASP.NET Core ile çok dilli bir Web sitesi oluşturma sitenizi daha geniş bir k
 
 Uluslararası duruma getirme içerir [Genelleştirme](https://docs.microsoft.com/dotnet/api/system.globalization) ve [yerelleştirme](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Genelleştirme farklı kültürler destekleyen uygulamalar tasarlama işlemidir. Genelleştirme giriş, görüntüleme ve bir dizi tanımlanmış belirli coğrafi alanlara ilgili dil komut çıktısı için destek ekler.
 
-Yerelleştirme için belirli bir kültür/bölge için yerelleştirme zaten işlenmiş bir globalized uygulaması uyarlama işlemidir.  Daha fazla bilgi için bkz: **Genelleştirme ve yerelleştirme koşulları** bu belgenin sonuna.
+Yerelleştirme için belirli bir kültür/bölge için yerelleştirme zaten işlenmiş bir globalized uygulaması uyarlama işlemidir. Daha fazla bilgi için bkz: **Genelleştirme ve yerelleştirme koşulları** bu belgenin sonuna.
 
 Uygulama yerelleştirme aşağıdakileri içerir:
 
@@ -305,7 +305,7 @@ Uygulamanızı yerelleştirme işlemi aynı zamanda ilgili karakter kümesi mode
 
 [Yerelleştirilebilirlik](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review) globalized uygulama yerelleştirme için hazır olduğunu doğrulamak için Ara bir işlemdir.
 
-[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) kültür adı biçimlendirme "<languagecode2>-< Ülke/regioncode2 >", burada <languagecode2> dil kodu ve < Ülke/regioncode2 > alt kod. Örneğin, `es-CL` İzlandaca, için `en-US` İngilizce (ABD) için ve `en-AU` İngilizce (Avustralya). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) iki harfli küçük kültür kod dili ile ilişkili bir ISO 639 ve iki harfli büyük alt kod, bir ülke veya bölge ile ilişkili bir ISO 3166 birleşimidir.  Bkz: [dil kültür adı](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
+[RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) kültür adı biçimlendirme `<languagecode2>-<country/regioncode2>`, burada `<languagecode2>` dil kodu ve `<country/regioncode2>` alt kodudur. Örneğin, `es-CL` İzlandaca, için `en-US` İngilizce (ABD) için ve `en-AU` İngilizce (Avustralya). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) iki harfli küçük kültür kod dili ile ilişkili bir ISO 639 ve iki harfli büyük alt kod, bir ülke veya bölge ile ilişkili bir ISO 3166 birleşimidir. Bkz: [dil kültür adı](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
 
 Uluslararası duruma getirme genellikle "I18N" olarak kısaltılır. İlk ve son harf kısaltması alır ve aralarındaki, bu nedenle 18 harf sayısı anlamına gelir ilk arasında harf sayısı "T" ve "N" son. Aynı (G11N) Genelleştirme ve Yerelleştirme (L10N) için geçerlidir.
 

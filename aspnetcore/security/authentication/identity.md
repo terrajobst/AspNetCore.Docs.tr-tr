@@ -5,17 +5,17 @@ description: "Bir ASP.NET Core uygulamayla kimliğini kullan"
 keywords: "ASP.NET Core, kimlik, yetkilendirme, güvenlik"
 ms.author: riande
 manager: wpickett
-ms.date: 12/15/2017
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -32,11 +32,20 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
 1.  Bir ASP.NET çekirdek Web uygulaması projesi ile bireysel kullanıcı hesapları oluşturun.
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    Visual Studio'da seçin **dosya** -> **yeni** -> **proje**. Seçin **ASP.NET Web uygulaması** gelen **yeni proje** iletişim kutusu. Bir ASP.NET Core seçme **Web Application(Model-View-Controller)** ASP.NET Core için 2.x ile **tek tek kullanıcı hesaplarını** kimlik doğrulama yöntemi olarak.
+    Visual Studio'da seçin **dosya** -> **yeni** -> **proje**. Seçin **ASP.NET çekirdek Web uygulaması** tıklatıp **Tamam**. 
 
-    Not: Seçmelisiniz **tek tek kullanıcı hesaplarını**.
+    ![Yeni Proje iletişim kutusu](identity/_static/01-new-project.png)
+
+    Bir ASP.NET Core seçin **Web uygulaması (Model-View-Controller)** ASP.NET 2.x çekirdek ve ardından **kimlik doğrulamayı Değiştir**. 
+
+    ![Yeni Proje iletişim kutusu](identity/_static/02-new-project.png)
+
+    Bir iletişim kutusu önerme görünür kimlik doğrulama seçenekleri. Seçin **tek tek kullanıcı hesaplarını** tıklatıp **Tamam** önceki iletişim kutusuna dönmek için.
+
+    ![Yeni Proje iletişim kutusu](identity/_static/03-new-project-auth.png)
+    
+    Seçme **tek tek kullanıcı hesaplarını** modelleri, ViewModels, görünümler, denetleyicileri ve proje şablonu bir parçası olarak kimlik doğrulaması için gerekli diğer varlıklar oluşturmak için Visual Studio yönlendirir.
  
-    ![Yeni Proje iletişim kutusu](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
     .NET Core CLI kullanıyorsanız, yeni projesi oluşturun ``dotnet new mvc --auth Individual``. Bu komut, Visual Studio oluşturur aynı kimlik şablonu kodu ile yeni bir proje oluşturur.
@@ -77,7 +86,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
 
     Uygulamayı başlatın ve sonra tıklatın **kaydetmek** bağlantı.
 
-    Bu eylem gerçekleştiriyorsunuz ilk kez kullanıyorsanız geçişler çalıştırmak için gerekli olabilir. Uygulama ister **uygulamak geçişler**:
+    Bu eylem gerçekleştiriyorsunuz ilk kez kullanıyorsanız geçişler çalıştırmak için gerekli olabilir. Uygulama ister **uygulamak geçişler**. Gerekirse sayfayı yenileyin.
     
     ![Geçişler Web sayfasına Uygula](identity/_static/apply-migrations.png)
     
@@ -100,9 +109,9 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
  
     Kullanıcılar oturum açabilir tıklayarak **oturum** üst sitenin bağlantısını veya yetkilendirme gerektiren site parçası erişmeye çalışırsanız, oturum açma sayfasına gittiğinizde. Kullanıcı oturum açma sayfasındaki formu gönderdiğinde ``AccountController`` ``Login`` eylem çağrılır.
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
- 
     ``Login`` Eylem çağrılarını ``PasswordSignInAsync`` üzerinde ``_signInManager`` nesne (için sağlanan ``AccountController`` bağımlılık ekleme tarafından).
+
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     Temel ``Controller`` sınıf çıkarır bir ``User`` denetleyicisi yöntemleri erişebilirsiniz özelliği. Örneğin, listeleme `User.Claims` ve yetkilendirme kararları. Daha fazla bilgi için bkz: [yetkilendirme](xref:security/authorization/index).
  
@@ -140,6 +149,35 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
     
     Veritabanı'nı genişletin ve kendi **tabloları**, sonra sağ **dbo. AspNetUsers** tablo ve seçin **görünüm verilerini**.
 
+8. Kimliği'nin çalıştığını doğrulama
+
+    Varsayılan *ASP.NET çekirdek Web uygulaması* proje şablonu sağlar gerek kalmadan uygulama içinde herhangi bir işlem erişmek kullanıcıların oturum açmak için. ASP.NET Identity çalıştığını doğrulamak için ekleme bir`[Authorize]` özniteliğini `About` eylemi `Home` denetleyicisi.
+ 
+    ```cs
+    [Authorize]
+    public IActionResult About()
+    {
+        ViewData["Message"] = "Your application description page.";
+        return View();
+    }
+    ```
+    
+    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+
+    Kullanarak projeyi çalıştırmak **Ctrl** + **F5** gidin **hakkında** sayfası. Yalnızca kimliği doğrulanan kullanıcılar erişebilir **hakkında** ASP.NET oturum açmak veya kaydetmek için oturum açma sayfasına yönlendirir şekilde şimdi, sayfa.
+
+    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+    Bir komut penceresi açın ve projenin kök dizinine gidin dizinini içeren `.csproj` dosya. Çalıştırma `dotnet run` uygulamayı çalıştırmak için komutu:
+
+    ```cs
+    dotnet run 
+    ```
+
+    Cmdlet çıktısının belirtilen URL'ye Gözat `dotnet run` komutu. URL işaret etmelidir `localhost` ile oluşturulan bağlantı noktası numarası. Gidin **hakkında** sayfası. Yalnızca kimliği doğrulanan kullanıcılar erişebilir **hakkında** ASP.NET oturum açmak veya kaydetmek için oturum açma sayfasına yönlendirir şekilde şimdi, sayfa.
+
+    ---
+
 ## <a name="identity-components"></a>Kimlik bileşenleri
 
 Kimlik sistemi için birincil başvuru derleme `Microsoft.AspNetCore.Identity`. Bu paket ASP.NET Core kimliği arabirimleri çekirdek kümesini içerir ve tarafından dahil `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.
@@ -159,6 +197,6 @@ Ek bilgi ve mevcut kimliğinizi geçirme konusunda yönergeler bakın depolamak 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 * [Geçirme kimlik doğrulama ve kimlik](xref:migration/identity)
-* [Hesap onaylamayı ve parola kurtarma](xref:security/authentication/accconfirm)
+* [Hesap Onaylama ve Parola Kurtarma](xref:security/authentication/accconfirm)
 * [SMS ile iki öğeli kimlik doğrulama](xref:security/authentication/2fa)
-* [Facebook, Google ve diğer dış sağlayıcılarını kullanarak kimlik doğrulamasını etkinleştirme](xref:security/authentication/social/index)
+* [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamayı etkinleştirme](xref:security/authentication/social/index)
