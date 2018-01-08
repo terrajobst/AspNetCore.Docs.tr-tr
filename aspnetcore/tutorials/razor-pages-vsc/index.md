@@ -10,15 +10,15 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/index
-ms.openlocfilehash: 2ffa2361077c4c2719a458c59bebecf1cb0e9879
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f27bfaf49dac3ca9eccf8e968606c0264564b1fa
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core ve Visual Studio Code ile bir Razor sayfalarının web uygulaması oluşturma
 
-İş sürüyor budur. Seri umuyoruz iki hafta içinde tamamlandı.
+İş sürüyor budur.
 
 Bu seri ASP.NET Core Visual Studio kod kullanarak bir Razor sayfalarının web uygulaması oluşturmanın temel kavramları açıklar.
 
@@ -28,9 +28,9 @@ Bu seri ASP.NET Core Visual Studio kod kullanarak bir Razor sayfalarının web u
 Windows için Visual Studio sürümü bir sonraki bölüm tamamlanana kadar izleyin.
 
 
-1. [Kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)
-1. [SQL Server yerel veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-1. [Sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
+1. [İskeleli Razor Sayfaları](xref:tutorials/razor-pages/page)
+1. [SQL Server Yerel Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
+1. [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
 1. [Arama ekleme](xref:tutorials/razor-pages/search)
-1. [Yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+1. [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
 1. [Doğrulama ekleme](xref:tutorials/razor-pages/validation)

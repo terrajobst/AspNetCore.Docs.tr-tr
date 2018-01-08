@@ -1,7 +1,7 @@
 ---
 title: "Tepki proje şablonu kullanın"
 author: SteveSandersonMS
-description: "Tepki ve oluşturma tepki-uygulama için ASP.NET Core tek sayfalı uygulama (SPA) önizleme proje şablonu ile başlayacağınızı öğrenin."
+description: "Tepki ve oluşturma tepki-uygulama için ASP.NET Core tek sayfalı uygulama (SPA) Sürüm Adayı proje şablonu ile başlayacağınızı öğrenin."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 1e1e48491acb904c1c8fc6c8286d3b152c382daa
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 6a0de008979823baae17eb66df2d991300c197f2
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="use-the-react-project-template-preview"></a>(Önizleme) tepki proje şablonu kullanın
+# <a name="use-the-react-project-template-release-candidate"></a>(Sürüm Adayı) tepki proje şablonu kullanın
 
 > [!NOTE]
-> Bu belge hakkında yayımlanan tepki proje şablonu değil. **Bu belge hakkında tepki şablonunun Önizleme sürümüdür.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
+> Bu belge hakkında yayımlanan tepki proje şablonu değil. **Bu belge hakkında tepki şablonunun Sürüm Adayı ' dir.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
 
 Güncelleştirilmiş tepki proje şablonu uygun bir başlama noktası için ASP.NET Core tepki kullanarak uygulamaları sağlar ve [oluşturma tepki-uygulama](https://github.com/facebookincubator/create-react-app) (CRA) kuralları zengin, istemci tarafı kullanıcı arabirimini (UI).
 

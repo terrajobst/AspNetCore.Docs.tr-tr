@@ -1,7 +1,7 @@
 ---
 title: "Açısal proje şablonu kullanın"
 author: SteveSandersonMS
-description: "Angular ve Açısal CLI için ASP.NET Core tek sayfalı uygulama (SPA) önizleme proje şablonu ile başlayacağınızı öğrenin."
+description: "Angular ve Açısal CLI için ASP.NET Core tek sayfalı uygulama (SPA) Sürüm Adayı proje şablonu ile başlayacağınızı öğrenin."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: de7b32099f225e838ec40ce4f04bf67bffb9c260
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: ebe40015cc2e6b5947e844a0ce7db9efd867266b
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="use-the-angular-project-template-preview"></a>(Önizleme) Açısal proje şablonu kullanın
+# <a name="use-the-angular-project-template-release-candidate"></a>Açısal proje şablonu (Sürüm Adayı) kullanın
 
 > [!NOTE]
-> Bu belge hakkında yayımlanan Açısal proje şablonu değil. **Bu belge hakkında Açısal şablonun önizleme sürümüdür.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
+> Bu belge hakkında yayımlanan Açısal proje şablonu değil. **Bu belge hakkında Açısal şablonunun Sürüm Adayı ' dir.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
 
 Güncelleştirilmiş Açısal proje şablonu, zengin, istemci tarafı kullanıcı arabirimini (UI) uygulamak için Açısal 5 ve Açısal CLI kullanarak uygulamaları ASP.NET Core için uygun bir başlama noktası sağlar.
 
