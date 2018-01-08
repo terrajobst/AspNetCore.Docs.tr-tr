@@ -153,7 +153,7 @@
 ## [Paketleme ve küçültme](xref:client-side/bundling-and-minification)
 ## [Tarayıcı Bağlantısı Kullanma](xref:client-side/using-browserlink)
 ## [SPA’lar için JavaScriptServices kullanma](xref:client-side/spa-services)
-## [SPA proje şablonlarını kullanma (önizleme)](xref:spa/index)
+## [SPA proje şablonlarını kullanma (RC)](xref:spa/index)
 ### [Angular proje şablonu](xref:spa/angular)
 ### [React proje şablonu](xref:spa/react)
 ### [Redux ile React proje şablonu](xref:spa/react-with-redux)
