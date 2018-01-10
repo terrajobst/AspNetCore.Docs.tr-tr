@@ -558,7 +558,7 @@ Bu görevde, masaüstü düzeni görünüm değiştirici içerecek şekilde gün
     ![Masaüstü görünümünde çizilir değiştirici görüntülemek](whats-new-in-aspnet-mvc-4/_static/image32.png "Masaüstü görünümünde işlenmiş görünüm değiştirici")
 
     *Masaüstü görünümünde işlenmiş görünüm değiştirici*
-7. Yeniden mobil görünümüne geçin ve göz **hakkında** sayfa (http://localhost [bağlantı noktası] / Home / hakkında). About.Mobile.cshtml görünüm oluşturmadınız olsa bile hakkında sayfa mobil düzenini kullanarak görüntülendiğini fark (\_Layout.Mobile.cshtml).
+7. Yeniden mobil görünümüne geçin ve göz **hakkında** sayfa (http://localhost[bağlantınoktası]/Home/hakkında). About.Mobile.cshtml görünüm oluşturmadınız olsa bile hakkında sayfa mobil düzenini kullanarak görüntülendiğini fark (\_Layout.Mobile.cshtml).
 
     ![Sayfayla ilgili](whats-new-in-aspnet-mvc-4/_static/image33.png "sayfa hakkında")
 

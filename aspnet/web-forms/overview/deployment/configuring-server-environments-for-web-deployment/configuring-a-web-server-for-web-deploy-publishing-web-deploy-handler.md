@@ -108,7 +108,7 @@ Bu durumda, bunları yüklemeniz gerekir:
 9. İçinde **Web dağıtım aracı 2.1** satır, tıklatın **Ekle**.
 10. İçinde **IIS: temel kimlik doğrulaması** satır, tıklatın **Ekle**.
 11. İçinde **IIS: Yönetim hizmeti** satır, tıklatın **Ekle**.
-12. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri & #x 2014; herhangi bir ilişkili bağımlılıkları & #x 2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
+12. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Lisans koşullarını gözden geçirin ve koşullarını kabul ederseniz tıklayın **kabul ediyorum**.
@@ -232,11 +232,11 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
     > [!NOTE]
     > Örnek çözümü .NET Framework 4.0 gerektirir. Bu gereksinim Web dağıtımı için genel değil.
 
-İçerik sunmak Web siteniz için sırada uygulama havuzu kimliği içeriği depolayan yerel klasör üzerinde Okuma izinleriniz olmalıdır. IIS 7.5 uygulama havuzları (aksine, IIS uygulama havuzları genellikle ağ hizmeti hesabını kullanarak çalıştırdığı, önceki sürümler) varsayılan olarak benzersiz uygulama havuzu kimliği ile çalıştırın. Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar & #x 2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği yerel eklenir **IIS\_IUSRS** gizli bir öğe olarak güvenlik grubu.
+İçerik sunmak Web siteniz için sırada uygulama havuzu kimliği içeriği depolayan yerel klasör üzerinde Okuma izinleriniz olmalıdır. IIS 7.5 uygulama havuzları (aksine, IIS uygulama havuzları genellikle ağ hizmeti hesabını kullanarak çalıştırdığı, önceki sürümler) varsayılan olarak benzersiz uygulama havuzu kimliği ile çalıştırın. Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar &#x2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği yerel eklenir **IIS\_IUSRS** gizli bir öğe olarak güvenlik grubu.
 
 Bir uygulama havuzu kimliği bir dosya veya klasör izinleri vermek için iki seçeneğiniz vardır:
 
-- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. **IIS AppPool\***[uygulama havuzu adı] * (örneğin, **IIS AppPool\DemoSite**).
+- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. **IIS AppPool\***[uygulama havuzu adı]*(örneğin, **IIS AppPool\DemoSite**).
 - İzinleri atayın **IIS\_IUSRS** grubu.
 
 Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda olduğundan bu yaklaşım, dosya sistemi izinleri yapılandırmadan uygulama havuzları değiştirmenize olanak sağlar. Sonraki yordamda bu grup tabanlı yaklaşımı kullanır.
