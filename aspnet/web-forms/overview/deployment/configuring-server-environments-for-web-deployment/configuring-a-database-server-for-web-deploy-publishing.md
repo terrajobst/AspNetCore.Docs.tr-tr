@@ -130,7 +130,7 @@ SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak traf
 
 ## <a name="configure-logins-and-database-permissions"></a>Oturumu yapılandırmak ve veritabanı izinleri
 
-Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun *[etki alanı adı]***\***[makine adı] ***$**& #x 2014; Örneğin, **FABRIKAM\ TESTWEB1$**. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
+Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun *[etki alanı adı]***\***[makine adı]***$**&#x2014;Örneğin, **FABRIKAM\ TESTWEB1$**. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
 
 - Web sunucusunun makine hesabı için oturum açma SQL Server örneğine ekleyin.
 - Makine hesabı oturum açma için herhangi bir gereken veritabanı rol eşleme (genellikle **db\_datareader** ve **db\_datawriter**).

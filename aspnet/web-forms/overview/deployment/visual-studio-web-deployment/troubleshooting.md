@@ -292,8 +292,8 @@ Kod ilk veritabanı ancak uygulama oluşturmak çalışıyor\_veri klasörü yok
 
 Başarıyla silinmiş uygulamanızı dağıtmak için tek tıklamayla yayımlama ve sonra bu hatayı almaya başlayın:
 
-Web dağıtım görevi başarısız oldu. ('Https://serverurl.com/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.)  
- 'Https://url/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.  
+Web dağıtım görevi başarısız oldu. ('https://serverurl.com/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.)  
+ 'https://url/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.  
 İstek iptal edildi: istek iptal edildi.  
 Temel alınan kendi RCW ayrılmış COM nesnesi kullanılamaz.
 

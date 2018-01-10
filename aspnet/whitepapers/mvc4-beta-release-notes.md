@@ -280,7 +280,7 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekl
     Derleme bağlama öğesi değiştirilmiş web.config dosyasında aşağıdaki gibi görünmelidir:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **Visual Basic projeleri "Denetleyici Ekle" öğesini şablonunda çağrıldığında yanlış bir ad alanı oluşturur *** gelen bir alanı içinde.** Visual Basic kullanan ASP.NET MVC projesindeki bir alan için bir denetleyici eklediğinizde öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde sonuç "dosya bulunamadı" hatası verilir.  
+- **Visual Basic projeleri "Denetleyici Ekle" öğesini şablonunda çağrıldığında yanlış bir ad alanı oluşturur****gelen bir alanı içinde.** Visual Basic kullanan ASP.NET MVC projesindeki bir alan için bir denetleyici eklediğinizde öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde sonuç "dosya bulunamadı" hatası verilir.  
   
  Oluşturulan ad alanı her şeyi kök ad alanı sonra atlar. Örneğin, oluşturulan ad alanıdır *RootNamespace* olmalıdır, ancak *RootNamespace.Areas.AreaName.Controllers* .
 - **Razor görüntüleme Altyapısı'deki son değişiklikler.** Yeniden yazımı Razor ayrıştırıcısı, bir parçası olarak, aşağıdaki türlerden sıradan kaldırıldığını *System.Web.Mvc.Razor*: 

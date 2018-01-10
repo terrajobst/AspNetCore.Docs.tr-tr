@@ -333,7 +333,7 @@ services.AddAntiforgery(options =>
 |requireSsl    | SSL antiforgery sistem tarafından gerekip gerekmediğini belirtir. Varsayılan olarak `false`. Varsa `true`, SSL olmayan istekleri başarısız olur. |
 |SuppressXFrameOptionsHeader  | Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` üstbilgi. Varsayılan olarak, "SAMEORIGIN" değerine sahip üstbilgi oluşturulur. Varsayılan olarak `false`. |
 
-Https://docs.microsoft.com/ASPNET/Core/api/Microsoft.aspnetcore.Builder.cookieauthenticationoptions daha fazla bilgi için bkz.
+https://docs.microsoft.com/ASPNET/Core/api/Microsoft.aspnetcore.Builder.cookieauthenticationoptions daha fazla bilgi için bkz.
 
 ### <a name="extending-antiforgery"></a>Antiforgery genişletme
 
