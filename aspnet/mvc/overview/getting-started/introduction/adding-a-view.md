@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -31,7 +31,7 @@ Görünüm şablonu kullanarak bir dosyaya oluşturacaksınız [Razor görüntü
 
 `Index` Yukarıdaki yöntemi tarayıcıya bir HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerine (olarak da bilinen [eylem yöntemleri](http://rachelappel.com/asp.net-mvc-actionresults-explained)), gibi `Index` yukarıdaki genellikle döndürme bir [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (veya türetilmiş bir sınıf [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), olmayan ilkel türler, string ister.
 
-Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 (düzeni Razor) olan görünüm sayfası**.
+Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 Düzen (Razor) olan görünüm sayfası**.
   
 ![](adding-a-view/_static/image1.png)   
   
