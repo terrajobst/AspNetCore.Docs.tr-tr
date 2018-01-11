@@ -281,7 +281,7 @@ Bazı dış kimlik doğrulama sağlayıcıları gibi bir HTTP adresi kullanarak 
         <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. FQDN uygulamanıza eklemek için aşağıdaki komutu yazın:
 
-        <kbd>appcmd.exe set config-section:system.applicationHost/sites / +&quot;[ad = 'WebApplication1'] .bindings. [ Protokol = 'http', Bindingınformation ='*:80:www.wingtiptoys.com'] &quot; /Commit: APPHOST</kbd>
+        <kbd>appcmd.exe set config-section:system.applicationHost/sites /+&quot;[ad='WebApplication1'].bindings.[Protokol='http',Bindingınformation='*:80:www.wingtiptoys.com']&quot; /Commit:APPHOST</kbd>
 
  Burada **WebApplication1** projenizi adıdır ve **Bindingınformation** , test için kullanmak istediğiniz bağlantı noktası numarası ve FQDN içerir.
 

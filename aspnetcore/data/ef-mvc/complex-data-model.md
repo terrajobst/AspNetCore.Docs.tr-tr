@@ -352,7 +352,7 @@ Aşağıdaki çizimde, bu tür bir varlık şemada nasıl göründüğünü gös
 
 ![Öğrenci indirmelere çoklu ilişki çok](complex-data-model/_static/student-course.png)
 
-Her ilişki ucu ve bir yıldız işareti (*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
+Her ilişki ucu ve bir yıldız işareti (/*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
 
 Kayıt tablo düzeyde bilgi eklemediyseniz, yalnızca iki yabancı anahtarları CourseID ve StudentID içerecek şekilde gerekir. Bu durumda, bir çok-çok birleştirme tablo yükü olmadan (veya bir saf birleştirme tablo) veritabanında olacaktır. Eğitmen ve indirmelere varlıkları bu tür bir çok-çok ilişkisi vardır ve sonraki adımınız yükü olmadan birleştirme tablosu olarak çalışması için bir varlık sınıfı oluşturmaktır.
 
