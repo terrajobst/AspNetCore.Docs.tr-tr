@@ -11,11 +11,11 @@ ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: 04dee100dff91f7868175ff4be01156787e13e81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
 
@@ -79,11 +79,11 @@ ASP.NET Core için ters proxy IIS veya IIS Express kullandığınızda, ASP.NET 
 
 ### <a name="nginx-with-kestrel"></a>Nginx Kestrel ile
 
-Nginx Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Linux üretim ortamına yayınlama](../../publishing/linuxproduction.md).
+Nginx Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Nginx ile Linux konakta](xref:host-and-deploy/linux-nginx).
 
 ### <a name="apache-with-kestrel"></a>Kestrel Apache
 
-Apache Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [kullanarak Apache Web sunucusuna ters Ara sunucu](../../publishing/apache-proxy.md).
+Apache Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Linux Apache ile konakta](xref:host-and-deploy/linux-apache).
 
 ## <a name="httpsys"></a>HTTP.sys
 
@@ -131,16 +131,16 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Kestrel](kestrel.md)
 - [IIS ile kestrel](aspnet-core-module.md)
-- [Kestrel Nginx ile](../../publishing/linuxproduction.md)
-- [Apache ile kestrel](../../publishing/apache-proxy.md)
+- [Nginx ile Linux’ta barındırma](xref:host-and-deploy/linux-nginx)
+- [Apache ile Linux’ta barındırma](xref:host-and-deploy/linux-apache)
 - [HTTP.sys](httpsys.md)
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
 
 - [Kestrel](kestrel.md)
 - [IIS ile kestrel](aspnet-core-module.md)
-- [Kestrel Nginx ile](../../publishing/linuxproduction.md)
-- [Apache ile kestrel](../../publishing/apache-proxy.md)
+- [Nginx ile Linux’ta barındırma](xref:host-and-deploy/linux-nginx)
+- [Apache ile Linux’ta barındırma](xref:host-and-deploy/linux-apache)
 - [WebListener](weblistener.md)
 
 ---

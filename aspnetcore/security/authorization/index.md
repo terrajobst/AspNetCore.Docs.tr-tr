@@ -11,15 +11,17 @@ ms.assetid: 1abd456b-2199-4ba3-9698-3241e0bd4afc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/index
-ms.openlocfilehash: d74254c8f2cc3ee55f6842f9f952d7ab93fe7a03
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 13b4e1db7e3ae73a0cba49d214c5ffdb31601e5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>ASP.NET Core yetkilendirme: basit, rol, talep tabanlı ve özel
 
 * [Giriş](introduction.md)
+
+* [Razor Sayfaları yetkilendirmesi](xref:security/authorization/razor-pages-authorization)
 
 * [Basit yetkilendirme](simple.md)
 
@@ -27,12 +29,12 @@ ms.lasthandoff: 12/15/2017
 
 * [Talep tabanlı yetkilendirme](claims.md)
 
-* [Özel ilke tabanlı yetkilendirme](policies.md)
+* [İlke tabanlı bir yetkilendirme](policies.md)
 
 * [Gereksinim işleyiciler bağımlılık ekleme](dependencyinjection.md)
 
-* [Kaynak tabanlı bir yetkilendirme](resourcebased.md)
+* [Kaynak tabanlı yetkilendirme](resourcebased.md)
 
-* [Görünüm tabanlı bir yetkilendirme](views.md)
+* [Görünüm tabanlı yetkilendirme](views.md)
 
-* [Kimlik düzeni tarafından sınırlama](limitingidentitybyscheme.md)
+* [Şemayla kimliği sınırlama](limitingidentitybyscheme.md)

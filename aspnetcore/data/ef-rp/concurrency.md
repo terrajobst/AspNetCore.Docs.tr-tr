@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 en-us /
 
@@ -302,7 +302,7 @@ Tarayıcı değiştirilen değeri ve güncelleştirilmiş rowVersion göstergesi
 
 Test departmanı ikinci sekmesinden silin. Bir eşzamanlılık hatası DB'den geçerli değerlerle görüntülenir. Tıklatarak **silmek** sürece varlığı silen `RowVersion` updated.department silinmiş olmuştur.
 
-Bkz: [devralma](xref:data/ef-mvc/inheritance) devralma veri modelindeki nasıl yönerge için.
+Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 

@@ -10,24 +10,24 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/index
-ms.openlocfilehash: 4c653d83569bcd218710ad276e154c6b8f89963c
-ms.sourcegitcommit: 747a7fddf7a4c7ef5f3e2a0912c411ee647ee203
+ms.openlocfilehash: 955634b9c3d207a7b0026de76e37b527607f4775
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="migration-to-aspnet-core-including-aspnet-4x-aspnet-core-2"></a>ASP.NET Core ASP.NET dahil olmak üzere, geçiş 4.x, ASP.NET Core 2
 
 ### <a name="aspnet-to-aspnet-core-1x"></a>ASP.NET için ASP.NET 1.x çekirdek
 *   [ASP.NET MVC ASP.NET Core MVC geçirme](xref:migration/mvc)
-*   [Geçirme yapılandırma](xref:migration/configuration)
-*   [Geçirme kimlik doğrulama ve kimlik](xref:migration/identity)
+*   [Yapılandırmasını geçir](xref:migration/configuration)
+*   [Kimlik doğrulama ve kimlik geçirme](xref:migration/identity)
 *   [ASP.NET Web API geçirme](xref:migration/webapi)
-*   [Ara yazılım için geçirme HTTP modülleri](xref:migration/http-modules)
+*   [HTTP modülleri Ara geçirme](xref:migration/http-modules)
 
 ### <a name="aspnet-to-aspnet-core-20"></a>ASP.NET için ASP.NET Core 2.0
-* [ASP.NET için ASP.NET Core 2.0](xref:migration/proper-to-2x/index)
+* [ASP.NET’ten ASP.NET Core 2.0 sürümüne](xref:migration/proper-to-2x/index)
 
 ### <a name="aspnet-core-1x-to-20"></a>ASP.NET 2.0 1.x çekirdek
-*   [ASP.NET çekirdek geçirme 1.x 2.0](xref:migration/1x-to-2x/index)
-*   [Geçirme kimlik doğrulama ve kimlik](xref:migration/1x-to-2x/identity-2x)
+*   [ASP.NET çekirdek geçirmek 1.x 2.0](xref:migration/1x-to-2x/index)
+*   [Kimlik doğrulama ve kimlik geçirme](xref:migration/1x-to-2x/identity-2x)

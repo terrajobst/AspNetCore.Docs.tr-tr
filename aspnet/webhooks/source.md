@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
 ms.technology: 
 ms.prod: .net-framework
-ms.openlocfilehash: ab5eaaa32a8f678b2aa4e2a0b30b674dbd6d6e9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 733a0839c77bcfc96214bdf235ce8fe22ee2d3cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a>ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri
 
@@ -22,11 +22,9 @@ Microsoft ASP.NET WebHooks modülleri Microsoft ASP.NET ailesinin bir parçasıd
 
 Okumakta olduğunuz bu çevrimiçi belgeleri şimdi de olarak barındırılan [github'da açık kaynaklı](http://docs.asp.net/en/latest/contribute/style-guide.html#style-guide) ve ayrıca Katkıları kabul eder.
 
-## <a name="nuget-packages"></a>Nuget paketleri
+## <a name="nuget-packages"></a>NuGet paketleri
 
-Microsoft ASP.NET WebHooks, ayrıca bunları görmek için Visual Studio'da Önizleme bayrağı seçilecek olduğu anlamına gelir Nuget paketlerini önizleme olarak kullanılabilir.
-
-[Nuget paketlerini](https://nuget.org/packages?q=Microsoft.AspNet.WebHooks) üç bölüme devided:
+[NuGet paketlerini](https://nuget.org/packages?q=Microsoft.AspNet.WebHooks) üç bölüme ayrılır:
 
 * [Ortak](https://www.nuget.org/packages?q=Microsoft.AspNet.WebHooks.Common): göndericiler ile alıcılar arasında paylaşılan ortak bir paket.
 

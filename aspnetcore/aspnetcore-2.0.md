@@ -11,11 +11,11 @@ ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 98af3788652e87f6222551cb4a8e5427b312660c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f01f047f809e4eaa055a4204611b152c5db87f74
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 
@@ -28,7 +28,7 @@ Razor sayfalarının sayfa odaklı senaryoları daha kolay ve daha üretken kodl
 Daha fazla bilgi için bkz: giriş ve öğretici:
 
 * [Razor sayfalarının giriş](xref:mvc/razor-pages/index)
-* [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>ASP.NET Core metapackage
 
@@ -142,7 +142,7 @@ C# 7.1 özellikleri durumu hakkında daha fazla bilgi için bkz: [Roslyn GitHub 
 
 ## <a name="other-documentation-updates-for-20"></a>Diğer belge güncelleştirmeleri 2.0
 
-* [Oluşturma yayımlama profillerini Visual Studio ve MSBuild, ASP.NET Core uygulamaları dağıtmak](xref:publishing/web-publishing-vs)
+* [Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Anahtar Yönetimi](xref:security/data-protection/implementation/key-management)
 * [Facebook kimlik doğrulamasını yapılandırma](xref:security/authentication/facebook-logins)
 * [Twitter kimlik doğrulamasını yapılandırma](xref:security/authentication/twitter-logins)

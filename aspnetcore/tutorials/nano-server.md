@@ -11,11 +11,11 @@ ms.assetid: 50922cf1-ca58-4006-9236-99b7ff2dd0cf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/nano-server
-ms.openlocfilehash: 337cc69ef522452c17cdd6ea4a5e71cd122035dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30e911703d5c36d076872f91d4b2fafeefb91f5
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Nano Server IIS ile ASP.NET Çekirdeği
 
@@ -37,7 +37,7 @@ Nano Server denemeniz için kolay üç yolu vardır. Ne zaman MS hesabınızla o
 
 Bu öğreticide, biz 2 seçeneği, Windows Server 2016 önceden derlenmiş Nano Server VHD'den kullanacak.
 
-Bu öğretici ile devam etmeden önce ihtiyacınız olacak [çıkış yayımlanan](xref:hosting/directory-structure) mevcut bir ASP.NET Core uygulama. Uygulamanızı çalıştırmak için oluşturulan olun bir **64-bit** işlemi.
+Bu öğretici ile devam etmeden önce ihtiyacınız olacak [çıkış yayımlanan](xref:host-and-deploy/directory-structure) mevcut bir ASP.NET Core uygulama. Uygulamanızı çalıştırmak için oluşturulan olun bir **64-bit** işlemi.
 
 ## <a name="setting-up-the-nano-server-instance"></a>Nano Server örneği ayarlama
 
@@ -191,7 +191,7 @@ Nasıl örnek bir *web.config* varsa görünebilir *dotnet.exe* olan **değil** 
 </configuration>
 ```
 
-Yeni bir site varsayılan Web sitesi'den farklı bir bağlantı noktasında yayımlanan uygulama için IIS oluşturmak üzere uzak oturumunda aşağıdaki komutları çalıştırın. Ayrıca web erişimi için bu bağlantı noktasını açmanız gerekir. Bu komut dosyası kullanan `DefaultAppPool` basitleştirmek için. Çalışan bir uygulama havuzunun altında hakkında daha fazla konuları için bkz: [uygulama havuzları](xref:publishing/iis#application-pools).
+Yeni bir site varsayılan Web sitesi'den farklı bir bağlantı noktasında yayımlanan uygulama için IIS oluşturmak üzere uzak oturumunda aşağıdaki komutları çalıştırın. Ayrıca web erişimi için bu bağlantı noktasını açmanız gerekir. Bu komut dosyası kullanan `DefaultAppPool` basitleştirmek için. Çalışan bir uygulama havuzunun altında hakkında daha fazla konuları için bkz: [uygulama havuzları](xref:host-and-deploy/iis/index#application-pools).
 
 ```PowerShell
 Import-module IISAdministration
@@ -205,4 +205,4 @@ New-NetFirewallRule -Name "AspNetCore Port 81 IIS" -DisplayName "Allow HTTP on T
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
-Yayımlanan web uygulaması bir tarayıcı içinde erişilebilir durumda `http://192.168.1.10:8000`. Günlük açıklandığı şekilde ayarladıysanız [günlük oluşturma ve yeniden yönlendirme](xref:hosting/aspnet-core-module#log-creation-and-redirection), günlüklerinizi adresindeki görüntüleyebilirsiniz *C:\PublishedApps\AspNetCoreSampleForNano\logs*.
+Yayımlanan web uygulaması bir tarayıcı içinde erişilebilir durumda `http://192.168.1.10:8000`. Günlük açıklandığı şekilde ayarladıysanız [günlük oluşturma ve yeniden yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection), günlüklerinizi adresindeki görüntüleyebilirsiniz *C:\PublishedApps\AspNetCoreSampleForNano\logs*.

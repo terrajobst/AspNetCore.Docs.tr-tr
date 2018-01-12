@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 12685d6a391c127d78399408291c26caa0192ee2
-ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
+ms.openlocfilehash: 4643665d48ca07ff43ce52064291fc106bd5c8ac
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında kullanmaya başlama
 
@@ -41,10 +41,7 @@ Bu öğretici için üç sürümü vardır:
   ![Yeni ASP.NET çekirdek Web uygulaması](../../mvc/razor-pages/index/_static/np.png)
 * Seçin **ASP.NET Core 2.0** açılır ve ardından **Web uygulaması**.
 
-> [!NOTE]
-> .NET Framework üzerinde ASP.NET Core kullanmak istiyorsanız, önce seçmelisiniz **.NET Framework** soldaki aşağı açılır listeden iletişim kutusunda, ardından istediğiniz ASP.NET Core sürümü seçebilirsiniz.
-
-  ![Web uygulaması (Razor sayfalarının)](razor-pages-start/_static/np2.png)
+  [!INCLUDE[install 2.0](../../includes/dotnetcore-on-dotnetfx-vs.md)]
 
 Visual Studio şablon bir başlangıç projesi oluşturur:
 
@@ -58,6 +55,9 @@ Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırmak için veya **C
 * Uygulama başlatma **Ctrl + F5** (olmayan hata ayıklama modu), kod değişiklikleri yapabilir, dosyayı kaydedin, tarayıcıyı yenilemek ve kod değişiklikleri görmek olanak sağlar. Çoğu geliştirici, hızlı bir şekilde uygulamayı başlatın ve değişiklikleri görmek için olmayan hata ayıklama modu kullanmayı tercih eder.
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+
+>[!div class="step-by-step"]
+[Sonraki: bir modeli ekleme](xref:tutorials/razor-pages/model)
 
 >[!div class="step-by-step"]
 [Sonraki: bir modeli ekleme](xref:tutorials/razor-pages/model)

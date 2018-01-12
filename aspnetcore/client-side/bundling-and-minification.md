@@ -5,17 +5,17 @@ description: "Paketleme ve küçültme teknikleri uygulayarak bir ASP.NET Core w
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/01/2017
+ms.date: 01/10/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="bundling-and-minification"></a>Paketleme ve küçültme
 
@@ -75,7 +75,7 @@ MVC ve Razor sayfalarının proje şablonları sağlayan bir *bundleconfig.json*
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-Paket Seçenekler şunlardır:
+Yapılandırma seçenekleri şunlardır:
 
 * `outputFileName`: Çıkış için paket dosyasının adı. Bir göreli yolu içerebilir *bundleconfig.json* dosya. **Gerekli**
 * `inputFiles`: Birlikte paketlemektir dosyaları dizisi. Bu yapılandırma dosyasının göreli yollardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş bir değer sonuçlanır. [genelleme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenleri desteklenir.
@@ -91,6 +91,9 @@ Paket Seçenekler şunlardır:
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Derleme zamanı yürütülmesi paketleme ve küçültme
 
 [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet paketi, paketleme, yürütme ve küçültme derleme zamanında sağlar. Paket yerleştirir [MSBuild hedefleri](/visualstudio/msbuild/msbuild-targets) yapı ve temiz saatte çalıştırın. *Bundleconfig.json* tanımlanan yapılandırmasını temel alarak çıktı dosyaları üretmek için derleme süreci tarafından dosya analiz.
+
+> [!NOTE]
+> Microsoft destek sağlayan GitHub topluluk odaklı bir projede BuildBundlerMinifier ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
@@ -119,7 +122,7 @@ Projeyi temizleyin. Çıktı penceresinde görünür:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 Ekleme *BuildBundlerMinifier* projenize paketi:
 
@@ -175,6 +178,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Proje derleme olmadan bir geçici temelinde paketleme ve küçültme görevleri çalıştırmak mümkündür. Ekleme [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) NuGet paketini projenize:
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
+
+> [!NOTE]
+> Microsoft destek sağlayan GitHub topluluk odaklı bir projede BundlerMinifier.Core ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
 Bu paket dahil etmek için .NET Core CLI genişletir *dotnet paket* aracı. Aşağıdaki komut, Paket Yöneticisi Konsolu (PMC) penceresinde veya bir komut kabuğu çalıştırılabilir:
 
@@ -243,6 +249,9 @@ Bir uygulamanın paketleme ve küçültme iş akışı ek işlem gerektiren duru
 ### <a name="use-the-bundler--minifier-extension"></a>Paketleyici & küçültücü uzantısı kullanma
 
 Visual Studio [Paketleyici & küçültücü](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) uzantısını Gulp dönüştürme işler.
+
+> [!NOTE]
+> Microsoft destek sağlayan GitHub topluluk odaklı bir projede Paketleyici & küçültücü uzantısı ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
 Sağ *bundleconfig.json* dosya Çözüm Gezgini'nde ve seçin **Paketleyici & küçültücü** > **dönüştürmek için Gulp...** :
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6281d6ba254670b111964715410fc0694ae4d149
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: b662e66ab5b4c46d1a8d10eb7c38bf4064b5b927
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
 
@@ -375,7 +375,7 @@ Left: 1988
 
 ## <a name="the-webconfig-file"></a>Web.config dosyası
 
-A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığınızda gereklidir. *Web.config* uygulamanızı başlatma IIS'de AspNetCoreModule açar. Ayarlarında *web.config* uygulamanızı başlatın ve diğer IIS ayarlarını ve modülleri yapılandırmak için IIS'de AspNetCoreModule etkinleştirin. Visual Studio kullanarak ve silerseniz *web.config*, Visual Studio yeni bir tane oluşturur.
+A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında gereklidir. Ayarlarında *web.config* etkinleştirmek [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) uygulamayı başlatın ve diğer IIS ayarlarını ve modülleri yapılandırmak için. Varsa *web.config* dosyası mevcut değil ve proje dosyasını içeren `<Project Sdk="Microsoft.NET.Sdk.Web">`, projeyi yayımlama oluşturur bir *web.config* yayımlanan çıktı dosyasında ( *Yayımlama* klasörü). Daha fazla bilgi için bkz: [konak ASP.NET Core IIS ile Windows](xref:host-and-deploy/iis/index#webconfig).
 
 ## <a name="additional-notes"></a>Ek Notlar
 
@@ -389,7 +389,7 @@ A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığınızd
 
 * [Seçenekler](xref:fundamentals/configuration/options)
 * [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
-* [Geliştirme sırasında uygulama sırrı güvenli depolama](xref:security/app-secrets)
+* [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
 * [ASP.NET çekirdek barındırma](xref:fundamentals/hosting)
 * [Bağımlılık ekleme](xref:fundamentals/dependency-injection)
-* [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration)
+* [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)

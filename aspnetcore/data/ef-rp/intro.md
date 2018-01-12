@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
-ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
+ms.openlocfilehash: 86f9eceb5b8646e371811fa4611a4509ff652231
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 
@@ -71,7 +71,7 @@ Açık *Pages/_Layout.cshtml* ve aşağıdaki değişiklikleri yapın:
 
 * Menü girişlerini eklemek **Öğrenciler**, **kurslar**, **Eğitmen**, ve **Departmanlar**ve silme **kişi** menü girişi.
 
-Değişiklikler vurgulanır.
+Değişiklikler vurgulanır. (Tüm biçimlendirme *değil* görüntülenir.)
 
 [!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-38,47&range=1-50)]
 

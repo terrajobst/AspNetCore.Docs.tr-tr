@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: dde0b5673c9885db2fecbb24b384752e5ddf70eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -245,7 +245,7 @@ A `StreamReader` kurallardan okumak için kullanılan *IISUrlRewrite.xml* kurall
 
 ![Geliştirici Araçları istek ve yanıt izleme ile bir tarayıcı penceresi](url-rewriting/_static/add_iis_url_rewrite.png)
 
-Uygulamanızı istenmeyen şekilde etkileyebilecek yapılandırılmış sunucu düzeyi kurallarıyla etkin bir IIS yeniden yazma modülü varsa, IIS yeniden yazma modülü bir uygulama için devre dışı bırakabilirsiniz. Daha fazla bilgi için bkz: [devre dışı bırakma IIS modüllerini](xref:hosting/iis-modules#disabling-iis-modules).
+Uygulamanızı istenmeyen şekilde etkileyebilecek yapılandırılmış sunucu düzeyi kurallarıyla etkin bir IIS yeniden yazma modülü varsa, IIS yeniden yazma modülü bir uygulama için devre dışı bırakabilirsiniz. Daha fazla bilgi için bkz: [devre dışı bırakma IIS modüllerini](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 #### <a name="unsupported-features"></a>Desteklenmeyen özellikler
 
@@ -376,8 +376,8 @@ Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak iç
 | URL kesimi Değiştir | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Uygulama başlatma](startup.md)
-* [Ara yazılım](middleware.md)
+* [Uygulama Başlatma](startup.md)
+* [Ara Yazılım](middleware.md)
 * [.NET normal ifadeler](/dotnet/articles/standard/base-types/regular-expressions)
 * [Normal ifade dili - hızlı başvuru](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: üretime dağıtma
 ====================
@@ -42,7 +42,7 @@ Zaten bir Azure hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bi
 ## <a name="create-a-staging-environment"></a>Hazırlama ortamını oluşturma
 
 > [!NOTE]
-> Bu öğretici yazıldı olduğundan, Azure App Service birçok hazırlama ve üretim ortamlarını sahip geçici işlemleri otomatikleştirmek için yeni bir özellik eklemiştir. Bkz: [hazırlık Azure App Service'deki web uygulamaları için ortamları ayarlama](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+> Bu öğretici yazıldı olduğundan, Azure App Service birçok hazırlama ve üretim ortamları oluşturma işlemleri otomatikleştirmek için yeni bir özellik eklemiştir. Bkz: [hazırlık Azure App Service'deki web uygulamaları için ortamları ayarlama](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
 
 İçinde anlatıldığı gibi [Test Ortamı öğretici Dağıt](deploying-to-iis.md), en güvenilir test ortamıdır üretim web sitesi gibi sahip barındırma sağlayıcısında bir web sitesi. Birçok barındırma sağlayıcılarının avantajları bu önemli ek maliyet karşı tartmanız gerekir, ancak Azure'da hazırlama uygulamanızı ek boş web uygulaması oluşturabilirsiniz. Ayrıca bir veritabanınızın olması gerekir ve söz konusu ek gider üretim veritabanınız gider üzerinden ya da hiçbiri olur veya en az. Azure'da kullandığınız veritabanı depolama miktarı yerine her veritabanı için ödeme ve hazırlamada kullanacağınız ek depolama alanı miktarı en az olur.
@@ -134,8 +134,7 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduğunuza g�
     Bağlantı doğrulandığında yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi.
 
     ' I tıklattığınızda bazı barındırma hizmeti sağlayıcıları için **bağlantıyı doğrula**, görebilirsiniz bir **sertifika hatası** iletişim kutusu. Bunu yaparsanız, sunucu adını beklediğiniz olduğunu doğrulayın. Sunucu adı doğruysa, seçin **bu sertifikayı gelecekteki Visual Studio oturumları için Kaydet** tıklatıp **kabul**. (Bu hata barındırma sağlayıcısı dağıttığınız URL'si için bir SSL sertifikası satın alma gider önlemek seçtiği anlamına gelir. Geçerli bir sertifika kullanarak güvenli bir bağlantı kurmayı tercih ederseniz, barındırma sağlayıcınızla bağlantı kurun.)
-6. 
-              **İleri**'ye tıklayın.
+6. **İleri**'ye tıklayın.
 
     ![Bağlantı başarılı simgesi ve bağlantı sekmesinde İleri düğmesi](deploying-to-production/_static/image8.png)
 7. İçinde **ayarları** sekmesinde, genişletin **dosya yayımlama seçeneği**ve ardından **uygulamadan dosyaları dışlama\_veri klasörü**.

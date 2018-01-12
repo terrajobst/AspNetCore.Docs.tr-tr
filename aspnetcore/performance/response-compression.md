@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 68e8c89f6e5485f25d1a551ab3e524f0e9c53d0d
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET Core için yanıt sıkıştırma Ara
 
@@ -187,7 +187,7 @@ Yanıtları sıkıştırma zaman temel `Accept-Encoding` üstbilgisi, büyük ol
 Bir istek Nginx tarafından yönlendirilirken olduğunda `Accept-Encoding` üstbilgi kaldırılır. Bu ara yazılımın yanıt sıkıştırmasını önler. Daha fazla bilgi için bkz: [NGINX: sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [nginx (BasicMiddleware #123) için geçiş sıkıştırması tahmin](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS dinamik sıkıştırma ile çalışma
-Bir etkin IIS dinamik sıkıştırma bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapılandırılan modülü varsa, ek olarak ile bunu yapabilirsiniz, *web.config* dosya. Daha fazla bilgi için bkz: [devre dışı bırakma IIS modüllerini](xref:hosting/iis-modules#disabling-iis-modules).
+Bir etkin IIS dinamik sıkıştırma bir uygulama için devre dışı bırakmak istediğiniz sunucu düzeyinde yapılandırılan modülü varsa, ek olarak ile bunu yapabilirsiniz, *web.config* dosya. Daha fazla bilgi için bkz: [devre dışı bırakma IIS modüllerini](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/), ayarlama izin `Accept-Encoding` isteği başlığı ve yanıt üstbilgileri, boyutu ve gövde araştırmak. Yanıt sıkıştırma Ara aşağıdaki koşullara uyan yanıtları sıkıştırır:

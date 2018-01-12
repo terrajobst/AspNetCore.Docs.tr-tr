@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 3a18ed30819a3d395e9bfb5dba0547667a4425e8
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 5d8e9a72a3b69866f5a4f725076e44575d20d64f
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -38,7 +38,7 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * Bulutta kullanıma hazır, ortam tabanlı bir [yapılandırma sistemi](xref:fundamentals/configuration/index).
 * Yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 * Basit, [yüksek performanslı](https://github.com/aspnet/benchmarks) ve modüler bir HTTP istek işlem hattı.
-* [IIS](xref:publishing/iis), [Nginx](xref:publishing/linuxproduction), [Apache](xref:publishing/apache-proxy) ve [Docker](xref:publishing/docker)’da veya kendi işleminizde barındırma olanağı.
+* [IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) ve [Docker](xref:host-and-deploy/docker/index)’da veya kendi işleminizde barındırma olanağı.
 * [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) hedeflenirken yan yana uygulama sürümü oluşturma.
 * Modern web geliştirmeyi basitleştiren araçlar.
 * Windows, macOS ve Linux üzerinde derleyip çalıştırma olanağı.
@@ -48,7 +48,7 @@ ASP.NET Core tamamen [NuGet](https://www.nuget.org/) paketleri olarak sunulur. B
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC kullanarak web API'leri ve web kullanıcı arabirimi oluşturma
 
-ASP.NET Core MVC, [web API’leri](xref:tutorials/index#building-web-apis) ve [web uygulamaları](xref:tutorials/index#building-web-applications) oluşturmaya yönelik özellikler sağlar:
+ASP.NET Core MVC, [web API’leri](xref:tutorials/index#build-web-apis) ve [web uygulamaları](xref:tutorials/index#build-web-apps) oluşturmaya yönelik özellikler sağlar:
 
 * [Model-Görünüm-Denetleyici (MVC) deseni](xref:mvc/overview), web API'lerinin ve web uygulamalarının [sınanabilir](testing/index.md) olmasını sağlamanıza yardımcı olur.
 * [Razor Sayfaları](xref:mvc/razor-pages/index) (ASP.NET Core 2.0 sürümünde yeni), web kullanıcı arabirimi oluşturmayı daha kolay ve üretken bir hale getiren, sayfa tabanlı bir programlama modelidir.

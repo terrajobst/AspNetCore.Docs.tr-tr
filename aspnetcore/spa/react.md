@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 6a0de008979823baae17eb66df2d991300c197f2
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: a63d81633a0f37d24ad5e05de293e3c41004eba1
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>(Sürüm Adayı) tepki proje şablonu kullanın
 
@@ -78,7 +78,7 @@ Geliştirme, uygulama geliştiriciye kolaylık sağlamak için en iyi hale getir
 
 Üretimde, uygulamanızın performansını en iyi duruma getirilmiş sürüm hizmet. Bu, otomatik olarak gerçekleşecek şekilde yapılandırılır. Derleme yapılandırması yayımladığınızda, istemci-tarafı kodunuzu küçültülmüş, transpiled derlemesinde yayar. Geliştirme yapı farklı olarak, üretim yapı Node.js sunucu üzerinde yüklü olmasını gerektirmez.
 
-Standart kullanabilirsiniz [ASP.NET Core yayımlama ve dağıtım yöntemleri](xref:publishing/index).
+Standart kullanabilirsiniz [ASP.NET Core barındırma ve dağıtma yöntemleri](xref:host-and-deploy/index).
 
 ## <a name="run-the-cra-server-independently"></a>CRA sunucunun bağımsız olarak çalıştırın
 

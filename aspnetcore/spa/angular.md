@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: ebe40015cc2e6b5947e844a0ce7db9efd867266b
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Açısal proje şablonu (Sürüm Adayı) kullanın
 
@@ -98,7 +98,7 @@ Geliştirme, uygulama geliştiriciye kolaylık sağlamak için en iyi hale getir
 
 Üretimde, uygulamanızın performansını en iyi duruma getirilmiş sürüm hizmet. Bu, otomatik olarak gerçekleşecek şekilde yapılandırılır. Yayımladığınızda, derleme yapılandırmasını bir küçültülmüş yayar, tamamlanan-in-time (Uygulama Nesne Ağacı), istemci-tarafı kodunuzun yapı derlenmiş. Geliştirme yapı farklı olarak, üretim yapı sunucuya yüklenmesi Node.js gerektirmez (etkinleştirilmiş olduğu sürece [sunucu tarafı prerendering](#server-side-rendering)).
 
-Standart kullanabilirsiniz [ASP.NET Core yayımlama ve dağıtım yöntemleri](xref:publishing/index).
+Standart kullanabilirsiniz [ASP.NET Core barındırma ve dağıtma yöntemleri](xref:host-and-deploy/index).
 
 ## <a name="run-ng-serve-independently"></a>"Ng hizmet vermemesini" bağımsız olarak çalıştırma
 

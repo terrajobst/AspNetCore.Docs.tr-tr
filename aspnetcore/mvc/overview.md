@@ -1,23 +1,23 @@
 ---
-title: "ASP.NET Core MVC genel bakış"
+title: "ASP.NET Core MVC’ye Genel Bakış"
 author: ardalis
 description: "ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın."
-keywords: "ASP.NET Çekirdeği"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/08/2018
 ms.topic: article
 ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC genel bakış
+# <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
@@ -38,7 +38,7 @@ Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uyg
 
 ### <a name="model-responsibilities"></a>Model sorumlulukları
 
-Modelin MVC uygulamasındaki uygulama ve iş mantığı veya tarafından gerçekleştirilmesi gereken işlemleri durumunu temsil eder. İş mantığı modelde uygulama durumunu sürdürmek için tüm uygulama mantığı ile birlikte kapsüllenmiş. Kesin türü belirtilmiş görünümleri genellikle bu görünümde göstermek için verileri içerecek şekilde özel olarak tasarlanmış ViewModel türleri kullanır; Denetleyici oluşturun ve bu ViewModel örnekleri modelden doldurulamadı.
+Modelin MVC uygulamasındaki uygulama ve iş mantığı veya tarafından gerçekleştirilmesi gereken işlemleri durumunu temsil eder. İş mantığı modelde uygulama durumunu sürdürmek için tüm uygulama mantığı ile birlikte kapsüllenmiş. Kesin türü belirtilmiş görünümleri, verileri içerecek şekilde tasarlanmış ViewModel türleri genellikle bu görünümde göstermek için kullanılır. Denetleyici oluşturur ve bu ViewModel örnekler modelden doldurur.
 
 > [!NOTE]
 > MVC tasarım örüntüsü kullanan bir uygulama modelinde düzenlemek için birçok yolu vardır. Bazı hakkında daha fazla bilgi [model türlerinin farklı türde](http://deviq.com/kinds-of-models/).
@@ -69,10 +69,10 @@ ASP.NET Core MVC aşağıdakileri içerir:
 
 * [Yönlendirme](#routing)
 * [Model bağlama](#model-binding)
-* [Model doğrulama](#model-validation)
+* [Model doğrulaması](#model-validation)
 * [Bağımlılık ekleme](../fundamentals/dependency-injection.md)
-* [Filtreleri](#filters)
-* [Alanları](#areas)
+* [Filtreler](#filters)
+* [Alanlar](#areas)
 * [Web API'leri](#web-apis)
 * [Test Edilebilirlik](#testability)
 * [Razor görüntüleme altyapısı](#razor-view-engine)
@@ -142,12 +142,12 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
     {
       // work with the model
     }
-    // If we got this far, something failed, redisplay form
+    // At this point, something failed, redisplay form
     return View(model);
 }
 ```
 
-İstek verileri istemci ve sunucunun doğrulama framework işleyecek. Model türlerinde belirtilen doğrulama mantığını oluşturulmuş görünümler örtük ek açıklamaları olarak eklenir ve tarayıcı ile zorlanır [jQuery doğrulama](https://jqueryvalidation.org/).
+Framework doğrulama isteği verileri istemci ve sunucu işler. Model türlerinde belirtilen doğrulama mantığını oluşturulmuş görünümler örtük ek açıklamaları olarak eklenir ve tarayıcı ile zorlanır [jQuery doğrulama](https://jqueryvalidation.org/).
 
 ### <a name="dependency-injection"></a>Bağımlılık ekleme
 
@@ -181,11 +181,11 @@ Uygulamanızı de kullanabilirsiniz [bağımlılık ekleme görünümünde dosya
 
 ### <a name="areas"></a>Alanları
 
-[Alanları](controllers/areas.md) daha küçük işlevsel gruplamalarda büyük bir ASP.NET Core MVC Web uygulaması bölüm için bir yol sağlar. Etkin bir uygulama içinde bir MVC yapısı alanıdır. MVC projesinde, Model, denetleyici ve görünüm gibi mantıksal bileşenlerin farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için uygulama ayrı yüksek düzey alanlarına işlevlerin bölümlemek için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla checkout, faturalama ve arama vb. gibi birden çok iş birimleri. Her bu birimleri kendi mantıksal bileşen görünümleri, denetleyicileri ve modeli vardır.
+[Alanları](controllers/areas.md) daha küçük işlevsel gruplamalarda büyük bir ASP.NET Core MVC Web uygulaması bölüm için bir yol sağlar. Bir uygulama içinde MVC yapısının bir alandır. MVC projesinde, Model, denetleyici ve görünüm gibi mantıksal bileşenlerin farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için uygulama ayrı yüksek düzey alanlarına işlevlerin bölümlemek için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla checkout, faturalama ve arama vb. gibi birden çok iş birimleri. Her bu birimleri kendi mantıksal bileşen görünümleri, denetleyicileri ve modeli vardır.
 
 ### <a name="web-apis"></a>Web API'leri
 
-Web siteleri oluşturmak için harika bir platform olmaya ek olarak, ASP.NET Core MVC Web API'ları oluşturmak için harika desteğe sahiptir. Tarayıcılar ve mobil cihazlar dahil olmak üzere istemcileri geniş bir yelpazedeki ulaşabilir hizmetler oluşturabilirsiniz.
+Web siteleri oluşturmak için harika bir platform olmaya ek olarak, ASP.NET Core MVC Web API'ları oluşturmak için harika desteğe sahiptir. Tarayıcılar ve mobil cihazlar dahil olmak üzere istemcileri geniş bir yelpazedeki ulaşmak hizmetler oluşturabilirsiniz.
 
 HTTP İçerik anlaşma desteği için yerleşik destek ile framework içeren [veri biçimlendirme](models/formatting.md) JSON veya XML olarak. Yazma [özel biçimlendiricileri](advanced/custom-formatters.md) kendi biçimleri için destek eklemek için.
 
@@ -213,7 +213,7 @@ Tanımlayabilirsiniz Razor görünüm altyapısını kullanarak [düzenleri](vie
 
 MVC Razor görünümleri kesinlikle modelinizi göre yazılabilir. Denetleyicileri kesin türü belirtilmiş bir model türü denetleme ve IntelliSense desteği sağlamak kendi görünümlerinizi etkinleştirme görünümlerine geçirebilirsiniz.
 
-Örneğin, aşağıdaki görünümü türünde bir modeli tanımlayan `IEnumerable<Product>`:
+Örneğin, bir model türü aşağıdaki görünümü işleyen `IEnumerable<Product>`:
 
 ```cshtml
 @model IEnumerable<Product>

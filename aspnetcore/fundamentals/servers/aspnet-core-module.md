@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
-ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
+ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET çekirdeği modülü için giriş
 
@@ -54,7 +54,7 @@ ANCM birkaç diğer işlevleri de vardır:
 
 ## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>ASP.NET Core uygulamaları ANCM kullanma
 
-Bu bölümde, bir IIS sunucusu ve ASP.NET Core uygulama ayarlama işlemine genel bakış sağlar. Ayrıntılı yönergeler için bkz: [IIS yayımlama](../../publishing/iis.md).
+Bu bölümde, bir IIS sunucusu ve ASP.NET Core uygulama ayarlama işlemine genel bakış sağlar. Ayrıntılı yönergeler için bkz: [IIS ile Windows konakta](xref:host-and-deploy/iis/index).
 
 ### <a name="install-ancm"></a>ANCM yükleyin
 
@@ -107,7 +107,7 @@ ASP.NET Core 1.0 çağırırsanız, `UseUrls`, çağrısından **önce** çağı
 
 ### <a name="configure-ancm-options-in-webconfig"></a>Web.config dosyasında ANCM seçeneklerini yapılandırma
 
-ASP.NET çekirdeği modülü için yapılandırması depolanır *Web.config* uygulamanın kök klasöründe yer alan dosya. Noktası başlangıç komut ve ASP.NET Core uygulamanızı başlatmak bağımsız değişkenler için bu dosyadaki ayarlar. Örnek Web.config kod ve yapılandırma seçenekleri hakkında yönergeler için bkz: [ASP.NET temel modül yapılandırma başvurusu](../../hosting/aspnet-core-module.md).
+ASP.NET çekirdeği modülü için yapılandırması depolanır *web.config* uygulamanın kök klasöründe yer alan dosya. Noktası başlangıç komut ve ASP.NET Core uygulamanızı başlatmak bağımsız değişkenler için bu dosyadaki ayarlar. Örnek için *web.config* kod ve yapılandırma seçenekleri hakkında yönergeler bkz [ASP.NET temel modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
 
 ### <a name="run-with-iis-express-in-development"></a>IIS Express ile geliştirme çalıştırın
 
@@ -125,5 +125,5 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Bu makale için örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [ASP.NET çekirdeği modülü kaynak kodu](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET Core modül yapılandırma başvurusu](../../hosting/aspnet-core-module.md)
-* [IIS yayımlama](../../publishing/iis.md)
+* [ASP.NET Core Module Yapılandırma Başvurusu](xref:host-and-deploy/aspnet-core-module)
+* [IIS ile Windows’da barındırma](xref:host-and-deploy/iis/index)
