@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10eb343259b58052fd1f2411dbdc2196eafc858
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 7427b4f7c6b7a00fe795053aac0f612471a163cd
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="adding-a-new-field"></a>Yeni bir alan ekleme
 ====================
@@ -161,7 +161,7 @@ Seed yöntemi güncelleştirin, böylece yeni bir sütun için bir değer sağla
 
 `add-migration` Komutu geçerli film DB şeması geçerli film modeliyle inceleyin ve yeni modele DB geçirmek için gerekli kodu oluşturmak için geçiş framework bildirir. Adı *derecelendirme* rastgeledir ve geçiş dosya adı için kullanılır. Geçiş adımı için anlamlı bir ad kullanmak yararlıdır.
 
-Bu komut sona erdiğinde, Visual Studio yeni tanımlar sınıfı dosyasını açar `DbMIgration` türetilmiş sınıf hem de `Up` yöntemi yeni bir sütun oluşturan kodu görebilirsiniz.
+Bu komut sona erdiğinde, Visual Studio yeni tanımlar sınıfı dosyasını açar `DbMigration` türetilmiş sınıf hem de `Up` yöntemi yeni bir sütun oluşturan kodu görebilirsiniz.
 
 [!code-csharp[Main](adding-a-new-field/samples/sample11.cs)]
 
@@ -179,8 +179,7 @@ Tıklatın **Yeni Oluştur** yeni film eklemek için bağlantı. Bir derecelendi
 
 ![7_CreateRioII](adding-a-new-field/_static/image13.png)
 
-
-              **Oluştur**'u tıklatın. Derecelendirme dahil olmak üzere yeni film şimdi listeleme filmler içinde görüntülenir:
+**Oluştur**'u tıklatın. Derecelendirme dahil olmak üzere yeni film şimdi listeleme filmler içinde görüntülenir:
 
 ![7_ourNewMovie_SM](adding-a-new-field/_static/image14.png)
 

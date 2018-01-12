@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: a7664d16a056424ee51db2208152cb5d35d8e5d9
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
+ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 <a name="search"></a>Ara
 ====================
@@ -123,7 +123,7 @@ Tüm türler veritabanından alır bir LINQ Sorgu kodudur.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Kod kullanan `AddRange` genel yöntemini `List` farklı türler listesine eklemek için koleksiyon. (Olmadan `Distinct` değiştiricisi, yinelenen türler eklenmesi — Örneğin, iki kez örneğimizde Komedi ekleneceği). Kod içinde türler listesi sonra depolar `ViewBag.movieGenre` nesnesi. Kategori verileri (böyle bir filmi Tarz 's) olarak depolamak bir [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesinde bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılır liste kutusu kategori verilere erişme.
+Kod kullanan `AddRange` genel yöntemini `List` farklı türler listesine eklemek için koleksiyon. (Olmadan `Distinct` değiştiricisi, yinelenen türler eklenmesi — Örneğin, iki kez örneğimizde Komedi ekleneceği). Kod içinde türler listesi sonra depolar `ViewBag.MovieGenre` nesnesi. Kategori verileri (böyle bir filmi Tarz 's) olarak depolamak bir [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesinde bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılır liste kutusu kategori verilere erişme.
 
 Aşağıdaki kod nasıl denetleneceğini gösterir `movieGenre` parametresi. Boş değilse, daha fazla kod belirtilen Tarz seçili filmlere sınırlamak için filmler sorgu kısıtlar.
 
