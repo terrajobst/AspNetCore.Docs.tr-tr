@@ -426,7 +426,7 @@ Aşağıdaki çizimde, bu tür bir varlık şemada nasıl göründüğünü gös
 
 ![Öğrenci indirmelere çoklu ilişki çok](complex-data-model/_static/student-course.png)
 
-Her ilişki ucu ve bir yıldız işareti (/*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
+Her ilişki ucu ve bir yıldız işareti (\*) 1 diğer sırasında bir-çok ilişkisi belirten bulunur.
 
 Varsa `Enrollment` tablosunu kaydetmedi düzeyde bilgi dahil etmek, yalnızca iki FKs içermesi gerekir (`CourseID` ve `StudentID`). Çoktan bire çok birleşme tablo yükü olmadan bazen saf birleşim tablosundan (PJT) adı verilir.
 
