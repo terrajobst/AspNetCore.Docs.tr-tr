@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 6bd10376520a55c316a54172a70d5ae7e74db5b4
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: ccde4209d121918e0160368806095111505835b9
+ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Aşağıdaki hatalar, tam bir listesi değildir. Burada listelenmeyen bir hata oluşursa, Lütfen ayrıntılı hata iletisi açıklamalar bölümünde bırakın.
+Aşağıdaki hatalar, tam bir listesi değildir. Burada listelenmeyen bir hatayla karşılaşırsanız [yeni bir sorun açmak](https://github.com/aspnet/Docs/issues/new) hatayı yeniden oluşturmaya yönelik ayrıntılı yönergeler ile.
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Yükleyici VC ++ Redistributable alınamıyor
 
