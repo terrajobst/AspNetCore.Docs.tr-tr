@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: bad84b8c68bd0bc63bcd125e1873bc99a2ed2afd
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: cc15efc25abbfb5bfc9b748b49802afebc75bfb2
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Ana bilgisayar ASP.NET Core nginx ile Linux
 
@@ -59,7 +59,7 @@ Bu kılavuzun amaçları nginx tek bir örneğini kullanılır. HTTP sunucusu ya
 
 Ters proxy sunucusu kurma, kimlik doğrulaması ara yazılımı gereken `UseForwardedHeaders` ilk önce çalışmalıdır. Bu sıralama, kimlik doğrulaması ara yazılımı etkilenen değerleri kullanabilir ve doğru yeniden yönlendirme URI oluşturmak sağlar.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Çağırma `UseForwardedHeaders` yöntemi (içinde `Configure` yöntemi *haline*) çağırmadan önce `UseAuthentication` veya benzer kimlik doğrulama düzeni ara:
 
@@ -72,7 +72,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 app.UseAuthentication();
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Çağırma `UseForwardedHeaders` yöntemi (içinde `Configure` yöntemi *haline*) çağırmadan önce `UseIdentity` ve `UseFacebookAuthentication` veya benzer kimlik doğrulama düzeni ara:
 
@@ -164,6 +164,7 @@ WantedBy=multi-user.target
 ```
 
 **Not:** , kullanıcı *www veri* kullanılmaz yapılandırma tarafından burada tanımlanan kullanıcı ilk oluşturulmalı ve dosyaları için doğru sahipliği verilen.
+**Not:** Linux büyük küçük harfe duyarlı dosya sistemine sahiptir. Yapılandırma dosyası için arama sonuçlarındaki "Üretim" ASPNETCORE_ENVIRONMENT ayarlanması *appsettings. Production.JSON*değil *appsettings.production.json*.
 
 Dosyayı kaydedin ve hizmeti etkinleştirin.
 
@@ -246,7 +247,7 @@ tar zxf nginx-1.10.0.tar.gz
 
 #### <a name="change-the-nginx-response-name"></a>Nginx yanıt adını değiştirin
 
-Düzen *src/http/ngx_http_header_filter_module.c*:
+Edit *src/http/ngx_http_header_filter_module.c*:
 
 ```c
 static char ngx_http_server_string[] = "Server: Web Server" CRLF;

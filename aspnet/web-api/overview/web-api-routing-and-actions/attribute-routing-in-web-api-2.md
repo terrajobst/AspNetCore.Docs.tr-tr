@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 özniteliği yönlendirme
 ====================
@@ -130,7 +130,7 @@ Bir rota özniteliğine sahip olmayan herhangi bir denetleyici yöntemin kurala 
 
 Web API (GET, POST, vb.) İstek HTTP yöntemine dayalı eylemleri de seçer. Varsayılan olarak, Web API denetleyicisi yöntem adı başlangıcı küçük harf olarak eşleşen arar. Örneğin, adlandırılmış bir denetleyici yöntemi `PutCustomers` bir HTTP PUT İsteği eşleşir.
 
-Aşağıdaki öznitelikler herhangi biriyle mathod tasarlayarak bu kuralı kılabilirsiniz:
+Aşağıdaki öznitelikler herhangi bir yöntemle tasarlayarak bu kuralı kılabilirsiniz:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -180,22 +180,22 @@ Aşağıdaki tabloda, desteklenen kısıtlamaları listeler.
 
 | Kısıtlama | Açıklama | Örnek |
 | --- | --- | --- |
-| Alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {x: alfa} |
-| bool | Bir Boole değeri ile eşleşir. | {x: bool} |
-| datetime | Eşleşen bir **DateTime** değeri. | {x: datetime} |
-| decimal | Ondalık bir değeri ile eşleşir. | {x: ondalık} |
-| çift | 64-bit kayan nokta değeri eşleşir. | {x: double} |
-| float | 32 bit kayan nokta değeri eşleşir. | {x: float} |
+| Alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {x:alpha} |
+| bool | Bir Boole değeri ile eşleşir. | {x:bool} |
+| datetime | Eşleşen bir **DateTime** değeri. | {x:datetime} |
+| decimal | Ondalık bir değeri ile eşleşir. | {x:decimal} |
+| çift | 64-bit kayan nokta değeri eşleşir. | {x:double} |
+| float | 32 bit kayan nokta değeri eşleşir. | {x:float} |
 | GUID | GUID değeri eşleşir. | {x: GUID} |
-| int | 32 bit tamsayı değeri eşleşir. | {x: int} |
-| length | Belirtilen uzunluğa sahip veya uzunlukları belirtilen aralığı içinde bir dizeyle eşleşir. | {x: length(6)} {x: length(1,20)} |
-| long | 64 bit tamsayı değeri eşleşir. | {x: uzun} |
-| max | Tamsayı bir maksimum değer ile eşleşir. | {x: max(10)} |
-| MaxLength | En fazla bir dizeyle eşleşir. | {x: maxlength(10)} |
-| min | Tamsayı en az bir değerle eşleşir. | {x: min(10)} |
-| MinLength | Minimum uzunluk bir dizeyle eşleşir. | {x: minlength(10)} |
-| aralık | Tamsayı değerleri aralığı içinde eşleşir. | {x: range(10,50)} |
-| Regex | Normal ifadeyle eşleşir. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| int | 32 bit tamsayı değeri eşleşir. | {x:int} |
+| length | Belirtilen uzunluğa sahip veya uzunlukları belirtilen aralığı içinde bir dizeyle eşleşir. | {x:length(6)} {x:length(1,20)} |
+| long | 64 bit tamsayı değeri eşleşir. | {x:long} |
+| max | Tamsayı bir maksimum değer ile eşleşir. | {x:max(10)} |
+| MaxLength | En fazla bir dizeyle eşleşir. | {x:maxlength(10)} |
+| min | Tamsayı en az bir değerle eşleşir. | {x:min(10)} |
+| MinLength | Minimum uzunluk bir dizeyle eşleşir. | {x:minlength(10)} |
+| aralık | Tamsayı değerleri aralığı içinde eşleşir. | {x:range(10,50)} |
+| Regex | Normal ifadeyle eşleşir. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Bildirimi, bazı kısıtlamaları gibi &quot;min&quot;, bağımsız değişkenleri parantez içine alır. Virgülle ayrılmış bir parametre birden çok kısıtlama uygulayabilirsiniz.
 

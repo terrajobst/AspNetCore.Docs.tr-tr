@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Oluşturma, okuma, güncelleştirme ve silme - Razor sayfaları (8, 2) ile EF çekirdek
 
@@ -50,7 +50,7 @@ Genel olarak değiştirmek `SingleOrDefaultAsync` ile `FirstOrDefaultAsync`. `Si
 * `OnGetAsync`ve `OnPostAsync` düzenleme ve silme sayfalarında.
 
 <a name="FindAsync"></a>
-### <a name="findasync"></a>Zaman uyumsuz olarak bulur
+### <a name="findasync"></a>FindAsync
 
 Çok kurulmuş kod [zaman uyumsuz olarak bulur](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) yerine kullanılabilir `FirstOrDefaultAsync` veya `SingleOrDefaultAsync`. 
 
@@ -202,7 +202,7 @@ Bir web uygulamasında `DbContext` bir varlık ve verileri bir sayfa oluşturuld
 
 ## <a name="update-the-delete-page"></a>Güncelleştirme Sil sayfası
 
-Bu bölümde, bir özel hata uygulamak için kod eklenir ne zaman ileti çağrısı `SaveChanges` başarısız olur. Possile hata iletilerini içeren bir dize ekleyin:
+Bu bölümde, bir özel hata uygulamak için kod eklenir ne zaman ileti çağrısı `SaveChanges` başarısız olur. Olası hata iletilerini içeren bir dize ekleyin:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 

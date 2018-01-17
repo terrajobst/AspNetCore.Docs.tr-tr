@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: e42e7e469e411d2d4bc1bd1b3a3995a77c355ebd
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 599894c301db3412d7ff23c0fb58fd8799a9588f
+ms.sourcegitcommit: bc723b483182fbcbf8c4c7098f70443662076905
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core kurulmuş Razor sayfalarında
 
@@ -26,12 +26,32 @@ Bu öğretici Razor önceki öğretici konusunda yapı iskelesi tarafından olu�
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Oluştur, Sil, Ayrıntılar ve düzenleme sayfaları.
 
-İncelemek *Pages/Movies/Index.cshtml.cs* arka plan kod dosyası:[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+İncelemek *Pages/Movies/Index.cshtml.cs* sayfa modeli:[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
 Razor sayfalarının türetilir `PageModel`. Kural tarafından `PageModel`-türetilmiş sınıf çağrılır `<PageName>Model`. Oluşturucusu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) eklemek için `MovieContext` sayfası. Bu yol kurulmuş tüm sayfaları izler. Bkz: [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) Entity Framework zaman uyumsuz programing hakkında daha fazla bilgi için.
 
-Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi Razor sayfasına filmler listesini döndürür. `OnGetAsync`veya `OnGet` sayfası için durum başlatmak için bir Razor sayfasında olarak adlandırılır. Bu durumda, `OnGetAsync` görüntülenecek filmler listesini alır.
+Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi Razor sayfasına filmler listesini döndürür. `OnGetAsync`veya `OnGet` sayfası için durum başlatmak için bir Razor sayfasında olarak adlandırılır. Bu durumda, `OnGetAsync` filmler listesini alır ve bunları görüntüler. 
 
+Zaman `OnGet` döndürür `void` veya `OnGetAsync` döndürür`Task`, hiçbir dönüş yöntemi kullanılır. Dönüş türü olduğunda `IActionResult` veya `Task<IActionResult>`, bir dönüş ifadesi sağlanmalıdır. Örneğin, *Pages/Movies/Create.cshtml.cs* `OnPostAsync` yöntemi:
+
+<!-- TODO - replace with snippet
+[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+ -->
+
+```csharp
+public async Task<IActionResult> OnPostAsync()
+{
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    _context.Movie.Add(Movie);
+    await _context.SaveChangesAsync();
+
+    return RedirectToPage("./Index");
+}
+```
 İncelemek *Pages/Movies/Index.cshtml* Razor sayfasını:
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]

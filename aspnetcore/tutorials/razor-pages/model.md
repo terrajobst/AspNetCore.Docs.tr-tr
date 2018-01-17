@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d72c01971b1dbf26b96e438543fea037eda3a879
+ms.sourcegitcommit: bc723b483182fbcbf8c4c7098f70443662076905
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Bir model için bir Razor sayfalarının uygulama ekleme
 
@@ -40,7 +40,7 @@ Bir bağlantı dizesi eklemek *appsettings.json* dosya.
 
 Veritabanı bağlamı ile kayıt [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında *haline* dosya.
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-6)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-5,7-9)]
 
 Herhangi bir hata yoksa doğrulamak için projeyi oluşturun.
 
