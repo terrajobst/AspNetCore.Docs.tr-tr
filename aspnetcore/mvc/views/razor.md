@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
 
@@ -76,7 +76,7 @@ C# dışında `await` anahtar sözcüğü, örtük ifadeleri boşluk içermemeli
  * "İnt" öğesi kapatılmadı.  Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
  *  Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
  
-Genel yöntem çağrılarını Sarmalanan, içinde bir [açık Razor ifade](#explicit-razor-expressions) veya [Razor kod bloğunu](#razor-code-blocks). Bu kısıtlama geçerli değildir *.vbhtml* Razor dosyaları Visual Basic söz dizimine genel tür parametreleri yerine köşeli parantezler yerleştirir olduğundan.
+Genel yöntem çağrılarını Sarmalanan, içinde bir [açık Razor ifade](#explicit-razor-expressions) veya [Razor kod bloğunu](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Açık Razor ifadeleri
 
@@ -128,9 +128,7 @@ Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabili
 <p>@(GenericMethod<int>())</p>
 ```
 
-Not: Bu kısıtlama uygulanmaz *.vbhtml* Razor dosyaları.  İle *.vbhtml* Razor dosyalarını, Visual Basic söz dizimine genel tür parametreleri yerine köşeli parantezler yerleştirir.
-
-## <a name="expression-encoding"></a>İfade kodlama
+## <a name="expression-encoding"></a>Expression encoding
 
 Bir dizeyi değerlendirmek C# HTML kodlu ifadelerini. Değerlendirmek için C# ifadeleri `IHtmlContent` doğrudan ile işlenir `IHtmlContent.WriteTo`. Değerlendirme yok C# ifadeleri `IHtmlContent` tarafından bir dizeye dönüştürülür `ToString` ve işlenen önce kodlanır.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b52327523467600ff62289022434a77af5d8fa22
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 405297bdd1ceac390b995ed6e15ae8d95bb8501f
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET çekirdeği ile IIS modüllerini kullanma
 
@@ -24,7 +24,7 @@ ASP.NET Core uygulamaları IIS tarafından bir ters proxy yapılandırması bar�
 
 ## <a name="native-modules"></a>Yerel modülleri
 
-Modül | .NET core etkin | ASP.NET çekirdeği seçeneği
+Modül | .NET core etkin | ASP.NET Core Option
 --- | :---: | ---
 **Anonim kimlik doğrulaması**<br>`AnonymousAuthenticationModule` | Evet | 
 **Temel Kimlik Doğrulaması**<br>`BasicAuthenticationModule` | Evet | 
@@ -33,9 +33,9 @@ Modül | .NET core etkin | ASP.NET çekirdeği seçeneği
 **Yapılandırma Doğrulama**<br>`ConfigurationValidationModule` | Evet | 
 **HTTP Hataları**<br>`CustomErrorModule` | Hayır | [Durum kodu sayfaları Ara](xref:fundamentals/error-handling#configuring-status-code-pages)
 **Özel günlüğe kaydetme**<br>`CustomLoggingModule` | Evet | 
-**Varsayılan Belge**<br>`DefaultDocumentModule` | Hayır | [Varsayılan dosya ara yazılımı](xref:fundamentals/static-files#serving-a-default-document)
+**Varsayılan Belge**<br>`DefaultDocumentModule` | Hayır | [Varsayılan dosya ara yazılımı](xref:fundamentals/static-files#serve-a-default-document)
 **Özet kimlik doğrulaması**<br>`DigestAuthenticationModule` | Evet | 
-**Dizin Tarama**<br>`DirectoryListingModule` | Hayır | [Dizin tarama Ara](xref:fundamentals/static-files#enabling-directory-browsing)
+**Dizin Tarama**<br>`DirectoryListingModule` | Hayır | [Dizin tarama Ara](xref:fundamentals/static-files#enable-directory-browsing)
 **Dinamik sıkıştırma**<br>`DynamicCompressionModule` | Evet | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression)
 **İzleme**<br>`FailedRequestsTracingModule` | Evet | [ASP.NET çekirdeği günlüğü](xref:fundamentals/logging/index#the-tracesource-provider)
 **Dosyayı önbelleğe alma**<br>`FileCacheModule` | Hayır | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
@@ -62,7 +62,7 @@ Modül | .NET core etkin | ASP.NET çekirdeği seçeneği
 
 ## <a name="managed-modules"></a>Yönetilen modüller
 
-Modül | .NET core etkin | ASP.NET çekirdeği seçeneği
+Modül | .NET core etkin | ASP.NET Core Option
 --- | :---: | ---
 AnonymousIdentification | Hayır | 
 DefaultAuthentication | Hayır | 
@@ -71,11 +71,11 @@ FormsAuthentication | Hayır | [Tanımlama bilgisi kimlik doğrulaması ara yaz�
 OutputCache | Hayır | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
 Profil | Hayır | 
 RoleManager | Hayır | 
-ScriptModule 4.0 | Hayır | 
+ScriptModule-4.0 | Hayır | 
 Oturum | Hayır | [Oturum Ara](xref:fundamentals/app-state)
 UrlAuthorization | Hayır | 
 UrlMappingsModule | Hayır | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting)
-UrlRoutingModule 4.0 | Hayır | [ASP.NET Core kimliği](xref:security/authentication/identity)
+UrlRoutingModule-4.0 | Hayır | [ASP.NET Core kimliği](xref:security/authentication/identity)
 WindowsAuthentication | Hayır | 
 
 ## <a name="iis-manager-application-changes"></a>IIS Yöneticisi'ni uygulama değişiklikleri
@@ -159,4 +159,4 @@ Bir ASP.NET Core uygulamayı çalıştırmak için gerekli yalnızca Anonim kiml
 * [IIS ile Windows’da barındırma](xref:host-and-deploy/iis/index)
 * [IIS modülleri genel bakış](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [IIS 7.0 rolleri ve modülleri özelleştirme](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS`<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
