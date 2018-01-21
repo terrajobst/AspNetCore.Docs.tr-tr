@@ -2,7 +2,6 @@
 title: "ASP.NET Core öğreticileri"
 author: rick-anderson
 description: "ASP.NET Core uygulamaları geliştirmek öğrenme için adım adım kılavuzlar listesi."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: acedebaa9b89a0e00602b497d11d5612fce99a5f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: dc81edce2b54683b20520babeed8ddb78073e709
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -37,7 +36,7 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
    * [Mac için Visual Studio ile Web uygulaması](first-mvc-app-mac/index.md)
    * [Mac veya Linux Visual Studio Code ile Web uygulaması](first-mvc-app-xplat/index.md)
 
-* [ASP.NET Core ve Entity Framework Visual Studio kullanarak çekirdek kullanmaya başlama](../data/ef-mvc/index.md)
+* [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](../data/ef-mvc/index.md)
 * [Etiket Yardımcıları oluşturma](../mvc/views/tag-helpers/authoring.md)
 * [Basit Görünüm bileşeni oluşturma](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [DotNet Gözcü kullanarak ASP.NET Core uygulamaları geliştirme](dotnet-watch.md)
@@ -49,24 +48,24 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
   * [Web API Mac için Visual Studio ile](xref:tutorials/first-web-api-mac)
   * [Web API'si Visual Studio Code ile](web-api-vsc.md)
   
-* [ASP.NET Core Web API Yardım sayfalarını Swagger kullanma](web-api-help-pages-using-swagger.md)
+* [Swagger kullanan ASP.NET Core Web API yardım sayfaları](web-api-help-pages-using-swagger.md)
 * [Web hizmetleri yerel mobil uygulama arka ucu oluşturma](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Veri erişimi ve depolama
-* [ASP.NET Core ve Entity Framework Visual Studio kullanarak çekirdek kullanmaya başlama](../data/ef-mvc/index.md)
+* [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](../data/ef-mvc/index.md)
 * [EF Çekirdekli ASP.NET Core - yeni veritabanı](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 * [EF Çekirdekli ASP.NET Core - mevcut veritabanı](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
-* [Facebook, Google ve diğer dış sağlayıcılarını kullanarak kimlik doğrulamasını etkinleştir](../security/authentication/social/index.md)
-* [Hesap onaylamayı ve parola kurtarma](../security/authentication/accconfirm.md)
+* [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](../security/authentication/social/index.md)
+* [Hesap onaylama ve parola kurtarma](../security/authentication/accconfirm.md)
 * [SMS ile iki öğeli kimlik doğrulama](../security/authentication/2fa.md)
 
 ## <a name="client-side-development"></a>İstemci tarafı geliştirme
-* [Gulp kullanın](../client-side/using-gulp.md)
-* [Grunt kullanın](../client-side/using-grunt.md)
+* [Gulp kullanma](../client-side/using-gulp.md)
+* [Grunt kullanma](../client-side/using-grunt.md)
 * [Bower ile istemci tarafı paketleri yönetme](../client-side/bower.md)
-* [Önyükleme esnek siteleriyle derleme](../client-side/bootstrap.md)
+* [Bootstrap ile hızlı yanıt veren siteler oluşturma](../client-side/bootstrap.md)
 
 ## <a name="test"></a>Test
 * [Birim testi .NET kullanarak dotnet test çekirdek](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)

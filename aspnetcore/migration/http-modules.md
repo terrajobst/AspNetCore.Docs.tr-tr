@@ -2,20 +2,18 @@
 title: "Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri"
 author: rick-anderson
 description: 
-keywords: "ASP.NET Çekirdeği"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
 ms.topic: article
-ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri 
 
@@ -273,7 +271,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
-**HttpContext.Request.IsSecureConnection** için çevirir:
+**HttpContext.Request.IsSecureConnection** translates to:
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
@@ -285,7 +283,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
-**HttpContext.Request.RequestContext.RouteData** için çevirir:
+**HttpContext.Request.RequestContext.RouteData** translates to:
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 
@@ -297,7 +295,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
 
-**HttpContext.Request.UrlReferrer** için çevirir:
+**HttpContext.Request.UrlReferrer** translates to:
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 
@@ -386,6 +384,6 @@ public async Task Invoke(HttpContext httpContext)
 
 * [Yapılandırma](xref:fundamentals/configuration/index)
 
-* [Uygulama başlatma](../fundamentals/startup.md)
+* [Uygulama Başlatma](../fundamentals/startup.md)
 
-* [Ara yazılım](../fundamentals/middleware.md)
+* [Ara Yazılım](../fundamentals/middleware.md)

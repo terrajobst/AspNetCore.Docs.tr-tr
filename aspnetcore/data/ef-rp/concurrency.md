@@ -2,7 +2,6 @@
 title: "Razor sayfalarının EF temel - eşzamanlılık - 8 8"
 author: rick-anderson
 description: "Bu öğretici, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir."
-keywords: "ASP.NET Core, Entity Framework Çekirdek eşzamanlılık"
 ms.author: riande
 manager: wpickett
 ms.date: 11/15/2017
@@ -10,13 +9,13 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
-en-us /
+en-us/
 
 # <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>Eşzamanlılık çakışmalarını - EF çekirdek Razor sayfaları (8 8) ile işleme
 

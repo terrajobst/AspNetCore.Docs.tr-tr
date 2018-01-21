@@ -2,7 +2,6 @@
 title: "Oluşturulan sayfalarını güncelleştirme"
 author: rick-anderson
 description: "Oluşturulan sayfalar daha iyi ekranıyla güncelleştiriliyor."
-keywords: "ASP.NET Core, Razor sayfaları"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: c66bb3a9d766e02c7775906cdd547a0e12c15336
-ms.sourcegitcommit: b38796ea3806bf39b89806adfa681b2a33762907
+ms.openlocfilehash: 201e8d9c77d8e022bc56ffcf46456fada6fcfe25
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="updating-the-generated-pages"></a>Oluşturulan sayfalarını güncelleştirme
 
@@ -38,7 +37,7 @@ Seçin`using System.ComponentModel.DataAnnotations;`
 
   ![listesinin başında System.ComponentModel.DataAnnotations kullanma](da1/da.png)
 
-  Visual studio ekler `using System.ComponentModel.DataAnnotations;`.
+  Visual studio adds `using System.ComponentModel.DataAnnotations;`.
 
 Şu konulara değineceğiz [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmez şekilde (tarih), veri türünü belirtir.
 
@@ -50,7 +49,7 @@ Sayfa/filmlere göz atın ve üzerine gelerek bir **Düzenle** hedef URL görmek
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
-[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) sunucu tarafı kodu oluşturma ve Razor dosyalarında HTML öğelerin işlenmesi katılmayı etkinleştir. Önceki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` öznitelik değeri Razor (rota göreli) sayfasından `asp-page`ve rota kimliği (`asp-route-id`). Bkz: [sayfaları için URL oluşturma](xref:mvc/razor-pages/index#url-generation-for-pages) daha fazla bilgi için.
+[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Önceki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` öznitelik değeri Razor (rota göreli) sayfasından `asp-page`ve rota kimliği (`asp-route-id`). Bkz: [sayfaları için URL oluşturma](xref:mvc/razor-pages/index#url-generation-for-pages) daha fazla bilgi için.
 
 Kullanım **kaynağı görüntüle** oluşturulan biçimlendirme incelemek için sık kullanılan tarayıcınızdan. Oluşturulan HTML bir bölümü aşağıda verilmiştir:
 

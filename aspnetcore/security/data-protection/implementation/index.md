@@ -2,37 +2,35 @@
 title: Uygulama
 author: rick-anderson
 description: "Bu belge, çeşitli ASP.NET Core veri koruma uygulama konuları İçindekiler olarak görev yapar."
-keywords: ASP.NET Core, veri koruma
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 706a11bb-bf6e-4e91-930b-e3f4e71d04a0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/index
-ms.openlocfilehash: 36e92f7ec9c03a7d1530a27d2fdb2838ea939dba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c8a890fa7eecd69f13550cf72bbce194d8eb5280
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="implementation"></a>Uygulama
 
 * [Kimliği doğrulanmış şifreleme ayrıntıları](authenticated-encryption-details.md)
 
-* [Alt anahtar türetme ve kimliği doğrulanmış şifreleme](subkeyderivation.md)
+* [Alt Anahtar Türetme ve Kimliği Doğrulanmış Şifreleme](subkeyderivation.md)
 
-* [İçerik üstbilgileri](context-headers.md)
+* [Bağlam üst bilgileri](context-headers.md)
 
 * [Anahtar Yönetimi](key-management.md)
 
-* [Anahtar depolama sağlayıcıları](key-storage-providers.md)
+* [Anahtar Depolama Sağlayıcıları](key-storage-providers.md)
 
-* [REST anahtar şifrelemesi](key-encryption-at-rest.md)
+* [Bekleme Durumunda Anahtar Şifreleme](key-encryption-at-rest.md)
 
-* [Anahtar girişi ve ayarlarını değiştirme](key-immutability.md)
+* [Anahtar Değiştirilemezliği ve Ayarları Değiştirme](key-immutability.md)
 
-* [Anahtar depolama biçimi](key-storage-format.md)
+* [Anahtar Depolama Biçimi](key-storage-format.md)
 
-* [Kısa ömürlü veri koruma sağlayıcısı](key-storage-ephemeral.md)
+* [Kısa ömürlü veri koruma sağlayıcıları](key-storage-ephemeral.md)

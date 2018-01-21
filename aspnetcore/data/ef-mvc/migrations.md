@@ -2,20 +2,18 @@
 title: ASP.NET Core MVC EF temel - Migrations - 4 10
 author: tdykstra
 description: "Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın."
-keywords: "ASP.NET Core, Entity Framework Çekirdek geçişleri"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 81f6c9c2-a819-4f3a-97a4-4b0503b56c26
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 20b05801ac666feef29fd05dd3e4738b1bd50b86
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9081ddd14e6ed9192c6bd8ce8b265d14dbca7e23
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Geçişler - ASP.NET Core MVC Öğreticisi (4, 10) ile EF çekirdek
 

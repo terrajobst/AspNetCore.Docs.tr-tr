@@ -2,20 +2,18 @@
 title: "Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core"
 author: guardrex
 description: "Nasıl yol ve uygulama modeli sağlayıcı Kuralı Özellikleri sayfası denetimi yönlendirme, bulma ve işleme yardımcı bulur."
-keywords: "ASP.NET Core, Razor sayfalarının, kuralları, AddFolderRouteModelConvention, AddPageRouteModelConvention, AddPageRoute, AddFolderApplicationModelConvention, AddPageApplicationModelConvention, ConfigureFilter, filtreler"
 ms.author: riande
 manager: wpickett
 ms.date: 10/23/2017
 ms.topic: article
-ms.assetid: 6b60514c-81ad-485b-bb22-9b71416dff08
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 81fe5198e25c4275f5cf0a123536a9130be8c1d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core
 
@@ -47,7 +45,7 @@ Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpage
 > [!NOTE]
 > `Order` Özelliği için `AttributeRouteModel` ayarlanır `0` (sıfır). Bu, bu şablonu bir tek yönlendirme değeri sağlandığında ilk rota veri değeri konumunun öncelik verilir sağlar. Örneğin, örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verilen bir `Order` , `1`. Ne zaman hakkında sayfa istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
-*Haline*:
+*Startup.cs*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
@@ -65,7 +63,7 @@ Bu ve diğer kuralları konunun ilerleyen bölümlerinde göstermek için örnek
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
-*Haline*:
+*Startup.cs*:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
 

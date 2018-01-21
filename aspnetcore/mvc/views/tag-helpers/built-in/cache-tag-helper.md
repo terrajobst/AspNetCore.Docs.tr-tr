@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC etiketi yardımcı önbelleğe alma"
 author: pkellner
 description: "Önbellek etiket Yardımcısı ile çalışmaya nasıl gösterir"
-keywords: "ASP.NET Core, etiket Yardımcısı"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC etiketi yardımcı önbelleğe alma
 
@@ -60,7 +58,7 @@ Aşağıdaki özniteliklerle önbellek süresini ayarlayabilirsiniz:
 
 - - -
 
-### <a name="expires-on"></a>süresi dolmadan üzerinde 
+### <a name="expires-on"></a>expires-on 
 
 | Öznitelik türü    | Örnek değer     |
 |----------------   |----------------   |
@@ -79,7 +77,7 @@ Bir mutlak sona erme tarihi ayarlar. Aşağıdaki örnek, 17:02:00 saatleri 29 O
 
 - - -
 
-### <a name="expires-after"></a>süresi dolduktan sonra
+### <a name="expires-after"></a>expires-after
 
 | Öznitelik türü    | Örnek değer     |
 |----------------   |----------------   |
@@ -98,7 +96,7 @@ Süre içeriği önbelleğe almak için ilk istek saati ayarlar.
 
 - - -
 
-### <a name="expires-sliding"></a>süresi dolmadan kayan
+### <a name="expires-sliding"></a>expires-sliding
 
 | Öznitelik türü    | Örnek değer     |
 |----------------   |----------------   |
@@ -164,7 +162,7 @@ Bir tek üstbilgi değeri veya bir önbellek yenileme üstbilgi değeri değişt
 
 Bir tek üstbilgi değeri veya değişiklik rota veri parametresinin Değer yükleyen bir önbellek yenileme tetiklemek üstbilgi değerlerini virgülle ayrılmış listesini kabul eder. Örnek:
 
-*Haline* 
+*Startup.cs* 
 
 ```csharp
 routes.MapRoute(
@@ -186,8 +184,8 @@ routes.MapRoute(
 
 | Öznitelik türü    | Örnek değerler                |
 |----------------   |----------------               |
-| Dize            | ". AspNetCore.Identity.Application"                |
-|                   | ". AspNetCore.Identity.Application,HairColor" |
+| Dize            | ".AspNetCore.Identity.Application"                |
+|                   | ".AspNetCore.Identity.Application,HairColor" |
 
 Bir tek üstbilgi değeri veya bir önbellek yenileme (s) üstbilgi değerleri değiştiğinde tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder. Aşağıdaki örnek, ASP.NET kimliği ile ilişkili tanımlama bakar. Bir kullanıcının kimliği doğrulanır zaman, bir önbellek yenileme tetikler ayarlanacak istek tanımlama bilgisi.
 
@@ -264,7 +262,7 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 
 | Öznitelik türü    | Örnek değerler                |
 |----------------   |----------------               |
-| CacheltemPriority  | "Yüksek"                   |
+| CacheItemPriority  | "Yüksek"                   |
 |                    | "Düşük" |
 |                    | "NeverRemove" |
 |                    | "Normal" |

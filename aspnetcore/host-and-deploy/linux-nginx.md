@@ -1,6 +1,6 @@
 ---
-title: Ana bilgisayar ASP.NET Core nginx ile Linux
-description: "Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu nginx Kurulum açıklar."
+title: ASP.NET Core Nginx ile Linux ana bilgisayar
+description: "Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu Nginx Kurulum açıklar."
 author: rick-anderson
 ms.author: riande
 manager: wpickett
@@ -10,13 +10,13 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: cc15efc25abbfb5bfc9b748b49802afebc75bfb2
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: db437b5a17f54f039b3af82dfd8b450df42a9e8d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="host-aspnet-core-on-linux-with-nginx"></a>Ana bilgisayar ASP.NET Core nginx ile Linux
+# <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux ana bilgisayar
 
 Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
@@ -51,9 +51,9 @@ Ters proxy hizmet veren dinamik web uygulamaları için ortak bir kurulur. Ters 
 
 ### <a name="why-use-a-reverse-proxy-server"></a>Ters proxy sunucusu neden kullanılır?
 
-Kestrel, dinamik içerik ASP.NET çekirdek hizmet vermek için harikadır; Bununla birlikte, IIS, Apache veya nginx gibi sunucuları olarak özellik zengin olarak web hizmet bölümleri değil. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTP sunucusundan SSL sonlandırma sıkıştırma gibi iş boşaltabilir. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılabilir.
+Kestrel, dinamik içerik ASP.NET çekirdek hizmet vermek için harikadır; Bununla birlikte, IIS, Apache veya Nginx gibi sunucuları olarak özellik zengin olarak web hizmet bölümleri değil. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTP sunucusundan SSL sonlandırma sıkıştırma gibi iş boşaltabilir. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılabilir.
 
-Bu kılavuzun amaçları nginx tek bir örneğini kullanılır. HTTP sunucusu yanında aynı sunucu üzerinde çalışır. Gereksinimlerine bağlı olarak, farklı kurulum tarihte olabilir.
+Bu kılavuzun amaçları Nginx tek bir örneğini kullanılır. HTTP sunucusu yanında aynı sunucu üzerinde çalışır. Gereksinimlerine bağlı olarak, farklı kurulum tarihte olabilir.
 
 İstekleri tarafından ters proxy iletilir olduğundan `ForwardedHeaders` Ara `Microsoft.AspNetCore.HttpOverrides` paket. Bu ara yazılım güncelleştirmeleri `Request.Scheme`kullanarak `X-Forwarded-Proto` , yeniden yönlendirme URI'ler ve diğer güvenlik ilkelerini doğru çalışması için üstbilgi.
 
@@ -99,21 +99,21 @@ sudo apt-get install nginx
 ```
 
 > [!NOTE]
-> İsteğe bağlı nginx modülleri yüklü değilse, nginx kaynağından derleme gerekli olabilir.
+> İsteğe bağlı Nginx modülleri yüklü değilse, Nginx kaynağından derleme gerekli olabilir.
 
-Kullanım `apt-get` nginx yüklemek için. Yükleyici nginx arka plan programı gibi sistem başlangıcında çalışan bir sistem V init betiği oluşturur. Nginx ilk kez yüklendiğinden bu yana, açıkça başlatılsın çalıştırarak:
+Kullanım `apt-get` Nginx yüklemek için. Yükleyici Nginx arka plan programı gibi sistem başlangıcında çalışan bir sistem V init betiği oluşturur. Nginx ilk kez yüklendiğinden bu yana, açıkça başlatılsın çalıştırarak:
 
 ```bash
 sudo service nginx start
 ```
 
-Giriş sayfasında nginx için varsayılan bir tarayıcı görüntüler doğrulayın.
+Giriş sayfasında Nginx için varsayılan bir tarayıcı görüntüler doğrulayın.
 
 ### <a name="configure-nginx"></a>Nginx yapılandırın
 
-Ters Ara sunucu istekleri iletmek üzere ASP.NET Core uygulamamıza nginx yapılandırmak için değiştirin `/etc/nginx/sites-available/default`. Bir metin düzenleyicisinde açın ve içeriği aşağıdakiyle değiştirin:
+Ters Ara sunucu istekleri iletmek üzere ASP.NET Core uygulamamıza Nginx yapılandırmak için değiştirin `/etc/nginx/sites-available/default`. Bir metin düzenleyicisinde açın ve içeriği aşağıdakiyle değiştirin:
 
-```nginx
+```
 server {
     listen 80;
     location / {
@@ -127,13 +127,13 @@ server {
 }
 ```
 
-Bu nginx yapılandırma dosyası gelen ortak bağlantı noktasından trafiğini `80` bağlantı noktasına `5000`.
+Bu Nginx yapılandırma dosyası gelen ortak bağlantı noktasından trafiğini `80` bağlantı noktasına `5000`.
 
-Nginx yapılandırma kurulduktan sonra çalıştırmak `sudo nginx -t` yapılandırma dosyalarını söz dizimini doğrulayın. Yapılandırma dosyası sınaması başarılı olursa, çalıştırarak değişiklikleri almak için nginx zorla `sudo nginx -s reload`.
+Nginx yapılandırma kurulduktan sonra çalıştırmak `sudo nginx -t` yapılandırma dosyalarını söz dizimini doğrulayın. Yapılandırma dosyası sınaması başarılı olursa, çalıştırarak değişiklikleri almak için Nginx zorla `sudo nginx -s reload`.
 
 ## <a name="monitoring-the-app"></a>Uygulama izleme
 
-Yapılan isteklerini iletmek için Kurulum sunucusudur `http://<serveraddress>:80` Kestrel çalışan ASP.NET Core uygulama açın `http://127.0.0.1:5000`. Ancak, nginx Kestrel işlemini yönetmek üzere ayarlanmış değil. *systemd* başlatmak ve temel web uygulaması izleme için bir hizmet dosyasını oluşturmak için kullanılabilir. *systemd* , başlatma, durdurma ve işlemlerini yönetme için çok güçlü özellikler sağlayan bir init sistemidir. 
+Yapılan isteklerini iletmek için Kurulum sunucusudur `http://<serveraddress>:80` Kestrel çalışan ASP.NET Core uygulama açın `http://127.0.0.1:5000`. Ancak, Nginx Kestrel işlemini yönetmek üzere ayarlanmış değil. *systemd* başlatmak ve temel web uygulaması izleme için bir hizmet dosyasını oluşturmak için kullanılabilir. *systemd* , başlatma, durdurma ve işlemlerini yönetme için çok güçlü özellikler sağlayan bir init sistemidir. 
 
 ### <a name="create-the-service-file"></a>Hizmet dosyası oluşturma
 
@@ -240,7 +240,7 @@ Nginx varsayılan dağıtımını SSL sağlamaz. Ek güvenlik özellikleri etkin
 sudo apt-get update
 sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
 
-# Download nginx 1.10.0 or latest
+# Download Nginx 1.10.0 or latest
 wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
 tar zxf nginx-1.10.0.tar.gz
 ```
@@ -287,7 +287,7 @@ Düzen */etc/nginx/nginx.conf* yapılandırma dosyası. Örnek içeren `http` ve
 
 [!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
 
-#### <a name="secure-nginx-from-clickjacking"></a>Clickjacking öğesini gelen güvenli nginx
+#### <a name="secure-nginx-from-clickjacking"></a>Clickjacking öğesini gelen güvenli Nginx
 Clickjacking öğesini etkilenen kullanıcının tıklama toplamak için kötü amaçlı bir tekniktir. Clickjacking öğesini, etkilenen bir sitede tıklamak (ziyaretçi) kaybeden püf noktaları. Kullanım X-FRAME-site güvenli hale getirmek için OPTIONS.
 
 Düzen *nginx.conf* dosyası:
@@ -296,7 +296,7 @@ Düzen *nginx.conf* dosyası:
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Satırı ekleyin `add_header X-Frame-Options "SAMEORIGIN";` ve dosyayı kaydedin, sonra nginx yeniden başlatın.
+Satırı ekleyin `add_header X-Frame-Options "SAMEORIGIN";` ve dosyayı kaydedin, sonra Nginx yeniden başlatın.
 
 #### <a name="mime-type-sniffing"></a>MIME türü algılaması
 
@@ -308,4 +308,4 @@ Düzen *nginx.conf* dosyası:
 sudo nano /etc/nginx/nginx.conf
 ```
 
-Satırı ekleyin `add_header X-Content-Type-Options "nosniff";` ve dosyayı kaydedin, sonra nginx yeniden başlatın.
+Satırı ekleyin `add_header X-Content-Type-Options "nosniff";` ve dosyayı kaydedin, sonra Nginx yeniden başlatın.

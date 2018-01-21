@@ -2,20 +2,18 @@
 title: URL yeniden yazma ASP.NET Core Ara
 author: guardrex
 description: "URL yeniden yazma işlemi ve ASP.NET Core uygulamaları URL yeniden yazma işlemi Ara yazılımla yeniden yönlendirme hakkında bilgi edinin."
-keywords: "ASP.NET Core URL yeniden yazma, URL yeniden yazma, yeniden yönlendirme, URL yeniden yönlendirme, ara yazılım, apache_mod URL'si"
 ms.author: riande
 manager: wpickett
 ms.date: 08/17/2017
 ms.topic: article
-ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e07634a6d7ad97bf8735029b5c28d6935b71eb52
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -62,11 +60,11 @@ Ara yazılım projenize eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCo
 ## <a name="extension-and-options"></a>Uzantı ve seçenekleri
 URL yeniden yazma kurmak ve kuralları bir örneğini oluşturarak yeniden yönlendirme `RewriteOptions` sınıfı, kuralların her biri için genişletme yöntemleri ile. Birden çok kural bunları işlenen istediğiniz sırayla zincir. `RewriteOptions` İle istek ardışık düzenine eklenen URL yeniden yazma işlemi Ara geçirilir `app.UseRewriter(options);`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1)]
 
@@ -75,11 +73,11 @@ URL yeniden yazma kurmak ve kuralları bir örneğini oluşturarak yeniden yönl
 ### <a name="url-redirect"></a>URL yeniden yönlendirme
 Kullanım `AddRedirect` isteklerini yeniden yönlendirmek için. İlk parametre gelen URL yolda eşleştirmek için regex içerir. İkinci parametre değiştirme dizedir. Üçüncü parametresi, varsa, durum kodu belirtir. Durum kodu belirtmezseniz, kaynak geçici olarak değiştirilen veya taşındığında olduğunu gösteren 302 (bulundu) varsayar.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=5)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=2)]
 
@@ -122,11 +120,11 @@ Kullanım `AddRedirectToHttpsPermanent` aynı konak ve yol güvenli HTTPS protok
 ### <a name="url-rewrite"></a>URL yeniden yazma
 Kullanım `AddRewrite` URL yeniden yazma işlemi için bir kural oluşturmak için. İlk parametre gelen URL yolda eşleştirmek için regex içerir. İkinci parametre değiştirme dizedir. Üçüncü parametre `skipRemainingRules: {true|false}`, ara yazılımı için geçerli kural uyguladıysanız ek yeniden yazma kuralları Atla gerekip gerekmediğini gösterir.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=6)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
 
@@ -166,13 +164,13 @@ Kaynak elde etmek için sunucuya hiçbir gidiş dönüş yoktur. Kaynağın mevc
 ### <a name="apache-modrewrite"></a>Apache mod_rewrite
 Apache mod_rewrite kurallarıyla uygulamak `AddApacheModRewrite`. Kural dosyasının uygulamayla dağıtıldığından emin olun. Daha fazla bilgi ve mod_rewrite kuralları örnekleri için bkz: [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A `StreamReader` kurallardan okumak için kullanılan *ApacheModRewrite.txt* kurallar dosyası.
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=1,7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 İlk parametre alan bir `IFileProvider`, aracılığıyla sağlanan [bağımlılık ekleme](dependency-injection.md). `IHostingEnvironment` Sağlamak için eklenen `ContentRootFileProvider`. İkinci parametre olan kurallar dosyanızı yoludur *ApacheModRewrite.txt* örnek uygulama.
 
@@ -223,13 +221,13 @@ Ara yazılım aşağıdaki Apache mod_rewrite sunucu değişkenlerini destekler:
 ### <a name="iis-url-rewrite-module-rules"></a>IIS URL yeniden yazma modülü kuralları
 IIS URL yeniden yazma modülü için geçerli bir kurallar kullanmak için `AddIISUrlRewrite`. Kural dosyasının uygulamayla dağıtıldığından emin olun. Kullanılacak Ara yazılımının doğrudan yok, *web.config* Windows Server IIS üzerinde çalışırken dosya. IIS ile bu kuralları dışında depolanması gereken, *web.config* IIS yeniden yazma modülü ile çakışmaları önlemek için. Daha fazla bilgi ve IIS URL yeniden yazma modülü kuralları örnekleri için bkz: [Url yeniden yazma modülü 2.0 kullanarak](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) ve [URL yeniden yazma modülü yapılandırma başvurusu](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 A `StreamReader` kurallardan okumak için kullanılan *IISUrlRewrite.xml* kurallar dosyası.
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=2,8)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 İlk parametre alan bir `IFileProvider`, ikinci parametre olan XML kuralları dosyanızın yolu, *IISUrlRewrite.xml* örnek uygulama.
 
@@ -249,7 +247,7 @@ Uygulamanızı istenmeyen şekilde etkileyebilecek yapılandırılmış sunucu d
 
 #### <a name="unsupported-features"></a>Desteklenmeyen özellikler
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Yayımlanan ara yazılımı ile ASP.NET Core 2.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
 * Giden kuralları
@@ -257,7 +255,7 @@ Yayımlanan ara yazılımı ile ASP.NET Core 2.x aşağıdaki IIS URL yeniden ya
 * Joker karakterler
 * LogRewrittenUrl
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Yayımlanan ara yazılımı ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
 * Genel kurallar
@@ -266,14 +264,14 @@ Yayımlanan ara yazılımı ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden ya
 * CustomResponse eylemi
 * Özel sunucu değişkenleri
 * Joker karakterler
-* Eylem: CustomResponse
+* Action:CustomResponse
 * LogRewrittenUrl
 
 ---
 
 #### <a name="supported-server-variables"></a>Desteklenen sunucu değişkenleri
 Ara yazılım aşağıdaki IIS URL yeniden yazma modülünü sunucu değişkenleri destekler:
-* CONTENT_LENGTH İS SIFIRDAN BÜYÜK
+* CONTENT_LENGTH
 * CONTENT_TYPE
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -305,11 +303,11 @@ Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntem kendi kural mantı
 | `RuleResult.EndResponse`             | Kuralları uygulanmasını durdurmak ve yanıtı gönder                       |
 | `RuleResult.SkipRemainingRules`      | Kuralları uygulanmasını durdurmak ve bağlam için bir sonraki ara yazılım gönderin |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=6)]
 
@@ -317,11 +315,11 @@ Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntem kendi kural mantı
 
 Örnek uygulama ile biten istekleri yollar için yönlendiren bir yöntem gösterilmektedir *.xml*. Bir istek yapıyorsa verilen `/file.xml`, onu yönlendireceği `/xmlfiles/file.xml`. Durum kodu 301 (taşınmış kalıcı olarak) ayarlanır. İçin bir yeniden yönlendirme, açıkça yanıtın durum kodu ayarlamanız gerekir; Aksi takdirde, 200 (Tamam) durum kodu döndürülür ve yeniden yönlendirme istemcide karşılaşılmaz.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet2)]
 
@@ -334,11 +332,11 @@ Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntem kendi kural mantı
 ### <a name="irule-based-rule"></a>IRule tabanlı kuralı
 Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak için `IRule`. Kullanarak bir `IRule` yöntemi tabanlı kural yaklaşım kullanarak üzerinde daha fazla esneklik sağlar. Burada, iletebilir parametrelerde bir oluşturucu, türetilmiş bir sınıf içerebilir `ApplyRule` yöntemi.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=10-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=7-8)]
 
@@ -346,11 +344,11 @@ Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak iç
 
 Örnek uygulama için parametre değerlerini `extension` ve `newPath` birkaç koşullara uyan denetlenir. `extension` Bir değer içermelidir ve değeri olmalıdır *.png*, *.jpg*, veya *.gif*. Varsa `newPath` geçerli olmayan bir `ArgumentException` oluşturulur. Bir istek yapıyorsa verilen *image.png*, onu yönlendireceği `/png-images/image.png`. Bir istek yapıyorsa verilen *image.jpg*, onu yönlendireceği `/jpg-images/image.jpg`. Durum kodu 301 (kalıcı taşınmış) olarak ayarlanır ve `context.Result` kural işlemeyi durdur ve yanıt göndermek için ayarlanır.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet2)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](url-rewriting/samples/1.x/RewriteRule.cs?name=snippet1)]
 

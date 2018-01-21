@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC’ye Genel Bakış"
 author: ardalis
 description: "ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın."
-keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 01/08/2018
 ms.topic: article
-ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -29,7 +27,7 @@ Model-View-Controller (MVC) tasarım örüntüsü bir uygulama bileşenlerinin �
 
 Aşağıdaki diyagramda üç ana bileşeni gösterir ve hangilerinin diğer başvuru:
 
-![MVC örüntüsü](overview/_static/mvc.png)
+![MVC Pattern](overview/_static/mvc.png)
 
 Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve bir şey (model, görünüm veya denetleyicisi) tek bir işin test etmeyi daha kolay olduğundan ölçek yardımcı olur (ve izleyen [tek sorumluluk İlkesi ](http://deviq.com/single-responsibility-principle/)). Bu güncelleştirme, test ve iki veya daha fazla üç bu alanlar arasında yayılan bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kodu ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştirdiğinizde iş mantığı içeren bir nesne değiştirmeniz gerekir. Bu, hatalara ve her en az kullanıcı arabirimi değiştirdikten sonra tüm iş mantığını retesting gerektiren olasılığı yüksektir.
 

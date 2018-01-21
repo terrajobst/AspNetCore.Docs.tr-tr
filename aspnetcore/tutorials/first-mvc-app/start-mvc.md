@@ -2,7 +2,6 @@
 title: "ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama"
 author: rick-anderson
 description: "ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama"
-keywords: ASP.NET Core, MVC
 ms.author: riande
 manager: wpickett
 ms.date: 10/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 72852678a296107e6a2a146ed2324335a6e870ee
-ms.sourcegitcommit: 77b8025c30ec2fd46d85ee2a2b497c44435d3009
+ms.openlocfilehash: a55b0b2a52856755b89e8ae6a2598c713f1d436d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
@@ -30,11 +29,11 @@ Bu öğretici 3 sürümü vardır:
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Visual Studio Community 2017 yükleyin. Topluluk indirme seçin. Visual Studio yüklü 2017 varsa bu adımı atlayın.
 
@@ -67,7 +66,7 @@ Tamamlamak **yeni proje** iletişim:
 ![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .net core ](start-mvc/_static/new_project2.png)
 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Tamamlamak **yeni ASP.NET çekirdek Web uygulaması (.NET Core) - MvcMovie** iletişim:
 
@@ -77,7 +76,7 @@ Tamamlamak **yeni ASP.NET çekirdek Web uygulaması (.NET Core) - MvcMovie** ile
 
 ![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .net core ](start-mvc/_static/new_project22.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Tamamlamak **yeni ASP.NET çekirdek Web uygulaması (.NET Core) - MvcMovie** iletişim:
 

@@ -2,7 +2,6 @@
 title: "Hesap doğrulama ve ASP.NET Core parola kurtarma"
 author: rick-anderson
 description: "E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulamasının nasıl oluşturulacağını gösterir."
-keywords: "ASP.NET Core, parola sıfırlama, e-posta onayı, güvenlik"
 ms.author: riande
 manager: wpickett
 ms.date: 12/1/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -24,7 +23,7 @@ Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Bu adım Windows Visual Studio için geçerlidir. CLI yönergeleri için sonraki bölüme bakın.
 
@@ -37,7 +36,7 @@ Bu adım Windows Visual Studio için geçerlidir. CLI yönergeleri için sonraki
 
 !["Seçilen bireysel kullanıcı hesapları radyo" gösteren yeni proje iletişim kutusu](accconfirm/_static/2.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Öğretici Visual Studio 2017 veya üstünü gerektirir.
 
@@ -96,12 +95,12 @@ Genellikle, yeni kullanıcılar sahip oldukları onaylanan bir e-posta önce web
 
 Güncelleştirme `ConfigureServices` onaylanan bir e-posta istemek için:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=6-9)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=13-16)]
 
@@ -145,11 +144,11 @@ Windows, gizli Yöneticisi anahtarları/değer çiftleri olarak depolar. bir *se
 
 Ekleme `AuthMessageSenderOptions` sonunda hizmet kapsayıcısı `ConfigureServices` yönteminde *haline* dosyası:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Startup.cs?name=snippet1&highlight=18)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 [!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
@@ -166,14 +165,14 @@ Bu öğretici aracılığıyla e-posta bildirimleri eklemeyi gösterir [SendGrid
 
 #### <a name="configure-sendgrid"></a>SendGrid yapılandırın
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * Kod ekleme *Services/EmailSender.cs* SendGrid yapılandırmak için aşağıdakine benzer:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Services/EmailSender.cs)]
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * Kod ekleme *Services/MessageServices.cs* SendGrid yapılandırmak için aşağıdakine benzer:
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
@@ -184,7 +183,7 @@ Bu öğretici aracılığıyla e-posta bildirimleri eklemeyi gösterir [SendGrid
 
 Hesap onaylama ve parolayı kurtarma için kod şablonu yok. Bul `[HttpPost] Register` yönteminde *AccountController.cs* dosya.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırını yorum oluşturma oturum açmış engellemek:
 
@@ -198,7 +197,7 @@ Tam yöntem vurgulanmış değiştirilen satırıyla gösterilir:
 
 Not: uygulamanız önceki kod başarısız olur `IEmailSender` ve düz metin e-posta gönderin. Bkz: [bu sorunu](https://github.com/aspnet/Home/issues/2152) daha fazla bilgi ve geçici bir çözüm için.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Hesap doğrulama etkinleştirmek için kodun açıklamasını kaldırın.
 
@@ -239,16 +238,16 @@ Kullanıcı adınızı tarayıcıda seçin: ![kullanıcı adıyla bir tarayıcı
 
 Kullanıcı adı görmek için gezinti çubuğu genişletmeniz gerekebilir.
 
-![Gezinti çubuğu](accconfirm/_static/x.png)
+![navbar](accconfirm/_static/x.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Yönet sayfası görüntülenir **profil** sekmesi seçili. **E-posta** e-posta belirten bir onay kutusu onaylanıp gösterir. 
 
 ![Yönet sayfası](accconfirm/_static/rick2.png)
 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Biz, öğreticide daha sonra bu sayfa hakkında konuşun.
 ![Yönet sayfası](accconfirm/_static/rick2.png)

@@ -2,21 +2,19 @@
 title: "ASP.NET çekirdeği Modülü"
 author: tdykstra
 description: "ASP.NET çekirdeği Modülü (ANCM), IIS veya IIS Express ters proxy sunucusu olarak kullanacak Kestrel web sunucusu olanak sağlayan bir IIS Modülü tanıtır."
-keywords: "ASP.NET Core, IIS, IIS Express,ASP.NET çekirdek modülü, UseIISIntegration"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: 4661af33-34c5-4d71-93a0-8c7632f43580
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5eef9405c0c3d219755d7cffa5d45c3df45ddb5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET çekirdeği modülü için giriş
 
@@ -63,11 +61,11 @@ ASP.NET çekirdeği modülü IIS sunucularınızda ve IIS Express geliştirme ma
 
 ### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet paketini yükleyin
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) paketinde ASP.NET Core metapackages ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/) ve [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) ). Metapackages birini kullanmıyorsanız, yükleme `Microsoft.AspNetCore.Server.IISIntegration` ayrı olarak. `IISIntegration` Uygulamanızı ayarlayın ANCM tarafından yayınlanan ortam değişkenleri okur birlikte çalışabilirlik paketi paketidir. Ortam değişkenleri Dinlemenin yapılacağı bağlantı noktası gibi yapılandırma bilgilerini sağlar. 
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Uygulamanızda yüklemek [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/). `IISIntegration` Uygulamanızı ayarlayın ANCM tarafından yayınlanan ortam değişkenleri okur birlikte çalışabilirlik paketi paketidir. Ortam değişkenleri Dinlemenin yapılacağı bağlantı noktası gibi yapılandırma bilgilerini sağlar. 
 
@@ -75,13 +73,13 @@ Uygulamanızda yüklemek [Microsoft.AspNetCore.Server.IISIntegration](https://ww
 
 ### <a name="call-useiisintegration"></a>Çağrı UseIISIntegration
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 `UseIISIntegration` Genişletme yöntemi [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) IIS ile çalıştırdığınızda otomatik olarak çağrılır.
 
 ASP.NET Core metapackages birini kullanmadığınız ve yüklemediniz `Microsoft.AspNetCore.Server.IISIntegration` paketi, bir çalışma zamanı hatası alın. Çağırırsanız `UseIISIntegration` paketi yüklü değilse açıkça bir derleme zamanı hatası alın.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Uygulamanızın içinde `Main` yöntemi, çağrı `UseIISIntegration` genişletme yöntemi [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder). 
 
@@ -93,11 +91,11 @@ Uygulamanızın içinde `Main` yöntemi, çağrı `UseIISIntegration` genişletm
 
 ### <a name="ancm-port-binding-overrides-other-port-bindings"></a>Diğer bağlantı noktası bağlamaları ANCM bağlantı noktası bağlama geçersiz kılar
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ANCM arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi bu dinamik bir bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration). Bu nedenle, çağrı gerekmez `UseUrls` veya Kestrel'ın `Listen` ANCM kullandığınızda API. Çağırırsanız `UseUrls` veya `Listen`, Kestrel uygulama IIS olmadan çalıştırdığınızda, belirttiğiniz bağlantı noktasında dinler.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ANCM arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi bu dinamik bir bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls`. Bu nedenle, çağrı gerekmez `UseUrls` ANCM kullandığınızda. Çağırırsanız `UseUrls`, Kestrel uygulama IIS olmadan çalıştırdığınızda, belirttiğiniz bağlantı noktasında dinler.
 

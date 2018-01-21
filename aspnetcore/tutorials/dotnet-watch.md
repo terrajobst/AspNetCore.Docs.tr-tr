@@ -2,20 +2,18 @@
 title: "DotNet Gözcü kullanarak ASP.NET Core uygulamaları geliştirme"
 author: rick-anderson
 description: "Bu öğretici, yükleme ve ASP.NET Core uygulamada .NET Core CLI dosya İzleyici (dotnet izleme) aracı kullanma gösterilmektedir."
-keywords: ASP.NET Core, dotnet izleme kullanma
 ms.author: riande
 manager: wpickett
 ms.date: 10/05/2017
 ms.topic: article
-ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: cadd4a6a78c29e2213c39a02729b5c32a2b93ebd
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>DotNet Gözcü kullanarak ASP.NET Core uygulamaları geliştirme
 
@@ -109,7 +107,7 @@ Doğrulama `http://localhost:<port number>/api/math/product?a=4&b=5` doğru sonu
 
 `dotnet watch`dosya değişikliği algılar ve testleri yeniden çalıştırır. Konsol çıktısı testleri geçirilen gösterir.
 
-## <a name="dotnet-watch-in-github"></a>github'da dotnet izleme
+## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 
 DotNet izleme GitHub bir parçasıdır [DotNetTools depo](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch).
 

@@ -2,20 +2,18 @@
 title: "Entity Framework Çekirdek - 10 Öğreticisi 1 ile ASP.NET Core MVC"
 author: tdykstra
 description: 
-keywords: "ASP.NET Core, Entity Framework Çekirdek Öğreticisi"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC ve Entity Framework Visual Studio (1 / 10) kullanarak çekirdek ile çalışmaya başlama
 
@@ -44,7 +42,7 @@ EF çekirdek 2.0 EF en son sürümü ancak henüz EF tüm özelliklerini yok 6.x
 Olamaz çözmek bir sorunla çalıştırırsanız, genellikle çözümün kodunuzu karşılaştırarak bulabilirsiniz [projeyi](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Sık karşılaşılan hataları ve bunları çözmek nasıl listesi için bkz: [serideki son Öğreticisi sorun giderme bölümüne](advanced.md#common-errors). Var. gerekenler bulamazsanız, bir soru için StackOverflow.com nakledebilirsiniz [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) veya [EF çekirdek](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
-> Bu, her biri önceki eğitimlerine bitti üzerinde derlemeler 10 öğreticileri dizisidir.  Her başarılı öğretici tamamlandıktan sonra projeyi bir kopyasını kaydetme göz önünde bulundurun.  Sorunlarla karşılaşırsanız, daha sonra yeniden tüm dizileri başlangıcına geri dönerseniz yerine önceki öğreticiden başlayabilirsiniz.
+> Bu, her biri önceki eğitimlerine bitti üzerinde derlemeler 10 öğreticileri dizisidir. Her başarılı öğretici tamamlandıktan sonra projeyi bir kopyasını kaydetme göz önünde bulundurun. Sorunlarla karşılaşırsanız, daha sonra yeniden tüm dizileri başlangıcına geri dönerseniz yerine önceki öğreticiden başlayabilirsiniz.
 
 ## <a name="the-contoso-university-web-application"></a>Contoso University web uygulaması
 
@@ -136,7 +134,7 @@ Aşağıdaki bölümlerde bu varlıkların her biri için bir sınıf oluşturac
 
 `Enrollments` Özelliği bir gezinti özelliğidir. Gezinti özellikleri bu varlıkla ilgili diğer varlıklar tutun. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutacak `Enrollment` için ilişkili olan varlıkların `Student` varlık. Diğer bir deyişle, belirli bir öğrenci satır, veritabanındaki iki kayıt (birincil anahtar değerini kendi StudentID yabancı anahtar sütunu, öğrencinin içeren satırları) ilişkili satırları sahiptir, `Student` varlığın `Enrollments` gezinti özelliği olanlar içerecek iki `Enrollment` varlıklar.
 
-Bir gezinti özelliği (çok- veya -çok ilişkileri) olduğu gibi birden çok varlık tutarsanız türünü hangi girişleri eklenebilir, silinen ve gibi güncelleştirilmiş bir listesi olmalıdır `ICollection<T>`.  Belirleyebileceğiniz `ICollection<T>` veya gibi bir tür `List<T>` veya `HashSet<T>`. Belirtirseniz `ICollection<T>`, EF oluşturur bir `HashSet<T>` varsayılan koleksiyon.
+Bir gezinti özelliği (çok- veya -çok ilişkileri) olduğu gibi birden çok varlık tutarsanız türünü hangi girişleri eklenebilir, silinen ve gibi güncelleştirilmiş bir listesi olmalıdır `ICollection<T>`. Belirleyebileceğiniz `ICollection<T>` veya gibi bir tür `List<T>` veya `HashSet<T>`. Belirtirseniz `ICollection<T>`, EF oluşturur bir `HashSet<T>` varsayılan koleksiyon.
 
 ### <a name="the-enrollment-entity"></a>Kayıt varlık
 
@@ -210,7 +208,7 @@ Bir SQL Server yerel veritabanı veritabanı bağlantı dizesini belirtir. Yerel
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Test verileri veritabanıyla başlatmak için kod ekleme
 
-Entity Framework boş bir veritabanı oluşturur.  Bu bölümde, test verileri ile doldurmak için veritabanı oluşturulduktan sonra çağrılan yöntemi yazın.
+Entity Framework boş bir veritabanı oluşturur. Bu bölümde, test verileri ile doldurmak için veritabanı oluşturulduktan sonra çağrılan yöntemi yazın.
 
 Burada kullanacağınız `EnsureCreated` otomatik olarak veritabanını oluşturmak için yöntem. İçinde bir [sonraki öğretici](migrations.md) model değişiklikleri bırakarak ve veritabanını yeniden oluşturma yerine veritabanı şeması değiştirmek için Code First Migrations kullanılarak nasıl ele alınacağını görürsünüz.
 
@@ -218,7 +216,7 @@ Burada kullanacağınız `EnsureCreated` otomatik olarak veritabanını oluştur
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-Kod veritabanındaki tüm Öğrenciler varsa ve bu değilse, veritabanını yeni ve test verilerle sağlanmış gerekiyor, varsayar denetler.  Diziye test verileri yükler yerine `List<T>` performansı iyileştirmek için koleksiyonları.
+Kod veritabanındaki tüm Öğrenciler varsa ve bu değilse, veritabanını yeni ve test verilerle sağlanmış gerekiyor, varsayar denetler. Diziye test verileri yükler yerine `List<T>` performansı iyileştirmek için koleksiyonları.
 
 İçinde *Program.cs*, değişiklik `Main` yöntemi uygulama başlangıcında üzerinde aşağıdakileri yapın:
 
@@ -353,7 +351,7 @@ Aşağıdaki kodda, `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `aw
 
 Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek bazı noktalar:
 
-* Sorguları ya da veritabanına gönderilen komutları neden deyimleri zaman uyumsuz olarak çalıştırılır. İçeren, örneğin, `ToListAsync`, `SingleOrDefaultAsync`, ve `SaveChangesAsync`.  Bu, örneğin, yalnızca değiştirme deyimleri içermez bir `IQueryable`, gibi `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Sorguları ya da veritabanına gönderilen komutları neden deyimleri zaman uyumsuz olarak çalıştırılır. İçeren, örneğin, `ToListAsync`, `SingleOrDefaultAsync`, ve `SaveChangesAsync`. Bu, örneğin, yalnızca değiştirme deyimleri içermez bir `IQueryable`, gibi `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * EF bağlamı iş parçacığı içinde korumalı değil: paralel birden çok işlemleri yapmak denemeyin. Herhangi bir zaman uyumsuz EF yöntemini çağırdığınızda, her zaman kullanabilirsiniz `await` anahtar sözcüğü.
 
@@ -366,4 +364,4 @@ Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek
 Şimdi, depolamak ve verileri görüntülemek için Entity Framework Çekirdek ve SQL Server Express LocalDB kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD gerçekleştirme öğreneceksiniz (Oluştur, oku, Güncelleştir, Sil) işlemleri.
 
 >[!div class="step-by-step"]
-[Next](crud.md)  
+[Next](crud.md)

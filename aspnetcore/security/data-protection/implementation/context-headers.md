@@ -2,20 +2,18 @@
 title: "İçerik üstbilgileri"
 author: rick-anderson
 description: "Bu belge ASP.NET Core veri koruma içerik üstbilgileri uygulama ayrıntılarını özetlemektedir."
-keywords: "ASP.NET Core, veri koruma, içerik üstbilgileri"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: eb8e4c9ad67d3046648aea1b45f4a675b41b3ec0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5ed2e48a55e23d73bccd01a731b35ea68f8944e
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="context-headers"></a>İçerik üstbilgileri
 
@@ -55,7 +53,7 @@ Bir bağlam başlığını oluşturmak için bu kavramı güçlü PRPs ve PRFs k
 
 Bunun yerine, biz NIST SP800 108 KDF sayaç modunda kullanın (bkz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sn 5.1) bir sıfır uzunluklu anahtar, etiket ve bağlamı ve temel PRF olarak HMACSHA512. Biz türetilen | K_E | + | K_H | Çıkış, bayt sonra parçalayın sonucu K_E ve K_H kendilerini. Matematiksel, bunu şu şekilde gösterilir.
 
-(K_E || K_H) SP800_108_CTR = (prf HMACSHA512, = anahtar = "", etiket = "", bağlam = "")
+( K_E || K_H ) = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
 
 ### <a name="example-aes-192-cbc--hmacsha256"></a>Örnek: AES 192 CBC + HMACSHA256
 
@@ -72,7 +70,7 @@ B7 92 3D BF 59 90 00 A9
 
 Ardından, Enc_CBC işlem (K_E, IV, "") AES-192-IV verilen CBC için = 0 * ve yukarıdaki K_E.
 
-Sonuç: F474B1872B3B53E4721DE19C0841DB6F =
+result := F474B1872B3B53E4721DE19C0841DB6F
 
 Ardından, MAC işlem (K_H, "") K_H yukarıdaki verilen HMACSHA256 için.
 
@@ -119,11 +117,11 @@ D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
 
 Ardından, Enc_CBC işlem (K_E, IV, "") 3DES-192-IV verilen CBC için = 0 * ve yukarıdaki K_E.
 
-Sonuç: ABB100F81E53E10E =
+result := ABB100F81E53E10E
 
 Ardından, MAC işlem (K_H, "") K_H yukarıdaki verilen HMACSHA1 için.
 
-Sonuç: 76EB189B35CF03461DDF877CD9F4B1B4D63A7555 =
+result := 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
 
 Bu bir parmak izi kimliği doğrulanmış tüm içerik başlık oluşturur aşağıda gösterilen şifreleme algoritması çifti (3DES 192 CBC şifreleme + HMACSHA1 doğrulama):
 
@@ -163,21 +161,21 @@ Bileşenleri gibi Bölünme:
 
 * [32 bit] Kimliği doğrulanmış şifreleme işleviyle üretilen kimlik doğrulama etiketi boyutu (bayt cinsinden, big endian). (Sistemimizde için bu etiketi boyutta sabittir 128 bit =.)
 
-* [128 bit] Enc_GCM etiket (K_E, nonce, ""), boş bir dize giriş verilen simetrik blok şifreleme algoritması çıktısını olduğu ve nonce 96 bit tüm sıfır vektör olduğu.
+* [128 bits] The tag of Enc_GCM (K_E, nonce, ""), which is the output of the symmetric block cipher algorithm given an empty string input and where nonce is a 96-bit all-zero vector.
 
 K_E CBC şifreleme + HMAC kimlik doğrulama senaryosu olduğu gibi aynı mekanizmayı kullanarak elde edilir. Ancak, burada play'de hiçbir K_H olduğundan, aslında sahibiz | K_H | = 0, ve için algoritma daraltır formun altındaki.
 
-K_E SP800_108_CTR = (prf HMACSHA512, = anahtar = "", etiket = "", bağlam = "")
+K_E = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
 
 ### <a name="example-aes-256-gcm"></a>Örnek: AES 256 GCM
 
 İlk olarak, K_E izin SP800_108_CTR = (prf HMACSHA512, = anahtar = "", etiket = "", bağlam = ""), burada | K_E | = 256 bit.
 
-K_E: 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8 =
+K_E := 22BC6F1B171C08C4AE2F27444AF8FC8B3087A90006CAEA91FDCFB47C1B8733B8
 
 Ardından, Enc_GCM kimlik doğrulaması etiket işlem (K_E, nonce, "") AES-256-nonce verilen GCM için yukarıdaki = 096 ve K_E.
 
-Sonuç: E7DCCE66DF855A323A6BB7BD7A59BE45 =
+result := E7DCCE66DF855A323A6BB7BD7A59BE45
 
 Tüm içerik üst bilgisi üretir:
 

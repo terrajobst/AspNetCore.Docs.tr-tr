@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC denetleyicileri istekleri işleme"
 author: ardalis
 description: 
-keywords: "ASP.NET Çekirdeği"
 ms.author: riande
 manager: wpickett
 ms.date: 07/03/2017
 ms.topic: article
-ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri istekleri işleme
 
@@ -68,7 +66,7 @@ Bu kategoride iki sonuç türü vardır: yeniden yönlendirme ve HTTP durum kodu
 
     Bu tür bir HTTP durum kodu döndürür. Bu tür birkaç yardımcı yöntemler `BadRequest`, `NotFound`, ve `Ok`. Örneğin, `return BadRequest();` çalıştırıldığında 400 durum kodu oluşturur. Zaman gibi yöntemler `BadRequest`, `NotFound`, ve `Ok` olan içerik anlaşması yer aldığı bu yana aşırı, bunlar artık HTTP durum kodu Yanıtlayıcı hakkını kullanmaya devam eder.
 
-* **Yeniden yönlendirme**
+* **Redirect**
 
     Bu tür bir yeniden yönlendirme için bir eylem veya hedef döndürür (kullanarak `Redirect`, `LocalRedirect`, `RedirectToAction`, veya `RedirectToRoute`). Örneğin, `return RedirectToAction("Complete", new {id = 123});` yönlendirir `Complete`, anonim bir nesne geçirme.
 
@@ -104,6 +102,6 @@ En filtre öznitelikleri gibi `[Authorize]`, ayrıntı düzeyi istenen düzeye b
 
 Hata işleme ve yanıt önbelleğe alma genellikle arası kesme sorunları şunlardır:
    * [Hata işleme](xref:mvc/controllers/filters#exception-filters)
-   * [Yanıt önbelleğe alma](xref:performance/caching/response)
+   * [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
 
 Filtre ya da özel kullanılarak birçok arası kesme sorunları işlenebilir [Ara](xref:fundamentals/middleware).

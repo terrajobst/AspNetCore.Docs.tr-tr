@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC model doğrulama"
 author: rachelappel
 description: "ASP.NET Core MVC model doğrulama hakkında bilgi edinin."
-keywords: "ASP.NET Core, MVC, doğrulama"
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
 
@@ -173,7 +171,7 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>Doğrulama için dinamik denetimleri ekleme
 
-Tek denetimleri gibi bir form üzerinde doğrulama kuralları da güncelleştirebilirsiniz `<input/>`s ve `<select/>`s, dinamik olarak oluşturulur. Bu öğeler için seçiciler geçiremezsiniz `parse()` yöntemi doğrudan çünkü çevresindeki formu zaten ayrıştırılır ve değil güncelleştirir.  Bunun yerine, önce varolan doğrulama verileri kaldırın, ardından aşağıda gösterildiği gibi tüm formu yeniden ayrıştırma:
+Tek denetimleri gibi bir form üzerinde doğrulama kuralları da güncelleştirebilirsiniz `<input/>`s ve `<select/>`s, dinamik olarak oluşturulur. Bu öğeler için seçiciler geçiremezsiniz `parse()` yöntemi doğrudan çünkü çevresindeki formu zaten ayrıştırılır ve değil güncelleştirir. Bunun yerine, önce varolan doğrulama verileri kaldırın, ardından aşağıda gösterildiği gibi tüm formu yeniden ayrıştırma:
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ Tanımını `VerifyEmail()` yöntemi aşağıda gösterildiği gibi bu kurallar 
 
 Artık kullanıcıların bir e-posta girdiğinizde, JavaScript görünümünde e-posta alındıktan ve bu durumda, hata iletisi görüntüler varsa, görmek için Uzak çağrıda bulunur. Aksi takdirde kullanıcı formu her zamanki gibi gönderebilirsiniz.
 
-`AdditionalFields` Özelliği `[Remote]` öznitelik alanları sunucuda veri karşı birleşimlerini doğrulamak için yararlıdır.  Örneğin, varsa `User` modeli üstten vardı adlı iki ek özellikler `FirstName` ve `LastName`, varolan kullanıcı adları bu çifti zaten yüklü olduğunu doğrulamak isteyebilirsiniz.  Aşağıdaki kodda gösterildiği gibi yeni özellikler tanımlayın:
+`AdditionalFields` Özelliği `[Remote]` öznitelik alanları sunucuda veri karşı birleşimlerini doğrulamak için yararlıdır. Örneğin, varsa `User` modeli üstten vardı adlı iki ek özellikler `FirstName` ve `LastName`, varolan kullanıcı adları bu çifti zaten yüklü olduğunu doğrulamak isteyebilirsiniz. Aşağıdaki kodda gösterildiği gibi yeni özellikler tanımlayın:
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`açıkça dizelere ayarlanan `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme.  Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
+`AdditionalFields`açıkça dizelere ayarlanan `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme. Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ Bir ad ve Soyadı, JavaScript artık kullanıcıların girdiğinizde:
 * Çift gerçekleştirilecek, bir hata iletisi görüntülenir. 
 * Gerçekleştirilecek değil, kullanıcı formu gönderebilirsiniz.
 
-İki veya daha fazla ek alanlar doğrulamak gereken `[Remote]` özniteliği, sağladığınız bunları bir virgülle ayrılmış liste olarak.  Örneğin, eklemek için bir `MiddleName` model özelliğine ayarlayın `[Remote]` özniteliği aşağıdaki kodda gösterildiği gibi:
+İki veya daha fazla ek alanlar doğrulamak gereken `[Remote]` özniteliği, sağladığınız bunları bir virgülle ayrılmış liste olarak. Örneğin, eklemek için bir `MiddleName` model özelliğine ayarlayın `[Remote]` özniteliği aşağıdaki kodda gösterildiği gibi:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi sabit bir ifade olması gerekir.  Bu nedenle, değil kullanmalısınız bir [Ara değerli dize](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) veya arama [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, başka bir bağımsız değişken için karşılık gelen denetleyici eylem yöntemi eklemeniz gerekir.
+`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi sabit bir ifade olması gerekir. Bu nedenle, değil kullanmalısınız bir [Ara değerli dize](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) veya arama [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, başka bir bağımsız değişken için karşılık gelen denetleyici eylem yöntemi eklemeniz gerekir.

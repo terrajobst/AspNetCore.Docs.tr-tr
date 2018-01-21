@@ -6,15 +6,14 @@ ms.author: rachelap
 manager: wpickett
 ms.date: 11/01/2017
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: f6a1f32c1edd098b0782fd066d8e32f09952a9b7
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 71bde77e0bc5698b670b560455301cae642165a6
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -45,38 +44,38 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
 
 *   [Kimlik Doğrulaması](authentication/index.md)
     *   [Kimliğe giriş](authentication/identity.md)
-    *   [Facebook, Google ve diğer dış sağlayıcılarını kullanarak kimlik doğrulamasını etkinleştir](authentication/social/index.md)
+    *   [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](authentication/social/index.md)
     * [Windows Kimlik Doğrulaması Yapılandırma](authentication/windowsauth.md)
-    *   [Hesap onaylamayı ve parola kurtarma](authentication/accconfirm.md)
+    *   [Hesap onaylama ve parola kurtarma](authentication/accconfirm.md)
     *   [SMS ile iki öğeli kimlik doğrulama](authentication/2fa.md) 
     *   [Kimlik olmadan tanımlama bilgisi kimlik doğrulamasını kullan](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
         *   [Azure AD bir ASP.NET Core web uygulamanıza tümleştirmek](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
         *   [Azure AD kullanarak bir WPF uygulamasından ASP.NET çekirdek Web API çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-        *   [Azure AD kullanarak bir ASP.NET Core web uygulamasında bir Web API çağrısı](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
+        *   [Azure AD kullanarak bir ASP.NET Core web uygulamasında Web API’si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
         *   [Azure AD B2C ile bir ASP.NET Core web uygulama](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-    *   [ASP.NET Core uygulamaları IdentityServer4 ile güvenli](https://identityserver4.readthedocs.io)
+    *   [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](https://identityserver4.readthedocs.io)
 *   [Yetkilendirme](authorization/index.md)
     *   [Giriş](authorization/introduction.md)
     *   [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
     *   [Basit yetkilendirme](authorization/simple.md)
     *   [Rol tabanlı yetkilendirme](authorization/roles.md)
     *   [Talep tabanlı yetkilendirme](authorization/claims.md)
-    *   [İlke tabanlı bir yetkilendirme](authorization/policies.md)
-    *   [Gereksinim işleyiciler bağımlılık ekleme](authorization/dependencyinjection.md)
+    *   [İlke tabanlı yetkilendirme](authorization/policies.md)
+    *   [Gereksinim işleyicilerine bağımlılık ekleme](authorization/dependencyinjection.md)
     *   [Kaynak tabanlı yetkilendirme](authorization/resourcebased.md)
     *   [Görünüm tabanlı yetkilendirme](authorization/views.md)
-    *   [Sınır kimliği şeması tarafından](authorization/limitingidentitybyscheme.md)
+    *   [Şemayla kimliği sınırlama](authorization/limitingidentitybyscheme.md)
 *   [Veri koruma](data-protection/index.md)
-    *   [Veri koruma giriş](data-protection/introduction.md)
-    *   [Veri Koruma API'ları ile çalışmaya başlama](data-protection/using-data-protection.md)
+    *   [Veri korumaya giriş](data-protection/introduction.md)
+    *   [Veri Koruma API’lerini kullanmaya başlama](data-protection/using-data-protection.md)
     *   [Tüketici API'leri](data-protection/consumer-apis/index.md)
         *   [Tüketici API'lerine Genel Bakış](data-protection/consumer-apis/overview.md)
         *   [Amaç dizeleri](data-protection/consumer-apis/purpose-strings.md)
         *   [Amaç hiyerarşisi ve çok kiracılılık](data-protection/consumer-apis/purpose-strings-multitenancy.md)
-        *   [Parola karma](data-protection/consumer-apis/password-hashing.md)
-        *   [Sınır korumalı yüklerini ömrü](data-protection/consumer-apis/limited-lifetime-payloads.md)
-        *   [Yükü, anahtarları iptal korumayı Kaldır](data-protection/consumer-apis/dangerous-unprotect.md)
+        *   [Parola karması](data-protection/consumer-apis/password-hashing.md)
+        *   [Korumalı yüklerin ömrünü sınırlama](data-protection/consumer-apis/limited-lifetime-payloads.md)
+        *   [Anahtarları iptal edilen yüklerin korumasını kaldırma](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Yapılandırma](data-protection/configuration/index.md)
         *   [Veri korumasını yapılandırma](data-protection/configuration/overview.md)
         *   [Varsayılan ayarlar](data-protection/configuration/default-settings.md)
@@ -90,20 +89,20 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
         *   [Kimliği doğrulanmış şifreleme ayrıntıları](data-protection/implementation/authenticated-encryption-details.md)
         *   [Alt anahtar türetme ve kimliği doğrulanmış şifreleme](data-protection/implementation/subkeyderivation.md)
         *   [Bağlam üst bilgileri](data-protection/implementation/context-headers.md)
-        *   [Anahtar Yönetimi](data-protection/implementation/key-management.md)
+        *   [Anahtar yönetimi](data-protection/implementation/key-management.md)
         *   [Anahtar depolama sağlayıcıları](data-protection/implementation/key-storage-providers.md)
-        *   [REST anahtar şifrelemesi](data-protection/implementation/key-encryption-at-rest.md)
-        *   [Anahtar girişi ve ayarlarını değiştirme](data-protection/implementation/key-immutability.md)
+        *   [Bekleme durumunda anahtar şifreleme](data-protection/implementation/key-encryption-at-rest.md)
+        *   [Anahtar değiştirilemezliği ve ayarları değiştirme](data-protection/implementation/key-immutability.md)
         *   [Anahtar depolama biçimi](data-protection/implementation/key-storage-format.md)
         *   [Kısa ömürlü veri koruma sağlayıcıları](data-protection/implementation/key-storage-ephemeral.md)
     *   [Uyumluluk](data-protection/compatibility/index.md)
         *   [Tanımlama bilgilerini uygulamalar arasında paylaşma](data-protection/compatibility/cookie-sharing.md)
-        *   [Değiştir <machineKey> ASP.NET](data-protection/compatibility/replacing-machinekey.md)
+        *   [ASP.NET’te <machineKey> değiştirme](data-protection/compatibility/replacing-machinekey.md)
 *   [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
 *   [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](app-secrets.md)
 *   [Azure Key Vault yapılandırma sağlayıcısı](key-vault-configuration.md)
-*   [SSL Uygula](enforcing-ssl.md)
+*   [SSL uygulama](enforcing-ssl.md)
 *   [İstek Sahteciliğinden Koruma](anti-request-forgery.md)
-*   [Açık yeniden yönlendirme saldırılarını](preventing-open-redirects.md)
-*   [Siteler arası komut dosyası engelleme](cross-site-scripting.md)
-*   [Cross-Origin istekleri (CORS) etkinleştir](cors.md)
+*   [Açık yeniden yönlendirme saldırılarını önleme](preventing-open-redirects.md)
+*   [Siteler Arası Betik kullanmayı önleme](cross-site-scripting.md)
+*   [Kaynaklar Arası İstekleri (CORS) etkinleştirme](cors.md)

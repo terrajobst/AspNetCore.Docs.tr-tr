@@ -2,7 +2,6 @@
 title: "Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma"
 author: rick-anderson
 description: "ASP.NET Core MVC ve Windows için Visual Studio ile web API'si oluşturma"
-keywords: "ASP.NET Core, Webapı, Web API'si, REST, HTTP, hizmeti, HTTP hizmeti"
 ms.author: riande
 manager: wpickett
 ms.date: 08/15/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: da47296fd952300ce60121603834a9f22be3c339
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 234dbf73f9751ad4f995d6e7471d94f060fb15bf
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core ve Windows için Visual Studio ile web API oluşturma
 

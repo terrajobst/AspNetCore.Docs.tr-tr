@@ -2,24 +2,22 @@
 title: "Özel biçimlendiricileri ASP.NET Core MVC Web API'leri"
 author: tdykstra
 description: "Oluşturmayı ve web ASP.NET Core API'leri için özel biçimlendiricileri kullanmayı öğrenin."
-keywords: "ASP.NET Core, web API, özel biçimlendiricileri"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 02/08/2017
 ms.topic: article
-ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 5e665abe10fd7444c3fd5f20cfeca3ef0a5f79d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a6474fdae29b170978226de74d523b20a16cd0c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Özel biçimlendiricileri ASP.NET Core MVC Web API'leri
 
-tarafından [zel Dykstra](https://github.com/tdykstra)
+By [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core MVC web API'leri JSON, XML veya düz metin biçimlerini kullanarak veri değişimi için yerleşik destek sahip olur. Bu makalede, özel biçimlendiricileri oluşturarak ek biçimleri için destek eklemek gösterilmiştir.
 
@@ -67,7 +65,7 @@ Ekleyerek oluşturucuda geçerli bir medya türleri ve Kodlamalar belirtin `Supp
 > [!NOTE]  
 > Bir biçimlendirici sınıf oluşturucu bağımlılık ekleme yapamazsınız. Örneğin, oluşturucuya bir Günlükçü parametresini ekleyerek bir Günlükçü alınamıyor. Hizmetlere erişmek için yönteme geçirilen context nesnesi kullanmak zorunda. Kod örneği [aşağıda](#read-write) bunun nasıl yapılacağı gösterilmektedir.
 
-### <a name="override-canreadtypecanwritetype"></a>CanReadType/CanWriteType geçersiz kıl 
+### <a name="override-canreadtypecanwritetype"></a>Override CanReadType/CanWriteType 
 
 İçine seri durumdan ya da geçersiz kılarak öğesinden seri türünü belirtmek `CanReadType` veya `CanWriteType` yöntemleri. Örneğin, yalnızca vCard metinden oluşturmak mümkün olabilir bir `Contact` türü tersi.
 

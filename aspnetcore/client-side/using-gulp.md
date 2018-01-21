@@ -2,7 +2,6 @@
 title: "ASP.NET çekirdek Gulp kullanma"
 author: rick-anderson
 description: "ASP.NET Core Gulp kullanmayı öğrenin."
-keywords: ASP.NET Core, Gulp
 ms.author: riande
 manager: wpickett
 ms.date: 02/28/2017
@@ -11,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-gulp
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68f6838889cfb830f2c5a1976b3140ae5d94ac25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 11f7254a2f3d3d132f2f6af6d5ddab23f896cf63
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanmaya giriş 
 
@@ -30,7 +29,7 @@ Tipik modern web uygulamasında yapı işlemi olabilir:
 
 A *görev Çalıştırıcı* , bu yordamı geliştirme görevleri ve daha fazlasını otomatikleştiren bir araçtır. Visual Studio iki popüler JavaScript tabanlı görev koşucular için yerleşik destek sunar: [Gulp](https://gulpjs.com/) ve [Grunt](using-grunt.md).
 
-## <a name="gulp"></a>Gulp
+## <a name="gulp"></a>gulp
 
 Gulp bir JavaScript tabanlı akış derleme için araç seti istemci tarafı kodlar ' dir. Yaygın bir yapı ortamında belirli bir olay tetiklendiğinde işlemleri, bir dizi istemci-tarafı dosyalarıyla akışını sağlamak için kullanılır. Örneğin, Gulp otomatik hale getirmek için kullanılabilir [paketleme ve küçültme](bundling-and-minification.md) veya yeni bir yapı önce bir geliştirme ortamı temizleme.
 
@@ -102,11 +101,11 @@ Aşağıdaki tabloda Yukarıdaki kod belirtilen görevler bir açıklamasını s
 
 |Görev adı|Açıklama|
 |--- |--- |
-|temiz: js|Site.js dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
-|temiz: css|Site.css dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
+|clean:js|Site.js dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
+|clean:css|Site.css dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
 |Temizleme|Çağıran bir görev `clean:js` ve ardından görev `clean:css` görev.|
-|Min:js|Küçültür ve js klasördeki tüm .js dosyaları art arda ekler bir görev. . Min.js dosyaları dışlanır.|
-|Min:CSS|Küçültür ve css klasördeki tüm .css dosyaları art arda ekler bir görev. . Min.css dosyaları dışlanır.|
+|min:js|Küçültür ve js klasördeki tüm .js dosyaları art arda ekler bir görev. . Min.js dosyaları dışlanır.|
+|min:css|Küçültür ve css klasördeki tüm .css dosyaları art arda ekler bir görev. . Min.css dosyaları dışlanır.|
 |min|Çağıran bir görev `min:js` ve ardından görev `min:css` görev.|
 
 ## <a name="running-default-tasks"></a>Varsayılan görevleri çalıştırma
@@ -249,7 +248,7 @@ Birden çok görev çalıştırdığınızda görevler eşzamanlı olarak varsay
     gulp.task("series", ["series:first", "series:second"], function () {});
     ```
  
-    Artık üç görev vardır: `series:first`, `series:second`, ve `series`. `series:second` Görevi çalıştırın ve önce tamamlandı için görevleri bir dizi belirten ikinci bir parametresi içerir `series:second` görev çalışır.  Kodda yalnızca yukarıda belirtildiği gibi `series:first` görev tamamlandı, önce `series:second` görev çalışır.
+    Artık üç görev vardır: `series:first`, `series:second`, ve `series`. `series:second` Görevi çalıştırın ve önce tamamlandı için görevleri bir dizi belirten ikinci bir parametresi içerir `series:second` görev çalışır. Kodda yalnızca yukarıda belirtildiği gibi `series:first` görev tamamlandı, önce `series:second` görev çalışır.
 
 2.  Kaydet *gulpfile.js*.
 
@@ -328,7 +327,7 @@ ASP.NET Core ortamlarda ilgili daha fazla bilgi için bkz: [birden çok ortamlar
 
 ## <a name="task-and-module-details"></a>Görev ve modül ayrıntıları
 
-Gulp görev işlevi adıyla kaydedilir.  Diğer görevlerden önce geçerli görevin çalıştırmanız gerekiyorsa, bağımlılıkları belirtebilirsiniz. Ek işlevler izin çalıştırın ve Gulp görevleri izleyin, yanı sıra kaynağı ayarlayın (*src*) ve hedef (*taşınmaya*) değiştirilen dosyaların. Birincil Gulp API işlevleri şunlardır:
+Gulp görev işlevi adıyla kaydedilir. Diğer görevlerden önce geçerli görevin çalıştırmanız gerekiyorsa, bağımlılıkları belirtebilirsiniz. Ek işlevler izin çalıştırın ve Gulp görevleri izleyin, yanı sıra kaynağı ayarlayın (*src*) ve hedef (*taşınmaya*) değiştirilen dosyaların. Birincil Gulp API işlevleri şunlardır:
 
 |Gulp işlevi|Sözdizimi|Açıklama|
 |---   |--- |--- |

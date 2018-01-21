@@ -2,20 +2,18 @@
 title: "ASP.NET Core Windows kimlik doğrulamasını yapılandırma"
 author: ardalis
 description: "Bu makalede, ASP.NET çekirdek IIS Express, IIS, HTTP.sys ve WebListener kullanarak, Windows kimlik doğrulamasını yapılandırmak açıklar."
-keywords: "ASP.NET Core, Windows kimlik doğrulaması, yetkilendirme özniteliği, AllowAnonymous özniteliği"
 ms.author: riande
 manager: wpickett
 ms.date: 10/24/2017
 ms.topic: article
-ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: e5ceffe5b7f7e3ef4f6158b6b7b7d571a21ee130
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: d4523ca65852de8cfd963838d8bf3caa1d7204cc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamada Windows kimlik doğrulamasını yapılandırma
 
@@ -35,7 +33,7 @@ Visual Studio Web uygulaması şablonu, Windows kimlik doğrulamayı destekleyec
 
 ### <a name="use-the-windows-authentication-app-template"></a>Windows kimlik doğrulaması uygulama şablonu kullanın
 
-Visual Studio'da:
+In Visual Studio:
 1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
 1. Web uygulaması şablonları listesinden seçin.
 1. Seçin **kimlik doğrulamayı Değiştir** düğmesine tıklayın ve ardından **Windows kimlik doğrulaması**. 
@@ -86,13 +84,13 @@ Windows kimlik doğrulaması çalıştığını doğrulamak için uygulamayı ba
 
 ## <a name="enable-windows-authentication-with-httpsys-or-weblistener"></a>HTTP.sys veya WebListener Windows kimlik doğrulamasını etkinleştirme
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Kestrel Windows kimlik doğrulamasını desteklemez, ancak kullanabilirsiniz [HTTP.sys](xref:fundamentals/servers/httpsys) Windows kendini barındıran senaryoları desteklemek için. Aşağıdaki örnek HTTP.sys Windows kimlik doğrulaması ile kullanmak için uygulamanın web ana bilgisayarı yapılandırır:
 
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Kestrel Windows kimlik doğrulamasını desteklemez, ancak kullanabilirsiniz [WebListener](xref:fundamentals/servers/weblistener) Windows kendini barındıran senaryoları desteklemek için. Aşağıdaki örnek WebListener Windows kimlik doğrulaması ile kullanmak için uygulamanın web ana bilgisayarı yapılandırır:
 

@@ -2,21 +2,19 @@
 title: "ASP.NET Core tarayıcı bağlantısı"
 author: ncarandini
 description: "Tarayıcı bağlantısı bir veya daha fazla web tarayıcıları ile geliştirme ortamı bağlanan bir Visual Studio özelliği ne olduğunu açıklar."
-keywords: "ASP.NET Core, tarayıcı bağlantısı CSS eşitleme"
 ms.author: riande
 manager: wpickett
 ms.date: 09/22/2017
 ms.topic: article
-ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5db65c268923e96c45b034639437fc3496ccac1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET Core tarayıcı bağlantısı 
 
@@ -26,11 +24,11 @@ Tarayıcı bağlantısı Visual Studio'da geliştirme ortamı ve bir veya daha f
 
 ## <a name="browser-link-setup"></a>Tarayıcı bağlantı Kur
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ASP.NET Core 2.x **Web uygulaması**, **boş**, ve **Web API** şablon projeleri kullanım [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) için bir paket başvuru içeren meta-package [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/). Bu nedenle, kullanarak `Microsoft.AspNetCore.All` meta paketi tarayıcı bağlantısı kullanmak için kullanılabilir hale getirmek için başka bir eylem gerektirir.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ASP.NET Core 1.x **Web uygulaması** proje şablonu için bir paket başvuru sahip [Microsoft.VisualStudio.Web.BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) paket. **Boş** veya **Web API** şablon projelerini paket başvuru eklemek gerekli `Microsoft.VisualStudio.Web.BrowserLink`.
 
@@ -114,15 +112,15 @@ Tarayıcı bağlantısı dış Visual Studio'dan başlatın ve uygulamayı URL'y
 
 Tarayıcı bağlantısı açılan menüden bağlantı açık tarayıcılar ile yönetmek için tarayıcı bağlantı panosunu açın:
 
-![Açık browserslink Panosu](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Hiçbir tarayıcı bağlıysa, seçerek hata ayıklama olmayan bir oturum başlatabilirsiniz *tarayıcıda görüntüle* bağlantı:
 
-![Pano Hayır bağlantıları browserlink](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 Aksi takdirde, her tarayıcı gösteren sayfasının yolu ile bağlı tarayıcılarda gösterilmektedir:
 
-![Pano iki bağlantıları browserlink](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 İsterseniz, bu tek tarayıcıyı yenilemek için listelenen tarayıcı adına tıklayabilirsiniz.
 

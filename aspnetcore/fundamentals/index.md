@@ -2,27 +2,25 @@
 title: ASP.NET Core temelleri
 author: rick-anderson
 description: "ASP.NET Core uygulamaları oluşturmak için temel kavramları bulur."
-keywords: "ASP.NET Core, temelleri, genel bakış"
 ms.author: riande
 manager: wpickett
 ms.date: 09/30/2017
 ms.topic: get-started-article
-ms.assetid: a19b7836-63e4-44e8-8250-50d426dd1070
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83bed4676be3ca752442da3fe560f1f2a4d728a1
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 0d977c13eb5f4cbe8bac261733bdc747e6c19b2a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
 Bir web sunucusu oluşturan bir konsol uygulaması bir ASP.NET Core uygulamadır kendi `Main` yöntemi:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]
 
@@ -30,7 +28,7 @@ Bir web sunucusu oluşturan bir konsol uygulaması bir ASP.NET Core uygulamadır
 
 `IWebHostBuilder`, dönüş türü `WebHost.CreateDefaultBuilder` çağırma, birçok isteğe bağlı yöntemler sağlar. Bu yöntemlerin bazıları `UseHttpSys` HTTP.sys uygulamada barındırma ve `UseContentRoot` kök içerik dizinini belirtmek için. `Build` Ve `Run` yöntemleri yapı `IWebHost` uygulamayı barındıran ve HTTP isteklerini dinlemeye başlar nesnesi.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]
 
@@ -44,11 +42,11 @@ Bir web sunucusu oluşturan bir konsol uygulaması bir ASP.NET Core uygulamadır
 
 `UseStartup` Yöntemi `WebHostBuilder` belirtir `Startup` sınıfı, uygulamanız için:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]
 
@@ -99,9 +97,9 @@ ASP.NET Core zengin bir yerleşik ara yazılım kümesi ile birlikte gelir:
 
 * [Statik dosyalar](xref:fundamentals/static-files)
 * [Yönlendirme](xref:fundamentals/routing)
-* [Kimlik doğrulaması](xref:security/authentication/index)
-* [Yanıt sıkıştırma Ara](xref:performance/response-compression)
-* [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting)
+* [Kimlik Doğrulaması](xref:security/authentication/index)
+* [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression)
+* [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting)
 
 [OWIN](http://owin.org)-tabanlı ara yazılım ASP.NET Core uygulamaları için kullanılabilir ve kendi özel ara yazabilirsiniz.
 
@@ -163,12 +161,12 @@ Daha fazla bilgi için bkz: [oturum ve uygulama durumu](xref:fundamentals/app-st
 
 ## <a name="servers"></a>Sunucular
 
-Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteği iletmek için bir HTTP sunucusu uygulamasını barındırma modeli kullanır. İletilen istek arabirimleri aracılığıyla erişilen özellik nesneleri kümesi olarak paketlenir. ASP.NET Core içerir olarak adlandırılan bir yönetilen, platformlar arası web sunucusuna [Kestrel](xref:fundamentals/servers/kestrel). Kestrel sık çalıştırıldığında bir üretim web sunucusu gibi [IIS](https://www.iis.net/) veya [nginx](http://nginx.org). Kestrel bir uç sunucusu çalıştırabilirsiniz.
+Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteği iletmek için bir HTTP sunucusu uygulamasını barındırma modeli kullanır. İletilen istek arabirimleri aracılığıyla erişilen özellik nesneleri kümesi olarak paketlenir. ASP.NET Core içerir olarak adlandırılan bir yönetilen, platformlar arası web sunucusuna [Kestrel](xref:fundamentals/servers/kestrel). Kestrel sık çalıştırıldığında bir üretim web sunucusu gibi [IIS](https://www.iis.net/) veya [Nginx](http://nginx.org). Kestrel bir uç sunucusu çalıştırabilirsiniz.
 
 Daha fazla bilgi için bkz: [sunucuları](xref:fundamentals/servers/index) ve aşağıdaki konular:
 
 * [Kestrel](xref:fundamentals/servers/kestrel)
-* [ASP.NET çekirdeği Modülü](xref:fundamentals/servers/aspnet-core-module)
+* [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module)
 * [HTTP.sys](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener))
 
 ## <a name="globalization-and-localization"></a>Genelleştirme ve yerelleştirme

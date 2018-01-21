@@ -2,20 +2,18 @@
 title: "Bir ASP.NET Core uygulamada açık yeniden yönlendirme saldırılarını önleme | Microsoft Docs"
 author: ardalis
 description: "Açık yeniden yönlendirme saldırılarına karşı bir ASP.NET Core uygulama önlemek nasıl gösterir"
-keywords: "ASP.NET Core, güvenlik, açık yeniden yönlendirme saldırısı"
 ms.author: riande
 manager: wpickett
 ms.date: 07/07/2017
 ms.topic: article
-ms.assetid: 4604e563-e91a-4ecd-b7ed-00b3f1eee2b5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: 4083845a77eb19d9ba9beb389a92ceb5c14edbde
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e57ae429e9af54ade74485361ba591cb75c16752
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamada açık yeniden yönlendirme saldırılarını önleme
 

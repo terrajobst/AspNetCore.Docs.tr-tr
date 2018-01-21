@@ -2,7 +2,6 @@
 title: "SQL Server yerel veritabanı ve ASP.NET Core ile çalışma"
 author: rick-anderson
 description: "SQL Server yerel veritabanı ve ASP.NET Core ile çalışmayı açıklar."
-keywords: "ASP.NET Core, Razor sayfalarının, Razor, MVC, SQL, yerel veritabanı"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: a807e4c8395a5cdd93544ca08816df3441969c03
-ms.sourcegitcommit: bc723b483182fbcbf8c4c7098f70443662076905
+ms.openlocfilehash: 90aa194eda1c52afb1f299a0b95c7040e32a02fc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server yerel veritabanı ve ASP.NET Core ile çalışma
 

@@ -2,20 +2,18 @@
 title: "Veri koruma giriş"
 author: rick-anderson
 description: "Bu belge, veri koruma kavramını sunmaktadır ve ilişkili ASP.NET Core API tasarım ilkeleri özetlenmektedir."
-keywords: ASP.NET Core, veri koruma
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4542cd37-b47c-454c-be19-d1b5810d67fe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: dd34f2e69ea0f6427ee5f446d6440dfab17a42c4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-data-protection"></a>Veri koruma giriş
 
@@ -71,12 +69,12 @@ Veri koruma sisteminde beş ana paketlere ayrılmıştır. Bu API'leri çeşitli
 
 Veri koruma yığını beş paketlerini oluşur.
 
-* Microsoft.AspNetCore.DataProtection.Abstractions temel IDataProtectionProvider ve Idataprotector arabirimleri içerir. Ayrıca, bu türleri (örneğin, IDataProtector.Protect aşırı) ile çalışma yardımcı olabilecek yararlı genişletme yöntemleri içerir. Daha fazla bilgi için tüketici arabirimleri bölümüne bakın. Başkası veri koruma sisteminde başlatmasını sorumludur ve API'ları yalnızca kullanıyor, başvuru Microsoft.AspNetCore.DataProtection.Abstractions isteyeceksiniz.
+* Microsoft.AspNetCore.DataProtection.Abstractions contains the basic IDataProtectionProvider and IDataProtector interfaces. Ayrıca, bu türleri (örneğin, IDataProtector.Protect aşırı) ile çalışma yardımcı olabilecek yararlı genişletme yöntemleri içerir. Daha fazla bilgi için tüketici arabirimleri bölümüne bakın. Başkası veri koruma sisteminde başlatmasını sorumludur ve API'ları yalnızca kullanıyor, başvuru Microsoft.AspNetCore.DataProtection.Abstractions isteyeceksiniz.
 
 * Microsoft.AspNetCore.DataProtection çekirdek şifreleme işlemleri, anahtar yönetimi, yapılandırması ve genişletilebilirlik gibi veri koruma sisteminde çekirdek uygulamasını içerir. Veri koruma sisteminde başlatmasını için sorumlu (örneğin, bir IServiceCollection ekleme) ya da değiştirme veya davranışını genişletme, başvuru Microsoft.AspNetCore.DataProtection istemeniz.
 
-* Microsoft.AspNetCore.DataProtection.Extensions hangi geliştiricilere yararlı olabilir ancak çekirdek pakete ait olmayan ek API'leri içerir. Örneğin, bu paket, bir basit bir "Hiçbir bağımlılık ekleme Kurulum sahip bir özel anahtar depolama dizin gösteren sistem örneği" API (daha fazla bilgi) içerir. Ayrıca, korumalı yüklerini (daha fazla bilgi) ömrü sınırlamak için genişletme yöntemleri içerir.
+* Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Örneğin, bu paket, bir basit bir "Hiçbir bağımlılık ekleme Kurulum sahip bir özel anahtar depolama dizin gösteren sistem örneği" API (daha fazla bilgi) içerir. Ayrıca, korumalı yüklerini (daha fazla bilgi) ömrü sınırlamak için genişletme yöntemleri içerir.
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb yönlendirmek için mevcut ASP.NET 4.x uygulamasına yüklenebilir kendi <machineKey> yeni veri koruma yığını kullanmayı işlemleri. Bkz: [Uyumluluk](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) daha fazla bilgi için.
+* Microsoft.AspNetCore.DataProtection.SystemWeb can be installed into an existing ASP.NET 4.x application to redirect its <machineKey> operations to instead use the new data protection stack. Bkz: [Uyumluluk](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) daha fazla bilgi için.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation PBKDF2 parola yordamı karma uygulaması sağlar ve kullanıcı parolalarını güvenli bir şekilde işlemek için gereken sistemleri tarafından kullanılabilir. Bkz: [parola karma](consumer-apis/password-hashing.md) daha fazla bilgi için.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Bkz: [parola karma](consumer-apis/password-hashing.md) daha fazla bilgi için.

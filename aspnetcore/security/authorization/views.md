@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC görünümü tabanlı yetkilendirme"
 author: rick-anderson
 description: "Bu belge, Ekle ve ASP.NET Core Razor görünüm içinde yetkilendirme hizmeti kullanma gösterilmektedir."
-keywords: ASP.NET Core, yetkilendirme, IAuthorizationService, Razor yetkilendirme
 ms.author: riande
 manager: wpickett
 ms.date: 10/30/2017
 ms.topic: article
-ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 756431f398c29376ab0ecd6c4f4d1db4f8022b0b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f87ca90b77be1efd75688e8203cb57b1a3360ad
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="view-based-authorization"></a>Görünüm tabanlı bir yetkilendirme
 
@@ -30,7 +28,7 @@ Her görünüm yetkilendirme hizmetinde istiyorsanız koyun `@inject` içine yö
 
 Çağrılacak eklenen yetkilendirme hizmetini kullanmak `AuthorizeAsync` tam olarak denetleyin sırasında aynı şekilde [kaynak tabanlı bir yetkilendirme](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, "PolicyName")).Succeeded)
@@ -39,7 +37,7 @@ Her görünüm yetkilendirme hizmetinde istiyorsanız koyun `@inject` içine yö
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```cshtml
 @if (await AuthorizationService.AuthorizeAsync(User, "PolicyName"))
@@ -52,7 +50,7 @@ Her görünüm yetkilendirme hizmetinde istiyorsanız koyun `@inject` içine yö
 
 Bazı durumlarda, kaynak görünümü modelinizi olacaktır. Çağırma `AuthorizeAsync` tam olarak denetleyin sırasında aynı şekilde [kaynak tabanlı bir yetkilendirme](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit)).Succeeded)
@@ -62,7 +60,7 @@ Bazı durumlarda, kaynak görünümü modelinizi olacaktır. Çağırma `Authori
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```cshtml
 @if (await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit))

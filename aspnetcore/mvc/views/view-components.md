@@ -2,20 +2,18 @@
 title: "Görünüm bileşenleri"
 author: rick-anderson
 description: "Görünüm bileşenleri yeniden kullanılabilir işleme mantığı sahip herhangi bir yere yöneliktir."
-keywords: "ASP.NET Core, görünümü bileşenler, kısmi görünümü"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="view-components"></a>Görünüm bileşenleri
 
@@ -248,4 +246,4 @@ Ekleme bir `using` , Razor ifadesine dosya görüntülemek ve kullanmak `nameof`
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [Görünümler içinde bağımlılık ekleme](dependency-injection.md)
+* [Görünümlere bağımlılık ekleme](dependency-injection.md)

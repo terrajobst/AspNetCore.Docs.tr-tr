@@ -2,33 +2,31 @@
 title: "ASP.NET Core istemci-tarafı geliştirme"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe0ba2e4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/index
-ms.openlocfilehash: 61a8eeed1a5ef5517f839ebd830eff40b959347a
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 09d05a5e08a5e4b78d8fa7b8f55d59ca3b422f5f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="client-side-development-in-aspnet-core"></a>ASP.NET Core istemci-tarafı geliştirme
 
-- [Gulp kullanın](xref:client-side/using-gulp)
-- [Grunt kullanın](xref:client-side/using-grunt)
+- [Gulp kullanma](xref:client-side/using-gulp)
+- [Grunt kullanma](xref:client-side/using-grunt)
 - [Bower ile istemci tarafı paketleri yönetme](xref:client-side/bower)
-- [Önyükleme esnek siteleriyle derleme](xref:client-side/bootstrap)
-- [Daha az stili uygulamalarla, Sass ve harika yazı tipi](xref:client-side/less-sass-fa)
-- [Paket ve minify](xref:client-side/bundling-and-minification)
+- [Bootstrap ile hızlı yanıt veren siteler oluşturma](xref:client-side/bootstrap)
+- [LESS, Sass ve Font Awesome ile uygulama stili oluşturma](xref:client-side/less-sass-fa)
+- [Paketleme ve küçültme](xref:client-side/bundling-and-minification)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
-- [Tarayıcı bağlantısı kullanmak](xref:client-side/using-browserlink)
-- [JavaScriptServices SPAs için kullanın](xref:client-side/spa-services)
-- [SPA proje şablonlarını (RC) kullanın](xref:spa/index)
+- [Tarayıcı Bağlantısı Kullanma](xref:client-side/using-browserlink)
+- [SPA’lar için JavaScriptServices kullanma](xref:client-side/spa-services)
+- [SPA proje şablonlarını kullanma (RC)](xref:spa/index)
     - [Angular proje şablonu](xref:spa/angular)
     - [React proje şablonu](xref:spa/react)
     - [Redux ile React proje şablonu](xref:spa/react-with-redux)

@@ -2,20 +2,18 @@
 title: "ASP.NET Core test tümleştirme"
 author: ardalis
 description: "Bir uygulamanın bileşenleri düzgün emin olmak için test ASP.NET Core tümleştirme kullanmayı."
-keywords: "ASP.NET Core, test, Razor tümleştirme"
 ms.author: riande
 manager: wpickett
 ms.date: 09/25/2017
 ms.topic: article
-ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: 155fd2f0663c6225531a4df6f323ebb30ab1ee73
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b0d741c05a723ad80fe812254c9a500a9fd9204
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core test tümleştirme
 
@@ -152,5 +150,5 @@ Bu yeniden düzenleme aşağıdaki, tüm tümleştirme testlerinizi geçtiğiniz
 ## <a name="resources"></a>Kaynaklar
 
 * [Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Ara yazılım](xref:fundamentals/middleware)
+* [Ara Yazılım](xref:fundamentals/middleware)
 * [Test denetleyicileri](xref:mvc/controllers/testing)

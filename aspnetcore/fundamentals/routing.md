@@ -2,20 +2,18 @@
 title: "ASP.NET çekirdek yönlendirme"
 author: ardalis
 description: "ASP.NET Core yönlendirme işlevini nasıl gelen istek yönlendirme işleyicisine eşlemek için sorumlu olduğu bulur."
-keywords: "ASP.NET Çekirdeği"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -233,7 +231,7 @@ Aşağıdaki tabloda verilen URI'ler yanıtları gösterir.
 | URI | Yanıt  |
 | ------- | -------- |
 | /Package/Create/3  | Merhaba! Rota değerleri: [işlemi, oluşturmak], [kimliği, 3] |
-| / /-3 Paket/İzle  | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3] |
+| /package/track/-3  | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3] |
 | / paketini / /-3 izlemek / | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3]  |
 | /Package/İzle / | \<Eşleşme aracılığıyla, kalan > |
 | /Hello/Joe Al | Merhaba, CAN! |
@@ -278,11 +276,11 @@ Aşağıdaki tabloda bazı rota şablonlarının ve davranışlarını gösterir
 | Rota şablonu | Örnek URL eşleştirme | Notlar |
 | -------- | -------- | ------- |
 | Merhaba  | / Merhaba  | Yalnızca tek bir yol ile eşleşir`/hello` |
-| {Sayfa giriş =} | / | Eşleşen ve ayarlar `Page` için`Home` |
-| {Sayfa giriş =}  | / Başvurun  | Eşleşen ve ayarlar `Page` için`Contact` |
-| {controller} / {action} / {id?} | / Ürünler/listesi | Eşlendiği `Products` denetleyicisi ve `List` eylem |
-| {controller} / {action} / {id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id`için 123 ayarlayın |
-| {denetleyicisi giriş =} / {eylemi = dizin} / {id?} | /  |  Eşlendiği `Home` denetleyicisi ve `Index` yöntemi; `id` göz ardı edilir. |
+| {Page=Home} | / | Eşleşen ve ayarlar `Page` için`Home` |
+| {Page=Home}  | / Başvurun  | Eşleşen ve ayarlar `Page` için`Contact` |
+| {controller}/{action}/{id?} | / Ürünler/listesi | Eşlendiği `Products` denetleyicisi ve `List` eylem |
+| {controller}/{action}/{id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id`için 123 ayarlayın |
+| {controller=Home}/{action=Index}/{id?} | /  |  Eşlendiği `Home` denetleyicisi ve `Index` yöntemi; `id` göz ardı edilir. |
 
 Bir şablon kullanarak genellikle yönlendirme en basit yaklaşımdır. Ayrıca kısıtlamaları ve varsayılan rota şablonu dışında belirtilebilir.
 
@@ -340,7 +338,7 @@ Normal ifadeler yönlendirmeye kullanılan ile genellikle başlayacak `^` karakt
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | Merhaba | Evet | eşleşmelerini |
 | `[a-z]{2}` | 123abc456 | Evet | eşleşmelerini |
-| `[a-z]{2}` | MZ | Evet | ifadesiyle eşleşiyor |
+| `[a-z]{2}` | mz | Evet | ifadesiyle eşleşiyor |
 | `[a-z]{2}` | MZ | Evet | değil büyük küçük harfe duyarlı |
 | `^[a-z]{2}$` |  Merhaba | Yok | bkz: `^` ve `$` yukarıda |
 | `^[a-z]{2}$` |  123abc456 | Yok | bkz: `^` ve `$` yukarıda |
@@ -365,10 +363,10 @@ Açıkça sağlanır, ancak, herhangi bir şey eşleşmeyen değerleri sorgu diz
 
 | Ortam değerleri | Açık değerler | Sonuç |
 | -------------   | -------------- | ------ |
-| Denetleyici = "Home" | Eylem "About" = | `/Home/About` |
-| Denetleyici = "Home" | Denetleyici "Order", Eylem = "About" = | `/Order/About` |
-| Denetleyici "Home", color = "Red" = | Eylem "About" = | `/Home/About` |
-| Denetleyici = "Home" | Eylem = "Hakkında", renk = "Red" | `/Home/About?color=Red`
+| controller="Home" | Eylem "About" = | `/Home/About` |
+| controller="Home" | controller="Order",action="About" | `/Order/About` |
+| controller="Home",color="Red" | Eylem "About" = | `/Home/About` |
+| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
 
 Bir rota parametresi karşılık gelmiyor varsayılan bir değeri yok ve bu değeri açıkça sağlanır, varsayılan değer eşleşmesi gerekir. Örneğin:
 

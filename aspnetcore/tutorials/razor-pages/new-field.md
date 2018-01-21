@@ -2,7 +2,6 @@
 title: "Yeni bir alan için bir Razor sayfası ekleme"
 author: rick-anderson
 description: "Razor sayfasını Entity Framework Çekirdek ile yeni bir alan eklemek nasıl gösterir"
-keywords: "ASP.NET Core, Entity Framework Çekirdek geçişleri"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 128b69513976a56104524bb803f2b8cb1daf1967
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd804f127a32f0c6f9488b6bf7bf88be062335d0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Yeni bir alan için bir Razor sayfası ekleme
 

@@ -2,21 +2,19 @@
 title: "Tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanma"
 author: scottaddie
 description: "Bir tek sayfa uygulaması (ASP.NET Core tarafından yedeklenen SPA) oluşturmak için JavaScriptServices kullanmanın avantajları hakkında bilgi edinin."
-keywords: "ASP.NET Core, Açısal SPA, JavaScriptServices, SpaServices"
 ms.author: scaddie
 manager: wpickett
 ms.date: 08/02/2017
 ms.topic: article
-ms.assetid: 4b30576b-2718-4c39-9253-a59966747893
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
-ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
+ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET çekirdeği ile tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanma
 
@@ -239,12 +237,12 @@ Kullanılabilir SPA şablonların listesi görüntülenir:
 
 | Şablonlar                                 | Kısa Ad | Dil | Etiketler        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC ASP.NET Core Açısal ile             | Açısal    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core Aurelia ile             | aurelia    | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core Knockout.js ile         | Boşaltılan   | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core React.js ile            | tepki      | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core React.js ve Redux  | reactredux | [C#]     | MVC/Web/SPA |
-| MVC ASP.NET Core Vue.js ile              | VUE        | [C#]     | MVC/Web/SPA | 
+| MVC ASP.NET Core Açısal ile             | Açısal    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core Aurelia ile             | aurelia    | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core Knockout.js ile         | Boşaltılan   | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core React.js ile            | tepki      | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core React.js ve Redux  | reactredux | [C#]     | Web/MVC/SPA |
+| MVC ASP.NET Core Vue.js ile              | VUE        | [C#]     | Web/MVC/SPA | 
 
 SPA şablonlarından birini kullanarak yeni bir proje oluşturmak için içermesi **kısa ad** şablonunun `dotnet new` komutu. Aşağıdaki komutu Açısal uygulama ASP.NET Core için sunucu tarafı yapılandırılmış MVC ile oluşturur:
 

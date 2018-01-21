@@ -2,29 +2,27 @@
 title: "ASP.NET Core içinde etiket Yardımcıları yazma"
 author: rick-anderson
 description: "ASP.NET Core içinde etiket Yardımcıları yazmak öğrenin."
-keywords: "ASP.NET Core, etiket Yardımcıları"
 ms.author: riande
 manager: wpickett
-ms.date: 06/14/2017
+ms.date: 01/19/2018
 ms.topic: article
-ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
+ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Etiket Yardımcıları ASP.NET Core, örnekleri ile ilgili bir kılavuz olarak yazma
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core, örnekleri ile ilgili bir kılavuz olarak yazar etiket Yardımcıları
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="getting-started-with-tag-helpers"></a>Etiket Yardımcıları ile çalışmaya başlama
+## <a name="get-started-with-tag-helpers"></a>Etiket Yardımcıları ile çalışmaya başlama
 
 Bu öğretici programlama etiket Yardımcıları tanıtılmaktadır. [Etiket Yardımcıları giriş](intro.md) etiket Yardımcıları sağlamak faydalarını anlatır.
 
@@ -46,7 +44,7 @@ Sunucu, bu biçimlendirme aşağıdaki dönüştürmek için bizim e-posta etike
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
-   ```
+```
 
 Diğer bir deyişle, bir yer işareti etiketi, bu bir e-posta bağlantısı sağlar. Blog altyapısıdır ve yazma ve aynı etki alanına tüm pazarlama, destek ve diğer kişiler için e-posta göndermek istiyorsanız bunu yapmak isteyebilirsiniz.
 
@@ -188,7 +186,7 @@ Aynı zamanda `[HtmlTargetElement]` hedeflenen öğesinin adını değiştirmek 
 [HtmlTargetElement("MyBold")]
    ```
 
-## <a name="passing-a-model-to-a-tag-helper"></a>Bir model için bir etiket Yardımcısı geçirme
+## <a name="pass-a-model-to-a-tag-helper"></a>Bir model için bir etiket Yardımcısı geçirin
 
 1.  Ekleme bir *modelleri* klasör.
 
@@ -285,7 +283,7 @@ Koşul etiket Yardımcısı true değeri geçirildiğinde çıkış işler.
 >
 >[Nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) işleci korumak kodu herhangi bir zamanda yeniden (biz adına değiştirmek isteyebileceğiniz `RedCondition`).
 
-### <a name="avoiding-tag-helper-conflicts"></a>Etiket Yardımcısı çakışmaları önleme
+### <a name="avoid-tag-helper-conflicts"></a>Etiket Yardımcısı çakışmaları önleme
 
 Bu bölümde, etiket Yardımcıları otomatik bağlama çifti yazma. İlk biçimlendirme içeren bir HTML yer işareti etiketi aynı URL'sini içeren (ve bu nedenle bağlantı URL'sini verir) HTTP ile başlayan URL yerini alır. İkinci aynı URL'sini WWW ile başlayan yapın.
 
@@ -329,7 +327,7 @@ Bu iki Yardımcıları yakından ilişkili olan ve gelecekte yeniden çünkü bi
     
     Yukarıdaki kod HTTP etiket Yardımcısı WWW etiket Yardımcısı önce çalışır garanti. Değişiklik `Order` için `MaxValue` ve WWW etiketi için oluşturulan biçimlendirme yanlış olduğundan emin olun.
 
-## <a name="inspecting-and-retrieving-child-content"></a>İnceleme ve alt içerik alınıyor
+## <a name="inspect-and-retrieve-child-content"></a>İnceleyebilir ve alt içeriğini alır
 
 Etiket Yardımcıları içerik almak için çeşitli özellikler sağlar.
 

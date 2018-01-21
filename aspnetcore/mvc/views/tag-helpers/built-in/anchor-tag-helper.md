@@ -2,20 +2,18 @@
 title: "Bağlantı etiketi Yardımcısı | Microsoft Docs"
 author: pkellner
 description: "Yer işareti etiketi Yardımcısı ile çalışmaya nasıl gösterir"
-keywords: "ASP.NET Core, etiket Yardımcısı"
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>Yer işareti etiketi Yardımcısı
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > Kullanılacak `asp-page` Razor sayfalarında, URL'ler özniteliği bir göreli yol olmalıdır, örneğin `"./Speaker"`. Göreli yolda `asp-page` özniteliği MVC görünümlerde kullanılabilir değildir. "/" Sözdizimi için MVC görünümleri kullanın.
 
-### <a name="asp-route-value"></a>ASP - rota-{value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`joker karakter rota öneki ' dir. Sonda Tire olası bir rota parametresi olarak yorumlanacak sonra yerleştirdiğiniz herhangi bir değer. Varsayılan bir yol bulunmazsa, bu rota öneki oluşturulan href istek parametresi ve değeri olarak eklenir. Aksi takdirde rota şablonunda değiştirilecektir.
 
@@ -168,7 +166,7 @@ Her iki `asp-controller` veya `asp-action` de olduğu gibi aynı varsayılan iş
 
 `Name = "speakerevals"`bir rota URL'yi kullanarak doğrudan bu yönteme denetleyicisi oluşturmak için yer işareti etiketi yardımcı söyler `/Speaker/Evaluations`. Varsa `asp-controller` veya `asp-action` ek olarak belirtilen `asp-route`, oluşturulan rota beklediğiniz olmayabilir. `asp-route`öznitelikleri birini kullanarak kullanılmamalıdır `asp-controller` veya `asp-action` rota çakışmayı önlemek için.
 
-### <a name="asp-all-route-data"></a>ASP tüm rota veri
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`Burada anahtar parametre adı ve değeri bu anahtarla ilişkili değeri anahtar değer çifti sözlüğü oluşturma sağlar.
 
@@ -206,7 +204,7 @@ Oluşturulan URL olacaktır: http://localhost/Speaker/Evaluations#SpeakerEvaluat
 
 Karma etiketleri, istemci tarafı uygulamaları oluştururken yararlıdır. Bunlar, kolay işaretleme ve JavaScript'te, örneğin arama için kullanılabilir.
 
-### <a name="asp-area"></a>ASP alanı
+### <a name="asp-area"></a>asp-area
 
 `asp-area`uygun yolu için ASP.NET Core kullanır alan adını ayarlar. Yeniden eşleme yolların alanı özniteliği nasıl neden örnekleri aşağıda verilmiştir. Ayarı `asp-area` Bloglara dizin önekleri `Areas/Blogs` ilişkili denetleyicilerinin ve görünümlerin bu yer işareti etiketi için yollar.
 

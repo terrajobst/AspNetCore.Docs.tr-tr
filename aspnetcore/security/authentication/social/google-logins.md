@@ -2,7 +2,6 @@
 title: "ASP.NET Core Google dış oturum açma Kurulumu"
 author: rick-anderson
 description: "Bu öğretici, var olan bir ASP.NET Core uygulamaya Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir."
-keywords: "ASP.NET Core, Google, oturum açma, kimlik doğrulaması"
 ms.author: riande
 manager: wpickett
 ms.date: 08/02/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: af316d832de7356d539eaaab5be6485639030c7a
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 30d224061bce3a727fc31d19c194e96559e28310
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>ASP.NET Core Google kimlik doğrulamasını yapılandırma
 
@@ -26,7 +25,7 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
 * Gidin [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) ve oturum açın. Bir Google hesabınız zaten yoksa, kullanın **daha fazla seçenek** > **[hesabı oluşturma](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  bağlantı oluşturmak için:
 
-![Google API Konsolu](index/_static/GoogleConsoleLogin.png)
+![Google API Console](index/_static/GoogleConsoleLogin.png)
 
 * Yönlendirilirsiniz **API Yöneticisi Kitaplığı** sayfa:
 
@@ -87,7 +86,7 @@ Bu belirteçler için değerleri altında önceki adımda indirdiğiniz JSON dos
 
 ## <a name="configure-google-authentication"></a>Google kimlik doğrulamasını yapılandırma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Google hizmetinde eklemek `ConfigureServices` yönteminde *haline* dosyası:
 
@@ -105,7 +104,7 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) paketi yüklenir.
 

@@ -2,7 +2,6 @@
 title: "Çekirdek şifreleme genişletilebilirliği"
 author: rick-anderson
 description: "IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve en üst düzey Fabrika açıklanmaktadır."
-keywords: ASP.NET Core, IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer
 ms.author: riande
 manager: wpickett
 ms.date: 8/11/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 69839562c39ab83531085e20dac1bd56e8d13d3f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Çekirdek şifreleme genişletilebilirliği
 
@@ -45,7 +44,7 @@ Adından da anlaşılacağı gibi türü kimliği doğrulanmış şifreleme ve �
 
 ## <a name="how-to-create-an-iauthenticatedencryptor"></a>Bir IAuthenticatedEncryptor oluşturma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **IAuthenticatedEncryptorFactory** arabirimi oluşturmak bildiği bir türü temsil eden bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
 
@@ -72,13 +71,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 // the 'roundTripped' and 'plaintext' buffers should be equivalent
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 **IAuthenticatedEncryptorDescriptor** arabirimi oluşturmak bildiği bir türü temsil eden bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
 
 * CreateEncryptorInstance(): IAuthenticatedEncryptor
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 IAuthenticatedEncryptor gibi IAuthenticatedEncryptorDescriptor örneği belirli bir anahtarı sarmalama varsayılır. Verilen tüm IAuthenticatedEncryptorDescriptor örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak düşünülmesi gereken, yani örnek kod aşağıda.
 
@@ -106,13 +105,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 ## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET 2.x yalnızca çekirdek)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **IAuthenticatedEncryptorDescriptor** arabirimi kendisini XML biçimine dışa bildiği bir türü temsil eder. Kendi API aşağıdaki gibidir.
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ---
 
@@ -137,7 +136,7 @@ Durumları serileştirilmiş tanımlayıcısı hassas bilgileri nerede içermiyo
 
 **IAuthenticatedEncryptorDescriptorDeserializer** arabirimi bir XElement IAuthenticatedEncryptorDescriptor örneğinden seri durumdan çıkarılacak bildiği bir türü temsil eder. Tek bir yöntem sunar:
 
-* ImportFromXml (XElement öğesi): IAuthenticatedEncryptorDescriptor
+* ImportFromXml(XElement element) : IAuthenticatedEncryptorDescriptor
 
 ImportFromXml yöntemi tarafından döndürülen XElement alır [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml) ve özgün IAuthenticatedEncryptorDescriptor bir eşdeğerini oluşturur.
 
@@ -152,7 +151,7 @@ IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri aşağıdaki ik
 
 ## <a name="the-top-level-factory"></a>Üst düzey Fabrika
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **AlgorithmConfiguration** sınıfı temsil eder, nasıl oluşturulacağını bildiği bir tür [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Tek bir API sunar.
 
@@ -164,7 +163,7 @@ CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni ana
 
 Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](../implementation/key-management.md#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için KeyManagementOptions AuthenticatedEncryptorConfiguration özelliğini ayarlayın.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 **IAuthenticatedEncryptorConfiguration** arabirimi temsil eder, nasıl oluşturulacağını bildiği bir tür [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Tek bir API sunar.
 

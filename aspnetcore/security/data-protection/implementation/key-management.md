@@ -2,20 +2,18 @@
 title: "Anahtar Yönetimi"
 author: rick-anderson
 description: "Bu belge ASP.NET Core veri koruma anahtar yönetimi API'leri uygulama ayrıntılarını özetlemektedir."
-keywords: "ASP.NET Core, veri koruma, anahtar yönetimi"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: d9e38fd5c8de2b10ad24fe557aa6e3063e40236e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="key-management"></a>Anahtar Yönetimi
 

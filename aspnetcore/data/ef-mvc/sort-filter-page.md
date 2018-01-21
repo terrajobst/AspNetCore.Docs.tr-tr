@@ -2,19 +2,17 @@
 title: "ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile"
 author: tdykstra
 description: "Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz."
-keywords: "ASP.NET Core, Entity Framework Çekirdek, sıralama, filtre, disk belleği, gruplandırma"
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 59fff4dbf4736f0776aac4072f3f4e2d40119842
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6da2073b18f6fff9738808c84441e59240caefe3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - EF çekirdek ASP.NET Core MVC Öğreticisi (3 / 10)
 
@@ -114,7 +112,7 @@ Bu aşamada, bir sütun başlığını sıralama bağlantısını tıklatırsan�
 
 Disk belleği Öğrenciler dizin sayfasına eklemek için oluşturacağınız bir `PaginatedList` kullanan sınıfı `Skip` ve `Take` her zaman tablonun tüm satırlarının almak yerine sunucusundaki verileri filtrelemek için deyimleri. Ek değişiklikler hale getireceğiz sonra `Index` yöntemi ve disk belleği düğmelere ekleme `Index` görünümü. Aşağıdaki çizimde, disk belleği düğmeleri gösterir.
 
-![Disk belleği bağlantılar sayfasıyla Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Proje klasöründe oluşturma `PaginatedList.cs`ve ardından şablon kodu aşağıdaki kodla değiştirin.
 
@@ -195,7 +193,7 @@ Disk belleği düğmeler etiketi Yardımcılar tarafından görüntülenir:
 
 Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 
-![Disk belleği bağlantılar sayfasıyla Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Disk belleği çalıştığından emin olmak için farklı sıralamalar disk belleği bağlantıları tıklatın. Ardından bir arama dizesi girin ve yeniden disk belleği de doğru sıralama ve filtreleme ile çalıştığını doğrulamak için disk belleği deneyin.
 

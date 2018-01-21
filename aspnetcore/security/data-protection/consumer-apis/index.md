@@ -2,31 +2,29 @@
 title: "Tüketici API'leri"
 author: rick-anderson
 description: "Bu belge, çeşitli ASP.NET Core tüketici API veri koruma konular için içindekiler tablosu olarak görev yapar."
-keywords: "ASP.NET Core, tüketici API, veri koruma"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: dff0cde2-6612-4b32-bafc-c00bf6d370f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: 15e4dabb4cc6b6381e4951628f1d3d6aa56a581c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ffba0079ce0ab4139115d9876e16a174685398d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="consumer-apis"></a>Tüketici API'leri
 
-* [Tüketici API'leri genel bakış](overview.md)
+* [Tüketici API'lerine Genel Bakış](overview.md)
 
-* [Amaç dizeleri](purpose-strings.md)
+* [Amaç Dizeleri](purpose-strings.md)
 
-* [Amaç hiyerarşi ve çoklu kiracı](purpose-strings-multitenancy.md)
+* [Amaç hiyerarşisi ve çok kiracılılık](purpose-strings-multitenancy.md)
 
-* [Parola karma](password-hashing.md)
+* [Parola Karması](password-hashing.md)
 
-* [Korumalı yüklerini ömrü sınırlama](limited-lifetime-payloads.md)
+* [Korumalı yüklerin ömrünü sınırlama](limited-lifetime-payloads.md)
 
-* [Kaldırmayı yükü, anahtarları iptal edildi](dangerous-unprotect.md)
+* [Anahtarları iptal edilen yüklerin korumasını kaldırma](dangerous-unprotect.md)

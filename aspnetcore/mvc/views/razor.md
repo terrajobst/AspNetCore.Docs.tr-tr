@@ -2,7 +2,6 @@
 title: "ASP.NET Core için Razor söz dizimi başvurusu"
 author: rick-anderson
 description: "Web sayfalarının sunucu tabanlı kod katıştırma Razor biçimlendirme söz dizimi hakkında bilgi edinin."
-keywords: "ASP.NET Core, Razor, Razor yönergeleri"
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
 
@@ -24,7 +23,7 @@ Razor kod sunucu tabanlı Web sayfalarının katıştırma için işaretleme sö
 
 ## <a name="rendering-html"></a>HTML işleme
 
-Varsayılan Razor HTML dilidir. Razor biçimlendirme işleme HTML bir HTML dosyası HTML işleme daha farklı değildir.  HTML biçimlendirmede *.cshtml* Razor dosyaları değiştirmeden sunucu tarafından işlenir.
+Varsayılan Razor HTML dilidir. Razor biçimlendirme işleme HTML bir HTML dosyası HTML işleme daha farklı değildir. HTML biçimlendirmede *.cshtml* Razor dosyaları değiştirmeden sunucu tarafından işlenir.
 
 ## <a name="razor-syntax"></a>Razor sözdizimi
 
@@ -73,8 +72,8 @@ C# dışında `await` anahtar sözcüğü, örtük ifadeleri boşluk içermemeli
 
 Önceki kod, aşağıdakilerden birini benzer bir derleyici hatası oluşturur:
 
- * "İnt" öğesi kapatılmadı.  Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
- *  Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
+ * "İnt" öğesi kapatılmadı. Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
+ * Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
  
 Genel yöntem çağrılarını Sarmalanan, içinde bir [açık Razor ifade](#explicit-razor-expressions) veya [Razor kod bloğunu](#razor-code-blocks).
 
@@ -119,10 +118,10 @@ Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabili
 
 Önceki kod, aşağıdakilerden birini benzer bir derleyici hatası oluşturur:
 
- * "İnt" öğesi kapatılmadı.  Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
- *  Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
+ * "İnt" öğesi kapatılmadı. Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
+ * Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
  
- Aşağıdaki biçimlendirmede doğru bir şekilde yazma bu kodu gösterir.  Kod açık bir ifade olarak yazılır:
+ Aşağıdaki biçimlendirmede doğru bir şekilde yazma bu kodu gösterir. Kod açık bir ifade olarak yazılır:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -213,7 +212,7 @@ HTML oluşturması gerektiğini bir kod bloğunun alt tanımlamak için Razor il
 
 Bir HTML etiketi tarafından çevrelenen olmayan HTML oluşturmak için bu yaklaşımı kullanın. Bir HTML veya Razor etiketi bir Razor çalışma zamanı hatası oluşur.
 
- **\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
+**\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
 
 * Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
@@ -232,7 +231,7 @@ Tam bir satırın geri kalanı bir kod bloğunun içine HTML olarak işlemek iç
 
 Olmadan `@:` kodda bir Razor çalışma zamanı hatası oluşturulur.
 
-Uyarı: Ek `@` Razor dosyasının karakter bloğu içinde deyimleri neden derleyici hataları neden olabilir. Bu derleyici hataları gerçek hata önce bildirilen hata oluştuğundan anlaşılması zor olabilir.  Bu hata, bir tek bir kod bloğu birden çok dolaylı/açık ifadelere birleştirme sonra yaygındır.
+Uyarı: Ek `@` Razor dosyasının karakter bloğu içinde deyimleri neden derleyici hataları neden olabilir. Bu derleyici hataları gerçek hata önce bildirilen hata oluştuğundan anlaşılması zor olabilir. Bu hata, bir tek bir kod bloğu birden çok dolaylı/açık ifadelere birleştirme sonra yaygındır.
 
 ## <a name="control-structures"></a>Denetim yapıları
 
@@ -285,7 +284,7 @@ Aşağıdaki biçimlendirmede switch deyimi kullanmayı gösterir:
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>Döngü @for, @foreach, @while, ve @do sırada
 
-Şablonlu HTML denetim ifadeleri döngü ile oluşturulabilir.  Kişilerin listesini oluşturmak için:
+Şablonlu HTML denetim ifadeleri döngü ile oluşturulabilir. Kişilerin listesini oluşturmak için:
 
 ```cshtml
 @{
@@ -496,7 +495,7 @@ Aşağıdaki HTML kod işler:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`ve `@inherits` aynı görünümünde kullanılabilir.  `@inherits`kullanılabilir bir *_viewımports.cshtml* görünümü alır dosyası:
+ `@model`ve `@inherits` aynı görünümünde kullanılabilir. `@inherits`kullanılabilir bir *_viewımports.cshtml* görünümü alır dosyası:
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 

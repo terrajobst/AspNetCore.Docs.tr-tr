@@ -2,7 +2,6 @@
 title: "ASP.NET Core yerleşik etiket Yardımcıları"
 author: pkellner
 description: "ASP.NET Core yerleşik etiket Yardımcıları"
-keywords: "ASP.NET Core, etiket Yardımcısı"
 ms.author: riande
 manager: wpickett
 ms.date: 09/13/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: dd732822a715df19c0ee4b6accad3455ad6537da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ffc748ec3d4eed35871543f5ceccc86aadee661
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core yerleşik etiket Yardımcıları
 
@@ -29,7 +28,7 @@ ASP.NET Core birçok yerleşik etiketi verimliliğinizi artırmak için Yardımc
 
 **[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
+**[Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
 **[Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
@@ -43,7 +42,7 @@ ASP.NET Core birçok yerleşik etiketi verimliliğinizi artırmak için Yardımc
 
 **[Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-**[Etiket etiket Yardımcısı](xref:mvc/views/working-with-forms#the-label-tag-helper)**
+**[Label Tag Helper](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 

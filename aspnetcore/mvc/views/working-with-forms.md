@@ -2,21 +2,19 @@
 title: "ASP.NET Core formlarında etiket Yardımcıları"
 author: rick-anderson
 description: "Etiket Yardımcıları formlarla kullanılan yerleşik açıklar."
-keywords: "ASP.NET Core, etiket Yardımcısı TagHelper, HTML formu formlar"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -111,12 +109,12 @@ Type expected
 
 |.NET türü|Giriş türü|
 |---|---|
-|bool|türü "onay kutusu" =|
-|Dize|tür = "text"|
-|DateTime|türü "datetime" =|
-|Bayt|tür = "number"|
-|int|tür = "number"|
-|Tek, çift|tür = "number"|
+|bool|type=”checkbox”|
+|Dize|type=”text”|
+|DateTime|type=”datetime”|
+|Bayt|type=”number”|
+|int|type=”number”|
+|Tek, çift|type=”number”|
 
 
 Aşağıdaki tabloda, bazı ortak gösterilmektedir [veri ek açıklamaları](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) giriş etiketi Yardımcısı (her doğrulama özniteliği listelenir) belirli giriş türleri için eşler öznitelikleri:
@@ -126,10 +124,10 @@ Aşağıdaki tabloda, bazı ortak gösterilmektedir [veri ek açıklamaları](ht
 |---|---|
 |[EmailAddress]|türü "e-posta" =|
 |[Url]|tür = "url"|
-|[HiddenInput]|türü "gizli" =|
-|[Phone]|türü "tel" =|
+|[HiddenInput]|type=”hidden”|
+|[Phone]|type=”tel”|
 |[DataType(DataType.Password)]| tür = "parola"|
-|[DataType(DataType.Date)]| tür = "tarih"|
+|[DataType(DataType.Date)]| type=”date”|
 |[DataType(DataType.Time)]| türü "zaman" =|
 
 
@@ -320,7 +318,7 @@ Oluşturulan etiket etiket Yardımcısı `for` kimliği "e" öznitelik değeri i
 
 ### <a name="the-validation-message-tag-helper"></a>Doğrulama ileti etiketi Yardımcısı
 
-* Ekler [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` özniteliğini [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) giriş alanını belirtilen model özelliğinin bir doğrulama hata iletisi ekler öğesi.   Bir istemci tarafı doğrulama hatası oluştuğunda [jQuery](https://jquery.com/) hata iletisi görüntüler `<span>` öğesi.
+* Ekler [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` özniteliğini [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) giriş alanını belirtilen model özelliğinin bir doğrulama hata iletisi ekler öğesi. Bir istemci tarafı doğrulama hatası oluştuğunda [jQuery](https://jquery.com/) hata iletisi görüntüler `<span>` öğesi.
 
 * Doğrulama sunucuda da gerçekleşir. İstemcileri JavaScript devre dışı olabilir ve bazı doğrulaması yalnızca sunucu tarafında yapılabilir.
 
@@ -580,7 +578,7 @@ Doğru `<option>` öğesi seçilir (içeren `selected="selected"` özniteliği) 
 
 * [İstek doğrulama belirteci](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 
-* [Model bağlama](../models/model-binding.md)
+* [Model Bağlamaları](../models/model-binding.md)
 
 * [Model doğrulama](../models/validation.md)
 

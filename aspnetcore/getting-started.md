@@ -2,20 +2,18 @@
 title: "ASP.NET Core 2.0 ile çalışmaya başlama"
 author: rick-anderson
 description: "Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulamanın çalıştığı hızlı bir öğretici."
-keywords: "ASP.NET Core, öğretici, kullanmaya başlama"
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
 ms.topic: get-started-article
-ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: 5b8c9f770e749c13bc562f157b4ebfd25a88a4e0
-ms.sourcegitcommit: 019e5a0342fd49a94056d14fc7a1a1d0f81d2a39
+ms.openlocfilehash: b5f1fb0de2776177374b8b4d5ea6041b0fc653a9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET çekirdeği ile çalışmaya başlama
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 12/22/2017
     dotnet run
     ```
 
-5. Gözat [http://localhost: 5000](http://localhost:5000)
+5. Browse to [http://localhost:5000](http://localhost:5000)
 
 6. Açık *Pages/About.cshtml* ve iletiyi görüntülemek için sayfanın değiştirme "Hello, world! Sunucusundaki zamandır @DateTime.Now ":
 

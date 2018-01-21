@@ -2,7 +2,6 @@
 title: "ASP.NET Core Mac ile bir Razor sayfalarının web uygulaması oluşturma"
 author: rick-anderson
 description: "Bir Razor sayfalarının web uygulaması EF Core ve ASP.NET Core ile oluşturun."
-keywords: "ASP.NET Core, Razor sayfalarının, iskele, Entity Framework Çekirdek, EF, EF çekirdek, veritabanı, mac, macOS, Mac için Visual Studio"
 ms.author: riande
 manager: wpickett
 ms.date: 07/26/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: 95a89f11a946bbfacc8eb234151d85bfc3046d6e
-ms.sourcegitcommit: 7444087ee28ca5789e08532605683d1d235212e2
+ms.openlocfilehash: 029f4dc6c0e9a7b7294a39c9152b06f3eb5a54d4
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için ASP.NET Core ve Visual Studio ile bir Razor sayfalarının web uygulaması oluşturma
 
@@ -28,9 +27,9 @@ Bu seri Razor sayfalarının web uygulaması ile ASP.NET Core Mac üzerindeki ol
 
 Windows için Visual Studio sürümü bir sonraki bölüm tamamlanana kadar izleyin.
 
-1. [Kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)
-1. [SQL Server yerel veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-1. [Sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
+1. [İskeleli Razor Sayfaları](xref:tutorials/razor-pages/page)
+1. [SQL Server Yerel Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
+1. [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
 1. [Arama ekleme](xref:tutorials/razor-pages/search)
-1. [Yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+1. [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
 1. [Doğrulama ekleme](xref:tutorials/razor-pages/validation)

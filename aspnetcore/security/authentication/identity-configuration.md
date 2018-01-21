@@ -2,7 +2,6 @@
 title: "ASP.NET Core kimliğini yapılandırmak"
 author: AdrienTorris
 description: "ASP.NET Core kimlik varsayılan değerleri anlamak ve özel değerleri kullanmak için çeşitli kimlik özelliklerini yapılandırın."
-keywords: "ASP.NET Core, kimlik, kimlik doğrulaması, güvenlik"
 ms.author: scaddie
 manager: wpickett
 ms.date: 01/11/2018
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: ac204cb89aac1f90adc64c4f0bec4e946cb8c4d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: d3a13d1cef3417522460b44c52c1361c3e9d1162
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-identity"></a>Kimliği yapılandırmak
 
@@ -24,13 +23,13 @@ ASP.NET Core kimliği parola ilkesi, kilitleme süresini ve uygulamanızın kola
 
 Varsayılan olarak, parolalar bir büyük harf, küçük harf, rakam ve alfasayısal olmayan karakter içerdiğini kimlik gerektirir. Diğer bazı kısıtlamalar vardır. Parola kısıtlamaları basitleştirmek için değişiklik `ConfigureServices` yöntemi `Startup` uygulamanızın sınıfı.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NET Core aynı seçeneklerdir 1.x.
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-37,50-52)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-65,84)]
 
@@ -87,13 +86,13 @@ ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NE
 
 Parola İlkesi gibi uygulama tanımlama bilgisinin tüm ayarları değiştirilebilir `Startup` sınıfı.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Altında `ConfigureServices` içinde `Startup` sınıfı, uygulamanın tanımlama bilgisi yapılandırabilirsiniz.
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?name=snippet_configurecookie)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
@@ -103,13 +102,13 @@ Altında `ConfigureServices` içinde `Startup` sınıfı, uygulamanın tanımlam
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
-| `Cookie.Name`  | Tanımlama bilgisinin adı.  | . AspNetCore.Cookies.  |
+| `Cookie.Name`  | Tanımlama bilgisinin adı.  | .AspNetCore.Cookies.  |
 | `Cookie.HttpOnly`  | Doğru olduğunda, tanımlama bilgisinin istemci tarafı komut dosyalarından erişilebilir değil.  |  true |
 | `ExpireTimeSpan`  | Kimlik doğrulaması bileti tanımlama bilgisinde saklanan ne kadar süre oluşturulduğu noktadan itibaren geçerli kalacağını denetler.  | 14 gün  |
 | `LoginPath`  | Bir kullanıcı yetkisiz olduğunda, bu oturum açma yoluna yönlendirilir. | / Hesap/oturum açma  |
 | `LogoutPath`  | Bir kullanıcı oturum açıldığında, bu yolu yönlendirilir.  | / Hesap/oturum kapatma  |
 | `AccessDeniedPath`  | Bir kullanıcı bir yetkilendirme denetim başarısız olduğunda, bu yolu yönlendirilir.  |   |
-| `SlidingExpiration`  | Doğru olduğunda, yeni bir tanımlama bilgisi zaman geçerli tanımlama bilgisi sona erme penceresinin yarısından fazlasını ilerlemiş yeni bir sona erme saati ile verilir.  | / Hesap/erişim engellendi |
+| `SlidingExpiration`  | Doğru olduğunda, yeni bir tanımlama bilgisi zaman geçerli tanımlama bilgisi sona erme penceresinin yarısından fazlasını ilerlemiş yeni bir sona erme saati ile verilir.  | /Account/AccessDenied |
 | `ReturnUrlParameter`  | Bir 401 yetkilendirilmedi durum kodu oturum açma yoluna 302 yeniden yönlendirme olarak değiştirildiğinde, hangi ara yazılım tarafından eklenen sorgu dizesi parametresinin adını belirler.  |  true |
 | `AuthenticationScheme`  | Bu yalnızca ASP.NET Core için ilgili 1.x. Belirli kimlik doğrulaması düzeni için mantıksal adı. |  |
 | `AutomaticAuthenticate`  | Bu bayrak yalnızca ASP.NET Core için ilgili 1.x. Doğru olduğunda, tanımlama bilgisi kimlik doğrulamasını her istek çalıştırın ve oluşturulan herhangi bir seri hale getirilmiş asıl yeniden yapılandırma ve doğrulama girişimi.  |  |

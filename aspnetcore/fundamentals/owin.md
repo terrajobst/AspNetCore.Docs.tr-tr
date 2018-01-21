@@ -2,21 +2,19 @@
 title: ".NET (OWIN) için açık Web arabirimi"
 author: ardalis
 description: "ASP.NET Core açık Web arabirimi için .NET (hangi web uygulamalarının web sunucularından ayrılmış sağlar OWIN), nasıl desteklediği bulur."
-keywords: "ASP.NET Core, .NET, OWIN için açık Web arabirimi"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 70c4e6bc-a773-4039-96ec-6fe557c9369d
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ee970a1c9cd05ebee76b92c3e2c7c6c6cc6ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>.NET (OWIN) için Web Arabirimi'ni açmak için giriş
 
@@ -241,29 +239,29 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| owın. RequestScheme | `String` |  |
-| owın. RequestMethod  | `String` | |    
-| owın. RequestPathBase  | `String` | |    
-| owın. RequestPath | `String` | |     
-| owın. RequestQueryString  | `String` | |    
-| owın. RequestProtocol  | `String` | |    
-| owın. RequestHeaders | `IDictionary<string,string[]>`  | |
-| owın. RequestBody | `Stream`  | |
+| owin.RequestScheme | `String` |  |
+| owin.RequestMethod  | `String` | |    
+| owin.RequestPathBase  | `String` | |    
+| owin.RequestPath | `String` | |     
+| owin.RequestQueryString  | `String` | |    
+| owin.RequestProtocol  | `String` | |    
+| owin.RequestHeaders | `IDictionary<string,string[]>`  | |
+| owin.RequestBody | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>İstek verileri (OWIN v1.1.0)
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| owın. RequestId | `String` | İsteğe Bağlı |
+| owin.RequestId | `String` | İsteğe Bağlı |
 
 ### <a name="response-data-owin-v100"></a>Yanıt verileri (OWIN v1.0.0)
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| owın. ResponseStatusCode | `int` | İsteğe Bağlı |
-| owın. ResponseReasonPhrase | `String` | İsteğe Bağlı |
+| owin.ResponseStatusCode | `int` | İsteğe Bağlı |
+| owin.ResponseReasonPhrase | `String` | İsteğe Bağlı |
 | owın. ResponseHeaders | `IDictionary<string,string[]>`  | |
-| owın. ResponseBody | `Stream`  | |
+| owin.ResponseBody | `Stream`  | |
 
 
 ### <a name="other-data-owin-v100"></a>Diğer veri (OWIN v1.0.0)
@@ -271,35 +269,35 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | owın. CallCancelled | `CancellationToken` |  |
-| owın. Sürüm  | `String` | |   
+| owin.Version  | `String` | |   
 
 
 ### <a name="common-keys"></a>Ortak anahtarlar
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| SSL. ClientCertificate | `X509Certificate` |  |
-| SSL. LoadClientCertAsync  | `Func<Task>` | |    
-| Sunucu. UzakIPAdresi  | `String` | |    
-| Sunucu. Uzak bağlantı noktası | `String` | |     
-| Sunucu. YerelIPAdresi  | `String` | |    
+| ssl.ClientCertificate | `X509Certificate` |  |
+| ssl.LoadClientCertAsync  | `Func<Task>` | |    
+| server.RemoteIpAddress  | `String` | |    
+| server.RemotePort | `String` | |     
+| server.LocalIpAddress  | `String` | |    
 | Sunucu. Yerel bağlantı noktası  | `String` | |    
-| Sunucu. IsLocal  | `bool` | |    
-| Sunucu. OnSendingHeaders  | `Action<Action<object>,object>` | |
+| server.IsLocal  | `bool` | |    
+| server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
 
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| sendfile. SendAsync | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
+| sendfile.SendAsync | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
 
 
-### <a name="opaque-v030"></a>Donuk v0.3.0
+### <a name="opaque-v030"></a>Opaque v0.3.0
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| Donuk. Sürüm | `String` |  |
+| opaque.Version | `String` |  |
 | Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | Donuk. Akış | `Stream` |  |
 | Donuk. CallCancelled | `CancellationToken` |  |
@@ -309,20 +307,20 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| websocket. Sürüm | `String` |  |
+| websocket.Version | `String` |  |
 | websocket. Kabul et | `WebSocketAccept` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| websocket. AcceptAlt |  | Olmayan belirtimi |
-| websocket. SubProtocol | `String` | Bkz: [RFC6455 bölüm 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) adım 5.5 |
-| websocket. SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket. ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket. CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.AcceptAlt |  | Olmayan belirtimi |
+| websocket.SubProtocol | `String` | Bkz: [RFC6455 bölüm 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) adım 5.5 |
+| websocket.SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
 | websocket. CallCancelled | `CancellationToken` |  |
-| websocket. ClientCloseStatus | `int` | İsteğe Bağlı |
-| websocket. ClientCloseDescription | `String` | İsteğe Bağlı |
+| websocket.ClientCloseStatus | `int` | İsteğe Bağlı |
+| websocket.ClientCloseDescription | `String` | İsteğe Bağlı |
 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [Ara yazılım](middleware.md)
+* [Ara Yazılım](middleware.md)
 
 * [Sunucular](servers/index.md)

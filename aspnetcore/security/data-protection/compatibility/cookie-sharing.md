@@ -2,20 +2,18 @@
 title: "Tanımlama bilgilerini uygulamalar arasında paylaşma"
 author: rick-anderson
 description: "Bu belge kimlik doğrulaması tanımlama bilgileri ASP.NET arasında paylaşılmasını veri koruma yığını nasıl desteklediğini açıklar 4.x ve ASP.NET Core uygulamaları."
-keywords: "ASP.NET paylaşımı Core,ASP.NET,cookies,Interop,cookie"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 9a7aae45-8e21-4c54-950c-3c29df6c1082
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/cookie-sharing
-ms.openlocfilehash: e92cc81f9362787b7b4bfb44ba26b82182826a59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0cbf5a3e9dfe8f99433800ac5c10ed36b4de6527
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sharing-cookies-between-applications"></a>Tanımlama bilgilerini uygulamalar arasında paylaşma
 

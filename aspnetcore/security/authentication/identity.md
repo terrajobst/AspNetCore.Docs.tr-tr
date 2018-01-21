@@ -2,20 +2,18 @@
 title: "ASP.NET Core üzerinde kimliğini giriş"
 author: rick-anderson
 description: "Bir ASP.NET Core uygulamayla kimliğini kullan"
-keywords: "ASP.NET Core, kimlik, yetkilendirme, güvenlik"
 ms.author: riande
 manager: wpickett
 ms.date: 01/02/2018
 ms.topic: article
-ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -61,7 +59,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
 
     Kimlik Hizmetleri Uygulaması'na eklenen `ConfigureServices` yönteminde `Startup` sınıfı:
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
@@ -71,7 +69,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,13-34)]
     
@@ -130,11 +128,11 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
 
     Kimlik, uygulamanızın başlangıç sınıfında geçersiz kılabilirsiniz bazı varsayılan davranışlar vardır. Yapılandırma gerekmez ``IdentityOptions`` varsayılan davranışları kullanıyorsanız.
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=7-9,11-28,30-39)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configureservices&highlight=13-34)]
 
@@ -146,7 +144,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
  
 7.  Veritabanını görüntüleyin.
 
-    Uygulamanızı bir SQL Server veritabanı (Windows ve Visual Studio kullanıcılar için varsayılan) kullanıyorsa, veritabanı oluşturulan uygulama görüntüleyebilirsiniz. Kullanabileceğiniz **SQL Server Management Studio**. Alternatif olarak, Visual Studio'dan seçin **Görünüm** > **SQL Server Nesne Gezgini**. Bağlanmak **(localdb) \MSSQLLocalDB**. İle eşleşen ada sahip veritabanı  **aspnet - <*projenizin ad*>-<*tarih dizesi*> ** görüntülenir.
+    Uygulamanızı bir SQL Server veritabanı (Windows ve Visual Studio kullanıcılar için varsayılan) kullanıyorsa, veritabanı oluşturulan uygulama görüntüleyebilirsiniz. Kullanabileceğiniz **SQL Server Management Studio**. Alternatif olarak, Visual Studio'dan seçin **Görünüm** > **SQL Server Nesne Gezgini**. Bağlanmak **(localdb) \MSSQLLocalDB**. İle eşleşen ada sahip veritabanı **aspnet - <*projenizin ad*>-<*tarih dizesi* >**  görüntülenir.
 
     ![Bağlam menüsünde AspNetUsers veritabanı tablosu](identity/_static/04-db.png)
     

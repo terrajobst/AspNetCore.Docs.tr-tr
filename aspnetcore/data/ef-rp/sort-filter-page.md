@@ -2,18 +2,17 @@
 title: "Razor sayfalarıyla EF çekirdek - sıralama, filtre, disk belleği - 8'in 3"
 author: rick-anderson
 description: "Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz."
-keywords: "ASP.NET Core, Entity Framework Çekirdek, sıralama, filtre, disk belleği, gruplandırma"
 ms.author: riande
 ms.date: 10/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 5e17663b88a622101245228e9372db55e4e874be
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - Razor sayfaları (8'in 3) ile EF çekirdek
 
@@ -161,7 +160,7 @@ Sayfa atanmışsa, yer işareti sayfanın URL'sini içerir ve `SearchString` sor
 
 Bu bölümde, bir `PaginatedList` sınıfı, disk belleği desteklemek için oluşturulur. `PaginatedList` Sınıfını kullanan `Skip` ve `Take` tablonun tüm satırlarının almak yerine sunucusundaki verileri filtrelemek için deyimleri. Aşağıdaki çizimde, disk belleği düğmeleri gösterir.
 
-![Disk belleği bağlantılar sayfasıyla Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Proje klasöründe oluşturma `PaginatedList.cs` aşağıdaki kod ile:
 

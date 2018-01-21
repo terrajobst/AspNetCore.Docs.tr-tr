@@ -2,20 +2,18 @@
 title: "Genelleştirme ve yerelleştirme ASP.NET Core içinde"
 author: rick-anderson
 description: "Nasıl ASP.NET Core services ve ara yazılım içerik farklı dillere ve kültürlere yerelleştirme için sağladığını öğrenin."
-keywords: "ASP.NET Core, yerelleştirme, kültür, dil, kaynak dosyasını, Genelleştirme, uluslararası duruma getirme, yerel ayar"
 ms.author: riande
 manager: wpickett
 ms.date: 01/14/2017
 ms.topic: article
-ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: d1f8cf5607fdd08bf0dadc224ae0fdba7ec696bc
-ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
+ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 

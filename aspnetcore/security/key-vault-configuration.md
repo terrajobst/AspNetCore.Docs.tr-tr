@@ -2,32 +2,30 @@
 title: "Azure anahtar kasası yapılandırma sağlayıcısı"
 author: guardrex
 description: "Çalışma zamanında yüklenen ad-değer çiftleri kullanarak bir uygulamayı yapılandırmak için Azure anahtar kasası yapılandırma Sağlayıcısı'nı kullanmayı öğrenin."
-keywords: "ASP.NET Core, yapılandırma, Azure anahtar kasası"
 ms.author: riande
 manager: wpickett
 ms.date: 08/09/2017
 ms.topic: article
-ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 25c7d38a27741c9877538673425c5a9dceccac93
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure anahtar kasası yapılandırma sağlayıcısı
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Barış Stanton-Nurse](https://github.com/anurse)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Görüntülemek veya karşıdan 2.x için örnek kod:
 
 * [Temel örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/2.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))-gizli değerleri uygulamaya okur.
 * [Anahtar adı öneki örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/2.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) - gizli değerleri her uygulama sürümü için farklı bir kümesini yüklemek izin veren bir uygulamanın sürümünü temsil eden bir anahtar adı ön ekini kullanarak gizli değerleri okur.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Görüntülemek veya karşıdan 1.x için örnek kod:
 
@@ -49,8 +47,8 @@ Sağlayıcı eklenen `ConfigurationBuilder` ile `AddAzureKeyVault` uzantısı. �
 | Uygulama ayarı    | Açıklama                    | Örnek                                      |
 | -------------- | ------------------------------ | -------------------------------------------- |
 | `Vault`        | Azure anahtar kasası adı           | contosovault                                 |
-| `ClientId`     | Azure Active Directory Uygulama Kimliği  | 627e911e-43CC-61d4-992e-12db9c81b413         |
-| `ClientSecret` | Azure Active Directory Uygulama anahtarı | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
+| `ClientId`     | Azure Active Directory App Id  | 627e911e-43cc-61d4-992e-12db9c81b413         |
+| `ClientSecret` | Azure Active Directory Uygulama anahtarı | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
 [!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
 
@@ -161,4 +159,4 @@ Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız ol
 * [Microsoft Azure: Anahtar kasası](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Anahtar kasası belgeleri](https://docs.microsoft.com/azure/key-vault/)
 * [Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarları](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)
-* [KeyVaultClient sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
+* [KeyVaultClient Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault.keyvaultclient)

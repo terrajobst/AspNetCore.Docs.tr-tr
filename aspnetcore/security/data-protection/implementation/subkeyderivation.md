@@ -2,20 +2,18 @@
 title: "Alt anahtar türetme ve kimliği doğrulanmış şifreleme"
 author: rick-anderson
 description: "Bu belge, ASP.NET Core veri koruma uygulama ayrıntılarını türetme alt anahtar ve şifreleme kimliği doğrulanmış açıklar."
-keywords: "ASP.NET Core, veri koruma, alt anahtar türetme şifreleme kimlik doğrulaması"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3927678b7b67b0e521a961e363200bdfe0bdaeb3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Alt anahtar türetme ve kimliği doğrulanmış şifreleme
 
@@ -40,13 +38,13 @@ ms.lasthandoff: 11/10/2017
 
 AAD her üç bileşenin tanımlama grubu için benzersiz olduğundan, biz KM kendisini tüm bizim şifreleme işlemlerinin kullanmak yerine yeni anahtarlar KM türetilen için bunu kullanabilirsiniz. Her çağrı için `IAuthenticatedEncryptor.Encrypt`, aşağıdaki anahtar türetme işlem gerçekleşir:
 
-(K_E, K_H) SP800_108_CTR_HMACSHA512 = (K_M, AAD, contextHeader || keyModifier)
+( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
 NIST SP800 108 KDF sayaç modunda burada arıyoruz (bkz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), sn 5.1) aşağıdaki parametrelerle:
 
 * Anahtar türetme anahtarı (KDK) K_M =
 
-* PRF HMACSHA512 =
+* PRF = HMACSHA512
 
 * Etiket additionalAuthenticatedData =
 
@@ -62,7 +60,7 @@ Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele başlatma vekt
 
 ![CBC modunda işlemi ve dönüş](subkeyderivation/_static/cbcprocess.png)
 
-*Çıkış: keyModifier = || IV || E_cbc (K_E, IV, veri) || HMAC (K_H, IV || E_cbc (K_E, IV, veri))*
+*output:= keyModifier || iv || E_cbc (K_E,iv,data) || HMAC(K_H, iv || E_cbc (K_E,iv,data))*
 
 > [!NOTE]
 > `IDataProtector.Protect` Uygulaması olacak [Sihirli üstbilgi ve anahtarı kimliği başına](authenticated-encryption-details.md) çağırana dönmeden önce çıktı. Sihirli üstbilgi ve anahtarı kimliği örtük olarak olduğundan parçası [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), ve anahtar değiştiricisi KDF giriş olarak gönderilir, bu Mac tarafından döndürülen yük tek her bir bitini doğrulanır anlamına gelir

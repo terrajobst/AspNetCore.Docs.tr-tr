@@ -2,7 +2,6 @@
 title: "Geçirme Auth ve ASP.NET Core 2.0 kimliğine"
 author: scottaddie
 description: "Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET Core 1.x kimlik doğrulama ve kimlik için en yaygın adımlara özetlenmektedir."
-keywords: "ASP.NET Core, kimlik, kimlik doğrulama"
 ms.author: scaddie
 manager: wpickett
 ms.date: 10/26/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 1d8c75a21cd7110b3e414f0c600e9f05cbaeff45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>Geçirme kimlik doğrulaması ve ASP.NET Core 2.0 için kimliği
 
@@ -297,7 +296,7 @@ Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını sınama için a
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions örnekleri
+## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions Instances
 2.0 değişiklikleri yan etkisi seçenekleri tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanmanın anahtarıdır. Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.
 
 Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirmek için bir `IdentityCookieOptions` parametresine *AccountController.cs*. Dış tanımlama bilgisi kimlik doğrulama şeması sağlanan örneğinden erişilir:
@@ -369,7 +368,7 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 <a name="synchronous-method-removal"></a>
 
-## <a name="replace-getexternalauthenticationschemes"></a>GetExternalAuthenticationSchemes Değiştir
+## <a name="replace-getexternalauthenticationschemes"></a>Replace GetExternalAuthenticationSchemes
 Zaman uyumlu yöntemi `GetExternalAuthenticationSchemes` lehinde zaman uyumsuz bir sürümünü kaldırıldı. 1.x projeleri olmayan aşağıdaki kodu *ManageController.cs*:
 
 [!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]

@@ -2,20 +2,18 @@
 title: "ASP.NET Core uygulama bölümleri"
 author: ardalis
 description: "Bir uygulama abstrations kaynaklardır uygulama bölümleri bulmak veya bir derlemeye ait özelliklerin yüklenmesini önlemek için uygulamanızı yapılandırmak için nasıl kullanılacağını öğrenin."
-keywords: "ASP.NET Core, uygulama bölümü, uygulama bölümü"
 ms.author: riande
 manager: wpickett
 ms.date: 01/04/2017
 ms.topic: article
-ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core uygulama bölümleri
 
@@ -66,7 +64,7 @@ Proje derleme ve bağımlı derlemeleri, ek olarak `ApplicationPartManager` böl
 
 Uygulama özellik sağlayıcıları uygulama bölümleri inceleyin ve bu bölümleri için özellikleri sağlar. Aşağıdaki MVC özellikler için yerleşik özellik sağlayıcıları vardır:
 
-* [Denetleyicileri](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
+* [Denetleyiciler](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
 * [Meta veri başvurusu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
 * [Etiket Yardımcıları](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
 * [Görünüm bileşenleri](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)

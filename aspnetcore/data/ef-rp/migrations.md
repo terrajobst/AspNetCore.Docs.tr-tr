@@ -2,7 +2,6 @@
 title: "Razor sayfalarının EF temel - Migrations - 4 8"
 author: rick-anderson
 description: "Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın."
-keywords: "ASP.NET Core, Entity Framework Çekirdek geçişleri"
 ms.author: riande
 manager: wpickett
 ms.date: 10/15/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8549fc522bcd05a5755a449cd6d4b655f00d998b
-ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
+ms.openlocfilehash: 26fbda99b0c1dfa2d09cf387e43f3123c58215f8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Geçişler - Razor sayfalarının Öğreticisi (4. 8'in) EF çekirdek
 
@@ -89,7 +88,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 Geçiş iletisiyle başarısız olursa "*... dosyasına erişemiyor ContosoUniversity.dll çünkü başka bir işlem tarafından kullanılıyor.* " görüntülenir:
 
-* IIS Express durdurun.
+* Stop IIS Express.
 
    * Çıkmak ve Visual Studio'yu yeniden başlatın veya
    * IIS Express simgesini Windows Sistem tepsisinde bulun.
@@ -126,7 +125,7 @@ Geçerli DB şeması kodda gösterilir çünkü EF çekirdek geçişler oluştur
 
 Anlık görüntü dosyasının oluşturulduğu geçişler ile eşitlenmiş olması gerekir. Bir geçiş adlı dosyayı silerek kaldırılamaz  *\<zaman damgası > _\<migrationname > .cs*. Bu dosya silinirse, kalan geçişler DB anlık görüntü dosyası ile eşitlenmemiş. Eklenen son geçiş silmek için kullanın [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu.
 
-## <a name="remove-ensurecreated"></a>EnsureCreated Kaldır
+## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
 Erken geliştirme `EnsureCreated` komutu kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated`Aşağıdaki limatitions sahiptir:
 

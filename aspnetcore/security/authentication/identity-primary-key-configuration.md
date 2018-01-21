@@ -2,7 +2,6 @@
 title: "Kimlik birincil anahtar veri türünü yapılandırın"
 author: AdrienTorris
 description: "Bu makalede, ASP.NET Core kimliği birincil anahtar için istenen veri türü yapılandırma adımlarını açıklar."
-keywords: ASP.NET Core, kimlik, birincil anahtar
 ms.author: scaddie
 manager: wpickett
 ms.date: 09/28/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: 5734a9aa86fb2831bd054593ad41c3e3bda4729e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: da46aa90a434a978a55467da982d746eb2d959ee
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-aspnet-core-identity-primary-key-data-type"></a>ASP.NET Core kimliği birincil anahtar veri türünü yapılandırın
 
@@ -36,13 +35,13 @@ ASP.NET Core kimlik, bir birincil anahtar temsil etmek için kullanılan veri t�
     
 1. Özel veritabanı bağlamı sınıfının kimliği hizmeti uygulamanın başlangıç sınıfında eklerken kaydedin.
 
-    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+    # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
     `AddEntityFrameworkStores` Accept yöntemi olmayan bir `TKey` bağımsız olarak mı ASP.NET Core 1.x. Birincil anahtarın veri türü çözümleyerek algılanır `DbContext` nesnesi.
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-PrimaryKeysConfig/Startup.cs?highlight=6-8&range=25-37)]
     
-    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+    # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
     
     `AddEntityFrameworkStores` Yöntemi kabul eden bir `TKey` birincil anahtarın veri türü belirten bağımsız değişkeni.
     

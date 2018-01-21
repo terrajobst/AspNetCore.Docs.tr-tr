@@ -2,20 +2,18 @@
 title: "Denetleyici yöntemlerine ve görünümler"
 author: rick-anderson
 description: "Denetleyici yöntemlerine, görünümleri ve DataAnnotations ile çalışma"
-keywords: "ASP.NET Çekirdeği"
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
 ms.topic: get-started-article
-ms.assetid: c7313211-b271-4adf-bab8-8e72603cc0ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 8960853438d3227de3ef7c50936626149d8d5997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cfe1838371226334d368dca13bba37c5b1f6fc39
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="controller-methods-and-views"></a>Denetleyici yöntemlerine ve görünümler
 
@@ -38,7 +36,7 @@ Bir kırmızı dalgalı satıra sağ tıklayın **> Hızlı Eylemler ve yapan ye
 
   ![listesinin başında System.ComponentModel.DataAnnotations kullanma](controller-methods-views/_static/da.png)
 
-  Visual studio ekler `using System.ComponentModel.DataAnnotations;`.
+  Visual studio adds `using System.ComponentModel.DataAnnotations;`.
 
 Şimdi kaldırmak `using` gerekmeyen deyimleri. Bunlar varsayılan olarak açık bir gri yazı tipi gösterilir. Sağ herhangi bir yeri tıklatın *Movie.cs* dosya **> Kaldır ve kullanımları sıralama**.
 

@@ -2,20 +2,18 @@
 title: "Görüntü etiketi Yardımcısı | Microsoft Docs"
 author: pkellner
 description: "Görüntü etiketi Yardımcısı ile çalışmaya nasıl gösterir"
-keywords: "ASP.NET Core, etiket Yardımcısı"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a013
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 0d55514508b963ce05031f89a20af696f5d4a670
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 438c5afb96dce6d8978d26159a3b460614111988
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="imagetaghelper"></a>ImageTagHelper
 
@@ -30,7 +28,7 @@ Varsa görüntü kaynağı (`src`) (örneğin bir uzak URL veya dosya yoksa sunu
 ## <a name="image-tag-helper-attributes"></a>Görüntü etiketi yardımcı öznitelik
 
 
-### <a name="asp-append-version"></a>ASP append sürümü
+### <a name="asp-append-version"></a>asp-append-version
 
 İle birlikte belirtildiğinde bir `src` , resim etiketi yardımcı öznitelik çağrılır.
 

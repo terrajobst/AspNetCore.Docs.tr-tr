@@ -1,21 +1,19 @@
 ---
-title: ASP.NET Core Ara
+title: ASP.NET Core Middleware
 author: rick-anderson
 description: "ASP.NET Core ara yazılımı ve istek ardışık düzenini hakkında bilgi edinin."
-keywords: "ASP.NET Core, ara yazılım, ardışık düzen, temsilci"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ara yazılım temelleri
 
@@ -74,7 +72,7 @@ Ara yazılım bileşenlerinin içinde eklendiğinden sipariş `Configure` , bunl
 3. Kimlik doğrulaması
 4. MVC
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
 ```csharp
@@ -92,7 +90,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -115,12 +113,12 @@ Yukarıdaki kod `UseExceptionHandler` ardışık düzenine eklenen ilk ara yazı
 
 Böylece istekleri işlemek ve kalan bileşenleri geçmeden kısa devre oluşturur statik dosya ara yazılımlarını erken ardışık düzen adı verilir. Statik dosya ara yazılımlarını sağlar **hiçbir** yetkilendirme denetimleri. Herhangi bir dosya sunulan işlem tarafından altında dahil olmak üzere *wwwroot*, genel olarak kullanılabilir. Bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files) statik dosyaları güvenli bir yaklaşım için.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
 İstek statik dosya ara yazılımı tarafından işlenmemiş varsa, bu kimlik Ara geçirildiğinde (`app.UseAuthentication`), kimlik doğrulaması gerçekleştirir. Kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca bir özel Razor sayfasını veya denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 İstek statik dosya ara yazılımı tarafından işlenmemiş varsa, bu kimlik Ara geçirildiğinde (`app.UseIdentity`), kimlik doğrulaması gerçekleştirir. Kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca belirli denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
 
@@ -153,9 +151,9 @@ Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://l
 | İstek | Yanıt |
 | --- | --- |
 | localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234 / map1 | Harita Test 1 |
-| localhost:1234 / map2 | Harita Test 2 |
-| localhost:1234 / map3 | Merhaba harita olmayan temsilci gelen.  |
+| localhost:1234/map1 | Harita Test 1 |
+| localhost:1234/map2 | Harita Test 2 |
+| localhost:1234/map3 | Merhaba harita olmayan temsilci gelen.  |
 
 Zaman `Map` olan kullanıldığında, eşleşen yolu segment(s) çıkarılır `HttpRequest.Path` ve için eklenen `HttpRequest.PathBase` her istek için.
 
@@ -168,7 +166,7 @@ Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://l
 | İstek | Yanıt |
 | --- | --- |
 | localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234 /? şube Yöneticisi = | Kullanılan şube Yöneticisi =|
+| localhost:1234/?branch=master | Kullanılan şube Yöneticisi =|
 
 `Map`iç içe, örneğin destekler:
 
@@ -197,14 +195,14 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir:
 
 | Ara yazılım | Açıklama |
 | ----- | ------- |
-| [Kimlik doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. |
-| [Yanıt önbelleğe alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. |
+| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. |
 | [Yanıt sıkıştırma](xref:performance/response-compression) | Yanıtları sıkıştırma için destek sağlar. |
 | [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. |
-| [Oturumu](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. |
+| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. |
 | [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. |
-| [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. |
+| [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. |
 
 <a name="middleware-writing-middleware"></a>
 
@@ -260,5 +258,5 @@ public class MyMiddleware
 
 * [Bu belge kullanılan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample)
 * [Ara yazılım için geçirme HTTP modülleri](../migration/http-modules.md)
-* [Uygulama başlatma](startup.md)
-* [İstek özellikleri](request-features.md)
+* [Uygulama Başlatma](startup.md)
+* [İstek Özellikleri](request-features.md)

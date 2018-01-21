@@ -2,20 +2,18 @@
 title: "ASP.NET Core Mac, Linux veya Windows MVC giriş"
 author: rick-anderson
 description: "ASP.NET Core MVC ve Mac, Linux ve Windows Visual Studio Code ile çalışmaya başlama"
-keywords: ASP.NET Core, MVC, VS kodu, Visual Studio kodu, Mac, Linux, Windows
 ms.author: riande
 manager: wpickett
 ms.date: 07/07/2017
 ms.topic: get-started-article
-ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 87ce5dca011a7bc37d34799db159d933c158cba1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f439b6414d95f6edd1c2201c8aee043f1eab9b76
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>ASP.NET Core MVC Mac, Linux veya Windows ile çalışmaya başlama
 
@@ -68,7 +66,7 @@ Varsayılan şablonu, çalışma sunar **hakkında giriş** ve **kişi** bağlan
 
 Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz kod yazmaya başlamadan.
 
-## <a name="visual-studio-code-help"></a>Visual Studio Code Yardım
+## <a name="visual-studio-code-help"></a>Visual Studio Code help
 
 - [Başlarken](https://code.visualstudio.com/docs)
 - [Hata Ayıklama](https://code.visualstudio.com/docs/editor/debugging)

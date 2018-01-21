@@ -2,20 +2,18 @@
 title: "Microsoft Account dış oturum açma Kurulumu"
 author: rick-anderson
 description: "Bu öğretici, var olan bir ASP.NET Core uygulamaya Microsoft hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir."
-keywords: "ASP.NET Core, Microsoft hesabı oturum açma, kimlik doğrulama"
 ms.author: riande
 manager: wpickett
 ms.date: 08/24/2017
 ms.topic: article
-ms.assetid: 66DB4B94-C78C-4005-BA03-3D982B87C268
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 77c16e3ae93c9bfe1f569d0a5888c5b765d04241
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e4586eb681bd230413ace67ca9eddc3fe3e9e60
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-microsoft-account-authentication"></a>Microsoft Account kimlik doğrulamasını yapılandırma
 
@@ -76,7 +74,7 @@ Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authent
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Microsoft Account hizmetini eklemek `ConfigureServices` yönteminde *haline* dosyası:
 
@@ -94,7 +92,7 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Microsoft Account Ara eklemek `Configure` yönteminde *haline* dosyası:
 

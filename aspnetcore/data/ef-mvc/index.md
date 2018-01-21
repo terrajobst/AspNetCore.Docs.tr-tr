@@ -2,20 +2,18 @@
 title: "ASP.NET Core MVC EF temel - öğretici serisi"
 author: tdykstra
 description: 
-keywords: "ASP.NET Çekirdeği"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/15/2017
 ms.topic: get-started-article
-ms.assetid: 9918be4c-2096-404f-9b2a-ed5cde90042a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/index
-ms.openlocfilehash: 8111f01488468470722e0734d59b18e10cebf416
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: e697f29989583924b1b9524bedeb2da549c1b55c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>ASP.NET Core MVC ve Entity Framework Visual Studio kullanarak çekirdek ile çalışmaya başlama
 
@@ -24,7 +22,7 @@ Not: Bu öğreticide Razor sayfalarının sürümü kullanılabilir [burada](xre
 Bu öğreticiler dizi veri erişimi için Entity Framework Çekirdek kullanan ASP.NET Core MVC web uygulamaları oluşturmak nasıl öğretir. Öğreticiler Visual Studio 2017 gerektirir.
 
 1. [Başlarken](intro.md)
-2. [Oluşturma, okuma, güncelleştirme ve silme işlemleri](crud.md)
+2. [İşlem Oluşturma, Okuma, Güncelleştirme ve Silme](crud.md)
 3. [Sıralama, filtreleme, disk belleği ve gruplandırma](sort-filter-page.md)
 4. [Geçişler](migrations.md)
 5. [Karmaşık veri modeli oluşturma](complex-data-model.md)

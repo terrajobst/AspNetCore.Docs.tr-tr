@@ -2,20 +2,18 @@
 title: "Web server ASP.NET Core uygulamalarında"
 author: tdykstra
 description: "Web sunucuları Kestrel ve WebListener için ASP.NET Core tanıtır. Birini konusunda rehberlik sağlar ve ne zaman bir ters proxy sunucusu ile kullanılır."
-keywords: ASP.NET Core, IServer, web sunucusu, Kestrel, WebListener, ters proxy
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 807e60e61d4ce4d5755987cffe65d130c9bbbd42
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
 
@@ -25,13 +23,13 @@ Bir ASP.NET Core uygulama işlem içi HTTP sunucusu uygulamasını ile çalış�
 
 ASP.NET Core iki sunucu uygulamaları gelir:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 * [Kestrel](kestrel.md) platformlar arası HTTP sunucusu dayanır [libuv](https://github.com/libuv/libuv), platformlar arası zaman uyumsuz g/ç kitaplığı.
 
 * [HTTP.sys](httpsys.md) yalnızca Windows HTTP sunucu dayanır [Http.Sys çekirdek sürücüsü](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 * [Kestrel](kestrel.md) platformlar arası HTTP sunucusu dayanır [libuv](https://github.com/libuv/libuv), platformlar arası zaman uyumsuz g/ç kitaplığı.
 
@@ -43,7 +41,7 @@ ASP.NET Core iki sunucu uygulamaları gelir:
 
 Kestrel varsayılan ASP.NET Core yeni proje şablonları olarak dahil edilen web sunucusudur. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters proxy sunucusu*, IIS, Nginx ya da Apache gibi. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
@@ -55,7 +53,7 @@ Her iki yapılandırma &mdash; ile veya bir ters Ara sunucu olmadan &mdash; Kest
 
 Ne zaman bir ters proxy ile Kestrel kullanılacağı hakkında daha fazla bilgi için bkz: [Kestrel giriş](kestrel.md).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Uygulamanızı bir iç ağ yalnızca gelen istekleri kabul ederse, tek başına Kestrel kullanabilirsiniz.
 
@@ -87,7 +85,7 @@ Apache Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılaca
 
 ## <a name="httpsys"></a>HTTP.sys
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ASP.NET Core uygulamanızı Windows'ta çalıştırma, HTTP.sys alternatif Kestrel olur. HTTP.sys burada uygulamanızı internet kullanıma ve Kestrel desteklemiyor HTTP.sys özelliklerine ihtiyaç senaryoları için kullanabilirsiniz. 
 
@@ -99,7 +97,7 @@ HTTP.sys, yalnızca bir iç ağ için sunulan uygulamaları için de kullanılab
 
 İç ağ senaryoları için Kestrel genellikle en iyi performans için önerilir; Ancak, bazı senaryolarda, yalnızca HTTP.sys sağlayan bir özellik kullanmak isteyebilirsiniz. HTTP.sys özellikler hakkında daha fazla bilgi için bkz: [HTTP.sys](httpsys.md).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 HTTP.sys ASP.NET Core WebListener adlı 1.x. Windows, WebListener uygulama için kullanabileceğiniz bir alternatiftir, ASP.NET Core çalıştırırsanız Internet ancak uygulamanıza kullanıma sunmak istediğiniz senaryolar IIS kullanamazsınız.
 
@@ -127,7 +125,7 @@ Yerleşik sunucuları ihtiyaçlarınızı karşılamıyorsa, özel sunucu uygula
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 - [Kestrel](kestrel.md)
 - [IIS ile kestrel](aspnet-core-module.md)
@@ -135,7 +133,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 - [Apache ile Linux’ta barındırma](xref:host-and-deploy/linux-apache)
 - [HTTP.sys](httpsys.md)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 - [Kestrel](kestrel.md)
 - [IIS ile kestrel](aspnet-core-module.md)

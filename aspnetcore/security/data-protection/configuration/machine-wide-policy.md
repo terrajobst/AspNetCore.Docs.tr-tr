@@ -2,20 +2,18 @@
 title: "Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği"
 author: rick-anderson
 description: "ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan bir makine genelinde ilkesini ayarlamak için desteği hakkında bilgi edinin."
-keywords: "ASP.NET Çekirdeği"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 692e120f13882be594afc5fb926b96b82d9609e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c3ae3b628ebe17c7926c71f1fad664d719d1706
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği
 
