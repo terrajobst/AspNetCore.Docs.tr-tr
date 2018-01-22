@@ -16,7 +16,7 @@ MVC denetleyicisi sınıfları (ve bunların içindeki eylem yöntemleri) gelen 
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-Yönlendirme için biçimini ayarlama *haline* dosya.
+Yönlendirme için biçimini ayarlama `Configure` yönteminde *haline* dosya.
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 

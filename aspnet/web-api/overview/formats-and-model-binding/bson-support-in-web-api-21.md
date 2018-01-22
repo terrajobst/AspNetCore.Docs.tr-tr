@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 08ef1564b2f8f11294c3bb1ec0ff9a3d063895b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53ad705fad6d2225cecca4d73355bd6ebfcf56d5
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="bson-support-in-aspnet-web-api-21"></a>ASP.NET Web API 2.1 BSON desteği
 ====================
@@ -30,7 +30,7 @@ Web API 2.1 BSON için destek sunar. Bu konuda, Web API denetleyicisi (sunucu ta
 
 BSON basit, tarama kolay ve hızlı kodlamak ve çözmek için tasarlanmıştır.
 
-- JSON olarak boyutunda BSON karşılaştırılabilir. Verilere bağlı olarak, daha küçük veya daha büyük bir JSON yükü BSON yükü olabilir. Bir görüntü dosyası gibi ikili verileri seri hale getirme için BSON JSON küçükse, ikili veri yaptığından base64 ile kodlanmış değildir.
+- JSON olarak boyutunda BSON karşılaştırılabilir. Verilere bağlı olarak, daha küçük veya daha büyük bir JSON yükü BSON yükü olabilir. Base64 ile kodlanmış ikili veri olmadığı için bir görüntü dosyası gibi ikili verileri seri hale getirme için BSON JSON küçüktür.
 - BSON belgeleri tarama bir Ayrıştırıcıyı kod çözme olmadan öğeleri atlayabilirsiniz öğeleri uzunluk alanı ile önek çünkü kolaydır.
 - Sayısal veri türleri değil dizeleri sayı olarak depolandığından kodlama ve kod çözme, verimlidir.
 

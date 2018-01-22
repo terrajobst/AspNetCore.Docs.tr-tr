@@ -1,7 +1,19 @@
 ---
-Başlık: ASP.NET Core Yazar Razor sayfalarında giriş: Rick Anderson Açıklama: Razor sayfalarında ASP.NET Core öğretici. MVC çekirdek, ASP.NET Core içerir 2.x, web geliştirme ve Visual Studio 2017 giriş.
-belge sayfası odaklı senaryoları geliştirme kolaylığı için ASP.NET Core Razor sayfalarını kullanarak genel bir bakış sağlar olur.
-ms.author: riande manager: wpickett ms.date: 09/12/2017 ms.topic: get-started-article ms.technology: aspnet ms.prod: asp.net-core uid: mvc/razor-pages/index
+title: "ASP.NET Core Razor sayfalarında giriş"
+author: Rick-Anderson
+description: "Razor sayfalarında ASP.NET Core Öğreticisi. MVC çekirdek, ASP.NET Core içerir 2.x, web geliştirme ve Visual Studio 2017 giriş. Bu belge sayfası odaklı senaryoları geliştirme kolaylığı için ASP.NET Core Razor sayfalarını kullanarak genel bir bakış sağlar."
+ms.author: riande
+manager: wpickett
+ms.date: 09/12/2017
+ms.topic: get-started-article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: mvc/razor-pages/index
+ms.openlocfilehash: 059dc3a163c646877da40a73bcc9a75eb38fb345
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
