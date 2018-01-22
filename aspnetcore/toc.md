@@ -130,7 +130,7 @@
 ## [Test denetleyicileri](xref:mvc/controllers/testing)
 ## [Uzaktan hata ayıklama](/visualstudio/debugger/remote-debugging-azure)
 ## [Anlık görüntü hatalarını ayıklama](/azure/application-insights/app-insights-snapshot-debugger)
-## [Visual Studio'da hata ayıklamayı anlık görüntüsünü alın](/visualstudio/debugger/debug-live-azure-applications)
+## [Visual Studio'da anlık görüntü hatalarını ayıklama](/visualstudio/debugger/debug-live-azure-applications)
 
 # [Veri erişimi ve depolama](data/index.md)
 ## [Visual Studio kullanarak Razor Sayfaları ve Entity Framework Core ile çalışmaya başlama](xref:data/ef-rp/intro)
@@ -205,6 +205,7 @@
 ### [Kimlik olmadan Tanımlama Bilgisi Kimlik Doğrulaması kullanma](xref:security/authentication/cookie)
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Azure AD’yi bir ASP.NET Core web uygulamasıyla tümleştirme](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+#### [Azure AD B2C’yi müşteriyle yüz yüze çalışan ASP.NET Core web uygulamasıyla tümleştirme](xref:security/authentication/azure-ad-b2c)
 #### [Azure AD kullanarak bir WPF uygulamasından ASP.NET Core Web API’sini çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Azure AD kullanarak bir ASP.NET Core web uygulamasında Web API’si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](https://identityserver4.readthedocs.io/)
