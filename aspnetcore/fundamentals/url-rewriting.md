@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -38,7 +38,9 @@ URL yeniden yazma işlemi bir veya daha fazla önceden tanımlanmış kurallar U
 ## <a name="url-redirect-and-url-rewrite"></a>URL yeniden yönlendirme ve URL yeniden yazma
 İfade arasındaki farkı *URL yeniden yönlendirme* ve *URL yeniden yazma* en ince görünebilir ilk ancak istemciler için kaynaklar sağlamak için önemli etkileri vardır. ASP.NET Core'nin URL yeniden yazma işlemi Ara gereken her ikisi için de toplantı yeteneğine sahiptir.
 
-A *URL yeniden yönlendirme* istemci burada belirtildiği başka bir adresinde bir kaynağa erişmek için bir istemci tarafı işlemi olduğu. Bu sunucuya gidiş gerektirir ve istemci kaynak için yeni bir istek yaptığında, istemciye döndürülen yeniden yönlendirme URL'si tarayıcının adres çubuğunda görünür. Varsa `/resource` olan *yeniden yönlendirilen* için `/different-resource`, istemci isteklerini `/resource`, ve istemci kaynak edinmelidir sunucunun yanıt verdiğini `/different-resource` yeniden yönlendirme olduğunu belirten bir durum kodu ile geçici veya kalıcı. İstemci yeniden yönlendirme URL'sini kaynak için yeni bir isteği yürütür.
+A *URL yeniden yönlendirme* istemci burada belirtildiği başka bir adresinde bir kaynağa erişmek için bir istemci tarafı işlemi olduğu. Bu sunucuya gidiş gerektirir. İstemci kaynak için yeni bir istek yaptığında, istemciye döndürülen yeniden yönlendirme URL'si tarayıcının adres çubuğunda görünür. 
+
+Varsa `/resource` olan *yeniden yönlendirilen* için `/different-resource`, istemci isteklerini `/resource`. İstemci kaynak edinmelidir sunucunun yanıt `/different-resource` yeniden yönlendirme geçici veya kalıcı olduğunu belirten bir durum kodu ile. İstemci yeniden yönlendirme URL'sini kaynak için yeni bir isteği yürütür.
 
 ![Webapı hizmet uç noktası sunucusundaki sürüm 2 (v2) için sürüm 1 (v1) geçici olarak değiştirildi. Bir istemci sürüm 1 yolu /v1/api adresindeki hizmet isteği yapar. Sunucu hizmeti için yeni, geçici yoluyla 302 bir (bulundu) yanıtı sürüm 2 /v2/api geri gönderir. İstemci hizmet yeniden yönlendirme URL'sinde ikinci bir isteği yapar. Sunucu bir 200 (Tamam) durum koduyla yanıt verir.](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak iç
 | Yol querystring yeniden yazma | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Şerit eğik | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Sondaki eğik çizgi zorla | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Belirli isteklere yeniden yazma işlemi kaçının | `(.*[^(\.axd)])$`<br>Evet:`/resource.htm`<br>Hayır:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| Belirli isteklere yeniden yazma işlemi kaçının | `^(.*)(?<!\.axd)$`veya`^(?!.*\.axd$)(.*)$`<br>Evet:`/resource.htm`<br>Hayır:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | URL kesimleri yeniden düzenleme | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | URL kesimi Değiştir | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 

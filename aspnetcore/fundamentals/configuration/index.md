@@ -5,16 +5,16 @@ description: "Yapılandırma API'si tarafından birden çok yöntem ASP.NET Core
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2018
+ms.date: 01/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0f8618898089418f709506aee5eb013f983dc294
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: c4f57d1e02ad5f4e235039999af9df9d236756a7
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
 
@@ -50,7 +50,7 @@ Uygulama okur ve aşağıdaki yapılandırma ayarları görüntüler:
 
 Hiyerarşik ad-değer çiftleri düğümleri bir virgülle ayrılmış listesini yapılandırması oluşur. Bir değer almak için erişim `Configuration` karşılık gelen öğenin anahtarı ile dizinleyici:
 
-[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=24-24)]
+[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=21-22)]
 
 JSON biçimli yapılandırma kaynaklarını dizilerde çalışmak için iki nokta üst üste ayrılmış dize bir parçası olarak bir dizi dizini kullanın. Aşağıdaki örnek önceki ilk öğe adını alır `wizards` dizi:
 
@@ -59,7 +59,7 @@ Console.Write($"{Configuration["wizards:0:Name"]}");
 // Output: Gandalf
 ```
 
-Ad-değer çiftleri için yerleşik yazılmış [yapılandırma](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration) sağlayıcılarıdır **değil** kalıcı. Ancak, değerleri kaydeder özel bir sağlayıcı oluşturabilirsiniz. Bkz: [özel yapılandırma sağlayıcısının](xref:fundamentals/configuration/index#custom-config-providers).
+Ad-değer çiftleri için yerleşik yazılmış [yapılandırma](/dotnet/api/microsoft.extensions.configuration) sağlayıcılarıdır **değil** kalıcı. Ancak, değerleri kaydeder özel bir sağlayıcı oluşturabilirsiniz. Bkz: [özel yapılandırma sağlayıcısının](xref:fundamentals/configuration/index#custom-config-providers).
 
 Yukarıdaki örnek yapılandırma dizin oluşturucu değerleri okumak için kullanır. Erişim yapılandırması dışında `Startup`, kullanın *seçenekleri düzeni*. Daha fazla bilgi için bkz: [seçenekleri](xref:fundamentals/configuration/options) konu.
 
@@ -72,7 +72,7 @@ Yukarıdaki örnek yapılandırma dizin oluşturucu değerleri okumak için kull
 * *appSettings. \<EnvironmentName > .json*
 * Ortam değişkenleri
 
-ASP.NET Core 1.x uygulamalarına ihtiyacı çağırmak `AddJsonFile` ve [AddEnvironmentVariables](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables #Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
+ASP.NET Core 1.x uygulamalarına ihtiyacı çağırmak `AddJsonFile` ve [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables#Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
 
 Bkz: [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) için bir açıklama parametreleri. `reloadOnChange`yalnızca ASP.NET Core 1.1 ve sonraki sürümlerinde desteklenir.
 
@@ -106,7 +106,7 @@ Yapılandırma değerleri dize olarak döndürülür, ancak bağlama nesnelerin 
 
 ### <a name="getvalue"></a>GetValue
 
-Aşağıdaki örnek gösterilmektedir [GetValue&lt;T&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_) genişletme yöntemi:
+Aşağıdaki örnek gösterilmektedir [GetValue&lt;T&gt; ](/dotnet/api/microsoft.extensions.configuration.configurationbinder.get?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_ConfigurationBinder_Get__1_Microsoft_Extensions_Configuration_IConfiguration_) genişletme yöntemi:
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
@@ -175,11 +175,11 @@ Ekleme bir `ConfigurationContext` depolamak ve yapılandırılmış değerlerine
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/ConfigurationContext.cs?name=snippet1)]
 
-Arabirimini uygulayan bir sınıf oluşturun [IConfigurationSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.iconfigurationsource):
+Arabirimini uygulayan bir sınıf oluşturun [IConfigurationSource](/dotnet/api/Microsoft.Extensions.Configuration.IConfigurationSource):
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
-Özel yapılandırma sağlayıcısının devralarak oluşturma [ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider). Boş olduğunda yapılandırma sağlayıcısı veritabanı başlatır:
+Özel yapılandırma sağlayıcısının devralarak oluşturma [ConfigurationProvider](/dotnet/api/Microsoft.Extensions.Configuration.ConfigurationProvider). Boş olduğunda yapılandırma sağlayıcısı veritabanı başlatır:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
@@ -401,7 +401,7 @@ A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında g
 * `IConfiguration`iki özelleştirmeleri sahiptir:
   * `IConfigurationRoot`Kök düğüm için kullanılır. Bir yeniden yükleme tetikleyebilir.
   * `IConfigurationSection`Yapılandırma değerlerini bir bölümünü temsil eder. `GetSection` Ve `GetChildren` yöntemleri döndürür bir `IConfigurationSection`.
-  * Kullanım [IConfigurationRoot](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.iconfigurationroot) yapılandırma yeniden yükleme veya her sağlayıcısına erişim gerekir. Bunlardan hiçbirine yaygındır.
+  * Kullanım [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) yapılandırma yeniden yükleme veya her sağlayıcısına erişim gerekir. Bunlardan hiçbirine yaygındır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

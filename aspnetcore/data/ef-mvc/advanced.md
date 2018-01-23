@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c5c06e61239c65cb1ff501a57777363a047a8db5
+ms.sourcegitcommit: f8ecf3d8f5b15f1e84ec86de3835b49ebe89fa1e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Gelişmiş konular - EF çekirdek ASP.NET Core MVC Öğreticisi (10 / 10)
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Çekirdek kaynak kodu ve Geliştirme planları
 
-Entity Framework Çekirdek için kaynak kodunu şu adresten edinilebilir [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Kaynak kodu yanı sıra, her gece derlemeleri almak, sorun izleme, özellik belirtimlerin, toplantı notları tasarım [ileride geliştirme için yol haritası](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap)ve daha fazlası. Hatalar dosya ve kendi geliştirmeler EF kaynak kodu katkıda bulunabilir.
+Entity Framework Çekirdek kaynağı altındadır [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF çekirdek depo içerir gecelik derlemeleri, sorun izleme, özellik belirtimlerin, toplantı notları, tasarım ve [ileride geliştirme için yol haritası](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Dosya veya hataları bulma ve katkıda.
 
 Kaynak kodu açık olsa da, Entity Framework Çekirdek tam bir Microsoft ürünü desteklenir. Microsoft Entity Framework takım üzerinde Katkıları kabul edilen denetim tutar ve her sürümle kalitesini emin olmak için tüm kod değişiklikleri sınar.
 

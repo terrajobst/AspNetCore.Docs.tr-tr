@@ -1,19 +1,20 @@
 ---
 title: Model Binding
-author: rick-anderson
-description: 
-ms.author: riande
+author: rachelappel
+description: "Model bağlama ASP.NET Core mvc'de hakkında bilgi"
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="model-binding"></a>Model Binding
 
@@ -41,7 +42,7 @@ MVC istek verileri için eylem parametrelerini adıyla bağlamak çalışacaktı
 
 1. `Form values`: POST yöntemini kullanan HTTP isteğinde Git form değerleri şunlardır. (jQuery POST istekleri dahil olmak üzere).
 
-2. `Route values`: Tarafından sağlanan rota değerleri kümesi [yönlendirme](../../fundamentals/routing.md)
+2. `Route values`: Tarafından sağlanan rota değerleri kümesi [yönlendirme](xref:fundamentals/routing)
 
 3. `Query strings`: URI sorgu dizesi bölümü.
 
@@ -101,7 +102,7 @@ MVC kendi varsayılan model bağlama davranışı farklı bir kaynak için doğr
 
 Model bağlama varsayılan davranışını geçersiz kılmak gerektiğinde yararlı Araçlar öznitelikleridir.
 
-## <a name="binding-formatted-data-from-the-request-body"></a>İstek gövdesini biçimlendirilmiş bağlama verileri
+## <a name="bind-formatted-data-from-the-request-body"></a>Biçimlendirilmiş verileri isteği gövdesinden bağlama
 
 İstek veri biçimleri JSON, XML ve diğer birçok dahil olmak üzere çeşitli gelebilir. Veri istek gövdesindeki bir parametre bağlamak istediğiniz belirtmek için [FromBody] özniteliği kullandığınızda, MVC biçimlendiricileri yapılandırılmış bir dizi içerik türüne göre istek verileri işlemek için kullanır. Varsayılan olarak MVC içeren bir `JsonInputFormatter` JSON verilerini, ancak işleme ek biçimlendiricileri XML ve diğer özel biçimler işlemek için ekleyebilirsiniz için sınıf.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: 7bbd203a67b32032ba2ab82448a5fc9a495b52aa
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 151385964d877fc9eadaa219320e5f5a195164e4
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>ASP.NET Çekirdeği'nde veri koruma: tüketici API'leri, yapılandırma, genişletilebilirlik API'leri ve uygulama
 
@@ -75,6 +75,6 @@ ms.lasthandoff: 01/19/2018
 
 * [Uyumluluk](compatibility/index.md)
 
-  * [Tanımlama bilgilerini uygulamalar arasında paylaşma](compatibility/cookie-sharing.md)
+  * [Tanımlama bilgilerini uygulamalar arasında paylaşma](xref:security/data-protection/compatibility/cookie-sharing)
 
-  * [ASP.NET’te <machineKey>‘i değiştirme](compatibility/replacing-machinekey.md)
+  * [ASP.NET’te <machineKey>‘i değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)

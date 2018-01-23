@@ -4,16 +4,16 @@ author: rick-anderson
 description: "ASP.NET Core ara yazılımı ve istek ardışık düzenini hakkında bilgi edinin."
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ara yazılım temelleri
 
@@ -23,7 +23,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](ht
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-middleware"></a>Ara yazılım nedir
+## <a name="what-is-middleware"></a>Ara yazılım nedir?
 
 Ara yazılım istekleri ve yanıtları işlemek için bir uygulama ardışık düzenine birleştirilmiş bir yazılımdır. Her bileşen:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Yerleşik Ara
 
-ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir:
+ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar eklenmesi gereken sırayı açıklaması gelir:
 
-| Ara yazılım | Açıklama |
-| ----- | ------- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. |
-| [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. |
-| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. |
-| [Yanıt sıkıştırma](xref:performance/response-compression) | Yanıtları sıkıştırma için destek sağlar. |
-| [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. |
-| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. |
-| [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. |
-| [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. |
+| Ara yazılım | Açıklama | Sırası |
+| ---------- | ----------- | ----- |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri aramalar için. |
+| [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenleri önce. |
+| [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Hatalar oluşturur bileşenlerini önce. |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, ClientIP, yöntem). |
+| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. | Önbelleğe alma gerektiren bileşenler önce. |
+| [Yanıt sıkıştırma](xref:performance/response-compression) | Yanıtları sıkıştırma için destek sağlar. | Sıkıştırma iste bileşenleri önce. |
+| [RequestLocalization](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirme önce hassas bileşenleri. |
+| [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. | Yollar eşleştirmek için terminal. |
+| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenler önce. |
+| [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. | Bir isteği dosyaları eşleşirse terminal. |
+| [URL yeniden yazma işlemi](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
+| [WebSockets](xref:fundamentals/websockets) | WebSockets Protokolü sağlar. | WebSocket isteklerini kabul etmek için gerekli bileşenleri önce. |
 
 <a name="middleware-writing-middleware"></a>
 
