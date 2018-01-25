@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: cc23a053fb1ba60ea84eca59e99f0e375fefc4cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a26d356f7abafba021199761f9a49dcb81765c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Katana Windows kimlik doğrulamasını etkinleştirme
 ====================
@@ -34,7 +34,7 @@ Katana uygulamasıdır Microsoft'un [OWIN](http://owin.org/), .NET için açık 
 Katana her ikisi de Windows tümleşik kimlik doğrulamasını destekleyen iki sunucu şu anda sağlar:
 
 - **Microsoft.Owin.Host.SystemWeb**. IIS ile ASP.NET ardışık düzenini kullanır.
-- **Microsoft.Owin.Host.HttpListener**. Kullanan [System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx). Bu sunucu şu anda kendi kendini barındırdığında varsayılan seçenek olan Katana.
+- **Microsoft.Owin.Host.HttpListener**. Kullanan [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx). Bu sunucu şu anda kendi kendini barındırdığında varsayılan seçenek olan Katana.
 
 > [!NOTE]
 > Bu işlevsellik sunucular kullanılabilir olduğundan Katana şu anda OWIN ara yazılımı için Windows kimlik doğrulaması sağlamaz.
@@ -98,8 +98,8 @@ Uygulamayı Windows kimlik doğrulaması kullandığını doğrulayın Fiddler'd
 
 ## <a name="related-topics"></a>İlgili Konular
 
-[Proje Katana genel bakış](an-overview-of-project-katana.md)
+[Project Katana’ya Genel Bakış](an-overview-of-project-katana.md)
 
-[System.Net.HttpListener](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)
+[System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx)
 
 [MVC 5 OWIN form kimlik doğrulamasını anlama](https://blogs.msdn.com/b/webdev/archive/2013/07/03/understanding-owin-forms-authentication-in-mvc-5.aspx)

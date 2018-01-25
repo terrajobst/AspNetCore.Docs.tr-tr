@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Visual Studio 2012'de ASP.NET Web formları için sayfa denetçisi kullanma
 ====================
@@ -51,7 +51,7 @@ tarafından Tim Ammann
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) veya [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) veya [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Sayfa Denetçisi'nın en son sürümünü almak için [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=255386) .NET 2.0 için Azure SDK'sını yüklemek için.
@@ -91,7 +91,7 @@ Sayfa denetçisi penceresi yuvadan, varsa, bunu Visual Studio dışında veya ik
 
 ![ALT + SEKME Visual Studio ile kilitli sayfa denetçisi penceresi arasında için kayan araç windows onay kutusunun işaretini kaldırın](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Sayfa denetçisi penceresinin üst bölmesi geçerli sayfa bir tarayıcı penceresinde gösterir. Alt bölme sayfanın sol HTML biçimlendirmesi gösterir ve olanak tanıyan sağdaki bazı sekmeleri sayfa farklı yönlerini inceleyin. Alt bölme benzer [F12 Geliştirici Araçları](https://msdn.microsoft.com/en-us/ie/aa740478) Internet Explorer'da. (Ancak, geliştirici araçları, Visual Studio içinde sağ sayfa denetçisi kullanabilirsiniz.)
+Sayfa denetçisi penceresinin üst bölmesi geçerli sayfa bir tarayıcı penceresinde gösterir. Alt bölme sayfanın sol HTML biçimlendirmesi gösterir ve olanak tanıyan sağdaki bazı sekmeleri sayfa farklı yönlerini inceleyin. Alt bölme benzer [F12 Geliştirici Araçları](https://msdn.microsoft.com/ie/aa740478) Internet Explorer'da. (Ancak, geliştirici araçları, Visual Studio içinde sağ sayfa denetçisi kullanabilirsiniz.)
 
 ![Sayfa Denetçisi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
@@ -106,7 +106,7 @@ Ardından, sayfa Denetçisi'nin Denetleme modu nasıl çalıştığını görür
 
 Eylem denetleme modunda görmek için page sayfa denetçisi tarayıcı penceresi içinde farklı kısımlarını üzerinden fareyi hareket ettirin. Yaptığınız gibi büyük bir artı işareti fare işaretçisini değiştirir ve öğesinin altında vurgulanır:
 
-![Div.Content-sarmalayıcı vurgulama](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
+![Hovering over div.content-wrapper](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
 
 Fareyi hareket ederken unutmayın
 
@@ -158,7 +158,7 @@ Sayfa denetçisi denetleme moduna alın.
 
 Şimdi fare işaretçisini taşıma **HTML** penceresi. Fare işaretçisini ilerlerken, öğe içinde sayfa denetçisi özetlenmektedir **HTML** penceresi ve tarayıcı penceresini karşılık gelen öğe vurgular.
 
-![HTML penceresi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
+![HTML Window](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
 
 Önce sayfa denetçisi açar gibi *Site.Master* dosyayı geçici bir sekmede. Site.Master sekmesine tıklayın ve karşılık gelen biçimlendirme vurgulanan &lt;üstbilgi&gt; bölümü:
 

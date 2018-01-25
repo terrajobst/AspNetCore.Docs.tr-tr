@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 6cb77e8ef301c2eeef7df3e391e14f4e2c0364e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Yapılandırılmamış Blob Storage'ı (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -33,7 +33,7 @@ tarafından [CAN Wasson](https://github.com/MikeWasson), [Rick Anderson](https:/
 
 Azure depolama Blob hizmeti bulutta dosyalarını depolamak için bir yol sağlar. Blob hizmeti bir yerel ağ dosya sistemi dosyaların depolanması avantajları vardır:
 
-- Yüksek oranda ölçeklenebilir. Tek bir depolama hesabı depolayabilir [terabayt yüzlerce](https://msdn.microsoft.com/en-us/library/windowsazure/dn249410.aspx), ve birden çok depolama hesabı olabilir. Bazı büyük Azure müşterilerin Petabayt yüzlerce depolar. Microsoft SkyDrive blob depolama kullanır.
+- Yüksek oranda ölçeklenebilir. Tek bir depolama hesabı depolayabilir [terabayt yüzlerce](https://msdn.microsoft.com/library/windowsazure/dn249410.aspx), ve birden çok depolama hesabı olabilir. Bazı büyük Azure müşterilerin Petabayt yüzlerce depolar. Microsoft SkyDrive blob depolama kullanır.
 - Dayanıklı. Blob hizmetinde depoladığınız her dosyayı otomatik olarak yedeklenir.
 - Yüksek kullanılabilirlik sağlar. [Depolama için SLA](https://go.microsoft.com/fwlink/p/?linkid=159705&amp;clcid=0x409) öneriler % 99,9 veya % 99,99 açık kalma süresi, bağlı olarak hangi coğrafi artıklığı seçeneği seçin.
 - Bunu bir hizmet olarak platform (PaaS) yalnızca depolamak ve almak için kullandığınız, depolama, yalnızca gerçek miktarını ödeme dosyaları, bunun anlamı Azure özelliğidir ve Azure otomatik olarak mvc'deki ayarlama ve tüm sanal makineleri ve disk için gerekli sürücüleri yönetme hizmet.
@@ -146,7 +146,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 - [Azure BLOB Depolama giriş](https://www.simple-talk.com/cloud/cloud-data/an-introduction-to-windows-azure-blob-storage-/). Blog CAN Wood tarafından.
 - [.NET ile Azure Blob Depolama hizmetinin kullanmayı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). MicrosoftAzure.com sitesindeki resmi belgeleri. Blob depolama blob depolama alanına bağlanmak nasıl gösteren kod örnekleri ve ardından bir kısa giriş kapsayıcıları oluşturmak, karşıya yükleme ve indirme BLOB'lar vb.
 - [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Üst düzey kavramlarını ve mimari ilkeler çok erişilebilir ve ilginç yolla, Microsoft Müşteri danışma ekibi (CAT) deneyiminde gerçek müşterilerle çizilmiş hikayeleri sunar. Azure depolama hizmeti ve BLOB'ları bir tartışma için bkz: Bölüm 5 35:13 başlatma.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Bkz: Valet anahtarı düzeni.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz: Valet anahtarı düzeni.
 
 >[!div class="step-by-step"]
 [Önceki](data-partitioning-strategies.md)

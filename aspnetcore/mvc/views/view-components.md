@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>Görünüm bileşenleri
 
@@ -130,7 +130,7 @@ Yukarıdaki örnekteki `PriorityList` görünümü bileşen olur `priority-list`
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Bir görünümü bileşen denetleyicisinden doğrudan çağırma
 
-Görünümü bileşenler genellikle bir görünümden çağrılır, ancak doğrudan denetleyici yönteminden çağırabilirsiniz. Görünüm bileşenleri denetleyicileri gibi uç tanımlamıyor olsa da, içeriği döndüren bir denetleyici eylemi kolayca uygulayabilirsiniz bir `ViewComponentResult`.
+Görünümü bileşenler genellikle bir görünümden çağrılır, ancak doğrudan denetleyici yönteminden çağırabilirsiniz. Görünüm bileşenleri denetleyicileri gibi uç noktaları tanımlamak yoktur, ancak içeriği döndüren bir denetleyici eylemi kolayca uygulayabilirsiniz bir `ViewComponentResult`.
 
 Bu örnekte, görünümü bileşen doğrudan denetleyicisinden çağrılır:
 
@@ -152,7 +152,7 @@ Kodu Notlar:
 
 * Görünümü bileşen sınıfları yer almalıdır içinde **herhangi** proje klasöründe.
 * Sınıf adı olduğundan PriorityList**ViewComponent** sonekiyle sona erer **ViewComponent**, çalışma zamanı sınıf bileşen bir görünümden başvururken dizesi "PriorityList" kullanır. I, daha ayrıntılı olarak daha sonra açıklanmıştır.
-* `[ViewComponent]` Öznitelik görünümü bileşen başvurmak için kullanılan adını değiştirebilir. Örneğin, biz sınıfı adlandırdığınız `XYZ` ve uygulanan `ViewComponent` özniteliği:
+* `[ViewComponent]` Öznitelik görünümü bileşen başvurmak için kullanılan adını değiştirebilir. Örneğin, biz sınıfı adlı `XYZ` ve uygulanan `ViewComponent` özniteliği:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
@@ -212,17 +212,17 @@ Uygulamayı çalıştırın ve PVC görünüm doğrulayın.
 
 ![Öncelik görünümü bileşen](view-components/_static/pvc.png)
 
-PVC görünüm işlenmez, 4 veya daha yüksek önceliğe sahip görünümü bileşen aradığınız doğrulayın.
+PVC görünüm işlenen değil, 4 veya daha yüksek önceliğe sahip görünümü bileşen aradığınız doğrulayın.
 
 ### <a name="examine-the-view-path"></a>Görünüm yolu inceleyin
 
-* Priority parametresi, üç veya daha az öncelik görünüm alınmadı şekilde değiştirin.
+* Priority parametresi, üç veya daha az öncelik görünüm döndürülmezse şekilde değiştirin.
 * Geçici olarak yeniden adlandırın *Views/Todo/Components/PriorityList/Default.cshtml* için *1Default.cshtml*.
 * Uygulamayı test etme, aşağıdaki hatayı alırsınız:
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

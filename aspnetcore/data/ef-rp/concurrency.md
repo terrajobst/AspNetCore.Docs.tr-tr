@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 en-us/
 
@@ -32,7 +32,7 @@ Bir eşzamanlılık çakışması ortaya çıkar zaman:
 * Bir kullanıcıyı bir varlığın düzenleme sayfasına götürür.
 * İlk kullanıcının değişiklik DB yazılmadan önce başka bir kullanıcı aynı varlık güncelleştirir.
 
-Eşzamanlılık algılama etkin değilse, eş zamanlı güncelleştirmeler olduğunda:
+Eşzamanlılık algılama etkin değil, eş zamanlı güncelleştirmeler olduğunda:
 
 * Son güncelleştirme WINS. Diğer bir deyişle, son güncelleştirme değerleri Veritabanına kaydedilir.
 * Geçerli güncelleştirmeleri ilk kaybolur.
@@ -57,13 +57,13 @@ John tıklar **kaydetmek** bir düzenleme sayfasında $350,000.00 bütçe görü
 
 * Bir kullanıcı değiştirdi hangi özelliğinin izlemek ve yalnızca karşılık gelen sütunlara DB'de güncelleştirin.
 
- Senaryoda, hiçbir veri kaybı olacaktır. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Birisi İngilizce departmanı gözatar başlatıldığında bunlar Jane'nın ve Can'ın değişiklikleri görürsünüz. Güncelleştirme bu yöntem, veri kaybına sebep çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım: * aynı özelliğe rakip bir değişiklik yaptıysanız veri kaybını önlemek olamaz.
+ Senaryoda, hiçbir veri kaybı olacaktır. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Birisi İngilizce departmanı gözatar sonraki açışınızda Jane'nın ve Can'ın değişiklikleri görürler. Güncelleştirme bu yöntem, veri kaybına sebep çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım: * aynı özelliğe rakip bir değişiklik yaptıysanız veri kaybını önlemek olamaz.
         * Olan bir web uygulamasında pratik genellikle. Tüm getirilen ve yeni değerleri izlemek için önemli durum koruma gerektiriyor. Büyük miktarlarda durumu koruma uygulama performansını etkileyebilir.
         * Bir varlık eşzamanlılık algılamayı karşılaştırılan uygulama karmaşıklığını artırabilir.
 
 * Jane'nın değişiklik üzerine Can'ın değişiklik izin verebilirsiniz.
 
- Sonraki birisi İngilizce departmanı gözatar, 1/9/2013 görürsünüz ve getirilen $350,000.00 değeri. Bu yaklaşım adlı bir *istemci WINS* veya *WINS'de son* senaryo. (İstemci tüm değerleri veri deposunda nedir üzerinden önceliklidir.) Hiçbir eşzamanlılık işleme için kodlama yapmazsanız, istemci WINS otomatik olarak gerçekleşir.
+ Sonraki birisi İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım adlı bir *istemci WINS* veya *WINS'de son* senaryo. (İstemci tüm değerleri veri deposunda nedir üzerinden önceliklidir.) Hiçbir eşzamanlılık işleme için kodlama yapmazsanız, istemci WINS otomatik olarak gerçekleşir.
 
 * DB güncelleştirilmiş Can'ın değişiklik engelleyebilir. Uygulama zamanki: * bir hata iletisi görüntülenir.
         * Verilerin geçerli durumunu gösterir.
@@ -73,18 +73,18 @@ John tıklar **kaydetmek** bir düzenleme sayfasında $350,000.00 bütçe görü
 
 ## <a name="handling-concurrency"></a>Eşzamanlılık işleme 
 
-Olarak bir özellik yapılandırıldığında bir [eşzamanlılık belirteci](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+Olarak bir özellik yapılandırıldığında bir [eşzamanlılık belirteci](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF çekirdek getirildi sonra'nın özellik değiştirilmemiş doğrular. Onay oluşur zaman [SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) olarak adlandırılır.
+* EF çekirdek getirildi sonra'nın özellik değiştirilmemiş doğrular. Onay oluşur zaman [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) olarak adlandırılır.
 * Bunu getirildikten sonra özelliği değiştirildiğinde, bir [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) atılır. 
 
 Veritabanını ve veri modeli atma desteklemek için yapılandırılması gerekir `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Bir özelliğe eşzamanlılık çakışmalarını algılama
 
-Eşzamanlılık çakışması algılanan özelliği düzeyindeki [ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliği. Öznitelik, model üzerinde birden çok özellikleri uygulanabilir. Daha fazla bilgi için bkz: [veri ek açıklamaları-ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations).
+Eşzamanlılık çakışması algılanan özelliği düzeyindeki [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliği. Öznitelik, model üzerinde birden çok özellikleri uygulanabilir. Daha fazla bilgi için bkz: [veri ek açıklamaları-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
-`[ConcurrencyCheck]` Özniteliği, bu öğreticide kullanılmaz.
+`[ConcurrencyCheck]` Özniteliği, bu öğreticide kullanılan değil.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Bir satırda eşzamanlılık çakışmalarını algılama
 
@@ -127,7 +127,7 @@ Aşağıdaki vurgulanmış kodu tam olarak bir satır güncelleştirildi doğrul
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satırların sayısını döndürür. Hayır, satırları güncelleştirilir, EF çekirdek oluşturur bir `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satırların sayısını döndürür. Hayır, satırları güncelleştirilir, EF çekirdek oluşturur bir `DbUpdateConcurrencyException`.
 
 Visual Studio çıktı penceresinde T-SQL EF çekirdeği oluşturur görebilirsiniz.
 
@@ -175,7 +175,7 @@ Projeyi oluşturun. Derleme hataları aşağıdaki gibi oluşturur:
 
 ### <a name="update-the-departments-index-page"></a>Güncelleştirme Departmanlar dizin sayfası
 
-Oluşturulan iskele altyapısı bir `RowVersion` dizin sayfası, ancak bu alan için sütun döndürmemelidir görüntülenmesi. Bu öğreticide son baytını `RowVersion` eşzamanlılık anlamanıza yardımcı olması için görüntülenir. Son bayta kalan benzersiz olması garanti edilmez. Gerçek bir uygulama görüntüle olmayacaktır `RowVersion` veya son baytını `RowVersion`.
+Oluşturulan iskele altyapısı bir `RowVersion` dizin sayfası, ancak bu alan için sütun döndürmemelidir görüntülenmesi. Bu öğreticide son baytını `RowVersion` eşzamanlılık anlamanıza yardımcı olması için görüntülenir. Son bayta kalan benzersiz olması garanti değil. Gerçek bir uygulama görüntüle olmayacaktır `RowVersion` veya son baytını `RowVersion`.
 
 Dizin Sayfası güncelleştirin:
 
@@ -250,7 +250,7 @@ Tarayıcı değiştirilen değeri ve güncelleştirilmiş rowVersion göstergesi
 
 ![Departman Düzenle sayfası hata iletisi](concurrency/_static/edit-error.png)
 
-Bu tarayıcı penceresini ad alanını değiştirmek istediniz değil. Kopyalama ve geçerli değeri (dilleri) ad alanına yapıştırabilirsiniz. Out sekmesi. İstemci tarafı doğrulama hata iletisi kaldırır.
+Bu tarayıcı penceresini ad alanı değiştirmek istiyorsanız alamadık. Kopyalama ve geçerli değeri (dilleri) ad alanına yapıştırabilirsiniz. Out sekmesi. İstemci tarafı doğrulama hata iletisi kaldırır.
 
 ![Departman Düzenle sayfası hata iletisi](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
-* [EF çekirdek eşzamanlılık belirteçleri](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [EF çekirdek eşzamanlılık işleme](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [EF çekirdek eşzamanlılık belirteçleri](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [EF çekirdek eşzamanlılık işleme](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Önceki](xref:data/ef-rp/update-related-data)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 yenilikler nelerdir?
 ====================
@@ -88,11 +88,11 @@ Ad alanı RegisterArea yönteminde bağlam çağırarak belirtmezseniz. Namespac
 
 ### <a id="_TOC3_3"></a>Zaman uyumsuz denetleyicileri için destek
 
-ASP.NET MVC 2 isteklerini zaman uyumsuz olarak işlemek denetleyicileri artık izin verir. Sık engellemeyen ortaklarınıza yerine çağırmak için (örneğin, ağ istekleri) engelleme işlemlerini çağırma sunucuları izin vererek bu performans artışları için yol açabilir. Daha fazla bilgi için bkz: [ASP.NET MVC uygulamasında zaman uyumsuz bir denetleyiciyi kullanarak](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx) MSDN'de konu.
+ASP.NET MVC 2 isteklerini zaman uyumsuz olarak işlemek denetleyicileri artık izin verir. Sık engellemeyen ortaklarınıza yerine çağırmak için (örneğin, ağ istekleri) engelleme işlemlerini çağırma sunucuları izin vererek bu performans artışları için yol açabilir. Daha fazla bilgi için bkz: [ASP.NET MVC uygulamasında zaman uyumsuz bir denetleyiciyi kullanarak](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) MSDN'de konu.
 
 ### <a id="_TOC3_4"></a>Eylem-yöntem parametrelerini DefaultValueAttribute desteği
 
-System.ComponentModel.DefaultValueAttribute sınıfı bir eylem yöntemi için bağımsız değişken parametresi için sağlanan varsayılan bir değer verir. Örneğin, aşağıdaki varsayılan yol tanımlanır varsayın:
+The System.ComponentModel.DefaultValueAttribute class allows a default value to be supplied for the argument parameter to an action method. Örneğin, aşağıdaki varsayılan yol tanımlanır varsayın:
 
 [!code-json[Main](what-is-new-in-aspnet-mvc/samples/sample3.json)]
 
@@ -104,7 +104,7 @@ Aşağıdaki isteği hiçbirini URL'leri yukarıdaki örnekte tanımlanan görü
 
 - / Makale/görünüm/123
 - / Makale/görünüm/123? sayfa = 1 (etkin önceki istek aynı)
-- / Makale/görünüm/123? sayfa = 2
+- /Article/View/123?page=2
 
 Sayfa bağımsız değişken değeri sağlanmamış bir null değer türü olduğundan DefaultValueAttribute öznitelik olmadan, yukarıdaki listede ilk URL, işe.
 
@@ -142,7 +142,7 @@ ModelMetadataProvider sınıfı bir görünüm içindeki model meta verilerini a
 
 ViewDataDictionary sınıfı modelden ModelMetadataProvider sınıfı tarafından ayıklanan meta verileri içeren bir ModelMetadata nesnesi kullanıma sunar. Bu meta verileri kullanabilir ve bunların çıktısı buna uygun olarak ayarlamak şablonlu Yardımcılar sağlar.
 
-Daha fazla bilgi için belgelerine bakın [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) ve [ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) sınıfları.
+Daha fazla bilgi için belgelerine bakın [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) ve [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) sınıfları.
 
 ### <a id="_TOC3_7"></a>DataAnnotations öznitelikleri için destek
 
@@ -152,7 +152,7 @@ Daha fazla bilgi için bkz: [nasıl yapılır: Model verileri kullanarak DataAnn
 
 ### <a id="_TOC3_8"></a>Model Doğrulayıcı sağlayıcıları
 
-Model doğrulama sağlayıcısı sınıfı model için doğrulama mantığını sağlayan bir Özet gösterir. ASP.NET MVC System.ComponentModel.DataAnnotations ad alanında yer alan doğrulama özniteliklerini temel alarak bir varsayılan sağlayıcı içerir. Özel doğrulama kuralları ve özel doğrulama kuralları eşlemelerini modele tanımlayın kendi doğrulama sağlayıcılarının de oluşturabilirsiniz. Daha fazla bilgi için belgelerine bakın [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) sınıfı.
+Model doğrulama sağlayıcısı sınıfı model için doğrulama mantığını sağlayan bir Özet gösterir. ASP.NET MVC System.ComponentModel.DataAnnotations ad alanında yer alan doğrulama özniteliklerini temel alarak bir varsayılan sağlayıcı içerir. Özel doğrulama kuralları ve özel doğrulama kuralları eşlemelerini modele tanımlayın kendi doğrulama sağlayıcılarının de oluşturabilirsiniz. Daha fazla bilgi için belgelerine bakın [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) sınıfı.
 
 ### <a id="_TOC3_9"></a>İstemci tarafı doğrulama
 

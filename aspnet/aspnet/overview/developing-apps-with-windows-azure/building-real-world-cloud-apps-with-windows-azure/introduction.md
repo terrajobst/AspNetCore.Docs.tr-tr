@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 5054f932d05fb612a6e18a81274719d7e249b77b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek bulut uygulamaları derleme
 ====================
@@ -103,7 +103,7 @@ Bu e-kitap On üç desenleri bulut geliştirme için önerilen açıklanmaktadı
     - Yüksek kullanılabilirliği etkinleştirme ve geniş web ve çalışan katmanları eşleyerek ölçeklenebilirlik geliştirebilirsiniz.
     - Demo: Düzelt uygulamasında Azure depolama sıralar.
 - [Daha fazla bulut uygulaması desenleri ve kılavuz](more-patterns-and-guidance.md).
-- [Ek: Düzeltme bu örnek uygulama](the-fix-it-sample-application.md)
+- [Ek: Düzelt Örnek Uygulaması](the-fix-it-sample-application.md)
 
     - Bilinen Sorunlar
     - En İyi Yöntemler
@@ -155,7 +155,7 @@ Bir makine kullanılamaz hale gelirse Azure otomatik olarak döndürme çeker, y
 
 Tüm bunlar kurulur otomatik olarak. Yapmanız gereken tek şey Windows PowerShell, Visual Studio veya Azure Yönetim Portalı'nı kullanarak, uygulama, bir web sitesi oluşturun ve dağıtın.
 
-Visual Studio'da bir web uygulaması oluşturmak ve bir Azure Web sitesine dağıtmak nasıl oluşturulduğunu gösteren bir hızlı ve kolay adım adım öğretici için bkz [Azure ve ASP.NET kullanmaya başlama](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Visual Studio'da bir web uygulaması oluşturmak ve bir Azure Web sitesine dağıtmak nasıl oluşturulduğunu gösteren bir hızlı ve kolay adım adım öğretici için bkz [Azure ve ASP.NET kullanmaya başlama](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Özet
@@ -168,14 +168,14 @@ Bu bölümde ele alınan konular hakkında daha fazla bilgi için aşağıdaki k
 
 Belgeler:
 
-- [Web uygulamaları Azure uygulama hizmetinde](https://azure.microsoft.com/en-us/services/app-service/web/). Web uygulamaları Azure belgelerine için portal sayfası.
-- [Web uygulamaları, bulut Hizmetleri ve sanal makineleri: ne zaman hangi kullanılır?](https://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/) Bu bölümde gösterildiği gibi WAWS biridir yalnızca üç şekilde Azure web uygulamaları çalıştırabilirsiniz. Bu makalede, üç şekilde arasındaki farklar açıklanmaktadır ve hangisinin senaryonuz için uygun olduğunu seçin konusunda rehberlik sağlar. Web siteleri gibi bulut Hizmetleri, Azure, bir PaaS özelliğidir. Sanal makineleri bir Iaas özelliğidir. Iaas ve PaaS açıklaması için bkz: [veri seçenekleri](data-storage-options.md#paasiaas) bölüm.
+- [Web uygulamaları Azure uygulama hizmetinde](https://azure.microsoft.com/services/app-service/web/). Web uygulamaları Azure belgelerine için portal sayfası.
+- [Web uygulamaları, bulut Hizmetleri ve sanal makineleri: ne zaman hangi kullanılır?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) Bu bölümde gösterildiği gibi WAWS biridir yalnızca üç şekilde Azure web uygulamaları çalıştırabilirsiniz. Bu makalede, üç şekilde arasındaki farklar açıklanmaktadır ve hangisinin senaryonuz için uygun olduğunu seçin konusunda rehberlik sağlar. Web siteleri gibi bulut Hizmetleri, Azure, bir PaaS özelliğidir. Sanal makineleri bir Iaas özelliğidir. Iaas ve PaaS açıklaması için bkz: [veri seçenekleri](data-storage-options.md#paasiaas) bölüm.
 
 Videolar:
 
-- [Azure bulut OS nedir adım 0 - Scott Guthrie başlatılır?](https://azure.microsoft.com/en-us/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Web siteleri mimarisiyle - Stefan Schackow](https://azure.microsoft.com/en-us/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Azure bulut OS nedir adım 0 - Scott Guthrie başlatılır?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Web siteleri mimarisiyle - Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Azure Web siteleri iç Nir Mashkowski ile](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 >[!div class="step-by-step"]
-[Sonraki](automate-everything.md)
+[Next](automate-everything.md)

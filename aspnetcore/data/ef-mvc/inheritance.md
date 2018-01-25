@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 756f1bbba73bd760f780d18c01597642dd1f7216
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a4ae696bdd114ab9c36d1218f753fa3d515f2300
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Devralma - EF çekirdek ASP.NET Core MVC Öğreticisi (9, 10)
 
@@ -106,7 +106,7 @@ Bu kod, aşağıdaki veritabanı güncelleştirme görevleri mvc'deki:
 
 * Öğrenci satırları seferde olmayacaktır beri İşeAlmaTarihi null atanamaz hale getirir.
 
-* Öğrenciler için noktası yabancı anahtarlar güncelleştirmek için kullanılan geçici bir alan ekler. Öğrenciler kişi tablosuna kopyaladığınızda, yeni birincil anahtar değerlerinin elde edersiniz.
+* Öğrenciler için noktası yabancı anahtarlar güncelleştirmek için kullanılan geçici bir alan ekler. Kişi tablosuna Öğrenciler kopyaladığınızda, yeni birincil anahtar değerlerinin alır.
 
 * Kişi tabloya Öğrenci tablodan veri kopyalar. Bu, yeni birincil anahtar değerlerinin atanan Öğrenciler neden olur.
 

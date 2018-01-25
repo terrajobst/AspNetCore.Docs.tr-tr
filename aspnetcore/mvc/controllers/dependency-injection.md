@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 21cffcd285879fdca81cb7d92d0f079d4bf7756c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 946d695c572379c3ebc2eda1569f186f25ab9bfc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Denetleyicileri içine bağımlılık ekleme
 
@@ -87,7 +87,7 @@ Bazen denetleyicinizi içinde bir hizmet için birden fazla eylem gerekmez. Bu d
 
 ## <a name="accessing-settings-from-a-controller"></a>Bir denetleyicisinden ayarlarına erişme
 
-Uygulama veya yapılandırma içinden ayarlarını bir denetleyici erişim genel bir desen olur. Bu erişim açıklanan seçenekler düzeni kullanması gereken [yapılandırma](xref:fundamentals/configuration/index). Genellikle ayarlarını doğrudan bağımlılık ekleme kullanılarak, denetleyicisinden isteyemedi. Daha iyi bir yaklaşım isteği bir `IOptions<T>` örneği burada `T` ihtiyacınız yapılandırma sınıftır.
+Uygulama veya yapılandırma içinden ayarlarını bir denetleyici erişim genel bir desen olur. Bu erişim açıklanan seçenekler düzeni kullanması gereken [yapılandırma](xref:fundamentals/configuration/index). Genellikle doğrudan bağımlılık ekleme kullanılarak olan, denetleyici istek ayarları döndürmemelidir. Daha iyi bir yaklaşım isteği bir `IOptions<T>` örneği burada `T` ihtiyacınız yapılandırma sınıftır.
 
 Seçenekleri deseni ile çalışmak için bunun gibi seçenekleri temsil eden bir sınıf oluşturmanız gerekir:
 

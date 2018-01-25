@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: da03a9c3e22f5a2164534ef7896b5558beb8b6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bee98878b5191a096b851c65aaea19ad989f608
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="user-based-authorization-c"></a>Kullanıcı tabanlı bir yetkilendirme (C#)
 ====================
@@ -39,9 +39,9 @@ Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işle
 
 ' Da anlatıldığı gibi [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) ASP.NET kaynak isteği olay sayısı, yaşam döngüsü sırasında başlatır için ASP.NET çalışma zamanı bir isteği işlerken öğretici. *HTTP modülleri* kodu isteği yaşam döngüsü belirli bir olaya yanıt yürütüldüğünde yönetilen sınıflarıdır. ASP.NET birkaç önemli görevleri arka planda gerçekleştirmek HTTP Modülleri ile birlikte gelir.
 
-Bu tür bir HTTP modülü [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx). Önceki öğreticileri, sunucunun birincil işlevi anlatıldığı gibi `FormsAuthenticationModule` geçerli isteğin kimliğini belirlemektir. Bu, bir tanımlama bilgisinde bulunan veya URL içinde katıştırılmış forms kimlik doğrulaması bileti inceleyerek gerçekleştirilir. Bu kimliği gerçekleşir sırasında [ `AuthenticateRequest` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx).
+Bu tür bir HTTP modülü [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx). Önceki öğreticileri, sunucunun birincil işlevi anlatıldığı gibi `FormsAuthenticationModule` geçerli isteğin kimliğini belirlemektir. Bu, bir tanımlama bilgisinde bulunan veya URL içinde katıştırılmış forms kimlik doğrulaması bileti inceleyerek gerçekleştirilir. Bu kimliği gerçekleşir sırasında [ `AuthenticateRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx).
 
-Başka bir önemli HTTP modülü [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx), yanıt olarak gerçekleştirilen [ `AuthorizeRequest` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx) (sonra gerçekleşir `AuthenticateRequest` olay). `UrlAuthorizationModule` Yapılandırma biçimlendirmede inceler `Web.config` geçerli kimlik belirtilen sayfasını ziyaret etmek için yetkili olup olmadığını belirlemek için. Bu işlem olarak adlandırılır *URL yetkilendirmesi*.
+Başka bir önemli HTTP modülü [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx), yanıt olarak gerçekleştirilen [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx) (sonra gerçekleşir `AuthenticateRequest` olay). `UrlAuthorizationModule` Yapılandırma biçimlendirmede inceler `Web.config` geçerli kimlik belirtilen sayfasını ziyaret etmek için yetkili olup olmadığını belirlemek için. Bu işlem olarak adlandırılır *URL yetkilendirmesi*.
 
 Biz 1. adımda, URL yetkilendirme kuralları için söz dizimi ancak daha önce şimdi inceleyeceğiz tahminde bulunduğunu görmek `UrlAuthorizationModule` istek veya yetkili bağlı olarak yapar. Varsa `UrlAuthorizationModule` istek yetki sonra hiçbir şey yapmaz ve istek kendi yaşam döngüsü devam eder belirler. Ancak, istek ise *değil* yetkili ve sonra `UrlAuthorizationModule` yaşam döngüsü durdurur ve bildirir `Response` dönmek için nesne bir [HTTP 401 Yetkisiz](http://www.checkupdown.com/status/E401.html) durumu. Forms kimlik doğrulaması kullanırken bu HTTP 401 durum hiçbir zaman istemciye çünkü döndürülür, `FormsAuthenticationModule` bir HTTP durumu 401 değiştirir kendisine algılar bir [HTTP 302 yeniden yönlendirme](http://www.checkupdown.com/status/E302.html) oturum açma sayfası.
 
@@ -70,7 +70,7 @@ Bizim Web sitesinin yapılandırılan URL yetkilendirme kurallarını olduğunu 
 Şekil 2'de gösterilen iş akışı hızla bile çoğu bilgisayar deneyimli ziyaretçi befuddle. 2. adım döngüsünde kafa karıştırıcı Bunu önlemenin yolu ele alacağız.
 
 > [!NOTE]
-> ASP.NET, geçerli kullanıcının belirli bir web sayfasını erişebileceğini belirlemek için iki mekanizma kullanır: URL yetkilendirme ve dosya yetkilendirme. Dosya yetkilendirmesi tarafından gerçekleştirilir [ `FileAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.fileauthorizationmodule.aspx), istenen dosya ACL'leri danışmanlık tarafından yetkilisi belirler. ACL'ler Windows hesaplarına uygulanan izinleri olduğundan dosya yetkilendirme Windows kimlik doğrulaması ile en yaygın olarak kullanılır. Forms kimlik doğrulaması kullanırken, tüm işletim sistemi ve dosya sistemi düzeyinde istekleri sitesini ziyaret kullanıcıya bakılmaksızın aynı Windows hesabına göre çalıştırılır. Bu öğretici seri form kimlik doğrulamasını odaklanır olduğundan, biz dosya yetkilendirme ele değil.
+> ASP.NET, geçerli kullanıcının belirli bir web sayfasını erişebileceğini belirlemek için iki mekanizma kullanır: URL yetkilendirme ve dosya yetkilendirme. Dosya yetkilendirmesi tarafından gerçekleştirilir [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx), istenen dosya ACL'leri danışmanlık tarafından yetkilisi belirler. ACL'ler Windows hesaplarına uygulanan izinleri olduğundan dosya yetkilendirme Windows kimlik doğrulaması ile en yaygın olarak kullanılır. Forms kimlik doğrulaması kullanırken, tüm işletim sistemi ve dosya sistemi düzeyinde istekleri sitesini ziyaret kullanıcıya bakılmaksızın aynı Windows hesabına göre çalıştırılır. Bu öğretici seri form kimlik doğrulamasını odaklanır olduğundan, biz dosya yetkilendirme ele değil.
 
 
 ### <a name="the-scope-of-url-authorization"></a>URL yetkilendirme kapsamı
@@ -87,7 +87,7 @@ Buna koysalar IIS 7'den önceki sürümleri, URL yetkilendirme kuralları yalnı
 
 ## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>1. adım: URL yetkilendirme kuralları tanımlama`Web.config`
 
-`UrlAuthorizationModule` Uygulamanın yapılandırma dosyasındaki tanımlanan URL yetkilendirme kuralları göre belirli bir kimlik için istenen kaynak için erişim vermek veya reddetmek belirler. Yetkilendirme kuralları içinde yazıldığından [ `<authorization>` öğesi](https://msdn.microsoft.com/en-us/library/8d82143t.aspx) biçiminde `<allow>` ve `<deny>` alt öğeleri. Her `<allow>` ve `<deny>` alt öğesi belirtebilirsiniz:
+`UrlAuthorizationModule` Uygulamanın yapılandırma dosyasındaki tanımlanan URL yetkilendirme kuralları göre belirli bir kimlik için istenen kaynak için erişim vermek veya reddetmek belirler. Yetkilendirme kuralları içinde yazıldığından [ `<authorization>` öğesi](https://msdn.microsoft.com/library/8d82143t.aspx) biçiminde `<allow>` ve `<deny>` alt öğeleri. Her `<allow>` ve `<deny>` alt öğesi belirtebilirsiniz:
 
 - Belirli bir kullanıcı
 - Kullanıcıların virgülle ayrılmış bir listesi
@@ -230,10 +230,10 @@ Oluşturulan GridView'ın biçimlendirme ile biz belirli bir dizindeki dosyalar�
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample10.cs)]
 
-Yukarıdaki kod kullanan [ `DirectoryInfo` sınıfı](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.aspx) uygulamanın kök klasördeki dosyaların listesini elde edilir. [ `GetFiles()` Yöntemi](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.getfiles.aspx) tüm dosyaları dizinde bir dizi döndürür [ `FileInfo` nesneleri](https://msdn.microsoft.com/en-us/library/system.io.fileinfo.aspx), ardından GridView bağlı. `FileInfo` Nesneye sahip bir sınıflama özelliklerinin gibi `Name`, `Length`, ve `IsReadOnly`, diğerlerinin yanı sıra. Bildirim temelli biçimlendirmeden gördüğünüz GridView yalnızca görüntüler `Name` ve `Length` özellikleri.
+Yukarıdaki kod kullanan [ `DirectoryInfo` sınıfı](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx) uygulamanın kök klasördeki dosyaların listesini elde edilir. [ `GetFiles()` Yöntemi](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx) tüm dosyaları dizinde bir dizi döndürür [ `FileInfo` nesneleri](https://msdn.microsoft.com/library/system.io.fileinfo.aspx), ardından GridView bağlı. `FileInfo` Nesneye sahip bir sınıflama özelliklerinin gibi `Name`, `Length`, ve `IsReadOnly`, diğerlerinin yanı sıra. Bildirim temelli biçimlendirmeden gördüğünüz GridView yalnızca görüntüler `Name` ve `Length` özellikleri.
 
 > [!NOTE]
-> `DirectoryInfo` Ve `FileInfo` içinde bulunan sınıflar [ `System.IO` ad alanı](https://msdn.microsoft.com/en-us/library/system.io.aspx). Bu nedenle, bu sınıf adları ad alanı adları ile yazdığınızdan veya sınıf dosyasına içeri aktarılan ad alanınız için her iki gereksinim olur (aracılığıyla `using System.IO`).
+> `DirectoryInfo` Ve `FileInfo` içinde bulunan sınıflar [ `System.IO` ad alanı](https://msdn.microsoft.com/library/system.io.aspx). Bu nedenle, bu sınıf adları ad alanı adları ile yazdığınızdan veya sınıf dosyasına içeri aktarılan ad alanınız için her iki gereksinim olur (aracılığıyla `using System.IO`).
 
 
 Bu sayfa bir tarayıcı aracılığıyla ziyaret etmek için bir dakikanızı ayırın. Bu uygulamanın kök dizininde bulunan dosyaların listesini görüntüler. Herhangi bir görünüm veya silme LinkButtons tıklatarak geri gönderimin neden olur, ancak biz için henüz olduğunuz için hiçbir eylem meydana gelir gerekli olay işleyicileri oluşturma.
@@ -248,11 +248,11 @@ Seçilen dosya içeriğini görüntülemek için bir yol ihtiyacımız var. Visu
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample11.aspx)]
 
-Ardından, olay işleyicisi GridView için 's oluşturmak [ `SelectedIndexChanged` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) ve aşağıdaki kodu ekleyin:
+Ardından, olay işleyicisi GridView için 's oluşturmak [ `SelectedIndexChanged` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample12.cs)]
 
-Bu kodu GridView's kullanır `SelectedValue` seçilen dosyanın tam dosya adını belirlemek için özellik. Dahili olarak, `DataKeys` koleksiyonu almak için başvurulmaktadır `SelectedValue`, GridView's ayarladığınız zorunludur `DataKeyNames` özelliği daha önce bu adımda anlatıldığı gibi adı. [ `File` Sınıfı](https://msdn.microsoft.com/en-us/library/system.io.file.aspx) bir dizeye sonra atanan seçilen dosyanın içeriğini okumak için kullanılan `FileContents` TextBox'ın `Text` özelliği, dolayısıyla sayfada seçilen dosyanın içeriğini görüntüleme.
+Bu kodu GridView's kullanır `SelectedValue` seçilen dosyanın tam dosya adını belirlemek için özellik. Dahili olarak, `DataKeys` koleksiyonu almak için başvurulmaktadır `SelectedValue`, GridView's ayarladığınız zorunludur `DataKeyNames` özelliği daha önce bu adımda anlatıldığı gibi adı. [ `File` Sınıfı](https://msdn.microsoft.com/library/system.io.file.aspx) bir dizeye sonra atanan seçilen dosyanın içeriğini okumak için kullanılan `FileContents` TextBox'ın `Text` özelliği, dolayısıyla sayfada seçilen dosyanın içeriğini görüntüleme.
 
 
 [![Seçili dosyanın içeriğini metin kutusunda görüntülenir](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
@@ -264,7 +264,7 @@ Bu kodu GridView's kullanır `SelectedValue` seçilen dosyanın tam dosya adın�
 > HTML biçimlendirmesini içeren bir dosyanın içeriğini görüntüleyin ve görüntülemek veya dosya silme denemesi, alacak bir `HttpRequestValidationException` hata. Bu durum, web sunucusuna gönderilen geri göndermede TextBox'ın içeriği kaynaklanır. Varsayılan olarak, ASP.NET başlatır bir `HttpRequestValidationException` HTML biçimlendirmesi gibi potansiyel olarak tehlikeli olabilecek geri gönderme içerik algılandığında hata. Bu hata oluşmasını devre dışı bırakmak için sayfa için istek doğrulamayı ekleyerek devre dışı `ValidateRequest="false"` için `@Page` yönergesi. Hangi önlemleri iyi ne zaman almanız gereken olarak istek doğrulama yararları hakkında daha fazla bilgi için devre dışı bırakma okuma [istek doğrulama - komut dosyası saldırılarını önleme](https://asp.net/learn/whitepapers/request-validation/).
 
 
-Son olarak, aşağıdaki kod ile olay işleyicisi GridView için 's eklemek [ `RowDeleting` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
+Son olarak, aşağıdaki kod ile olay işleyicisi GridView için 's eklemek [ `RowDeleting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample13.cs)]
 
@@ -358,7 +358,7 @@ Biz anlatıldığı gibi [ *form kimlik doğrulaması bir genel bakış* ](../in
 
 Adım 3'te anonim kullanıcılar bir dosyanın içeriğini görüntülemesine izin verilmeyen ve tüm kullanıcılar, ancak Tito dosyaları silme yasaktır. Bu, bildirim temelli ve programlama teknikleri aracılığıyla yetkisiz ziyaretçiler için ilişkili kullanıcı arabirimi öğelerini gizleme tarafından gerçekleştirilmiştir. Basit Bizim örneğimizde, kullanıcı arabirimi öğeleri doğru gizleme açık, ancak ne oluştu daha karmaşık siteleri olabilir; burada aynı işlevleri gerçekleştirmek için birçok farklı yolu? Tüm geçerli kullanıcı arabirimi öğeleri devre dışı bırakmak veya gizlemek unutursanız yetkisiz kullanıcılara bu işlevselliği sınırlama içinde ne olur?
 
-Bu sınıf veya yöntemin ile işaretleme işlevsellik belirli bir parçasını yetkisiz kullanıcılar tarafından erişilen emin olmak için kolay bir yoludur [ `PrincipalPermission` özniteliği](https://msdn.microsoft.com/en-us/library/system.security.permissions.principalpermissionattribute.aspx). .NET çalışma zamanı sınıf kullanır veya yöntemlerinden birini yürütür, geçerli güvenlik bağlamı sınıf kullanın veya yöntemi yürütme izni olduğundan emin olmak için denetler. `PrincipalPermission` Özniteliği üzerinden biz tanımlayabilirsiniz bu kurallar bir mekanizma sağlar.
+Bu sınıf veya yöntemin ile işaretleme işlevsellik belirli bir parçasını yetkisiz kullanıcılar tarafından erişilen emin olmak için kolay bir yoludur [ `PrincipalPermission` özniteliği](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx). .NET çalışma zamanı sınıf kullanır veya yöntemlerinden birini yürütür, geçerli güvenlik bağlamı sınıf kullanın veya yöntemi yürütme izni olduğundan emin olmak için denetler. `PrincipalPermission` Özniteliği üzerinden biz tanımlayabilirsiniz bu kurallar bir mekanizma sağlar.
 
 Kullanarak gösterelim `PrincipalPermission` GridView'ın öznitelikte `SelectedIndexChanged` ve `RowDeleting` anonim kullanıcılar ve Tito, kullanıcılar tarafından yürütme sırasıyla engellemek için olay işleyicileri. Yapmamız gereken tek şey her işlev tanımı üzerinde uygun özniteliği ekleyin:
 
@@ -397,13 +397,13 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [İş ve veri katmanlarını kullanmak için yetkilendirme kuralları ekleme`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
+- [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [IIS6 ve IIS7 güvenlik arasındaki değişiklikleri](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [Belirli dosya ve alt dizinleri yapılandırma](https://msdn.microsoft.com/en-us/library/6hbkh9s7.aspx)
+- [Belirli dosya ve alt dizinleri yapılandırma](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Kullanıcıyı temel alarak bir sınırlama veri değişikliği işlevi](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
 - [LoginView denetimi QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [IIS7 URL yetkilendirmesi anlama](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`Teknik belgeler](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule`Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Yazar hakkında

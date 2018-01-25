@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003a22d4b0d9400f3e9effe0892d2d7e03704cde
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları giriş 
 
@@ -22,7 +22,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Etiket Yardımcıları nelerdir?
 
-Etiket Yardımcıları sunucu tarafı kodu oluşturma ve Razor dosyalarında HTML öğelerin işlenmesi katılmayı etkinleştirin. Örneğin, yerleşik `ImageTagHelper` görüntü adı için bir sürüm numarası ekleyebilirsiniz. Görüntünün her değiştiğinde, istemciler (eski önbelleğe alınmış bir görüntü) yerine geçerli görüntü alma garanti şekilde sunucu görüntüsü için yeni bir benzersiz sürümünü oluşturur. Formları, bağlantılar, yükleme varlıklar ve ortak GitHub depoları ve NuGet olarak daha kullanılabilir ve daha fazla - paketleri oluşturma gibi genel görevleri - birçok yerleşik etiket Yardımcılarında vardır. Etiket Yardımcıları C# dilinde yazılan ve öğe adı, öznitelik adı veya üst etiket göre HTML öğeleri hedefleyin. Örneğin, yerleşik `LabelTagHelper` HTML hedefleyebilirsiniz `<label>` öğesi zaman `LabelTagHelper` öznitelikler uygulanır. Hakkında bilginiz varsa [HTML Yardımcıları](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), etiket Yardımcıları HTML ve C# arasında açık geçişler Razor görünümlerinde azaltın. Çoğu durumda, HTML Yardımcıları alternatif bir yaklaşım için belirli bir etiket Yardımcısı sağlar, ancak etiket Yardımcıları HTML Yardımcıları değiştirmeyin ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir. [Etiket Yardımcıları için HTML Yardımcıları ile karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmıştır.
+Etiket Yardımcıları sunucu tarafı kodu oluşturma ve Razor dosyalarında HTML öğelerin işlenmesi katılmayı etkinleştirin. Örneğin, yerleşik `ImageTagHelper` görüntü adı için bir sürüm numarası ekleyebilirsiniz. Görüntünün her değiştiğinde, istemciler (eski önbelleğe alınmış bir görüntü) yerine geçerli görüntü alma garanti şekilde sunucu görüntüsü için yeni bir benzersiz sürümünü oluşturur. Formları, bağlantılar, yükleme varlıklar ve ortak GitHub depoları ve NuGet olarak daha kullanılabilir ve daha fazla - paketleri oluşturma gibi genel görevleri - birçok yerleşik etiket Yardımcılarında vardır. Etiket Yardımcıları C# dilinde yazılan ve öğe adı, öznitelik adı veya üst etiket göre HTML öğeleri hedefleyin. Örneğin, yerleşik `LabelTagHelper` HTML hedefleyebilirsiniz `<label>` öğesi zaman `LabelTagHelper` öznitelikler uygulanır. Hakkında bilginiz varsa [HTML Yardımcıları](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), etiket Yardımcıları HTML ve C# arasında açık geçişler Razor görünümlerinde azaltın. Çoğu durumda, HTML Yardımcıları alternatif bir yaklaşım için belirli bir etiket Yardımcısı sağlar, ancak etiket Yardımcıları HTML Yardımcıları Değiştir yoktur ve her HTML Yardımcısı için bir etiket Yardımcısı değil bilmek önemlidir. [Etiket Yardımcıları için HTML Yardımcıları ile karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmıştır.
 
 ## <a name="what-tag-helpers-provide"></a>Neler etiket Yardımcıları sağlar
 
@@ -112,7 +112,7 @@ Etiket Yardımcısı çevirin karakter açma ve kapatma etiketi uygulamanız ger
 ```cshtml
 @tagHelperPrefix th:
 ```
-Aşağıdaki kod görüntüde etiket Yardımcısı önek ayarlamak `th:`, bu nedenle yalnızca önek kullanarak öğeleri `th:` etiket Yardımcıları (etiket Yardımcısı etkin öğelere sahip farklı bir yazı tipi) destekler. `<label>` Ve `<input>` öğeleri etiket Yardımcısı önekine sahip ve etiket Yardımcısı etkinleştirilmiş sırasında `<span>` öğesi yok.
+Aşağıdaki kod görüntüde etiket Yardımcısı önek ayarlamak `th:`, bu nedenle yalnızca önek kullanarak öğeleri `th:` etiket Yardımcıları (etiket Yardımcısı etkin öğelere sahip farklı bir yazı tipi) destekler. `<label>` Ve `<input>` öğeleri etiket Yardımcısı önekine sahip ve etiket Yardımcısı etkinleştirilmiş sırasında `<span>` öğesi değil.
 
 ![görüntü](intro/_static/thp.png)
 

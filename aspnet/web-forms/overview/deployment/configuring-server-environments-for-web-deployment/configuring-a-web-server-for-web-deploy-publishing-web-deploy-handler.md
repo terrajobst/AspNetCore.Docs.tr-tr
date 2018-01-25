@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 2127a98a0abf2c94e32b907d945c9b4d36fb2360
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (Web dağıtımı işleyici)
 ====================
@@ -67,7 +67,7 @@ Bu konuda her bu yordamları gerçekleştirmek nasıl yapacağınızı gösterir
 - Sunucunun bir statik IP adresi vardır.
 
 > [!NOTE]
-> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükler
@@ -114,7 +114,7 @@ Bu durumda, bunları yüklemeniz gerekir:
 13. Lisans koşullarını gözden geçirin ve koşullarını kabul ederseniz tıklayın **kabul ediyorum**.
 14. Yükleme tamamlandığında, tıklatın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
 
-IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, sorunsuz IIS (HTML dosyaları gibi) statik içerik sunmanızı bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** ASP.NET içeriğe göz atmak çalıştığınızda. ASP.NET 4.0 kayıtlı olduğundan emin olmak için bir sonraki yordamı kullanın.
+IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, sorunsuz IIS (HTML dosyaları gibi) statik içerik sunmanızı bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** ASP.NET içeriğe göz atmak çalıştığınızda. ASP.NET 4.0 kayıtlı olduğundan emin olmak için bir sonraki yordamı kullanın.
 
 **IIS ile ASP.NET 4.0 kaydetmek için**
 
@@ -210,7 +210,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma istersiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz: [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma istersiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz: [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
 10. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Ekle**.
 
@@ -254,8 +254,8 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda old
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklatın **Adları Denetle**ve ardından **Tamam**.
-6. İçinde **izinlerini***[klasör adı]* iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **liste klasörü içeriği**, ve **okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
-7. Tıklatın **Tamam** kapatmak için *[klasör adı]***özellikleri** iletişim kutusu.
+6. İçinde **izinlerini *** [klasör adı]* iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **klasör içeriğini listele**, ve **Okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
+7. Tıklatın **Tamam** kapatmak için *[klasör adı] *** özellikleri** iletişim kutusu.
 
 Son bir görev olarak kimlik içerik dağıtmak için kullanacağınız yönetici olmayan kullanıcı uygun izinleri vermeniz gerekir. Bu kullanıcı içerik uzaktan Web sitenize dağıtmak için izinler gerektirir.
 
@@ -288,7 +288,7 @@ Varsayılan olarak, IIS Web Yönetim hizmeti 8172 numaralı TCP bağlantı nokta
 | Giden | 8172 | tüm | TCP |
   
 
-Windows Güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz: [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerine bakın.
+Windows Güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz: [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerine bakın.
 
 ## <a name="conclusion"></a>Sonuç
 

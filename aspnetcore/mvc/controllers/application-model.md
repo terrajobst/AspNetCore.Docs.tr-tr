@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>Uygulama modeli ile çalışma
 
@@ -35,7 +35,7 @@ ASP.NET Core MVC uygulama modeli aşağıdaki yapıya sahiptir:
 Ortak bir modelin her düzeyi erişimi `Properties` koleksiyonu ve alt düzey erişmek ve hiyerarşideki üst düzeyler tarafından ayarlanan özellik değerlerini üzerine yazın. Özellikler için kalıcı `ActionDescriptor.Properties` Eylemler ne zaman oluşturulur. Bir istek işlenirken, ardından herhangi bir özellik eklenemez veya değiştirilemez bir kuralı aracılığıyla erişilebilir `ActionContext.ActionDescriptor.Properties`. Özellikleri kullanarak, filtreleri, model bağlayıcıları, vb. bir eylem başına temelinde yapılandırmak için harika bir yoludur.
 
 > [!NOTE]
-> `ActionDescriptor.Properties` Koleksiyonu değil (yazar için) güvenli iş parçacığı uygulama başlatma tamamlandıktan sonra. Kuralları, güvenli bir şekilde veri bu koleksiyona eklemek için en iyi yoludur.
+> `ActionDescriptor.Properties` Toplama, uygulama başlatma tamamlandıktan sonra iş parçacığı (yazar için) güvenli değil. Kuralları, güvenli bir şekilde veri bu koleksiyona eklemek için en iyi yoludur.
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
@@ -53,7 +53,7 @@ Sonra (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` denir tanımlanmamış ve bu nedenle bağlı kullanılmamalıdır.
+> Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` denir tanımlanmamış ve sonra bu nedenle dayanıyordu gerekir.
 
 > [!NOTE]
 > `IApplicationModelProvider`framework yazarların genişletmek için Gelişmiş bir kavramdır. Genel olarak, uygulama kuralları kullanmanız gerekir ve çerçeveleri sağlayıcıları kullanmanız gerekir. Anahtar fark sağlayıcıları her zaman önce kuralları çalıştırılan.

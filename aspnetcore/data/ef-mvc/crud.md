@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Oluşturma, okuma, güncelleştirme ve silme - EF çekirdek ASP.NET Core MVC Öğreticisi (2 / 10)
 
@@ -46,7 +46,7 @@ Bu öğreticide, aşağıdaki web sayfalarının çalışması:
 
 `Include` Ve `ThenInclude` yöntemleri neden yüklemek bağlam `Student.Enrollments` gezinti özelliği ve her kayıt içinde `Enrollment.Course` gezinti özelliği.  Bu yöntemleri hakkında daha fazla bilgi edineceksiniz [ilgili verileri okuma](read-related-data.md) Öğreticisi.
 
-`AsNoTracking` Yöntemi burada döndürülen varlıklar güncelleştirilmeyecek geçerli bağlamın yaşam süresi senaryolarda performansı artırır. Daha fazla hakkında bilgi edineceksiniz `AsNoTracking` Bu öğreticinin sonunda.
+`AsNoTracking` Yöntemi burada döndürülen varlıklar olmaz güncelleştirilmesi geçerli bağlamın yaşam süresi senaryolarda performansı artırır. Daha fazla hakkında bilgi edineceksiniz `AsNoTracking` Bu öğreticinin sonunda.
 
 ### <a name="route-data"></a>Rota verileri
 
@@ -118,7 +118,7 @@ Uygulama, belirleyin **Öğrenciler** sekmesine ve tıklayın **ayrıntıları**
 
 Bu kod, ASP.NET MVC model bağlayıcı Öğrenciler varlığa tarafından oluşturulan Öğrenci varlık ayarlayın ve ardından değişiklikleri veritabanına kaydeder ekler. (Bir form tarafından sunulan verilerle çalışmayı kolaylaştırır ASP.NET MVC işlevlerini model bağlayıcı başvurduğu; bir model bağlayıcı gönderilen form değerleri CLR türlerine dönüştürür ve eylem yönteminin parametrelerini geçirir. Bu durumda, model bağlayıcı Öğrenci varlık, Form koleksiyonu özellik değerleri kullanarak başlatır.)
 
-Kaldırılan `ID` gelen `Bind` kimliği satır zaman eklenen SQL Server otomatik olarak ayarlayacak birincil anahtar değeri olduğundan özniteliği. Kullanıcı girişi kimliği değeri ayarlı değil.
+Kaldırılan `ID` gelen `Bind` kimliği satır zaman eklenen SQL Server otomatik olarak ayarlayacak birincil anahtar değeri olduğundan özniteliği. Kullanıcı girişi kimliği değeri ayarlamaz.
 
 Dışında `Bind` , try-catch bloğu bir özniteliktir kurulmuş kodu yapılan tek değişiklik. Türetilen bir özel durum, `DbUpdateException` olan değişiklikler kaydedilirken yakalandı, genel bir hata iletisi görüntülenir. `DbUpdateException`Kullanıcı yeniden denemek için tavsiye edilir şekilde özel durumlar bazen bir programlama hatası yerine uygulama için dış bir şey tarafından hatalardır. Bu örnekte uygulanmadı karşın, bir üretim kalitesi uygulama özel durum oturum açabilirsiniz. Daha fazla bilgi için bkz: **hakkında bilgi için günlük** bölümüne [izleme ve Telemetri (yapı gerçek bulut uygulamaları Azure ile)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
@@ -176,7 +176,7 @@ HttpPost düzenleme eylem yöntemini aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
-Bu değişiklikler overposting önlemek için bir en iyi güvenlik uygulaması uygulayın. Oluşturulan iskele kurucu bir `Bind` özniteliği ve varlık ile kümesi için model bağlayıcı tarafından oluşturulan varlık eklenen bir `Modified` bayrağı. Kod birçok senaryoları için önerilmez çünkü olduğunu `Bind` özniteliği temizler listelenmez alanları önceden mevcut verileri dışarı `Include` parametresi.
+Bu değişiklikler overposting önlemek için bir en iyi güvenlik uygulaması uygulayın. Oluşturulan iskele kurucu bir `Bind` özniteliği ve varlık ile kümesi için model bağlayıcı tarafından oluşturulan varlık eklenen bir `Modified` bayrağı. Kod için birçok senaryoları için önerilmez `Bind` özniteliği temizler listelenmez alanları önceden mevcut verileri dışarı `Include` parametresi.
 
 Varolan bir varlık ve çağrıları yeni kod okur `TryUpdateModel` alınan varlık alanlarını güncelleştirmek için [gönderilen form verilerini uygulamasında kullanıcı girdisi göre](xref:mvc/models/model-binding#how-model-binding-works). Entity Framework'ün otomatik değişiklik kümelerini izleme `Modified` form girişi tarafından değiştirilen alanları bayrağı. Zaman `SaveChanges` yöntemi çağrıldığında, Entity Framework veritabanı satırı güncelleştirmek için SQL deyimleri oluşturur. Eşzamanlılık çakışması göz ardı edilir ve yalnızca kullanıcı tarafından güncelleştirildi tablo sütunları veritabanında güncelleştirilir. (Bir sonraki öğretici eşzamanlılık çakışmaları nasıl ele alınacağını gösterir.)
 
@@ -200,7 +200,7 @@ Veritabanı bağlamı varlıkları bellekte kendi veritabanında karşılık gel
 
 Bir varlık şu durumlardan birinde olabilir:
 
-* `Added`. Varlık veritabanında henüz yok. `SaveChanges` Yöntemi INSERT deyimi verir.
+* `Added`. Varlık henüz veritabanında yok. `SaveChanges` Yöntemi INSERT deyimi verir.
 
 * `Unchanged`. Hiçbir şey bu varlık tarafından ile yapılması gerektiğini `SaveChanges` yöntemi. Veritabanından bir varlık okurken varlık bu durumu ile başlar.
 
@@ -216,7 +216,7 @@ Bir web uygulamasında `DbContext` başlangıçta okuyan bir varlık ve düzenle
 
 Ancak yapmak istemiyorsanız, ek okuma işlemi, model bağlayıcı tarafından oluşturulan varlığı nesne kullanmak zorunda.  Bunu yapmanın en kolay yolu varlık durumu değiştirme için daha önce gösterilen alternatif HttpPost düzenleme kodda yapıldığı şekilde ayarlamaktır. Çağırdığınızda sonra `SaveChanges`, bağlam değiştirdiğiniz hangi özelliklerin kaybedeceğinizi öğrenmenin bir yolu bulunduğundan Entity Framework veritabanı satırın tüm sütunları güncelleştirir.
 
-Okuma ilk yaklaşım önlemek istiyorsanız, ancak aynı zamanda kullanıcının gerçekten değiştirilen alanları güncelleştirmek için SQL UPDATE deyimini istediğiniz, daha karmaşık bir kodudur. Herhangi bir yolla özgün değerler kaydetmek zorunda (gibi gizli alanları kullanarak) bunların ne zaman kullanılabilir olacak şekilde, HttpPost `Edit` yöntemi çağrılır. Çağrı orijinal değerleri kullanarak bir öğrenci varlık oluşturup `Attach` varlık özgün sürümünün yöntemiyle varlığın değerleri için yeni değerleri güncelleştirmek ve ardından çağırın `SaveChanges`.
+Okuma ilk yaklaşım önlemek istiyorsanız, ancak aynı zamanda kullanıcının gerçekten değiştirilen alanları güncelleştirmek için SQL UPDATE deyimini istediğiniz, daha karmaşık bir kodudur. Herhangi bir yolla özgün değerler kaydetmek zorunda (gibi gizli alanları kullanarak) bunların ne zaman kullanılabilir olduğunu HttpPost `Edit` yöntemi çağrılır. Çağrı orijinal değerleri kullanarak bir öğrenci varlık oluşturup `Attach` varlık özgün sürümünün yöntemiyle varlığın değerleri için yeni değerleri güncelleştirmek ve ardından çağırın `SaveChanges`.
 
 ### <a name="test-the-edit-page"></a>Sınama Düzenle sayfası
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/action-results
 msc.type: authoredcontent
-ms.openlocfilehash: 68b82661b97434795e1c306b168033dfcde529bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d0db5c6d45020861d7295ab1db989caee525fff9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="action-results-in-web-api-2"></a>Eylem sonuçlarını Web API 2
 ====================
@@ -27,8 +27,8 @@ Bu konu, nasıl ASP.NET Web API dönüş değeri bir denetleyici eylemi bir HTTP
 Bir Web API denetleyici eylemi aşağıdakilerden herhangi birini döndürebilirsiniz:
 
 1. void
-2. **Bilgisayarın HttpResponseMessage**
-3. **Ihttpactionresult**
+2. **HttpResponseMessage**
+3. **IHttpActionResult**
 4. Başka bir türü
 
 Bunlar hangisinin bağlı olarak, Web API HTTP yanıtı oluşturmak için farklı bir mekanizma kullanan döndürülür.
@@ -36,8 +36,8 @@ Bunlar hangisinin bağlı olarak, Web API HTTP yanıtı oluşturmak için farkl�
 | Dönüş türü | Web API yanıt nasıl oluşturur |
 | --- | --- |
 | void | Dönüş boş 204 (No içerik) |
-| **Bilgisayarın HttpResponseMessage** | Bir HTTP yanıt iletisini doğrudan dönüştürün. |
-| **Ihttpactionresult** | Çağrı **ExecuteAsync** oluşturmak için bir **httpresponsemessage öğesini**, bir HTTP yanıt iletisini dönüştürün. |
+| **HttpResponseMessage** | Bir HTTP yanıt iletisini doğrudan dönüştürün. |
+| **IHttpActionResult** | Çağrı **ExecuteAsync** oluşturmak için bir **httpresponsemessage öğesini**, bir HTTP yanıt iletisini dönüştürün. |
 | Diğer türü | Serileştirilmiş dönüş değeri yanıt gövdesi yazma; 200 (Tamam) döndürür. |
 
 Bu konunun geri kalanında her seçeneği daha ayrıntılı açıklanmıştır.
@@ -54,9 +54,9 @@ HTTP yanıtı:
 
 [!code-console[Main](action-results/samples/sample2.cmd)]
 
-## <a name="httpresponsemessage"></a>Bilgisayarın HttpResponseMessage
+## <a name="httpresponsemessage"></a>HttpResponseMessage
 
-Eylem döndürürse bir [httpresponsemessage öğesini](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.aspx), Web API dönüştürür dönüş değeri doğrudan bir HTTP yanıt iletisine, özelliklerini kullanarak **httpresponsemessage öğesini** doldurmak için nesne yanıt.
+Eylem döndürürse bir [httpresponsemessage öğesini](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.aspx), Web API dönüştürür dönüş değeri doğrudan bir HTTP yanıt iletisine, özelliklerini kullanarak **httpresponsemessage öğesini** doldurmak için nesne yanıt.
 
 Bu seçenek büyük bir yanıt iletisi üzerinde denetim sağlar. Örneğin, aşağıdaki denetleyici eylemi Cache-Control üstbilgisinin ayarlar.
 
@@ -72,7 +72,7 @@ Bir etki alanı modeline geçirirseniz **CreateResponse** yöntemi, Web API'sini
 
 Web API biçimlendirici seçmek için istek kabul etme üstbilgisi kullanır. Daha fazla bilgi için bkz: [içerik anlaşması](../formats-and-model-binding/content-negotiation.md).
 
-## <a name="ihttpactionresult"></a>Ihttpactionresult
+## <a name="ihttpactionresult"></a>IHttpActionResult
 
 **Ihttpactionresult** arabirimi, Web API 2'de sunulmuştur. Esas olarak, tanımlayan bir **httpresponsemessage öğesini** üreteci. Kullanmanın bazı avantajları şunlardır **Ihttpactionresult** arabirimi:
 
@@ -98,9 +98,9 @@ Yanıtı:
 
 [!code-console[Main](action-results/samples/sample9.cmd)]
 
-Daha sık kullanacağınız **Ihttpactionresult** tanımlanan uygulamaları  **[System.Web.Http.Results](https://msdn.microsoft.com/en-us/library/system.web.http.results.aspx)**  ad alanı. **ApiController** sınıfı, bu yerleşik eylem sonuçları döndüren Yardımcısı yöntemleri tanımlar.
+Daha sık kullanacağınız **Ihttpactionresult** tanımlanan uygulamaları  **[System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx)**  ad alanı. **ApiController** sınıfı, bu yerleşik eylem sonuçları döndüren Yardımcısı yöntemleri tanımlar.
 
-Aşağıdaki örnekte, denetleyici istek var olan bir ürün kimliği eşleşmiyorsa çağırır [ApiController.NotFound](https://msdn.microsoft.com/en-us/library/system.web.http.apicontroller.notfound.aspx) 404 (bulunamadı) yanıt oluşturmak için. Aksi takdirde, denetleyici çağırır [ApiController.OK](https://msdn.microsoft.com/en-us/library/dn314591.aspx), hangi 200 (Tamam) bir yanıt oluşturan ürün içerir.
+Aşağıdaki örnekte, denetleyici istek var olan bir ürün kimliği eşleşmiyorsa çağırır [ApiController.NotFound](https://msdn.microsoft.com/library/system.web.http.apicontroller.notfound.aspx) 404 (bulunamadı) yanıt oluşturmak için. Aksi takdirde, denetleyici çağırır [ApiController.OK](https://msdn.microsoft.com/library/dn314591.aspx), hangi 200 (Tamam) bir yanıt oluşturan ürün içerir.
 
 [!code-csharp[Main](action-results/samples/sample10.cs)]
 

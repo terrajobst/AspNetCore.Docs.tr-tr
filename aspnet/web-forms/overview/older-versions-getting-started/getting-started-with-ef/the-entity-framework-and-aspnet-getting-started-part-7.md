@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 7
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -135,7 +135,7 @@ Aşağıdaki kod ile değiştirin:
 
 Sayfa şimdi kullanıyorsa `GetCourses` saklı yordamı tüm kursları listesi alınamadı. Uygulama önceden olduğu gibi çalışır durumda olduğunu doğrulamak için sayfayı çalıştırın.
 
-(Bir saklı yordam tarafından alınan varlık Gezinti özellikleri değil otomatik olarak doldurulur bağlı olarak bu varlıklarla ilgili verilerle `ObjectContext` varsayılan ayarlar. Daha fazla bilgi için bkz: [yüklenirken ilişkili nesneleri](https://msdn.microsoft.com/en-us/library/bb896272.aspx) MSDN Kitaplığı'nda.)
+(Bir saklı yordam tarafından alınan varlık Gezinti özellikleri değil otomatik olarak doldurulur bağlı olarak bu varlıklarla ilgili verilerle `ObjectContext` varsayılan ayarlar. Daha fazla bilgi için bkz: [yüklenirken ilişkili nesneleri](https://msdn.microsoft.com/library/bb896272.aspx) MSDN Kitaplığı'nda.)
 
 Sonraki öğreticide, program ve test veri biçimlendirmeyi ve doğrulama kurallarını kolaylaştırmak için dinamik veri işlevini kullanmayı öğreneceksiniz. Veri biçimi dizeleri gibi her web sayfası kuralları ve bir alan olup olmadığına gereklidir belirtme, yerine her sayfada otomatik olarak uygulanan ve veri modelinin meta verilerde bu tür bir kurallar belirtebilirsiniz.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 4dd10430778dc51fef1199315ee02eb2cd4970ba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama
 ====================
@@ -36,7 +36,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -89,7 +89,7 @@ Aşağıdaki alıştırmada bu uygulamalı laboratuarı olun:
 3. [Düzenleme görünümü oluşturma](#Exercise3)
 4. [Oluştur görünümünün ekleme](#Exercise4)
 5. [İşleme silme](#Exercise5)
-6. [Doğrulama ekleme](#Exercise6)
+6. [Doğrulama Ekleme](#Exercise6)
 7. [İstemci tarafında örtük jQuery kullanma](#Exercise7)
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Aşağıdaki şekilde, bir küçük tarayıcı boyutu kullandığınızda biçim
 Bu görevde, yeni bir yöntem ekleyecek **Truncate** için **HTML** ASP.NET MVC görünümler içinde sunulan nesne. Bunu yapmak için gerçekleştireceksiniz bir **genişletme yöntemi** yerleşik için **System.Web.Mvc.HtmlHelper** ASP.NET MVC tarafından sağlanan sınıfı.
 
 > [!NOTE]
-> Hakkında daha fazla bilgi edinmek için **genişletme yöntemleri**, lütfen bu msdn makalesine bakın. [https://msdn.microsoft.com/en-us/library/bb383977.aspx](https://msdn.microsoft.com/en-us/library/bb383977.aspx).
+> Hakkında daha fazla bilgi edinmek için **genişletme yöntemleri**, lütfen bu msdn makalesine bakın. [https://msdn.microsoft.com/library/bb383977.aspx](https://msdn.microsoft.com/library/bb383977.aspx).
 
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-AddingAnHTMLHelper/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
@@ -745,7 +745,7 @@ Bu görevde, sınayacak **StoreManager** şablonu gerçekleştiren kullanıcı y
     > Her istemci doğrulama kuralı için örtük jQuery verilerle bir öznitelik ekler-val -*rulename*=&quot;*ileti*&quot;. Etiketlerin listesini bu Unobtrusive aşağıdadır jQuery istemci doğrulama gerçekleştirmek için html giriş alanında ekler:
     > 
     > - Veri val
-    > - Veri val numarası
+    > - Data-val-number
     > - Veri val aralığı
     > - Veri val aralığı min / val aralığı maksimum veri
     > - Veri val gerekiyor

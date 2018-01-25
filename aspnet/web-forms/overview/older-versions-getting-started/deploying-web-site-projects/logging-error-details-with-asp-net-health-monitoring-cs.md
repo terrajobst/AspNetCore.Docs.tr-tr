@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06f8b57c8973fff5c07e82100cd43f6757d454f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Hata ayrıntılarını günlüğü ASP.NET Durum İzleme (C#)
 ====================
@@ -43,13 +43,13 @@ Durumunu sistem izleme günlükleri, kullanılan, günlük kaynakları birlikte 
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Durumunu sistem yapılandırmasının izleme keşfetme
 
-Sistemin davranış izlemeyi sistem bulunan yapılandırma bilgileri tarafından tanımlanan [ `<healthMonitoring>` öğesi](https://msdn.microsoft.com/en-us/library/2fwh2ss9.aspx) içinde `Web.config`. Bu yapılandırma bölümü yanı sıra, aşağıdaki üç önemli bilgi parçalarını tanımlar:
+Sistemin davranış izlemeyi sistem bulunan yapılandırma bilgileri tarafından tanımlanan [ `<healthMonitoring>` öğesi](https://msdn.microsoft.com/library/2fwh2ss9.aspx) içinde `Web.config`. Bu yapılandırma bölümü yanı sıra, aşağıdaki üç önemli bilgi parçalarını tanımlar:
 
 1. Olayları izleme sistem durumu, gerçekleşti, oturum açmış olmanız,
 2. Günlük kaynakları ve
 3. Her sistem durumu (1)'de tanımlanan olay izleme günlüğü kaynakları nasıl eşlenir (2) tanımlanır.
 
-Bu bilgiler üç alt yapılandırma öğeleri ile belirtilmiştir: [ `<eventMappings>` ](https://msdn.microsoft.com/en-us/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/en-us/library/zaa41kz1.aspx), ve [ `<rules>` ](https://msdn.microsoft.com/en-us/library/fe5wyxa0.aspx)sırasıyla.
+Bu bilgiler üç alt yapılandırma öğeleri ile belirtilmiştir: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), ve [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx)sırasıyla.
 
 Varsayılan durum sistem yapılandırma bilgileri izleme bulunabilir `Web.config` dosyasını `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` klasör. Bu varsayılan yapılandırma bilgilerini okumanızdır kaldırılan bazı biçimlendirme ile aşağıda verilmiştir:
 
@@ -114,7 +114,7 @@ Durumunu sistem izleme "e-posta iletisine bir olayı günlüğe kaydeder" günl�
 2. E-posta günlüğü kaynak sağlayıcısı kaydetme `<providers>` öğesi, ve
 3. Bir giriş eklemek `<rules>` (2) adımda eklenen günlük kaynak sağlayıcısı "Tüm hataları" olay eşlendiği öğe.
 
-Durumunu sistem izleme iki e-posta günlük kaynak sağlayıcısı sınıfları içerir: `SimpleMailWebEventProvider` ve `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.management.simplemailwebeventprovider.aspx) e-posta gövdesi çok az özelleştirmesini sağlar ve ayrıntıları olay içeren bir düz metin e-posta iletisi gönderir. İle [ `TemplatedMailWebEventProvider` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) , oluşturulan biçimlendirmenin için e-posta ileti gövdesi olarak kullanılan bir ASP.NET sayfası belirtin. [ `TemplatedMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) kadar içeriğini ve e-posta ileti biçimi üzerinde daha fazla denetim sağlar, ancak e-posta iletisinin gövdesi oluşturur ASP.NET sayfası oluşturmak zorunda biraz daha fazla ön iş gerektirir. Bu öğreticiyi kullanmaya odaklanır `SimpleMailWebEventProvider` sınıfı.
+Durumunu sistem izleme iki e-posta günlük kaynak sağlayıcısı sınıfları içerir: `SimpleMailWebEventProvider` ve `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) e-posta gövdesi çok az özelleştirmesini sağlar ve ayrıntıları olay içeren bir düz metin e-posta iletisi gönderir. İle [ `TemplatedMailWebEventProvider` sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) , oluşturulan biçimlendirmenin için e-posta ileti gövdesi olarak kullanılan bir ASP.NET sayfası belirtin. [ `TemplatedMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) kadar içeriğini ve e-posta ileti biçimi üzerinde daha fazla denetim sağlar, ancak e-posta iletisinin gövdesi oluşturur ASP.NET sayfası oluşturmak zorunda biraz daha fazla ön iş gerektirir. Bu öğreticiyi kullanmaya odaklanır `SimpleMailWebEventProvider` sınıfı.
 
 Sistem durumu sistemin izleme güncelleştirme `<providers>` öğesinde `Web.config` için bir günlük kaynak eklenecek dosyası `SimpleMailWebEventProvider` sınıfı:
 
@@ -139,7 +139,7 @@ E-posta günlüğü kaynağı tanımlanan sonra kalan tek şey "İşlenmeyen öz
 
 ASP.NET sistem durumu izleme sistemi, dağıtılan web uygulamasının sağlığını izlemek yöneticilerin sağlamak için tasarlanmıştır. Sistem durumu izleme olayları, uygulama durdurduğunda başarıyla sitesinde oturum açtığında gibi bazı eylemler unfold veya işlenmeyen bir özel durum oluştuğunda oluşturulur. Bu olaylar günlük kaynakları herhangi bir sayıda kaydedilebilir. Bu öğretici, bir veritabanına ve e-posta iletisi işlenmeyen özel durumlar ayrıntılarını günlüğe kaydetmek nasıl oluşturulacağını gösterir.
 
-Bu öğretici durumunu işlenmeyen özel durumlar, ancak sistem durumu izleme dağıtılan bir ASP.NET uygulama genel durumunu ölçmek için tasarlanmıştır ve sistem durumu izleme olayları bol içerir olduğunu aklınızda bulundurun ve kaynakları oturum değil için izleme kullanımına odaklanmış Burada incelediniz. Dahası, kendi sistem durumu izleme olayları ve günlük kaynakları oluşturabilirsiniz artırılması gereken ortaya çıkar. Sistem durumu izleme hakkında daha fazla bilgi ilgileniyorsanız okumak için iyi bir ilk adım olan [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)'s [durumunu SSS izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Başvurun [nasıl yapılır: ASP.NET 2.0 kullanım izleme sistem durumu](https://msdn.microsoft.com/en-us/library/ms998306.aspx).
+Bu öğretici durumunu işlenmeyen özel durumlar, ancak sistem durumu izleme dağıtılan bir ASP.NET uygulama genel durumunu ölçmek için tasarlanmıştır ve sistem durumu izleme olayları bol içerir olduğunu aklınızda bulundurun ve kaynakları oturum değil için izleme kullanımına odaklanmış Burada incelediniz. Dahası, kendi sistem durumu izleme olayları ve günlük kaynakları oluşturabilirsiniz artırılması gereken ortaya çıkar. Sistem durumu izleme hakkında daha fazla bilgi ilgileniyorsanız okumak için iyi bir ilk adım olan [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)'s [durumunu SSS izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Başvurun [nasıl yapılır: ASP.NET 2.0 kullanım izleme sistem durumu](https://msdn.microsoft.com/library/ms998306.aspx).
 
 Mutluluk programlama!
 
@@ -147,11 +147,11 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET sistem durumu izlemeye genel bakış](https://msdn.microsoft.com/en-us/library/bb398933.aspx)
+- [ASP.NET sistem durumu izlemeye genel bakış](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Yapılandırma ve durum sistemini ASP.NET izleme özelleştirme](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [SSS - durum ASP.NET 2.0 izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Nasıl yapılır: E-posta bildirimleri izleme sistem durumu için Gönder](https://msdn.microsoft.com/en-us/library/ms227553.aspx)
-- [Nasıl yapılır: ASP.NET sistem durumu izleme kullanma](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+- [Nasıl yapılır: E-posta bildirimleri izleme sistem durumu için Gönder](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Nasıl yapılır: ASP.NET sistem durumu izleme kullanma](https://msdn.microsoft.com/library/ms998306.aspx)
 - [ASP.NET izleme sistem durumu](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 >[!div class="step-by-step"]

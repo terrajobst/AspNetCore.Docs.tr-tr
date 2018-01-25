@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 izleme
 ====================
@@ -58,7 +58,7 @@ Uygulamada WebApiConfig.cs dosyasını açın\_başlangıç klasörü. Aşağıd
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Bu kod ekler [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Web API ardışık düzene sınıfı. **SystemDiagnosticsTraceWriter** sınıfı Yazar izlemeleri için [System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace).
+Bu kod ekler [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Web API ardışık düzene sınıfı. **SystemDiagnosticsTraceWriter** sınıfı Yazar izlemeleri için [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
 İzlemelerini görmek için hata ayıklayıcısı'ndaki uygulamayı çalıştırın. Tarayıcıda gidin `/api/values`.
 
@@ -68,9 +68,9 @@ Bu kod ekler [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/lib
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Çünkü **SystemDiagnosticsTraceWriter** izlemeler için Yazar **System.Diagnostics.Trace**, ek izleme dinleyicileri kaydedebilirsiniz; Örneğin, yazmak için izler bir günlük dosyasına. İzleme yazıcılarının hakkında daha fazla bilgi için bkz: [izleme dinleyicileri](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) MSDN'de konu.
+Çünkü **SystemDiagnosticsTraceWriter** izlemeler için Yazar **System.Diagnostics.Trace**, ek izleme dinleyicileri kaydedebilirsiniz; Örneğin, yazmak için izler bir günlük dosyasına. İzleme yazıcılarının hakkında daha fazla bilgi için bkz: [izleme dinleyicileri](https://msdn.microsoft.com/library/4y5y10s7.aspx) MSDN'de konu.
 
-### <a name="configuring-systemdiagnosticstracewriter"></a>SystemDiagnosticsTraceWriter yapılandırma
+### <a name="configuring-systemdiagnosticstracewriter"></a>Configuring SystemDiagnosticsTraceWriter
 
 Aşağıdaki kod, izleme yazıcısı yapılandırma gösterilmektedir.
 
@@ -89,7 +89,7 @@ Kontrol edebilirsiniz iki ayarı vardır:
 
 İzleme yazıcısı almak için arama **HttpConfiguration.Services.GetTraceWriter**. Bu yöntem bir denetleyicisinden üzerinden erişilebilir **ApiController.Configuration** özelliği.
 
-Bir izleme yazmak için çağırabilirsiniz **ITraceWriter.Trace** yöntemi doğrudan, ancak [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx) sınıfı daha kolay bazı genişletme yöntemleri tanımlar. Örneğin, **bilgisi** yukarıda gösterilen yöntemi ile izleme düzeyi izleme oluşturur **bilgisi**.
+Bir izleme yazmak için çağırabilirsiniz **ITraceWriter.Trace** yöntemi doğrudan, ancak [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) sınıfı daha kolay bazı genişletme yöntemleri tanımlar. Örneğin, **bilgisi** yukarıda gösterilen yöntemi ile izleme düzeyi izleme oluşturur **bilgisi**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Web API izleme altyapısı
 

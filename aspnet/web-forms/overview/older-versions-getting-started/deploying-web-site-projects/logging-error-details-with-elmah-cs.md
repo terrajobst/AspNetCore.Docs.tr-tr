@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3aef1c2c2357d948a49787c9dd039d4529479357
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eeb1210038f4982d80352322842733c0e96300a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>Günlük hata ayrıntılarla ELMAH (C#)
 ====================
@@ -254,7 +254,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [ELMAH proje sayfası](https://code.google.com/p/elmah/) (kaynak kodu, örnekleri, wiki)
 - [ELMAH içine bir Web uygulaması işlenmeyen özel durumları yakalamak için takma](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
 - [Güvenlik hata günlüğü sayfaları](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

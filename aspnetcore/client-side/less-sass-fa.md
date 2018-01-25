@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Daha az stil uygulamalarla, Sass ve yazı tipi harika ASP.NET Core içinde giriş
 
@@ -97,7 +97,7 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`ve diğer @-prefixed değişkenleri öğeleridir. Bunların her biri, bir renk temsil eder. Dışında `@base`, renk işlevler kullanılarak ayarlanır: aydınlatmak, koyu ve döndür. Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar. Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur. Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.
+`@base`ve diğer @-prefixed değişkenleri öğeleridir. Bunların her biri, bir renk temsil eder. Dışında `@base`, renk işlevler kullanılarak hazırsınız: aydınlatmak, koyu ve döndür. Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar. Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur. Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.
 
 ### <a name="getting-started"></a>Başlarken
 
@@ -246,7 +246,7 @@ nav {
 }
 ```
 
-Bu durumda, tüm alt öğelerinin unutmayın `nav` kapsamında yer alır. Artık tüm üst öğeler yinelenmesinin değil (`nav`, `li`, `a`), ve (bazı, olmasına rağmen bir sonuç ikinci örnekte aynı satırlarındaki değerleri yerleştirme) toplam satır sayısı da bıraktı. Bu kuruluş, tüm kurallar açıkça sınırlanmış bir kapsam içinde belirli bir kullanıcı Arabirimi öğesi için bu durumda görmek için dosyayı geri kalanından küme ayraçları ayarlayın çok yararlı olabilir.
+Bu durumda, tüm alt öğelerinin unutmayın `nav` kapsamında yer alır. Artık tüm üst öğeler yinelenmesinin değil (`nav`, `li`, `a`), ve toplam satır sayısı da bıraktı (bazıları olsa olan ikinci örnekte aynı satırlarındaki değerleri koyma sonucunu). Bu kuruluş, tüm kurallar açıkça sınırlanmış bir kapsam içinde belirli bir kullanıcı Arabirimi öğesi için bu durumda görmek için dosyayı geri kalanından küme ayraçları ayarlayın çok yararlı olabilir.
 
 `&` Sözdizimi daha az Seçicisi, bir özellik olan & Geçerli Seçici üst temsil eden. Bu nedenle, içinde {...} blok, `&` temsil eden bir `a` etiketi ve bu nedenle `&:link` eşdeğerdir `a:link`.
 
@@ -321,7 +321,7 @@ Daha az birkaç ek özellikler sağlar, ancak bu, bazı bu gücünü dil ön iş
 
 ## <a name="sass"></a>Sass
 
-Sass birçok aynı özellikleri, ancak biraz farklı bir sözdizimi için destek sağlayan küçük, benzer. JavaScript yerine Ruby kullanılarak oluşturulmuştur ve böylece farklı kurulum gereksinimleri vardır. Özgün Sass dil süslü ayraçlar veya noktalı virgül kullanmayan ancak bunun yerine boşluk ve girinti kullanarak kapsamı tanımlanmış. Sürümünde Sass 3, yeni bir sözdizimi sunulmuştur, **SCSS** ("Sassy CSS"). Girinti düzeyleri ve boşluk yoksayar ve bunun yerine noktalı ve süslü ayraçlar kullanır SCSS, CSS'ye benzer.
+Sass birçok aynı özellikleri, ancak biraz farklı bir sözdizimi için destek sağlayan küçük, benzer. JavaScript yerine Ruby kullanılarak oluşturulmuştur ve böylece farklı kurulum gereksinimleri vardır. Özgün Sass dil süslü ayraçlar veya noktalı virgül kullanmadı, ancak bunun yerine boşluk ve girinti kullanarak kapsamını tanımlı. Sürümünde Sass 3, yeni bir sözdizimi sunulmuştur, **SCSS** ("Sassy CSS"). Girinti düzeyleri ve boşluk yoksayar ve bunun yerine noktalı ve süslü ayraçlar kullanır SCSS, CSS'ye benzer.
 
 Sass yüklemek için genellikle, (Mac üzerinde önceden yüklenmiş) Ruby yüklemeniz ve ardından çalıştırın:
 

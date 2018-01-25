@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Yönlendirme ve eylem seçimi ASP.NET Web API
 ====================
@@ -79,14 +79,14 @@ Varsayılan özel değerine sahip **RouteParameter.Optional**. Bir yer tutucu bu
 
 URI yolu "API/ürünleri" rota sözlüğünü içerir:
 
-- Denetleyici: "Ürünler"
+- controller: "products"
 - Kategori: "tümü"
 
 "API/ürünler/toys/123 için", ancak rota sözlüğünü içerir:
 
-- Denetleyici: "Ürünler"
+- controller: "products"
 - Kategori: "toys"
-- Kimliği: "123"
+- id: "123"
 
 Varsayılan rota şablonu herhangi bir yerde görünmez bir değer dahil edebilirsiniz. Rota eşleşiyorsa, bu değeri sözlükte depolanır. Örneğin:
 
@@ -95,7 +95,7 @@ Varsayılan rota şablonu herhangi bir yerde görünmez bir değer dahil edebili
 URI yolu "kök/api/8" ise, sözlük iki değerlerini içerir:
 
 - Denetleyici: "Müşteri"
-- Kimliği: "8"
+- id: "8"
 
 ## <a name="selecting-a-controller"></a>Bir denetleyici seçme
 
@@ -121,7 +121,7 @@ Varsayılan uygulama tarafından sağlanan **ApiControllerActionSelector** sın�
 
 Seçimi algoritması aramadan önce biz denetleyici eylemleri hakkında bazı şeyleri anlamanız gerekir.
 
-**Hangi yöntemlerin denetleyicisinde "Eylemler" olarak kabul edilir?** Bir eylem seçerken, framework ortak örnek yöntemleri denetleyicisinde yalnızca arar. Ayrıca, dışlar ["özel adı"](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname) (Oluşturucular, olaylar, işlecin ve benzeri) ve devralınan yöntemleri **ApiController** sınıfı.
+**Hangi yöntemlerin denetleyicisinde "Eylemler" olarak kabul edilir?** Bir eylem seçerken, framework ortak örnek yöntemleri denetleyicisinde yalnızca arar. Ayrıca, dışlar ["özel adı"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) (Oluşturucular, olaylar, işlecin ve benzeri) ve devralınan yöntemleri **ApiController** sınıfı.
 
 **HTTP yöntemleri.** Framework yalnızca aşağıdaki gibi belirlenen isteğin HTTP yöntemi ile eşleşen Eylemler seçti:
 
@@ -134,7 +134,7 @@ Seçimi algoritması aramadan önce biz denetleyici eylemleri hakkında bazı ş
 - Basit türler URI'den alınır.
 - Karmaşık türler isteği gövdesinden alınır.
 
-Basit türler tüm [.NET Framework ilkel türler](https://msdn.microsoft.com/en-us/library/system.type.isprimitive), artı **DateTime**, **ondalık**, **GUID**, **dize** , ve **TimeSpan**. Her bir eylem için en fazla bir parametre istek gövdesi okuyabilir.
+Basit türler tüm [.NET Framework ilkel türler](https://msdn.microsoft.com/library/system.type.isprimitive), artı **DateTime**, **ondalık**, **GUID**, **dize** , ve **TimeSpan**. Her bir eylem için en fazla bir parametre istek gövdesi okuyabilir.
 
 > [!NOTE]
 > Varsayılan bağlama kurallarını geçersiz kılmasına mümkündür. Bkz: [Webapı parametre bağlaması başlık altında](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
@@ -191,8 +191,8 @@ HTTP isteği:
 
 URI "DefaultApi" adlı rota eşleşir. Rota sözlüğünü aşağıdaki girdileri içerir:
 
-- Denetleyici: "Ürünler"
-- Kimliği: "1"
+- controller: "products"
+- id: "1"
 
 Rota sözlüğünü sorgu dizesi parametreleri, "Sürüm" ve "Ayrıntılar" içermiyor, ancak bunlar hala eylem seçimi sırasında olarak kabul edilir.
 
@@ -218,7 +218,7 @@ Dikkat *sürüm* parametresinin `GetById` isteğe bağlı bir parametre olduğun
 
 `GetById` Yöntemi WINS için hiçbir parametre karşı bir parametre eşleştiğinden `GetAll`. Yöntemi, aşağıdaki parametre değerleri ile çağrılır:
 
-- *Kimliği* = 1
+- *id* = 1
 - *Sürüm* 1.5 =
 
 Rağmen dikkat *sürüm* kullanılmadığı seçimi algoritması URI sorgu dizesi parametresinin değeri gelir.

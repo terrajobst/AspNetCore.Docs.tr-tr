@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4632d3939204a954ed4fac88a04b0fea9bb15c83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Ana/ayrıntı filtreleme ile DropDownList (C#)
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Rapor genel bir tür *ana/ayrıntı raporu*, içinde rapor bazı "ana" kayıt kümesi göstererek başlar. Kullanıcı daha sonra ana kayıtları birine ana kayıt "ayrıntılarını." böylece görüntüleme ayrıntıya inebilir Ana/ayrıntı raporu gibi bir-çok ilişkileri görselleştirme için ideal seçim kategorilerin tümünü gösteren ve belirli bir kategori seçin ve ilişkili ürünlerinden görüntülemek bir kullanıcı izin vererek bildirir. Ayrıca, ana/ayrıntı raporları "geniş" özellikle tabloları (olanları sütunları pek çok) ayrıntılı bilgileri görüntülemek için yararlıdır. Örneğin, bir ana öğe/ayrıntı raporu "ana" düzeyini veritabanında yalnızca ürün adı ve birim fiyat ürünlerin gösterebilir ve belirli bir üründe araştırıp ek ürün alanları gösterir (kategori, tedarikçi, birim başına miktar ve vb.).
 
-İle bir ana öğe/ayrıntı raporu uygulanabileceği birçok yolu vardır. Bu ve sonraki üç öğreticileri biz ana/ayrıntı raporları çeşitli göreceğiz. Bu öğreticide ana kayıtları görüntülemek nasıl göreceğiz bir [DropDownList denetimi](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx) ve GridView içinde seçilen liste öğesinin Ayrıntıları. Özellikle, bu öğreticinin ana/ayrıntı raporu kategori ve ürün bilgilerini listeler.
+İle bir ana öğe/ayrıntı raporu uygulanabileceği birçok yolu vardır. Bu ve sonraki üç öğreticileri biz ana/ayrıntı raporları çeşitli göreceğiz. Bu öğreticide ana kayıtları görüntülemek nasıl göreceğiz bir [DropDownList denetimi](https://msdn.microsoft.com/library/dtx91y0z.aspx) ve GridView içinde seçilen liste öğesinin Ayrıntıları. Özellikle, bu öğreticinin ana/ayrıntı raporu kategori ve ürün bilgilerini listeler.
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>1. adım: bir DropDownList kategorileri görüntüleme
 
@@ -97,7 +97,7 @@ Bu yöntem seçtikten sonra ObjectDataSource Sihirbazı bize değeri yöntemin i
 
 Bir tarayıcıda bizim ilerleme kullanıma için bir dakikanızı ayırın. İlk sitesini ziyaret ettiğinde bu ürünler seçilen kategoriye ait (Meşrubat) (Şekil 9'da gösterildiği gibi) görüntülenir, ancak DropDownList değiştirme veri güncelleştirilmiyor. Geri gönderimin GridView güncelleştirmek oluşması gereken olmasıdır. Bunu gerçekleştirmek için şu (kümelesini herhangi bir kod yazmadan gerektirir) iki seçeneğiniz vardır:
 
-- **Kategorilerini DropDownList's**[AutoPostBack özelliğini](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**true.** (Bunu DropDownList'ın akıllı etiket AutoPostBack etkinleştir seçeneğini işaretleyerek gerçekleştirebilirsiniz.) DropDownList'ın seçili olduğunda, bu geri gönderimin tetikleyecek öğesi kullanıcı tarafından değiştirildi. Bu nedenle, kullanıcı DropDownList yeni bir kategori seçtiğinde geri gönderimin olun ve yeni seçilen kategori için ürünlerle GridView güncelleştirilir. (Bu öğreticide kullanmış olduğunuz yaklaşım budur.)
+- **Kategorilerini DropDownList's**[AutoPostBack özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**true.** (Bunu DropDownList'ın akıllı etiket AutoPostBack etkinleştir seçeneğini işaretleyerek gerçekleştirebilirsiniz.) DropDownList'ın seçili olduğunda, bu geri gönderimin tetikleyecek öğesi kullanıcı tarafından değiştirildi. Bu nedenle, kullanıcı DropDownList yeni bir kategori seçtiğinde geri gönderimin olun ve yeni seçilen kategori için ürünlerle GridView güncelleştirilir. (Bu öğreticide kullanmış olduğunuz yaklaşım budur.)
 - **Bir düğme Web denetimi DropDownList yanındaki ekleyin.** Ayarlama, `Text` yenileme özelliğine veya buna benzer. Bu yaklaşımda, kullanıcının yeni bir kategori seçin ve ardından düğmesini gerekir. Düğmesini tıklatarak geri gönderimin neden ve bu ürünler seçili kategorinin listelemek için GridView güncelleştirin.
 
 Şekil 9 ve 10 eylem ana/ayrıntı raporu gösterilmektedir.
@@ -172,4 +172,4 @@ Mutluluk programlama!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Sonraki](master-detail-filtering-with-two-dropdownlists-cs.md)
+[Next](master-detail-filtering-with-two-dropdownlists-cs.md)

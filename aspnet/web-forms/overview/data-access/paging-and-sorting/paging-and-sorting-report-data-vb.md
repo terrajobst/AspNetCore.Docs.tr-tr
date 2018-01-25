@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2ef1bb0b68a46535e3320834a0374b9a4f66182c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Disk belleği ve rapor verilerini (VB) sıralama
 ====================
@@ -101,7 +101,7 @@ Ardından, böylece yalnızca ürün adları, üreticiler, kategoriler, Fiyatlar
 
 ## <a name="step-3-adding-paging-support"></a>3. adım: Sayfalama desteği ekleme
 
-Listeleme *tüm* bir ekranında ürünlerin veri harcadığı kullanıcı için bilgileri aşırı yol açabilir. Sonuçlar daha kolay yönetilebilir hale getirmek için biz verilerin daha küçük sayfaları verisine bölmeniz ve aynı anda bir sayfa veri adım kullanıcıya izin verebilirsiniz. Gerçekleştirmek için bu işaretlemeniz yeterli GridView s akıllı etiketinden etkinleştirmek disk belleği checkbox (Bu GridView s ayarlar [ `AllowPaging` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) için `true`).
+Listeleme *tüm* bir ekranında ürünlerin veri harcadığı kullanıcı için bilgileri aşırı yol açabilir. Sonuçlar daha kolay yönetilebilir hale getirmek için biz verilerin daha küçük sayfaları verisine bölmeniz ve aynı anda bir sayfa veri adım kullanıcıya izin verebilirsiniz. Gerçekleştirmek için bu işaretlemeniz yeterli GridView s akıllı etiketinden etkinleştirmek disk belleği checkbox (Bu GridView s ayarlar [ `AllowPaging` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) için `true`).
 
 
 [![Disk belleği desteği eklemek için etkinleştir disk belleği onay kutusunu işaretleyin](paging-and-sorting-report-data-vb/_static/image10.png)](paging-and-sorting-report-data-vb/_static/image9.png)
@@ -111,12 +111,12 @@ Listeleme *tüm* bir ekranında ürünlerin veri harcadığı kullanıcı için 
 
 Disk belleği etkinleştirme ve sayfa başına gösterilecek kayıt sayısını sınırlar ekler bir *disk belleği arabirimi* GridView için. Şekil 7'de gösterilen varsayılan disk belleği, bir dizi sayfa numarası, hızlı bir şekilde verileri bir sayfadan diğerine gezinmek arkasından arabirimidir. Bu disk belleği arabirimi size, tanıdık gelecektir ve disk belleği destek geçmiş eğitimlerine DetailsView ve FormView denetimlere eklerken görülür.
 
-DetailsView ve FormView denetimlerini yalnızca sayfa başına tek bir kaydını gösterir. GridView, ancak danışır kendi [ `PageSize` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx) sayfa başına gösterilecek kaç kayıtları belirlemek için (Bu özellik varsayılan olarak 10 değeri).
+DetailsView ve FormView denetimlerini yalnızca sayfa başına tek bir kaydını gösterir. GridView, ancak danışır kendi [ `PageSize` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) sayfa başına gösterilecek kaç kayıtları belirlemek için (Bu özellik varsayılan olarak 10 değeri).
 
 Bu GridView, DetailsView ve FormView s disk belleği arabirimi aşağıdaki özellikleri kullanarak özelleştirilebilir:
 
 - `PagerStyle`disk belleği arabirimi için stil bilgilerini gösterir; gibi ayarları belirtebilirsiniz `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`ve benzeri.
-- `PagerSettings`disk belleği arabirimi işlevselliğini özelleştirebilirsiniz özelliklerinin bevy içerir; `PageButtonCount` (varsayılan değer 10) disk belleği arabiriminde görüntülenen sayısal sayfa numarası en fazla sayısını gösterir; [ `Mode` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx) nasıl disk belleği arabirimi çalışır ve ayarlanabilir gösterir: 
+- `PagerSettings`disk belleği arabirimi işlevselliğini özelleştirebilirsiniz özelliklerinin bevy içerir; `PageButtonCount` (varsayılan değer 10) disk belleği arabiriminde görüntülenen sayısal sayfa numarası en fazla sayısını gösterir; [ `Mode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) nasıl disk belleği arabirimi çalışır ve ayarlanabilir gösterir: 
 
     - `NextPrevious`İleri ya da geri aynı anda bir sayfa adım arkasından bir sonraki ve önceki düğmelerini gösterir
     - `NextPreviousFirstLast`İleri ve geri düğmelerini ek olarak, ilk ve son düğmeleri, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının kapsanmaktadır
@@ -216,7 +216,7 @@ Son olarak, bir olay işleyicisi DropDownList s için oluşturmak ihtiyacımız 
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>5. adım: Çift yönlü sıralama desteği ekleme
 
-Çift yönlü sıralama destek sayfalama desteği ekleme olarak basit ekleyerek işaretlemeniz yeterli GridView s akıllı etiket etkinleştirmek sıralama seçeneğinden (GridView s ayarlar [ `AllowSorting` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) için `true`). Bu her GridView s alanlarının üstbilgilerinin LinkButtons, tıklatıldığında işleyen, geri gönderimin neden ve artan sırada tıklatılan sütuna göre sıralanmış veri döndürür. Aynı üstbilgisi LinkButton yeniden tıklatarak azalan düzende verileri yeniden sıralar.
+Çift yönlü sıralama destek sayfalama desteği ekleme olarak basit ekleyerek işaretlemeniz yeterli GridView s akıllı etiket etkinleştirmek sıralama seçeneğinden (GridView s ayarlar [ `AllowSorting` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) için `true`). Bu her GridView s alanlarının üstbilgilerinin LinkButtons, tıklatıldığında işleyen, geri gönderimin neden ve artan sırada tıklatılan sütuna göre sıralanmış veri döndürür. Aynı üstbilgisi LinkButton yeniden tıklatarak azalan düzende verileri yeniden sıralar.
 
 > [!NOTE]
 > Yazılan veri kümesi yerine özel bir veri erişim katmanı kullanıyorsanız, bir etkinleştirme sıralama seçeneği GridView s akıllı etiket olmayabilir. Yalnızca yerel olarak sıralama destekleyen veri kaynaklarına bağlı GridViews kullanılabilir bu onay kutusu var. ADO.NET DataTable sağlar beri yazılan veri kümesi Giden kutusu sıralama desteği sağlar. bir `Sort` yöntemi, çağrıldığında, DataTable s DataRow belirtilen ölçütü kullanarak sıralar.
@@ -243,11 +243,11 @@ Bu CSS ek olarak sonra bir tarayıcı aracılığıyla sitesini ziyaret ettiğin
 
 Tüm GridView alanları BoundField, CheckBoxField TemplateField ve benzeri sahip bir `SortExpression` özellik üstbilgi bağlantı sıralama o alanı s tıklatıldığında verileri sıralamak için kullanılacak ifadeyi belirtir. GridView de sahip bir `SortExpression` özelliği. LinkButton tıklandığında sıralama üstbilgi oluşturduğunuzda, bu alan s GridView atar `SortExpression` değerini kendi `SortExpression` özelliği. Ardından, verileri ObjectDataSource yeniden alınır ve GridView s göre sıralanmış `SortExpression` özelliği. Aşağıdaki listede, son kullanıcının GridView verileri sıralar yükleyen transpires adımların sırasını Ayrıntılar verilmiştir:
 
-1. GridView s [olayını](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) etkinleşir
-2. GridView s [ `SortExpression` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ayarlanır `SortExpression` alanının LinkButton tıklattınız sıralama üstbilgisi
+1. GridView s [olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) etkinleşir
+2. GridView s [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ayarlanır `SortExpression` alanının LinkButton tıklattınız sıralama üstbilgisi
 3. ObjectDataSource tüm BLL verileri yeniden alır ve GridView s kullanarak verileri sıralar`SortExpression`
 4. GridView s `PageIndex` özelliği 0 olarak sıfırlanır, kullanıcı sıralarken anlamına gelir (sayfalama desteğini uygulanan varsayılarak) verileri ilk sayfasına döndürülür
-5. GridView s [ `Sorted` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) etkinleşir
+5. GridView s [ `Sorted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) etkinleşir
 
 Varsayılan disk belleği ile varsayılan seçeneği sıralamayı yeniden alır gibi *tüm* BLL kayıtlarını. Disk belleği olmadan sıralama kullanırken ya da sıralama kullanırken disk belleği, burada s (veritabanı verileri önbelleğe alma eksikliği) ulaştı. Bu performans sağlamasına hiçbir şekilde varsayılan. Ancak, bir sonraki öğreticide anlatıldığı gibi verileri özel disk belleği kullanırken verimli bir şekilde sıralamak olası s.
 
@@ -274,7 +274,7 @@ Bir kez `SortExpression` özelliği için kaldırılmıştır `UnitPrice` BoundF
 
 ## <a name="programmatically-sorting-the-gridview"></a>Program aracılığıyla GridView sıralama
 
-GridView s kullanarak GridView içeriğini programlı olarak sıralayabilirsiniz [ `Sort` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx). Yalnızca geçirin `SortExpression` ile birlikte göre sıralamak için değer [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` veya `Descending`), ve GridView s verileri yeniden sıralanmış olacaktır.
+GridView s kullanarak GridView içeriğini programlı olarak sıralayabilirsiniz [ `Sort` yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Yalnızca geçirin `SortExpression` ile birlikte göre sıralamak için değer [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` veya `Descending`), ve GridView s verileri yeniden sıralanmış olacaktır.
 
 Nedeni biz sıralama dışı açık olduğunu düşünün `UnitPrice` müşterilerimizin, yalnızca en düşük fiyatlı ürünlerini yalnızca satın kaygılı bulamadığımız için oluştu. Ancak, bunları d biz ürünleri için en az fiyat, ancak yalnızca en pahalı fiyatından sıralamak için bunları istediğiniz şekilde en pahalı ürünleri satın teşvik istiyoruz.
 

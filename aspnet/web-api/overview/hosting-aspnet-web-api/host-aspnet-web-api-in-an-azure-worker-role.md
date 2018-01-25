@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 326c4a4e274dbc1aa6e09f1d07c4d135e4304484
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde ana bilgisayar
 ====================
@@ -33,7 +33,7 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
-> - [2.3 .NET için Azure SDK](https://azure.microsoft.com/en-us/downloads/)
+> - [2.3 .NET için Azure SDK](https://azure.microsoft.com/downloads/)
 
 
 ## <a name="create-a-microsoft-azure-project"></a>Bir Microsoft Azure projesi oluşturma
@@ -137,7 +137,7 @@ IP adresi hizmet dağıtımları, dağıtım [kimlik], hizmet ayrıntıları alt
 
 ## <a name="deploy-to-azure"></a>Azure'a dağıtma
 
-Bu adım için bir Azure hesabınızın olması gerekir. Zaten yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Microsoft Azure ücretsiz deneme sürümü](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+Bu adım için bir Azure hesabınızın olması gerekir. Zaten yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Microsoft Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Çözüm Gezgini'nde AzureApp projesine sağ tıklayın. Seçin **yayımlama**.
 
@@ -151,8 +151,7 @@ Oturumunuz açıldıktan sonra bir abonelik seçin ve'ı tıklatın **sonraki**.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image17.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image16.png)
 
-Bulut hizmeti için bir ad girin ve bir bölge seçin. 
-              **Oluştur**'u tıklatın.
+Bulut hizmeti için bir ad girin ve bir bölge seçin. **Oluştur**'u tıklatın.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image18.png)
 
@@ -166,5 +165,5 @@ Azure etkinlik günlüğü penceresi dağıtımının ilerlemesini gösterir. Uy
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Proje Katana genel bakış](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+- [Project Katana’ya Genel Bakış](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 - [Github'da Katana proje](https://github.com/aspnet/AspNetKatana)

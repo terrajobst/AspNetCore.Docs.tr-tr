@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 96d3b8b82f78d8f6da85012aac8a1411cf297e26
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Laboratuvar durum: SignalR ile gerçek zamanlı Web uygulamaları
 ====================
@@ -263,7 +263,7 @@ Adlı bir bileşen kullanarak bu sorunları çözebilir *devre kartı*, sunucula
 - **SQL Server**. SQL Server devre kartına ileti SQL tablolara yazar. Devre kartına verimli ileti için hizmet Aracısı kullanır. Service Broker etkin değilse ancak, bu da çalışır.
 - **Redis**. Redis bir bellek içi anahtar-değer deposudur. Redis ileti göndermek için bir yayımlama/abonelik ("pub/alt") desen destekler.
 
-Her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) Yayımla ve abone bir Özet sağlar arabirimi. Varsayılan değiştirerek backplanes iş **IMessageBus** o devre kartı için tasarlanmış bir veri yolu ile.
+Her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) Yayımla ve abone bir Özet sağlar arabirimi. Varsayılan değiştirerek backplanes iş **IMessageBus** o devre kartı için tasarlanmış bir veri yolu ile.
 
 Her sunucu örneği devre kartı veri yolu üzerinden bağlanır. Bir ileti gönderildiğinde devre kartına gider ve isteğe bağlı olarak devre kartı her sunucuya gönderir. Bir sunucu kartından bir ileti aldığında, iletiyi yerel önbelleğinde saklar. Sunucu, bunun yerel önbelleğinden istemcilere iletileri sonra sunar.
 

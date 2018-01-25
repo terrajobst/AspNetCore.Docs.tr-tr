@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 78a54fb1b0e4c0ebd5445cca175103471925a065
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölümü 8
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -119,17 +119,17 @@ Bir satır düzenleyin ve ad alanlarının temizlemek deneyin. Tıklatmadan önc
 
 Bu biçimlendirmeyi ve doğrulama kuralları veri modelinin meta verilerindeki kurdu, kullandığınız sürece otomatik olarak bu alanlara değişikliğe izin verdiğinden ya da görüntüleyen her sayfada uygulanacak kurallar `DynamicControl` veya `DynamicField` kontrol eder. Bu programlama ve sınamayı daha kolay hale getirir, yedekli kod yazmak zorunda miktarını azaltır ve veri biçimlendirmeyi ve doğrulama bir uygulama genelinde tutarlı olmasını sağlar.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
 Bu öğretici Entity Framework ile çalışmaya başlama dizi sonlanır. Entity Framework kullanmayı öğrenmenize yardımcı olacak daha fazla kaynak için devam [sonraki Entity Framework öğretici serideki ilk öğreticide](../continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md) veya aşağıdaki siteleri ziyaret edin:
 
 - [Entity Framework ile ilgili SSS](http://www.ef-faq.org/introduction.html)
 - [Entity Framework ekip blogu](https://blogs.msdn.com/b/adonet/)
-- [MSDN Kitaplığı'nda Entity Framework](https://msdn.microsoft.com/en-us/library/bb399572.aspx)
-- [Entity Framework MSDN veri Geliştirici Merkezi](https://msdn.microsoft.com/en-us/data/ef.aspx)
-- [MSDN Kitaplığı'nda EntityDataSource Web sunucusu denetimine genel bakış](https://msdn.microsoft.com/en-us/library/cc488502.aspx)
-- [EntityDataSource denetim MSDN Kitaplığı'nda API Başvurusu](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [MSDN'de Entity Framework forumları](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/)
+- [MSDN Kitaplığı'nda Entity Framework](https://msdn.microsoft.com/library/bb399572.aspx)
+- [Entity Framework MSDN veri Geliştirici Merkezi](https://msdn.microsoft.com/data/ef.aspx)
+- [MSDN Kitaplığı'nda EntityDataSource Web sunucusu denetimine genel bakış](https://msdn.microsoft.com/library/cc488502.aspx)
+- [EntityDataSource denetim MSDN Kitaplığı'nda API Başvurusu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
+- [MSDN'de Entity Framework forumları](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Julie Lerman'ın blogu](http://thedatafarm.com/blog/)
 
 >[!div class="step-by-step"]

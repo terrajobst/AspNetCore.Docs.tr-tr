@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b02ef9121e50ab9d9f24032d32f1e65fe73049c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-data-protection"></a>Veri koruma giriş
 
@@ -23,7 +23,7 @@ ASP.NET Core veri koruma yığını uzun vadeli yerini olarak hizmet için tasar
 
 ## <a name="problem-statement"></a>Sorun bildirimi
 
-Genel Sorun bildirimi tek bir tümcedeki temellerini belirtilebilir: güvenilir bilgi sonraki alma için kalıcı olması gerekir, ancak Kalıcılık mekanizma güvenmeyin. "Güvenilmeyen bir istemci yoluyla güvenilen gidiş dönüş durumu istiyorum."olarak web bağlamında bu yazılı olabilir
+Genel Sorun bildirimi tek bir tümcedeki temellerini belirtilebilir: güvenilir bilgi sonraki alma için kalıcı olması gerekir, ancak Kalıcılık mekanizması güven yok. "Güvenilmeyen bir istemci yoluyla güvenilen gidiş dönüş durumu istiyorum."olarak web bağlamında bu yazılı olabilir
 
 Kurallı bu bir kimlik doğrulama tanımlama bilgisi veya taşıyıcı örneğidir belirteci. Sunucu oluşturur bir "I Groot çıkarım ve xyz izinleriniz" token ve istemciye aktarır. Bazı ileriki bir tarihte istemci sunucuya geri belirtecini sunacaktır, ancak sunucu istemci belirteç sahte kurmadı güvence çeşit gerekiyor. Bu nedenle ilk gereksinim: Orijinallik Sertifikası (paketini bütünlük, yetkisiz değiştirmeye karşı sağlama).
 
@@ -31,7 +31,7 @@ Kalıcı durum sunucusu tarafından güvenilir olduğundan, bu durum işletim or
 
 Modern uygulamalar bileşenlerden oluşan olduğundan, son olarak, ne gördük bileşenleri tek tek sistemdeki diğer bileşenler dikkate almaksızın bu sistem yararlanmak istersiniz kalır. Örneği için bir taşıyıcı belirteci bileşen bu yığını kullanıyorsanız, aynı yığınına de kullanıyor olabilecek bir anti-CSRF mekanizması girişime olmadan çalışacağını. Böylece son gereksinimi: yalıtım.
 
-Daha fazla kısıtlamaları bizim gereksinimleri kapsamını daraltmak için sunuyoruz. Cryptosystem içinde çalışan tüm hizmetlerin eşit oranda güvenilir ve veri oluşturulan veya doğrudan sunduğumuz denetim hizmetler dışında tüketilen gerekmediğine varsayıyoruz. Ayrıca, her web hizmeti isteğine bir veya birden çok kez cryptosystem geçebilir beri işlemleri olabildiğince hızlı gerektirir. Bu simetrik şifreleme senaryomuz için ideal hale getirir ve biz asimetrik şifreleme gibi kadar gerekli birer indirim.
+Daha fazla kısıtlamaları bizim gereksinimleri kapsamını daraltmak için sunuyoruz. Cryptosystem içinde çalışan tüm hizmetlerin eşit oranda güvenilir ve veri oluşturulan veya doğrudan sunduğumuz denetim hizmetler dışında tüketilen gerektirmeyeceği varsayıyoruz. Ayrıca, her web hizmeti isteğine bir veya birden çok kez cryptosystem geçebilir beri işlemleri olabildiğince hızlı gerektirir. Bu simetrik şifreleme senaryomuz için ideal hale getirir ve biz asimetrik şifreleme gibi kadar gerekli olan bir zaman indirim.
 
 ## <a name="design-philosophy"></a>Tasarımı felsefesi
 
@@ -41,7 +41,7 @@ Varolan yığını sorun belirleyerek başlatıldı. Biz, vardı sonra biz varol
 
 * Basit bir tüketiciye yönelik API sunar. API'ler, doğru bir şekilde kullanmak kolay ve hatalı kullanmayı zor olması gerekir.
 
-* Geliştiriciler anahtar yönetimi ilkeleri de öğrenmelisiniz değil. Sistem algoritması seçimi ve anahtar yaşam süresi Geliştirici adınıza işlemelidir. İdeal olarak Geliştirici hiçbir zaman bile ham anahtar malzemesi erişiminiz olması.
+* Geliştiriciler, anahtar yönetim ilkeleri hakkında bilgi edinin döndürmemelidir. Sistem algoritması seçimi ve anahtar yaşam süresi Geliştirici adınıza işlemelidir. İdeal olarak Geliştirici hiçbir zaman bile ham anahtar malzemesi erişiminiz olması.
 
 * Anahtarları bekleyen mümkün olduğunda korunmalıdır. Sistem, uygun varsayılan koruma mekanizması şekil ve otomatik olarak uygula.
 

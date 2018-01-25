@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: a86fae5698c54a71cb598f508aa91e7d96d1b409
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -107,18 +107,18 @@ Bu belgede, ASP.NET MVC 3 RTM sürümü Visual Studio 2010 için açıklanmaktad
 
 ASP.NET MVC 3 her yayım öncesi sürümü için sürüm notları, tamamını şu URL'de ASP.NET Web sitesinde bulunabilir:
 
-https://www.ASP.NET/Learn/whitepapers/mvc3-Release-Notes
+https://www.asp.net/learn/whitepapers/mvc3-release-notes
 
 <a id="installation-notes"></a>
 ## <a name="installation-notes"></a>Yükleme notları
 
 Web Platformu Yükleyicisi (Web PI) kullanarak ASP.NET MVC 3 RTM yüklemek için aşağıdaki sayfayı ziyaret edin:
 
-[https://www.microsoft.com/Web/Gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
+[https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3](https://www.microsoft.com/web/gallery/install.aspx?appid=MVC3)
 
 Alternatif olarak, yükleyici ASP.NET MVC 3 RTM için Visual Studio 2010 için aşağıdaki sayfasından yükleyebilirsiniz:
 
-https://go.microsoft.com/fwlink/?LinkId=208140
+https://go.microsoft.com/fwlink/?LinkID=208140
 
 ASP.NET MVC 3 yüklenebilir ve yan yana çalıştırabilirsiniz ASP.NET MVC 2.
 
@@ -141,7 +141,7 @@ ASP.NET MVC için belgeleri aşağıdaki URL'yi adresindeki MSDN Web sitesinde k
 
 Öğreticiler ve diğer bilgileri ASP.NET MVC hakkında ASP.NET Web sitesinin şu URL'de MVC sayfasında mevcuttur:
 
-[https://www.ASP.NET/MVC/](../mvc/index.md)
+[https://www.asp.net/mvc/](../mvc/index.md)
 
 <a id="support"></a>
 ## <a name="support"></a>Destek
@@ -150,7 +150,7 @@ Tam olarak desteklenen bir sürüme budur. Teknik destek alma hakkında daha faz
 
 Ayrıca, ASP.NET topluluk üyeleri sık resmi olmayan desteği sağlamak mümkün olduğu ASP.NET MVC forumuna bu sürüm hakkında sorularınızı çekinmeyin:
 
-[https://forums.ASP.NET/1146.aspx](https://forums.asp.net/1146.aspx)
+[https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)
 
 <a id="upgrading"></a>
 ## <a name="upgrading-an-aspnet-mvc-2-project-to-aspnet-mvc-3-tools-update"></a>Bir ASP.NET MVC 2 proje için ASP.NET MVC yükseltme 3 araçları güncelleştirme
@@ -163,7 +163,7 @@ El ile sürüm 3 varolan ASP.NET MVC 2 uygulamaya yükseltmek için aşağıdaki
 2. Aşağıdaki dosyalar ASP.NET MVC 3 projeden ASP.NET MVC 2 projenizin karşılık gelen konumuna kopyalayın. JQuery yeni dosya adı (jQuery-1.5.1.js) için hesap kitaplığa yönelik tüm başvuruları güncelleştirmeniz gerekir: 
 
     - /Views/Web.config
-    - /Packages.config
+    - /packages.config
     - /scripts/\*.js
     - /İçeriğe/Temalar/\*.\*
 3. Kopya *paketleri* çözümün .sln dosyasını bulunduğu dizindir çözümünüzü kökündeki boş ASP.NET MVC 3 proje çözüme kök klasöründe.
@@ -251,7 +251,7 @@ Yeni ASP.NET MVC 3 proje oluşturmak için kullandığınız iletişim kutusu, a
 
 Yeni bir Intranet uygulaması Şablonu proje şablonu listesi içerir. Bu şablon, form kimlik doğrulaması yerine Windows kimlik doğrulaması kullanan bir web uygulaması oluşturmaya yönelik ayarları içerir. Bir intranet uygulaması bir proje şablonu kapsüllenmiş bazı IIS ayarlarını gerektirdiğinden, şablon IIS'de iş proje şablonu yapma hakkında yönergeler içeren bir benioku dosyası içerir. Belgelerine şu URL'de MSDN Web sitesinde yeni bir Intranet uygulaması şablonu kullanılabilir:
 
-[https://msdn.microsoft.com/en-us/library/gg703322 (VS.98).aspx](https://msdn.microsoft.com/en-us/library/gg703322(VS.98).aspx)
+[https://msdn.microsoft.com/library/gg703322(VS.98).aspx](https://msdn.microsoft.com/library/gg703322(VS.98).aspx)
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Proje şablonları etkin HTML5 sunulmuştur
 
@@ -284,7 +284,7 @@ Kod önce Visual Basic veya C# ile yazılmış POCO sınıfları ("düz eski CLR
 
 Kod Firstwith ASP.NET MVC kullanarak belgelerine ASP.NET Web sitesinde aşağıdaki URL'ler edinilebilir:
 
-[https://www.ASP.NET/MVC/Tutorials/Getting-Started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+[https://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs](../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) [https://www.asp.net/entity-framework/tutorials/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application](../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 <a id="tu-JavaScriptLibsNuget"></a>
 ### <a name="project-templates-include-javascript-libraries-as-pre-installed-nuget-packages"></a>Proje şablonları JavaScript kitaplıklarını önceden yüklenmiş NuGet paketleri olarak içerir.
@@ -465,7 +465,7 @@ Bir hata where sabit *LabelFor* işlenen yöntemi bir *için* eşleşen öznitel
 - ASP.NET MVC önceki sürümleri, bazı durumlarda dışında istek başına eylem filtreleri oluşturuldu. Bu davranış hiçbir zaman garantili davranışı ancak yalnızca bir uygulama ayrıntılarını ve sözleşme filtreleri için durum bilgisiz dikkate alınması gereken olmuştur. ASP.NET MVC 3'te filtreleri daha agresif önbelleğe alınır. Bu nedenle, örnek durumu yanlış depolayan herhangi bir özel eylem filtre bozuk olabilir.
 - Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve daha önceki sürümlerde, aynı olan denetleyicisine özel durum filtreleri *sipariş* değeri gibi bir eylem yönteminin üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genellikle olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyici ilk yürütür ASP.NET MVC 3'te bu sırasını tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtilen, filtreler belirtilen sırada çalıştırılır.
 - Adlı yeni bir özellik *FileExtensions* eklendi *VirtualPathProviderViewEngine* temel sınıfı. ASP.NET (Ada göre değil) yoluyla bir görünüm göründüğünde, bu yeni özelliği tarafından belirtilen listesinde yer alan bir dosya uzantısı yalnızca görünümlerle olarak kabul edilir. Bir özel dosya uzantısı Web Form görünümleri için etkinleştirmek için bir özel derleme sağlayıcısı kayıtlı olduğu ve bir adı yerine bir tam yol kullanarak bu görünümler sağlayıcı başvuran uygulamalarında önemli bir değişiklik budur. Değerini değiştirmek için geçici bir çözüm değildir *FileExtensions* özel dosya uzantısını eklemeyi özelliği.
-- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulama sağlamalıdır *GetControllerSessionBehavior*  *Bu sürümde arabirimi eklendi yöntemi*. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
+- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulama sağlamalıdır *GetControllerSessionBehavior ** eklendi yöntemi Bu sürümde arabirimi*. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
@@ -519,7 +519,7 @@ Internet uygulaması. Üyelik sağlayıcısının ASP.NET MVC ile nasıl kullan�
 <a id="_Toc276711788"></a>
 ### <a name="sessionless-controllers"></a>Oturumsuz denetleyicileri
 
-Yeni *ControllerSessionStateAttribute* belirterek denetleyicileri için oturum durumu davranışı üzerinde daha fazla denetim sağlar bir [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/en-us/library/system.web.sessionstate.sessionstatebehavior.aspx) numaralandırma değeri.
+Yeni *ControllerSessionStateAttribute* belirterek denetleyicileri için oturum durumu davranışı üzerinde daha fazla denetim sağlar bir [System.Web.SessionState.SessionStateBehavior](https://msdn.microsoft.com/library/system.web.sessionstate.sessionstatebehavior.aspx) numaralandırma değeri.
 
 Aşağıdaki örnek, bir denetleyici için tüm istekler için oturum durumu devre dışı bırakmak üzere gösterilmiştir.
 
@@ -675,11 +675,11 @@ Yeni ASP.NET Web sayfaları teknolojinin yaygın olarak kullanılan işlevler g�
 | Şifreleme | Güvenlik ve parolaların karma algoritmaları düzgün bir şekilde oluşturmak için karma kullanır. |
 | WebGrid | Nesneler (genellikle, bir veritabanından veri) koleksiyonunu bir kılavuz işler. Disk belleği ve sıralama destekler. |
 | WebImage | Bir görüntü oluşturur. |
-| Web postası | Bir e-posta iletisi gönderir. |
+| WebMail | Bir e-posta iletisi gönderir. |
 
 Yardımcıları ve temel sözdizimi listeleyen bir hızlı başvuru konu kullanılabilir şu URL'de ASP.NET Razor sözdizimini belgelerinin bir parçası olarak:
 
-[https://www.ASP.NET/WebMatrix/Tutorials/ASP-NET-Web-Pages-api-Reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
 ### <a id="0.1__Toc274034220"></a>Ek bağımlılık ekleme desteği
 
@@ -744,7 +744,7 @@ ASP.NET MVC Ajax yardımcı yöntemler aşağıdaki gibi içerir:
 Bu yöntemler, tam geri gönderimin kullanmak yerine sunucu üzerinde bir eylem yöntemini çağırmak için JavaScript kullanır. Bu işlevsellik, jQuery örtük bir şekilde yararlanmak için güncelleştirilmiştir. Satır içi istemci komut dosyalarını intrusively yayma yerine bu yardımcı yöntemler davranışı biçimlendirmeden kullanarak HTML5 özniteliklerini yayma tarafından ayrı *veri ajax* öneki. Davranış, uygun JavaScript dosyaları başvurarak biçimlendirme sonra uygulanır. Şu JavaScript dosyaları başvurulduğundan emin olun:
 
 - JQuery 1.4.1.js
-- JQuery.unobtrusive.AJAX.js
+- jquery.unobtrusive.ajax.js
 
 Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkindir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz: [eklenen istemci doğrulama ve örtük JavaScript uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) belgesinde.
 
@@ -762,7 +762,7 @@ Ayrıca aşağıdaki JavaScript dosyaları başvurulduğundan emin olun.
 
 - JQuery 1.4.1.js
 - JQuery.Validate.js
-- JQuery.Validate.unobtrusive.js
+- jquery.validate.unobtrusive.js
 
 Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkinleştirilir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz: [istemci doğrulama ve örtük JavaScript için yeni uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) belgesinde.
 
@@ -800,7 +800,7 @@ Varsayılan olarak, kodda \_viewstart.cshtml dosya da uygulandığı herhangi bi
 
 Visual Basic söz dizimine VBHTML sayfalarında kullanmaya giriş bilgileri için aşağıdaki URL'de öğretici bakın:
 
-[https://www.ASP.NET/WebMatrix/Tutorials/ASP-NET-Web-Pages-Visual-Basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
+[https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
 ### <a id="0.1__Toc274034226"></a>ValidateInputAttribute üzerinde daha ayrıntılı denetim
 

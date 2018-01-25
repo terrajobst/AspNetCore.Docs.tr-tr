@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Ana sayfalar ve ASP.NET AJAX (C#)
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Son birkaç yıl içinde daha da fazla geliştiriciler oluşturma [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-web uygulamaları etkin. AJAX etkinleştirilmiş bir Web sitesi bir dizi ilgili web teknolojileri daha iyi yanıt bir kullanıcı deneyimi sunmak için kullanır. AJAX etkinleştirilmiş ASP.NET uygulamaları oluşturmak, Microsoft'un son derece kolay teşekkür olan [ASP.NET AJAX framework](../../../../ajax/index.md). ASP.NET AJAX, ASP.NET 3.5 ve Visual Studio 2008 yerleşik; ASP.NET 2.0 uygulamalar için ayrı bir yükleme olarak da kullanılabilir.
 
-Web sayfalarıyla AJAX etkinleştirilmiş ASP.NET AJAX framework oluştururken, tam olarak bir eklemelisiniz [ScriptManager denetimi](https://msdn.microsoft.com/en-us/library/bb398863.aspx) her sayfasına çerçevesi kullanır. Adından da anlaşılacağı gibi ScriptManager AJAX etkinleştirilmiş web sayfalarında kullanılan istemci tarafı komut dosyası yönetir. En azından bu oluşma şekli ASP.NET AJAX istemci kitaplığı JavaScript dosyalarını indirmek için tarayıcıyı yönlendirir HTML'yi ScriptManager gösterir. Ayrıca, özel JavaScript dosyaları, komut dosyası etkin web hizmetleri ve özel bir uygulama hizmeti işlevselliği kaydetmek için de kullanılabilir.
+Web sayfalarıyla AJAX etkinleştirilmiş ASP.NET AJAX framework oluştururken, tam olarak bir eklemelisiniz [ScriptManager denetimi](https://msdn.microsoft.com/library/bb398863.aspx) her sayfasına çerçevesi kullanır. Adından da anlaşılacağı gibi ScriptManager AJAX etkinleştirilmiş web sayfalarında kullanılan istemci tarafı komut dosyası yönetir. En azından bu oluşma şekli ASP.NET AJAX istemci kitaplığı JavaScript dosyalarını indirmek için tarayıcıyı yönlendirir HTML'yi ScriptManager gösterir. Ayrıca, özel JavaScript dosyaları, komut dosyası etkin web hizmetleri ve özel bir uygulama hizmeti işlevselliği kaydetmek için de kullanılabilir.
 
 (Gerektiği gibi), site kullandığı ana sayfa varsa, mutlaka her içerik sayfada bir ScriptManager denetimi eklemek gerekmez; Bunun yerine, ana sayfaya bir ScriptManager denetimi ekleyebilirsiniz. Bu öğretici, ana sayfaya ScriptManager denetimi eklemek gösterilmiştir. Ayrıca özel komut dosyaları ve komut dosyası Hizmetleri belirli bir içerik sayfasındaki kaydetmek üzere ScriptManagerProxy denetimi kullanmak nasıl bakar.
 
@@ -117,7 +117,7 @@ Northwind veritabanına bağlanmak için SqlDataSource denetimini yapılandırma
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-`TOP 1` Anahtar sözcük `SELECT` yan tümcesi yalnızca sorgu tarafından döndürülen ilk kaydı döndürür. [ `NEWID()` İşlevi](https://msdn.microsoft.com/en-us/library/ms190348.aspx) yeni bir oluşturur [genel benzersiz tanımlayıcı değeri (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) ve kullanılabilir bir `ORDER BY` rastgele sırayla tablonun kayıtları döndürmek için yan tümcesi.
+`TOP 1` Anahtar sözcük `SELECT` yan tümcesi yalnızca sorgu tarafından döndürülen ilk kaydı döndürür. [ `NEWID()` İşlevi](https://msdn.microsoft.com/library/ms190348.aspx) yeni bir oluşturur [genel benzersiz tanımlayıcı değeri (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) ve kullanılabilir bir `ORDER BY` rastgele sırayla tablonun kayıtları döndürmek için yan tümcesi.
 
 
 [![Bir tek, rasgele seçilen kaydı döndürülecek SqlDataSource yapılandırın](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)

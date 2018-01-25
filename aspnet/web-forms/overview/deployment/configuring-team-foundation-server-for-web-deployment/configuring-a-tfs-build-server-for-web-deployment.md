@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>TFS yapı sunucu için Web dağıtımı yapılandırma
 ====================
@@ -58,13 +58,13 @@ Yapı sunucusunu yapılandırdığınızda, ilk TFS Yapı hizmetini yüklemek ve
 - Oluşturma bir *yapı denetleyicisi* ve bir veya daha fazla *yapı aracıları*. Her bir yapı denetleyicisi yapı aracıları kümesini yönetir. Bir yapıyı sıraya al, yapı denetleyicisi derleme görevi kullanılabilir yapı aracıyı atar. Her TFS takım projesi koleksiyonunda tek bir yapı denetleyicisi için eşlenir.
 - Bırakma klasörü yapı çıktıları için yapılandırın. Bir ağ paylaşımına budur. Herhangi bir web dağıtımı paketleri gibi çıkışları derleme, bırakma klasörüne gönderilir.
 
-[Yönetme Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx) MSDN'de bölüm bu görevleri gerçekleştirmek için ihtiyacınız olan tüm kaynakları içerir:
+[Yönetme Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx) MSDN'de bölüm bu görevleri gerçekleştirmek için ihtiyacınız olan tüm kaynakları içerir:
 
-- Team Foundation derlemesi kavramsal bir genel yapı hizmeti, yapı denetleyicileri ve yapı aracıları, bkz: de dahil olmak üzere [bir Team Foundation Build System anlama](https://msdn.microsoft.com/en-us/library/dd793166.aspx).
-- Yükleme ve Yapılandırma hizmeti yapılandırma hakkında daha fazla bilgi için bkz: [bir yapı makinesini yapılandırma](https://msdn.microsoft.com/en-us/library/ms181712.aspx).
-- Yapı denetleyicisi oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve bir yapı denetleyicisi çalışmak](https://msdn.microsoft.com/en-us/library/ee330987.aspx).
-- Derleme aracıları oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve derleme aracıları ile çalışma](https://msdn.microsoft.com/en-us/library/bb399135.aspx).
-- Oluşturma ve açılan klasörleri yapılandırma hakkında daha fazla bilgi için bkz: [bırakma klasörleri yedeklemek ayarlamak](https://msdn.microsoft.com/en-us/library/bb778394.aspx).
+- Team Foundation derlemesi kavramsal bir genel yapı hizmeti, yapı denetleyicileri ve yapı aracıları, bkz: de dahil olmak üzere [bir Team Foundation Build System anlama](https://msdn.microsoft.com/library/dd793166.aspx).
+- Yükleme ve Yapılandırma hizmeti yapılandırma hakkında daha fazla bilgi için bkz: [bir yapı makinesini yapılandırma](https://msdn.microsoft.com/library/ms181712.aspx).
+- Yapı denetleyicisi oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve bir yapı denetleyicisi çalışmak](https://msdn.microsoft.com/library/ee330987.aspx).
+- Derleme aracıları oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve derleme aracıları ile çalışma](https://msdn.microsoft.com/library/bb399135.aspx).
+- Oluşturma ve açılan klasörleri yapılandırma hakkında daha fazla bilgi için bkz: [bırakma klasörleri yedeklemek ayarlamak](https://msdn.microsoft.com/library/bb778394.aspx).
 
 ## <a name="install-required-products-and-components"></a>Gerekli ürün ve bileşenlerini yükler
 
@@ -100,7 +100,7 @@ Ortak web platformu bileşenlerini yüklemek için en iyi yolu kullanmaktır [We
 7. İçinde **ASP.NET MVC 3 (Visual Studio 2010)** satır, tıklatın **Ekle**.
 8. Gezinti bölmesinde **Server**.
 9. İçinde **Web dağıtım aracı 2.1** satır, tıklatın **Ekle**.
-10. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri & #x 2014; herhangi bir ilişkili bağımlılıkları & #x 2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
+10. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 11. Lisans koşullarını gözden geçirin ve koşullarını kabul ederseniz tıklayın **kabul ediyorum**.
 12. Yükleme tamamlandığında, tıklatın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
 
@@ -114,7 +114,7 @@ Bu noktada, yapı sunucunuzu oluşturma ve web uygulama projeleri dağıtma baş
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Ekip ile çalışma hakkında daha fazla genel yönergeler için bkz [yönetme Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx).
+Ekip ile çalışma hakkında daha fazla genel yönergeler için bkz [yönetme Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](adding-content-to-source-control.md)

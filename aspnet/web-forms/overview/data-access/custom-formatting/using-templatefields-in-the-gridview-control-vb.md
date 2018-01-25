@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 014fb9fe5fb9fc1a7fe56441bd70e65cfe05862d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 337765988cc6ec92384bec09a72fd00505d9a039
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a>GridView denetiminde (VB) TemplateFields kullanma
 ====================
@@ -158,7 +158,7 @@ Bu ilk adımı tamamlamak için kaldırmak `LastName` BoundField ve yeniden adla
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>3. adım: görüntülenecek Takvim denetimi kullanarak`HiredDate`alan
 
-Bir veri alanı değeri metin GridView olarak görüntüleme bir BoundField kullanmanız yeterlidir. Bazı senaryolarda, ancak veri en iyi yalnızca metin yerine belirli bir Web denetimi kullanarak ifade edilir. Bu tür verilerin görünümünü özelleştirme TemplateFields ile mümkündür. Örneğin, bunun yerine metin olarak çalışan işe alma tarihi görüntüler küçük, bir takvim gösteriyoruz (kullanarak [Takvim denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) işe alma tarihlerine vurgulanır.
+Bir veri alanı değeri metin GridView olarak görüntüleme bir BoundField kullanmanız yeterlidir. Bazı senaryolarda, ancak veri en iyi yalnızca metin yerine belirli bir Web denetimi kullanarak ifade edilir. Bu tür verilerin görünümünü özelleştirme TemplateFields ile mümkündür. Örneğin, bunun yerine metin olarak çalışan işe alma tarihi görüntüler küçük, bir takvim gösteriyoruz (kullanarak [Takvim denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) işe alma tarihlerine vurgulanır.
 
 Bunu gerçekleştirmek için dönüştürerek Başlat `HiredDate` bir TemplateField içine BoundField. Sadece GridView'ın akıllı etiket gidin ve alanları iletişim kutusu getiren sütunları Düzenle bağlantısına tıklayın. Seçin `HiredDate` BoundField ve tıklatın "dönüştürme Bu alan TemplateField'a."
 
@@ -178,7 +178,7 @@ Metni Takvim denetimi ile değiştirmek için şablon etiketi kaldırarak ve bir
 **Şekil 12**: bir takvim denetimine ekleme `HireDate` TemplateField'ın `ItemTemplate` ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-gridview-control-vb/_static/image36.png))
 
 
-Bu noktada GridView her satırda bir Takvim denetimi içerecek kendi `HiredDate` TemplateField. Ancak, çalışan gerçek `HiredDate` değeri ayarlanmazsa herhangi bir yerden her Takvim denetimi tarih ve geçerli ay gösteren için varsayılan neden Takvim denetimi. Bu sorunu gidermek için her çalışanın atamak ihtiyacımız `HiredDate` Takvim denetiminin için [SelectedDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) ve [VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) özellikleri.
+Bu noktada GridView her satırda bir Takvim denetimi içerecek kendi `HiredDate` TemplateField. Ancak, çalışan gerçek `HiredDate` değeri ayarlanmazsa herhangi bir yerden her Takvim denetimi tarih ve geçerli ay gösteren için varsayılan neden Takvim denetimi. Bu sorunu gidermek için her çalışanın atamak ihtiyacımız `HiredDate` Takvim denetiminin için [SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) ve [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) özellikleri.
 
 Takvim denetim akıllı etiketten veri bağlamaları Düzenle seçin. Ardından, her ikisini bağlamak `SelectedDate` ve `VisibleDate` özelliklerine `HiredDate` veri alanı.
 

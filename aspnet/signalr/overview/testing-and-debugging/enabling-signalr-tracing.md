@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 2f01ab5d66e44cd82634f1b3df1ca6c78b7fd9d5
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: ac979acf162084a195bb769f842e77ad2498c7f3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="enabling-signalr-tracing"></a>SignalR izlemeyi etkinleştirme
 ====================
@@ -61,7 +61,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 <a id="server"></a>
 ## <a name="enabling-tracing-on-the-server"></a>Sunucunun izlemeyi etkinleştirme
 
-Sunucu uygulamanın yapılandırma dosyasına (App.config veya Web.config proje türüne bağlı olarak.) içinde izlemeyi etkinleştir Kategorilerini olayların günlüğe kaydetmek istediğiniz belirtin. Yapılandırma dosyasında da mi bir metin dosyasına, Windows olay günlüğü veya uygulaması kullanarak özel bir günlük olaylarını günlüğe kaydedecek şekilde belirtmeniz [TraceListener](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelistener(v=vs.110).aspx).
+Sunucu uygulamanın yapılandırma dosyasına (App.config veya Web.config proje türüne bağlı olarak.) içinde izlemeyi etkinleştir Kategorilerini olayların günlüğe kaydetmek istediğiniz belirtin. Yapılandırma dosyasında da mi bir metin dosyasına, Windows olay günlüğü veya uygulaması kullanarak özel bir günlük olaylarını günlüğe kaydedecek şekilde belirtmeniz [TraceListener](https://msdn.microsoft.com/library/system.diagnostics.tracelistener(v=vs.110).aspx).
 
 Sunucu olay kategorileri iletilerinin aşağıdaki sıralar içerir:
 
@@ -87,7 +87,7 @@ Aşağıdaki kod, her olay kategorisi izlemeyi etkinleştirmek gösterilmiştir.
 
 [!code-html[Main](enabling-signalr-tracing/samples/sample1.html)]
 
-Yukarıdaki kod `SignalRSwitch` girişi belirtir [TraceLevel](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracelevel(v=vs.110).aspx) belirtilen günlük gönderilen olaylar için kullanılır. Bu durumda, kümesine `Verbose` yani tüm hata ayıklama ve izleme iletilerini günlüğe kaydedilir.
+Yukarıdaki kod `SignalRSwitch` girişi belirtir [TraceLevel](https://msdn.microsoft.com/library/system.diagnostics.tracelevel(v=vs.110).aspx) belirtilen günlük gönderilen olaylar için kullanılır. Bu durumda, kümesine `Verbose` yani tüm hata ayıklama ve izleme iletilerini günlüğe kaydedilir.
 
 Aşağıdaki çıkış girişlerinden gösterir `transports.log.txt` Yukarıdaki yapılandırma dosyası kullanarak bir uygulamanın dosyası. Yeni bir gösterir bağlantı, bağlantı kaldırıldı ve aktarım sinyal olaylar.
 
@@ -112,9 +112,9 @@ Olayların uygulama günlüğüne kaydedilir ve aşağıda gösterildiği gibi O
 <a id="net_client"></a>
 ## <a name="enabling-tracing-in-the-net-client-windows-desktop-apps"></a>.NET istemci (Windows Masaüstü uygulamaları) izlemeyi etkinleştirme
 
-.NET istemci olayları konsolu, bir metin dosyası veya uygulaması kullanarak özel bir günlük oturum [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx).
+.NET istemci olayları konsolu, bir metin dosyası veya uygulaması kullanarak özel bir günlük oturum [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx).
 
-.NET istemci günlüğe kaydetmeyi etkinleştirmek için bağlantının ayarlayın `TraceLevel` özelliğine bir [TraceLevels](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx) değeri ve `TraceWriter` özelliğine geçerli bir [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter.aspx) örneği.
+.NET istemci günlüğe kaydetmeyi etkinleştirmek için bağlantının ayarlayın `TraceLevel` özelliğine bir [TraceLevels](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.tracelevels(v=vs.118).aspx) değeri ve `TraceWriter` özelliğine geçerli bir [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) örneği.
 
 <a id="desktop_console"></a>
 ### <a name="logging-desktop-client-events-to-the-console"></a>Konsola masaüstü istemcisi olayları günlüğe kaydetme
@@ -137,23 +137,23 @@ Aşağıdaki çıkış girişlerinden gösterir `ClientLog.txt` Yukarıdaki yap�
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 istemcilerinde izlemeyi etkinleştirme
 
-SignalR uygulamalarını Windows Phone uygulamaları için aynı .NET istemcisi Masaüstü uygulamaları kullan ancak [Console.Out](https://msdn.microsoft.com/en-us/library/system.console.out(v=vs.110).aspx) ve bir dosyaya yazma [StreamWriter](https://msdn.microsoft.com/en-us/library/system.io.streamwriter(v=vs.110).aspx) kullanılabilir değil. Bunun yerine, özel bir uygulamasını oluşturmak için gereken [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) izleme. 
+SignalR uygulamalarını Windows Phone uygulamaları için aynı .NET istemcisi Masaüstü uygulamaları kullan ancak [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) ve bir dosyaya yazma [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) kullanılabilir değil. Bunun yerine, özel bir uygulamasını oluşturmak için gereken [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) izleme. 
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>Windows Phone istemci olayları günlüğe kaydetmeyi için kullanıcı Arabirimi
 
-[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip) İzleme çıktısı Yazar bir Windows Phone örneği içeren bir [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) özel kullanarak [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) adlı uygulama `TextBlockWriter`. Bu sınıf bulunabilir **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples** projesi. Bir örneğini oluştururken `TextBlockWriter`, geçerli geçirmek [SynchronizationContext](https://msdn.microsoft.com/en-us/library/system.threading.synchronizationcontext(v=vs.110).aspx)ve bir [StackPanel](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) , burada oluşturacak bir [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) izlemesi kullanmak için Çıktı:
+[SignalR codebase](https://github.com/SignalR/SignalR/archive/master.zip) İzleme çıktısı Yazar bir Windows Phone örneği içeren bir [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) özel kullanarak [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) adlı uygulama `TextBlockWriter`. Bu sınıf bulunabilir **samples/Microsoft.AspNet.SignalR.Client.WP8.Samples** projesi. Bir örneğini oluştururken `TextBlockWriter`, geçerli geçirmek [SynchronizationContext](https://msdn.microsoft.com/library/system.threading.synchronizationcontext(v=vs.110).aspx)ve bir [StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) , burada oluşturacak bir [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) izlemesi kullanmak için Çıktı:
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample7.cs)]
 
-İzleme çıkışının sonra yeni bir yazılır [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) oluşturulan [StackPanel](https://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) içinde geçirilen:
+İzleme çıkışının sonra yeni bir yazılır [TextBlock](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.textblock.aspx) oluşturulan [StackPanel](https://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.stackpanel.aspx) içinde geçirilen:
 
 ![](enabling-signalr-tracing/_static/image2.png)
 
 <a id="phone_debug"></a>
 ### <a name="logging-windows-phone-client-events-to-the-debug-console"></a>Hata ayıklama konsoluna Windows Phone istemci olayları günlüğe kaydetme
 
-Kullanıcı Arabirimi yerine hata ayıklama konsoluna çıkış göndermek için uygulaması oluşturma [TextWriter](https://msdn.microsoft.com/en-us/library/system.io.textwriter(v=vs.110).aspx) , hata ayıklama penceresine yazar ve, bağlantının atamak [TraceWriter](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx) özelliği:
+Kullanıcı Arabirimi yerine hata ayıklama konsoluna çıkış göndermek için uygulaması oluşturma [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) , hata ayıklama penceresine yazar ve, bağlantının atamak [TraceWriter](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connection.tracewriter(v=vs.118).aspx) özelliği:
 
 [!code-csharp[Main](enabling-signalr-tracing/samples/sample8.cs)]
 

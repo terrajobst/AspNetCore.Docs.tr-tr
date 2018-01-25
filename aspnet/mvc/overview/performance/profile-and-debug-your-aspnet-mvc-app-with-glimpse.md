@@ -12,23 +12,23 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 98b21a54ba00a8c82c3be7ba4e39d44041ed42c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profil ve Glimpse'in ile ASP.NET MVC uygulamanızın hatalarını ayıklama
 ====================
 Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Glimpse'in bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET uygulamaları için ' dir. Önemsiz yüklemek için basit, son derece hızlı ve temel performans ölçümlerini her sayfasının en altında görüntülenir. Sunucuda neler olduğunu öğrenmek gerektiğinde uygulamanıza detaya imkan tanır. Glimpse'in Azure test ortamınızı dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/en-us/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse'in sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici Glimpse'in ASP.NET MVC ve EF paketleri kullanarak odaklanır, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda ı uygun bağlayacaksınız [Glimpse'in belgeleri](http://getglimpse.com/Docs/) hangi korunmasına yardımcı. Glimpse'in açık kaynaklı proje, kaynak kodu ve belgeler için çok katkıda bulunabilir.
+> Glimpse'in bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET uygulamaları için ' dir. Önemsiz yüklemek için basit, son derece hızlı ve temel performans ölçümlerini her sayfasının en altında görüntülenir. Sunucuda neler olduğunu öğrenmek gerektiğinde uygulamanıza detaya imkan tanır. Glimpse'in Azure test ortamınızı dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse'in sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici Glimpse'in ASP.NET MVC ve EF paketleri kullanarak odaklanır, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda ı uygun bağlayacaksınız [Glimpse'in belgeleri](http://getglimpse.com/Docs/) hangi korunmasına yardımcı. Glimpse'in açık kaynaklı proje, kaynak kodu ve belgeler için çok katkıda bulunabilir.
 
 
 - [Yükleme bakışta](#ig)
 - [Localhost için Glimpse'in etkinleştir](#eg)
 - [Zaman Çizelgesi sekmesi](#Time)
-- [Model bağlama](#mb)
+- [Model Bağlamaları](#mb)
 - [Yollar](#route)
 - [Azure üzerinde Glimpse'in kullanma](#da)
 - [Ek kaynaklar](#addRes)
@@ -93,7 +93,7 @@ Ayrıntılı zamanlama bilgilerini almak için zaman diliminin getirin:
 ![ayrıntılı zamanlama görmek için vurgulu](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image10.png)
 
 <a id="mb"></a>
-## <a name="model-binding"></a>Model bağlama
+## <a name="model-binding"></a>Model Binding
 
 [Model bağlama sekmesini](http://getglimpse.com/Docs/Model-Binding-Tab) bol miktarda form değişkeni nasıl bağlı ve beklediğiniz gibi neden bazı bağlı olmayan anlamanıza yardımcı olacak bilgiler sağlar. Görüntünün gösterir aşağıda **?** simge özellik glimpse'in Yardım sayfasını getirmek için tıklatabilirsiniz.
 
@@ -113,7 +113,7 @@ Glimpse'in varsayılan güvenlik ilkesi, yalnızca yerel ana bilgisayardan gör�
 
 Bu değişiklik tek başına, herhangi bir kullanıcı, uzak bir siteye Glimpse'in verilerinizi görebilirsiniz. Bu yayımlama profili (örneğin, Azure test proifle.) kullandığınızda, yalnızca bir uygulanan dağıtıldığını şekilde biçimlendirme yukarıda bir yayımlama profili eklemeyi düşünün Glimpse'in verileri kısıtlamak için ekleyeceğiz `canViewGlimpseData` rolü ve yalnızca kullanıcıların Glimpse'in verileri görüntülemek için bu rolde verin.
 
-Açıklamayı kaldırma *GlimpseSecurityPolicy.cs* dosya ve değişiklik [IsInRole](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) çağırmanıza `Administrator` için `canViewGlimpseData` rol:
+Açıklamayı kaldırma *GlimpseSecurityPolicy.cs* dosya ve değişiklik [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) çağırmanıza `Administrator` için `canViewGlimpseData` rol:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
@@ -121,10 +121,10 @@ Açıklamayı kaldırma *GlimpseSecurityPolicy.cs* dosya ve değişiklik [IsInRo
 > Güvenlik - Glimpse'in tarafından sağlanan zengin verileri, uygulamanızın güvenlik geçmesine neden olabilir. Microsoft, üretim uygulamalarını kullanmak için bir bakışta, güvenlik denetimini gerçekleştirmediği.
 
 
-Rol ekleme hakkında daha fazla bilgi için bkz: my [Güvenli ASP.NET MVC 5 web uygulaması üyeliği, OAuth ve SQL veritabanı ile Azure'a dağıtma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Öğreticisi.
+Rol ekleme hakkında daha fazla bilgi için bkz: my [Güvenli ASP.NET MVC 5 web uygulaması üyeliği, OAuth ve SQL veritabanı ile Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) Öğreticisi.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Güvenli ASP.NET MVC 5 uygulama üyeliği, OAuth ve SQL veritabanı ile Azure'a dağıtma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Güvenli ASP.NET MVC 5 uygulama üyeliği, OAuth ve SQL veritabanı ile Azure'a dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 - [Glimpse'in yapılandırma](http://getglimpse.com/Docs/Configuration) -sekmeler, çalışma zamanı İlkesi, günlüğe kaydetme ve daha fazla yapılandırma belge sayfası.

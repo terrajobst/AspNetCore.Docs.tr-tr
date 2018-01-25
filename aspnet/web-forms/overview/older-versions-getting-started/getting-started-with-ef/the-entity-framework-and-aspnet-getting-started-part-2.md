@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 2
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -35,7 +35,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Bu uygulamada, giriş doğrulaması veritabanını güncelleştiren sayfalara ekleme olmaz ve hata işleme bazıları bir üretim uygulamasında gerekli olacak şekilde sağlam olmaz unutmayın. Entity Framework üzerine odaklanan öğretici tutar ve uzun bulaşmasından tutar. Bu özellikler, uygulamanıza ekleme hakkında daha fazla bilgi için bkz [kullanıcı girişini doğrulama ASP.NET Web Pages'de](https://msdn.microsoft.com/en-us/library/7kh55542.aspx) ve [hata işleme ASP.NET sayfaları ve uygulamaları](https://msdn.microsoft.com/en-us/library/w16865z6.aspx).
+Bu uygulamada, giriş doğrulaması veritabanını güncelleştiren sayfalara ekleme olmaz ve hata işleme bazıları bir üretim uygulamasında gerekli olacak şekilde sağlam olmaz unutmayın. Entity Framework üzerine odaklanan öğretici tutar ve uzun bulaşmasından tutar. Bu özellikler, uygulamanıza ekleme hakkında daha fazla bilgi için bkz [kullanıcı girişini doğrulama ASP.NET Web Pages'de](https://msdn.microsoft.com/library/7kh55542.aspx) ve [hata işleme ASP.NET sayfaları ve uygulamaları](https://msdn.microsoft.com/library/w16865z6.aspx).
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>Ekleme ve EntityDataSource denetimi yapılandırma
 
@@ -157,13 +157,13 @@ Biçimlendirme için `EntityDataSource` denetlemek, Kaldır `ConnectionString` v
 
 - Daha iyi performans. Zaman `EntityDataSource` denetim başlatan veri modelini kullanarak `ConnectionString` ve `DefaultContainerName` öznitelikleri, her istekte meta veri yüklemek için başka çalışma gerçekleştirir. Bu belirtirseniz gerekli değildir `ContextTypeName` özniteliği.
 - Yavaş yükleniyor açık varsayılan olarak oluşturulan nesne bağlamı sınıfları (gibi `SchoolEntities` bu öğreticideki) Entity Framework 4. 0'ı. Bu, sağ gerektiğinde gezinti özellikleri ile ilgili veriler otomatik olarak yüklenmesini anlamına gelir. Yavaş yükleniyor Bu öğreticinin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmıştır.
-- Nesne bağlamı sınıfına uyguladığınız özelleştirmeler (Bu durumda, `SchoolEntities` sınıfı) kullanan denetimler için kullanılabilir olacak `EntityDataSource` denetim. Nesne bağlamı sınıfı özelleştirme Bu öğretici serisinde kapsanmayan Gelişmiş bir konudur. Daha fazla bilgi için bkz: [Entity Framework oluşturulan türleri genişletme](https://msdn.microsoft.com/en-us/library/dd456844.aspx).
+- Nesne bağlamı sınıfına uyguladığınız özelleştirmeler (Bu durumda, `SchoolEntities` sınıfı) kullanan denetimler için kullanılabilir olacak `EntityDataSource` denetim. Nesne bağlamı sınıfı özelleştirme Bu öğretici serisinde kapsanmayan Gelişmiş bir konudur. Daha fazla bilgi için bkz: [Entity Framework oluşturulan türleri genişletme](https://msdn.microsoft.com/library/dd456844.aspx).
 
 İşaretleme şimdi (özelliklerin sırasını farklı olabilir) aşağıdaki örnek benzeyecektir:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-`EnableFlattening` Yabancı anahtar sütunları varlık özellikleri ortaya değil çünkü Entity Framework'ün önceki sürümlerde gerekli bir özellik için öznitelik başvuruyor. Geçerli sürüm kullanmayı mümkün kılar *yabancı anahtar ilişkileri*, yabancı anahtar özellikleri başka bir deyişle, tüm ancak çok-çok ilişkileri sunulur. Varlıklarınızı yabancı anahtar özellikleri ve no varsa [karmaşık türler](https://msdn.microsoft.com/en-us/library/bb738472.aspx), bu öznitelik ayarlanırsa bırakabilirsiniz `False`. Varsayılan değer olduğundan, öznitelik biçimlendirmeden kaldırmayın `True`. Daha fazla bilgi için bkz: [düzleştirme nesneleri (EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx).
+`EnableFlattening` Yabancı anahtar sütunları varlık özellikleri ortaya değil çünkü Entity Framework'ün önceki sürümlerde gerekli bir özellik için öznitelik başvuruyor. Geçerli sürüm kullanmayı mümkün kılar *yabancı anahtar ilişkileri*, yabancı anahtar özellikleri başka bir deyişle, tüm ancak çok-çok ilişkileri sunulur. Varlıklarınızı yabancı anahtar özellikleri ve no varsa [karmaşık türler](https://msdn.microsoft.com/library/bb738472.aspx), bu öznitelik ayarlanırsa bırakabilirsiniz `False`. Varsayılan değer olduğundan, öznitelik biçimlendirmeden kaldırmayın `True`. Daha fazla bilgi için bkz: [düzleştirme nesneleri (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
 Sayfayı çalıştırın ve öğrenciler ve Çalışanlar (yalnızca Öğrenciler için sonraki öğreticide filtrelemenize) listesini görürsünüz. Ad ve Soyadı birlikte görüntülenir.
 

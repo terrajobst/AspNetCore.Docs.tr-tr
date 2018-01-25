@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici seri tarafından oluşturulan Contoso University web uygulaması üzerinde derlemeler [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticileri tamamlanmadı, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici seri tarafından oluşturulur. Öğreticiler hakkında sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
 
@@ -74,7 +74,7 @@ Depo sınıfını başvuru tutan sınıfı değişkeni bir arabirim türü tanı
 Depo sınıfını ve iki oluşturucular çağıran CRUD yöntemlerini seçtiğiniz arka uç veri deposuyla iş mantığı sınıfını kullanmak mümkün kılar. İş mantığı sınıfı çağırma sınıf verileri nasıl devam haberdar olmanız gerekmez. (Bu adlandırılırlar *Kalıcılık kullanmayan*.) Bir şey basit kullanan bir depo uygulaması için iş mantığı sınıfı bağlanabildiğinden bu kolaylaştıran birim testi, bellek içi olarak `List` verileri depolamak için koleksiyonları.
 
 > [!NOTE]
-> Teknik olarak, Entity Framework'ın devral sınıflardan örneği için varlık nesnesi hala değil Kalıcılık-kullanmayan, `EntityObject` sınıfı. Tam Kalıcılık kullanmayan için kullandığınız *düz eski CLR nesnelerini*, veya *POCOs*, devralınan nesneleri yerine `EntityObject` sınıfı. POCOs kullanarak Bu öğretici kapsamında değildir. Daha fazla bilgi için bkz: [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) MSDN Web sitesinde.)
+> Teknik olarak, Entity Framework'ın devral sınıflardan örneği için varlık nesnesi hala değil Kalıcılık-kullanmayan, `EntityObject` sınıfı. Tam Kalıcılık kullanmayan için kullandığınız *düz eski CLR nesnelerini*, veya *POCOs*, devralınan nesneleri yerine `EntityObject` sınıfı. POCOs kullanarak Bu öğretici kapsamında değildir. Daha fazla bilgi için bkz: [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) MSDN Web sitesinde.)
 
 
 Bağlayabilirsiniz artık `ObjectDataSource` iş mantığı denetimlere depoya sınıfı yerine ve önce yaptığınız gibi her şeyi çalıştığını doğrulayın.
@@ -221,7 +221,7 @@ Aşağıdaki olay işleyicisini ekleyin:
 
 Artık test *DepartmentsAdd.aspx.cs* , aynı zamanda doğru kişi birden fazla bölüm yönetici yapma denemelerini işleme doğrulamak için sayfa.
 
-Bu depo düzenini kullanarak için uygulama giriş tamamlar `ObjectDataSource` denetimi Entity Framework ile. Depo düzeni ve Test Edilebilirlik hakkında daha fazla bilgi için MSDN teknik incelemesine bakın [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx).
+Bu depo düzenini kullanarak için uygulama giriş tamamlar `ObjectDataSource` denetimi Entity Framework ile. Depo düzeni ve Test Edilebilirlik hakkında daha fazla bilgi için MSDN teknik incelemesine bakın [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
 Aşağıdaki öğreticide sıralama ve filtreleme uygulamaya işlevselliği ekleme görürsünüz.
 

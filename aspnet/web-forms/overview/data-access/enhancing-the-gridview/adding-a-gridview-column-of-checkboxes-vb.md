@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 326201f9fe9ba5f482308dc8bfd7d2decb9fbd8f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468f7e0c142fa432e58d4c686dd79d3b38612ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Onay kutularını (VB) GridView sütunun ekleme
 ====================
@@ -100,7 +100,7 @@ Eklenen TemplateField ve onay kutusu Web denetimi ile her satır bir onay kutusu
 
 Bu noktada onay kutularını ancak hiçbir şekilde geri göndermede hangi onay kutularını işaretlenmedi belirlemek için bir sütun vardır. Ancak, seçilen ürünleri Sil düğmesine tıklandığında, biz hangi onay kutularını bu ürünlerden silmek için işaretlenmedi bilmeniz gerekir.
 
-GridView s [ `Rows` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx) GridView veri satırları erişim sağlar. Bu satırlar yinelemek programlı erişim onay kutusu denetimi ve ardından bakın, `Checked` onay kutusunun seçili olup olmadığını belirlemek için özellik.
+GridView s [ `Rows` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) GridView veri satırları erişim sağlar. Bu satırlar yinelemek programlı erişim onay kutusu denetimi ve ardından bakın, `Checked` onay kutusunun seçili olup olmadığını belirlemek için özellik.
 
 İçin bir olay işleyicisi oluşturun `DeleteSelectedProducts` düğmesi Web denetimi s `Click` olay ve aşağıdaki kodu ekleyin:
 

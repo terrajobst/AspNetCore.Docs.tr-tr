@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0db9bf25ce61c31dd8258aaebadf42e7738473ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eae9c07eff7780aab18346815ca410d687789d17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-vb"></a>Ana/ayrıntı seçilebilir ana GridView ayrıntıları DetailView (VB) ile kullanma
 ====================
@@ -39,7 +39,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>1. adım: seçilebilir GridView oluşturma
 
-Her ana kayıt köprü dahil rapor, iki sayfalık ana/ayrıntı geri çağırma, tıklatıldığında, kullanıcı tıklatılan sıranın geçirme Ayrıntılar sayfası gönderilen `SupplierID` sorgu dizesi değeri. Bu tür bir köprü bir HyperLinkField kullanarak her GridView satır eklendi. Tek sayfa ana/Ayrıntılar rapor için ihtiyacımız her GridView satır, tıklatıldığında bir düğme ayrıntılarını gösterir. GridView denetimi geri gönderimin neden olur ve bu satırın GridView 's işaretler her satır için Seç düğmesini içerecek biçimde yapılandırılabilir [SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
+Her ana kayıt köprü dahil rapor, iki sayfalık ana/ayrıntı geri çağırma, tıklatıldığında, kullanıcı tıklatılan sıranın geçirme Ayrıntılar sayfası gönderilen `SupplierID` sorgu dizesi değeri. Bu tür bir köprü bir HyperLinkField kullanarak her GridView satır eklendi. Tek sayfa ana/Ayrıntılar rapor için ihtiyacımız her GridView satır, tıklatıldığında bir düğme ayrıntılarını gösterir. GridView denetimi geri gönderimin neden olur ve bu satırın GridView 's işaretler her satır için Seç düğmesini içerecek biçimde yapılandırılabilir [SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
 
 GridView denetimine eklemeye başlayın `DetailsBySelecting.aspx` sayfasındaki `Filtering` ayarı klasörü, kendi `ID` özelliğine `ProductsGrid`. Adlı yeni bir ObjectDataSource ekleyeceğimize `AllProductsDataSource` , çağırır `ProductsBLL` sınıfının `GetProducts()` yöntemi.
 
@@ -85,7 +85,7 @@ Seçim etkinleştirme seçeneği denetimi ekler için CommandField `ProductsGrid
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb/samples/sample2.aspx)]
 
-GridView satırın Seç düğmesine tıklandığında geri gönderimin ensues ve GridView's `SelectedRow` özelliği güncelleştirilir. Ek olarak `SelectedRow` GridView özelliği sağlar [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), ve [SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) özellikleri. `SelectedIndex` Özelliği, ancak seçilen satırın dizinini döndürür `SelectedValue` ve `SelectedDataKey` özellikleri dönüş değerleri GridView ait temel [DataKeyNames özelliğini](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
+GridView satırın Seç düğmesine tıklandığında geri gönderimin ensues ve GridView's `SelectedRow` özelliği güncelleştirilir. Ek olarak `SelectedRow` GridView özelliği sağlar [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), ve [SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) özellikleri. `SelectedIndex` Özelliği, ancak seçilen satırın dizinini döndürür `SelectedValue` ve `SelectedDataKey` özellikleri dönüş değerleri GridView ait temel [DataKeyNames özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
 
 `DataKeyNames` Özelliği bir ilişkilendirmek için kullanılır veya daha fazla veri alan değerleri her satırın ve her GridView satır temel alınan verilerle benzersiz şekilde tanımlayan bilgileri özniteliği için yaygın olarak kullanılır. `SelectedValue` Özelliği ilk değerini döndürür `DataKeyNames` seçili olan satır için veri alanı olarak nereye `SelectedDataKey` özelliği döndürür seçilen sıranın `DataKey` tüm için belirtilen veri anahtar alanları için değerleri içeren nesne Bu satır.
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 1f19d54a5f2679f790575d520b28472d4ff3233f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -52,7 +52,7 @@ SQL Server sürümleri hakkında daha fazla bilgi için aşağıdaki kaynaklara 
 Veritabanı erişimi için Contoso University uygulama .NET Framework dahil edilmediğinden, uygulama ile dağıtılması gereken aşağıdaki yazılımı gerektirir:
 
 - [ASP.NET Evrensel Sağlayıcılar](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (Azure SQL veritabanını kullanmak ASP.NET üyelik sistemini etkinleştirir)
-- [Varlık Çerçevesi](https://msdn.microsoft.com/en-us/library/gg696172.aspx)
+- [Varlık Çerçevesi](https://msdn.microsoft.com/library/gg696172.aspx)
 
 Bu yazılım NuGet paketlerine dahil olduğundan, böylece gerekli derlemeleri proje ile dağıtılan projeyi zaten ayarlanmış. (Bu öğretici için indirdiğiniz starter projesinde yüklenenler daha yeni olabilir bu paketleri güncel sürümleri için bağlantı noktası.)
 
@@ -171,12 +171,12 @@ Burada çok, genellikle aynı veri geliştirme sahip üretim istemediğiniz. Bir
 Test ortamı ve hazırlama ve üretim üretim kullanıcılara geliştirme kullanıcılara dağıtacaksınız. Bunu yapmak için Bu öğretici, bir geliştirme ve üretim için iki SQL komut dosyası oluşturacaksınız ve sonraki öğreticileri, bunları çalıştırmak için yayımlama işlemi yapılandıracaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/en-us/library/system.web.configuration.machinekeysection.aspx)**  Web.config dosyasında öğesi.
+> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Web.config dosyasında öğesi.
 
 
 SQL Server Management Studio (SSMS) kullanarak veya bir üçüncü taraf aracı kullanarak, veri dağıtım betikleri el ile oluşturabilirsiniz. Bu öğreticinin bu kalan SSMS yapmak nasıl yapacağınızı gösterir, ancak yükleyip SSMS kullanmak istemiyorsanız, proje tamamlanmış sürümünden komut dosyalarını almak ve çözüm klasöründe depoladığınız bölümüne atlayın.
 
-SSMS yüklemek için buradan yükleyin [İndirme Merkezi: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) tıklayarak [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) veya [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Yanlış bir seçerseniz sisteminizi yükleme başarısız olur ve diğerinde deneyebilirsiniz.
+SSMS yüklemek için buradan yükleyin [İndirme Merkezi: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) tıklayarak [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) veya [ ENU\x86\SQLManagementStudio\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe). Yanlış bir seçerseniz sisteminizi yükleme başarısız olur ve diğerinde deneyebilirsiniz.
 
 (Bu 600 megabayt indirme olduğuna dikkat edin. İçin uzun bir süre devam edebilir yükleyin ve bilgisayarınızı yeniden başlatılması gerekir.)
 
@@ -229,9 +229,9 @@ Her iki veritabanı, dağıtılmaya hazırdır ve çözüm klasöründe iki veri
 
 Aşağıdaki öğreticide dağıtım etkileyen proje ayarlarını yapılandırmak ve otomatik ayarlama *Web.config* dosya dönüştürmeleri için Dağıtılmış uygulamada farklı ayarlar.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
-NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için bkz: [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için bkz: [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Önceki](introduction.md)

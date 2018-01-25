@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: ebace10dc8a861ab38bd5c834c2225e3373f13fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-data-access-layer"></a>Veri erişim katmanı oluşturma
 ====================
@@ -43,7 +43,7 @@ Bu öğretici, oluşturma, erişim ve ASP.NET Web Forms ve Entity Framework Code
 
 ## <a name="creating-the-data-models"></a>Veri modelleri oluşturma
 
-[Entity Framework](https://msdn.microsoft.com/en-us/data/aa937723) bir nesne ilişkisel eşleme (ORM) çerçevedir. Genellikle yazma gerekir veri erişimi kod çoğunu ortadan nesneler olarak ilişkisel verilerle çalışmanıza olanak sağlar. Entity Framework kullanarak, kullanarak sorguları yayınlayabilirsiniz [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx), ardından almak ve veri güçlü şekilde yazılan nesnelerin olarak değiştirmek. LINQ sorgulama ve verileri güncelleştirme desenleri sağlar. Entity Framework kullanarak, rest, uygulamanızın oluşturma yerine verilere erişimi temelleri odaklanan odaklanmanıza olanak sağlar. Öğretici serisinde daha sonra bu verileri gezinti ve ürün sorguları doldurmak için nasıl kullanılacağını göstereceğiz.
+[Entity Framework](https://msdn.microsoft.com/data/aa937723) bir nesne ilişkisel eşleme (ORM) çerçevedir. Genellikle yazma gerekir veri erişimi kod çoğunu ortadan nesneler olarak ilişkisel verilerle çalışmanıza olanak sağlar. Entity Framework kullanarak, kullanarak sorguları yayınlayabilirsiniz [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), ardından almak ve veri güçlü şekilde yazılan nesnelerin olarak değiştirmek. LINQ sorgulama ve verileri güncelleştirme desenleri sağlar. Entity Framework kullanarak, rest, uygulamanızın oluşturma yerine verilere erişimi temelleri odaklanan odaklanmanıza olanak sağlar. Öğretici serisinde daha sonra bu verileri gezinti ve ürün sorguları doldurmak için nasıl kullanılacağını göstereceğiz.
 
 Entity Framework destekleyen adlı bir geliştirme standardı *Code First*. Kod ilk sınıflarını kullanarak, veri modelleri tanımlamanıza olanak sağlar. Bir sınıf, kendi özel türler değişkenleri diğer türleri, yöntemleri ve olayları bir arada gruplandırma tarafından oluşturmanıza olanak sağlayan bir yapıdır. Map sınıfları varolan bir veritabanını veya bunları bir veritabanı oluşturmak için kullanın. Bu öğreticide, veri modeli sınıflarını yazarak veri modelleri oluşturacaksınız. Ardından, bu yeni sınıflardan kolay bir şekilde veritabanı oluşturma Entity Framework bildiririz.
 
@@ -181,11 +181,11 @@ Sonraki öğreticide UI güncelleştirmesi, gezinti ekleyin ve veritabanından v
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Entity Framework genel bakış](https://msdn.microsoft.com/en-us/library/bb399567.aspx)   
-[ADO.NET Entity Framework Başlangıç Kılavuzu](https://msdn.microsoft.com/en-us/data/ee712907)   
+[Entity Framework genel bakış](https://msdn.microsoft.com/library/bb399567.aspx)   
+[ADO.NET Entity Framework Başlangıç Kılavuzu](https://msdn.microsoft.com/data/ee712907)   
 [İlk geliştirme Entity Framework kod](http://www.msteched.com/2010/Europe/DEV212) (video)   
-[Kod ilk ilişki Fluent API'si](https://msdn.microsoft.com/en-us/data/hh134698)   
-[Kod ilk veri ek açıklamaları](https://msdn.microsoft.com/en-us/data/gg193958)  
+[Kod ilk ilişki Fluent API'si](https://msdn.microsoft.com/data/hh134698)   
+[Kod ilk veri ek açıklamaları](https://msdn.microsoft.com/data/gg193958)  
 [Entity Framework için üretkenlik iyileştirmeleri](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 >[!div class="step-by-step"]

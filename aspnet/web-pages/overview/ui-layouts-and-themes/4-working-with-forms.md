@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: fcdded3a7e80ee797eae445f347735f0f7b3d7ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma
 ====================
@@ -35,7 +35,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > 
 > - `Request` Nesnesi.
 > - Giriş doğrulaması.
-> - HTML kodlaması.
+> - HTML encoding.
 >   
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
@@ -139,7 +139,7 @@ Bu kolayca, ancak düzeltebilirsiniz. Gönderildikleri değerleri erişimi (içi
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Web kullanıcı girişi alma 1,001 yolları](https://msdn.microsoft.com/en-us/library/ms971057.aspx)
-- [Formları kullanarak ve kullanıcı girişini işleme](https://msdn.microsoft.com/en-us/library/ms525182(VS.90).aspx)
-- [ASP.NET Web sayfaları sitelerdeki kullanıcı girişini doğrulama](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [Otomatik Tamamlama HTML formlarında kullanma](https://msdn.microsoft.com/en-us/library/ms533032(VS.85).aspx)
+- [Web kullanıcı girişi alma 1,001 yolları](https://msdn.microsoft.com/library/ms971057.aspx)
+- [Formları kullanarak ve kullanıcı girişini işleme](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
+- [ASP.NET Web Sayfaları Sitelerinde Kullanıcı Girişini Doğrulama](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Otomatik Tamamlama HTML formlarında kullanma](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 60301e1e3eb96f51e86ef9f8be61f5fd8a4c009c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6fc356d8ecc1b699269286f244000b493e48a2c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -140,7 +140,7 @@ Visual Studio'da varsayılan başlatma için IIS Express profilidir. Projeyi bir
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>URL öneklerini preregister ve SSL yapılandırma
 
-IIS ve HTTP.sys isteklerini dinlemek için temel alınan Http.Sys çekirdek modu sürücüsü kullanır ve işleme başlangıç. IIS, kullanıcı Arabirimi yönetim her şeyi yapılandırmak için görece olarak daha kolay bir yol sağlar. Ancak, Http.Sys kendiniz yapılandırmanız gerekir. Diğer bir deyişle yapmak için yerleşik aracı *netsh.exe*. 
+IIS ve HTTP.sys isteklerini dinlemek için temel alınan Http.Sys çekirdek modu sürücüsü kullanır ve işleme başlangıç. IIS, kullanıcı Arabirimi yönetim her şeyi yapılandırmak için görece olarak daha kolay bir yol sağlar. Ancak, Http.Sys kendiniz yapılandırmanız gerekir. Bunu yerleşik bir araca 's *netsh.exe*. 
 
 İle *netsh.exe* yedek URL öneklerini ve SSL sertifikalarını atayın. Aracı yönetim ayrıcalıkları gerektirir.
 

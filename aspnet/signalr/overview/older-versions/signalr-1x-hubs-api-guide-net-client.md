@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 9cf99ba7887e7db847097a63c0a964ef5d461a9d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a61bd255a217876aa2fdbeb6389539483b9f013
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR hub'ları API Kılavuzu - .NET istemci (SignalR 1.x)
 ====================
@@ -61,14 +61,14 @@ Bu belgede aşağıdaki bölümler yer alır:
 
 - [Gustavo armenta / SignalR-Samples](https://github.com/gustavo-armenta/SignalR-Samples) Github.com'u (WinRT, Silverlight, konsol uygulama örnekler) üzerinde.
 - [DamianEdwards / SignalR MoveShapeDemo / MoveShape.Desktop](https://github.com/DamianEdwards/SignalR-MoveShapeDemo/tree/master/MoveShape/MoveShape.Desktop) Github.com'u (WPF örnek) üzerinde.
-- [SignalR / Microsoft.AspNet.SignalR.Client.Samples](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) Github.com'u (konsol uygulaması örnek) üzerinde.
+- [SignalR / Microsoft.AspNet.SignalR.Client.Samples](https://github.com/SignalR/SignalR/tree/master/samples/Microsoft.AspNet.SignalR.Client.Samples) on GitHub.com (Console app example).
 
 Sunucu veya JavaScript istemcilerinin program konusunda daha fazla belgeler için aşağıdaki kaynaklara bakın:
 
 - [SignalR hub'ları API Kılavuzu - sunucu](../guide-to-the-api/hubs-api-guide-server.md)
 - [SignalR hub'ları API Kılavuzu - JavaScript istemci](../guide-to-the-api/hubs-api-guide-javascript-client.md)
 
-API başvuru konuları API'si .NET 4.5 sürümüne bağlantılardır. .NET 4 kullanıyorsanız, bkz: [API konuları .NET 4 sürümü](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+API başvuru konuları API'si .NET 4.5 sürümüne bağlantılardır. .NET 4 kullanıyorsanız, bkz: [API konuları .NET 4 sürümü](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="clientsetup"></a>
 
@@ -104,7 +104,7 @@ Varsayılan örnek kod kullanır "/ signalr" SignalR hizmete bağlanmak için UR
 
 ### <a name="cross-domain-connections-from-silverlight-clients"></a>Silverlight istemcilerden etki alanları arası bağlantıları
 
-Silverlight istemcilerden etki alanları arası bağlantıları etkinleştirme hakkında daha fazla bilgi için bkz: [bir hizmet kullanılabilir etki alanı sınırlar boyunca yapma](https://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx).
+Silverlight istemcilerden etki alanları arası bağlantıları etkinleştirme hakkında daha fazla bilgi için bkz: [bir hizmet kullanılabilir etki alanı sınırlar boyunca yapma](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 <a id="configureconnection"></a>
 
@@ -126,7 +126,7 @@ WPF istemcileri en fazla 2'in varsayılan değerini eşzamanlı bağlantı sayı
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample4.cs?highlight=4)]
 
-Daha fazla bilgi için bkz: [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
+Daha fazla bilgi için bkz: [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx).
 
 <a id="querystring"></a>
 
@@ -148,12 +148,12 @@ Bağlama işleminin bir parçası olarak, bir SignalR istemci sunucuyla destekle
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-net-client/samples/sample7.cs?highlight=4)]
 
-[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/en-us/library/jj918090(v=vs.111).aspx) ad alanı taşımayı belirtmek için kullanabileceğiniz aşağıdaki sınıflar içerir.
+[Microsoft.AspNet.SignalR.Client.Transports](https://msdn.microsoft.com/library/jj918090(v=vs.111).aspx) ad alanı taşımayı belirtmek için kullanabileceğiniz aşağıdaki sınıflar içerir.
 
-- [LongPollingTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
-- [ServerSentEventsTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
-- [WebSocketTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (kullanılabilir. yalnızca sunucu ve istemci .NET 4.5 kullandığınızda)
-- [AutoTransport](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (istemci ve sunucu tarafından desteklenen en iyi aktarım otomatik olarak seçer. Varsayılan taşımayı burasıdır. Bu konuda geçirme `Start` yöntemi her şeyi geçirme değil aynı etkiye sahiptir.)
+- [LongPollingTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.longpollingtransport(v=vs.111).aspx)
+- [ServerSentEventsTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.serversenteventstransport(v=vs.111).aspx)
+- [WebSocketTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.websockettransport(v=vs.111).aspx) (kullanılabilir. yalnızca sunucu ve istemci .NET 4.5 kullandığınızda)
+- [AutoTransport](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.transports.autotransport(v=vs.111).aspx) (istemci ve sunucu tarafından desteklenen en iyi aktarım otomatik olarak seçer. Varsayılan taşımayı burasıdır. Bu konuda geçirme `Start` yöntemi her şeyi geçirme değil aynı etkiye sahiptir.)
 
 Yalnızca tarayıcılar tarafından kullanıldığından ForeverFrame aktarım bu listeye dahil edilmez.
 
@@ -321,7 +321,7 @@ SignalR aşağıdaki bağlantıyı işleyebilir ömür olayları sağlar:
 - `ConnectionSlow`: İstemci yavaş veya sık bırakma bir bağlantı algıladığında oluşturulur.
 - `Reconnecting`: Temel aktarımı yeniden bağlanmayı başladığında oluşturulur.
 - `Reconnected`: Temel aktarımı bağlandı tetiklenir.
-- `StateChanged`: Bağlantı durumu değiştiğinde oluşturuldu. Eski durum ve yeni durum sağlar. Durum değerleri bağlantısı hakkında bilgi için bkz [ConnectionState numaralandırma](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).
+- `StateChanged`: Bağlantı durumu değiştiğinde oluşturuldu. Eski durum ve yeni durum sağlar. Durum değerleri bağlantısı hakkında bilgi için bkz [ConnectionState numaralandırma](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).
 - `Closed`: Bağlantı kesildi tetiklenir.
 
 Örneğin, önemli değildir ancak aralıklı bağlantısı sorunlarına neden hataları için uyarı iletileri görüntülemek istiyorsanız, gibi yavaşlığı veya sık bağlantı, bırakarak işlemek `ConnectionSlow` olay.

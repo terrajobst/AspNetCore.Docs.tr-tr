@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e14b19f99e9f41c5a296d73ba689095a686794db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Güncelleştirme ve silme Varolan ikili veriler (VB)
 ====================
@@ -150,7 +150,7 @@ Silme iş akışı başarıyla kaldırıldı Test kategorisi kaydından sırada 
 
 İkili veriler veritabanına dış depolama olumsuzlukları ilişkili veritabanı kaydı silindiğinde, bu dosyaları temizlemek için ek adımlar izlenmelidir biridir. GridView ve ObjectDataSource önce hem delete komutu gerçekleştirildikten sonra yangın olayları sağlar. Biz gerçekte öncesi ve sonrası eylemi olayları için olay işleyicileri oluşturmanız gerekir. Önce `Categories` kaydı silinir, PDF dosyası s yolunu belirlemek ihtiyacımız ancak biz t kategori bazı istisna vardır ve kategori silinmemiş durumda silinmeden önce PDF silmek istediğinizden güncelleştireceğinizi.
 
-GridView s [ `RowDeleting` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) ateşlenir ObjectDataSource s delete komutu çağrılmış önce while kendi [ `RowDeleted` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) sonra ateşlenir. Aşağıdaki kodu kullanarak bu iki olayları için olay işleyicileri oluşturun:
+GridView s [ `RowDeleting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) ateşlenir ObjectDataSource s delete komutu çağrılmış önce while kendi [ `RowDeleted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) sonra ateşlenir. Aşağıdaki kodu kullanarak bu iki olayları için olay işleyicileri oluşturun:
 
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]

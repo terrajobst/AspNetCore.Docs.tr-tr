@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: e594dd1ea4ae027cf0b82574fc5a3eb061b1f2e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 96155b1c648e5f6092b3ba67a560197f86a593b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>ASP.NET SignalR hub'ları API Kılavuzu - sunucu (SignalR 1.x)
 ====================
@@ -77,13 +77,13 @@ Program istemcilere nasıl belgeler için aşağıdaki kaynaklara bakın:
 - [SignalR hub'ları API Kılavuzu - JavaScript istemci](index.md)
 - [SignalR hub'ları API Kılavuzu - .NET istemcisi](index.md)
 
-API başvuru konuları API'si .NET 4.5 sürümüne bağlantılardır. .NET 4 kullanıyorsanız, bkz: [API konuları .NET 4 sürümü](https://msdn.microsoft.com/en-us/library/jj891075(v=vs.100).aspx).
+API başvuru konuları API'si .NET 4.5 sürümüne bağlantılardır. .NET 4 kullanıyorsanız, bkz: [API konuları .NET 4 sürümü](https://msdn.microsoft.com/library/jj891075(v=vs.100).aspx).
 
 <a id="route"></a>
 
 ## <a name="how-to-register-the-signalr-route-and-configure-signalr-options"></a>SignalR rota kaydetmek ve SignalR seçeneklerini yapılandırma
 
-İstemcilerin Hub'ınıza bağlanmak için kullanacağı rota tanımlamak için arama [MapHubs](https://msdn.microsoft.com/en-us/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) uygulama başladığında yöntemi. `MapHubs`olan bir [genişletme yöntemi](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx) için `System.Web.Routing.RouteCollection` sınıfı. Aşağıdaki örnek SignalR hub'ları rotadaki tanımlamak nasıl gösterir *Global.asax* dosya.
+İstemcilerin Hub'ınıza bağlanmak için kullanacağı rota tanımlamak için arama [MapHubs](https://msdn.microsoft.com/library/system.web.routing.signalrrouteextensions.maphubs(v=vs.111).aspx) uygulama başladığında yöntemi. `MapHubs`olan bir [genişletme yöntemi](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) için `System.Web.Routing.RouteCollection` sınıfı. Aşağıdaki örnek SignalR hub'ları rotadaki tanımlamak nasıl gösterir *Global.asax* dosya.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample1.cs)]
 
@@ -139,7 +139,7 @@ Aşağıdaki örnek, bir çağrıda SignalR bağlantı URL'si ve bu seçenekleri
 
 ## <a name="how-to-create-and-use-hub-classes"></a>Oluşturma ve Hub sınıfları kullanma
 
-Bir Hub oluşturmak için türeyen bir sınıf oluşturun [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Aşağıdaki örnek, sohbet uygulaması için basit bir Hub sınıfı gösterir.
+Bir Hub oluşturmak için türeyen bir sınıf oluşturun [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). Aşağıdaki örnek, sohbet uygulaması için basit bir Hub sınıfı gösterir.
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample8.cs)]
 
@@ -238,7 +238,7 @@ Varsayılan olarak, JavaScript istemcilerinin yöntem adı başlamalıdır sür�
 
 ### <a name="when-to-execute-asynchronously"></a>Zaman uyumsuz olarak yürütülecek ne zaman
 
-Yöntemi uzun süre çalışan olması veya çalışmak olup olmadığını, veritabanı arama veya bir web hizmeti çağrısı gibi bekleme içeren, döndürerek Hub yöntemini zaman uyumsuz hale bir [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) (yerine `void` dönüş) veya [ Görev&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx) nesne (yerine `T` dönüş türü). Döndüğünüzde bir `Task` SignalR yöntemi nesnesinden bekler `Task` tamamlamak için ve bu yüzden yöntem çağrısı istemci kodu nasıl içinde herhangi bir fark ardından sarmalanmamış sonuç istemciye geri gönderir.
+Yöntemi uzun süre çalışan olması veya çalışmak olup olmadığını, veritabanı arama veya bir web hizmeti çağrısı gibi bekleme içeren, döndürerek Hub yöntemini zaman uyumsuz hale bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (yerine `void` dönüş) veya [ Görev&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) nesne (yerine `T` dönüş türü). Döndüğünüzde bir `Task` SignalR yöntemi nesnesinden bekler `Task` tamamlamak için ve bu yüzden yöntem çağrısı istemci kodu nasıl içinde herhangi bir fark ardından sarmalanmamış sonuç istemciye geri gönderir.
 
 Bir Hub yöntemini olmasını zaman uyumsuz WebSocket taşıma kullandığında bağlantıyı engelliyor önler. Hub yönteminin tamamlayana kadar bir Hub yöntemini zaman uyumlu olarak yürütür ve WebSocket taşıma olduğunda, aynı istemciden hub yöntemlerine yönelik sonraki çağrılarını engellenir.
 
@@ -298,7 +298,7 @@ Karmaşık türler ve diziler parametreleri için belirtebilirsiniz. Aşağıdak
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>Hangi istemcilerin seçerek RPC alırsınız
 
-İstemcileri özelliği döndürür bir [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) hangi istemcilerin RPC alacak belirtmek için çeşitli seçenekler sağlayan nesne:
+İstemcileri özelliği döndürür bir [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) hangi istemcilerin RPC alacak belirtmek için çeşitli seçenekler sağlayan nesne:
 
 - Bağlanan tüm istemciler.
 
@@ -357,7 +357,7 @@ Kullanırsanız `await` veya `ContinueWith` kodun sonraki satırında, yürütü
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Yöntem adı bir dize değişkeni kullanma
 
-Cast yöntemi adı olarak bir dize değişkeni kullanarak bir istemci yöntemi çağırma istiyorsanız `Clients.All` (veya `Clients.Others`, `Clients.Caller`, vs.) için `IClientProxy` ve ardından arama [Invoke (methodName, bağımsız değişken...) ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Cast yöntemi adı olarak bir dize değişkeni kullanarak bir istemci yöntemi çağırma istiyorsanız `Clients.All` (veya `Clients.Others`, `Clients.Caller`, vs.) için `IClientProxy` ve ardından arama [Invoke (methodName, bağımsız değişken...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample37.cs)]
 
@@ -367,7 +367,7 @@ Cast yöntemi adı olarak bir dize değişkeni kullanarak bir istemci yöntemi �
 
 SignalR gruplarında yayın iletileri belirtilen kümelerine bağlı istemciler için bir yöntem sağlar. Bir grup herhangi bir sayıda istemcileri içerebilir ve bir istemci grupları herhangi bir sayıda üyesi olabilir.
 
-Grup üyeliğini yönetmek için [Ekle](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) ve [kaldırmak](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) tarafından sağlanan yöntemleri `Groups` Hub sınıfın özelliği. Aşağıdaki örnekte gösterildiği `Groups.Add` ve `Groups.Remove` istemci kodu tarafından çağrılan Hub yöntemlerini kullanılan yöntemleri ve ardından onları çağıran tarafından JavaScript istemci kodu.
+Grup üyeliğini yönetmek için [Ekle](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) ve [kaldırmak](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) tarafından sağlanan yöntemleri `Groups` Hub sınıfın özelliği. Aşağıdaki örnekte gösterildiği `Groups.Add` ve `Groups.Remove` istemci kodu tarafından çağrılan Hub yöntemlerini kullanılan yöntemleri ve ardından onları çağıran tarafından JavaScript istemci kodu.
 
 **Sunucu**
 
@@ -452,7 +452,7 @@ Bağlantı ömrü olay işleyicisi yöntemleri içine herhangi bir durum anlamı
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Bağlam özelliğinden istemcisi hakkında bilgi alma
 
-İstemcisi hakkında bilgi almak için `Context` Hub sınıfın özelliği. `Context` Özelliği döndürür bir [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx) aşağıdaki bilgilere erişim sağlayan nesnesi:
+İstemcisi hakkında bilgi almak için `Context` Hub sınıfın özelliği. `Context` Özelliği döndürür bir [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) aşağıdaki bilgilere erişim sağlayan nesnesi:
 
 - Çağıran istemcinin bağlantı kimliği.
 
@@ -526,7 +526,7 @@ Hub sınıfınızda bu verilerine erişebilir `Clients.Caller` özelliği. Aşa�
 Hub sınıfı yöntemlerinizi oluşan hataları işlemek için aşağıdakilerden birini veya her ikisi de aşağıdaki yöntemlerden birini kullanın:
 
 - Try-catch bloklarını yöntemi kodunuzu kaydırma ve özel durum nesnesi oturum açın. Hata ayıklama amacıyla istemciye özel gönderebilir, ancak güvenlik için üretim istemciler için ayrıntılı bilgi gönderme nedeniyle önerilmez.
-- İşleme bir hub ardışık düzen modül oluşturma [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) yöntemi. Aşağıdaki örnek hub ardışık düzenine Modülü yerleştirir Global.asax kodda ve ardından hatalarını günlüğe bir ardışık düzen modülü gösterir.
+- İşleme bir hub ardışık düzen modül oluşturma [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) yöntemi. Aşağıdaki örnek hub ardışık düzenine Modülü yerleştirir Global.asax kodda ve ardından hatalarını günlüğe bir ardışık düzen modülü gösterir.
 
     [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample55.cs)]
 
@@ -607,4 +607,4 @@ Aşağıdaki kod *Global.asax* dosyayı Hub ardışık düzeninde çalıştırma
 
 [!code-csharp[Main](signalr-1x-hubs-api-guide-server/samples/sample68.cs?highlight=3)]
 
-Geçersiz kılabilirsiniz birçok farklı yöntem vardır. Tam bir listesi için bkz: [HubPipelineModule yöntemleri](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx).
+Geçersiz kılabilirsiniz birçok farklı yöntem vardır. Tam bir listesi için bkz: [HubPipelineModule yöntemleri](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

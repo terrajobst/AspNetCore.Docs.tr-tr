@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Dağıtım destekleyen bir yapı tanımı oluşturma
 ====================
@@ -42,7 +42,7 @@ Yapı tanımı nasıl ve ne zaman derlemeleri TFS takım projelerinde oluşabili
 - Diğer çeşitli parametreler yapı işlemi.
 
 > [!NOTE]
-> Derleme tanımları hakkında daha fazla bilgi için bkz: [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/en-us/library/ms181715.aspx).
+> Derleme tanımları hakkında daha fazla bilgi için bkz: [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/library/ms181715.aspx).
 
 
 Bu konuda bir geliştirici yeni içerik denetlerken bir yapı tetiklenir CI, kullanan bir derleme tanımınız oluşturmak üzere nasıl yapacağınızı gösterir. Yapı başarılı olursa, yapı hizmeti bir test ortamına çözümü dağıtmak için özel proje dosyasını çalıştırır.
@@ -149,7 +149,7 @@ Başarısız derlemeler sorun giderme ve başka bir yapı çalışmadan önce so
 
 ## <a name="monitor-the-build-process"></a>Derleme işlemi izleyin
 
-TFS geniş bir yapı işlemi izlemenize yardımcı olmak için işlevsellik sağlar. Örneğin, TFS bir e-posta göndermek veya bir yapı tamamlandığında, görev çubuğu bildirim alanında uyarıları görüntüler. Daha fazla bilgi için bkz: [çalıştırma ve İzleyici derlemeler](https://msdn.microsoft.com/en-us/library/ms181721.aspx).
+TFS geniş bir yapı işlemi izlemenize yardımcı olmak için işlevsellik sağlar. Örneğin, TFS bir e-posta göndermek veya bir yapı tamamlandığında, görev çubuğu bildirim alanında uyarıları görüntüler. Daha fazla bilgi için bkz: [çalıştırma ve İzleyici derlemeler](https://msdn.microsoft.com/library/ms181721.aspx).
 
 ## <a name="conclusion"></a>Sonuç
 
@@ -159,7 +159,7 @@ Derleme işleminin bir parçası başarılı olması bir otomatik dağıtım iç
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz: [temel yapı tanımı oluşturma](https://msdn.microsoft.com/en-us/library/ms181716.aspx) ve [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Sıraya alma yapılar hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz: [temel yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/library/ms181715.aspx). Sıraya alma yapılar hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](configuring-a-tfs-build-server-for-web-deployment.md)

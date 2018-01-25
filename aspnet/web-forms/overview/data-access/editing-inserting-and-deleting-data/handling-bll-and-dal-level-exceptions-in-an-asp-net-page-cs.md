@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17157d595e8283628371ff6ad39fe71879e96a56
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Bir ASP.NET sayfası (C#) BLL ve DAL düzeyi özel durumları işleme
 ====================
@@ -101,9 +101,9 @@ Bu noktada, tüm ürünlerin listesini sahibiz `ProductName`, `QuantityPerUnit`,
 
 ## <a name="step-2-gracefully-handling-dal-level-exceptions"></a>2. adım: Düzgün biçimde DAL düzeyi özel durumları işleme
 
-Bizim düzenlenebilir GridView son derece kullanıcıların geçerli değerleri düzenlenen ürün adı, fiyat ve stok girdiğinizde çalışırken, geçersiz değerler girerek bir özel durum oluşur. Örneğin, atlama `ProductName` değer neden bir [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) bu yana durum oluşturulmasına `ProductName` özelliğinde `ProdcutsRow` sınıfına sahip kendi `AllowDBNull` özelliğini `false`if kapalı olduğu veritabanı bir `SqlException` TableAdapter ile veritabanına bağlanmaya çalışılırken oluşturulur. Herhangi bir eylemde bulunmadan, bu özel durumlar Kabarcık yukarı veri erişim katmanı, ASP.NET sayfası sonra iş mantığı katmanı ve son olarak ASP.NET çalışma zamanı için.
+Bizim düzenlenebilir GridView son derece kullanıcıların geçerli değerleri düzenlenen ürün adı, fiyat ve stok girdiğinizde çalışırken, geçersiz değerler girerek bir özel durum oluşur. Örneğin, atlama `ProductName` değer neden bir [NoNullAllowedException](https://msdn.microsoft.com/library/default.asp?url=/library/cpref/html/frlrfsystemdatanonullallowedexceptionclasstopic.asp) bu yana durum oluşturulmasına `ProductName` özelliğinde `ProdcutsRow` sınıfına sahip kendi `AllowDBNull` özelliğini `false`if kapalı olduğu veritabanı bir `SqlException` TableAdapter ile veritabanına bağlanmaya çalışılırken oluşturulur. Herhangi bir eylemde bulunmadan, bu özel durumlar Kabarcık yukarı veri erişim katmanı, ASP.NET sayfası sonra iş mantığı katmanı ve son olarak ASP.NET çalışma zamanı için.
 
-Web uygulamanızın nasıl yapılandırılacağı ve uygulamadan ziyaret ettiğiniz olup olmadığına bağlı olarak `localhost`, işlenmeyen bir özel durum genel sunucu hatası sayfası, ayrıntılı hata raporu veya kullanıcı dostu bir web sayfası neden olabilir. Bkz: [Web uygulama hata işleme ASP.NET](http://www.15seconds.com/issue/030102.htm) ve [customErrors öğesi](https://msdn.microsoft.com/en-US/library/h0hfz6fc(VS.80).aspx) ASP.NET çalışma zamanı yakalanmayan bir özel durum olarak nasıl yanıt vereceğini hakkında daha fazla bilgi.
+Web uygulamanızın nasıl yapılandırılacağı ve uygulamadan ziyaret ettiğiniz olup olmadığına bağlı olarak `localhost`, işlenmeyen bir özel durum genel sunucu hatası sayfası, ayrıntılı hata raporu veya kullanıcı dostu bir web sayfası neden olabilir. Bkz: [Web uygulama hata işleme ASP.NET](http://www.15seconds.com/issue/030102.htm) ve [customErrors öğesi](https://msdn.microsoft.com/library/h0hfz6fc(VS.80).aspx) ASP.NET çalışma zamanı yakalanmayan bir özel durum olarak nasıl yanıt vereceğini hakkında daha fazla bilgi.
 
 Şekil 6 gösteren bir ürün belirtmeden güncellerken karşılaşılan ekran `ProductName` değeri. Bu ayrıntılı hata raporu görüntülenen çıkarken varsayılandır `localhost`.
 
@@ -153,7 +153,7 @@ Bu olay işleyicisi oluşturma aşağıdaki kod ASP.NET sayfa arka plan kodu sı
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs/samples/sample4.cs)]
 
-Bu olay işleyicinin ikinci giriş parametresi türünde bir nesnedir [GridViewUpdatedEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), özel durumları işlemek için ilgi üç özellik vardır:
+Bu olay işleyicinin ikinci giriş parametresi türünde bir nesnedir [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), özel durumları işlemek için ilgi üç özellik vardır:
 
 - `Exception`oluşturulan özel durum referansı; hiçbir özel durum, bu özellik bir değeri olur`null`
 - `ExceptionHandled`özel durum olarak yürütüldü olup olmadığını gösteren bir Boole değeri `RowUpdated` olay işleyicisi if `false` (varsayılan), özel durumu ASP.NET çalışma zamanı kadar percolating yeniden oluşturulur.

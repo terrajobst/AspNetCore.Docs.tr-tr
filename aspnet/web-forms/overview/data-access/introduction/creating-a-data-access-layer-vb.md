@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Veri erişim katmanı (VB) oluşturma
 ====================
@@ -89,7 +89,7 @@ Bunları doldurmak için kullanılan veritabanı sorgusunun döndürdüğü süt
 Türü kesin belirlenmiş nesnelerin döndürmek için geliştiricilerin kendi özel iş nesneleri oluşturmak veya yazılan veri kümeleri kullanabilirsiniz. Özellikleri genellikle iş nesnesi temel alınan veritabanı tablosunun sütunları yansıtacak bir sınıfı temsil eder gibi bir iş nesnesi geliştirici tarafından uygulanır. Yazılan veri kümesi, sizin için bir veritabanı şeması ve kesin türü belirtilmiş-bu şemaya göre üyeleri göre Visual Studio tarafından oluşturulan bir sınıftır. Yazılan veri kümesi kendisini ADO.NET veri kümesi, DataTable ve DataRow sınıfları genişleten sınıflardan oluşur. Kesin türü belirtilmiş DataTables ek olarak yazılan veri kümeleri artık ayrıca veri kümesi'nin DataTables doldurma ve veritabanında yapılan değişikliklerin DataTables içinde geri yayılıyor yöntemleriyle sınıflardır TableAdapters içerir.
 
 > [!NOTE]
-> Olumlu ve olumsuz özel iş nesnelerine karşı yazılan veri kümeleri kullanma hakkında daha fazla bilgi için bkz [veri katmanı bileşenleri tasarlama ve veri katmanlarını aracılığıyla geçirme](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Olumlu ve olumsuz özel iş nesnelerine karşı yazılan veri kümeleri kullanma hakkında daha fazla bilgi için bkz [veri katmanı bileşenleri tasarlama ve veri katmanlarını aracılığıyla geçirme](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Kesin türü belirtilmiş veri kümeleri için bu öğreticileri mimarisi kullanacağız. Şekil 3 yazılan veri kümeleri kullanan bir uygulama farklı katmanları arasında iş akışı gösterilmektedir.
@@ -293,7 +293,7 @@ Ekleme, güncelleştirme ve verileri silme için yaygın olarak kullanılan iki 
 **Şekil 21**: her INSERT, Update ve Delete isteği gönderilir veritabanı anında ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-Bir tüm veri kümesi, DataTable ya da bir yöntem çağrısı DataRow koleksiyonunda düzeni toplu güncelleştirme bakın, diğer bütün düzeni güncelleştirmektir. Bu desen ile bir geliştirici siler, ekler ve bir DataTable tablosundaki DataRow değiştirir ve sonra bu DataRow ya da DataTable bir güncelleştirme yöntemi geçirir. Bu yöntem ardından geçirilen DataRow numaralandırır, bunlar değiştiren, eklenen veya silinen olup olmadığını belirler (DataRow nesnesinin aracılığıyla [RowState özelliği](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) değeri) ve her kayıt için uygun veritabanı isteği gönderir.
+Bir tüm veri kümesi, DataTable ya da bir yöntem çağrısı DataRow koleksiyonunda düzeni toplu güncelleştirme bakın, diğer bütün düzeni güncelleştirmektir. Bu desen ile bir geliştirici siler, ekler ve bir DataTable tablosundaki DataRow değiştirir ve sonra bu DataRow ya da DataTable bir güncelleştirme yöntemi geçirir. Bu yöntem ardından geçirilen DataRow numaralandırır, bunlar değiştiren, eklenen veya silinen olup olmadığını belirler (DataRow nesnesinin aracılığıyla [RowState özelliği](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) değeri) ve her kayıt için uygun veritabanı isteği gönderir.
 
 
 [![Update yöntemi çağrıldığında tüm değişiklikler veritabanı ile eşitlenir](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ Aşağıdaki kod, program aracılığıyla belirli bir ürünü silin, sonra bir
 **Şekil 25**: yeni satır eklemek için bir yöntem oluşturma `Products` tablosu ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-Sonraki ekranda `InsertCommand`'s `CommandText` görüntülenir. Bu sorgu ekleyerek büyütmek `SELECT SCOPE_IDENTITY()` sorgu sonunda, eklenen son kimlik değeri döndürecektir bir `IDENTITY` aynı kapsamda sütun. (Bkz [teknik belgeler](https://msdn.microsoft.com/en-us/library/ms190315.aspx) hakkında daha fazla bilgi için `SCOPE_IDENTITY()` ve büyük olasılıkla istediğiniz neden [kapsamı kullan\_yerine IDENTITY() @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Bitirdiğinizden emin olun `INSERT` eklemeden önce deyimi noktalı virgül ile `SELECT` deyimi.
+Sonraki ekranda `InsertCommand`'s `CommandText` görüntülenir. Bu sorgu ekleyerek büyütmek `SELECT SCOPE_IDENTITY()` sorgu sonunda, eklenen son kimlik değeri döndürecektir bir `IDENTITY` aynı kapsamda sütun. (Bkz [teknik belgeler](https://msdn.microsoft.com/library/ms190315.aspx) hakkında daha fazla bilgi için `SCOPE_IDENTITY()` ve büyük olasılıkla istediğiniz neden [kapsamı kullan\_yerine IDENTITY() @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Bitirdiğinizden emin olun `INSERT` eklemeden önce deyimi noktalı virgül ile `SELECT` deyimi.
 
 
 [![SCOPE_IDENTITY() değerini döndürmek için sorgu büyütmek](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -401,7 +401,7 @@ Güncelleştirmezseniz `GetProducts()` `SELECT` kullanarak `JOIN` sözdizimi ver
 
 Aşağıdaki TableAdapters ve aşağıdaki sorguları kullanarak yöntemleri oluşturmak için birkaç dakika sürebilir. Unutmayın sorgularda `ProductsTableAdapter` her ürünün kategori ve sağlayıcı adları şablonlarınızdan alt sorgular içerir. Ayrıca, aşağıdaki, zaten eklediğiniz `ProductsTableAdapter` sınıfının `GetProducts()` ve `GetProductsByCategoryID(categoryID)` yöntemleri.
 
-- **Düzenleyen**
+- **ProductsTableAdapter**
 
     - **GetProducts**: 
 
@@ -520,18 +520,18 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Kesin türü belirtilmiş TableAdapters ve DataTables VS 2005 ve ASP.NET 2.0 kullanarak bir DAL oluşturma](https://weblogs.asp.net/scottgu/435498)
-- [Veri katmanı bileşenleri tasarlama ve katmanları arasında veri geçirme](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [Veri katmanı bileşenleri tasarlama ve katmanları arasında veri geçirme](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Visual Studio 2005 veri kümesi Tasarımcısı ile veri erişim katmanı oluşturma](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [ASP.NET 2.0 yapılandırma bilgilerini şifrelemek uygulamaları](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [TableAdapter genel bakış](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Türü belirtilmiş bir veri kümesi ile çalışma](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [TableAdapter genel bakış](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Türü belirtilmiş bir veri kümesi ile çalışma](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Visual Studio 2005 ve ASP.NET 2.0 kesin türü belirtilmiş veri erişimi kullanma](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [TableAdapter yöntemleri genişletme](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Bir saklı yordam skaler verilerini alma](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Bu öğreticide yer alan konularda video eğitim
 
-- [ASP.NET uygulamalarında veri erişim katmanları](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
+- [ASP.NET Uygulamalarında Veri Erişim Katmanları](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
 - [Nasıl el ile bir veri kümesi Datagrid denetimine bağlama](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [Bir ASP uygulamasından nasıl veri kümelerini ve filtreleri ile çalışma](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 

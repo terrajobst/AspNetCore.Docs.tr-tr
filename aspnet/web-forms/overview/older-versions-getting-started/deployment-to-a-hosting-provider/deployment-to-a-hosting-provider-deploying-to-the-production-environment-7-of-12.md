@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: - 7 / 12 üretim ortamına dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -133,8 +133,7 @@ Doğrulama bağlantısını tıklattığınızda görebileceğiniz bir **sertifi
 
 ![Sertifika hatası](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image27.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 İçinde **veritabanları** bölümünü **ayarları** sekmesinde, aynı girin, Test için girdiğiniz değerleri yayımlama profili. Gereksinim duyduğunuz bağlantı dizeleri açılan listelerde bulabilirsiniz.
 
@@ -145,8 +144,7 @@ Doğrulama bağlantısını tıklattığınızda görebileceğiniz bir **sertifi
 
 ![Web Sihirbazı ayarları sekmesi yayımlama](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 İçinde **Önizleme** sekmesini tıklatın, **önizlemeyi Başlat** kopyalanacak dosyaların bir listesini görmek için. Yerel bilgisayarda IIS dağıtıldığında, daha önce gördüğünüzle aynı listesine bakın.
 
@@ -248,7 +246,7 @@ Bu yöntemlerin ilki açıkça en güvenli seçenektir ancak yordamı için her 
 
 `User-agent` Satır belirten kurallar dosyasındaki tüm arama motoru web gezginleri için (robots), geçerli arama motorları ve `Disallow` satırı belirtir sitesinde hiç sayfa gezinme.
 
-Böylece bu dosyayı üretim dağıtımdan hariç gerek üretim sitenizi katalog için arama motorları istemenizdir. Bunu yapmak için bkz: **t belirli dosyaları veya klasörleri dağıtımdan hariç tutabilirsiniz?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Yalnızca üretim yayımlama için profil dışlama belirttiğinizden emin olun.
+Böylece bu dosyayı üretim dağıtımdan hariç gerek üretim sitenizi katalog için arama motorları istemenizdir. Bunu yapmak için bkz: **t belirli dosyaları veya klasörleri dağıtımdan hariç tutabilirsiniz?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Yalnızca üretim yayımlama için profil dışlama belirttiğinizden emin olun.
 
 İkinci bir barındırma hesabı oluşturma, gerekli değildir, ancak eklenen gider olabilir bir test ortamı ile çalışmaya bir yaklaşımdır. Aşağıdaki öğreticilerde, IIS, test ortamı olarak kullanmak üzere devam edeceğiz.
 

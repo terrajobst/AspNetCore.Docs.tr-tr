@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4904037838441942ea266ce71d735642d0a717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Zaman uyumsuz ve ASP.NET MVC uygulamasındaki Entity Framework saklı yordamlar
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -128,11 +128,11 @@ Bazı geliştiriciler ve DBAs veritabanı erişimi için saklı yordamlar kullan
 
     ![Bölüm Ekle SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
-Kod ilk varsayılan depolanmış yordam adları oluşturur. Varolan bir veritabanını kullanıyorsanız, zaten veritabanında tanımlı saklı yordamları kullanmak için saklı yordam adları özelleştirme gerekebilir. Bunun hakkında daha fazla bilgi için bkz: [Entity Framework kod ilk ekleme/güncelleştirme/silme saklı yordamlar](https://msdn.microsoft.com/en-us/data/dn468673).
+Kod ilk varsayılan depolanmış yordam adları oluşturur. Varolan bir veritabanını kullanıyorsanız, zaten veritabanında tanımlı saklı yordamları kullanmak için saklı yordam adları özelleştirme gerekebilir. Bunun hakkında daha fazla bilgi için bkz: [Entity Framework kod ilk ekleme/güncelleştirme/silme saklı yordamlar](https://msdn.microsoft.com/data/dn468673).
 
 Ne saklı yordamları oluşturulan özelleştirmek istiyorsanız, geçişler için kurulmuş kodu düzenleyebilirsiniz `Up` saklı yordamı oluşturan yöntemi. Bu şekilde geçiş çalıştırılır ve geçişler çalıştığında, otomatik dağıtımdan sonra üretimde üretim veritabanınız uygulanır değişikliklerinizi her yansıtılır.
 
-Önceki bir geçiş oluşturulmuş mevcut bir saklı yordam değiştirmek istiyorsanız, boş bir geçiş oluşturmak için Add-Migration komutunu kullanın ve el ile çağıran kodu yazma [AlterStoredProcedure](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) yöntemi .
+Önceki bir geçiş oluşturulmuş mevcut bir saklı yordam değiştirmek istiyorsanız, boş bir geçiş oluşturmak için Add-Migration komutunu kullanın ve el ile çağıran kodu yazma [AlterStoredProcedure](https://msdn.microsoft.com/library/system.data.entity.migrations.dbmigration.alterstoredprocedure.aspx) yöntemi .
 
 ## <a name="deploy-to-azure"></a>Azure'a dağıtma
 

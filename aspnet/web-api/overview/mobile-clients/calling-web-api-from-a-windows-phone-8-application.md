@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1637af40613f1384bd4adec707a5b1a8a07c704b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e5a936decb27fd2e3b8cdcea44db8db822c98eb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Bir Windows Phone 8 uygulamasından (C#) Web API'si çağırma
 ====================
@@ -37,7 +37,7 @@ Bu uçtan uca öğretici kapsamında, Web API aşağıdaki projeleri oluşturmak
 
 - Windows Phone 8 SDK ile Visual Studio 2013
 - 64-bit sistem yüklü Hyper-V ile Windows 8 veya sonraki bir sürümü
-- Ek gereksinimler listesi için bkz *sistem gereksinimleri* bölümünde [Windows Phone SDK 8.0](https://www.microsoft.com/en-us/download/details.aspx?id=35471) sayfa indirin.
+- Ek gereksinimler listesi için bkz *sistem gereksinimleri* bölümünde [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471) sayfa indirin.
 
 > [!NOTE]
 > Web API ve Windows Phone 8 projeleri yerel sisteminizde arasındaki bağlantıyı sınamak için kullanacaksanız,'ndaki yönergeleri izleyin gerekir  *[yerel bir Web API uygulamalarını Windows Phone 8 öykünücüsü bağlanma Bilgisayar](https://go.microsoft.com/fwlink/?LinkId=324014)*  makale test ortamınızı ayarlayın.
@@ -48,7 +48,7 @@ Bu uçtan uca öğretici kapsamında, Web API aşağıdaki projeleri oluşturmak
 
 Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir Web API projesi oluşturmaktır; Bu çözüm için Windows Phone Uygulama projesi ekleyeceğini unutmayın [2. adım](#STEP2) Bu öğreticinin.
 
-1. Açık **Visual Studio 2013'ün**.
+1. Open **Visual Studio 2013**.
 2. Tıklatın **dosya**, ardından **yeni**ve ardından **proje**.
 3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **şablonları**, ardından **Visual C#**ve ardından **Web**.
 

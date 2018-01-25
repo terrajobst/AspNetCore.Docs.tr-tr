@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e819037e2ebd1566c778879516e20de8dc7603ea
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>.NET (OWIN) için Web Arabirimi'ni açmak için giriş
 
@@ -28,7 +28,7 @@ OWIN birlikte kullanılmak üzere farklı nesne modeline iki çerçeveleri izin 
 
 Bir OWIN uyumlu sunucu/ana bilgisayar üstünde veya ASP.NET Core üzerinde çalıştırılacak diğer OWIN uyumlu bileşenlerine yönelik barındırılmasını ASP.NET Core sağlar.
 
-Not: Bu bağdaştırıcılar kullanarak bir performans ile gelir. Yalnızca ASP.NET Core bileşenleri kullanan uygulamalar Owın paket ya da bağdaştırıcıları kullanmamanız gerekir.
+Not: Bu bağdaştırıcılar kullanarak bir performans ile gelir. Yalnızca ASP.NET Core bileşenleri kullanan uygulamalar Owın paket ya da bağdaştırıcıları kullanmamalısınız.
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 

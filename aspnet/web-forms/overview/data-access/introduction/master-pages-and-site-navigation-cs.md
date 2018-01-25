@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 32ddda8d883a99805d2448c9673e585bfe9ef2f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c44ad7ec1b43129365cc22f5076b4fa7fe860f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-site-navigation-c"></a>Ana sayfalar ve Site gezintisi (C#)
 ====================
@@ -167,11 +167,11 @@ Site haritasını site çeşitli bölümlerini açıklayan bir hiyerarşi Web si
 **Şekil 10**: Site Haritası gezinme hiyerarşik bir yapıyı temsil eder ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-pages-and-site-navigation-cs/_static/image26.png))
 
 
-ASP.NET .NET Framework'ün aracılığıyla site haritanın yapısı sunan [site haritası sınıfı](https://msdn.microsoft.com/en-us/library/system.web.sitemap.aspx). Bu sınıf bir `CurrentNode` kullanıcı şu anda ziyaret; bölümü hakkında bilgi verir özelliği `RootNode` özelliği site haritası kökünü döndürür (ev bizim site haritası içinde). Hem `CurrentNode` ve `RootNode` özellikleri return [SiteMapNode](https://msdn.microsoft.com/en-us/library/system.web.sitemapnode.aspx) özelliklerine sahip örnekleri gibi `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`ve benzeri için site haritası izin ver gitti hiyerarşisi.
+ASP.NET .NET Framework'ün aracılığıyla site haritanın yapısı sunan [site haritası sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx). Bu sınıf bir `CurrentNode` kullanıcı şu anda ziyaret; bölümü hakkında bilgi verir özelliği `RootNode` özelliği site haritası kökünü döndürür (ev bizim site haritası içinde). Hem `CurrentNode` ve `RootNode` özellikleri return [SiteMapNode](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) özelliklerine sahip örnekleri gibi `ParentNode`, `ChildNodes`, `NextSibling`, `PreviousSibling`ve benzeri için site haritası izin ver gitti hiyerarşisi.
 
 ## <a name="step-3-displaying-a-menu-based-on-the-site-map"></a>3. adım: Site Haritasını kullanan bir menü görüntüleme
 
-ASP.NET 2.0 verilere olabilir program aracılığıyla gerçekleştirilir, ASP.NET ister 1.x, bildirimli olarak, aracılığıyla yeni veya [veri kaynağı denetimleri](https://msdn.microsoft.com/en-us/library/ms227679.aspx). İlişkisel veritabanı verileri, veri sınıfları ve diğerleri erişim için ObjectDataSource Denetimi erişmek için SqlDataSource denetimi gibi birkaç yerleşik veri kaynağı denetimleri vardır. Hatta kendi oluşturabileceğiniz [özel veri kaynağı denetimleri](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/en-us/dnvs05/html/DataSourceCon1.asp).
+ASP.NET 2.0 verilere olabilir program aracılığıyla gerçekleştirilir, ASP.NET ister 1.x, bildirimli olarak, aracılığıyla yeni veya [veri kaynağı denetimleri](https://msdn.microsoft.com/library/ms227679.aspx). İlişkisel veritabanı verileri, veri sınıfları ve diğerleri erişim için ObjectDataSource Denetimi erişmek için SqlDataSource denetimi gibi birkaç yerleşik veri kaynağı denetimleri vardır. Hatta kendi oluşturabileceğiniz [özel veri kaynağı denetimleri](https://msdn.microsoft.com/asp.net/reference/data/default.aspx?pull=/library/dnvs05/html/DataSourceCon1.asp).
 
 Veri kaynağı denetimleri, ASP.NET sayfası ve temel alınan veri arasındaki bir proxy olarak hizmet. Veri kaynağı denetiminin alınan verileri görüntülemek için biz genellikle başka bir Web denetimi sayfasına ekleyin ve veri kaynağı denetimi bağlamak. Bir veri kaynağı denetimi ile bir Web denetimi bağlamak için yalnızca Web denetimin ayarlamak `DataSourceID` özelliği veri kaynağı denetiminin değerine `ID` özelliği.
 
@@ -218,7 +218,7 @@ Bu menü ana sayfa ve içinde tanımlanan site haritası bağlı `Web.sitemap`se
 
 Tüm ASP.NET denetimleri isteğe bağlı olarak durumlarına kalıcı [görüntülemek durumu](https://msdn.microsoft.com/msdnmag/issues/03/02/CuttingEdge/), gizli bir form alanı işlenen HTML olarak serileştirilmiş. Veri bağlama için bir veri Web denetimi gibi görünüm durumu program aracılığıyla değiştirilmiş durumlarına geri göndermeler arasında unutmayın denetimleri tarafından kullanılır. Görünüm durumu üzerinde Geri göndermeler anımsanacağını bilgilere sağlarken, istemciye gönderilen ve ciddi sayfa oluşan şişirmeyi için yol açabilecek değilse yakından izlenen biçimlendirmeyi boyutu artar. Veri Web denetimleri özellikle GridView bir sayfaya ek kilobayt biçimlendirme düzinelerce eklemek için özellikle notorious. Bu tür bir artış geniş bant veya intranet kullanıcı için düşünülerek olsa da, Görünüm durumu gidiş dönüş çevirmeli kullanıcılar için birkaç saniye ekleyebilirsiniz.
 
-Durumunu görüntülemek, bir tarayıcıda sayfasını ziyaret edin ve ardından web sayfası tarafından gönderilen kaynak görüntüleyin etkisini görmek için (Internet Explorer'da, Görünüm menüsüne gidin ve kaynak seçeneğini belirleyin). Ayrıca açabilirsiniz [Sayfa izlemeyi](https://msdn.microsoft.com/en-us/library/sfbfw58f.aspx) her sayfadaki denetimleri tarafından kullanılan görünüm durumu ayırma görmek için. Görünüm durumu bilgisini adlı gizli bir form alanı içinde serileştirilmiş `__VIEWSTATE`, bulunan bir `<div>` öğesi açtıktan hemen sonra `<form>` etiketi. Görünüm durumu, yalnızca kullanılan bir Web formu olduğunda kalıcıdır; ASP.NET sayfası içermiyorsa bir `<form runat="server">` olmayacaktır Bu, bildirim temelli sözdiziminde bir `__VIEWSTATE` oluşturulan biçimlendirmenin gizli form alanı.
+Durumunu görüntülemek, bir tarayıcıda sayfasını ziyaret edin ve ardından web sayfası tarafından gönderilen kaynak görüntüleyin etkisini görmek için (Internet Explorer'da, Görünüm menüsüne gidin ve kaynak seçeneğini belirleyin). Ayrıca açabilirsiniz [Sayfa izlemeyi](https://msdn.microsoft.com/library/sfbfw58f.aspx) her sayfadaki denetimleri tarafından kullanılan görünüm durumu ayırma görmek için. Görünüm durumu bilgisini adlı gizli bir form alanı içinde serileştirilmiş `__VIEWSTATE`, bulunan bir `<div>` öğesi açtıktan hemen sonra `<form>` etiketi. Görünüm durumu, yalnızca kullanılan bir Web formu olduğunda kalıcıdır; ASP.NET sayfası içermiyorsa bir `<form runat="server">` olmayacaktır Bu, bildirim temelli sözdiziminde bir `__VIEWSTATE` oluşturulan biçimlendirmenin gizli form alanı.
 
 `__VIEWSTATE` Ana sayfa tarafından oluşturulan form alanı kabaca 1800 baytı sayfanın oluşturulan biçimlendirme ekler. Bu ek oluşan şişirmeyi öncelikle yineleyici denetimine son SiteMapDataSource denetimini içeriğini durumunu görüntülemek için kalıcı olarak. Bir ek 1800 baytı GridView birçok alanları ve kayıtları kullanırken hakkında Çoğalması almak için çok gibi görünmeyebilir olsa da, Görünüm durumu kolayca 10 veya daha fazla faktörüyle swell.
 
@@ -252,7 +252,7 @@ Kullanıcı Bu süreç boyunca tüm kadar kök ziyaret o site haritası düğüm
 
 Sitemizi eğitimlerine kategorilere farklı temel raporlama, filtreleme, özel biçimlendirme, vb. her kategori ve o klasördeki ASP.NET sayfaları olarak karşılık gelen öğreticileri için bir klasör ile ayrılmıştır. Ayrıca, her bir klasör içeren bir `Default.aspx` sayfası. Bu varsayılan sayfa için şimdi öğreticileri geçerli bölüm için görüntüler. Diğer bir deyişle, için `Default.aspx` içinde `BasicReporting` klasörü sahibiz bağlantılar `SimpleDisplay.aspx`, `DeclarativeParams.aspx`, ve `ProgrammaticParams.aspx`. Burada, tekrar biz kullanabilirsiniz `SiteMap` sınıf ve veri site haritası dayanarak bu bilgiyi görüntülemek için Web denetimi tanımlanan `Web.sitemap`.
 
-Şimdi yeniden ancak biz başlık ve öğreticiler açıklaması görüntülersiniz bu kez bir yineleyici kullanarak sırasız bir listesini görüntüler. Biçimlendirme ve kodun bu işlem gerçekleştirmek için her biri için yinelenen gerektiği `Default.aspx` sayfasında, biz kapsülleyen bu UI mantığı bir [kullanıcı denetimi](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx). Adlı Web sitesi bir klasör oluşturun `UserControls` ve için yeni bir öğe türü adında bir Web kullanıcı denetimi Ekle `SectionLevelTutorialListing.ascx`ve aşağıdaki biçimlendirmeyi ekleyin:
+Şimdi yeniden ancak biz başlık ve öğreticiler açıklaması görüntülersiniz bu kez bir yineleyici kullanarak sırasız bir listesini görüntüler. Biçimlendirme ve kodun bu işlem gerçekleştirmek için her biri için yinelenen gerektiği `Default.aspx` sayfasında, biz kapsülleyen bu UI mantığı bir [kullanıcı denetimi](https://msdn.microsoft.com/library/y6wb1a0e.aspx). Adlı Web sitesi bir klasör oluşturun `UserControls` ve için yeni bir öğe türü adında bir Web kullanıcı denetimi Ekle `SectionLevelTutorialListing.ascx`ve aşağıdaki biçimlendirmeyi ekleyin:
 
 
 [![UserControls kendi klasörüne yeni bir Web kullanıcı denetimi Ekle](master-pages-and-site-navigation-cs/_static/image30.png)](master-pages-and-site-navigation-cs/_static/image29.png)
@@ -297,15 +297,15 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET ana sayfalar genel bakış](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET ana sayfalar genel bakış](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [ASP.NET 2.0 ana sayfalar](http://odetocode.com/Articles/419.aspx)
 - [ASP.NET 2.0 tasarım şablonları](https://msdn.microsoft.com/asp.net/reference/design/templates/default.aspx)
-- [ASP.NET sitesi gezinti genel bakış](https://msdn.microsoft.com/en-us/library/e468hxky.aspx)
+- [ASP.NET sitesi gezinti genel bakış](https://msdn.microsoft.com/library/e468hxky.aspx)
 - [ASP.NET 2.0 inceleniyor kullanıcının Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
 - [ASP.NET 2.0 Site Gezinti özellikleri](https://weblogs.asp.net/scottgu/archive/2005/11/20/431019.aspx)
-- [ASP.NET görünüm durumunu anlama](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/viewstate.asp)
-- [Nasıl yapılır: bir ASP.NET sayfası için izlemeyi etkinleştirme](https://msdn.microsoft.com/en-us/library/94c55d08%28VS.80%29.aspx)
-- [ASP.NET kullanıcı denetimleri](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [ASP.NET görünüm durumunu anlama](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/viewstate.asp)
+- [Nasıl yapılır: bir ASP.NET sayfası için izlemeyi etkinleştirme](https://msdn.microsoft.com/library/94c55d08%28VS.80%29.aspx)
+- [ASP.NET kullanıcı denetimleri](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 

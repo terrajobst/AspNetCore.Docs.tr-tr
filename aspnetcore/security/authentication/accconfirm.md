@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -110,7 +110,7 @@ Güncelleştirme `ConfigureServices` onaylanan bir e-posta istemek için:
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-Önceki satır kayıtlı kullanıcıların e-postalarına onaylandıktan kadar oturum açılmış engeller. Ancak, o satırdaki yeni kullanıcılar bunlar kaydettikten sonra oturum açılmış engellemez. Bunlar kaydettikten sonra varsayılan kod kullanıcı olarak günlüğe kaydeder. Oturum kapatma sonra bunlar kaydoluncaya kadar yeniden oturum açmak değiştiremezler. Daha sonra değiştirmek öğreticide kadar yeni kaydedilen kod kullanıcısıysanız **değil** oturum.
+Önceki satır kayıtlı kullanıcıların e-postalarına onaylandıktan kadar oturum açılmış engeller. Ancak, o satırdaki yeni kullanıcıların bunlar kaydettikten sonra oturum açılmış engellemek değil. Bunlar kaydettikten sonra varsayılan kod kullanıcı olarak günlüğe kaydeder. Oturum kapatma sonra bunlar kaydoluncaya kadar yeniden oturum açmak değiştiremezler. Daha sonra değiştirmek öğreticide kadar yeni kaydedilen kod kullanıcısıysanız **değil** oturum.
 
 ### <a name="configure-email-provider"></a>E-posta sağlayıcısı yapılandırma
 
@@ -277,7 +277,7 @@ E-posta çalışma alınamıyor ise:
 
 ## <a name="prevent-login-at-registration"></a>Kayıt sırasında oturum açma engelle
 
-Bir kullanıcı kayıt formunu tamamladıktan sonra geçerli şablonlarıyla oturum (kimliği doğrulanmış). Genellikle, oturum açmayı önce e-postalarına doğrulamak istersiniz. Aşağıdaki bölümde, biz gerektirecek şekilde kodu değiştirecek yeni kullanıcılar oturum önce onaylanan bir e-posta. Güncelleştirme `[HttpPost] Login` eylemde *AccountController.cs* aşağıdaki vurgulanan değişikliklerle dosya.
+Bir kullanıcı kayıt formunu tamamladıktan sonra geçerli şablonlarıyla bunlar oturum açtınız (kimliği doğrulanmış). Genellikle, oturum açmayı önce e-postalarına doğrulamak istersiniz. Aşağıdaki bölümde, biz gerektirecek şekilde kodu değiştirecek yeni kullanıcınız bunlar oturum açtınız önce onaylanan bir e-posta. Güncelleştirme `[HttpPost] Login` eylemde *AccountController.cs* aşağıdaki vurgulanan değişikliklerle dosya.
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 
@@ -302,4 +302,4 @@ Başka bir oturum açma hizmeti bağlantısını tıklatın ve uygulama istekler
 
 ![Harici oturum görünümünüzü Facebook listeleme yönetme](accconfirm/_static/fb.png)
 
-İki hesap birleştirilmiştir. Herhangi bir hesabı ile oturum açabilecek olacaktır. Kullanıcının sosyal oturum açtığında kimlik doğrulama hizmeti çalışmıyor ya da daha büyük bir olasılıkla bunlar erişim sosyal hesaplarında kesilmiş durumda yerel hesapları eklemek için kullanıcılarınızın isteyebilirsiniz.
+İki hesap birleştirilmiştir. Herhangi bir hesabı ile oturum açabilecek olacaktır. Yerel hesaplar durumunda kullanıcının sosyal oturum açtığında kimlik doğrulama hizmeti çalışmıyor ya da erişim sosyal hesaplarında daha büyük bir olasılıkla kaybettiğini eklemek için kullanıcılarınızın isteyebilirsiniz.

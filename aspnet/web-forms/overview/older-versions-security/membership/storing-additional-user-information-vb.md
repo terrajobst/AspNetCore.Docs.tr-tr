@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8db63cb42fb04343150d2175a9d6fad1d5287a9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9acc02a1280446b9826c3f8f0022b4726139c7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Ek kullanıcı bilgileri depolayan (VB)
 ====================
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Giriş
 
-ASP. NET'in üyelik framework kullanıcıları yönetmek için esnek bir arabirim sunar. Üyelik API'si için kimlik bilgileri doğrulanıyor, şu anda oturum açmış kullanıcı hakkında bilgi alma, yeni bir kullanıcı hesabı oluşturma ve diğerlerinin yanı sıra bir kullanıcı hesabı silme yöntemlerini içerir. Her kullanıcı hesabı üyelik Framework'te yalnızca kimlik doğrulama ve temel kullanıcı hesabıyla ilgili görevleri gerçekleştirmek için gereken özellikleri içerir. Bu yöntemleri ve özellikleri tarafından yi [ `MembershipUser` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx), bir kullanıcı hesabı üyelik Framework'te modeller. Bu sınıf gibi özelliklere sahip [ `UserName` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.username.aspx), [ `Email` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.email.aspx), ve [ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx), yöntemleri gibi ve [ `GetPassword` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.getpassword.aspx) ve [ `UnlockUser` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx).
+ASP. NET'in üyelik framework kullanıcıları yönetmek için esnek bir arabirim sunar. Üyelik API'si için kimlik bilgileri doğrulanıyor, şu anda oturum açmış kullanıcı hakkında bilgi alma, yeni bir kullanıcı hesabı oluşturma ve diğerlerinin yanı sıra bir kullanıcı hesabı silme yöntemlerini içerir. Her kullanıcı hesabı üyelik Framework'te yalnızca kimlik doğrulama ve temel kullanıcı hesabıyla ilgili görevleri gerçekleştirmek için gereken özellikleri içerir. Bu yöntemleri ve özellikleri tarafından yi [ `MembershipUser` sınıfı](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx), bir kullanıcı hesabı üyelik Framework'te modeller. Bu sınıf gibi özelliklere sahip [ `UserName` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.username.aspx), [ `Email` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.email.aspx), ve [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx), yöntemleri gibi ve [ `GetPassword` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.getpassword.aspx) ve [ `UnlockUser` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx).
 
 Görmemeleri, uygulamalar üyelik framework bulunmayan ek kullanıcı bilgilerini depolamak gerekir. Örneğin, bir çevrimiçi satıcısı kendi sevkiyat ve fatura adresleri, ödeme bilgileri, teslim Tercihler depolamak ve telefon numarası her bir kullanıcı izin gerekebilir. Ayrıca, sistemdeki her sipariş belirli kullanıcı hesabıyla ilişkilidir.
 
@@ -71,7 +71,7 @@ Kalan tek şey, bir kullanıcı hesabı her Konuk açıklama ile ilişkilendiren
 
 Ekledikten sonra `UserId` sütununda, araç çubuğunda Kaydet simgesine tıklayarak tablo kaydedin. Yeni bir tablo adı `GuestbookComments`.
 
-İle katılmayı son sorunlardan biri sahibiz `GuestbookComments` tablosu: oluşturmamız gerekir bir [yabancı anahtar kısıtlaması](https://msdn.microsoft.com/en-us/library/ms175464.aspx) arasında `GuestbookComments.UserId` sütun ve `aspnet_Users.UserId` sütun. Bunu başarmak için yabancı anahtar ilişkileri iletişim kutusunu başlatmak için araç çubuğunda ilişki simgesine tıklayın. (Alternatif olarak, bu iletişim kutusunu Tablo Tasarımcısı menüsüne giderek ve ilişkileri seçerek başlatabilirsiniz.)
+İle katılmayı son sorunlardan biri sahibiz `GuestbookComments` tablosu: oluşturmamız gerekir bir [yabancı anahtar kısıtlaması](https://msdn.microsoft.com/library/ms175464.aspx) arasında `GuestbookComments.UserId` sütun ve `aspnet_Users.UserId` sütun. Bunu başarmak için yabancı anahtar ilişkileri iletişim kutusunu başlatmak için araç çubuğunda ilişki simgesine tıklayın. (Alternatif olarak, bu iletişim kutusunu Tablo Tasarımcısı menüsüne giderek ve ilişkileri seçerek başlatabilirsiniz.)
 
 Yabancı anahtar ilişkilerini iletişim kutusunun sol alt köşesindeki Ekle düğmesini tıklatın. Biz yine de ilişkisine katılmak tabloları tanımlamanız gerekir ancak bu bir yeni yabancı anahtar kısıtlaması ekler.
 
@@ -231,7 +231,7 @@ Ardından, bir parametre SqlDataSource denetiminin oluşturacak "Parametreleri Y
 **Şekil 14**: SqlDataSource's belirtin `UpdateCommand` ve `UpdateParameters` ([tam boyutlu görüntüyü görüntülemek için tıklatın](storing-additional-user-information-vb/_static/image42.png))
 
 
-Eklemeleri nedeniyle düzenleme denetimi artık destekleyebilir DetailsView SqlDataSource denetimi yapılan. DetailsView'un akıllı etiketten "Düzenlemeyi etkinleştir" onay kutusunu işaretleyin. Bu denetimin bir CommandField ekler `Fields` koleksiyonuyla kendi `ShowEditButton` özelliği True olarak ayarlanmış. Bu bir Düzenle düğmesi DetailsView salt okunur modda ve Güncelleştirmesi'nde görüntülenir ve görüntülenen zaman iptal düğmeleri düzenleme moduna işler. Düzenle'yi tıklatın kullanıcının gerektiren yerine ancak biz DetailsView işleme "her zaman düzenlenebilir" bir durumda DetailsView denetimin ayarlayarak olabilir [ `DefaultMode` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode.aspx) için `Edit`.
+Eklemeleri nedeniyle düzenleme denetimi artık destekleyebilir DetailsView SqlDataSource denetimi yapılan. DetailsView'un akıllı etiketten "Düzenlemeyi etkinleştir" onay kutusunu işaretleyin. Bu denetimin bir CommandField ekler `Fields` koleksiyonuyla kendi `ShowEditButton` özelliği True olarak ayarlanmış. Bu bir Düzenle düğmesi DetailsView salt okunur modda ve Güncelleştirmesi'nde görüntülenir ve görüntülenen zaman iptal düğmeleri düzenleme moduna işler. Düzenle'yi tıklatın kullanıcının gerektiren yerine ancak biz DetailsView işleme "her zaman düzenlenebilir" bir durumda DetailsView denetimin ayarlayarak olabilir [ `DefaultMode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode.aspx) için `Edit`.
 
 Bu değişikliklerle DetailsView denetiminizin bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
 
@@ -380,7 +380,7 @@ Bu öğretici indirilebilir öğretici Web sitesi her iki tekniği de gösterilm
 
 Needless çok deyin nedeniyle bizim tasarım kararları önemlidir üyelik sistemi her kullanıcı hesabında bir eşleştirme olduğunu kaydetmek `UserProfiles` tablo. Ne istiyoruz eklenecek karşılık gelen bir kayıt içindir. `UserProfiles` yeni bir üyelik kullanıcı hesabı ile CreateUserWizard oluşturulduğu zaman.
 
-' Da anlatıldığı gibi [ *kullanıcı hesapları oluşturma* ](creating-user-accounts-vb.md) CreateUserWizard denetim yeni bir üyelik kullanıcı hesabı oluşturulduktan sonra öğretici başlatır, [ `CreatedUser` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx). Biz bu olay için bir olay işleyicisi oluşturun, USERID için yeni oluşturulan kullanıcı alır ve bir kayıtta Ekle `UserProfiles` tablosu için varsayılan değerlerle `HomeTown`, `HomepageUrl`, ve `Signature` sütun. Daha, bu değerleri ek metin kutuları içerecek şekilde CreateUserWizard denetimin arabirimi özelleştirerek kullanıcıdan mümkündür.
+' Da anlatıldığı gibi [ *kullanıcı hesapları oluşturma* ](creating-user-accounts-vb.md) CreateUserWizard denetim yeni bir üyelik kullanıcı hesabı oluşturulduktan sonra öğretici başlatır, [ `CreatedUser` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx). Biz bu olay için bir olay işleyicisi oluşturun, USERID için yeni oluşturulan kullanıcı alır ve bir kayıtta Ekle `UserProfiles` tablosu için varsayılan değerlerle `HomeTown`, `HomepageUrl`, ve `Signature` sütun. Daha, bu değerleri ek metin kutuları içerecek şekilde CreateUserWizard denetimin arabirimi özelleştirerek kullanıcıdan mümkündür.
 
 Önce yeni bir satır ekleme bakalım `UserProfiles` tablosundaki `CreatedUser` varsayılan değerlerle olay işleyicisi. Yeni kullanıcının ev Şehir, giriş sayfası ve imza toplamak için ek form alanları içerecek şekilde CreateUserWizard denetimin kullanıcı arabirimini özelleştirmek nasıl göreceksiniz.
 
@@ -390,7 +390,7 @@ Needless çok deyin nedeniyle bizim tasarım kararları önemlidir üyelik siste
 
 Açık `EnhancedCreateUserWizard.aspx` sayfasında Visual Studio'da ve CreateUserWizard denetimini sayfaya araç çubuğuna sürükleyin. CreateUserWizard denetimin ayarlamak `ID` özelliğine `NewUserWizard`. Biz anlatıldığı gibi [ *kullanıcı hesapları oluşturma* ](creating-user-accounts-vb.md) Öğreticisi, CreateUserWizard'ın varsayılan kullanıcı arabirimi ziyaretçi için gerekli bilgileri ister. Bu bilgiler sağlanan sonra denetimi dahili olarak yeni bir kullanıcı hesabı üyelik Framework'te tüm bize tek satırlık bir kod yazmak zorunda oluşturur.
 
-CreateUserWizard denetim olayların sayısı, iş akışı sırasında başlatır. Bir ziyaretçi istek bilgileri sağlayan ve formu gönderdikten sonra CreateUserWizard denetim başlangıçta ateşlenir kendi [ `CreatingUser` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx). Oluşturma işlemi sırasında bir sorun varsa [ `CreateUserError` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx) tetiklenir; ancak, kullanıcı başarıyla oluşturulduysa, sonra [ `CreatedUser` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx) tetiklenir. İçinde [ *kullanıcı hesapları oluşturma* ](creating-user-accounts-vb.md) öğreticisi için bir olay işleyicisi oluşturduğumuz `CreatingUser` sağlanan kullanıcı tüm başında veya sonunda boşluk ve içermiyordu emin olmak için olay Kullanıcı adı parola herhangi bir yere görülmedi.
+CreateUserWizard denetim olayların sayısı, iş akışı sırasında başlatır. Bir ziyaretçi istek bilgileri sağlayan ve formu gönderdikten sonra CreateUserWizard denetim başlangıçta ateşlenir kendi [ `CreatingUser` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.creatinguser.aspx). Oluşturma işlemi sırasında bir sorun varsa [ `CreateUserError` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createusererror.aspx) tetiklenir; ancak, kullanıcı başarıyla oluşturulduysa, sonra [ `CreatedUser` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.createduser.aspx) tetiklenir. İçinde [ *kullanıcı hesapları oluşturma* ](creating-user-accounts-vb.md) öğreticisi için bir olay işleyicisi oluşturduğumuz `CreatingUser` sağlanan kullanıcı tüm başında veya sonunda boşluk ve içermiyordu emin olmak için olay Kullanıcı adı parola herhangi bir yere görülmedi.
 
 Bir satır eklemek için `UserProfiles` tablo için bir olay işleyicisi oluşturmak ihtiyacımız yeni oluşturulan kullanıcı için `CreatedUser` olay. Zamana göre `CreatedUser` olay harekete, kullanıcı hesabı hesabın UserID değerini almak için bize etkinleştirme üyelik framework oluşturuldu.
 
@@ -398,9 +398,9 @@ Bir satır eklemek için `UserProfiles` tablo için bir olay işleyicisi oluştu
 
 [!code-vb[Main](storing-additional-user-information-vb/samples/sample11.vb)]
 
-Yeni eklenen kullanıcı hesabının kullanıcı kimliği alarak Yukarıdaki kod için önemlidir. Bu kullanarak gerçekleştirilir `Membership.GetUser(username)` bir belirli kullanıcı ve sonra kullanma hakkında bilgi döndürmek için yöntemin `ProviderUserKey` kendi UserID almak için özellik. CreateUserWizard denetim kullanıcı tarafından girilen kullanıcı adının aracılığıyla kullanılabilen kendi [ `UserName` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.username.aspx).
+Yeni eklenen kullanıcı hesabının kullanıcı kimliği alarak Yukarıdaki kod için önemlidir. Bu kullanarak gerçekleştirilir `Membership.GetUser(username)` bir belirli kullanıcı ve sonra kullanma hakkında bilgi döndürmek için yöntemin `ProviderUserKey` kendi UserID almak için özellik. CreateUserWizard denetim kullanıcı tarafından girilen kullanıcı adının aracılığıyla kullanılabilen kendi [ `UserName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.username.aspx).
 
-Ardından, bağlantı dizesinin alındığı `Web.config` ve `INSERT` deyimi belirtildi. Gerekli ADO.NET nesneleri örneği ve komutu. Kodu atar bir [ `DBNull` ](https://msdn.microsoft.com/en-us/library/system.dbnull.aspx) için örnek `@HomeTown`, `@HomepageUrl`, ve `@Signature` veritabanı ekleme etkisi parametreleri `NULL` değerleri `HomeTown`, `HomepageUrl`, ve `Signature` alanları.
+Ardından, bağlantı dizesinin alındığı `Web.config` ve `INSERT` deyimi belirtildi. Gerekli ADO.NET nesneleri örneği ve komutu. Kodu atar bir [ `DBNull` ](https://msdn.microsoft.com/library/system.dbnull.aspx) için örnek `@HomeTown`, `@HomepageUrl`, ve `@Signature` veritabanı ekleme etkisi parametreleri `NULL` değerleri `HomeTown`, `HomepageUrl`, ve `Signature` alanları.
 
 Ziyaret `EnhancedCreateUserWizard.aspx` sayfasında bir tarayıcıdan ve yeni bir kullanıcı hesabı oluşturun. Bunu yaptıktan sonra Visual Studio'ya geri dönün ve içeriğini inceleyin `aspnet_Users` ve `UserProfiles` tabloları (Şekil 12'de yaptığımız gibi). Yeni kullanıcı hesabında görmelisiniz `aspnet_Users` ve karşılık gelen `UserProfiles` satır (ile `NULL` değerleri `HomeTown`, `HomepageUrl`, ve `Signature`).
 
@@ -412,7 +412,7 @@ Ziyaret `EnhancedCreateUserWizard.aspx` sayfasında bir tarayıcıdan ve yeni bi
 
 Ziyaretçi kendi yeni hesap bilgileri sağladığı ve "Kullanıcı oluştur" düğmesine tıklandığında, kullanıcı hesabı oluşturulur ve bir satır eklenir sonra `UserProfiles` tablo. CreateUserWizard ardından görüntüler kendi `CompleteWizardStep`, bir başarı iletisi ve devam et düğmesi görüntülenir. Devam Et düğmesine tıklayarak bir geri gönderme neden olur, ancak hiçbir işlem yapılmadı, kullanıcı bırakarak takılmış `EnhancedCreateUserWizard.aspx` sayfası.
 
-Devam Et düğmesine CreateUserWizard denetimin tıklatıldığında için kullanıcıya gönderilecek bir URL belirttiğimiz [ `ContinueDestinationPageUrl` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx). Ayarlama `ContinueDestinationPageUrl` özelliğine "~ / Membership/AdditionalUserInfo.aspx". Bu yeni bir kullanıcıya sürer `AdditionalUserInfo.aspx`, burada görüntüleyebilir ve ayarlarını güncelleştirin.
+Devam Et düğmesine CreateUserWizard denetimin tıklatıldığında için kullanıcıya gönderilecek bir URL belirttiğimiz [ `ContinueDestinationPageUrl` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.continuedestinationpageurl.aspx). Ayarlama `ContinueDestinationPageUrl` özelliğine "~ / Membership/AdditionalUserInfo.aspx". Bu yeni bir kullanıcıya sürer `AdditionalUserInfo.aspx`, burada görüntüleyebilir ve ayarlarını güncelleştirin.
 
 ### <a name="customizing-the-createuserwizards-interface-to-prompt-for-the-new-users-home-town-homepage-and-signature"></a>Yeni kullanıcının giriş Şehir, giriş sayfası ve imza sor CreateUserWizard'ın arabirimine özelleştirme
 
@@ -473,7 +473,7 @@ Kapatmak için Tamam'ı `WizardStep` koleksiyon Düzenleyicisi iletişim. Yeni `
 Yeni Not `<asp:WizardStep>` öğesi. Yeni kullanıcının ev Şehir, giriş sayfası ve burada İmza toplamak için kullanıcı arabirimi eklemeniz gerekir. Bildirim temelli söz dizimi veya Tasarımcısı aracılığıyla, bu içerik girebilirsiniz. Tasarımcısını kullanmak için "Ayarlarınızı" adım adım Tasarımcısı'nda görmek için akıllı etiket aşağı açılan listeden seçin.
 
 > [!NOTE]
-> Akıllı etiketin aşağı açılan listesi kullanılarak bir adım seçerek güncelleştirmeleri CreateUserWizard denetimin [ `ActiveStepIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.activestepindex.aspx), başlangıç adım dizinini belirtir. Tasarımcısı'nda "Ayarlarınızı" adımı düzenlemek için bu açılan listeyi kullanın, bu nedenle, böylece kullanıcılar ilk kez ziyaret ettiğinizde bu adımı gösterilen geri "oturum yukarı için yeni hesabınız için" ayarladığınızdan emin olun `EnhancedCreateUserWizard.aspx` sayfası.
+> Akıllı etiketin aşağı açılan listesi kullanılarak bir adım seçerek güncelleştirmeleri CreateUserWizard denetimin [ `ActiveStepIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.activestepindex.aspx), başlangıç adım dizinini belirtir. Tasarımcısı'nda "Ayarlarınızı" adımı düzenlemek için bu açılan listeyi kullanın, bu nedenle, böylece kullanıcılar ilk kez ziyaret ettiğinizde bu adımı gösterilen geri "oturum yukarı için yeni hesabınız için" ayarladığınızdan emin olun `EnhancedCreateUserWizard.aspx` sayfası.
 
 
 Adlı üç TextBox denetimleri içeren "Ayarlarınızı" adım içinde bir kullanıcı arabirimi oluşturma `HomeTown`, `HomepageUrl`, ve `Signature`. Bu arabirim oluşturduktan sonra CreateUserWizard'ın bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
@@ -482,7 +482,7 @@ Adlı üç TextBox denetimleri içeren "Ayarlarınızı" adım içinde bir kulla
 
 Şimdi bir tarayıcı aracılığıyla bu sayfasını ziyaret edin ve ev Şehir, giriş sayfası ve imza için değerler belirten yeni bir kullanıcı hesabı oluşturun. Tamamladıktan sonra `CreateUserWizardStep` üyelik Framework'te kullanıcı hesabı oluşturulur ve `CreatedUser` için yeni bir satır ekler olay işleyicisi çalışır `UserProfiles`, ancak bir veritabanı ile `NULL` değerini `HomeTown`, `HomepageUrl`, ve `Signature`. Ev Şehir, giriş sayfası ve imza için girilen değerler hiçbir zaman kullanılır. Yeni bir kullanıcı hesabıyla net sonucu olan bir `UserProfiles` özelliği kayıt `HomeTown`, `HomepageUrl`, ve `Signature` alanınız Henüz belirtilmelidir.
 
-Kullanıcı tarafından girilen ev Şehir, honepage ve imza değerlerini alır ve uygun güncelleştiren "Ayarlarınızı" adımından sonra kod yürütmek için ihtiyacımız `UserProfiles` kaydı. Kullanıcı hareket bir Sihirbazı'ndaki adımları arasında her zaman kontrol, sihirbazın [ `ActiveStepChanged` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.wizard.activestepchanged.aspx) etkinleşir. Bu olay ve güncelleştirme için bir olay işleyicisi oluşturabiliriz `UserProfiles` "Ayarlarınızı" adım tamamlandığında tablo.
+Kullanıcı tarafından girilen ev Şehir, honepage ve imza değerlerini alır ve uygun güncelleştiren "Ayarlarınızı" adımından sonra kod yürütmek için ihtiyacımız `UserProfiles` kaydı. Kullanıcı hareket bir Sihirbazı'ndaki adımları arasında her zaman kontrol, sihirbazın [ `ActiveStepChanged` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.wizard.activestepchanged.aspx) etkinleşir. Bu olay ve güncelleştirme için bir olay işleyicisi oluşturabiliriz `UserProfiles` "Ayarlarınızı" adım tamamlandığında tablo.
 
 Olay işleyicisi CreateUserWizard için 's eklemek `ActiveStepChanged` olay ve aşağıdaki kodu ekleyin:
 

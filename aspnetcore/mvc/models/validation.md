@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 56928c61ae47d313145afadf3e0fa93a078b681b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
 
@@ -148,14 +148,14 @@ MVC belirler türü öznitelik değerleri büyük olasılıkla kullanarak geçer
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dinamik formlarına doğrulama ekleme
 
-Sayfa ilk kez yüklediğinde jQuery örtük doğrulama doğrulama mantığını ve parametreleri jQuery doğrulama atladığı için dinamik olarak üretilen forms otomatik olarak doğrulama sergiler değil. Bunun yerine, jQuery hemen oluşturduktan sonra dinamik formun ayrıştırmak için örtük doğrulama bildirmeniz gerekir. Örneğin, aşağıdaki kodu, AJAX eklenen bir form üzerinde istemci tarafı doğrulamasını nasıl ayarlayabilir gösterir.
+Sayfa ilk kez yüklediğinde jQuery örtük doğrulama doğrulama mantığını ve parametreleri jQuery doğrulama atladığı için dinamik olarak üretilen forms otomatik olarak doğrulama sergilemesine olmaz. Bunun yerine, jQuery hemen oluşturduktan sonra dinamik formun ayrıştırmak için örtük doğrulama bildirmeniz gerekir. Örneğin, aşağıdaki kodu, AJAX eklenen bir form üzerinde istemci tarafı doğrulamasını nasıl ayarlayabilir gösterir.
 
 ```js
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newFormHTML) {
         var container = document.getElementById("form-container");
@@ -171,14 +171,14 @@ $.get({
 
 ### <a name="add-validation-to-dynamic-controls"></a>Doğrulama için dinamik denetimleri ekleme
 
-Tek denetimleri gibi bir form üzerinde doğrulama kuralları da güncelleştirebilirsiniz `<input/>`s ve `<select/>`s, dinamik olarak oluşturulur. Bu öğeler için seçiciler geçiremezsiniz `parse()` yöntemi doğrudan çünkü çevresindeki formu zaten ayrıştırılır ve değil güncelleştirir. Bunun yerine, önce varolan doğrulama verileri kaldırın, ardından aşağıda gösterildiği gibi tüm formu yeniden ayrıştırma:
+Tek denetimleri gibi bir form üzerinde doğrulama kuralları da güncelleştirebilirsiniz `<input/>`s ve `<select/>`s, dinamik olarak oluşturulur. Bu öğeler için seçiciler geçiremezsiniz `parse()` doğrudan yöntemi çünkü çevresindeki formu zaten ayrıştırılır ve güncelleştirme olmaz. Bunun yerine, önce varolan doğrulama verileri kaldırın, ardından aşağıda gösterildiği gibi tüm formu yeniden ayrıştırma:
 
 ```js
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
     error: function(jqXHR, textStatus, errorThrown) {
-        alert(textStatus + ": Could not add form. " + errorThrown);
+        alert(textStatus + ": Couldn't add form. " + errorThrown);
     },
     success: function(newInputHTML) {
         var form = document.getElementById("my-form");
@@ -235,8 +235,7 @@ Artık kullanıcıların bir e-posta girdiğinizde, JavaScript görünümünde e
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`açıkça dizelere ayarlanan `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme. Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
-
+`AdditionalFields`açıkça dizelere ayarlanmış `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme. Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
 
@@ -253,4 +252,4 @@ Bir ad ve Soyadı, JavaScript artık kullanıcıların girdiğinizde:
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi sabit bir ifade olması gerekir. Bu nedenle, değil kullanmalısınız bir [Ara değerli dize](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) veya arama [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, başka bir bağımsız değişken için karşılık gelen denetleyici eylem yöntemi eklemeniz gerekir.
+`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi sabit bir ifade olması gerekir. Bu nedenle, değil kullanmalısınız bir [Ara değerli dize](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) veya arama [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, başka bir bağımsız değişken için karşılık gelen denetleyici eylem yöntemi eklemeniz gerekir.

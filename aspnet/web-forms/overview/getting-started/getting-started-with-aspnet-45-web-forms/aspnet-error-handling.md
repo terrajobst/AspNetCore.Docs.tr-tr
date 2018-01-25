@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d5d89a6a82c91b915d61ddc3c350ea0935511c07
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5ec43ac78be4a9452ebaa6495a6883506ac162f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET hata işleme
 ====================
@@ -313,7 +313,7 @@ Bu öğreticide, uygulama düzeyinde, sayfa düzeyinde ve kod düzeyi hataları 
 
 ## <a name="tutorial-series-conclusion"></a>Eğitmen serisi sonuç
 
-*Aşağıdaki boyunca için teşekkür ederiz. I bu kümesi öğreticileri, ASP.NET Web Forms daha öğrenmeniz Yardım umuyoruz. ASP.NET 4.5 ve Visual Studio 2013 kullanılabilen Web Forms özellikler hakkında daha fazla bilgi için bkz:* [ *ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları için* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Ayrıca, belirtilen öğretici bir göz atalım unutmayın* ***sonraki adımlar****bölümü ve defintely denemenin* [*ücretsiz Azure deneme* ](https://azure.microsoft.com/pricing/free-trial/)*.*
+*Aşağıdaki boyunca için teşekkür ederiz. I bu kümesi öğreticileri, ASP.NET Web Forms daha öğrenmeniz Yardım umuyoruz. ASP.NET 4.5 ve Visual Studio 2013 kullanılabilen Web Forms özellikler hakkında daha fazla bilgi için bkz:* [ *ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları için* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Ayrıca, belirtilen öğretici bir göz atalım unutmayın* ***sonraki adımlar *** bölümü ve defintely denemenin* [ *ücretsiz Azure deneme* ](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![Teşekkür ederiz - Erik](aspnet-error-handling/_static/image10.png)  
 
@@ -335,23 +335,23 @@ Web uygulamanızı Microsoft Azure'a dağıtma hakkında daha fazla bilgi için 
 
 Bu öğretici dizisinin içeriğe önemli ölçüde katkıda yapılan aşağıdaki kişilere teşekkür ederiz ister misiniz:
 
-- [Adı Poblacion, MVP &amp; MCT, İspanya](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Adı Poblacion, MVP &amp; MCT, İspanya](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - [Alex Thissen, Hollanda](http://blog.alexthissen.nl/) (twitter: [ @alexthissen ](http://twitter.com/alexthissen))
 - [Andre Tournier, ABD](http://andret503.wordpress.com/)
 - Apurva Joshi, Microsoft
-- [Bojan Vrhovnik, Slovenya](http://twitter.com/bvrhovnik)
+- [Bojan Vrhovnik, Slovenia](http://twitter.com/bvrhovnik)
 - [Bruno Sonnino, Brezilya](http://msmvps.com/blogs/bsonnino) (twitter: [ @bsonnino ](http://twitter.com/bsonnino))
-- [Carlos dos Santos, Brezilya](http://www.carloscds.net/)
+- [Carlos dos Santos, Brazil](http://www.carloscds.net/)
 - [Dave Campbell, ABD'de](http://www.wynapse.com/) (twitter: [ @windowsdevnews ](http://twitter.com/windowsdevnews))
 - [Jon Galloway, Microsoft](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Michael Diyezler, ABD](http://www.930solutions.com/) (twitter: [ @mrsharps ](http://twitter.com/mrsharps))
-- Can Pope
+- Mike Pope
 - [Mitchel satıcılar, ABD](http://www.mitchelsellers.com/) (twitter: [ @MitchelSellers ](http://twitter.com/MitchelSellers))
 - [Paul Cociuba, Microsoft](http://linqto.me/Links/pcociuba)
 - [Paulo Morgado, Portekiz](http://paulomorgado.net/)
 - [Pranav Rastogi, Microsoft](https://blogs.msdn.com/b/pranav_rastogi)
 - [Tim Ammann, Microsoft](https://blogs.iis.net/timamm/default.aspx)
-- [Zel Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
+- [Tom Dykstra, Microsoft](https://blogs.msdn.com/aspnetue)
 
 ## <a name="community-contributions"></a>Topluluk Katkıları
 
@@ -359,7 +359,7 @@ Bu öğretici dizisinin içeriğe önemli ölçüde katkıda yapılan aşağıda
  Visual Studio 2012 ile ilgili MSDN kod örneği: [Gezinti Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - Ahmet Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
  Visual Studio 2012 ile ilgili MSDN kod örneği: [ASP.NET 4.5 Web formları öğretici serisinde Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
-- Andrielle Azevedo - Microsoft Teknik İzleyici katkıda bulunan (twitter: @driazevedo)  
+- Andrielle Azevedo - Microsoft Technical Audience Contributor (twitter: @driazevedo)  
  Visual Studio 2012 çeviri: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
 >[!div class="step-by-step"]

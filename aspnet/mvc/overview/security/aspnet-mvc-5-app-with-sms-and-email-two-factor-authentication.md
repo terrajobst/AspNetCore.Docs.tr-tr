@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: db57b8fe44f41d65d27964f45e0884138629f92b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması
 ====================
@@ -43,7 +43,7 @@ Başlangıç yüklenmesi ve çalıştırılması [için Visual Studio Express 20
 
 1. Yeni bir ASP.NET Web projesi oluşturun ve MVC şablonunu seçin. Web Forms da destekler ASP.NET kimliği için bir web forms uygulamasında benzer adımları izleyebilirsiniz.  
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image1.png)
-2. Varsayılan kimlik doğrulaması olarak bırakın **tek tek kullanıcı hesaplarını**. Uygulamayı azure'da barındırmak istiyorsanız, onay kutusunun işaretli bırakın. Daha sonra öğreticide biz Azure'a dağıtacaksınız. Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+2. Varsayılan kimlik doğrulaması olarak bırakın **tek tek kullanıcı hesaplarını**. Uygulamayı azure'da barındırmak istiyorsanız, onay kutusunun işaretli bırakın. Daha sonra öğreticide biz Azure'a dağıtacaksınız. Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 3. Ayarlama [SSL kullanmak üzere proje](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 
 <a id="SMS"></a>
@@ -106,7 +106,7 @@ Bu öğretici Twilio veya ASPSMS kullanma yönergeleri sağlar ancak herhangi bi
 7. Güncelleştirme *Views\Manage\Index.cshtml* Razor Görünüm: (Not: değil yalnızca yorumları mevcut kodda kaldırmak için aşağıdaki kodu kullanın.)  
 
     [!code-cshtml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample3.cshtml?highlight=29-66)]
-8. Doğrulama `EnableTwoFactorAuthentication` ve `DisableTwoFactorAuthentication` eylem yöntemlerinde `ManageController` sahip[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.118).aspx) özniteliği:  
+8. Doğrulama `EnableTwoFactorAuthentication` ve `DisableTwoFactorAuthentication` eylem yöntemlerinde `ManageController` sahip[[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.118).aspx) özniteliği:  
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample4.cs?highlight=3,16)]
 9. Uygulamayı çalıştırın ve daha önce kaydettiğiniz hesabıyla oturum açın.

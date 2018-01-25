@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 6362f0506934ca3b3cc86e1a927af75e7bc4e1d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 özel eylem filtreleri
 ====================
@@ -96,7 +96,7 @@ Filtre uzatır **ActionFilterAttributeClass** ve geçersiz kılma **OnActionExec
 > - **Sonuç** ActionResult nesnesinin yürütme sarmalar filtre. Bu filtre sonucunun HTTP yanıtı değiştirme gibi ek işleme gerçekleştirebilirsiniz.
 > - **Özel durum** yere eylem yöntemindeki yetkilendirme filtreleri ile başlayıp sonucu yürütülmesiyle işlenmemiş özel durum ise, yürütür filtre. Özel durum filtreleri, günlük veya bir hata sayfası görüntüleme gibi görevleri için kullanılabilir.
 > 
-> Filtre sağlayıcıları hakkında daha fazla bilgi için bu MSDN bağlantıyı ziyaret edin: ([https://msdn.microsoft.com/en-us/library/dd410209.aspx](https://msdn.microsoft.com/en-us/library/dd410209.aspx)).
+> Filtre sağlayıcıları hakkında daha fazla bilgi için bu MSDN bağlantıyı ziyaret edin: ([https://msdn.microsoft.com/library/dd410209.aspx](https://msdn.microsoft.com/library/dd410209.aspx)).
 
 
 <a id="AboutLoggingFeature"></a>
@@ -128,7 +128,7 @@ Bu görevde günlük kaydı mantığı içeren bir özel filtre öznitelik sın�
 > [!NOTE]
 > **ActionFilterAttribute** tüm öznitelik filtreleri için temel sınıftır. Belirli bir mantığı sonra ve denetleyici eylemin yürütme önce yürütmek için aşağıdaki yöntemleri sağlar:
 > 
-> - **OnActionExecuting**(ActionExecutingContext filterContext): hemen önce eylemi yöntemi çağrılır.
+> - **OnActionExecuting**(ActionExecutingContext filterContext): Just before the action method is called.
 > - **OnActionExecuted**(ActionExecutedContext filterContext): eylem yöntemi çağrıldıktan sonra ve sonucu (Görünüm oluşturmadan önce) yürütülmeden önce.
 > - **OnResultExecuting**(ResultExecutingContext filterContext): (Görünüm oluşturmadan önce) sonucu yürütülmeden önce yalnızca.
 > - **OnResultExecuted**(ResultExecutedContext filterContext): (Görünüm işlenen sonra) sonucu yürütüldükten sonra.
@@ -164,7 +164,7 @@ Bu görevde günlük kaydı mantığı içeren bir özel filtre öznitelik sın�
     > [!NOTE]
     > **OnActionExecuting** yöntemi kullanarak **Entity Framework** yeni bir ActionLog kayıt eklemek için. Oluşturur ve yeni bir varlık örneğinin bağlamı bilgilerle doldurur **filterContext**.
     > 
-    > Daha fazla bilgi edinebilirsiniz **ControllerContext** adresindeki sınıf [msdn](https://msdn.microsoft.com/en-us/library/system.web.mvc.controllercontext.aspx).
+    > Daha fazla bilgi edinebilirsiniz **ControllerContext** adresindeki sınıf [msdn](https://msdn.microsoft.com/library/system.web.mvc.controllercontext.aspx).
 
 <a id="Ex1Task2"></a>
 
@@ -231,7 +231,7 @@ Tanımlayabileceğiniz bir **kapsam** filtrelerin her biri için örneğin, içi
 
 Ayrıca, her eylem filtresi filtre kapsamı yürütme sırasında belirlemek için kullanılan bir sipariş özelliğine sahiptir.
 
-Özel eylem filtrelerini yürütme sırası hakkında daha fazla bilgi için lütfen bu MSDN makalesine bakın: ([https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/en-us/library/dd381609(v=vs.98).aspx)).
+Özel eylem filtrelerini yürütme sırası hakkında daha fazla bilgi için lütfen bu MSDN makalesine bakın: ([https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx](https://msdn.microsoft.com/library/dd381609(v=vs.98).aspx)).
 
 <a id="Ex2Task1"></a>
 

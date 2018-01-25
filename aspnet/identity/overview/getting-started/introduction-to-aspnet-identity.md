@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a66e2a80668dbf291b9cc34f205b546b72d92bcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity giriş
 ====================
@@ -31,7 +31,7 @@ tarafından [Jon Galloway](https://github.com/jongalloway), [Pranav Rastogi](htt
 
 ### <a name="aspnet-membership"></a>ASP.NET üyelik
 
-[ASP.NET üyelik](https://msdn.microsoft.com/en-us/library/yh26yfzy(v=VS.100).aspx) form kimlik doğrulaması ve SQL Server veritabanı kullanıcı adları, parolalar ve profil verileri için söz konusu 2005'te yaygın site üyeliği gereksinimlerini çözmek için tasarlanmıştır. Bugün bir çok daha geniş dizisi web uygulamaları için veri depolama seçenekleri yoktur ve çoğu Geliştirici sosyal kimlik sağlayıcıları için kimlik doğrulama ve yetkilendirme işlevselliği kullanmak sitelerinde etkinleştirmek istiyor. ASP.NET üyelik'ın tasarım sınırlamaları bu geçişi zor yapın:
+[ASP.NET üyelik](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx) form kimlik doğrulaması ve SQL Server veritabanı kullanıcı adları, parolalar ve profil verileri için söz konusu 2005'te yaygın site üyeliği gereksinimlerini çözmek için tasarlanmıştır. Bugün bir çok daha geniş dizisi web uygulamaları için veri depolama seçenekleri yoktur ve çoğu Geliştirici sosyal kimlik sağlayıcıları için kimlik doğrulama ve yetkilendirme işlevselliği kullanmak sitelerinde etkinleştirmek istiyor. ASP.NET üyelik'ın tasarım sınırlamaları bu geçişi zor yapın:
 
 - Veritabanı şeması, SQL Server için tasarlanmıştır ve onu değiştiremezsiniz. Profil bilgisi ekleyebilirsiniz, ancak ek veri erişimi dışında herhangi bir yöntem profili sağlayıcısı API aracılığıyla zorlaştırır farklı bir tablo paketlenmiştir.
 - Sağlayıcı sistem yedekleme veri deposu değiştirmenizi sağlar, ancak sistem varsayımlar bir ilişkisel veritabanı için uygun çevresinde tasarlanmıştır. Azure depolama tabloları gibi bir ilişkisel olmayan depolama mekanizmasını üyelik bilgilerini depolamak için bir sağlayıcı yazabilirsiniz ancak çok fazla kod ve çok sayıda yazarak ilişkisel tasarım çalışmak zorunda sonra `System.NotImplementedException` olmayan yöntemler için özel durumlar NoSQL veritabanları için geçerlidir.
@@ -53,7 +53,7 @@ Basit üyelik kullanıcı profili bilgilerini özelleştirmek daha kolay yaptı,
 
 Bunlar hala SqlMembership sağlayıcı onunla aynı sınırlamalara taşımak için Evrensel Sağlayıcılar ASP.NET üyeliği altyapısı üzerinde oluşturulmuştur. Diğer bir deyişle, ilişkisel veritabanları için tasarlanmıştır ve profil ve kullanıcı bilgileri özelleştirin zordur. Bu sağlayıcılar yine de oturum açması ve günlük genişletme işlevselliği için form kimlik doğrulaması kullanın.
 
-## <a name="aspnet-identity"></a>ASP.NET kimliği
+## <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 Üyeliği olarak ASP.NET takım çok müşterilerden gelen geri bildirim alanından öğrenilen yıllar içinde ASP.NET yazıdaki gelişmiştir.
 
@@ -132,7 +132,7 @@ Aşağıdaki yordamı kullanarak ASP.NET Identity uygulanır. Bu makalenin amac�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- Yukarıdaki vurgulanmış kodu `SignInAsync` yöntem oluşturur bir [Claimsıdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, kullanıcı için bir Claimsıdentity oluşturmak için uygulama framework gerektirir. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.  
+ Yukarıdaki vurgulanmış kodu `SignInAsync` yöntem oluşturur bir [Claimsıdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, kullanıcı için bir Claimsıdentity oluşturmak için uygulama framework gerektirir. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.  
   
  Aşağıda vurgulanan kod `SignInAsync` yöntemi, bulunan OWIN ve arama kullanarak kullanıcı oturum açtığında `SignIn` ve Claimsıdentity geçirme.  
 
@@ -142,7 +142,7 @@ Aşağıdaki yordamı kullanarak ASP.NET Identity uygulanır. Bu makalenin amac�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- Vurgulanan gösterildiği OWIN kod `AuthenticationManager.SignOut` yöntemi. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) Web Forms modülünde.
+ Vurgulanan gösterildiği OWIN kod `AuthenticationManager.SignOut` yöntemi. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web Forms modülünde.
 
 ## <a name="components-of-aspnet-identity"></a>ASP.NET Identity bileşenleri
 

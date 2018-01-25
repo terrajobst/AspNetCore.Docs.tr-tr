@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 6aa9f16f166ecf5529ae33a17951eb5ea425e7af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Sayfa denetçisi ASP.NET MVC uygulamasında kullanma
 ====================
@@ -46,7 +46,7 @@ tarafından Tim Ammann
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) veya [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) veya [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Sayfa Denetçisi'nın en son sürümünü almak için [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=255386) .NET 2.0 için Windows Azure SDK'sını yüklemek için.
@@ -84,9 +84,9 @@ Visual Studio 2012'de, projenizde select herhangi bir görünümü sağ tıklaya
 
 ![Sayfa Denetçisi'nde Index.cshtml görüntüleyin](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Varsayılan olarak, Page Inspector, Visual Studio ortamı sol tarafta bir pencere olarak sabitlenmiştir. Tercih ederseniz başka bir yerde yerleştirme veya pencere çıkar. Bkz: [nasıl yapılır: pencereleri düzenleme ve yerleştirme Windows](https://msdn.microsoft.com/en-us/library/z4y0hsax.aspx).
+Varsayılan olarak, Page Inspector, Visual Studio ortamı sol tarafta bir pencere olarak sabitlenmiştir. Tercih ederseniz başka bir yerde yerleştirme veya pencere çıkar. Bkz: [nasıl yapılır: pencereleri düzenleme ve yerleştirme Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
-Sayfa denetçisi penceresinin üst bölmesi geçerli sayfa bir tarayıcı penceresinde gösterir. Alt bölme sayfa farklı yönlerini incelemek sağlayan bazı sekmeleri birlikte HTML biçimlendirmesi sayfası gösterilir. Alt bölme benzer [F12 Geliştirici Araçları](https://msdn.microsoft.com/en-us/ie/aa740478) Internet Explorer'da.
+Sayfa denetçisi penceresinin üst bölmesi geçerli sayfa bir tarayıcı penceresinde gösterir. Alt bölme sayfa farklı yönlerini incelemek sağlayan bazı sekmeleri birlikte HTML biçimlendirmesi sayfası gösterilir. Alt bölme benzer [F12 Geliştirici Araçları](https://msdn.microsoft.com/ie/aa740478) Internet Explorer'da.
 
 ![Sayfa denetçisi ASP.NET MVC uygulamasındaki](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 
@@ -102,7 +102,7 @@ Sayfa denetçisi denetleme moduna için tıklatın **incele** düğmesi. İşlen
 
 Şimdi farenizi sayfa içinde sayfa denetçisi farklı kısımlarını üzerine getirin. Yaptığınız gibi büyük bir artı işareti fare işaretçisini değiştirir ve öğesinin altında vurgulanır:
 
-![Div.Content-sarmalayıcı vurgulama](using-page-inspector-in-aspnet-mvc/_static/image14.png)
+![Hovering over div.content-wrapper](using-page-inspector-in-aspnet-mvc/_static/image14.png)
 
 Fare işaretçisini ilerlerken, Visual Studio kaynak dosyasında karşılık gelen Razor sözdizimi vurgular. HTML öğesi başka bir kaynak dosyasından geliyorsa, Visual Studio dosya otomatik olarak açılır.
 
@@ -162,7 +162,7 @@ Tıklatın **incele** sayfa denetçisi denetleme moduna yerleştirilecek.
 
 Sayfa denetçisi tarayıcı penceresinde fare "Giriş sayfası" bölümüne kadar işaretçiyi üzerine **div.content sarmalayıcı** etiketi görüntülenir.
 
-![Div.Content-sarmalayıcı vurgulama](using-page-inspector-in-aspnet-mvc/_static/image26.png)
+![Hovering over div.content-wrapper](using-page-inspector-in-aspnet-mvc/_static/image26.png)
 
 Bir kez div.content sarmalayıcı bölüm içinde tıklayın ve fare işaretçisini taşıma **stilleri** penceresi. **Syles** penceresi tüm bu öğe için CSS kuralları gösterir. Bul .featured .content sarmalayıcı sınıf seçici aşağı kaydırın. Şimdi arka plan rengi özelliği için onay kutusunu temizleyin.
 

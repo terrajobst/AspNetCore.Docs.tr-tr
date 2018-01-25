@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccf22f9e72777242ca0239aee69045ab03d56960
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>Verileri önbelleğe alma uygulama başlangıcında (C#)
 ====================
@@ -36,7 +36,7 @@ Sunu ve önbelleğe alma katmanları verileri önbelleğe alma sırasında iki �
 Başka bir özellik öngörülü yükleme ve biz Bu öğreticide, keşfetme tür uygulama başlangıcında önbelleğine verileri yüklüyor. Bu yaklaşım veritabanı arama tabloları kayıtları gibi statik verileri önbelleğe alma için özellikle yararlıdır.
 
 > [!NOTE]
-> İçin daha kapsamlı bir görünüm ileriye ve geriye dönük yükleme gibi uzmanları, simgeler ve uygulama önerileri listeler arasındaki farklar adresindeki başvurmak [bir önbelleğinin içeriğini yönetme](https://msdn.microsoft.com/en-us/library/ms978503.aspx) bölümünü [ .NET Framework uygulamaları için Mimari Kılavuzu önbelleğe alma](https://msdn.microsoft.com/en-us/library/ms978498.aspx).
+> İçin daha kapsamlı bir görünüm ileriye ve geriye dönük yükleme gibi uzmanları, simgeler ve uygulama önerileri listeler arasındaki farklar adresindeki başvurmak [bir önbelleğinin içeriğini yönetme](https://msdn.microsoft.com/library/ms978503.aspx) bölümünü [ .NET Framework uygulamaları için Mimari Kılavuzu önbelleğe alma](https://msdn.microsoft.com/library/ms978498.aspx).
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>1. adım: Uygulama başlangıcında önbelleğine hangi verilerin belirleme
@@ -68,7 +68,7 @@ Bilgi program aracılığıyla yaklaşımlar çeşitli kullanarak bir ASP.NET uy
 
 Biz çağırabileceği önce *SomeMethod* veya birlikte çalıştığınız *SomeProperty*, biz öncelikle sınıfını kullanarak bir örneğini oluşturmanız gerekir `new` anahtar sözcüğü. *SomeMethod* ve *SomeProperty* belirli bir örneği ile ilişkilendirilmiş. Bu üyeler ömrü bunların ilişkili nesne ömrü bağlıdır. *Statik üyeler*, diğer yandan, değişkenleri, özellikleri ve arasında paylaşılan yöntemleri olan *tüm* sınıfının örnekleri ve sonuç olarak, bir sınıf olarak uzun ömürlü. Statik üyeler anahtar sözcüğüyle gösterilen `static`.
 
-Statik üyeler yanı sıra veri uygulama durumu kullanarak önbelleğe alınabilir. Her ASP.NET uygulaması bir ad/değer koleksiyonu tüm kullanıcılar ve uygulamanın sayfalar arasında paylaşılan bu s tutar. Bu koleksiyon kullanılarak erişilebilir [ `HttpContext` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) s [ `Application` özelliği](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx)ve bir ASP.NET sayfası s arka plan kodu sınıfın kullanılan sözlüğüdür:
+Statik üyeler yanı sıra veri uygulama durumu kullanarak önbelleğe alınabilir. Her ASP.NET uygulaması bir ad/değer koleksiyonu tüm kullanıcılar ve uygulamanın sayfalar arasında paylaşılan bu s tutar. Bu koleksiyon kullanılarak erişilebilir [ `HttpContext` sınıfı](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` özelliği](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)ve bir ASP.NET sayfası s arka plan kodu sınıfın kullanılan sözlüğüdür:
 
 
 [!code-csharp[Main](caching-data-at-application-startup-cs/samples/sample2.cs)]
@@ -135,7 +135,7 @@ Varsayılan `Global.asax` dosya şablonu içeren sunucu tarafı içinde beş yö
 - **`Session_Start`**Yeni bir oturum oluşturulduğunda yürütür
 - **`Session_End`**bir oturum süresi doldu veya terk çalışır
 
-`Application_Start` Olay işleyicisi s uygulaması yaşam döngüsü boyunca yalnızca bir kez çağrılır. Uygulama içeriğini değiştirerek gerçekleşebilir bir ASP.NET kaynağı uygulamadan istenir ve uygulamayı yeniden başlatılana kadar çalışmaya devam eder ilk kez başlar `/Bin` klasörü değiştirme `Global.asax`, değiştirme içinde içeriği `App_Code` klasör veya değiştirme `Web.config` diğer nedenleri arasında dosya. Başvurmak [ASP.NET uygulama yaşam döngüsü genel bakış](https://msdn.microsoft.com/en-us/library/ms178473.aspx) uygulama yaşam döngüsü hakkında ayrıntılı bilgiler için.
+`Application_Start` Olay işleyicisi s uygulaması yaşam döngüsü boyunca yalnızca bir kez çağrılır. Uygulama içeriğini değiştirerek gerçekleşebilir bir ASP.NET kaynağı uygulamadan istenir ve uygulamayı yeniden başlatılana kadar çalışmaya devam eder ilk kez başlar `/Bin` klasörü değiştirme `Global.asax`, değiştirme içinde içeriği `App_Code` klasör veya değiştirme `Web.config` diğer nedenleri arasında dosya. Başvurmak [ASP.NET uygulama yaşam döngüsü genel bakış](https://msdn.microsoft.com/library/ms178473.aspx) uygulama yaşam döngüsü hakkında ayrıntılı bilgiler için.
 
 Bu öğreticileri için yalnızca kodu eklemek ihtiyacımız `Application_Start` yöntemi, bunu kullanımında diğer kaldırmak boş. İçinde `Application_Start`, yalnızca çağrısı `StaticCache` s sınıfı `LoadStaticCache()` yük ve üretici bilgilerini önbelleğe yöntemi:
 

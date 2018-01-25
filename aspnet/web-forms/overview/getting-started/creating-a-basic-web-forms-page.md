@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 20e920ff63444c0d69cecb972619b07fe6d23097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>4.5 Web sayfası Visual Studio 2013'te Forms temel ASP.NET oluşturma
 ====================
 Tarafından [Erik Reitan](https://github.com/Erikre)
 
-Bu kılavuz, Web geliştirme ortamında bir giriş sağlar [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) ve [Web için Visual Studio Express 2013 Microsoft](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). Bu kılavuz, basit bir ASP.NET Web Forms sayfası oluşturma size rehberlik eder ve yeni sayfa oluşturma, denetimler ekleme ve kod yazma temel teknikleri göstermektedir.
+Bu kılavuz, Web geliştirme ortamında bir giriş sağlar [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) ve [Web için Visual Studio Express 2013 Microsoft](https://www.microsoft.com/visualstudio/11/downloads#express-web). Bu kılavuz, basit bir ASP.NET Web Forms sayfası oluşturma size rehberlik eder ve yeni sayfa oluşturma, denetimler ekleme ve kod yazma temel teknikleri göstermektedir.
 
 Bu örneklerde gösterilen görevler aşağıdakileri içerir:
 
@@ -38,7 +38,7 @@ Bu örneklerde gösterilen görevler aşağıdakileri içerir:
 
 Bu kılavuzu tamamlamak için gerekir:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
 
     > [!NOTE] 
     > 
@@ -83,7 +83,7 @@ Sayfa değiştirerek devam etmeden önce Visual Studio geliştirme ortamı tanı
 
  Visual Studio ortamı
 
-![Visual Studio ortamı](creating-a-basic-web-forms-page/_static/image5.png)
+![Visual Studio Environment](creating-a-basic-web-forms-page/_static/image5.png)
 
 ### <a name="familiarize-yourself-with-the-web-designer"></a>Web Tasarımcısı ile edinin
 

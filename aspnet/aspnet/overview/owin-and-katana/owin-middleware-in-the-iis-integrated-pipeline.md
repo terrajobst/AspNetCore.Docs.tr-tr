@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS tümleşik ardışık düzende OWIN ara yazılımı
 ====================
@@ -36,9 +36,9 @@ Başka bir deyişle, tüm uygulama çerçeveleri olanlar henüz IIS ve System.We
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>OWIN ara yazılımı IIS tümleşik ardışık düzeninde nasıl yürütür
 
-OWIN konsol uygulamaları için uygulama ardışık düzen yerleşik kullanarak [başlangıç yapılandırmasını](owin-startup-class-detection.md) bileşenleri kullanarak eklenir sıraya göre ayarlanmıştır `IAppBuilder.Use` yöntemi. Diğer bir deyişle, OWIN ardışık düzeninde [Katana](an-overview-of-project-katana.md) çalışma zamanı kayıtlı kullanarak sırayla OMCs işleyecek `IAppBuilder.Use`. İstek ardışık düzenini oluşan IIS tümleşik ardışık düzeninde [HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx) ardışık düzen olayları önceden tanımlanmış bir dizi gibi abone [BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx), vb.
+OWIN konsol uygulamaları için uygulama ardışık düzen yerleşik kullanarak [başlangıç yapılandırmasını](owin-startup-class-detection.md) bileşenleri kullanarak eklenir sıraya göre ayarlanmıştır `IAppBuilder.Use` yöntemi. Diğer bir deyişle, OWIN ardışık düzeninde [Katana](an-overview-of-project-katana.md) çalışma zamanı kayıtlı kullanarak sırayla OMCs işleyecek `IAppBuilder.Use`. İstek ardışık düzenini oluşan IIS tümleşik ardışık düzeninde [HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx) ardışık düzen olayları önceden tanımlanmış bir dizi gibi abone [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx), vb.
 
-Biz, için bir OMC karşılaştırırsanız bir [HTTP](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx) doğru önceden tanımlanmış bir ardışık düzen olay ASP.NET dünyada bir OMC kaydedilmesi gerekir. Örneğin, HTTP `MyModule` bir isteği geldiğinde çağrılan [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) ardışık düzende aşama:
+Biz, için bir OMC karşılaştırırsanız bir [HTTP](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx) doğru önceden tanımlanmış bir ardışık düzen olay ASP.NET dünyada bir OMC kaydedilmesi gerekir. Örneğin, HTTP `MyModule` bir isteği geldiğinde çağrılan [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) ardışık düzende aşama:
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ Başlangıç yapılandırması üç ara yazılımı bileşenleri, ilk iki tanıl
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-Katana çalışma zamanı için OWIN ara yazılımı bileşenlerin her birine eşlenmiş [PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) varsayılan olarak, karşılık geldiği IIS ardışık düzen olayı [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
+Katana çalışma zamanı için OWIN ara yazılımı bileşenlerin her birine eşlenmiş [PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) varsayılan olarak, karşılık geldiği IIS ardışık düzen olayı [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
 
 ## <a name="stage-markers"></a>Aşama işaretçileri
 
@@ -65,7 +65,7 @@ Ardışık Düzen belirli aşamalarında kullanarak çalıştırmak için OMCs i
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-`app.UseStageMarker(PipelineStage.Authenticate)` Çağrısı ardışık kimlik doğrulama aşaması çalıştırmak için (Bu durumda, iki bizim tanılama bileşenleri) tüm daha önce kaydedilmiş ara yazılımı bileşenleri yapılandırır. (İsteklerine yanıt verir ve tanılama görüntüler) son ara yazılım bileşeni üzerinde çalışacağı `ResolveCache` aşama ( [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx) olay).
+`app.UseStageMarker(PipelineStage.Authenticate)` Çağrısı ardışık kimlik doğrulama aşaması çalıştırmak için (Bu durumda, iki bizim tanılama bileşenleri) tüm daha önce kaydedilmiş ara yazılımı bileşenleri yapılandırır. (İsteklerine yanıt verir ve tanılama görüntüler) son ara yazılım bileşeni üzerinde çalışacağı `ResolveCache` aşama ( [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx) olay).
 
 Uygulamayı çalıştırmak için F5'e basın. Çıktı penceresi aşağıda gösterilmiştir:
 

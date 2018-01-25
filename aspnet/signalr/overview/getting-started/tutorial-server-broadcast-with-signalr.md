@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: cd800062e87c07a0ef1d8d3d32c910aaf3e683cc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: Sunucu yayın SignalR 2 ile
 ====================
@@ -133,7 +133,7 @@ Bir başvuru her StockTickerHub örneğinden singleton StockTicker örneğine ay
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample2.cs)]
 
-    [Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) sınıfı, istemcilerin sunucuda çağırabilir yöntemlerini tanımlamak için kullanılır. Bir yöntem tanımlama: `GetAllStocks()`. Bir istemci başlangıçta sunucuya bağlandığında, kendi geçerli fiyatlarla hisse tümünde listesini almak için bu yöntemi çağırır. Yöntemi, zaman uyumlu olarak yürütür ve dönüş `IEnumerable<Stock>` bellekten veri döndürmektir olduğundan. Yöntemin bir veritabanı araması veya bir web hizmeti çağrısı gibi bekleme içerir bir şey yaparak veri almak sahip belirtirsiniz `Task<IEnumerable<Stock>>` zaman uyumsuz işleme etkinleştirmek için dönüş değeri olarak. Daha fazla bilgi için bkz: [ASP.NET SignalR hub'ları API Kılavuzu - Server - zaman uyumsuz olarak yürütülecek ne zaman](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
+    [Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx) sınıfı, istemcilerin sunucuda çağırabilir yöntemlerini tanımlamak için kullanılır. Bir yöntem tanımlama: `GetAllStocks()`. Bir istemci başlangıçta sunucuya bağlandığında, kendi geçerli fiyatlarla hisse tümünde listesini almak için bu yöntemi çağırır. Yöntemi, zaman uyumlu olarak yürütür ve dönüş `IEnumerable<Stock>` bellekten veri döndürmektir olduğundan. Yöntemin bir veritabanı araması veya bir web hizmeti çağrısı gibi bekleme içerir bir şey yaparak veri almak sahip belirtirsiniz `Task<IEnumerable<Stock>>` zaman uyumsuz işleme etkinleştirmek için dönüş değeri olarak. Daha fazla bilgi için bkz: [ASP.NET SignalR hub'ları API Kılavuzu - Server - zaman uyumsuz olarak yürütülecek ne zaman](../guide-to-the-api/hubs-api-guide-server.md#asyncmethods).
 
     İstemci üzerinde JavaScript kodunda Hub'ın nasıl başvurulacak HubName özniteliği belirtir. Bu öznitelik kullanmazsanız istemcideki varsayılan adı stockTickerHub bu durumda olacaktır sınıf adının başlamalıdır bir sürümüdür.
 
@@ -146,7 +146,7 @@ Bir başvuru her StockTickerHub örneğinden singleton StockTicker örneğine ay
 
     ### <a name="storing-the-singleton-instance-in-a-static-field"></a>Statik bir alana tek örnek depolama
 
-    Statik kodu başlatır \_, sınıf ve bu örneği örneği özelliğiyle yedekler örneği alan olup, Oluşturucusu özel olarak işaretlendiğinden oluşturulabilir, sınıfı tek örneği. [Geç başlatma](https://msdn.microsoft.com/en-us/library/dd997286.aspx) için kullanılan \_değil ancak örnek oluşturma threadsafe olduğundan emin olmak üzere performansı artırmak için örnek alanı.
+    Statik kodu başlatır \_, sınıf ve bu örneği örneği özelliğiyle yedekler örneği alan olup, Oluşturucusu özel olarak işaretlendiğinden oluşturulabilir, sınıfı tek örneği. [Geç başlatma](https://msdn.microsoft.com/library/dd997286.aspx) için kullanılan \_değil ancak örnek oluşturma threadsafe olduğundan emin olmak üzere performansı artırmak için örnek alanı.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample4.cs)]
 
@@ -160,7 +160,7 @@ Bir başvuru her StockTickerHub örneğinden singleton StockTicker örneğine ay
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample6.cs)]
 
-    İstediğiniz hisse koleksiyonu olarak tanımlanan bir [ConcurrentDictionary](https://msdn.microsoft.com/en-us/library/dd287191.aspx) iş parçacığı güvenliği için türü. Alternatif olarak, kullanabileceğinizi bir [sözlük](https://msdn.microsoft.com/en-us/library/xfhwa508.aspx) nesne ve değişiklik yaptığınız zaman sözlük açıkça kilitleyin.
+    İstediğiniz hisse koleksiyonu olarak tanımlanan bir [ConcurrentDictionary](https://msdn.microsoft.com/library/dd287191.aspx) iş parçacığı güvenliği için türü. Alternatif olarak, kullanabileceğinizi bir [sözlük](https://msdn.microsoft.com/library/xfhwa508.aspx) nesne ve değişiklik yaptığınız zaman sözlük açıkça kilitleyin.
 
     Bu örnek uygulama için bu Tamam bellekte uygulama verilerini depolamak için ve StockTicker örneği çıkarıldığından, veri kaybına olur. Gerçek bir uygulamada bir veritabanı gibi bir arka uç veri deposu ile çalışır.
 
@@ -172,7 +172,7 @@ Bir başvuru her StockTickerHub örneğinden singleton StockTicker örneğine ay
 
     UpdateStockPrices null durumu parametre olarak geçirir Zamanlayıcı tarafından çağrılır. Fiyatlar güncelleştirmeden önce bir kilit alınır \_updateStockPricesLock nesnesi. Kod, başka bir iş parçacığı zaten fiyatları güncelleştirme ve ardından listedeki her stoktaki TryUpdateStockPrice çağırır denetler. TryUpdateStockPrice yöntemi mi hisse senedi fiyatı değiştirmeye karar verir ve değiştirmek için ne kadar. Hisse senedi fiyatı değiştirdiyseniz BroadcastStockPrice bağlanan tüm istemciler için stok fiyat değişikliği yayını için çağrılır.
 
-    \_UpdatingStockPrices bayrak olarak işaretli [volatile](https://msdn.microsoft.com/en-us/library/x13ttww7.aspx) erişimi threadsafe olduğundan emin olmak için.
+    \_UpdatingStockPrices bayrak olarak işaretli [volatile](https://msdn.microsoft.com/library/x13ttww7.aspx) erişimi threadsafe olduğundan emin olmak için.
 
     [!code-csharp[Main](tutorial-server-broadcast-with-signalr/samples/sample8.cs)]
 
@@ -192,7 +192,7 @@ Bir başvuru her StockTickerHub örneğinden singleton StockTicker örneğine ay
 
     İçinde BroadcastStockPrice aradığınız updateStockPrice yöntemi henüz yok; istemci üzerinde çalışan bir kod yazarken daha sonra eklersiniz. Clients.All çalışma zamanında ifadenin hesaplanacağı anlamına gelir dinamik olduğundan burada updateStockPrice başvurabilir. Bu yöntem çağrısı yürütüldüğünde, SignalR yöntem adı ve parametre değeri istemciye gönderir ve istemci updateStockPrice adlı bir yöntemi varsa, bu yöntem çağrılır ve parametre değeri geçirilir.
 
-    Clients.All tüm istemcilere göndermek anlamına gelir. SignalR hangi istemcilerin veya göndermek için istemci gruplarının belirtmek için diğer seçenekler sunar. Daha fazla bilgi için bkz: [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
+    Clients.All tüm istemcilere göndermek anlamına gelir. SignalR hangi istemcilerin veya göndermek için istemci gruplarının belirtmek için diğer seçenekler sunar. Daha fazla bilgi için bkz: [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx).
 
 ### <a name="register-the-signalr-route"></a>SignalR rota kaydetme
 
@@ -295,11 +295,11 @@ Verilen her bağlantı için SignalR hem sunucu hem de istemci destek en iyi akt
 
     Windows 8 (IIS 8) Internet Explorer 10 çalıştırıyorsanız, aktarım WebSockets yöntemidir.
 
-    ![IE 10 IIS 8 Konsol](tutorial-server-broadcast-with-signalr/_static/image9.png)
+    ![IE 10 IIS 8 Console](tutorial-server-broadcast-with-signalr/_static/image9.png)
 
     Internet Explorer 10 Windows 7 (IIS 7.5) çalıştırıyorsanız, aktarım IFRAME yöntemidir.
 
-    ![IE 10 konsolu, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
+    ![IE 10 Console, IIS 7.5](tutorial-server-broadcast-with-signalr/_static/image10.png)
 
     Firefox'ta, Firebug bir konsol penceresi almak için eklentisini yükleyin. Windows 8 (IIS 8) Firefox 19 çalıştırıyorsanız, aktarım WebSockets yöntemidir.
 
@@ -307,7 +307,7 @@ Verilen her bağlantı için SignalR hem sunucu hem de istemci destek en iyi akt
 
     Windows 7 (IIS 7.5) Firefox 19 çalıştırıyorsanız, aktarım sunucu tarafından gönderilen olaylar yöntemidir.
 
-    ![IIS 7.5 Firefox 19 konsol](tutorial-server-broadcast-with-signalr/_static/image12.png)
+    ![Firefox 19 IIS 7.5 Console](tutorial-server-broadcast-with-signalr/_static/image12.png)
 
 <a id="fullsample"></a>
 
@@ -408,8 +408,8 @@ Eşler arası iletişim senaryoları Göster öğreticileri için bkz: [SignalR 
 Daha gelişmiş SignalR geliştirme kavramları hakkında bilgi için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
 
 - [ASP.NET SignalR](../../index.md)
-- [SignalR projesi](http://signalr.net/)
+- [SignalR Project](http://signalr.net/)
 - [SignalR Github ve örnekler](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
-Bir SignalR uygulamayı Azure'a dağıtma hakkında bir kılavuz için bkz: [SignalR kullanarak Azure App Service'te Web uygulamalarını](../deployment/using-signalr-with-azure-web-sites.md). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında ayrıntılı bilgi için bkz: [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Bir SignalR uygulamayı Azure'a dağıtma hakkında bir kılavuz için bkz: [SignalR kullanarak Azure App Service'te Web uygulamalarını](../deployment/using-signalr-with-azure-web-sites.md). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında ayrıntılı bilgi için bkz: [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

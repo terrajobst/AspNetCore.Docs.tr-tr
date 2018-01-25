@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bc009272df3626402ee4c52578f9b364f70a4e78
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Özelleştirilmiş sıralama kullanıcı arabirimi (C#) oluşturma
 ====================
@@ -187,7 +187,7 @@ Yukarıdaki kod eklenmesiyle sıralama grup üstbilgileri tarafından dönüşt�
 
 
 > [!NOTE]
-> Ürünleri ile varsa `NULL` veritabanı değerlerini `CategoryID`, `SupplierID`, veya `UnitPrice` alanları, bu değerler olarak görünür GridView boş dizeler ilebuürünleriçinayırıcısatırsmetinanlamıvarsayılan`NULL`değerleri gibi kategori okumak: (diğer bir deyişle, orada s kategori sonra ad: kategorisiyle ister: Meşrubat). Burada görüntülenen bir değeri isterseniz BoundFields ya da ayarlayabilirsiniz [ `NullDisplayText` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) görüntülenmesini istediğiniz metin veya bir koşullu ifade atarken işleme yönteminde ekleyebilirsiniz `currentValue` ayırıcı için Satır s `Text` özelliği.
+> Ürünleri ile varsa `NULL` veritabanı değerlerini `CategoryID`, `SupplierID`, veya `UnitPrice` alanları, bu değerler olarak görünür GridView boş dizeler ilebuürünleriçinayırıcısatırsmetinanlamıvarsayılan`NULL`değerleri gibi kategori okumak: (diğer bir deyişle, orada s kategori sonra ad: kategorisiyle ister: Meşrubat). Burada görüntülenen bir değeri isterseniz BoundFields ya da ayarlayabilirsiniz [ `NullDisplayText` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) görüntülenmesini istediğiniz metin veya bir koşullu ifade atarken işleme yönteminde ekleyebilirsiniz `currentValue` ayırıcı için Satır s `Text` özelliği.
 
 
 ## <a name="summary"></a>Özet

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Bu şablon bir URL yolu gibi eşleşir `/Products/Details/17` ve rota değerlerini ayıklayın `{ controller = Products, action = Details, id = 17 }`. Rota değerlerini ve URL yolunu kesimler halinde bölme ve her segment ile eşleşen tarafından belirlenen *parametresi rota* rota şablonu adı. Rota parametrelerine olarak adlandırılır. Parametre adı kaşlı ayraç içinde kapsayan tarafından tanımlanan `{ }`.
+Bu şablon bir URL yolu gibi eşleşir `/Products/Details/17` ve rota değerlerini ayıklayın `{ controller = Products, action = Details, id = 17 }`. Rota değerlerini ve URL yolunu kesimler halinde bölme ve her segment ile eşleşen tarafından belirlenen *parametresi rota* rota şablonu adı. Rota parametrelerine olarak adlandırılır. Parametre adı kaşlı ayraç içinde kapsayan tarafından tanımlı `{ }`.
 
-Yukarıdaki şablonu URL yolunu eşleşen `/` ve değerleri msgıd `{ controller = Home, action = Index }`. Çünkü böyle `{controller}` ve `{action}` rota parametrelerinin varsayılan değerlere sahip ve `id` rota parametresinin isteğe bağlı. Bir eşittir `=` oturum ve ardından bir değerle sonra rota parametresi adı parametresi için varsayılan bir değer tanımlar. Bir soru işareti `?` sonra rota parametresi adı parametre isteğe bağlı olarak tanımlar. Rota parametrelerinin varsayılan bir değerle *her zaman* bir yönlendirme değeri üretmek rotayla eşleşen - isteğe bağlı parametreler değil oluşturacak bir yönlendirme değeri hiçbir karşılık gelen URL yol kesimi ise olduğunda.
+Yukarıdaki şablonu URL yolunu eşleşen `/` ve değerleri msgıd `{ controller = Home, action = Index }`. Çünkü böyle `{controller}` ve `{action}` rota parametrelerinin varsayılan değerlere sahip ve `id` rota parametresinin isteğe bağlı. Bir eşittir `=` oturum ve ardından bir değerle sonra rota parametresi adı parametresi için varsayılan bir değer tanımlar. Bir soru işareti `?` sonra rota parametresi adı parametre isteğe bağlı olarak tanımlar. Rota parametrelerinin varsayılan bir değerle *her zaman* bir yönlendirme değeri üretmek rotayla eşleşen - isteğe bağlı parametreler hiçbir karşılık gelen URL yol kesimi ise bir yönlendirme değeri üretmek olmaz olduğunda.
 
 Bkz: [rota şablon başvurusu](#route-template-reference) rota şablonu özellikleri ve sözdizimi kapsamlı açıklaması.
 

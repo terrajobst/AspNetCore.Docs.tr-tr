@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a802e4fed81fadca195c8aa83c37c7100ac5cbec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde eşlemeleri görüntüleme
 ====================
@@ -103,7 +103,7 @@ Bu örnek bir harita koordinatlarına göre oluşturulacağını gösterir. Bu �
 2. Değiştir `your-key-here` daha önce oluşturulan Bing Haritalar anahtara sahip.
 3. Çalıştırma *MapCoordinates.cshtml* sayfasında, enlem ve boylam koordinatları girin ve ardından **Map It!** düğme. (Tüm koordinatları bilmiyorsanız, aşağıdaki deneyin. Microsoft Redmond kampüs konumunda budur.)
 
-    - Enlem: 47.6781005859375
+    - Latitude: 47.6781005859375
     - Boylam:-122.158317565918
 
     Belirttiğiniz koordinatları kullanarak sayfası görüntülenir.
@@ -114,4 +114,4 @@ Bu örnek bir harita koordinatlarına göre oluşturulacağını gösterir. Bu �
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 
-[Microsoft.Maps API Başvurusu](https://msdn.microsoft.com/en-us/library/gg427611.aspx)
+[Microsoft.Maps API Başvurusu](https://msdn.microsoft.com/library/gg427611.aspx)

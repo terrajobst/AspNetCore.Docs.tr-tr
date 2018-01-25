@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 387d19af9165d4b54ce3cb1a9b04412271da6fb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: af8364c584b686fd5c0fe30a89e241d9d08a30c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>ASP.NET çekirdeği günlüğü giriş
 
@@ -147,11 +147,11 @@ ASP.NET Core tanımlar aşağıdaki [günlük düzeyleri](https://docs.microsoft
 
 * İzleme = 0
 
-  Yalnızca bir sorun hata ayıklama bir geliştirici değerli bilgiler. Bu iletiler, önemli uygulama verileri içerebilir ve bu nedenle bir üretim ortamında etkinleştirilmemelidir. *Varsayılan olarak devre dışıdır.* Örnek:`Credentials: {"User":"someuser", "Password":"P@ssword"}`
+  Yalnızca bir sorun hata ayıklama bir geliştirici değerli bilgiler. Bu iletiler önemli uygulama verileri içerebilir ve bu nedenle bir üretim ortamında etkinleştirilmesi gerekir. *Varsayılan olarak devre dışıdır.* Örnek:`Credentials: {"User":"someuser", "Password":"P@ssword"}`
 
 * Hata ayıklama = 1
 
-  Bilgi için kısa vadeli yararlılığını geliştirme ve hata ayıklama sırasında sahiptir. Örnek: `Entering method Configure with flag set to true.` genellikle değil sağlayacağı `Debug` düzeyi günlükleri yüksek hacimli nedeniyle giderirken sürece üretimde günlüğe kaydeder.
+  Bilgi için kısa vadeli yararlılığını geliştirme ve hata ayıklama sırasında sahiptir. Örnek: `Entering method Configure with flag set to true.` genellikle etkinleştirmek olmayacaktır `Debug` düzeyi günlükleri yüksek hacimli nedeniyle giderirken sürece üretimde günlüğe kaydeder.
 
 * Bilgi = 2
 
@@ -159,7 +159,7 @@ ASP.NET Core tanımlar aşağıdaki [günlük düzeyleri](https://docs.microsoft
 
 * Uyarı = 3
 
-  Uygulama akışındaki anormal veya beklenmedik olaylar için. Bunlar, hatalar veya uygulamanın durdurmasına neden olmaz ancak araştırılması gereken diğer koşullar olabilir. İşlenmiş istisnaları kullanmak için ortak bir yerde `Warning` günlük düzeyi. Örnek:`FileNotFoundException for file quotes.txt.`
+  Uygulama akışındaki anormal veya beklenmedik olaylar için. Bunlar, hatalar veya uygulamanın durdurmasına neden yoktur, ancak araştırılması gereken diğer koşullar olabilir. İşlenmiş istisnaları kullanmak için ortak bir yerde `Warning` günlük düzeyi. Örnek:`FileNotFoundException for file quotes.txt.`
 
 * Hata = 4
 
@@ -344,7 +344,7 @@ En düşük düzey açıkça ayarlamazsanız, varsayılan değer: `Information`,
 
 **Filtre işlevleri**
 
-Filtreleme kurallarını uygulamak için bir filtre işlevi kod yazabilirsiniz. Tüm sağlayıcılar ve yapılandırma veya kodu tarafından atanmış kuralları olmayan kategorileri için bir filtre işlevi çağrılır. İşlev kodda sağlayıcı türü, kategori ve günlük düzeyi bir ileti günlüğe olup olmadığına karar vermek için erişimi vardır. Örneğin:
+Filtreleme kurallarını uygulamak için bir filtre işlevi kod yazabilirsiniz. Tüm sağlayıcılar ve yapılandırma veya kodu tarafından atanmış kural kategorileri için bir filtre işlevi çağrılır. İşlev kodda sağlayıcı türü, kategori ve günlük düzeyi bir ileti günlüğe olup olmadığına karar vermek için erişimi vardır. Örneğin:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -610,7 +610,7 @@ Bir uygulama hizmeti uygulama dağıttığınızda, uygulamanız ayarlarında ya
 
 Günlük dosyaları için varsayılan konum olarak *D:\\ev\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırı 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Varsayılan davranış hakkında daha fazla bilgi için bkz: [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
 
-Projenizi Azure ortamında çalıştığında sağlayıcısı yalnızca çalışır. Yerel olarak çalıştırdığınızda, herhangi bir etkisi olmaz &mdash; yerel dosyalara veya yerel geliştirme depolama BLOB'lar için yazmaz.
+Projenizi Azure ortamında çalıştığında sağlayıcısı yalnızca çalışır. Yerel olarak çalıştırdığınızda, herhangi bir etkisi olmaz &mdash; yerel dosyalara veya yerel geliştirme depolama BLOB'lar için yazma değil.
 
 ## <a name="third-party-logging-providers"></a>Üçüncü taraf günlüğü sağlayıcıları
 
@@ -647,7 +647,7 @@ Azure günlük akış yapılandırmak için:
 
 ![Azure portal tanılama günlüklerini sayfası](index/_static/azure-diagnostic-logs.png)
 
-Gidin **günlük akış** uygulama iletilerini görüntülemek için sayfa. Aracılığıyla uygulama tarafından günlüğe kaydedilen `ILogger` arabirimi. 
+Gidin **günlük akış** uygulama iletilerini görüntülemek için sayfa. Aracılığıyla uygulama tarafından oturum açtınız `ILogger` arabirimi. 
 
 ![Akış azure portal uygulama günlüğü](index/_static/azure-log-streaming.png)
 

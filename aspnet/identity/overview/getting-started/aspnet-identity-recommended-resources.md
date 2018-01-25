@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: 8050d37cfea91701e1cae0413feb41ca9a68baff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity kaynaklar önerilir
 ====================
@@ -27,7 +27,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 > Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com) iş parçacığı veya yararlı olacak herhangi bir bağlantıyı [bize bir e-posta gönderin](mailto:aspnetue@microsoft.com?subject=Identity recommended resources) bağlantısı ile veya yalnızca bir ileti bu sayfanın sonundaki bırakın.
 
 
-- [ASP.NET kimliği ile çalışmaya başlama](#gettingstarted)
+- [ASP.NET Identity ile Çalışmaya Başlama](#gettingstarted)
 - [Yeni özel gerekir okuma makaleler](#feat)
 - [ASP.NET Identity Ara](#adv)
 - [Videolar](#video)
@@ -42,9 +42,9 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 - [MVC 5 uygulamayla Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Bu öğreticide ASP.NET MVC 5 uygulamayı yetkilendirme Facebook ve Google OAuth 2 ile yazmak gösterilmektedir. Ayrıca, ek veri kimlik veritabanına eklemek nasıl gösterir.
 - [Üyelik, OAuth ve SQL veritabanı ile Güvenli ASP.NET MVC uygulaması için bir Azure dağıtmak](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Bu öğretici Azure dağıtım ekler uygulamanızı rolleri ile güvenli hale getirmek nasıl kullanıcılar, roller ve ek güvenlik özellikleri eklemek için üyelik API'si kullanma.
-- [ASP.NET Identity giriş](introduction-to-aspnet-identity.md)
+- [ASP.NET Identity’ye Giriş](introduction-to-aspnet-identity.md)
 - [Oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
-- [SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
+- [SMS ve e-posta iki öğeli kimlik doğrulaması özellikli ASP.NET MVC 5 uygulaması](../../../mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md)
 
 <a id="feat"></a>
 ## <a name="new-featured-must-read-articles"></a>Yeni özel gerekir okuma makaleler
@@ -59,11 +59,11 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="intermediate-aspnet-identity"></a>ASP.NET Identity Ara
 
 - [Hesap onaylamayı ve parola kurtarma ASP.NET kimliğe sahip](../features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [SMS ve e-posta ile ASP.NET Identity kullanan iki öğeli kimlik doğrulaması](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
-- [Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Proje ekleme ASP.NET kimliği boş veya var olan bir Web Forms](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-- MSDN dergisi [ASP.NET Identity ile dış kimlik doğrulama](https://msdn.microsoft.com/en-us/magazine/dn745860.aspx) Dino Esposito tarafından
-- MSDN dergisi[ASP.NET Identity ilk göz](https://msdn.microsoft.com/en-us/magazine/dn605872.aspx) Dino Esposito tarafından
+- [ASP.NET Identity ile SMS ve e-posta kullanılan iki öğeli kimlik doğrulaması](../features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+- [Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- MSDN dergisi [ASP.NET Identity ile dış kimlik doğrulama](https://msdn.microsoft.com/magazine/dn745860.aspx) Dino Esposito tarafından
+- MSDN dergisi[ASP.NET Identity ilk göz](https://msdn.microsoft.com/magazine/dn605872.aspx) Dino Esposito tarafından
 - [ASP.NET Identity – kullanıcı kilitleme](http://tech.trailmax.info/2014/06/asp-net-identity-user-lockout/)
 
 <a id="samp"></a>
@@ -108,7 +108,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 - [Pranav Rastogi](https://twitter.com/rustd)
 
     - [Daha fazla bilgi sağlayıcıları gelen sosyal Al](https://blogs.msdn.com/b/webdev/archive/2013/10/16/get-more-information-from-social-providers-used-in-the-vs-2013-project-templates.aspx)
-- [@beabigrockstar](https://twitter.com/beabigrockstar)(Jerrie Pelser)
+- [@beabigrockstar](https://twitter.com/beabigrockstar) (Jerrie Pelser)
 
     - [2 faktörlü kimlik doğrulaması](http://www.beabigrockstar.com/blog/2-factor-authentication-with-asp-net-identity-2-0-beta-1/)
     - [Google Authenticator ile ASP.NET Identity kullanma](http://www.beabigrockstar.com/blog/using-google-authenticator-asp-net-identity/)
@@ -149,9 +149,9 @@ Kendi sağlayıcınızı yazmak istiyorsanız, okuma [genel bakış, özel depol
 - [CouchDB / Cloudant Daniel Wertheim tarafından.](https://github.com/danielwertheim/mycouch.aspnet.identity)
 - Esnek arama[y: esnek kimlik](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. tarafından
 - [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) Jonathan Sheely Jonathan Sheely tarafından.
-- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) Antônio Milesi Bastos tarafından.
+- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) by Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) tarafından [ @tourismgeek ](https://twitter.com/tourismgeek).
-- [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) tarafından [ILMServices](http://www.ilmservice.com/).
+- [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) by [ILMServices](http://www.ilmservice.com/).
 - Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)
 - Kod için "ilk veritabanı" kullanıcı deposunu T4 EF oluşturmak için şablonları: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)
 

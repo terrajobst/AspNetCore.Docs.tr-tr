@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58b76f0ac07051496c6f34be41dcf20154e34674
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Varolanı kullanma saklı yordamlar için yazılan veri kümesi'nin TableAdapters (C#)
 ====================
@@ -200,7 +200,7 @@ Bu desen T-SQL söz dizimi aşağıdaki şablonu kullanarak uygulanabilir:
 
 Şablon tanımlayarak başlatır bir `TRY...CATCH` SQL Server 2005'e yeni bir yapı bloğu. İle gibi `try...catch` C# ' ta SQL engeller `TRY...CATCH` bloğu yürütür deyimlerinde `TRY` bloğu. Herhangi bir deyimle hata geçirirse denetimi için hemen aktarılır `CATCH` bloğu.
 
-SQL deyimleri bu oluşma şekli işlem yürütülürken hata varsa `COMMIT TRANSACTION` deyimi değişiklikleri kaydeder ve işlem tamamlar. Ancak, deyimlerden bir hatayla sonuçlanırsa, `ROLLBACK TRANSACTION` içinde `CATCH` blok veritabanı işlem başlamadan önce durumuna döndürür. Saklı yordamı kullanarak bir hata da başlatır [RAISERROR komutu](https://msdn.microsoft.com/en-us/library/ms178592.aspx), hangi neden bir `SqlException` uygulamada oluşturulması için.
+SQL deyimleri bu oluşma şekli işlem yürütülürken hata varsa `COMMIT TRANSACTION` deyimi değişiklikleri kaydeder ve işlem tamamlar. Ancak, deyimlerden bir hatayla sonuçlanırsa, `ROLLBACK TRANSACTION` içinde `CATCH` blok veritabanı işlem başlamadan önce durumuna döndürür. Saklı yordamı kullanarak bir hata da başlatır [RAISERROR komutu](https://msdn.microsoft.com/library/ms178592.aspx), hangi neden bir `SqlException` uygulamada oluşturulması için.
 
 > [!NOTE]
 > Bu yana `TRY...CATCH` blok SQL Server 2005'e yeni, Microsoft SQL Server'ın eski sürümlerini kullanıyorsanız, yukarıdaki şablonu çalışmaz. SQL Server 2005 kullanmıyorsanız başvurun [SQL Server saklı yordamlar yönetme işlemlerinde](http://www.4guysfromrolla.com/webtech/080305-1.shtml) SQL Server'ın diğer sürümlerinde çalışır bir şablon.

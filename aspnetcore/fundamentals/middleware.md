@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>ASP.NET Core ara yazılım temelleri
 
@@ -55,7 +55,7 @@ En basit olası ASP.NET Core uygulama tüm istekleri işleyen tek istek temsilci
 [!code-csharp[Main](middleware/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
-> Çağırmayın `next.Invoke` yanıtı istemciye gönderildikten sonra. Değişikliklerini `HttpResponse` yanıt başlatıldıktan sonra bir özel durum oluşturur. Örneğin, üst bilgileri, durum kodu, vb., ayarlama gibi değişiklikler, bir özel durum oluşturur. Yanıt gövdesi çağrıldıktan sonra Yazma `next`:
+> Çağrı yok `next.Invoke` yanıtı istemciye gönderildikten sonra. Değişikliklerini `HttpResponse` yanıt başlatıldıktan sonra bir özel durum oluşturur. Örneğin, üst bilgileri, durum kodu, vb., ayarlama gibi değişiklikler, bir özel durum oluşturur. Yanıt gövdesi çağrıldıktan sonra Yazma `next`:
 > - Bir protokolü ihlali neden olabilir. Örneğin, birden çok belirtilen yazma `content-length`.
 > - Gövde biçimi bozulmasına neden olabilir. Örneğin, bir HTML altbilgi CSS dosyaya yazma.
 >
@@ -63,7 +63,7 @@ En basit olası ASP.NET Core uygulama tüm istekleri işleyen tek istek temsilci
 
 ## <a name="ordering"></a>Sıralama
 
-Ara yazılım bileşenlerinin içinde eklendiğinden sipariş `Configure` , bunlar çağrılır isteklerinde sırası ve yanıtı için ters sırada yöntemi tanımlar. Bu sıralama, güvenlik, performans ve işlevselliği için önemlidir.
+Ara yazılım bileşenlerinin içinde eklendiğinden sipariş `Configure` , bunlar çağrılan isteklerinde sırası ve yanıtı için ters sırada yöntemi tanımlar. Bu sıralama, güvenlik, performans ve işlevselliği için önemlidir.
 
 (Aşağıda gösterilen) yapılandırma yöntemi aşağıdaki ara yazılımı bileşenleri ekler:
 
@@ -116,11 +116,11 @@ Böylece istekleri işlemek ve kalan bileşenleri geçmeden kısa devre oluştur
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-İstek statik dosya ara yazılımı tarafından işlenmemiş varsa, bu kimlik Ara geçirildiğinde (`app.UseAuthentication`), kimlik doğrulaması gerçekleştirir. Kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca bir özel Razor sayfasını veya denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
+İstek statik dosya ara yazılım tarafından işlenen değil, bu kimlik Ara geçirildiğinde (`app.UseAuthentication`), kimlik doğrulaması gerçekleştirir. Kimlik, kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca bir özel Razor sayfasını veya denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-İstek statik dosya ara yazılımı tarafından işlenmemiş varsa, bu kimlik Ara geçirildiğinde (`app.UseIdentity`), kimlik doğrulaması gerçekleştirir. Kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca belirli denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
+İstek statik dosya ara yazılım tarafından işlenen değil, bu kimlik Ara geçirildiğinde (`app.UseIdentity`), kimlik doğrulaması gerçekleştirir. Kimlik, kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca belirli denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
 
 -----------
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Kullanmak için çalıştırmak ve eşleme
 
-HTTP kullanarak ardışık düzen yapılandırma `Use`, `Run`, ve `Map`. `Use` Yöntemi kısa devre oluşturur ardışık düzen (diğer bir deyişle, arama, bir `next` isteği temsilci). `Run`bir kural ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışacak yöntemleri.
+HTTP kullanarak ardışık düzen yapılandırma `Use`, `Run`, ve `Map`. `Use` Yöntemi kısa devre oluşturur ardışık düzen (diğer bir deyişle, çağrı değil, bir `next` isteği temsilci). `Run`bir kural ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışacak yöntemleri.
 
 `Map*`Uzantılar, ardışık düzen dallanma için bir kural kullanılır. [Harita](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) istek ardışık düzenini belirtilen istek yolu eşleşmeleri üzerinde göre dallandırır. İstek yolu belirtilen yolun ile başlarsa, şube yürütülür.
 

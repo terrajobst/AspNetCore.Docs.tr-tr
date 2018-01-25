@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 50de8473d1fd77de4b221f0c96fc7f184621d4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: (12 / 12) sorunlarını giderme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -164,7 +164,7 @@ Güncelleştirilmiş *Web.config* dosya bir SQL Server Express veritabanı işar
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Adını *.mdf* sildiğiniz olsa bile, dosya şimdiye kadar bilgisayarınızda var SQL Server Express veritabanının adını eşleşemez *.mdf* önceden var olan veritabanının dosya. Adını değiştirmek *.mdf* hiçbir zaman bir veritabanı adı ve değişiklik kullanılmış bir ad dosyasına *Web.config* dosya yeni bir ad kullanın. Alternatif olarak, kullandığınız [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) önceden var olan SQL Server Express silmek için veritabanları.
+Adını *.mdf* sildiğiniz olsa bile, dosya şimdiye kadar bilgisayarınızda var SQL Server Express veritabanının adını eşleşemez *.mdf* önceden var olan veritabanının dosya. Adını değiştirmek *.mdf* hiçbir zaman bir veritabanı adı ve değişiklik kullanılmış bir ad dosyasına *Web.config* dosya yeni bir ad kullanın. Alternatif olarak, kullandığınız [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) önceden var olan SQL Server Express silmek için veritabanları.
 
 ## <a name="model-compatibility-cannot-be-checked"></a>Model uyumluluğu olamaz denetlenmesi
 
@@ -176,7 +176,7 @@ Güncelleştirilmiş *Web.config* dosya yeni bir SQL Server Express veritabanın
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Veritabanı adı Web.config dosyasında yerleştirirseniz bilgisayarınızda, bir veritabanı zaten bazı tablolarda ile mevcut olabilir önce herhangi bir zamanda kullanıldı. Bilgisayarınızın önce ve değişiklik üzerinde kullanılmamış olan yeni bir ad seçin *Web.config* dosyayı bu yeni bir veritabanı adı kullanmak için işaretleyin. Alternatif olarak, kullandığınız [SQL Server Express yardımcı programı](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990) veya [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) varolan veritabanı silinemiyor.
+Veritabanı adı Web.config dosyasında yerleştirirseniz bilgisayarınızda, bir veritabanı zaten bazı tablolarda ile mevcut olabilir önce herhangi bir zamanda kullanıldı. Bilgisayarınızın önce ve değişiklik üzerinde kullanılmamış olan yeni bir ad seçin *Web.config* dosyayı bu yeni bir veritabanı adı kullanmak için işaretleyin. Alternatif olarak, kullandığınız [SQL Server Express yardımcı programı](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) veya [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) varolan veritabanı silinemiyor.
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>Kullanıcıları veya rolleriyle oluşturmak bir komut dosyası çalıştığında SQL hatası
 
@@ -194,7 +194,7 @@ Dağıtım gerçekleştirmek için kullandığınız kullanıcı hesabı, kullan
 
 [!code-console[Main](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12/samples/sample17.cmd)]
 
-Nasıl düzenleneceği hakkında bilgi için `PreSource` öğesi proje dosyasında bakın [nasıl yapılır: Proje dosyasında dağıtım ayarlarını Düzenle](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx). Kullanıcıları veya rolleriyle geliştirme veritabanınızdaki hedef veritabanında olması gerekiyorsa, Yardım için barındırma sağlayıcınızla bağlantı kurun.
+Nasıl düzenleneceği hakkında bilgi için `PreSource` öğesi proje dosyasında bakın [nasıl yapılır: Proje dosyasında dağıtım ayarlarını Düzenle](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Kullanıcıları veya rolleriyle geliştirme veritabanınızdaki hedef veritabanında olması gerekiyorsa, Yardım için barındırma sağlayıcınızla bağlantı kurun.
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>SQL Server zaman aşımı özel komut dosyalarını dağıtım sırasında çalıştırılırken hata
 
@@ -204,7 +204,7 @@ Dağıtım sırasında çalıştırmak için özel SQL komut dosyaları belirtti
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Farklı bir işlem modları sahip birden çok komut dosyası çalıştırarak zaman aşımı hataları neden olabilir. Varsayılan olarak, bir işlem içinde otomatik olarak oluşturulan komut dosyalarını çalıştırmak, ancak özel komut dosyaları yapın. Seçerseniz **çekme veri ve/veya varolan bir veritabanını şema** seçeneği **SQL Paketle/Yayımla** sekmesinde ve özel SQL komut dosyası eklerseniz, bazı kodlar işlem ayarlarını değiştirmeniz gerekir böylece tüm betikler işlem ayarların aynısını kullanın. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/en-us/library/dd465343.aspx).
+Farklı bir işlem modları sahip birden çok komut dosyası çalıştırarak zaman aşımı hataları neden olabilir. Varsayılan olarak, bir işlem içinde otomatik olarak oluşturulan komut dosyalarını çalıştırmak, ancak özel komut dosyaları yapın. Seçerseniz **çekme veri ve/veya varolan bir veritabanını şema** seçeneği **SQL Paketle/Yayımla** sekmesinde ve özel SQL komut dosyası eklerseniz, bazı kodlar işlem ayarlarını değiştirmeniz gerekir böylece tüm betikler işlem ayarların aynısını kullanın. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/library/dd465343.aspx).
 
 Tümü aynı; böylece işlem ayarları yapılandırdınız, ancak bu hatayı almaya devam komut dosyalarını ayrı olarak çalıştırmak için bir olası geçici bir çözüm değildir. İçinde **veritabanı komut dosyalarında** kılavuzunda **Paketle/Yayımla** SQL sekmesi, Temizle **INCLUDE** zaman aşımı hatası neden olan komut dosyası için onay kutusunu işaretleyin, sonra proje yayımlayın. Uygulamasına geri gidin sonra **veritabanı komut dosyalarında** kılavuz, bu komut dosyanızın seçin **INCLUDE** onay kutusunu işaretleyin ve temizleyin **INCLUDE** diğer komutlar için onay kutularını. Sonra projeyi yeniden yayımlayın. Yayımladığınızda, bu zaman yalnızca seçilen özel komut dosyasını çalıştırır.
 
@@ -290,7 +290,7 @@ Belirten bir hata ile yayımlama başarısız oluyor (kullanmakta olduğunuz kul
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/en-us/library/ff398069.aspx). 
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -300,7 +300,7 @@ Bu klasörü için yazma yetkisi olmadığı için oluşturduğunuzda veya düze
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi bu klasör izinlerini ayarlayabilirsiniz [klasör izinlerini ayarlama](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) ve [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticileri. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/en-us/library/ff398069.aspx). <a id="aspnet45error"></a>
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi bu klasör izinlerini ayarlayabilirsiniz [klasör izinlerini ayarlama](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) ve [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticileri. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Yapılandırma hatası - targetFramework özniteliği .NET Framework'ün yüklü sürümden daha sonraki bir sürümüne başvuruyor.
 
@@ -318,7 +318,7 @@ Kaynak hata kutunun hata sayfasının Web.config aşağıdaki satırı hatanın 
 
 Sunucu, ASP.NET 4.5 desteklemiyor. Ne zaman ve ASP.NET 4.5 için destek eklenebilir, belirlemek için barındırma sağlayıcısına başvurun. ASP.NET 4 veya önceki hedefleyen bir web projesi dağıtmak zorunda server yükseltme bir seçenek değilse, bunun yerine. Aynı hedef için bir ASP.NET 4 veya önceki web projesi dağıtırsanız seçin **hedefteki ek dosyaları Kaldır** onay kutusunu **ayarları** sekmesinde **Web'i**Sihirbazı. Seçmezseniz, **hedefteki ek dosyaları Kaldır**, yapılandırma hata sayfası almaya devam edersiniz.
 
-Proje **özellikleri** windows bir hedef framework aşağı açılan listesi içerir, ancak yalnızca değerinden değiştirerek bu sorunu çözümlenemiyor **.NET Framework 4.5** için **.NET Framework 4**. Bir önceki framework sürümü için hedef Framework'ü değiştirirseniz, proje sonraki framework sürümün derlemelerine başvurular hala sahip olur ve çalışmaz. El ile bu başvuruları değiştirmek veya .NET Framework 4 veya önceki hedefleyen yeni bir proje oluşturmak sahip. Daha fazla bilgi için bkz: [.NET Framework'ü hedefleme Web siteleri için](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx).
+Proje **özellikleri** windows bir hedef framework aşağı açılan listesi içerir, ancak yalnızca değerinden değiştirerek bu sorunu çözümlenemiyor **.NET Framework 4.5** için **.NET Framework 4**. Bir önceki framework sürümü için hedef Framework'ü değiştirirseniz, proje sonraki framework sürümün derlemelerine başvurular hala sahip olur ve çalışmaz. El ile bu başvuruları değiştirmek veya .NET Framework 4 veya önceki hedefleyen yeni bir proje oluşturmak sahip. Daha fazla bilgi için bkz: [.NET Framework'ü hedefleme Web siteleri için](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Önceki](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

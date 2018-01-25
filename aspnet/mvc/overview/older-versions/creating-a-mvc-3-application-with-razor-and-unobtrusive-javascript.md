@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 68870caf1608e596962650cf653e5b455b82382a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>MVC 3 oluşturma Razor ve örtük JavaScript ile uygulama
 ====================
@@ -68,7 +68,7 @@ Sınıf adını `UserModel`. Değiştir *UserModel* aşağıdaki kod ile dosya:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-`UserModel` Sınıfı, kullanıcılar'ı temsil eder. Her bir üyesi sınıfı ile Açıklama [gerekli](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) özniteliğini [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) ad alanı. Özniteliklerin [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) ad alanı, web uygulamaları için otomatik istemci ve sunucu tarafı doğrulama sağlar.
+`UserModel` Sınıfı, kullanıcılar'ı temsil eder. Her bir üyesi sınıfı ile Açıklama [gerekli](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) özniteliğini [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanı. Özniteliklerin [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanı, web uygulamaları için otomatik istemci ve sunucu tarafı doğrulama sağlar.
 
 Açık `HomeController` sınıfı ve ekleme bir `using` , erişebilmesi için yönerge `UserModel` ve `Users` sınıfları:
 
@@ -172,7 +172,7 @@ Ayrıca işlenmiş görünümde çeşitli JavaScript dosyaları eklemeniz gereki
 
 İlk iki jQuery komut dosyaları Microsoft Ajax içerik teslim ağı (CDN tarafından) barındırılır. Microsoft Ajax CDN yararlanarak, uygulamalarınızı ilk isabet performansını önemli ölçüde artırabilir.
 
-Uygulamayı çalıştırın ve bir düzenleme bağlantısını tıklatın. Sayfanın kaynağını tarayıcıda görüntülemek. Tarayıcı kaynak formun birçok öznitelikleri gösterir `data-val` (için verisi doğrulama). İstemci doğrulama ve örtük JavaScript etkinleştirildiğinde, bir istemci doğrulama kuralı ile giriş alanları içeren `data-val="true"` örtük istemci doğrulama tetiklemek için öznitelik. Örneğin, `City` modelde alan donatılmış ile [gerekli](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) özniteliği aşağıdaki örnekte gösterilen HTML sonuçlanır:
+Uygulamayı çalıştırın ve bir düzenleme bağlantısını tıklatın. Sayfanın kaynağını tarayıcıda görüntülemek. Tarayıcı kaynak formun birçok öznitelikleri gösterir `data-val` (için verisi doğrulama). İstemci doğrulama ve örtük JavaScript etkinleştirildiğinde, bir istemci doğrulama kuralı ile giriş alanları içeren `data-val="true"` örtük istemci doğrulama tetiklemek için öznitelik. Örneğin, `City` modelde alan donatılmış ile [gerekli](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) özniteliği aşağıdaki örnekte gösterilen HTML sonuçlanır:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
@@ -180,7 +180,7 @@ Her istemci doğrulama kuralı için bir özniteliği formun olan eklenir `data-
 
 ![Gerekli Şehir](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-Benzer şekilde, istemci doğrulama kuralı her parametre için bir özniteliği formun olan eklenen `data-val-rulename-paramname=paramvalue`. Örneğin, `FirstName` özellik açıklama ile [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği ve 3 minimum uzunluğu ve en fazla 8 belirtir. Adlı veri doğrulama kuralı `length` parametre adına sahip `max` ve 8 parametre değeri. Aşağıdakiler için oluşturulan HTML gösterir `FirstName` alan kullanıcılar düzenlediğinizde:
+Benzer şekilde, istemci doğrulama kuralı her parametre için bir özniteliği formun olan eklenen `data-val-rulename-paramname=paramvalue`. Örneğin, `FirstName` özellik açıklama ile [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği ve 3 minimum uzunluğu ve en fazla 8 belirtir. Adlı veri doğrulama kuralı `length` parametre adına sahip `max` ve 8 parametre değeri. Aşağıdakiler için oluşturulan HTML gösterir `FirstName` alan kullanıcılar düzenlediğinizde:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 

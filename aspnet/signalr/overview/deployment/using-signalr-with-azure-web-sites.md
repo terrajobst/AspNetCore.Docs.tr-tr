@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 414701159b4e1fa3da9597503b14281a1e9991de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8386441690a3fb479ffb941ebd7c0b2f83870781
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service'te Web uygulamalarını SignalR kullanma
 ====================
@@ -36,7 +36,7 @@ tarafından [CAN Fletcher'dan](https://github.com/pfletcher)
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
-> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR), [StackOverflow.com](http://stackoverflow.com/), veya [Microsoft Azure forumları](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?category=windowsazureplatform).
+> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR), [StackOverflow.com](http://stackoverflow.com/), veya [Microsoft Azure forumları](https://social.msdn.microsoft.com/Forums/windowsazure/home?category=windowsazureplatform).
 
 
 ## <a name="table-of-contents"></a>İçindekiler tablosu
@@ -61,7 +61,7 @@ SignalR, bir şirket içi sunucusuna dağıtma karşı Azure bir uygulamayı da�
 
 - Visual Studio 2013. Visual Studio yoksa, Visual Studio 2013 Express Web için Azure SDK'sını yükleme dahil edilir.
 - [Visual Studio 2013 için Azure SDK 2.3](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) veya [Visual Studio 2012 için Azure SDK 2.3](https://go.microsoft.com/fwlink/p/?linkid=323511).
-- Bu öğreticiyi tamamlamak için bir Azure aboneliği gerekir. Yapabilecekleriniz [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/), veya [deneme aboneliği için kaydolun](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- Bu öğreticiyi tamamlamak için bir Azure aboneliği gerekir. Yapabilecekleriniz [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), veya [deneme aboneliği için kaydolun](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="deploying-a-signalr-web-app-to-azure"></a>Bir SignalR web uygulaması Azure'a dağıtma
 
@@ -76,8 +76,7 @@ SignalR, bir şirket içi sunucusuna dağıtma karşı Azure bir uygulamayı da�
 5. "Var olan Web sitesi seçin" iletişim kutusundan tıklatın **yeni**.
 
     ![Yeni Web sitesi](using-signalr-with-azure-web-sites/_static/image4.png)
-6. "Windows azure'da site oluşturma" iletişim kutusunda, bir benzersiz uygulama adı girin. Size en yakın bölgeyi bölge açılır menüde seçin. 
-              **Oluştur**'u tıklatın.
+6. "Windows azure'da site oluşturma" iletişim kutusunda, bir benzersiz uygulama adı girin. Size en yakın bölgeyi bölge açılır menüde seçin. **Oluştur**'u tıklatın.
 
     ![Azure'da site oluşturma](using-signalr-with-azure-web-sites/_static/image5.png)
 7. "Web'de Yayımla" iletişim kutusundan tıklatın **Yayımla**.
@@ -116,4 +115,4 @@ Web uygulamanız için birden çok örneği kullanın ve kullanıcıların bu ö
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Azure App Service'te Web Apps hakkında daha fazla bilgi için bkz: [Web Apps'e genel bakış](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/).
+Azure App Service'te Web Apps hakkında daha fazla bilgi için bkz: [Web Apps'e genel bakış](https://azure.microsoft.com/documentation/articles/app-service-web-overview/).

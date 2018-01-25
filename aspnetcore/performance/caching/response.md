@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.topic: article
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -32,11 +32,11 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 | Yönergesi                                                       | Eylem |
 | --------------------------------------------------------------- | ------ |
-| [Ortak](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Bir önbellek yanıt depolayabilir. |
-| [Özel](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Yanıt tarafından paylaşılan bir önbellek depolanması gerekir. Özel bir önbellek depolamak ve yanıt yeniden kullanabilirsiniz. |
-| [Maksimum yaş](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | İstemci, geçerlilik süresi belirtilen sayıda saniye büyük bir yanıtı kabul edilmeyecektir. Örnekler: `max-age=60` (60 saniye olarak), `max-age=2592000` (1 ay) |
-| [Hayır-önbellek](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: bir önbellekte depolanan yanıt isteği karşılamak için kullanmaması gerekir. Not: İstemci için yanıt kaynak sunucuya yeniden oluşturur ve ara yazılım önbelleğinde depolanan yanıtta güncelleştirir.<br><br>**Yanıtları üzerinde**: kaynak sunucuda onaysız sonraki istek için yanıt kullanılmamalıdır. |
-| [Hayır deposu](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: önbellek istek depolamamayı gerekir.<br><br>**Yanıtları üzerinde**: önbellek yanıt herhangi bir kısmını depolamamayı gerekir. |
+| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Bir önbellek yanıt depolayabilir. |
+| [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Yanıt tarafından paylaşılan bir önbellek depolanması gerekir. Özel bir önbellek depolamak ve yanıt yeniden kullanabilirsiniz. |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | İstemci, geçerlilik süresi belirtilen sayıda saniye büyük bir yanıtı kabul edilmeyecektir. Örnekler: `max-age=60` (60 saniye olarak), `max-age=2592000` (1 ay) |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: bir önbellekte depolanan yanıt isteği karşılamak için kullanmaması gerekir. Not: İstemci için yanıt kaynak sunucuya yeniden oluşturur ve ara yazılım önbelleğinde depolanan yanıtta güncelleştirir.<br><br>**Yanıtları üzerinde**: kaynak sunucuda onaysız sonraki istek için yanıt kullanılmamalıdır. |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: önbellek istek depolamamayı gerekir.<br><br>**Yanıtları üzerinde**: önbellek yanıt herhangi bir kısmını depolamamayı gerekir. |
 
 Önbelleğe alma işleminde, bir rol oynar diğer önbellek üstbilgileri aşağıdaki tabloda gösterilmiştir.
 
@@ -65,11 +65,11 @@ Daha fazla bilgi için bkz: [ASP.NET çekirdek bellek içi önbelleğe alma giri
 
 ### <a name="distributed-cache"></a>Dağıtılmış önbellek
 
-Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri depolamak için Dağıtılmış önbellek kullanın. Önbellek istekleri işleyen sunucular arasında paylaşılır. Bir istemci grubundaki herhangi bir sunucu tarafından işlenen bir istek gönderebilir ve istemci için önbelleğe alınan verileri kullanılamıyor. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
+Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri depolamak için Dağıtılmış önbellek kullanın. Önbellek istekleri işleyen sunucular arasında paylaşılır. Bir istemci grubundaki herhangi bir sunucu tarafından işlenen ve istemci için verileri önbelleğe bir istek kullanılabilir gönderebilir. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
 
 Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmaya](xref:performance/caching/distributed).
 
-### <a name="cache-tag-helper"></a>Önbellek etiket Yardımcısı
+### <a name="cache-tag-helper"></a>Cache Tag Helper
 
 Önbellek etiket Yardımcısı'nı kullanarak bir MVC görünümü ya da Razor sayfasından içerik önbelleğe alabilir. Önbellek etiket Yardımcısı, verileri depolamak için bellek içi önbelleğe alma kullanır.
 
@@ -180,6 +180,6 @@ Cache-Control: public,max-age=60
 * [Bellek içi önbelleğe alma](xref:performance/caching/memory)
 * [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
-* [Yanıt önbelleğe alma Ara](xref:performance/caching/middleware)
-* [Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
+* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

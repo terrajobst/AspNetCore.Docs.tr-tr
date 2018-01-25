@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: a6ac34307b7558ad13684448f339ca74ade9e997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-startup-class-detection"></a>OWIN başlangıç sınıfı algılama
 ====================
@@ -79,7 +79,7 @@ tarafından [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- `app.Use` Lambda ifadesi, belirtilen ara yazılım bileşeni OWIN ardışık düzenine kaydetmek için kullanılır. Bu durumda biz gelen isteğini yanıtlamadan önce gelen isteklerin günlüğe yazılmasını ayarlıyorsanız. `next` Parametredir temsilci ( [Func](https://msdn.microsoft.com/en-us/library/bb534960(v=vs.100).aspx) &lt; [görev](https://msdn.microsoft.com/en-us/library/dd321424(v=vs.100).aspx) &gt; ) ardışık düzende sonraki bileşene. `app.Run` Lambda ifadesi ardışık düzene gelen istekleri kancalarını ve yanıt mekanizmasını sağlar.
+ `app.Use` Lambda ifadesi, belirtilen ara yazılım bileşeni OWIN ardışık düzenine kaydetmek için kullanılır. Bu durumda biz gelen isteğini yanıtlamadan önce gelen isteklerin günlüğe yazılmasını ayarlıyorsanız. `next` Parametredir temsilci ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [görev](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) ardışık düzende sonraki bileşene. `app.Run` Lambda ifadesi ardışık düzene gelen istekleri kancalarını ve yanıt mekanizmasını sağlar.
      > [!NOTE]
      > Yukarıdaki kod biz kılınmıştır `OwinStartup` özniteliği ve biz adlı sınıf çalışan kuralına bağlı `Startup` .-tuşuna ***F5*** uygulamayı çalıştırın. Yenileme birkaç kez ulaştı.  
   
@@ -130,7 +130,7 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
-## <a name="using-owinhostexe"></a>Owinhost.exe kullanma
+## <a name="using-owinhostexe"></a>Using Owinhost.exe
 
 1. Web.config dosyasında aşağıdaki biçimlendirme ile değiştirin:  
 

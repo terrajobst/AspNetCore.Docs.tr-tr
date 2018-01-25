@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Web dağıtımı için doğru yaklaşım seçme
 ====================
@@ -69,7 +69,7 @@ Matt yalnızca bu tür gerekir böylece makine adı sağlarsanız, gerçekte, We
 
 
 > [!NOTE]
-> Komut satırı sözdizimi Web dağıtımı hakkında daha fazla bilgi ve *. deploy.cmd* dosyaları görmek [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd yüklemek](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Komut satırı sözdizimi Web dağıtımı hakkında daha fazla bilgi ve *. deploy.cmd* dosyaları görmek [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd yüklemek](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Uzak Aracı içerik uzak bir konumdan dağıtmak için basit bir yol sunar ve bu yaklaşım da tek tıklatmayla veya otomatik dağıtım ile çalışabilirsiniz. Ancak, dağıtım komutu çalıştıran kullanıcının, aynı zamanda bir etki alanı yöneticisi veya hedef sunucuda yerel Yöneticiler grubunun bir üyesi olmalıdır. Ayrıca, komut satırında alternatif kimlik bilgileri geçiremezsiniz şekilde uzak aracı temel kimlik doğrulaması, desteklemiyor.
@@ -94,7 +94,7 @@ Temp Aracısı sağlayıcısı ayarı kullanmak istiyorsanız eklemek **/g** da�
 
 Bu yaklaşımın avantajı, hedef sunuculara Web dağıtımı yüklemelerinde korumak gerekmemesidir. Ayrıca, kaynak ve hedef bilgisayarlar aynı Web dağıtımı sürümünü çalıştırdığından emin olmak gerekmez. Ancak, bu yaklaşım uzak aracı yaklaşım aynı asıl sınırlamalara gelen öğesine içerik dağıtmak için hedef sunucuda yerel yönetici olması gerekir ve yalnızca NTLM kimlik doğrulaması desteklenen düşer. Temp Aracısı yaklaşım, aynı zamanda hedef ortam çok daha fazla başlangıç yapılandırmasını gerektirir.
 
-Geçici aracı kullanma hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx) ve [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Geçici aracı kullanma hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx) ve [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 ## <a name="using-the-web-deploy-handler"></a>Web dağıtmanızı işleyicisi
 
@@ -125,7 +125,7 @@ Yönetici olmayan kullanıcılar söz konusu olduğunda, Web Yönetimi Hizmeti (
 
 
 > [!NOTE]
-> Komut satırı işlemleri Web dağıtımı ve sözdizimi hakkında daha fazla bilgi için bkz: [Web dağıtmak komut satırı başvurusu](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Kullanma hakkında daha fazla bilgi için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Komut satırı işlemleri Web dağıtımı ve sözdizimi hakkında daha fazla bilgi için bkz: [Web dağıtmak komut satırı başvurusu](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Kullanma hakkında daha fazla bilgi için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 Web dağıtımı işleyicisi hazırlama ortamları, barındırılan ortamlar ve sunucuya uzaktan erişim'in kullanılabilir ancak yönetici kimlik bilgileri burada intranet tabanlı üretim ortamlarında, dağıtım için yararlı bir yaklaşım sağlar.
@@ -146,9 +146,9 @@ Uçtan uca örneği çevrimdışı dağıtım yaklaşımının kullanan bir sena
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Komut satırı işlemleri Web dağıtımı ve sözdizimi hakkında daha fazla bilgi için bkz: [Web dağıtmak komut satırı başvurusu](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Kullanma hakkında daha fazla bilgi için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Komut satırı işlemleri Web dağıtımı ve sözdizimi hakkında daha fazla bilgi için bkz: [Web dağıtmak komut satırı başvurusu](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Kullanma hakkında daha fazla bilgi için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
 
-Web paketleri uzak bir bilgisayardan, dağıtabileceğiniz çeşitli yollar hakkında daha fazla genel yönergeler için bkz [kullanarak Web dağıtımı uzaktan](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx). Web dağıtımı isteğe bağlı kullanma hakkında daha fazla bilgi için bkz: [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Web paketleri uzak bir bilgisayardan, dağıtabileceğiniz çeşitli yollar hakkında daha fazla genel yönergeler için bkz [kullanarak Web dağıtımı uzaktan](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Web dağıtımı isteğe bağlı kullanma hakkında daha fazla bilgi için bkz: [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 >[!div class="step-by-step"]
 [Önceki](configuring-server-environments-for-web-deployment.md)

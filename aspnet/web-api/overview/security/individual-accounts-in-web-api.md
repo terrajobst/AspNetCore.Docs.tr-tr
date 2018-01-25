@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8207df79c1e915b33a0ba095d917a6dc69550173
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2056e769edf972cba830b31cf37f6418148ca73
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Bireysel hesaplar ve ASP.NET Web API 2.2 yerel oturum açma ile Web API güvenliğini sağlama
 ====================
@@ -204,8 +204,8 @@ Bu özellikleri uygulamak ana uygulama sınıfları şunlardır:
 
 - `AccountController`. Kullanıcı hesaplarını yönetmek için bir Web API uç noktası sağlar. `Register` Biz Bu öğreticide kullanılan tek bir eylemdir. Sınıfında diğer yöntemleri, parola sıfırlama, sosyal oturum açma bilgileri ve diğer işlevleri destekler.
 - `ApplicationUser`, /Models/IdentityModels.cs tanımlanmış. Bu sınıf, üyelik veritabanındaki kullanıcı hesaplarının EF modelidir.
-- `ApplicationUserManager`, /App içinde tanımlanan\_bu sınıfın türeyen Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/en-us/library/dn613290.aspx) ve kullanıcı hesaplarını, parolaları ve benzeri, doğrulama, yeni bir kullanıcı oluşturma gibi işlemleri gerçekleştirir ve otomatik olarak devam ettirir veritabanında yapılan değişiklikler.
-- `ApplicationOAuthProvider`. Bu nesne OWIN ara yazılımı takılan ve ara yazılımı tarafından başlatılan olayları işler. Öğesinden türetilen [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
+- `ApplicationUserManager`, /App içinde tanımlanan\_bu sınıfın türeyen Start/IdentityConfig.cs [UserManager](https://msdn.microsoft.com/library/dn613290.aspx) ve kullanıcı hesaplarını, parolaları ve benzeri, doğrulama, yeni bir kullanıcı oluşturma gibi işlemleri gerçekleştirir ve otomatik olarak devam ettirir veritabanında yapılan değişiklikler.
+- `ApplicationOAuthProvider`. Bu nesne OWIN ara yazılımı takılan ve ara yazılımı tarafından başlatılan olayları işler. Öğesinden türetilen [OAuthAuthorizationServerProvider](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserverprovider.aspx).
 
 ![](individual-accounts-in-web-api/_static/image14.png)
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 874b8b32c5a7cfd19156f276bd5367ef9412aa9b
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7bb7e5b9c821f87e73763f5f5c4f9fbcd751235f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET çekirdeği modülü yapılandırma başvurusu
 
@@ -65,7 +65,7 @@ ASP.NET çekirdeği modülü bir site veya uygulama yapılandırılır *web.conf
 | startupTimeLimit | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Modül yürütülebilir dosyanın bağlantı noktasını dinleyen bir işlemi başlatmak için bekleyeceği saniye cinsinden süre. Bu süre aşılırsa, modül işlemi sonlandırın. Modül yeni bir istek alırsa ve uygulamayı başlatmak gelmedikçe sonraki gelen istekleri üzerinde işlemini yeniden başlatmak denemeye devam edecek işlem yeniden başlatmaya çalışacak **rapidFailsPerMinute** numarası Son çalışırken dakika içinde sürelerinin.</p><p>Varsayılan değer 120'dir.</p> |
 | shutdownTimeLimit | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Kendisi için modül bekleyecek dikkatlice kapatmak için yürütülebilir dosyası için saniye cinsinden süre olduğunda *app_offline.htm* dosya algılandı.</p><p>Varsayılan değer 10'dur.</p> |
 | rapidFailsPerMinute | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakikada kilitlenmesine izin verilir. Bu sınır aşılırsa, modül dakikanın geri kalan işlemi başlatmayı durdurur.</p><p>Varsayılan değer 10'dur.</p> |
-| RequestTimeout | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET çekirdeği Modülü'için % ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt bekleyeceği süreyi belirtir.</p><p>Varsayılan değer "00: 02:00".</p><p>`requestTimeout` Yalnızca tam dakikalar içinde aksi 2 dakika olarak varsayılan olarak belirtilmelidir.</p> |
+| requestTimeout | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET çekirdeği Modülü'için % ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt bekleyeceği süreyi belirtir.</p><p>Varsayılan değer "00: 02:00".</p><p>`requestTimeout` Yalnızca tam dakikalar içinde aksi 2 dakika olarak varsayılan olarak belirtilmelidir.</p> |
 | stdoutLogEnabled | <p>İsteğe bağlı Boole öznitelik.</p><p>TRUE ise, **stdout** ve **stderr** belirtilen işlem için **processPath** belirtilen dosyasının yönlendirilen **stdoutLogFile**.</p><p>Varsayılan değer false'tur.</p> |
 | stdoutLogFile | <p>İsteğe bağlı dize özniteliği.</p><p>Kendisi için göreli veya mutlak dosya yolunu belirtir **stdout** ve **stderr** belirtilen işleminden **processPath** günlüğe kaydedilir. Site köküne göre göreli yollardır. İle başlayan herhangi bir yol '.' da site köküne göre olacaktır ve diğer tüm yolları mutlak yollar olarak kabul edilir. Yolu sağlanan herhangi bir klasörde günlük dosyası oluşturmak modülün mevcut olmalıdır. İşlem kimliği, zaman damgası (*yyyyMdhms*) ve dosya uzantısı (*.log*) çizgiyle sınırlayıcıları son segmenti eklenen **stdoutLogFile** sağlanan.</p><p>Varsayılan değer `aspnetcore-stdout` şeklindedir.</p> |
 | forwardWindowsAuthToken | doğru veya yanlış.</p><p>TRUE ise, belirteç istek başına bir üstbilgi 'MS-ASPNETCORE-WINAUTHTOKEN' % ASPNETCORE_PORT % üzerinde dinleme alt işlem iletilir. Bu belirteç istek başına CloseHandle çağırmak için işlem sorumluluğundadır.</p><p>Varsayılan değer true olur.</p> |
@@ -120,7 +120,7 @@ Bkz: [web.config aracılığıyla yapılandırmaya](#configuration-via-webconfig
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET çekirdeği modülü ile bir IIS paylaşılan yapılandırma
 
-ASP.NET çekirdeği Modülü Yükleyicisi ayrıcalıklarıyla çalıştırır **sistem** hesabı. IIS paylaşılan yapılandırması tarafından kullanılan paylaşım yolu için izin yerel sistem hesabını değiştirme çünkü Yükleyici bir erişim reddedildi hatası modülü ayarlarını yapılandırmak çalışırken karşılaşır  *applicationHost.config* paylaşımda.
+ASP.NET çekirdeği Modülü Yükleyicisi ayrıcalıklarıyla çalıştırır **sistem** hesabı. IIS paylaşılan yapılandırması tarafından kullanılan paylaşım yolu için izin sahip yerel sistem hesabı olmayan değiştirmek için bir erişim reddedildi hatası modülü ayarlarını yapılandırmak çalışırken yükleyici karşılaşır  *applicationHost.config* paylaşımda.
 
 Desteklenmeyen geçici bir çözüm değildir paylaşılan IIS yapılandırmasını devre dışı bırakmak için yükleyiciyi çalıştırın, güncelleştirilmiş dışarı *applicationHost.config* dosya paylaşımı ve paylaşılan IIS yapılandırmasını yeniden etkinleştirin.
 
@@ -138,13 +138,13 @@ Desteklenmeyen geçici bir çözüm değildir paylaşılan IIS yapılandırması
 
    * %ProgramFiles%\IIS Express\aspnetcore.dll
 
-   * % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
+   * %ProgramFiles(x86)%\IIS Express\aspnetcore.dll
 
 ### <a name="schema"></a>Şema
 
 **IIS**
 
-   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.XML
+   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.xml
 
 **IIS Express**
 

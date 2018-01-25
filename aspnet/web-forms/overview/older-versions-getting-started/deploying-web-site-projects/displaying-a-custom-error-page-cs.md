@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 92a7e945a6f82e78b848bae8f4f362e16a567b1f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2fcaa615415b6f61e96e12dc77866d00110a33e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-a-custom-error-page-c"></a>Bir özel hata sayfası (C#) görüntüleme
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 İdeal şartlar altında hiç çalışma zamanı hataları olacaktır. Programcıları bir hata kodu ile n öğeli yazarsınız ve güçlü kullanıcı girdisi doğrulama ve dış veritabanı sunucuları ve e-posta sunucuları gibi kaynakları hiçbir zaman çevrimdışı. Elbette, gerçekte kaçınılmaz hatalardır. .NET Framework sınıfları, bir özel durum atma tarafından bir hata işaret eder. Örneğin, bir SqlConnection çağırma nesnesinin Open yöntemini bir bağlantı dizesi tarafından belirtilen veritabanına bir bağlantı kurar. Ancak, veritabanı çalışmıyorsa veya kimlik bilgileri bağlantı dizesinde geçersiz olduğunda sonra açık yöntemi atar bir `SqlException`. Özel durumlar tarafından kullanımını işlenebilir `try/catch/finally` engeller. Varsa içindeki kod bir `try` bloğu bir özel durum oluşturur, geliştirici hatadan kurtarmak burada deneyebilirsiniz denetim uygun catch bloğu ile aktarılır. Eşleşen hiçbir catch bloğu yok ya da bir özel durum belirtti kod bir try bloğu içinde değilse, özel durum çağrı yığını search, Yukarı percolates `try/catch/finally` engeller.
 
-İşlenen olmadan, tüm ASP.NET çalışma zamanı en fazla özel durum köpürür varsa [ `HttpApplication` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)'s [ `Error` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) tetiklenir ve yapılandırılmış *hata sayfası*  görüntülenir. Varsayılan olarak, ASP.NET affectionately olarak adlandırılır bir hata sayfası görüntüler [Ölüm sarı bir ekran](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). YSOD iki sürümü vardır: bir uygulamada hata ayıklama geliştiricilere yararlı gösterir özel durum ayrıntıları, yığın izleme ve diğer bilgileri (bkz **Şekil 1**); diğer yalnızca bir çalışma zamanı hatası (bkz: olduğunubildiren **Şekil 2**).
+İşlenen olmadan, tüm ASP.NET çalışma zamanı en fazla özel durum köpürür varsa [ `HttpApplication` sınıfı](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)'s [ `Error` olay](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) tetiklenir ve yapılandırılmış *hata sayfası*  görüntülenir. Varsayılan olarak, ASP.NET affectionately olarak adlandırılır bir hata sayfası görüntüler [Ölüm sarı bir ekran](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). YSOD iki sürümü vardır: bir uygulamada hata ayıklama geliştiricilere yararlı gösterir özel durum ayrıntıları, yığın izleme ve diğer bilgileri (bkz **Şekil 1**); diğer yalnızca bir çalışma zamanı hatası (bkz: olduğunubildiren **Şekil 2**).
 
 Özel durum ayrıntıları YSOD uygulamada hata ayıklama geliştiriciler için oldukça faydalıdır, ancak son kullanıcılara bir YSOD gösteren tacky ve profesyonel. Bunun yerine, son kullanıcıların sitenin görünüm durumu açıklayan daha kullanıcı dostu bir yazı olabilir ile tutan bir hata sayfası dikkat edilmelidir. İyi haber böyle bir özel hata sayfası oluşturma oldukça kolay olmasıdır. Bu öğretici ASP göz başlar. NET'in farklı hata sayfaları. Ardından, kullanıcıların bir özel hata sayfası bir hata karşısında göstermek için web uygulamasının nasıl yapılandırılacağını gösterir.
 
@@ -87,7 +87,7 @@ Tarayıcının adres çubuğunda incelemek için bir dakikanızı ayırın **Şe
 - Yapılandırma bilgilerini `<customErrors>` bölümünde ve
 - Olup kullanıcı yerel olarak veya uzaktan sitesinden değil.
 
-[ `<customErrors>` Bölüm](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx) içinde `Web.config` hangi hata sayfası gösterilir etkileyen iki özniteliklere sahiptir: `defaultRedirect` ve `mode`. `defaultRedirect` Özniteliği isteğe bağlıdır. Sağlanırsa, özel hata sayfasının URL'sini belirtir ve özel hata sayfası yerine çalışma zamanı hatası YSOD gösterilen olduğunu gösterir. `mode` Özniteliği gereklidir ve üç değerden birini kabul eder: `On`, `Off`, veya `RemoteOnly`. Bu değerler, aşağıdaki davranış vardır:
+[ `<customErrors>` Bölüm](https://msdn.microsoft.com/library/h0hfz6fc.aspx) içinde `Web.config` hangi hata sayfası gösterilir etkileyen iki özniteliklere sahiptir: `defaultRedirect` ve `mode`. `defaultRedirect` Özniteliği isteğe bağlıdır. Sağlanırsa, özel hata sayfasının URL'sini belirtir ve özel hata sayfası yerine çalışma zamanı hatası YSOD gösterilen olduğunu gösterir. `mode` Özniteliği gereklidir ve üç değerden birini kabul eder: `On`, `Off`, veya `RemoteOnly`. Bu değerler, aşağıdaki davranış vardır:
 
 - `On`-özel hata sayfası veya çalışma zamanı hatası YSOD yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için gösterildiğini belirtir.
 - `Off`-Yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için özel durum ayrıntıları YSOD görüntüleneceğini belirtir.
@@ -168,9 +168,9 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Hata sayfaları, bir kez daha](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
-- [Özel durumlar için tasarım yönergeleri](https://msdn.microsoft.com/en-us/library/ms229014.aspx)
+- [Özel Durumlar için Tasarım Yönergeleri](https://msdn.microsoft.com/library/ms229014.aspx)
 - [Kullanıcı dostu hata sayfaları](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [İşleme ve özel durumları atma](https://msdn.microsoft.com/en-us/library/5b2yeyab.aspx)
+- [İşleme ve özel durumları atma](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Özel hata sayfaları ASP.NET kullanılarak uygun şekilde](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 >[!div class="step-by-step"]

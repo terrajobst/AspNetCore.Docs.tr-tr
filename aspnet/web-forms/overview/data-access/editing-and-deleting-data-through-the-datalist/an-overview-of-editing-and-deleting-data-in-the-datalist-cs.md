@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1c7a1c7a9839f2f56658618958c234e0064cb427
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b3067c5a6bcf81a35f66d43886c9b116a0ef7d8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>Düzenleme ve silme (C#) DataList verilerde bir genel bakış
 ====================
@@ -86,11 +86,11 @@ Perde altında GridView ve ObjectDataSource birlikte çalışmak için düzenlem
 
 Sadly, DataList yerleşik Bu işlevlerden herhangi birini sağlamaz. ObjectDataSource s parametreleri ve, kullanıcı s değerleri atandığından emin olmak için bizim sorumluluğu olan kendi `Update()` yöntemi çağrılır. Bu çaba bize yardımcı olmak için aşağıdaki özellikleri ve olayları DataList sağlar:
 
-- **[ `DataKeyField` Özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**  güncelleştirme veya silme, biz DataList her öğe benzersiz şekilde tanımlamak gerekir. Görüntülenen verileri birincil anahtar alanı için bu özelliği ayarlayın. Bunun yapılması s DataList doldurmak [ `DataKeys` koleksiyonu](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) belirtilen `DataKeyField` her DataList öğesi için değeri.
-- **[ `EditCommand` Olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış düzenleme tıklandığında.
-- **[ `CancelCommand` Olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış iptal tıklandığında.
-- **[ `UpdateCommand` Olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış güncelleştirme tıklandığında.
-- **[ `DeleteCommand` Olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış Delete tıklandığında.
+- **[ `DataKeyField` Özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**  güncelleştirme veya silme, biz DataList her öğe benzersiz şekilde tanımlamak gerekir. Görüntülenen verileri birincil anahtar alanı için bu özelliği ayarlayın. Bunun yapılması s DataList doldurmak [ `DataKeys` koleksiyonu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) belirtilen `DataKeyField` her DataList öğesi için değeri.
+- **[ `EditCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış düzenleme tıklandığında.
+- **[ `CancelCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış iptal tıklandığında.
+- **[ `UpdateCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış güncelleştirme tıklandığında.
+- **[ `DeleteCommand` Olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**  ateşlenir düğme, LinkButton veya ImageButton, `CommandName` özelliği ayarlanmış Delete tıklandığında.
 
 Bu özellikleri ve olayları kullanarak, biz güncelleştirmek ve DataList verileri silmek için kullanabileceğiniz dört yaklaşım vardır:
 
@@ -153,7 +153,7 @@ Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bi
 >  Akıllı duruma okuyucu düzenlenebilir GridViews, DetailsViews ve FormViews oluştururken, Görünüm durumu devre dışı bulamadığımız hatırlayın. ASP.NET 2.0 Web denetimleri içerebilir olmasıdır *denetim durumu*, hangi durumu görünüm durumu, ancak kabul gerekli gibi Geri göndermeler arasında kalıcıdır.
 
 
-GridView durumda yalnızca Önemsiz durum bilgilerini atlar ancak (düzenleme ve silme için gerekli durumu içeren) bir denetim durumu tutar görünümü devre dışı bırakılıyor. ASP.NET 1.x zaman çerçevesi içinde oluşturulan DataList denetim durumu kullanmaz ve bu nedenle Görünüm durumunun etkin olması gerekir. Bkz: [denetim durumu vs. Görünüm durumu](https://msdn.microsoft.com/en-us/library/1whwt1k7.aspx) amacı hakkında daha fazla bilgi denetim durumu ve nasıl görünüm durumundan farklıdır.
+GridView durumda yalnızca Önemsiz durum bilgilerini atlar ancak (düzenleme ve silme için gerekli durumu içeren) bir denetim durumu tutar görünümü devre dışı bırakılıyor. ASP.NET 1.x zaman çerçevesi içinde oluşturulan DataList denetim durumu kullanmaz ve bu nedenle Görünüm durumunun etkin olması gerekir. Bkz: [denetim durumu vs. Görünüm durumu](https://msdn.microsoft.com/library/1whwt1k7.aspx) amacı hakkında daha fazla bilgi denetim durumu ve nasıl görünüm durumundan farklıdır.
 
 ## <a name="step-4-adding-an-editing-user-interface"></a>4. adım: bir düzenleme kullanıcı arabirimi ekleme
 
@@ -225,7 +225,7 @@ Bu Düzenle düğmesini ekledikten sonra bir tarayıcı aracılığıyla sayfas�
 
 Düğmesini tıklatarak geri gönderimin neden olur, ancak mu *değil* düzenleme moduna listeleme ürün getirin. Ürün düzenlenebilir olmasını sağlamak için için ihtiyacımız var:
 
-1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) dizini için `DataListItem` , Düzenle düğmesi yalnızca tıklattınız.
+1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) dizini için `DataListItem` , Düzenle düğmesi yalnızca tıklattınız.
 2. DataList verileri yeniden bağlayın. DataList yeniden işlenmiş olduğunda `DataListItem` , `ItemIndex` s DataList ile karşılık gelen `EditItemIndex` kullanarak kılacak kendi `EditItemTemplate`.
 
 S DataList itibaren `EditCommand` Düzenle düğmesine tıklandığında olay harekete, oluşturma bir `EditCommand` aşağıdaki kod ile olay işleyicisi:
@@ -249,7 +249,7 @@ Düzenlenen ürün s güncelleştirme veya İptal düğmeleri tıklamak hiçbir 
 
 Tüm salt okunur modda alt öğelerini işlemek DataList olmasını için ihtiyacımız var:
 
-1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
+1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
 2. DataList verileri yeniden bağlayın. Hayır itibaren `DataListItem` `ItemIndex` es karşılık DataList s `EditItemIndex`, tüm DataList bir salt okunur modda işlenir.
 
 Bu adımları aşağıdaki olay işleyicisi kodla gerçekleştirilebilir:
@@ -263,7 +263,7 @@ Bu eklenmesiyle öğesini tıklatarak önceden düzenleme durumuna DataList ipta
 
 1. Düzenlenen ürün s yanı sıra kullanıcı tarafından girilen ürün adı ve fiyat programlı olarak erişmek `ProductID`.
 2. Uygun çağırarak güncelleştirme işlemini başlatmak `UpdateProduct` içinde aşırı `ProductsBLL` sınıfı.
-3. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
+3. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
 4. DataList verileri yeniden bağlayın. Hayır itibaren `DataListItem` `ItemIndex` es karşılık DataList s `EditItemIndex`, tüm DataList bir salt okunur modda işlenir.
 
 Adım 1 ve 2 kullanıcı s değişiklikleri kaydetmek için sorumlu; Adım 3 ve 4 değişiklikleri kaydedildi ve başlığında gerçekleştirilen adımlar aynıdır sonra bu DataList önceden düzenleme durumuna geri döndürmek `CancelCommand` olay işleyicisi.
@@ -346,4 +346,4 @@ Mutluluk programlama!
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can, Ken Pespisa ve Randy Etikan yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](performing-batch-updates-cs.md)
+[Next](performing-batch-updates-cs.md)

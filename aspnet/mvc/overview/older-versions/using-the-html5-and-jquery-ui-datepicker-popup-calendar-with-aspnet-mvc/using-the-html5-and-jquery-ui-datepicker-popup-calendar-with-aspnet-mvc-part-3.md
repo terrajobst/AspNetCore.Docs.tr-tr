@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: dc81961094928025e25cf62ce4d51d12bc67b80c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ASP.NET MVC - bölümü 3 ile kullanma
 ====================
@@ -86,14 +86,14 @@ Biçimi veya şablon için bir model özelliği aşağıdaki yaklaşımlardan ku
 - Uygulama `DisplayFormat` özniteliği modelinde özelliği. Örneğin, aşağıdaki kodu zaman görüntülenecek tarihi neden olur:
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- Uygulama bir [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği modeli ve veri türünü belirtme özelliği. Örneğin, aşağıdaki kodu zaman görüntülenecek tarihi neden olur.
+- Uygulama bir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği modeli ve veri türünü belirtme özelliği. Örneğin, aşağıdaki kodu zaman görüntülenecek tarihi neden olur.
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
     Uygulama içeriyorsa, bir *date.cshtml* şablonunda *views\shared\displaytemplates konumunda* klasör veya *Views\Movies\DisplayTemplates* klasörü, bu şablonu işlemek için kullanılan `DateTime` özelliği. Aksi takdirde yerleşik ASP.NET şablon sistem özelliği bir tarih olarak görüntüler.
 - Bir ekran şablonu oluşturma *views\shared\displaytemplates konumunda* klasör veya *Views\Movies\DisplayTemplates* klasör adıyla eşleşen biçimlendirmek istediğiniz veri türü. Örneğin, gördüğünüz *Views\Shared\DisplayTemplates\DateTime.cshtml* işlemek için kullanılan `DateTime` modeli, model için bir öznitelik eklemeden ve görünümlere tüm biçimlendirme eklemeden özelliklerinde.
-- Kullanarak [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliği modelin model özelliği görüntülemek için şablonu belirtin.
-- Açıkça görünen şablon adına ekleme [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx) bir görünümde çağırın.
+- Kullanarak [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliği modelin model özelliği görüntülemek için şablonu belirtin.
+- Açıkça görünen şablon adına ekleme [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) bir görünümde çağırın.
 
 Kullandığınız yaklaşım, uygulamanızda gerçekleştirmeniz gereken üzerinde bağlıdır. İhtiyacınız olan biçimlendirme tam olarak türünü almak için bu yaklaşım karışık sık karşılaşılan bir durum değil.
 

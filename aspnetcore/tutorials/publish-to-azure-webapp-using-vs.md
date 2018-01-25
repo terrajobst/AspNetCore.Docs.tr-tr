@@ -9,14 +9,12 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: dd31e3a9583a0c152e97ae7cf6b215389298a20c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d0e64c967ff332365981338809a47faf35d499ab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
-/en-us
-
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama yayımlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs), ve [Rachel Appel](https://twitter.com/rachelappel)
@@ -25,7 +23,7 @@ Bkz: [Mac için Visual Studio'dan Azure Yayımla](https://blog.xamarin.com/publi
 
 ## <a name="set-up"></a>Ayarlama
 
-* Açık bir [ücretsiz Azure hesabı](https://aka.ms/K5y5yh) bir yoksa. 
+* Açık bir [ücretsiz Azure hesabı](https://aka.ms/K5y5yh) , yoksa. 
 
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
@@ -115,7 +113,7 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 * Bir yönetici kullanıcı adı ve parola girin ve ardından **Tamam**. Varsayılan tutabilirsiniz **sunucu adı**. 
 
 > [!NOTE]
-> Yönetici kullanıcı adı olarak "Yönetici" izin verilmiyor.
+> "Yönetici" Yönetici kullanıcı adı olarak izin verilmiyor.
 
 ![SQL Server iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
@@ -184,6 +182,6 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portal](https:/
 
 ## <a name="additonal-resources"></a>Diğer kaynaklar
 
-* [Azure uygulama hizmeti](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview)
-* [Azure kaynak grupları](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Azure SQL veritabanı](https://docs.microsoft.com/en-us/azure/sql-database/)
+* [Azure uygulama hizmeti](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+* [Azure kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/)

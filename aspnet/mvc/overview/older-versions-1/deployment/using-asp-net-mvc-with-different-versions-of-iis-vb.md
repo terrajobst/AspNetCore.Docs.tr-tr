@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 57a729501d15ebf9a533716b2a1767766954bb4c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>ASP.NET MVC farklı sürümleri IIS (VB) ile kullanma
 ====================
@@ -33,7 +33,7 @@ IIS farklı sürümlerini bir özeti aşağıda verilmiştir:
 - IIS 7.0 (Klasik mod) - ASP.NET yönlendirmeyi kullanmak için özel yapılandırma gerçekleştirmeniz gerekir.
 - IIS 6.0 veya aşağıda - ASP.NET yönlendirmeyi kullanmak için özel yapılandırma gerçekleştirmeniz gerekir.
 
-En son IIS sürüm 7.5 (Win7) sürümüdür. IIS 7'ın IIS ile Windows Server 2008 ve VISTA/SP1 dahil ve daha yüksek. IIS 7.0 Vista işletim sisteminin Home Basic dışında herhangi bir sürümü yükleyebilirsiniz (bkz [https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx)).
+En son IIS sürüm 7.5 (Win7) sürümüdür. IIS 7'ın IIS ile Windows Server 2008 ve VISTA/SP1 dahil ve daha yüksek. IIS 7.0 Vista işletim sisteminin Home Basic dışında herhangi bir sürümü yükleyebilirsiniz (bkz [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 istekleri işlemek için iki modunu destekler. Tümleşik mod veya Klasik modda kullanabilirsiniz. IIS 7.0 tümleşik modunda kullanırken hiçbir özel yapılandırma adımlarını gerçekleştirmeniz gerekmez. Ancak, IIS 7.0 Klasik modda kullanılırken ek yapılandırma gerçekleştirmeniz gerekir.
 
@@ -129,11 +129,11 @@ Listeleme 2 Global.asax dosyasında yapılan iki önemli değişiklik vardır. �
 
 .Mvc uzantısı eklenmesi ASP.NET yönlendirme modülü karşılar dosyaları türünü değiştirir. Bu değişiklikle, ASP.NET MVC uygulamayı şimdi aşağıdaki gibi isteklerini yönlendirir:
 
-/Home.MVC/Index/
+/Home.mvc/Index/
 
-/Product.MVC/details/3
+/Product.mvc/Details/3
 
-/Product.MVC/
+/Product.mvc/
 
 İkinci yol, kök yolu, yeni bir özelliktir. Bu URL deseni kök yolu için boş bir dizedir. Bu yol, uygulamanızın kök karşı yapılan istekleri eşleştirmek için gereklidir. Örneğin, kök yol şuna benzer bir istek eşleşir:
 

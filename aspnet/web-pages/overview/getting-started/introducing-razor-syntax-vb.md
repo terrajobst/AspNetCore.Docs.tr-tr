@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42beb4ffcff9974230ba0c4a2f243020bcd4f99d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor sözdizimini (Visual Basic) kullanarak ASP.NET Web programlamaya giriş
 ====================
@@ -58,11 +58,11 @@ Bu bölümde kesinlikle Razor sözdizimini kullanan ASP.NET sunucusu kod yazmaya
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img1](introducing-razor-syntax-vb/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
 
 > [!TIP] 
 > 
-> **HTML kodlaması**
+> **HTML Encoding**
 > 
 > Kullanarak bir sayfa içeriği görüntülediğinizde `@` karakter, önceki örneklerde olduğu gibi çıktı ASP.NET HTML olarak kodlar. Bu ayrılmış HTML karakterlerini değiştirir (gibi `<` ve `>` ve `&`) HTML etiketleri veya varlıklar olarak yorumlanmak yerine bir web sayfasında karakter olarak görüntülenecek karakterleri etkinleştirmek kodlarıyla. HTML kodlaması olmadan sunucu kodunuzu çıktısını düzgün görüntülenmeyebilir ve sayfa güvenlik risklerine maruz bırakabileceğinden.
 > 
@@ -79,7 +79,7 @@ Kod bloğu bir veya daha fazla kod deyimleri içerir ve anahtar sözcükleriyle 
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img2](introducing-razor-syntax-vb/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. Bir blok içinde satır sonu her kod açıklaması bitiş
 
@@ -95,7 +95,7 @@ Değerleri depolayabilir bir *değişkeni*dizeler, sayılar ve tarihleri, vb. da
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img3](introducing-razor-syntax-vb/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
 
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Değişmez değer dize değerleri çift tırnak işaretleri içine alın
 
@@ -109,7 +109,7 @@ Bir dize değeri çift tırnak işaretleri eklemek için iki çift tırnak işar
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img4](introducing-razor-syntax-vb/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
 
 ### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. Visual Basic kodu büyük küçük harfe duyarlı değil
 
@@ -121,7 +121,7 @@ Aşağıdaki kod satırlarını değişkene bir değer atamak `lastname` küçü
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![vb sözdizimi 5](introducing-razor-syntax-vb/_static/image5.jpg)
+![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Kodlama çoğunu nesnelerle çalışmayı içerir
 
@@ -133,7 +133,7 @@ Genellikle ile karşılaşmayacağınızı `Request` form değerleri gibi bilgil
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img5](introducing-razor-syntax-vb/_static/image6.jpg)
+![Razor-Img5](introducing-razor-syntax-vb/_static/image6.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Kararları kod yazma
 
@@ -145,7 +145,7 @@ Deyim `If IsPost` kestirme yol yazma, `If IsPost = True`. İle birlikte `If` dey
 
 Bir tarayıcıda görüntülenen sonuç (tıkladıktan sonra **gönderme**):
 
-![Razor Img6](introducing-razor-syntax-vb/_static/image7.jpg)
+![Razor-Img6](introducing-razor-syntax-vb/_static/image7.jpg)
 
 > [!TIP] 
 > 
@@ -176,7 +176,7 @@ Bu yordam temel programlama tekniklerinin gösteren bir sayfa oluşturulacağın
     - `<form>` Etiketi de içeren bir `method="post"` özniteliği. Bu belirtir kullanıcı tıklattığında **Ekle**, sayfa HTTP POST yöntemini kullanarak sunucuya gönderilir. Ne zaman sayfa gönderildiğinde, kodu `If IsPost` true ve koşullu değerlendirir kod sayıları ekleme sonucu görüntülenirken çalıştırır.
 3. Sayfayı kaydedin ve tarayıcıda çalıştırın. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.) İki tam sayılar girin ve ardından **Ekle** düğmesi.
 
-    ![Razor Img7](introducing-razor-syntax-vb/_static/image8.jpg)
+    ![Razor-Img7](introducing-razor-syntax-vb/_static/image8.jpg)
 
 ## <a name="visual-basic-language-and-syntax"></a>Visual Basic dili ve sözdizimi
 
@@ -257,7 +257,7 @@ Aşağıdaki örnek, bir web sayfasında değişkenleri kullanan bazı satır i�
 
 Bir tarayıcıda görüntülenen sonuç:
 
-![Razor Img9](introducing-razor-syntax-vb/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-vb/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Dönüştürme ve veri türleri test etme
 
@@ -288,7 +288,7 @@ Aşağıdaki tabloda bazı yaygın dönüştürme ve test yöntemleri değişken
 
 Bir işleç bir anahtar sözcük veya ASP ne tür bir ifadede gerçekleştirmek için komutu bir karakter değil. Visual Basic birçok işleçleri destekler, ancak yalnızca ASP.NET web sayfaları geliştirmeye başlamak için birkaç tanıması gerekir. Aşağıdaki tabloda, en yaygın işleçleri özetler.
 
-| **İşleci** | **Açıklama** | **Örnekler** |
+| **Operator** | **Açıklama** | **Örnekler** |
 | --- | --- | --- |
 | `+ - * /` | Matematik işleçleri sayısal ifadelerde kullanılır. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)] |
 | `=` | Atama ve eşitlik. Bağlam, bağlı olarak ya da sol tarafında nesnede deyiminin sağ taraftaki değer atayan veya eşitlik için değerleri denetler. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)] |
@@ -384,7 +384,7 @@ Test etmek için parantez içinde (örnekte haftanın günü değişkeni) değer
 
 Bir tarayıcıda görüntülenen son iki koşullu blokları sonucu:
 
-![Razor Img10](introducing-razor-syntax-vb/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-vb/_static/image10.jpg)
 
 ### <a name="looping-code"></a>Döngü kodu
 
@@ -400,7 +400,7 @@ Döngü ile başlayan `For` anahtar sözcüğü, üç öğeleri tarafından taki
 
 Kod arasında satır `For` ve `Next` satırlarını her döngü için çalışan bir kod içerir. Yeni bir paragraf biçimlendirme oluşturur (`<p>` öğesi) her zaman ve değerini görüntüleme çıktısı için bir satır ekler i (sayaç). Bu sayfayı çalıştırdığınızda, örnek öğe sayısını gösteren her satırın metinle çıkış görüntüleme 11 satırları oluşturur.
 
-![Razor Img11](introducing-razor-syntax-vb/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-vb/_static/image11.jpg)
 
 Bir koleksiyonu veya dizisi ile çalışıyorsanız, sık kullandığınız bir `For Each` döngü. Bir koleksiyon benzer nesneleri oluşan bir gruptur ve `For Each` döngü koleksiyondaki her öğe bir görevi yerine getirmek sağlar. Bu tür bir döngü koleksiyonlar için uygun olan çünkü aksine bir `For` döngüsü, sınırı sayaç artırın veya zorunda değilsiniz. Bunun yerine, `For Each` döngü kodunu işlemi tamamlanana kadar toplulukta yalnızca geçer.
 
@@ -410,7 +410,7 @@ Bu örnek öğeleri döndürür `Request.ServerVariables` (web sunucunuz hakkın
 
 `For Each` Anahtar sözcüğü koleksiyonunda tek bir öğeyi temsil eden bir değişken arkasından (örnekte `myItem`), ardından `In` döngü istediğiniz koleksiyonu ve ardından bir anahtar sözcük,. Gövdesinde `For Each` döngü, daha önce bildirilen değişkeni kullanarak geçerli öğesi erişebilir.
 
-![Razor Img12](introducing-razor-syntax-vb/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-vb/_static/image12.jpg)
 
 Daha fazla genel amaçlı bir döngü oluşturmak üzere kullanmanız `Do While` deyimi:
 
@@ -451,7 +451,7 @@ Alarak dizideki öğelerin sayısını belirleyebilirsiniz kendi `Length` özell
 
 Bir tarayıcıda görüntülenen dize dizisi kodu çıktı:
 
-![Razor Img13](introducing-razor-syntax-vb/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-vb/_static/image13.jpg)
 
 Bir anahtar (veya ad) karşılık gelen değeri ayarlayamaz veya Burada sağladığınız anahtar/değer çiftleri koleksiyonu dictionary'si:
 
@@ -500,7 +500,7 @@ Genellikle, denetimi dışında kalan nedeniyle başarısız olabilir, kodunuzda
 
 Bu durumlarda programlama dilinde denir *özel durumları*. Kodunuzu bir özel durum karşılaşırsa (atar) oluşturan bir hata iletisi diğer bir deyişle, en iyi kullanıcılara sinir bozucu.
 
-![Razor Img14](introducing-razor-syntax-vb/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-vb/_static/image14.jpg)
 
 Burada kodunuzu karşılaşabileceğiniz özel durumlar durumlarda ve hata iletileri bu tür önlemek için kullanabileceğiniz `Try/Catch` deyimleri. İçinde `Try` deyimi, denetimi kod çalıştırma. Bir veya daha `Catch` deyimleri için özel konum (belirli tür özel durumlar) hatalar oluşmuş olabilir. Kadar içerebilir `Catch` deyimleri yazarken gereken bekleme hataları aramak.
 
@@ -518,5 +518,5 @@ Kodunuzu özel durum işleme alamadık, önceki ekran görüntüsü gibi hata sa
 
 ### <a name="reference-documentation"></a>Başvuru belgeleri
 
-- [ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
-- [Visual Basic dili](https://msdn.microsoft.com/en-us/library/2x7h1hfk.aspx)
+- [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
+- [Visual Basic dili](https://msdn.microsoft.com/library/2x7h1hfk.aspx)

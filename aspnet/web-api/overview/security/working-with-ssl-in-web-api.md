@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 8c631900c8c5ab6097e0cb9fd4a71abbcba1c88b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
 ====================
@@ -72,7 +72,7 @@ Bu gibi durumlarda, bu seçenekler ayrıca ApplicationHost.config dosyasında ay
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Test etmek için bir istemci sertifikası oluşturma
 
-Test amacıyla kullanabilirsiniz [MakeCert.exe](https://msdn.microsoft.com/en-US/library/bfsktky3.aspx) bir istemci sertifikası oluşturmak için. İlk olarak, bir test kök yetkilisi oluşturun:
+Test amacıyla kullanabilirsiniz [MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx) bir istemci sertifikası oluşturmak için. İlk olarak, bir test kök yetkilisi oluşturun:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 
@@ -80,7 +80,7 @@ MakeCert, özel anahtarı bir parola girmenizi ister.
 
 Ardından, sertifika sunucunun "güvenilen kök sertifika yetkilileri" depolamak, aşağıdaki gibi test ekleyin:
 
-1. MMC'yi açın.
+1. Open MMC.
 2. Altında **dosya**seçin **Ekle/Kaldır ek bileşenini**.
 3. Seçin **bilgisayar hesabı**.
 4. Seçin **yerel bilgisayar** ve Sihirbazı tamamlayın.
@@ -95,6 +95,6 @@ Artık ilk sertifikası tarafından imzalanmış bir istemci sertifikası oluşt
 
 ### <a name="using-client-certificates-in-web-api"></a>İstemci sertifikalarını Web API kullanma
 
-Sunucu tarafında çağırarak istemci sertifikasını alabilirsiniz [GetClientCertificate](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) üzerinde istek iletisi. Yöntemi istemci sertifikası ise null döndürür. Aksi takdirde, döndürür bir **X509Certificate2** örneği. Bu nesne, sertifika veren ve konu gibi bilgi almak için kullanın. Ardından kimlik doğrulama ve/veya yetkilendirme için bu bilgileri kullanabilirsiniz.
+Sunucu tarafında çağırarak istemci sertifikasını alabilirsiniz [GetClientCertificate](https://msdn.microsoft.com/library/system.net.http.httprequestmessageextensions.getclientcertificate.aspx) üzerinde istek iletisi. Yöntemi istemci sertifikası ise null döndürür. Aksi takdirde, döndürür bir **X509Certificate2** örneği. Bu nesne, sertifika veren ve konu gibi bilgi almak için kullanın. Ardından kimlik doğrulama ve/veya yetkilendirme için bu bilgileri kullanabilirsiniz.
 
 [!code-csharp[Main](working-with-ssl-in-web-api/samples/sample6.cs)]

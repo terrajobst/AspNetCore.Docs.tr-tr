@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>İlgili verileri - EF çekirdek Razor sayfalarının (7 8'in) güncelleştirme
 
@@ -91,7 +91,7 @@ Güncelleştirme *Pages/Courses/Edit.cshtml* aşağıdaki biçimlendirme ile:
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
-* İndirmelere kimliğini görüntüler Genellikle birincil anahtarı (PK) bir varlığın görüntülenmez. BA kullanıcılara genellikle anlamsızdır. Bu durumda, PK indirmelere sayısıdır.
+* İndirmelere kimliğini görüntüler Birincil anahtarı (PK) bir varlığın genellikle görüntülenmiyor. BA kullanıcılara genellikle anlamsızdır. Bu durumda, PK indirmelere sayısıdır.
 * Resim yazısı gelen değişiklikler **DepartmentID** için **departmanı**.
 * Değiştirir `"ViewBag.DepartmentID"` ile `DepartmentNameSL` (temel sınıfından).
 * "Select departmanı" seçeneği ekler. Bu değişiklik "Select departman" yerine ilk bölümü oluşturur.
@@ -103,7 +103,7 @@ Güncelleştirilmiş kod sınayın. Oluşturma, düzenleme ve bir indirmelere si
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Ayrıntılara AsNoTracking ekleme ve silme sayfa modelleri
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) izleme gerekli olmadığında, performansı artırabilir. Ekleme `AsNoTracking` silebilir ve Ayrıntılar sayfası modeli. Aşağıdaki kod güncelleştirilmiş Delete sayfa modeli gösterir:
+[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) izleme gerekli olmadığı durumlarda, performansı artırabilir. Ekleme `AsNoTracking` silebilir ve Ayrıntılar sayfası modeli. Aşağıdaki kod güncelleştirilmiş Delete sayfa modeli gösterir:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -164,7 +164,7 @@ Eğitmen kurslar herhangi bir sayıda öğretir. Bu bölümde, indirmelere atama
 Onay kutuları bir eğitmen atandığı kurslar değişiklikler etkinleştirin. Her indirmelere veritabanındaki için bir onay kutusu görüntülenir. Eğitmen atandığı kurslar denetlenir. Kullanıcı seçin veya indirmelere atamalarını değiştirmek için onay kutularını temizleyin. Kurslar sayısı çok büyük ise:
 
 * Farklı bir kullanıcı arabirimi, kursları görüntülemek için büyük olasılıkla kullanırsınız.
-* İlişki oluşturma veya silme için birleştirme varlığa düzenleme yöntemi değiştirmemeniz.
+* İlişki oluşturma veya silme için birleştirme varlığa düzenleme yöntemi değiştirmez.
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Destek sınıfları eklemek oluşturma ve düzenleme Eğitmen sayfaları
 

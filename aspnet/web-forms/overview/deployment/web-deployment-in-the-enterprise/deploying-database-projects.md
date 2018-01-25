@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: aef8229f2920bd026e3dbf063afb57cffb9b21d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-projects"></a>Veritabanı projeleri dağıtma
 ====================
@@ -65,7 +65,7 @@ Veritabanı projeleri dağıtmak için çeşitli farklı yaklaşım vardır. Anc
 Veritabanı projesi dağıtmak için kullanabileceğiniz üç ana yaklaşım vardır:
 
 - Visual Studio 2010 veritabanı proje türü ile dağıtım işlevini kullanabilirsiniz. Derleme ve Visual Studio 2010 veritabanı projesi dağıtma, dağıtım işlemi dağıtım bildirimi derleme yapılandırmasını belirli bir SQL tabanlı bir dağıtım dosyası oluşturmak için kullanır. Zaten mevcut değil veya zaten mevcut değilse veritabanına gerekli değişiklikleri yapın, bu veritabanı oluşturur. Bu dosya, hedef sunucuda çalıştırmak için SQLCMD.exe kullanabilirsiniz veya oluşturmak ve dosyayı çalıştırmak için Visual Studio ayarlayabilirsiniz. Bu yaklaşımın bir dezavantajı, dağıtım ayarlarını denetime yalnızca sınırlı sahip olur. Genellikle de ortama özgü değişken değerlerini sağlamak için SQL dağıtım dosyasını değiştirmeniz gerekebilir. Visual Studio 2010 yüklü bir bilgisayardan bu yaklaşım yalnızca kullanabilirsiniz ve geliştirici bilmeniz ve tüm hedef ortamlar için bağlantı dizelerini ve kimlik bilgilerini sağlayın gerekir.
-- (Web dağıtımı) Internet Information Services (IIS) Web dağıtım aracı için kullanabileceğiniz [bir veritabanı, web uygulaması projesinin bir parçası dağıtma](https://msdn.microsoft.com/en-us/library/dd465343.aspx). Ancak, bu yaklaşım, veritabanı projesi dağıtmak yerine yalnızca bir hedef sunucuda var olan bir yerel veritabanı çoğaltmak istiyorsanız çok daha karmaşıktır. Web dağıtımı veritabanı projesi oluşturur SQL dağıtım komut dosyasını çalıştırmak için ancak bunu yapmak için yapılandırabilirsiniz, web uygulaması projeniz için özel bir WPP hedefleri dosyası oluşturmanız gerekir. Bu dağıtım işlemiyle karmaşıklığını önemli miktarda ekler. Ayrıca, Web dağıtımı doğrudan varolan veritabanları artımlı güncelleştirmeleri desteklemiyor. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [dağıtılan SQL dosya Web yayımlama ardışık paket veritabanı projesi genişletme](https://go.microsoft.com/?linkid=9805121).
+- (Web dağıtımı) Internet Information Services (IIS) Web dağıtım aracı için kullanabileceğiniz [bir veritabanı, web uygulaması projesinin bir parçası dağıtma](https://msdn.microsoft.com/library/dd465343.aspx). Ancak, bu yaklaşım, veritabanı projesi dağıtmak yerine yalnızca bir hedef sunucuda var olan bir yerel veritabanı çoğaltmak istiyorsanız çok daha karmaşıktır. Web dağıtımı veritabanı projesi oluşturur SQL dağıtım komut dosyasını çalıştırmak için ancak bunu yapmak için yapılandırabilirsiniz, web uygulaması projeniz için özel bir WPP hedefleri dosyası oluşturmanız gerekir. Bu dağıtım işlemiyle karmaşıklığını önemli miktarda ekler. Ayrıca, Web dağıtımı doğrudan varolan veritabanları artımlı güncelleştirmeleri desteklemiyor. Bu yaklaşımı hakkında daha fazla bilgi için bkz: [dağıtılan SQL dosya Web yayımlama ardışık paket veritabanı projesi genişletme](https://go.microsoft.com/?linkid=9805121).
 - Veritabanı, veritabanı şeması ya da dağıtım bildirimi kullanarak dağıtmak için VSDBCMD yardımcı programını kullanabilirsiniz. Daha büyük ve komut dosyalı dağıtım işleminin bir parçası veritabanlarını yayımlama olanak sağlayan bir MSBuild hedefin VSDBCMD.exe çağırabilirsiniz. .Sqlcmdvars dosya ve diğer veritabanı özelliklerini komutundan dağıtımınız farklı ortamlar için birden çok derleme yapılandırmaları oluşturmadan özelleştirmenize olanak sağlayan bir VSDBCMD, çok sayıda değişkenler geçersiz kılabilirsiniz. VSDBCMD yalnızca veritabanı şemanızı hedef veritabanıyla hizalamak için gerekli değişiklikleri yapar anlamına gelir ayrım işlevselliği sağlar. VSDBCMD çok çeşitli dağıtım işlemi üzerinde hassas denetime komut satırı seçenekleri de sunar.
 
 Bu genel bakış'tan, VSDBCMD MSBuild ile kullanarak en iyi tipik kurumsal dağıtım senaryosu için uygun bir yaklaşım olduğunu görebilirsiniz:
@@ -97,7 +97,7 @@ Bu durumda:
 - **/Dd+** (veya **/DeployToDatabase+**) anahtar gösteren bir dağıtımını oluşturun ve hedef ortam dağıtmak istediğiniz. Belirtirseniz **/dd-**, veya anahtarını atlarsanız, VSDBCMD bir dağıtım komut dosyası oluşturur, ancak hedef ortam dağıtmaz. Bu anahtar, Karışıklığı önlemek için kaynak görülür ve sonraki bölümde daha ayrıntılı açıklanmıştır.
 - **/Script** (veya **/DeploymentScriptFile**) anahtar dağıtım betiği oluşturmak istediğiniz belirtir. Bu değer, dağıtım işlemi etkilemez.
 
-VSDBCMD hakkında daha fazla bilgi için bkz: [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) ve [nasıl yapılır: bir veritabanı VSDBCMD kullanarak dağıtım için bir komut isteminden hazırlayın. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx).
+VSDBCMD hakkında daha fazla bilgi için bkz: [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/library/dd193283.aspx) ve [nasıl yapılır: bir veritabanı VSDBCMD kullanarak dağıtım için bir komut isteminden hazırlayın. EXE](https://msdn.microsoft.com/library/dd193258.aspx).
 
 VSDBCMD bir MSBuild proje dosyasından nasıl kullanabileceğinize bir örnek için bkz: [oluşturma işlemini anlama](understanding-the-build-process.md). Birden çok ortamlar için veritabanı dağıtım ayarlarını yapılandırmak nasıl örnekleri için bkz: [veritabanı dağıtımlarını özelleştirme birden çok ortamları](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md).
 
@@ -145,10 +145,10 @@ Her ortam için ayrı bir dağıtım yapılandırma dosyası oluşturarak verita
 
 Bu konular MSDN'de daha geniş yönerge ve Visual Studio veritabanı projelerini hakkında arka plan bilgileri ve veritabanı dağıtım işlemi sağlar:
 
-- [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/en-us/library/ff678491.aspx)
-- [Veritabanı değişikliği yönetme](https://msdn.microsoft.com/en-us/library/aa833404.aspx)
-- [Nasıl yapılır: bir veritabanı VSDBCMD kullanarak dağıtım için bir komut isteminden hazırlayın. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx)
-- [Veritabanı derleme ve dağıtım genel bakış](https://msdn.microsoft.com/en-us/library/aa833165.aspx)
+- [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/library/ff678491.aspx)
+- [Veritabanı değişikliği yönetme](https://msdn.microsoft.com/library/aa833404.aspx)
+- [Nasıl yapılır: bir veritabanı VSDBCMD kullanarak dağıtım için bir komut isteminden hazırlayın. EXE](https://msdn.microsoft.com/library/dd193258.aspx)
+- [Veritabanı derleme ve dağıtım genel bakış](https://msdn.microsoft.com/library/aa833165.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](deploying-web-packages.md)

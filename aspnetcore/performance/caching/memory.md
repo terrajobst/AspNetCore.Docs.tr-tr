@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23312e73b4530b24b8479e2d379f16315b672ca4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 12d3982ce1abf74a575dae5362b037bd4ecc3d0f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET çekirdek bellek içi önbelleğe alma
 
@@ -46,7 +46,7 @@ Bellek içi önbelleğe alma bir *hizmet* , uygulamayı kullanarak başvurulan [
 
 `IMemoryCache`NuGet paketi "Microsoft.Extensions.Caching.Memory" gerektirir.
 
-Aşağıdaki kod [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) geçerli saati önbellekte olup olmadığını denetlemek için. Öğenin önbelleğe alınmamışsa, yeni bir girdi oluşturulur ve önbellek ile eklenen [ayarlamak](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
+Aşağıdaki kod [TryGetValue](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) geçerli saati önbellekte olup olmadığını denetlemek için. Öğenin önbelleğe değil, yeni bir girdi oluşturulur ve önbellek ile eklenen [ayarlamak](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_).
 
 [!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet1)]
 
@@ -100,7 +100,7 @@ Kullanarak bir `CancellationTokenSource` grup olarak çıkarılacak birden fazla
 
 * [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
-* [Yanıt önbelleğe alma](xref:performance/caching/response)
-* [Yanıt önbelleğe alma Ara](xref:performance/caching/middleware)
-* [Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Yanıtları önbelleğe alma](xref:performance/caching/response)
+* [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
+* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

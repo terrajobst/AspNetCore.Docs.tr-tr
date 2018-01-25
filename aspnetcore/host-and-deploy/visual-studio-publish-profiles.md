@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: cd59b33bc9fef29a769912617bf9aa3d95d689ec
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 1f403447c39db4ebfe3dafda591602f0dc9db8c3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için
 
@@ -24,7 +24,7 @@ Bu makalede oluşturmak için Visual Studio 2017 kullanmaya odaklanır yayımlam
 
 Aşağıdaki *.csproj* dosyası komutuyla oluşturuldu `dotnet new mvc`:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -44,7 +44,7 @@ Aşağıdaki *.csproj* dosyası komutuyla oluşturuldu `dotnet new mvc`:
 </Project>
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -117,14 +117,14 @@ dotnet publish c:/webs/web1
 
 Oluşturma ve bir web uygulaması yayımlama için aşağıdaki komutları çalıştırın:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```console
 dotnet new mvc
 dotnet publish
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```console
 dotnet new mvc
@@ -327,7 +327,7 @@ Aşağıdaki `<MsDeploySkipRules>` öğesi biçimlendirme içerenleri tüm dosya
 <ItemGroup>
   <MsDeploySkipRules Include="CustomSkipFolder">
     <ObjectName>dirPath</ObjectName>
-    <AbsolutePath>wwwroot\content</AbsolutePath>
+    <AbsolutePath>wwwroot\\content</AbsolutePath>
   </MsDeploySkipRules>
 </ItemGroup>
 ```
@@ -359,7 +359,7 @@ Aşağıdaki `<MsDeploySkipRules>` biçimlendirme eklenir, dağıtım sitesinde 
 </ItemGroup>
 ```
 
-`<MsDeploySkipRules>` Yukarıda gösterilen biçimlendirme engeller *atlandı* depoyed engeller dosyaları dağıtılmalarını sonra bu dosyaları silmez ancak.
+`<MsDeploySkipRules>` Yukarıda gösterilen biçimlendirme engeller *atlandı* depoyed engeller dosyaları dağıtmış sonra bu dosyaları silmez ancak.
 
 Aşağıdaki `<Content>` biçimlendirme dağıtım sitede hedeflenen dosya siler:
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 01cedb4e3abb35670d2908fe8cb4367c3fd58b33
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 18c7448ad79891d04eca1e939a0aeeabe417bde8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -70,7 +70,7 @@ Uygulamaları sahip sunuculara dağıtırken [Web dağıtımı](/iis/publish/usi
 
 ### <a name="enabling-the-iisintegration-components"></a>IISIntegration bileşenleri etkinleştirme
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir ana bilgisayar ayarı başlamak için. `CreateDefaultBuilder`yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) için bağlantı noktası ve temel yolunu yapılandırarak web sunucusu ve etkinleştirir IIS tümleştirme olarak [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module):
 
@@ -80,7 +80,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Bir bağımlılık içerir [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıkları paketinde. Ekleyerek uygulamayı yazarken IIS tümleştirme ara yazılımı eklemenize *UseIISIntegration* genişletme yöntemi *WebHostBuilder*:
 
@@ -295,9 +295,9 @@ IIS yapılandırmasını etkileyen tarafından  **\<system.webServer >** bölüm
 
 ASP.NET Framework uygulamalarında yapılandırma bölümlerini *web.config* yapılandırma ASP.NET Core uygulamaları tarafından kullanılan değil:
 
-* **\<System.Web >**
-* **\<appSettings >**
-* **\<connectionStrings >**
+* **\<system.web>**
+* **\<appSettings>**
+* **\<connectionStrings>**
 * **\<Konum >**
 
 ASP.NET Core uygulamaları başka bir yapılandırma sağlayıcısı kullanılarak yapılandırılır. Daha fazla bilgi için bkz: [yapılandırma](xref:fundamentals/configuration/index).
@@ -340,11 +340,11 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [IIS üzerinde ASP.NET Core sorun giderme](xref:host-and-deploy/iis/troubleshoot)
+* [IIS üzerinde ASP.NET Core sorunlarını giderme](xref:host-and-deploy/iis/troubleshoot)
 * [Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 * [ASP.NET çekirdeği modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
-* [ASP.NET çekirdeği modülü yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
+* [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
 * [ASP.NET çekirdeği ile IIS modüllerini kullanma](xref:host-and-deploy/iis/modules)
 * [ASP.NET Core giriş](../index.md)
-* [Resmi Microsoft IIS sitesi](https://www.iis.net/)
+* [The Official Microsoft IIS Site](https://www.iis.net/)
 * [Microsoft TechNet Kitaplığı: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)

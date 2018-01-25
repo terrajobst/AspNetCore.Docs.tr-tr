@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure ile gerçek bulut uygulamaları derleme) hatalarına karşı korur tasarlama
 ====================
@@ -117,14 +117,14 @@ Daha fazla bilgi için sonraki bölümlerde bu e-kitap ve aşağıdaki kaynaklar
 
 Belgeler:
 
-- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Web sayfası hatasız video serisi sürümü.
-- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından.
-- [Azure iş sürekliliği teknik kılavuz](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx). Teknik incelemesi CAN Wickline ve Jason Roth tarafından.
-- [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx). Michael McKeown, Hanu Kommalapati ve Jason Roth teknik incelemesinde yanıtlanmıştır.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Birden çok veri merkezi dağıtım kılavuzu, devre kesici düzeni bakın.
+- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Web sayfası hatasız video serisi sürümü.
+- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından.
+- [Azure iş sürekliliği teknik kılavuz](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Teknik incelemesi CAN Wickline ve Jason Roth tarafından.
+- [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Michael McKeown, Hanu Kommalapati ve Jason Roth teknik incelemesinde yanıtlanmıştır.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Birden çok veri merkezi dağıtım kılavuzu, devre kesici düzeni bakın.
 - [Azure desteği - hizmet düzeyi sözleşmelerine](https://azure.microsoft.com/support/legal/sla/).
-- [Azure SQL veritabanındaki iş sürekliliği](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx). SQL veritabanı yüksek kullanılabilirlik ve olağanüstü durum kurtarma özelliklerle ilgili belgelerine.
-- [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Azure sanal makinelerde SQL Server](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx).
+- [Azure SQL veritabanındaki iş sürekliliği](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). SQL veritabanı yüksek kullanılabilirlik ve olağanüstü durum kurtarma özelliklerle ilgili belgelerine.
+- [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Azure sanal makinelerde SQL Server](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Videolar:
 

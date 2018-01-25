@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: c0a1f475941f3389e9aa1f5bb7819bef491b2cae
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: dc36c76dbd7d82a926e39d8a8ab3a2a53b65d954
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -186,7 +186,7 @@ namespace WebApplication1.ViewModels
 
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Zayıf yazılmış verileri (ViewData ve Görünüm Paketi)
 
-Not: `ViewBag` Razor sayfalarında kullanılabilir değil.
+Not: `ViewBag` Razor sayfalarında kullanılamaz.
 
 Kesin türü belirtilmiş görünümleri yanı sıra, görünümleri erişimi bir *zayıf yazılmış* (olarak da bilinir *geniş yazılmış*) veri koleksiyonu. Güçlü türlerinin aksine *zayıf türleri* (veya *kaybetmiş türleri*) kullanmakta olduğunuz veri türünü açıkça bildirmeyin anlamına gelir. Zayıf yazılmış veri koleksiyonunu küçük miktarda denetleyicileri ve görünümler ve dışındaki veri geçirmek için kullanabilirsiniz.
 
@@ -245,7 +245,7 @@ Bir görünümdeki verilerle çalışma:
 
 **ViewBag**
 
-Not: `ViewBag` Razor sayfalarında kullanılabilir değil.
+Not: `ViewBag` Razor sayfalarında kullanılamaz.
 
 `ViewBag`olan bir [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag`atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
 
@@ -278,7 +278,7 @@ public IActionResult SomeAction()
 
 **ViewData ve Görünüm Paketi aynı anda kullanma**
 
-Not: `ViewBag` Razor sayfalarında kullanılabilir değil.
+Not: `ViewBag` Razor sayfalarında kullanılamaz.
 
 Bu yana `ViewData` ve `ViewBag` aynı temel bakın `ViewData` koleksiyonu, her ikisi de kullanabilirsiniz `ViewData` ve `ViewBag` karıştırmak ve aralarındaki okurken ve yazarken değerleri aynı.
 
@@ -318,7 +318,7 @@ Her ikisini de kullanarak `ViewData` ve `ViewBag` adresindeki karıştırma ve o
 
 **Görünüm Paketi ViewData arasındaki farkları özeti**
 
- `ViewBag`Razor sayfalarında kullanılabilir değil.
+ `ViewBag`Razor sayfalarında kullanılamaz.
 
 * `ViewData`
   * Türetilen [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)gibi yararlı olabilecek sözlük özelliklere sahip nedenle `ContainsKey`, `Add`, `Remove`, ve `Clear`.

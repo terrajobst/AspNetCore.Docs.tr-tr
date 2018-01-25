@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 7c03453e64cfc065d9f424702cc5af373e9bf536
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 12 1
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -63,7 +63,7 @@ Cytanium.com, Bu öğretici için kullanılan barındırma sağlayıcısı kulla
 
 ## <a name="deploying-web-site-projects"></a>Web sitesi projeleri dağıtma
 
-Contoso University Visual Studio web uygulama projesi ' dir. Bu öğreticide gösterilen araçları ve dağıtım yöntemleri çoğu için geçerli olmayan [Web sitesi projeleri](https://msdn.microsoft.com/en-us/library/dd547590.aspx). Web sitesi projeleri dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/bb386521.aspx#deployment_for_web_site_projects).
+Contoso University Visual Studio web uygulama projesi ' dir. Bu öğreticide gösterilen araçları ve dağıtım yöntemleri çoğu için geçerli olmayan [Web sitesi projeleri](https://msdn.microsoft.com/library/dd547590.aspx). Web sitesi projeleri dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
 ## <a name="deploying-aspnet-mvc-projects"></a>ASP.NET MVC projeleri dağıtma
 
@@ -110,7 +110,7 @@ Eğitmen adımları boyunca çalışmaya hazırlamak için Visual Studio projele
 
 Visual Studio'yu başlatın, projeyi açın ve çalıştırmak için CTRL-F5 tuşuna basın.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Web sitesi sayfalarını menü çubuğundan erişilebilir olduğundan ve bu sayede aşağıdaki işlevleri gerçekleştirir:
 
@@ -143,4 +143,4 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 Bu ilk öğreticide serideki örnek Visual Studio projesi indirdiğiniz ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde otomatik olarak işlenecek bunlardan bazıları ayarlayarak dağıtımı için hazırlayın. Başkalarının size, el ile dikkatli olun.
 
 >[!div class="step-by-step"]
-[Sonraki](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+[Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

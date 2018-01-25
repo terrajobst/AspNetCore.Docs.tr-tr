@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 31d83a11488212ab0ff83494d5e896ffcbeaa8a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server - 12 10 geçirme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -37,7 +37,7 @@ Bu öğretici, SQL Server Compact'dan SQL Server'a geçirmek nasıl gösterir. B
 
 SQL Server'a yükseltmeye karar verdim sonra SQL Server veya SQL Server Express, geliştirme ve test ortamlarında kullanmak isteyebilirsiniz. Farkları aracı desteği ve veritabanı altyapısı özelliklerinin yanı sıra, SQL Server Compact ve SQL Server'ın diğer sürümleri arasında sağlayıcısı uygulamalarında farklar vardır. Bu farklılıklar farklı sonuçlar üretmek aynı kodu neden olabilir. SQL Server Compact geliştirme veritabanınızın tutmaya karar verirseniz, bu nedenle, sitenizi SQL Server veya SQL Server Express üretime her dağıtmadan önce bir sınama ortamında sınamanız gerekir.
 
-SQL Server Compact aksine SQL Server Express temelde aynı veritabanı motoru ve tam SQL sunucusu olarak aynı .NET sağlayıcısı kullanır. SQL Server Express ile test ettiğinizde, SQL Server ile olduğu gibi aynı sonuçları alınırken emin olabilir. SQL Server, SQL Server ile birlikte kullanabileceğiniz Express ile aynı veritabanı araçları çoğunu kullanabilirsiniz (önemli özel durum olan [SQL Server Profiler](https://msdn.microsoft.com/en-us/library/ms181091.aspx)), ve SQL Server saklı yordamlar, görünümler, Tetikleyiciler, gibi diğer özellikleri destekler ve çoğaltma. (Genellikle tam SQL Server üretim Web sitesinde, ancak kullanmak zorunda. SQL Server Express paylaşılan barındırma ortamında çalıştırabilirsiniz ancak için tasarlanmamıştır ve birçok barındırma hizmeti sağlayıcıları desteklemez.)
+SQL Server Compact aksine SQL Server Express temelde aynı veritabanı motoru ve tam SQL sunucusu olarak aynı .NET sağlayıcısı kullanır. SQL Server Express ile test ettiğinizde, SQL Server ile olduğu gibi aynı sonuçları alınırken emin olabilir. SQL Server, SQL Server ile birlikte kullanabileceğiniz Express ile aynı veritabanı araçları çoğunu kullanabilirsiniz (önemli özel durum olan [SQL Server Profiler](https://msdn.microsoft.com/library/ms181091.aspx)), ve SQL Server saklı yordamlar, görünümler, Tetikleyiciler, gibi diğer özellikleri destekler ve çoğaltma. (Genellikle tam SQL Server üretim Web sitesinde, ancak kullanmak zorunda. SQL Server Express paylaşılan barındırma ortamında çalıştırabilirsiniz ancak için tasarlanmamıştır ve birçok barındırma hizmeti sağlayıcıları desteklemez.)
 
 Visual Studio 2012 kullanıyorsanız, Visual Studio ile varsayılan olarak yüklü olduğundan, genellikle SQL Server Express LocalDB geliştirme ortamınız için seçin. Ancak, bu nedenle test ortamınız için SQL Server veya SQL Server Express kullanmanız gerekir. LocalDB IIS'de çalışmaz.
 
@@ -57,9 +57,9 @@ Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir ş
 
 SQL Server Express otomatik olarak Visual Studio 2010 ile varsayılan olarak yüklenir, ancak varsayılan olarak, Visual Studio 2012 yüklü değil. SQL Server 2012 Express yüklemek için aşağıdaki bağlantıyı tıklatın.
 
-- [SQL Server Express 2012](https://www.microsoft.com/en-us/download/details.aspx?id=29062)
+- [SQL Server Express 2012](https://www.microsoft.com/download/details.aspx?id=29062)
 
-Seçin *x64/trk/SQLEXPR\_x64\_ENU.exe* veya *x86/trk/SQLEXPR\_x86\_ENU.exe*ve Yükleme Sihirbazı'nda varsayılan kabul edin Ayarlar. Yükleme seçenekleri hakkında daha fazla bilgi için bkz: [SQL Server 2012 Yükleme Sihirbazı'nı (Kurulum) yükleme](https://msdn.microsoft.com/en-us/library/ms143219.aspx).
+Seçin *x64/trk/SQLEXPR\_x64\_ENU.exe* veya *x86/trk/SQLEXPR\_x86\_ENU.exe*ve Yükleme Sihirbazı'nda varsayılan kabul edin Ayarlar. Yükleme seçenekleri hakkında daha fazla bilgi için bkz: [SQL Server 2012 Yükleme Sihirbazı'nı (Kurulum) yükleme](https://msdn.microsoft.com/library/ms143219.aspx).
 
 ## <a name="creating-sql-server-express-databases-for-the-test-environment"></a>SQL Server Express veritabanları için Test Ortamı Oluşturma
 
@@ -250,8 +250,7 @@ Seçin  **&lt;yeni... &gt;**  açılan dan listesinde ve "Test" Profil adı giri
 
 İçinde **hedef URL** kutusuna `http://localhost/ContosoUniversity/`.
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 **Ayarları** sekmesini sizi uyarır, **SQL Paketle/Yayımla** sekmesinde yapılandırılır ve bunları Etkinleştir'i tıklatarak geliştirmeleri yayımlama yeni veritabanı geçersiz kılma olanağı verir. Bu dağıtım için geçersiz kılmak istemediğiniz **SQL Paketle/Yayımla** sekmesinde ayarları, bu nedenle tıklatmanız **sonraki**.
 

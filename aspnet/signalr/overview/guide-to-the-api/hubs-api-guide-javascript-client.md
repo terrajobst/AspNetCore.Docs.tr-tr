@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 65e369a393a8c5d2d1bba11b5c71347df8f9c69d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 794ab576d3c6600911f331bab7c335476e45a0c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR hub'ları API Kılavuzu - JavaScript istemci
 ====================
@@ -142,7 +142,7 @@ Bir ASP.NET Web Forms uygulamada kullanan `ResolveClientUrl` , proxy'leri dosya 
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Genel kural olarak, aynı yöntemi CSS veya JavaScript dosyaları için kullandığınız "/ signalr/hub" URL'yi belirtmek için kullanın. Bir tilde kullanmadan bir URL belirtin, IIS Express kullanarak Visual Studio'da test ancak tam IIS dağıttığınızda 404 hatası ile başarısız olur bazı senaryolarda, uygulamanızın doğru şekilde çalışmayacak. Daha fazla bilgi için bkz: **kök düzeyinde kaynaklara başvurular çözme** içinde [ASP.NET Web projeleri için Visual Studio'da Web sunucuları](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) MSDN sitesinden.
+Genel kural olarak, aynı yöntemi CSS veya JavaScript dosyaları için kullandığınız "/ signalr/hub" URL'yi belirtmek için kullanın. Bir tilde kullanmadan bir URL belirtin, IIS Express kullanarak Visual Studio'da test ancak tam IIS dağıttığınızda 404 hatası ile başarısız olur bazı senaryolarda, uygulamanızın doğru şekilde çalışmayacak. Daha fazla bilgi için bkz: **kök düzeyinde kaynaklara başvurular çözme** içinde [ASP.NET Web projeleri için Visual Studio'da Web sunucuları](https://msdn.microsoft.com/library/58wxa9w5.aspx) MSDN sitesinden.
 
 Bir web projesi, Visual Studio 2013'te hata ayıklama modunda çalıştırdığınızda ve tarayıcı olarak Internet Explorer kullanıyorsanız proxy dosyasında görebilirsiniz **Çözüm Gezgini** altında **betik belgelerini**gösterildiği gibi Aşağıdaki çizimde.
 

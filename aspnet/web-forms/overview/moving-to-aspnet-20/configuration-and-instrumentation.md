@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: f8d378d3332669ae4606dad8ada06de37e7dfd20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuration-and-instrumentation"></a>Yapılandırma ve izleme
 ====================
@@ -78,13 +78,13 @@ Birçok yapılandırma sınıflar ve yöntemler birbirine benzer. Aşağıdaki t
 
 | **Yapılandırma sınıfı veya ad alanı** | **Açıklama** |
 | --- | --- |
-| [System.Configuration](https://msdn.microsoft.com/en-us/library/system.configuration.aspx) ad alanı | Tüm .NET Framework uygulamaları için ana yapılandırma sınıfları içerir. Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. Bu iki yöntem statik olmayan. |
+| [System.Configuration](https://msdn.microsoft.com/library/system.configuration.aspx) ad alanı | Tüm .NET Framework uygulamaları için ana yapılandırma sınıfları içerir. Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. Bu iki yöntem statik olmayan. |
 | System.Configuration.Configuration sınıfı | Yapılandırma verilerini bir bilgisayara, uygulama, Web dizini veya diğer kaynak kümesini temsil eder. Bu sınıf yapılandırma ayarları güncelleştirilirken ve bölümler ve bölüm grupları yapılan başvuruları elde etmek için kullanışlı yöntemler, GetSection ve GetSectionGroup, gibi içerir. Bu sınıf, dönüş türü olarak WebConfigurationManager ve ConfigurationManager sınıflarının yöntemleri gibi tasarım zamanı yapılandırma verilerini almak yöntemleri için kullanılır. |
-| System.Web.Configuration ad alanı | ASP.NET yapılandırma bölümlerinin tanımlanan bölümü işleyici sınıfları içerir [ASP.NET yapılandırma ayarlarını](https://msdn.microsoft.com/en-us/library/b5ysx397.aspx). Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. |
-| System.Web.Configuration.WebConfigurationManager sınıfı | Çalışma zamanı ve tasarım zamanı yapılandırma ayarlarına yapılan başvuruları alma için kullanışlı yöntemler sağlar. Bu yöntemler System.Configuration.Configuration sınıfı bir dönüş türü olarak kullanın. Bu sınıfın statik GetSection yöntemini veya System.Configuration.ConfigurationManager sınıfının statik olmayan GetSection yöntemi birbirinin yerine kullanabilirsiniz. Web uygulama yapılandırmaları için System.Web.Configuration.WebConfigurationManager sınıfı yerine System.Configuration.ConfigurationManager sınıfı önerilir. |
-| [System.Configuration.Provider](https://msdn.microsoft.com/en-us/library/system.configuration.provider.aspx) ad alanı | Özelleştirme ve yapılandırma sağlayıcısı genişletmek için bir yol sağlar. Yapılandırma sistemi tüm sağlayıcı sınıflar için temel sınıf budur. |
-| [System.Web.Management](https://msdn.microsoft.com/en-us/library/system.web.management.aspx) ad alanı | Sınıflar ve arabirimler yönetmek ve Web uygulamalarının durumunu izlemek için içerir. Kesinlikle olarak bakıldığında, bu ad alanı API yapılandırmasının bir parçası olarak kabul edilmez. Örneğin, izleme ve olay tetikleme gerçekleştirilir bu ad alanındaki sınıflar tarafından. |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/en-us/library/system.management.instrumentation.aspx) ad alanı | Gerekli yönetim bilgilerini ve olası tüketicileri olaylara Windows Yönetim Araçları (WMI) aracılığıyla kullanıma sunmak için uygulama araçları için sınıflar sağlar. ASP.NET sistem durumu izleme olayları teslim etmek için WMI kullanır. Kesinlikle olarak bakıldığında, bu ad alanı API yapılandırmasının bir parçası olarak kabul edilmez. |
+| System.Web.Configuration ad alanı | ASP.NET yapılandırma bölümlerinin tanımlanan bölümü işleyici sınıfları içerir [ASP.NET yapılandırma ayarlarını](https://msdn.microsoft.com/library/b5ysx397.aspx). Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. |
+| System.Web.Configuration.WebConfigurationManager class | Çalışma zamanı ve tasarım zamanı yapılandırma ayarlarına yapılan başvuruları alma için kullanışlı yöntemler sağlar. Bu yöntemler System.Configuration.Configuration sınıfı bir dönüş türü olarak kullanın. Bu sınıfın statik GetSection yöntemini veya System.Configuration.ConfigurationManager sınıfının statik olmayan GetSection yöntemi birbirinin yerine kullanabilirsiniz. Web uygulama yapılandırmaları için System.Web.Configuration.WebConfigurationManager sınıfı yerine System.Configuration.ConfigurationManager sınıfı önerilir. |
+| [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) ad alanı | Özelleştirme ve yapılandırma sağlayıcısı genişletmek için bir yol sağlar. Yapılandırma sistemi tüm sağlayıcı sınıflar için temel sınıf budur. |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) ad alanı | Sınıflar ve arabirimler yönetmek ve Web uygulamalarının durumunu izlemek için içerir. Kesinlikle olarak bakıldığında, bu ad alanı API yapılandırmasının bir parçası olarak kabul edilmez. Örneğin, izleme ve olay tetikleme gerçekleştirilir bu ad alanındaki sınıflar tarafından. |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) ad alanı | Gerekli yönetim bilgilerini ve olası tüketicileri olaylara Windows Yönetim Araçları (WMI) aracılığıyla kullanıma sunmak için uygulama araçları için sınıflar sağlar. ASP.NET sistem durumu izleme olayları teslim etmek için WMI kullanır. Kesinlikle olarak bakıldığında, bu ad alanı API yapılandırmasının bir parçası olarak kabul edilmez. |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>ASP.NET yapılandırma dosyaları okuma
 
@@ -246,10 +246,10 @@ Aşağıdaki komut satırı araçları kullanılabilir:
 
 | **Aracı** | **Kullanın** |
 | --- | --- |
-| **ASPNET\_regiis.exe** | ASP.NET IIS Kayıt sağlar. ASP.NET 2.0 ile bu sevk, (Framework klasöründe) 32 bit sistemler için diğeri (klasöründe Framework64.) 64 bit sistemler için bu araçları iki sürümü bulunmaktadır 32-bit işletim sisteminde 64-bit sürümü yüklü değil. |
-| **ASPNET\_regsql.exe** | ASP.NET SQL Server kayıt aracı, ASP.NET, SQL Server sağlayıcıları tarafından kullanılmak üzere bir Microsoft SQL Server veritabanı oluşturmak veya eklemek veya varolan bir veritabanından seçenekleri kaldırmak için kullanılır. Aspnet\_regsql.exe dosya [drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber klasöründe Web sunucunuzda bulunur. |
-| **ASPNET\_regbrowsers.exe** | ASP.NET tarayıcı kayıt aracını ayrıştırır ve tüm sistem genelinde tarayıcı tanımları bir bütünleştirilmiş derler ve derleme genel derleme önbelleğine yükler. Aracı tarayıcı tanım dosyalarını kullanır (. Tarayıcı dosyaları) .NET Framework tarayıcılar alt gelen. Aracı %SystemRoot%\Microsoft.NET\Framework\version\ dizininde bulunabilir. |
-| **ASPNET\_compiler.exe** | ASP.NET derleme aracı yerinde veya dağıtım bir üretim sunucusu gibi bir hedef konum için bir ASP.NET Web uygulaması derlemek sağlar. Son kullanıcılar uygulamayı derlenirken bir gecikme uygulamaya yapılan ilk istekte karşılaşmazsınız çünkü yerinde derleme uygulama performansı yardımcı olur. |
+| **aspnet\_regiis.exe** | ASP.NET IIS Kayıt sağlar. ASP.NET 2.0 ile bu sevk, (Framework klasöründe) 32 bit sistemler için diğeri (klasöründe Framework64.) 64 bit sistemler için bu araçları iki sürümü bulunmaktadır 32-bit işletim sisteminde 64-bit sürümü yüklü değil. |
+| **aspnet\_regsql.exe** | ASP.NET SQL Server kayıt aracı, ASP.NET, SQL Server sağlayıcıları tarafından kullanılmak üzere bir Microsoft SQL Server veritabanı oluşturmak veya eklemek veya varolan bir veritabanından seçenekleri kaldırmak için kullanılır. Aspnet\_regsql.exe dosya [drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber klasöründe Web sunucunuzda bulunur. |
+| **aspnet\_regbrowsers.exe** | ASP.NET tarayıcı kayıt aracını ayrıştırır ve tüm sistem genelinde tarayıcı tanımları bir bütünleştirilmiş derler ve derleme genel derleme önbelleğine yükler. Aracı tarayıcı tanım dosyalarını kullanır (. Tarayıcı dosyaları) .NET Framework tarayıcılar alt gelen. Aracı %SystemRoot%\Microsoft.NET\Framework\version\ dizininde bulunabilir. |
+| **aspnet\_compiler.exe** | ASP.NET derleme aracı yerinde veya dağıtım bir üretim sunucusu gibi bir hedef konum için bir ASP.NET Web uygulaması derlemek sağlar. Son kullanıcılar uygulamayı derlenirken bir gecikme uygulamaya yapılan ilk istekte karşılaşmazsınız çünkü yerinde derleme uygulama performansı yardımcı olur. |
 
 Çünkü aspnet\_regiis.exe aracı ASP.NET 2.0 yeni değil, bunu burada aşağıdakiler ele alınacaktır değil.
 
@@ -259,11 +259,11 @@ Aşağıdaki komut satırı araçları kullanılabilir:
 
 Bir veri kaynağından veri alma ve depolamada yönetmek için bir sağlayıcı birkaç ASP.NET uygulama hizmetleri kullanır. Her sağlayıcı için veri kaynağı özeldir. ASP.NET aşağıdaki ASP.NET özellikleri için bir SQL Server sağlayıcısı içerir:
 
-- Üyelik ( [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) sınıfı).
-- Rol yönetimi ( [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) sınıfı).
-- Profil ( [SqlProfileProvider](https://msdn.microsoft.com/en-us/library/system.web.profile.sqlprofileprovider.aspx) sınıfı).
-- Web Bölümleri kişiselleştirme ( [SqlPersonalizationProvider](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) sınıfı).
-- Web olayları ( [SqlWebEventProvider](https://msdn.microsoft.com/en-us/library/system.web.management.sqlwebeventprovider.aspx) sınıfı).
+- Üyelik ( [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) sınıfı).
+- Rol yönetimi ( [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) sınıfı).
+- Profil ( [SqlProfileProvider](https://msdn.microsoft.com/library/system.web.profile.sqlprofileprovider.aspx) sınıfı).
+- Web Bölümleri kişiselleştirme ( [SqlPersonalizationProvider](https://msdn.microsoft.com/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) sınıfı).
+- Web olayları ( [SqlWebEventProvider](https://msdn.microsoft.com/library/system.web.management.sqlwebeventprovider.aspx) sınıfı).
 
 ASP.NET yüklediğinizde, sunucunuz için Machine.config dosyasının bir sağlayıcısında kullanan ASP.NET özelliklerin her biri için SQL Server sağlayıcıları belirtmek yapılandırma öğeleri içerir. Bu sağlayıcılar için yerel kullanıcı bir SQL Server Express 2005 örneğine bağlanmak için varsayılan olarak yapılandırılır. Sağlayıcıları tarafından kullanılan varsayılan bağlantı dizesini değiştirirseniz, makine yapılandırmasında yapılandırılan ASP.NET özelliklerinden herhangi birini kullanmadan önce daha sonra SQL Server veritabanı ve veritabanı öğelerini Aspnetkullanarak,seçiliözellikiçinyüklemenizgerekir\_regsql.exe. SQL kayıt aracıyla belirttiğiniz veritabanı zaten mevcut değilse (aspnetdb olacaktır varsayılan veritabanı bir komut satırında belirtilmezse), sonra da geçerli kullanıcı SQL şeması e oluşturmak için aynı zamanda sunucu veritabanı oluşturma hakkına sahip olmalıdır bir veritabanı içinde lements.
 
@@ -301,7 +301,7 @@ Aspnet çalıştırırken aşağıdaki seçenekler kullanılabilir\_regbrowser.e
 
 ASP.NET derleme aracı iki genel şekillerde kullanılabilir: yerinde derleme ve dağıtım için bir hedef çıktı dizini belirtilen Burada, derleme için.
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Bir uygulama yerinde derleme](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Bir uygulama yerinde derleme](https://msdn.microsoft.com/library/ms229863.aspx)
 
 ASP.NET derleme aracı yerinde bir uygulaması derleyebilir, diğer bir deyişle, bu nedenle normal derleme neden olan uygulama için birden çok istek yapma davranışını taklit eder. Önceden derlenmiş sitenin kullanıcıları ilk istek sayfasında derleme tarafından neden bir gecikme karşılaşmazsınız.
 
@@ -317,7 +317,7 @@ Yeni kaynak dosyaları için ekledikten sonra uygulamanın yerinde yeniden derle
 > İç içe geçmiş bir uygulama içeren bir uygulamanın derlenmesini iç içe geçmiş uygulama derlenmiyor. İç içe geçmiş uygulama ayrı olarak derlenmiş olmalıdır.
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Bir uygulama dağıtımı için derleme](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Bir uygulama dağıtımı için derleme](https://msdn.microsoft.com/library/ms229863.aspx)
 
 TargetDir parametresini belirterek deployment (derleme için bir hedef konum) için bir uygulama derleyin. TargetDir Web uygulaması için son konumu olabilir veya derlenmiş uygulama daha fazla dağıtılabilir. Kullanarak **-u** seçeneği belirli derlenmiş uygulama dosyalarında onu derlemeden değişiklik yapabilirsiniz, şekilde uygulama derler. ASPNET\_compiler.exe statik ve dinamik dosya türleri arasında bir ayrım haline getirir ve bunları elde edilen uygulama oluştururken farklı şekilde işler.
 
@@ -349,18 +349,18 @@ Aşağıdaki tabloda nasıl ne zaman ASP.NET derleme aracı tanıtıcıları far
 | .cs, .vb, .jsl, .cpp (daha önce listelenen dosya türleri için arka plan kod dosyaları dahil değil) | .Ascx, .ashx veya .aspx dosyaları oluşturulan derlemeleri tarafından başvurulan kaynak kodu derlemelerine derlenmiş ve Bin dizinindeki yerleştirilir. Kaynak dosyalar kopyalanır. |
 | Özel dosya türleri | Bu dosyalar gibi dinamik dosyaları derlenir. Esas alan dosya türüne bağlı olarak, derleyici çıktı dizinlerde eşleme dosyaları yerleştirebilirsiniz. |
 | Uygulama dosyalarında\_kod alt | Kaynak kodu dosyaları bu alt derlemelerine derlenir ve Bin dizinindeki yerleştirilir. |
-| Uygulama dosyalarında\_GlobalResources alt | Bu dosyalar derlemelerine derlenmiş ve Bin dizinindeki yerleştirilir. Hiçbir uygulama\_GlobalResources alt ana çıktı dizini altında oluşturulur. Yapılandırma dosyası appliesTo belirtiyorsa = "Tümü", .resx ve .resources dosyaları çıkış dizinlere kopyalanır. Tarafından başvurulan varsa bunlar kopyalanmaz bir [BuildProvider](https://msdn.microsoft.com/en-us/library/system.web.configuration.buildprovider.aspx). |
+| Uygulama dosyalarında\_GlobalResources alt | Bu dosyalar derlemelerine derlenmiş ve Bin dizinindeki yerleştirilir. Hiçbir uygulama\_GlobalResources alt ana çıktı dizini altında oluşturulur. Yapılandırma dosyası appliesTo belirtiyorsa = "Tümü", .resx ve .resources dosyaları çıkış dizinlere kopyalanır. Tarafından başvurulan varsa bunlar kopyalanmaz bir [BuildProvider](https://msdn.microsoft.com/library/system.web.configuration.buildprovider.aspx). |
 | Uygulama .resx ve .resource dosyalarında\_LocalResources alt | Bu dosyalar benzersiz adlara sahip derlemeler içine derlenmiş ve Bin dizinindeki yerleştirilir. Hiçbir .resx veya .resource dosyalar çıkış dizinlere kopyalanır. |
 | Uygulama .skin dosyalarında\_Temalar alt | Temalar derlemelerine derlenmiş ve Bin dizinindeki yerleştirilir. Saplama dosyaları .skin dosyaları oluşturulur ve karşılık gelen çıktı dizininde yerleştirilir. Statik dosyalar (örneğin, .css) çıkış dizinlere kopyalanır. |
 | Derlemeleri Bin dizinindeki zaten mevcut .browser Web.config statik dosya türleri | Bu dosyalar çıkış dizinine olarak kopyalanır. |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Sabit derleme adları](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Sabit derleme adları](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 MSI Windows Yükleyicisi'ni kullanarak bir Web uygulamasını dağıtma gibi bazı senaryolar tutarlı dosya adları ve içeriği yanı sıra, derlemeler veya güncelleştirmeleri için yapılandırma ayarlarını tanımlamak için tutarlı dizin yapıları kullanılmasını gerektirir. Bu durumda, kullandığınız **- fixednames** ASP.NET derleme aracı bütünleştirilmiş derleme belirtmek için seçeneği nerede kullanmak yerine her kaynak dosya için birden çok sayfa derlemelerine derlenir. Ölçeklenebilirlik ile endişeniz varsa bu seçeneği dikkatli kullanmanız gerekir bu çok sayıda derlemeler için neden olabilir.
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Tanımlayıcı ad derleme](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Tanımlayıcı ad derleme](https://msdn.microsoft.com/library/ms229863.aspx##)
 
-**- Aptca**, **- delaysign**, **- keycontainer** ve **- keyfile** seçenekleri Aspnet kullanabilmesi için sağlanan\_ kesinlikle oluşturmak için compiler.exe adlı derlemeler kullanmadan [tanımlayıcı ad Aracı (Sn.exe)](https://msdn.microsoft.com/en-us/library/k5b5tt23.aspx) ayrı olarak. Bu seçenekler, sırasıyla karşılık gelen, **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**ve  **AssemblyKeyFileAttribute**.
+**- Aptca**, **- delaysign**, **- keycontainer** ve **- keyfile** seçenekleri Aspnet kullanabilmesi için sağlanan\_ kesinlikle oluşturmak için compiler.exe adlı derlemeler kullanmadan [tanımlayıcı ad Aracı (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) ayrı olarak. Bu seçenekler, sırasıyla karşılık gelen, **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**ve  **AssemblyKeyFileAttribute**.
 
 Bu öznitelikler tartışması bu kapsamı dışında ' dir.
 
@@ -429,7 +429,7 @@ Bu laboratuvarda, uygulama kapatmalar, başlatmalar ve Olay Görüntüleyicisi'n
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample21.cs)]
 
-1. Default.aspx göz atın.
+1. Browse default.aspx.
 2. Aşağı açılır kümesine **False**.
 3. Olay Görüntüleyicisi'nde Uygulama günlüğünü temizleyin.
 4. Uygulama için hata ayıklama özniteliğini değiştirmek için düğmesini tıklatın.
@@ -447,4 +447,4 @@ Bu laboratuvarda, uygulama kapatmalar, başlatmalar ve Olay Görüntüleyicisi'n
 
 ## <a name="more-information"></a>Daha fazla bilgi:
 
-ASP.NET 2.0'ın sağlayıcı modeli kendi sağlayıcıları değil yalnızca uygulama izleme, ancak birçok diğer kullanımlar için de üyelik, vb. profilleri oluşturmanıza olanak sağlar. Bir metin dosyasına uygulama olayları günlüğe kaydetmek için özel bir sağlayıcı yazma ile ilgili ayrıntılı bilgi için ziyaret [bu bağlantıyı](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASPNETProvMod_Prt6.asp).
+ASP.NET 2.0'ın sağlayıcı modeli kendi sağlayıcıları değil yalnızca uygulama izleme, ancak birçok diğer kullanımlar için de üyelik, vb. profilleri oluşturmanıza olanak sağlar. Bir metin dosyasına uygulama olayları günlüğe kaydetmek için özel bir sağlayıcı yazma ile ilgili ayrıntılı bilgi için ziyaret [bu bağlantıyı](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp).

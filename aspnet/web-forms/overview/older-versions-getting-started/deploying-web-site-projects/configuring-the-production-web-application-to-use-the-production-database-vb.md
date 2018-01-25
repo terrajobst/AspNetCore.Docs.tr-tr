@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b193fa3256e5886481c7b36d88aa09c1fa7017c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Üretim Web uygulaması (VB) üretim veritabanını kullanacak şekilde yapılandırma
 ====================
@@ -37,7 +37,7 @@ Yapılandırma bilgileri geliştirme ve üretim ortamlarını arasında farklıl
 
 ## <a name="examining-the-connection-string-information"></a>Bağlantı dizesi bilgilerini inceleniyor
 
-Kitap incelemeleri web uygulaması tarafından kullanılan bağlantı dizesi uygulama s yapılandırma dosyasında depolanan `Web.config`. `Web.config`bağlantı dizeleri, aptly adlı depolamak için özel bir bölüm içerir [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). `Web.config` Adlı bu bölümünde tanımlanmış bir bağlantı dizesi Kitap incelemeleri Web sitesi için dosya `ReviewsConnectionString`:
+Kitap incelemeleri web uygulaması tarafından kullanılan bağlantı dizesi uygulama s yapılandırma dosyasında depolanan `Web.config`. `Web.config`bağlantı dizeleri, aptly adlı depolamak için özel bir bölüm içerir [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Adlı bu bölümünde tanımlanmış bir bağlantı dizesi Kitap incelemeleri Web sitesi için dosya `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ Bağlantı dizesi - veri kaynağı =. \SQLEXPRESS; AttachDbFilename = | DataDire
 - `Data Source`-(varsa) veritabanı sunucusu ve veritabanı sunucusu örneği adı konumunu belirtir. Değer `.\SQLEXPRESS`, örnek bir veritabanı sunucusu ve bir örnek adı olduğu. Veritabanı sunucusunun uygulama ile aynı bilgisayarda olduğundan belirler; örnek adı `SQLEXPRESS`.
 - `AttachDbFilename`-veritabanı dosyasının konumunu belirtir. Yer tutucu değerini içeren `|DataDirectory|`, uygulama s tam yoluna çözülmüş olduğu `App_Data` çalışma zamanında klasör.
 - `Integrated Security`-Belirtilen bir kullanıcı adı/parola (false) veritabanı veya geçerli Windows hesabı kimlik bilgileri (true) bağlanırken kullanılıp kullanılmayacağını gösteren bir Boole değeri.
-- `User Instance`-yerel bilgisayarda yönetici olmayan kullanıcıların ekleyin ve bir SQL Server Express Edition veritabanına bağlanan izin verilip verilmeyeceğini belirten SQL Server Express sürümleri için belirli bir yapılandırma seçeneği. Bkz: [SQL Server Express kullanıcı örnekleri](https://msdn.microsoft.com/en-us/library/ms254504.aspx) Bu ayar hakkında daha fazla bilgi için.
+- `User Instance`-yerel bilgisayarda yönetici olmayan kullanıcıların ekleyin ve bir SQL Server Express Edition veritabanına bağlanan izin verilip verilmeyeceğini belirten SQL Server Express sürümleri için belirli bir yapılandırma seçeneği. Bkz: [SQL Server Express kullanıcı örnekleri](https://msdn.microsoft.com/library/ms254504.aspx) Bu ayar hakkında daha fazla bilgi için.
   
 
 İzin verilen bağlantı dizesi seçenekler bağlanmakta veritabanı bağlıdır ve [ADO.NET](http://ADO.NET) kullanılan veritabanı sağlayıcısı. Bir Microsoft SQL veritabanı farklı bir Oracle veritabanına bağlanmak için kullanılan sunucusuna bağlanmak için örneğin, bağlantı dizesi. Benzer şekilde, SqlClient sağlayıcısı kullanarak Microsoft SQL Server veritabanına bağlanma OLE DB Sağlayıcısı'nı kullanırken daha farklı bir bağlantı dizesi kullanır.
@@ -71,7 +71,7 @@ Ardından, çeşitli veritabanı bağlantı bilgilerini belirtin (bkz: Şekil 2)
 
 Üretim ortamında veritabanı sunucu Gezgini'nde listelenmiş olmalıdır. Server Explorer'dan veritabanını seçin ve Özellikler penceresine gidin. Veritabanı s bağlantı dizesini içeren bağlantı dizesini adlı bir özellik var. bulur. Üretim ve SqlClient sağlayıcısı bir Microsoft SQL Server veritabanı kullanılarak varsayarak, bağlantı dizenizi aşağıdakine benzer görünmelidir:
 
-**Veri kaynağı =*serverName*; Initial Catalog =*databaseName*; Kalıcı güvenlik bilgisi = True; Kullanıcı Kimliği =*kullanıcıadı*; Parola =*parola***
+**Veri kaynağı =*serverName*; Initial Catalog =*databaseName*; Kalıcı güvenlik bilgisi = True; Kullanıcı Kimliği =*kullanıcıadı*; Parola = * parola***
 
 Burada *serverName*, *databaseName*, *kullanıcıadı*, ve *parola* veritabanı sunucusu adı, veritabanı için değerlerle olan adını, kullanıcı adı ve parola, web ana bilgisayar şirketiniz tarafından sağlanan.
 
@@ -147,10 +147,10 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Bağlantı dizeleri ve yapılandırma dosyaları](https://msdn.microsoft.com/en-us/library/ms254494.aspx)
+- [Bağlantı Dizeleri ve Yapılandırma Dosyaları](https://msdn.microsoft.com/library/ms254494.aspx)
 - [Veritabanı yapılandırma bilgilerini @ ConnectionStrings.com dizeleri](http://www.connectionstrings.com/)
 - [Web.config dosyasının dışında taşıma ayarları](http://www.asp101.com/tips/index.asp?id=154)
-- [İçin teknik belgeler &lt;connectionStrings&gt; öğesi](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [İçin teknik belgeler &lt;connectionStrings&gt; öğesi](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](deploying-a-database-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 yönlendirme özniteliği olan bir REST API'si oluşturma
 ====================
@@ -27,7 +27,7 @@ Web API 2 destekleyen yeni bir tür yönlendirme biri olarak adlandırılan *öz
 | Eylem | Örnek URI |
 | --- | --- |
 | Tüm books listesini alın. | / api/books |
-| Kimliğe göre defteri alma | /api/Books/1 |
+| Kimliğe göre defteri alma | /api/books/1 |
 | Kitap ayrıntılarını alın. | /api/Books/1/details |
 | Türe göre books listesini alın. | /api/Books/fantasy |
 | Yayın tarihe göre books listesini alın. | /api/Books/Date/2013-02-16 /api/books/date/2013/02/16 (alternatif form) |
@@ -39,7 +39,7 @@ Entity Framework veri katmanı için kullanacağız. Kayıt defteri aşağıdaki
 
 - Kimlik
 - Başlık
-- Tarz
+- Genre
 - Yayın tarihi
 - Fiyat
 - Açıklama
@@ -141,7 +141,7 @@ Adlı başka bir sınıf ekleyin `BookDetailDto`.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-Ardından, güncelleştirme `BooksController` dönmek için sınıf `BookDto` örnekleri. Kullanacağız [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx) yöntemi projesine `Book` için örnekleri `BookDto` örnekleri. Denetleyici sınıfı için güncelleştirilmiş kod aşağıdaki gibidir.
+Ardından, güncelleştirme `BooksController` dönmek için sınıf `BookDto` örnekleri. Kullanacağız [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx) yöntemi projesine `Book` için örnekleri `BookDto` örnekleri. Denetleyici sınıfı için güncelleştirilmiş kod aşağıdaki gibidir.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 
@@ -168,7 +168,7 @@ Her denetleyici yöntemi için rota şablonu için önekidir artı dizeyi belirt
 | Yöntem | Rota şablonu | Örnek URI |
 | --- | --- | --- |
 | `GetBooks` | "API/books" | `http://localhost/api/books` |
-| `GetBook` | "API/books / {kimliği: int}" | `http://localhost/api/books/5` |
+| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Defteri ayrıntıları alma
 

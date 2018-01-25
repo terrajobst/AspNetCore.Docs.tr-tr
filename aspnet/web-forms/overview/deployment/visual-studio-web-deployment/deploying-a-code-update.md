@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: bir kod güncelleştirme dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -79,7 +79,7 @@ Basit sağlasa da, çalışan tek tıklamayla yayımlama şimdi yeniden test ort
 
 Normalde ayrıca regresyon testi yapmak (diğer bir deyişle, yeni değişiklik herhangi bir varolan işlevsellik yarıda kaydetmedi emin olmak için sitenin geri kalanını test). Ancak bu Öğreticide bu adımı atlayın ve hazırlama ve üretim için güncelleştirmeyi dağıtmak için devam edin.
 
-Yeniden dağıtırken, Web dağıtımı otomatik olarak hangi dosyalar değiştirilmiş belirler ve değişen dosyaları sunucuya yalnızca kopyalar. Varsayılan olarak, Web dağıtımı son değiştirilen tarihleri dosyalarda hangilerinin değişmiş belirlemek için kullanır. Dosya içeriğini değiştirmeyin olduğunda bazı kaynak denetim sistemleri tarihleri bile dosyasını değiştirin. Bu durumda, hangi dosyalar değiştirilmiş belirlemek için dosya sağlama toplamlarını kullanmak için Web dağıtımı yapılandırmak isteyebilirsiniz. Daha fazla bilgi için bkz: [neden dosyalarımın tümünü imzalanmasını bunları değişmedi rağmen?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) ASP.NET dağıtım SSS.
+Yeniden dağıtırken, Web dağıtımı otomatik olarak hangi dosyalar değiştirilmiş belirler ve değişen dosyaları sunucuya yalnızca kopyalar. Varsayılan olarak, Web dağıtımı son değiştirilen tarihleri dosyalarda hangilerinin değişmiş belirlemek için kullanır. Dosya içeriğini değiştirmeyin olduğunda bazı kaynak denetim sistemleri tarihleri bile dosyasını değiştirin. Bu durumda, hangi dosyalar değiştirilmiş belirlemek için dosya sağlama toplamlarını kullanmak için Web dağıtımı yapılandırmak isteyebilirsiniz. Daha fazla bilgi için bkz: [neden dosyalarımın tümünü imzalanmasını bunları değişmedi rağmen?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) ASP.NET dağıtım SSS.
 
 ## <a name="take-the-application-offline-during-deployment"></a>Uygulamayı dağıtımı sırasında çevrimdışı yap
 
@@ -188,7 +188,7 @@ Mavi arka plan gibi yoktur ve özgün rengini geri çevirmek istediğinizden var
 
     Yerel dosya sürümü arasındaki farkları hedef ortamda göstermek için bir pencere açılır.
 
-    ![Diff-içerik/Site.css](deploying-a-code-update/_static/image13.png)
+    ![Diff-Content/Site.css](deploying-a-code-update/_static/image13.png)
 4. İçinde **Çözüm Gezgini**, sağ **Site.css** yeniden tıklatıp **yayımlama Site.css**.
 
     **Web yayımlama etkinliğini** penceresi gösterir dosya yayımlandı.

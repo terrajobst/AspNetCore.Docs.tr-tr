@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82dc6900d3603a97340633fe8dfb2d3e63b2fd4b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>İçerik sayfaları (C#) adlandırma denetim kimliği
 ====================
@@ -34,7 +34,7 @@ Tüm ASP.NET sunucu denetimleri içeren bir `ID` olarak denetimi program aracıl
 Bu tür senaryoların işlemek için ASP.NET kapsayıcı adlandırma olarak gösterilen bazı denetimleri sağlar. Adlandırma kapsayıcısı yeni bir hizmet `ID` ad alanı. Adlandırma kapsayıcılarında görünme tüm sunucu denetimlerinin kendi işlenmiş olan `id` değeri önekiyle `ID` adlandırma kapsayıcı denetiminin. Örneğin, `GridView` ve `GridViewRow` sınıflardır hem adlandırma kapsayıcıları. Sonuç olarak, GridView TemplateField ile tanımlanan bir etiket denetimi `ID` ProductName işlenmiş verilen `id` değerini `GridViewID_GridViewRowID_ProductName`. Çünkü *GridViewRowID* elde edilen her GridView satır için benzersizdir `id` değerleri benzersizdir.
 
 > [!NOTE]
-> [ `INamingContainer` Arabirimi](https://msdn.microsoft.com/en-us/library/system.web.ui.inamingcontainer.aspx) belirli ASP.NET sunucu denetimi adlandırma kapsayıcı olarak çalışması belirtmek için kullanılır. `INamingContainer` Arabirimi sunucu denetimi uygulamalıdır herhangi bir yöntem yazım değil; bunun yerine, bir işaretçi olarak kullanılır. Oluşturulan biçimlendirmenin oluşturmak, bir denetim bu arabirim uyguluyorsa sonra ASP.NET altyapısı otomatik olarak önekleri kendi `ID` alt öğelerinden değerine çizilir `id` öznitelik değerlerini. Bu işlem, adım 2'deki daha ayrıntılı ele alınmıştır.
+> [ `INamingContainer` Arabirimi](https://msdn.microsoft.com/library/system.web.ui.inamingcontainer.aspx) belirli ASP.NET sunucu denetimi adlandırma kapsayıcı olarak çalışması belirtmek için kullanılır. `INamingContainer` Arabirimi sunucu denetimi uygulamalıdır herhangi bir yöntem yazım değil; bunun yerine, bir işaretçi olarak kullanılır. Oluşturulan biçimlendirmenin oluşturmak, bir denetim bu arabirim uyguluyorsa sonra ASP.NET altyapısı otomatik olarak önekleri kendi `ID` alt öğelerinden değerine çizilir `id` öznitelik değerlerini. Bu işlem, adım 2'deki daha ayrıntılı ele alınmıştır.
 
 
 Adlandırma kapsayıcılar yalnızca değiştirme işlenen `id` öznitelik değeri, ancak nasıl denetimi programlı olarak ASP.NET sayfa arka plan kodu sınıfından başvurulabilir de etkiler. `FindControl("controlID")` Yöntemi program aracılığıyla bir Web denetimi başvurmak için yaygın olarak kullanılır. Ancak, `FindControl` kapsayıcı adlandırma ile sızmasını değil. Sonuç olarak, doğrudan kullanamazsınız `Page.FindControl` GridView veya diğer adlandırma kapsayıcısı içinde denetimleri başvurmak için yöntem.
@@ -121,7 +121,7 @@ Unutmayın `id` özniteliğini içeren her iki ana sayfa `ID` değeri (`ctl00`) 
 
 Her ASP.NET sunucu denetimi içeren bir `FindControl("controlID")` adlı bir denetim için denetimin alt arayan yöntemi *ControlId*. Böyle bir denetim bulunursa, döndürülür; eşleşen hiçbir denetim bulunursa, `FindControl` döndürür `null`.
 
-`FindControl`Burada bir denetim erişmesi gerekiyor ancak doğrudan referansı bulunmuyor senaryolarda kullanışlıdır. GridView'ın alanları içindeki denetimler Web denetimleri bu gibi bir durumda GridView gibi verilerle çalışırken, bir kez bildirim temelli sözdiziminde tanımlanır, ancak çalışma zamanında her GridView satır için denetim örneği oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimler mevcut, ancak arka plan kodu sınıfından kullanılabilir doğrudan bir başvuru yok. Sonuç olarak kullanmak ihtiyacımız `FindControl` GridView'ın alanları içinde belirli bir denetim programlı olarak çalışmak için. (Kullanma hakkında daha fazla bilgi için `FindControl` veri Web denetiminin şablonları içindeki denetimler erişmek için bkz: [özel biçimlendirme göre bağlı verileri](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Dinamik olarak Web denetimleri için Web formu eklerken aynı bu senaryo ortaya, bir konu ele [dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/en-us/library/aa479330.aspx).
+`FindControl`Burada bir denetim erişmesi gerekiyor ancak doğrudan referansı bulunmuyor senaryolarda kullanışlıdır. GridView'ın alanları içindeki denetimler Web denetimleri bu gibi bir durumda GridView gibi verilerle çalışırken, bir kez bildirim temelli sözdiziminde tanımlanır, ancak çalışma zamanında her GridView satır için denetim örneği oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimler mevcut, ancak arka plan kodu sınıfından kullanılabilir doğrudan bir başvuru yok. Sonuç olarak kullanmak ihtiyacımız `FindControl` GridView'ın alanları içinde belirli bir denetim programlı olarak çalışmak için. (Kullanma hakkında daha fazla bilgi için `FindControl` veri Web denetiminin şablonları içindeki denetimler erişmek için bkz: [özel biçimlendirme göre bağlı verileri](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Dinamik olarak Web denetimleri için Web formu eklerken aynı bu senaryo ortaya, bir konu ele [dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Kullanarak göstermeye `FindControl` bir içerik sayfasını içinde denetimleri aranacak yöntemi oluşturmak için bir olay işleyicisi `SubmitButton`'s `Click` olay. Olay işleyicisi programlı olarak başvuran aşağıdaki kodu ekleyin `Age` TextBox ve `Results` kullanarak etiket `FindControl` yöntemi ve bir ileti görüntüler `Results` kullanıcının girişinize göre.
 
@@ -228,7 +228,7 @@ ASP.NET, sayfalar geri çağırma bir adlandırma kapsayıcının, işlenen HTML
 
 Bu yaklaşım, ana sayfalar (veya diğer adlandırma kapsayıcı denetimleri) kullanırken sorundur işlenen HTML `id` Web denetimi ile eşanlamlı değil `ID` özelliği. Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve gerçek belirlemek için kaynak görüntülemek için ilk inclination olabilir `id` özniteliği. İşlenen öğrendikten sonra `id` değeri yapıştırabilirsiniz, çağrı biçimine `getElementById` istemci tarafı komut dosyası çalışmak için ihtiyacınız HTML öğesi erişmek için. Bu yaklaşım sayfanın bazı değişiklikler hiyerarşi kontrol sağladığından değerinden idealdir veya değişikliklerini `ID` adlandırma denetimlerin özelliklerini, elde edilen olmadığını alter `id` özniteliği, böylece JavaScript kodunuzu kesiliyor.
 
-İyi haber olan `id` işlenen öznitelik değeri sunucu tarafı kod Web denetimin üzerinden erişilebilir durumda [ `ClientID` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.control.clientid.aspx). Belirlemek için bu özelliği kullanması gereken `id` öznitelik istemci tarafı komut dosyasında kullanılan değeri. Örneğin, sayfaya JavaScript işlevini eklemek için çağrıldığında, değerini görüntüler `Age` metin kutusuna bir kalıcı ileti kutusu eklemek için aşağıdaki kodu `Page_Load` olay işleyicisi:
+İyi haber olan `id` işlenen öznitelik değeri sunucu tarafı kod Web denetimin üzerinden erişilebilir durumda [ `ClientID` özelliği](https://msdn.microsoft.com/library/system.web.ui.control.clientid.aspx). Belirlemek için bu özelliği kullanması gereken `id` öznitelik istemci tarafı komut dosyasında kullanılan değeri. Örneğin, sayfaya JavaScript işlevini eklemek için çağrıldığında, değerini görüntüler `Age` metin kutusuna bir kalıcı ileti kutusu eklemek için aşağıdaki kodu `Page_Load` olay işleyicisi:
 
 
 [!code-javascript[Main](control-id-naming-in-content-pages-cs/samples/sample15.js)]
@@ -241,7 +241,7 @@ Yukarıdaki kod değerini yerleştirir `Age` TextBox'ın ClientID özelliğinin 
 Bildirim nasıl doğru `id` öznitelik değeri `ctl00_MainContent_Age`, çağrısı içinde görünür `getElementById`. Bu değer çalışma zamanında hesaplandığından, daha sonra sayfa denetim hiyerarşisi yapılan değişiklikler bağımsız olarak çalışır.
 
 > [!NOTE]
-> Bu JavaScript örnek yalnızca doğru sunucu denetimi tarafından işlenen HTML öğesi başvuruda bulunan bir JavaScript işlevi ekleme gösterir. Bu işlevi kullanmak için belge yüklendiğinde veya bazı belirli bir kullanıcı eylemi transpires işlevi çağırmak için ek JavaScript yazmanız gerekir. Bunlar hakkında daha fazla bilgi ve ilgili konular, okuma [ile istemci tarafı komut dosyası çalışma](https://msdn.microsoft.com/en-us/library/aa479302.aspx).
+> Bu JavaScript örnek yalnızca doğru sunucu denetimi tarafından işlenen HTML öğesi başvuruda bulunan bir JavaScript işlevi ekleme gösterir. Bu işlevi kullanmak için belge yüklendiğinde veya bazı belirli bir kullanıcı eylemi transpires işlevi çağırmak için ek JavaScript yazmanız gerekir. Bunlar hakkında daha fazla bilgi ve ilgili konular, okuma [ile istemci tarafı komut dosyası çalışma](https://msdn.microsoft.com/library/aa479302.aspx).
 
 
 ## <a name="summary"></a>Özet
@@ -257,11 +257,11 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET ana sayfalar ve`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
-- [Dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/en-us/library/aa479330.aspx)
+- [Dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Temel tür işlevselliği genişletme yöntemleri ile genişletme](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
-- [Nasıl yapılır: ASP.NET ana sayfa içeriği başvurusu](https://msdn.microsoft.com/en-us/library/xxwa0ff0.aspx)
+- [Nasıl yapılır: ASP.NET ana sayfa içeriği başvurusu](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
 - [Yakalar mater sayfaları: İpuçları ve püf noktaları](http://www.odetocode.com/articles/450.aspx)
-- [İstemci tarafı komut dosyası ile çalışma](https://msdn.microsoft.com/en-us/library/aa479302.aspx)
+- [İstemci tarafı komut dosyası ile çalışma](https://msdn.microsoft.com/library/aa479302.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 

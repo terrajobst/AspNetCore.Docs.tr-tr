@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6a0c8dbbd02549757c316807b8e8e64fdfd70123
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b4280c6ab1b6d8d2ceaa7cef14fce94ab8c6df53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te zaman uyumsuz yöntemler kullanma
 ====================
 Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Bu öğretici zaman uyumsuz bir ASP.NET MVC Web uygulaması kullanılarak oluşturmaya temellerini öğretmek [için Visual Studio Express 2012 Web](https://www.microsoft.com/visualstudio/11/en-us), Microsoft Visual Studio ücretsiz sürümünü olduğu. Aynı zamanda [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us).
+> Bu öğretici zaman uyumsuz bir ASP.NET MVC Web uygulaması kullanılarak oluşturmaya temellerini öğretmek [için Visual Studio Express 2012 Web](https://www.microsoft.com/visualstudio/11), Microsoft Visual Studio ücretsiz sürümünü olduğu. Aynı zamanda [Visual Studio 2012](https://www.microsoft.com/visualstudio/11).
 
 > Tam bir örnek github'daki Bu öğretici için sağlanan [https://github.com/RickAndMSFT/Async-ASP.NET/](https://github.com/RickAndMSFT/Async-ASP.NET/)
 
 
-ASP.NET MVC 4 [denetleyicisi](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(VS.108).aspx) birlikte sınıfı [.NET 4.5](https://msdn.microsoft.com/en-us/library/w0x726c2(VS.110).aspx) bir nesne türü döndüren zaman uyumsuz eylem yöntemleri yazmanızı sağlar [görev&lt;ActionResult&gt; ](https://msdn.microsoft.com/en-us/library/dd321424(VS.110).aspx). .NET Framework 4 olarak adlandırılan bir zaman uyumsuz programlama kavram sunulan bir [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) ve ASP.NET MVC 4'ü destekleyen [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx). Görevler tarafından gösterilen **görev** türü ve ilgili türlerinde [System.Threading.Tasks](https://msdn.microsoft.com/en-us/library/system.threading.tasks.aspx) ad alanı. Bu zaman uyumsuz desteği ile .NET Framework 4.5 derlemeler [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) çalışmak olun anahtar sözcükleri [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) daha önceki daha az karmaşık nesneleri zaman uyumsuz yaklaşımlar. [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) , paylaştırılabilen bir kod zaman uyumsuz olarak diğer bazı kod parçasına beklemesi gerektiğini belirten için söz dizimi toplu bir anahtardır. [Zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) anahtar sözcüğü yöntemleri görev tabanlı zaman uyumsuz yöntemleri olarak işaretlemek için kullanabileceğiniz bir ipucu temsil eder. Birleşimi **await**, **zaman uyumsuz**ve **görev** nesne sağlar, .NET 4.5 içinde zaman uyumsuz kod yazmak çok daha kolay. Zaman uyumsuz yöntemleri için yeni model adlı *görev tabanlı zaman uyumsuz desen* (**DOKUNUN**). Bu öğretici, zaman uyumsuz programing kullanma konusunda biraz bilgili varsayar [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) ad alanı.
+ASP.NET MVC 4 [denetleyicisi](https://msdn.microsoft.com/library/system.web.mvc.controller(VS.108).aspx) birlikte sınıfı [.NET 4.5](https://msdn.microsoft.com/library/w0x726c2(VS.110).aspx) bir nesne türü döndüren zaman uyumsuz eylem yöntemleri yazmanızı sağlar [görev&lt;ActionResult&gt; ](https://msdn.microsoft.com/library/dd321424(VS.110).aspx). .NET Framework 4 olarak adlandırılan bir zaman uyumsuz programlama kavram sunulan bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ve ASP.NET MVC 4'ü destekleyen [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Görevler tarafından gösterilen **görev** türü ve ilgili türlerinde [System.Threading.Tasks](https://msdn.microsoft.com/library/system.threading.tasks.aspx) ad alanı. Bu zaman uyumsuz desteği ile .NET Framework 4.5 derlemeler [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) çalışmak olun anahtar sözcükleri [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) daha önceki daha az karmaşık nesneleri zaman uyumsuz yaklaşımlar. [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) , paylaştırılabilen bir kod zaman uyumsuz olarak diğer bazı kod parçasına beklemesi gerektiğini belirten için söz dizimi toplu bir anahtardır. [Zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcüğü yöntemleri görev tabanlı zaman uyumsuz yöntemleri olarak işaretlemek için kullanabileceğiniz bir ipucu temsil eder. Birleşimi **await**, **zaman uyumsuz**ve **görev** nesne sağlar, .NET 4.5 içinde zaman uyumsuz kod yazmak çok daha kolay. Zaman uyumsuz yöntemleri için yeni model adlı *görev tabanlı zaman uyumsuz desen* (**DOKUNUN**). Bu öğretici, zaman uyumsuz programing kullanma konusunda biraz bilgili varsayar [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanı.
 
-Kullanma hakkında daha fazla bilgi için [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) ad alanı, aşağıdaki kaynaklara bakın.
+Kullanma hakkında daha fazla bilgi için [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanı, aşağıdaki kaynaklara bakın.
 
 - [Teknik İnceleme: Asynchrony .NET içinde](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Zaman uyumsuz/bekleme SSS](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
-- [Visual Studio zaman uyumsuz programlama](https://msdn.microsoft.com/en-us/vstudio/gg316360)
+- [Visual Studio zaman uyumsuz programlama](https://msdn.microsoft.com/vstudio/gg316360)
 
 ## <a id="HowRequestsProcessedByTP"></a>İstekleri iş parçacığı havuzu tarafından nasıl işlenir
 
@@ -64,7 +64,7 @@ Genel olarak, aşağıdaki koşullar için zaman uyumlu yöntemleri kullanın:
 - Ne zaman iş parçacığı çıkış geçiş avantajı, içerik anahtarı maliyetini ağırlık verir. Zaman uyumlu yöntemi ASP.NET isteği iş parçacığı üzerinde hiçbir iş yaparken bekliyorsa genel olarak, bir yöntem zaman uyumsuz yapmanız. Arama zaman uyumsuz hale getirerek ASP.NET isteği iş parçacığı için web hizmeti isteği tamamlamak beklerken hiçbir çalışarak durdu değil.
 - Sınama engelleme işlemleri site performans bir performans sorunu olduğunu ve IIS daha fazla isteği bu engelleme çağrıları için zaman uyumsuz yöntemleri kullanarak hizmet gösterir.
 
- İndirilebilir örnekteki zaman uyumsuz eylem yöntemlerinin etkili bir şekilde nasıl kullanılacağını gösterir. Sağlanan örnek, .NET 4.5 kullanarak ASP.NET MVC 4'te zaman uyumsuz programlama basit Tanıtımı sağlamak için tasarlanmıştır. Örnek ASP.NET MVC içinde zaman uyumsuz programlama için bir başvuru mimarisi olması amaçlanmamıştır. Örnek program çağrıları [ASP.NET Web API](../../../web-api/index.md) daha sırayla çağıran yöntemleri [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx) uzun süre çalışan web hizmeti çağrıları benzetimini yapmak için. Üretim uygulamaların çoğu zaman uyumsuz eylem yöntemleri kullanarak bu tür belirgin avantajları göstermez.   
+ İndirilebilir örnekteki zaman uyumsuz eylem yöntemlerinin etkili bir şekilde nasıl kullanılacağını gösterir. Sağlanan örnek, .NET 4.5 kullanarak ASP.NET MVC 4'te zaman uyumsuz programlama basit Tanıtımı sağlamak için tasarlanmıştır. Örnek ASP.NET MVC içinde zaman uyumsuz programlama için bir başvuru mimarisi olması amaçlanmamıştır. Örnek program çağrıları [ASP.NET Web API](../../../web-api/index.md) daha sırayla çağıran yöntemleri [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) uzun süre çalışan web hizmeti çağrıları benzetimini yapmak için. Üretim uygulamaların çoğu zaman uyumsuz eylem yöntemleri kullanarak bu tür belirgin avantajları göstermez.   
   
 Bazı uygulamalar tüm eylem yöntemleri zaman uyumsuz olmasını gerektirir. Genellikle, birkaç zaman uyumlu eylem yöntemleri zaman uyumsuz yöntemleri dönüştürme gerekli iş miktarı için en iyi verimliliği artırma sağlar.
 
@@ -93,7 +93,7 @@ Aşağıdaki resimde örnek proje en görünümünden gösterir.
 
 ## <a id="CreatingAsynchGizmos"></a>Zaman uyumsuz en eylem yöntemi oluşturma
 
-Örnek yeni [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) ve [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) anahtar sözcükler (.NET 4.5 ve Visual Studio 2012'de kullanılabilir) karmaşık dönüştürmeleri için gerekli tutmakla derleyici izin vermek için zaman uyumsuz programlama. Derleyici, C# ' nin zaman uyumlu denetim akışı yapıları kullanılarak kod yazmanıza olanak veren ve derleyici iş parçacıkları engelleme önlemek için geri çağırmaları kullanmak için gerekli dönüşümleri otomatik olarak uygular.
+Örnek yeni [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) ve [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) anahtar sözcükler (.NET 4.5 ve Visual Studio 2012'de kullanılabilir) karmaşık dönüştürmeleri için gerekli tutmakla derleyici izin vermek için zaman uyumsuz programlama. Derleyici, C# ' nin zaman uyumlu denetim akışı yapıları kullanılarak kod yazmanıza olanak veren ve derleyici iş parçacıkları engelleme önlemek için geri çağırmaları kullanmak için gerekli dönüşümleri otomatik olarak uygular.
 
 Aşağıdaki kodda gösterildiği `Gizmos` zaman uyumlu yöntemi ve `GizmosAsync` zaman uyumsuz yöntem. Tarayıcınız destekliyorsa [HTML 5 `<mark>` öğesi](http://www.w3.org/wiki/HTML/Elements/mark), değişiklikleri görürsünüz `GizmosAsync` sarı Vurgu içinde.
 
@@ -103,15 +103,15 @@ Aşağıdaki kodda gösterildiği `Gizmos` zaman uyumlu yöntemi ve `GizmosAsync
 
  Aşağıdaki değişiklikleri izin vermek için uygulanan `GizmosAsync` zaman uyumsuz olması.
 
-- Yöntem ile işaretlenmiş [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) gövde bölümlerinin geri aramalar oluşturun ve otomatik olarak oluşturmak için derleyici söyler anahtar sözcüğü bir `Task<ActionResult>` , döndürülür.
+- Yöntem ile işaretlenmiş [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) gövde bölümlerinin geri aramalar oluşturun ve otomatik olarak oluşturmak için derleyici söyler anahtar sözcüğü bir `Task<ActionResult>` , döndürülür.
 - &quot;Zaman uyumsuz&quot; yöntemi adına eklenmiştir. "Zaman uyumsuz" ekleyerek gerekli değildir ancak zaman uyumsuz yöntemleri yazarken kuraldır.
 - Dönüş türü değiştirildi `ActionResult` için `Task<ActionResult>`. Dönüş türü `Task<ActionResult>` devam eden iş temsil eder ve zaman uyumsuz işlemin tamamlanması için beklenecek içinden işleyici ile yöntemini arayanlar sağlar. Bu durumda, çağıranın web hizmetidir. `Task<ActionResult>`temsil eden bir sonucu ile çalışma`ActionResult.`
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) anahtar sözcüğü, web hizmeti çağrısı uygulandı.
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) anahtar sözcüğü, web hizmeti çağrısı uygulandı.
 - Zaman uyumsuz web hizmeti API'si çağrıldı (`GetGizmosAsync`).
 
 İçinde `GetGizmosAsync` yöntemi gövde başka bir zaman uyumsuz yöntem `GetGizmosAsync` olarak adlandırılır. `GetGizmosAsync`hemen döndüren bir `Task<List<Gizmo>>` , sonuç tamamlanacak veriler kullanılabilir olduğunda. Gizmo verileri elde edene kadar başka bir şey yapmak istemeyeceğiniz için kod görev bekler (kullanarak **await** anahtar sözcüğü). Kullanabileceğiniz **await** anahtar sözcüğü ile Açıklama yöntemler **zaman uyumsuz** anahtar sözcüğü.
 
-**Await** anahtar sözcüğü görevi tamamlanana kadar iş parçacığı engellemez. Görev üzerinde geri arama olarak yöntemi rest imzalar ve hemen döndürür. Awaited görevi sonunda tamamlandığında, bu geri çağırma ve böylece kaldığı yerden yöntemi sağ yürütülmesini Sürdür. Kullanma hakkında daha fazla bilgi için [await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) ad alanı, bkz: [zaman uyumsuz başvurular](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
+**Await** anahtar sözcüğü görevi tamamlanana kadar iş parçacığı engellemez. Görev üzerinde geri arama olarak yöntemi rest imzalar ve hemen döndürür. Awaited görevi sonunda tamamlandığında, bu geri çağırma ve böylece kaldığı yerden yöntemi sağ yürütülmesini Sürdür. Kullanma hakkında daha fazla bilgi için [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanı, bkz: [zaman uyumsuz başvurular](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async).
 
 Aşağıdaki kodda gösterildiği `GetGizmos` ve `GetGizmosAsync` yöntemleri.
 
@@ -121,9 +121,9 @@ Aşağıdaki kodda gösterildiği `GetGizmos` ve `GetGizmosAsync` yöntemleri.
 
  Zaman uyumsuz değişiklikler için yapılan benzer **GizmosAsync** üstünde. 
 
-- Yöntem imzası ile ek açıklama [zaman uyumsuz](https://msdn.microsoft.com/en-us/library/hh156513(VS.110).aspx) anahtar sözcüğü, dönüş türü için değiştirildi `Task<List<Gizmo>>`, ve *zaman uyumsuz* yöntemi adına eklenmiştir.
-- Zaman uyumsuz [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx) sınıfı yerine kullanılır [WebClient](https://msdn.microsoft.com/en-us/library/system.net.webclient.aspx) sınıfı.
-- [Await](https://msdn.microsoft.com/en-us/library/hh156528(VS.110).aspx) anahtar sözcüğü için uygulandığı [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(VS.110).aspx) zaman uyumsuz yöntemleri.
+- Yöntem imzası ile ek açıklama [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcüğü, dönüş türü için değiştirildi `Task<List<Gizmo>>`, ve *zaman uyumsuz* yöntemi adına eklenmiştir.
+- Zaman uyumsuz [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) sınıfı yerine kullanılır [WebClient](https://msdn.microsoft.com/library/system.net.webclient.aspx) sınıfı.
+- [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) anahtar sözcüğü için uygulandığı [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(VS.110).aspx) zaman uyumsuz yöntemleri.
 
 Aşağıdaki resimde zaman uyumsuz gizmo görünümü gösterir.
 
@@ -133,7 +133,7 @@ En verilerinin tarayıcılar sunumu eşzamanlı çağrı tarafından oluşturula
 
 ## <a id="Parallel"></a>Paralel olarak birden çok işlemlerini gerçekleştirme
 
-Bir eylem birkaç bağımsız işlemler gerçekleştirdiğinizde gerekir zaman uyumsuz eylem yöntemleri zaman uyumlu yöntemleri önemli bir avantajı vardır. Sağlanan örnek zaman uyumlu yöntemi `PWG`(ürünleri, pencere öğeleri ve en) ürünleri, pencere öğeleri ve en listesini almak için üç web hizmeti çağrıları sonuçlarını görüntüler. [ASP.NET Web API](../../../web-api/index.md) bu sağlar proje hizmetleri kullanan [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096(VS.110).aspx) gecikme veya yavaş ağ benzetimi için çağırır. Gecikme 500 milisaniye, zaman uyumsuz ayarlandığında `PWGasync` yöntemi alır sırasında zaman uyumlu tamamlanması biraz 500 milisaniye `PWG` sürüm 1500 milisaniye alır. Zaman uyumlu `PWG` yöntemi, aşağıdaki kodda gösterilir.
+Bir eylem birkaç bağımsız işlemler gerçekleştirdiğinizde gerekir zaman uyumsuz eylem yöntemleri zaman uyumlu yöntemleri önemli bir avantajı vardır. Sağlanan örnek zaman uyumlu yöntemi `PWG`(ürünleri, pencere öğeleri ve en) ürünleri, pencere öğeleri ve en listesini almak için üç web hizmeti çağrıları sonuçlarını görüntüler. [ASP.NET Web API](../../../web-api/index.md) bu sağlar proje hizmetleri kullanan [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) gecikme veya yavaş ağ benzetimi için çağırır. Gecikme 500 milisaniye, zaman uyumsuz ayarlandığında `PWGasync` yöntemi alır sırasında zaman uyumlu tamamlanması biraz 500 milisaniye `PWG` sürüm 1500 milisaniye alır. Zaman uyumlu `PWG` yöntemi, aşağıdaki kodda gösterilir.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample7.cs)]
 
@@ -147,11 +147,11 @@ Aşağıdaki resimde, döndürülen görüntüler **PWGasync** yöntemi.
 
 ## <a id="CancelToken"></a>Bir iptal belirteci kullanma
 
-Döndüren zaman uyumsuz eylem yöntemleri `Task<ActionResult>`aldıkları olduğundan iptal edilebilen, olan bir [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx) ile sağlandığında parametresi [AsyncTimeout](https://msdn.microsoft.com/en-us/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx) özniteliği. Aşağıdaki kodda gösterildiği `GizmosCancelAsync` yöntemi ile bir zaman aşımı 150 süresi (milisaniye).
+Döndüren zaman uyumsuz eylem yöntemleri `Task<ActionResult>`aldıkları olduğundan iptal edilebilen, olan bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx) ile sağlandığında parametresi [AsyncTimeout](https://msdn.microsoft.com/library/system.web.mvc.asynctimeoutattribute(VS.108).aspx) özniteliği. Aşağıdaki kodda gösterildiği `GizmosCancelAsync` yöntemi ile bir zaman aşımı 150 süresi (milisaniye).
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample9.cs?highlight=1-3,5,10)]
 
-Aşağıdaki kod alır GetGizmosAsync aşırı gösterir bir [CancellationToken](https://msdn.microsoft.com/en-us/library/system.threading.cancellationtoken(VS.110).aspx) parametresi.
+Aşağıdaki kod alır GetGizmosAsync aşırı gösterir bir [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken(VS.110).aspx) parametresi.
 
 [!code-csharp[Main](using-asynchronous-methods-in-aspnet-mvc-4/samples/sample10.cs)]
 
@@ -164,7 +164,7 @@ Bir zaman uyumsuz web uygulaması faydaları hayata geçirmek için varsayılan 
 - Windows 7, Windows Vista ve tüm Windows istemci işletim sistemleri en fazla 10 eşzamanlı istek var. Zaman uyumsuz yöntemleri yüksek yük altında faydalarını görmek için bir Windows Server işletim sistemi gerekir.
 - .NET 4.5, yükseltilmiş bir komut isteminden IIS'ye kaydedin:  
  %windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet\_regiis -i  
- Bkz: [ASP.NET IIS Kayıt Aracı (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx)
+ Bkz: [ASP.NET IIS Kayıt Aracı (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h.aspx)
 - Artırmanız gerekebilir [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) 1.000 ile 5.000 varsayılan değerinden kuyruk sınırı. Ayar çok düşük ise görebileceğiniz [HTTP.sys](https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture) HTTP 503 durumu olan istekleri reddedecek. HTTP.sys kuyruk sınırı değiştirmek için:
 
     - IIS Yöneticisi'ni açın ve uygulama havuzları bölmesine gidin.
@@ -177,6 +177,6 @@ Bir zaman uyumsuz web uygulaması faydaları hayata geçirmek için varsayılan 
 
     - [.NET sürüm oluşturma ve çoklu sürüm desteği - .NET 4.5 olduğu .NET 4.0 yerinde yükseltme](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
     - [Bir IIS uygulamasının veya uygulama havuzu 2.0 yerine ASP.NET 3.5 kullanmak üzere nasıl ayarlanacağı](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-    - [.NET framework sürümleri ve bağımlılıkları](https://msdn.microsoft.com/en-us/library/bb822049(VS.110).aspx)
-- Uygulamanızın web hizmetlerini kullanarak veya HTTP üzerinden arka ucuyla iletişim System.NET artırmak gerekebilir [connectionManagement/maxconnection](https://msdn.microsoft.com/en-us/library/fb6y0fyc(VS.110).aspx) öğesi. ASP.NET uygulamaları için bu CPU sayısı 12 kat otomatik yapılandırma özelliği sınırlıdır. Bir dört proc üzerinde en fazla 12 olabileceği anlamına \* 4 = 48 IP uç noktası için eş zamanlı bağlantı. Bu bağlıdır çünkü [autoConfig](https://msdn.microsoft.com/en-us/library/7w2sway1(VS.110).aspx), artırmak için en kolay yolu `maxconnection` bir ASP.NET uygulaması ayarlamaktır [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programlı olarak gelen `Application_Start` yönteminde *global.asax* dosya. Bir örnek için karşıdan örneğine bakın.
+    - [.NET framework sürümleri ve bağımlılıkları](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- Uygulamanızın web hizmetlerini kullanarak veya HTTP üzerinden arka ucuyla iletişim System.NET artırmak gerekebilir [connectionManagement/maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx) öğesi. ASP.NET uygulamaları için bu CPU sayısı 12 kat otomatik yapılandırma özelliği sınırlıdır. Bir dört proc üzerinde en fazla 12 olabileceği anlamına \* 4 = 48 IP uç noktası için eş zamanlı bağlantı. Bu bağlıdır çünkü [autoConfig](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx), artırmak için en kolay yolu `maxconnection` bir ASP.NET uygulaması ayarlamaktır [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programlı olarak gelen `Application_Start` yönteminde *global.asax* dosya. Bir örnek için karşıdan örneğine bakın.
 - .NET 4.5, 5000 için varsayılan olarak [MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx) ince olmalıdır.

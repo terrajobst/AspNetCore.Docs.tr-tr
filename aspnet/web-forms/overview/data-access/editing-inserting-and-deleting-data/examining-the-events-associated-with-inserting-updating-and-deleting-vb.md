@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5daa9d1fe63e4ad8ec8c667f84de00fadd77fefa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 88f6beb3f3514c6a9784d4cb936a5b779ce75ae1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Ekleme, güncelleştirme ve silme (VB) ile ilişkili olaylar inceleniyor
 ====================
@@ -162,12 +162,12 @@ Bu değişiklik, değeri ile `UnitPrice` düzenlenen görüntülenen satır ayn�
 
 $19.00 oluşturur gibi ancak, bir ürün metin kutusuna para birimi simgesini güncelleştirerek bir `FormatException`. GridView çalıştığında ObjectDataSource için kullanıcının kullanıcı tarafından sağlanan değer atamak `UpdateParameters` dönüştüremedi olduğu koleksiyonu `UnitPrice` içine "$19.00" dize `Decimal` parametresi tarafından gerekli (bkz. Şekil 11). Bu sorunu gidermek için bir olay işleyicisi GridView için 's oluşturabiliriz `RowUpdating` olay ve kullanıcı tarafından sağlanan ayrıştırma `UnitPrice` para birimi biçimli olarak `Decimal`.
 
-GridView's `RowUpdating` olay kabul eder, ikinci parametre olarak türünde bir nesne [GridViewUpdateEventArgs](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), içeren bir `NewValues` sözlük kullanıcı tarafından sağlanan değerler hazır olmasını tutar özelliklerinden biri olarak ObjectDataSource için 's atanan `UpdateParameters` koleksiyonu. Biz varolan üzerine `UnitPrice` değeri `NewValues` koleksiyonu ondalık bir değeri ile Ayrıştırılmış kod aşağıdaki satırları para birimi biçimi kullanarak `RowUpdating` olay işleyicisi:
+GridView's `RowUpdating` olay kabul eder, ikinci parametre olarak türünde bir nesne [GridViewUpdateEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), içeren bir `NewValues` sözlük kullanıcı tarafından sağlanan değerler hazır olmasını tutar özelliklerinden biri olarak ObjectDataSource için 's atanan `UpdateParameters` koleksiyonu. Biz varolan üzerine `UnitPrice` değeri `NewValues` koleksiyonu ondalık bir değeri ile Ayrıştırılmış kod aşağıdaki satırları para birimi biçimi kullanarak `RowUpdating` olay işleyicisi:
 
 
 [!code-vb[Main](examining-the-events-associated-with-inserting-updating-and-deleting-vb/samples/sample4.vb)]
 
-Kullanıcı sağladıysa bir `UnitPrice` değeri ("$19.00 gibi"), bu değer tarafından hesaplanan ondalık değeri ile üzerine [Decimal.Parse](https://msdn.microsoft.com/en-us/library/system.decimal.parse(VS.80).aspx), değeri bir para birimi olarak ayrıştırma. Bu ondalık herhangi para birimi simgeleri, virgül, ondalık basamak vb. durumunda doğru ayrıştırır ve kullandığı [NumberStyles numaralandırma](https://msdn.microsoft.com/en-US/library/system.globalization.numberstyles(VS.80).aspx) içinde [System.Globalization](https://msdn.microsoft.com/en-US/library/abeh092z(VS.80).aspx) ad alanı.
+Kullanıcı sağladıysa bir `UnitPrice` değeri ("$19.00 gibi"), bu değer tarafından hesaplanan ondalık değeri ile üzerine [Decimal.Parse](https://msdn.microsoft.com/library/system.decimal.parse(VS.80).aspx), değeri bir para birimi olarak ayrıştırma. Bu ondalık herhangi para birimi simgeleri, virgül, ondalık basamak vb. durumunda doğru ayrıştırır ve kullandığı [NumberStyles numaralandırma](https://msdn.microsoft.com/library/system.globalization.numberstyles(VS.80).aspx) içinde [System.Globalization](https://msdn.microsoft.com/library/abeh092z(VS.80).aspx) ad alanı.
 
 Şekil 11 gösterir kullanıcı tarafından sağlanan para birimi simgelerini nedeni her iki sorun `UnitPrice`, nasıl birlikte GridView's `RowUpdating` olay işleyicisi, bu tür giriş doğru ayrıştırmak için kullanılabilir.
 
@@ -216,10 +216,10 @@ Bir kullanıcı bir fiyat belirtmeden bir ürün kaydetmek çalışırsa, günce
 
 GridView's kullanma kadarki anlatıldığı `RowUpdating` program aracılığıyla ObjectDataSource için 's atanan parametre değerlerini değiştirmek için olay `UpdateParameters` koleksiyonu da iptal etmek için güncelleştirme işlem nasıl tamamen. Bu kavramlar DetailsView ve FormView denetimleri gerçekleştirmek ve ekleme ve silme için de geçerlidir.
 
-Bu görevler için olay işleyicileri aracılığıyla ObjectDataSource düzeyinde de yapılabilir, `Inserting`, `Updating`, ve `Deleting` olaylar. Bu olaylar, temel alınan nesnenin ilişkili yöntemi çağrılmadan önce yangın ve giriş parametreleri koleksiyonunu Değiştir veya depolayabileceği işlemi iptal etmek için son fırsat fırsatı sağlar. Bu üç olayları için olay işleyicileri türünde bir nesneye iletilir [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) , ilgilenilen iki özelliklere sahiptir:
+Bu görevler için olay işleyicileri aracılığıyla ObjectDataSource düzeyinde de yapılabilir, `Inserting`, `Updating`, ve `Deleting` olaylar. Bu olaylar, temel alınan nesnenin ilişkili yöntemi çağrılmadan önce yangın ve giriş parametreleri koleksiyonunu Değiştir veya depolayabileceği işlemi iptal etmek için son fırsat fırsatı sağlar. Bu üç olayları için olay işleyicileri türünde bir nesneye iletilir [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) , ilgilenilen iki özelliklere sahiptir:
 
-- [İptal](https://msdn.microsoft.com/en-US/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), varsa kümesine `True`, gerçekleştirilmekte olan işlemin iptal eder
-- [InputParameters](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), koleksiyonu olduğu `InsertParameters`, `UpdateParameters`, veya `DeleteParameters`olay işleyicisi için olmasına bağlı olarak `Inserting`, `Updating`, veya `Deleting` olay
+- [İptal](https://msdn.microsoft.com/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), varsa kümesine `True`, gerçekleştirilmekte olan işlemin iptal eder
+- [InputParameters](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), koleksiyonu olduğu `InsertParameters`, `UpdateParameters`, veya `DeleteParameters`olay işleyicisi için olmasına bağlı olarak `Inserting`, `Updating`, veya `Deleting` olay
 
 ObjectDataSource düzeyinde parametre değerleri ile çalışma göstermek için şimdi sayfamızı içinde yeni bir ürün eklemek kullanıcılara bir DetailsView içerir. Bu DetailsView hızlı bir şekilde veritabanına yeni bir ürün eklemek için bir arabirim sağlamak için kullanılır. Şimdi yeni bir ürün ekleme izin verdiğinizde yalnızca için değerleri girin kullanıcıya tutarlı bir kullanıcı arabirimi tutmak için `ProductName` ve `UnitPrice` alanları. Varsayılan olarak, DetailsView'un ekleme arabiriminde sağlanan olmayan bu değerleri ayarlanacak bir `NULL` veritabanı değeri. Ancak, biz ObjectDataSource's kullanabilirsiniz `Inserting` kısa süre içinde anlatıldığı gibi farklı varsayılan değerlere eklemesine olay.
 

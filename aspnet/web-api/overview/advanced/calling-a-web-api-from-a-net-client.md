@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 41f014e1d23d46ed28c8c1be5ee92f1a6d878ad9
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET İstemci'den (C#) Web API'si çağırma
 ====================
@@ -23,16 +23,16 @@ tarafından [CAN Wasson](https://github.com/MikeWasson) ve [Rick Anderson](https
 
 [Tamamlanan projenizi indirin](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
 
-Bu öğretici bir .NET uygulamasından web API'si çağırma gösterilmektedir kullanarak [System.Net.Http.HttpClient.](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.110).aspx)
+Bu öğretici bir .NET uygulamasından web API'si çağırma gösterilmektedir kullanarak [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
 Bu öğreticide, bir istemci uygulaması, aşağıdaki web API tüketir yazılır:
 
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
-| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
+| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
 | Yeni Ürün oluşturma | YAYINLA | / api/ürünleri |
-| Bir ürün güncelleştir | PUT | /api/ürünler/*kimliği* |
-| Ürünü silme | DELETE | /api/ürünler/*kimliği* |
+| Bir ürün güncelleştir | PUT | /api/products/*id* |
+| Ürünü silme | DELETE | /api/products/*id* |
 
 Bu API ile ASP.NET Web API uygulamak öğrenmek için bkz: [CRUD işlemleri destekler bir Web API oluşturma](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 ).
@@ -109,7 +109,7 @@ Aşağıdaki kod bir ürün için bir GET isteği gönderir:
 
 **GetAsync** yöntem, HTTP GET isteği gönderir. Yöntem tamamlandığında, döndürdüğü bir **httpresponsemessage öğesini** HTTP yanıtı içerir. Yanıt durum kodu bir başarı kodu ise, yanıt gövdesi bir ürün JSON gösterimi içerir. Çağrı **ReadAsAsync** JSON yükü seri durumdan çıkarılacak bir `Product` örneği. **ReadAsAsync** yöntemi olduğundan zaman uyumsuz yanıt gövdesi rasgele büyük olabilir.
 
-**HttpClient** HTTP yanıtı bir hata kodu içerdiğinde bir özel durum oluşturmaz. Bunun yerine, **IsSuccessStatusCode** özelliği **false** durumu hata kodu ise. HTTP hata kodları özel durumlar olarak işlemek tercih ederseniz, çağrı [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/en-us/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) yanıt nesnesi üzerinde. `EnsureSuccessStatusCode`bir özel durum kodu 200 aralığının dışında döndürürse&ndash;299. Unutmayın **HttpClient** istisnalar başka nedenlerle atabilirsiniz &mdash; Örneğin, istek zaman aşımına uğrarsa.
+**HttpClient** HTTP yanıtı bir hata kodu içerdiğinde bir özel durum oluşturmaz. Bunun yerine, **IsSuccessStatusCode** özelliği **false** durumu hata kodu ise. HTTP hata kodları özel durumlar olarak işlemek tercih ederseniz, çağrı [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) yanıt nesnesi üzerinde. `EnsureSuccessStatusCode`bir özel durum kodu 200 aralığının dışında döndürürse&ndash;299. Unutmayın **HttpClient** istisnalar başka nedenlerle atabilirsiniz &mdash; Örneğin, istek zaman aşımına uğrarsa.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Medya türü Biçimlendiricilerini serisini kaldırmak için
@@ -167,7 +167,7 @@ GET gibi bir istek gövdesi bir silme isteği yok. JSON veya XML biçiminde SİL
 
 İstemci uygulama test etmek için:
 
-1. [Karşıdan](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve server uygulamasını çalıştırın. [Yükleme yönergeleri](https://docs.microsoft.com/en-us/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Exaxmple için `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
+1. [Karşıdan](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve server uygulamasını çalıştırın. [Yükleme yönergeleri](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Exaxmple için `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
 2. HTTP istekleri için ana URI ayarlayın. Sunucu uygulamasında kullanılan bağlantı noktası için bağlantı noktası numarasını değiştirin.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

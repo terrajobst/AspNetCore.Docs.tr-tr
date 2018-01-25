@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e66f581d0ea07831ea6356a9c13d26ed6a19b81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69586ade54a40aabb55dd507731a6c2820774c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="uploading-files-vb"></a>Dosyalar (VB)
 ====================
@@ -99,7 +99,7 @@ Alternatif olarak, ikili veriler doğrudan bir Microsoft SQL Server 2005 veritab
 İkili veriler doğrudan veritabanında saklamak ana avantajı ikili verileri ve veritabanı kaydını arasında sıkı bağ olmasıdır. Bu büyük ölçüde veritabanı yedeklemeleri veya farklı bir siteye veya sunucu için veritabanını taşıma gibi yönetim görevlerini basitleştirir. Ayrıca, otomatik olarak kayıt silme karşılık gelen ikili verileri siler. İkili veriler veritabanında saklamak daha fazla Zarif avantajları vardır. Bkz: [depolama ikili dosyaları doğrudan veritabanı kullanarak ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/120606-1.aspx) daha ayrıntılı bir tartışma için.
 
 > [!NOTE]
-> Microsoft SQL Server 2000 ve önceki sürümlerde, `varbinary` veri türüne sahip bir üst sınır 8.000 bayt. 2 GB ikili veri depolamak için [ `image` veri türü](https://msdn.microsoft.com/en-us/library/ms187993.aspx) yerine kullanılmalıdır. Eklenmesi ile `MAX` SQL Server 2005, ancak `image` veri türü kullanım dışı bırakıldı. Bu s hala desteklenmektedir için geriye dönük uyumluluk, ancak Microsoft, duyurdu `image` veri türü SQL Server'ın gelecek bir sürümünde kaldırılacak.
+> Microsoft SQL Server 2000 ve önceki sürümlerde, `varbinary` veri türüne sahip bir üst sınır 8.000 bayt. 2 GB ikili veri depolamak için [ `image` veri türü](https://msdn.microsoft.com/library/ms187993.aspx) yerine kullanılmalıdır. Eklenmesi ile `MAX` SQL Server 2005, ancak `image` veri türü kullanım dışı bırakıldı. Bu s hala desteklenmektedir için geriye dönük uyumluluk, ancak Microsoft, duyurdu `image` veri türü SQL Server'ın gelecek bir sürümünde kaldırılacak.
 
 
 Eski bir veri modeli ile çalışıyorsanız, görebilirsiniz `image` veri türü. Northwind veritabanı s `Categories` tablolu bir `Picture` kategorisi için bir görüntü dosyasının ikili verileri depolamak için kullanılan sütun. Northwind veritabanı, Microsoft Access ve SQL Server'ın önceki sürümlerinde, kökleri olduğundan, bu sütun türünde `image`.
@@ -210,7 +210,7 @@ Güncelleştirilmiş DAL ile kalan tek şey bir yöntem için yeni dahil etmek i
 
 Görmemeleri ikili verileri toplarken, bu verileri bir son kullanıcı tarafından sağlanır. Bu bilgileri yakalamak için kullanıcı kendi bilgisayarından bir dosyayı web sunucusuna yüklemek gerekir. Karşıya yüklenen veriler ardından web sunucusu s dosya sistemi ve veritabanı dosyasında bir yol ekleme veya ikili içeriği doğrudan veritabanına yazma dosyayı kaydetmeden olduğu anlamına gelebilir veri modeli ile tümleştirilmesi gerekir. Bu adımda kendi bilgisayarından bir dosya sunucusuna yüklemek bir kullanıcı izin vermek nasıl inceleyeceğiz. Sonraki öğreticide biz yüklenen dosya veri modeli ile tümleştirmek için uygulamamızla kapatmanız.
 
-ASP.NET 2.0 yenilikler [dosya yükleme Web denetimi](https://msdn.microsoft.com/en-us/library/ms227677(VS.80).aspx) kullanıcıların bir dosya bilgisayarlarından web sunucusuna göndermek bir mekanizma sağlar. Dosya yükleme denetimi olarak işleyen bir `<input>` öğesi, `type` özniteliği bir Gözat düğmesi kutusuyla olarak tarayıcıları görüntüler dosya olarak ayarlanmış. Gözat düğmesini tıklatarak kullanıcı bir dosyayı seçebileceğiniz bir iletişim kutusunu açar. Formun geri gönderildiğinde, seçilen dosya s içeriği geri gönderme birlikte gönderilir. Sunucu tarafında yüklenen dosya hakkında bilgi dosya yükleme denetim özelliklerinde erişilebilir.
+ASP.NET 2.0 yenilikler [dosya yükleme Web denetimi](https://msdn.microsoft.com/library/ms227677(VS.80).aspx) kullanıcıların bir dosya bilgisayarlarından web sunucusuna göndermek bir mekanizma sağlar. Dosya yükleme denetimi olarak işleyen bir `<input>` öğesi, `type` özniteliği bir Gözat düğmesi kutusuyla olarak tarayıcıları görüntüler dosya olarak ayarlanmış. Gözat düğmesini tıklatarak kullanıcı bir dosyayı seçebileceğiniz bir iletişim kutusunu açar. Formun geri gönderildiğinde, seçilen dosya s içeriği geri gönderme birlikte gönderilir. Sunucu tarafında yüklenen dosya hakkında bilgi dosya yükleme denetim özelliklerinde erişilebilir.
 
 Karşıya yükleme dosyaları göstermek için açık `FileUpload.aspx` sayfasındaki `BinaryData` klasör, dosya yükleme denetimini tasarımcıya araç çubuğuna sürükleyin ve s denetimini ayarlama `ID` özelliğine `UploadTest`. Ardından, ayarı düğmesi Web denetim ekleme kendi `ID` ve `Text` özelliklerine `UploadButton` ve seçilen dosya, sırasıyla yükleyin. Son olarak, Temizle düğmesini altındaki bir etiket Web denetimi yerleştirin, `Text` özelliği ve kümesi kendi `ID` özelliğine `UploadDetails`.
 
@@ -233,13 +233,13 @@ Geri yüklenen dosya için dosya sistemi kaydedilebilir veya ikili verileri ile 
 
 [!code-vb[Main](uploading-files-vb/samples/sample5.vb)]
 
-Dosya yükleme denetimi çeşitli karşıya yüklenen verilerle çalışmak için özellikler sunar. Örneğin, [ `HasFile` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) bir dosyayı kullanıcı tarafından karşıya yüklenen olup olmadığını gösterir sırada [ `FileBytes` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) bir bayt dizisi karşıya yüklenen ikili verilere erişim sağlar. `Click` Olay işleyicisini başlatır bir dosyayı karşıya sağlayarak. Bir dosyayı karşıya yüklediyseniz, etiket karşıya yüklenen dosyanın, bayt boyutunda ve, içerik türü adını gösterir.
+Dosya yükleme denetimi çeşitli karşıya yüklenen verilerle çalışmak için özellikler sunar. Örneğin, [ `HasFile` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.hasfile.aspx) bir dosyayı kullanıcı tarafından karşıya yüklenen olup olmadığını gösterir sırada [ `FileBytes` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.fileupload.filebytes.aspx) bir bayt dizisi karşıya yüklenen ikili verilere erişim sağlar. `Click` Olay işleyicisini başlatır bir dosyayı karşıya sağlayarak. Bir dosyayı karşıya yüklediyseniz, etiket karşıya yüklenen dosyanın, bayt boyutunda ve, içerik türü adını gösterir.
 
 > [!NOTE]
 > Kullanıcı kontrol edebilirsiniz bir dosya yükler emin olmak için `HasFile` özelliği ve bir uyarı görüntüler, s `False`, veya kullanabilirsiniz [RequiredFieldValidator denetimi](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/validation/default.aspx) yerine.
 
 
-Dosya Yükleme s `SaveAs(filePath)` karşıya yüklenen dosyanın belirtilen kaydeder *filePath*. *filePath* olmalıdır bir *fiziksel yolu* (`C:\Websites\Brochures\SomeFile.pdf`) yerine bir *sanal* *yolu* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Yöntemi](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.mappath.aspx) sanal yolu alır ve kendi karşılık gelen fiziksel yolu döndürür. Sanal yol işte `~/Brochures/fileName`, burada *fileName* yüklenen dosya adıdır. Bkz: [kullanarak Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) sanal ve fiziksel yollarını ve kullanma hakkında daha fazla bilgi için `Server.MapPath`.
+Dosya Yükleme s `SaveAs(filePath)` karşıya yüklenen dosyanın belirtilen kaydeder *filePath*. *filePath* olmalıdır bir *fiziksel yolu* (`C:\Websites\Brochures\SomeFile.pdf`) yerine bir *sanal* *yolu* (`/Brochures/SomeFile.pdf`). [ `Server.MapPath(virtPath)` Yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.mappath.aspx) sanal yolu alır ve kendi karşılık gelen fiziksel yolu döndürür. Sanal yol işte `~/Brochures/fileName`, burada *fileName* yüklenen dosya adıdır. Bkz: [kullanarak Server.MapPath](http://www.4guysfromrolla.com/webtech/121799-1.shtml) sanal ve fiziksel yollarını ve kullanma hakkında daha fazla bilgi için `Server.MapPath`.
 
 Tamamladıktan sonra `Click` olay işleyicisi sayfasını bir tarayıcıda çıkışı test etmek için bir dakikanızı ayırın. Gözat düğmesine tıklayın ve sabit sürücünüzden bir dosya seçin ve ardından seçili dosyasını karşıya yükle düğmesine tıklayın. Geri gönderme seçilen dosyanın içeriğini ardından ona kaydetmeden önce dosya hakkındaki bilgileri görüntüler web sunucusuna Gönder `~/Brochures` klasör. Dosyayı karşıya yükledikten sonra Visual Studio'ya geri dönün ve Çözüm Gezgini'nde Yenile düğmesini tıklatın. Yalnızca ~/Brochures klasöründe karşıya dosya görmeniz gerekir!
 
@@ -264,7 +264,7 @@ Dosya adı çakışmalarını çözmek için teknikleri mevcuttur. Zaten var., v
 
 ## <a name="challenges-involved-with-very-large-amounts-of-binary-data"></a>İkili veri çok büyük miktarlarda ile ilgili sorunları
 
-Bu öğreticiler yakalanan ikili veri boyutu uygun olduğunu varsayın. Çok büyük miktarda birkaç megabayt ikili veri dosyaları ile çalışma veya daha büyük bu öğreticileri kapsamı dışındaki yeni zorluklar getirir. Bu aracılığıyla yapılandırılabilir olsa da örneğin, varsayılan ASP.NET 4 MB'den daha yüklemeleri reddeder [ `<httpRuntime>` öğesi](https://msdn.microsoft.com/en-us/library/e1f13641.aspx) içinde `Web.config`. IIS kendi dosya karşıya yükleme boyutu sınırlamaları çok uygular. Bkz: [IIS karşıya dosya boyutu](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) daha fazla bilgi için. Ayrıca, büyük dosyaları karşıya yükleme için geçen süre 110 ASP.NET isteği için bekleyeceği saniye varsayılan aşabilir. Büyük dosyaları ile çalışırken ortaya çıkan bellek ve performans sorunları vardır.
+Bu öğreticiler yakalanan ikili veri boyutu uygun olduğunu varsayın. Çok büyük miktarda birkaç megabayt ikili veri dosyaları ile çalışma veya daha büyük bu öğreticileri kapsamı dışındaki yeni zorluklar getirir. Bu aracılığıyla yapılandırılabilir olsa da örneğin, varsayılan ASP.NET 4 MB'den daha yüklemeleri reddeder [ `<httpRuntime>` öğesi](https://msdn.microsoft.com/library/e1f13641.aspx) içinde `Web.config`. IIS kendi dosya karşıya yükleme boyutu sınırlamaları çok uygular. Bkz: [IIS karşıya dosya boyutu](http://vandamme.typepad.com/development/2005/09/iis_upload_file.html) daha fazla bilgi için. Ayrıca, büyük dosyaları karşıya yükleme için geçen süre 110 ASP.NET isteği için bekleyeceği saniye varsayılan aşabilir. Büyük dosyaları ile çalışırken ortaya çıkan bellek ve performans sorunları vardır.
 
 Büyük dosya karşıya dosya yükleme denetimi zordur. Sunucuya dosya s içeriğini gönderilen gibi son kullanıcı kendi karşıya yükleme işlendiğini tüm onaysız patiently beklemeniz gerekir. Bu kadar çok sorun, birkaç saniye içinde yüklenebilir, ancak bir sorun karşıya yüklemek için dakika sürebilir büyük dosyalarla ilgilenirken olabilir daha küçük dosyalar ile ilgilenirken değildir. Büyük yüklemeleri işlemek için daha uygundur karşıya yükleme denetimi üçüncü taraf dosya çeşitli vardır ve bu satıcılardan çoğunu İlerleme göstergesi ve ActiveX çok daha zarif bir kullanıcı deneyimi sunmak yöneticileri karşıya sağlayın.
 
@@ -280,7 +280,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Değer büyük veri türlerini kullanma](https://msdn.microsoft.com/en-us/library/ms178158.aspx)
+- [Değer büyük veri türlerini kullanma](https://msdn.microsoft.com/library/ms178158.aspx)
 - [Dosya yükleme denetimi QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/standard/fileupload.aspx)
 - [ASP.NET 2.0 dosya yükleme sunucu denetimi](http://www.wrox.com/WileyCDA/Section/id-292158.html)
 - [Dosya koyu tarafında yükler](http://www.aspnetresources.com/articles/dark_side_of_file_uploads.aspx)

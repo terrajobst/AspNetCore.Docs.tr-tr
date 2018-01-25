@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -163,7 +163,7 @@ Entity Framework Çekirdek kullanarak Hizmetleri kayıtlı, için [bağımlılı
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
-`ContactAdministratorsAuthorizationHandler`ve `ContactManagerAuthorizationHandler` teklileri eklenir. Teklileri EF kullanmayın ve gerekli tüm bilgileri de olduğundan oldukları `Context` parametresinin `HandleRequirementAsync` yöntemi.
+`ContactAdministratorsAuthorizationHandler`ve `ContactManagerAuthorizationHandler` teklileri eklenir. Olup olmadıklarını teklileri EF kullanmayın ve gerekli tüm bilgileri de olduğundan `Context` parametresinin `HandleRequirementAsync` yöntemi.
 
 Tam `ConfigureServices`:
 
@@ -221,11 +221,11 @@ Güncelleştirme *Views/Contacts/Index.cshtml* yalnızca düzenleme görüntüle
 
 Ekleme`@using ContactManager.Authorization;`
 
-Güncelleştirme `Edit` ve `Delete` düzenlemek ve kişiyi silmek izne sahip kullanıcılar yalnızca işlendikleri şekilde bağlar.
+Güncelleştirme `Edit` ve `Delete` düzenlemek ve kişiyi silmek izne sahip kullanıcılar yalnızca çizilir şekilde bağlar.
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-Uyarı: Düzen veya veri silmek için izne sahip olmayan kullanıcılardan gelen bağlantılar gizleme uygulama güvenliğini sağlamaz. Bağlantılar gizleme uygulama daha fazla kullanıcı kolay yalnızca geçerli bağlantılar görüntüleyerek yapar. Kullanıcıları düzenleme çağırma ve silme işlemleri ait olmayan veriler üzerinde oluşturulan URL'lerini korsan saldırılarına.  Denetleyici güvenli olması için erişim denetimleri yinelemeniz gerekir.
+Uyarı: Düzen veya veri silmek için izne sahip olmayan kullanıcılardan gelen bağlantılar gizleme uygulama güvenli değil. Bağlantılar gizleme uygulama daha fazla kullanıcı kolay yalnızca geçerli bağlantılar görüntüleyerek yapar. Kullanıcıları düzenleme çağırma ve silme işlemleri ait olmayan veriler üzerinde oluşturulan URL'lerini korsan saldırılarına.  Denetleyici güvenli olması için erişim denetimleri yinelemeniz gerekir.
 
 ### <a name="update-the-details-view"></a>Güncelleştirme ayrıntıları görünümü
 
@@ -304,7 +304,7 @@ Vurgulanmış kodu sonuna ekleyin `Configure` yönteminde *haline* dosyası:
 
 [!code-csharp[Main](secure-data/samples/starter/Startup.cs?name=Configure&highlight=28-)]
 
-Uygulama veritabanı sağlanmış sınayın. Kişi DB herhangi bir satır varsa seed yöntemi çalışmaz.
+Uygulama veritabanı sağlanmış sınayın. Seed yöntemi kişi DB herhangi bir satır varsa çalıştırmaz.
 
 ### <a name="create-a-class-used-in-the-tutorial"></a>Öğreticide kullanılan sınıf oluşturma
 

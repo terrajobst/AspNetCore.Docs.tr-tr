@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET çekirdeği modülü için giriş
 
@@ -38,9 +38,9 @@ IIS, ANCM ve ASP.NET Core uygulamaları arasındaki ilişkiyi gösteren diyagram
 
 ![ASP.NET çekirdeği Modülü](aspnet-core-module/_static/ancm.png)
 
-İstekleri Web sunucusundan gelen ve bunları birincil bağlantı noktası (80) veya SSL bağlantı noktası (443) üzerinde IIS içine yönlendiren çekirdek modu Http.Sys sürücüsünü ulaştı. ANCM ASP.NET Core uygulama 80/443 numaralı bağlantı noktası değil uygulama için yapılandırılan HTTP bağlantı noktası isteklerini iletir.
+İstekleri Web sunucusundan gelen ve bunları birincil bağlantı noktası (80) veya SSL bağlantı noktası (443) üzerinde IIS içine yönlendiren çekirdek modu Http.Sys sürücüsünü ulaştı. ANCM iletir istekleri ASP.NET Core uygulamaya bağlantı noktası olmayan uygulama için yapılandırılan HTTP bağlantı noktası 80/443'tür.
 
-ANCM gelen trafik için kestrel dinler.  ANCM başlangıçta ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [UseIISIntegration](#call-useiisintegration) yöntemi yapılandırır üzerinde dinlemek üzere `http://localhost:{port}`. ANCM değil, istekleri reddedecek şekilde ek denetimler vardır. (HTTPS üzerinden IIS tarafından alınan olsa bile istekleri HTTP üzerinden iletilir şekilde ANCM HTTPS iletme'yi desteklemiyor.)
+ANCM gelen trafik için kestrel dinler.  ANCM başlangıçta ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [UseIISIntegration](#call-useiisintegration) yöntemi yapılandırır üzerinde dinlemek üzere `http://localhost:{port}`. ANCM değil, istekleri reddedecek şekilde ek denetimler vardır. (HTTPS üzerinden IIS tarafından alınan olsa bile istekleri HTTP üzerinden iletilir şekilde ANCM HTTPS iletme desteklemiyor.)
 
 Kestrel ANCM istekleri seçer ve bunları daha sonra bunları işler ve bunları olarak geçirdiği ASP.NET Core ara yazılım ardışık düzenini içine iter `HttpContext` uygulama mantığını örneklerine. Uygulamanın yanıtları sonra IIS, isteklerin başlatılan HTTP istemcisi geri hangi iter dön geçirilir.
 

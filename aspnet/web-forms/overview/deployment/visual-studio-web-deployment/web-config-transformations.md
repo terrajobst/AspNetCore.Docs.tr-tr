@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config dosyası dönüşümleri
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -35,7 +35,7 @@ Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir ş
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Web dağıtımı parametreleri karşı Web.config dönüşümleri
 
-Değiştirme işlemini otomatikleştirmek için iki yolla *Web.config* dosya ayarlarını: [Web.config dönüşümleri](https://msdn.microsoft.com/en-us/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* dönüşüm dosyasını içeren nasıl değiştirileceğini belirten XML biçimlendirme *Web.config* dosya dağıtıldığında. Belirli farklı değişiklikleri derleme yapılandırmaları ve özel yayımlama profillerini belirtebilirsiniz. Hata ayıklama ve yayın varsayılan derleme yapılandırmaları olan ve özel derleme yapılandırmaları oluşturabilirsiniz. Bir yayımlama profili, hedef ortam için genellikle karşılık gelir. (Profillerinde yayımlama hakkında daha fazla bilgi edineceksiniz [IIS'ye bir Test ortamı olarak dağıtma](deploying-to-iis.md) öğretici.)
+Değiştirme işlemini otomatikleştirmek için iki yolla *Web.config* dosya ayarlarını: [Web.config dönüşümleri](https://msdn.microsoft.com/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* dönüşüm dosyasını içeren nasıl değiştirileceğini belirten XML biçimlendirme *Web.config* dosya dağıtıldığında. Belirli farklı değişiklikleri derleme yapılandırmaları ve özel yayımlama profillerini belirtebilirsiniz. Hata ayıklama ve yayın varsayılan derleme yapılandırmaları olan ve özel derleme yapılandırmaları oluşturabilirsiniz. Bir yayımlama profili, hedef ortam için genellikle karşılık gelir. (Profillerinde yayımlama hakkında daha fazla bilgi edineceksiniz [IIS'ye bir Test ortamı olarak dağıtma](deploying-to-iis.md) öğretici.)
 
 Web dağıtım parametrelerini, birçok farklı türde bulunan ayarlar dahil olmak üzere, dağıtımı sırasında yapılandırılmalıdır ayarlarını belirtmek için kullanılabilir *Web.config* dosyaları. Belirtmek için kullanıldığında *Web.config* dosya değişiklikleri Web dağıtım parametrelerini ayarlamak için daha karmaşık, ancak dağıttığınız kadar ayarlanacak değer bilmiyorsanız, yararlı olur. Örneğin, bir kuruluş ortamında oluşturabilirsiniz bir *dağıtım paketi* ve BT departmanı üretimde yüklemek için bir kişiye verin ve bu kişiye bağlantı dizeleri veya olmayan bir parola girmeniz mümkün olması gerekir bilirsiniz.
 
@@ -148,7 +148,7 @@ Varsayılan dönüştürme dosyası bir bağlantı dizesi güncelleştirmek nas�
 
 Aşağıdaki öğreticide, proje özelliklerini ayarlama gerektiren dağıtım kurulum görevlerini ilgilenebilmek.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
 Bu öğretici kapsamında konular hakkında daha fazla bilgi için bkz: [dağıtımı sırasında hedef Web.config veya app.config dosyasını ayarları değiştirmek için Web.config kullanarak dönüşümleri](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) için Web dağıtımı içerik haritası içindeki Visual Studio ve ASP.NET.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3a98ee93df9ef7c94b3d0da81c095cccedadf05f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8de1acada8713abf5f92c1f13fa82a5d4ccc18be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-vb"></a>Geliştirme ve üretim (VB) ortak yapılandırma farklılıkları
 ====================
@@ -38,7 +38,7 @@ Bir web uygulaması dağıtırken doğru yapılandırma bilgilerini üretim orta
 
 `Web.config` Dosyası, bir ASP.NET uygulaması için yapılandırma bilgilerini bir listesini içerir. Bu yapılandırma bilgilerin bazıları olduğu ortam bakılmaksızın aynı. Örneğin, URL yetkilendirme kuralları ve kimlik doğrulama ayarları içinde yazıyla `Web.config` dosyanın `<authentication>` ve `<authorization>` öğeleridir genellikle ortamı bakılmaksızın aynı. Ancak diğer yapılandırma bilgilerini - dış kaynaklara - hakkındaki bilgiler gibi genellikle ortamına bağlı olarak farklılık gösterir.
 
-Veritabanı bağlantı dizeleri farklı yapılandırma bilgilerini prime örneği ortamda dayalıdır. Ne zaman bir web uygulaması iletişim kuran bir veritabanı sunucusu ile önce bir bağlantı kurması gerekir ve aracılığıyla elde bir [bağlantı dizesi](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Kod sabit veritabanı bağlantı dizesinde doğrudan web sayfaları veya veritabanına bağlanan kodu mümkün olsa da, yerleştirmek en iyisidir `Web.config`'s [ `<connectionStrings>` öğesi](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx) böylece bağlantı dizesi tek ve merkezi bir konumda bilgilerdir. Görmemeleri farklı bir veritabanı üretimde halinden geliştirme sırasında kullanılır; Sonuç olarak, bağlantı dizesi bilgilerini her ortam için benzersiz olmalıdır.
+Veritabanı bağlantı dizeleri farklı yapılandırma bilgilerini prime örneği ortamda dayalıdır. Ne zaman bir web uygulaması iletişim kuran bir veritabanı sunucusu ile önce bir bağlantı kurması gerekir ve aracılığıyla elde bir [bağlantı dizesi](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Kod sabit veritabanı bağlantı dizesinde doğrudan web sayfaları veya veritabanına bağlanan kodu mümkün olsa da, yerleştirmek en iyisidir `Web.config`'s [ `<connectionStrings>` öğesi](https://msdn.microsoft.com/library/bf7sd233.aspx) böylece bağlantı dizesi tek ve merkezi bir konumda bilgilerdir. Görmemeleri farklı bir veritabanı üretimde halinden geliştirme sırasında kullanılır; Sonuç olarak, bağlantı dizesi bilgilerini her ortam için benzersiz olmalıdır.
 
 > [!NOTE]
 > Bu noktada biz veritabanı bağlantı dizelerini yapılandırma dosyasında nasıl depolandığını özelliklerini ıntune'un, veri güdümlü uygulamaları dağıtma gelecekteki öğreticileri keşfedin.
@@ -48,7 +48,7 @@ Geliştirme ve üretim ortamlarını hedeflenen davranışını önemli ölçüd
 
 ### <a name="configuration-settings-that-impact-performance"></a>Performansı etkileyen yapılandırma ayarları
 
-Bir ASP.NET sayfasını ziyaret ilk kez (veya onu değiştikten sonra ilk kez) için bildirim temelli biçimlendirme bir sınıfına dönüştürülmesi gerekir ve bu sınıf derlenmiş gerekir. Otomatik derleme web uygulamasını kullanıyorsa, sayfanın arka plandaki kod sınıfı, çok derlenmesi gerekiyor. Derleme seçenekleri bir sınıflama yapılandırabilirsiniz `Web.config` dosyanın [ `<compilation>` öğesi](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx).
+Bir ASP.NET sayfasını ziyaret ilk kez (veya onu değiştikten sonra ilk kez) için bildirim temelli biçimlendirme bir sınıfına dönüştürülmesi gerekir ve bu sınıf derlenmiş gerekir. Otomatik derleme web uygulamasını kullanıyorsa, sayfanın arka plandaki kod sınıfı, çok derlenmesi gerekiyor. Derleme seçenekleri bir sınıflama yapılandırabilirsiniz `Web.config` dosyanın [ `<compilation>` öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx).
 
 Hata ayıklama özniteliği en önemli öznitelikleri biri `<compilation>` öğesi. Varsa `debug` özniteliği ayarlanmış derlenmiş derlemeleri Visual Studio uygulamada hata ayıklama sırasında gerekli hata ayıklama simgeleri eklemek sonra "true". Ancak hata ayıklama simgeleri derleme boyutunu artırın ve kod çalıştırırken ek bellek gereksinimleri. Ayrıca, `debug` özniteliği ayarlanmış "tarafından döndürülen herhangi bir içerik true" `WebResource.axd` , her bir kullanıcı tarafından döndürülen statik içeriği yeniden yüklemek için gerekir, bir sayfasını ziyaret anlamı önbelleğe alınmaz `WebResource.axd`.
 
@@ -68,7 +68,7 @@ Bir ASP.NET uygulamasındaki işlenmeyen bir özel durum oluştuğunda, bu nokta
 - Yeni oluşturulan özel durum hakkında bilgi içeren bir özel durum ayrıntıları iletisi görüntülenir.
 - İstediğiniz herhangi bir iletisi görüntüleyen, oluşturduğunuz bir ASP.NET sayfası olduğu bir özel hata sayfası görüntülenir.
 
-İşlenmeyen bir özel durum karşısında olanlar bağlıdır `Web.config` dosyanın [ `<customErrors>` bölüm](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx).
+İşlenmeyen bir özel durum karşısında olanlar bağlıdır `Web.config` dosyanın [ `<customErrors>` bölüm](https://msdn.microsoft.com/library/h0hfz6fc.aspx).
 
 Geliştirme ve bir uygulamayı test ederken tarayıcıda herhangi bir özel durum ayrıntılarını görmek için yardımcı olur. Ancak, özel durum ayrıntıları ürün uygulamada gösteren olası bir güvenlik riski oluşturur. Ayrıca, unflattering ve profesyonel Ara Web sitenizi yapar. İdeal olarak, üretim aynı uygulamada bir özel hata sayfası gösterilir sırasında işlenmeyen bir özel durum durumunda bir web uygulaması geliştirme ortamında özel durumun Ayrıntılar gösterilir.
 
@@ -76,7 +76,7 @@ Geliştirme ve bir uygulamayı test ederken tarayıcıda herhangi bir özel duru
 > Varsayılan `<customErrors>` bölüm ayarını gösterir özel durum ayrıntıları iletisini yalnızca sayfa localhost ziyaret, aksi takdirde genel çalışma zamanı hata sayfası görüntülenir. Bu ideal değildir, ancak varsayılan davranışı yerel olmayan ziyaretçileri özel durum ayrıntıları ortaya değil bilmeniz modemlerin. Bir sonraki öğretici inceler `<customErrors>` bölümünde daha ayrıntılı ve üretimde bir hata oluştuğunda gösterilen bir özel hata sayfası gösterilmektedir.
 
 
-Geliştirme sırasında yararlı olan başka bir ASP.NET özelliği izleme. İzleme etkinleştirilirse, her gelen istek ilgili bilgileri kaydeder ve özel bir web sayfası sağlar `Trace.axd`, son istek ayrıntıları görüntülemek için. ' Yı açmak ve aracılığıyla İzlemeyi Yapılandır [ `<trace>` öğesi](https://msdn.microsoft.com/en-us/library/6915t83k.aspx) içinde `Web.config`.
+Geliştirme sırasında yararlı olan başka bir ASP.NET özelliği izleme. İzleme etkinleştirilirse, her gelen istek ilgili bilgileri kaydeder ve özel bir web sayfası sağlar `Trace.axd`, son istek ayrıntıları görüntülemek için. ' Yı açmak ve aracılığıyla İzlemeyi Yapılandır [ `<trace>` öğesi](https://msdn.microsoft.com/library/6915t83k.aspx) içinde `Web.config`.
 
 Etkinleştirirseniz emin olun izleme üretimde olan devre dışıdır. İzleme bilgilerini tanımlama bilgileri, oturum verilerini ve diğer olası hassas bilgileri içerdiğinden, üretim izleme devre dışı bırakmak önemlidir. Varsayılan olarak, izleme devre dışı bırakıldı, iyi haber olduğu ve `Trace.axd` dosyasıdır yalnızca localhost erişilebilir. Bu varsayılan ayarlar geliştirme değiştirirseniz geri üretimde kapalı olduğundan emin olun.
 
@@ -110,7 +110,7 @@ Bu dizine aşağıdaki yollarla kopyalanan yapılandırma bilgileri:
 
 Web dağıtımı için uygulama Web dağıtımı projeyi oluşturun ve ardından dosyaları projenin çıktı klasöründen üretim ortamına kopyalayın.
 
-Öğrenmek için Web dağıtım projesi kullanma hakkında daha fazla kullanıma [Web dağıtım projeleri makalede](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx) Nisan 2007 sorunun gelen [MSDN dergisi](https://msdn.microsoft.com/en-us/magazine/default.aspx), ya da daha fazla bilgi kısmında bağlantılara bakın Bu öğreticide sonuna.
+Öğrenmek için Web dağıtım projesi kullanma hakkında daha fazla kullanıma [Web dağıtım projeleri makalede](https://msdn.microsoft.com/magazine/cc163448.aspx) Nisan 2007 sorunun gelen [MSDN dergisi](https://msdn.microsoft.com/magazine/default.aspx), ya da daha fazla bilgi kısmında bağlantılara bakın Bu öğreticide sonuna.
 
 > [!NOTE]
 > Web dağıtımı proje bir Visual Studio eklentisi olarak uygulanır ve Visual Studio Express (Visual Web Developer dahil) sürümleri eklentileri desteklemeyen olduğundan, Web dağıtım projesi ile Visual Web Developer kullanamazsınız.
@@ -134,7 +134,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Bir veritabanı dağıtırken anahtar yapılandırma ayarları](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Visual Studio 2008 Web dağıtım projeleri indirme](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [Visual Studio 2005 Web dağıtım projeleri indirme](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [VS 2008 Web dağıtım projeleri](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [yayımlanan VS 2008 Web dağıtım projesi desteği](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
-- [Web dağıtım projeleri](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)
+- [Web Dağıtımı Projeleri](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](deploying-your-site-using-visual-studio-vb.md)

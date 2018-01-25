@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web sayfaları (Razor) sitesi için güvenlik ve üyelik ekleme
 ====================
@@ -170,7 +170,7 @@ Bu yordamda, yalnızca oturum açan kullanıcılar için kullanılabilir olan sa
 Birden çok sayfa güvenli şekilde bunu yapabilirsiniz:
 
 - Güvenlik denetimi her sayfasına ekleyin.
-- Oluşturma bir  *\_PageStart.cshtml* Burada, korumalı sayfaları tutun ve güvenlik denetimi var. ekleme klasörde sayfa.  *\_PageStart.cshtml* sayfa genel sayfa klasördeki tüm sayfalar için bir tür olarak davranır. Bu teknik daha ayrıntılı olarak anlatılmıştır [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Oluşturma bir  *\_PageStart.cshtml* Burada, korumalı sayfaları tutun ve güvenlik denetimi var. ekleme klasörde sayfa. *\_PageStart.cshtml* sayfa genel sayfa klasördeki tüm sayfalar için bir tür olarak davranır. Bu teknik daha ayrıntılı olarak anlatılmıştır [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Güvenlik grupları (roller) için oluşturma
 
@@ -212,7 +212,7 @@ ASP.NET üyelik sistemini rolleri desteklemek üzere ayarlanmış. Ancak, üyeli
 
 Oturum açma sayfasına otomatik programları durdurmaz (bazen denir *web robots* veya *aracılarını*) ile Web sitenizi kaydetme gelen. Bu yordamı, kayıt sayfası için bir ReCaptcha testi etkinleştirmeyi açıklar.
 
-![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
 1. Web sitenizi ReCaptcha.Net adresindeki kayıt ([http://recaptcha.net](http://recaptcha.net)). Kayıt tamamladıktan sonra bir ortak anahtar ve özel anahtarı elde edersiniz.
 2. ASP.NET Web Yardımcıları kitaplığı açıklandığı gibi Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web Pages sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
@@ -254,20 +254,20 @@ Bu makalenin yordamı kullanmaya dayalıdır **başlangıç sitesi** şablon Web
 
 Temel işlem blog gönderisinde açıklandığı [ASP.NET Razor güvenlik uygulamak için en temel yolu](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). İşlerin çoğunu yapılır aşağıdaki yöntemleri ve özellikleri kullanarak `WebSecurity` Yardımcısı:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Bu yöntemler birisi zaten kayıtlı olup olmadığını belirlemenize olanak tanır ve bunları kaydetmek için.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Bu özellik, geçerli kullanıcının oturumu olup olmadığını belirlemenize olanak sağlar. Bunlar zaten oturum açmamış olan, kullanıcılar bir oturum açma sayfasına yeniden yönlendirmek kullanışlıdır.
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Bu yöntemler bir kullanıcı veya oturum açın.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Bu özellik, geçerli kullanıcının oturum açma adı (kullanıcı oturum açtıysa) görüntülemek için yararlıdır.
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx). Kaydı için e-posta onayı ayarladıysanız, bu yöntem kullanışlıdır. (Ayrıntıları blog gönderisinde açıklandığı [için ASP.NET Web sayfaları güvenlik onayı özelliğini kullanarak](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Bu yöntemler birisi zaten kayıtlı olup olmadığını belirlemenize olanak tanır ve bunları kaydetmek için.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Bu özellik, geçerli kullanıcının oturumu olup olmadığını belirlemenize olanak sağlar. Bunlar zaten oturum açmamış olan, kullanıcılar bir oturum açma sayfasına yeniden yönlendirmek kullanışlıdır.
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Bu yöntemler bir kullanıcı veya oturum açın.
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Bu özellik, geçerli kullanıcının oturum açma adı (kullanıcı oturum açtıysa) görüntülemek için yararlıdır.
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Kaydı için e-posta onayı ayarladıysanız, bu yöntem kullanışlıdır. (Ayrıntıları blog gönderisinde açıklandığı [için ASP.NET Web sayfaları güvenlik onayı özelliğini kullanarak](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Rolleri yönetmek için kullanabileceğiniz [rolleri](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx) ve [üyelik](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx) sınıfları, blog girişi açıklandığı gibi.
+Rolleri yönetmek için kullanabileceğiniz [rolleri](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) ve [üyelik](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) sınıfları, blog girişi açıklandığı gibi.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Site genelinde davranışını özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906)
+- [Site Geneline Yönelik Davranışını Özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Güvenliğini sağlama Web iletişimler: Sertifikaları, SSL ve https://](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [ASP.NET Razor güvenlik uygulamak için en temel yolu](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) ve [için ASP.NET Web sayfaları güvenlik onayı özelliğini kullanarak](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). ASP.NET üyelik özellikleri kullanmadan uygulanmasını açıklar blog gönderileri bunlar **başlangıç sitesi** şablonu.
-- [Bir ASP.NET Web sayfaları sitedeki dış sitelerden oturum açma etkinleştirme](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [WebSecurity sınıfı API Başvurusu](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [SimpleRoleProvider sınıfı API Başvurusu](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [SimpleMembershipProvider sınıfı API Başvurusu](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [Bir ASP.NET Web Sayfaları Sitesinde Dış Sitelerden Oturum Açmayı Etkinleştirme](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [WebSecurity sınıfı API Başvurusu](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
+- [SimpleRoleProvider sınıfı API Başvurusu](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [SimpleMembershipProvider sınıfı API Başvurusu](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

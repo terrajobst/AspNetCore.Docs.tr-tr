@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 965c32a4e2f2c9c4bd457d0c13ae99c1378c22c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2ef161f35e69ef4a754d2740199166ee48c3fbab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-scaleout-with-redis"></a>Redis ile SignalR genişletme
 ====================
@@ -74,7 +74,7 @@ Biz ayrıntılı öğretici ulaşmadan ne yapacağını Hızlı Bakış aşağı
 
     [!code-csharp[Main](scaleout-with-redis/samples/sample1.cs)]
 
-## <a name="ubuntu-on-hyper-v"></a>Hyper-V'de ubuntu
+## <a name="ubuntu-on-hyper-v"></a>Ubuntu on Hyper-V
 
 Windows Hyper-V kullanarak, Windows Server'da bir Ubuntu VM kolayca oluşturabilirsiniz.
 
@@ -150,7 +150,7 @@ Ayrıca Yönetim Hizmeti ("Yönetim Araçları" altında listelenen) içerir.
 
 Web yönetimi hizmeti çalışıp çalışmadığını denetleyin. Aksi durumda, hizmeti başlatın. (Web yönetimi hizmeti Windows Hizmetleri listede görmüyorsanız, IIS rolü eklendiğinde yönetim Hizmeti'nin yüklü emin olun.)
 
-Varsayılan olarak, Web yönetimi hizmeti 8172 numaralı TCP bağlantı noktasını dinler. Windows Güvenlik Duvarı'nda 8172 numaralı bağlantı noktasındaki TCP trafiğine izin veren yeni bir gelen kuralı oluşturun. Daha fazla bilgi için bkz: [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). (Azure Vm'lerinde barındırıyorsanız, doğrudan Azure Portalı'nda bunu yapabilirsiniz. Bkz: [nasıl bir sanal makineye uç noktaları ayarlamak için](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).)
+Varsayılan olarak, Web yönetimi hizmeti 8172 numaralı TCP bağlantı noktasını dinler. Windows Güvenlik Duvarı'nda 8172 numaralı bağlantı noktasındaki TCP trafiğine izin veren yeni bir gelen kuralı oluşturun. Daha fazla bilgi için bkz: [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Azure Vm'lerinde barındırıyorsanız, doğrudan Azure Portalı'nda bunu yapabilirsiniz. Bkz: [nasıl bir sanal makineye uç noktaları ayarlamak için](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
 Artık geliştirme makinenizden Visual Studio projesi sunucuya dağıtmaya hazır olursunuz. Çözüm Gezgini'nde çözüme sağ tıklayın ve **Yayımla**.
 

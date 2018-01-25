@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Okuma ilgili verileri - EF çekirdek ASP.NET Core MVC Öğreticisi (6 10)
 
@@ -45,7 +45,7 @@ Aşağıdaki çizimler ile karşılaşmayacağınızı sayfalarında gösterilir
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
-* Yavaş yükleniyor. Varlık ilk okunduğunda ilgili verileri alınan değil. Ancak, bir gezinti özelliği erişme girişimi ilk kez, o gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliğinden veri almaya çalışın veritabanına gönderilir. Entity Framework Çekirdek 1.0 yavaş yüklenmesini desteklemez.
+* Yavaş yükleniyor. Varlık ilk okunduğunda ilgili verileri alınan değil. Ancak, bir gezinti özelliği erişme girişimi ilk kez, o gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliğinden veri almaya çalışın veritabanına gönderilir. Entity Framework Çekirdek 1.0 yavaş yüklenmesini desteklemiyor.
 
 ### <a name="performance-considerations"></a>Performans değerlendirmeleri
 
@@ -55,7 +55,7 @@ Diğer taraftan, bazı senaryolarda ayrı sorgulara daha verimli. Bir sorgu tüm
 
 ## <a name="create-a-courses-page-that-displays-department-name"></a>Bölüm adı görüntüler kurslar sayfası oluşturma
 
-İndirmelere varlık indirmelere atandığı bölümünün departman varlığı içeren bir gezinme özelliği içerir. Atanan departmanı adını kurslar listesini görüntülemek için olan departman varlık Name özelliği almanız gereken `Course.Department` gezinti özelliği.
+İndirmelere varlık indirmelere atandığı bölümünün departman varlığı içeren bir gezinme özelliği içerir. Atanan departmanı adını kurslar listesini görüntülemek için alanında departmanı varlık Name özelliği almanız gereken `Course.Department` gezinti özelliği.
 
 Aynı seçenekleri kullanarak indirmelere varlık türü için CoursesController adlı bir denetleyicisi oluşturmak **görünümleri ile MVC Entity Framework kullanarak denetleyicisi** önceki Öğrenciler denetleyici için gösterildiği gibi yaptığınız iskele kurucu Aşağıdaki çizimde:
 
@@ -75,7 +75,7 @@ Açık *Views/Courses/Index.cshtml* ve şablon kodu aşağıdaki kodla değişti
 
 * Başlık dizinden kurslara değiştirildi.
 
-* Eklenen bir **numarası** gösterir sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız çünkü bunlar varsayılan olarak, birincil anahtarlar iskele kurulmuş değil. Ancak, bu durumda birincil anlamlı anahtarıdır ve bunu göstermek istediğiniz.
+* Eklenen bir **numarası** gösterir sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız oldukları için varsayılan olarak, birincil anahtarlar iskele kurulmuş değil. Ancak, bu durumda birincil anlamlı anahtarıdır ve bunu göstermek istediğiniz.
 
 * Değiştirilen **departmanı** bölüm adını görüntülemek için sütun. Kod görüntüler `Name` yüklenen departmanı varlık özelliği `Department` gezinti özelliği:
 

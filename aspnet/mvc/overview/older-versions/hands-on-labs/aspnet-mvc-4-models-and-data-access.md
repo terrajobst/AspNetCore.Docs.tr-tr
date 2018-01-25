@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: bf4bb5c6f9ad8339c3597b0d6666c7077ac476e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
 ====================
@@ -27,7 +27,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 İçinde **ASP.NET MVC Temelleri** uygulamalı Laboratuvar, sabit kodlanmış veri geçirerek denetleyicilerinden görünüm şablonları. Ancak, gerçek bir Web uygulaması oluşturmak için gerçek bir veritabanını kullanmak isteyebilirsiniz.
@@ -36,9 +36,9 @@ Bu uygulamalı Laboratuvar depolamak ve müzik deposu uygulaması için gereken 
 
 Ancak, aynı zamanda kullanabilirsiniz **Model First** yaklaşımını, araçları kullanarak aynı modelin oluşturun ve ondan veritabanı oluşturun.
 
-![Veritabanı ilk vs. Model ilk](aspnet-mvc-4-models-and-data-access/_static/image1.png "veritabanı ilk vs. İlk model")
+![Veritabanı ilk vs. Model ilk](aspnet-mvc-4-models-and-data-access/_static/image1.png "veritabanı ilk vs. Model First")
 
-*Veritabanı ilk vs. İlk model*
+*Veritabanı ilk vs. Model First*
 
 Model oluşturma sonra StoreController sabit kodlanmış verileri kullanmak yerine veritabanından alınan veri deposu görünümlerini sağlamak için uygun düzeltmeleri yapar. Görünüm şablonları için aynı ViewModels StoreController döndürme çünkü bu kez veritabanından veri gelir ancak herhangi bir değişiklik görünüm şablonlarda yapmak gerekmez.
 
@@ -235,7 +235,7 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, bu bilgileri almak iç
     > [!NOTE]
     > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
     > 
-    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/en-us/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu dizini*)
@@ -351,7 +351,7 @@ Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablo
     > [!NOTE]
     > Code First kuralları ile çalışmak için Tarz sınıfı otomatik olarak algılanır bir birincil anahtar özelliği olması gerekir.
     > 
-    > Daha fazla bilgiyi bu kod ilk kuralları hakkında [msdn makalesine](https://msdn.microsoft.com/en-us/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+    > Daha fazla bilgiyi bu kod ilk kuralları hakkında [msdn makalesine](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
 2. Şimdi, POCO model sınıfı açmak **albüm** gelen **modelleri** proje klasörünü ve yabancı anahtarlar dahil, adlarıyla özellikleri oluşturma **GenreId** ve  **ArtistId**. Bu sınıf zaten **GenreId** birincil anahtar.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk albüm*)
@@ -385,7 +385,7 @@ Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablo
     [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
     > [!NOTE]
-    > Entity Framework **DbContext** ve **DBSet** POCO sınıfı Tarz sorgu kuramaz. Genişletme tarafından **OnModelCreating** yöntemi, belirtmenin **kod** tarzı bir veritabanı tablosuna nasıl eşleşecektir. Bu msdn makalesinde DBContext ve DBSet hakkında daha fazla bilgi bulabilirsiniz: [bağlantı](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.103).aspx)
+    > Entity Framework **DbContext** ve **DBSet** POCO sınıfı Tarz sorgu kuramaz. Genişletme tarafından **OnModelCreating** yöntemi, belirtmenin **kod** tarzı bir veritabanı tablosuna nasıl eşleşecektir. Bu msdn makalesinde DBContext ve DBSet hakkında daha fazla bilgi bulabilirsiniz: [bağlantı](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -416,7 +416,7 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, onu veritabanından al
     > [!NOTE]
     > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
     > 
-    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/en-us/library/bb397926(v=vs.110).aspx).
+    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu dizini*)
@@ -457,7 +457,7 @@ Bu görevde deposu dizin sayfası kodlanmış olanları yerine veritabanında de
 Bu alıştırmada parametreleri kullanarak veritabanını sorgulama ve sorgu sonucu şekillendirme kullanmayı öğreneceksiniz, numara veritabanı azaltan bir özellik alma verileri daha verimli bir şekilde erişir.
 
 > [!NOTE]
-> Sorgu sonucu şekillendirme hakkında daha fazla bilgi için aşağıdaki ziyaret [msdn makalesine](https://msdn.microsoft.com/en-us/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
+> Sorgu sonucu şekillendirme hakkında daha fazla bilgi için aşağıdaki ziyaret [msdn makalesine](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
 
 
 <a id="Ex3Task1"></a>

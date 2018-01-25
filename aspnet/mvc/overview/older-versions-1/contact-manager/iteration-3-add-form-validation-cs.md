@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06c7fc31e138e9009640d20202e4745a61b68eeb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Yineleme #3 – Ekle form doğrulama (C#)
 ====================
@@ -63,13 +63,13 @@ Bu yinelemede doğrudan denetleyici eylemleri için doğrulama mantığını ekl
 
 Bu yinelemede şeyler basit tutmak için size tüm doğrulama kodu el ile yazmak. Doğrulama kodu kendisini yazmak yerine, biz doğrulama çerçevesinden ele geçirebilir. Örneğin, ASP.NET MVC uygulamanız için doğrulama mantığını uygulamak için Microsoft Kurumsal kitaplığı doğrulama uygulama blok (VAB) kullanabilirsiniz. Doğrulama uygulama bloğu hakkında daha fazla bilgi için bkz:
 
-[*http://msdn.microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>Oluştur görünümünün doğrulama ekleme
 
 Oluştur görünümünün doğrulama mantığını ekleyerek başlayın s olanak tanır. Biz Oluştur görünümünün Visual Studio ile oluşturulmuş için Neyse ki, Oluştur görünümünün zaten tüm doğrulama iletileri görüntülemek için gerekli kullanıcı arabirimi mantığı içerir. Oluştur görünümünün listeleme 1'de yer alır.
 
-**1 - listeleme \Views\Contact\Create.aspx**
+**Listing 1 - \Views\Contact\Create.aspx**
 
 [!code-aspx[Main](iteration-3-add-form-validation-cs/samples/sample1.aspx)]
 

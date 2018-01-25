@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2c7473647f23daf20ce7b204f621fb34f1a528c2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 43d9ecacc479dac3eff35cc745b30d859c5cfd1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Bir Razor sayfasına doğrulama ekleme
 
@@ -59,7 +59,7 @@ Form otomatik olarak işlenen geçersiz bir değer içeren her bir alan bir doğ
 
 Önemli faydası ise **hiçbir** kod değişiklikleri oluşturma veya düzenleme sayfalarında gerekli. DataAnnotations modeline uygulanan sonra UI doğrulama etkinleştirildi. Bu öğreticide otomatik olarak oluşturulan Razor sayfalarının çekilen doğrulama kurallarını (doğrulama öznitelikleri özelliklerini kullanarak `Movie` model sınıfı). Sınama doğrulaması aynı doğrulama düzen sayfası kullanılarak uygulanır.
 
-İstemci tarafı doğrulama hataları kadar form verilerini sunucuya gönderilir. Form verileri bir veya daha fazla aşağıdaki yaklaşımlardan gönderilir doğrulayın:
+İstemci tarafı doğrulama hataları kadar form verilerini sunucuya gönderilen değil. Form verileri bir veya daha fazla aşağıdaki yaklaşımlardan tarafından gönderilen değil doğrulayın:
 
 * Bir kesme noktası koyun `OnPostAsync` yöntemi. Form gönderme (seçin **oluşturma** veya **kaydetmek**). Kesme noktası hiçbir zaman ulaştı.
 * Kullanım [Fiddler aracı](http://www.telerik.com/fiddler).
@@ -112,7 +112,7 @@ Doğrulama mantığını değiştirmek gerektiğinde, model yalnızca yapılır.
 public DateTime ReleaseDate { get; set; }
 ```
 
-`ApplyFormatInEditMode` Ayarı, düzenleme için değer görüntülendiğinde biçimlendirme uygulanması gerektiğini belirtir. Bazı alanları için bu davranışı istemeyebilirsiniz. Örneğin, para birimi değerleri, büyük olasılıkla düzenleme UI para birimi simgesini istemezsiniz.
+`ApplyFormatInEditMode` Ayarı, düzenleme için değer görüntülendiğinde biçimlendirme uygulanması gerektiğini belirtir. Bazı alanları için bu davranışı istemeyebilirsiniz. Örneğin, para birimi değerleri düzenleme UI para birimi simgesini büyük olasılıkla istemezsiniz.
 
 `DisplayFormat` Özniteliği tek başına kullanılabilir, ancak genellikle kullanmak iyi bir fikir değil `DataType` özniteliği. `DataType` Özniteliği bir ekranda işlemesini nasıl aksine veri semantiği iletir ve DisplayFormat ile elde etmezsiniz aşağıdaki avantajları sağlar:
 
@@ -120,7 +120,7 @@ public DateTime ReleaseDate { get; set; }
 * Varsayılan olarak, tarayıcı, bölgesel ayarına göre doğru biçimi kullanarak bir veri oluşturmaz.
 * `DataType` Özniteliği verileri işlemek için sağ alan şablon seçmek ASP.NET Core framework etkinleştirebilir. `DisplayFormat` Tarafından kullanılan kendisini dize şablonu kullanır.
 
-Not: jQuery doğrulama çalışmıyor `Range` özniteliği ve `DateTime`. Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
+Not: jQuery doğrulama ile işe yaramazsa `Range` özniteliği ve `DateTime`. Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
 
 ```csharp
 [Range(typeof(DateTime), "1/1/1966", "1/1/2020")]

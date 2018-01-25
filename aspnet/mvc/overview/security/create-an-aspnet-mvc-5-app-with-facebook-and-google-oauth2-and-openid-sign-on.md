@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: aaa061e61b9bab5b33083851624f0487b2cf6473
-ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
+ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile bir ASP.NET MVC 5 uygulaması oluşturma
 ====================
@@ -95,7 +95,7 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için SSL
 6. Seçin **Web** sekmesini ve ardından içine SSL URL'sini yapıştırın **proje URL'sini** kutusu. (Ctl + S) dosyasını kaydedin. Facebook ve Google kimlik doğrulama uygulamaları yapılandırmak için bu URL gerekir.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. Ekleme [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini `Home` tüm istekleri gerektirecek şekilde denetleyicisi HTTPS kullanmalıdır. Daha güvenli bir yöntem eklemektir [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filtre uygulama. Bölümüne bakın &quot;SSL ve yetkilendirmek özniteliği uygulamasıyla koruma&quot; my tutoral içinde [auth ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Giriş denetleyicisi bir bölümü aşağıda verilmiştir.
+7. Ekleme [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) özniteliğini `Home` tüm istekleri gerektirecek şekilde denetleyicisi HTTPS kullanmalıdır. Daha güvenli bir yöntem eklemektir [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtre uygulama. Bölümüne bakın &quot;SSL ve yetkilendirmek özniteliği uygulamasıyla koruma&quot; my tutoral içinde [auth ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Giriş denetleyicisi bir bölümü aşağıda verilmiştir.
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
 8. Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın. Geçmişte sertifika yüklediyseniz, bu bölümde geri kalanını atlayın ve atlamak [için OAuth 2 bir Google uygulaması oluşturma ve uygulama projesine bağlanma](#goog), aksi takdirde otomatik olarak imzalanan güven için yönergeleri izleyin IIS Express üretti sertifikası.  
@@ -286,7 +286,7 @@ My öğreticisini izleyin [auth ve SQL DB ile bir ASP.NET MVC uygulaması oluşt
 
 1. Uygulamanızı Azure'a dağıtmak nasıl.
 2. Uygulama rolleri ile güvenli hale getirmek nasıl.
-3. Uygulamanız ile güvenli hale getirmek nasıl [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) ve [Authorize](https://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtreler.
+3. Uygulamanız ile güvenli hale getirmek nasıl [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) ve [Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtreler.
 4. Kullanıcıları ve rolleri eklemek için üyelik API'si kullanma
 
 Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabileceğini bırakın. En yeni konular da isteğinde bulunabilirsiniz [Göster bana nasıl kodu ile](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code). Hatta, sorun ve ASP.NET ile eklenecek yeni özellikler oy verin. Örneğin, bir aracı için oy kullanabilir [kullanıcıları ve rolleri oluşturun ve yönetin.](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)

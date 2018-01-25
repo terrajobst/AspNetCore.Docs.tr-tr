@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları 2013.2 Visual Studio 2013 sürüm notları
 ====================
@@ -41,12 +41,12 @@ Aşağıdaki bölümlerde sürümünde tanıtılan özellikleri açıklanmaktad�
 - [Bir ASP.NET proje şablonları](#oneaspnet)
 - [IIS Express Web uygulamalarını başlatılırken SSL desteği](#ssl)
 - [Visual Studio Web Düzenleyicisi geliştirmeleri](#vswebeditor)
-- [Tarayıcı bağlantısı](#browserlink)
+- [Tarayıcı Bağlantısı](#browserlink)
 - [Visual Studio'da Azure App Service Web uygulamaları için destek](#waws)
 - [Yeni bir Web projesi oluştururken, uzaktan Azure kaynakları oluşturun](#AzureResources)
 - [Web yayımlama geliştirmeleri](#webpublish)
-- [ASP.NET İskele](#scaffolding)
-- [NuGet 2.8.1 ile](#nuget)
+- [ASP.NET Scaffolding](#scaffolding)
+- [NuGet 2.8.1](#nuget)
 - [ASP.NET Web formları](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
 - [ASP.NET Web API 2.1.2](#webapi)
@@ -149,7 +149,7 @@ Bir Azure eklediğimiz ["Uzak kaynaklar oluştur"](https://docs.microsoft.com/az
 - Yayımlama kullanıcı deneyimini geliştirir.
 
 <a id="scaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 - **Enum desteği:** model numaralandırmaları kullanarak sonra MVC iskele kurucu Enum için açılır liste oluşturur. Bu, MVC'de Enum Yardımcıları kullanır.
 - **Bootstrap Destek**: önyükleme sınıfları kullanması için yapı İskelesi MVC EditorFor şablonlarında güncelleştirildi.
@@ -175,7 +175,7 @@ Aşağıdaki ekran görüntüleri yapı iskelesi modellerini göstermektedir.
     ![Birleşik giriş kutusu boş dize izin verme](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image26.png)
 
 <a id="nuget"></a>
-### <a name="nuget-281"></a>NuGet 2.8.1 ile
+### <a name="nuget-281"></a>NuGet 2.8.1
 
 NuGet 2.8.1 ile RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları belirgin noktalarından İşte, ancak lütfen denetleyin [tam sürüm notları](http://docs.nuget.org/docs/release-notes/nuget-2.8) bu değişiklikler hakkında daha fazla bilgi için.
 
@@ -232,10 +232,10 @@ NuGet 2.8.1 ile RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları bel
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework sürüm 6.1 çalışma zamanı ve araçları için güncelleştirilmiştir. Entity Framework (EF) 6.1 Entity Framework 6 küçük bir güncelleştirmesidir ve çeşitli hata düzeltmeleri ve yeni özellikler içerir. Yeni özellikleri için belgelere bağlantıları dahil olmak üzere EF6.1 hakkında ayrıntılı bilgi için bkz: [Entity Framework sürüm geçmişi](https://msdn.microsoft.com/en-US/data/jj574253). Bu sürümdeki yeni özellikleri şunlardır:
+Entity Framework sürüm 6.1 çalışma zamanı ve araçları için güncelleştirilmiştir. Entity Framework (EF) 6.1 Entity Framework 6 küçük bir güncelleştirmesidir ve çeşitli hata düzeltmeleri ve yeni özellikler içerir. Yeni özellikleri için belgelere bağlantıları dahil olmak üzere EF6.1 hakkında ayrıntılı bilgi için bkz: [Entity Framework sürüm geçmişi](https://msdn.microsoft.com/data/jj574253). Bu sürümdeki yeni özellikleri şunlardır:
 
 - **Birleştirme tooling** yeni bir EF modeli oluşturmak için tutarlı bir yol sağlar. Bu özelliği, var olan bir veritabanından ters mühendislik dahil olmak üzere oluşturma Code First modelleri desteklemek için ADO.NET varlık veri modeli Sihirbazı genişletir. Bu özellikler Beta kalitesinde EF Güç Araçları'nda önceden kullanılabilir.
-- **İşlem yürütme hatalarının işleme** yeni sağlar [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) hangi yapar TRANSACTION işlemlerini müdahale yeni sunulan özelliğini kullanın. **CommitFailureHandler** bir işlem gerçekleştirmeden adımında bağlantı hataları otomatik kurtarma sağlar.
+- **İşlem yürütme hatalarının işleme** yeni sağlar [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) hangi yapar TRANSACTION işlemlerini müdahale yeni sunulan özelliğini kullanın. **CommitFailureHandler** bir işlem gerçekleştirmeden adımında bağlantı hataları otomatik kurtarma sağlar.
 - **IndexAttribute** Code First modelinizin bir özellik (veya özellikleri) üzerinde bir öznitelik koyarak belirtilmesi için dizinler sağlar. Kod ilk ardından karşılık gelen bir dizin veritabanını oluşturur.
 - **Ortak eşleme API** EF sahip nasıl özellikleri ve türleri sütunlara ve veritabanındaki tabloların eşlendiğini üzerinde bilgilerine erişim sağlar. Sürümleri bu API iç içindeydi.
 - **Dinleyiciler App/Web.config dosyası aracılığıyla yapılandırma yeteneği**(uygulama derlemeden eklenecek dinleyiciler izin vererek).
@@ -256,7 +256,7 @@ Entity Framework sürüm 6.1 çalışma zamanı ve araçları için güncelleşt
 - **UserManager aracılığıyla destek silme işlemi**
 - **Kullanıcı adı özniteliklerinde dizin**: ASP.NET Identity Entity Framework uygulamasını eklediğimiz benzersiz bir dizin kullanıcı EF 6.1.0 yeni IndexAttribute kullanarak. Bu kullanıcı adlarını her zaman benzersiz ve hangi, yinelenen kullanıcı adları ile şunun hiçbir yarış durumu oluştu emin olur.
 - **Gelişmiş Parola doğrulayıcı:** ASP.NET Identity 1. 0 ' sevk edilen Parola doğrulayıcı yalnızca en az uzunluk doğrulama oldukça temel parola Doğrulayıcı oluştu. Parola karmaşıklığını üzerinde daha fazla denetim sağlar yeni bir parola Doğrulayıcı yoktur. Lütfen bu parolayı dosyasındaki tüm ayarların kapatmanız olsa bile, kullanıcı hesaplarını iki faktörlü kimlik doğrulamasını etkinleştirmek için öneririz olduğunu unutmayın.
-- **IdentityFactory Ara / CreatePerOwinContext**:
+- **IdentityFactory Middleware/ CreatePerOwinContext**:
 
     - **Kullanıcı Yöneticisi**: UserManager örneği OWIN bağlamı elde etmek için Üreteç uygulaması kullanabilirsiniz. Bu desen ne bulunan OWIN bağlamından Signın ve SignOut için almak için kullandığımız için benzer. Bu uygulama için istek başına UserManager örneği almanın önerilen bir yoludur.
     - **DbContextFactory**: ASP.NET Identity Entity Framework SQL Server'daki kimlik sistemi sürdürmek için kullanır. Kimlik sistemi bunun için ApplicationDbContext bir başvuru içeriyor. DbContextFactory ara yazılım, uygulamanızda kullanabilirsiniz istek başına ApplicationDbContext örneğini döndürür.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 094bcbd2ccebeeed1f620476b6bd6df67047562f
-ms.sourcegitcommit: c07fb5cb5df0a12f9fe6735fcbc90964608fa687
+ms.openlocfilehash: f31f470b4d2b6736b98c0b7d88ea7a53ad1438b9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="precompiling-your-website-c"></a>Web sitenizi (C#) önceden derleme
 ====================
@@ -66,12 +66,12 @@ Açık derleme WSP modeliyle kullanmak da mümkündür. Açık kaynak kodu böl�
 
 ## <a name="precompilation-options"></a>Ön derleme seçenekleri
 
-.NET Framework ile birlikte bir [ASP.NET derleme aracını (`aspnet_compiler.exe`)](https://msdn.microsoft.com/en-us/library/ms229863.aspx) WSP modeli kullanılarak oluşturulmuş bir ASP.NET uygulaması kaynak kodunu (ve hatta içerik) derlemek etkinleştirir. Bu araç .NET Framework sürüm 2.0 ile serbest bırakıldı ve bulunan `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` klasörü; komut satırından kullanılan veya gelen derleme menünün Web sitesi yayımlama seçeneği Visual Studio içinde başlattı.
+.NET Framework ile birlikte bir [ASP.NET derleme aracını (`aspnet_compiler.exe`)](https://msdn.microsoft.com/library/ms229863.aspx) WSP modeli kullanılarak oluşturulmuş bir ASP.NET uygulaması kaynak kodunu (ve hatta içerik) derlemek etkinleştirir. Bu araç .NET Framework sürüm 2.0 ile serbest bırakıldı ve bulunan `%WINDIR%\Microsoft.NET\Framework\v2.0.50727` klasörü; komut satırından kullanılan veya gelen derleme menünün Web sitesi yayımlama seçeneği Visual Studio içinde başlattı.
 
 Derleme aracı derlemesinin iki genel form sağlar: yerinde ön derlemesi ve ön derlemesi dağıtım için. Yerinde ön derlemesi ile çalıştırdığınız `aspnet_compiler.exe` aracını komut satırından ve bilgisayarınızda duran bir Web sitesi fiziksel yolu veya sanal dizin yolunu belirtin. Derleme aracı sonra derlenmiş sürümünde depolama projesinde her ASP.NET sayfası derler `%WINDIR%\Microsoft.NET\Framework\v2.0.50727\Temporary ASP.NET Files` sayfaları her ilk kez bir tarayıcıdan ziyaret edilmemiş değilse gibi klasör. Yerinde ön derlemesi sitenizdeki yeni dağıtılan ASP.NET sayfaları için bu adımı gerçekleştirmek ihtiyaç duyan gelen çalışma zamanı azaltır çünkü yapılan ilk istek hızlandırabilirsiniz. Ancak, web sunucusunun programlardan komut satırı çalıştırabilir ve gerektirdiğinden yerinde ön derlemesi barındırılan Web sitelerinin çoğu için yararlı değildir. Paylaşılan barındırma ortamlarında, bu erişim düzeyi izin verilmez.
 
 > [!NOTE]
-> Yerinde ön derlemesi hakkında daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET Web siteleri ön derleme yap](https://msdn.microsoft.com/en-us/library/ms227972.aspx) ve [ön derlemesi, ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
+> Yerinde ön derlemesi hakkında daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET Web siteleri ön derleme yap](https://msdn.microsoft.com/library/ms227972.aspx) ve [ön derlemesi, ASP.NET 2.0](http://www.odetocode.com/Articles/417.aspx).
 
 
 Web sitesine sayfalarında derleme yerine `Temporary ASP.NET Files` klasörü, ön derlemesi dağıtım için bir dizin, seçme ve üretim ortamına dağıtılabilir bir biçimde sayfalara derler.
@@ -107,10 +107,10 @@ Web sitesi önceden derleme sonra yayımlama Web sitesi iletişim kutusuna giril
 **Şekil 3**: hedef konumu klasörünü dosyaları için dağıtım içerir.  
  ([Tam boyutlu görüntüyü görüntülemek için tıklatın](precompiling-your-website-cs/_static/image9.png))
 
-WAPs açık derlemede, bir derleme tüm site için dağıtım işlemi için ön derlemesi oluşturmaz. Bunun yerine, onu birlikte birkaç sayfa her derlemeye toplu işlemleri. Ayrıca derler `Global.asax` her sınıf yanı sıra kendi derlemesiyle (varsa) dosyasını `App_Code` klasör. Web sayfaları, kullanıcı denetimleri ve ana sayfalar için ASP.NET bildirim temelli biçimlendirme tutun dosyaları (`.aspx`, `.ascx`, ve `.master` dosyaları, sırasıyla) olarak kopyalanır-için hedef konum dizindir. Benzer şekilde, `Web.config` dosya kopyalanır düz üzerinden görüntüleri, CSS sınıfları ve PDF dosyaları gibi statik dosyalarla birlikte. Derleme aracı çeşitli nasıl işlediğini daha resmi açıklaması için dosya türleri, başvurmak [dosya işleme sırasında ASP.NET ön derlemesi](https://msdn.microsoft.com/en-us/library/e22s60h9.aspx).
+WAPs açık derlemede, bir derleme tüm site için dağıtım işlemi için ön derlemesi oluşturmaz. Bunun yerine, onu birlikte birkaç sayfa her derlemeye toplu işlemleri. Ayrıca derler `Global.asax` her sınıf yanı sıra kendi derlemesiyle (varsa) dosyasını `App_Code` klasör. Web sayfaları, kullanıcı denetimleri ve ana sayfalar için ASP.NET bildirim temelli biçimlendirme tutun dosyaları (`.aspx`, `.ascx`, ve `.master` dosyaları, sırasıyla) olarak kopyalanır-için hedef konum dizindir. Benzer şekilde, `Web.config` dosya kopyalanır düz üzerinden görüntüleri, CSS sınıfları ve PDF dosyaları gibi statik dosyalarla birlikte. Derleme aracı çeşitli nasıl işlediğini daha resmi açıklaması için dosya türleri, başvurmak [dosya işleme sırasında ASP.NET ön derlemesi](https://msdn.microsoft.com/library/e22s60h9.aspx).
 
 > [!NOTE]
-> Web sitesi yayımlama iletişim kutusundan "Adlandırma sabit kullanılır ve tek sayfa derlemeler" onay kutusunu işaretleyerek ASP.NET sayfası, kullanıcı denetimi veya ana sayfa başına bir derleme oluşturmak için derleme aracı söyleyebilirsiniz. Kendi derlemeye derlenmiş her ASP.NET sayfası sahip dağıtım üzerinde daha ayrıntılı denetim sağlar. Tek bir ASP.NET web sayfası güncelleştirilmiş ve bu değişikliği dağıtmak için gereken, örneğin, yalnızca bu sayfanın dağıttığınız `.aspx` dosya ve üretim ortamına ilişkili derleme. Başvurun [nasıl yapılır: ASP.NET derleme aracı sabit adlarıyla oluşturmak](https://msdn.microsoft.com/en-us/library/ms228040.aspx) daha fazla bilgi için.
+> Web sitesi yayımlama iletişim kutusundan "Adlandırma sabit kullanılır ve tek sayfa derlemeler" onay kutusunu işaretleyerek ASP.NET sayfası, kullanıcı denetimi veya ana sayfa başına bir derleme oluşturmak için derleme aracı söyleyebilirsiniz. Kendi derlemeye derlenmiş her ASP.NET sayfası sahip dağıtım üzerinde daha ayrıntılı denetim sağlar. Tek bir ASP.NET web sayfası güncelleştirilmiş ve bu değişikliği dağıtmak için gereken, örneğin, yalnızca bu sayfanın dağıttığınız `.aspx` dosya ve üretim ortamına ilişkili derleme. Başvurun [nasıl yapılır: ASP.NET derleme aracı sabit adlarıyla oluşturmak](https://msdn.microsoft.com/library/ms228040.aspx) daha fazla bilgi için.
 
 
 Hedef konum dizin Ayrıca, önceden derlenmiş web projesinin bir parçası öğesine değildi bir dosyasını içeren `PrecompiledApp.config`. Bu dosya, uygulama derlendiğini ASP.NET çalışma zamanı ve olup güncelleştirilebilir veya öğlen güncelleştirilebilir bir kullanıcı Arabirimi ile derlendiğini bildirir.
@@ -185,8 +185,8 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET Web sitesi ön derlemesi](https://msdn.microsoft.com/en-us/library/ms228015.aspx)
-- [Arkasındaki koda ve ASP.NET 2.0 derlemede](https://msdn.microsoft.com/en-us/magazine/cc163675.aspx)
+- [ASP.NET Web sitesi ön derlemesi](https://msdn.microsoft.com/library/ms228015.aspx)
+- [Arkasındaki koda ve ASP.NET 2.0 derlemede](https://msdn.microsoft.com/magazine/cc163675.aspx)
 - [ASP.NET ön derlemesi](http://www.odetocode.com/Articles/417.aspx)
 - [ASP.NET önceden derlenmiş sitenin seçenekleri](http://www.dotnetperls.com/precompiled)
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: a40a3779ddc416e141dd27b665f43830a43590b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -142,20 +142,20 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
 Durum bilgisiz web sunucuları:
 
-- [Microsoft Patterns and Practices - otomatik ölçeklendirmeyi Kılavuzu](https://msdn.microsoft.com/en-us/library/dn589774.aspx).
+- [Microsoft Patterns and Practices - otomatik ölçeklendirmeyi Kılavuzu](https://msdn.microsoft.com/library/dn589774.aspx).
 - [Devre dışı bırakma ARR ait örnek benzeşimi Windows Azure Web siteleri,](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Blog gönderisi Erez Benari tarafından oturum benzeşimi Windows Azure Web siteleri açıklar.
 
 CDN:
 
 - [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Bölüm 3 1:34: 00'dan başlayarak, CDN tartışma bakın.
-- [Microsoft Patterns ve yöntemleri statik içerik barındırma düzeni](https://msdn.microsoft.com/en-us/library/dn589776.aspx)
+- [Microsoft Patterns ve yöntemleri statik içerik barındırma düzeni](https://msdn.microsoft.com/library/dn589776.aspx)
 - [CDN incelemeler](http://www.cdnreviews.com/). Birçok CDN'ler genel bakış.
 
 Zaman uyumsuz programlama:
 
 - [ASP.NET MVC 4'te zaman uyumsuz yöntemleri kullanarak](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Öğretici Rick Anderson tarafından.
-- [Zaman uyumsuz programlama ile Async ve Await (C# ve Visual Basic)](https://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx). Zaman uyumsuz programlama için stratejinin, ASP.NET 4.5 içinde nasıl çalıştığı ve uygulamak için kodunun nasıl yazılacağını açıklayan MSDN teknik incelemesini.
-- [Entity Framework zaman uyumsuz sorgu ve kaydetme](https://msdn.microsoft.com/en-us/data/jj819165)
+- [Zaman uyumsuz programlama ile Async ve Await (C# ve Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). Zaman uyumsuz programlama için stratejinin, ASP.NET 4.5 içinde nasıl çalıştığı ve uygulamak için kodunun nasıl yazılacağını açıklayan MSDN teknik incelemesini.
+- [Entity Framework zaman uyumsuz sorgu ve kaydetme](https://msdn.microsoft.com/data/jj819165)
 - [Zaman uyumsuz kullanarak ASP.NET Web uygulamaları oluşturmak nasıl](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Video sunumu Rowan Mert tarafından. Grafik Tanıtımı içerir, ne zaman uyumsuz programlama yüksek yük koşullar altında web sunucusu verimliliği artışlar kolaylaştırabilir.
 - [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Zaman uyumsuz programlama ölçeklenebilirlik üzerinde etkisi hakkında daha fazla tartışma için bkz: Bölüm 4 ve bölüm 8.
 - [ASP.NET 4.5 yanı sıra önemli bir sorunu zaman uyumsuz yöntemler kullanma Sihirli](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). ASP.NET Web Forms uygulamalarında async kullanma hakkında öncelikle Blog Gönderisi Scott Hanselman tarafından.

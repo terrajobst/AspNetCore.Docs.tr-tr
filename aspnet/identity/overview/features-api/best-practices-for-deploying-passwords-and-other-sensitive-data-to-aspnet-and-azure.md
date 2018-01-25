@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Parolalar ve diğer hassas verileri ASP.NET ve Azure uygulama hizmeti dağıtmak için en iyi uygulamalar
 ====================
@@ -54,7 +54,7 @@ Dış dosya biçimlendirmede (*AppSettingsSecrets.config* Bu örnekte), aynı bi
 ASP.NET çalışma zamanı sahip harici dosyasının içeriğini birleştirir &lt;appSettings&gt; öğesi. Belirtilen dosya bulunamazsa çalışma zamanı dosya özniteliğini yok sayar.
 
 > [!WARNING]
-> Güvenlik - eklemeyin, *gizli .config* dosya projenize ya da kaynak denetimine denetleyin. Varsayılan olarak, Visual Studio ayarlar `Build Action` için `Content`, dosyanın başka bir deyişle, dağıtılır. Daha fazla bilgi için bkz: [neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Uzantıyı için kullanmanız mümkün olmakla birlikte *gizli .config* , onu dosyasıdır kalmasını sağlamak en iyi *.config*yapılandırma dosyaları, IIS tarafından sunulan değil gibi. Ayrıca dikkat *AppSettingsSecrets.config* dosyasıdır iki dizin düzeylerinden yukarı *web.config* tamamen dışında çözüm dizini nedenle dosya. Dosyanın çözüm dizini dışında taşıyarak &quot;git eklemek \* &quot; deponuza ekleyin olmaz.
+> Güvenlik - eklemeyin, *gizli .config* dosya projenize ya da kaynak denetimine denetleyin. Varsayılan olarak, Visual Studio ayarlar `Build Action` için `Content`, dosyanın başka bir deyişle, dağıtılır. Daha fazla bilgi için bkz: [neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Uzantıyı için kullanmanız mümkün olmakla birlikte *gizli .config* , onu dosyasıdır kalmasını sağlamak en iyi *.config*yapılandırma dosyaları, IIS tarafından sunulan değil gibi. Ayrıca dikkat *AppSettingsSecrets.config* dosyasıdır iki dizin düzeylerinden yukarı *web.config* tamamen dışında çözüm dizini nedenle dosya. Dosyanın çözüm dizini dışında taşıyarak &quot;git eklemek \* &quot; deponuza ekleyin olmaz.
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Web uygulamanızı Azure'a dağıtırken *AppSettingsSecrets.config* (yani isted
 
 **Uygulama ayarları** ve **bağlantı dizesi** değerleri geçersiz kılmak için aynı ayarlarında *web.config* dosya. Bu anahtarları içinde olup olmadığını ancak Örneğimizde, biz bu ayarlar, Azure'a dağıtılmayan *web.config* dosya, portalda gösterilen ayarları önceliklidir.
 
-İzlemek için en iyi uygulamadır bir [DevOps iş akışı](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) ve [Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (veya başka bir framework gibi [Chef](http://www.opscode.com/chef/) veya [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) için Azure'da bu değerleri ayarlama otomatikleştirin. Aşağıdaki PowerShell betiğini kullanır [verme CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) diske şifrelenmiş parolalar dışa aktarmak için:
+İzlemek için en iyi uygulamadır bir [DevOps iş akışı](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) ve [Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (veya başka bir framework gibi [Chef](http://www.opscode.com/chef/) veya [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) için Azure'da bu değerleri ayarlama otomatikleştirin. Aşağıdaki PowerShell betiğini kullanır [verme CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) diske şifrelenmiş parolalar dışa aktarmak için:
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ Yukarıdaki betik 'Name' gizli anahtarı gibi adıdır '&quot;FB\_AppSecret&quot
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> Güvenlik - parolaları veya diğer parolaları bunu hedefini uğratır hassas verileri dağıtmak için bir PowerShell Betiği kullanılarak amacı yapılması PowerShell Betiği dahil etmeyin. [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx) cmdlet'i bir parola almak için güvenli bir mekanizma sağlar. UI İstemi'ni kullanarak bir parola sızmasını engelleyebilir.
+> Güvenlik - parolaları veya diğer parolaları bunu hedefini uğratır hassas verileri dağıtmak için bir PowerShell Betiği kullanılarak amacı yapılması PowerShell Betiği dahil etmeyin. [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet'i bir parola almak için güvenli bir mekanizma sağlar. UI İstemi'ni kullanarak bir parola sızmasını engelleyebilir.
 
 
 ### <a name="deploying-db-connection-strings"></a>DB bağlantı dizeleri dağıtma
@@ -119,7 +119,7 @@ Her ikisi için anahtar-değer çiftleri itibaren **uygulama ayarları** ve **ba
 
 ## <a name="notes-for-on-premises-servers"></a>Şirket içi sunucular için Notlar
 
-Şirket içi web sunucularına dağıtıyorsanız, güvenli parolaları tarafından yardımcı olabilir [yapılandırma bölümlerini yapılandırma dosyalarının şifreleme](https://msdn.microsoft.com/en-us/library/ff647398.aspx). Alternatif olarak, Azure Web siteleri için önerilen aynı yaklaşımı kullanabilirsiniz: geliştirme ayarlarını yapılandırma dosyalarını tutmak ve üretim ayarları için ortam değişkeni değerlerini kullanın. Bu durumda, ancak Azure Web siteleri otomatik işlevselliği için uygulama kod yazmayı vardır: ortam değişkenlerinin ayarları almak ve yapılandırma dosyası ayarları yerine bu değerleri veya yapılandırma dosyası ayarları kullanın, ortam değişkenleri bulunamadı.
+Şirket içi web sunucularına dağıtıyorsanız, güvenli parolaları tarafından yardımcı olabilir [yapılandırma bölümlerini yapılandırma dosyalarının şifreleme](https://msdn.microsoft.com/library/ff647398.aspx). Alternatif olarak, Azure Web siteleri için önerilen aynı yaklaşımı kullanabilirsiniz: geliştirme ayarlarını yapılandırma dosyalarını tutmak ve üretim ayarları için ortam değişkeni değerlerini kullanın. Bu durumda, ancak Azure Web siteleri otomatik işlevselliği için uygulama kod yazmayı vardır: ortam değişkenlerinin ayarları almak ve yapılandırma dosyası ayarları yerine bu değerleri veya yapılandırma dosyası ayarları kullanın, ortam değişkenleri bulunamadı.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

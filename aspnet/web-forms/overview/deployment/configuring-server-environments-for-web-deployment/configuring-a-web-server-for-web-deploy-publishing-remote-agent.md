@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 61e357198ffa4e93d35b7fa4619270da630547c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web dağıtımı için yayımlama (Uzak Aracı) bir Web sunucusu yapılandırma
 ====================
@@ -65,7 +65,7 @@ Bu konuda her bu yordamları gerçekleştirmek nasıl yapacağınızı gösterir
 - Sunucunun bir statik IP adresi vardır.
 
 > [!NOTE]
-> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). Uzak Aracı hizmeti IIS 6 ile başlayarak desteklenir ve bir etki alanına katılmış olmasını gerektirmez. Ancak, bu öğreticideki adımlardan geliştirilen ve IIS 7.5 test ve diğer sürümleri için yordamlar farklılık gösterebilir.
+> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Uzak Aracı hizmeti IIS 6 ile başlayarak desteklenir ve bir etki alanına katılmış olmasını gerektirmez. Ancak, bu öğreticideki adımlardan geliştirilen ve IIS 7.5 test ve diğer sürümleri için yordamlar farklılık gösterebilir.
 
 
 ## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükler
@@ -108,7 +108,7 @@ Bu durumda, bunları yüklemeniz gerekir:
 11. Lisans koşullarını gözden geçirin ve koşullarını kabul ederseniz tıklayın **kabul ediyorum**.
 12. Yükleme tamamlandığında, tıklatın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
 
-IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, sorunsuz IIS (HTML dosyaları gibi) statik içerik sunmanızı bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** ASP.NET içeriğe göz atmak çalıştığınızda. ASP.NET 4.0 kaydedildiğinden emin olmak için bu yordamı kullanabilirsiniz.
+IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, sorunsuz IIS (HTML dosyaları gibi) statik içerik sunmanızı bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** ASP.NET içeriğe göz atmak çalıştığınızda. ASP.NET 4.0 kaydedildiğinden emin olmak için bu yordamı kullanabilirsiniz.
 
 **IIS ile ASP.NET 4.0 kaydetmek için**
 
@@ -154,7 +154,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image4.png)
 
     > [!NOTE]
-    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma istersiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz: [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma istersiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz: [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
 10. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Ekle**.
 
@@ -198,8 +198,8 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** bu yaklaşı
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklatın **Adları Denetle**ve ardından **Tamam**.
-6. İçinde **izinlerini***[klasör adı]*iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **liste klasörü içeriği**, ve **okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
-7. Tıklatın **Tamam** kapatmak için *[klasör adı]***özellikleri** iletişim kutusu.
+6. İçinde **izinlerini *** [klasör adı]*iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **klasör içeriğini listele**, ve **Okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
+7. Tıklatın **Tamam** kapatmak için *[klasör adı] *** özellikleri** iletişim kutusu.
 
 Sunucunuza, herhangi bir web paket dağıtmayı denemeden önce son bir görev olarak Web dağıtım aracı hizmetinin çalıştığından emin olmalısınız. Uzak bir bilgisayardan bir paket dağıttığınızda, Web Dağıtım Aracı hizmeti ayıklanıyor ve paket içeriğini yükleme sorumludur. Hizmet Web dağıtım aracı yüklediğinizde varsayılan olarak başlatılır ve Network SERVICE kimliği altında çalışır.
 

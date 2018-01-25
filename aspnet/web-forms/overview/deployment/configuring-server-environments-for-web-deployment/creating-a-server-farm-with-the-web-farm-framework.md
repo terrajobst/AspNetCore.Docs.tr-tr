@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 2458abc863a83364f90fc9d6edaace897c23b4c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework ile bir sunucu grubu oluşturma
 ====================
@@ -65,7 +65,7 @@ Görevleri ve bu konudaki yönergeler ile Windows Server 2008 R2 çalıştıran 
 - Sunucunun bir statik IP adresi vardır.
 
 > [!NOTE]
-> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="create-the-wff-controller-server"></a>WFF denetleyici sunucusu oluşturma
@@ -78,7 +78,7 @@ WFF denetleyici sunucusu oluşturmak için IIS 7 veya üstü ve WFF 2.0 veya son
 2. Üstündeki **Web Platformu yükleyicisi 3.0** penceresinde tıklatın **ürünleri**.
 3. Gezinti bölmesinde, pencerenin sol tarafındaki tıklatın **Server**.
 4. İçinde **IIS 7 önerilen Yapılandırması** satır, tıklatın **Ekle**.
-5. İçinde **Web Farm Framework 2.** *x* satır, tıklatın **Ekle**.
+5. İçinde **Web grubu Framework 2. *** x* satır, tıklatın **Ekle**.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. **Yükle**'ye tıklatın. Web Platformu yükleyicisi yükleme listesine Web dağıtım aracı, diğer çeşitli bağımlılıkları birlikte ekledi dikkat edin.
@@ -131,8 +131,7 @@ Sonraki adım, WFF içinde sunucu grubu oluşturmaktır. IIS Yöneticisi'nden WF
 4. Kullanıcı adı ve her bir sunucuda yerel Yöneticiler grubuna eklenen etki alanı hesabının parolasını yazın.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image6.png)
-5. 
-              **İleri**'ye tıklayın.
+5. **İleri**'ye tıklayın.
 6. Üzerinde **sunucuları Ekle** birincil sunucusu, select tam etki alanı adı (FQDN) yazın, sayfa **birincil sunucu**ve ardından **Ekle**.
 7. Bu noktada, WFF sağladığınız kimlik bilgilerini kullanarak birincil sunucusu ile iletişim kuracaktır. Bağlantı başarılı olursa, birincil sunucunun tabloya ekleneceğini **sunucuları Ekle** sayfası.
 

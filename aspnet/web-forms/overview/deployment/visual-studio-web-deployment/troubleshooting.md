@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 2d416432aad9d5654aefd8c63b84b6ae18967515
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: sorun giderme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -31,8 +31,8 @@ Bu sayfa, Visual Studio kullanarak bir ASP.NET web uygulamasını dağıttığı
 
 Gösterilen senaryo, hem Azure hem de üçüncü taraf barındırma hizmeti sağlayıcıları için geçerlidir. Azure App Service'deki web uygulamaları sorunlarını giderme hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
-- [Azure App Service'te Web uygulamalarını izleme](https://azure.microsoft.com/en-us/documentation/articles/web-sites-monitor//)
+- [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Azure App Service'te Web uygulamalarını izleme](https://azure.microsoft.com/documentation/articles/web-sites-monitor//)
 - [.NET için Windows Azure SDK 2.0 sürümünü Duyurusu](http://https://weblogs.asp.net/scottgu/announcing-the-release-of-windows-azure-sdk-2-0-for-net) (Scottgu'nun blogudur, Visual Studio tanılama günlüklerini alma gösterir)
 
 ## <a name="server-error-in--application---current-custom-error-settings-prevent-details-of-the-error-from-being-viewed-remotely"></a>Sunucu hatası '/' uygulamasında - geçerli özel hata ayarları hatanın ayrıntılarını uzaktan görüntülenmesine engelliyor
@@ -180,7 +180,7 @@ System.Data.SqlClient.SqlException: "oturum açma tarafından istenen Veritaban�
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Adını *.mdf* sildiğiniz olsa bile, dosya şimdiye kadar bilgisayarınızda var SQL Server Express veritabanının adını eşleşemez *.mdf* önceden var olan veritabanının dosya. Adını değiştirmek *.mdf* hiçbir zaman bir veritabanı adı ve değişiklik kullanılmış bir ad dosyasına *Web.config* dosya yeni bir ad kullanın. Alternatif olarak, kullandığınız [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) önceden var olan SQL Server Express silmek için veritabanları.
+Adını *.mdf* sildiğiniz olsa bile, dosya şimdiye kadar bilgisayarınızda var SQL Server Express veritabanının adını eşleşemez *.mdf* önceden var olan veritabanının dosya. Adını değiştirmek *.mdf* hiçbir zaman bir veritabanı adı ve değişiklik kullanılmış bir ad dosyasına *Web.config* dosya yeni bir ad kullanın. Alternatif olarak, kullandığınız [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) önceden var olan SQL Server Express silmek için veritabanları.
 
 ## <a name="model-compatibility-cannot-be-checked"></a>Model uyumluluğu olamaz denetlenmesi
 
@@ -192,7 +192,7 @@ Veritabanı model meta verilerini içermediğinden model uyumluluğu denetlenemi
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Veritabanı adı Web.config dosyasında yerleştirirseniz bilgisayarınızda, bir veritabanı zaten bazı tablolarda ile mevcut olabilir önce herhangi bir zamanda kullanıldı. Bilgisayarınızın önce ve değişiklik üzerinde kullanılmamış olan yeni bir ad seçin *Web.config* dosyayı bu yeni bir veritabanı adı kullanmak için işaretleyin. Alternatif olarak, kullandığınız [SQL Server Express yardımcı programı](https://www.microsoft.com/en-us/download/details.aspx?DisplayLang=en&amp;id=3990) veya [SQL Server Management Studio Express](https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&amp;id=7593) varolan veritabanı silinemiyor.
+Veritabanı adı Web.config dosyasında yerleştirirseniz bilgisayarınızda, bir veritabanı zaten bazı tablolarda ile mevcut olabilir önce herhangi bir zamanda kullanıldı. Bilgisayarınızın önce ve değişiklik üzerinde kullanılmamış olan yeni bir ad seçin *Web.config* dosyayı bu yeni bir veritabanı adı kullanmak için işaretleyin. Alternatif olarak, kullandığınız [SQL Server Express yardımcı programı](https://www.microsoft.com/download/details.aspx?DisplayLang=en&amp;id=3990) veya [SQL Server Management Studio Express](https://www.microsoft.com/download/details.aspx?displaylang=en&amp;id=7593) varolan veritabanı silinemiyor.
 
 ## <a name="sql-error-when-a-script-attempts-to-create-users-or-roles"></a>Kullanıcıları veya rolleriyle oluşturmak bir komut dosyası çalıştığında SQL hatası
 
@@ -210,7 +210,7 @@ Dağıtım gerçekleştirmek için kullandığınız kullanıcı hesabı, kullan
 
 [!code-console[Main](troubleshooting/samples/sample9.cmd)]
 
-Proje dosyasında PreSource öğesi düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Proje dosyasında dağıtım ayarlarını Düzenle](https://msdn.microsoft.com/en-us/library/ff398069(v=vs.100).aspx). Kullanıcıları veya rolleriyle geliştirme veritabanınızdaki hedef veritabanında olması gerekiyorsa, Yardım için barındırma sağlayıcınızla bağlantı kurun.
+Proje dosyasında PreSource öğesi düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: Proje dosyasında dağıtım ayarlarını Düzenle](https://msdn.microsoft.com/library/ff398069(v=vs.100).aspx). Kullanıcıları veya rolleriyle geliştirme veritabanınızdaki hedef veritabanında olması gerekiyorsa, Yardım için barındırma sağlayıcınızla bağlantı kurun.
 
 ## <a name="sql-server-timeout-error-when-running-custom-scripts-during-deployment"></a>SQL Server zaman aşımı özel komut dosyalarını dağıtım sırasında çalıştırılırken hata
 
@@ -220,7 +220,7 @@ Dağıtım sırasında çalıştırmak için özel SQL komut dosyaları belirtti
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Farklı bir işlem modları sahip birden çok komut dosyası çalıştırarak zaman aşımı hataları neden olabilir. Varsayılan olarak, bir işlem içinde otomatik olarak oluşturulan komut dosyalarını çalıştırmak, ancak özel komut dosyaları yapın. Seçerseniz **çekme veri ve/veya varolan bir veritabanını şema** seçeneği **SQL Paketle/Yayımla** sekmesinde ve özel SQL komut dosyası eklerseniz, bazı kodlar işlem ayarlarını değiştirmeniz gerekir böylece tüm betikler işlem ayarların aynısını kullanın. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/en-us/library/dd465343.aspx).
+Farklı bir işlem modları sahip birden çok komut dosyası çalıştırarak zaman aşımı hataları neden olabilir. Varsayılan olarak, bir işlem içinde otomatik olarak oluşturulan komut dosyalarını çalıştırmak, ancak özel komut dosyaları yapın. Seçerseniz **çekme veri ve/veya varolan bir veritabanını şema** seçeneği **SQL Paketle/Yayımla** sekmesinde ve özel SQL komut dosyası eklerseniz, bazı kodlar işlem ayarlarını değiştirmeniz gerekir böylece tüm betikler işlem ayarların aynısını kullanın. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/library/dd465343.aspx).
 
 Tümü aynı; böylece işlem ayarları yapılandırdınız, ancak bu hatayı almaya devam komut dosyalarını ayrı olarak çalıştırmak için bir olası geçici bir çözüm değildir. İçinde **veritabanı komut dosyalarında** kılavuzunda **Paketle/Yayımla** SQL sekmesi, Temizle **INCLUDE** zaman aşımı hatası neden olan komut dosyası için onay kutusunu işaretleyin, sonra proje yayımlayın. Uygulamasına geri gidin sonra **veritabanı komut dosyalarında** kılavuz, bu komut dosyanızın seçin **INCLUDE** onay kutusunu işaretleyin ve temizleyin **INCLUDE** diğer komutlar için onay kutularını. Sonra projeyi yeniden yayımlayın. Yayımladığınızda, bu zaman yalnızca seçilen özel komut dosyasını çalıştırır.
 
@@ -280,7 +280,7 @@ Dağıtılan site yok *amd64* ve *x86* bunları yerel uygulamanın altında derl
 
 SQL Server veritabanını uygulama dosyasında depolayan Compact gibi Entity Framework Code First geçişleri ve bir DBMS kullanan bir uygulamayı dağıtmak\_veri klasörü. İlk dağıtımdan sonra veritabanını oluşturmak için yapılandırılmış Code First Migrations sahip. Uygulamayı çalıştırdığınızda, aşağıdaki örneğe benzer bir hata iletisi alırsınız:
 
-Yol geçerli değil. Veritabanı için dizini denetleyin. [Yol c:\inetpub\wwwroot\App =\_Data\DatabaseName.sdf]
+Yol geçerli değil. Veritabanı için dizini denetleyin. [Path = c:\inetpub\wwwroot\App\_Data\DatabaseName.sdf ]
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
@@ -309,7 +309,7 @@ Belirten bir hata ile yayımlama başarısız oluyor (kullanmakta olduğunuz kul
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -319,7 +319,7 @@ Bu klasörü için yazma yetkisi olmadığı için oluşturduğunuzda veya düze
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi dağıtma ve klasör izinlerini ayarlama bu serideki üretim ortamına öğreticileri için bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi dağıtma ve klasör izinlerini ayarlama bu serideki üretim ortamına öğreticileri için bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -333,7 +333,7 @@ ASP.NET 4.5 hedefleyen bir web projesi başarıyla yayımlandı ancak (customErr
 
 Kaynak hata kutunun hata sayfasının Web.config aşağıdaki satırı hatanın nedenini vurgular:
 
-&lt;derleme targetFramework "4.5" = /&gt;
+&lt;compilation targetFramework="4.5" /&gt;
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
@@ -341,7 +341,7 @@ Sunucu, ASP.NET 4.5 desteklemiyor. Ne zaman ve ASP.NET 4.5 için destek eklenebi
 
 Aynı hedef için bir ASP.NET 4 veya önceki web projesi dağıtırsanız seçin **hedefteki ek dosyaları Kaldır** onay kutusunu **ayarları** sekmesinde **Web'i**Sihirbazı. Seçmezseniz, **hedefteki ek dosyaları Kaldır**, yapılandırma hata sayfası almaya devam edersiniz.
 
-Proje **özellikleri** windows bir hedef framework aşağı açılan listesi içerir, ancak yalnızca değerinden değiştirerek bu sorunu çözümlenemiyor **.NET Framework 4.5** için **.NET Framework 4**. Bir önceki framework sürümü için hedef Framework'ü değiştirirseniz, proje sonraki framework sürümün derlemelerine başvurular hala sahip olur ve çalışmaz. El ile bu başvuruları değiştirmek veya .NET Framework 4 veya önceki hedefleyen yeni bir proje oluşturmak sahip. Daha fazla bilgi için bkz: [.NET Framework'ü hedefleme Web siteleri için](https://msdn.microsoft.com/en-us/library/bb398791(v=vs.100).aspx).
+Proje **özellikleri** windows bir hedef framework aşağı açılan listesi içerir, ancak yalnızca değerinden değiştirerek bu sorunu çözümlenemiyor **.NET Framework 4.5** için **.NET Framework 4**. Bir önceki framework sürümü için hedef Framework'ü değiştirirseniz, proje sonraki framework sürümün derlemelerine başvurular hala sahip olur ve çalışmaz. El ile bu başvuruları değiştirmek veya .NET Framework 4 veya önceki hedefleyen yeni bir proje oluşturmak sahip. Daha fazla bilgi için bkz: [.NET Framework'ü hedefleme Web siteleri için](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
 ## <a name="medium-trust-errors"></a>Orta güven hataları
 

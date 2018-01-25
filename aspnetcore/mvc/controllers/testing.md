@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core test denetleyicisi mantığı
 
@@ -40,7 +40,7 @@ Tipik denetleyicisi sorumlulukları:
 
 ## <a name="unit-testing"></a>Birim testi
 
-[Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Ancak, birim testleri sorunları algılamaz bileşenleri arasındaki etkileşim içinde olduğu amacı [tümleştirme sınaması](xref:mvc/controllers/testing#integration-testing).
+[Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme sınaması](xref:mvc/controllers/testing#integration-testing).
 
 Özel Filtreler, yollar, vb., yazıyorsanız, birim testi gereken bunları, ancak belirli denetleyici eylemi sınamalarınızı parçası olarak değil. Bunlar test yalıtım modunda.
 
@@ -65,9 +65,9 @@ Geçersiz model durumu kullanarak hataları ekleyerek test edilmiş `AddModelErr
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-İlk test ne zaman onaylar `ModelState` geçerli değil aynı `ViewResult` olarak için döndürülen bir `GET` isteği. Test geçersiz bir modelde geçirmek girişimi değil unutmayın. Bu olmayacaktır işe yine de model bağlama çalışmadığından bu yana (ancak bir [tümleştirme test](xref:mvc/controllers/testing#integration-testing) alıştırma model bağlama kullanırsınız). Bu durumda, model bağlama test edilmekte olan değil. Bu birim testleri eylem yöntemindeki kod yaptığı yalnızca test.
+İlk test ne zaman onaylar `ModelState` geçersiz, aynı `ViewResult` olarak için döndürülen bir `GET` isteği. Test geçersiz bir modelde geçirmek girişimi değil unutmayın. Bu olmayacaktır işe yine de model bağlama çalışmadığından bu yana (ancak bir [tümleştirme test](xref:mvc/controllers/testing#integration-testing) alıştırma model bağlama kullanırsınız). Bu durumda, model bağlama sınanan değil. Bu birim testleri eylem yöntemindeki kod yaptığı yalnızca test.
 
-İkinci test olduğunda doğrular `ModelState` geçerli olduğu yeni bir `BrainstormSession` (depo), eklenen ve yöntemi bir `RedirectToActionResult` beklenen özelliklere sahip. Adlı olmayan mocked çağrıları normalde yoksayılan ancak çağırma `Verifiable` Kurulum sonunda çağrısı testinde doğrulanması izin verir. Bu çağrısıyla yapılır `mockRepo.Verify`, hangi başarısız olur test beklenen yöntemi olmayan çağrıldıklarında.
+İkinci test olduğunda doğrular `ModelState` geçerli olduğu yeni bir `BrainstormSession` (depo), eklenen ve yöntemi bir `RedirectToActionResult` beklenen özelliklere sahip. Adlı olmayan mocked çağrıları normalde yoksayılan ancak çağırma `Verifiable` Kurulum sonunda çağrısı testinde doğrulanması izin verir. Bu çağrısıyla yapılır `mockRepo.Verify`, hangi başarısız olur test beklenen yöntemin çağrıldıklarında değildi.
 
 > [!NOTE]
 > Bu örnekte kullanılan Moq kitaplığı doğrulanabilen olmayan mocks ("gevşek" mocks veya yer tutucular olarak da bilinir) ile doğrulanabilir ya da "katı" mocks karışımı kolay hale getirir. Daha fazla bilgi edinmek [Moq Mock davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
@@ -121,7 +121,7 @@ Göreceğiniz `GetTestSession` tümleştirme testlerinde sık kullanılan yönte
 Her tümleştirme test sınıfı yapılandırır `TestServer` ASP.NET Core uygulama çalışır. Varsayılan olarak, `TestServer` onu çalıştırdığı - bu durumda, test proje klasöründen klasör web uygulamasında barındırır. Bu nedenle, çalıştığınızda dönüş denetleyici eylemleri test etmek `ViewResult`, bu hatayı görebilirsiniz:
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

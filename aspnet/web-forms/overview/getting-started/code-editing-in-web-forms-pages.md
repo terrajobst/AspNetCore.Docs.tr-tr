@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: dfcddb4373fbf17ca29c5ab94c6ab3387ed6b526
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013'te kod düzenleme ASP.NET Web formları
 ====================
@@ -38,7 +38,7 @@ Bu gözden geçirme sırasında öğreneceksiniz nasıl yapılır:
 
 Bu kılavuzu tamamlamak için gerekir:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir. 
 
     > [!NOTE] 
     > 
@@ -132,8 +132,8 @@ Kılavuzun bu bölümünde, bazı basit kod yazın ve ardından bir yöntem onda
 ### <a name="to-extract-a-method-in-a-c-page"></a>Bir C# sayfasında bir yöntem ayıklamak için
 
 1. Geçiş **tasarım** görünümü.
-2. İçinde **araç**, gelen **standart** sekmesinde, sürükleyin bir [düğmesini](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.aspx) sayfaya denetim.
-3. Çift tıklatın **düğmesini** denetim için bir işleyici oluşturmak için kendi [tıklatın](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.click.aspx) olay ve ardından aşağıdaki vurgulanmış kodu ekleyin:
+2. İçinde **araç**, gelen **standart** sekmesinde, sürükleyin bir [düğmesini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) sayfaya denetim.
+3. Çift tıklatın **düğmesini** denetim için bir işleyici oluşturmak için kendi [tıklatın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay ve ardından aşağıdaki vurgulanmış kodu ekleyin:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
@@ -185,13 +185,13 @@ Değişkenleri yanı sıra ile nesneleri çalışırken zaten kodunuzda başvuru
 
 Web Forms geliştiriciler sık gerçekleştirmeniz gereken birçok kodlama görevleri olduğundan, Kod Düzenleyicisi parçacıkları ya da önceden kod bloklarını kitaplığını sağlar. Bu parçacıkları sayfanıza ekleyebilirsiniz.
 
-Visual Studio'da kullandığınız her bir dilin kod parçacıkları Ekle şekilde küçük farklar vardır. Kod parçacıkları ekleme hakkında daha fazla bilgi için bkz: [Visual Basic IntelliSense kodu parçacıkları](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx). Kod parçacıkları Visual C# dilinde ekleme hakkında daha fazla bilgi için bkz: [Visual C# kod parçacıkları](https://msdn.microsoft.com/en-us/library/z41h7fat.aspx).
+Visual Studio'da kullandığınız her bir dilin kod parçacıkları Ekle şekilde küçük farklar vardır. Kod parçacıkları ekleme hakkında daha fazla bilgi için bkz: [Visual Basic IntelliSense kodu parçacıkları](https://msdn.microsoft.com/library/18yz4be4.aspx). Kod parçacıkları Visual C# dilinde ekleme hakkında daha fazla bilgi için bkz: [Visual C# kod parçacıkları](https://msdn.microsoft.com/library/z41h7fat.aspx).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 Bu izlenecek kodunuzdaki hataları düzeltme, kodu yeniden düzenleme, değişkenleri yeniden adlandırma ve kod parçacıkları kodunuza ekleme için Visual Studio 2010 kod düzenleyicisini, temel özellikleri gösterilen. Ek özellikler Düzenleyicisi'nde uygulama geliştirme hızlı ve kolay hale getirebilirsiniz. Örneğin, aşağıdakileri yapabilirsiniz:
 
-- IntelliSense seçeneklerini değiştirerek, kod parçacıkları yönetme ve çevrimiçi kod parçacıkları için arama gibi IntelliSense özellikleri hakkında daha fazla bilgi. Daha fazla bilgi için bkz: [kullanarak IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx).
-- Kendi kod parçacıkları oluşturmayı öğrenin. Daha fazla bilgi için bkz: [oluşturma ve kullanma IntelliSense kod parçacıkları](https://msdn.microsoft.com/en-us/library/ms165392.aspx)
-- IntelliSense kod parçacıkları parçacıkları özelleştirme ve sorun giderme gibi Visual Basic'e özel özellikleri hakkında daha fazla bilgi edinin. Daha fazla bilgi için bkz: [Visual Basic IntelliSense kodu parçacıkları](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)
-- C# hakkında daha fazla bilgi-IntelliSense, belirli özelliklerini yeniden düzenleme ve kod parçacıkları gibi. Daha fazla bilgi için bkz: [Visual C# IntelliSense](https://msdn.microsoft.com/en-us/library/43f44291.aspx).
+- IntelliSense seçeneklerini değiştirerek, kod parçacıkları yönetme ve çevrimiçi kod parçacıkları için arama gibi IntelliSense özellikleri hakkında daha fazla bilgi. Daha fazla bilgi için bkz: [kullanarak IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
+- Kendi kod parçacıkları oluşturmayı öğrenin. Daha fazla bilgi için bkz: [oluşturma ve kullanma IntelliSense kod parçacıkları](https://msdn.microsoft.com/library/ms165392.aspx)
+- IntelliSense kod parçacıkları parçacıkları özelleştirme ve sorun giderme gibi Visual Basic'e özel özellikleri hakkında daha fazla bilgi edinin. Daha fazla bilgi için bkz: [Visual Basic IntelliSense kodu parçacıkları](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- C# hakkında daha fazla bilgi-IntelliSense, belirli özelliklerini yeniden düzenleme ve kod parçacıkları gibi. Daha fazla bilgi için bkz: [Visual C# IntelliSense](https://msdn.microsoft.com/library/43f44291.aspx).

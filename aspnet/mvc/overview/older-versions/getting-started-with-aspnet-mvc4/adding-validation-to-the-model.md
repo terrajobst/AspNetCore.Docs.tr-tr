@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 73332d168e2f22621cb234a6591f3ce0eeed802f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 93b4df5fcbde8d87866d00dffda8a241d0dd596b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model"></a>Model için doğrulama ekleme
 ====================
@@ -40,13 +40,13 @@ Nasıl doğrulama desteğin film uygulamada yararlanabilirsiniz bakalım.
 
 Bazı doğrulama mantığını ekleyerek başlarsınız `Movie` sınıfı.
 
-Açık *Movie.cs* dosya. Ekleme bir `using` deyimini dosyanın üst kısmındaki başvuran [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) ad alanı:
+Açık *Movie.cs* dosya. Ekleme bir `using` deyimini dosyanın üst kısmındaki başvuran [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) ad alanı:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 Ad alanı içermiyor fark `System.Web`. DataAnnotations, herhangi bir sınıf veya özellik bildirimli olarak uygulanan doğrulama öznitelikleri yerleşik bir dizi sağlar.
 
-Şimdi güncelleştirmek `Movie` yerleşik yararlanmak için sınıf [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), ve [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) doğrulama öznitelikleri . Aşağıdaki kod öznitelikleri uygulamak burada örnek olarak kullanın.
+Şimdi güncelleştirmek `Movie` yerleşik yararlanmak için sınıf [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), ve [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) doğrulama öznitelikleri . Aşağıdaki kod öznitelikleri uygulamak burada örnek olarak kullanın.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs?highlight=4,10,13,17)]
 
@@ -99,7 +99,7 @@ Gerçek avantajdır kodda tek bir satırı değiştirmek ihtiyacım kalmadı `Mo
 5. Metni kaldırın.
 6. Out sekmesi.
 
-Yukarıdaki sırası gerekli doğrulama gönder düğmesine basarsa olmadan tetikler. Basit alanlar girmeden gönder düğmesine basarsa istemci tarafı doğrulamasını tetikler. İstemci tarafı doğrulama hataları kadar form verilerini sunucuya gönderilmez. Bu HTTP Post yönteminde kesme noktası almadan veya kullanarak test edebilirsiniz [fiddler aracı](http://fiddler2.com/fiddler2/) veya IE 9 [F12 Geliştirici Araçları](https://msdn.microsoft.com/en-us/ie/aa740478).
+Yukarıdaki sırası gerekli doğrulama gönder düğmesine basarsa olmadan tetikler. Basit alanlar girmeden gönder düğmesine basarsa istemci tarafı doğrulamasını tetikler. İstemci tarafı doğrulama hataları kadar form verilerini sunucuya gönderilmez. Bu HTTP Post yönteminde kesme noktası almadan veya kullanarak test edebilirsiniz [fiddler aracı](http://fiddler2.com/fiddler2/) veya IE 9 [F12 Geliştirici Araçları](https://msdn.microsoft.com/ie/aa740478).
 
 ![](adding-validation-to-the-model/_static/image2.png)
 
@@ -137,17 +137,17 @@ Doğrulama mantığını daha sonra değiştirmek istiyorsanız, tek bir yerde m
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Film modeline biçimlendirme ekleme
 
-Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) Ad alanı, yerleşik doğrulama öznitelikleri kümesi yanı sıra biçimlendirme öznitelikleri sağlar. Zaten uyguladık bir [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) numaralandırma değeri yayın tarihi ve fiyat alanları. Aşağıdaki kodda gösterildiği `ReleaseDate` ve `Price` uygun özelliklerle [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özniteliği.
+Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) Ad alanı, yerleşik doğrulama öznitelikleri kümesi yanı sıra biçimlendirme öznitelikleri sağlar. Zaten uyguladık bir [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) numaralandırma değeri yayın tarihi ve fiyat alanları. Aşağıdaki kodda gösterildiği `ReleaseDate` ve `Price` uygun özelliklerle [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özniteliği.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample9.cs)]
 
-[ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) Öznitelikleri doğrulama öznitelikleri değilse, görünüm altyapısının HTML oluşturmak nasıl bildirmek için kullanılır. Yukarıdaki örnekte `DataType.Date` özniteliği vermeden film tarih yalnızca, tarih olarak görüntüler. Örneğin, aşağıdaki [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) öznitelikleri veri biçimi doğrulamak yok:
+[ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) Öznitelikleri doğrulama öznitelikleri değilse, görünüm altyapısının HTML oluşturmak nasıl bildirmek için kullanılır. Yukarıdaki örnekte `DataType.Date` özniteliği vermeden film tarih yalnızca, tarih olarak görüntüler. Örneğin, aşağıdaki [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) öznitelikleri veri biçimi doğrulamak yok:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample10.cs)]
 
-Yukarıda listelenen öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi tedarik &lt;bir&gt; URL'SİNİN için ve &lt;bir href =&quot;mailto:EmailAddress.com&quot; &gt; e-posta için. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) veri biçimi doğrulamak için öznitelik.
+Yukarıda listelenen öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi tedarik &lt;bir&gt; URL'SİNİN için ve &lt;bir href =&quot;mailto:EmailAddress.com&quot; &gt; e-posta için. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) veri biçimi doğrulamak için öznitelik.
 
-Alternatif bir yaklaşım kullanarak `DataType` öznitelikleri açıkça ayarladığınız bir [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) değeri. Aşağıdaki kod bir tarih biçimi dizesi yayın tarihi özelliğiyle gösterir (yani, &quot;d&quot;). Bu yayın tarihi bir parçası olarak süresi istemediğinizi belirtmek için kullanırsınız.
+Alternatif bir yaklaşım kullanarak `DataType` öznitelikleri açıkça ayarladığınız bir [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) değeri. Aşağıdaki kod bir tarih biçimi dizesi yayın tarihi özelliğiyle gösterir (yani, &quot;d&quot;). Bu yayın tarihi bir parçası olarak süresi istemediğinizi belirtmek için kullanırsınız.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample11.cs)]
 

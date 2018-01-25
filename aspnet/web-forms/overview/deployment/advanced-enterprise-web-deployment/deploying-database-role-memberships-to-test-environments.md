@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: ac780c6cd522f9216cafe3b5f23772ef6ebf5d11
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Test ortamları için veritabanı rolü üyeliği dağıtma
 ====================
@@ -87,7 +87,7 @@ Seçtiğiniz herhangi bir konuma ve farklı şekillerde çok miktarda bir Transa
 
 
 > [!NOTE]
-> Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [sqlcmd yardımcı programını](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+> Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [sqlcmd yardımcı programını](https://msdn.microsoft.com/library/ms162773.aspx).
 
 
 Bu komut bir MSBuild hedef katıştırmak önce komut dosyasının çalışmasını istediğiniz hangi koşullarda dikkate almanız gerekir:
@@ -130,7 +130,7 @@ Bu konuda bir yolu, bir veritabanı projesi dağıttığınızda, veritabanı ku
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Veritabanı projeleri dağıtmak için VSDBCMD kullanma hakkında daha fazla bilgi için bkz: [dağıtma veritabanı projeleri](../web-deployment-in-the-enterprise/deploying-database-projects.md). Farklı bir hedef ortamlar için veritabanı dağıtımlarını özelleştirme ile ilgili yönergeler için bkz: [veritabanı dağıtımlarını özelleştirme birden çok ortamları](customizing-database-deployments-for-multiple-environments.md). Dağıtım işlemi denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz: [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [sqlcmd yardımcı programını](https://msdn.microsoft.com/en-us/library/ms162773.aspx).
+Veritabanı projeleri dağıtmak için VSDBCMD kullanma hakkında daha fazla bilgi için bkz: [dağıtma veritabanı projeleri](../web-deployment-in-the-enterprise/deploying-database-projects.md). Farklı bir hedef ortamlar için veritabanı dağıtımlarını özelleştirme ile ilgili yönergeler için bkz: [veritabanı dağıtımlarını özelleştirme birden çok ortamları](customizing-database-deployments-for-multiple-environments.md). Dağıtım işlemi denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz: [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [sqlcmd yardımcı programını](https://msdn.microsoft.com/library/ms162773.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](customizing-database-deployments-for-multiple-environments.md)

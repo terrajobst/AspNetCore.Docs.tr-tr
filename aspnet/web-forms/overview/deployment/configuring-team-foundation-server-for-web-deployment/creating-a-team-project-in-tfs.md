@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cb0d72330086ecb8cd9e6fb70ce0a57698dda5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>' De TFS takım projesi oluşturma
 ====================
@@ -111,12 +111,12 @@ Ardından, yeni ekip siteleri, TFS takım projesi koleksiyonuna karşılık gele
     > Alabileceğiniz bir **HTTP 404 Bulunamadı** çift HTTP kodlama hata nedeniyle hata. Bu gerçekleşirse, URL bu ile değiştirin:   
     > [*site koleksiyonu URL'si*] /\_layouts/permsetup.aspx  
     > Örneğin:  
-    > http://TFS/Sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Üzerinde **Gruplar Kur bu Site için** sayfasında, takım projelerine oluşturan kullanıcı ekleme **sahipleri** grup ve ardından **Tamam**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-Bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonu için yönetici izinleri ayarlama](https://msdn.microsoft.com/en-us/library/dd547204.aspx).
+Bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonu için yönetici izinleri ayarlama](https://msdn.microsoft.com/library/dd547204.aspx).
 
 ## <a name="create-a-new-team-project-and-add-users"></a>Yeni takım projesi oluşturma ve kullanıcıları ekleme
 
@@ -162,9 +162,9 @@ Sonraki yordam TFS 2010'da yeni bir takım projesi oluşturmayı açıklar.
 11. Üzerinde **işlem şablonu seçin** sayfasında, geliştirme sürecini yönetmenize ve ardından kullanmak istediğiniz işlem şablonunu seçin **sonraki**.
 
     > [!NOTE]
-    > TFS işlem şablonları hakkında daha fazla bilgi için bkz: [işlem şablonları ve araçları](https://msdn.microsoft.com/en-us/vstudio/aa718795).
+    > TFS işlem şablonları hakkında daha fazla bilgi için bkz: [işlem şablonları ve araçları](https://msdn.microsoft.com/vstudio/aa718795).
 12. Üzerinde **ekip sitesi ayarları** sayfasında, varsayılan ayarları değiştirmeden bırakın ve ardından **sonraki**.
-13. Bu ayar oluşturur veya tanımlar, TFS takım projesi ile ilişkilendirilmiş bir SharePoint ekip sitesi. Geliştirme ekibiniz, bu site, belgeleri yönetmek, tartışma iş parçacıklarında katılmak, wiki sayfaları oluşturmak ve kodu ilgili olmayan diğer çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Daha fazla bilgi için bkz: [SharePoint ürünleri arasındaki etkileşimler ve Team Foundation Server](https://msdn.microsoft.com/en-us/library/ms253177.aspx).
+13. Bu ayar oluşturur veya tanımlar, TFS takım projesi ile ilişkilendirilmiş bir SharePoint ekip sitesi. Geliştirme ekibiniz, bu site, belgeleri yönetmek, tartışma iş parçacıklarında katılmak, wiki sayfaları oluşturmak ve kodu ilgili olmayan diğer çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Daha fazla bilgi için bkz: [SharePoint ürünleri arasındaki etkileşimler ve Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx).
 14. Üzerinde **kaynak denetim ayarları belirtmek** sayfasında, varsayılan ayarları değiştirmeden bırakın ve ardından **sonraki**.
 15. Bu ayar tanımlayan veya konumu içeriğiniz için kök klasör olarak hareket edecek TFS klasör hiyerarşisi oluşturur.
 16. Üzerinde **takım projesi ayarlarını onaylama** sayfasında, **son**.
@@ -200,7 +200,7 @@ Sonraki konuyu [ekleme içerik kaynak denetimine](adding-content-to-source-contr
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-TFS'de takım projeleri oluşturma hakkında daha geniş yönergeler için bkz [takım projesi oluşturma](https://msdn.microsoft.com/en-us/library/ms181477(v=VS.100).aspx). Bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonu için yönetici izinleri ayarlama](https://msdn.microsoft.com/en-us/library/dd547204.aspx). Takım projelerine kullanıcılar ekleme hakkında daha fazla bilgi için bkz: [takım projelerine kullanıcılar ekleme](https://msdn.microsoft.com/en-us/library/bb558971.aspx).
+TFS'de takım projeleri oluşturma hakkında daha geniş yönergeler için bkz [takım projesi oluşturma](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonu için yönetici izinleri ayarlama](https://msdn.microsoft.com/library/dd547204.aspx). Takım projelerine kullanıcılar ekleme hakkında daha fazla bilgi için bkz: [takım projelerine kullanıcılar ekleme](https://msdn.microsoft.com/library/bb558971.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](configuring-team-foundation-server-for-web-deployment.md)

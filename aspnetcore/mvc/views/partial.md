@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: e5c8aac855a1f4ec4c6f08087dbe77f6820cc506
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5919c273de2a298c3e407f118ac478e6a6031332
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="partial-views"></a>Kısmi görünümler
 
@@ -37,7 +37,7 @@ Kısmi görünümler, büyük görünümleri ayırma küçük bileşenlere etkil
 
 ## <a name="declaring-partial-views"></a>Kısmi görünümler bildirme
 
-Kısmi görünümler gibi herhangi bir görünüm oluşturulur: oluşturduğunuz bir *.cshtml* içinde dosya *görünümleri* klasör. Kısmi Görünüm ve normal bir görünüm arasında anlamsal fark yoktur - yalnızca bunlar farklı şekilde işlenir. Doğrudan bir denetleyicinin döndürülen bir görünümü olabilir `ViewResult`, ve aynı görünüm bir kısmi görünüm olarak kullanılabilir. Kısmi görünümler çalıştırmayan bir görünüm ve kısmi görünüm nasıl işlendiğini arasındaki temel fark olan *_ViewStart.cshtml* (görünümler hakkında daha fazla bilgi sırada *_ViewStart.cshtml* içinde [düzeni ](layout.md)).
+Kısmi görünümler gibi herhangi bir görünüm oluşturulur: oluşturduğunuz bir *.cshtml* içinde dosya *görünümleri* klasör. Kısmi Görünüm ve normal bir görünüm arasında anlamsal fark yoktur - bunlar yalnızca farklı çizilir. Doğrudan bir denetleyicinin döndürülen bir görünümü olabilir `ViewResult`, ve aynı görünüm bir kısmi görünüm olarak kullanılabilir. Kısmi görünümler çalıştırma bir görünüm ve kısmi görünüm nasıl işlendiğini arasındaki temel fark olan *_ViewStart.cshtml* (görünümler hakkında daha fazla bilgi sırada *_ViewStart.cshtml* içinde [düzeni ](layout.md)).
 
 ## <a name="referencing-a-partial-view"></a>Kısmi görünüm başvurma
 

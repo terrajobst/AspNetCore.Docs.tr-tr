@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 10457d154f5fda875f7d1054d48daeeba3a50b7c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="search"></a>Ara
 ====================
@@ -34,7 +34,7 @@ Başlangıç güncelleştirerek `Index` varolan eylem yönteminin `MoviesControl
 
 [!code-csharp[Main](adding-search/samples/sample1.cs?highlight=1,6-9)]
 
-İlk satırı `Index` yöntemi, aşağıdaki oluşturur [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) filmler seçmek için sorgu:
+İlk satırı `Index` yöntemi, aşağıdaki oluşturur [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) filmler seçmek için sorgu:
 
 [!code-csharp[Main](adding-search/samples/sample2.cs)]
 
@@ -44,10 +44,10 @@ Varsa `searchString` parametre içeren bir dize, filmler sorgu aşağıdaki kodu
 
 [!code-csharp[Main](adding-search/samples/sample3.cs)]
 
-`s => s.Title` Kodu yukarıdaki bir [Lambda ifadesi](https://msdn.microsoft.com/en-us/library/bb397687.aspx). Lambda'lar yöntemi tabanlı içinde kullanılan [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) standart sorgu işleci yöntemlerinden bağımsız değişken olarak gibi sorgular [burada](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.where.aspx) Yukarıdaki kod içinde kullanılan yöntem. LINQ sorgularını değil tanımlanmış olan veya ne zaman bir yöntemi çağrılarak değiştirildiğinde yürütülen `Where` veya `OrderBy`. Bunun yerine, sorgu yürütme, gerçekleşen değeri gerçekte üzerinden yinelendiğinde kadar bir ifadenin değerlendirmesine Gecikmeli yani ertelenir veya [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) yöntemi çağrılır. İçinde `Search` örnek, sorgu yürütülürse *Index.cshtml* görünümü. Ertelenmiş sorgu yürütme hakkında daha fazla bilgi için bkz: [sorgu yürütme](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+`s => s.Title` Kodu yukarıdaki bir [Lambda ifadesi](https://msdn.microsoft.com/library/bb397687.aspx). Lambda'lar yöntemi tabanlı içinde kullanılan [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) standart sorgu işleci yöntemlerinden bağımsız değişken olarak gibi sorgular [burada](https://msdn.microsoft.com/library/system.linq.enumerable.where.aspx) Yukarıdaki kod içinde kullanılan yöntem. LINQ sorgularını değil tanımlanmış olan veya ne zaman bir yöntemi çağrılarak değiştirildiğinde yürütülen `Where` veya `OrderBy`. Bunun yerine, sorgu yürütme, gerçekleşen değeri gerçekte üzerinden yinelendiğinde kadar bir ifadenin değerlendirmesine Gecikmeli yani ertelenir veya [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) yöntemi çağrılır. İçinde `Search` örnek, sorgu yürütülürse *Index.cshtml* görünümü. Ertelenmiş sorgu yürütme hakkında daha fazla bilgi için bkz: [sorgu yürütme](https://msdn.microsoft.com/library/bb738633.aspx).
 
 > [!NOTE]
-> [İçerir](https://msdn.microsoft.com/en-us/library/bb155125.aspx) yöntemi, veritabanı, c# kod değil yukarıdaki çalıştırılır. Veritabanı üzerindeki [içerir](https://msdn.microsoft.com/en-us/library/bb155125.aspx) eşlendiği [SQL LIKE](https://msdn.microsoft.com/en-us/library/ms179859.aspx), büyük küçük harfe duyarlı olduğu.
+> [İçerir](https://msdn.microsoft.com/library/bb155125.aspx) yöntemi, veritabanı, c# kod değil yukarıdaki çalıştırılır. Veritabanı üzerindeki [içerir](https://msdn.microsoft.com/library/bb155125.aspx) eşlendiği [SQL LIKE](https://msdn.microsoft.com/library/ms179859.aspx), büyük küçük harfe duyarlı olduğu.
 
 Güncelleştirebilirsiniz şimdi `Index` form kullanıcıya görüntüleyecek görünümü.
 
@@ -123,7 +123,7 @@ Tüm türler veritabanından alır bir LINQ Sorgu kodudur.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Kod kullanan `AddRange` genel yöntemini `List` farklı türler listesine eklemek için koleksiyon. (Olmadan `Distinct` değiştiricisi, yinelenen türler eklenmesi — Örneğin, iki kez örneğimizde Komedi ekleneceği). Kod içinde türler listesi sonra depolar `ViewBag.MovieGenre` nesnesi. Kategori verileri (böyle bir filmi Tarz 's) olarak depolamak bir [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesinde bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılır liste kutusu kategori verilere erişme.
+Kod kullanan `AddRange` genel yöntemini `List` farklı türler listesine eklemek için koleksiyon. (Olmadan `Distinct` değiştiricisi, yinelenen türler eklenmesi — Örneğin, iki kez örneğimizde Komedi ekleneceği). Kod içinde türler listesi sonra depolar `ViewBag.MovieGenre` nesnesi. Kategori verileri (böyle bir filmi Tarz 's) olarak depolamak bir [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesinde bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılır liste kutusu kategori verilere erişme.
 
 Aşağıdaki kod nasıl denetleneceğini gösterir `movieGenre` parametresi. Boş değilse, daha fazla kod belirtilen Tarz seçili filmlere sınırlamak için filmler sorgu kısıtlar.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri 
 
@@ -77,7 +77,7 @@ Modülleri yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebil
 
 **Ara yazılım ve modülleri farklı bir sırada işlenir:**
 
-   * Ara yazılım sırasını, bunlar eklenir istek ardışık düzenine modülleri sırasını çoğunlukla tabanlı çalıştırırken sipariş temel [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olayları
+   * Ara yazılım sırasını içinde eklenir istek ardışık düzenine modülleri sırasını çoğunlukla tabanlı çalıştırırken sipariş temel [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olayları
 
    * Modülleri sırasını istekleri ve yanıtları için aynı olsa da Ara yazılım yanıtlar için istekleri, ters sırasıdır
 
@@ -105,11 +105,11 @@ Yukarıdaki ara yazılım şablonu bölümünden alındığı [ara yazılımı y
 
 <a name="http-modules-shortcircuiting-middleware"></a>
 
-Kullanıcı yetkilendirilmedi örneğin bir istek modülünüzün sonlandırabilir:
+Örneğin kullanıcının yetkili olmayan bir istek modülünüzün sonlandırabilir:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Bir ara yazılım değil çağırarak bu işleme `Invoke` ardışık düzende sonraki ara yazılım üzerinde. Ardışık düzeni üzerinden geri yolu yanıt yaptığında, önceki middlewares hala çağrılacak çünkü bu tam istek sona olduğunu göz önünde bulundurun.
+Bir ara yazılım değil çağırarak bu işleme `Invoke` ardışık düzende sonraki ara yazılım üzerinde. Ardışık düzeni üzerinden geri yolu yanıt yaptığında, önceki middlewares hala çağrılacak olduğundan bu tam istek sonlandırmak değil olduğunu göz önünde bulundurun.
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 
@@ -319,7 +319,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 >
 >İstek başına yalnızca bir kez yukarıda gösterildiği gibi ham gövde okuyabilir. İlk okuma boş bir gövdeyi okuyacaksa sonra gövdesi okumaya çalışırken bir ara yazılım.
 >
->Bu, bir arabelleğinden yapıldığından form daha önce gösterildiği gibi okuma için geçerli değildir.
+>Bu, bir arabelleğinden yapıldığından form daha önce gösterildiği gibi okuma için geçerli değil.
 
 ### <a name="httpcontextresponse"></a>HttpContext.Response
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 48e0f2bad8c048e943ec2a3ce72cc0f7ca4d34d9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Yineleyici (VB) verilerine göre ve DataList biçimlendirme
 ====================
@@ -40,25 +40,25 @@ DataList ve yineleyici denetimleriyle teknikleri biçimlendirme bunların her ik
 
 ## <a name="using-theitemdataboundevent-handler"></a>Kullanarak`ItemDataBound`olay işleyicisi
 
-Ne zaman veri bağlı bir DataList için bir veri kaynağı denetimi veya program aracılığıyla veri s denetimine atama yoluyla `DataSource` özelliği ve arama kendi `DataBind()` yöntemi, s DataList `DataBinding` olay gönderir, numaralandırılmış, veri kaynağı ve her veri kaydı DataList bağlıdır. Veri kaynağındaki her kayıt için DataList oluşturur bir [ `DataListItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.aspx) diğer bir deyişle nesne sonra geçerli kayda bağlı. Bu işlem sırasında DataList iki olaylar oluşur:
+Ne zaman veri bağlı bir DataList için bir veri kaynağı denetimi veya program aracılığıyla veri s denetimine atama yoluyla `DataSource` özelliği ve arama kendi `DataBind()` yöntemi, s DataList `DataBinding` olay gönderir, numaralandırılmış, veri kaynağı ve her veri kaydı DataList bağlıdır. Veri kaynağındaki her kayıt için DataList oluşturur bir [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) diğer bir deyişle nesne sonra geçerli kayda bağlı. Bu işlem sırasında DataList iki olaylar oluşur:
 
 - **`ItemCreated`**sonra ateşlenir `DataListItem` oluşturuldu
 - **`ItemDataBound`**Geçerli kayıt için bağlı sonra ateşlenir`DataListItem`
 
 Veri bağlama işlemini DataList denetimi için aşağıdaki adımları verilmiştir.
 
-1. S DataList [ `DataBinding` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.control.databinding.aspx) etkinleşir
+1. S DataList [ `DataBinding` olay](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) etkinleşir
 2. DataList veri bağlama  
   
  Veri kaynağındaki her kayıt için 
 
     1. Oluşturma bir `DataListItem` nesnesi
-    2. Yangın [ `ItemCreated` olayı](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. Yangın [ `ItemCreated` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. Kayda bağlama`DataListItem`
-    4. Yangın [ `ItemDataBound` olayı](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. Yangın [ `ItemDataBound` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Ekleme `DataListItem` için `Items` koleksiyonu
 
-Yineleyici denetimine veri bağlama sırasında tam aynı adımlar dizisini ilerler. Tek fark, yerine olan `DataListItem` oluşturulan örnekleri, yineleyici kullanan [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
+Yineleyici denetimine veri bağlama sırasında tam aynı adımlar dizisini ilerler. Tek fark, yerine olan `DataListItem` oluşturulan örnekleri, yineleyici kullanan [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
 
 > [!NOTE]
 > Akıllı duruma okuyucu hafif bir anomali GridView veriye bağlı olduğunda DataList ve yineleyici verilerine karşı bağlı olduğunda, gerçekleşen adımların sırasını arasındaki fark etmiş olabilirsiniz. Veri bağlama işleminin tail sonunda GridView başlatır `DataBound` olay; ancak böyle bir olay DataList ne yineleyici denetime sahip. Öncesi ve sonrası düzeyi olay işleyicisi düzeni yaygın hale önce DataList ve yineleyici denetimleri geri ASP.NET 1.x zaman çerçevesinde, oluşturulan olmasıdır.
@@ -93,7 +93,7 @@ Oluşturma bir `ItemDataBound` DataList olayı ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample1.vb)]
 
-While s DataList ardındaki semantik ve kavram `ItemDataBound` olay işleyicisi GridView s tarafından kullanılanlarla aynı olan `RowDataBound` olay işleyicisini *özel biçimlendirme göre bağlı verileri* öğretici, sözdizimi farklıdır biraz. Zaman `ItemDataBound` olay ateşlenir `DataListItem` yalnızca verilere bağlama ile ilgili olay işleyicisine geçirilir `e.Item` (yerine `e.Row`, GridView s olarak `RowDataBound` olay işleyicisi). S DataList `ItemDataBound` olay işleyicisi harekete *her* üstbilgi satırlarını, altbilgi satırları ve satır ayırıcı dahil DataList için eklenen satır. Ancak, ürün bilgilerini yalnızca veri satırlarına bağlıdır. Bu nedenle, kullanırken `ItemDataBound` verileri incelemek için olay DataList bağımlı, ilk emin olmak ihtiyacımız biz sahip veri öğesi çalışma re. Bu denetleyerek gerçekleştirilebilir `DataListItem` s [ `ItemType` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), hangi aşağıdakilerden biri olabilir [aşağıdaki sekiz değerleri](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.listitemtype.aspx):
+While s DataList ardındaki semantik ve kavram `ItemDataBound` olay işleyicisi GridView s tarafından kullanılanlarla aynı olan `RowDataBound` olay işleyicisini *özel biçimlendirme göre bağlı verileri* öğretici, sözdizimi farklıdır biraz. Zaman `ItemDataBound` olay ateşlenir `DataListItem` yalnızca verilere bağlama ile ilgili olay işleyicisine geçirilir `e.Item` (yerine `e.Row`, GridView s olarak `RowDataBound` olay işleyicisi). S DataList `ItemDataBound` olay işleyicisi harekete *her* üstbilgi satırlarını, altbilgi satırları ve satır ayırıcı dahil DataList için eklenen satır. Ancak, ürün bilgilerini yalnızca veri satırlarına bağlıdır. Bu nedenle, kullanırken `ItemDataBound` verileri incelemek için olay DataList bağımlı, ilk emin olmak ihtiyacımız biz sahip veri öğesi çalışma re. Bu denetleyerek gerçekleştirilebilir `DataListItem` s [ `ItemType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), hangi aşağıdakilerden biri olabilir [aşağıdaki sekiz değerleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -104,7 +104,7 @@ While s DataList ardındaki semantik ve kavram `ItemDataBound` olay işleyicisi 
 - `SelectedItem`
 - `Separator`
 
-Her ikisi de `Item` ve `AlternatingItem``DataListItem` s oluşma şekli DataList s veri öğeleri. Varsayılarak biz çalışmaya bir `Item` veya `AlternatingItem`, biz gerçek erişim `ProductsRow` geçerli bağlıydı örneği `DataListItem`. `DataListItem` s [ `DataItem` özelliği](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalistitem.dataitem.aspx) başvuruyor `DataRowView` nesnesi, özelliği `Row` özelliği, gerçek bir başvuru sağlar `ProductsRow` nesnesi.
+Her ikisi de `Item` ve `AlternatingItem``DataListItem` s oluşma şekli DataList s veri öğeleri. Varsayılarak biz çalışmaya bir `Item` veya `AlternatingItem`, biz gerçek erişim `ProductsRow` geçerli bağlıydı örneği `DataListItem`. `DataListItem` s [ `DataItem` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) başvuruyor `DataRowView` nesnesi, özelliği `Row` özelliği, gerçek bir başvuru sağlar `ProductsRow` nesnesi.
 
 Ardından, biz denetleyin `ProductsRow` örneği s `UnitPrice` özelliği. S Ürünler tablosunun itibaren `UnitPrice` alan verir `NULL` erişmeye çalışmadan önce değerleri, `UnitPrice` özelliği biz öncelikle kontrol etmelidir olup olmadığını görmek için bir `NULL` kullanarak değer `IsUnitPriceNull()` yöntemi. Varsa `UnitPrice` değeri değil `NULL`, biz sonra onay olmadığını görmek için bu s $20,00 küçüktür. $20,00 gerçekten altında etkinleştirilmişse, ardından özel biçimlendirme uygulamak ihtiyacımız.
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4ee8eb4901305bf6a8c9c5b949dc4ee10290e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları
 ====================
@@ -32,18 +32,18 @@ tarafından [Microsoft](https://github.com/microsoft)
 - ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
     - [Önyükleme](#bootstrap)
-    - [Şablonları](#templates)
+    - [Şablonlar](#templates)
 
         - [ASP.NET MVC 5 şablonu](#mvc5template)
         - [ASP.NET Web API 2 şablonu](#apitemplate)
         - [Öğe şablonları](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [ASP.NET İskele](#scaffold)
+    - [ASP.NET Scaffolding](#scaffold)
     - [Razor Düzenleyicisi](#razor)
     - [NuGet 2.7](#nuget)
 - Bilinen sorunlar ve yeni değişiklikler
 
-    - [ASP.NET İskele](#issuescaffolding)
+    - [ASP.NET Scaffolding](#issuescaffolding)
 
         - [MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası](#404issue)
         - [Visual Studio Express 2012 için Web iskele kurulmuş öğe sonra çalışmayı durdurur.](#expressissue)
@@ -51,7 +51,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 
         - [Gözat ile ya da F5 cshtml dosyasını görüntüleyerek bir sunucu hatasına neden oluyor](#browseissue)
         - [URL yeniden yazma ve Tilde(~)](#rewriteissue)
-    - [Şablonları](#templateissue)
+    - [Şablonlar](#templateissue)
 
 <a id="install"></a>
 ## <a name="installation-notes"></a>Yükleme notları
@@ -89,14 +89,14 @@ Yeni bir Web API 2 şablonu eklediğimiz. En son Web API 2 NuGet paketleri başv
 MVC 5 görünümleri, Web sayfaları (Razor 3) ve Web API 2 denetleyicisi için yeni öğe şablonları eklediğimiz. Bunlar ilgili NuGet paketlerini projeye yeni öğeleri eklenirken yükler.
 
 <a id="ef6"></a>
-### <a name="entity-framework-6"></a>Varlık Çerçevesi 6
+### <a name="entity-framework-6"></a>Entity Framework 6
 
 Entity Framework kullanarak bir MVC veya Web API denetleyicisi iskele kurduğunuzda Framework 6 kullanırız. Entity Framework hakkında daha fazla bilgi için bkz: [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
 
 Ayrıca, indirin ve Visual Studio 2012 için Entity Framework 6 araçlarını yükleyin. Bkz: [alma Entity Framework](https://msdn.com/data/ee712906#tooling).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
 
@@ -125,10 +125,10 @@ NuGet bu sürümü eksik paketleri geri yüklemek için NuGet açıkça izin ver
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
 
 <a id="issuescaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 <a id="404issue"></a>
-#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası
+#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC and Web API Scaffolding - HTTP 404, Not Found error
 
 Bir projeye iskele kurulmuş öğe olduğunda hatayla karşılaşırsanız, projenizin tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılan değişiklikler geri alınacak ancak yüklü NuGet paketleri gibi diğer değişiklikler geri alınacak değil. Yönlendirme yapılandırması değişiklikler geri alınır, gezinme öğeleri iskele kurulmuş kullanıcılar bir HTTP 404 hata alır.
 
@@ -190,7 +190,7 @@ ASP.NET MVC projeleri Visual Studio 2012 Windows 8.1 veya Windows Server 2012 R2
 
 ![Yapılandırma hatası](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-Bu Windows sürümlerini yüklediğinizde Visual Studio 2012 ASP.NET 4.5 özelliğini etkinleştirmez olduğundan, bu hatayı görürsünüz. ASP.NET 4.5 etkinleştirmek için açıklanan adımları gerçekleştirmek [kapatma Windows özelliklerini aç veya Kapat](https://windows.microsoft.com/en-us/windows-8/turn-windows-features-on-off).
+Bu Windows sürümlerini yüklediğinizde Visual Studio 2012 ASP.NET 4.5 özelliğini etkinleştirmez olduğundan, bu hatayı görürsünüz. ASP.NET 4.5 etkinleştirmek için açıklanan adımları gerçekleştirmek [kapatma Windows özelliklerini aç veya Kapat](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
 
 ![Windows özelliklerini açma veya kapatma](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 

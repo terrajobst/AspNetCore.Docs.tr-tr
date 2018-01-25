@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 6f93d6033b68773507d624125936f0a69777e2b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 1: Başlarken
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici seri tarafından oluşturulan Contoso University web uygulaması üzerinde derlemeler [Entity Framework 4.0 ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğretici serisi. Önceki öğreticileri tamamlanmadı, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici seri tarafından oluşturulur.
 > 
@@ -30,7 +30,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="database-first"></a>İlk veritabanı
 > 
-> Entity Framework verilerle çalışma üç yolu vardır: *veritabanı ilk*, *Model First*, ve *Code First*. Bu öğretici ilk veritabanı için ' dir. Senaryonuz için en uygun olanı seçmeniz konusunda bu iş akışları ve Kılavuzu arasındaki farklar hakkında bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Entity Framework verilerle çalışma üç yolu vardır: *veritabanı ilk*, *Model First*, ve *Code First*. Bu öğretici ilk veritabanı için ' dir. Senaryonuz için en uygun olanı seçmeniz konusunda bu iş akışları ve Kılavuzu arasındaki farklar hakkında bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="web-forms"></a>Web Forms
 > 
@@ -47,7 +47,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Sorular
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
+> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
 
 
 `EntityDataSource` Denetimi, bir uygulama çok hızlı bir şekilde oluşturmanızı sağlar, ancak genellikle iş mantığı ve veri erişimi mantığında önemli miktarda tutmanızı gerektirir, *.aspx* sayfaları. Uygulamanızı karmaşıklığı büyümeye ve devam eden bakım gerektirecek şekilde düşünüyorsanız, daha fazla geliştirme zamanı Önden oluşturmak için yatırım yapabilir bir *n katmanlı* veya *katmanlı* uygulama yapısı daha rahat olmasıdır. Bu mimarisi uygulama için sunu katmanı iş mantığı katmanı (BLL) ve veri erişim katmanı'nı (DAL) ayırın. Bu yapı uygulamak için bir yolu `ObjectDataSource` yerine kontrol `EntityDataSource` denetim. Kullandığınızda `ObjectDataSource` denetim, kendi veri erişimi kodunuzu uygulamak ve içinde çağırma *.aspx* birçok aynı olan bir denetimi kullanma sayfaları özellikleri diğer veri kaynağı denetimler. Bu, veri erişimi için bir Web Forms denetimi kullanmanın avantajları n katmanlı yaklaşımın avantajları birleştirin sağlar.
@@ -60,7 +60,7 @@ Bir `ObjectDataSource` denetim works oluşturduğunuz bir sınıfı çağırarak
 
 Temel CRUD işlemleri, ile kullanmak için oluşturduğunuz sınıfı yanı sıra `ObjectDataSource` denetim iş mantığını yürütme gerekebilir zaman `ObjectDataSource` okur veya verileri güncelleştirir. Örneğin, bir departman güncelleştirdiğinizde, tek bir kişi birden fazla bölüm Yöneticisi olamayacağı için başka bir Departmanlar aynı yönetici sahip olduğunu doğrulayın gerekebilir.
 
-Bazı `ObjectDataSource` belgeleri gibi [ObjectDataSource sınıfına genel bakış](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.aspx), denetimi olarak adlandırılan bir sınıf çağıran bir *iş nesnesi* iş mantığı ve veri erişimi mantığı içerir . Bu öğreticide iş mantığı ve veri erişimi mantığı için ayrı sınıfları oluşturur. Veri erişimi mantığı yalıtır sınıfı olarak adlandırılan bir *depo*. İş mantığı sınıfı hem iş mantığı ve veri erişim yöntemleri içerir, ancak veri erişim görevleri gerçekleştirmek için depo veri erişim yöntemlerini çağırın.
+Bazı `ObjectDataSource` belgeleri gibi [ObjectDataSource sınıfına genel bakış](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.aspx), denetimi olarak adlandırılan bir sınıf çağıran bir *iş nesnesi* iş mantığı ve veri erişimi mantığı içerir . Bu öğreticide iş mantığı ve veri erişimi mantığı için ayrı sınıfları oluşturur. Veri erişimi mantığı yalıtır sınıfı olarak adlandırılan bir *depo*. İş mantığı sınıfı hem iş mantığı ve veri erişim yöntemleri içerir, ancak veri erişim görevleri gerçekleştirmek için depo veri erişim yöntemlerini çağırın.
 
 Ayrıca bir Soyutlama Katmanı BLL ve otomatikleştirilmiş birim kolaylaştıran DAL arasında oluşturulur BLL test etme. Bu Soyutlama Katmanı, bir arabirim oluşturma ve iş mantığı sınıfı depoya örneği olduğunda arabirimi kullanılarak uygulanır. Depo arabirimini uygulayan herhangi bir nesneye bir başvurusu olan iş mantığı sınıfı sağlamak mümkün kılar. Normal işlem için Entity Framework ile çalışan bir depo nesnesi sağlayın. Test etmek için kolayca, koleksiyon olarak tanımlanan sınıf değişkenleri gibi işleyebileceğiniz şekilde depolanan verilerle çalışır bir depo nesnesi sağlayın.
 
@@ -325,4 +325,4 @@ Bir alanın değerini değiştirin veya farklı bir yönetici seçin ve tıklat�
 Bu kullanmaya giriş tamamlar `ObjectDataSource` denetimi için temel CRUD (Oluştur, oku, Güncelleştir, Sil) Entity Framework işlemleriyle. Basit bir n katmanlı uygulama oluşturduğunuza, ancak iş mantığı katmanı otomatik birim testi karmaşıklaştırır veri erişim katmanı için hala sıkı şekilde bağlı. Aşağıdaki öğreticide birim testi kolaylaştırmak için havuz deseni uygulamak nasıl görürsünüz.
 
 >[!div class="step-by-step"]
-[Sonraki](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+[Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

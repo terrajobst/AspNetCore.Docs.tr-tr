@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: eee4e7accd338262698d127ed08d4182608839ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c704cc351876b49ec143a49b25cc0ca83876e06
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 kimlik doğrulaması filtreleri
 ====================
@@ -47,7 +47,7 @@ Tüm Web API denetleyicilerinin filtre uygulamak için eklemeniz **GlobalConfigu
 
 ## <a name="implementing-a-web-api-authentication-filter"></a>Bir Web API kimlik doğrulama filtre uygulama
 
-Web API'de kimlik doğrulama filtreler uygulamasına [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/en-us/library/system.web.http.filters.iauthenticationfilter.aspx) arabirimi. Bunlar ayrıca devralınmalıdır **System.Attribute'un**öznitelikleri olarak uygulanması için.
+Web API'de kimlik doğrulama filtreler uygulamasına [System.Web.Http.Filters.IAuthenticationFilter](https://msdn.microsoft.com/library/system.web.http.filters.iauthenticationfilter.aspx) arabirimi. Bunlar ayrıca devralınmalıdır **System.Attribute'un**öznitelikleri olarak uygulanması için.
 
 **IAuthenticationFilter** arabirimi iki yöntem vardır:
 
@@ -124,7 +124,7 @@ Temel kimlik doğrulaması örnek içeren bir `AuthenticationFailureResult` bu a
 
 [!code-csharp[Main](authentication-filters/samples/sample6.cs)]
 
-## <a name="implementing-challengeasync"></a>ChallengeAsync uygulama
+## <a name="implementing-challengeasync"></a>Implementing ChallengeAsync
 
 Amacı **ChallengeAsync** yöntemi ise kimlik doğrulama sınaması yanıt olarak eklemek için gerekli. Yöntem imzası şöyledir:
 
@@ -168,4 +168,4 @@ Web API ardışık düzeni içinde ana bilgisayar düzeyinde kimlik doğrulamas�
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web API güvenliğini filtreler](https://msdn.microsoft.com/en-us/magazine/dn781361.aspx) (MSDN dergisi)
+[ASP.NET Web API güvenliğini filtreler](https://msdn.microsoft.com/magazine/dn781361.aspx) (MSDN dergisi)

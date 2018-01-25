@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core içinde siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını önleme
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>Hangi saldırı sahteciliğe karşı koruma engellemez?
 
-Siteler arası istek sahtekarlığı (olarak da bilinen XSRF veya CSRF, belirgin *bakın surf*) web barındırılan uygulamalar yapabildiği kötü amaçlı bir web sitesi etkilemek istemci tarayıcısına ve güvendiği bir web sitesi arasındaki etkileşim karşı bir saldırı Bu tarayıcı. Web tarayıcıları bir web sitesi için kimlik doğrulama belirteçleri bazı türleri her istek ile otomatik olarak göndermek için bu saldırıların olası yapılır. Bu yararlanma olarak da bilinen biçimidir bir *tek tıklatmayla saldırı* veya as *arabası oturum*, saldırı yararlanır kullanıcı daha önce oturum kimliği doğrulanmış.
+Siteler arası istek sahtekarlığı (olarak da bilinen XSRF veya CSRF, belirgin *bakın surf*) web barındırılan uygulamalar yapabildiği kötü amaçlı bir web sitesi etkilemek istemci tarayıcısına ve güvendiği bir web sitesi arasındaki etkileşim karşı bir saldırı Bu tarayıcı. Web tarayıcıları bir web sitesi için kimlik doğrulama belirteçleri bazı türleri her istek ile otomatik olarak göndermek için bu saldırıların olası yapılır. Bu biçimi yararlanma, kullanıcının olarak da bilinen bir *tek tıklatmayla saldırı* veya as *arabası oturum*, saldırı yararlanır kullanıcı daha önce oturum kimliği doğrulanmış.
 
 CSRF saldırı örneği:
 
@@ -51,13 +51,13 @@ Bu örnekte form düğmesini kullanıcıya gerektirir. Kötü amaçlı sayfası 
 * Form gönderme AJAX isteği gönderir. 
 * Gizli bir form CSS ile kullanın. 
 
-SSL kullanarak engellemez CSRF saldırı, zararlı site gönderebilirsiniz bir `https://` isteği. 
+SSL olmayan engel CSRF saldırı, zararlı site gönderebilirsiniz bir `https://` isteği. 
 
 Bazı saldırılar yanıt site uç noktaları hedef `GET` istekleri, hangi durumda resim etiketi (Bu saldırı biçimidir ortak görüntüleri izin ancak JavaScript engelleme Forumu sitelerinde) eylemi gerçekleştirmek için kullanılabilir. İle durum değişikliği uygulamaları `GET` istekleri kötü amaçlı saldırılara karşı savunmasız.
 
 Tarayıcıların tüm ilgili tanımlama bilgilerini hedef web sitesine gönderdiği çünkü CSRF saldırılarına karşı kimlik doğrulaması için tanımlama bilgileri kullanan web siteleri mümkündür. Ancak, CSRF saldırıları tanımlama bilgisinden faydalanmakta için sınırlı değildir. Örneğin, temel ve Özet kimlik doğrulaması da savunmasız. Bir kullanıcının temel veya Özet kimlik doğrulaması ile oturum açtığı sonra oturumu sona kadar tarayıcı otomatik olarak kimlik bilgilerini gönderir.
 
-Not: Bu bağlamda *oturum* sırasında kullanıcının kimliğinin istemci-tarafı oturumuna başvuruyor. Sunucu tarafı oturumlarını ilgisi yoktur veya [oturum Ara](xref:fundamentals/app-state).
+Not: Bu bağlamda *oturum* sırasında kullanıcının kimliğinin istemci-tarafı oturumuna başvuruyor. Bu sunucu tarafı oturumlarını ilgisiz veya [oturum Ara](xref:fundamentals/app-state).
 
 Kullanıcılar tarafından CSRF güvenlik açıklarına karşı önleyebilirsiniz:
 * Bunları kullanmayı bitirdikten sonra web sitelerinde oturum.
@@ -84,8 +84,8 @@ Otomatik olarak oluşturulmasını sahteciliğe karşı koruma belirteçleri iç
 
 * `form` Etiketinde `method="post"` özniteliği ve
 
-  * Boş eylem özniteliğidir. ( `action=""`) VEYA
-  * Action özniteliği belirtilmedi. (`<form method="post">`)
+  * Boş eylem özniteliğidir. ( `action=""`) OR
+  * Eylem öznitelik sağlanan değil. (`<form method="post">`)
 
 Sahteciliğe karşı koruma belirteçlerini otomatik olarak oluşturulmasını HTML form öğelerini tarafından için devre dışı bırakabilirsiniz:
 
@@ -171,7 +171,7 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 
 ### <a name="autovalidateantiforgerytoken"></a>AutoValidateAntiforgeryToken
 
-ASP.NET Core uygulamaları antiforgery belirteçleri HTTP güvenli yöntemleri (GET, HEAD, seçenekleri ve izleme) için genellikle oluşturmaz. Kapsamlı uygulama yerine ``ValidateAntiForgeryToken`` özniteliği ve ile geçersiz kılma ``IgnoreAntiforgeryToken`` kullanabileceğiniz öznitelikleri ``AutoValidateAntiforgeryToken`` özniteliği. Bu öznitelik için aynı şekilde çalışır ``ValidateAntiForgeryToken`` için aşağıdaki HTTP yöntemleri kullanılarak yapılan istekleri belirteçleri gerektirmeyen dışında öznitelik:
+ASP.NET Core uygulamaları genellikle HTTP güvenli yöntemleri (GET, HEAD, seçenekleri ve izleme) için antiforgery belirteçleri oluşturmak yok. Kapsamlı uygulama yerine ``ValidateAntiForgeryToken`` özniteliği ve ile geçersiz kılma ``IgnoreAntiforgeryToken`` kullanabileceğiniz öznitelikleri ``AutoValidateAntiforgeryToken`` özniteliği. Bu öznitelik için aynı şekilde çalışır ``ValidateAntiForgeryToken`` için aşağıdaki HTTP yöntemleri kullanılarak yapılan istekleri belirteçleri gerektirmeyen dışında öznitelik:
 
 * AL
 * HEAD
@@ -326,7 +326,7 @@ services.AddAntiforgery(options =>
 |Seçenek        | Açıklama |
 |------------- | ----------- |
 |CookieDomain  | Tanımlama bilgisinin etki alanı. Varsayılan olarak `null`. |
-|Tanımlamabilgisiadı    | Tanımlama bilgisinin adı. Ayarlanmadı, sistem ile başlayan bir benzersiz bir ad oluşturur `DefaultCookiePrefix` (". AspNetCore.Antiforgery."). |
+|CookieName    | Tanımlama bilgisinin adı. Ayarlanmadı, sistem ile başlayan bir benzersiz bir ad oluşturur `DefaultCookiePrefix` (". AspNetCore.Antiforgery."). |
 |CookiePath    | Yolu tanımlama bilgisinde ayarlanır. |
 |FormFieldName | Görünümlerde antiforgery belirteçleri oluşturmak için antiforgery sistem tarafından kullanılan gizli form alanının adı. |
 |HeaderName    | Antiforgery sistem tarafından kullanılan üstbilginin adı. Varsa `null`, sistem yalnızca form verilerini değerlendirir. |
@@ -337,9 +337,9 @@ https://docs.microsoft.com/ASPNET/Core/api/Microsoft.aspnetcore.Builder.cookieau
 
 ### <a name="extending-antiforgery"></a>Antiforgery genişletme
 
-[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü her belirteci ek veriler gidiş tarafından anti-XSRF sistem davranışını genişletmek geliştiricilere sağlar. [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır. Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve ardından arama [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) belirteç doğrulandığında bu verileri doğrulamak için. Bu yüzden bu bilgiyi içer gerek yoktur istemcinin kullanıcı adı zaten oluşturulan belirteçlere katıştırılır. Bir belirteci ek veriler ancak hiçbir içeriyorsa `IAntiForgeryAdditionalDataProvider` bırakıldı yapılandırıldıysa, ek veriler doğrulanmazsa.
+[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü her belirteci ek veriler gidiş tarafından anti-XSRF sistem davranışını genişletmek geliştiricilere sağlar. [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır. Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve ardından arama [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) belirteç doğrulandığında bu verileri doğrulamak için. Bu yüzden bu bilgiyi içer gerek yoktur istemcinin kullanıcı adı zaten oluşturulan belirteçlere katıştırılır. Bir belirteci ek veriler ancak hiçbir içeriyorsa `IAntiForgeryAdditionalDataProvider` bırakıldı yapılandırıldıysa, ek veriler doğrulanmış değil.
 
-## <a name="fundamentals"></a>Temelleri
+## <a name="fundamentals"></a>Temeller
 
 Bu etki alanına yapılan her isteği bir etki alanı ile ilişkili tanımlama bilgileri gönderme varsayılan tarayıcı davranışını CSRF saldırıları kullanır. Bu tanımlama bilgileri tarayıcı içinde depolanır. Kimliği doğrulanmış kullanıcılar için oturum tanımlama bilgileri sık içerirler. Tanımlama bilgisi tabanlı kimlik doğrulaması, kimlik doğrulama popüler şeklidir. Belirteç tabanlı kimlik doğrulama sistemleriyle popülerliği özellikle SPAs ve diğer "akıllı istemci" senaryoları için büyüyen.
 
@@ -353,11 +353,11 @@ Bir kullanıcı bir sistemde oturum açtığında, kullanıcı oturumunu sunucu 
 
 ### <a name="user-tokens"></a>Kullanıcı belirteçleri
 
-Belirteç tabanlı kimlik doğrulaması oturum sunucuda depolamak değil. Bunun yerine, bir kullanıcı oturum açtığında bir belirteç (antiforgery bir belirteç değil) verilir. Bu belirteç belirteci doğrulamak için gerekli tüm verileri içerir. Ayrıca biçiminde kullanıcı bilgilerini içeren [talep](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Bir kullanıcı kimlik doğrulaması gerektiren bir sunucu kaynağa erişmek istediğinde, belirteç taşıyıcı {belirteci} biçiminde bir ek authorization üstbilgisi sunucusuyla gönderilir. Sonraki her istek için sunucu tarafı doğrulama istekte belirteç geçirilen beri bu uygulamayı durum bilgisiz hale getirir. Bu belirteç değil *şifrelenmiş*; bunun yerine olan *kodlanmış*. Sunucu tarafında belirteç, belirtecin içinde ham bilgilerine erişmek için çözülebilir. Belirteç içinde sonraki istekleri göndermek için ya da, tarayıcının yerel depolama biriminde veya bir tanımlama bilgisinde saklayabilirsiniz. Belirtecinizi yerel depolama alanına depolanır, ancak belirteç bir tanımlama bilgisinde depolanıyorsa, bir sorun olduğundan XSRF güvenlik açığı hakkında endişelenmeniz gerekmez.
+Belirteç tabanlı kimlik doğrulaması oturum sunucuda depolamak değil. Bir kullanıcı oturum açtığında bunun yerine, bir belirteç (antiforgery bir belirteç değil) alacakları. Bu belirteç belirteci doğrulamak için gerekli tüm verileri içerir. Ayrıca biçiminde kullanıcı bilgilerini içeren [talep](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Bir kullanıcı kimlik doğrulaması gerektiren bir sunucu kaynağa erişmek istediğinde, belirteç taşıyıcı {belirteci} biçiminde bir ek authorization üstbilgisi sunucusuyla gönderilir. Sonraki her istek için sunucu tarafı doğrulama istekte belirteç geçirilen beri bu uygulamayı durum bilgisiz hale getirir. Bu belirteç değil *şifrelenmiş*; bunun yerine olan *kodlanmış*. Sunucu tarafında belirteç, belirtecin içinde ham bilgilerine erişmek için çözülebilir. Belirteç içinde sonraki istekleri göndermek için ya da, tarayıcının yerel depolama biriminde veya bir tanımlama bilgisinde saklayabilirsiniz. Belirtecinizi yerel depolama alanına depolanır, ancak belirteç bir tanımlama bilgisinde depolanıyorsa, bir sorun olduğundan XSRF güvenlik açığı hakkında endişelenmeniz gerekmez.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Bir etki alanında barındırılan birden çok uygulamalarını
 
-Olsa bile `example1.cloudapp.net` ve `example2.cloudapp.net` farklı ana altındaki tüm konaklarda arasında örtük güven ilişkisi yoktur `*.cloudapp.net` etki alanı. Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli değildir) birbirlerinin tanımlama bilgilerini etkileyen olanak tanır. Kötü amaçlı bir alt etki alanı oturum belirteci üzerine mümkün olsa bile, kullanıcı için geçerli bir alan belirteci oluşturamıyor gerçekleşmesi için kullanıcı adı alanı belirteci katıştırılır, ASP.NET çekirdeği çalışma zamanı bazı azaltma sağlar. Ancak, bu tür bir ortamda barındırıldığında yerleşik anti-XSRF yordamlar hala oturumu ele geçirme veya oturum açma CSRF karşı saldırıları korumaya olamaz. Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara vunerable ' dir.
+Olsa bile `example1.cloudapp.net` ve `example2.cloudapp.net` farklı ana altındaki tüm konaklarda arasında örtük güven ilişkisi yoktur `*.cloudapp.net` etki alanı. Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır. Kötü amaçlı bir alt etki alanı oturum belirteci üzerine mümkün olsa bile, kullanıcı için geçerli bir alan belirteci oluşturamıyor gerçekleşmesi için kullanıcı adı alanı belirteci katıştırılır, ASP.NET çekirdeği çalışma zamanı bazı azaltma sağlar. Ancak, bu tür bir ortamda barındırıldığında yerleşik anti-XSRF yordamlar hala oturumu ele geçirme veya oturum açma CSRF karşı saldırıları korumaya olamaz. Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara vunerable ' dir.
 
 
 ### <a name="additional-resources"></a>Ek Kaynaklar

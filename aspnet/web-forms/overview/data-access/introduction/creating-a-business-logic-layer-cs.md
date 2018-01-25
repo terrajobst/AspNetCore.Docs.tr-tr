@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d117456521442972f1bfcfc15a4e8e7253e07e53
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7518ddd11a05a9e3d5df85e3cf6ceffa09a25060
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-business-logic-layer-c"></a>Bir iş mantığı katmanı (C#) oluşturma
 ====================
@@ -56,7 +56,7 @@ Ardından, dört BLL sınıfı dosyalarında oluşturun `BLL` alt klasörü. Bun
 Ardından, yalnızca ilk öğreticiden TableAdapters için tanımlanan yöntemler sarmalamak için sınıfların her biri için yöntemleri ekleyelim. Şimdilik, bu yöntemleri yalnızca doğrudan DAL çağıracak; gerekli iş mantığı eklemek için sonraki getireceğiz.
 
 > [!NOTE]
-> Visual Studio Standard Edition kullanıyorsanız veya üstü (diğer bir deyişle, olduğunuz *değil* Visual Web Developer kullanarak), isteğe bağlı olarak görsel olarak kullanarak sınıflarınızı tasarlayabilirsiniz [Sınıf Tasarımcısı](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vstechart/html/clssdsgnr.asp). Başvurmak [Sınıf Tasarımcısı Blog](https://blogs.msdn.com/classdesigner/default.aspx) Visual Studio'da bu yeni özellik hakkında daha fazla bilgi için.
+> Visual Studio Standard Edition kullanıyorsanız veya üstü (diğer bir deyişle, olduğunuz *değil* Visual Web Developer kullanarak), isteğe bağlı olarak görsel olarak kullanarak sınıflarınızı tasarlayabilirsiniz [Sınıf Tasarımcısı](https://msdn.microsoft.com/library/default.asp?url=/library/dv_vstechart/html/clssdsgnr.asp). Başvurmak [Sınıf Tasarımcısı Blog](https://blogs.msdn.com/classdesigner/default.aspx) Visual Studio'da bu yeni özellik hakkında daha fazla bilgi için.
 
 
 İçin `ProductsBLL` sınıfı ihtiyacımız yedi yöntemleri toplam eklemek için:
@@ -76,7 +76,7 @@ ProductsBLL.cs
 
 Yalnızca veri döndüren yöntemler `GetProducts`, `GetProductByProductID`, `GetProductsByCategoryID`, ve `GetProductBySuppliersID` bunlar yalnızca DAL çağrı gibi oldukça basittir. Bazı senaryolarda olsa da uygulanması gereken iş kurallarını bu düzeyde (örneğin, yetkilendirme kuralları) şu anda oturum açmış kullanıcı veya kullanıcının ait olduğu rol göre yalnızca bu yöntemleri olarak bırakacağız-değil. Bu yöntemler, daha sonra BLL yalnızca ve sunu katmanı temel alınan veriler veri erişim katmanı erişen bir proxy görevi görür.
 
-`AddProduct` Ve `UpdateProduct` yöntemleri hem parametre olarak çeşitli ürün alanlarına ait değerlerin olur ve yeni bir ürün ekleyin veya mevcut bir sırasıyla güncelleştirin. Birçok itibaren `Product` tablo sütunlarından kabul edebilir `NULL` değerleri (`CategoryID`, `SupplierID`, ve `UnitPrice`, birkaçıdır), bu giriş parametreleri için `AddProduct` ve `UpdateProduct` böyle bir sütun kullanımı eşlenen[boş değer atanabilir türler](https://msdn.microsoft.com/en-us/library/1t3y8s4s(v=vs.80).aspx). Boş değer atanabilir türler .NET 2.0 için yenidir ve bir değer türü, bunun yerine, gerekip gerekmediğini belirten olması için bir yöntem sağlayan `null`. C# ' ta, bir değer türü null olabilir bir tür ekleyerek işaretleyebilirsiniz `?` türü sonra (gibi `int? x;`). Başvurmak [boş değer atanabilir türler](https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx) bölümüne [C# programlama kılavuzu](https://msdn.microsoft.com/en-us/library/67ef8sbd%28VS.80%29.aspx) daha fazla bilgi için.
+`AddProduct` Ve `UpdateProduct` yöntemleri hem parametre olarak çeşitli ürün alanlarına ait değerlerin olur ve yeni bir ürün ekleyin veya mevcut bir sırasıyla güncelleştirin. Birçok itibaren `Product` tablo sütunlarından kabul edebilir `NULL` değerleri (`CategoryID`, `SupplierID`, ve `UnitPrice`, birkaçıdır), bu giriş parametreleri için `AddProduct` ve `UpdateProduct` böyle bir sütun kullanımı eşlenen[boş değer atanabilir türler](https://msdn.microsoft.com/library/1t3y8s4s(v=vs.80).aspx). Boş değer atanabilir türler .NET 2.0 için yenidir ve bir değer türü, bunun yerine, gerekip gerekmediğini belirten olması için bir yöntem sağlayan `null`. C# ' ta, bir değer türü null olabilir bir tür ekleyerek işaretleyebilirsiniz `?` türü sonra (gibi `int? x;`). Başvurmak [boş değer atanabilir türler](https://msdn.microsoft.com/library/1t3y8s4s.aspx) bölümüne [C# programlama kılavuzu](https://msdn.microsoft.com/library/67ef8sbd%28VS.80%29.aspx) daha fazla bilgi için.
 
 Üçünü bir satır eklenir, güncelleştirilmiş veya işlemi etkilenen bir satırda sağlamayabilir bu yana silinmiş olup olmadığını gösteren bir Boole değeri döndürür. Örneğin, sayfa Geliştirici çağırırsa `DeleteProduct` tümleştirilmesidir bir `ProductID` mevcut olmayan ürününün `DELETE` veritabanına verilen deyimi herhangi bir etkisi olacaktır ve bu nedenle `DeleteProduct` yöntemi döndürür `false`.
 
@@ -86,7 +86,7 @@ Hem de sonraki `AddProduct` ve `UpdateProduct`, kod oluşturur bir `ProductsRow`
 
 İçinde `UpdateProduct` biz öncelikle kullanarak güncelleştirmek için ürün yük `GetProductByProductID(productID)`. Bu veritabanı için gereksiz bir seyahat gibi görünebilir, ancak bu ek seyahat iyimser eşzamanlılık keşfedin gelecekteki eğitimlerine faydalı kanıtlamak. İyimser eşzamanlılık, aynı verileri aynı anda çalışan iki kullanıcılar, başka birinin değişiklikleri yanlışlıkla üzerine yazmayın sağlamak için kullanılan bir tekniktir. Kaydın tamamını kapmasını Ayrıca, güncelleştirme yöntemleri yalnızca bir sütun alt kümesini DataRow nesnesinin değişiklik BLL içinde oluşturmak kolaylaştırır. Ne zaman biz keşfedin `SuppliersBLL` sınıfı biz buna bir örnek göreceksiniz.
 
-Son olarak, unutmayın `ProductsBLL` sınıfına sahip [DataObject özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataobjectattribute.aspx) uygulanan ( `[System.ComponentModel.DataObject]` hemen önce dosyanın en üstüne yakın class deyimi sözdizimi) ve yöntemleri [ DataObjectMethodAttribute öznitelikleri](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataobjectmethodattribute.aspx). `DataObject` Özniteliği işaretler bağlama için uygun bir nesne olarak sınıfı bir [ObjectDataSource Denetimi](https://msdn.microsoft.com/en-us/library/9a4kyhcx.aspx), ancak `DataObjectMethodAttribute` yöntemi amacını gösterir. Öğreticiler gelecekte anlatıldığı gibi ASP.NET 2.0'ın ObjectDataSource bildirimli olarak bir sınıftan verilere erişmek kolaylaştırır. ObjectDataSource'nın Sihirbazı'nda bağlamak için olası sınıfların listesi filtre yardımcı olmak için yalnızca olarak işaretlenmiş sınıfları varsayılan olarak `DataObjects` sihirbazın aşağı açılan listesinde gösterilir. `ProductsBLL` Sınıfı bu öznitelikler da çalışır, ancak eklemeden kolaylaştırır ObjectDataSource'nın Sihirbazı'nda çalışmak.
+Son olarak, unutmayın `ProductsBLL` sınıfına sahip [DataObject özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataobjectattribute.aspx) uygulanan ( `[System.ComponentModel.DataObject]` hemen önce dosyanın en üstüne yakın class deyimi sözdizimi) ve yöntemleri [ DataObjectMethodAttribute öznitelikleri](https://msdn.microsoft.com/library/system.componentmodel.dataobjectmethodattribute.aspx). `DataObject` Özniteliği işaretler bağlama için uygun bir nesne olarak sınıfı bir [ObjectDataSource Denetimi](https://msdn.microsoft.com/library/9a4kyhcx.aspx), ancak `DataObjectMethodAttribute` yöntemi amacını gösterir. Öğreticiler gelecekte anlatıldığı gibi ASP.NET 2.0'ın ObjectDataSource bildirimli olarak bir sınıftan verilere erişmek kolaylaştırır. ObjectDataSource'nın Sihirbazı'nda bağlamak için olası sınıfların listesi filtre yardımcı olmak için yalnızca olarak işaretlenmiş sınıfları varsayılan olarak `DataObjects` sihirbazın aşağı açılan listesinde gösterilir. `ProductsBLL` Sınıfı bu öznitelikler da çalışır, ancak eklemeden kolaylaştırır ObjectDataSource'nın Sihirbazı'nda çalışmak.
 
 ## <a name="adding-the-other-classes"></a>Diğer sınıf ekleme
 
@@ -144,7 +144,7 @@ Alan düzeyindeki doğrulama olan ekleme veya güncelleştirme sırasında iş n
 - `ProductID`, `ProductName`, Ve `Discontinued` alanları gereklidir, ancak diğer tüm alanlar isteğe bağlıdır
 - `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, Ve `ReorderLevel` alanları değerinden büyük veya sıfıra eşit olmalıdır
 
-Bu kurallar, olabilir ve veritabanı düzeyinde ifade edilmelidir. Karakter sınırını `ProductName` ve `QuantityPerUnit` alanları bu sütunların veri türleri tarafından yakalanan `Products` tablosu (`nvarchar(40)` ve `nvarchar(20)`sırasıyla). Alanları gerekli ve isteğe bağlı olup ifade edilir tarafından veritabanı tablo sütununa izin veriyorsa `NULL` s. Dört [denetim kısıtlamaları](https://msdn.microsoft.com/en-us/library/ms188258.aspx) mevcut emin yalnızca şu değerler sıfırdan büyük veya sıfıra eşit içine yapabilirsiniz `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, veya `ReorderLevel` sütun.
+Bu kurallar, olabilir ve veritabanı düzeyinde ifade edilmelidir. Karakter sınırını `ProductName` ve `QuantityPerUnit` alanları bu sütunların veri türleri tarafından yakalanan `Products` tablosu (`nvarchar(40)` ve `nvarchar(20)`sırasıyla). Alanları gerekli ve isteğe bağlı olup ifade edilir tarafından veritabanı tablo sütununa izin veriyorsa `NULL` s. Dört [denetim kısıtlamaları](https://msdn.microsoft.com/library/ms188258.aspx) mevcut emin yalnızca şu değerler sıfırdan büyük veya sıfıra eşit içine yapabilirsiniz `UnitPrice`, `UnitsInStock`, `UnitsOnOrder`, veya `ReorderLevel` sütun.
 
 Bu kurallar veritabanı sırasında zorlama yanı sıra bunların ayrıca veri kümesi düzeyinde zorunlu tutulmalıdır. Aslında, alan uzunluğu ve bir değer gerekli veya isteğe bağlı olup zaten DataColumn nesneleri her DataTable nesnesinin kümesi için yakalanır. Otomatik olarak sağlanan mevcut alan düzeyindeki doğrulama görmek için veri kümesi Tasarımcısı gidin, DataTables birinden bir alan seçin ve Özellikler penceresine gidin. Şekil 4'te gösterildiği gibi `QuantityPerUnit` DataColumn `ProductsDataTable` en çok 20 karakter içeriyor ve izin vermiyor `NULL` değerleri. Biz ayarlamaya çalışırsanız `ProductsDataRow`'s `QuantityPerUnit` 20 karakterden uzun bir dize değeri özelliğine bir `ArgumentException` oluşturulur.
 
@@ -154,7 +154,7 @@ Bu kurallar veritabanı sırasında zorlama yanı sıra bunların ayrıca veri k
 **Şekil 4**: DataColumn ile sağlar temel alan düzeyindeki doğrulama ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-business-logic-layer-cs/_static/image8.png))
 
 
-Ne yazık ki, biz sınırları denetimleri gibi belirtemezsiniz `UnitPrice` değeri Özellikler penceresini aracılığıyla sıfıra eşit veya daha büyük olmalıdır. Bu tür bir alan düzeyindeki doğrulama sağlamak için bir olay işleyicisi DataTable için nesnesinin oluşturmak ihtiyacımız [ColumnChanging](https://msdn.microsoft.com/en-us/library/system.data.datatable.columnchanging%28VS.80%29.aspx) olay. Bölümünde belirtildiği gibi [önceki öğretici](creating-a-data-access-layer-cs.md), kısmi sınıflar kullanımı ile yazılan veri kümesi tarafından oluşturulan veri kümesi, DataTable ve DataRow nesneler genişletilebilir. Biz oluşturabilirsiniz Bu teknik kullanılarak bir `ColumnChanging` için olay işleyicisini `ProductsDataTable` sınıfı. Başlangıç bir sınıfta oluşturarak `App_Code` adlı klasörü `ProductsDataTable.ColumnChanging.cs`.
+Ne yazık ki, biz sınırları denetimleri gibi belirtemezsiniz `UnitPrice` değeri Özellikler penceresini aracılığıyla sıfıra eşit veya daha büyük olmalıdır. Bu tür bir alan düzeyindeki doğrulama sağlamak için bir olay işleyicisi DataTable için nesnesinin oluşturmak ihtiyacımız [ColumnChanging](https://msdn.microsoft.com/library/system.data.datatable.columnchanging%28VS.80%29.aspx) olay. Bölümünde belirtildiği gibi [önceki öğretici](creating-a-data-access-layer-cs.md), kısmi sınıflar kullanımı ile yazılan veri kümesi tarafından oluşturulan veri kümesi, DataTable ve DataRow nesneler genişletilebilir. Biz oluşturabilirsiniz Bu teknik kullanılarak bir `ColumnChanging` için olay işleyicisini `ProductsDataTable` sınıfı. Başlangıç bir sınıfta oluşturarak `App_Code` adlı klasörü `ProductsDataTable.ColumnChanging.cs`.
 
 
 [![Yeni bir sınıf App_Code klasörüne ekleyin](creating-a-business-logic-layer-cs/_static/image10.png)](creating-a-business-logic-layer-cs/_static/image9.png)
@@ -188,7 +188,7 @@ Bu iş kuralı zorlamak için `UpdateProducts` biz start olmadığını denetley
 
 ## <a name="responding-to-validation-errors-in-the-presentation-tier"></a>Sunu katmanındaki doğrulama hataları yanıtlama
 
-Sunu Katmanı'ndan BLL çağrılırken, yükseltilmiş veya ASP.NET kadar Kabarcık bildirmek özel durumları işleme girişimi edilmeyeceğine karar verebilirsiniz (Yükselt `HttpApplication`'s `Error` olay). Program aracılığıyla BLL ile çalışırken, özel bir durumu işlemek için şu kullanabilirsiniz bir [try... catch](https://msdn.microsoft.com/en-us/library/0yd65esw.aspx) aşağıdaki örnekte gösterildiği gibi engelle:
+Sunu Katmanı'ndan BLL çağrılırken, yükseltilmiş veya ASP.NET kadar Kabarcık bildirmek özel durumları işleme girişimi edilmeyeceğine karar verebilirsiniz (Yükselt `HttpApplication`'s `Error` olay). Program aracılığıyla BLL ile çalışırken, özel bir durumu işlemek için şu kullanabilirsiniz bir [try... catch](https://msdn.microsoft.com/library/0yd65esw.aspx) aşağıdaki örnekte gösterildiği gibi engelle:
 
 
 [!code-csharp[Main](creating-a-business-logic-layer-cs/samples/sample7.cs)]

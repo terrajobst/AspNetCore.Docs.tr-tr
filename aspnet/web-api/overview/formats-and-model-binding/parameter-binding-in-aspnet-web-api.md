@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>ASP.NET Web API bağlama parametresi
 ====================
@@ -26,7 +26,7 @@ Web API denetleyicisi üzerinde bir yöntem çağırdığında adlı bir işlem 
 
 Varsayılan olarak, Web API parametreleri bağlamak için aşağıdaki kuralları kullanır:
 
-- Parametre "Basit" bir tür ise, Web API URI'den değeri almaya çalışır. Basit türler .NET [ilkel türler](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx) (**int**, **bool**, **çift**, vb.), artı **TimeSpan**, **DateTime**, **GUID**, **ondalık**, ve **dize**, *artı* herhangi bir dizeden dönüştürebilirsiniz türü dönüştürücü ile yazın. (Hakkında daha fazla daha sonra tür dönüştürücüleri.)
+- Parametre "Basit" bir tür ise, Web API URI'den değeri almaya çalışır. Basit türler .NET [ilkel türler](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **çift**, vb.), artı **TimeSpan**, **DateTime**, **GUID**, **ondalık**, ve **dize**, *artı* herhangi bir dizeden dönüştürebilirsiniz türü dönüştürücü ile yazın. (Hakkında daha fazla daha sonra tür dönüştürücüleri.)
 - Karmaşık türler, Web API çalışır için ileti gövdesinden değerini okumaya kullanarak bir [medya türü biçimlendiricisi](media-formatters.md).
 
 Örneğin, tipik bir Web API denetleyicisi yöntemi şöyledir:
@@ -83,7 +83,7 @@ Web API işler artık `GeoPoint` basit bir tür olarak bağlamak çalışır yan
 
 `http://localhost/api/values/?location=47.678558,-122.130989`
 
-## <a name="model-binders"></a>Model bağlayıcıları
+## <a name="model-binders"></a>Model Binders
 
 Özel bir model bağlayıcısını oluşturmak için tür dönüştürücüsünü olandan daha esnek bir seçenek. Bir model bağlayıcı ile HTTP isteği, eylem açıklaması ve ham değerler gibi rota verilerinden erişebilirsiniz.
 
@@ -102,7 +102,7 @@ Ham giriş değerleri bir model bağlayıcı alır bir *değer sağlayıcı*. Bu
 
 Web API varsayılan değer sağlayıcısında rota verilerini ve sorgu dizesi değerlerini alır. Örneğin, URI ise `http://localhost/api/values/1?location=48,-122`, aşağıdaki anahtar-değer çiftleri değer sağlayıcısı oluşturur:
 
-- ID = &quot;1&quot;
+- id = &quot;1&quot;
 - konumu = &quot;48,122&quot;
 
 (Olan varsayılan rota şablonu varsayılarak &quot;API / {controller} / {id}&quot;.)
@@ -121,7 +121,7 @@ Ayrıca ekleyebileceğiniz bir **[çoğaltan ModelBinder]** öznitelik türü. W
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-Son olarak, bir model bağlayıcı sağlayıcısı ekleyebilirsiniz **HttpConfiguration**. Bir model bağlayıcı sağlayıcısı bir model bağlayıcı oluşturan yalnızca bir Fabrika sınıftır. Türetilen bir sağlayıcı oluşturabilirsiniz [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx) sınıfı. Tek bir tür, model bağlayıcı işler, ancak bu yerleşik kullanmak daha kolay olur **SimpleModelBinderProvider**, bu amaç için tasarlanmıştır. Aşağıdaki kod bunun nasıl yapılacağı gösterilmektedir.
+Son olarak, bir model bağlayıcı sağlayıcısı ekleyebilirsiniz **HttpConfiguration**. Bir model bağlayıcı sağlayıcısı bir model bağlayıcı oluşturan yalnızca bir Fabrika sınıftır. Türetilen bir sağlayıcı oluşturabilirsiniz [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx) sınıfı. Tek bir tür, model bağlayıcı işler, ancak bu yerleşik kullanmak daha kolay olur **SimpleModelBinderProvider**, bu amaç için tasarlanmıştır. Aşağıdaki kod bunun nasıl yapılacağı gösterilmektedir.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

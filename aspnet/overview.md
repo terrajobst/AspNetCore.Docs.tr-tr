@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: 
 msc.type: content
-ms.openlocfilehash: e54c5e2a0188f3ef8288c191517bd632254cfa00
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed11c882c801248ffaca95b82f16d23c87fb9be7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-overview"></a>ASP.NET genel bakış
 
@@ -40,7 +40,7 @@ Her çerçeveleri ve bunlar arasında seçim yapma için bazı fikirler genel ba
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web Forms | Win Forms, WPF, .NET | HTML biçimlendirmesi kapsülleyen denetimlerin zengin bir kitaplık kullanılarak hızlı geliştirme | Orta düzey ve Gelişmiş RAD |
 | MVC       | Ruby rayları, .NET üzerinde  | HTML biçimlendirme, kod ve biçimlendirme ayrılmış ve testleri yazmak kolay üzerinde tam denetim. Mobil ve tek sayfalı uygulama (SPA) için bir en iyi seçimdir. | Orta düzey ve Gelişmiş |
-| Web sayfaları  | Klasik ASP, PHP     | HTML İşaretleme ve aynı dosyada birlikte, kod | Yeni, orta düzey |
+| Web Sayfaları  | Klasik ASP, PHP     | HTML İşaretleme ve aynı dosyada birlikte, kod | Yeni, orta düzey |
 
 ### <a name="web-forms"></a>Web Forms
 
@@ -54,7 +54,7 @@ ASP.NET MVC sorunları temiz ayrılması sağlayan ve keyifli, Çevik Geliştirm
 
 [MVC hakkında daha fazla bilgi edinin](mvc/index.md)
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web sayfaları
+### <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
 ASP.NET Web sayfalarını ve Razor sözdizimini sunucu kodu dinamik web içeriği oluşturmak için HTML ile birleştirmenin hızlı, kullanılabilir ve basit bir yol sağlar. Veritabanlarına bağlanmak, video ekleyin, sosyal ağ sitelerine bağlamak ve birçok dahil en son web standartlarına uygun güzel siteler yardımcı daha fazla özellik oluşturun.
 
@@ -96,7 +96,7 @@ ASP.NET tek sayfa uygulama (SPA) HTML 5, CSS 3 ve JavaScript kullanarak önemli 
 
 [Tek sayfalı uygulama geliştirme hakkında daha fazla bilgi edinin](single-page-application/index.md)
 
-## <a name="webhooks"></a>Web kancaları
+## <a name="webhooks"></a>Web Kancaları
 
 Web kancası basit pub/alt modeli birlikte bağlantı kabloları Web API'leri ve SaaS hizmetleri sağlayan basit bir HTTP düzeni ' dir. Bir olay hizmet gerçekleştiğinde bir bildirim kayıtlı abonelere bir HTTP POST isteği formunda gönderilir. POST isteğini uygun şekilde yapması için alıcı mümkün olayla ilgili bilgiler içerir.
 
@@ -113,9 +113,9 @@ Create Deployment TOC based on https://www.asp.net/aspnet/overview/deployment
 Copy deployment content map to MVC, WebForms, Web Pages, Web API sections.
 Copy Web Deployment in Enterprise from WebForms to MVC
 Move under ASP.NET Best practices
-    What not to do in ASP.NET, and what to do instead https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
+    What not to do in ASP.NET, and what to do instead https://review.docs.microsoft.cus/aspnet/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
     Async and await https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/async-and-await
-    Building Real World Cloud Apps with Azure https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-    Hands on Lab: Maintainable Azure Websites: Managing Change and Scale https://review.docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
+    Building Real World Cloud Apps with Azure https://review.docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
+    Hands on Lab: Maintainable Azure Websites: Managing Change and Scale https://review.docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 
 -->

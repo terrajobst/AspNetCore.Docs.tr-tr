@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc7b90c06b2d99b6c540e9650bb4d8515f5c3702
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-vb"></a>Toplu güncelleştirmeleri (VB) gerçekleştirme
 ====================
@@ -116,7 +116,7 @@ Güncelleştirme tüm düğmeleri eklendikten sonra Şekil 6 sayfası gösterili
 
 Düzenleme arabirimi görüntüleme DataList s öğelerin tümünü ile Tümünü Güncelleştir düğmeleri eklenmesi, tüm bu kalır yazılırken toplu güncelleştirmesi gerçekleştirmek için kod. Özellikle, DataList s öğeleri ve çağrı döngü ihtiyacımız `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi her biri için.
 
-Koleksiyonu `DataListItem` DataList s DataList erişilebilir bu oluşma şekli örnekleri [ `Items` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx). Bir başvurusu olan bir `DataListItem`, biz buna karşılık gelen yakalayın `SupplierID` gelen `DataKeys` koleksiyonu ve program aracılığıyla metin kutusuna Web denetimleri içinde başvurusu `ItemTemplate` aşağıdaki kodda gösterildiği gibi:
+Koleksiyonu `DataListItem` DataList s DataList erişilebilir bu oluşma şekli örnekleri [ `Items` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Bir başvurusu olan bir `DataListItem`, biz buna karşılık gelen yakalayın `SupplierID` gelen `DataKeys` koleksiyonu ve program aracılığıyla metin kutusuna Web denetimleri içinde başvurusu `ItemTemplate` aşağıdaki kodda gösterildiği gibi:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample4.vb)]
@@ -131,7 +131,7 @@ Kullanıcı Tümünü Güncelleştir düğmelerden birini tıklattığında `Upd
 
 Bu öğretici çağrıları için toplu güncelleştirme algoritması `UpdateSupplierAddress` yöntemi *her* adres bilgilerini değiştirilip bağımsız olarak DataList tedarikçi. Bu tür blind geçekleştirilen t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse bunlar gereksiz kayıtları yol açabilir. Örneğin, tüm kaydetmek için Tetikleyiciler kullanırsanız `UPDATE` s `Suppliers` tabloyu denetim tabloya bir kullanıcı yeni bir denetim kaydı olup kullanıcı herhangi yapılan bağımsız olarak bu sistemdeki her sağlayıcı için oluşturulacak Tümünü Güncelleştir düğmesini tıklattığında her zaman değiştirir.
 
-ADO.NET DataTable ve DataAdapter sınıfları, burada yalnızca değiştirilen, silinen ve yeni kayıtları sonuçları tüm veritabanı iletişiminde toplu güncelleştirmeleri destekleyecek şekilde tasarlanmıştır. DataTable her satıra sahip bir [ `RowState` özelliği](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) satır, değişiklik, silinecek DataTable eklendi veya değişmeden kalır olup olmadığını gösterir. DataTable başlangıçta doldurulduğunda tüm satırları değişmeden işaretlenir. Satır s sütunlara değerinin değiştirilmesi satır değiştirilmiş olarak işaretler.
+ADO.NET DataTable ve DataAdapter sınıfları, burada yalnızca değiştirilen, silinen ve yeni kayıtları sonuçları tüm veritabanı iletişiminde toplu güncelleştirmeleri destekleyecek şekilde tasarlanmıştır. DataTable her satıra sahip bir [ `RowState` özelliği](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) satır, değişiklik, silinecek DataTable eklendi veya değişmeden kalır olup olmadığını gösterir. DataTable başlangıçta doldurulduğunda tüm satırları değişmeden işaretlenir. Satır s sütunlara değerinin değiştirilmesi satır değiştirilmiş olarak işaretler.
 
 İçinde `SuppliersBLL` tek tedarikçi kayıtta ilk okumada tarafından belirtilen tedarikçi s adres bilgilerini güncelleştiriyoruz sınıfı bir `SuppliersDataTable` ve ardından `Address`, `City`, ve `Country` sütun değerleri aşağıdaki kodu kullanarak:
 

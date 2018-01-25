@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>ASP.NET Web API 1 (C#) kendini barındırma
 ====================
@@ -43,7 +43,7 @@ Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>Hedef Framework'ü (Visual Studio 2010) ayarlayın
 
-Visual Studio 2010 kullanıyorsanız, .NET Framework 4.0 hedef çerçevesini değiştirebilir. (Varsayılan olarak, proje şablonu hedefleri [.Net Framework istemci profili](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+Visual Studio 2010 kullanıyorsanız, .NET Framework 4.0 hedef çerçevesini değiştirebilir. (Varsayılan olarak, proje şablonu hedefleri [.Net Framework istemci profili](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **özellikleri**. İçinde **hedef framework** açılır listesinde, .NET Framework 4.0 hedef çerçevesini değiştirebilir. Değişikliği uygulamak için istendiğinde tıklatın **Evet**.
 
@@ -101,8 +101,8 @@ Bu denetleyici kodda hakkında daha fazla bilgi için bkz: [Başlarken](../getti
 | URI | Açıklama |
 | --- | --- |
 | / api/ürünleri | Tüm ürünlerin listesini alın. |
-| /api/ürünler/*kimliği* | Ürün Kimliği tarafından Al |
-| /api/ürünler /? kategori =*kategorisi* | Kategoriye göre ürünlerin listesini alın. |
+| /api/products/*id* | Ürün Kimliği tarafından Al |
+| /api/products/?category=*category* | Kategoriye göre ürünlerin listesini alın. |
 
 ## <a name="host-the-web-api"></a>Web API ana bilgisayar
 

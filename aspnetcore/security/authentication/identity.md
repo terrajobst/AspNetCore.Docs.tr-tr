@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET Core üzerinde kimliğini giriş"
 author: rick-anderson
-description: "Bir ASP.NET Core uygulamayla kimliğini kullan"
+description: "Bir ASP.NET Core uygulamayla kimliğini kullanın. İçerir, ayarı parola gereksinimleri (RequireDigit, RequiredLength, RequiredUniqueChars ve daha fazla)."
 ms.author: riande
 manager: wpickett
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b1dc6d31f44a26a2b91a92dc43032b0315e73cce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -23,7 +23,7 @@ ASP.NET Core, uygulamanıza oturum açma işlevsellik eklemesine olanak tanıyan
 
 ASP.NET Core kimliği kullanıcı adları, parolalar ve profil verileri depolamak için bir SQL Server veritabanını kullanmak üzere yapılandırabilirsiniz. Alternatif olarak, örneğin, bir Azure Table Storage kendi kalıcı depoya kullanabilirsiniz. Bu belge, CLI kullanarak için ve Visual Studio için yönergeler içerir.
 
-[Görüntülemek veya örnek kodu indirin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Karşıdan yükleme)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+[Görüntülemek veya örnek kodu indirin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Karşıdan yükleme)](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Kimliği'ne genel bakış
 
@@ -124,9 +124,10 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
  
     Önceki kod çağrıları yukarıda `_signInManager.SignOutAsync` yöntemi. `SignOutAsync` Yöntemi bir tanımlama bilgisinde depolanan kullanıcının talepleri temizler.
  
+<a name="pw"></a>
 6.  Yapılandırma.
 
-    Kimlik, uygulamanızın başlangıç sınıfında geçersiz kılabilirsiniz bazı varsayılan davranışlar vardır. Yapılandırma gerekmez ``IdentityOptions`` varsayılan davranışları kullanıyorsanız.
+    Kimliği uygulamanın başlangıç sınıfında geçersiz kılınabilir bazı varsayılan davranışlar vardır. `IdentityOptions`varsayılan davranışları kullanırken yapılandırılması gerekmez. Aşağıdaki kod, çeşitli parola gücünü seçenekleri ayarlar:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -194,6 +195,10 @@ Bu bağımlılıklar, ASP.NET Core uygulamalarında kimlik sistemi kullanmak iç
 ## <a name="migrating-to-aspnet-core-identity"></a>ASP.NET Core kimliği geçirme
 
 Ek bilgi ve mevcut kimliğinizi geçirme konusunda yönergeler bakın depolamak için [geçirme kimlik doğrulama ve kimlik](xref:migration/identity).
+
+## <a name="setting-password-strength"></a>Parola gücünü ayarlama
+
+Bkz: [yapılandırma](#pw) minimum parola gereksinimlerini ayarlar bir örnek için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

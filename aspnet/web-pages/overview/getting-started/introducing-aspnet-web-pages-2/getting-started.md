@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web sayfalarını - Başlarken tanıtma
 ====================
@@ -124,8 +124,8 @@ Canlı web uygulaması çalışan tamamlanmış site görmek ister misiniz? Aşa
 
 Bu çözüm Azure'a dağıtmak için bir Azure hesabınız olmalıdır. Bir hesap zaten yoksa, aşağıdaki seçenekler vardır:
 
-- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
 
 ## <a name="installing-everything"></a>Her şeyi yükleme
 
@@ -155,7 +155,7 @@ Yükleme işleminin ne onu bilgisayarınıza yüklemek üzere olduğunu rakamlar
 
 Yükleme işlemi tamamlandığında, WebMatrix otomatik olarak başlatabilirsiniz. Windows, gelen içermiyorsa **Başlat** menüsü, başlatma **Microsoft WebMatrix**.
 
-WebMatrix ilk kez başlattığınızda, Microsoft Azure için Microsoft hesabınızla oturum açmak için bir fırsat verilir. Oturum açma tarafından 10 ücretsiz web uygulamaları Azure aracılığıyla alırsınız. Bu ücretsiz web uygulamaları uygulamalarınızı test etmek için kolay bir yol sağlamak. Zaten bir Azure hesabınız yoksa, ancak bir MSDN aboneliğiniz varsa, şunları yapabilirsiniz [MSDN abonelik Avantajlarınızı etkinleştirebilir](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Aksi takdirde, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+WebMatrix ilk kez başlattığınızda, Microsoft Azure için Microsoft hesabınızla oturum açmak için bir fırsat verilir. Oturum açma tarafından 10 ücretsiz web uygulamaları Azure aracılığıyla alırsınız. Bu ücretsiz web uygulamaları uygulamalarınızı test etmek için kolay bir yol sağlamak. Zaten bir Azure hesabınız yoksa, ancak bir MSDN aboneliğiniz varsa, şunları yapabilirsiniz [MSDN abonelik Avantajlarınızı etkinleştirebilir](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Aksi takdirde, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 Bu öğretici ile devam etmek şu anda oturum gerekmez. Şimdi oturum değil, daha sonra oturum açmak için seçeneği hala gerekir. Son [konu](publishing.md) Bu öğreticide serisi için Azure Web sitenizi dağıtmak alınmaktadır; bu nedenle, bu konuda tamamlamak oturum açmanız.
 
@@ -177,8 +177,7 @@ Başlangıç penceresinde **yeni**.
 
 ![WebMatrix hızlı başlangıç penceresinde seçili boş Site şablonuyla](getting-started/_static/image10.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 Microsoft hesabınızda oturum açmanızdan, Azure'da site oluşturma fırsatınız olur. Varsayılan adı sitenizin adını temel alarak **WebPagesMovies.azurewebsites.net** önerilir; ancak, bu adı Windows Azure üzerinde kullanılabilir değil ünlem gösterir. Kolaylık olması için seçin **atla** Azure üzerinde şu anda web sitesi oluşturma atlamak için. Bu seri biz site Azure'a yayımlayacak.
 
@@ -291,4 +290,4 @@ Bu serideki sonraki öğretici ASP.NET Web sayfaları biraz daha programlama ke�
 [ASP.NET Web sitesi sıfırdan oluşturma](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Bu, özellikle bir öğreticidir WebMatrix (ASP.NET Web sayfaları değil) kullanma hakkında. Bu biraz bazı ek özelliklerini Bu öğretici kümesinde kapak olmaz WebMatrix hakkında daha fazla ayrıntı girmeyeceğini.
 
 >[!div class="step-by-step"]
-[Sonraki](intro-to-web-pages-programming.md)
+[Next](intro-to-web-pages-programming.md)

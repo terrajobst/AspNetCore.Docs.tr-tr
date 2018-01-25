@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 23e38416dc294a1a07cb320cf5ab328fa036d1e8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Web formları yenilikleri
 ====================
@@ -562,7 +562,7 @@ Bu görevde, ürün için bir resim URL'si belirtin ve salt okunur görünümde 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage çağrısı*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Uygulamayı çalıştırın ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, Office küçük Arts aşağıdaki görüntü URL'sini kullanabilirsiniz: [ [http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/en-us/images/MB900437099.jpg)
+7. Uygulamayı çalıştırın ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, Office küçük Arts aşağıdaki görüntü URL'sini kullanabilirsiniz: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Bir ürün için görüntü ayarlama](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "bir ürün için görüntü ayarlama")
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 8842f57df84d841df77b34e9645dbf4909f82d85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 yetkilendirme sunucusu
 ====================
@@ -57,12 +57,12 @@ Bu öğretici ele alınacaktır:
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) veya ücretsiz [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express)belirtilen gibi **yazılım sürümleri** sayfanın üst kısmındaki.
-- OWIN hakkında bilgi. Bkz: [Katana proje ile çalışmaya başlama](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) ve [OWIN ve Katana yenilikler](index.md).
+- OWIN hakkında bilgi. Bkz: [Katana proje ile çalışmaya başlama](https://msdn.microsoft.com/magazine/dn451439.aspx) ve [OWIN ve Katana yenilikler](index.md).
 - Aşina [OAuth](http://tools.ietf.org/html/rfc6749) terminolojisinde dahil olmak üzere [rolleri](http://tools.ietf.org/html/rfc6749#section-1.1), [Protokolü akış](http://tools.ietf.org/html/rfc6749#section-1.2), ve [yetkilendirme verme](http://tools.ietf.org/html/rfc6749#section-1.3). [OAuth 2.0 giriş](http://tools.ietf.org/html/rfc6749#section-1) iyi bir giriş sağlar.
 
 ## <a name="create-an-authorization-server"></a>Bir yetkilendirme sunucusu oluşturma
 
-Bu öğreticide, biz kabaca nasıl kullanacağınızı taslak [OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) ve bir yetkilendirme sunucusu oluşturmak için ASP.NET MVC. Bu öğretici her adımı içermez gibi yakında tamamlanmış bir örnek için bir yükleme sağlamak umuyoruz. İlk olarak, adlandırılmış bir boş web uygulaması oluşturma *AuthorizationServer* ve aşağıdaki paketler yükleyin:
+Bu öğreticide, biz kabaca nasıl kullanacağınızı taslak [OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx) ve bir yetkilendirme sunucusu oluşturmak için ASP.NET MVC. Bu öğretici her adımı içermez gibi yakında tamamlanmış bir örnek için bir yükleme sağlamak umuyoruz. İlk olarak, adlandırılmış bir boş web uygulaması oluşturma *AuthorizationServer* ve aşağıdaki paketler yükleyin:
 
 - Microsoft.AspNet.Mvc
 - Microsoft.Owin.Host.SystemWeb
@@ -112,7 +112,7 @@ Oturum açma sayfasına aşağıda gösterilmiştir:
 
 IETF's OAuth 2 gözden [yetkilendirme kodu verme](http://tools.ietf.org/html/rfc6749#section-4.1) now bölümü. 
 
-**Sağlayıcı** (aşağıdaki tabloda) olan [oauthauthorizationserveroptions öğelerinde](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Tür sağlayıcısı `OAuthAuthorizationServerProvider`, tüm OAuth sunucu olaylarını içerir. 
+**Sağlayıcı** (aşağıdaki tabloda) olan [oauthauthorizationserveroptions öğelerinde](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Tür sağlayıcısı `OAuthAuthorizationServerProvider`, tüm OAuth sunucu olaylarını içerir. 
 
 | Yetkilendirme kodu verme bölümünden akışı adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |

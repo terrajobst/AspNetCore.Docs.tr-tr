@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: Web.Config dosyası dönüşümleri - 3 / 12
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -37,7 +37,7 @@ Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir ş
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Parametreler Web karşı Web.config dönüşümleri dağıtma
 
-Değiştirme işlemini otomatikleştirmek için iki yolla *Web.config* dosya ayarlarını: [Web.config dönüşümleri](https://msdn.microsoft.com/en-us/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* dönüşüm dosyasını içeren nasıl değiştirileceğini belirten XML biçimlendirme *Web.config* dosya dağıtıldığında. Belirli farklı değişiklikleri derleme yapılandırmaları ve özel yayımlama profillerini belirtebilirsiniz. Hata ayıklama ve yayın varsayılan derleme yapılandırmaları olan ve özel derleme yapılandırmaları oluşturabilirsiniz. Bir yayımlama profili, hedef ortam için genellikle karşılık gelir. (Profillerinde yayımlama hakkında daha fazla bilgi edineceksiniz [IIS'ye bir Test ortamı olarak dağıtma](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) öğretici.)
+Değiştirme işlemini otomatikleştirmek için iki yolla *Web.config* dosya ayarlarını: [Web.config dönüşümleri](https://msdn.microsoft.com/library/dd465326.aspx) ve [Web dağıtımı parametreleri](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* dönüşüm dosyasını içeren nasıl değiştirileceğini belirten XML biçimlendirme *Web.config* dosya dağıtıldığında. Belirli farklı değişiklikleri derleme yapılandırmaları ve özel yayımlama profillerini belirtebilirsiniz. Hata ayıklama ve yayın varsayılan derleme yapılandırmaları olan ve özel derleme yapılandırmaları oluşturabilirsiniz. Bir yayımlama profili, hedef ortam için genellikle karşılık gelir. (Profillerinde yayımlama hakkında daha fazla bilgi edineceksiniz [IIS'ye bir Test ortamı olarak dağıtma](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) öğretici.)
 
 Web dağıtım parametrelerini, birçok farklı türde bulunan ayarlar dahil olmak üzere, dağıtımı sırasında yapılandırılmalıdır ayarlarını belirtmek için kullanılabilir *Web.config* dosyaları. Belirtmek için kullanıldığında *Web.config* dosya değişiklikleri Web dağıtım parametrelerini ayarlamak için daha karmaşık, ancak dağıttığınız kadar ayarlanacak değer bilmiyorsanız, yararlı olur. Örneğin, bir kuruluş ortamında oluşturabilirsiniz bir *dağıtım paketi* ve BT departmanı üretimde yüklemek için bir kişiye verin ve bu kişiye bağlantı dizeleri veya olmayan bir parola girmeniz mümkün olması gerekir bilirsiniz.
 
@@ -144,9 +144,9 @@ Bağlantı dizeleri yayımlama profilinde belirtebildiğinizden çoğu durumda, 
 
 Şimdi tüm belirttiğiniz *Web.config* üretim ve test etmek için Contoso University uygulama dağıtmak için gereken dönüşümler. Aşağıdaki öğreticide, proje özelliklerini ayarlama gerektiren dağıtım kurulum görevlerini ilgilenebilmek.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
-Bu öğretici kapsamında konular hakkında daha fazla bilgi için Web.config dönüşümü senaryoda bkz [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Bu öğretici kapsamında konular hakkında daha fazla bilgi için Web.config dönüşümü senaryoda bkz [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

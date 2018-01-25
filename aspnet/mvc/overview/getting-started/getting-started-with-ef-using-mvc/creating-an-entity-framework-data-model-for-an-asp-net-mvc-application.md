@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 84ca4bbaebe401d14233131bcaa027debf7ea0f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46f53279e2e6daa4266c06feb4ba544e14b68a03
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
-<a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>Entity Framework 6 kod MVC 5 kullanarak ilk ile çalışmaya başlama
+<a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>MVC 5 Kullanarak Entity Framework 6 Code First ile Çalışmaya Başlama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -29,7 +29,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > > Bu öğretici dizisinin yeni bir sürümü: [ASP.NET Core ve Entity Framework Visual Studio 2015 kullanarak çekirdek kullanmaya başlama](https://docs.asp.net/en/latest/data/ef-mvc/intro.html).
 > 
 > 
-> Contoso University örnek web uygulaması Entity Framework 6 ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Bu öğretici Code First iş akışı kullanır. Code First, veritabanı ilk ve Model First arasında seçim yapma hakkında daha fazla bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Contoso University örnek web uygulaması Entity Framework 6 ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Bu öğretici Code First iş akışı kullanır. Code First, veritabanı ilk ve Model First arasında seçim yapma hakkında daha fazla bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > Örnek uygulama, kurgusal bir Contoso üniversite için bir web sitesidir. Öğrenci giriş, indirmelere oluşturma ve Eğitmen atamaları gibi işlevselliği içerir. Bu öğretici seri Contoso University örnek uygulamasının nasıl oluşturulacağını açıklar. Yapabilecekleriniz [tamamlanmış uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8).
 > 
@@ -53,7 +53,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
-> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
+> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
 > 
 > Çözümlenemiyor bir sorunla karşılaşırsanız kodunuzu indirebilirsiniz projeyi karşılaştırarak sorunun çözümü genellikle bulabilirsiniz. Bazı yaygın hatalar ve bunları çözmek nasıl için bkz: [yaygın hatalar ve çözümleri veya bunları için geçici çözümler.](advanced-entity-framework-scenarios-for-an-mvc-web-application.md#errors)
 
@@ -169,7 +169,7 @@ Bir gezinti özelliği (çok- veya -çok ilişkileri) olduğu gibi birden çok v
 
 `EnrollmentID` Birincil anahtar özelliği olacaktır; bu varlığı kullanan *classname* `ID` yerine desen `ID` yazarken kendi başına gördüğünüz `Student` varlık. Normalde bir desen seçin ve veri modelinizi kullanmak. Burada, değişim ya da Desen kullanabileceğiniz gösterilmektedir. Bir sonraki öğreticide göreceğiniz nasıl `ID` olmadan `classname` devralma veri modelinde uygulamak kolaylaştırır.
 
-`Grade` Özelliği bir [enum](https://msdn.microsoft.com/en-us/data/hh859576.aspx). Soru işareti sonra `Grade` türü bildirimi gösterir `Grade` özelliği [boş değer atanabilir](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx). Null bir düzeyde bir sıfır ataması farklı. — bir sınıf bilinen değil veya henüz atanmamış null anlamına gelir.
+`Grade` Özelliği bir [enum](https://msdn.microsoft.com/data/hh859576.aspx). Soru işareti sonra `Grade` türü bildirimi gösterir `Grade` özelliği [boş değer atanabilir](https://msdn.microsoft.com/library/2cf62fcy.aspx). Null bir düzeyde bir sıfır ataması farklı. — bir sınıf bilinen değil veya henüz atanmamış null anlamına gelir.
 
 `StudentID` Özelliği bir yabancı anahtar ve karşılık gelen gezinme özelliğini `Student`. Bir `Enrollment` varlıktır biriyle ilişkili `Student` özelliği yalnızca tek bir tutmak için varlık `Student` varlık (aksine `Student.Enrollments` gezinti özelliği gördüğünüz daha önceki sürümlerde, birden çok tutabilir `Enrollment` varlıklar).
 
@@ -187,11 +187,11 @@ Entity Framework onu ise bu özellik bir yabancı anahtar özellik olarak yoruml
 
 `Enrollments` Özelliği bir gezinti özelliğidir. A `Course` varlık herhangi bir sayıda için ilgili olabileceğini `Enrollment` varlıklar.
 
-Daha fazla hakkında dediğimiz [DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx) bu serideki sonraki öğretici özniteliği. Temel olarak, bu öznitelik indirmelere yerine için oluşturmak veritabanı birincil anahtarı girmenizi sağlar.
+Daha fazla hakkında dediğimiz [DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx) bu serideki sonraki öğretici özniteliği. Temel olarak, bu öznitelik indirmelere yerine için oluşturmak veritabanı birincil anahtarı girmenizi sağlar.
 
 ## <a name="create-the-database-context"></a>Veritabanı bağlamı oluşturma
 
-Verilen veri modeli için Entity Framework işlevselliği koordinatları ana sınıf *veritabanı bağlamı* sınıfı. Bu sınıf türetme tarafından oluşturduğunuz [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfı. Kodunuzda hangi varlıkların veri modelinde bulunan belirtin. Ayrıca, belirli bir Entity Framework davranış özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
+Verilen veri modeli için Entity Framework işlevselliği koordinatları ana sınıf *veritabanı bağlamı* sınıfı. Bu sınıf türetme tarafından oluşturduğunuz [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfı. Kodunuzda hangi varlıkların veri modelinde bulunan belirtin. Ayrıca, belirli bir Entity Framework davranış özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
 
 ContosoUniversity projesinde bir klasör oluşturmak için ' nde projeye sağ **Çözüm Gezgini** tıklatıp **Ekle**ve ardından **yeni klasör**. Yeni bir klasör adı *DAL* (için veri erişim katmanı). Bu klasörde adlı yeni bir sınıf dosyası oluşturun *SchoolContext.cs*ve şablon kodu aşağıdaki kodla değiştirin:
 
@@ -199,7 +199,7 @@ ContosoUniversity projesinde bir klasör oluşturmak için ' nde projeye sağ **
 
 ### <a name="specifying-entity-sets"></a>Belirten varlık kümeleri
 
-Bu kod oluşturur bir [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx) özelliği her bir varlık kümesi. Entity Framework terminoloji içinde bir *varlık kümesini* genellikle bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablosunda bir satırı karşılık gelir.
+Bu kod oluşturur bir [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) özelliği her bir varlık kümesi. Entity Framework terminoloji içinde bir *varlık kümesini* genellikle bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablosunda bir satırı karşılık gelir.
 
 > [!NOTE] 
 > 
@@ -212,13 +212,13 @@ Bu kod oluşturur bir [DbSet](https://msdn.microsoft.com/en-us/library/system.da
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs?highlight=1)]
 
-Bağlantı dizesindeki kendisi Web.config dosyasında depolanan bir adı yerine geçirebilirdiniz. Kullanılacak veritabanını belirtmek için seçenekleri hakkında daha fazla bilgi için bkz: [Entity Framework - bağlantıları ve modelleri](https://msdn.microsoft.com/en-us/data/jj592674).
+Bağlantı dizesindeki kendisi Web.config dosyasında depolanan bir adı yerine geçirebilirdiniz. Kullanılacak veritabanını belirtmek için seçenekleri hakkında daha fazla bilgi için bkz: [Entity Framework - bağlantıları ve modelleri](https://msdn.microsoft.com/data/jj592674).
 
 Bir bağlantı dizesi veya birisinin adını açıkça belirtmezseniz, Entity Framework bağlantı dizesi adı sınıf adı ile aynı olduğunu varsayar. Bu örnekte varsayılan bağlantı dizesi adı sonra olacaktır `SchoolContext`, açıkça ne belirtme ile aynı.
 
 ### <a name="specifying-singular-table-names"></a>Tekil tablo adlarını belirtme
 
-`modelBuilder.Conventions.Remove` Deyiminde [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi, pluralized öğesinden tablo adları önler. Bunu siz yaparsanız, veritabanında oluşturulan tabloları sayfadayken `Students`, `Courses`, ve `Enrollments`. Bunun yerine, tablo adları olacaktır `Student`, `Course`, ve `Enrollment`. Geliştiriciler olup tablo adları veya pluralized hakkında katılmıyorum. Bu öğretici tekil kullanır, ancak önemli noktadır dahil olmak üzere veya bu kod satırı atlama tercih hangi formu seçebilirsiniz.
+`modelBuilder.Conventions.Remove` Deyiminde [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi, pluralized öğesinden tablo adları önler. Bunu siz yaparsanız, veritabanında oluşturulan tabloları sayfadayken `Students`, `Courses`, ve `Enrollments`. Bunun yerine, tablo adları olacaktır `Student`, `Course`, ve `Enrollment`. Geliştiriciler olup tablo adları veya pluralized hakkında katılmıyorum. Bu öğretici tekil kullanır, ancak önemli noktadır dahil olmak üzere veya bu kod satırı atlama tercih hangi formu seçebilirsiniz.
 
 ## <a name="set-up-ef-to-initialize-the-database-with-test-data"></a>Test verileri veritabanını başlatılamadı EF ayarlayın
 
@@ -241,7 +241,7 @@ Başlatıcı sınıfını kullanmak için Entity Framework bildirmek için bir �
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample9.xml?highlight=2-6)]
 
-`context type` Tam bağlamı sınıfı adı ve içinde derleme belirtir ve `databaseinitializer type` Başlatıcı sınıfı ve içinde derleme tam olarak nitelenmiş adını belirtir. (EF Başlatıcı kullanmak istemediğinizde üzerinde bir öznitelik ayarlayabilirsiniz `context` öğesi: `disableDatabaseInitialization="true"`.) Daha fazla bilgi için bkz: [Entity Framework - Config dosya ayarlarını](https://msdn.microsoft.com/en-us/data/jj556606).
+`context type` Tam bağlamı sınıfı adı ve içinde derleme belirtir ve `databaseinitializer type` Başlatıcı sınıfı ve içinde derleme tam olarak nitelenmiş adını belirtir. (EF Başlatıcı kullanmak istemediğinizde üzerinde bir öznitelik ayarlayabilirsiniz `context` öğesi: `disableDatabaseInitialization="true"`.) Daha fazla bilgi için bkz: [Entity Framework - Config dosya ayarlarını](https://msdn.microsoft.com/data/jj556606).
 
 Başlatıcı ayarı alternatif olarak *Web.config* dosyasıdır yapmak için bu kodda ekleyerek bir `Database.SetInitializer` ifadesine `Application_Start` yönteminde *Global.asax.cs* dosya. Daha fazla bilgi için bkz: [anlama veritabanı başlatıcıları Entity Framework Code First içinde](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm).
 
@@ -264,9 +264,9 @@ Visual Studio 2015 kullanıyorsanız, bağlantı dizesindeki "v11.0" "MSSQLLocal
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample10.xml?highlight=1-3)]
 
-Entity Framework adlı bir yerel veritabanı veritabanı kullanacağını eklediğiniz bağlantı dizesini belirtir *ContosoUniversity1.mdf*. (Veritabanı henüz yok; EF oluşturur.) Oluşturulması veritabanına istediyseniz, *uygulama\_veri* klasör ekleyebilirsiniz `AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf` bağlantı dizesi. Bağlantı dizeleri hakkında daha fazla bilgi için bkz: [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Entity Framework adlı bir yerel veritabanı veritabanı kullanacağını eklediğiniz bağlantı dizesini belirtir *ContosoUniversity1.mdf*. (Veritabanı henüz yok; EF oluşturur.) Oluşturulması veritabanına istediyseniz, *uygulama\_veri* klasör ekleyebilirsiniz `AttachDBFilename=|DataDirectory|\ContosoUniversity1.mdf` bağlantı dizesi. Bağlantı dizeleri hakkında daha fazla bilgi için bkz: [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Gerçekte bir bağlantı dizesi olması gerekmez *Web.config* dosya. Bir bağlantı dizesi girmezseniz, Entity Framework bir bağlam sınıfınıza dayalı bir varsayılan kullanır. Daha fazla bilgi için bkz: [yeni bir veritabanına ilk kod](https://msdn.microsoft.com/en-us/data/jj193542).
+Gerçekte bir bağlantı dizesi olması gerekmez *Web.config* dosya. Bir bağlantı dizesi girmezseniz, Entity Framework bir bağlam sınıfınıza dayalı bir varsayılan kullanır. Daha fazla bilgi için bkz: [yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542).
 
 ## <a name="creating-a-student-controller-and-views"></a>Bir öğrenci denetleyicisi ve görünümler oluşturma
 
@@ -334,7 +334,7 @@ Sizin için tam bir veritabanı oluşturabilmek için Entity Framework sırayla 
 - Adlandırılmış varlık özellikleri `ID` veya *classname* `ID` birincil anahtar özelliği tanınır.
 - Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır  *&lt;gezinti özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;*  (örneğin, `StudentID` için`Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarının `ID`). Yabancı anahtar özellikleri de adlı aynı yalnızca &lt;birincil anahtar özelliği adı&gt; (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
 
-Kuralları geçersiz kılınabilir gördünüz. Örneğin, tablo adları döndürmemelidir pluralized ve daha sonra göreceksiniz belirtilen açıkça özelliği yabancı anahtar özelliği olarak işaretlemek nasıl. Kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha fazla karmaşık bir veri modeli oluşturulurken](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) bu serideki sonraki öğretici. Kuralları hakkında daha fazla bilgi için bkz: [kod ilk kuralları](https://msdn.microsoft.com/en-us/data/jj679962).
+Kuralları geçersiz kılınabilir gördünüz. Örneğin, tablo adları döndürmemelidir pluralized ve daha sonra göreceksiniz belirtilen açıkça özelliği yabancı anahtar özelliği olarak işaretlemek nasıl. Kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha fazla karmaşık bir veri modeli oluşturulurken](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) bu serideki sonraki öğretici. Kuralları hakkında daha fazla bilgi için bkz: [kod ilk kuralları](https://msdn.microsoft.com/data/jj679962).
 
 ## <a name="summary"></a>Özet
 
@@ -345,4 +345,4 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 >[!div class="step-by-step"]
-[Sonraki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

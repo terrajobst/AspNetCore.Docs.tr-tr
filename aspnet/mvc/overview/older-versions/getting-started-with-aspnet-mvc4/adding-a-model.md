@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1d066e4bab866a2195647f43aa886279fee941db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 304c428b0d787e902f30c1989471c476f54d3b39
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-model"></a>Model ekleme
 ====================
@@ -28,7 +28,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 Bu bölümde bir veritabanında filmler yönetmek için bazı sınıfları ekleyeceksiniz. Bu sınıfların olacaktır &quot;modeli&quot; ASP.NET MVC uygulaması parçası.
 
-Olarak bilinen bir .NET Framework veri erişimi teknoloji kullanacağınız [Entity Framework](https://msdn.microsoft.com/en-us/library/bb399572(VS.110).aspx) tanımlamak ve bu modeli sınıfları ile çalışmak için. Bir geliştirme standardı adlı Entity Framework (genellikle EF adlandırılır) destekler *Code First*. Kod ilk model nesneleri basit sınıfları yazarak oluşturmanıza olanak sağlar. (Bu olarak da bilinen POCO sınıfları arasındadır &quot;düz eski CLR nesnelerini.&quot;) Ardından, çok temiz ve hızlı geliştirme iş akışı sağlayan anında, sınıflardan oluşturulan veritabanı olabilir.
+Olarak bilinen bir .NET Framework veri erişimi teknoloji kullanacağınız [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) tanımlamak ve bu modeli sınıfları ile çalışmak için. Bir geliştirme standardı adlı Entity Framework (genellikle EF adlandırılır) destekler *Code First*. Kod ilk model nesneleri basit sınıfları yazarak oluşturmanıza olanak sağlar. (Bu olarak da bilinen POCO sınıfları arasındadır &quot;düz eski CLR nesnelerini.&quot;) Ardından, çok temiz ve hızlı geliştirme iş akışı sağlayan anında, sınıflardan oluşturulan veritabanı olabilir.
 
 ## <a name="adding-model-classes"></a>Model sınıfları ekleme
 

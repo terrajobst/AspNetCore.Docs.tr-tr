@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d6e6e7dd3ee11876b5237fc69f3b5b2818a88de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d386a3b6328675fe21f989f8fd36bfc91fc08b32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Form kimlik doğrulaması (C#) genel bakış
 ====================
@@ -39,12 +39,12 @@ Kimlik doğrulama iş akışı, bir web uygulamasında etkinleştirme ve oturum 
 
 ## <a name="understanding-the-forms-authentication-workflow"></a>Form kimlik doğrulama iş akışı anlama
 
-ASP.NET çalışma zamanı bir ASP.NET sayfasının veya ASP.NET Web hizmeti gibi bir ASP.NET kaynağı için bir isteği işlerken isteğin olayların sayısı, yaşam döngüsü sırasında başlatır. İstek olanları istek doğrulanır ve yetkilendirme, bir işlenmeyen özel durum ve benzeri söz konusu olduğunda gerçekleşen bir olay tetiklenir çok başlangıç ve çok sonunda başlatılan olayları vardır. Olayların tam listesini görmek için bkz [HttpApplication nesnesinin olayları](https://msdn.microsoft.com/en-us/library/system.web.httpapplication_events.aspx).
+ASP.NET çalışma zamanı bir ASP.NET sayfasının veya ASP.NET Web hizmeti gibi bir ASP.NET kaynağı için bir isteği işlerken isteğin olayların sayısı, yaşam döngüsü sırasında başlatır. İstek olanları istek doğrulanır ve yetkilendirme, bir işlenmeyen özel durum ve benzeri söz konusu olduğunda gerçekleşen bir olay tetiklenir çok başlangıç ve çok sonunda başlatılan olayları vardır. Olayların tam listesini görmek için bkz [HttpApplication nesnesinin olayları](https://msdn.microsoft.com/library/system.web.httpapplication_events.aspx).
 
 *HTTP modülleri* kodu isteği yaşam döngüsü belirli bir olaya yanıt yürütüldüğünde yönetilen sınıflarıdır. ASP.NET birkaç önemli görevleri arka planda gerçekleştirmek HTTP Modülleri ile birlikte gelir. Bizim tartışmaya yakından ilgili olan iki yerleşik HTTP modülleri şunlardır:
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx)**– genellikle kullanıcının tanımlama bilgilerini koleksiyona dahil forms kimlik doğrulaması bileti inceleyerek kullanıcının kimliğini doğrular. Bir form kimlik doğrulama anahtarı varsa, anonim bir kullanıcıdır.
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)**– Geçerli kullanıcı istenen URL erişmek için yetkili olup olmadığını belirler. Bu modül, uygulamanın yapılandırma dosyalarında belirtilen yetkilendirme kuralları danışmanlık tarafından yetkilisi belirler. ASP.NET de içeren [ `FileAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.fileauthorizationmodule.aspx) istenen dosyaları ACL'ler danışmanlık tarafından yetkilisi belirleyen.
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**– genellikle kullanıcının tanımlama bilgilerini koleksiyona dahil forms kimlik doğrulaması bileti inceleyerek kullanıcının kimliğini doğrular. Bir form kimlik doğrulama anahtarı varsa, anonim bir kullanıcıdır.
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**– Geçerli kullanıcı istenen URL erişmek için yetkili olup olmadığını belirler. Bu modül, uygulamanın yapılandırma dosyalarında belirtilen yetkilendirme kuralları danışmanlık tarafından yetkilisi belirler. ASP.NET de içeren [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) istenen dosyaları ACL'ler danışmanlık tarafından yetkilisi belirleyen.
 
 `FormsAuthenticationModule` Öncesinde kullanıcı kimlik doğrulama girişiminde `UrlAuthorizationModule` (ve `FileAuthorizationModule`) yürütme. İstekte bulunan kullanıcının istenen kaynağa erişme yetkisi yok, yetkilendirme modülü istek sonlandırır ve döndüren bir [HTTP 401 Yetkisiz](http://www.checkupdown.com/status/E401.html) durumu. Windows kimlik doğrulaması senaryolarda HTTP 401 durum tarayıcıya döndürülür. Bu durum kodu tarayıcının kullanıcıdan kimlik bilgilerini kalıcı bir iletişim kutusu üzerinden neden olur. FormsAuthenticationModule bu durum algılar ve bunun yerine kullanıcının oturum açma sayfasına yeniden yönlendirmek için değiştirdiği için form kimlik doğrulaması ile ancak, HTTP 401 yetkilendirilmedi durum hiçbir zaman tarayıcıya gönderilen (aracılığıyla bir [HTTP 302 yeniden yönlendirme](http://www.checkupdown.com/status/E302.html) durum).
 
@@ -76,7 +76,7 @@ Yazıyı short, IIS 7'den önceki sürümlerde, yalnızca form kimlik doğrulama
 
 ## <a name="step-1-creating-an-aspnet-website-for-this-tutorial-series"></a>1. adım: Bu öğretici seri için bir ASP.NET Web sitesi oluşturma
 
-Geniş olası hedef kitle ulaşabilmeniz için Microsoft'un ücretsiz Visual Studio 2008 sürümüyle oluşturmakta bu seri ASP.NET Web sitesi oluşturulacak [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Biz gerçekleştireceksiniz `SqlMembershipProvider` kullanıcı deposunda bir [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/en-us/sql/Aa336346.aspx) veritabanı. Visual Studio 2005 veya Visual Studio 2008 veya SQL Server farklı bir sürümünü kullanıyorsanız, endişelenmeyin - adımlar neredeyse aynı olacaktır ve önemsiz olmayan farklılıkları gösterilecektir.
+Geniş olası hedef kitle ulaşabilmeniz için Microsoft'un ücretsiz Visual Studio 2008 sürümüyle oluşturmakta bu seri ASP.NET Web sitesi oluşturulacak [Visual Web Developer 2008](https://www.microsoft.com/express/vwd/). Biz gerçekleştireceksiniz `SqlMembershipProvider` kullanıcı deposunda bir [Microsoft SQL Server 2005 Express Edition](https://msdn.microsoft.com/sql/Aa336346.aspx) veritabanı. Visual Studio 2005 veya Visual Studio 2008 veya SQL Server farklı bir sürümünü kullanıyorsanız, endişelenmeyin - adımlar neredeyse aynı olacaktır ve önemsiz olmayan farklılıkları gösterilecektir.
 
 > [!NOTE]
 > Her öğreticide kullanılan demo web uygulaması, bir yükleme olarak kullanılabilir. Bu indirilebilir bir uygulama, .NET Framework sürüm 3.5 için hedeflenen Visual Web Developer 2008 ile oluşturuldu. Uygulama için .NET 3.5 hedeflenen olduğundan, Web.config dosyasında, 3.5 özgü ek yapılandırma öğeleri içeriyor. Yazıyı henüz sonra indirilebilir web uygulaması bilgisayarınızda yüklü .NET 3.5 yüklemek varsa kısa ilk 3.5 özgü biçimlendirme Web.config dosyasından kaldırma olmadan çalışmaz.
@@ -85,7 +85,7 @@ Geniş olası hedef kitle ulaşabilmeniz için Microsoft'un ücretsiz Visual Stu
 Form kimlik doğrulaması yapılandırabilmeniz için önce ilk ASP.NET Web sitesi ihtiyacımız var. Yeni bir dosya sistemi tabanlı ASP.NET Web sitesi oluşturmaya başlayın. Bunu başarmak için Visual Web Developer başlatın ve dosya menüsüne gidin ve yeni Web sitesi iletişim kutusunu görüntüleme yeni Web sitesi seçin. ASP.NET Web sitesi şablonunu seçin, dosya sistemine konum aşağı açılan listesi ayarlamak, web sitesi yerleştirmek için bir klasör seçin ve dil C# ayarlayın. Bu yeni bir web sitesi Default.aspx ASP.NET sayfa ile bir uygulama oluşturacaksınız\_veri klasörü ve bir Web.config dosyası.
 
 > [!NOTE]
-> Visual Studio Proje yönetimi iki modlarını destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projeleri proje dosyası, Web Uygulama projeleri, Visual Studio .NET 2002/2003 proje mimarisi taklit – bir proje dosyası içerir ve / bin klasörüne yerleştirilir tek bir derleme halinde projenin kaynak kodu derleme ancak yoksundur. Web uygulama projesi modeli Service Pack 1'yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, projeleri; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümlerinde, yalnızca Web sitesi projeleri destekler. Web sitesi proje modeli kullanacaklardır. Express olmayan sürüm kullanıyorsanız ve kullanmak istediğiniz [Web uygulama projesi modeli](https://msdn.microsoft.com/en-us/library/aa730880%28vs.80%29.aspx) bunun yerine, bunu ancak olabileceğini bazı tutarsızlıklar ekranınızı ve karşı gerçekleştirmeniz gereken adımlar gördükleri arasında unutmayın çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri sağlanan yönergeleri.
+> Visual Studio Proje yönetimi iki modlarını destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projeleri proje dosyası, Web Uygulama projeleri, Visual Studio .NET 2002/2003 proje mimarisi taklit – bir proje dosyası içerir ve / bin klasörüne yerleştirilir tek bir derleme halinde projenin kaynak kodu derleme ancak yoksundur. Web uygulama projesi modeli Service Pack 1'yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, projeleri; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümlerinde, yalnızca Web sitesi projeleri destekler. Web sitesi proje modeli kullanacaklardır. Express olmayan sürüm kullanıyorsanız ve kullanmak istediğiniz [Web uygulama projesi modeli](https://msdn.microsoft.com/library/aa730880%28vs.80%29.aspx) bunun yerine, bunu ancak olabileceğini bazı tutarsızlıklar ekranınızı ve karşı gerçekleştirmeniz gereken adımlar gördükleri arasında unutmayın çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri sağlanan yönergeleri.
 
 
 [![Yeni bir dosya sistemi tabanlı Web sitesi oluşturma](an-overview-of-forms-authentication-cs/_static/image3.png)](an-overview-of-forms-authentication-cs/_static/image2.png)
@@ -95,7 +95,7 @@ Form kimlik doğrulaması yapılandırabilmeniz için önce ilk ASP.NET Web site
 
 ### <a name="adding-a-master-page"></a>Bir ana sayfa ekleme
 
-Ardından, yeni bir ana sayfa Site.master adlı kök dizininde site ekleyin. [Ana sayfalar](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) ASP.NET sayfaları için uygulanabilir bir site genelinde şablonu tanımlamak bir sayfa Geliştirici etkinleştirin. Ana sayfalar ana avantajı dolayısıyla güncelleştirmek veya sitenin Düzen ince ayar kolaylaşır sitenin genel görünümünü tek bir konumda tanımlanabilir ' dir.
+Ardından, yeni bir ana sayfa Site.master adlı kök dizininde site ekleyin. [Ana sayfalar](https://msdn.microsoft.com/library/wtxbf3hh.aspx) ASP.NET sayfaları için uygulanabilir bir site genelinde şablonu tanımlamak bir sayfa Geliştirici etkinleştirin. Ana sayfalar ana avantajı dolayısıyla güncelleştirmek veya sitenin Düzen ince ayar kolaylaşır sitenin genel görünümünü tek bir konumda tanımlanabilir ' dir.
 
 
 [![Bir ana sayfa eklemek Site.master Web sitesine adlı](an-overview-of-forms-authentication-cs/_static/image6.png)](an-overview-of-forms-authentication-cs/_static/image5.png)
@@ -149,7 +149,7 @@ Yalnızca yeni Default.aspx sayfanın bildirim temelli biçimlendirme içeren bi
 
 ## <a name="step-2-enabling-forms-authentication"></a>2. adım: Form kimlik doğrulamasını etkinleştirme
 
-Oluşturulan ASP.NET Web sitesi ile bizim sonraki form kimlik doğrulamasını etkinleştirmek için bir görevdir. Uygulamanın kimlik doğrulaması yapılandırma aracılığıyla belirtilen [ `<authentication>` öğesi](https://msdn.microsoft.com/en-us/library/532aee0e.aspx) Web.config dosyasında. `<authentication>` Öğe uygulama tarafından kullanılan kimlik doğrulama modeli belirten modu adlı tek bir öznitelik içeriyor. Bu öznitelik aşağıdaki dört değerden biri olabilir:
+Oluşturulan ASP.NET Web sitesi ile bizim sonraki form kimlik doğrulamasını etkinleştirmek için bir görevdir. Uygulamanın kimlik doğrulaması yapılandırma aracılığıyla belirtilen [ `<authentication>` öğesi](https://msdn.microsoft.com/library/532aee0e.aspx) Web.config dosyasında. `<authentication>` Öğe uygulama tarafından kullanılan kimlik doğrulama modeli belirten modu adlı tek bir öznitelik içeriyor. Bu öznitelik aşağıdaki dört değerden biri olabilir:
 
 - **Windows** – önceki öğreticide, bir uygulamayı Windows kimlik doğrulaması kullandığında açıklandığı gibi ziyaretçi kimlik doğrulaması web sunucusunun sorumluluğundadır ve bu genellikle temel, Özet veya tümleşik Windows gerçekleştirilir kimlik doğrulaması.
 - **Forms**– bir web sayfasında form aracılığıyla authenticated users.
@@ -220,7 +220,7 @@ Artık görev 2 düğmenin Click uygulamak ihtiyacımız olay işleyicisi – sa
 
 ASP.NET 2.0 önce geliştiricilerin kendi her iki kullanıcı depoları uygulanması ve depolama karşı sağlanan kimlik bilgilerini doğrulamak için kod yazma sorumlu. Çoğu geliştirici kullanıcı deposunda kullanıcı adı, parola, e-posta, LastLoginDate ve diğerleri gibi sütunlarla kullanıcılar adlı bir tablo oluşturma bir veritabanında, uygulamanız. Bu tablo daha sonra kullanıcı hesabı her bir kayıt gerekir. Kullanıcının sağlanan kimlik bilgileri doğrulanıyor eşleşen bir kullanıcı adı için veritabanını sorgulama ve veritabanında Parola Sağlanan parola corresponded sağlama içerir.
 
-ASP.NET 2.0 ile geliştiriciler üyelik sağlayıcılardan biri kullanıcı deposunda yönetmek için kullanmanız gerekir. Bu öğretici serisinde biz kullanıcı deposu için bir SQL Server veritabanı kullanan SqlMembershipProvider kullanacak. SqlMembershipProvider kullanırken tabloları, görünümleri ve saklı yordamlar sağlayıcı tarafından beklenen içeren bir belirli veritabanı şeması uygulamanız gerekir. Bu şemada uygulamak nasıl inceleyeceğiz ***SQL Server üyelik şema oluşturma*** Öğreticisi. Kullanıcının kimlik bilgileri doğrulanıyor yerinde üyelik sağlayıcısı ile çağırmak kadar kolaydır [üyelik sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx)'s [ValidateUser (*kullanıcıadı*, *parola*) yöntem](https://msdn.microsoft.com/en-us/library/system.web.security.membership.validateuser.aspx), gösteren bir Boole değeri döndürür olup olmadığını geçerliliğini *kullanıcıadı* ve *parola* birleşimi. Biz henüz SqlMembershipProvider'ın kullanıcı deposu uygulanmadı olarak görmekten üyelik sınıfının ValidateUser yöntemi şu anda kullanamazsınız.
+ASP.NET 2.0 ile geliştiriciler üyelik sağlayıcılardan biri kullanıcı deposunda yönetmek için kullanmanız gerekir. Bu öğretici serisinde biz kullanıcı deposu için bir SQL Server veritabanı kullanan SqlMembershipProvider kullanacak. SqlMembershipProvider kullanırken tabloları, görünümleri ve saklı yordamlar sağlayıcı tarafından beklenen içeren bir belirli veritabanı şeması uygulamanız gerekir. Bu şemada uygulamak nasıl inceleyeceğiz ***SQL Server üyelik şema oluşturma*** Öğreticisi. Kullanıcının kimlik bilgileri doğrulanıyor yerinde üyelik sağlayıcısı ile çağırmak kadar kolaydır [üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx)'s [ValidateUser (*kullanıcıadı*, *parola*) yöntem](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), gösteren bir Boole değeri döndürür olup olmadığını geçerliliğini *kullanıcıadı* ve *parola* birleşimi. Biz henüz SqlMembershipProvider'ın kullanıcı deposu uygulanmadı olarak görmekten üyelik sınıfının ValidateUser yöntemi şu anda kullanamazsınız.
 
 (Biz SqlMembershipProvider uygulandıktan sonra eski olur) kendi özel kullanıcı veritabanı tablosu oluşturmak için zaman yerine sabit kodlu atalım yerine geçerli kimlik bilgileri oturum açma içinde kendisi sayfa. Oturum Aç düğmesini 's olay işleyicisi'ı tıklatın ve aşağıdaki kodu ekleyin:
 
@@ -230,23 +230,23 @@ Gördüğünüz gibi üç geçerli bir kullanıcı hesapları – Scott, Jisun v
 
 Kullanıcı geçerli kimlik bilgilerini girdiğinde, ı, ardından "uygun sayfaya." yönlendirilir bahsedilen Uygun sayfaya ancak nedir? Bir kullanıcı bir sayfayı görüntüleme yetkiniz yok ziyaret ettiğinde FormsAuthenticationModule otomatik olarak bunları oturum açma sayfasına yönlendirir, geri çağırma. Bunu yaparken, sorgu dizesi ReturnUrl parametresi aracılığıyla istenen URL içerir. Diğer bir deyişle, ProtectedPage.aspx ziyaret etmek bir kullanıcı çalıştı ve bunlar Bunu yapmak için yetkileri yok, FormsAuthenticationModule bunları yeniden yönlendirme:
 
-Login.aspx? ReturnUrl=ProtectedPage.aspx
+Login.aspx?ReturnUrl=ProtectedPage.aspx
 
 Başarıyla oturum açtıktan sonra kullanıcı geri ProtectedPage.aspx yönlendirilmeniz gerekir. Alternatif olarak, kullanıcılar kendi volition üzerinde oturum açma sayfasını ziyaret edebilirsiniz. Bu durumda, kullanıcı oturum sonra bunlar için kök klasör Default.aspx sayfasında gönderilmelidir.
 
 ### <a name="logging-in-the-user"></a>Kullanıcı günlüğü
 
-Sağlanan kimlik bilgilerinin geçerli olduğu varsayımıyla oluşturmamız forms kimlik doğrulaması bileti böylece siteye kullanıcı oturum gerekir. [FormsAuthentication sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.aspx) içinde [System.Web.Security ad alanı](https://msdn.microsoft.com/en-us/library/system.web.security.aspx) kimlik doğrulama sistemi günlük giriş ve çıkışı formlar üzerinden kullanıcılara oturum açma için çeşitli yöntemler sağlar. FormsAuthentication sınıfında birkaç yöntem olmasına karşın, biz juncture en bu ilgilendiğiniz üç şunlardır:
+Sağlanan kimlik bilgilerinin geçerli olduğu varsayımıyla oluşturmamız forms kimlik doğrulaması bileti böylece siteye kullanıcı oturum gerekir. [FormsAuthentication sınıfı](https://msdn.microsoft.com/library/system.web.security.formsauthentication.aspx) içinde [System.Web.Security ad alanı](https://msdn.microsoft.com/library/system.web.security.aspx) kimlik doğrulama sistemi günlük giriş ve çıkışı formlar üzerinden kullanıcılara oturum açma için çeşitli yöntemler sağlar. FormsAuthentication sınıfında birkaç yöntem olmasına karşın, biz juncture en bu ilgilendiğiniz üç şunlardır:
 
-- [GetAuthCookie (*kullanıcıadı*, *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.getauthcookie.aspx) – sağlanan adı için bir form kimlik doğrulama anahtarının oluşturur *kullanıcıadı*. Ardından, bu yöntem oluşturur ve kimlik doğrulaması bileti içeriğini tutan HttpCookie nesne döndürür. Varsa *persistCookie* true, kalıcı bir tanımlama bilgisi oluşturulur.
-- [SetAuthCookie (*kullanıcıadı*, *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx) – GetAuthCookie çağırır (*kullanıcıadı*, *persistCookie*) forms kimlik doğrulaması tanımlama bilgisi oluşturmak için yöntem. Bu yöntem, ardından (tanımlama bilgisi tabanlı form kimlik doğrulaması; kullanılmıyorsa, cookieless bilet mantığı işler bir iç sınıf bu yöntemi çağırır varsayılarak) tanımlama bilgileri koleksiyonu GetAuthCookie tarafından döndürülen tanımlama bilgisi ekler.
-- [RedirectFromLoginPage (*kullanıcıadı*, *persistCookie*)](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) – SetAuthCookie bu yöntemi çağırır (*kullanıcıadı*, *persistCookie* ) ve ardından kullanıcının uygun sayfasına yönlendirir.
+- [GetAuthCookie(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.getauthcookie.aspx) – creates a forms authentication ticket for the supplied name *username*. Ardından, bu yöntem oluşturur ve kimlik doğrulaması bileti içeriğini tutan HttpCookie nesne döndürür. Varsa *persistCookie* true, kalıcı bir tanımlama bilgisi oluşturulur.
+- [SetAuthCookie(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) – calls the GetAuthCookie(*username*, *persistCookie*) method to generate the forms authentication cookie. Bu yöntem, ardından (tanımlama bilgisi tabanlı form kimlik doğrulaması; kullanılmıyorsa, cookieless bilet mantığı işler bir iç sınıf bu yöntemi çağırır varsayılarak) tanımlama bilgileri koleksiyonu GetAuthCookie tarafından döndürülen tanımlama bilgisi ekler.
+- [RedirectFromLoginPage(*username*, *persistCookie*)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.redirectfromloginpage.aspx) – this method calls SetAuthCookie(*username*, *persistCookie*), and then redirects the user to the appropriate page.
 
 Tanımlama bilgisi için tanımlama bilgileri koleksiyonu yazmadan önce kimlik doğrulaması bileti değiştirmeniz gerektiğinde GetAuthCookie kullanışlıdır. Forms kimlik doğrulaması bileti oluşturun ve tanımlama bilgileri koleksiyona eklemek istediğiniz, ancak kullanıcı uygun sayfasına yeniden yönlendir istemediğiniz SetAuthCookie yararlıdır. Belki de oturum açma sayfasında kalmalarını ya da diğer bazı sayfasına göndermek istiyorsunuz.
 
 Kullanıcı oturum ve bunları uygun sayfasına yeniden yönlendirmek istiyoruz beri RedirectFromLoginPage kullanalım. Oturum Aç düğmesini'nın tıklatın güncelleştirme olay işleyicisi, aşağıdaki kod satırını ile iki açıklamalı Yapılacaklar satırları değiştirme:
 
-FormsAuthentication.RedirectFromLoginPage (UserName.Text, RememberMe.Checked);
+FormsAuthentication.RedirectFromLoginPage(UserName.Text, RememberMe.Checked);
 
 Forms kimlik doğrulaması bileti oluşturulurken kullanıcıadı TextBox'ın metin özelliğini forms kimlik doğrulaması bileti için kullanırız *kullanıcıadı* parametre ve kullandığınız Beni anımsa onay kutusunu işaretli durumu  *persistCookie* parametresi.
 
@@ -282,7 +282,7 @@ Bu noktada biz form kimlik doğrulaması etkin ve bir ilkel oturum açma sayfas�
 
 Büyük olasılıkla artık tahmin gibi buradaki yalnızca AuthenticatedMessagePanel kimliği doğrulanmış ziyaretçileri ve yalnızca Anonim ziyaretçileri AnonymousMessagePanel görüntülemektir. Bunu gerçekleştirmek için kullanıcının veya oturum açtığı bağlı olarak bu panoları görünür özelliklerini ayarlamak ihtiyacımız.
 
-[Request.IsAuthenticated özelliği](https://msdn.microsoft.com/en-us/library/system.web.httprequest.isauthenticated.aspx) istek kimliği doğrulanmış olup olmadığını gösteren bir Boole değeri döndürür. Aşağıdaki kod sayfasına girin\_yük olay işleyici kodu:
+[Request.IsAuthenticated özelliği](https://msdn.microsoft.com/library/system.web.httprequest.isauthenticated.aspx) istek kimliği doğrulanmış olup olmadığını gösteren bir Boole değeri döndürür. Aşağıdaki kod sayfasına girin\_yük olay işleyici kodu:
 
 [!code-csharp[Main](an-overview-of-forms-authentication-cs/samples/sample7.cs)]
 
@@ -299,20 +299,20 @@ Bu kodu yerinde bir tarayıcıdan Default.aspx ziyaret edin. Oturum açmak henü
 **Şekil 12**: kimliği doğrulanmış kullanıcılar "yeniden Hoş Geldiniz!" gösterilir İleti
 
 
-Şu anda oturum açmış kullanıcının kimliğini aracılığıyla belirleriz [HttpContext nesnesi](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx)'s [kullanıcı özelliği](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.user.aspx). HttpContext nesne geçerli istek hakkındaki bilgileri temsil eder ve yanıt, isteğin ve oturumu olarak ortak gibi ASP.NET nesnelerin giriş diğerleriyle birlikte durumda. Kullanıcı özelliği geçerli HTTP isteği ve uygulayan güvenlik bağlamını temsil eder [IPrincipal arabirimi](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.aspx).
+Şu anda oturum açmış kullanıcının kimliğini aracılığıyla belirleriz [HttpContext nesnesi](https://msdn.microsoft.com/library/system.web.httpcontext.aspx)'s [kullanıcı özelliği](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx). HttpContext nesne geçerli istek hakkındaki bilgileri temsil eder ve yanıt, isteğin ve oturumu olarak ortak gibi ASP.NET nesnelerin giriş diğerleriyle birlikte durumda. Kullanıcı özelliği geçerli HTTP isteği ve uygulayan güvenlik bağlamını temsil eder [IPrincipal arabirimi](https://msdn.microsoft.com/library/system.security.principal.iprincipal.aspx).
 
 Kullanıcı özelliği FormsAuthenticationModule tarafından ayarlanır. Özellikle, FormsAuthenticationModule gelen istekte bir form kimlik doğrulama anahtarının bulduğunda, yeni bir GenericPrincipal nesnesi oluşturur ve kullanıcı özelliğine atar.
 
 Asıl nesneler (örneğin, GenericPrincipal) kullanıcının kimliğini ve ait oldukları rolleri hakkında bilgi sağlar. IPrincipal arabirimi iki üyeleri tanımlar:
 
-- [IsInRole (*roleName*)](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole.aspx) – asıl belirtilen role ait olup olmadığını gösteren bir Boole değeri döndüren bir yöntem.
-- [Kimlik](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.identity.aspx) – uygulayan bir nesne döndüren bir özelliği [IIdentity arabirimi](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.aspx). Üç özellik IIdentity arabirimi tanımlar: [AuthenticationType](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.authenticationtype.aspx), [IsAuthenticated](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.isauthenticated.aspx), ve [adı](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.name.aspx).
+- [IsInRole (*roleName*)](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole.aspx) – asıl belirtilen role ait olup olmadığını gösteren bir Boole değeri döndüren bir yöntem.
+- [Kimlik](https://msdn.microsoft.com/library/system.security.principal.iprincipal.identity.aspx) – uygulayan bir nesne döndüren bir özelliği [IIdentity arabirimi](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx). Üç özellik IIdentity arabirimi tanımlar: [AuthenticationType](https://msdn.microsoft.com/library/system.security.principal.iidentity.authenticationtype.aspx), [IsAuthenticated](https://msdn.microsoft.com/library/system.security.principal.iidentity.isauthenticated.aspx), ve [adı](https://msdn.microsoft.com/library/system.security.principal.iidentity.name.aspx).
 
 Aşağıdaki kodu kullanarak geçerli ziyaretçi adını belirleriz:
 
 currentUsersName dize User.Identity.Name; =
 
-Forms kimlik doğrulaması, kullanma, bir [FormsIdentity nesne](https://msdn.microsoft.com/en-us/library/system.web.security.formsidentity.aspx) GenericPrincipal'ın kimliği özelliği için oluşturulur. FormsIdentity sınıfı "Form" dizesini AuthenticationType özelliğine ve kendi IsAuthenticated özelliği true her zaman döndürür. Name özelliği, forms kimlik doğrulaması bileti oluşturulurken belirtilen kullanıcı adını döndürür. Bu üç özelliğe ek olarak, temel kimlik doğrulaması bileti erişimi FormsIdentity içerir, [bilet özelliği](https://msdn.microsoft.com/en-us/library/system.web.security.formsidentity.ticket.aspx). Ticket özelliğine türünde bir nesne döndürür [FormsAuthenticationTicket](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx), sona erme, IsPersistent, IssueDate, ad vb. gibi özelliklere sahiptir.
+Forms kimlik doğrulaması, kullanma, bir [FormsIdentity nesne](https://msdn.microsoft.com/library/system.web.security.formsidentity.aspx) GenericPrincipal'ın kimliği özelliği için oluşturulur. FormsIdentity sınıfı "Form" dizesini AuthenticationType özelliğine ve kendi IsAuthenticated özelliği true her zaman döndürür. Name özelliği, forms kimlik doğrulaması bileti oluşturulurken belirtilen kullanıcı adını döndürür. Bu üç özelliğe ek olarak, temel kimlik doğrulaması bileti erişimi FormsIdentity içerir, [bilet özelliği](https://msdn.microsoft.com/library/system.web.security.formsidentity.ticket.aspx). Ticket özelliğine türünde bir nesne döndürür [FormsAuthenticationTicket](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx), sona erme, IsPersistent, IssueDate, ad vb. gibi özelliklere sahiptir.
 
 İşte çıkardığınız gereken en önemli nokta *kullanıcıadı* FormsAuthentication.GetAuthCookie belirtilen parametresi (*kullanıcıadı*, *persistCookie*), FormsAuthentication.SetAuthCookie (*kullanıcıadı*, *persistCookie*) ve FormsAuthentication.RedirectFromLoginPage (*kullanıcıadı*, *persistCookie*) yöntemleri User.Identity.Name tarafından döndürülen aynı değerdir. Ayrıca, bu yöntemleri ile oluşturulan kimlik doğrulaması bileti FormsIdentity nesnesine User.Identity atama ve Ticket özelliğine erişme mevcuttur:
 
@@ -334,7 +334,7 @@ WelcomeBackMessage.Text = "Yeniden Hoş Geldiniz" + User.Identity.Name + "!";
 
 Kimliği doğrulanmış ve anonim kullanıcılar için farklı içerik görüntüleme ortak bir gereksinimdir; Bu nedenle şu anda oturum açmış kullanıcının adını görüntüleme. Bu nedenle, Şekil 13'te, ancak tek satırlık bir kod yazmak zorunda kalmadan gösterilen aynı işlevselliği sağlayan iki Web denetimleri ASP.NET içerir.
 
-[LoginView denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) kimliği doğrulanmış ve anonim kullanıcılar için farklı verileri görüntülemek kolaylaştıran şablon temelli bir Web denetimi. (Link) iki önceden tanımlanmış şablonlar içerir:
+[LoginView denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) kimliği doğrulanmış ve anonim kullanıcılar için farklı verileri görüntülemek kolaylaştıran şablon temelli bir Web denetimi. (Link) iki önceden tanımlanmış şablonlar içerir:
 
 - Anonymous – bu şablona eklenen işaretleme yalnızca Anonim ziyaretçilerine görüntülenir.
 - LoggedInTemplate – bu şablonun işaretleme yalnızca kimliği doğrulanmış kullanıcılara gösterilir.
@@ -365,7 +365,7 @@ Ardından, iki eklemek &lt;br /&gt; öğeleri LoginView denetimi hemen sonra anc
 
 (Link)'ın şablonları Tasarımcısı veya bildirim temelli biçimlendirme tanımlanabilir. Visual Studio'nun Tasarımcısı'ndan bir aşağı açılan listesinde yapılandırılmış şablonlarını listeler (link)'ın akıllı etiket genişletin. Metin türü stranger Anonymous; "Hello," Ardından, bir köprü denetimi ekleyin ve "Oturum Aç" için metin ve NavigateUrl özelliklerini ayarlamak ve "~ / Login.aspx" sırasıyla.
 
-Anonymous yapılandırdıktan LoggedInTemplate geçin ve "Yeniden Hoş Geldiniz," metin girin. Ardından LoginName Denetim Araç Kutusu'ndan hemen "Hoş Geldiniz sonrasında geri" metin yerleştirme LoggedInTemplate içine sürükleyin. [LoginName denetim](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginname.aspx), adından da anlaşılacağı, şu anda oturum açmış olan kullanıcının adını görüntüler. Dahili olarak, LoginName denetim User.Identity.Name özelliği yalnızca çıkarır
+Anonymous yapılandırdıktan LoggedInTemplate geçin ve "Yeniden Hoş Geldiniz," metin girin. Ardından LoginName Denetim Araç Kutusu'ndan hemen "Hoş Geldiniz sonrasında geri" metin yerleştirme LoggedInTemplate içine sürükleyin. [LoginName denetim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginname.aspx), adından da anlaşılacağı, şu anda oturum açmış olan kullanıcının adını görüntüler. Dahili olarak, LoginName denetim User.Identity.Name özelliği yalnızca çıkarır
 
 Bu eklemeleri (link)'ın şablonlarına yaptıktan sonra biçimlendirme aşağıdakine benzer görünmelidir:
 
@@ -403,9 +403,9 @@ Varsayılan biçimlendirme için LoginContent ContentPlaceHolder geçersiz kılm
 
 ## <a name="step-5-logging-out"></a>Adım 5: Oturum kapatılıyor
 
-Adım 3'te biz sitede bir kullanıcı oturum için bir oturum açma sayfası derlemeye Aranan, ancak bir kullanıcı oturum kapatma hakkında bilgi henüz. Bir kullanıcı oturum yöntemlerine ek olarak, FormsAuthentication sınıfı sağlar bir [SignOut yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx). SignOut yöntemi, böylece kullanıcı site dışında günlüğü forms kimlik doğrulaması bileti yalnızca bozar.
+Adım 3'te biz sitede bir kullanıcı oturum için bir oturum açma sayfası derlemeye Aranan, ancak bir kullanıcı oturum kapatma hakkında bilgi henüz. Bir kullanıcı oturum yöntemlerine ek olarak, FormsAuthentication sınıfı sağlar bir [SignOut yöntemi](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx). SignOut yöntemi, böylece kullanıcı site dışında günlüğü forms kimlik doğrulaması bileti yalnızca bozar.
 
-ASP.NET, ortak bir özelliği günlüktür bağlantı kullanıma sunan bir kullanıcı oturum kapatma için özellikle tasarlanmış bir denetim içerir. [Bu denetim](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginstatus.aspx) "Login" LinkButton veya kullanıcının kimlik doğrulama durumuna bağlı olarak bir "Oturum kapatma" LinkButton görüntüler. "Oturum kapatma" LinkButton kimliği doğrulanmış kullanıcılara gösterilir ancak bir "Login" LinkButton anonim kullanıcılar için işlenir. "Login" ve "Oturum kapatma" LinkButtons için metin LoginStatus kişinin yapılandırılabilir LoginText ve LogoutText özellikleri.
+ASP.NET, ortak bir özelliği günlüktür bağlantı kullanıma sunan bir kullanıcı oturum kapatma için özellikle tasarlanmış bir denetim içerir. [Bu denetim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginstatus.aspx) "Login" LinkButton veya kullanıcının kimlik doğrulama durumuna bağlı olarak bir "Oturum kapatma" LinkButton görüntüler. "Oturum kapatma" LinkButton kimliği doğrulanmış kullanıcılara gösterilir ancak bir "Login" LinkButton anonim kullanıcılar için işlenir. "Login" ve "Oturum kapatma" LinkButtons için metin LoginStatus kişinin yapılandırılabilir LoginText ve LogoutText özellikleri.
 
 "Login" LinkButton tıklatarak bir yeniden yönlendirme oturum açma sayfasına verildiği geri gönderme neden olur. "Oturum kapatma" LinkButton tıklayarak FormsAuthentication.SignOff yöntemini çağırmak bu denetim neden olur ve ardından kullanıcı bir sayfaya yönlendirir. Sayfa oturum açmış kullanıcının oturumunu bağlıdır üç aşağıdaki değerlerden birine atanan LogoutAction özellikte yönlendirilir:
 
@@ -427,12 +427,12 @@ LoginStatus LoginView denetimi dışında olduğundan, anonim ve kimliği doğru
 Jisun ziyaret ettiğinde Şekil 18 Default.aspx gösterir. Sol sütunda "geri Jisun oturum kapatma için bir bağlantı birlikte Hoş Geldiniz" iletisi görüntülenir. Oturumu kapatma LinkButton tıklayarak geri gönderimin neden olur, Jisun dışında sistem imzalar ve her Logout.aspx için yeniden yönlendirir. Şekil 19 gösterildiği gibi Jisun Logout.aspx ulaştığında zamana göre aynen zaten imzalanmış ve bu nedenle anonim. Sonuç olarak, metnin sol sütunda görüntülenir ", stranger ve Hoş Geldiniz" oturum açma sayfasına bir bağlantı.
 
 
-[![Default.aspx gösterir](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
+[![Default.aspx Shows](an-overview-of-forms-authentication-cs/_static/image39.png)](an-overview-of-forms-authentication-cs/_static/image38.png)
 
 **Şekil 18**: Default.aspx gösterir "Hoş Geldiniz geri Jisun" "Oturum kapatma" LinkButton birlikte ([tam boyutlu görüntüyü görüntülemek için tıklatın](an-overview-of-forms-authentication-cs/_static/image40.png))
 
 
-[![Logout.aspx gösterir](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
+[![Logout.aspx Shows](an-overview-of-forms-authentication-cs/_static/image42.png)](an-overview-of-forms-authentication-cs/_static/image41.png)
 
 **Şekil 19**: Logout.aspx gösterir "Hoş Geldiniz, stranger" "Login" LinkButton birlikte ([tam boyutlu görüntüyü görüntülemek için tıklatın](an-overview-of-forms-authentication-cs/_static/image43.png))
 
@@ -456,14 +456,14 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [IIS6 ve IIS7 güvenlik arasındaki değişiklikleri](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [Oturum açma ASP.NET denetimleri](https://msdn.microsoft.com/en-us/library/d51ttbhx.aspx)
+- [Oturum açma ASP.NET denetimleri](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [Profesyonel ASP.NET 2.0 güvenlik, üyelik ve rol yönetimi](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [`<authentication>` Öğesi](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [`<forms>` Öğesi için`<authentication>`](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
+- [`<authentication>` Öğesi](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [`<forms>` Öğesi için`<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Bu öğreticide yer alan konularda video eğitim
 
-- [ASP.NET temel form kimlik doğrulaması kullanma](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
+- [ASP.NET’te Temel Forms Kimlik Doğrulaması Kullanma](../../../videos/authentication/using-basic-forms-authentication-in-aspnet.md)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 

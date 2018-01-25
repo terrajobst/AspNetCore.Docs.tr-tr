@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3df59aab2a0c43f4a4f5c59530b0655f68d95cc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 331d0e520a1fd8ec84aecd09a9c9e6d286c5893b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-file-upload-and-multipart-mime"></a>ASP.NET Web API HTML Form verileri gönderme: dosya karşıya yükleme ve çok parçalı MIME
 ====================
@@ -72,7 +72,7 @@ Yöntem tamamlandığında dosyaları hakkında bilgi edinebilirsiniz **FileData
 - **MultipartFileData.FileName** dosyasının kaydedildiği sunucusunda, yerel dosya adıdır.
 - **MultipartFileData.Headers** bölümü üstbilgisi içeriyor (*değil* istek üstbilgisi). Bu içeriğe erişmek için kullanabileceğiniz\_değerlendirme ve Content-Type üst bilgileri.
 
-Adı da anlaşılacağı gibi **ReadAsMultipartAsync** zaman uyumsuz bir yöntemdir. Yöntemi tamamlandıktan sonra çalışmayı gerçekleştirmek için kullanın bir [devamlılık görevi](https://msdn.microsoft.com/en-us/library/ee372288.aspx) (.NET 4.0) veya **await** anahtar sözcüğü (.NET 4.5).
+Adı da anlaşılacağı gibi **ReadAsMultipartAsync** zaman uyumsuz bir yöntemdir. Yöntemi tamamlandıktan sonra çalışmayı gerçekleştirmek için kullanın bir [devamlılık görevi](https://msdn.microsoft.com/library/ee372288.aspx) (.NET 4.0) veya **await** anahtar sözcüğü (.NET 4.5).
 
 Önceki kod .NET Framework 4.0 sürümünü şöyledir:
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: cef493fc2010d1c82e5c1dfec85864539252b817
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99dcf1bd4f0dc4fcb6169f48bd398c9e40c21a35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri istekleri işleme
 
@@ -42,7 +42,7 @@ Denetleyicileri izlemelidir [açık bağımlılıkları ilkesine](http://deviq.c
 
 Denetleyici (varsa) modelin işlem sonucunu alır ve doğru görünüm ve ilişkili görünüm verileri veya API çağrısının sonucunu döndürür. Hakkında daha fazla bilgi edinin [ASP.NET Core MVC genel bakış](xref:mvc/overview) ve [ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama](xref:tutorials/first-mvc-app/start-mvc).
 
-Denetleyicisidir bir *UI düzeyi* Özet. Sorumlulukları istek verileri geçerli olduğundan emin olun ve hangi görünüm (veya bir API için sonuç) döndürülmelidir seçmek için ' dir. İyi faktörlere göre uygulamalarda, doğrudan veri erişim veya iş mantığı içermeyecek. Bunun yerine, denetleyici bu Sorumluluklar işleme Hizmetleri atar.
+Denetleyicisidir bir *UI düzeyi* Özet. Sorumlulukları istek verileri geçerli olduğundan emin olun ve hangi görünüm (veya bir API için sonuç) döndürülmelidir seçmek için ' dir. İyi faktörlere göre uygulamalarda, doğrudan veri erişim veya iş mantığı içermez. Bunun yerine, denetleyici bu Sorumluluklar işleme Hizmetleri atar.
 
 ## <a name="defining-actions"></a>Eylemleri tanımlama
 

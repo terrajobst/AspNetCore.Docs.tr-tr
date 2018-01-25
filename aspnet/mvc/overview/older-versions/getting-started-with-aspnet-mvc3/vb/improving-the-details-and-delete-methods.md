@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 24c986f7ec8376bc997f1ebc575338772507cbc9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e057d9f106aaa8afbe521d8185a06dfbf48e46fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Ayrıntılar ve silme yöntemleri (VB) artırma
 ====================
@@ -73,11 +73,11 @@ Bu temel öğretici görünümlerle ilişkilendirme ve sabit kodlanmış veriler
 
 Uygulamanızı dağıtmak istiyorsanız, ilk test yerel IIS 7 sunucunuzda uygulama için yararlıdır. Bu kullanabilirsiniz [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=ASPNET;) ASP.NET uygulamaları için IIS ayarını etkinleştirmek için bağlantı. Aşağıdaki dağıtım bağlantılara bakın:
 
-- [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/dd394698.aspx)
 - [IIS etkinleştirme 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
-- [Web Uygulama projeleri dağıtımı](https://msdn.microsoft.com/en-us/library/dd394698.aspx)
+- [Web Uygulama projeleri dağıtımı](https://msdn.microsoft.com/library/dd394698.aspx)
 
-I şimdi bizim orta düzey taşımanızı öneririz [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) ve [MVC müzik deposu](../../mvc-music-store/mvc-music-store-part-1.md) keşfetmek için öğreticileri, [ASP.NET MSDN'de makaleleri](https://msdn.microsoft.com/en-us/library/gg416514(VS.98).aspx), birçok videolar ve kaynaklara göz atın ve [https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sorular sormak için harika bir yerdir.
+I şimdi bizim orta düzey taşımanızı öneririz [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) ve [MVC müzik deposu](../../mvc-music-store/mvc-music-store-part-1.md) keşfetmek için öğreticileri, [ASP.NET MSDN'de makaleleri](https://msdn.microsoft.com/library/gg416514(VS.98).aspx), birçok videolar ve kaynaklara göz atın ve [https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sorular sormak için harika bir yerdir.
 
 Keyfini çıkarın!
 

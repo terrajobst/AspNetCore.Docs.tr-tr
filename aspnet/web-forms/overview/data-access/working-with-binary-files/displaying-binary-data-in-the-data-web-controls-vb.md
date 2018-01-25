@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1b9dadbfb82790a08a25a5c0f759b733cb59eb60
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df79748bf5734ffcb9eb81ca089aeded0e63bdc5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Veri Web denetimleri (VB) ikili verileri görüntüleme
 ====================
@@ -129,7 +129,7 @@ Ardından, oluşturun bir `Protected` ASP.NET yönteminde sayfa adında s arka p
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample3.vb)]
 
-Bu yöntem belirler geçilen `Object` değeri olan bir veritabanı `NULL` ve bu durumda, kategori broşürlerde eksik olduğunu belirten bir ileti döndürür. Aksi durumda, yoksa bir `BrochurePath` değeri, onu bir köprü görüntülenen s. Unutmayın `BrochurePath` değer içine geçirilen s sunmak [ `ResolveUrl(url)` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveurl.aspx). Geçilen bu metodu çözümler *url*değiştirerek `~` uygun sanal yolu ile karakter. Örneğin, uygulama köklü `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` döndürülecek `/Tutorial55/Brochures/Meat.pdf`.
+Bu yöntem belirler geçilen `Object` değeri olan bir veritabanı `NULL` ve bu durumda, kategori broşürlerde eksik olduğunu belirten bir ileti döndürür. Aksi durumda, yoksa bir `BrochurePath` değeri, onu bir köprü görüntülenen s. Unutmayın `BrochurePath` değer içine geçirilen s sunmak [ `ResolveUrl(url)` yöntemi](https://msdn.microsoft.com/library/system.web.ui.control.resolveurl.aspx). Geçilen bu metodu çözümler *url*değiştirerek `~` uygun sanal yolu ile karakter. Örneğin, uygulama köklü `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` döndürülecek `/Tutorial55/Brochures/Meat.pdf`.
 
 Bu değişiklikler uygulandıktan sonra Şekil 10 sayfası gösterilir. Unutmayın Deniz ürünleri kategori s `BrochurePath` alan şimdi Broşürü yok metin görüntüler.
 
@@ -164,7 +164,7 @@ Sayfa s arka plan kodu sınıfında aşağıdaki kodu ekleyin `Page_Load` olay i
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample6.vb)]
 
-Bu kod, okuma tarafından başlatır `CategoryID` adlı bir değişkende sorgu dizesi değeri `categoryID`. Ardından, bir çağrı aracılığıyla resim veriler alınır `CategoriesBLL` s sınıfı `GetCategoryWithBinaryDataByCategoryID(categoryID)` yöntemi. Bu verileri kullanarak istemciye döndürülen `Response.BinaryWrite(data)` yöntemi, ancak bu çağrılmadan önce `Picture` sütun değeri s OLE üstbilgisi kaldırılmalıdır. Bu oluşturarak gerçekleştirilir bir `Byte` adlı dizi `strippedImageData` tam olarak 78 tutun karakter nedir değerinden `Picture` sütun. [ `Array.Copy` Yöntemi](https://msdn.microsoft.com/en-us/library/z50k9bft.aspx) veri kopyalamak için kullanılan `category.Picture` 78 konumunda üzerinden başlama `strippedImageData`.
+Bu kod, okuma tarafından başlatır `CategoryID` adlı bir değişkende sorgu dizesi değeri `categoryID`. Ardından, bir çağrı aracılığıyla resim veriler alınır `CategoriesBLL` s sınıfı `GetCategoryWithBinaryDataByCategoryID(categoryID)` yöntemi. Bu verileri kullanarak istemciye döndürülen `Response.BinaryWrite(data)` yöntemi, ancak bu çağrılmadan önce `Picture` sütun değeri s OLE üstbilgisi kaldırılmalıdır. Bu oluşturarak gerçekleştirilir bir `Byte` adlı dizi `strippedImageData` tam olarak 78 tutun karakter nedir değerinden `Picture` sütun. [ `Array.Copy` Yöntemi](https://msdn.microsoft.com/library/z50k9bft.aspx) veri kopyalamak için kullanılan `category.Picture` 78 konumunda üzerinden başlama `strippedImageData`.
 
 `Response.ContentType` Özellik belirtir [MIME türü](http://en.wikipedia.org/wiki/MIME) böylece tarayıcı oluşturmak bildiği döndürülen içeriği. Bu yana `Categories` s tablosu `Picture` column bir bit eşlem resim, bit eşlem MIME türü kullanılan burada (görüntü/bmp). MIME türü atlarsanız, resim dosyası s ikili verileri içeriğine göre türü çıkarımını çünkü çoğu tarayıcısı görüntünün doğru görüntülenmeye devam eder. Ancak, mümkün olduğunda s MIME dahil akıllıca yazın. Bkz: [Internet Atanmış Numaralar Yetkilisi s Web sitesi](http://www.iana.org/) tam listesi için [MIME medya türleri](http://www.iana.org/assignments/media-types/).
 

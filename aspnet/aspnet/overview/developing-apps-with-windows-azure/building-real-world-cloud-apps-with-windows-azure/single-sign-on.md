@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f0d465b363652c691c203d608f2cb9d139e72fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -31,12 +31,12 @@ Bir bulut uygulaması zaman geliştirirken hakkında düşünmek için çok say�
 
 ## <a name="introduction-to-azure-ad"></a>Azure AD giriş
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/) sağlar [Active Directory](https://msdn.microsoft.com/en-us/library/windows/desktop/aa746492.aspx) bulutta. Temel özellikleri aşağıda verilmiştir:
+[Azure AD](https://docs.microsoft.com/azure/active-directory/) sağlar [Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) bulutta. Temel özellikleri aşağıda verilmiştir:
 
 - Şirket içi Active Directory ile tümleştirir.
 - Çoklu oturum açma uygulamalarınızda sağlar.
 - Gibi açık standartlar destekleyen [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), ve [OAuth 2.0](http://oauth.net/2/).
-- Kurumsal destekleyen [grafik REST API'si](https://msdn.microsoft.com/en-us/library/hh974476.aspx).
+- Kurumsal destekleyen [grafik REST API'si](https://msdn.microsoft.com/library/hh974476.aspx).
 
 Intranet uygulamalarını imzalamak çalışanlar için kullandığınız bir şirket içi Windows Server Active Directory ortamına olduğunu varsayalım:
 
@@ -64,7 +64,7 @@ Office 365 Azure AD kimlik doğrulaması için kullandığı için otomatik olar
 
 ## <a name="set-up-an-azure-ad-tenant"></a>Azure AD kiracısı ayarlayın
 
-Azure AD dizini Azure AD adlı [Kiracı](https://technet.microsoft.com/en-us/library/jj573650.aspx), ve bir kiracı ayardır oldukça kolaydır. Kavramları göstermek için Azure Yönetim Portalı'nda nasıl yapıldığını göstereceğiz, ancak Elbette gibi diğer portal işlevler ayrıca bir komut dosyası veya yönetim API'si kullanarak bunu yapabilirsiniz.
+Azure AD dizini Azure AD adlı [Kiracı](https://technet.microsoft.com/library/jj573650.aspx), ve bir kiracı ayardır oldukça kolaydır. Kavramları göstermek için Azure Yönetim Portalı'nda nasıl yapıldığını göstereceğiz, ancak Elbette gibi diğer portal işlevler ayrıca bir komut dosyası veya yönetim API'si kullanarak bunu yapabilirsiniz.
 
 Yönetim Portalı'nda Active Directory sekmesini tıklatın.
 
@@ -118,7 +118,7 @@ Tıklatın **sonraki**ve ardından AD parolalarınızı karmasını bulutta depo
 
 ![WAAD eşitleme aracı Yapılandırma Sihirbazı](single-sign-on/_static/image17.png)
 
-Bulutta depolayabilir parola karması tek yönlü karma olur; Gerçek parola hiçbir zaman Azure AD içinde depolanır. Karma buluta depolamaya karşı karar verirseniz, kullanmanız gerekir [Active Directory Federasyon Hizmetleri](https://technet.microsoft.com/en-us/library/hh831502.aspx) (ADFS). Ayrıca [dikkate almanız gereken diğer faktörleri ADFS kullanılıp kullanılmayacağını seçme](https://technet.microsoft.com/en-us/library/jj573653.aspx). ADFS seçeneği birkaç ek yapılandırma adımları gerektirir.
+Bulutta depolayabilir parola karması tek yönlü karma olur; Gerçek parola hiçbir zaman Azure AD içinde depolanır. Karma buluta depolamaya karşı karar verirseniz, kullanmanız gerekir [Active Directory Federasyon Hizmetleri](https://technet.microsoft.com/library/hh831502.aspx) (ADFS). Ayrıca [dikkate almanız gereken diğer faktörleri ADFS kullanılıp kullanılmayacağını seçme](https://technet.microsoft.com/library/jj573653.aspx). ADFS seçeneği birkaç ek yapılandırma adımları gerektirir.
 
 Bulutta karma değerlerini depolamak tercih ederseniz, işiniz bittiğinde ve tıkladığınızda dizin eşitleme Aracı'nı başlatır **sonraki**.
 
@@ -156,7 +156,7 @@ Kuruluş hesabı seçin, etki alanı adınızı girin ve ardından çoklu oturum
 
 ![Kimlik doğrulama iletişim yapılandırın](single-sign-on/_static/image24.png)
 
-Ayrıca uygulama okuma veya okuma/yazma izni dizin veriler için. Bunu yaparsanız, kullanabilirsiniz [Azure grafik REST API'sini](https://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx) kullanıcıların telefon numarasını aramak için son oturum zaman üzerinde vb. ofiste oldukları varsa öğrenin.
+Ayrıca uygulama okuma veya okuma/yazma izni dizin veriler için. Bunu yaparsanız, kullanabilirsiniz [Azure grafik REST API'sini](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) kullanıcıların telefon numarasını aramak için son oturum zaman üzerinde vb. ofiste oldukları varsa öğrenin.
 
 Tüm yapmanız gereken - olan Visual Studio için kimlik bilgileri Azure AD kiracınız için yönetici ister ve ardından projenizi ve Azure AD kiracınıza yeni uygulama için yapılandırır.
 
@@ -184,9 +184,9 @@ Bu bölümde Azure Active Directory, Visual Studio ve ASP.NET, kuruluşunuzdaki 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). Azure AD belgelerinde windowsazure.com site için portal sayfası. Adım adım öğreticiler için bkz: **geliştirme** bölümü.
-- [Azure çok faktörlü kimlik doğrulaması](https://docs.microsoft.com/azure/multi-factor-authentication/). Azure çok faktörlü kimlik doğrulaması ile ilgili belgeler için portal sayfası.
+- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/). Azure çok faktörlü kimlik doğrulaması ile ilgili belgeler için portal sayfası.
 - [Kurumsal hesap kimlik doğrulama seçeneklerini](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Visual Studio 2013 yeni proje iletişim kutusunda Azure AD kimlik doğrulama seçenekleri açıklaması.
-- [Microsoft Patterns and Practices - Federal Kimlik düzeni](https://msdn.microsoft.com/en-us/library/dn589790.aspx).
+- [Microsoft Patterns and Practices - Federal Kimlik düzeni](https://msdn.microsoft.com/library/dn589790.aspx).
 - [Nasıl yapılır: Azure Active Directory eşitleme aracını yüklemek](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
 - [Active Directory Federasyon Hizmetleri 2.0 içerik haritası](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). ADFS 2.0 hakkındaki belgelere bağlantılar.
 - [Windows Azure AD uygulama rolü ve ACL tabanlı yetkilendirme](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Örnek uygulama.

@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: f1538c933ff9e8e680d70ce1e63d24b189be47e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Kimlik doğrulama ve yetkilendirme için SignalR hub'ları
 ====================
@@ -61,7 +61,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 
 ## <a name="authorize-attribute"></a>Öznitelik yetkilendirmek
 
-SignalR sağlar [Authorize](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği hangi kullanıcılar ya da roller bir hub veya yöntemi erişimine sahip olacağını belirtin. Bu öznitelik bulunan `Microsoft.AspNet.SignalR` ad alanı. Uyguladığınız `Authorize` özniteliği bir hub veya belirli bir hub yöntemleri. Uyguladığınızda `Authorize` özniteliği belirtilen kimlik doğrulama gereksinimini bir hub sınıfına uygulanan tüm hub yöntemleri. Bu konu, uygulayabilirsiniz yetkilendirme gereksinimleri farklı türlerinin örnekleri sağlar. Olmadan `Authorize` öznitelik, bir bağlı istemci hub üzerindeki herhangi bir genel yöntemini erişebilir.
+SignalR sağlar [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği hangi kullanıcılar ya da roller bir hub veya yöntemi erişimine sahip olacağını belirtin. Bu öznitelik bulunan `Microsoft.AspNet.SignalR` ad alanı. Uyguladığınız `Authorize` özniteliği bir hub veya belirli bir hub yöntemleri. Uyguladığınızda `Authorize` özniteliği belirtilen kimlik doğrulama gereksinimini bir hub sınıfına uygulanan tüm hub yöntemleri. Bu konu, uygulayabilirsiniz yetkilendirme gereksinimleri farklı türlerinin örnekleri sağlar. Olmadan `Authorize` öznitelik, bir bağlı istemci hub üzerindeki herhangi bir genel yöntemini erişebilir.
 
 Web uygulamanızda "Yönetici" adında bir rolü tanımladıysanız, bu rol yalnızca kullanıcıların aşağıdaki kod ile bir hub'ı erişebileceği belirtebilirsiniz.
 
@@ -82,7 +82,7 @@ Aşağıdaki örnekler farklı yetkilendirme senaryosu:
 
 ## <a name="require-authentication-for-all-hubs"></a>Tüm hub'ları için kimlik doğrulaması gerektirir
 
-Kimlik doğrulamasını tüm hub'lara ve hub yöntemleri için uygulamanızda çağırarak isteyebilirsiniz [RequireAuthentication](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) uygulama başladığında yöntemi. Birden çok hub'lar varsa ve bunların tümünün için bir kimlik doğrulama gereksinimini zorlamak istiyorsanız bu yöntemi kullanabilirsiniz. Bu yöntem ile rol, kullanıcı veya giden yetkilendirme için gereksinimleri belirtilemez. Yalnızca erişim hub yöntemleri için kimliği doğrulanmış kullanıcılar için sınırlı olduğunu da belirtebilirsiniz. Ancak, yine Authorize özniteliği hub veya ek gereksinimleri belirtin yöntemleri uygulayabilirsiniz. Bir öznitelikte belirttiğiniz herhangi bir gereksinim temel kimlik doğrulama gereksinimini olarak eklenir.
+Kimlik doğrulamasını tüm hub'lara ve hub yöntemleri için uygulamanızda çağırarak isteyebilirsiniz [RequireAuthentication](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubpipelineextensions.requireauthentication(v=vs.111).aspx) uygulama başladığında yöntemi. Birden çok hub'lar varsa ve bunların tümünün için bir kimlik doğrulama gereksinimini zorlamak istiyorsanız bu yöntemi kullanabilirsiniz. Bu yöntem ile rol, kullanıcı veya giden yetkilendirme için gereksinimleri belirtilemez. Yalnızca erişim hub yöntemleri için kimliği doğrulanmış kullanıcılar için sınırlı olduğunu da belirtebilirsiniz. Ancak, yine Authorize özniteliği hub veya ek gereksinimleri belirtin yöntemleri uygulayabilirsiniz. Bir öznitelikte belirttiğiniz herhangi bir gereksinim temel kimlik doğrulama gereksinimini olarak eklenir.
 
 Aşağıdaki örnek, tüm hub yöntemleri kimliği doğrulanmış kullanıcılara erişimi sınırlar bir başlatma dosyası gösterir.
 
@@ -94,7 +94,7 @@ Aşağıdaki örnek, tüm hub yöntemleri kimliği doğrulanmış kullanıcılar
 
 ## <a name="customized-authorization"></a>Özelleştirilmiş yetkilendirme
 
-Yetkilendirme nasıl belirlendiğini özelleştirmeniz gerekiyorsa, türeyen bir sınıf oluşturabilirsiniz `AuthorizeAttribute` ve geçersiz kılma [UserAuthorized](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) yöntemi. Her istek için SignalR Kullanıcı isteği tamamlamak için yetki verilip verilmediğini belirlemek için bu yöntemi çağırır. Geçersiz kılınan yönteminde yetkilendirme senaryonuz için gerekli mantığı sağlar. Aşağıdaki örnek, talep tabanlı kimlik aracılığıyla yetkilendirmeyi gösterilmektedir.
+Yetkilendirme nasıl belirlendiğini özelleştirmeniz gerekiyorsa, türeyen bir sınıf oluşturabilirsiniz `AuthorizeAttribute` ve geçersiz kılma [UserAuthorized](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute.userauthorized(v=vs.111).aspx) yöntemi. Her istek için SignalR Kullanıcı isteği tamamlamak için yetki verilip verilmediğini belirlemek için bu yöntemi çağırır. Geçersiz kılınan yönteminde yetkilendirme senaryonuz için gerekli mantığı sağlar. Aşağıdaki örnek, talep tabanlı kimlik aracılığıyla yetkilendirmeyi gösterilmektedir.
 
 [!code-csharp[Main](hub-authorization/samples/sample4.cs)]
 
@@ -122,7 +122,7 @@ Kimliği doğrulanmış kullanıcılara sınırlı bir hub ile etkileşime giren
 
 ### <a name="cookie"></a>Tanımlama bilgisi
 
-.NET istemci ASP.NET Forms kimlik doğrulaması kullanan bir hub ile etkileşim kurduğunda, kimlik doğrulama tanımlama bilgisi bağlantısı el ile ayarlamanız gerekir. Tanımlama bilgisine eklemek `CookieContainer` özelliği [HubConnection](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) nesnesi. Aşağıdaki örnek, bir web sayfasından bir kimlik doğrulama tanımlama bilgisini alır ve bu tanımlama bilgisi bağlantısı ekleyen bir konsol uygulaması gösterir.
+.NET istemci ASP.NET Forms kimlik doğrulaması kullanan bir hub ile etkileşim kurduğunda, kimlik doğrulama tanımlama bilgisi bağlantısı el ile ayarlamanız gerekir. Tanımlama bilgisine eklemek `CookieContainer` özelliği [HubConnection](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.hubs.hubconnection(v=vs.111).aspx) nesnesi. Aşağıdaki örnek, bir web sayfasından bir kimlik doğrulama tanımlama bilgisini alır ve bu tanımlama bilgisi bağlantısı ekleyen bir konsol uygulaması gösterir.
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
@@ -134,7 +134,7 @@ Konsol uygulaması için kimlik bilgilerini yazılarını **www.contoso.com/Remo
 
 ### <a name="windows-authentication"></a>Windows kimlik doğrulaması
 
-Windows kimlik doğrulaması kullanırken, geçerli kullanıcının kimlik bilgilerini kullanarak geçirebilirsiniz [DefaultCredentials](https://msdn.microsoft.com/en-us/library/system.net.credentialcache.defaultcredentials.aspx) özelliği. Bağlantı için kimlik bilgilerini DefaultCredentials değerine ayarlayın.
+Windows kimlik doğrulaması kullanırken, geçerli kullanıcının kimlik bilgilerini kullanarak geçirebilirsiniz [DefaultCredentials](https://msdn.microsoft.com/library/system.net.credentialcache.defaultcredentials.aspx) özelliği. Bağlantı için kimlik bilgilerini DefaultCredentials değerine ayarlayın.
 
 [!code-csharp[Main](hub-authorization/samples/sample9.cs?highlight=6)]
 
@@ -152,6 +152,6 @@ Ardından, hub'ı, kullanıcının belirteci doğrulayın.
 
 ### <a name="certificate"></a>Sertifika
 
-Kullanıcıyı doğrulamak için bir istemci sertifikası geçirebilirsiniz. Bağlantı oluştururken sertifika ekleyin. Aşağıdaki örnekte bir istemci sertifikası bağlantısı yalnızca nasıl ekleneceğini gösterir; tam konsol uygulaması göstermez. Kullandığı [X509Certificate](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate.aspx) sertifikayı oluşturmak için birçok farklı yol sağlayan sınıf.
+Kullanıcıyı doğrulamak için bir istemci sertifikası geçirebilirsiniz. Bağlantı oluştururken sertifika ekleyin. Aşağıdaki örnekte bir istemci sertifikası bağlantısı yalnızca nasıl ekleneceğini gösterir; tam konsol uygulaması göstermez. Kullandığı [X509Certificate](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate.aspx) sertifikayı oluşturmak için birçok farklı yol sağlayan sınıf.
 
 [!code-csharp[Main](hub-authorization/samples/sample11.cs?highlight=6)]

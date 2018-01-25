@@ -12,17 +12,17 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c61be6f7a64c000c8d9489f35eea520fd0bb32dd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce4953a0abf64af28ef4dbc5a62bb2d989343d99
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR ile çalışmaya başlama 1.x
 ====================
 tarafından [CAN Fletcher'dan](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
-> Bu öğretici SignalR gerçek zamanlı sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Boş bir ASP.NET web uygulamasına SignalR ekleyebilir ve göndermek ve iletileri görüntülemek için bir HTML sayfası oluşturun.
+> Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. Boş bir ASP.NET web uygulamasına SignalR ekleyebilir ve göndermek ve iletileri görüntülemek için bir HTML sayfası oluşturun.
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -168,10 +168,10 @@ Aşağıdaki kod, hub ile bir bağlantı açmak gösterilmiştir. Kod bağlantı
 
 SignalR gerçek zamanlı web uygulamaları oluşturmak için bir çerçeve olduğunu öğrendiniz. Birkaç SignalR geliştirme görevleri de öğrenilen: bir ASP.NET uygulaması için SignalR ekleme, hub sınıfın nasıl oluşturulacağı ve hub'dan ileti alıp göndermek nasıl.
 
-Örnek uygulamayı Bu öğretici veya diğer SignalR uygulamalarını Internet üzerinden bir barındırma sağlayıcısına dağıtarak sunabilirsiniz. Microsoft, 10 web siteleri için ücretsiz bir ücretsiz web barındırma sunar [Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Örnek SignalR uygulama dağıtma hakkında bir kılavuz için bkz: [SignalR alma başlatıldı örnek olarak bir Windows Azure Web sitesi yayımlama](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında ayrıntılı bilgi için bkz: [bir ASP.NET uygulaması için bir Windows Azure Web sitesi dağıtma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Not: WebSocket aktarımı şu anda Windows Azure Web siteleri için desteklenmiyor. Zaman WebSocket taşıma kullanılabilir değil, SignalR kullanan diğer kullanılabilir taşımalar taşımaları bölümünde açıklandığı gibi [SignalR konuya giriş](index.md).)
+Örnek uygulamayı Bu öğretici veya diğer SignalR uygulamalarını Internet üzerinden bir barındırma sağlayıcısına dağıtarak sunabilirsiniz. Microsoft, 10 web siteleri için ücretsiz bir ücretsiz web barındırma sunar [Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Örnek SignalR uygulama dağıtma hakkında bir kılavuz için bkz: [SignalR alma başlatıldı örnek olarak bir Windows Azure Web sitesi yayımlama](https://blogs.msdn.com/b/timlee/archive/2013/02/27/deploy-the-signalr-getting-started-sample-as-a-windows-azure-web-site.aspx). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında ayrıntılı bilgi için bkz: [bir ASP.NET uygulaması için bir Windows Azure Web sitesi dağıtma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet). (Not: WebSocket aktarımı şu anda Windows Azure Web siteleri için desteklenmiyor. Zaman WebSocket taşıma kullanılabilir değil, SignalR kullanan diğer kullanılabilir taşımalar taşımaları bölümünde açıklandığı gibi [SignalR konuya giriş](index.md).)
 
 Daha gelişmiş SignalR gelişmeler kavramları hakkında bilgi için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
 
-- [SignalR projesi](http://signalr.net)
+- [SignalR Project](http://signalr.net)
 - [SignalR Github ve örnekler](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

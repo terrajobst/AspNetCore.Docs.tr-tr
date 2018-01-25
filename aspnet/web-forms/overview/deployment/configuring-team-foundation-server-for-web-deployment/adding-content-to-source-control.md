@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>İçerik kaynak denetimine ekleme
 ====================
@@ -90,7 +90,7 @@ Projeler ve çözümler için kaynak denetimi eklemek için önce bunları takı
 1. Geliştirici iş istasyonunuza, projeler ve çözümler takım projesine eşlenmiş klasörü yapısı içinde uygun bir konuma taşıyın.
 
     > [!NOTE]
-    > Birçok kuruluş, projeler ve çözümler kaynak denetiminde nasıl düzenlenmelidir bir tercih edilen yaklaşım sahip olur. Yapı klasörlere konusunda yönergeler için bkz [nasıl yapılır: Yapı bilgisayarınızı kaynak denetim klasörlerine Team Foundation Server'da](https://msdn.microsoft.com/en-us/library/bb668992.aspx).
+    > Birçok kuruluş, projeler ve çözümler kaynak denetiminde nasıl düzenlenmelidir bir tercih edilen yaklaşım sahip olur. Yapı klasörlere konusunda yönergeler için bkz [nasıl yapılır: Yapı bilgisayarınızı kaynak denetim klasörlerine Team Foundation Server'da](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Çözümü Visual Studio 2010'da açın.
 3. İçinde **Çözüm Gezgini** penceresinde, çözüme sağ tıklayın ve ardından **kaynak denetimine Çözüm Ekle**.
 
@@ -149,13 +149,13 @@ Bu noktada, çözümünüz için kaynak denetimi için dış bağımlılıklar e
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda bir takım projesine bağlanma, bir klasör yapısı harita ve içerik kaynak denetimine ekleme açıklanmıştır. Kaynak denetimindeki öğeleri ile çalışma konusunda daha fazla bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Bu konuda bir takım projesine bağlanma, bir klasör yapısı harita ve içerik kaynak denetimine ekleme açıklanmıştır. Kaynak denetimindeki öğeleri ile çalışma konusunda daha fazla bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
 
 Sonraki konuyu [TFS yapı bir sunucu için Web dağıtımı yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md), bir TFS ekip sunucusu oluşturmak ve çözümünüzü dağıtmak için hazırlamayı açıklar.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Kaynak denetimi TFS ile çalışma hakkında daha kapsamlı bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Kaynak denetimi TFS ile çalışma hakkında daha kapsamlı bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](creating-a-team-project-in-tfs.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 5fa7b6227eb88aa6766ab8776bc8a3cc1111b942
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylamayı ve parola kurtarma ile ASP.NET Identity (C#)
 ====================
@@ -78,7 +78,7 @@ Başlangıç yüklenmesi ve çalıştırılması [için Visual Studio Express 20
 
 1. Yeni bir ASP.NET Web projesi oluşturun ve MVC şablonunu seçin. Web Forms da destekler ASP.NET kimliği için bir web forms uygulamasında benzer adımları izleyebilirsiniz.
 2. Varsayılan kimlik doğrulaması olarak bırakın **tek tek kullanıcı hesaplarını**.
-3. Uygulamayı çalıştırın, tıklatın **kaydetmek** bağlantı ve bir kullanıcı kaydı. Bu noktada, yalnızca doğrulama e-posta ile olan [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği.
+3. Uygulamayı çalıştırın, tıklatın **kaydetmek** bağlantı ve bir kullanıcı kaydı. Bu noktada, yalnızca doğrulama e-posta ile olan [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği.
 4. Server Explorer'da gidin **veri Connections\DefaultConnection\Tables\AspNetUsers**sağ tıklayın ve seçin **açmak tablo tanımı**.
 
     Aşağıdaki resimde gösterildiği `AspNetUsers` şeması:
@@ -94,7 +94,7 @@ ASP.NET kimliği için varsayılan veri deposu, Entity Framework olmakla birlikt
 
 [OWIN başlangıç sınıfı](../../../aspnet/overview/owin-and-katana/owin-startup-class-detection.md) ( *haline* ) uygulama başlar ve çağırır adlı `ConfigureAuth` yönteminde *uygulama\_Start\Startup.Auth.cs*, OWIN ardışık düzenini yapılandırır ve ASP.NET Identity başlatır. İncelemek `ConfigureAuth` yöntemi. Her `CreatePerOwinContext` çağrısı bir geri çağırma kaydeder (kaydedilmiş `OwinContext`), çağrılır kez belirtilen türün bir örneğini oluşturmak için istek başına. Oluşturucuda bir kesme noktası ayarlayabilirsiniz ve `Create` her tür yöntemi (`ApplicationDbContext, ApplicationUserManager`) ve her istekte adlı bunlar doğrulayın. Bir örneğini `ApplicationDbContext` ve `ApplicationUserManager` uygulama genelinde erişilebilir OWIN bağlamında depolanır. ASP.NET kimliği için OWIN ardışık düzeni tanımlama bilgisi ara yazılım aracılığıyla içine kanca oluşturur. Daha fazla bilgi için bkz: [UserManager ASP.NET Identity sınıfında isteği ömür yönetimini başına](https://blogs.msdn.com/b/webdev/archive/2014/02/12/per-request-lifetime-management-for-usermanager-class-in-asp-net-identity.aspx).
 
-Güvenlik profilinizi değiştirdiğinizde, yeni bir güvenlik damgası oluşturulur ve depolanır `SecurityStamp` alanını *AspNetUsers* tablo. Not `SecurityStamp` alan güvenlik tanımlama bilgisinden farklıdır. Güvenlik tanımlama bilgisi depolanmaz `AspNetUsers` tablosu (veya kimlik DB'de başka herhangi bir yerde). Güvenlik tanımlama bilgisi belirteci kullanarak kendinden imzalı [DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx) ve ile oluşturulan `UserId, SecurityStamp` ve sona erme zamanı bilgileri.
+Güvenlik profilinizi değiştirdiğinizde, yeni bir güvenlik damgası oluşturulur ve depolanır `SecurityStamp` alanını *AspNetUsers* tablo. Not `SecurityStamp` alan güvenlik tanımlama bilgisinden farklıdır. Güvenlik tanımlama bilgisi depolanmaz `AspNetUsers` tablosu (veya kimlik DB'de başka herhangi bir yerde). Güvenlik tanımlama bilgisi belirteci kullanarak kendinden imzalı [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) ve ile oluşturulan `UserId, SecurityStamp` ve sona erme zamanı bilgileri.
 
 Tanımlama bilgisi Ara her istekte tanımlama bilgisi denetler. `SecurityStampValidator` Yönteminde `Startup` sınıfı DB İsabetli ve güvenlik damgasını düzenli olarak denetler ile belirtildiği gibi `validateInterval`. Güvenlik profilinizi değiştirmediğiniz sürece bu yalnızca her 30 dakikada bir (bizim örnek) gerçekleşir. 30 dakikalık zaman aralığı veritabanı gelişler en aza indirmek için seçildi. Bkz: my [iki öğeli kimlik doğrulama öğretici](index.md) daha fazla ayrıntı için.
 
@@ -117,7 +117,7 @@ Kimlik sistemi izin Uygulamanızı yapılandırmak için bunu kullanıcılar gü
 - İki faktörlü kimlik doğrulamasını (2FA). Başka bir öğreticide 2FA ve SMS değineceğiz.
 - E-posta ve SMS hizmetlerini takma. (I SMS başka bir öğreticide ele alacağız).
 
-`ApplicationUserManager` Sınıfı türetilen genel `UserManager<ApplicationUser>` sınıfı. `ApplicationUser`türetilen [IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`Genel türetilen `IdentityUser` sınıfı:
+`ApplicationUserManager` Sınıfı türetilen genel `UserManager<ApplicationUser>` sınıfı. `ApplicationUser`türetilen [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`Genel türetilen `IdentityUser` sınıfı:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -131,7 +131,7 @@ Genel bağımsız değişkenler üzerinde `IUser` farklı türleri için birinci
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-Yukarıdaki vurgulanmış kodu oluşturan bir [Claimsıdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). ASP.NET kimlik ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı, bu nedenle oluşturmak için uygulama çerçevesi gerektirir bir `ClaimsIdentity` kullanıcı için. `ClaimsIdentity`bilgileri gibi kullanıcının adını, kullanıcı için tüm talepler hakkında geçerlilik süresi ve kullanıcının hangi rollerin ait. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.
+Yukarıdaki vurgulanmış kodu oluşturan bir [Claimsıdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET kimlik ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı, bu nedenle oluşturmak için uygulama çerçevesi gerektirir bir `ClaimsIdentity` kullanıcı için. `ClaimsIdentity`bilgileri gibi kullanıcının adını, kullanıcı için tüm talepler hakkında geçerlilik süresi ve kullanıcının hangi rollerin ait. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.
 
 OWIN `AuthenticationManager.SignIn` yöntemi geçirir `ClaimsIdentity` ve kullanıcı oturum açtığında:
 
@@ -179,13 +179,13 @@ Bir kullanıcı bir yerel hesap kaydettiğinde `HTTP Post Register` yöntemi ça
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-Yukarıdaki kod, e-posta ve girilen parolayı kullanarak yeni bir kullanıcı hesabı oluşturmak için model verileri kullanır. E-posta diğer veri deposunda ise, hesap oluşturma başarısız olur ve formu yeniden görüntülenir. `GenerateEmailConfirmationTokenAsync` Yöntemi güvenli onay belirteci oluşturur ve ASP.NET Identity veri deposunda saklar. [Url.Action](https://msdn.microsoft.com/en-us/library/dd505232(v=vs.118).aspx) yöntemi oluşturur içeren bir bağlantı `UserId` ve onay belirteci. Bu bağlantıyı daha sonra kullanıcıya e-posta ile, kullanıcı hesabını onaylamak için kendi e-posta uygulaması bağlantıya tıklayabilirsiniz.
+Yukarıdaki kod, e-posta ve girilen parolayı kullanarak yeni bir kullanıcı hesabı oluşturmak için model verileri kullanır. E-posta diğer veri deposunda ise, hesap oluşturma başarısız olur ve formu yeniden görüntülenir. `GenerateEmailConfirmationTokenAsync` Yöntemi güvenli onay belirteci oluşturur ve ASP.NET Identity veri deposunda saklar. [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) yöntemi oluşturur içeren bir bağlantı `UserId` ve onay belirteci. Bu bağlantıyı daha sonra kullanıcıya e-posta ile, kullanıcı hesabını onaylamak için kendi e-posta uygulaması bağlantıya tıklayabilirsiniz.
 
 <a id="email"></a>
 
 ## <a name="set-up-email-confirmation"></a>E-posta onayı ayarlama
 
-Git [Azure SendGrid kayıt sayfasını](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/) ve ücretsiz hesap kaydedin. SendGrid yapılandırmak için aşağıdaki kodu ekleyin:
+Git [Azure SendGrid kayıt sayfasını](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/) ve ücretsiz hesap kaydedin. SendGrid yapılandırmak için aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample7.cs?highlight=5)]
 
@@ -193,7 +193,7 @@ Git [Azure SendGrid kayıt sayfasını](https://azure.microsoft.com/en-us/galler
 > E-posta istemcileri sık yalnızca metin iletisi (HTML yok) kabul edin. Metin ve HTML'dir iletisinde sağlamalıdır. Yukarıdaki SendGrid örnekte bu gerçekleştirilir `myMessage.Text` ve `myMessage.Html` yukarıda gösterilen kodu.
 
 
-Aşağıdaki kodu kullanarak e-posta Gönder gösterilmektedir [posta iletisi](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx) sınıf nereye `message.Body` yalnızca bağlantı döndürür.
+Aşağıdaki kodu kullanarak e-posta Gönder gösterilmektedir [posta iletisi](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) sınıf nereye `message.Body` yalnızca bağlantı döndürür.
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
@@ -238,8 +238,8 @@ Aşağıdaki kod e-posta onayı yöntemini gösterir:
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET kimliği için özel depolama sağlayıcıları genel bakış](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [MVC 5 uygulamayla Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Ayrıca kullanıcıların tabloya profil bilgilerini eklemeyi gösterir.
 - [ASP.NET MVC ve kimlik 2.0: temel kavramları anlama](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) John Atten tarafından.
-- [ASP.NET Identity giriş](../getting-started/introduction-to-aspnet-identity.md)
+- [ASP.NET Identity’ye Giriş](../getting-started/introduction-to-aspnet-identity.md)
 - [ASP.NET Identity 2.0.0 RTM Duyurusu](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) Pranav Rastogi tarafından.

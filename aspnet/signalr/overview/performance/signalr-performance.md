@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>SignalR performans
 ====================
@@ -87,7 +87,7 @@ Ayrıca, sunucu belleği, ileti boyutunu azaltma ileti veri yolunda iletileri de
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>SignalR sunucunuz için performans ayarlama
 
-Aşağıdaki yapılandırma ayarları, bir SignalR uygulamasında daha iyi performans için sunucunuzu ayarlamak için kullanılabilir. Bir ASP.NET uygulamasında performansı hakkında genel bilgi için bkz: [ASP.NET performans geliştirme](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Aşağıdaki yapılandırma ayarları, bir SignalR uygulamasında daha iyi performans için sunucunuzu ayarlamak için kullanılabilir. Bir ASP.NET uygulamasında performansı hakkında genel bilgi için bkz: [ASP.NET performans geliştirme](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **SignalR yapılandırma ayarları**
 
@@ -104,7 +104,7 @@ Aşağıdaki yapılandırma ayarları, bir SignalR uygulamasında daha iyi perfo
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: Bu maksimum HTTP.sys'nin uygulama havuzu için sıraya koyar isteklerinin sayısıdır. Sıra dolduğunda yeni istekler 503 "Hizmet kullanılamıyor" yanıtı alırsınız. Varsayılan değer 1000'dir.
 
-    Uygulamanızı barındıran uygulama havuzundaki çalışan işlem sırası uzunluğu kısaltmayı, bellek kaynaklarının tasarrufu. Daha fazla bilgi için bkz: [yönetme, ayarlama ve uygulama havuzlarını yapılandırma](https://technet.microsoft.com/en-us/library/cc745955.aspx).
+    Uygulamanızı barındıran uygulama havuzundaki çalışan işlem sırası uzunluğu kısaltmayı, bellek kaynaklarının tasarrufu. Daha fazla bilgi için bkz: [yönetme, ayarlama ve uygulama havuzlarını yapılandırma](https://technet.microsoft.com/library/cc745955.aspx).
 
 **ASP.NET yapılandırma ayarları**
 
@@ -215,7 +215,7 @@ SignalR ileti trafiği tarafından oluşturulan hatalar ölçümleri. **Hub çö
 
 Aşağıdaki trafik ve genişletme sağlayıcı tarafından oluşturulan hatalar ölçümleri. A **akış** bu bağlamda bir ölçek birimi genişletme sağlayıcı tarafından kullanılan; SQL Server kullanılıyorsa bir tablo, Service Bus kullanılırsa, bir konu ve abonelik Redis kullandıysanız budur. Her akış sıralı okuma ve yazma işlemleri sağlar; tek bir akış olası bir ölçek performans sorunu olduğundan, bu performans sorunu azaltmaya yardımcı olmak için akış sayısı artırılabilir. Birden çok akış kullandıysanız, SignalR (parça) iletileri sırayla verilen tüm bağlantısından gönderilen iletileri garantiler şekilde bu akışları arasında otomatik olarak dağıtır.
 
-[MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) SignalR tarafından tutulan genişletme gönderme sırası uzunluğu ayarı denetler. Bir değer için 0 birer birer için yapılandırılmış ileti devre kartı gönderilmek üzere bir gönderme sıradaki tüm iletileri yerleştirir daha büyük olarak ayarlama. Sıranın boyutunu yapılandırılan uzunluktan kalırsa, göndermek için sonraki çağrılar hemen başarısız bir [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx) sırasındaki ileti sayısını ayarından küçük olana kadar yeniden. Uygulanan backplanes genellikle kendi queuing veya akış denetimi yerinde olduğundan çağrısı varsayılan olarak devre dışıdır. SQL Server söz konusu olduğunda, bağlantı havuzu herhangi bir zamanda geçmeden gönderir sayısını etkili bir şekilde sınırlar.
+[MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) SignalR tarafından tutulan genişletme gönderme sırası uzunluğu ayarı denetler. Bir değer için 0 birer birer için yapılandırılmış ileti devre kartı gönderilmek üzere bir gönderme sıradaki tüm iletileri yerleştirir daha büyük olarak ayarlama. Sıranın boyutunu yapılandırılan uzunluktan kalırsa, göndermek için sonraki çağrılar hemen başarısız bir [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) sırasındaki ileti sayısını ayarından küçük olana kadar yeniden. Uygulanan backplanes genellikle kendi queuing veya akış denetimi yerinde olduğundan çağrısı varsayılan olarak devre dışıdır. SQL Server söz konusu olduğunda, bağlantı havuzu herhangi bir zamanda geçmeden gönderir sayısını etkili bir şekilde sınırlar.
 
 Varsayılan olarak, yalnızca bir akış SQL Server ve Redis için kullanılan, beş akışlar, hizmet veri yolu için kullanılır ve çağrısı devre dışıdır, ancak bu ayarları, SQL Server ve hizmet veri yolu üzerinde yapılandırma yoluyla değiştirilebilir:
 
@@ -259,7 +259,7 @@ Aşağıdaki performans sayaçları da uygulamanızın performansını izleme ya
 
 - İşlemci Information\Processor zamanı
 
-**TCP/IP'Yİ**
+**TCP/IP**
 
 - TCPv6/kurulan bağlantılar
 - TCPv4/kurulan bağlantılar
@@ -280,6 +280,6 @@ Aşağıdaki performans sayaçları da uygulamanızın performansını izleme ya
 
 ASP.NET Performans izleme ve ayarlama hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-- [ASP.NET Performans genel bakış](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET Performans genel bakış](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5, IIS 7.0 ve IIS 6.0 ASP.NET iş parçacığı kullanımı](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; öğesi (Web Ayarları)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; öğesi (Web Ayarları)](https://msdn.microsoft.com/library/dd560842.aspx)

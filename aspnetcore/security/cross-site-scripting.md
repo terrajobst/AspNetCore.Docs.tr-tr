@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Siteler arası komut dosyası önleme
 
@@ -31,7 +31,7 @@ En temel düzey XSS çalışır ekleme içine uygulamanızın kullanmak üzere k
 
 3. Bir HTML öznitelik güvenilmeyen veri geçirmeden önce kodlanmış HTML öznitelik olduğundan emin olun. HTML öznitelik kodlaması HTML kodlaması bir üst kümesidir ve ek karakterleri gibi kodlar "ve '.
 
-4. JavaScript ile güvenilmeyen veri geçirmeden önce verileri içeriği çalışma zamanında almak bir HTML öğesi yerleştirin. Bu olası değil daha sonra verileri olun JavaScript kodlanır. JavaScript kodlama için JavaScript tehlikeli olabilecek karakterler alır ve bunları kendi onaltılık ile örneğin değiştirir &lt; olarak kodlanması `\u003C`.
+4. JavaScript ile güvenilmeyen veri geçirmeden önce verileri içeriği çalışma zamanında almak bir HTML öğesi yerleştirin. Bu mümkün değilse daha sonra verileri olun JavaScript kodlanır. JavaScript kodlama için JavaScript tehlikeli olabilecek karakterler alır ve bunları kendi onaltılık ile örneğin değiştirir &lt; olarak kodlanması `\u003C`.
 
 5. Bir URL sorgu dizesine güvenilmeyen veri geçirmeden önce URL kodlanmış olduğundan emin olun.
 
@@ -56,7 +56,7 @@ Bu görünüm içeriğini çıkarır *untrustedInput* değişkeni. Bu değişken
    ```
 
 >[!WARNING]
-> ASP.NET Core MVC sağlayan bir `HtmlString` otomatik olarak çıktı kodlanmamış sınıfı. Bu XSS Güvenlik Açığı maruz bu asla güvenilmeyen giriş ile birlikte kullanılmalıdır.
+> ASP.NET Core MVC sağlayan bir `HtmlString` çıkış sırasında otomatik olarak kodlanmış değil sınıfı. Bu XSS Güvenlik Açığı maruz bu asla güvenilmeyen giriş ile birlikte kullanılmalıdır.
 
 ## <a name="javascript-encoding-using-razor"></a>Razor kullanarak JavaScript kodlama
 
@@ -141,11 +141,11 @@ Bu tarayıcıda şu şekilde oluşturulur;
    ```
 
 >[!WARNING]
-> DOM öğeleri oluşturmak için JavaScript güvenilmeyen girişinde birleştirme değil. Kullanmanız gereken `createElement()` ve özellik değerlerini uygun şekilde gibi atayın `node.TextContent=`, veya kullanmak `element.SetAttribute()` / `element[attribute]=` Aksi takdirde, kendiniz DOM tabanlı XSS ortaya.
+> DOM öğeleri oluşturmak için JavaScript güvenilmeyen girişinde birleştirme yok. Kullanmanız gereken `createElement()` ve özellik değerlerini uygun şekilde gibi atayın `node.TextContent=`, veya kullanmak `element.SetAttribute()` / `element[attribute]=` Aksi takdirde, kendiniz DOM tabanlı XSS ortaya.
 
 ## <a name="accessing-encoders-in-code"></a>Kodda kodlayıcılar erişme
 
-HTML, JavaScript ve URL kodlayıcılar kodunuzu iki yolla kullanılabilir, bunları aracılığıyla Ekle [bağımlılık ekleme](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) veya içinde yer alan varsayılan Kodlayıcıları kullanabilirsiniz `System.Text.Encodings.Web` ad alanı. Herhangi bir karakter aralıkları uygulanan sonra varsayılan kodlayıcılar kullanırsanız, güvenli olarak kabul edilmesi için kazanmaz - varsayılan kodlayıcılar olası güvenli kodlama kuralları kullanın.
+HTML, JavaScript ve URL kodlayıcılar kodunuzu iki yolla kullanılabilir, bunları aracılığıyla Ekle [bağımlılık ekleme](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) veya içinde yer alan varsayılan Kodlayıcıları kullanabilirsiniz `System.Text.Encodings.Web` ad alanı. Herhangi bir için uygulanan sonra varsayılan kodlayıcılar kullanırsanız, güvenli olarak kabul edilmesi için karakter aralıkları uygulanmayacak - varsayılan kodlayıcılar olası güvenli kodlama kuralları kullanın.
 
 DI, Oluşturucular almalıdır aracılığıyla yapılandırılabilir kodlayıcılar kullanmak için bir *HtmlEncoder*, *JavaScriptEncoder* ve *UrlEncoder* uygun şekilde parametresi. Örneğin;
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab0b4c24c1771a21c45bac011b5f156cb15d28a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="manually-installing-web-packages"></a>Web paketleri el ile yükleme
 ====================
@@ -115,8 +115,7 @@ Web dağıtımı paketleri desteklemek üzere IIS web sunucusu yapılandırma ha
 
         > [!NOTE]
         > Bu parametreler alınacağı yeri daha fazla bilgi için bkz: [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md).
-6. 
-              **İleri**'ye tıklayın.
+6. **İleri**'ye tıklayın.
 7. Bu uygulama bu Web sitesine dağıttıktan sonra ilk kez değilse, yüklemeden önce var olan tüm içeriği silin isteyip istemediğinizi belirtmek için istenir. Gereksinimlerinize uygun seçeneği seçin ve ardından **sonraki**.
 
     ![](manually-installing-web-packages/_static/image6.png)
@@ -132,7 +131,7 @@ Bu konu, IIS Yöneticisi'ni kullanarak bir IIS Web bir web dağıtım paketi iç
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-El ile bir web paketi içe aktarma işlemlerini desteklemesi için bir IIS web sunucusu yapılandırma hakkında yönergeler için bkz [bir Web sunucusu Web dağıtımı yayımlama için (çevrimdışı dağıtımı) yapılandırmak](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Web paketleri dağıtma konusunda daha fazla genel yönergeler için bkz: [izlenecek yol: bir Web uygulaması projesi kullanarak bir Web dağıtım paketi (Kısım 1 / 4) dağıtma](https://msdn.microsoft.com/en-us/library/dd483479.aspx).
+El ile bir web paketi içe aktarma işlemlerini desteklemesi için bir IIS web sunucusu yapılandırma hakkında yönergeler için bkz [bir Web sunucusu Web dağıtımı yayımlama için (çevrimdışı dağıtımı) yapılandırmak](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Web paketleri dağıtma konusunda daha fazla genel yönergeler için bkz: [izlenecek yol: bir Web uygulaması projesi kullanarak bir Web dağıtım paketi (Kısım 1 / 4) dağıtma](https://msdn.microsoft.com/library/dd483479.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](creating-and-running-a-deployment-command-file.md)

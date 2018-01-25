@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0b1fe8d2e376065aed8d94b1267910bd1f7e5bd0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2982af897b433706889cb4eda79dcb4e76baea62
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-c"></a>Ek DataTable sütunlar (C#) ekleme
 ====================
@@ -90,12 +90,12 @@ Sonraki biz istenir `SELECT` sorgu. Aşağıdaki Sorgu Sihirbazı'na girin:
 
 [!code-sql[Main](adding-additional-datatable-columns-cs/samples/sample1.sql)]
 
-Yukarıdaki sorguda SQL Server 2005 s yeni kullanan [ `NTILE` işlevi](https://msdn.microsoft.com/en-us/library/ms175126.aspx) burada gruplar tarafından belirlenir dört gruplar halinde sonuçları bölmek için `UnitPrice` azalan şekilde sıralanmış değerleri.
+Yukarıdaki sorguda SQL Server 2005 s yeni kullanan [ `NTILE` işlevi](https://msdn.microsoft.com/library/ms175126.aspx) burada gruplar tarafından belirlenir dört gruplar halinde sonuçları bölmek için `UnitPrice` azalan şekilde sıralanmış değerleri.
 
 Ne yazık ki, Sorgu Oluşturucusu ayrıştırmayı bilmez `OVER` anahtar sözcüğü ve yukarıdaki sorguda ayrıştırılırken bir hata görüntülenir. Bu nedenle, yukarıdaki sorguda doğrudan Sihirbazı'nda textbox Sorgu Oluşturucusu kullanmadan girin.
 
 > [!NOTE]
-> Diğer derecelendirme işlevleri NTILE ve SQL Server 2005 s hakkında daha fazla bilgi için bkz: [Microsoft SQL Server 2005'te derece sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml) ve [sıralaması işlevler bölümüne](https://msdn.microsoft.com/en-us/library/ms189798.aspx) gelen [SQL Server 2005 Çevrimiçi Kitaplar](https://msdn.microsoft.com/en-us/library/ms189798.aspx).
+> Diğer derecelendirme işlevleri NTILE ve SQL Server 2005 s hakkında daha fazla bilgi için bkz: [Microsoft SQL Server 2005'te derece sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml) ve [sıralaması işlevler bölümüne](https://msdn.microsoft.com/library/ms189798.aspx) gelen [SQL Server 2005 Çevrimiçi Kitaplar](https://msdn.microsoft.com/library/ms189798.aspx).
 
 
 Girdikten sonra `SELECT` sorgu ve İleri'yi tıklatmadan, sihirbaz sorar bize onu oluşturacaktır saklı yordam için bir ad sağlayın. Yeni bir saklı yordam adı `Products_SelectWithPriceQuartile` ve İleri'yi tıklatın.

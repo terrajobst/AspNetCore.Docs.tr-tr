@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -29,7 +29,7 @@ Görünüm şablonu kullanarak bir dosyaya oluşturacaksınız [Razor görüntü
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-`Index` Yukarıdaki yöntemi tarayıcıya bir HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerine (olarak da bilinen [eylem yöntemleri](http://rachelappel.com/asp.net-mvc-actionresults-explained)), gibi `Index` yukarıdaki genellikle döndürme bir [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (veya türetilmiş bir sınıf [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), olmayan ilkel türler, string ister.
+`Index` Yukarıdaki yöntemi tarayıcıya bir HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerine (olarak da bilinen [eylem yöntemleri](http://rachelappel.com/asp.net-mvc-actionresults-explained)), gibi `Index` yukarıdaki genellikle döndürme bir [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (veya türetilmiş bir sınıf [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), olmayan ilkel türler, string ister.
 
 Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 Düzen (Razor) olan görünüm sayfası**.
   
@@ -73,7 +73,7 @@ Oldukça iyi görünür. Ancak, tarayıcının başlık çubuğunda gösterdiği
 
 Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody`olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, &quot;Sarmalanan&quot; düzeni sayfasında. Örneğin, **hakkında** bağlantı *Views\Home\About.cshtml* görünümü içinde işlenir `RenderBody` yöntemi.
 
-Title öğesi içeriğini değiştirin. Değişiklik [ActionLink](https://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx) Düzen şablonu içinde &quot;uygulama adı&quot; için &quot;MVC film&quot; ve denetleyicisinden `Home` için `Movies`. Tam yerleşimi dosya aşağıda gösterilmiştir:
+Title öğesi içeriğini değiştirin. Değişiklik [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) Düzen şablonu içinde &quot;uygulama adı&quot; için &quot;MVC film&quot; ve denetleyicisinden `Home` için `Movies`. Tam yerleşimi dosya aşağıda gösterilmiştir:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 
@@ -85,7 +85,7 @@ Ne zaman önce oluşturduğumuz *Views\HelloWorld\Index.cshtml* dosya, aşağıd
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Yukarıdaki Razor kod açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosyası tam aynı Razor biçimlendirme içeriyor.  *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  dosyası tüm görünümleri kullanacağı ortak yerleşim tanımlar, out veya bu koddan kaldırma bu nedenle yorum yapabileceği *Views\HelloWorld\ Index.cshtml* dosya.
+Yukarıdaki Razor kod açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosyası tam aynı Razor biçimlendirme içeriyor. *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  dosyası tüm görünümleri kullanacağı ortak yerleşim tanımlar, out veya bu koddan kaldırma bu nedenle yorum yapabileceği *Views\HelloWorld\ Index.cshtml* dosya.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 
@@ -93,7 +93,7 @@ Kullanabileceğiniz `Layout` farklı bir görünümü ayarlayın veya ayarlamak 
 
 Şimdi, dizin görünümünün başlığı değiştirelim.
 
-Açık *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
+Open *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
 
 [!code-cshtml[Main](adding-a-view/samples/sample6.cshtml?highlight=2,5)]
 

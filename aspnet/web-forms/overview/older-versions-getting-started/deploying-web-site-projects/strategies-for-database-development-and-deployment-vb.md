@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 title: "Veritabanı geliştirme ve dağıtım (VB) stratejileri | Microsoft Docs"
 author: rick-anderson
-description: "Veri temelli bir uygulamayı ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına doğrudan kopyalayabilirsiniz. B...."
+description: "Veri temelli bir uygulamayı ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına doğrudan kopyalayabilirsiniz. B..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8632ed2fe5c1a296747a0206de1c6f5c5bb59dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı geliştirme ve dağıtım (VB) stratejileri
 ====================
@@ -79,7 +79,7 @@ Yazıda, değişiklik günlüğü, kuşkusuz değil çok karmaşık ve kazanıla
 
 Değişiklik günlüğü yazıda sürdürme birincil dezavantajı Otomasyon yetersizliğidir. İdeal olarak, üretim veritabanını dağıtmak zaman veritabanı değişiklikleri uygulama bir betik yürütmek için bir düğmeye tıklanması yerine olarak yönergeleri listesini el ile yapmak zorunda kadar kolay olacaktır. Bu tür Otomasyon veri modeli değiştirmek için kullanılan SQL komutları içeren bir değişiklik günlüğü tutarak mümkündür.
 
-SQL söz dizimi deyimleri oluşturmak ve çeşitli veritabanı nesneleri değiştirmek için bir dizi içerir. Örneğin, [ *CREATE TABLE deyimi*](https://msdn.microsoft.com/en-us/library/ms174979.aspx), çalıştırıldığında, belirtilen sütunları ve kısıtlamalar ile yeni bir tablo oluşturur. [ *ALTER TABLE deyimi* ](https://msdn.microsoft.com/en-us/library/ms190273.aspx) var olan tablo ekleme, kaldırma veya sütunları veya kısıtlamaları değiştirme değiştirir. Ayrıca oluşturmak, değiştirmek ve dizinleri, görünümler, kullanıcı tanımlı işlevler, saklı yordamlar, tetikleyiciler ve diğer veritabanı nesnelerini bırakma için deyimleri vardır.
+SQL söz dizimi deyimleri oluşturmak ve çeşitli veritabanı nesneleri değiştirmek için bir dizi içerir. Örneğin, [ *CREATE TABLE deyimi*](https://msdn.microsoft.com/library/ms174979.aspx), çalıştırıldığında, belirtilen sütunları ve kısıtlamalar ile yeni bir tablo oluşturur. [ *ALTER TABLE deyimi* ](https://msdn.microsoft.com/library/ms190273.aspx) var olan tablo ekleme, kaldırma veya sütunları veya kısıtlamaları değiştirme değiştirir. Ayrıca oluşturmak, değiştirmek ve dizinleri, görünümler, kullanıcı tanımlı işlevler, saklı yordamlar, tetikleyiciler ve diğer veritabanı nesnelerini bırakma için deyimleri vardır.
 
 Önceki örneğimizde döndürme görüntü, yeni bir sütun ekleyin dağıtılmış bir uygulamanın geliştirilmesi sırasında `Employees` tablo, bir sütundan kaldırmak `Orders` tablo ve yeni bir tablo ekleyin (`ProductCategories`). Gibi eylemleri aşağıdaki SQL komutlarını değişiklik günlük dosyasıyla sonuçlanır:
 

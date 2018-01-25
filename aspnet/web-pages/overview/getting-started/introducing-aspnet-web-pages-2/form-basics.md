@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 97e4a2a1794dbdccf80f0b44c1246c743fa23019
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web sayfalarını - HTML formu temelleri tanıtma
 ====================
@@ -91,7 +91,7 @@ Bu biçimlendirme bir sayfa çalıştığında, bu çizim gibi görünen basit b
 - Metin kutusu:`<input type="text">`
 - Onay kutusu:`<input type="check">`
 - Radyo düğmesi:`<input type="radio">`
-- Düğmesi:`<input type="button">`
+- Button: `<input type="button">`
 - Gönder düğmesi:`<input type="submit">`
 
 De kullanabilirsiniz `<textarea>` öğenin çok satırlı metin kutusu oluşturma ve `<select>` aşağı açılan listesi veya kaydırılabilir listesi oluşturmak için öğesi. (HTML hakkında daha fazla öğeleri oluşturmak için bkz: [HTML formları ve giriş](http://www.w3schools.com/html/html_forms.asp) W3Schools sitesinde.)
@@ -220,7 +220,7 @@ Tüm bu öğeler bir araya getirme, aşağıdaki kodu alın:
 > 
 > **Önemli!** Yer tutucuları kullanma (gibi `@0`) bir SQL komutu değerleri geçirmektir *son derece önemli* güvenlik için. Burada, değişken veri yer tutucuları olan karşınıza SQL komutlarını oluşturmalısınız tek yolu yoludur.
 > 
-> Metin (birleştirme) ve kullanıcıdan Al değerleri birlikte koyarak hiçbir zaman bir SQL deyimi oluşturmak. Kullanıcı bir SQL deyimi girişine birleştirme açar, sitenize bir *SQL ekleme saldırısında* burada kötü niyetli bir kullanıcının veritabanınızı korsan saldırılarına değerleri sayfanıza gönderir. (Daha fazla bilgiyi makalesinde [SQL ekleme](https://msdn.microsoft.com/en-us/library/ms161953.aspx) MSDN Web.)
+> Metin (birleştirme) ve kullanıcıdan Al değerleri birlikte koyarak hiçbir zaman bir SQL deyimi oluşturmak. Kullanıcı bir SQL deyimi girişine birleştirme açar, sitenize bir *SQL ekleme saldırısında* burada kötü niyetli bir kullanıcının veritabanınızı korsan saldırılarına değerleri sayfanıza gönderir. (Daha fazla bilgiyi makalesinde [SQL ekleme](https://msdn.microsoft.com/library/ms161953.aspx) MSDN Web.)
 
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Arama koduyla filmler sayfa güncelleştiriliyor

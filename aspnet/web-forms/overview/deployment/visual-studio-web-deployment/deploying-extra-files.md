@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: a34607b25f6cf502f5fbf2fe51bf1937f470159e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: ek dosyaları dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -83,20 +83,20 @@ Bu, bir üçüncü taraf barındırma sağlayıcısına ASP.NET web uygulaması 
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-MSBuild dosyalar üzerinde çalışmak nasıl biliyorsanız, kod yazarak diğer birçok dağıtım görevlerini otomatikleştirebilirsiniz *.pubxml* dosyaları (Profil özgü görevler) ya da proje *. wpp.targets* dosyası (için görevleri, Tüm profiller için geçerli). Hakkında daha fazla bilgi için *.pubxml* ve *. wpp.targets* dosyaları görmek [nasıl yapılır: dağıtım ayarlarını düzenle yayımlama profili (.pubxml) dosyaları ve. wpp.targets Visual Studio Web dosyasında Projeleri](https://msdn.microsoft.com/en-us/library/ff398069). MSBuild kod temel bir giriş için bkz: **bir proje dosyası anatomisi** içinde [kurumsal dağıtım serisi: Proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Bu kitap kendi senaryoları için görevleri gerçekleştirmek için MSBuild dosyaları ile çalışma konusunda bilgi edinmek için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi ve William Bartholomew.
+MSBuild dosyalar üzerinde çalışmak nasıl biliyorsanız, kod yazarak diğer birçok dağıtım görevlerini otomatikleştirebilirsiniz *.pubxml* dosyaları (Profil özgü görevler) ya da proje *. wpp.targets* dosyası (için görevleri, Tüm profiller için geçerli). Hakkında daha fazla bilgi için *.pubxml* ve *. wpp.targets* dosyaları görmek [nasıl yapılır: dağıtım ayarlarını düzenle yayımlama profili (.pubxml) dosyaları ve. wpp.targets Visual Studio Web dosyasında Projeleri](https://msdn.microsoft.com/library/ff398069). MSBuild kod temel bir giriş için bkz: **bir proje dosyası anatomisi** içinde [kurumsal dağıtım serisi: Proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Bu kitap kendi senaryoları için görevleri gerçekleştirmek için MSBuild dosyaları ile çalışma konusunda bilgi edinmek için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi ve William Bartholomew.
 
 ## <a name="acknowledgements"></a>Katkıda Bulunanlar
 
 Bu öğretici dizisinin içeriğe önemli ölçüde katkıda yapılan aşağıdaki kişilere teşekkür ederiz ister misiniz:
 
-- [Adı Poblacion, MVP &amp; MCT, İspanya](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Adı Poblacion, MVP &amp; MCT, İspanya](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - Jarod Ferguson, veri Platform geliştirme MVP, Amerika Birleşik Devletleri
-- Sert Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Jon Galloway](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
-- [Can Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
+- [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
-- [Raffaele Rialdi, İtalya](http://www.iamraf.net/)
+- [Raffaele Rialdi, Italy](http://www.iamraf.net/)
 - [Rick Anderson, Microsoft](https://blogs.msdn.com/b/rickandy/)
 - [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))

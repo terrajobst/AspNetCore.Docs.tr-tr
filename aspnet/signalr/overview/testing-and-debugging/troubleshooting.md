@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>SignalR sorunlarını giderme
 ====================
@@ -192,7 +192,7 @@ Bu sorunu birkaç nedeni vardır. Aşağıdakilerin tümü doğrulayın:
 
 - **Hub proxy adresi başvurusu düzgün şekilde biçimlendirilmemiş:** oluşturulan hub proxy adresi referansı doğru şekilde biçimlendirilmemiş değilse bu hata sık görülür. Hub adresi referansı düzgün şekilde yapıldığını doğrulayın. Bkz: [dinamik olarak üretilen proxy başvurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Ayrıntılar için.
 - **Hub rotasını eklemeden önce uygulama için yollar ekleme:** uygulamanız diğer yollar kullanıyorsa, eklediğiniz ilk rota çağrısı olduğunu doğrulayın `MapSignalR`.
-- **IIS 7 veya 7.5 güncelleştirmesi olmadan uzantısız URL'lerle ilgili kullanarak:** kullanarak IIS 7 veya 7.5 gerektiren bir güncelleştirme uzantısız URL'lerle ilgili böylece sunucunun hub tanımlarını erişim sağlayabilir `/signalr/hubs`. Güncelleştirme buldu [burada](https://support.microsoft.com/kb/980368/en-us).
+- **IIS 7 veya 7.5 güncelleştirmesi olmadan uzantısız URL'lerle ilgili kullanarak:** kullanarak IIS 7 veya 7.5 gerektiren bir güncelleştirme uzantısız URL'lerle ilgili böylece sunucunun hub tanımlarını erişim sağlayabilir `/signalr/hubs`. Güncelleştirme buldu [burada](https://support.microsoft.com/kb/980368).
 - **IIS önbellek güncel değil veya bozulmasına neden:** önbellek içeriği güncel değil olmadığını doğrulamak için önbelleğini temizlemek için bir PowerShell penceresinde aşağıdaki komutu girin:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]

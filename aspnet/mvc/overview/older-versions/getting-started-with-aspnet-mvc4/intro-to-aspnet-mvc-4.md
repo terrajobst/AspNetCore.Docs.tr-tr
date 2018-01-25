@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4 giriş
 ====================
@@ -24,18 +24,18 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Yeni öğretici Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır.
 > 
-> Bu öğretici Microsoft kullanarak bir ASP.NET MVC 4 Web uygulaması oluşturmanın temellerini öğretmek [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) veya Visual Web Developer 2010 Express Service Pack 1. Visual Studio 2012 önerilir öğreticiyi tamamlamak için herhangi bir şey yüklemeniz gerekmez. Visual Studio 2010 kullanıyorsanız, aşağıdaki bileşenleri yüklemeniz gerekir. Bunların tümünün aşağıdaki bağlantılara tıklayarak yükleyebilirsiniz:
+> Bu öğretici Microsoft kullanarak bir ASP.NET MVC 4 Web uygulaması oluşturmanın temellerini öğretmek [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) veya Visual Web Developer 2010 Express Service Pack 1. Visual Studio 2012 önerilir öğreticiyi tamamlamak için herhangi bir şey yüklemeniz gerekmez. Visual Studio 2010 kullanıyorsanız, aşağıdaki bileşenleri yüklemeniz gerekir. Bunların tümünün aşağıdaki bağlantılara tıklayarak yükleyebilirsiniz:
 > 
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [ASP.NET MVC 4 için WPI yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=243392)
-> - [Yerel veritabanı](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
+> - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
 > 
 > Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, yükleme [WPI yükleyici ASP.NET MVC 4 için](https://go.microsoft.com/fwlink/?LinkId=243392) ve: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
 > 
 > C# kaynak kodu ile Visual Web Developer projesi bu konuya eşlik etmek kullanılabilir. [C# sürümü](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
-> Öğreticide uygulamayı Visual Studio'da çalıştırın. Ayrıca uygulama kullanılabilir Internet üzerinden bir barındırma sağlayıcısına dağıtarak yapabilirsiniz. Microsoft, 10 web siteleri için ücretsiz bir web barındırma sunar bir [Ücretsiz Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında daha fazla bilgi için bkz: [oluşturma ve bir ASP.NET web sitesi ve Visual Studio ile SQL veritabanı dağıtma](https://docs.microsoft.com/dotnet/azure/). Bu öğretici, ayrıca, SQL Server veritabanınızın Windows Azure SQL veritabanına (önceki adıyla SQL Azure) dağıtmak için Entity Framework Code First Migrations kullanmayı gösterir.
+> Öğreticide uygulamayı Visual Studio'da çalıştırın. Ayrıca uygulama kullanılabilir Internet üzerinden bir barındırma sağlayıcısına dağıtarak yapabilirsiniz. Microsoft, 10 web siteleri için ücretsiz bir web barındırma sunar bir [Ücretsiz Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında daha fazla bilgi için bkz: [oluşturma ve bir ASP.NET web sitesi ve Visual Studio ile SQL veritabanı dağıtma](https://docs.microsoft.com/dotnet/azure/). Bu öğretici, ayrıca, SQL Server veritabanınızın Windows Azure SQL veritabanına (önceki adıyla SQL Azure) dağıtmak için Entity Framework Code First Migrations kullanmayı gösterir.
 > 
 > Bu öğretici Rick Anderson tarafından yazılan ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
@@ -89,4 +89,4 @@ F5 IIS Express başlatmak ve web uygulamanızı çalıştırmak Visual Studio ne
 Bu varsayılan şablonu kullanıma hazır giriş, kişi ve ilgili sayfaları sunar. Ayrıca kayıt ve oturum açmak için destek sağlar ve Facebook ve Twitter bağlar. Bu uygulama şeklini değiştirmek ve biraz ASP.NET MVC hakkında bilgi almak için sonraki adımdır bakın. Tarayıcınızı kapatın ve biraz kod değiştirelim.
 
 >[!div class="step-by-step"]
-[Sonraki](adding-a-controller.md)
+[Next](adding-a-controller.md)

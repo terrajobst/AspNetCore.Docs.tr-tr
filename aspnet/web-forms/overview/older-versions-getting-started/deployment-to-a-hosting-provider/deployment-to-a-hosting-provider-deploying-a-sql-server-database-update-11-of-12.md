@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 898259885da8a089db296bd0f400ee8863877d08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeec69c7373a111d30e8f32a374a9f02fb4c080a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: bir SQL Server veritabanı güncelleştirmesi - 11 / 12 dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -123,8 +123,7 @@ Açık **Web'i Yayımla** Sihirbazı'nı yeniden ve ardından **alma**.
 
 Üzerinde **bağlantı** sekmesinde, değiştirmek **hedef URL** geçici bir URL kullanıyorsanız, uygun değere.
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 Üzerinde **ayarları** sekmesini tıklatın, **geliştirmeleri yayımlama yeni veritabanı etkinleştirme**.
 
@@ -152,9 +151,9 @@ Code First geçişleri Test ortamında yaptığınız gibi veritabanını günce
 
 Artık bir SQL Server veritabanı kullanarak veritabanı değişikliği dahil bir uygulama güncelleştirmesi başarıyla dağıtmış olmanız.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
-Bu, bir üçüncü taraf barındırma sağlayıcısına ASP.NET web uygulaması dağıtma öğreticileri bu dizi tamamlar. Herhangi biri bu öğreticileri kapsanan konular hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/bb386521(v=vs.110).aspx) MSDN web sitesinde.
+Bu, bir üçüncü taraf barındırma sağlayıcısına ASP.NET web uygulaması dağıtma öğreticileri bu dizi tamamlar. Herhangi biri bu öğreticileri kapsanan konular hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) MSDN web sitesinde.
 
 ## <a name="acknowledgements"></a>Katkıda Bulunanlar
 
@@ -162,11 +161,11 @@ Bu öğretici dizisinin içeriğe önemli ölçüde katkıda yapılan aşağıda
 
 - [Adı Poblacion, MVP &amp; MCT, İspanya](https://mvp.support.microsoft.com/profile/Alberto)
 - Jarod Ferguson, veri Platform geliştirme MVP, Amerika Birleşik Devletleri
-- Sert Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
-- [Can Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
+- [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft
-- [Raffaele Rialdi, İtalya](http://www.iamraf.net/)
+- [Raffaele Rialdi, Italy](http://www.iamraf.net/)
 - [Rick Anderson, Microsoft](https://blogs.msdn.com/b/rickandy/)
 - [Sayed Hashimi, Microsoft](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))

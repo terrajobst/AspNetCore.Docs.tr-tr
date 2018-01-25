@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
 ms.technology: 
 ms.prod: .net-framework
-ms.openlocfilehash: 3aaef756ee00d7e44aa757062e1ef297312ecf22
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12acae0883c12698a8f9c2150623ba792303e7ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-webhooks-handlers"></a>ASP.NET Web Kancalarını işleyicileri
 
@@ -62,7 +62,7 @@ public class MyWebHookHandler : WebHookHandler
 
 Çoğu Web kancası Gönderenler yanıt sayıda saniye içinde oluşturulmamış olması durumunda bir Web kancası gönderecektir. Başka bir deyişle, işleyicinizi işleme için bu yeniden adlandırılacak o zaman çerçevesi içinde tamamlamanız gerekir.
 
-İşlem daha uzun sürer ya da daha iyi ayrı ayrı işlenir sonra [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) örneğin bir kuyruk için Web kancası isteği göndermek için kullanılan [Azure depolama kuyruğu](https://msdn.microsoft.com/en-us/library/azure/dd179353.aspx).
+İşlem daha uzun sürer ya da daha iyi ayrı ayrı işlenir sonra [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) örneğin bir kuyruk için Web kancası isteği göndermek için kullanılan [Azure depolama kuyruğu](https://msdn.microsoft.com/library/azure/dd179353.aspx).
 
 Ana hattı bir [WebHookQueueHandler](https://github.com/aspnet/WebHooks/blob/master/src/Microsoft.AspNet.WebHooks.Receivers/WebHooks/WebHookQueueHandler.cs) uygulama burada sağlanır:
 

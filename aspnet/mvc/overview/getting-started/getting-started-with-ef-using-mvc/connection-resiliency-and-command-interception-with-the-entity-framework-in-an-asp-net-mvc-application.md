@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Bağlantı dayanıklılığı ve ASP.NET MVC uygulamasındaki Entity Framework komut kişiler tarafından ele
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -49,14 +49,14 @@ Bağlantı dayanıklılığı özelliği için belirli veritabanı hizmeti uygun
 
 Genellikle Windows Azure SQL veritabanı kullanan iyi bir çevrimiçi uygulama için iş varsayılan değerleri zaten yapılandırıldı, ancak bu ayarları el ile bir Entity Framework sağlayıcısı tarafından desteklenen tüm veritabanı ortamı için yapılandırabilirsiniz ve Bu, Contoso University uygulaması için uygulama ayarlardır.
 
-Tüm bağlantı dayanıklılığı etkinleştirmek için yapmanız gereken olduğu Oluştur bir sınıfın türetildiği derlemenizi [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx) sınıfı ve bu sınıfta kümesini SQL veritabanını *yürütme stratejisi*, EF olduğu başka bir dönem için *yeniden deneme ilkesi*.
+Tüm bağlantı dayanıklılığı etkinleştirmek için yapmanız gereken olduğu Oluştur bir sınıfın türetildiği derlemenizi [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) sınıfı ve bu sınıfta kümesini SQL veritabanını *yürütme stratejisi*, EF olduğu başka bir dönem için *yeniden deneme ilkesi*.
 
 1. DAL klasöründe adlı bir sınıf dosyası ekleyin *SchoolConfiguration.cs*.
 2. Şablon kodu aşağıdaki kodla değiştirin:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework otomatik olarak bulduğu türeyen bir sınıf kodu çalıştırır `DbConfiguration`. Kullanabileceğiniz `DbConfiguration` Aksi takdirde yaptığınız kodda yapılandırma görevlerini yapmak için sınıf *Web.config* dosya. Daha fazla bilgi için bkz: [EntityFramework kod tabanlı yapılandırma](https://msdn.microsoft.com/en-us/data/jj680699).
+    Entity Framework otomatik olarak bulduğu türeyen bir sınıf kodu çalıştırır `DbConfiguration`. Kullanabileceğiniz `DbConfiguration` Aksi takdirde yaptığınız kodda yapılandırma görevlerini yapmak için sınıf *Web.config* dosya. Daha fazla bilgi için bkz: [EntityFramework kod tabanlı yapılandırma](https://msdn.microsoft.com/data/jj680699).
 3. İçinde *StudentController.cs*, ekleme bir `using` bildirimi `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ Tüm bağlantı dayanıklılığı etkinleştirmek için yapmanız gereken oldu�
 
     Kullanmakta olduğunuz `DataException` kolay bir "yeniden deneyin." iletisi sunmak için geçici olabilecek hataları belirlemeye çalışır. Ancak bir yeniden deneme ilkesi açtığınız, büyük olasılıkla geçici yalnızca hataların zaten alınan denedi ve birkaç kez başarısız oldu ve döndürülen özel durumu içinde kaydırılan `RetryLimitExceededException` özel durum.
 
-Daha fazla bilgi için bkz: [Entity Framework bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/en-us/data/dn456835).
+Daha fazla bilgi için bkz: [Entity Framework bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="enable-command-interception"></a>Komut kişiler tarafından ele etkinleştir
 
 Nasıl bir yeniden deneme ilkesi açtığınız, beklendiği gibi çalıştığını doğrulamak için test? Gerçekleşecek şekilde, özellikle ne zaman, yerel olarak çalıştırıyorsanız ve gerçek geçici hataları otomatik birim testine tümleştirmek özellikle zor olurdu geçici bir hata zorlamak kolay değil. Bağlantı dayanıklılığı özelliğini sınamak için Entity Framework SQL Server'a gönderen sorguları müdahale ve SQL Sunucu yanıtı, genellikle geçici bir özel durum türü ile değiştirmek için bir yönteme ihtiyacınız vardır.
 
-Sorgu kişiler tarafından ele bulut uygulamaları için en iyi uygulama uygulamak için de kullanabilirsiniz: [gecikme süresi ve başarı veya başarısızlık dış hizmetler yapılan tüm çağrıların oturum](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) veritabanı hizmetleri gibi. EF6 sağlayan bir [günlüğü API ayrılmış](https://msdn.microsoft.com/en-us/data/dn469464) kolaylaştırmak günlük yapmak, ancak öğreticinin bu bölümünde Entity Framework'ün kullanmayı öğreneceksiniz [kişiler tarafından ele özelliği](https://msdn.microsoft.com/en-us/data/dn469464) doğrudan, hem oturum açma ve geçici hataları benzetimini yapma.
+Sorgu kişiler tarafından ele bulut uygulamaları için en iyi uygulama uygulamak için de kullanabilirsiniz: [gecikme süresi ve başarı veya başarısızlık dış hizmetler yapılan tüm çağrıların oturum](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) veritabanı hizmetleri gibi. EF6 sağlayan bir [günlüğü API ayrılmış](https://msdn.microsoft.com/data/dn469464) kolaylaştırmak günlük yapmak, ancak öğreticinin bu bölümünde Entity Framework'ün kullanmayı öğreneceksiniz [kişiler tarafından ele özelliği](https://msdn.microsoft.com/data/dn469464) doğrudan, hem oturum açma ve geçici hataları benzetimini yapma.
 
 ### <a name="create-a-logging-interface-and-class"></a>Bir günlük arabirim oluşturup sınıfı
 

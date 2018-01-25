@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 0e1849fb780908b55520d8108e2227d046759987
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde video görüntüleme
 ====================
@@ -118,7 +118,7 @@ Bu yordamda adlı bir Flash çalmasına gösterilmiştir *sample.swf*. Adlı bir
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Bir tarayıcıda. Sayfayı çalıştırın. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.) Sayfası görüntülenir ve video otomatik olarak yürütülür. 
 
-    ![[Görüntü] ] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 Ayarlayabileceğiniz `quality` parametresi için bir Flash video `low`, `autolow`, `autohigh`, `medium`, `high`, ve `best`:
 
@@ -148,7 +148,7 @@ Aşağıdaki yordamda adlı bir pencere medya çalmasına gösterilmiştir *samp
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Bir tarayıcıda. Sayfayı çalıştırın. Video yükler ve otomatik olarak yürütülür. 
 
-    ![[Görüntü] ] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 Ayarlayabileceğiniz `playCount` otomatik olarak çalmasına kaç kez belirten bir tamsayı için:
 
@@ -178,14 +178,14 @@ Bu yordamda yer alan bir Silverlight çalmasına gösterilmiştir *.xap* bir kla
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Bir tarayıcıda. Sayfayı çalıştırın. 
 
-    ![[Görüntü] ] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 
-[Silverlight genel bakış](https://msdn.microsoft.com/en-us/library/bb404700(VS.95).aspx)
+[Silverlight genel bakış](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
 [Nesne ve EMBED etiket özniteliklerini flash](http://kb2.adobe.com/cps/127/tn_12701.html)
 
-[Windows Media Player 11 SDK PARAM etiketleri](https://msdn.microsoft.com/en-us/library/aa392321(VS.85).aspx)
+[Windows Media Player 11 SDK PARAM etiketleri](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

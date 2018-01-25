@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 48145b15b4983d6a143a8c53c9e6e8b4639da91e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a8293a5bff9ed73f177be2d9928d8d686c4f311d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a>Test etmek için popüler mobil cihazlar benzetimi
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 | Cihaz veya tarayıcı | Öykünücü / Simulator |
 | --- | --- |
 | Tarayıcı sanallaştırma BrowserStack barındırılan ![Tarayıcı sanallaştırma BrowserStack barındırılan](device-simulators/_static/image1.png) | [BrowserStack barındırılan tarayıcı sanallaştırma](http://browserstack.com) herhangi bir platformda herhangi bir tarayıcıda yerel veya üretim ortamınıza sınayın. Bir tünel kendi barındırılan sanal makine, makine ve BrowserStack ağ arasında oluşturabilirsiniz. Aldığınızdan emin olun [BrowserStack Visual Studio Uzantısı](https://visualstudiogallery.msdn.microsoft.com/2dfa32b1-3c47-439d-b1c5-9e28be18b81c) daha sorunsuz bir deneyim. |
-| Windows Phone | [Windows Phone SDK indirmeleri](https://dev.windowsphone.com/en-us/downloadsdk) Windows Phone Yazılım Geliştirme Seti (SDK) tüm Windows Phone için uygulama ve oyun geliştirmek için gereken araçları içerir |
+| Windows Phone | [Windows Phone SDK indirmeleri](https://dev.windowsphone.com/downloadsdk) Windows Phone Yazılım Geliştirme Seti (SDK) tüm Windows Phone için uygulama ve oyun geliştirmek için gereken araçları içerir |
 | iPhone / iPod / iPad | [Electric Plum](http://www.electricplum.com/studio.aspx) bir Responsive yanı sıra, iPhone ve iPad benzeticileri Windows için tasarım aracı. VS 2012 "İle tara..." seçeneği ile tümleştirebilirsiniz. |
 | Android | [Android SDK Giriş sayfası](https://developer.android.com/sdk) |
 | Opera Mobile / Opera Mini | En son sürümleri: [Opera geliştirici araçları ev](http://www.opera.com/developer/tools/) Opera Mini 4.2: [çevrimiçi Java tabanlı simulator](http://www.opera.com/mobile/demo/?ver=4) |

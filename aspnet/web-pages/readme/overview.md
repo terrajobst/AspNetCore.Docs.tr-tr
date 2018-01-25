@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 90f24550d2bb50147bab6be545be63c1838f312a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
 ====================
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 - [Değişiklikleri ve sorunları](#ChangesAndIssues)
 
     - [WebMatrix 1.0 yükleme](#Known_Issues_Installation)
-    - [ASP.NET Web sayfaları](#Known_Issues_ASPNET)
+    - [ASP.NET Web Sayfaları](#Known_Issues_ASPNET)
     - [WebMatrix](#Known_Issues_WebMatrix)
     - [IIS Express](#Known_Issues_IISExpress)
     - [SQL Server Compact](#Known_Issues_SQLServerCompact)
@@ -98,7 +98,7 @@ ms.lasthandoff: 11/10/2017
 > Yönetilen derlemeler SQL Server Compact 4.0 için 64-bit bir bilgisayarda SQL Server Compact 4.0 yükledikten ve bilgisayarın yalnızca .NET Framework 3.5 SP1 istemci yüklü profili olduğunda Genel Derleme Önbelleği (GAC) yerleştirilmez. GAC içinde yüklenmemiş Yönetilen derlemeler şunlardır:
 > 
 > - *System.Data.SqlServerCe.dll* (ADO.NET sağlayıcısı)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Geçici çözüm**  
 > SQL Server'ı kaldırın Compact 4.0. Karşıdan yükle ve .NET Framework 3.5 SP1'ın tam sürümünü şu konumdan yükleyin:  
@@ -118,7 +118,7 @@ ms.lasthandoff: 11/10/2017
 
 <a id="Known_Issues_ASPNET"></a>
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web sayfaları
+### <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
 Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile ASP.NET Web sayfaları, 1.0 sürümü ile ilgili bilinen sorunlar açıklanmaktadır.
 
@@ -137,7 +137,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 
 #### <a id="Changes"></a>Değişiklikleri
 
-#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Değiştir: "asp: AdminFolderVirtualPath" yeniden adlandırılmış "webPages:AdminFolderVirtualPath" anahtarı
+#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Change: "webPages:AdminFolderVirtualPath" key renamed to "asp:AdminFolderVirtualPath"
 
 > `webPages:AdminFolderVirtualPath` Eklenebilir anahtar *web.config* Paket Yöneticisi konumunu belirtmek için dosya kullanmak için adlandırılmıştır `asp:` ad alanı yerine `webPages` ad alanı. Bu öğe kullandıysanız, yapılandırma dosyasında yeniden adlandırmanız gerekir.
 
@@ -218,7 +218,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz: [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) MSDN Web sitesinde.
+> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz: [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web sitesinde.
 
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Sorun: .NET Framework sürüm 4 kaldırma Razor sözdizimi ile ASP.NET Web sayfaları devre dışı bırakır
@@ -257,10 +257,10 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > 
 > 1. Veritabanı altyapısı derlemeler için kopyalama *Bin* uygulamanın hedef bilgisayardaki klasör (ve alt klasörler):  
 > 
->     - Kopya *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **için** *\Bin*
->     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** için***\Bin\x86*
->     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **için***\Bin\amd64*
+>     - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>         **to** *\Bin*
+>     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** için *** \Bin\x86*
+>     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****için *** \Bin\amd64*
 > 2. Web sitesinin kök klasöründe oluşturun veya açın bir *web.config* dosya. (WebMatrix 1. 0'da, bu dosya türü tıklatırsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
 > 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin `<configuration>` öğesi (içinde değil `<system.web>` öğesi):
 > 
@@ -400,7 +400,7 @@ Bu bölümde belgenin WebMatrix geliştirme ortamı için bilinen sorunlar açı
 
 IIS Express, aşağıdaki URL'de kullanılabilir kendi Benioku dosyası vardır:
 
-[https://go.microsoft.com/fwlink/?LinkId=207675&amp;clcid = 0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -408,7 +408,7 @@ IIS Express, aşağıdaki URL'de kullanılabilir kendi Benioku dosyası vardır:
 
 SQL Server Compact, aşağıdaki URL'de kullanılabilir kendi Benioku dosyası vardır:
 
-[https://go.microsoft.com/fwlink/?LinkId=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
 WebMatrix bir parçası olarak SQL Server Compact yükleme ile ilgili sorunlar hakkında daha fazla bilgi için bkz: [WebMatrix yükleme sorunları](#Known_Issues_Installation) bu belgede daha önce yer.
 
@@ -559,8 +559,8 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ile ilgili sorunlar h
 
 WebMatrix 1.0 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
 
-- [IIS.NET](http://iis.net/)
+- [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/Web](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2011 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.cos/cc300389.aspx).

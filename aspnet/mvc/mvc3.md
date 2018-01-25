@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -165,7 +165,7 @@ Razor hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 Bazen bir eylem yöntemi çalıştırılmadan önce veya bir eylem yöntemi çalıştıktan sonra mantığı yapmak istiyorsunuz. Bunu desteklemek için eylem filtrelerini ASP.NET MVC 2 sağlanan. Eylem filtreleri eylem öncesi ve sonrası eylem davranışı belirli denetleyici eylem yöntemleri eklemek için bir bildirime sağlayan özel öznitelikleridir. Ancak, bazı durumlarda, tüm eylem yöntemleri için geçerlidir ön eylem veya eylem sonrası davranışını belirtmek isteyebilirsiniz. MVC 3 genel filtreler ekleyerek belirtmenize olanak sağlar `GlobalFilters` koleksiyonu. Genel eylem filtreleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [MVC 3 Önizleme Scott Guthrie'nın blogunda](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [ASP.NET MVC'de filtreleme](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [ASP.NET MVC'de filtreleme](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Yeni "Görünüm paketi" özelliği
 
@@ -175,9 +175,9 @@ MVC 2 denetleyicileri desteği bir `ViewData` veri geç bağlama sözlüğü API
 
 Aşağıdaki `ActionResult` türleri ve karşılık gelen yardımcı yöntemler yeni veya geliştirilmiş MVC 3'te:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). İstemciye bir 404 HTTP durum kodu döndürür.
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx). Geçici bir yeniden yönlendirme (HTTP 302 durum kodu) veya bir Boolean parametresiyle bağlı olarak kalıcı bir yeniden yönlendirme (301 HTTP durum kodu) döndürür. Bu değişiklik, birlikte [denetleyicisi](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx) sınıfı şimdi yeniden yönlendirmeleri kalıcı olarak gerçekleştirmek için üç yöntem vardır: `RedirectPermanent`, `RedirectToRoutePermanent`, ve `RedirectToActionPermanent`. Bu yöntemler bir örneğini döndürmek `RedirectResult` ile `Permanent` özelliğini `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Bir kullanıcı tarafından belirtilen HTTP durum kodu döndürür.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). İstemciye bir 404 HTTP durum kodu döndürür.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Geçici bir yeniden yönlendirme (HTTP 302 durum kodu) veya bir Boolean parametresiyle bağlı olarak kalıcı bir yeniden yönlendirme (301 HTTP durum kodu) döndürür. Bu değişiklik, birlikte [denetleyicisi](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) sınıfı şimdi yeniden yönlendirmeleri kalıcı olarak gerçekleştirmek için üç yöntem vardır: `RedirectPermanent`, `RedirectToRoutePermanent`, ve `RedirectToActionPermanent`. Bu yöntemler bir örneğini döndürmek `RedirectResult` ile `Permanent` özelliğini `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Bir kullanıcı tarafından belirtilen HTTP durum kodu döndürür.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ Sırayla çalışması istemci tarafı doğrulama için hala uygun jQuery ve jQu
 
 ### <a name="remote-validator"></a>Uzak Doğrulayıcı
 
-ASP.NET MVC 3 destekleyen yeni [RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx) jQuery doğrulama Tak bileşenini yararlanmak sağlayan sınıf kullanıcının uzak Doğrulayıcı desteği. Bu otomatik olarak sunucu tarafı sunucuda yalnızca yapılabilir doğrulama mantığını gerçekleştirmek için tanımladığınız özel bir yöntemi çağırmak istemci tarafı doğrulama kitaplığını sağlar.
+ASP.NET MVC 3 destekleyen yeni [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) jQuery doğrulama Tak bileşenini yararlanmak sağlayan sınıf kullanıcının uzak Doğrulayıcı desteği. Bu otomatik olarak sunucu tarafı sunucuda yalnızca yapılabilir doğrulama mantığını gerçekleştirmek için tanımladığınız özel bir yöntemi çağırmak istemci tarafı doğrulama kitaplığını sağlar.
 
 Aşağıdaki örnekte, `Remote` özniteliği belirtir istemci doğrulama adlı bir eylem çağıracak `UserNameAvailable` üzerinde `UsersController` doğrulamakta sınıfı `UserName` alan.
 
@@ -209,7 +209,7 @@ Aşağıdaki örnek, ilgili denetleyicisi gösterir.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için `Remote` özniteliği için bkz: [nasıl yapılır: ASP.NET MVC uygulama uzak doğrulama](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx) MSDN Kitaplığı'nda.
+Nasıl kullanılacağı hakkında daha fazla bilgi için `Remote` özniteliği için bkz: [nasıl yapılır: ASP.NET MVC uygulama uzak doğrulama](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) MSDN Kitaplığı'nda.
 
 ### <a name="json-binding-support"></a>JSON bağlama desteği
 
@@ -223,7 +223,7 @@ ASP.NET MVC 3 JSON olarak kodlanmış veri almak ve model, eylem-yöntem paramet
 
 ASP.NET MVC 3 destekleyen `DataAnnotations` meta veri öznitelikleri gibi `DisplayAttribute`.
 
-### <a name="validationattribute-class"></a>"ValidationAttribute" sınıfı
+### <a name="validationattribute-class"></a>"ValidationAttribute" Class
 
 `ValidationAttribute` Sınıfı yeni desteklemek için .NET Framework 4'de Geliştirilmiş `IsValid` aşırı hangi nesne doğrulandığı gibi geçerli doğrulama bağlamını hakkında daha fazla bilgi sağlar. Bu, burada başka bir model özelliğine göre geçerli değeri doğrulamak için daha zengin senaryolara olanak sağlar. Örneğin, yeni `CompareAttribute` özniteliği bir modelin iki özelliklerinin değerlerini karşılaştırmanıza olanak sağlar. Aşağıdaki örnekte, `ComparePassword` özelliği eşleşmelidir `Password` geçerli olması için alan.
 
@@ -231,9 +231,9 @@ ASP.NET MVC 3 destekleyen `DataAnnotations` meta veri öznitelikleri gibi `Displ
 
 ### <a name="validation-interfaces"></a>Doğrulama arabirimleri
 
-[IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) arabirimi model düzeyi doğrulama gerçekleştirmenize olanak sağlar ve doğrulama durumuna genel modelinin veya modeli içindeki iki özellikleri arasında özel hata iletileri sağlamak sağlar . MVC 3 şimdi hatalarından alır `IValidatableObject` arabirim alanları yerleşik HTML form Yardımcıları kullanarak bir görünüm içindeki model bağlama ve otomatik olarak bayrakları veya vurgular etkilenen olduğunda.
+[IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) arabirimi model düzeyi doğrulama gerçekleştirmenize olanak sağlar ve doğrulama durumuna genel modelinin veya modeli içindeki iki özellikleri arasında özel hata iletileri sağlamak sağlar . MVC 3 şimdi hatalarından alır `IValidatableObject` arabirim alanları yerleşik HTML form Yardımcıları kullanarak bir görünüm içindeki model bağlama ve otomatik olarak bayrakları veya vurgular etkilenen olduğunda.
 
-[Iclientvalidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) arabirimi çalışma zamanında bir doğrulayıcının istemci doğrulamayı olup olmadığını bulmak ASP.NET MVC sağlar. Bu arabirim, böylece doğrulama çerçeveleri çeşitli ile tümleştirilebilir tasarlanmıştır.
+[Iclientvalidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) arabirimi çalışma zamanında bir doğrulayıcının istemci doğrulamayı olup olmadığını bulmak ASP.NET MVC sağlar. Bu arabirim, böylece doğrulama çerçeveleri çeşitli ile tümleştirilebilir tasarlanmıştır.
 
 Doğrulama arabirimleri hakkında daha fazla bilgi için bkz: **Model doğrulama geliştirmeleri** bölümünü [Scott Guthrie'nın MVC 3 Önizleme blog gönderisi](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Ancak, "IValidateObject" başvurusunu günlüğündeki "IValidatableObject" olması gerektiğini unutmayın.)
 
@@ -278,7 +278,7 @@ ASP.NET MVC 1 sürümünden bu yana tam sayfa yanıtların çıktı önbelleği 
 
 ### <a name="granular-control-over-request-validation"></a>İstek doğrulama üzerinde ayrıntılı denetim
 
-ASP.NET MVC otomatik olarak XSS ve HTML yerleştirme saldırılarına karşı korumaya yardımcı olur yerleşik istek doğrulama sahiptir. Ancak, açıkça devre dışı bırakma isteği doğrulama, bazen istediğiniz gelmesi gibi HTML (örneğin, blog girdileri veya CMS içerik) içerik sonrası kullanıcıların izin vermek istiyor. Artık ekleyebilirsiniz bir [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) özniteliği modellerine veya model bağlama sırasında özelliğe temelinde istek doğrulamanın devre dışı bırakmak için modelleri görüntüleyin. İstek doğrulama hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+ASP.NET MVC otomatik olarak XSS ve HTML yerleştirme saldırılarına karşı korumaya yardımcı olur yerleşik istek doğrulama sahiptir. Ancak, açıkça devre dışı bırakma isteği doğrulama, bazen istediğiniz gelmesi gibi HTML (örneğin, blog girdileri veya CMS içerik) içerik sonrası kullanıcıların izin vermek istiyor. Artık ekleyebilirsiniz bir [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) özniteliği modellerine veya model bağlama sırasında özelliğe temelinde istek doğrulamanın devre dışı bırakmak için modelleri görüntüleyin. İstek doğrulama hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - **Örtük JavaScript ve doğrulama** bölümüne [Scott Guthrie'nın blog gönderisi MVC 3 Sürüm Adayı konusunda](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
 - [MVC 3 sürüm notları](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ Oturum durumunu kullanmak için bir denetleyici sınıfı istediğinizi ve öyle
 
 ### <a name="new-additionalmetadataattribute-class"></a>Yeni "AdditionalMetadataAttribute" sınıfı
 
-Kullanabileceğiniz [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) özniteliğini doldurmak için `ModelMetadata.AdditionalValues` model özelliğine sözlüğü. Örneğin, bir görünüm modeli yalnızca yönetici görüntülenmesi gereken bir özellik varsa, aşağıdaki örnekte gösterildiği gibi bu özellik açıklama ekleyebilirsiniz:
+Kullanabileceğiniz [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) özniteliğini doldurmak için `ModelMetadata.AdditionalValues` model özelliğine sözlüğü. Örneğin, bir görünüm modeli yalnızca yönetici görüntülenmesi gereken bir özellik varsa, aşağıdaki örnekte gösterildiği gibi bu özellik açıklama ekleyebilirsiniz:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

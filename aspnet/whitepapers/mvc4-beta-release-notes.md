@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 4af2df61ab4507b1f100d6bb75777da1168c5a75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/10/2017
     - [jQuery Mobile, görünüm değiştirici ve tarayıcı geçersiz kılma](#_Toc303253811)
     - [Visual Studio'da kod oluşturma için tarif](#_Toc303253812)
     - [Zaman uyumsuz denetleyicileri görev desteği](#_Toc303253813)
-    - [Azure SDK'sı](#_Toc303253814)
+    - [Azure SDK](#_Toc303253814)
     - [Bilinen sorunlar ve yeni değişiklikler](#_Toc303253815)
 
 <a id="_Toc303253802"></a>
@@ -60,7 +60,7 @@ ASP.NET MVC 4 yüklenebilir ve yan yana çalıştırabilirsiniz ASP.NET MVC 3.
 
 ASP.NET MVC için belgeleri MSDN Web sitesinde şu URL'de bulunmaktadır:
 
-[https://go.microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Öğreticiler ve diğer bilgileri ASP.NET MVC hakkında ASP.NET Web sitesi MVC 4 sayfasında kullanılabilir ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -245,7 +245,7 @@ NuGet kullanarak yükleyebileceğiniz paketleri tabanlı çözüm özgü kodu ol
 
 Bir nesne türü döndüren olarak tek yöntemleri zaman uyumsuz eylem yöntemleri şimdi yazabilirsiniz *görev* veya *görev&lt;ActionResult&gt;*.
 
-Örneğin, Visual C# 5 kullanıyorsanız (veya kullanarak [Async CTP'nin](https://msdn.microsoft.com/en-us/vstudio/async.aspx)), şuna benzeyen bir zaman uyumsuz eylem yöntemini oluşturabilirsiniz:
+Örneğin, Visual C# 5 kullanıyorsanız (veya kullanarak [Async CTP'nin](https://msdn.microsoft.com/vstudio/async.aspx)), şuna benzeyen bir zaman uyumsuz eylem yöntemini oluşturabilirsiniz:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 
@@ -256,7 +256,7 @@ Döndüren zaman uyumsuz eylem yöntemleri *görev* örnekleri de zaman aşımla
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample9.cs)]
 
 <a id="_Toc303253814"></a>
-### <a name="azure-sdk"></a>Azure SDK'sı
+### <a name="azure-sdk"></a>Azure SDK
 
 ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekler.
 

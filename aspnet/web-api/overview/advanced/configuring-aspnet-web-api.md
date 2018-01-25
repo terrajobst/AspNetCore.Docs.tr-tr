@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 1c007c4c327b7cde6ff52c6b0022acdff3c9b137
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>ASP.NET Web API 2 yapılandırma
 ====================
@@ -33,20 +33,20 @@ Bu konu, ASP.NET Web API yapılandırmasını açıklar.
 <a id="settings"></a>
 ## <a name="configuration-settings"></a>Yapılandırma ayarları
 
-Web API yapılandırması ayarları tanımlanmış [HttpConfiguration](https://msdn.microsoft.com/en-us/library/system.web.http.httpconfiguration.aspx) sınıfı.
+Web API yapılandırması ayarları tanımlanmış [HttpConfiguration](https://msdn.microsoft.com/library/system.web.http.httpconfiguration.aspx) sınıfı.
 
 | Üye | Açıklama |
 | --- | --- |
 | **DependencyResolver** | Bağımlılık ekleme denetleyicileri için etkinleştirir. Bkz: [Web API bağımlılık çözümleyicisini kullanarak](dependency-injection.md). |
-| **Filtreleri** | Eylem filtreleri. |
+| **Filtreler** | Eylem filtreleri. |
 | **Biçimlendiricileri** | [Medya türü biçimlendiricilerini](../formats-and-model-binding/media-formatters.md). |
-| **IncludeErrorDetailPolicy** | Sunucu özel durum iletileri ve Yığın izlemeleri gibi hata ayrıntılarının HTTP yanıt iletilerini dahil olup olmadığını belirtir. Bkz: [IncludeErrorDetailPolicy](https://msdn.microsoft.com/en-us/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
+| **IncludeErrorDetailPolicy** | Sunucu özel durum iletileri ve Yığın izlemeleri gibi hata ayrıntılarının HTTP yanıt iletilerini dahil olup olmadığını belirtir. Bkz: [IncludeErrorDetailPolicy](https://msdn.microsoft.com/library/system.web.http.includeerrordetailpolicy(v=vs.108)). |
 | **Başlatıcı** | Öğesinin son başlatılmasını gerçekleştiren bir işlev **HttpConfiguration**. |
 | **MessageHandlers** | [HTTP ileti işleyicileri](http-message-handlers.md). |
 | **ParameterBindingRules** | Denetleyici eylemleri parametre bağlama için kurallar topluluğu. |
-| **Veri Erişimi** | Genel özellik paketi. |
+| **Özellikler** | Genel özellik paketi. |
 | **Rotalar** | Rota koleksiyonu. Bkz: [ASP.NET Web API'de yönlendirme](../web-api-routing-and-actions/routing-in-aspnet-web-api.md). |
-| **Hizmetleri** | Hizmetler koleksiyonu. Bkz: [Hizmetleri](#services). |
+| **Hizmetler** | Hizmetler koleksiyonu. Bkz: [Hizmetleri](#services). |
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -56,7 +56,7 @@ Web API yapılandırması ayarları tanımlanmış [HttpConfiguration](https://m
 <a id="webhost"></a>
 ## <a name="configuring-web-api-with-aspnet-hosting"></a>ASP.NET barındırma ile Web API yapılandırma
 
-Bir ASP.NET uygulamasındaki Web API'sini çağırarak yapılandırma [GlobalConfiguration.Configure](https://msdn.microsoft.com/en-us/library/system.web.http.globalconfiguration.configure.aspx) içinde **uygulama\_Başlat** yöntemi. **Yapılandırma** yöntemi alır bir temsilci türü tek bir parametre ile **HttpConfiguration**. Tüm temsilci içinde geçiyor gerçekleştirin.
+Bir ASP.NET uygulamasındaki Web API'sini çağırarak yapılandırma [GlobalConfiguration.Configure](https://msdn.microsoft.com/library/system.web.http.globalconfiguration.configure.aspx) içinde **uygulama\_Başlat** yöntemi. **Yapılandırma** yöntemi alır bir temsilci türü tek bir parametre ile **HttpConfiguration**. Tüm temsilci içinde geçiyor gerçekleştirin.
 
 Anonim bir temsilci kullanarak örnek aşağıda verilmiştir:
 

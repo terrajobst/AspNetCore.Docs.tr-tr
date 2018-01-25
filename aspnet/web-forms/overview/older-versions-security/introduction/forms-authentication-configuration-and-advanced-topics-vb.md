@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e92bb3d67141ba0ce594fd17c266bc69dda3cb5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe4c421f248e325b69be7cad6c10bcbedf59ae5f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (VB)
 ====================
@@ -35,7 +35,7 @@ Bu öğreticide biz çeşitli forms kimlik doğrulaması ayarlarını incelemek 
 
 ## <a name="step-1-examining-the-ltformsgt-configuration-settings"></a>1. adım: İnceleniyor &lt;forms&gt; yapılandırma ayarları
 
-ASP.NET formları kimlik doğrulama sisteminde bir uygulama tarafından uygulama temelinde özelleştirilebilir yapılandırma ayarları sayısı sunar. Bu gibi ayarları içerir: form kimlik doğrulaması ömrü bilet; ne tür bir koruma bilet uygulanır; altında hangi koşullar cookieless kimlik doğrulama biletlerini kullanılır; oturum açma sayfasının yolu; ve diğer bilgileri. Varsayılan değerleri değiştirmek için add bir [ &lt;forms&gt; öğesi](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) bir alt öğesi olarak [ &lt;kimlik doğrulaması&gt; öğesi](https://msdn.microsoft.com/en-us/library/532aee0e.aspx), bu özellik belirtme XML özniteliği özelleştirmek istediğiniz değerleri bunu ister:
+ASP.NET formları kimlik doğrulama sisteminde bir uygulama tarafından uygulama temelinde özelleştirilebilir yapılandırma ayarları sayısı sunar. Bu gibi ayarları içerir: form kimlik doğrulaması ömrü bilet; ne tür bir koruma bilet uygulanır; altında hangi koşullar cookieless kimlik doğrulama biletlerini kullanılır; oturum açma sayfasının yolu; ve diğer bilgileri. Varsayılan değerleri değiştirmek için add bir [ &lt;forms&gt; öğesi](https://msdn.microsoft.com/library/1d3t3c61.aspx) bir alt öğesi olarak [ &lt;kimlik doğrulaması&gt; öğesi](https://msdn.microsoft.com/library/532aee0e.aspx), bu özellik belirtme XML özniteliği özelleştirmek istediğiniz değerleri bunu ister:
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample1.xml)]
 
@@ -57,7 +57,7 @@ Tablo 1 aracılığıyla özelleştirilmiş özellikleri özetler &lt;forms&gt; 
 
 **Tablo 1**: bir özetini &lt;forms&gt; öğenin öznitelikleri
 
-ASP.NET 2.0 ve sonrasındaki, varsayılan formlar kimlik doğrulaması .NET Framework FormsAuthenticationConfiguration sınıfında sabit kodlanmış değerlerdir. Web.config dosyasındaki bir uygulama tarafından uygulama temelinde değişiklikleri uygulanmış olması gerekir. Bu ASP.NET tarafından farklıdır 1.x burada varsayılan formlar kimlik doğrulaması değerleri machine.config dosyasında saklanıyordu (ve bu nedenle machine.config düzenleme aracılığıyla değiştirilmiş). ASP.NET konu üzerinde while 1.x, bunu belirtmeyi faydalı forms kimlik doğrulaması sistem ayarlarını sayısı ASP.NET 2. 0 ' farklı bir varsayılan değerlere sahip ve ASP.NET daha ötesine 1.x. Bir ASP.NET 1.x ortamından uygulamanızın geçiriyorsanız, bu farkların bilincinde olmak önemlidir. Başvurun [ &lt;forms&gt; öğesi teknik belgeler](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx) farklar listesi.
+ASP.NET 2.0 ve sonrasındaki, varsayılan formlar kimlik doğrulaması .NET Framework FormsAuthenticationConfiguration sınıfında sabit kodlanmış değerlerdir. Web.config dosyasındaki bir uygulama tarafından uygulama temelinde değişiklikleri uygulanmış olması gerekir. Bu ASP.NET tarafından farklıdır 1.x burada varsayılan formlar kimlik doğrulaması değerleri machine.config dosyasında saklanıyordu (ve bu nedenle machine.config düzenleme aracılığıyla değiştirilmiş). ASP.NET konu üzerinde while 1.x, bunu belirtmeyi faydalı forms kimlik doğrulaması sistem ayarlarını sayısı ASP.NET 2. 0 ' farklı bir varsayılan değerlere sahip ve ASP.NET daha ötesine 1.x. Bir ASP.NET 1.x ortamından uygulamanızın geçiriyorsanız, bu farkların bilincinde olmak önemlidir. Başvurun [ &lt;forms&gt; öğesi teknik belgeler](https://msdn.microsoft.com/library/1d3t3c61.aspx) farklar listesi.
 
 > [!NOTE]
 > Zaman aşımı, etki alanı ve yol gibi birkaç forms kimlik doğrulaması ayarlarını elde edilen forms kimlik doğrulaması bileti tanımlama bilgisi için ayrıntıları belirtin. Tanımlama bilgileri, nasıl çalıştığını ve çeşitli özellikleri hakkında daha fazla bilgi için okuma [bu tanımlama bilgileri öğretici](http://www.quirksmode.org/js/cookies.html).
@@ -137,7 +137,7 @@ Forms kimlik doğrulaması sistem tarafından kullanılan tanımlama bilgisi ilk
 Otomatik Algıla ve UseDeviceProfile ayarlarını dayanan bir *aygıt profili* tanımlama bilgisi tabanlı veya cookieless kimlik doğrulama biletlerini kullanıp kullanmayacağınızı ascertaining içinde. ASP.NET bir veritabanı çeşitli aygıtlar ve tanımlama bilgileri destekledikleri, hangi sürümü destekledikleri JavaScript vb. gibi yeteneklerini tutar. Her bir aygıtı ister bir web sayfası gönderir boyunca bir web sunucusundan bir *kullanıcı aracısı* aygıt türünü tanımlayan bir HTTP üstbilgisi. ASP.NET, sağlanan kullanıcı aracısı dizesi otomatik olarak kendi veritabanında belirtilen karşılık gelen bir profili ile eşleşir.
 
 > [!NOTE]
-> Bu veritabanı cihaz yeteneklerini uygun bir XML dosya sayısı depolanan [tarayıcı tanım dosyası şeması](https://msdn.microsoft.com/en-us/library/ms228122.aspx). Varsayılan cihaz profili dosyalarını % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers bulunur. Uygulamanızın uygulamaya özel dosyaları da ekleyebilirsiniz\_tarayıcılar klasör. Daha fazla bilgi için bkz: [nasıl yapılır: algılamak tarayıcı türleri, ASP.NET Web sayfaları](https://msdn.microsoft.com/en-us/library/3yekbd5b.aspx).
+> Bu veritabanı cihaz yeteneklerini uygun bir XML dosya sayısı depolanan [tarayıcı tanım dosyası şeması](https://msdn.microsoft.com/library/ms228122.aspx). Varsayılan cihaz profili dosyalarını % WINDIR%\Microsoft.Net\Framework\v2.0.50727\CONFIG\Browsers bulunur. Uygulamanızın uygulamaya özel dosyaları da ekleyebilirsiniz\_tarayıcılar klasör. Daha fazla bilgi için bkz: [nasıl yapılır: algılamak tarayıcı türleri, ASP.NET Web sayfaları](https://msdn.microsoft.com/library/3yekbd5b.aspx).
 
 
 Varsayılan ayar UseDeviceProfile olduğundan, site, profili tanımlama bilgilerini desteklemiyor raporları bir cihaz tarafından ziyaret edildiğinde cookieless form kimlik doğrulama biletlerini kullanılır.
@@ -158,7 +158,7 @@ Ancak, URL'de oturum açtıktan sonra forms kimlik doğrulaması bileti katışt
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/default.aspx`
 
-Forms kimlik doğrulaması bileti URL içinde katıştırılmış. Dize (F (jaIOIDTJxIr12xYS VVgkqKCVAuIoW30Bu0diWi6flQC FyMaLXJfow\_Vd9GZkB2Cv rfezq0gKadKX0YPZCkA2) onaltılık kodlanmış kimlik doğrulaması bileti bilgileri temsil eder ve genellikle bir tanımlama bilgisi içinde depolanan aynı veridir.
+Forms kimlik doğrulaması bileti URL içinde katıştırılmış. The string (F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2) represents the hex-encoded authentication ticket information, and is the same data that is usually stored within a cookie.
 
 Cookieless kimlik doğrulama biletlerini çalışmak sırasıyla sistem kimlik doğrulaması bilet verileri içerecek şekilde tüm URL'leri sayfasında kodlamak gerekir, kullanıcı bir bağlantıyı tıklattığında Aksi takdirde kimlik doğrulaması bileti kaybolacaktır. Thankfully, bu katıştırma mantığı otomatik olarak gerçekleştirilir. Bu işlevselliğini göstermek için Default.aspx sayfasını açın ve bir köprü denetim Bağlantıyı Sına ve SomePage.aspx, metin ve NavigateUrl özelliklerini sırasıyla ayarı ekleyin. Gerçekten olmadığından bir sayfa Projemizin SomePage.aspx adlı önemli değildir.
 
@@ -199,7 +199,7 @@ Microsoft tüm ayarı kullanarak önerir.
 
 ### <a name="setting-the-validation-and-decryption-keys"></a>Doğrulama ve şifre çözme anahtarları ayarlama
 
-Şifreleme ve karma algoritmaları şifrelemek ve kimlik doğrulaması bileti doğrulamak için forms kimlik doğrulaması sistemi tarafından kullanılan özelleştirilebilir aracılığıyla [ &lt;machineKey&gt; öğesi](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx) Web.config dosyasında. Tablo 2 anahatları &lt;machineKey&gt; öğenin özniteliklerini ve olası değerleri.
+Şifreleme ve karma algoritmaları şifrelemek ve kimlik doğrulaması bileti doğrulamak için forms kimlik doğrulaması sistemi tarafından kullanılan özelleştirilebilir aracılığıyla [ &lt;machineKey&gt; öğesi](https://msdn.microsoft.com/library/w8h3skw9.aspx) Web.config dosyasında. Tablo 2 anahatları &lt;machineKey&gt; öğenin özniteliklerini ve olası değerleri.
 
 | **Özniteliği** | **Açıklama** |
 | --- | --- |
@@ -223,7 +223,7 @@ Yukarıdaki senaryoların hiçbiri örnek uygulamamız uygularken size hala aç�
 
 [!code-xml[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample5.xml)]
 
-Daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET 2.0 MachineKey Yapılandırma](https://msdn.microsoft.com/en-us/library/ms998288.aspx).
+Daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET 2.0 MachineKey Yapılandırma](https://msdn.microsoft.com/library/ms998288.aspx).
 
 > [!NOTE]
 > DecryptionKey ve validationKey değerleri gelen gerçekleştirilen [Steve Gibson](http://www.grc.com/stevegibson.htm)'s [kusursuz parolaları web sayfası](https://www.grc.com/passwords.htm), her sayfasını ziyaret edin 64 rastgele onaltılı karakter oluşturur. Bu anahtarları üretim uygulamalarınıza yollarını yapma olasılığını azaltmak için mükemmel parolaları sayfa rastgele oluşturulmuş olanlardan yukarıdaki anahtarları yerine kullanmaları önerilir.
@@ -233,7 +233,7 @@ Daha fazla bilgi için kullanıma [nasıl yapılır: ASP.NET 2.0 MachineKey Yap�
 
 Birçok web uygulamaları hakkında bilgileri görüntülemek veya şu anda oturum açmış kullanıcıya sayfanın görüntüleme temel. Örneğin, bir web sayfasında kullanıcı adını ve son her sayfanın üst köşedeki açmışken tarih gösterebilir. Forms kimlik doğrulaması bileti şu anda oturum açmış kullanıcının kullanıcı adını depolar, ancak herhangi bir bilgi gerektiğinde sayfa kimlik doğrulaması bileti depolanmadığından bilgi aramak için kullanıcı deposuna - genellikle bir veritabanı - gitmeniz gerekir.
 
-Biraz kod ile biz forms kimlik doğrulaması bileti ek kullanıcı bilgilerini depolayabilir. Bu tür veriler ifade edilebilir [FormsAuthenticationTicket sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.aspx)'s [UserData özelliği](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationticket.userdata.aspx). Bu, genellikle gereken kullanıcı hakkındaki bilgileri küçük miktarda koymak için yararlı bir yerdir. UserData özelliği parçası olarak kimlik doğrulaması bileti tanımlama bilgisinin ve diğer bilet alanları gibi dahil edilmiştir, şifrelenir ve doğrulanması için belirtilen değer forms kimlik doğrulaması sistemin yapılandırmasına bağlı olarak. Varsayılan olarak, UserData boş bir dizedir.
+Biraz kod ile biz forms kimlik doğrulaması bileti ek kullanıcı bilgilerini depolayabilir. Bu tür veriler ifade edilebilir [FormsAuthenticationTicket sınıfı](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.aspx)'s [UserData özelliği](https://msdn.microsoft.com/library/system.web.security.formsauthenticationticket.userdata.aspx). Bu, genellikle gereken kullanıcı hakkındaki bilgileri küçük miktarda koymak için yararlı bir yerdir. UserData özelliği parçası olarak kimlik doğrulaması bileti tanımlama bilgisinin ve diğer bilet alanları gibi dahil edilmiştir, şifrelenir ve doğrulanması için belirtilen değer forms kimlik doğrulaması sistemin yapılandırmasına bağlı olarak. Varsayılan olarak, UserData boş bir dizedir.
 
 Kimlik doğrulaması bileti kullanıcı verilerini depolamak için size kullanıcıya özgü bilgileri alan ve bilet depolayan oturum açma sayfasındaki biraz kod yazmanız gerekir. İçinde depolanan veriler, düzgün UserData dize türünde bir özellik olduğundan, bir dize olarak serileştirilmiş gerekir. Örneğin, her kullanıcının doğum tarihi ve bunların İşveren adını bizim kullanıcı deposu dahil ve biz bu iki özellik değerlerini kimlik doğrulaması bileti saklamak istediğinizi düşünün. Biz bu değerleri bir dize olarak İşveren adından kullanıcının tarih Doğum'ın dizesinin dikey çizgi (|) ile birleştirerek seri hale. Northwind Traders çalışan 15 Ağustos 1974 doğacak bir kullanıcı için biz UserData özelliği dize atamanız gerekir: 1974-08-15 | Northwind Traders.
 
@@ -267,9 +267,9 @@ UserDataString As String dim String.Concat(companyName(i), = "|", titleAtCompany
 
 Ardından, kimlik doğrulaması bileti oluşturur, yöntemi çağrılır, FormsAuthentication.GetAuthCookie şifreler ve yapılandırma ayarlarını göre doğrular ve HttpCookie nesneyi yerleştirir.
 
-AuthCookie olarak HttpCookie dim FormsAuthentication.GetAuthCookie (UserName.Text, RememberMe.Checked) =
+Dim authCookie As HttpCookie = FormsAuthentication.GetAuthCookie(UserName.Text, RememberMe.Checked)
 
-Tanımlama bilgisi içinde katıştırılmış FormAuthenticationTicket çalışmak için FormAuthentication sınıfının çağırmak ihtiyacımız [şifresini yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.decrypt.aspx), geçen tanımlama bilgisi değeri.
+Tanımlama bilgisi içinde katıştırılmış FormAuthenticationTicket çalışmak için FormAuthentication sınıfının çağırmak ihtiyacımız [şifresini yöntemi](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx), geçen tanımlama bilgisi değeri.
 
 Bilet olarak FormsAuthenticationTicket dim FormsAuthentication.Decrypt(authCookie.Value) =
 
@@ -277,9 +277,9 @@ Ardından oluşturuyoruz bir *yeni* FormsAuthenticationTicket örnek tabanlı va
 
 NewTicket olarak FormsAuthenticationTicket dim yeni FormsAuthenticationTicket(ticket. = Sürüm, bilet. Anahtar adı. İssueDate, bilet. Süre sonu, bilet. IsPersistent, userDataString)
 
-Biz sonra şifrelemek (ve doğrula) çağırarak yeni FormsAuthenticationTicket örnek [yöntemi şifrelemek](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.encrypt.aspx)ve bu şifrelenmiş (ve doğrulanmış) verileri geri authCookie yerleştirin.
+Biz sonra şifrelemek (ve doğrula) çağırarak yeni FormsAuthenticationTicket örnek [yöntemi şifrelemek](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)ve bu şifrelenmiş (ve doğrulanmış) verileri geri authCookie yerleştirin.
 
-authCookie.Value FormsAuthentication.Encrypt(newTicket) =
+authCookie.Value = FormsAuthentication.Encrypt(newTicket)
 
 Son olarak, authCookie Response.Cookies koleksiyonuna eklenir ve kullanıcıya göndermek için uygun sayfayı belirlemek için GetRedirectUrl yöntemi çağrılır.
 
@@ -322,7 +322,7 @@ Asıl nesne iki sorumlulukları vardır: kullanıcının ait olduğu için hangi
 GenericPrincipal sınıfı rolleri değil kullanıldığı çoğu forms tabanlı kimlik doğrulama senaryosu için gereksinimlerini karşılar. Varsayılan rol işleme olduğu yetersiz bu durumlar için ya da özel bir kimlik nesnesi kullanıcı ile ilişkilendirmek gerektiğinde, kimlik doğrulama iş akışı sırasında özel bir IPrincipal nesnesi oluşturun ve HttpContext.User özelliğine atayın.
 
 > [!NOTE]
-> Öğreticiler, gelecekte göreceğiz olarak, ASP. NET'in rolleri framework etkin türünde bir özel asıl nesne oluşturur [RolePrincipal](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.aspx) ve forms kimlik doğrulaması oluşturulan GenericPrincipal nesnenin üzerine yazar. Rolleri framework'ün API ile arabirim oluşturmak için sorumlunun IsInRole yöntemi özelleştirmek için bunu yapar.
+> Öğreticiler, gelecekte göreceğiz olarak, ASP. NET'in rolleri framework etkin türünde bir özel asıl nesne oluşturur [RolePrincipal](https://msdn.microsoft.com/library/system.web.security.roleprincipal.aspx) ve forms kimlik doğrulaması oluşturulan GenericPrincipal nesnenin üzerine yazar. Rolleri framework'ün API ile arabirim oluşturmak için sorumlunun IsInRole yöntemi özelleştirmek için bunu yapar.
 
 
 Biz kendisini rolleriyle henüz kaygı olmayan olduğundan, biz juncture en bu özel bir kural oluşturmak için olması gereken tek nedeni asıl özel bir kimlik nesnesine ilişkilendirilecek olacaktır. Adım 4'te ek kullanıcı bilgilerini özellikle de kimlik doğrulaması bileti 's UserData özelliğinde kullanıcının şirket adını ve bunların başlık depolamak Aranan. Ancak, UserData yalnızca kimlik doğrulaması bileti üzerinden erişilebilir ve biz bilet depolanan kullanıcı bilgilerini görüntülemek istediğiniz zaman UserData özelliği ayrıştırılamıyor ihtiyacımız, yani seri hale getirilmiş bir dize olarak sonra yalnızca bilgilerdir.
@@ -334,7 +334,7 @@ IIdentity uygular ve ŞirketAdı ve başlık özellikleri içeren bir sınıf ol
 Bu öğretici için özel asıl ve kimlik nesneleri uygulamada oluşturalım\_kod klasör. Bir uygulama eklemeye başlayın\_kod projenize klasörü - Çözüm Gezgini'nde proje adına sağ tıklayın, ASP.NET klasörü Ekle seçeneğini belirleyin ve uygulamayı seçin\_kodu. Uygulama\_kodun klasörüdür sınıfı Web sitesine belirli dosyaları içeren özel bir ASP.NET klasör.
 
 > [!NOTE]
-> Uygulama\_kod klasörü, yalnızca projenizi Web sitesi proje modeli aracılığıyla yönetirken kullanılmalıdır. Kullanıyorsanız [Web uygulama projesi modeli](https://msdn.microsoft.com/en-us/asp.net/Aa336618.aspx), standart bir klasör oluşturun ve sınıflar olarak ekleyebilirsiniz. Örneğin, sınıfları adlı yeni bir klasör ekleyin ve kodunuzu var. yerleştirin.
+> Uygulama\_kod klasörü, yalnızca projenizi Web sitesi proje modeli aracılığıyla yönetirken kullanılmalıdır. Kullanıyorsanız [Web uygulama projesi modeli](https://msdn.microsoft.com/asp.net/Aa336618.aspx), standart bir klasör oluşturun ve sınıflar olarak ekleyebilirsiniz. Örneğin, sınıfları adlı yeni bir klasör ekleyin ve kodunuzu var. yerleştirin.
 
 
 Ardından, iki yeni sınıf dosyaları için uygulama ekleme\_kod klasörü, bir adlandırılmış CustomIdentity.vb ve bir adlı CustomPrincipal.vb.
@@ -359,9 +359,9 @@ Ardından, CustomPrincipal sınıfı oluşturun. Biz juncture en bu rolleri ile 
 
 Şimdi ŞirketAdı ve başlık özellikleri eklemek için varsayılan kimlik belirtimi genişleten bir sınıfı gibi özel kimlik kullanan özel bir asıl sınıfı sunuyoruz. Biz ASP.NET ardışık adımla hazır ve gelen isteğin güvenlik bağlamına bizim Özel asıl nesne atayın.
 
-ASP.NET ardışık gelen bir istek alır ve bir dizi adımı üzerinden işler. Her aşamada ASP.NET ardışık düzenine dokunun ve kendi ömrü belirli noktalarında isteği değiştirmek geliştiricilere edinerek belirli bir olay tetiklenir. FormsAuthenticationModule örneğin yükseltmek ASP.NET için bekleyeceği [AuthenticateRequest olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), isteğe bağlı olarak, bu noktada kimlik doğrulama biletini gelen isteği inceler. Kimlik doğrulama biletini bulunursa, bir GenericPrincipal nesnesi oluşturulur ve HttpContext.User özelliğine atanır.
+ASP.NET ardışık gelen bir istek alır ve bir dizi adımı üzerinden işler. Her aşamada ASP.NET ardışık düzenine dokunun ve kendi ömrü belirli noktalarında isteği değiştirmek geliştiricilere edinerek belirli bir olay tetiklenir. FormsAuthenticationModule örneğin yükseltmek ASP.NET için bekleyeceği [AuthenticateRequest olay](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), isteğe bağlı olarak, bu noktada kimlik doğrulama biletini gelen isteği inceler. Kimlik doğrulama biletini bulunursa, bir GenericPrincipal nesnesi oluşturulur ve HttpContext.User özelliğine atanır.
 
-AuthenticateRequest sonra ASP.NET ardışık olayını [PostAuthenticateRequest olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.postauthenticaterequest.aspx), hangi biz FormsAuthenticationModule bir örneği tarafından oluşturulan GenericPrincipal nesneyi burada değiştirmek olduğu bizim CustomPrincipal nesnesi. Şekil 7, bu iş akışı gösterilmektedir.
+AuthenticateRequest sonra ASP.NET ardışık olayını [PostAuthenticateRequest olay](https://msdn.microsoft.com/library/system.web.httpapplication.postauthenticaterequest.aspx), hangi biz FormsAuthenticationModule bir örneği tarafından oluşturulan GenericPrincipal nesneyi burada değiştirmek olduğu bizim CustomPrincipal nesnesi. Şekil 7, bu iş akışı gösterilmektedir.
 
 
 [![GenericPrincipal CustomPrincipal PostAuthenticationRequest olay ile değiştirilir](forms-authentication-configuration-and-advanced-topics-vb/_static/image20.png)](forms-authentication-configuration-and-advanced-topics-vb/_static/image19.png)
@@ -377,13 +377,13 @@ Bir ASP.NET ardışık düzen olaya yanıt olarak kod yürütmek için size uygu
 **Şekil 08**: Global.asax dosyası için Web sitenizi ekleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](forms-authentication-configuration-and-advanced-topics-vb/_static/image24.png))
 
 
-Olay işleyicileri son başlangıç dahil olmak üzere ASP.NET ardışık düzen olayların sayısı için varsayılan Global.asax şablonu içerir ve [hata olayı](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx), diğerlerinin yanı sıra. Biz bu uygulama için değil gerektiğinde bu olay işleyicileri kaldırmak çekinmeyin. Biz ilgilendiğiniz PostAuthenticateRequest etkinliğidir. Kendi biçimlendirme aşağıdakine benzer şekilde, Global.asax dosyası güncelleştirin:
+Olay işleyicileri son başlangıç dahil olmak üzere ASP.NET ardışık düzen olayların sayısı için varsayılan Global.asax şablonu içerir ve [hata olayı](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx), diğerlerinin yanı sıra. Biz bu uygulama için değil gerektiğinde bu olay işleyicileri kaldırmak çekinmeyin. Biz ilgilendiğiniz PostAuthenticateRequest etkinliğidir. Kendi biçimlendirme aşağıdakine benzer şekilde, Global.asax dosyası güncelleştirin:
 
 [!code-aspx[Main](forms-authentication-configuration-and-advanced-topics-vb/samples/sample11.aspx)]
 
 Uygulama\_OnPostAuthenticateRequest yöntemini yürütür her zaman ASP.NET çalışma zamanı gelen her sayfa isteğinde bir kez gerçekleşir PostAuthenticateRequest olayını başlatır. Olay işleyicisi, kullanıcının kimliği doğrulanır ve form kimlik doğrulaması kimlik doğrulamasının yapıldığı olmadığını denetleyerek başlar. Bu durumda, yeni bir CustomIdentity nesnesi oluşturulur ve geçerli isteğin kimlik doğrulaması bileti kurucusunda geçirildi. CustomPrincipal nesnesi oluşturulur ve yeni oluşturulan CustomIdentity nesnesi kurucusunda geçirildi. Son olarak, geçerli isteğin güvenlik bağlamı yeni oluşturulan CustomPrincipal nesneye atanmış.
 
--CustomPrincipal nesnesi isteğin güvenlik bağlamı ile ilişkilendirme - son adımı asıl iki özelliklerine olduğunu unutmayın: HttpContext.User ve Thread.CurrentPrincipal. Bu iki atamaları, ASP.NET güvenlik kapsamları işlenme nedeniyle gereklidir. .NET Framework bir güvenlik bağlamı her çalışan iş parçacığı ile ilişkilendirir; Bu bilgiler IPrincipal nesnesi olarak kullanılabilir [iş parçacığı nesnesi](https://msdn.microsoft.com/en-us/library/system.threading.thread.aspx)'s [CurrentPrincipal özelliği](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentcontext.aspx). Bir kafa karıştırıcı nedir ASP.NET kendi güvenlik bağlamı bilgilerini (HttpContext.User) sahip olur.
+-CustomPrincipal nesnesi isteğin güvenlik bağlamı ile ilişkilendirme - son adımı asıl iki özelliklerine olduğunu unutmayın: HttpContext.User ve Thread.CurrentPrincipal. Bu iki atamaları, ASP.NET güvenlik kapsamları işlenme nedeniyle gereklidir. .NET Framework bir güvenlik bağlamı her çalışan iş parçacığı ile ilişkilendirir; Bu bilgiler IPrincipal nesnesi olarak kullanılabilir [iş parçacığı nesnesi](https://msdn.microsoft.com/library/system.threading.thread.aspx)'s [CurrentPrincipal özelliği](https://msdn.microsoft.com/library/system.threading.thread.currentcontext.aspx). Bir kafa karıştırıcı nedir ASP.NET kendi güvenlik bağlamı bilgilerini (HttpContext.User) sahip olur.
 
 Belirli senaryolarda Thread.CurrentPrincipal özelliği güvenlik bağlamı belirlerken incelenir; Diğer senaryolarda HttpContext.User kullanılır. Örneğin, hangi kullanıcıların bildirimli olarak durumuna geliştiriciler izin veren .NET güvenlik özellikleri vardır veya rolleri bir sınıf örneği veya belirli yöntemleri çağırma (bkz [iş ve veri kullanan katmanlar için yetkilendirme kuralları ekleme PrincipalPermissionAttributes](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)). Kapak altında bu bildirim temelli teknikler Thread.CurrentPrincipal özelliği aracılığıyla güvenlik bağlamı belirler.
 
@@ -412,23 +412,23 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Form kimlik doğrulaması dissecting](http://aspnet.4guysfromrolla.com/articles/072005-1.aspx)
-- [Açıklanmıştır: ASP.NET 2.0 form kimlik doğrulaması](https://msdn.microsoft.com/en-us/library/aa480476.aspx)
-- [Nasıl yapılır: ASP.NET 2.0 form kimlik doğrulamasını korumak](https://msdn.microsoft.com/en-us/library/ms998310.aspx)
+- [Açıklanmıştır: ASP.NET 2.0 form kimlik doğrulaması](https://msdn.microsoft.com/library/aa480476.aspx)
+- [Nasıl yapılır: ASP.NET 2.0 form kimlik doğrulamasını korumak](https://msdn.microsoft.com/library/ms998310.aspx)
 - [Profesyonel ASP.NET 2.0 güvenlik, üyelik ve rol yönetimi](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Oturum açma denetimleri güvenliğini sağlama](https://msdn.microsoft.com/en-us/library/ms178346.aspx)
-- [&lt;Kimlik doğrulaması&gt; öğesi](https://msdn.microsoft.com/en-us/library/532aee0e.aspx)
-- [&lt;Forms&gt; öğesi için &lt;kimlik doğrulaması&gt;](https://msdn.microsoft.com/en-us/library/1d3t3c61.aspx)
-- [&lt;MachineKey&gt; öğesi](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)
+- [Oturum açma denetimleri güvenliğini sağlama](https://msdn.microsoft.com/library/ms178346.aspx)
+- [&lt;Kimlik doğrulaması&gt; öğesi](https://msdn.microsoft.com/library/532aee0e.aspx)
+- [&lt;Forms&gt; öğesi için &lt;kimlik doğrulaması&gt;](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [&lt;MachineKey&gt; öğesi](https://msdn.microsoft.com/library/w8h3skw9.aspx)
 - [Tanımlama bilgisi ve Forms kimlik doğrulaması bileti anlama](https://support.microsoft.com/kb/910443)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Bu öğreticide yer alan konularda video eğitim
 
 - [Forms kimlik doğrulaması özelliklerini değiştirme](../../../videos/authentication/how-to-change-the-forms-authentication-properties.md)
 - [Kurulumu ve kullanımı daha az tanımlama bilgisi kimlik doğrulaması bir ASP.NET uygulamasında nasıl](../../../videos/authentication/how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-- [ASP Forms oturum açma yeniden konumlandırma](../../../videos/authentication/asp-forms-login-relocation.md)
-- [Forms oturum açma özel anahtar yapılandırma](../../../videos/authentication/forms-login-custom-key-configuration.md)
-- [Kimlik doğrulama yöntemi için özel veri Ekle](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
-- [Kullanım özel asıl nesneleri](../../../videos/authentication/use-custom-principal-objects.md)
+- [ASP Forms Oturum Açmayı Yeniden Konumlandırma](../../../videos/authentication/asp-forms-login-relocation.md)
+- [Forms Oturum Açma Özel Anahtar Yapılandırması](../../../videos/authentication/forms-login-custom-key-configuration.md)
+- [Kimlik Doğrulama Metoduna Özel Veri Ekleme](../../../videos/authentication/add-custom-data-to-the-authentication-method.md)
+- [Özel Asıl Nesneler Kullanma](../../../videos/authentication/use-custom-principal-objects.md)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 

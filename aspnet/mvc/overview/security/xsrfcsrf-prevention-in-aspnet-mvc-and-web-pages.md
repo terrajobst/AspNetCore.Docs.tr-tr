@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 4ff4ed20d0768a48f8afb2deeb7cdb6b4c60b5bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6cf30daa7ed966b11405cec715c5bc803b567249
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web sayfaları XSRF/CSRF önleme
 ====================
@@ -73,9 +73,9 @@ XSRF istek doğrulaması *Oturum belirteci* bir HTTP tanımlama bilgisi olarak d
 *Alan belirteci* olarak saklanan bir `<input type="hidden" />` ve kendi yükte aşağıdaki bilgileri içerir:
 
 - Oturum açan kullanıcının kullanıcı adı (kimlik doğrulaması gerekiyorsa).
-- Tarafından sağlanan herhangi bir ek veriyi bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx).
+- Tarafından sağlanan herhangi bir ek veriyi bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx).
 
-Anti-XSRF belirteçleri yükü şifrelenir ve imzalanmış belirteçleri incelemek için araçları kullanılırken kullanıcı adı görüntüleyemezsiniz şekilde. Web uygulamasını ASP.NET 4.0 hedeflerken Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Encode](https://msdn.microsoft.com/en-us/library/system.web.security.machinekey.encode.aspx) yordamı. Ne zaman web uygulamasını ASP.NET 4.5 hedefleme ya da daha yüksek, Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Protect](https://msdn.microsoft.com/en-us/library/system.web.security.machinekey.protect(v=vs.110)) daha iyi performans, genişletilebilirlik ve güvenlik sunar yordamı. Daha fazla bilgi için şu blog yazılarını bakın:
+Anti-XSRF belirteçleri yükü şifrelenir ve imzalanmış belirteçleri incelemek için araçları kullanılırken kullanıcı adı görüntüleyemezsiniz şekilde. Web uygulamasını ASP.NET 4.0 hedeflerken Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Encode](https://msdn.microsoft.com/library/system.web.security.machinekey.encode.aspx) yordamı. Ne zaman web uygulamasını ASP.NET 4.5 hedefleme ya da daha yüksek, Şifreleme Hizmetleri tarafından sağlanan [MachineKey.Protect](https://msdn.microsoft.com/library/system.web.security.machinekey.protect(v=vs.110)) daha iyi performans, genişletilebilirlik ve güvenlik sunar yordamı. Daha fazla bilgi için şu blog yazılarını bakın:
 
 - [ASP.NET 4.5 şifreleme geliştirmeler, pt. 1](https://blogs.msdn.com/b/webdev/archive/2012/10/22/cryptographic-improvements-in-asp-net-4-5-pt-1.aspx)
 - [ASP.NET 4.5 şifreleme geliştirmeler, pt. 2](https://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx)
@@ -83,19 +83,19 @@ Anti-XSRF belirteçleri yükü şifrelenir ve imzalanmış belirteçleri incelem
 
 ## <a name="generating-the-tokens"></a>Belirteçler üreten
 
-Anti-XSRF belirteçleri oluşturmak için çağrı [ @Html.AntiForgeryToken ](https://msdn.microsoft.com/en-us/library/dd470175.aspx) MVC görünümü yönteminden veya @AntiForgery.GetHtmlRazor sayfasından (). Çalışma zamanı, ardından aşağıdaki adımları gerçekleştirmeniz gerekmektedir:
+Anti-XSRF belirteçleri oluşturmak için çağrı [ @Html.AntiForgeryToken ](https://msdn.microsoft.com/library/dd470175.aspx) MVC görünümü yönteminden veya @AntiForgery.GetHtmlRazor sayfasından (). Çalışma zamanı, ardından aşağıdaki adımları gerçekleştirmeniz gerekmektedir:
 
 1. Geçerli HTTP isteği zaten bir anti-XSRF Oturum belirteci içeriyorsa (anti-XSRF tanımlama bilgisi \_ \_RequestVerificationToken), güvenlik belirteci şuradan ayıklanır. HTTP isteği bir anti-XSRF Oturum belirteci içermiyorsa veya güvenlik belirteci ayıklama başarısız olursa, yeni bir rastgele anti-XSRF belirteci oluşturulur.
-2. Anti-XSRF alan belirteci (1) Yukarıdaki adımı ve geçerli oturum açan kullanıcının kimliğini güvenlik belirteci kullanılarak oluşturulur. (Kullanıcı kimliği belirleme hakkında daha fazla bilgi için bkz:  **[özel desteğiyle senaryoları](#_Scenarios_with_special)**  bölümüne bakın.) Ayrıca, varsa bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/jj158328(v=vs.111).aspx) olan yapılandırılmış, çalışma zamanı çağıracak kendi [GetAdditionalData](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) yöntemi ve alan belirteci döndürülen dize içerir. (Bkz  **[yapılandırma ve genişletilebilirlik](#_Configuration_and_extensibility)**  bölümü daha fazla bilgi için.)
+2. Anti-XSRF alan belirteci (1) Yukarıdaki adımı ve geçerli oturum açan kullanıcının kimliğini güvenlik belirteci kullanılarak oluşturulur. (Kullanıcı kimliği belirleme hakkında daha fazla bilgi için bkz:  **[özel desteğiyle senaryoları](#_Scenarios_with_special)**  bölümüne bakın.) Ayrıca, varsa bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) olan yapılandırılmış, çalışma zamanı çağıracak kendi [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) yöntemi ve alan belirteci döndürülen dize içerir. (Bkz  **[yapılandırma ve genişletilebilirlik](#_Configuration_and_extensibility)**  bölümü daha fazla bilgi için.)
 3. Yeni bir anti-XSRF belirteci adım (1) oluşturulduysa, yeni oturum belirteci içermesi için oluşturulacak ve giden HTTP tanımlama bilgileri koleksiyonu eklenir. (2) adımdan alan belirteci içinde kaydırılan bir `<input type="hidden" />` öğesi ve bu HTML biçimlendirmesi dönüş değerini olacak `Html.AntiForgeryToken()` veya `AntiForgery.GetHtml()`.
 
 ## <a name="validating-the-tokens"></a>Belirteçleri doğrulanıyor
 
-Gelen anti-XSRF belirteçleri doğrulamak için geliştirici içeren bir [ValidateAntiForgeryToken](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute(VS.108).aspx) kendi MVC eylem veya denetleyici veya SEH çağrıları öznitelikte `@AntiForgery.Validate()` kendi Razor sayfasından. Çalışma zamanı, aşağıdaki adımları gerçekleştirmeniz gerekmektedir:
+Gelen anti-XSRF belirteçleri doğrulamak için geliştirici içeren bir [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(VS.108).aspx) kendi MVC eylem veya denetleyici veya SEH çağrıları öznitelikte `@AntiForgery.Validate()` kendi Razor sayfasından. Çalışma zamanı, aşağıdaki adımları gerçekleştirmeniz gerekmektedir:
 
 1. Gelen oturum belirteci ve alan belirtecini okuyun ve anti-XSRF belirteci her birinden ayıklanır. Anti-XSRF belirteçleri oluşturma yordamına (2) adımda başına aynı olmalıdır.
 2. Geçerli kullanıcı kimlik doğrulaması gerekiyorsa, her kullanıcı adı alanı belirteçte depolanan kullanıcı adı ile karşılaştırılır. Kullanıcı adları eşleşmelidir.
-3. Varsa bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) yapılandırılır, çalışma zamanı çağrıları kendi *ValidateAdditionalData* yöntemi. Yöntem Boolean değeri döndürmelidir *doğru*.
+3. Varsa bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) yapılandırılır, çalışma zamanı çağrıları kendi *ValidateAdditionalData* yöntemi. Yöntem Boolean değeri döndürmelidir *doğru*.
 
 Doğrulama başarılı olursa, istek devam etmesine izin verilir. Doğrulama başarısız olursa, framework özel durum oluşturacak bir *HttpAntiForgeryException*.
 
@@ -108,7 +108,7 @@ Herhangi bir ASP.NET Web yığını çalışma zamanı v2 ile başlayan *HttpAnt
 - Oturum belirteci ve alan belirteci değiştirildi.
 - Oturum belirteci ve alan belirteci eşleşmeyen güvenlik belirteçleri içerir.
 - İçinde alan belirteci katıştırılmış kullanıcı adı, geçerli oturum açan kullanıcının kullanıcı adı eşleşmiyor.
--  *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*  döndürülen yöntemi *false*.
+- *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*  döndürülen yöntemi *false*.
 
 Anti-XSRF özellikleri, ayrıca belirteci oluşturma veya doğrulama sırasında ek denetimi gerçekleştirebilir ve hataları bu denetimleri sırasında oluşturulan özel durumları neden olabilir. Bkz: [WIF / ACS / talep tabanlı kimlik doğrulaması](#_WIF_ACS) ve  **[yapılandırma ve genişletilebilirlik](#_Configuration_and_extensibility)**  bölümlerde daha fazla bilgi için.
 
@@ -130,12 +130,12 @@ Normalde, *IIdentity* .NET Framework yerleşik sınıfları özelliğe sahip, *I
 
 Talep tabanlı kimlik doğrulama, diğer yandan, mutlaka belirli bir kullanıcının tanımlama gerektirmez. Bunun yerine, *ClaimsPrincipal* ve *Claimsıdentity* türleri bir kümesiyle ilişkili *talep* örnekleri, burada bireysel talepler olabilir "yaşın 18 +" veya " Yönetici başka bir şey için olan". Kullanıcı mutlaka tanımlanan kurmadı olduğundan, çalışma zamanı kullanamazsınız *ClaimsIdentity.Name* özelliği bu kullanıcı için benzersiz bir tanımlayıcı olarak. Takım gerçek örneklerde görüldüğü nerede *ClaimsIdentity.Name* döndürür *null*kolay (Görüntüle) adı döndürür veya aksi takdirde benzersiz bir tanımlayıcı olarak kullanmak için uygun olmayan bir dize döndürür kullanıcı için.
 
-Talep tabanlı kimlik doğrulaması kullanan dağıtımlar çoğunu kullanarak [Azure erişim denetimi hizmeti](https://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx) (ACS) özellikle. ACS yapılandırmak Geliştirici tek tek verir *kimlik sağlayıcıları* (Microsoft Account sağlayıcısı, ADFS gibi Openıd sağlayıcılarının ister Yahoo!, vb.), ve kimlik sağlayıcılarını döndüren *tanımlayıcılarıadı*. Bir özel kişisel tanımlayıcı (PPID gibi) anonim veya bu adı tanımlayıcılar bir e-posta adresi gibi kişisel bilgilerin (PII) içerebilir. ASP.NET Web yığını çalışma zamanı kullanıcı adı yerine yer alan tanımlama grubu oluştururken kullanabileceğiniz şekilde aynen site gözatması sırada ne olursa olsun, (Kimlik sağlayıcısı, ad tanımlayıcısı) tanımlama grubu yeterince belirli bir kullanıcı için bir uygun İzleme belirteci görevi görür ve Anti-XSRF alan belirteçleri doğrulanıyor. Kimlik sağlayıcısı ve ad tanımlayıcısı için belirli URI'ler şunlardır:
+Talep tabanlı kimlik doğrulaması kullanan dağıtımlar çoğunu kullanarak [Azure erişim denetimi hizmeti](https://msdn.microsoft.com/library/windowsazure/gg429786.aspx) (ACS) özellikle. ACS yapılandırmak Geliştirici tek tek verir *kimlik sağlayıcıları* (Microsoft Account sağlayıcısı, ADFS gibi Openıd sağlayıcılarının ister Yahoo!, vb.), ve kimlik sağlayıcılarını döndüren *tanımlayıcılarıadı*. Bir özel kişisel tanımlayıcı (PPID gibi) anonim veya bu adı tanımlayıcılar bir e-posta adresi gibi kişisel bilgilerin (PII) içerebilir. ASP.NET Web yığını çalışma zamanı kullanıcı adı yerine yer alan tanımlama grubu oluştururken kullanabileceğiniz şekilde aynen site gözatması sırada ne olursa olsun, (Kimlik sağlayıcısı, ad tanımlayıcısı) tanımlama grubu yeterince belirli bir kullanıcı için bir uygun İzleme belirteci görevi görür ve Anti-XSRF alan belirteçleri doğrulanıyor. Kimlik sağlayıcısı ve ad tanımlayıcısı için belirli URI'ler şunlardır:
 
 - `http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
 
-(Bu bkz [ACS belge sayfası](https://msdn.microsoft.com/en-us/library/windowsazure/gg185971.aspx) daha fazla bilgi için.)
+(Bu bkz [ACS belge sayfası](https://msdn.microsoft.com/library/windowsazure/gg185971.aspx) daha fazla bilgi için.)
 
 Oluşturulurken veya bir belirteci doğrulamak, ASP.NET Web yığını çalışma zamanı çalışma zamanında türleri bağlamayı deneyin:
 
@@ -165,8 +165,8 @@ Geliştirici uygulama anti-XSRF sistemden yapılandırabilirsiniz\_başlatın. P
 
 | **Özelliği** | **Açıklama** |
 | --- | --- |
-| **AdditionalDataProvider** | Bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) belirteci oluşturma sırasında ek verileri sağlar ve belirteç doğrulama sırasında ek verileri kullanır. Varsayılan değer *null*. Daha fazla bilgi için bkz: [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
-| **Tanımlamabilgisiadı** | Anti-XSRF Oturum belirteci depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmamışsa, bir ad uygulamanın dağıtılan sanal yola göre otomatik olarak oluşturulur. Varsayılan değer *null*. |
+| **AdditionalDataProvider** | Bir [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) belirteci oluşturma sırasında ek verileri sağlar ve belirteç doğrulama sırasında ek verileri kullanır. Varsayılan değer *null*. Daha fazla bilgi için bkz: [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) bölümü. |
+| **CookieName** | Anti-XSRF Oturum belirteci depolamak için kullanılan HTTP tanımlama bilgisinin adını sağlayan bir dize. Bu değer ayarlanmamışsa, bir ad uygulamanın dağıtılan sanal yola göre otomatik olarak oluşturulur. Varsayılan değer *null*. |
 | **RequireSsl** | Anti-XSRF belirteçleri SSL korumalı bir kanal üzerinden gönderilmesi gerekip gerekmediğini belirleyen bir Boole değeri. Bu değer ise *doğru*, hiçbir otomatik olarak oluşturulan tanımlama bilgisi "güvenli" bayrağı ayarlanmış sahip olur ve anti-XSRF API'leri SSL gönderilmeyen bir istek ve adlı varsa atar. Varsayılan değer *false*. |
 | **SuppressIdentityHeuristicChecks** | Anti-XSRF sistem beyana dayalı kimlikler için desteğini devre dışı bırakmanız gerekir olup olmadığını belirleyen bir Boole değeri. Bu değer ise *true*, sistem varsayar *IIdentity.Name* kullanıcı başına benzersiz tanımlayıcısı olarak kullanım için uygundur ve özel durum denemez *IClaimsIdentity*veya *ClClaimsIdentity* açıklandığı gibi [WIF / ACS / talep tabanlı kimlik doğrulaması](#_WIF_ACS) bölümü. Varsayılan değer `false` şeklindedir. |
 | **UniqueClaimTypeIdentifier** | Hangi talep türü belirten bir dize, kullanıcı başına benzersiz tanımlayıcısı olarak kullanım için uygundur. Bu değer kümesi ve geçerli ise *IIdentity* tarafından talep tabanlı, sistem bir talep türü ayıklamak deneyecek belirtildiğinden *UniqueClaimTypeIdentifier*, ve karşılık gelen değer kullanılır alan belirteci oluştururken kullanıcının kullanıcı adı yerine. Talep türü bulunamadı, sistem isteği başarısız olur. Varsayılan değer *null*, belirten sistem kullanması gerektiğini (Kimlik sağlayıcısı, ad tanımlayıcısı) daha önce kullanıcının kullanıcı adı yerine açıklandığı gibi tanımlama grubu. |
@@ -175,7 +175,7 @@ Geliştirici uygulama anti-XSRF sistemden yapılandırabilirsiniz\_başlatın. P
 
 ### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
- *[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/en-us/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*  türü her belirteci ek veriler gidiş tarafından anti-XSRF sistem davranışını genişletmek geliştiricilere sağlar. *GetAdditionalData* yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır. Bir uygulayan bir zaman damgası, nonce veya aynen istediği herhangi bir değer bu yönteminden döndürebilirsiniz.
+*[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*  türü her belirteci ek veriler gidiş tarafından anti-XSRF sistem davranışını genişletmek geliştiricilere sağlar. *GetAdditionalData* yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır. Bir uygulayan bir zaman damgası, nonce veya aynen istediği herhangi bir değer bu yönteminden döndürebilirsiniz.
 
 Benzer şekilde, *ValidateAdditionalData* yöntemi her çağrıldığında bir alan belirteci doğrulanır ve belirtecin içinde katıştırılan "ek verileri" dizesi yönteme geçirilen. (Geçerli saati belirteç oluşturulduğunda depolanan zaman karşı denetleyerek) zaman aşımı doğrulama yordamını uygulamak, yordamın veya diğer denetimi nonce mantığı istenen.
 

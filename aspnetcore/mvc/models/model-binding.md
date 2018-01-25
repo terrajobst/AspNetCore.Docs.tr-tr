@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="model-binding"></a>Model Binding
 
@@ -56,7 +56,7 @@ Not: Form değerleri, rota verilerini ve sorgu dizeleri tüm ad-değer çiftleri
 
 Model bağlama adlı bir anahtar için sorunuz `id` ve hiçbir şey adlı `id` form değerleri için bu anahtar arayan rota değerleri için taşındıktan. Bizim örneğimizde, onu bir eşleşmedir. Bağlama olur ve değer 2 tamsayıya dönüştürülür. Düzenleme (dize kimliği) kullanarak aynı istekte "2" dizeye dönüştürme.
 
-Şu ana kadar örnek basit türler kullanır. MVC'de basit herhangi bir .NET ilkel tür veya türü bir dize türü dönüştürücü ile türleridir. Eylem yönteminin parametre gibi bir sınıf olsaydı `Movie` özellikleri, MVC'ın model bağlama hala bu sorunsuz şekilde işlemek gibi basit ve karmaşık türler içeren türü. Karmaşık türler için eşleşen arama özelliklerini gezinmesine yansıma ve özyineleme kullanır. Model bağlama arar desenini *parameter_name.property_name* özelliklerine değerler bağlamak için. Bu formun eşleşen değerleri bulamazsa, yalnızca özellik adı kullanılarak bağlama dener. Bu türleri gibi `Collection` türleri, model bağlama eşleşmeler arar *parametre_adý [dizin]* veya yalnızca *[dizin]*. Model bağlama davranır `Dictionary` benzer şekilde, sorarak türleri *parametre_adý [anahtarı]* veya yalnızca *[anahtarı]*, basit türler anahtarları olduğu sürece. Desteklenen anahtarlarının aynı model türü için oluşturulan etiket yardımcıları ve alan adları HTML eşleşmesi. Böylece form alanlarını Örneğin, oluşturma veya düzenleme ilişkili verileri doğrulamayı geçemedi zaman kendi kolaylık sağlamak için kullanıcının girdisi ile doldurulmuş kalır. Bu gidiş değerleri sağlar.
+Şu ana kadar örnek basit türler kullanır. MVC'de basit herhangi bir .NET ilkel tür veya türü bir dize türü dönüştürücü ile türleridir. Eylem yönteminin parametre gibi bir sınıf olsaydı `Movie` özellikleri, MVC'ın model bağlama hala bu sorunsuz şekilde işlemek gibi basit ve karmaşık türler içeren türü. Karmaşık türler için eşleşen arama özelliklerini gezinmesine yansıma ve özyineleme kullanır. Model bağlama arar desenini *parameter_name.property_name* özelliklerine değerler bağlamak için. Bu formun eşleşen değerleri bulamazsa, yalnızca özellik adı kullanılarak bağlama dener. Bu türleri gibi `Collection` türleri, model bağlama eşleşmeler arar *parametre_adý [dizin]* veya yalnızca *[dizin]*. Model bağlama davranır `Dictionary` benzer şekilde, sorarak türleri *parametre_adý [anahtarı]* veya yalnızca *[anahtarı]*, basit türler anahtarları olduğu sürece. Desteklenen anahtarlarının aynı model türü için oluşturulan etiket yardımcıları ve alan adları HTML eşleşmesi. Böylece form alanlarını Örneğin, doğrulama oluşturma veya düzenleme ilişkili verileri alamadık geçirdiğinizde, kolaylık sağlamak için kullanıcının girdisi ile doldurulmuş kalır. Bu gidiş değerleri sağlar.
 
 Olmasını bağlama için sırayla sınıfı ortak varsayılan bir oluşturucu olmalıdır ve ortak yazılabilir özelliklerini bağlanması için üye olmanız gerekir. Model bağlama sınıfı yalnızca ortak varsayılan oluşturucu kullanılarak oluşturulacak gerçekleştiğinde, özellikler ayarlanabilir.
 

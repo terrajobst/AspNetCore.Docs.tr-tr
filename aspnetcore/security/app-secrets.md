@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: e2c11b768098b3d92ef702e0daad746963dc3856
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 94356cef7a0333f0faac6420b1b5425920b99deb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama
 
@@ -37,7 +37,7 @@ Uygulama gizli kod veya yerel yapılandırma dosyalarını depolamak önlemek i�
 Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması için hassas verileri depolar. Parola Yöneticisi Aracı için parolaları depolamak için kullanılan bir proje araçtır bir [.NET Core](https://www.microsoft.com/net/core) proje geliştirme sırasında. Gizli Yöneticisi aracıyla uygulama sırrı belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşın.
 
 >[!WARNING]
-> Gizli Yöneticisi aracını depolanan gizli şifrelemez ve güvenilir bir deposu olarak değerlendirilmeyen. Yalnızca geliştirme amacıyla kullanılır. Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.
+> Gizli Yöneticisi aracını depolanan parolaları şifrelemek değil ve bir güvenilen deposu olarak değerlendirilmesi gerekir. Yalnızca geliştirme amacıyla kullanılır. Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.
 
 ## <a name="installing-the-secret-manager-tool"></a>Parola Yöneticisi aracını yükleme
 
@@ -122,7 +122,7 @@ Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uy
 
 Değeri `userSecretsId` içinde belirtilen değerle geldiği *.csproj* dosya.
 
-Bu uygulama ayrıntılarını değişebilir gibi konumu veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kodu yazamaz. Örneğin, gizli şu anda değerlerdir *değil* bugün şifrelenir, ancak gün olabilir.
+Bu uygulama ayrıntılarını değişebilir gibi konumu veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kodu yazmaya döndürmemelidir. Örneğin, gizli şu anda değerlerdir *değil* bugün şifrelenir, ancak gün olabilir.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

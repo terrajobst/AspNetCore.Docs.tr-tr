@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 213626147424e08d10d6442034ec450174200b09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>Silme yöntemleri ve ayrıntıları İnceleme
 ====================
@@ -66,7 +66,7 @@ Aynı ad ve imza sahip yöntemleri ile ilgili bir sorun önlemek için başka bi
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Yerleşik ve bir web uygulaması test sonra sonraki diğer kişilere Internet üzerinden kullanmak için kullanılabilir hale getirmek için adımdır. Bunu yapmak için bir web barındırma sağlayıcısına dağıtmak zorunda. Microsoft, 10 web siteleri için ücretsiz bir web barındırma sunar bir [Ücretsiz Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). I my öğreticinin sonraki izleyin önermek [üyelik, OAuth ve SQL veritabanı ile Güvenli ASP.NET MVC uygulaması Windows Azure Web sitesine dağıtmak](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Zel Dykstra'nin orta düzey mükemmel bir öğreticidir [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) mükemmel yerleştirir sorular sormak için olan. İzleyin [bana](https://twitter.com/RickAndMSFT) my son öğreticileri güncelleştirmeleri alabilmek için Twitter'da.
+Yerleşik ve bir web uygulaması test sonra sonraki diğer kişilere Internet üzerinden kullanmak için kullanılabilir hale getirmek için adımdır. Bunu yapmak için bir web barındırma sağlayıcısına dağıtmak zorunda. Microsoft, 10 web siteleri için ücretsiz bir web barındırma sunar bir [Ücretsiz Windows Azure deneme sürümü hesabı](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). I my öğreticinin sonraki izleyin önermek [üyelik, OAuth ve SQL veritabanı ile Güvenli ASP.NET MVC uygulaması Windows Azure Web sitesine dağıtmak](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Zel Dykstra'nin orta düzey mükemmel bir öğreticidir [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [StackOverflow](http://stackoverflow.com/help) ve [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) mükemmel yerleştirir sorular sormak için olan. İzleyin [bana](https://twitter.com/RickAndMSFT) my son öğreticileri güncelleştirmeleri alabilmek için Twitter'da.
 
 Geri bildirim Hoş Geldiniz.
 

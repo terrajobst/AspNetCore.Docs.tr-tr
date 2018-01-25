@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 449c448d1be237f3f95a437bb2c0415bd8ed0d99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Birden çok ortamlar için veritabanı dağıtımları özelleştirme
 ====================
@@ -74,15 +74,15 @@ Bu tablo farklı bir hedef ortamlar için tipik dağıtım ayarlarını gösteri
 | **Dağıtım karşılaştırma harmanlama** | Kaynak | Hedef | Hedef |
 | **Veritabanı özellikleri dağıtma** | Doğru | Yalnızca ilk kez | Yalnızca ilk kez |
 | **Veritabanı her zaman yeniden oluşturma** | Doğru | False | False |
-| **Veri kaybı, artımlı dağıtım engelle** | False | Olabilir | Doğru |
+| **Veri kaybı, artımlı dağıtım engelle** | False | Maybe | Doğru |
 | **Dağıtım betiği tek kullanıcı modunda çalıştır** | False | Doğru | Doğru |
-| **Dağıtımdan önce veritabanını yedekleyin** | False | Olabilir | Doğru |
+| **Dağıtımdan önce veritabanını yedekleyin** | False | Maybe | Doğru |
 | **Hedef veritabanındaki nesneler için bırak deyimleri oluşturur, ancak veritabanı projesi içinde olmayan** | False | Doğru | Doğru |
 | **CLR Türleri güncelleştirmek için ALTER ASSEMBLY deyimleri kullanmayın** | False | False | False |
   
 
 > [!NOTE]
-> Veritabanı dağıtım özellikleri ve ortam konuları hakkında daha fazla bilgi için bkz: [bir genel bakış, veritabanı proje ayarları](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx), [nasıl yapılır: özelliklerini yapılandırmak için dağıtım ayrıntıları](https://msdn.microsoft.com/en-us/library/dd172125.aspx), [ Derleme ve veritabanı bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/en-us/library/dd193409.aspx), ve [derleme ve veritabanları bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/en-us/library/dd193413.aspx).
+> Veritabanı dağıtım özellikleri ve ortam konuları hakkında daha fazla bilgi için bkz: [bir genel bakış, veritabanı proje ayarları](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [nasıl yapılır: özelliklerini yapılandırmak için dağıtım ayrıntıları](https://msdn.microsoft.com/library/dd172125.aspx), [ Derleme ve veritabanı bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/library/dd193409.aspx), ve [derleme ve veritabanları bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/library/dd193413.aspx).
 
 
 Birden çok varış yeri için veritabanı projesi'nın dağıtımını desteklemek için her hedef ortam için bir dağıtım yapılandırma dosyası oluşturmanız gerekir.
@@ -94,7 +94,7 @@ Birden çok varış yeri için veritabanı projesi'nın dağıtımını destekle
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. İçinde **yeni bir dağıtım yapılandırma dosyası** iletişim kutusunda, dosya anlamlı bir ad verin (örneğin, **TestEnvironment.sqldeployment**) ve ardından **kaydetmek**.
-4. Üzerinde *[Filename]***.sqldeployment** sayfasında, hedef ortamınızın gereksinimlerini karşılamak için dağıtım özellikleri ayarlayın ve ardından dosyayı kaydedin.
+4. Üzerinde *[Filename] *** .sqldeployment** sayfasında, hedef ortamınızın gereksinimlerini karşılamak için dağıtım özellikleri ayarlayın ve ardından dosyayı kaydedin.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Yeni dosya, veritabanı projenizi özellikleri klasöründe eklenir dikkat edin.
@@ -141,10 +141,10 @@ Veritabanı projeleri VSDBCMD.exe kullanarak dağıtma hakkında daha fazla bilg
 
 Bu makaleler MSDN'de veritabanı dağıtımı hakkında daha fazla genel rehberlik sağlar:
 
-- [Veritabanı projesi ayarlarına genel bakış](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx)
-- [Nasıl yapılır: özellikler için dağıtım ayrıntılarını Yapılandır](https://msdn.microsoft.com/en-us/library/dd172125.aspx)
-- [Derleme ve veritabanları bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/en-us/library/dd193409.aspx)
-- [Derleme ve veritabanları bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/en-us/library/dd193413.aspx)
+- [Veritabanı projesi ayarlarına genel bakış](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Nasıl yapılır: özellikler için dağıtım ayrıntılarını Yapılandır](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Derleme ve veritabanları bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Derleme ve veritabanları bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/library/dd193413.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](performing-a-what-if-deployment.md)

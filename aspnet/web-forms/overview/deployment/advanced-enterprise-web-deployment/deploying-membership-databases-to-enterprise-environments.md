@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Kurumsal ortamlar için üyelik veritabanları dağıtma
 ====================
@@ -44,8 +44,8 @@ Ne yazık ki, bu çok daha karmaşık bir kararı belirli bazı zorluklar ASP.NE
 
 Kuruluş sunucu ortamında üyelik veritabanında sağlama seçtiğinizde aşağıdaki yönergeleri kullanın:
 
-- Mümkün olduğunda, üyelik veritabanları dağıtmayın. Bunun yerine, üyelik veritabanının hedef veritabanı sunucusunda el ile oluşturun. Üyelik veritabanı şeması özelleştirilmiş yapmadıysanız, yalnızca yeni bir giriş situ hedef kullanarak oluşturabileceğiniz [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
-- Bir üyelik veritabanı & #x 2014; dağıtmak üzere ancak hiçbir seçeneği varsa veritabanı şeması & #x 2014; kapsamlı değişiklikler yaptıysanız, örneğin, yalnızca şema dağıtım kullanıcı hesabı verileri, dışlamak için üyelik veritabanının uygulamalısınız ve ardından tüm gerekli yapılandırma verileri eklemek için bir dağıtım sonrası komut dosyasını çalıştırın. Bu yaklaşım geniş kapsamlı yönergeler bulabilirsiniz [nasıl yapılır: ASP.NET üyelik veritabanı olmadan da dahil olmak üzere kullanıcı hesapları dağıtmayı](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+- Mümkün olduğunda, üyelik veritabanları dağıtmayın. Bunun yerine, üyelik veritabanının hedef veritabanı sunucusunda el ile oluşturun. Üyelik veritabanı şeması özelleştirilmiş yapmadıysanız, yalnızca yeni bir giriş situ hedef kullanarak oluşturabileceğiniz [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
+- Bir üyelik veritabanı & #x 2014; dağıtmak üzere ancak hiçbir seçeneği varsa veritabanı şeması & #x 2014; kapsamlı değişiklikler yaptıysanız, örneğin, yalnızca şema dağıtım kullanıcı hesabı verileri, dışlamak için üyelik veritabanının uygulamalısınız ve ardından tüm gerekli yapılandırma verileri eklemek için bir dağıtım sonrası komut dosyasını çalıştırın. Bu yaklaşım geniş kapsamlı yönergeler bulabilirsiniz [nasıl yapılır: ASP.NET üyelik veritabanı olmadan da dahil olmak üzere kullanıcı hesapları dağıtmayı](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 Unutulmaması önemlidir *üyelik veritabanı şeması oldukça statik olması olasıdır*. Üyelik veritabanının özelleştirdiğiniz olsa bile, düzenli aralıklarla & #x 2014 şema güncelleştirmesi gerekir; aynı sıklıkta kodu bir web uygulaması veya bir veritabanı projesi olarak değiştirmek için geçiyor değil düşüktür. Bu nedenle, üyelik veritabanının tüm otomatik olarak veya tek adımlı dağıtım işlemleri dahil gerek yoktur.
 
@@ -57,8 +57,8 @@ Bir alternatif, hedef veritabanı şemasını güncelleştirmek için VSDBCMD ya
 
 Bir üyelik veritabanı şeması güncelleştirmek için üst düzey adımları kullanabilirsiniz:
 
-1. VSDBCMD kullanmak **alma** kaynak üyelik veritabanınız için bir .dbschema dosyası oluşturmak için eylem. Bu yordamda açıklanan [nasıl yapılır: bir komut isteminden bir şema alma](https://msdn.microsoft.com/en-us/library/dd172135.aspx).
-2. VSDBCMD kullanmak **dağıtma** .dbschema dosyasını, hedef üyelik veritabanına dağıtmak için eylem. Bu yordamda açıklanan [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+1. VSDBCMD kullanmak **alma** kaynak üyelik veritabanınız için bir .dbschema dosyası oluşturmak için eylem. Bu yordamda açıklanan [nasıl yapılır: bir komut isteminden bir şema alma](https://msdn.microsoft.com/library/dd172135.aspx).
+2. VSDBCMD kullanmak **dağıtma** .dbschema dosyasını, hedef üyelik veritabanına dağıtmak için eylem. Bu yordamda açıklanan [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 ## <a name="conclusion"></a>Sonuç
 
@@ -66,7 +66,7 @@ Bu konuda çeşitli hedef ortamlarda ASP.NET üyelik veritabanları sağlamanız
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Daha fazla yönergeler ve VSDBCMD kullanımıyla ilgili örnekler için bkz: [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) ve [nasıl yapılır: bir komut isteminden bir şema alma](https://msdn.microsoft.com/en-us/library/dd172135.aspx). Aspnet kullanma hakkında daha fazla bilgi için\_regsql.exe üyelik veritabanları oluşturmak için bkz: [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx). Üyelik veritabanları dağıtma konusunda daha fazla genel yönergeler için bkz: [nasıl yapılır: ASP.NET üyelik veritabanı olmadan da dahil olmak üzere kullanıcı hesapları dağıtmayı](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+Daha fazla yönergeler ve VSDBCMD kullanımıyla ilgili örnekler için bkz: [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/library/dd193283.aspx) ve [nasıl yapılır: bir komut isteminden bir şema alma](https://msdn.microsoft.com/library/dd172135.aspx). Aspnet kullanma hakkında daha fazla bilgi için\_regsql.exe üyelik veritabanları oluşturmak için bkz: [ASP.NET SQL Server Kayıt Aracı (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Üyelik veritabanları dağıtma konusunda daha fazla genel yönergeler için bkz: [nasıl yapılır: ASP.NET üyelik veritabanı olmadan da dahil olmak üzere kullanıcı hesapları dağıtmayı](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Önceki](deploying-database-role-memberships-to-test-environments.md)

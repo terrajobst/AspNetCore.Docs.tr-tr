@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dadc1641e427b025d71ef567a626fa7c37c9fc08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Ekleme ve (C#) GridView düğmelere yanıtlama
 ====================
@@ -194,7 +194,7 @@ Bu yöntem yalnızca aşağı çağırır `DiscontinueAllProductsForSupplier(sup
 **Şekil 15**: Durdur tüm ürünleri düğmesi Web denetim FormView için 's ekleme `ItemTemplate` ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image41.png))
 
 
-Ne zaman düğmesine tıklandığında sayfasında, bir geri gönderme ensues kullanıcı ziyaret ve FormView'ın tarafından [ `ItemCommand` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formview.itemcommand.aspx) etkinleşir. Bu düğmeye tıklandığında yanıt özel kod yürütmek için bu olay için bir olay işleyicisi oluşturabilirsiniz. , Yine de anlamak `ItemCommand` olay ateşlenir *herhangi* düğmesi, LinkButton veya ImageButton Web denetimi FormView içinde tıklattınız. Yani, kullanıcı FormView diğerine bir sayfadan diğerine taşındığında `ItemCommand` olay ateşlenir; kullanıcı yeni, düzenleme, tıklar veya ekleme, güncelleştirme veya silme destekleyen bir FormView sildiğinizde aynı anlama.
+Ne zaman düğmesine tıklandığında sayfasında, bir geri gönderme ensues kullanıcı ziyaret ve FormView'ın tarafından [ `ItemCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx) etkinleşir. Bu düğmeye tıklandığında yanıt özel kod yürütmek için bu olay için bir olay işleyicisi oluşturabilirsiniz. , Yine de anlamak `ItemCommand` olay ateşlenir *herhangi* düğmesi, LinkButton veya ImageButton Web denetimi FormView içinde tıklattınız. Yani, kullanıcı FormView diğerine bir sayfadan diğerine taşındığında `ItemCommand` olay ateşlenir; kullanıcı yeni, düzenleme, tıklar veya ekleme, güncelleştirme veya silme destekleyen bir FormView sildiğinizde aynı anlama.
 
 Bu yana `ItemCommand` olay işleyicisi ihtiyacımız tüm ürünleri Durdur düğmesini tıklandığını belirleme için bir yol veya başka bir düğme ise, hangi düğmeye tıklandığında bağımsız olarak etkinleşir. Bunu başarmak için biz düğmesi Web denetimin ayarlayabilirsiniz `CommandName` tanımlayan bir değer özelliği. Ne zaman düğmesine tıklandığında, bu `CommandName` değeri içine geçirilir `ItemCommand` tüm ürünleri Durdur düğmesine tıklandığında düğmesi olup olmadığını belirlemek için bize etkinleştirme olay işleyicisi. Durdur tüm ürünleri düğmenin ayarlamak `CommandName` DiscontinueProducts özelliğine.
 
@@ -208,11 +208,11 @@ Ardından, olay işleyicisi FormView için 's oluşturmak `ItemCommand` olay. Bu
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample7.cs)]
 
-Unutmayın `SupplierID` FormView geçerli seçili tedarikçi, FormView's kullanılarak erişilebilir [ `SelectedValue` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). `SelectedValue` Özelliği, ilk veri anahtar FormView görüntülenmesini kaydının değerini döndürür. FormView's [ `DataKeyNames` özelliği](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.formview.datakeynames.aspx), verileri anahtar değerlerini alanları çekilen, veri belirten otomatik olarak ayarlandığı `SupplierID` ObjectDataSource FormView bağlanırken Visual Studio tarafından Adım 2'de geri.
+Unutmayın `SupplierID` FormView geçerli seçili tedarikçi, FormView's kullanılarak erişilebilir [ `SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). `SelectedValue` Özelliği, ilk veri anahtar FormView görüntülenmesini kaydının değerini döndürür. FormView's [ `DataKeyNames` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx), verileri anahtar değerlerini alanları çekilen, veri belirten otomatik olarak ayarlandığı `SupplierID` ObjectDataSource FormView bağlanırken Visual Studio tarafından Adım 2'de geri.
 
 İle `ItemCommand` oluşturulan, olay işleyicisi sayfayı test etmek için bir dakikanızı alın. Cooperativa de Quesos için Gözat 'Las Cabras' tedarikçi (benim için FormView beşinci tedarikçi değil). Bu sağlayıcı her ikisi de olan iki ürünler, Queso Cabrales ve Queso Manchego La Pastora sağlar *değil* devam etmez.
 
-Cooperativa de Quesos 'Las Cabras' dışında iş geçti ve bu nedenle ürünlerinden kullanımdan kaldırılacak için olduğunu düşünün. Tıklatın tüm ürünleri düğmesi durdur. Bu istemci-tarafı Onayla iletişim kutusu görüntüler (bkz. Şekil 16) kutusunda.
+Imagine that Cooperativa de Quesos 'Las Cabras' has gone out of business and therefore its products are to be discontinued. Tıklatın tüm ürünleri düğmesi durdur. Bu istemci-tarafı Onayla iletişim kutusu görüntüler (bkz. Şekil 16) kutusunda.
 
 
 [![Cooperativa de Quesos Las Cabras kaynakları iki etkin ürünler](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image43.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image42.png)
@@ -244,7 +244,7 @@ Bu aşırı belirtilen ürün DAL'ın ile ilgili bilgileri alır `GetProductByPr
 
 ## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>7. adım: GridView artırma ve azaltma düğmeleri ekleme
 
-GridView (ve DetailsView) hem de alanlarının bir koleksiyonu oluşur. BoundFields, CheckBoxFields ve TemplateFields ek olarak, ASP.NET adından da anlaşılacağı gibi her satır için düğmesi, LinkButton ya da ImageButton olan bir sütun olarak işleyen ButtonField içerir. Benzer şekilde tıklatarak FormView *herhangi* GridView disk belleği düğmeleri, düzenleme veya silme düğmeleri, sıralama düğmeleri ve benzeri içinde düğmesini geri gönderimin neden olur ve GridView's başlatır [ `RowCommand` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
+GridView (ve DetailsView) hem de alanlarının bir koleksiyonu oluşur. BoundFields, CheckBoxFields ve TemplateFields ek olarak, ASP.NET adından da anlaşılacağı gibi her satır için düğmesi, LinkButton ya da ImageButton olan bir sütun olarak işleyen ButtonField içerir. Benzer şekilde tıklatarak FormView *herhangi* GridView disk belleği düğmeleri, düzenleme veya silme düğmeleri, sıralama düğmeleri ve benzeri içinde düğmesini geri gönderimin neden olur ve GridView's başlatır [ `RowCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
 
 ButtonField sahip bir `CommandName` her düğmeleri için belirtilen değer atar özelliği `CommandName` özellikleri. FormView ile gibi `CommandName` değeri tarafından kullanılan `RowCommand` hangi düğmenin tıklandığını belirleme için olay işleyicisi.
 
@@ -256,7 +256,7 @@ GridView düğme metni fiyat + 10 biriyle için iki yeni ButtonFields ekleyelim 
 **Şekil 18**: iki ButtonFields GridView ekleme
 
 
-İlk iki GridView alanlar olarak görünmesini sağlayacak şekilde iki ButtonFields taşıyın. Ardından, ayarlayın `Text` özelliklerini + %10 fiyat bu iki ButtonFields ve fiyat -10% ve `CommandName` özellikleri IncreasePrice ve DecreasePrice, sırasıyla. Varsayılan olarak, bir ButtonField, sütunu düğmelerinin LinkButtons işler. Bu, ancak ButtonField kişinin değiştirilebilir [ `ButtonType` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Şimdi bu iki ButtonFields normal düğmeler işlenen sahiptir; Bu nedenle, `ButtonType` özelliğine `Button`. Bu değişiklikler yapıldıktan sonra Şekil 19 alanları iletişim kutusu gösterir; Aşağıdaki GridView'ın bildirim temelli biçimlendirme olur.
+İlk iki GridView alanlar olarak görünmesini sağlayacak şekilde iki ButtonFields taşıyın. Ardından, ayarlayın `Text` özelliklerini + %10 fiyat bu iki ButtonFields ve fiyat -10% ve `CommandName` özellikleri IncreasePrice ve DecreasePrice, sırasıyla. Varsayılan olarak, bir ButtonField, sütunu düğmelerinin LinkButtons işler. Bu, ancak ButtonField kişinin değiştirilebilir [ `ButtonType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Şimdi bu iki ButtonFields normal düğmeler işlenen sahiptir; Bu nedenle, `ButtonType` özelliğine `Button`. Bu değişiklikler yapıldıktan sonra Şekil 19 alanları iletişim kutusu gösterir; Aşağıdaki GridView'ın bildirim temelli biçimlendirme olur.
 
 
 ![ButtonFields metin, CommandName ve ButtonType özelliklerini yapılandırın](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image49.png)
@@ -307,4 +307,4 @@ Mutluluk programlama!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Sonraki](adding-and-responding-to-buttons-to-a-gridview-vb.md)
+[Next](adding-and-responding-to-buttons-to-a-gridview-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603457655e2490e1685f53d2cec643cb9382a59d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8aa0ed2fbf385e4b8dbb7e7a3bdb152f1e016e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-vb"></a>Ana sayfalar (VB) URL'leri
 ====================
@@ -108,7 +108,7 @@ Mutlak URL kodlamak çalışırken, sıkı bir şekilde, HTML Web sitesinin sunu
 
 Bunun yerine mutlak bir URL sabit kod daha tilde kullanmak sayfa geliştiricilerin ASP.NET sağlar (`~`) web uygulamasının kök belirtmek için. Örneğin, bu öğreticide daha önce gösterimi kullandım `~/Admin/Default.aspx` başvurmak için metin `Default.aspx` sayfasındaki `Admin` klasör. `~` Belirten `Admin` web uygulamasının kökünün alt klasördür.
 
-`Control` Sınıfının [ `ResolveClientUrl` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx) bir URL alır ve denetim yer aldığı web sayfası için uygun bir göreli URL değiştirir. Örneğin, arama `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` gelen `About.aspx` döndürür `Images/PoweredByASPNET.gif`. Buradan çağırma `~/Admin/Default.aspx`, ancak döndürür `../Images/PoweredByASPNET.gif`.
+`Control` Sınıfının [ `ResolveClientUrl` yöntemi](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) bir URL alır ve denetim yer aldığı web sayfası için uygun bir göreli URL değiştirir. Örneğin, arama `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` gelen `About.aspx` döndürür `Images/PoweredByASPNET.gif`. Buradan çağırma `~/Admin/Default.aspx`, ancak döndürür `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
 > Tüm ASP.NET sunucu denetimleri türetin çünkü `Control` sınıfı, tüm sunucu denetimleri erişiminiz `ResolveClientUrl` yöntemi. Hatta `Page` sınıfı türer `Control` sınıfı, bu yöntem, ASP.NET sayfaları arka plan kodu sınıflardan doğrudan kullanabileceğiniz anlamına gelir.

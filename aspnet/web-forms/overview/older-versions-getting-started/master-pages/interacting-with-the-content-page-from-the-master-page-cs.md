@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 923d291d84a47e64b31d99bcb13cfe53e5806444
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d7f6eeac084f3516ab470adf8973351cf08a7f1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Ana sayfa (C#) içerik sayfasından ile etkileşim kurma
 ====================
@@ -158,7 +158,7 @@ Bir sınıf oluşturarak, bir olaya abone olan bir *olay işleyicisi*, gerçekle
 Bir olay işleyicisi geçen ikinci parametre olayla ilgili ek bilgiler içerebilir. While temel `EventArgs` sınıfı herhangi bir bilgi geçişi değil, .NET Framework genişleten sınıflar içerir `EventArgs` ve ek özellikleri kapsar. Örneğin, bir `CommandEventArgs` örnek yanıt olay işleyicileri iletilir `Command` olayı ve iki bilgi özellikleri içerir: `CommandArgument` ve `CommandName`.
 
 > [!NOTE]
-> Oluşturma konusunda daha fazla bilgi için bkz: oluşturma ve olayları, işleme [olaylar ve Temsilciler](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx) ve [olay temsilcileri basit İngilizce](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Oluşturma konusunda daha fazla bilgi için bkz: oluşturma ve olayları, işleme [olaylar ve Temsilciler](https://msdn.microsoft.com/library/17sde2xt.aspx) ve [olay temsilcileri basit İngilizce](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 
 Bir olay tanımlamak için aşağıdaki sözdizimini kullanın:
@@ -251,7 +251,7 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Verilere erişme ve verileri ASP.NET güncelleştirme](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Olaylar ve temsilciler](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)
+- [Olaylar ve temsilciler](https://msdn.microsoft.com/library/17sde2xt.aspx)
 - [İçerik ve ana sayfalar arasında bilgi geçirme](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [ASP.NET eğitimlerine verileri ile çalışma](../../data-access/index.md)
 

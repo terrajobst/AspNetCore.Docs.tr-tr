@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ba6b163078bbab1bda302676e7e4c8a1d07f3c98
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 386fcb1cef896edbb465ba36415712af70d916ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Radyo düğmelerini (C#) GridView sütun ekleme
 ====================
@@ -148,7 +148,7 @@ Bu eklemeleri Tasarımcısı aracılığıyla yaptıktan sonra GridView s biçim
 
 [!code-aspx[Main](adding-a-gridview-column-of-radio-buttons-cs/samples/sample3.aspx)]
 
-RadioButton s [ `GroupName` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx) ne radyo düğmeleri, bir dizi gruplandırmak için kullanılır. Aynı tüm RadioButton denetimlerini `GroupName` değeri olarak kabul edilir gruplandırılmış; yalnızca bir radyo düğmesi seçilebilir bir gruptan aynı anda. `GroupName` Özellik belirtir s işlenmiş radyo düğmesi için değer `name` özniteliği. Radyo düğmeleri tarayıcı inceler `name` radyo belirlemek için öznitelikler düğmesini gruplandırmaları.
+RadioButton s [ `GroupName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.radiobutton.groupname(VS.80).aspx) ne radyo düğmeleri, bir dizi gruplandırmak için kullanılır. Aynı tüm RadioButton denetimlerini `GroupName` değeri olarak kabul edilir gruplandırılmış; yalnızca bir radyo düğmesi seçilebilir bir gruptan aynı anda. `GroupName` Özellik belirtir s işlenmiş radyo düğmesi için değer `name` özniteliği. Radyo düğmeleri tarayıcı inceler `name` radyo belirlemek için öznitelikler düğmesini gruplandırmaları.
 
 Eklenen RadioButton Web denetimi ile `ItemTemplate`, bir tarayıcı aracılığıyla bu sayfasını ziyaret edin ve kılavuz s satırları radyo düğmeleri tıklayın. Radyo düğmeleri değil nasıl gruplandırılacağını dikkat edin, tüm satırları Şekil 11 seçmek olası hale getirerek gösterir.
 
@@ -184,7 +184,7 @@ Alt düzey biçimlendirme bir şablona ekle için gerçekleştirilecek iki yakla
 
 Burada, `GetUniqueRadioButton` ve `GetRadioButtonValue` uygun döndürdü arka plan kodu sınıfında tanımlanan yöntemler olacaktır `id` ve `value` öznitelik değerlerini her radyo düğmesi için. İyi atamak için bu yaklaşım çalışır `id` ve `value` öznitelikleri, ancak belirtmek ihtiyacı olduğunda kısa döner `checked` veri GridView ilk bağlandığında databinding sözdizimi yalnızca çalıştırıldığı için öznitelik değeri. GridView Görünüm durumunun etkin varsa, bu nedenle, biçimlendirme yöntemleri yalnızca zaman ateşlenir sayfa ilk kez yüklenen (veya ne zaman GridView açıkça DataSet'e veri kaynağına) ve bu nedenle ayarlar işlevi `checked` t won özniteliği çağrılabilir geri gönderme. Bu s yerine zarif bir sorun ve biraz t, şu anda bırakacağız şekilde bu makalenin kapsamı dışında. I yapmak için ancak, yukarıdaki yaklaşım kullanarak denemek için öneririz ve burada, takılı noktası üzerinden çalışır. Bu tür bir won alıştırma t alma olsa da, tüm daha yakın çalışan bir sürüm, daha derin bir anlayış GridView ve Veri bağlamada yaşam döngüsü verildiğine yardımcı olur.
 
-Diğer bir yaklaşım injecting özel bir şablon ve biz Bu öğreticide kullanacaksınız yaklaşımı alt düzey biçimlendirme eklemektir bir [değişmez değer denetim](https://msdn.microsoft.com/en-us/library/sz4949ks(VS.80).aspx) şablon. Ardından, GridView s `RowCreated` veya `RowDataBound` olay işleyicisi değişmez değer denetim programlı olarak erişilebilir ve kendi `Text` özelliği biçimlendirme yaymak üzere ayarlanmış.
+Diğer bir yaklaşım injecting özel bir şablon ve biz Bu öğreticide kullanacaksınız yaklaşımı alt düzey biçimlendirme eklemektir bir [değişmez değer denetim](https://msdn.microsoft.com/library/sz4949ks(VS.80).aspx) şablon. Ardından, GridView s `RowCreated` veya `RowDataBound` olay işleyicisi değişmez değer denetim programlı olarak erişilebilir ve kendi `Text` özelliği biçimlendirme yaymak üzere ayarlanmış.
 
 Başlat TemplateField s'den RadioButton kaldırarak `ItemTemplate`, sabit bir denetimle değiştirme. S değişmez değer denetimini ayarlama `ID` için `RadioButtonMarkup`.
 
@@ -205,7 +205,7 @@ GridView satır seçilir ve geri gönderimin gerçekleştiğinde, biz ilginizi `
 
 Bu olay işleyici kodu ekledikten sonra sayfasını bir tarayıcıda çıkışı test etmek için bir dakikanızı ayırın. İlk olarak, bu yalnızca bir radyo Not aynı anda düğmesi kılavuzundaki seçilebilir. Ancak, ne zaman radyo düğmesini seçerek ve düğmelerden birini tıklatarak, geri gönderimin oluştuğu ve tüm radyo düğmeleri ilk durumlarına geri döndürmek (diğer bir deyişle, geri göndermede, seçili radyo düğmesinin artık seçilidir). Bu sorunu gidermek için büyütmek için ihtiyacımız `RowCreated` olan geri gönderme gönderilen seçili radyo düğmesi dizin inceler ve ekler için olay işleyicisini `checked="checked"` özniteliği satır dizini eşleşmeleri verilmiş biçimlendirme.
 
-Geri gönderimin ortaya çıktığında, tarayıcının geri gönderdiği `name` ve `value` seçili radyo düğmesinin. Değer kullanılarak programlı olarak alınabilir `Request.Form["name"]`. [ `Request.Form` Özelliği](https://msdn.microsoft.com/en-us/library/system.web.httprequest.form.aspx) sağlayan bir [ `NameValueCollection` ](https://msdn.microsoft.com/en-us/library/system.collections.specialized.namevaluecollection.aspx) form değişkeni temsil eden. Form değişkeni adları ve web sayfasında form alanların değerlerini ve geri gönderimin ensues olduğunda web tarayıcısı tarafından gönderilir. Çünkü işlenen `name` GridView radyo düğmeleri özniteliğidir `SuppliersGroup`, web sayfasını tarayıcıda gönderecek geri gönderildiğinde `SuppliersGroup=valueOfSelectedRadioButton` (yanı sıra diğer form alanlarını) web sunucusu dön. Bu bilgiler daha sonra erişilebilen `Request.Form` özelliği kullanılarak: `Request.Form["SuppliersGroup"]`.
+Geri gönderimin ortaya çıktığında, tarayıcının geri gönderdiği `name` ve `value` seçili radyo düğmesinin. Değer kullanılarak programlı olarak alınabilir `Request.Form["name"]`. [ `Request.Form` Özelliği](https://msdn.microsoft.com/library/system.web.httprequest.form.aspx) sağlayan bir [ `NameValueCollection` ](https://msdn.microsoft.com/library/system.collections.specialized.namevaluecollection.aspx) form değişkeni temsil eden. Form değişkeni adları ve web sayfasında form alanların değerlerini ve geri gönderimin ensues olduğunda web tarayıcısı tarafından gönderilir. Çünkü işlenen `name` GridView radyo düğmeleri özniteliğidir `SuppliersGroup`, web sayfasını tarayıcıda gönderecek geri gönderildiğinde `SuppliersGroup=valueOfSelectedRadioButton` (yanı sıra diğer form alanlarını) web sunucusu dön. Bu bilgiler daha sonra erişilebilen `Request.Form` özelliği kullanılarak: `Request.Form["SuppliersGroup"]`.
 
 Biz bu yana belirlemek için seçilen radyo düğmesinin yalnızca de dizin `RowCreated` ancak olay işleyicisi `Click` düğmesi Web denetimleri için olay işleyicileri, let s ekleyin bir `SuppliersSelectedIndex` döndürürarkaplandakikodsınıfıözelliğine`-1`hiçbir radyo düğmesi seçilirse ve bir radyo düğmesi seçilirse, seçili dizin.
 
@@ -222,7 +222,7 @@ Bu değişiklikle, seçili radyo düğmesinin sonra geri gönderimin seçili kal
 Bu noktada seçili ve geri göndermelere arasında hatırlanan tek bir GridView satır izin veren GridView için bir sütun gruplandırılmış radyo düğmelerini ekledik. Bizim sonraki adımlar seçili sağlayıcı tarafından sağlanan ürünleri görüntülemek üzeresiniz. Adım 4'te kullanıcı başka bir sayfasına yeniden yönlendirmek nasıl seçili gönderme göreceğiz `SupplierID`. Adım 5'te aynı sayfada GridView içinde seçilen tedarikçi s ürünleri görüntülemek nasıl göreceğiz.
 
 > [!NOTE]
-> TemplateField (Bu uzun adım 3 odak) kullanmak yerine özel bir oluşturuyoruz `DataControlField` uygun kullanıcı arabirimi ve işlevselliği işler sınıfı. [ `DataControlField` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.aspx) BoundField, CheckBoxField, TemplateField ve diğer yerleşik GridView ve DetailsView alanlar kendisinden türetilen temel sınıftır. Özel oluşturma `DataControlField` sınıf anlamına radyo düğmelerini sütunu yalnızca bildirim temelli söz dizimini kullanarak eklenmiş ve diğer web sayfaları ve diğer web uygulamalarını önemli ölçüde daha kolay işlevselliği çoğaltma hale getirir.
+> TemplateField (Bu uzun adım 3 odak) kullanmak yerine özel bir oluşturuyoruz `DataControlField` uygun kullanıcı arabirimi ve işlevselliği işler sınıfı. [ `DataControlField` Sınıfı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.aspx) BoundField, CheckBoxField, TemplateField ve diğer yerleşik GridView ve DetailsView alanlar kendisinden türetilen temel sınıftır. Özel oluşturma `DataControlField` sınıf anlamına radyo düğmelerini sütunu yalnızca bildirim temelli söz dizimini kullanarak eklenmiş ve diğer web sayfaları ve diğer web uygulamalarını önemli ölçüde daha kolay işlevselliği çoğaltma hale getirir.
 
 
 Şimdiye kadar özel, oluşturulan ve derlenmiş ise ASP.NET denetimleri, ancak bunun nedenle legwork yeterince miktarda gerektirir ve ile bir ana bilgisayar subtleties ve dikkatle ele alınması kenar durumlarda taşır bildiğiniz. Bu nedenle, biz radyo düğmelerini özel olarak bir sütun uygulama atlayabilirsiniz `DataControlField` şu an için sınıf ve takılıyor TemplateField seçeneğiyle. Biz oluşturma, kullanma ve özel dağıtma keşfetmek için Fırsat belki de sahip olacaksınız `DataControlField` gelecekteki bir öğretici sınıflarda!
@@ -295,7 +295,7 @@ Yapılandırma seçin sonra güncelleştirme, ekleme ve sekmeler Sil, İleri'yi 
 
 Biz bir birkaç burada buna bir parametre s kaynak belirtme seçeneğiniz vardır. Biz varsayılan parametre nesnesini kullanın ve program aracılığıyla değerini atayın `SuppliersSelectedIndex` parametresi s özelliğine `DefaultValue` ObjectDataSource s özelliğinde `Selecting` olay işleyicisi. Geri başvurmak [program aracılığıyla ObjectDataSource ait parametre değerleri ayarlanıyor](../basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs.md) program aracılığıyla ObjectDataSource s parametreleri için değerler atama Yenileyici Öğreticisi.
 
-Alternatif olarak, size bir ControlParameter'da ve kullanabileceğiniz başvurmak `Suppliers` GridView s [ `SelectedValue` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (bkz. Şekil 19). GridView s `SelectedValue` özelliği döndürür `DataKey` değeri ile eşleşen [ `SelectedIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). GridView s programlı olarak ayarlamak ihtiyacımız bu seçeneğin çalışması sırayla `SelectedIndex` seçili özelliğine ne zaman satır `ListProducts` düğmesine tıklandığında. Ayarlayarak ek bir avantaj olarak `SelectedIndex`, seçili kaydı sürer `SelectedRowStyle` tanımlanan `DataWebControls` tema (sarı bir arka plan).
+Alternatif olarak, size bir ControlParameter'da ve kullanabileceğiniz başvurmak `Suppliers` GridView s [ `SelectedValue` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue.aspx) (bkz. Şekil 19). GridView s `SelectedValue` özelliği döndürür `DataKey` değeri ile eşleşen [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex.aspx). GridView s programlı olarak ayarlamak ihtiyacımız bu seçeneğin çalışması sırayla `SelectedIndex` seçili özelliğine ne zaman satır `ListProducts` düğmesine tıklandığında. Ayarlayarak ek bir avantaj olarak `SelectedIndex`, seçili kaydı sürer `SelectedRowStyle` tanımlanan `DataWebControls` tema (sarı bir arka plan).
 
 
 [![GridView s SelectedValue parametre kaynağı olarak belirtmek için bir ControlParameter'da kullanın](adding-a-gridview-column-of-radio-buttons-cs/_static/image19.gif)](adding-a-gridview-column-of-radio-buttons-cs/_static/image33.png)
@@ -342,4 +342,4 @@ Mutluluk programlama!
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme David Suru oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](adding-a-gridview-column-of-checkboxes-cs.md)
+[Next](adding-a-gridview-column-of-checkboxes-cs.md)

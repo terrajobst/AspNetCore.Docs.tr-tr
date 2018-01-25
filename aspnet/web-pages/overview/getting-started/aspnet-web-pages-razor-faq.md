@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 7f6dc3b56a33bcbe3e1e4086681ca1ba76d7d153
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 60cc4ca364923cb131d5e91cd7b6307b1e68644b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web sayfaları (Razor) ile ilgili SSS
 ====================
@@ -71,7 +71,7 @@ Visual Studio veya Visual Studio Code kullanmak istemiyorsanız, kullanarak tek 
 
 - Microsoft .NET Framework 4.5
 - ASP.NET (hangi ASP.NET Web sayfaları framework de yükler) MVC 5
-- IIS Express (web sunucusu)
+- IIS Express (the web server)
 - Microsoft SQL Server Compact 4.0 (veritabanı)
 
 Bir metin Düzenleyicisi'ni düzenlemek için kullanabileceğiniz *.cshtml* (veya *.vbhtml*) sayfaları.
@@ -99,7 +99,7 @@ IIS Express komut satırı seçenekleri ile ilgili Yardım için girin `iisexpre
 <a id="Can_I_use_ASP.NET_Web_Forms_controls_on_a_Web_Pages_page"></a>
 ## <a name="can-i-use-aspnet-web-forms-controls-on-a-web-pages-page"></a>ASP.NET Web Forms denetimleri Web Pages sayfasında kullanabilir miyim?
 
-Hayır. Web Forms denetimleri gibi [onay kutusunu](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.checkbox) denetimi [doğrulama denetimleri](https://msdn.microsoft.com/en-us/library/bwd43d0x)ve [GridView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview) yalnızca Web formları sayfaları iş denetim (*.aspx* dosyaları). Bu denetimler, Web Forms sayfası altyapısı gerektirir.
+Hayır. Web Forms denetimleri gibi [onay kutusunu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.checkbox) denetimi [doğrulama denetimleri](https://msdn.microsoft.com/library/bwd43d0x)ve [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview) yalnızca Web formları sayfaları iş denetim (*.aspx* dosyaları). Bu denetimler, Web Forms sayfası altyapısı gerektirir.
 
 <a id="Can_I_deploy_an_ASP.NET_Web_Pages_site_without_using_WebMatrix"></a>
 ## <a name="can-i-deploy-an-aspnet-web-pages-site-without-using-webmatrix"></a>Bir ASP.NET Web Pages sitesinde WebMatrix kullanmadan dağıtabilir miyim?
@@ -135,6 +135,6 @@ JQuery ASP.NET Web sayfaları ile kullanmak için yol göstermeye bazı blog gö
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 
-[ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001)
+[ASP.NET Web Sayfaları (Razor) Sorun Giderme Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001)
 
 [WebMatrix ve ASP.NET Web sayfaları Forumu](https://forums.asp.net/1224.aspx/1?WebMatrix) ASP.NET Web sitesi

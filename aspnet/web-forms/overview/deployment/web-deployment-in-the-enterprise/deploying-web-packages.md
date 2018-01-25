@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Web paketleri dağıtma
 ====================
@@ -70,13 +70,13 @@ Ya da belirtmeniz gerekir bir **/T** bayrağı veya **/Y** deneme Çalıştır v
 | **/U** | Kullanıcı adını belirtir. Bu, yalnızca temel kimlik doğrulaması kullanıyorsanız geçerlidir. |
 | **/P** | Parolayı belirtir. Bu, yalnızca temel kimlik doğrulaması kullanıyorsanız geçerlidir. |
 | **/L** | Paket yerel IIS Express örneğine dağıtılmalıdır gösterir. |
-| **/G** | Paket kullanılarak dağıtılır belirtir [tempAgent sağlayıcı ayarı](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx). Atlarsanız **/G** bayrağı, değer varsayılan olarak **false**. |
+| **/G** | Paket kullanılarak dağıtılır belirtir [tempAgent sağlayıcı ayarı](https://technet.microsoft.com/library/ee517345(WS.10).aspx). Atlarsanız **/G** bayrağı, değer varsayılan olarak **false**. |
 
 > [!NOTE]
 > Ayrıca her zaman bir web paketi oluşturma işlemi oluşturur, adında bir dosya oluşturur *[Proje adı] .deploy-readme.txt* bu dağıtım seçenekleri açıklanmaktadır.
 
 
-Bu bayrakların ek olarak, Web Dağıtımı işlemi ayarları ek olarak belirtebilirsiniz *. deploy.cmd* parametreleri. Belirttiğiniz ek ayarları yalnızca temel alınan MSDeploy.exe komutu geçirilecek. Bu ayarlar hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+Bu bayrakların ek olarak, Web Dağıtımı işlemi ayarları ek olarak belirtebilirsiniz *. deploy.cmd* parametreleri. Belirttiğiniz ek ayarları yalnızca temel alınan MSDeploy.exe komutu geçirilecek. Bu ayarlar hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 Çalıştırarak ContactManager.Mvc web uygulama projesi için bir test ortamı dağıtmak istediğinizi varsayalım *. deploy.cmd* dosya. Test ortamınızı Web dağıtımı uzak aracı hizmetini kullanmak için açıklandığı şekilde yapılandırılmış [bir Web sunucusu Web dağıtımı yayımlama için (Uzak Aracı) yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Web uygulamasını dağıtmak için sonraki adımları tamamlamanız gerekir.
 
@@ -101,7 +101,7 @@ Göstermek için nasıl *. deploy.cmd* dosya dağıtım işlemini basitleştirir
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Kullanma hakkında daha fazla bilgi için *. deploy.cmd* web paketini dağıtmak için bkz: dosya [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Kullanma hakkında daha fazla bilgi için *. deploy.cmd* web paketini dağıtmak için bkz: dosya [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx).
 
 ## <a name="using-msdeployexe"></a>MSDeploy.exe kullanma
 
@@ -115,21 +115,21 @@ MSDeploy.exe kullandığınızda, üç temel bilgiler sağlamanız gerekir:
 
 - A **– kaynak** verilerinizi burada geldiğini belirten parametresi.
 - A **– taşınmaya** parametresi için verilerinizin nerede bulunacağını belirtir.
-- A **– fiil** gösterir parametresi [işlemi](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx) gerçekleştirmek istediğiniz.
+- A **– fiil** gösterir parametresi [işlemi](https://technet.microsoft.com/library/dd568989(WS.10).aspx) gerçekleştirmek istediğiniz.
 
-MSDeploy.exe kullanır [Web dağıtımı sağlayıcıları](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx) kaynak ve hedef verileri işlemek için. Web dağıtımı ile çalışabilir uygulamalar ve veri kaynaklarını & #x 2014 aralığı temsil eden sağlayıcılarının çok içerir; örneğin, SQL Server veritabanları, IIS web sunucuları, sertifika, Genel Derleme Önbelleği (GAC) derlemeler için sağlayıcıları vardır çeşitli farklı yapılandırma dosyalarını ve diğer veri türleri çok sayıda. Her iki **– kaynak** parametre ve **– taşınmaya** parametresi biçiminde bir sağlayıcı belirtmelisiniz **– kaynak**: [*providerName*] [=*konumu*]. Bir IIS Web sitesine bir web paketi dağıtıyorsanız, bu değerleri kullanmanız gerekir:
+MSDeploy.exe kullanır [Web dağıtımı sağlayıcıları](https://technet.microsoft.com/library/dd569040(WS.10).aspx) kaynak ve hedef verileri işlemek için. Web dağıtımı ile çalışabilir uygulamalar ve veri kaynaklarını & #x 2014 aralığı temsil eden sağlayıcılarının çok içerir; örneğin, SQL Server veritabanları, IIS web sunucuları, sertifika, Genel Derleme Önbelleği (GAC) derlemeler için sağlayıcıları vardır çeşitli farklı yapılandırma dosyalarını ve diğer veri türleri çok sayıda. Her iki **– kaynak** parametre ve **– taşınmaya** parametresi biçiminde bir sağlayıcı belirtmelisiniz **– kaynak**: [*providerName*] [=*konumu*]. Bir IIS Web sitesine bir web paketi dağıtıyorsanız, bu değerleri kullanmanız gerekir:
 
-- **– Kaynak** sağlayıcısıdır her zaman [paket](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx). Örneğin:
+- **– Kaynak** sağlayıcısıdır her zaman [paket](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Örneğin:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- **– Taşınmaya** sağlayıcısıdır her zaman [otomatik](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx). Örneğin:
+- **– Taşınmaya** sağlayıcısıdır her zaman [otomatik](https://technet.microsoft.com/library/dd569016(WS.10).aspx). Örneğin:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - **– Fiil** her zaman **eşitleme**.
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Ayrıca, çeşitli belirtmek diğer ihtiyacınız vardır [sağlayıcıya özgü ayarlar](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx) ve genel [işlemi ayarları](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Örneğin, bir hazırlama ortamında ContactManager.Mvc web uygulamasına dağıtmak istediğinizi varsayalım. Dağıtım dağıtma Web işleyicisi hedeflediğini ve temel kimlik doğrulaması kullanmanız gerekir. Web uygulamasını dağıtmak için sonraki adımları tamamlamanız gerekir.
+Ayrıca, çeşitli belirtmek diğer ihtiyacınız vardır [sağlayıcıya özgü ayarlar](https://technet.microsoft.com/library/dd569001(WS.10).aspx) ve genel [işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Örneğin, bir hazırlama ortamında ContactManager.Mvc web uygulamasına dağıtmak istediğinizi varsayalım. Dağıtım dağıtma Web işleyicisi hedeflediğini ve temel kimlik doğrulaması kullanmanız gerekir. Web uygulamasını dağıtmak için sonraki adımları tamamlamanız gerekir.
 
 **MSDeploy.exe kullanan bir web uygulamasına dağıtmak için**
 
@@ -145,7 +145,7 @@ Bu örnekte:
 - **– Kaynak** parametresi belirtir **paket** sağlayıcı ve web paketinin konumu gösterir.
 - **– Taşınmaya** parametresi belirtir **otomatik** sağlayıcısı. **ComputerName** ayar, hedef sunucuda Web dağıtımı işleyicisi hizmeti URL'sini sağlar. **Kimlik** ayarını gösterir, temel kimlik doğrulaması kullanmak istediğiniz ve bu nedenle sağlamanız gerekir bir **kullanıcıadı** ve **parola**. Son olarak, **includeAcls = "False"** ayarı, hedef sunucuya kaynak web uygulamanızda dosyaların erişim denetim listelerini (ACL'ler) kopyalamak istemediğiniz belirtir.
 - **– Fiil: eşitleme** bağımsız değişkeni, hedef sunucuda kaynak İçerik çoğaltmak istediğiniz gösterir.
-- **– DisableLink** bağımsız değişkenlerini belirtmek uygulama havuzları, sanal dizin yapılandırmasını ya da hedef sunucuda Güvenli Yuva Katmanı (SSL) sertifikalarını çoğaltmak istediğiniz yok. Daha fazla bilgi için bkz: [Web dağıtımı bağlantı uzantıları](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx).
+- **– DisableLink** bağımsız değişkenlerini belirtmek uygulama havuzları, sanal dizin yapılandırmasını ya da hedef sunucuda Güvenli Yuva Katmanı (SSL) sertifikalarını çoğaltmak istediğiniz yok. Daha fazla bilgi için bkz: [Web dağıtımı bağlantı uzantıları](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
 - **– SetParamFile** parametresini konumunu sağlar *SetParameters.xml* dosya.
 - **– AllowUntrusted** anahtarı gösterir Web dağıtımı bir güvenilen sertifika yetkilisi tarafından verilmemiş SSL sertifikalarını kabul etmelisiniz. Web dağıtımı işleyicisine dağıtıyorsanız ve kendinden imzalı bir sertifika hizmeti URL'si güvenli hale getirmek için kullandığınız varsa, bu anahtarı eklemeniz gerekir.
 

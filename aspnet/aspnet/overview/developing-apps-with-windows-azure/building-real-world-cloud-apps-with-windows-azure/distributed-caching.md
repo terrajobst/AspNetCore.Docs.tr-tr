@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Dağıtılmış önbelleğe alma (yapı gerçek bulut uygulamaları Azure ile)
 ====================
@@ -79,12 +79,12 @@ Basit önbelleğe alma kodu göstermek için örnekler şunlardır; önbelleğe 
 
 ## <a name="azure-caching-services"></a>Azure Hizmetleri önbelleğe alma
 
-Azure aşağıdaki önbelleğe alma hizmetleri sunar: [Azure Redis önbelleği](https://msdn.microsoft.com/en-us/library/dn690523.aspx) ve [Azure yönetilen önbellek](https://msdn.microsoft.com/en-us/library/dn386094.aspx). Azure Redis önbelleği popüler üzerinde temel [açık kaynaklıdır Redis önbelleği](http://redis.io/) ve ilk seçenek çoğu için önbelleğe alma senaryoları.
+Azure aşağıdaki önbelleğe alma hizmetleri sunar: [Azure Redis önbelleği](https://msdn.microsoft.com/library/dn690523.aspx) ve [Azure yönetilen önbellek](https://msdn.microsoft.com/library/dn386094.aspx). Azure Redis önbelleği popüler üzerinde temel [açık kaynaklıdır Redis önbelleği](http://redis.io/) ve ilk seçenek çoğu için önbelleğe alma senaryoları.
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>Bir önbellek sağlayıcısı kullanarak ASP.NET oturum durumu
 
-Bölümünde belirtildiği gibi [web geliştirme en iyi yöntemler Bölüm](web-development-best-practices.md), oturum durumu kullanmaktan kaçınmak için en iyi uygulamadır. Uygulamanız oturum durumu gerektiriyorsa, sonraki en iyi uygulama olarak (birden çok web sunucusu örneğini) ölçeklendirme sağlamaz çünkü varsayılan bellek içi sağlayıcısı kaçınmaktır. Oturum durumunu kullanmak için birden çok web sunucusu çalıştıran bir siteye ASP.NET SQL Server oturum durumu sağlayıcısı sağlar, ancak bir bellek içi sağlayıcısına göre bir gecikme süresi yüksek maliyet oluşturur. Oturum durumu kullanmanız gerekiyorsa en iyi çözüm önbelleği sağlayıcısı gibi kullanmaktır [Azure önbelleği için oturum durumu sağlayıcısı](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Bölümünde belirtildiği gibi [web geliştirme en iyi yöntemler Bölüm](web-development-best-practices.md), oturum durumu kullanmaktan kaçınmak için en iyi uygulamadır. Uygulamanız oturum durumu gerektiriyorsa, sonraki en iyi uygulama olarak (birden çok web sunucusu örneğini) ölçeklendirme sağlamaz çünkü varsayılan bellek içi sağlayıcısı kaçınmaktır. Oturum durumunu kullanmak için birden çok web sunucusu çalıştıran bir siteye ASP.NET SQL Server oturum durumu sağlayıcısı sağlar, ancak bir bellek içi sağlayıcısına göre bir gecikme süresi yüksek maliyet oluşturur. Oturum durumu kullanmanız gerekiyorsa en iyi çözüm önbelleği sağlayıcısı gibi kullanmaktır [Azure önbelleği için oturum durumu sağlayıcısı](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Özet
 
@@ -96,11 +96,11 @@ Düzelt uygulama yanıt süresini ve ölçeklenebilirliğini geliştirmek için 
 
 Belgeler
 
-- [Azure önbelleği](https://msdn.microsoft.com/en-us/library/gg278356.aspx). Azure'da önbelleğe alma üzerinde resmi MSDN belge.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Önbelleğe alma yönerge ve edilgen önbellek düzeni bakın.
-- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Önbelleğe alma üzerinde bölümüne bakın.
-- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). W. Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Dağıtılmış önbelleğe alma bölümüne bakın.
-- [Ölçeklenebilirlik yolunda önbelleğe alma dağıtılmış](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx). Eski (2009) MSDN dergisi makale, ancak genel olarak dağıtılmış önbelleğe alma açıkça belirtilmiş bir giriş; önbelleğe alma hatasız ve en iyi yöntemler teknik incelemeler kısımları'den daha kapsamlı girmeyeceğini.
+- [Azure önbelleği](https://msdn.microsoft.com/library/gg278356.aspx). Azure'da önbelleğe alma üzerinde resmi MSDN belge.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Önbelleğe alma yönerge ve edilgen önbellek düzeni bakın.
+- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Önbelleğe alma üzerinde bölümüne bakın.
+- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Dağıtılmış önbelleğe alma bölümüne bakın.
+- [Ölçeklenebilirlik yolunda önbelleğe alma dağıtılmış](https://msdn.microsoft.com/magazine/dd942840.aspx). Eski (2009) MSDN dergisi makale, ancak genel olarak dağıtılmış önbelleğe alma açıkça belirtilmiş bir giriş; önbelleğe alma hatasız ve en iyi yöntemler teknik incelemeler kısımları'den daha kapsamlı girmeyeceğini.
 
 Videolar
 

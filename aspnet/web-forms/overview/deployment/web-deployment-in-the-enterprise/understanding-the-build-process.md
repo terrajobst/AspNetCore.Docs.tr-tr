@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 551e31a7a2d0a4e6259f74977c2f8e21cb694e42
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-the-build-process"></a>Derleme işlemi anlama
 ====================
@@ -77,7 +77,7 @@ Bir geliştirici test ortamına Contact Manager çözümü dağıtmak için geli
 
 
 > [!NOTE]
-> **/Fl** geçiş (kısaltması **/fileLogger**) adlı bir dosyaya yapı çıktı günlükleri *msbuild.log* geçerli dizin. Daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+> **/Fl** geçiş (kısaltması **/fileLogger**) adlı bir dosyaya yapı çıktı günlükleri *msbuild.log* geçerli dizin. Daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
 Bu noktada, MSBuild çalışmaya başlar, yükler *Publish.proj* dosyası ve işlem içindeki yönergeleri başlatır. MSBuild proje içeri aktarmak için ilk yönergenin söyler, dosya **TargetEnvPropsFile** parametresi belirtir.
@@ -178,7 +178,7 @@ Bu öğeler ne zaman oluşturulduğunu dağıtım paketleri başvuruda **BuildPr
 **DbPublishPackages** öğesini yolu tek bir değer içermesi *ContactManager.Database.deploymanifest* dosya.
 
 > [!NOTE]
-> .Deploymanifest dosya bir veritabanı projeyi oluşturun ve bir MSBuild proje dosyası olarak aynı şema kullanması durumunda oluşturulur. Veritabanı şeması (.dbschema) konumunu ve tüm dağıtım öncesi ve dağıtım sonrası komut dosyalarını ayrıntılarını içeren bir veritabanı dağıtmak için gerekli tüm bilgileri içerir. Daha fazla bilgi için bkz: [bir genel bakış, veritabanı derleme ve dağıtım](https://msdn.microsoft.com/en-us/library/aa833165.aspx).
+> .Deploymanifest dosya bir veritabanı projeyi oluşturun ve bir MSBuild proje dosyası olarak aynı şema kullanması durumunda oluşturulur. Veritabanı şeması (.dbschema) konumunu ve tüm dağıtım öncesi ve dağıtım sonrası komut dosyalarını ayrıntılarını içeren bir veritabanı dağıtmak için gerekli tüm bilgileri içerir. Daha fazla bilgi için bkz: [bir genel bakış, veritabanı derleme ve dağıtım](https://msdn.microsoft.com/library/aa833165.aspx).
 
 
 Nasıl dağıtım paketleri ve veritabanı dağıtım bildirimleri oluşturulur ve kullanılan hakkında daha fazla bilgi edineceksiniz [bina ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md) ve [dağıtma veritabanı projeleri](deploying-database-projects.md).
@@ -193,13 +193,13 @@ Kısaca konuşarak **PublishDbPackages** hedef çağırır dağıtmak için VSDB
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işleme koleksiyon yineleme için bir tekniktir. Değeri **çıkışları** özniteliği **"% (DbPublishPackages.Identity)"**, başvurduğu **kimlik** meta veri özelliği **DbPublishPackages**  öğe listesi. Bu gösterim **çıkışları = %***(ItemList.ItemMetadataName)*, olarak çevrilen:
+Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işleme koleksiyon yineleme için bir tekniktir. Değeri **çıkışları** özniteliği **"% (DbPublishPackages.Identity)"**, başvurduğu **kimlik** meta veri özelliği **DbPublishPackages**  öğe listesi. Bu gösterim **Outputs=%***(ItemList.ItemMetadataName)*, olarak çevrilen:
 
 - Öğeleri Böl **DbPublishPackages** aynı içeren öğelerini toplu olarak **kimlik** meta verilerinin değeri.
 - Toplu iş başına bir kez hedef yürütün.
 
 > [!NOTE]
-> **Kimlik** biri [yerleşik meta veri değerlerinin](https://msdn.microsoft.com/en-us/library/ms164313.aspx) oluşturulurken her öğeye atanmış. Değerine başvuruyor **INCLUDE** özniteliğini **öğesi** öğesi & #x 2014; diğer bir deyişle, yol ve dosya adı öğenin.
+> **Kimlik** biri [yerleşik meta veri değerlerinin](https://msdn.microsoft.com/library/ms164313.aspx) oluşturulurken her öğeye atanmış. Değerine başvuruyor **INCLUDE** özniteliğini **öğesi** öğesi & #x 2014; diğer bir deyişle, yol ve dosya adı öğenin.
 
 
 Aynı yol ve dosya adı ile birden fazla öğe hiçbir zaman olması gerekir çünkü bu durumda, aslında bir toplu boyutlarıyla çalışıyoruz. Hedef, her veritabanı paketi için bir kez çalıştırılır.
@@ -210,7 +210,7 @@ Benzer bir gösterimde görebilirsiniz  **\_Cmd** uygun anahtarlarını VSDBCMD 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu.  **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
+Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu. **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
@@ -219,7 +219,7 @@ Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPack
 Bu gösterim sonucunda **Exec** görev üzerinde benzersiz birleşimlerini dayalı toplu oluşturacak **DatabaseConnectionString**, **TargetDatabase**ve **FullPath** meta veri değerleri ve görev yürütülecek kez her toplu işlemi için. Bu bir örnektir *toplu görev işleme*. Ancak, hedef düzeyi toplu işleme zaten tek öğeli yığın sayısı, bizim öğeyi koleksiyona bölünmüş çünkü **Exec** Görev hedef her bir yineleme için yalnızca bir kez çalışacak. Diğer bir deyişle, bu görevi çözümdeki her veritabanı paketi için bir kez VSDBCMD yardımcı programı çağırır.
 
 > [!NOTE]
-> MSBuild hedef ve toplu görev işleme ile ilgili daha fazla bilgi için bkz [Batching](https://msdn.microsoft.com/en-us/library/ms171473.aspx), [toplu hedef işlemede öğe meta verisi](https://msdn.microsoft.com/en-US/library/ms228229.aspx), ve [toplu görev işlemede öğe meta verisi](https://msdn.microsoft.com/en-us/library/ms171474.aspx).
+> MSBuild hedef ve toplu görev işleme ile ilgili daha fazla bilgi için bkz [Batching](https://msdn.microsoft.com/library/ms171473.aspx), [toplu hedef işlemede öğe meta verisi](https://msdn.microsoft.com/library/ms228229.aspx), ve [toplu görev işlemede öğe meta verisi](https://msdn.microsoft.com/library/ms171474.aspx).
 
 
 ### <a name="the-publishwebpackages-target"></a>PublishWebPackages hedef

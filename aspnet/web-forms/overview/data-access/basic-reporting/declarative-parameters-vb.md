@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7759b3d078ddabd335034f2ff76f10fb0de7dd28
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-vb"></a>Bildirim temelli parametreleri (VB)
 ====================
@@ -111,7 +111,7 @@ Bu yana `GetSuppliersByCountry(country)` yöntemi giriş parametresi vardır, Si
 **Şekil 8**: parametre değeri ayarlamak `CountryName` denetim değeri ([tam boyutlu görüntüyü görüntülemek için tıklatın](declarative-parameters-vb/_static/image24.png))
 
 
-ObjectDataSource'nın bildirim temelli biçimlendirme ilk örneğimizde biraz farklıdır kullanarak bir [ControlParameter'da](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx) standart yerine `Parameter` nesnesi. A `ControlParameter` belirtmek için ek özellikler sahip `ID` Web denetimi ve parametre için kullanılacak özellik değeri (`PropertyName`). Veri Kaynağı Yapılandırma Sihirbazı'nı bir metin kutusu biz büyük olasılıkla kullanmak istersiniz, belirlemek akıllı `Text` özelliği parametre değeri. Ancak, Web denetiminden farklı özellik değerini kullanmak istiyorsanız, değiştirebileceğiniz `PropertyName` burada veya Sihirbazı'ndaki "Göster Gelişmiş Özellikler" bağlantısına tıklayarak değer.
+ObjectDataSource'nın bildirim temelli biçimlendirme ilk örneğimizde biraz farklıdır kullanarak bir [ControlParameter'da](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) standart yerine `Parameter` nesnesi. A `ControlParameter` belirtmek için ek özellikler sahip `ID` Web denetimi ve parametre için kullanılacak özellik değeri (`PropertyName`). Veri Kaynağı Yapılandırma Sihirbazı'nı bir metin kutusu biz büyük olasılıkla kullanmak istersiniz, belirlemek akıllı `Text` özelliği parametre değeri. Ancak, Web denetiminden farklı özellik değerini kullanmak istiyorsanız, değiştirebileceğiniz `PropertyName` burada veya Sihirbazı'ndaki "Göster Gelişmiş Özellikler" bağlantısına tıklayarak değer.
 
 [!code-aspx[Main](declarative-parameters-vb/samples/sample2.aspx)]
 

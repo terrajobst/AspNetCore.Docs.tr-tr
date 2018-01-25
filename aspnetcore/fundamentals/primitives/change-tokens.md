@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
 
@@ -135,7 +135,7 @@ Bir düğme sağlar ve izlemeyi devre dışı bırakır:
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Zaman `OnPostStartMonitoring` olan tetiklenen, izleme etkinleştirilmişse ve geçerli durumu temizlenir. Zaman `OnPostStopMonitoring` olan tetiklenen, izleme devre dışı bırakılır ve durumu izleme değil oluştuğunu yansıtacak şekilde ayarlandı.
+Zaman `OnPostStartMonitoring` olan tetiklenen, izleme etkinleştirilmişse ve geçerli durumu temizlenir. Zaman `OnPostStopMonitoring` olan tetiklenen, izleme devre dışı bırakılır ve durumunu izleme gerçekleşen değil yansıtacak şekilde ayarlayın.
 
 ## <a name="monitoring-cached-file-changes"></a>Önbelleğe alınmış dosya değişiklikleri izleme
 
@@ -202,7 +202,7 @@ var compositeChangeToken =
 * [Bellek içi önbelleğe alma](xref:performance/caching/memory)
 * [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
-* [Yanıt önbelleğe alma](xref:performance/caching/response)
-* [Yanıt önbelleğe alma Ara](xref:performance/caching/middleware)
-* [Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Yanıtları önbelleğe alma](xref:performance/caching/response)
+* [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
+* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

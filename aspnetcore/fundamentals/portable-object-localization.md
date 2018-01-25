@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: dfdd86b4706a1fb8e313c24ba830ec996fe09225
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ad68c8a7df5a8ea0f7ef42137c29cd3b37657052
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Taşınabilir nesne yerelleştirme Orchard çekirdek ile yapılandırma
 
@@ -21,7 +21,7 @@ Tarafından [Sébastien Ros](https://github.com/sebastienros) ve [Scott Addie](h
 
 Bu makalede taşınabilir nesne (SAS) dosyalarında ASP.NET Core uygulamayla kullanmak için adım adım anlatılmaktadır [Orchard çekirdek](https://github.com/OrchardCMS/OrchardCore) framework.
 
-**Not:** Orchard çekirdek bir Microsoft ürünü değil. Sonuç olarak, Microsoft bu özellik için destek sağlar.
+**Not:** bir Microsoft ürünü Orchard çekirdek değildir. Sonuç olarak, Microsoft bu özellik için destek sağlar.
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 

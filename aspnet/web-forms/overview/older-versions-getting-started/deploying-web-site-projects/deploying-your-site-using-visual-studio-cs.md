@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d3d2c70346abad5addab5c29d4af9f238b39da
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c0c32c3dd24be5edfea3e17695753973f3fad30a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio (C#) kullanarak, sitenizi dağıtma
 ====================
@@ -33,7 +33,7 @@ Bir web ana makine sağlayıcısı için basit bir ASP.NET web uygulaması dağ�
 
 
 > [!NOTE]
-> Visual Studio tarafından sunulan diğer dağıtımla ilgili araçları dahil [Web Kurulum projeleri](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx) ve [Web dağıtım projeleri](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) eklenti. Web Kurulum projeleri, Web sitesinin içeriğini ve tek bir MSI dosyası yapılandırma bilgilerini paketi. Bu seçenek en intranet içinde dağıtılan Web siteleri için veya müşterilerin kendi web sunucularına yükleme önceden paketlenmiş web uygulaması satmak şirketler için yararlıdır. Web dağıtım projeleri geliştirme ortamlarını ve üretim ortamları için bir Visual Studio belirterek yapılandırma farklarını kolaylaştıran eklentisini derlemeler eklentidir. Web Kurulum projeleri Bu öğretici serisinde açıklanmamaktadır; Web dağıtım projeleri özetlenir [ *ortak yapılandırma farklılıkları arasında geliştirme ve üretim* ](common-configuration-differences-between-development-and-production-cs.md) Öğreticisi.
+> Visual Studio tarafından sunulan diğer dağıtımla ilgili araçları dahil [Web Kurulum projeleri](https://msdn.microsoft.com/library/wx3b589t.aspx) ve [Web dağıtım projeleri](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) eklenti. Web Kurulum projeleri, Web sitesinin içeriğini ve tek bir MSI dosyası yapılandırma bilgilerini paketi. Bu seçenek en intranet içinde dağıtılan Web siteleri için veya müşterilerin kendi web sunucularına yükleme önceden paketlenmiş web uygulaması satmak şirketler için yararlıdır. Web dağıtım projeleri geliştirme ortamlarını ve üretim ortamları için bir Visual Studio belirterek yapılandırma farklarını kolaylaştıran eklentisini derlemeler eklentidir. Web Kurulum projeleri Bu öğretici serisinde açıklanmamaktadır; Web dağıtım projeleri özetlenir [ *ortak yapılandırma farklılıkları arasında geliştirme ve üretim* ](common-configuration-differences-between-development-and-production-cs.md) Öğreticisi.
 
 
 ## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Kopyalama Web sitesi Aracı'nı kullanarak sitenizi dağıtma
@@ -149,11 +149,11 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Web sitesi kopyasını Web sitesini aracı ile kopyalama](https://msdn.microsoft.com/en-us/library/1cc82atw.aspx)
+- [Web sitesi kopyasını Web sitesini aracı ile kopyalama](https://msdn.microsoft.com/library/1cc82atw.aspx)
 - [Ne I: dağıtmak kopyalama Web sitesi Aracı'nı kullanarak bir Web sitesi](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
-- [Nasıl yapılır: Web Uygulama projeleri yayımlama](https://msdn.microsoft.com/en-us/library/aa983453.aspx)
-- [Nasıl yapılır: Web siteleri yayımlama](https://msdn.microsoft.com/en-us/library/20yh9f1b.aspx)
-- [Kurulum ve dağıtım projeleri Visual Studio'da](https://msdn.microsoft.com/en-us/library/wx3b589t.aspx)
+- [Nasıl yapılır: Web Uygulama projeleri yayımlama](https://msdn.microsoft.com/library/aa983453.aspx)
+- [Nasıl yapılır: Web siteleri yayımlama](https://msdn.microsoft.com/library/20yh9f1b.aspx)
+- [Kurulum ve dağıtım projeleri Visual Studio'da](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](deploying-your-site-using-an-ftp-client-cs.md)

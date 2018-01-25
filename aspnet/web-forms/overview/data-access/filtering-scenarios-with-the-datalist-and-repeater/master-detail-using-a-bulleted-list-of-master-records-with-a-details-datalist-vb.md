@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 99d04c95b42402ae2bc72562a652b6edec5e9313
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 613ad1fb101a168c79310c9dc7bf731be264f889
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Ana/ayrıntı madde işaretli ana kayıtların listesini ayrıntıları DataList (VB) ile kullanma
 ====================
@@ -210,7 +210,7 @@ Eklenecek DAL güncelleştirerek çizilir çıktı bir `NumberOfProducts` sütun
 
 Bu noktada sahibiz `Categories` yineleyici ürünleri ile birlikte kategori listesi, her kategoride görüntüleme. Yineleyici bir LinkButton tıklatıldığında nedenler kesiştiği geri gönderme bir işaret etmesini, biz her kategori için kullanır. Bu ürünler için seçilen kategorideki görüntülemeniz `CategoryProducts` DataList.
 
-Bize bakan bir yalnızca seçilen kategori için ürünleri görüntüler DataList nasıl iştir. İçinde [ana/Ayrıntılar DetailsView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) GridView, satırları nasıl oluşturulacağını gördüğümüz öğretici seçilmesi, seçilen satırı DetailsView aynı sayfada görüntülenen s ayrıntıları. GridView s kullanarak tüm ürünlerle ilgili bilgileri ObjectDataSource döndürülen `ProductsBLL` s `GetProducts()` yöntemi DetailsView s ObjectDataSource çalışırken alınan seçili ürün kullanma hakkında bilgi `GetProductsByProductID(productID)` yöntemi.  *`productID`*  Parametre değeri sağlanmadığından bildirimli olarak GridView s değeriyle ilişkilendirerek `SelectedValue` özelliği. Ne yazık ki, yineleyici sahip olmayan bir `SelectedValue` özelliği ve parametre kaynağı olarak sunulamıyor.
+Bize bakan bir yalnızca seçilen kategori için ürünleri görüntüler DataList nasıl iştir. İçinde [ana/Ayrıntılar DetailsView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) GridView, satırları nasıl oluşturulacağını gördüğümüz öğretici seçilmesi, seçilen satırı DetailsView aynı sayfada görüntülenen s ayrıntıları. GridView s kullanarak tüm ürünlerle ilgili bilgileri ObjectDataSource döndürülen `ProductsBLL` s `GetProducts()` yöntemi DetailsView s ObjectDataSource çalışırken alınan seçili ürün kullanma hakkında bilgi `GetProductsByProductID(productID)` yöntemi. *`productID`*  Parametre değeri sağlanmadığından bildirimli olarak GridView s değeriyle ilişkilendirerek `SelectedValue` özelliği. Ne yazık ki, yineleyici sahip olmayan bir `SelectedValue` özelliği ve parametre kaynağı olarak sunulamıyor.
 
 > [!NOTE]
 > Bu, LinkButton bir yineleyici kullanılırken görünür bu zorluklar biridir. Köprü olarak geçirmek için kullandık vardı `CategoryID` querystring bunun yerine, biz QueryString alan kaynak olarak için parametre s değeri kullanabilirsiniz.
@@ -243,9 +243,9 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio 
 
 Şu anda `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  parametresi hiçbir zaman ayarlanırsa, hiç ürün sayfasını görüntülerken görüntülenecek şekilde. Bu parametre değer temel alınarak ayarlanmış yapmak ihtiyacımız olan `CategoryID` yineleyicideki tıklatılan kategorisi. Bu iki zorluklar getirir: ilk olarak, nasıl belirleriz bir LinkButton zaman s yineleyicideki `ItemTemplate` tıklatılan; ve ikinci, nasıl biz belirleyebilir `CategoryID` , LinkButton tıklattınız karşılık gelen kategorisinin?
 
-Düğmesini ve ImageButton denetimleri gibi LinkButton sahip bir `Click` olay ve [ `Command` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.command.aspx). `Click` Olay yalnızca LinkButton tıklatıldıktan not etmek için tasarlanmıştır. Bazen, ancak LinkButton tıklatıldıktan belirtmeye ek olarak biz de bazı ek bilgi için olay işleyicisini geçirmek gerekir. Bu durumda, LinkButton s ise [ `CommandName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) ve [ `CommandArgument` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) özellikler bu ek bilgiler atanabilir. Ardından LinkButton tıklandığında, kendi `Command` olay ateşlenir (yerine kendi `Click` olay) ve olay işleyicisi değerlerini geçirilen `CommandName` ve `CommandArgument` özellikleri.
+Düğmesini ve ImageButton denetimleri gibi LinkButton sahip bir `Click` olay ve [ `Command` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). `Click` Olay yalnızca LinkButton tıklatıldıktan not etmek için tasarlanmıştır. Bazen, ancak LinkButton tıklatıldıktan belirtmeye ek olarak biz de bazı ek bilgi için olay işleyicisini geçirmek gerekir. Bu durumda, LinkButton s ise [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) ve [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) özellikler bu ek bilgiler atanabilir. Ardından LinkButton tıklandığında, kendi `Command` olay ateşlenir (yerine kendi `Click` olay) ve olay işleyicisi değerlerini geçirilen `CommandName` ve `CommandArgument` özellikleri.
 
-Zaman bir `Command` olayı gelen yineleyici s yineleyici şablonunda içinde [ `ItemCommand` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) başlatılır ve geçirilen `CommandName` ve `CommandArgument` tıklatılan LinkButton değerlerini (veya düğmesini veya ImageButton). Bu nedenle, bir kategori yineleyicideki LinkButton tıklandığında belirlemek için aşağıdakileri yapmak ihtiyacımız var:
+Zaman bir `Command` olayı gelen yineleyici s yineleyici şablonunda içinde [ `ItemCommand` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) başlatılır ve geçirilen `CommandName` ve `CommandArgument` tıklatılan LinkButton değerlerini (veya düğmesini veya ImageButton). Bu nedenle, bir kategori yineleyicideki LinkButton tıklandığında belirlemek için aşağıdakileri yapmak ihtiyacımız var:
 
 1. Ayarlama `CommandName` s yineleyicideki LinkButton özelliğinin `ItemTemplate` bazı değerine (t ve kullanılan ListProducts). Bu ayarlayarak `CommandName` değeri, LinkButton s `Command` LinkButton tıklatıldığında olay tetikler.
 2. LinkButton s ayarlamak `CommandArgument` özelliğinin değeri geçerli öğenin s `CategoryID`.

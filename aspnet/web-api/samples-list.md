@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/samples-list
 msc.type: content
-ms.openlocfilehash: 2f40cd4bebdd64c3a4b94cfc1e717fa4b304e57e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e1f43bbeedfc052f0b3a3924f51b544a5a79dca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-api-samples-list"></a>Web API örnekleri listesi
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/10/2017
 
 **Bing Çevir örnek** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fBingTranslateSample%2fReadMe.txt)
 
-Nasıl çağrılacağını gösterir [Microsoft Translator hizmet](https://msdn.microsoft.com/en-us/library/ff512419.aspx) kullanarak **HttpClient** sınıfı. Microsoft Translator hizmeti API'si Azure belirteci sunucunun Çeviricisi hizmetine her istek için bir istek göndererek uygulama edinir OAuth belirteci gerektirir. Belirteç sunucunun sonucundan çeviri hizmete gönderilen istek uygulamasına gönderilir. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [uygulama anahtarı Azure Marketi'nden](https://msdn.microsoft.com/en-us/library/hh454950.aspx) ve AccessTokenMessageHandler örnek sınıfındaki bilgileri doldurun.
+Nasıl çağrılacağını gösterir [Microsoft Translator hizmet](https://msdn.microsoft.com/library/ff512419.aspx) kullanarak **HttpClient** sınıfı. Microsoft Translator hizmeti API'si Azure belirteci sunucunun Çeviricisi hizmetine her istek için bir istek göndererek uygulama edinir OAuth belirteci gerektirir. Belirteç sunucunun sonucundan çeviri hizmete gönderilen istek uygulamasına gönderilir. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [uygulama anahtarı Azure Marketi'nden](https://msdn.microsoft.com/library/hh454950.aspx) ve AccessTokenMessageHandler örnek sınıfındaki bilgileri doldurun.
 
 **Google haritalar örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
 
@@ -74,7 +74,7 @@ Bir istek bilgileri için eylem parametrelerini nasıl bağlı belirler işlemid
 
 1. BindPrincipal nasıl IPrincipal parametresi bir HTTP GET iletisi değil, özel genel sorumlu bağlanacağını gösterir;
 2. BindCustomComplexTypeFromUriOrBody nasıl ileti gövdesi ya da bir HTTP POST iletisi URI'sini isteğinden gelebilir bir karmaşık tür parametre bağlanacağını gösterir;
-3. BindCustomComplexTypeFromUriWithRenamedProperty nasıl bir HTTP POST iletisi URI'sini istekten gelen yeniden adlandırılmış bir özelliği bir karmaşık türü parametresiyle bağlanacağını gösterir;
+3. BindCustomComplexTypeFromUriWithRenamedProperty shows how to bind a complex-type parameter with a renamed property which comes from the request URI of an HTTP POST message;
 4. PostMultipleParametersFromBody nasıl gövdesinden bir posta iletisi için birden çok parametre bağlanacağını gösterir;
 
 **Örnek karşıya dosya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/03/01/file-upload-and-asp-net-web-api.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fFileUploadSample%2fReadMe.txt)
@@ -83,7 +83,7 @@ Dosyaları yüklemeyi gösteren bir **ApiController** MIME çok bölümlü dosya
 
 **Azure Blob Depolama örnek yüklenecek dosya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
 
-Bu örnek dosya karşıya yükleme örneğe benzer, ancak yerel diskteki karşıya yüklenen dosyaların kaydetme yerine, bu zaman uyumsuz olarak dosyaları karşıya yükleme [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) kullanarak [.NET için Windows Azure SDK](https://www.windowsazure.com/en-us/develop/net/). Ayrıca, mevcut BLOB listeleme için bir mekanizma sağlar bir [Azure Blob Depolama kapsayıcısını](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Karşı çalışan örnek deneyebilirsiniz **Azure Storage öykünücüsü** Azure SDK ile birlikte gelir. Varsa bir [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), karşı gerçek depolama hizmetini de çalıştırabilirsiniz.
+Bu örnek dosya karşıya yükleme örneğe benzer, ancak yerel diskteki karşıya yüklenen dosyaların kaydetme yerine, bu zaman uyumsuz olarak dosyaları karşıya yükleme [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) kullanarak [.NET için Windows Azure SDK](https://www.windowsazure.com/develop/net/). Ayrıca, mevcut BLOB listeleme için bir mekanizma sağlar bir [Azure Blob Depolama kapsayıcısını](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Karşı çalışan örnek deneyebilirsiniz **Azure Storage öykünücüsü** Azure SDK ile birlikte gelir. Varsa bir [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), karşı gerçek depolama hizmetini de çalıştırabilirsiniz.
 
 **HTTP ileti işleyicisi ardışık örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
 

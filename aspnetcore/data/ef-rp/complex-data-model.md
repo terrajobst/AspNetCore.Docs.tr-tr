@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Karmaşık veri model - EF çekirdek Razor sayfalarının öğretici (8'in 5) ile oluşturma
 
@@ -49,7 +49,7 @@ Güncelleştirme *Models/Student.cs* aşağıdaki vurgulanmış kodu:
 * `mailto:` Bağlantı için otomatik olarak oluşturulduğunda `DataType.EmailAddress`.
 * Tarih Seçici için sağlanan `DataType.Date` çoğu tarayıcılarda.
 
-`DataType` Özniteliği yayar HTML 5 `data-` HTML 5 tarayıcılar tüketebilir (okunur veri tire) öznitelikler. `DataType` Öznitelikleri doğrulama sağlamaz.
+`DataType` Özniteliği yayar HTML 5 `data-` HTML 5 tarayıcılar tüketebilir (okunur veri tire) öznitelikler. `DataType` Öznitelikler yok doğrulama sağlar.
 
 `DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre tarih alanı görüntülenir [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
@@ -59,7 +59,7 @@ Güncelleştirme *Models/Student.cs* aşağıdaki vurgulanmış kodu:
 [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 ```
 
-`ApplyFormatInEditMode` Ayarı, biçimlendirmeyi de düzenleme UI uygulanması gerektiğini belirtir. Bazı alanlar kullanılamaz `ApplyFormatInEditMode`. Örneğin, para birimi simgesini genellikle bir düzenleme metin kutusunda görüntülenmemelidir.
+`ApplyFormatInEditMode` Ayarı, biçimlendirmeyi de düzenleme UI uygulanması gerektiğini belirtir. Bazı alanlar kullanmamanız `ApplyFormatInEditMode`. Örneğin, para birimi simgesini genellikle bir düzenleme metin kutusunda görüntülenmemelidir.
 
 `DisplayFormat` Özniteliği kendisi tarafından kullanılabilir. Bu genellikle kullanmak için iyi bir fikirdir `DataType` ile öznitelik `DisplayFormat` özniteliği. `DataType` Özniteliği bir ekranda işlemesini nasıl aksine veri semantiği iletir. `DataType` Özniteliği kullanılamayan aşağıdaki yararları sağlar `DisplayFormat`:
 
@@ -159,7 +159,7 @@ Güncelleştirme *Models/Student.cs* aşağıdaki kod ile:
 
 ### <a name="the-required-attribute"></a>Gerekli özniteliği
 
-`Required` Öznitelik adı özellikleri gerekli alanlar yapar. `Required` Öznitelik değer türleri gibi null türleri için gerekli değildir (`DateTime`, `int`, `double`vb..). Null olamaz türleri gerekli alanlar olarak otomatik olarak kabul edilir.
+`Required` Öznitelik adı özellikleri gerekli alanlar yapar. `Required` Öznitelik değer türleri gibi null türleri için gerekli değil (`DateTime`, `int`, `double`vb..). Null olamaz türleri gerekli alanlar olarak otomatik olarak kabul edilir.
 
 `Required` Özniteliği yerine bir en az uzunluk parametresi `StringLength` özniteliği:
 
@@ -284,7 +284,7 @@ Güncelleştirme *Models/Course.cs* aşağıdaki kod ile:
 
 İlgili varlık için gezinme özelliği modele sahip olduğunda EF çekirdek FK özelliği için bir veri modeli gerektirmez.
 
-Gerekli olan her yerde EF çekirdek FKs veritabanında otomatik olarak oluşturur. EF çekirdek oluşturur [gölge özellikleri](https://docs.microsoft.com/ef/core/modeling/shadow-properties) otomatik olarak oluşturulan FKs için. Veri modelinde FK sahip güncelleştirmeleri daha basit ve daha verimli hale getirebilir. Örneğin, bir model göz önünde bulundurun burada FK özelliği `DepartmentID` olan *değil* dahil. Ne zaman bir indirmelere varlığı düzenlemek için getirilir:
+Gerekli nerede olursa olsun EF çekirdek FKs veritabanında otomatik olarak oluşturur. EF çekirdek oluşturur [gölge özellikleri](https://docs.microsoft.com/ef/core/modeling/shadow-properties) otomatik olarak oluşturulan FKs için. Veri modelinde FK sahip güncelleştirmeleri daha basit ve daha verimli hale getirebilir. Örneğin, bir model göz önünde bulundurun burada FK özelliği `DepartmentID` olan *değil* dahil. Ne zaman bir indirmelere varlığı düzenlemek için getirilir:
 
 * `Department` Varlıktır açıkça yüklü değilse null.
 * İndirmelere varlık güncelleştirileceğini `Department` varlık gerekir ilk getirildi.
@@ -373,10 +373,10 @@ public ICollection<Course> Courses { get; set; }
 
 Not: kurala göre art arda silme çok-çok ilişkileri ve null FKs için EF çekirdek sağlar. Art arda delete döngüsel cascade delete kurallarında neden olabilir. Döngüsel art arda silme kuralları nedenler özel bir durum geçiş eklendiğinde.
 
-Örneğin, varsa `Department.InstructorID` özelliği tanımlanmamış olarak boş değer atanabilir:
+Örneğin, varsa `Department.InstructorID` özelliği değildi tanımlı olarak boş değer atanabilir:
 
 * EF çekirdek departman silindiğinde Eğitmen silmek için bir cascade delete kuralı yapılandırır.
-* Departman silindiğinde Eğitmen silinmesi amaçlanan bir davranış değildir.
+* Departman silindiğinde Eğitmen silme amaçlanan bir davranış değildir.
 
 İş kuralları gerekirse `InstructorID` özelliği null, aşağıdaki fluent API deyimini kullanın:
 
@@ -431,7 +431,7 @@ Varsa `Enrollment` tablosunu kaydetmedi düzeyde bilgi dahil etmek, yalnızca ik
 
 `Instructor` Ve `Course` varlığın saf birleştirme tablosunu kullanarak bir çok-çok ilişkisi vardır.
 
-Not: EF 6.x destekler çok-çok ilişkileri ancak EF çekirdek için örtük birleştirme tabloları desteklemez. Daha fazla bilgi için bkz: [çok-çok ilişkileri EF çekirdek 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
+Not: EF 6.x destekler örtük birleştirme tablolarını çok-çok ilişkileri ancak EF çekirdek değildir. Daha fazla bilgi için bkz: [çok-çok ilişkileri EF çekirdek 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment varlık
 
@@ -462,7 +462,7 @@ Bileşik anahtarın sağlar:
 
 * Birden çok satır için bir indirmelere izin verilir.
 * Birden çok satır için bir eğitmen izin verilir.
-* Birden çok satır aynı eğitmen ve indirmelere için izin verilmiyor.
+* Birden çok satır aynı eğitmen ve indirmelere için kullanılamaz.
 
 `Enrollment` Birleştirme varlık çoğaltmaları bu tür olası şekilde kendi PK tanımlar. Bu tür çoğaltmaları önlemek için:
 
@@ -638,7 +638,7 @@ Varolan önceki değişikliklerle `Course` satır ilgili sonra "Temp" departman 
 Bir üretim uygulaması gerekir:
 
 * Kod veya eklemek için komut dosyaları dahil `Department` satırlar ve ilişkili `Course` yeni satır `Department` satır.
-* "Temp" departman veya varsayılan değeri kullanamayacak `Course.DepartmentID `.
+* "Temp" departman veya için varsayılan değer kullanmamanız `Course.DepartmentID`.
 
 Sonraki öğretici ilgili veriler içerir.
 

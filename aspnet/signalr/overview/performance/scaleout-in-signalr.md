@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 4f1ad959c45281cdd831c37c2e3ca428f3fae9a0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1d15250682305f6d0512b72bd2e40cb4a8a18e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>SignalR genişletme giriş
 ====================
@@ -55,21 +55,21 @@ Bir çözümdür iletilerini adlı bir bileşen kullanarak sunucuları arasında
 
 SignalR şu anda üç backplanes sağlar:
 
-- **Azure hizmet veri yolu**. Hizmet veri yolu geniş bağlı şekilde iletileri göndermek bileşenleri izin veren bir ileti altyapısıdır.
+- **Azure Service Bus**. Hizmet veri yolu geniş bağlı şekilde iletileri göndermek bileşenleri izin veren bir ileti altyapısıdır.
 - **Redis**. Redis bir bellek içi anahtar-değer deposudur. Redis ileti göndermek için bir yayımlama/abonelik ("pub/alt") desen destekler.
 - **SQL Server**. SQL Server devre kartına ileti SQL tablolara yazar. Devre kartına verimli ileti için hizmet Aracısı kullanır. Service Broker etkin değilse ancak, bu da çalışır.
 
-Uygulamanızı Azure üzerinde dağıtırsanız, Redis devre kartı kullanarak göz önünde bulundurun [Azure Redis önbelleği](https://azure.microsoft.com/en-us/services/cache/). Kendi sunucu grubuna dağıtıyorsanız, SQL Server veya Redis backplanes göz önünde bulundurun.
+Uygulamanızı Azure üzerinde dağıtırsanız, Redis devre kartı kullanarak göz önünde bulundurun [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/). Kendi sunucu grubuna dağıtıyorsanız, SQL Server veya Redis backplanes göz önünde bulundurun.
 
 Aşağıdaki konular her devre kartı yönelik adım adım öğreticiler içerir:
 
-- [Azure Service Bus ile SignalR genişletme](scaleout-with-windows-azure-service-bus.md)
-- [Redis ile SignalR genişletme](scaleout-with-redis.md)
-- [SQL Server ile SignalR genişletme](scaleout-with-sql-server.md)
+- [Azure Service Bus ile SignalR Ölçeğini Genişletme](scaleout-with-windows-azure-service-bus.md)
+- [Redis ile SignalR Ölçeğini Genişletme](scaleout-with-redis.md)
+- [SQL Server ile SignalR Ölçeğini Genişletme](scaleout-with-sql-server.md)
 
 ## <a name="implementation"></a>Uygulama
 
-SignalR öğesinde her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) Yayımla ve abone bir Özet sağlar arabirimi. Varsayılan değiştirerek backplanes iş **IMessageBus** o devre kartı için tasarlanmış bir veri yolu ile. Örneğin, Redis için ileti veri yolu olan [RedisMessageBus](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), ve Redis kullanan [pub/alt](http://redis.io/topics/pubsub) ileti gönderme ve alma için bir mekanizma.
+SignalR öğesinde her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) Yayımla ve abone bir Özet sağlar arabirimi. Varsayılan değiştirerek backplanes iş **IMessageBus** o devre kartı için tasarlanmış bir veri yolu ile. Örneğin, Redis için ileti veri yolu olan [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), ve Redis kullanan [pub/alt](http://redis.io/topics/pubsub) ileti gönderme ve alma için bir mekanizma.
 
 Her sunucu örneği devre kartı veri yolu üzerinden bağlanır. Bir ileti gönderildiğinde devre kartına gider ve isteğe bağlı olarak devre kartı her sunucuya gönderir. Bir sunucu kartından bir ileti aldığında, iletiyi yerel önbelleğinde koyar. Sunucu, bunun yerel önbelleğinden istemcilere iletileri sonra sunar.
 

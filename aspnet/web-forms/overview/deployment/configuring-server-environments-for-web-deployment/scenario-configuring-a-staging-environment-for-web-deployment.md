@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b5f223f59a8b222f4f01322d228cf7434e3dfc14
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma
 ====================
@@ -35,7 +35,7 @@ Kuruluşlar çok sayıda hazırlama ortamlarını web uygulamaları veya Web sit
 - Uygulamaları değişiklikleri düzenli aralıklarla üzerinde dağıtılır, bu nedenle ortamı tek adımlı desteklemesi gerekir veya otomatik dağıtım.
 
 > [!NOTE]
-> Birden çok sunucu arasında bir veritabanı dağıtım ölçeklendirme Bu öğretici kapsamında değildir. Bu alan hakkında daha fazla bilgi için lütfen bakın [SQL Server Books Online](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Birden çok sunucu arasında bir veritabanı dağıtım ölçeklendirme Bu öğretici kapsamında değildir. Bu alan hakkında daha fazla bilgi için lütfen bakın [SQL Server Books Online](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Örneğin, bizim [öğretici senaryo](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) Contact Manager çözüm yönetir. TFS yönetici, Ramiz Aksoy hazırlama ortamına gerektiği gibi bir dağıtımı tetiklemek geliştiricilerinin bir derleme tanımınız oluşturdu.

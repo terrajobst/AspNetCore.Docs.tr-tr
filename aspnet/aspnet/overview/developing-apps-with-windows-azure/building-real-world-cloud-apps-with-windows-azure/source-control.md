@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -137,9 +137,9 @@ Daha önce sunulan DevOps dallanma yapısı uygulamak için herhangi bir kaynak 
 
 [Git](http://git-scm.com/) olan bir DVCS çok popüler duruma olduğu. Kaynak denetimi için Git kullandığınızda, yerel bilgisayarınızda tüm geçmişiyle deposuyla eksiksiz bir kopyasına sahip. Birçok kişi daha kolay olduğundan ağa bağlı değilseniz--görevlerini gerçekleştirmeye devam edebilir, çalışmaya devam etmek için kaydeder ve geri almaların, oluşturma ve dalları geçin ve benzeri olduğunu tercih eder. Hatta ağa bağlı değilseniz, daha kolay ve hızlı dalları oluşturmak ve her şeyin yerel olduğunda dalları geçiş yapmak. Yerel işlemeleri ve geri almaların diğer geliştiriciler üzerinde bir etkisi olmadan da yapabilirsiniz. Ve sunucuya göndermeden önce işlemeleri toplu.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), önceden Team Foundation Service, olarak bilinen sunar hem Git ve [Team Foundation sürüm denetimi](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx) (TFVC'yi; merkezi kaynak denetimi). Burada Microsoft Azure grubundaki bazı ekipler merkezi kaynak denetimi, dağıtılmış, bazı kullanın ve bazı (bazı projeler için merkezi ve diğer projeler için Dağıtılmış) bir karışımını kullanın. En fazla 5 kullanıcılar için ücretsiz VSO hizmetidir. Ücretsiz bir plandan için kaydolabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), önceden Team Foundation Service, olarak bilinen sunar hem Git ve [Team Foundation sürüm denetimi](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC'yi; merkezi kaynak denetimi). Burada Microsoft Azure grubundaki bazı ekipler merkezi kaynak denetimi, dağıtılmış, bazı kullanın ve bazı (bazı projeler için merkezi ve diğer projeler için Dağıtılmış) bir karışımını kullanın. En fazla 5 kullanıcılar için ücretsiz VSO hizmetidir. Ücretsiz bir plandan için kaydolabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 içeren yerleşik birinci sınıf [Git desteğini](https://msdn.microsoft.com/en-us/library/hh850437.aspx); hızlı İşte, nasıl çalıştığını demo.
+Visual Studio 2013 içeren yerleşik birinci sınıf [Git desteğini](https://msdn.microsoft.com/library/hh850437.aspx); hızlı İşte, nasıl çalıştığını demo.
 
 Proje Visual Studio 2013'te açık çözümde sağ **Çözüm Gezgini**ve seçin **kaynak denetimine Çözüm Ekle**.
 
@@ -187,7 +187,7 @@ Asıl geri geçiş yaparsanız dal, içeriğini  *\_Layout.cshtml* dosyası otom
 
 Bu basit bir örnek nasıl hızlı bir şekilde bir dal oluşturun ve dallar arasında ileri ve geri çevir. Bu özellik dal yapısını kullanarak bir yüksek oranda Çevik iş akışı sağlar ve Otomasyon betikleri sunulan [her şeyi otomatikleştirmek](automate-everything.md) bölüm. Örneğin, olabilir Geliştirme dalında çalışma, ana dışına düzeltme dal oluşturun, geçiş yeni dala, var. istediğiniz değişiklikleri yapın ve bunları yürütmek ve geliştirme dala geçiş ve yaptığınız işe devam.
 
-Ne Burada gördüğünüz Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle aynı zamanda değişiklikleri için ortak bir depo iletin. Visual Studio Araçları uzak bir Git deposuna noktası sağlar. Bu amaç için Github.com'u kullanabilir veya kullanabileceğiniz [Visual Studio Online Git](https://msdn.microsoft.com/en-us/library/hh850437.aspx) tüm diğer Visual Studio Online özelliklerine sahip iş öğesi ve hata izleme gibi tümleşik.
+Ne Burada gördüğünüz Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle aynı zamanda değişiklikleri için ortak bir depo iletin. Visual Studio Araçları uzak bir Git deposuna noktası sağlar. Bu amaç için Github.com'u kullanabilir veya kullanabileceğiniz [Visual Studio Online Git](https://msdn.microsoft.com/library/hh850437.aspx) tüm diğer Visual Studio Online özelliklerine sahip iş öğesi ve hata izleme gibi tümleşik.
 
 Çevik bir dallanma stratejisi Elbette uygulayabilirsiniz tek yolu değil. Merkezi kaynak denetimi deponuza kullanarak aynı Çevik iş akışı etkinleştirebilirsiniz.
 
@@ -202,14 +202,14 @@ Değişiklik ve güvenli ve tahmin edilebilir bir yolla Canlı Al ne kadar hızl
 
 TFVC'yi (merkezi sürüm denetimi) ve Git (dağıtılmış sürüm denetim) hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Hangi sürüm denetimi sistemini kullanmalıyım: TFVC'yi veya Git?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN belgelerine TFVC'yi ve Git arasındaki farklar özetlemeye tablo içerir.
+- [Hangi sürüm denetimi sistemini kullanmalıyım: TFVC'yi veya Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN belgelerine TFVC'yi ve Git arasındaki farklar özetlemeye tablo içerir.
 - [İyi, Team Foundation Server ister ve Git istiyor, ancak daha iyi olduğu?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git ve TFVC'yi karşılaştırması.
 
 Dallara ayırma stratejileri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://msdn.microsoft.com/en-us/library/dn449957.aspx). Microsoft Patterns and Practices belgeleri. Bölüm 6 dallanma stratejileri bir tartışma için bkz. WYSIWG özelliği özelliği dallar arasında geçiş yapar ve özellikler için dalları kullandıysanız, bunları kısa süreli (saatlerce veya günlerce en çok) tutma savunan.
+- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns and Practices belgeleri. Bölüm 6 dallanma stratejileri bir tartışma için bkz. WYSIWG özelliği özelliği dallar arasında geçiş yapar ve özellikler için dalları kullandıysanız, bunları kısa süreli (saatlerce veya günlerce en çok) tutma savunan.
 - [Sürüm denetimi kılavuzu](https://aka.ms/vsarsolutions). Dallara ayırma stratejileri tarafından ALM Rangers yol. Dal oluşturma Strategies.pdf yüklemeleri sekmesinde bakın.
-- [Özellik değiştirme düğmelerini ile yazılım geliştirme](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx). MSDN dergisi makalesi.
+- [Özellik değiştirme düğmelerini ile yazılım geliştirme](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN dergisi makalesi.
 - [Özellik geçiş](http://martinfowler.com/bliki/FeatureToggle.html). Giriş özellik değiştirir / özellik Martin Fowler'ın blogunda işaretler.
 - [Değiştirme düğmelerini vs özellik dalları özellik](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Başka bir blog gönderisi hakkında Dylan Smith tarafından özelliğini değiştirir.
 

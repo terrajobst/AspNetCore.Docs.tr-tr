@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 2678342891a87d591476a07e418c118b2ae94d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-project"></a>Proje oluşturma
 ====================
@@ -74,7 +74,7 @@ Arasında geçiş yapabilirsiniz **tasarım** Görünüm ve **kaynak** merkezi p
 >  Web Forms framework Microsoft Windows Forms (WinForms) ve XAML/WPF/Silverlight gibi bildirim temelli ve denetim tabanlı programlama tercih geliştiriciler hedefler. Popüler web geliştirme için hızlı uygulama geliştirme (RAD) ortamın isteyen geliştiriciler sahip olacak şekilde bir WYSIWYG Tasarımcısı güdümlü geliştirme modeli sunar. Web programlama için yenidir ve tanıdık araçlarıyla geleneksel Microsoft RAD istemci geliştirme (örneğin, Visual Basic ve Visual C#), HTML ve JavaScript deneyimi yaşamadan hızlı bir şekilde bir web uygulaması oluşturabilirsiniz.
 > - [ASP.NET MVC](../../../../mvc/index.md)  
 >  ASP.NET MVC desenleri ve teste dayalı geliştirme, sorunları ayrılması, tersine çevirme (IOC) denetim ve bağımlılık ekleme (dı) gibi ilkeler ilgilendiğiniz geliştiriciler hedefler. Bu çerçeve, sunu katmanı web uygulamasından iş mantığı katmanı ayırarak önerir.
-> - [ASP.NET Web sayfaları](../../../../web-pages/index.md)  
+> - [ASP.NET Web Sayfaları](../../../../web-pages/index.md)  
 >  ASP.NET Web sayfaları PHP satırları boyunca bir basit bir web geliştirme Öykü isteyen geliştiriciler hedefler. Web sayfaları modelinde HTML sayfaları oluşturmak ve ardından bu biçimlendirme nasıl işlendiğine dinamik olarak denetlemek için sayfasına sunucu tabanlı kodu ekleyin. Web sayfaları basit bir çerçeve olacak şekilde özel olarak tasarlanmıştır ve ASP.NET kolay giriş noktası HTML bilmeniz ancak geniş bir programlama deneyimi - örneğin olmayabilir kişiler, Öğrenciler veya deneyimli olmayanlar için olur. Ayrıca, PHP veya benzer çerçeveleri ASP.NET kullanmaya başlamak için bilen web geliştiricileri için en iyi yolu değil.
 > - [ASP.NET tek sayfa uygulaması](../../../../single-page-application/index.md)  
 >  ASP.NET tek sayfa uygulama (SPA) HTML 5, CSS 3 ve JavaScript kullanarak önemli istemci tarafı etkileşimler içeren uygulamalar oluşturmanıza yardımcı olur. ASP.NET ve Web Araçları 2012.2 güncelleştirmesi knockout.js ve ASP.NET Web API kullanarak tek sayfa uygulamaları geliştirmek için yeni bir şablon gelir. Yeni SPA şablonu ek olarak, yeni Topluluk tarafından oluşturulan SPA şablonları indirme için kullanılabilir.
@@ -114,7 +114,7 @@ Bu varsayılan Web uygulamasında üç ana sayfa vardır: *Default.aspx* (giriş
 
 ## <a name="aspnet-web-forms-background"></a>Arka plan ASP.NET Web formları
 
-ASP.NET Web Forms sunucu üzerinde dinamik olarak çalışan bir kod tarayıcı veya istemci aygıt Web sayfası çıkışı oluşturur, Microsoft ASP.NET teknolojisine dayalıdır sayfalarıdır. Bir ASP.NET Web Forms sayfası doğru tarayıcı uyumlu HTML stil, Düzen ve benzeri gibi özellikleri için otomatik olarak oluşturur. Web Forms .NET ortak dil çalışma zamanı, Microsoft Visual Basic ve Microsoft Visual C# gibi tarafından desteklenen herhangi bir dil ile uyumludur. Ayrıca, Web Forms yerleşik olan [Microsoft .NET Framework](https://msdn.microsoft.com/en-US/vstudio/aa496123), Yönetilen ortamlarda, tür güvenliği ve devralma gibi fayda sağlar.
+ASP.NET Web Forms sunucu üzerinde dinamik olarak çalışan bir kod tarayıcı veya istemci aygıt Web sayfası çıkışı oluşturur, Microsoft ASP.NET teknolojisine dayalıdır sayfalarıdır. Bir ASP.NET Web Forms sayfası doğru tarayıcı uyumlu HTML stil, Düzen ve benzeri gibi özellikleri için otomatik olarak oluşturur. Web Forms .NET ortak dil çalışma zamanı, Microsoft Visual Basic ve Microsoft Visual C# gibi tarafından desteklenen herhangi bir dil ile uyumludur. Ayrıca, Web Forms yerleşik olan [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), Yönetilen ortamlarda, tür güvenliği ve devralma gibi fayda sağlar.
 
 Bir ASP.NET Web Forms sayfası çalıştığında, sayfa, bir dizi işleme adımları gerçekleştirir bir yaşam döngüsü boyunca geçer. Bu adımlar denetimlerini örnekleme, geri yükleme ve durumu bakımı, olay işleyici kodu çalıştıran ve işleme başlatma içerir. ASP.NET Web Forms gücünü daha tanıdık olurken, sizin için anlamak önemli olan [ASP.NET sayfası yaşam döngüsü](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) böylece düşündüğünüz etkisi için uygun yaşam döngüsü aşamada kod yazabilirsiniz.
 
@@ -128,7 +128,7 @@ Bir Web sunucusu bir sayfa için bir istek aldığında, bu sayfanın bulur, iş
 > 
 > **Üyelik**
 > 
-> [ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) kimlik uygulama tarafından oluşturulan bir veritabanında, kullanıcıların kimlik bilgilerini depolar. Kullanıcılarınız oturum açtığında uygulama veritabanı okuyarak kimlik bilgilerini doğrular. Projenizin *hesap* klasörü üyelik çeşitli kısımlarını uygulamak dosyaları içerir: kaydetme, oturum açma, parola değiştirme ve erişim yetkisi verme. Ayrıca, ASP.NET Web Forms, OAuth ve Openıd destekler. Bu kimlik doğrulaması geliştirmeleri kullanıcıların, sitenizi Facebook, Twitter, Windows Live ve Google olarak böyle hesaplarından varolan kimlik bilgilerini kullanarak oturum açın izin verin.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) kimlik uygulama tarafından oluşturulan bir veritabanında, kullanıcıların kimlik bilgilerini depolar. Kullanıcılarınız oturum açtığında uygulama veritabanı okuyarak kimlik bilgilerini doğrular. Projenizin *hesap* klasörü üyelik çeşitli kısımlarını uygulamak dosyaları içerir: kaydetme, oturum açma, parola değiştirme ve erişim yetkisi verme. Ayrıca, ASP.NET Web Forms, OAuth ve Openıd destekler. Bu kimlik doğrulaması geliştirmeleri kullanıcıların, sitenizi Facebook, Twitter, Windows Live ve Google olarak böyle hesaplarından varolan kimlik bilgilerini kullanarak oturum açın izin verin.
 > 
 > ![Çözüm Gezgini (ASP.NET Identity) - proje oluşturma](create-the-project/_static/image7.png)
 > 
@@ -138,9 +138,9 @@ Bir Web sunucusu bir sayfa için bir istek aldığında, bu sayfanın bulur, iş
 > 
 > [SQL Server Express LocalDB](https://technet.microsoft.com/library/hh510202.aspx) bir SQL Server veritabanının pek çok programlama özelliklerine sahip SQL Server, hafif bir sürümüdür. SQL Server Express LocalDB kullanıcı modunda çalışır ve yükleme önkoşulları kısa listesine sahip hızlı, sıfır yapılandırmalı bir yüklemesi gerekir. Microsoft SQL Server, tüm veritabanı veya Transact-SQL kodunu SQL Server Express LocalDB SQL Server ve SQL Azure yükseltme adımlar taşınabilir. Bu nedenle, SQL Server Express LocalDB Geliştirici ortamı olarak SQL Server'ın tüm sürümleri hedefleyen uygulamalar için kullanılabilir. SQL Server Express LocalDB SQL Server Compact içinde kullanılabilir değil saklı yordamlar, kullanıcı tanımlı işlevler ve toplamalar, .NET Framework tümleştirme, uzamsal türler ve diğerleri gibi özellikler sağlar.
 > 
-> **Ana sayfalar**
+> **Ana Sayfalar**
 > 
-> Bir [ASP.NET ana sayfa](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) tutarlı bir görünüm ve davranış tüm sayfalar için uygulamanızda tanımlar. Ana sayfanın düzenini kullanıcının gördüğü son sayfasında üretmek için tek bir içerik sayfasının içeriği ile birleştirir. Wingtip Toys uygulamada değişiklik *Site.master* Wingtip Toys Web sitesindeki tüm sayfaları aynı ayırt edici logo ve gezinti çubuğu paylaşmak için ana sayfa.
+> Bir [ASP.NET ana sayfa](https://msdn.microsoft.com/library/wtxbf3hh.aspx) tutarlı bir görünüm ve davranış tüm sayfalar için uygulamanızda tanımlar. Ana sayfanın düzenini kullanıcının gördüğü son sayfasında üretmek için tek bir içerik sayfasının içeriği ile birleştirir. Wingtip Toys uygulamada değişiklik *Site.master* Wingtip Toys Web sitesindeki tüm sayfaları aynı ayırt edici logo ve gezinti çubuğu paylaşmak için ana sayfa.
 > 
 > **HTML5**
 > 
@@ -192,8 +192,8 @@ Bu öğreticide oluşturduğunuz, gözden ve varsayılan Web Forms uygulamayı �
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 [Programlama modeli sağ seçme](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Web uygulaması projelerine Web sitesi projeleri karşılaştırması](https://msdn.microsoft.com/en-us/library/dd547590.aspx)   
-[ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/en-us/library/428509ah.aspx)
+[Web uygulaması projelerine Web sitesi projeleri karşılaştırması](https://msdn.microsoft.com/library/dd547590.aspx)   
+[ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](introduction-and-overview.md)

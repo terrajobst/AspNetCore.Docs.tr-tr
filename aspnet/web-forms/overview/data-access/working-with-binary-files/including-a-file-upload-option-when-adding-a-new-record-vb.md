@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f49c201c71ca8f98d7e15b29f1df9a6bcd1b12e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb462a0e8ce88037855ea12d00c1afc0419fa04e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>Yeni bir kayıt (VB) eklerken bir dosyayı karşıya yükleme seçeneği de dahil olmak üzere
 ====================
@@ -176,7 +176,7 @@ Dosya türü yanlış bir kullanıcı yüklerse, kimliğinizi Ekle iptal etme ve
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>6. adım: karşıya yüklenen Broşürü Web sunucusu s dosya sistemine kaydetme
 
-Kullanıcı için yeni bir kategori değerleri girer ve Ekle düğmesine tıkladığında ekleme iş akışı açılan ve geri gönderimin oluşur. İlk olarak, DetailsView s [ `ItemInserting` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) etkinleşir. İleri, ObjectDataSource s `Insert()` yöntemi çağrıldığında, hangi eklenmekte olan yeni bir kayıt sonuçlanır `Categories` tablo. Bundan sonra DetailsView s [ `ItemInserted` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) etkinleşir.
+Kullanıcı için yeni bir kategori değerleri girer ve Ekle düğmesine tıkladığında ekleme iş akışı açılan ve geri gönderimin oluşur. İlk olarak, DetailsView s [ `ItemInserting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) etkinleşir. İleri, ObjectDataSource s `Insert()` yöntemi çağrıldığında, hangi eklenmekte olan yeni bir kayıt sonuçlanır `Categories` tablo. Bundan sonra DetailsView s [ `ItemInserted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) etkinleşir.
 
 ObjectDataSource s önce `Insert()` yöntemi çağrıldığında, biz önce uygun dosya türlerini kullanıcı tarafından yüklenen sağlayın ve ardından web sunucusu s dosya sistemine PDF Broşürü kaydetmeniz gerekir. DetailsView s için bir olay işleyicisi oluşturun `ItemInserting` olay ve aşağıdaki kodu ekleyin:
 
@@ -191,7 +191,7 @@ Olay işleyicisi başvurarak başlatır `BrochureUpload` DetailsView s şablonla
 
 ' Da anlatıldığı gibi [yüklenen dosyalar](uploading-files-vb.md) öğretici, bu bir kullanıcı s karşıya yükleme başka bir s üzerine yazmaz şekilde dosya sistemine kaydetme dosyaları dikkatli'nin alınması gerekir. Bu öğretici için size aynı adı yüklenen dosya kullanmayı dener. Zaten varsa bir dosyada `~/Brochures` dizin, aynı dosya adıyla, ancak biz append sonunda bir sayı benzersiz bir ad bulunana kadar. Örneğin, kullanıcı adında bir Broşürü dosya karşıya yükleme `Meats.pdf`, adında bir dosya yoktur ancak `Meats.pdf` içinde `~/Brochures` klasörü, biz değiştirmek için kaydedilen dosya adı `Meats-1.pdf`. Varsa, biz deneyeceksiniz `Meats-2.pdf`ve benzeri benzersiz bir dosya adı bulunana kadar.
 
-Aşağıdaki kod [ `File.Exists(path)` yöntemi](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx) belirtilen dosya adıyla bir dosya zaten olup olmadığını belirlemek için. Bu durumda, yeni dosya adları Broşürü için çakışma bulunana kadar denemeye devam eder.
+Aşağıdaki kod [ `File.Exists(path)` yöntemi](https://msdn.microsoft.com/library/system.io.file.exists.aspx) belirtilen dosya adıyla bir dosya zaten olup olmadığını belirlemek için. Bu durumda, yeni dosya adları Broşürü için çakışma bulunana kadar denemeye devam eder.
 
 
 [!code-vb[Main](including-a-file-upload-option-when-adding-a-new-record-vb/samples/sample7.vb)]

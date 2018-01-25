@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları
 ====================
@@ -33,10 +33,10 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 ### <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET ve Web Araçları Visual Studio 2013 için yeni özellikler
 
-- [Bir ASP.NET](#TOC6)
+- [One ASP.NET](#TOC6)
 - [Yeni Web projesi deneyimi](#newproj)
-- [ASP.NET İskele](#scaffold)
-- [Tarayıcı bağlantısı](#browser-link)
+- [ASP.NET Scaffolding](#scaffold)
+- [Tarayıcı Bağlantısı](#browser-link)
 - [Visual Studio Web Düzenleyicisi geliştirmeleri](#web-editor)
 - [Visual Studio'da Azure App Service Web Apps desteği](#waws)
 - [Web yayımlama geliştirmeleri](#publish)
@@ -73,7 +73,7 @@ ASP.NET ve Web Araçları, Visual Studio 2013 gerektirir.
 Aşağıdaki bölümlerde sürümünde tanıtılan özellikleri açıklanmaktadır.
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>Bir ASP.NET
+## <a name="one-aspnet"></a>One ASP.NET
 
 Visual Studio 2013 sürümüyle, biz kolayca karıştırmak ve istediğiniz olanlarla eşleşmesi ASP.NET teknolojilerini kullanarak deneyimi birleştirin doğru bir adım gerçekleştirmişsiniz. Örneğin, MVC kullanarak bir proje başlatın ve kolayca Web formları sayfaları daha sonra projeye ekleyin veya bir Web Forms proje ile Web API iskelesi. Bir ASP.NET tümünü sizin için ASP.NET sevdiğiniz şeyleri gerçekleştirmek için bir geliştirici olarak kolaylaştırarak hakkında ' dir. Seçtiğiniz hangi teknoloji olsun, bir ASP.NET arka plandaki güvenilen çerçevesinin oluşturmakta olduğunuz güvenirlik olabilir.
 
@@ -82,7 +82,7 @@ Visual Studio 2013 sürümüyle, biz kolayca karıştırmak ve istediğiniz olan
 
 Biz, Visual Studio 2013'te yeni web projeleri oluşturma deneyimi Gelişmiş. İçinde **yeni ASP.NET Web projesi** iletişim, istediğiniz, herhangi bir bileşimini teknolojileri (Web Forms, MVC, Web API) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak ve birim testi projesi eklemek proje türü seçebilirsiniz.
 
-![Yeni ASP.NET projesi](release-notes/_static/image1.png)
+![New ASP.NET Project](release-notes/_static/image1.png)
 
 Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web Forms projesi oluşturduğunuzda, aşağıdaki seçeneklerden birini seçebilirsiniz:
 
@@ -96,7 +96,7 @@ Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama
 Web projeleri oluşturmak için yeni işlem hakkında daha fazla bilgi için bkz: [Visual Studio 2013'da ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET Identity](#TOC8) belgesinde.
 
 <a id="scaffold"></a>
-## <a name="aspnet-scaffolding"></a>ASP.NET İskele
+## <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
 
@@ -137,8 +137,8 @@ Visual Studio 2013'te .NET 2.2 için Azure SDK'sı ile kullandığınız **Sunuc
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web yayımlama geliştirmeleri
@@ -162,11 +162,11 @@ Bu sürümü NuGet paketlerini indirmek NuGet paket geri yükleme özelliği iç
 <a id="TOC9"></a>
 ## <a name="aspnet-web-forms"></a>ASP.NET Web Forms
 
-### <a name="one-aspnet"></a>Bir ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web Forms proje şablonları ile yeni bir ASP.NET deneyimi sorunsuz şekilde tümleşir. MVC ve Web API Web Forms projenize destekler ve bir ASP.NET proje oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırabilirsiniz ekleyebilirsiniz. Daha fazla bilgi için bkz: [Visual Studio 2013'da ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md).
 
-### <a name="aspnet-identity"></a>ASP.NET kimliği
+### <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 Web Forms proje şablonları yeni ASP.NET Identity framework desteği. Ayrıca, şablonları artık Web Forms Intranet projesi oluşturulmasını destekler. Daha fazla bilgi için bkz: [kimlik doğrulama yöntemleri](creating-web-projects-in-visual-studio.md#auth) içinde **Visual Studio 2013'da ASP.NET Web projeleri oluşturma**.
 
@@ -177,15 +177,15 @@ Web Forms şablonlarını kullanma [önyükleme](http://twitter.github.io/bootst
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>Bir ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web MVC proje şablonları ile yeni bir ASP.NET deneyimi sorunsuz şekilde tümleşir. MVC projenizi özelleştirebilir ve bir ASP.NET proje oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırın. Bir tanıtım öğretici ASP.NET MVC 5 bulunabilir [ASP.NET MVC 5 ile çalışmaya başlama](../../../mvc/overview/getting-started/introduction/getting-started.md).
 
 MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
-### <a name="aspnet-identity"></a>ASP.NET kimliği
+### <a name="aspnet-identity"></a>ASP.NET Kimlik
 
-MVC proje şablonları, ASP.NET Identity kimlik doğrulama ve kimlik yönetimi için kullanmak üzere güncelleştirilmiştir. Facebook ve Google kimlik doğrulama ve yeni üyelik API'si gösteren bir öğretici bulunabilir [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturmak](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) ve [auth ile bir ASP.NET MVC uygulaması oluşturma ve SQL DB ve Azure App Service'e dağıtma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+MVC proje şablonları, ASP.NET Identity kimlik doğrulama ve kimlik yönetimi için kullanmak üzere güncelleştirilmiştir. Facebook ve Google kimlik doğrulama ve yeni üyelik API'si gösteren bir öğretici bulunabilir [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturmak](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) ve [auth ile bir ASP.NET MVC uygulaması oluşturma ve SQL DB ve Azure App Service'e dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 ### <a name="bootstrap"></a>önyükleme
 
@@ -270,7 +270,7 @@ ASP.NET Web API İstemci artık Windows mağazası ve Windows Phone 8 uygulamala
 
 Web API 2 yapar birimine çok daha kolay test API denetleyicisi. Yalnızca istek iletisi ve yapılandırma ile API denetleyicisi oluşturma ve test etmek istediğiniz eylem yöntemini çağırın. Mock kolaydır **UrlHelper** bağlantı oluşturma gerçekleştiren eylem yöntemleri için sınıf.
 
-### <a name="ihttpactionresult"></a>Ihttpactionresult
+### <a name="ihttpactionresult"></a>IHttpActionResult
 
 Şimdi Web API eylem yöntemleri sonucunu kapsülleyen Ihttpactionresult uygulayabilirsiniz. Bir Web API eylem yönteminden döndürülen Ihttpactionresult sonuç yanıt iletisi oluşturmak için ASP.NET Web API çalışma zamanı tarafından yürütülür. Bir Ihttpactionresult birim basitleştirmek için tüm Web API eylemden döndürülebilecek Web API uygulamanızı test etme. Özel durum kodları döndürme için sonuçları dahil olmak üzere kutusu dışında Ihttpactionresult uygulamaları sayısı sağlanan kolaylık olması için içerik veya içerik anlaşması yanıtlarını biçimlendirilmiş.
 
@@ -496,7 +496,7 @@ SignalR 2. 0'da, tüm JavaScript hata işleme geri aramalar ham dizeler yerine J
 [!code-javascript[Main](release-notes/samples/sample20.js)]
 
 <a id="TOC8"></a>
-## <a name="aspnet-identity"></a>ASP.NET kimliği
+## <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 ### <a name="new-aspnet-membership-system"></a>Yeni ASP.NET üyelik sistemini
 
@@ -558,7 +558,7 @@ Aşağıdaki kimlik doğrulama bileşenleri kullanılabilir.
 - **Microsoft.Owin.Security.Facebook** Facebook'ın OAuth tabanlı hizmet kullanarak etkinleştirir kimlik doğrulaması.
 - **Microsoft.Owin.Security.Google** etkinleştirir kimlik doğrulaması kullanarak Google Openıd tabanlı hizmet.
 - **Microsoft.Owin.Security.Jwt** JWT belirteçleri kullanarak etkinleştirir kimlik doğrulaması.
-- **Microsoft.Owin.Security.MicrosoftAccount** Microsoft hesaplarını kullanarak etkinleştirir kimlik doğrulaması.
+- **Microsoft.Owin.Security.MicrosoftAccount** Enables authentication using Microsoft accounts.
 - **Microsoft.Owin.Security.OAuth**. Ara yazılım yanı sıra bir OAuth yetkilendirme sunucusu taşıyıcı belirteçlerin kimlik doğrulamasını sağlar.
 - **Microsoft.Owin.Security.Twitter** Twitter'ın OAuth tabanlı hizmet kullanarak etkinleştirir kimlik doğrulaması.
 
@@ -568,7 +568,7 @@ Bu sürüm ayrıca içerir `Microsoft.Owin.Cors` çıkış noktaları arası HTT
 > Visual Studio 2013'ın son sürümünde JWT imzalama desteği kaldırılmıştır.
 
 <a id="ef6"></a>
-## <a name="entity-framework-6"></a>Varlık Çerçevesi 6
+## <a name="entity-framework-6"></a>Entity Framework 6
 
 Yeni özellikler ve diğer değişiklikler Entity Framework 6 listesi için bkz: [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
 
@@ -643,7 +643,7 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
     Bu, bir sonraki sürümde düzeltilecektir.
 2. MVC4 uygulaması için MVC5 yükseltme yaptıktan sonra çözümü oluşturun ve başlatın. Aşağıdaki hata görmeniz gerekir:
 
-    [A] [B]System.Web.WebPages.Razor.Configuration.HostSection. System.Web.WebPages.Razor.Configuration.HostSection atanamaz Tür A kaynaklanan ' System.Web.WebPages.Razor, sürüm 2.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'. Tür B kaynaklanan ' System.Web.WebPages.Razor, sürüm 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'.
+    [A]System.Web.WebPages.Razor.Configuration.HostSection cannot be cast to [B]System.Web.WebPages.Razor.Configuration.HostSection. Tür A kaynaklanan ' System.Web.WebPages.Razor, sürüm 2.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'. Tür B kaynaklanan ' System.Web.WebPages.Razor, sürüm 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'.
 
     Yukarıdaki hatayı düzeltmek için açık *tüm* (görünümler klasöründe olanlar dahil) Web.config dosyasında projenizi ve aşağıdakileri yapın:
 
@@ -666,7 +666,7 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
     Hedef:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 artık kısmi güven destekler. MVC veya Webapı ikili dosyaları bağlama projeleri kaldırmalısınız [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx) özniteliği ve [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx) özniteliği. Bu öznitelikler kaldırma derleyici hataları aşağıdaki gibi ortadan kaldırır.
+4. ASP.NET MVC 5 artık kısmi güven destekler. MVC veya Webapı ikili dosyaları bağlama projeleri kaldırmalısınız [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) özniteliği ve [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) özniteliği. Bu öznitelikler kaldırma derleyici hataları aşağıdaki gibi ortadan kaldırır.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 
@@ -682,13 +682,13 @@ SPA şablonu Facebook dış oturum sağlar. Şablon kullanılarak oluşturulan p
 
 2. IE dışında bir tarayıcıda senaryosunu sınayın.
 
-### <a name="web-forms-scaffolding"></a>İskele Web formları
+### <a name="web-forms-scaffolding"></a>Web Forms Scaffolding
 
 Web Forms İskele VS2013 kaldırıldı ve Visual Studio için gelecekteki bir güncelleştirme kullanıma sunulacaktır. Ancak, MVC bağımlılıkları ekleyerek ve yapı iskelesi MVC için oluşturma Web Forms projedeki yapı iskelesi kullanabilirsiniz. Projenizi Web Forms ve MVC bir birleşimini içerir.
 
 MVC Web Forms projenize eklemek için yeni iskele kurulmuş Öğe Ekle ve seçin **MVC 5 bağımlılıkları**. En az veya betikleri gibi içerik tüm dosyaların gerekmediğini bağlı olarak tam seçin. Ardından, görünümler ve denetleyicisi projenizde oluşturacak MVC için kurulmuş öğe ekleyin.
 
-### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası
+### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC and Web API Scaffolding - HTTP 404, Not Found error
 
 Bir projeye iskele kurulmuş öğe olduğunda hatayla karşılaşırsanız, projenizin tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılan değişiklikler geri alınacak ancak yüklü NuGet paketleri gibi diğer değişiklikler geri alınacak değil. Yönlendirme yapılandırması değişiklikler geri alınır, gezinme öğeleri iskele kurulmuş kullanıcılar bir HTTP 404 hata alır.
 

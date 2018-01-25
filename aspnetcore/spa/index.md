@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 0ac3803aabdc148401b9d5b614645a8560c9a089
-ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
+ms.openlocfilehash: bfb00386af0e775b4c03a71567703ed87a785ce2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-single-page-application-templates-release-candidate"></a>Tek sayfalı uygulama şablonları (Sürüm Adayı) kullanın.
 
 > [!NOTE]
-> Yayımlanan .NET Core SDK Angular için tepki, proje şablonları içerir ve Redux ile tepki 2.0.x. **Bu belge bu yayımlanmış proje şablonları hakkında değil.** Bu belge, tepki, Angular sonraki sürümü için ve erken 2018 içinde dağıtmayı umuyoruz Redux şablonları ile tepki.
+> Yayımlanan .NET Core SDK Angular için tepki, proje şablonları içerir ve Redux ile tepki 2.0.x. **Bu belge, bu yayımlanmış proje şablonları hakkında değil.** Bu belge, tepki, Angular sonraki sürümü için ve erken 2018 içinde dağıtmayı umuyoruz Redux şablonları ile tepki.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

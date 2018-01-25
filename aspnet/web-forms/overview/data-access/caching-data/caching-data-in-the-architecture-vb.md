@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f1d94045236cc8e1b12839ced4de1258466a626e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1aca89b022bb3bb7e4154ab575b5bb5513144cd5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-the-architecture-vb"></a>(VB) mimarisinde verileri önbelleğe alma
 ====================
@@ -62,7 +62,7 @@ DAL ve BLL sınıflardan daha fazla düzgün bir şekilde ayrı CL sınıfların
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample1.vb)]
 
-[ `Cache` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.aspx) s [ `Insert` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.insert.aspx) aşırı sayısı. `Cache("key") = value`ve `Cache.Insert(key, value)` eşanlamlıdır ve her ikisi de tanımlı bir süre sonu olmadan belirtilen anahtarı kullanarak önbelleğe bir öğe ekleyin. Genellikle, bir öğe için önbellek, bir bağımlılık, zamana bağlı süre sonu veya her ikisini de olarak eklerken bir süre sonu belirtmek istiyoruz. Diğer birini kullanın `Insert` s yöntemi aşırı bağımlılık veya zamana bağlı süre sonu bilgileri sağlayın.
+[ `Cache` Sınıfı](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) aşırı sayısı. `Cache("key") = value`ve `Cache.Insert(key, value)` eşanlamlıdır ve her ikisi de tanımlı bir süre sonu olmadan belirtilen anahtarı kullanarak önbelleğe bir öğe ekleyin. Genellikle, bir öğe için önbellek, bir bağımlılık, zamana bağlı süre sonu veya her ikisini de olarak eklerken bir süre sonu belirtmek istiyoruz. Diğer birini kullanın `Insert` s yöntemi aşırı bağımlılık veya zamana bağlı süre sonu bilgileri sağlayın.
 
 Önbelleğe alma s yöntemleri istenen veri önbellekte ise ve bu durumda, ilk kontrol etmeniz katman buradan döndür. İstenen veri önbellekte değilse, uygun BLL yöntemin çağrılması gerekir. Dönüş değerini önbelleğe ve döndürülen, aşağıdaki dizisi diyagramda gösterildiği gibi.
 
@@ -90,7 +90,7 @@ Bu ikinci fark, hatalı kod parçacığında, yerine önbelleğe alınan öğe b
 > Veri önbelleği iş parçacığı açısından güvenli olduğundan, basit okuma veya yazma işlemleri için iş parçacığı erişimini eşitlemek gerek yoktur. Atomik olmasına gerek önbellekte verileri birden çok işlemleri ihtiyacınız varsa, ancak, siz kilit veya iş parçacığı güvenliği sağlamak için başka bir düzenek uygulamak için sorumlu olursunuz. Bkz: [ASP.NET önbelleğe erişim eşitleme](http://www.ddj.com/184406369) daha fazla bilgi için.
 
 
-Bir öğe programlı olarak kullanarak veri önbelleği çıkarılmasına [ `Remove` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.remove.aspx) sözlüğüdür:
+Bir öğe programlı olarak kullanarak veri önbelleği çıkarılmasına [ `Remove` yöntemi](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) sözlüğüdür:
 
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample4.vb)]
@@ -115,10 +115,10 @@ Aşağıdaki kod yöntemleri bir kısmı gösterir `ProductsCL` sınıfı:
 
 `GetCacheItem(key)`kullanmayan *anahtar* değer sağlanan gibi ancak bunun yerine çağrıları `GetCacheKey(key)` döndürür yöntemi *anahtar* $a ProductsCache - ile. `MasterCacheKeyArray`, ProductsCache, dize tutan de kullanıldığında tarafından `AddCacheItem(key, value)` yöntemi, kısa bir süre içinde anlatıldığı gibi.
 
-Bir ASP.NET sayfası s arka plandaki kod sınıfı kullanılarak veri önbelleği erişilebilir `Page` s sınıfı [ `Cache` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.page.cache.aspx)ve benzer bir sözdizimi sağlar `Cache("key") = value`, 2. adımda açıklandığı gibi. Öğesinden bir sınıf mimarisi içinde veri önbelleği ya da kullanılarak erişilebilir `HttpRuntime.Cache` veya `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)ın blog girdisi [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) kullanarak küçük bir performans avantajı Notlar `HttpRuntime` yerine `HttpContext.Current`; sonuç olarak, `ProductsCL` kullanan `HttpRuntime`.
+Bir ASP.NET sayfası s arka plandaki kod sınıfı kullanılarak veri önbelleği erişilebilir `Page` s sınıfı [ `Cache` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)ve benzer bir sözdizimi sağlar `Cache("key") = value`, 2. adımda açıklandığı gibi. Öğesinden bir sınıf mimarisi içinde veri önbelleği ya da kullanılarak erişilebilir `HttpRuntime.Cache` veya `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)ın blog girdisi [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) kullanarak küçük bir performans avantajı Notlar `HttpRuntime` yerine `HttpContext.Current`; sonuç olarak, `ProductsCL` kullanan `HttpRuntime`.
 
 > [!NOTE]
-> Sınıf Kitaplığı projelerinde kullanılarak Mimarinizi uygulanan sonra bir başvuru eklemeniz gerekir `System.Web` kullanmak için derleme [ `HttpRuntime` ](https://msdn.microsoft.com/en-us/library/system.web.httpruntime.aspx) ve [ `HttpContext` ](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) sınıflar.
+> Sınıf Kitaplığı projelerinde kullanılarak Mimarinizi uygulanan sonra bir başvuru eklemeniz gerekir `System.Web` kullanmak için derleme [ `HttpRuntime` ](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) ve [ `HttpContext` ](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) sınıflar.
 
 
 Öğe önbellekte bulunmazsa `ProductsCL` s sınıfı yöntemleri BLL Veri Al ve önbelleği kullanmaya eklemek `AddCacheItem(key, value)` yöntemi. Eklemek için *değeri* önbelleğe biz 60 saniye süre süre sonu kullanan aşağıdaki kodu kullanabilirsiniz:
@@ -126,7 +126,7 @@ Bir ASP.NET sayfası s arka plandaki kod sınıfı kullanılarak veri önbelleğ
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample7.vb)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`zamana bağlı süre sonu 60 saniye gelecekteki while belirtir [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) Kayan süre sonu olmadığını s gösterir. Bu `Insert` yöntemi aşırı yüklemesini hem bir mutlak parametrelerini giriş ve bitiş kayan, yalnızca iki birini sağlayabilirsiniz. Mutlak bir zaman ve bir zaman aralığı belirtmek çalışırsanız `Insert` yöntemi oluşturur bir `ArgumentException` özel durum.
+`DateTime.Now.AddSeconds(CacheDuration)`zamana bağlı süre sonu 60 saniye gelecekteki while belirtir [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) Kayan süre sonu olmadığını s gösterir. Bu `Insert` yöntemi aşırı yüklemesini hem bir mutlak parametrelerini giriş ve bitiş kayan, yalnızca iki birini sağlayabilirsiniz. Mutlak bir zaman ve bir zaman aralığı belirtmek çalışırsanız `Insert` yöntemi oluşturur bir `ArgumentException` özel durum.
 
 > [!NOTE]
 > Bu uygulaması, `AddCacheItem(key, value)` yöntemi şu anda bazı eksik yok. Biz adres ve adım 4'te bu sorunlarının üstesinden.
@@ -150,7 +150,7 @@ Let s güncelleştirme `AddCacheItem(key, value)` yöntemi bu yöntemle önbelle
 
 [!code-vb[Main](caching-data-in-the-architecture-vb/samples/sample9.vb)]
 
-`MasterCacheKeyArray`ProductsCache tek bir değer içeren bir dize dizisidir. İlk olarak, bir önbellek öğesi önbelleğe eklenir ve geçerli tarih ve saat atandı. Önbellek öğesi zaten varsa, güncelleştirilir. Ardından, önbellek bağımlılığı oluşturulur. [ `CacheDependency` Sınıfı](https://msdn.microsoft.com/en-US/library/system.web.caching.cachedependency(VS.80).aspx) s kurucusunun aşırı sayısı, ancak burada kullanılan bir iki bekliyor `String` dizi girdi. Birinci bağımlılıklar olarak kullanılacak dosya kümesini belirtir. Biz güncelleştireceğinizi beri t değeri herhangi dosya tabanlı bağımlılıkları, kullanmak istediğiniz `Nothing` ilk giriş parametresi için kullanılır. İkinci giriş parametresi bağımlılıklar olarak kullanmak için önbellek anahtarlarını belirtir. Bizim tek bağımlılık burada belirttiğimiz `MasterCacheKeyArray`. `CacheDependency` Daha sonra içine geçirilir `Insert` yöntemi.
+`MasterCacheKeyArray`ProductsCache tek bir değer içeren bir dize dizisidir. İlk olarak, bir önbellek öğesi önbelleğe eklenir ve geçerli tarih ve saat atandı. Önbellek öğesi zaten varsa, güncelleştirilir. Ardından, önbellek bağımlılığı oluşturulur. [ `CacheDependency` Sınıfı](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s kurucusunun aşırı sayısı, ancak burada kullanılan bir iki bekliyor `String` dizi girdi. Birinci bağımlılıklar olarak kullanılacak dosya kümesini belirtir. Biz güncelleştireceğinizi beri t değeri herhangi dosya tabanlı bağımlılıkları, kullanmak istediğiniz `Nothing` ilk giriş parametresi için kullanılır. İkinci giriş parametresi bağımlılıklar olarak kullanmak için önbellek anahtarlarını belirtir. Bizim tek bağımlılık burada belirttiğimiz `MasterCacheKeyArray`. `CacheDependency` Daha sonra içine geçirilir `Insert` yöntemi.
 
 Bu değişikliği ile `AddCacheItem(key, value)`, invaliding bağımlılığın kaldırılması olarak basit bir önbelleğidir.
 

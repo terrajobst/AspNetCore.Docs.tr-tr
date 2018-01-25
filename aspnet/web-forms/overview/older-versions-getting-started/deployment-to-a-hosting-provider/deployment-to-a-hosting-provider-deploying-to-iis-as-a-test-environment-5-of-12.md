@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a5538744dfaff76f28c5f17d8f5d782ef3f6c118
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a7995844ee6ed19efa130c4f6c019214d6652ea7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-iis-as-a-test-environment---5-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: IIS'ye bir Test Ortamı - 12 5 dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -83,7 +83,7 @@ Windows **Başlat** menüsünde, select **çalıştırmak**"inetmgr" girin ve ar
 
 Yalnızca iki uygulama havuzları görmek ve bunların her ikisi de .NET Framework 2.0 ayarlanır, ASP.NET 4 IIS yüklemeniz gerekir:
 
-- Sağ tıklayarak bir komut istemi penceresi açın **komut istemi** Windows **Başlat** menü ve seçerek **yönetici olarak çalıştır**. Ardından çalıştırın [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) aşağıdaki komutları kullanarak IIS, ASP.NET 4 yüklemek için. (64-bit sistemlerinde "Framework" "Framework64" ile değiştirin.)
+- Sağ tıklayarak bir komut istemi penceresi açın **komut istemi** Windows **Başlat** menü ve seçerek **yönetici olarak çalıştır**. Ardından çalıştırın [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) aşağıdaki komutları kullanarak IIS, ASP.NET 4 yüklemek için. (64-bit sistemlerinde "Framework" "Framework64" ile değiştirin.)
 
     [!code-console[Main](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12/samples/sample2.cmd)]
 
@@ -111,7 +111,7 @@ Visual Studio 2010'u ve Web dağıtımı kullanarak dağıtabilirsiniz birkaç y
 - Oluşturma bir *dağıtım paketi* ve IIS Yöneticisi kullanıcı Arabirimi kullanarak yükleyin. Dağıtım paketi oluşan bir *.zip* tüm dosyaları ve IIS'de bir site yüklemek için gereken meta verileri içeren dosya.
 - Bir dağıtım paketi oluşturun ve komut satırını kullanarak yükleyin.
 
-Visual Studio'yu ayarlama otomatikleştirirken ayarlamak için önceki öğreticileri dağıtım görevleri bu üç yöntem tümüne uygulanır gittiğiniz işlemi. Bu öğreticiler bu yöntemlerin ilki kullanacaksınız. Dağıtım paketleri kullanma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Visual Studio'yu ayarlama otomatikleştirirken ayarlamak için önceki öğreticileri dağıtım görevleri bu üç yöntem tümüne uygulanır gittiğiniz işlemi. Bu öğreticiler bu yöntemlerin ilki kullanacaksınız. Dağıtım paketleri kullanma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx).
 
 Yayımlanmadan önce Visual Studio'yu Yönetici modunda çalışır durumda olduğundan emin olun. (Windows 7'de **Başlat** menüsünde, kullanmakta olduğunuz Visual Studio sürümünü simgesine sağ tıklayın ve seçin **yönetici olarak çalıştır**.) Yönetici modu, yalnızca olduğunda IIS yerel bilgisayarda yayımladığınız yayımlamak için gereklidir.
 
@@ -238,13 +238,13 @@ Bu ek bağlantı dizesi veritabanı şema güncelleştirmeleri için bir kullan�
 
 Artık geliştirme bilgisayarınızda IIS uygulamanıza dağıttıktan ve orada test. Bu, dağıtım işlemi uygulamanın içeriği (dağıtmak için istemediğiniz dosyaları dışında) doğru konuma kopyalanır ve ayrıca, Web dağıtımı IIS dağıtımı sırasında yapılandırıldığını doğrular. Sonraki öğreticide henüz yapılmadı bir dağıtım görev bulduğu daha fazla test çalıştıracaksınız: klasör izinleri ayarlama *Elmah* klasör.
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
 Visual Studio'da IIS veya IIS Express çalıştırma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [IIS Express genel bakış](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) IIS.NET sitesinde.
 - [IIS Express Tanıtımı](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) Scott Guthrie'nın blogunda.
-- [Nasıl yapılır: Visual Studio'da Web projeleri için Web sunucusunu belirtmek](https://msdn.microsoft.com/en-us/library/ms178108.aspx).
+- [Nasıl yapılır: Visual Studio'da Web projeleri için Web sunucusunu belirtmek](https://msdn.microsoft.com/library/ms178108.aspx).
 - [Çekirdek arasındaki farklar IIS ve ASP.NET Geliştirme Sunucusu](../deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) ASP.NET sitesinde.
 - [ASP.NET MVC veya Web Forms uygulama IIS 7 üzerinde 30 saniye içinde test](https://blogs.msdn.com/b/rickandy/archive/2011/04/22/test-you-asp-net-mvc-or-webforms-application-on-iis-7-in-30-seconds.aspx) Rick Anderson'un blogunda. Bu girdi neden (Cassini) Visual Studio geliştirme sunucusu ile test IIS Express'te sınama olarak kadar güvenilir değil ve neden IIS Express'te sınama IIS'de sınama olarak kadar güvenilir değil örnekleri sağlar.
 

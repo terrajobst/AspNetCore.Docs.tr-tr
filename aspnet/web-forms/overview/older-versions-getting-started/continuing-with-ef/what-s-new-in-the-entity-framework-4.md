@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 4c89ca004ad4c9d731868e868cf6723aa4ed625d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 yenilikler
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici seri tarafından oluşturulan Contoso University web uygulaması üzerinde derlemeler [Entity Framework ile çalışmaya başlama](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) öğretici serisi. Önceki öğreticileri tamamlanmadı, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici seri tarafından oluşturulur. Öğreticiler hakkında sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
 
@@ -90,7 +90,7 @@ Bu kodu SQL yürütür `Update` komutu değeri metin kutusunda kullanılarak ve 
 
 (Sayı kredilerle, özgün değerlerine için ayarlamak istiyorsanız *UpdateCredits.aspx.cs* değiştirme `Credits * {0}` için `Credits / {0}` ve 10 bölen olarak girme sayfanın yeniden çalıştırın.)
 
-Kodda tanımlama sorguları çalıştırma hakkında daha fazla bilgi için bkz: [nasıl yapılır: doğrudan yürütme komutları karşı veri kaynağı](https://msdn.microsoft.com/en-us/library/ee358769.aspx).
+Kodda tanımlama sorguları çalıştırma hakkında daha fazla bilgi için bkz: [nasıl yapılır: doğrudan yürütme komutları karşı veri kaynağı](https://msdn.microsoft.com/library/ee358769.aspx).
 
 ## <a name="model-first-development"></a>Model-First geliştirme
 
@@ -166,7 +166,7 @@ Adlı yeni bir web sayfası oluşturun *Alumni.aspx* kullanan *Site.Master* ana 
 
 Bu biçimlendirme iç içe geçmiş oluşturur `GridView` denetimlerini, alumni adlarını görüntülemek için dış birini ve Bağış tarihleri ve tutarlar görüntülenecek iç biri.
 
-Açık *Alumni.aspx.cs*. Ekleme bir `using` deyim için veri erişim katmanı ve dış için bir işleyici `GridView` denetimin `RowDataBound` olay:
+Open *Alumni.aspx.cs*. Ekleme bir `using` deyim için veri erişim katmanı ve dış için bir işleyici `GridView` denetimin `RowDataBound` olay:
 
 [!code-csharp[Main](what-s-new-in-the-entity-framework-4/samples/sample8.cs)]
 
@@ -178,7 +178,7 @@ Sayfayı çalıştırın.
 
 (Not: Bu sayfayı indirilebilir projeye dahil, veritabanı olarak dahil edilmez; ancak, çalışması için veritabanı yerel SQL Server Express örneği içinde oluşturmak bir *.mdf* dosyasını *uygulama\_ Veri* klasörü.)
 
-Entity Framework'ün model ilk özelliğini kullanma hakkında daha fazla bilgi için bkz: [Model-ilk Entity Framework 4'te](https://msdn.microsoft.com/en-us/data/ff830362.aspx).
+Entity Framework'ün model ilk özelliğini kullanma hakkında daha fazla bilgi için bkz: [Model-ilk Entity Framework 4'te](https://msdn.microsoft.com/data/ff830362.aspx).
 
 ## <a name="poco-support"></a>POCO Desteği
 
@@ -188,7 +188,7 @@ Entity Framework 4 devralınmalıdır yok varlık sınıfları kullanma olanağ�
 
 Entity Framework POCOs kullanma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [POCO varlıklarla çalışmaya](https://msdn.microsoft.com/en-us/library/dd456853.aspx). Bir POCOs, genel daha ayrıntılı bilgiler diğer belgelere bağlantılar ile bir MSDN belgesi budur.
+- [POCO varlıklarla çalışmaya](https://msdn.microsoft.com/library/dd456853.aspx). Bir POCOs, genel daha ayrıntılı bilgiler diğer belgelere bağlantılar ile bir MSDN belgesi budur.
 - [İzlenecek yol: POCO Entity Framework için şablon](https://blogs.msdn.com/b/adonet/archive/2010/01/25/walkthrough-poco-template-for-the-entity-framework.aspx) bir blog gönderisini Entity Framework Geliştirme ekibinden POCOs hakkında diğer blog gönderileri bağlantılarla budur.
 
 ## <a name="code-first-development"></a>Kod ilk geliştirme
@@ -205,11 +205,11 @@ Geliştirme için ilk kod yaklaşımı kullanma hakkında daha fazla bilgi için
 
 Contoso University uygulamaya benzer bir uygulama oluşturur Yeni bir MVC kod-ilk öğreticide 2011 yay yayımlanmasını ek olarak, öngörülen [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
 Bu Entity Framework ve Entity Framework öğretici serisi ile bu devam yenilikleri için genel bakış tamamlar. Burada yer olmayan Entity Framework 4'teki yeni özellikler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ADO.NET yenilikler](https://msdn.microsoft.com/en-us/library/ex6y04yf.aspx) MSDN konu Entity Framework 4 sürümündeki yeni özellikler hakkında.
+- [ADO.NET yenilikler](https://msdn.microsoft.com/library/ex6y04yf.aspx) MSDN konu Entity Framework 4 sürümündeki yeni özellikler hakkında.
 - [Entity Framework 4'ün yayın Duyurusu](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) Entity Framework geliştirme ekibinin blog gönderisi sürüm 4'deki yeni özellikler hakkında.
 
 >[!div class="step-by-step"]

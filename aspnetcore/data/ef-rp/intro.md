@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: bea3b12ebe476c4b59abe117393b0ec8bb7f0306
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 
@@ -271,7 +271,7 @@ Projeyi oluşturun. Derleme hataları aşağıdaki gibi oluşturur:
  <a name="test"></a>
 ### <a name="test-the-app"></a>Uygulamayı test etme
 
-Uygulamayı çalıştırın ve seçin **Öğrenciler** bağlantı. Tarayıcı genişliği bağlı olarak **Öğrenciler** bağlantı sayfanın en üstünde görünür. Varsa **Öğrenciler** bağlantı görünür değil, sağ üst köşesinde Gezinti simgeyi tıklatın.
+Uygulamayı çalıştırın ve seçin **Öğrenciler** bağlantı. Tarayıcı genişliği bağlı olarak **Öğrenciler** bağlantı sayfanın en üstünde görünür. Varsa **Öğrenciler** bağlantı görünür değilse, sağ üst köşesinde Gezinti simgeyi tıklatın.
 
 ![Contoso University giriş sayfası dar](intro/_static/home-page-narrow.png)
 
@@ -339,7 +339,7 @@ EF çekirdek kullanan zaman uyumsuz kodu yazarken dikkat edilmesi gereken bazı 
 
 * Sorguları ya da Veritabanına gönderilen komutları neden deyimleri zaman uyumsuz olarak çalıştırılır. İçeren, `ToListAsync`, `SingleOrDefaultAsync`, `FirstOrDefaultAsync`, ve `SaveChangesAsync`. Yalnızca değiştirme deyimleri içermeyen bir `IQueryable`, gibi `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
-* EF çekirdek bağlamı güvenli iş parçacığına sahip değil: paralel birden çok işlemleri yapmak denemeyin. 
+* İş parçacığı içinde korumalı bir EF çekirdek bağlamı değil: paralel birden çok işlemleri yapmak denemeyin. 
 
 * Zaman uyumsuz kod performans yararlarını yararlanmak için DB sorguları göndermek EF çekirdek yöntemleri çağırırsanız paketleri kitaplığı (disk belleği ettirilmesi gibi) zaman uyumsuz kullandığını doğrulayın.
 

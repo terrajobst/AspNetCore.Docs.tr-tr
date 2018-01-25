@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8294b5a8824c6a27e958e1ea78b7909a134447d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a67ca5422d4353b8c23b3fd804246906b8b6d717
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>ASP.NET MVC ile (C#) 15 dakikada bir film veritabanı uygulaması oluşturma
 ====================
@@ -59,21 +59,21 @@ Visual Studio 2008 veya Visual Web Developer 2008 Express bir ASP.NET MVC uygula
 
 Visual Studio 2008 sahibi siz değilseniz, bu Web sitesinden Visual Studio 2008 90 günlük deneme sürümü yükleyebilirsiniz:
 
-[https://msdn.microsoft.com/en-us/vs2008/Products/cc268305.aspx](https://msdn.microsoft.com/en-us/vs2008/products/cc268305.aspx)
+[https://msdn.microsoft.com/vs2008/products/cc268305.aspx](https://msdn.microsoft.com/vs2008/products/cc268305.aspx)
 
 Alternatif olarak, ASP.NET MVC uygulamaları Visual Web Developer Express 2008 ile oluşturabilirsiniz. Visual Web Developer Express kullanmaya karar verirseniz, Service Pack 1 yüklü olması gerekir. Visual Web Developer 2008 Express with Service Pack 1 Bu Web sitesinden indirebilirsiniz:
 
-[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?FamilyId=BDB6391C-05CA-4036-9154-6DF4F6DEBD14&amp;displaylang=en)
 
 Visual Studio 2008 veya Visual Web Developer 2008 yükledikten sonra ASP.NET MVC çerçevesi yüklemeniz gerekir. ASP.NET MVC çerçevesi aşağıdaki Web sitesinden indirebilirsiniz:
 
-[https://www.ASP.NET/MVC/](../../../index.md)
+[https://www.asp.net/mvc/](../../../index.md)
 
 > [!NOTE] 
 > 
 > ASP.NET framework ve ASP.NET MVC çerçevesi ayrı ayrı indirmek yerine Web Platformu yükleyicisi yararlanabilir. Web Platformu yükleyicisi yüklü uygulamaları kolayca yönetmenize olanak sağlayan bir uygulama, bilgisayarınızın gösterilebilir:
 > 
-> [https://www.microsoft.com/Web/Gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
+> [https://www.microsoft.com/web/gallery/Install.aspx](https://www.microsoft.com/web/gallery/Install.aspx)
 
 
 ## <a name="creating-an-aspnet-mvc-web-application-project"></a>Bir ASP.NET MVC Web uygulaması projesi oluşturma
@@ -106,7 +106,7 @@ Bir ASP.NET MVC uygulaması klasörleri standart bir dizi vardır: bir modeller,
 Visual Studio ile yeni bir MVC uygulaması oluşturduğunuzda, örnek bir uygulama alın. Baştan başlamak istiyoruz için bu örnek uygulama içeriği silmeniz gerekiyor. Aşağıdaki dosya ve aşağıdaki klasörü silmeniz gerekir:
 
 - Controllers\HomeController.cs
-- Görünümler
+- Views\Home
 
 ## <a name="creating-the-database"></a>Veritabanı oluşturuluyor
 
@@ -261,7 +261,7 @@ Bu adımları tamamladıktan sonra Index.aspx adlı yeni bir görünüm görün�
 **Şekil 10**: yeni bir görünüm için Görünüm Ekle iletişim kutusunu oluşturmayı ([tam boyutlu görüntüyü görüntülemek için tıklatın](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/_static/image20.png))
 
 
-**3 – Views\Home\Index.aspx listeleme**
+**Listing 3 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/samples/sample3.aspx)]
 
@@ -308,7 +308,7 @@ Visual Studio yeni bir filmi veritabanı oluşturmak için form oluşturmanın k
 
 Visual Studio görünümünü listeleme 5'te otomatik olarak oluşturur. Bu görünüm, her film sınıfının özelliklerine karşılık gelen alanları içeren bir HTML formuna içerir.
 
-**5 – Views\Home\Create.aspx listeleme**
+**Listing 5 – Views\Home\Create.aspx**
 
 [!code-aspx[Main](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs/samples/sample5.aspx)]
 
@@ -369,4 +369,4 @@ Bir ASP.NET MVC uygulaması oluşturmanın deneyiminin bir fikir vermek için bu
 Bu öğreticide, ASP.NET MVC çerçevesi, yalnızca en temel özellikleri incelendi. Sonraki öğreticilerde, biz daha derin denetleyicileri, denetleyici eylemleri, görünümler, verileri görüntüleme ve HTML yardımcıları gibi konular halinde daha yakından inceleyin.
 
 >[!div class="step-by-step"]
-[Sonraki](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)
+[Next](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)

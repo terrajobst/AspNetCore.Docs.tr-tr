@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9e257f5061f6bdf14ad0776ff6385fb526d6dcb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasında Entity Framework 4.0 performansını en üst düzeye çıkarma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu öğretici seri tarafından oluşturulan Contoso University web uygulaması üzerinde derlemeler [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticileri tamamlanmadı, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici seri tarafından oluşturulur. Öğreticiler hakkında sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
 
@@ -251,17 +251,17 @@ Visual Studio'nun oluşturduğu adlandırılan görünümleri oluşturan bir kod
 
 Önceden üretilmiş görünümleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Nasıl yapılır: önceden oluşturmak sorgu performansını artırmak için görünümleri](https://msdn.microsoft.com/en-us/library/bb896240.aspx) MSDN web sitesinde. Nasıl kullanılacağı açıklanmaktadır `EdmGen.exe` görünümlerini önceden oluşturmak için komut satırı aracı.
+- [Nasıl yapılır: önceden oluşturmak sorgu performansını artırmak için görünümleri](https://msdn.microsoft.com/library/bb896240.aspx) MSDN web sitesinde. Nasıl kullanılacağı açıklanmaktadır `EdmGen.exe` görünümlerini önceden oluşturmak için komut satırı aracı.
 - [Önceden derlenmiş/öncesi-generated görünümleri Entity Framework 4'te performansla yalıtma](https://blogs.msdn.com/b/appfabriccat/archive/2010/08/06/isolating-performance-with-precompiled-pre-generated-views-in-the-entity-framework-4.aspx) Windows Server AppFabric Müşteri danışma Ekibi blogunda.
 
 Bu Entity Framework kullanan bir ASP.NET web uygulamasının performansını iyileştirme giriş tamamlar. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Başarım düşünceleri (Entity Framework)](https://msdn.microsoft.com/en-us/library/cc853327.aspx) MSDN web sitesinde.
+- [Başarım düşünceleri (Entity Framework)](https://msdn.microsoft.com/library/cc853327.aspx) MSDN web sitesinde.
 - [Entity Framework ekip blogu performansla ilgili gönderilerine](https://blogs.msdn.com/b/adonet/archive/tags/performance/).
 - [EF birleştirme seçenekleri ve derlenmiş sorguları](https://blogs.msdn.com/b/dsimmons/archive/2010/01/12/ef-merge-options-and-compiled-queries.aspx). Derlenmiş sorgular ve birleştirme beklenmeyen davranışları açıklanmaktadır Blog Gönderisi seçenekleri gibi `NoTracking`. Derlenmiş sorguları kullanın veya birleştirme seçeneği ayarları uygulamanızda işleme planlıyorsanız, önce bunu okuyun.
 - [Entity Framework ile ilgili veri ve modelleme Müşteri danışma ekibi Web günlüğü postaları](https://blogs.msdn.com/b/dmcat/archive/tags/entity+framework/). Derlenmiş sorgular ve performans sorunları bulmak için Visual Studio 2010 Profiler kullanarak gönderilerine içerir.
-- [Entity Framework Forumu oldukça karmaşık sorgular performansını iyileştirme önerileri parçacığıyla](https://social.msdn.microsoft.com/Forums/en-US/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
-- [ASP.NET durum yönetimi önerileri](https://msdn.microsoft.com/en-us/library/z1hkazw7.aspx).
+- [Entity Framework Forumu oldukça karmaşık sorgular performansını iyileştirme önerileri parçacığıyla](https://social.msdn.microsoft.com/Forums/adodotnetentityframework/thread/ffe8b2ab-c5b5-4331-8988-33a872d0b5f6).
+- [ASP.NET durum yönetimi önerileri](https://msdn.microsoft.com/library/z1hkazw7.aspx).
 - [Entity Framework ile ObjectDataSource: özel sayfalama](http://geekswithblogs.net/Frez/articles/using-the-entity-framework-and-the-objectdatasource-custom-paging.aspx). Disk belleği uygulamak nasıl açıklamak için bu öğreticileri oluşturulan ContosoUniversity uygulama derlemeler Blog Gönderisi *Departments.aspx* sayfası.
 
 Sonraki öğretici bazı Entity Framework sürüm 4'te yenidir önemli iyileştirmeler inceler.

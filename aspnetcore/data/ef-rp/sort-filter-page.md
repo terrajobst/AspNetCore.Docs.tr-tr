@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - Razor sayfaları (8'in 3) ile EF çekirdek
 
@@ -71,7 +71,7 @@ Yöntemi, LINQ to Entities göre sıralamak için sütun belirlemek için kullan
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
 
- Zaman bir`IQueryable` oluşturulan veya değiştirilen, hiçbir sorgu veritabanına gönderilir. Sorgu kadar yürütülemiyor `IQueryable` nesnesi, bir koleksiyona dönüştürülür. `IQueryable`bir koleksiyon için bir yöntem çağırarak dönüştürülür `ToListAsync`. Bu nedenle, `IQueryable` kod şu deyimi kadar yürütülmedi tek bir sorgu sonuçları:
+ Zaman bir`IQueryable` oluşturulan veya değiştirilen, hiçbir sorgu veritabanına gönderilir. Sorgu kadar yürütülür değil `IQueryable` nesnesi, bir koleksiyona dönüştürülür. `IQueryable`bir koleksiyon için bir yöntem çağırarak dönüştürülür `ToListAsync`. Bu nedenle, `IQueryable` kod şu deyimi kadar yürütülmedi tek bir sorgu sonuçları:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
@@ -139,7 +139,7 @@ Bulunmaktadır performans çağırma `ToUpper`. `ToUpper` Kod TSQL SELECT deyimi
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-Önceki kod kullanan `<form>` [yardımcı etiketi](xref:mvc/views/tag-helpers/intro) düğmesi ve arama metin kutusuna eklemek için. Varsayılan olarak, `<form>` etiket Yardımcısı bir POST ile form verileri gönderir. POST ile HTTP ileti gövdesi yer alan ve URL parametreleri geçirilir. HTTP GET kullanıldığında, form verileri sorgu dizeleri URL'de geçirilir. Sorgu dizeleri ile veri geçirme kullanıcıların URL yer işareti olanak tanır. [W3C yönergeleri](https://www.w3.org/2001/tag/doc/whenToUseGet.html) GET eylemi bir güncelleştirmede sonuçlanmaz olduğunda kullanılmalıdır öneririz.
+Önceki kod kullanan `<form>` [yardımcı etiketi](xref:mvc/views/tag-helpers/intro) düğmesi ve arama metin kutusuna eklemek için. Varsayılan olarak, `<form>` etiket Yardımcısı bir POST ile form verileri gönderir. POST ile HTTP ileti gövdesi yer alan ve URL parametreleri geçirilir. HTTP GET kullanıldığında, form verileri sorgu dizeleri URL'de geçirilir. Sorgu dizeleri ile veri geçirme kullanıcıların URL yer işareti olanak tanır. [W3C yönergeleri](https://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirmede elde edemezseniz, GET kullanılması gereken öneririz.
 
 Uygulamayı test etme:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7fb212638765589b998c4eca8265dfeb2910082f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f908eb6c6b2d18c6c41870a38bb618737949b0a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a>Uygulama Hizmetleri (VB) kullanan bir Web sitesi yapılandırma
 ====================
@@ -35,7 +35,7 @@ ASP.NET sürüm 2.0 sunulan bir dizi *uygulama hizmetleri*, .NET Framework'ün p
 - **Rolleri** - kullanıcılar, gruplar halinde kategorilere ayırmak için API bir.
 - **Profil** - API, kullanıcıya özgü özel içeriği depolamak için bir.
 - **Site eşlemesi** - menüleri ve içerik haritalarında gibi Gezinti denetimleri aracılığıyla görüntülenebilir bir hiyerarşi biçiminde sitesi s bir mantıksal yapısını tanımlamak için API bir.
-- **Kişiselleştirme** - API ile en sık kullanılan özelleştirme tercihlerini korumak için bir [ *Web Bölümleri*](https://msdn.microsoft.com/en-us/library/e0s9t4ck.aspx).
+- **Kişiselleştirme** - API ile en sık kullanılan özelleştirme tercihlerini korumak için bir [ *Web Bölümleri*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Sistem durumu izleme** - performans, güvenlik, hataları ve diğer sistem durumu ölçümleri çalışan bir web uygulaması izleme için API bir.
   
 
@@ -71,7 +71,7 @@ SQL Server veritabanı ile uygulama hizmetlerini kullanmak için önce kullanıc
 
 Mümkündür ve Web sitesi s uygulamaya özgü verilerin depolandığı aynı veritabanında veritabanı nesneleri oluşturmak genellikle ideal uygulama hizmetleri. .NET Framework adlı bir aracı ile birlikte gelen `aspnet_regsql.exe` , belirtilen bir veritabanında veritabanı nesnelerini yükler. I şimdi gitti ve bu nesnelere eklemek için bu aracı kullanılan `Reviews.mdf` veritabanını `App_Data` klasörü (geliştirme veritabanı). Biz bu nesneler üretim veritabanına eklediğinizde, bu aracı daha sonra Bu öğreticide kullanmak nasıl göreceğiz.
 
-Uygulama Hizmetleri veritabanına veritabanı nesnelerini dışında eklerseniz `ASPNETDB` özelleştirmeniz gerekir `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcısı sınıfları yapılandırmaları böylece uygun veritabanını kullanır. Özelleştirmek için üyelik sağlayıcısı ekle bir [  *&lt;üyelik&gt; öğesi* ](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) içinde `<system.web>` bölümüne `Web.config`; kullanın [  *&lt;roleManager&gt; öğesi* ](https://msdn.microsoft.com/en-us/library/ms164660.aspx) rol sağlayıcı yapılandırmak için. Aşağıdaki kod parçacığında Kitap incelemeleri uygulama s'den alınır `Web.config` ve üyelik ve roller API'ler için yapılandırma ayarlarını gösterir. Her ikisi de yeni bir sağlayıcı - kaydetmek Not `ReviewMembership` ve `ReviewRole` -kullanan `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcıları, sırasıyla.
+Uygulama Hizmetleri veritabanına veritabanı nesnelerini dışında eklerseniz `ASPNETDB` özelleştirmeniz gerekir `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcısı sınıfları yapılandırmaları böylece uygun veritabanını kullanır. Özelleştirmek için üyelik sağlayıcısı ekle bir [  *&lt;üyelik&gt; öğesi* ](https://msdn.microsoft.com/library/1b9hw62f.aspx) içinde `<system.web>` bölümüne `Web.config`; kullanın [  *&lt;roleManager&gt; öğesi* ](https://msdn.microsoft.com/library/ms164660.aspx) rol sağlayıcı yapılandırmak için. Aşağıdaki kod parçacığında Kitap incelemeleri uygulama s'den alınır `Web.config` ve üyelik ve roller API'ler için yapılandırma ayarlarını gösterir. Her ikisi de yeni bir sağlayıcı - kaydetmek Not `ReviewMembership` ve `ReviewRole` -kullanan `SqlMembershipProvider` ve `SqlRoleProvider` sağlayıcıları, sırasıyla.
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample1.xml)]
 
@@ -94,7 +94,7 @@ Uygulama hizmetleri ve uygulama hizmetleri bilgilerini bir veritabanında depola
 
 Başka bir sınama geliştirme ortamında üretim ortamı için oluşturulan kullanıcı hesaplarını çoğaltmak istiyorsanız, uygulama hizmetleri kullanan bir Web sitesi dağıtırken ortaya çıkabilir. Üyelik ve roller yapılandırmasına bağlı olarak, üretim veritabanı geliştirme ortamında oluşturulmuş olan kullanıcı hesaplarını başarıyla kopyalama olsa bile, bu kullanıcılar üretim web uygulamasına oturum açamazsınız mümkündür. Biz, bu sorunun nedeni bakın ve oluşmasını önlemek üzere nasıl ele almaktadır.
 
-ASP.NET ile iyi gelir [ *Web Sitesi Yönetim Aracı (WSAT)* ](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) , Visual Studio'dan başlatılabilir ve kullanıcının bir web tabanlı yönetilecek hesabı, rolleri ve yetkilendirme kuralları sağlar arabirim. Ne yazık ki, WSAT yalnızca yerel Web siteleri için kullanıcı hesaplarını, rolleri ve yetkilendirme kuralları üretim ortamında web uygulaması için uzaktan yönetmek için kullanılamaz anlamı çalışır. Üretim Web sitesinden WSAT benzeri davranışı uygulamak için farklı yollar inceleyeceğiz.
+ASP.NET ile iyi gelir [ *Web Sitesi Yönetim Aracı (WSAT)* ](https://msdn.microsoft.com/library/yy40ytx0.aspx) , Visual Studio'dan başlatılabilir ve kullanıcının bir web tabanlı yönetilecek hesabı, rolleri ve yetkilendirme kuralları sağlar arabirim. Ne yazık ki, WSAT yalnızca yerel Web siteleri için kullanıcı hesaplarını, rolleri ve yetkilendirme kuralları üretim ortamında web uygulaması için uzaktan yönetmek için kullanılamaz anlamı çalışır. Üretim Web sitesinden WSAT benzeri davranışı uygulamak için farklı yollar inceleyeceğiz.
 
 ### <a name="adding-the-database-objects-using-aspnetregsqlexe"></a>Veritabanı nesneleri kullanarak aspnet ekleme\_regsql.exe
 
@@ -192,13 +192,13 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [*ASP.NET SQL Server Kayıt Aracı (aspnet_regsql.exe)*](https://msdn.microsoft.com/en-us/library/ms229862.aspx)
-- [*Uygulama Hizmetleri veritabanına SQL Server için oluşturma*](https://msdn.microsoft.com/en-us/library/x28wfk74.aspx)
+- [*ASP.NET SQL Server Kayıt Aracı (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*Uygulama Hizmetleri veritabanına SQL Server için oluşturma*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*SQL Server üyelik şema oluşturma*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md)
 - [*ASP.NET s üyelik, roller ve profil inceleniyor*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [*Kendi Web sitesi yönetim aracı alınıyor*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [*Web sitesi güvenlik öğreticileri*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Web sitesi yönetim aracına genel bakış*](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [*Web sitesi yönetim aracına genel bakış*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](configuring-the-production-web-application-to-use-the-production-database-vb.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ce0bd1d3302ee68c9c65584686172a07143e4a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8cd4fd2afb16772baf45618ccee2c3c3caea5b64
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a>ObjectDataSource (C#) ile verileri önbelleğe alma
 ====================
@@ -44,7 +44,7 @@ ASP.NET 2.0 çeşitli seçenekler önbelleğe alma sunar. Bir web sayfası ya da
 
 Çıkarma ölçütlere bağımsız olarak, öğenin önbellekte olabilir *işlemi* zaman veya bağımlılık tabanlı ölçütleri karşılanıyorsa önce. Önbellek kapasitesi ulaştıysa yenilerini eklenebilmesi için önce varolan öğeleri kaldırılmalıdır. Sonuç olarak, programlı olarak önbelleğe alınan verilerle, s, her zaman, varsayılmaktadır önemli çalışırken, önbelleğe alınan veriler mevcut olmayabilir. Veri önbellekten programlı olarak sonraki öğreticimizi erişirken kullanılacak deseni inceleyeceğiz *mimarisinde veri önbelleğe alma*.
 
-Önbelleğe alma, bir uygulamadan daha fazla performans sıkıştırırsanız için ekonomik bir yol sağlar. Olarak [Steven Smith](http://aspadvice.com/blogs/ssmith/) makalede articulates [ASP.NET önbelleğe alma: teknikleri ve en iyi yöntemler](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+Önbelleğe alma, bir uygulamadan daha fazla performans sıkıştırırsanız için ekonomik bir yol sağlar. Olarak [Steven Smith](http://aspadvice.com/blogs/ssmith/) makalede articulates [ASP.NET önbelleğe alma: teknikleri ve en iyi yöntemler](https://msdn.microsoft.com/library/aa478965.aspx):
 
 Önbelleğe alma, çok fazla zaman ve analiz gerek kalmadan yeterli performans iyi almak için en iyi yolu olabilir. Bellek ucuz, gereken bir gün veya kod veya veritabanı en iyi duruma getirme çalışılırken bir hafta harcama yerine 30 saniye için çıktı önbelleği tarafından performans elde edebilirsiniz, bu nedenle önbelleğe alma çözümünü yapın (30 - ikinci eski verileri varsayılarak Tamam) ve geçin. Elbette, uygulamalarınızın doğru tasarım denemelisiniz şekilde sonuç olarak, zayıf tasarım büyük olasılıkla size yakalar. Ancak hemen bugün yeterli performans iyi almanız gerekirse, önbelleğe alma bir mükemmel [yaklaşımı] zaman uygulamanız varsa bunu yapmak için gereken süre daha sonraki bir tarihte yeniden düzenlemeniz için satın alma.
 
@@ -175,10 +175,10 @@ Veri aracılığıyla disk belleğine alınan ya da sıralanmış her zaman veri
 
 Yalnızca birkaç özelliklerini ayarlayarak ObjectDataSource otomatik olarak ASP.NET veri önbelleğindeki alınan verileri önbelleğe almak için yapılandırılabilir. Aşağıdaki listede ObjectDataSource önbellek ilgili özellikleri özetlenmektedir:
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) ayarlanmalıdır `true` önbelleğe almayı etkinleştirmek için. Varsayılan, `false` değeridir.
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) verileri önbelleğe saniye cinsinden süre miktarı. Varsayılan değer 0'dır. ObjectDataSource yalnızca veri varsa önbellekte `EnableCaching` olan `true` ve `CacheDuration` sıfırdan büyük bir değere ayarlanır.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) ayarlanabilir `Absolute` veya `Sliding`. Varsa `Absolute`, ObjectDataSource önbelleğe alınan verileri için `CacheDuration` ; varsa saniye `Sliding`, yalnızca bu için erişildikten değil sonra verilerin süresi sona `CacheDuration` saniye. Varsayılan, `Absolute` değeridir.
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) ObjectDataSource s önbellek girişlerinin varolan bir önbellek bağımlılığı ile ilişkilendirmek için bu özelliği kullanın. ObjectDataSource s veri girişi erken önbellekten, ilişkili süresinin dolmasını sağlayarak çıkarılmasına `CacheKeyDependency`. Bu özellik SQL önbellek bağımlılığı ObjectDataSource s önbellek ile ilişkilendirmek için en yaygın olarak kullanılır, bir konu biz gelecekte ele alacağız [kullanarak SQL önbellek bağımlılıkları](using-sql-cache-dependencies-cs.md) Öğreticisi.
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) ayarlanmalıdır `true` önbelleğe almayı etkinleştirmek için. Varsayılan, `false` değeridir.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) verileri önbelleğe saniye cinsinden süre miktarı. Varsayılan değer 0'dır. ObjectDataSource yalnızca veri varsa önbellekte `EnableCaching` olan `true` ve `CacheDuration` sıfırdan büyük bir değere ayarlanır.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) ayarlanabilir `Absolute` veya `Sliding`. Varsa `Absolute`, ObjectDataSource önbelleğe alınan verileri için `CacheDuration` ; varsa saniye `Sliding`, yalnızca bu için erişildikten değil sonra verilerin süresi sona `CacheDuration` saniye. Varsayılan, `Absolute` değeridir.
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) ObjectDataSource s önbellek girişlerinin varolan bir önbellek bağımlılığı ile ilişkilendirmek için bu özelliği kullanın. ObjectDataSource s veri girişi erken önbellekten, ilişkili süresinin dolmasını sağlayarak çıkarılmasına `CacheKeyDependency`. Bu özellik SQL önbellek bağımlılığı ObjectDataSource s önbellek ile ilişkilendirmek için en yaygın olarak kullanılır, bir konu biz gelecekte ele alacağız [kullanarak SQL önbellek bağımlılıkları](using-sql-cache-dependencies-cs.md) Öğreticisi.
 
 Yapılandırma s izin `ProductsDataSource` mutlak ölçekte 30 saniye boyunca verileri önbelleğe almak için ObjectDataSource. ObjectDataSource s ayarlamak `EnableCaching` özelliğine `true` ve kendi `CacheDuration` 30 özelliği. Bırakın `CacheExpirationPolicy` özelliği, varsayılan olarak ayarlanmış `Absolute`.
 
@@ -206,7 +206,7 @@ Yaptığınız değişiklikleri kaydedin ve bu sayfasını bir tarayıcıda yeni
 
 Her ASP.NET uygulamasının tüm sayfaları ve ziyaretçileri paylaşılan bu s örnek kendi veri önbelleği vardır. ObjectDataSource tarafından veri önbellekte depolanan veriler benzer şekilde sayfasını ziyaret edin tüm kullanıcılar arasında paylaşılan anlamına gelir. Bunu doğrulamak için açık `ObjectDataSource.aspx` sayfasını bir tarayıcıda. (Önceki testleri tarafından önbelleğe eklenen veriler artık çıkarıldı varsayılarak) ilk sitesini ziyaret ettiğinde metin seçme olay harekete görünür. İkinci tarayıcı örneği ve kopyalama açın ve ikinci ilk tarayıcı örneğinden URL'sini yapıştırın. İkinci tarayıcı örneğinde metin seçme olay harekete çünkü gösterilmez, aynı kullanarak s önbelleğe alınmış verileri ilk olarak.
 
-Önbelleğe alınan veriler ekleme yaparken ObjectDataSource içeren bir önbellek anahtar değerini kullanır: `CacheDuration` ve `CacheExpirationPolicy` özellik değerlerini; belirtilen ObjectDataSource tarafından kullanılmakta olan iş nesnesini türü aracılığıyla [ `TypeName` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, bu örnekte); değerini `SelectMethod` özellik adını ve parametre değerlerini `SelectParameters` koleksiyonu; ve kendi değerlerini`StartRowIndex`ve `MaximumRows` uygularken kullanılan özellikler [özel sayfalama.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
+Önbelleğe alınan veriler ekleme yaparken ObjectDataSource içeren bir önbellek anahtar değerini kullanır: `CacheDuration` ve `CacheExpirationPolicy` özellik değerlerini; belirtilen ObjectDataSource tarafından kullanılmakta olan iş nesnesini türü aracılığıyla [ `TypeName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, bu örnekte); değerini `SelectMethod` özellik adını ve parametre değerlerini `SelectParameters` koleksiyonu; ve kendi değerlerini`StartRowIndex`ve `MaximumRows` uygularken kullanılan özellikler [özel sayfalama.](../paging-and-sorting/paging-and-sorting-report-data-cs.md)
 
 Önbellek anahtar değeri bu özelliklerin bir birleşimi hazırlayın, bu değerlerden değiştirdikçe benzersiz önbellek girişi sağlar. Örneğin, son öğreticileri, biz ve arama kullanarak `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)`, belirtilen bir kategorideki tüm ürünleri döndürür. Bir kullanıcı gelen sayfası ve görünüm beverages olarak sahip olduğu bir `CategoryID` 1. ObjectDataSource sonuçlarını bakmadan önbelleğe varsa `SelectParameters` değerlerini, başka bir kullanıcı için sayfanın geldiği zaman condiments içecek ürünleri çalışırken görüntülemek için önbellekte, d condiments yerine önbelleğe alınmış içecek ürünleri görürler. Bu özellik tarafından önbellek anahtarını değiştirerek, aşağıdakileri içeren değerlerini `SelectParameters`, ayrı önbellek girişi Meşrubat ve condiments ObjectDataSource korur.
 
@@ -230,8 +230,8 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET önbelleğe alma: Teknikleri ve en iyi uygulamalar](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [.NET Framework uygulamaları için önbelleğe alma Mimarisi Kılavuzu](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [ASP.NET önbelleğe alma: Teknikleri ve en iyi uygulamalar](https://msdn.microsoft.com/library/aa478965.aspx)
+- [.NET Framework uygulamaları için önbelleğe alma Mimarisi Kılavuzu](https://msdn.microsoft.com/library/ee817645.aspx)
 - [ASP.NET 2.0 çıkış önbelleğe alma](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
@@ -243,4 +243,4 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Teresa Murphy oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](caching-data-in-the-architecture-cs.md)
+[Next](caching-data-in-the-architecture-cs.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: 3f0f1c402aeac388c2fcabb509aa8aa3a46e95f5
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: a4558162158ddb6746aa45a29310b42224d6e7fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -25,7 +25,7 @@ ASP.NET Core birçok araçları ve yerleşik kimlik sağlayıcıları gibi uygul
 
 ## <a name="authentication-vs-authorization"></a>Kimlik doğrulama vs. Yetkilendirme
 
-Kimlik doğrulaması, bir kullanıcı daha sonra bu bir işletim sistemi, veritabanı, uygulama veya kaynak depolanan karşılaştırılır kimlik bilgilerini sağlayan bir işlemdir. Eşleşirlerse, kullanıcıların kimliğini başarıyla doğrulamak ve, yetkili eylemler gerçekleştirebilir bir yetkilendirme sürecinde. Yetkilendirme kullanıcı yapmak için verileceğini belirler işleme başvuruyor. 
+Kimlik doğrulaması, bir kullanıcı daha sonra bu bir işletim sistemi, veritabanı, uygulama veya kaynak depolanan karşılaştırılır kimlik bilgilerini sağlayan bir işlemdir. Eşleşirlerse, kullanıcıların kimliğini başarıyla doğrulamak ve, yetkili oldukları eylemler gerçekleştirebilir bir yetkilendirme sürecinde. Yetkilendirme kullanıcı yapmak için verileceğini belirler işleme başvuruyor. 
 
 Kimliğini düşünmeye başka bir kullanıcı (sunucu, veritabanı veya uygulamanın) alan içinde hangi nesneleri için hangi eylemleri olsa da yetkilendirme sunucusu, veritabanı, uygulama veya kaynak gibi bir alanı girmek için bir yol olarak dikkate alınması gereken yoludur.
 
@@ -96,7 +96,7 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
         *   [Anahtar depolama biçimi](data-protection/implementation/key-storage-format.md)
         *   [Kısa ömürlü veri koruma sağlayıcıları](data-protection/implementation/key-storage-ephemeral.md)
     *   [Uyumluluk](data-protection/compatibility/index.md)
-        *   [Tanımlama bilgilerini uygulamalar arasında paylaşma](data-protection/compatibility/cookie-sharing.md)
+        *   [Uygulamalar arasında tanımlama bilgilerini paylaşma](data-protection/compatibility/cookie-sharing.md)
         *   [ASP.NET’te <machineKey> değiştirme](data-protection/compatibility/replacing-machinekey.md)
 *   [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
 *   [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](app-secrets.md)

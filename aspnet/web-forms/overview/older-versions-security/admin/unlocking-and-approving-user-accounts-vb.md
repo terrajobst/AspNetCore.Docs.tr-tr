@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5f4977c4ad88d6f32fb682c841d0e5bdd8aeb7e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f4444e566a760ef3beda4af5fba62dd349a8bba9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a>Yüklemeyi kaldırma ve onaylama kullanıcı hesapları (VB)
 ====================
@@ -57,7 +57,7 @@ GridView HyperLinkField ekledikten sonra görüntülemek için bir dakikanızı 
 **Şekil 1**: HyperLinkField her kullanıcı hesabı için bir "Manage" bağlantı ekler ([tam boyutlu görüntüyü görüntülemek için tıklatın](unlocking-and-approving-user-accounts-vb/_static/image3.png))
 
 
-Kullanıcı arabirimi oluşturur ve için kod `UserInformation.aspx` bir süre, ancak ilk konuşması şimdi sayfa hakkında programlı bir kullanıcı olarak nasıl değiştirildiğini kilitli ve durumlarını onaylandı. [ `MembershipUser` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx) sahip [ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx) ve [ `IsApproved` özellikleri](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Özelliği salt okunur durumdadır. Program aracılığıyla bir kullanıcı kilitlemek için bir mekanizma vardır; bir kullanıcının kilidini açmak için kullanmak `MembershipUser` sınıfının [ `UnlockUser` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Özelliği okunabilir ve yazılabilir. Bu özellik için değişiklikleri kaydetmek için aranacak ihtiyacımız `Membership` sınıfının [ `UpdateUser` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.membership.updateuser.aspx), değiştirilmiş içinde geçen `MembershipUser` nesnesi.
+Kullanıcı arabirimi oluşturur ve için kod `UserInformation.aspx` bir süre, ancak ilk konuşması şimdi sayfa hakkında programlı bir kullanıcı olarak nasıl değiştirildiğini kilitli ve durumlarını onaylandı. [ `MembershipUser` Sınıfı](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) sahip [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) ve [ `IsApproved` özellikleri](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). `IsLockedOut` Özelliği salt okunur durumdadır. Program aracılığıyla bir kullanıcı kilitlemek için bir mekanizma vardır; bir kullanıcının kilidini açmak için kullanmak `MembershipUser` sınıfının [ `UnlockUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). `IsApproved` Özelliği okunabilir ve yazılabilir. Bu özellik için değişiklikleri kaydetmek için aranacak ihtiyacımız `Membership` sınıfının [ `UpdateUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), değiştirilmiş içinde geçen `MembershipUser` nesnesi.
 
 Çünkü `IsApproved` özelliği okunabilir ve yazılabilir, bir onay kutusu denetimi büyük olasılıkla bu özellik yapılandırmak için en iyi bir kullanıcı arabirimi öğesi değil. Ancak, bir onay kutusu için çalışmaz `IsLockedOut` özelliği yönetici bir kullanıcı kilitlenemiyor olduğundan, bunları bir kullanıcı kilidini yalnızca. Uygun kullanıcı arabirimi için `IsLockedOut` özelliği olan bir düğme, tıklatıldığında, kullanıcı hesabının kilidini açar. Kullanıcıya kilitlenmişse bu düğme yalnızca etkinleştirilmiş olmalıdır.
 
@@ -88,7 +88,7 @@ Yukarıdaki kod, bu sayfaya ve değil sonraki geri gönderimin ilk kez ziyaret e
 
 `MembershipUser` Nesnenin `UserName` değeri görüntülenen sonra `UserNameLabel` ve `IsApproved` onay kutusu işaretli göre `IsApproved` özellik değeri.
 
-`MembershipUser` Nesnenin [ `LastLockoutDate` özelliği](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.lastlockoutdate.aspx) döndürür bir `DateTime` zaman kullanıcı son gösteren değer kilitlendi. Kullanıcı hiçbir zaman kilitlenmişse, döndürülen değer üyelik sağlayıcısına bağlıdır. Yeni bir hesap oluşturulduğunda, `SqlMembershipProvider` ayarlar `aspnet_Membership` tablonun `LastLockoutDate` alanı `1754-01-01 12:00:00 AM`. Yukarıdaki kod içindeki boş bir dize görüntüler `LastLockoutDateLabel` varsa `LastLockoutDate` özelliği yıl önce gerçekleşir 2000; Aksi takdirde tarih bölümü `LastLockoutDate` özelliği etiketinde görüntülenir. `UnlockUserButton`'S `Enabled` özelliği, kullanıcının kullanıcıya kilitlenmişse bu düğme yalnızca etkin olacağını anlamına gelen durum kilitli ayarlanır.
+`MembershipUser` Nesnenin [ `LastLockoutDate` özelliği](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) döndürür bir `DateTime` zaman kullanıcı son gösteren değer kilitlendi. Kullanıcı hiçbir zaman kilitlenmişse, döndürülen değer üyelik sağlayıcısına bağlıdır. Yeni bir hesap oluşturulduğunda, `SqlMembershipProvider` ayarlar `aspnet_Membership` tablonun `LastLockoutDate` alanı `1754-01-01 12:00:00 AM`. Yukarıdaki kod içindeki boş bir dize görüntüler `LastLockoutDateLabel` varsa `LastLockoutDate` özelliği yıl önce gerçekleşir 2000; Aksi takdirde tarih bölümü `LastLockoutDate` özelliği etiketinde görüntülenir. `UnlockUserButton`'S `Enabled` özelliği, kullanıcının kullanıcıya kilitlenmişse bu düğme yalnızca etkin olacağını anlamına gelen durum kilitli ayarlanır.
 
 Test etmek için bir dakikanızı ayırın `UserInformation.aspx` bir tarayıcı aracılığıyla sayfası. Elbette, başlangıç yapmanız gerekir `ManageUsers.aspx` ve yönetmek için bir kullanıcı hesabı seçin. Geliş bağlı `UserInformation.aspx`, unutmayın `IsApproved` onay kutusunu kullanıcı onaylanırsa yalnızca denetlenir. Kullanıcının herhangi bir zamanda kilitlenmişse, kendi son tarihini kilitli görüntülenir. Yalnızca kullanıcı şu anda kilitli kilidini kullanıcı düğmesi etkinleştirilir. Denetleme veya işaretleyerek `IsApproved` onay kutusunu veya kilidini kullanıcı düğmesini tıklatarak geri gönderimin neden olur, ancak biz için henüz olduğunuz çünkü değişikliğe kullanıcı hesabına yapılan bu olayları için olay işleyicileri oluşturma.
 
@@ -146,7 +146,7 @@ Ardından, yeni kullanıcı hesabını onaylamak yönergelerini içeren bir e-po
 
 ### <a name="sending-a-verification-email-to-new-users"></a>Yeni kullanıcılar için bir doğrulama e-postası gönderme
 
-CreateUserWizard denetiminden bir e-posta göndermek için yapılandırma, `MailDefinition` özelliği uygun şekilde. ' Da anlatıldığı gibi <a id="Tutorial13"> </a> [önceki öğretici](recovering-and-changing-passwords-vb.md), parola değiştirme ve PasswordRecovery denetimleri içerir bir [ `MailDefinition` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) aynı şekilde çalışır CreateUserWizard denetimin.
+CreateUserWizard denetiminden bir e-posta göndermek için yapılandırma, `MailDefinition` özelliği uygun şekilde. ' Da anlatıldığı gibi <a id="Tutorial13"> </a> [önceki öğretici](recovering-and-changing-passwords-vb.md), parola değiştirme ve PasswordRecovery denetimleri içerir bir [ `MailDefinition` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) aynı şekilde çalışır CreateUserWizard denetimin.
 
 > [!NOTE]
 > Kullanılacak `MailDefinition` posta teslim belirtmeniz gerekir özellik seçenekleri `Web.config`. Daha fazla bilgi için bkz [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
@@ -160,7 +160,7 @@ Ayarlama `MailDefinition`'s `BodyFileName` özelliğine "~ / EmailTemplates/Crea
 
 Unutmayın `CreateUserWizard.txt` e-posta şablonu içeren bir `<%VerificationUrl%>` yer tutucu. Bu yerdir URL'sini `Verification.aspx` sayfa yerleştirilir. CreateUserWizard otomatik olarak değiştirir `<%UserName%>` ve `<%Password%>` yer tutucuları yeni hesabın kullanıcı adı ve parola, yerleşik bir ancak `<%VerificationUrl%>` yer tutucu. El ile uygun doğrulama URL'si ile değiştirmeniz gerekir.
 
-Bunu başarmak için olay işleyicisi CreateUserWizard için 's oluşturmak [ `SendingMail` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) ve aşağıdaki kodu ekleyin:
+Bunu başarmak için olay işleyicisi CreateUserWizard için 's oluşturmak [ `SendingMail` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) ve aşağıdaki kodu ekleyin:
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample4.vb)]
 

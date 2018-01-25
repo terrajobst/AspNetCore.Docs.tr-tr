@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: f75b7192b4d97c88fcbcb4ad7fef88c83157c902
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>MVC veritabanı ilk site için Azure yayımlama
 ====================
@@ -31,8 +31,8 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 Bu öğreticiyi tamamlamak için bir Azure hesabı gerekir:
 
-- Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- Yapabilecekleriniz [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- Yapabilecekleriniz [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
 
 Web uygulamanızı yayımlamak için projeye sağ tıklayın ve seçin **Yayımla**.
 
@@ -54,8 +54,7 @@ Bağlantı değerleri tüm ayarlanır. Bu değerleri değişmeden bırakabilirsi
 
 ![Bağlantı](publish-to-azure/_static/image5.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 Ayarları için iki bağlantıları veritabanı bildirimi belirtilir - ApplicationDBContext ve ContosoUniversityDataEntities. ApplicationDBContext kullanıcı hesabı tablosu için bağlantısıdır. Bu değerler, yalnızca veritabanları için bağlantı dizelerini göster. Sitenizi yayımladığınızda, bu veritabanları yayımlanacağını anlamına gelmez. Web uygulaması yayımlama bitirdikten sonra veritabanı projenizi yayımlar.
 

@@ -1,5 +1,5 @@
 
-Şu konulara değineceğiz [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmez şekilde (tarih), veri türünü belirtir.
+Şu konulara değineceğiz [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmiyor şekilde (tarih), veri türünü belirtir.
 
 Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hedef URL görmek için bağlantı.
 
@@ -9,7 +9,7 @@ Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hede
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
-[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) sunucu tarafı kodu oluşturma ve Razor dosyalarında HTML öğelerin işlenmesi katılmayı etkinleştir. Yukarıdaki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` denetleyici eylem yöntemi ve rota kimliğinden öznitelik değeri. Kullandığınız **kaynağı görüntüle** sık kullanılan tarayıcı ya da kullanım oluşturulan biçimlendirme incelemek için geliştirici araçları. Oluşturulan HTML bir bölümü aşağıda verilmiştir:
+[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Yukarıdaki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` denetleyici eylem yöntemi ve rota kimliğinden öznitelik değeri. Kullandığınız **kaynağı görüntüle** sık kullanılan tarayıcı ya da kullanım oluşturulan biçimlendirme incelemek için geliştirici araçları. Oluşturulan HTML bir bölümü aşağıda verilmiştir:
 
 ```html
  <td>
@@ -77,18 +77,18 @@ Aşağıdaki liste gösterildiği `[HttpPost]` sürümü `Edit` eylem yöntemi.
 
 [Model bağlama](xref:mvc/models/model-binding) sistem gönderilen form değerleri alır ve oluşturur bir `Movie` olarak geçirilen nesne `movie` parametresi. `ModelState.IsValid` Yöntemi doğrular biçiminde gönderilen veriler (düzenleme veya güncelleştirme) değiştirmek için kullanılabilir bir `Movie` nesnesi. Veriler geçerliyse kaydedilir. Güncelleştirilmiş (düzenlenen) film verileri çağırarak veritabanına kaydedilir `SaveChangesAsync` veritabanı bağlamının yöntemi. Veriler kaydedildikten sonra kodu kullanıcı için yönlendiren `Index` eylem yöntemi `MoviesController` yaptığınız değişiklikler dahil film koleksiyon görüntüler sınıfı.
 
-Form sunucuya gönderilen önce istemci tarafı doğrulama alanlar tüm doğrulama kurallarını denetler. Herhangi bir doğrulama hatası varsa, bir hata iletisi görüntülenir ve form aktarılmamış. JavaScript devre dışıysa, istemci tarafı doğrulama olmaz ancak sunucu geçerli olmayan gönderilen değerler algılar ve form değerleri hata iletileri ile görünürler. Daha sonra öğreticide inceleyeceğiz [Model doğrulama](xref:mvc/models/validation) daha ayrıntılı. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms) içinde *Views/Movies/Edit.cshtml* şablonu uygun hata iletilerini görüntüleme mvc'deki görünümü.
+Form sunucuya gönderilen önce istemci tarafı doğrulama alanlar tüm doğrulama kurallarını denetler. Herhangi bir doğrulama hatası varsa, bir hata iletisi görüntülenir ve form gönderilen değil. JavaScript devre dışıysa, istemci tarafı doğrulama olmaz ancak sunucu geçerli olmayan gönderilen değerler algılar ve form değerleri hata iletileri ile görünürler. Daha sonra öğreticide inceleyeceğiz [Model doğrulama](xref:mvc/models/validation) daha ayrıntılı. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms) içinde *Views/Movies/Edit.cshtml* şablonu uygun hata iletilerini görüntüleme mvc'deki görünümü.
 
 ![Görünümü Düzenle: ABC hatalı bir fiyat değer için bir özel durum durumları fiyat alan bir sayı olmalıdır. Hatalı bir yayın tarihi değer için bir özel durum xyz durumlardan Lütfen geçerli bir tarih girin.](../../tutorials/first-mvc-app/controller-methods-views/_static/val.png)
 
-Tüm `HttpGet` benzer bir desen film denetleyicisi yöntemleri uygulayın. Film nesnesini alın (veya durumunda nesnelerin listesini `Index`) ve görünümüne nesne (modeli) geçirin. `Create` Yöntemi geçirir boş film nesneye `Create` görünümü. Bu nedenle oluşturmak, düzenlemek, silmek veya aksi halde verileri değiştirme tüm yöntemleri yapmak `[HttpPost]` yönteminin. Verileri değiştirme bir `HTTP GET` bir güvenlik riski bir yöntemdir. Verileri değiştirme bir `HTTP GET` yöntemi de ihlal HTTP en iyi yöntemler ve mimari [REST](http://rest.elkstein.org/) desen, GET istekleri uygulamanızın durumunu değiştirmemeniz gerektiğini belirtir. Diğer bir deyişle, bir GET işlemi gerçekleştirilirken hiçbir yan etkisi olan ve kalıcı verilerinizi değiştirmeyen güvenli bir işlem olmalıdır.
+Tüm `HttpGet` benzer bir desen film denetleyicisi yöntemleri uygulayın. Film nesnesini alın (veya durumunda nesnelerin listesini `Index`) ve görünümüne nesne (modeli) geçirin. `Create` Yöntemi geçirir boş film nesneye `Create` görünümü. Bu nedenle oluşturmak, düzenlemek, silmek veya aksi halde verileri değiştirme tüm yöntemleri yapmak `[HttpPost]` yönteminin. Verileri değiştirme bir `HTTP GET` bir güvenlik riski bir yöntemdir. Verileri değiştirme bir `HTTP GET` yöntemi de ihlal HTTP en iyi yöntemler ve mimari [REST](http://rest.elkstein.org/) desen, GET istekleri uygulamanızın durumunu değiştirmemeniz belirtir. Diğer bir deyişle, bir GET işlemi gerçekleştirilirken hiçbir yan etkisi olan ve kalıcı verilerinizi değiştirmeyen güvenli bir işlem olmalıdır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
 * [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
-* [Koruma istek Sahteciliğine](xref:security/anti-request-forgery)
+* [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)
 * Denetleyicisinden korumak [aşırı gönderim](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms)

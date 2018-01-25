@@ -12,15 +12,15 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 96960ef56b1206374458dbbba4befffaa83c1624
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013'te ASP.NET Web projeleri oluşturma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu konu Visual Studio 2013 güncelleştirme 3 ile ASP.NET web projeleri oluşturmak için kullanabileceğiniz seçenekler açıklanmaktadır
 > 
@@ -31,7 +31,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > - Kullanımını [önyükleme](#bootstrap) esnek tasarım ve tema özellikleri sağlamak üzere.
 > - Yalnızca MVC için gibi sunulması için kullanılan Web formları için yeni özellikler [otomatik test projesi oluşturmayı](#testproj) ve bir [Intranet site şablonu](#winauth).
 > 
-> Azure bulut Hizmetleri veya Azure Mobile Services için web projeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Cloud Services ve ASP.NET ile çalışmaya başlama](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-get-started/) ve [ile Azure Mobile Services .NET Skorbordu uygulaması oluşturma Arka uç](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
+> Azure bulut Hizmetleri veya Azure Mobile Services için web projeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure Cloud Services ve ASP.NET ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-get-started/) ve [ile Azure Mobile Services .NET Skorbordu uygulaması oluşturma Arka uç](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
 
 
 <a id="prerequisites"></a>
@@ -42,7 +42,7 @@ Bu makalede açıklanan [Visual Studio 2013](https://go.microsoft.com/fwlink/?Li
 <a id="wap"></a>
 ## <a name="web-application-projects-versus-web-site-projects"></a>Web uygulaması projelerine web sitesi projeleri karşılaştırması
 
-ASP.NET web projeleri iki tür arasında bir seçim sunar: *web uygulama projeleri* ve *web sitesi projeleri*. Web uygulaması projelerine yeni geliştirme öneririz ve bu makalede yalnızca web uygulaması projelerine yöneliktir. Daha fazla bilgi için bkz: [Visual Studio'da Web sitesi projeleri ile Web uygulaması projelerine](https://msdn.microsoft.com/en-us/library/dd547590(v=vs.120).aspx) MSDN sitesinden.
+ASP.NET web projeleri iki tür arasında bir seçim sunar: *web uygulama projeleri* ve *web sitesi projeleri*. Web uygulaması projelerine yeni geliştirme öneririz ve bu makalede yalnızca web uygulaması projelerine yöneliktir. Daha fazla bilgi için bkz: [Visual Studio'da Web sitesi projeleri ile Web uygulaması projelerine](https://msdn.microsoft.com/library/dd547590(v=vs.120).aspx) MSDN sitesinden.
 
 <a id="overview"></a>
 ## <a name="overview-of-web-application-project-creation"></a>Web uygulaması projesi oluşturma genel bakış
@@ -54,8 +54,8 @@ Aşağıdaki adımlar bir web projesi oluşturmayı gösterir:
 
     ![Yeni Proje iletişim kutusu](creating-web-projects-in-visual-studio/_static/image1.png)
 
-    Seçebileceğiniz **bulut** oluşturmak için sol bölmede bir [Azure bulut hizmeti](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy), [Azure mobil hizmeti](https://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx), veya [Azure WebJob](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-webjobs). Bu konu, bu şablonları kapsamaz.
-3. Sağ bölmede **projeye Application Insights Ekle** sistem durumu ve uygulamanız için kullanım izleme isterseniz onay kutusunu. Daha fazla bilgi için bkz: [web uygulamalarında performansı izleyerek](https://azure.microsoft.com/en-us/documentation/articles/app-insights-web-monitor-performance/).
+    Seçebileceğiniz **bulut** oluşturmak için sol bölmede bir [Azure bulut hizmeti](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy), [Azure mobil hizmeti](https://msdn.microsoft.com/library/windows/apps/dn629482.aspx), veya [Azure WebJob](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-webjobs). Bu konu, bu şablonları kapsamaz.
+3. Sağ bölmede **projeye Application Insights Ekle** sistem durumu ve uygulamanız için kullanım izleme isterseniz onay kutusunu. Daha fazla bilgi için bkz: [web uygulamalarında performansı izleyerek](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/).
 4. Proje belirtin **adı**, **konumu**ve diğer seçenekleri ve ardından **Tamam**.
 
     **Yeni ASP.NET projesi** iletişim kutusu görüntülenir.
@@ -86,7 +86,7 @@ Visual Studio web uygulamalarını barındırmak için Azure services ile çalı
 - Uygulama bulutta çalışırken uzaktan hata ayıklama modunda çalıştırın.
 - Viiew ve diğer Azure hizmetleriyle SQL veritabanları gibi yönetebilirsiniz.
 
-Yapabilecekleriniz [bir Azure hesabı oluşturma](https://www.windowsazure.com/en-us/pricing/free-trial/) , ücretsiz web uygulamaları gibi temel hizmetleri içerir ve bir MSDN abonesi misiniz yoksa şunları yapabilirsiniz [avantajları etkinleştirme](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) , size ek Azure doğru aylık KREDİLERİ Hizmetler. 
+Yapabilecekleriniz [bir Azure hesabı oluşturma](https://www.windowsazure.com/pricing/free-trial/) , ücretsiz web uygulamaları gibi temel hizmetleri içerir ve bir MSDN abonesi misiniz yoksa şunları yapabilirsiniz [avantajları etkinleştirme](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions/) , size ek Azure doğru aylık KREDİLERİ Hizmetler. 
 
 Varsayılan olarak **yeni ASP.NET projesi** iletişim kutusu, bir web uygulaması veya sanal makine için yeni bir web projesi oluşturmanıza olanak sağlar. Yeni web uygulaması veya sanal makine oluşturmak istemiyorsanız temizleyin **bulutta Barındır** onay kutusu.
 
@@ -96,7 +96,7 @@ Onay kutusu resim yazısı olabilir **bulutta Barındır** veya **uzak kaynaklar
 
 ![Azure uygulaması ayarlarını yapılandır](creating-web-projects-in-visual-studio/_static/image9.png)
 
-Azure kaynaklarını oluşturmak için bu işlem kullanma hakkında daha fazla bilgi için bkz: [Azure ve ASP.NET ile çalışmaya başlama](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet) ve [Visual Studio ile web sitesi için bir sanal makine oluşturma](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/).
+Azure kaynaklarını oluşturmak için bu işlem kullanma hakkında daha fazla bilgi için bkz: [Azure ve ASP.NET ile çalışmaya başlama](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet) ve [Visual Studio ile web sitesi için bir sanal makine oluşturma](https://azure.microsoft.com/documentation/articles/virtual-machines-dotnet-create-visual-studio-powershell/).
 
 Bu makalenin sonraki bölümlerinde, kullanılabilir şablonlar ve bunların seçenekleri hakkında daha fazla bilgi sağlar. Makale aynı zamanda şablonlarında kullanılan önyükleme, Düzen ve tema framework sunar.
 
@@ -112,7 +112,7 @@ Visual Studio 2013, .NET 4.5 veya .NET framework'ün sonraki sürümlerini hedef
 - [MVC şablonu](#mvc)
 - [Web API şablonu](#webapi)
 - [Tek sayfa uygulaması şablonu](#spa)
-- [Azure mobil hizmeti şablonu](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
+- [Azure mobil hizmeti şablonu](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/)
 - [Visual Studio 2012 şablonları](#vs2012)
 
 Sağlayan bir Visual Studio uzantısı yükleyebilmek için bir [Facebook şablon](#facebook).
@@ -198,7 +198,7 @@ JavaScript çerçeveler Çakıştırmaları dışında kullanmak ek SPA şablonl
 
 - [ASP.NET tek sayfa uygulaması](../../../single-page-application/index.md).
 - [VS2013 RC için SPA şablonundaki güvenlik özellikleri anlama](https://blogs.msdn.com/b/webdev/archive/2013/09/20/understanding-security-features-in-spa-template.aspx)
-- [Tek sayfalı uygulamalar: ASP.NET ile Modern, yanıt veren Web uygulamaları oluşturma](https://msdn.microsoft.com/en-us/magazine/dn463786.aspx)
+- [Tek sayfalı uygulamalar: ASP.NET ile Modern, yanıt veren Web uygulamaları oluşturma](https://msdn.microsoft.com/magazine/dn463786.aspx)
 
 <a id="facebook"></a>
 ### <a name="facebook-template"></a>Facebook şablonu
@@ -321,7 +321,7 @@ Yeni üyelik sistemi yeni şablonlar, otomatik olarak uygulanır ve el ile .NET 
 
 Bireysel kullanıcı hesapları seçeneği hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [www.ASP.NET/identity](../../../identity/index.md). ASP.NET web sitesindeki belgeleri ASP.NET Identity hakkında.
+- [www.asp.net/identity](../../../identity/index.md). ASP.NET web sitesindeki belgeleri ASP.NET Identity hakkında.
 - [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Ayrıca kullanıcı profili verilerini özelleştirmek nasıl gösterir.
 - [Web API - Dış kimlik doğrulama hizmeti](../../../web-api/overview/security/external-authentication-services.md)
 - [ASP.NET uygulamanızı Visual Studio 2013'te dış oturum açma ekleme](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -360,7 +360,7 @@ Azure AD seçeneklerden birini denemek istiyor, ancak henüz bir hesabınız yok
 
 ![Tek bir kurumun kimlik doğrulaması](creating-web-projects-in-visual-studio/_static/image24.png)
 
-Bir Azure AD içinde tanımlanan kullanıcı hesapları için kimlik doğrulamasını etkinleştirmek istiyorsanız bu seçeneği [Kiracı](https://technet.microsoft.com/en-us/library/jj573650.aspx). Örneğin, contoso.com sitesidir ve onu contoso.onmicrosoft.com kiracısında olan Contoso şirket çalışanları için kullanıma açık olacaktır. Kullanıcıların diğer kiracılardan uygulamaya erişmesine izin vermek için Azure AD yapılandırmanız mümkün olmayacaktır.
+Bir Azure AD içinde tanımlanan kullanıcı hesapları için kimlik doğrulamasını etkinleştirmek istiyorsanız bu seçeneği [Kiracı](https://technet.microsoft.com/library/jj573650.aspx). Örneğin, contoso.com sitesidir ve onu contoso.onmicrosoft.com kiracısında olan Contoso şirket çalışanları için kullanıma açık olacaktır. Kullanıcıların diğer kiracılardan uygulamaya erişmesine izin vermek için Azure AD yapılandırmanız mümkün olmayacaktır.
 
 #### <a name="domain"></a>Etki Alanı
 
@@ -368,7 +368,7 @@ Uygulama, örneğin ayarlamak istediğiniz Azure AD etki alanını girin: `conto
 
 #### <a name="access-level"></a>Erişim düzeyi
 
-Uygulama gerekiyorsa sorgu veya grafik API'sini kullanarak dizin bilgilerini güncelleştirin, seçin **çoklu oturum açma, dizin verilerini okuma** veya **çoklu oturum açma, okuma ve yazma dizin verilerini**. Aksi takdirde seçin **çoklu oturum açma**. Daha fazla bilgi için bkz: [uygulama erişim düzeyleri](https://msdn.microsoft.com/en-us/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels) ve [sorguya Azure AD grafik API'sini kullanarak](https://msdn.microsoft.com/en-US/library/windowsazure/dn151791.aspx).
+Uygulama gerekiyorsa sorgu veya grafik API'sini kullanarak dizin bilgilerini güncelleştirin, seçin **çoklu oturum açma, dizin verilerini okuma** veya **çoklu oturum açma, okuma ve yazma dizin verilerini**. Aksi takdirde seçin **çoklu oturum açma**. Daha fazla bilgi için bkz: [uygulama erişim düzeyleri](https://msdn.microsoft.com/library/windowsazure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels) ve [sorguya Azure AD grafik API'sini kullanarak](https://msdn.microsoft.com/library/windowsazure/dn151791.aspx).
 
 #### <a name="application-id-uri"></a>Uygulama Kimliği URI'si
 
@@ -386,8 +386,8 @@ Kullanan uygulamaları oluşturma hakkında bilgi için **bulut - tek bir kurumu
 
 - [Azure kimlik doğrulaması](../2012/windows-azure-authentication.md)
 - [Azure AD kullanarak, Web uygulamanıza oturum açma ekleme](https://msdn.microsoft.com/library/windowsazure/dn151790.aspx)
-- [Azure Active Directory ile ASP.NET uygulama geliştirme](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Azure AD ile ASP.NET Web API güvenliğini sağlama ve Microsoft OWIN bileşenleri](https://msdn.microsoft.com/en-us/magazine/dn463788.aspx)
+- [Azure Active Directory ile ASP.NET Uygulamaları geliştirme](../../../identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
+- [Azure AD ile ASP.NET Web API güvenliğini sağlama ve Microsoft OWIN bileşenleri](https://msdn.microsoft.com/magazine/dn463788.aspx)
 
 Öğreticiler, Visual Studio 2013 için henüz güncelleştirilmemiş; Bazı hangi öğreticileri, el ile yapmak için doğrudan otomatik Visual Studio 2013'te.
 
@@ -396,14 +396,14 @@ Kullanan uygulamaları oluşturma hakkında bilgi için **bulut - tek bir kurumu
 
 ![Birden çok kurum kimlik doğrulaması](creating-web-projects-in-visual-studio/_static/image25.png)
 
-Birden çok Azure AD içinde tanımlanan kullanıcı hesapları için kimlik doğrulamasını etkinleştirmek istiyorsanız bu seçeneği [kiracılar](https://technet.microsoft.com/en-us/library/jj573650.aspx). Örneğin, contoso.com sitesidir ve onu contoso.onmicrosoft.com kiracısında olan Contoso şirket çalışanları ve fabrikam.onmicrosoft.com kiracısında olan Fabrikam şirket çalışanları tarafından yüklenebilir.
+Birden çok Azure AD içinde tanımlanan kullanıcı hesapları için kimlik doğrulamasını etkinleştirmek istiyorsanız bu seçeneği [kiracılar](https://technet.microsoft.com/library/jj573650.aspx). Örneğin, contoso.com sitesidir ve onu contoso.onmicrosoft.com kiracısında olan Contoso şirket çalışanları ve fabrikam.onmicrosoft.com kiracısında olan Fabrikam şirket çalışanları tarafından yüklenebilir.
 
 Girdiğiniz ayarları ve uygulama adımı sağlama benzer [tek kurum kimlik doğrulaması](#orgauthsingle).
 
 Kullanan uygulamaları oluşturma hakkında bilgi için **bulut - çoklu kuruluş** kimlik doğrulaması, aşağıdaki kaynaklara bakın:
 
 - [Azure Active Directory, ASP.NET kolay Web uygulama tümleştirmesi &amp; Visual Studio](https://blogs.msdn.com/b/active_directory_team_blog/archive/2013/06/26/improved-windows-azure-active-directory-integration-with-asp-net-amp-visual-studio.aspx) Active Directory ekip blogu üzerinde.
-- [Azure AD ile çok Kiracılı Web uygulamaları geliştirme](https://msdn.microsoft.com/en-us/library/windowsazure/dn151789.aspx) Öğreticisi. Öğretici için Visual Studio 2013 henüz güncelleştirilmedi; öğretici, el ile yapmak için ne yönlendiren bazıları otomatik Visual Studio 2013'te.
+- [Azure AD ile çok Kiracılı Web uygulamaları geliştirme](https://msdn.microsoft.com/library/windowsazure/dn151789.aspx) Öğreticisi. Öğretici için Visual Studio 2013 henüz güncelleştirilmedi; öğretici, el ile yapmak için ne yönlendiren bazıları otomatik Visual Studio 2013'te.
 - [Oturum açmadan önce Yukarı kendi birden çok kuruluşlar ASP.NET uygulaması ile oturum açması](http://www.cloudidentity.com/blog/2013/10/26/you-have-to-sign-up-with-your-own-multiple-organizations-asp-net-app-before-you-can-sign-in/). Blog nasıl ortak bir sorun kişiler çözümleneceği açıklanır Vittorio Bertocci tarafından çok kurum kimlik doğrulaması kullanan bir proje oluşturma sırasında karşılaşırsınız.
 
 <a id="orgauthonprem"></a>

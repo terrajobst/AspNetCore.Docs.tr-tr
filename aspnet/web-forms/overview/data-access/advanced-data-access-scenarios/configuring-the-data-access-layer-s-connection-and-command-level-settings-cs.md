@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5675c1c2a1c8987412ae79707e4c20e29e0e0df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (C#) yapılandırma
 ====================
@@ -37,7 +37,7 @@ Bu öğreticide TableAdapter veritabanı bağlantısı ve komut düzeyini ayarla
 
 ## <a name="working-with-data-using-adonet"></a>ADO.NET kullanarak verileri ile çalışma
 
-Microsoft .NET Framework sınıfları özellikle verilerle çalışmak için tasarlanmış sayısız içerir. İçinde bulunan bu sınıfların [ `System.Data` ad alanı](https://msdn.microsoft.com/en-us/library/system.data.aspx), denir *ADO.NET* sınıfları. ADO.NET şemsiyesi altındaki sınıfların bazıları için belirli bir bağlı *veri sağlayıcısı*. Bir veri sağlayıcısı akışı ADO.NET sınıfları ve temel alınan veri deposu bilgi sağlayan bir iletişim kanalı olarak düşünebilirsiniz. OleDb ve ODBC yanı sıra, belirli veritabanı sistemi için özel olarak tasarlanmıştır sağlayıcıları gibi genelleştirilmiş sağlayıcıları vardır. Örneğin, OleDb sağlayıcısı kullanarak bir Microsoft SQL Server veritabanına bağlanmak mümkün olsa da, tasarlandığı ve özellikle SQL Server için en iyi duruma getirilmiş olarak SqlClient sağlayıcısı çok daha verimli olur.
+Microsoft .NET Framework sınıfları özellikle verilerle çalışmak için tasarlanmış sayısız içerir. İçinde bulunan bu sınıfların [ `System.Data` ad alanı](https://msdn.microsoft.com/library/system.data.aspx), denir *ADO.NET* sınıfları. ADO.NET şemsiyesi altındaki sınıfların bazıları için belirli bir bağlı *veri sağlayıcısı*. Bir veri sağlayıcısı akışı ADO.NET sınıfları ve temel alınan veri deposu bilgi sağlayan bir iletişim kanalı olarak düşünebilirsiniz. OleDb ve ODBC yanı sıra, belirli veritabanı sistemi için özel olarak tasarlanmıştır sağlayıcıları gibi genelleştirilmiş sağlayıcıları vardır. Örneğin, OleDb sağlayıcısı kullanarak bir Microsoft SQL Server veritabanına bağlanmak mümkün olsa da, tasarlandığı ve özellikle SQL Server için en iyi duruma getirilmiş olarak SqlClient sağlayıcısı çok daha verimli olur.
 
 Program aracılığıyla verilere erişirken aşağıdaki düzeni yaygın olarak kullanılır:
 
@@ -45,7 +45,7 @@ Program aracılığıyla verilere erişirken aşağıdaki düzeni yaygın olarak
 - Bir komutu yürütün.
 - İçin `SELECT` iş sorguları, sonuçta elde edilen kayıtlarıyla.
 
-Bu adımların her biri gerçekleştirmek için ayrı ADO.NET sınıflarını vardır. Örneğin, SqlClient sağlayıcısı kullanarak bir veritabanına bağlanmak için kullanmak [ `SqlConnection` sınıfı](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Sorun için bir `INSERT`, `UPDATE`, `DELETE`, veya `SELECT` komutunu kullanın veritabanına [ `SqlCommand` sınıfı](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.aspx).
+Bu adımların her biri gerçekleştirmek için ayrı ADO.NET sınıflarını vardır. Örneğin, SqlClient sağlayıcısı kullanarak bir veritabanına bağlanmak için kullanmak [ `SqlConnection` sınıfı](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(VS.80).aspx). Sorun için bir `INSERT`, `UPDATE`, `DELETE`, veya `SELECT` komutunu kullanın veritabanına [ `SqlCommand` sınıfı](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx).
 
 Dışında [kaydırma veritabanı değişiklikleri bir işlem içinde](../working-with-batched-data/wrapping-database-modifications-within-a-transaction-cs.md) öğretici, biz olmayan gerekiyordu herhangi bir alt düzey ADO.NET kod, kendisini, TableAdapters otomatik olarak üretilen kod için gereken işlevi içerdiğinden yazma veritabanına bağlanmak, komutları verin, verileri alabilir ve bu verileri DataTables doldurmak. Ancak, ne zaman bu alt düzey ayarlarını özelleştirmek için ihtiyacımız zamanlar olabilir. Sonraki birkaç adımda TableAdapters tarafından dahili olarak kullanılan ADO.NET nesneleri içine dokunun nasıl inceleyeceğiz.
 
@@ -121,7 +121,7 @@ Veri kümesi kaydedin ve sonra geri dönüp `ProductsBLL` sınıfı. Daha önce 
 
 ## <a name="step-3-examining-the-command-related-properties"></a>3. adım: komutu ile ilgili özellikler inceleniyor
 
-Varsayılan olarak, otomatik olarak oluşturulan bir ana sorgu bir TableAdapter oluşur `INSERT`, `UPDATE`, ve `DELETE` deyimleri. Bu ana sorgu s `INSERT`, `UPDATE`, ve `DELETE` deyimleri bir ADO.NET veri bağdaştırıcısı nesnesi olarak TableAdapter s kodda uygulanır `Adapter` özelliği. İle gibi kendi `Connection` özelliği `Adapter` özellik s veri türü, kullanılan veri sağlayıcısı tarafından belirlenir. Bu öğreticiler SqlClient sağlayıcısı kullandığından `Adapter` özelliği türüdür [ `SqlDataAdapter` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
+Varsayılan olarak, otomatik olarak oluşturulan bir ana sorgu bir TableAdapter oluşur `INSERT`, `UPDATE`, ve `DELETE` deyimleri. Bu ana sorgu s `INSERT`, `UPDATE`, ve `DELETE` deyimleri bir ADO.NET veri bağdaştırıcısı nesnesi olarak TableAdapter s kodda uygulanır `Adapter` özelliği. İle gibi kendi `Connection` özelliği `Adapter` özellik s veri türü, kullanılan veri sağlayıcısı tarafından belirlenir. Bu öğreticiler SqlClient sağlayıcısı kullandığından `Adapter` özelliği türüdür [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter(VS.80).aspx).
 
 TableAdapter s `Adapter` özelliğinin türü üç özelliklerini `SqlCommand` için kullandığı sorunu `INSERT`, `UPDATE`, ve `DELETE` deyimleri:
 
@@ -129,7 +129,7 @@ TableAdapter s `Adapter` özelliğinin türü üç özelliklerini `SqlCommand` i
 - `UpdateCommand`
 - `DeleteCommand`
 
-A `SqlCommand` nesne belirli bir sorgu veritabanına göndermekten sorumludur ve gibi özelliklere sahiptir: [ `CommandText` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtext.aspx), geçici SQL deyimi veya saklı yordamı yürütmek için; içerir ve [ `Parameters` ](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.parameters.aspx), koleksiyonu olduğu `SqlParameter` nesneleri. Geri gördüğümüz gibi [veri erişim katmanı oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğretici, bu komut nesneleri Özellikleri penceresinden özelleştirilebilir.
+A `SqlCommand` nesne belirli bir sorgu veritabanına göndermekten sorumludur ve gibi özelliklere sahiptir: [ `CommandText` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtext.aspx), geçici SQL deyimi veya saklı yordamı yürütmek için; içerir ve [ `Parameters` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.parameters.aspx), koleksiyonu olduğu `SqlParameter` nesneleri. Geri gördüğümüz gibi [veri erişim katmanı oluşturma](../introduction/creating-a-data-access-layer-cs.md) öğretici, bu komut nesneleri Özellikleri penceresinden özelleştirilebilir.
 
 Kendi ana sorgu yanı sıra TableAdapter değişken çeşitli yöntemler içerebilir, çağrıldığında, veritabanı için belirtilen bir komut gönderme. Ana sorgu s komut nesne ve tüm ek yöntemleri için komut nesneleri TableAdapter s içinde depolanan `CommandCollection` özelliği.
 
@@ -146,7 +146,7 @@ Kodunu `Adapter` ve `CommandCollection` özellikleri yakından taklit eder, `Con
 
 TableAdapter yalnızca tek bir sahip olduğundan `Connection` özelliği, bağlantı düzeyi ayarlarını gösterme kodunu oldukça basit. TableAdapter birden çok komut nesneleri - olabileceğinden komutu düzeyi ayarlarını değiştirirken şeyler biraz daha karmaşık bir `InsertCommand`, `UpdateCommand`, ve `DeleteCommand`, komut nesneleri değişken sayıda birlikte `CommandCollection` özellik. Komut düzeyi ayarlarını güncelleştirirken, bu ayarlar tüm komut nesneleri dağıtılmasını gerekir.
 
-Örneğin, yürütmek için bir olağanüstü uzun sürdü TableAdapter içinde bazı sorgular olduğunu düşünün. TableAdapter bu sorguların birini yürütmek için kullanırken, biz s komut nesnesi artırmak isteyebilirsiniz [ `CommandTimeout` özelliği](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Bu özellik, komutun yürütülmesi için beklenecek saniye sayısını belirtir ve varsayılan olarak 30.
+Örneğin, yürütmek için bir olağanüstü uzun sürdü TableAdapter içinde bazı sorgular olduğunu düşünün. TableAdapter bu sorguların birini yürütmek için kullanırken, biz s komut nesnesi artırmak isteyebilirsiniz [ `CommandTimeout` özelliği](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.commandtimeout.aspx). Bu özellik, komutun yürütülmesi için beklenecek saniye sayısını belirtir ve varsayılan olarak 30.
 
 İzin vermek için `CommandTimeout` BLL tarafından ayarlanacak özellik ekleme aşağıdaki `public` yönteme `ProductsDataTable` kısmi sınıf dosyası kullanılarak oluşturulan 2. adımda (`ProductsTableAdapter.ConnectionAndCommandSettings.cs`):
 

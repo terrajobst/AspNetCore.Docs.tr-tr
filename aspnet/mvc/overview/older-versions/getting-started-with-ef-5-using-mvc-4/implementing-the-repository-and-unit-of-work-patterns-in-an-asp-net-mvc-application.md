@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Depo ve iş desenleri biriminin bir ASP.NET MVC uygulamasındaki (9, 10) uygulama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -45,15 +45,15 @@ Aşağıdaki çizimde, denetleyici ve depo veya çalışma deseni biriminin hiç
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-Bu öğretici serisinde birim testleri oluşturmaz. Depo düzeni kullanan bir MVC uygulaması ile TDD giriş için bkz: [izlenecek yol: ASP.NET MVC ile kullanma TDD](https://msdn.microsoft.com/en-us/library/ff847525.aspx). Depo düzeni hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğretici serisinde birim testleri oluşturmaz. Depo düzeni kullanan bir MVC uygulaması ile TDD giriş için bkz: [izlenecek yol: ASP.NET MVC ile kullanma TDD](https://msdn.microsoft.com/library/ff847525.aspx). Depo düzeni hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Depo düzeni](https://msdn.microsoft.com/en-us/library/ff649690.aspx) konusuna bakın.
+- [Depo düzeni](https://msdn.microsoft.com/library/ff649690.aspx) konusuna bakın.
 - [Entity Framework 4.0 ile depo ve iş birimi düzenleri kullanarak](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) Entity Framework ekip blogunda.
 - [Çevik Entity Framework 4 depo](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) Julie Lerman'ın blog gönderilerine dizi.
 - [Bir bakışta HTML5/jQuery uygulama hesabı oluşturma](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) Dan Wahlin'ın blogunda.
 
 > [!NOTE]
-> Depo ve iş desenleri biriminin uygulamak için birçok yolu vardır. Depo sınıflarını olan veya olmayan bir birim iş sınıfının kullanabilirsiniz. Tüm Varlık türlerinin veya her tür için tek bir depo uygulayabilirsiniz. Her tür için bir tane uygularsanız, ayrı sınıfları, genel bir taban sınıf ve türetilen sınıflar veya Özet temel sınıf ve türetilen sınıflar kullanabilirsiniz. İş mantığı, depoya ekleme veya veri erişim mantığı için kısıtlayın. Kullanarak, veritabanı bağlamı sınıfının bir Soyutlama Katmanı oluşturabilirsiniz [Idbset](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx) yerine var. arabirimleri [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) türler, varlık kümeleri için. Bu öğreticide gösterilen bir Soyutlama Katmanı uygulama yaklaşım, dikkate almanız gereken, değil tüm senaryolar ve ortamlar için bir öneri bir seçenektir.
+> Depo ve iş desenleri biriminin uygulamak için birçok yolu vardır. Depo sınıflarını olan veya olmayan bir birim iş sınıfının kullanabilirsiniz. Tüm Varlık türlerinin veya her tür için tek bir depo uygulayabilirsiniz. Her tür için bir tane uygularsanız, ayrı sınıfları, genel bir taban sınıf ve türetilen sınıflar veya Özet temel sınıf ve türetilen sınıflar kullanabilirsiniz. İş mantığı, depoya ekleme veya veri erişim mantığı için kısıtlayın. Kullanarak, veritabanı bağlamı sınıfının bir Soyutlama Katmanı oluşturabilirsiniz [Idbset](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) yerine var. arabirimleri [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) türler, varlık kümeleri için. Bu öğreticide gösterilen bir Soyutlama Katmanı uygulama yaklaşım, dikkate almanız gereken, değil tüm senaryolar ve ortamlar için bir öneri bir seçenektir.
 
 
 ## <a name="creating-the-student-repository-class"></a>Öğrenci depo sınıfı oluşturma
@@ -74,7 +74,7 @@ Veritabanı bağlamı sınıfının değişkeninde tanımlanır ve Oluşturucusu
 
 Depoya yeni bir bağlamda örneği oluşturulamadı, ancak bir denetleyicide birden çok depoları kullandıysanız, ardından her ayrı bağlamla yapmış olursunuz. İçinde birden çok depoları daha sonra kullanacağınız `Course` denetleyici ve göreceksiniz nasıl bir birimi iş sınıfının tüm depoları aynı bağlam kullanmasını sağlayabilirsiniz.
 
-Depo uygulayan [IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx) ve veritabanı bağlamı olarak denetleyicisi daha önce gördüğünüz ve CRUD yöntemlerinden daha önce gördüğünüzle aynı yolla veritabanı bağlamı aramalarda siler.
+Depo uygulayan [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) ve veritabanı bağlamı olarak denetleyicisi daha önce gördüğünüz ve CRUD yöntemlerinden daha önce gördüğünüzle aynı yolla veritabanı bağlamı aramalarda siler.
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>Depoyu kullanacak şekilde Öğrenci denetleyicisi değiştirme
 
@@ -245,7 +245,7 @@ Sayfa arar ve aynı değişikliklerinizi önce yapılmış ve diğer indirmelere
 
 ## <a name="summary"></a>Özet
 
-Şimdi depo ve iş desenleri biriminin uyguladık. Lambda ifadeleri, genel havuzda yöntem parametreleri olarak kullandınız. Bu ifadelerle kullanma hakkında daha fazla bilgi için bir `IQueryable` nesne için bkz: [IQueryable(T) arabirimi (System.Linq)](https://msdn.microsoft.com/en-us/library/bb351562.aspx) MSDN Kitaplığı'nda. Sonraki Gelişmiş senaryoları Öğreticisi bazı nasıl ele alınacağını öğreneceksiniz.
+Şimdi depo ve iş desenleri biriminin uyguladık. Lambda ifadeleri, genel havuzda yöntem parametreleri olarak kullandınız. Bu ifadelerle kullanma hakkında daha fazla bilgi için bir `IQueryable` nesne için bkz: [IQueryable(T) arabirimi (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) MSDN Kitaplığı'nda. Sonraki Gelişmiş senaryoları Öğreticisi bazı nasıl ele alınacağını öğreneceksiniz.
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 

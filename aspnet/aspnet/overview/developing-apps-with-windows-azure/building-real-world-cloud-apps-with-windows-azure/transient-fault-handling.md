@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Geçici hata işleme (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -39,11 +39,11 @@ Bir özel durum atma ve müşterinize mevcut değil ya da hata sayfası görünt
 
 Akıllı yeniden deneme mantığı uygulayabilirsiniz birkaç yolu vardır.
 
-- Microsoft Patterns &amp; yöntemler grubuna sahip bir [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx) yapan her şeyi sizin için SQL veritabanı erişimi (değil aracılığıyla Entity Framework) için ADO.NET kullanıyorsanız. Bir sorguyu yeniden denemek için kaç kez yeniden deneme – ilke ayarlamanız yeterlidir veya komutunu ve ne kadar süre bekleneceğini çalıştığında – arasında kaydırma SQL kod içinde bir *kullanarak* bloğu.
+- Microsoft Patterns &amp; yöntemler grubuna sahip bir [geçici hata işleme uygulama bloğu](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) yapan her şeyi sizin için SQL veritabanı erişimi (değil aracılığıyla Entity Framework) için ADO.NET kullanıyorsanız. Bir sorguyu yeniden denemek için kaç kez yeniden deneme – ilke ayarlamanız yeterlidir veya komutunu ve ne kadar süre bekleneceğini çalıştığında – arasında kaydırma SQL kod içinde bir *kullanarak* bloğu.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    TFH de destekler [Azure rol içi önbelleği](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx) ve [Service Bus](https://azure.microsoft.com/services/service-bus/).
+    TFH de destekler [Azure rol içi önbelleği](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) ve [Service Bus](https://azure.microsoft.com/services/service-bus/).
 - Entity Framework kullandığınızda genellikle doğrudan SQL bağlantıları ile bu desenleri ve uygulamalar paket kullanamaz, ancak Entity Framework 6 Bu tür bir yeniden deneme mantığı Framework'e sağ derlemeler için çalışma değil. Benzer şekilde yeniden deneme stratejisini belirlemek ve veritabanını eriştiğinde EF bu strateji kullanır.
 
     Düzelt uygulamada bu özelliği kullanmak için size gereken yapmak için tek şey türeyen bir sınıf ekleyin *DbConfiguration* ve yeniden deneme mantığına açın.
@@ -88,11 +88,11 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 Belgeler
 
-- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Hatasız serisi ancak yapılır Ayrıntılar gerçekleştirip gerçekleştirmeyeceğini benzer. Telemetri ve Tanılama bölümüne bakın.
-- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Web sayfası hatasız video serisi sürümü.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Yeniden deneme bkz düzeni, Zamanlayıcı Aracısı yönetici düzeni.
+- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Hatasız serisi ancak yapılır Ayrıntılar gerçekleştirip gerçekleştirmeyeceğini benzer. Telemetri ve Tanılama bölümüne bakın.
+- [Hatasız: Dayanıklı bulut mimarileri Kılavuzu](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Teknik incelemesi Marc Mercuri, Ulrich Homann ve Barış Townhill tarafından. Web sayfası hatasız video serisi sürümü.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Yeniden deneme bkz düzeni, Zamanlayıcı Aracısı yönetici düzeni.
 - [Hataya dayanıklı Azure SQL veritabanında](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Blog gönderisi Tony Petrossian tarafından.
-- [Entity Framework - bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/en-us/data/dn456835). Entity Framework 6 özelliği işleme geçici hata özelleştirmek ve kullanmak nasıl.
+- [Entity Framework - bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835). Entity Framework 6 özelliği işleme geçici hata özelleştirmek ve kullanmak nasıl.
 - [Bağlantı dayanıklılığı ve ASP.NET MVC uygulamasındaki Entity Framework komut kişiler tarafından ele](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Dördüncü dokuz bölümlü öğretici serisinde EF 6 bağlantı esnekliği özelliği ayarlamak için SQL Database gösterilmiştir.
 
 Videolar

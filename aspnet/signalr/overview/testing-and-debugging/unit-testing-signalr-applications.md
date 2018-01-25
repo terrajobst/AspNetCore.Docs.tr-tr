@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: e55efd644dd4b6fb57061ffb89a5c041136c7b5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Birim testi SignalR uygulamalarını
 ====================
@@ -41,7 +41,7 @@ tarafından [CAN Fletcher'dan](https://github.com/pfletcher)
 <a id="unit"></a>
 ## <a name="unit-testing-signalr-applications"></a>SignalR uygulamalarında birim testi
 
-SignalR uygulamanız için birim testleri oluşturmak için birim testi özellikleri SignalR 2'de kullanabilirsiniz. SignalR 2 içeren [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) test hub'ı yöntemlerinizi benzetimini yapmak için sahte bir nesneyi oluşturmak için kullanılan arabirim.
+SignalR uygulamanız için birim testleri oluşturmak için birim testi özellikleri SignalR 2'de kullanabilirsiniz. SignalR 2 içeren [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) test hub'ı yöntemlerinizi benzetimini yapmak için sahte bir nesneyi oluşturmak için kullanılan arabirim.
 
 Bu bölümde, oluşturduğunuz uygulama için birim testleri ekleyeceksiniz [Başlarken Öğreticisi](../getting-started/tutorial-getting-started-with-signalr.md) kullanarak [XUnit.net](https://github.com/xunit/xunit) ve [Moq](https://github.com/Moq/moq4).
 
@@ -82,7 +82,7 @@ Bu bölümde, oluşturduğunuz uygulama için bir birim testi ekleyeceksiniz [Ba
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample1.cs)]
 
-    Yukarıdaki kod test istemcisi kullanılarak oluşturulan `Mock` nesnesinin [Moq](https://github.com/Moq/moq4) tür kitaplığı [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 atamak `dynamic` türü için parametre.) `IHubCallerConnectionContext` İstemcide yöntemleri ile başlattığınıza proxy nesnesi bir arabirimdir. `broadcastMessage` Çağıran böylece işlevi sahte istemcisi ardından tanımlanan `ChatHub` sınıfı. Test altyapısı sonra çağırır `Send` yöntemi `ChatHub` sırayla mocked çağırır sınıfı `broadcastMessage` işlevi.
+    Yukarıdaki kod test istemcisi kullanılarak oluşturulan `Mock` nesnesinin [Moq](https://github.com/Moq/moq4) tür kitaplığı [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 atamak `dynamic` türü için parametre.) `IHubCallerConnectionContext` İstemcide yöntemleri ile başlattığınıza proxy nesnesi bir arabirimdir. `broadcastMessage` Çağıran böylece işlevi sahte istemcisi ardından tanımlanan `ChatHub` sınıfı. Test altyapısı sonra çağırır `Send` yöntemi `ChatHub` sırayla mocked çağırır sınıfı `broadcastMessage` işlevi.
 9. Tuşlarına basarak çözümü oluşturun **F6**.
 10. Birim testi çalıştırma. Visual Studio'da seçin **Test**, **Windows**, **Test Gezgini**. Test Gezgini penceresinde sağ **HubsAreMockableViaDynamic** seçip **seçili Testleri Çalıştır**.
 
@@ -101,7 +101,7 @@ Bu bölümde, oluşturduğunuz uygulama için bir sınama ekleyeceksiniz [Başla
 
     [!code-csharp[Main](unit-testing-signalr-applications/samples/sample2.cs)]
 
-    Yukarıdaki kod imzası tanımlayan bir arabirim oluşturulur `broadcastMessage` yöntemi için test altyapısı sahte istemci oluşturacaktır. Sahte bir istemci, ardından kullanılarak oluşturulur `Mock` türünde nesne [IHubCallerConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 atamak `dynamic` tür parametresi için.) `IHubCallerConnectionContext` İstemcide yöntemleri ile başlattığınıza proxy nesnesi bir arabirimdir.
+    Yukarıdaki kod imzası tanımlayan bir arabirim oluşturulur `broadcastMessage` yöntemi için test altyapısı sahte istemci oluşturacaktır. Sahte bir istemci, ardından kullanılarak oluşturulur `Mock` türünde nesne [IHubCallerConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.ihubcallerconnectioncontext(v=vs.118).aspx) (SignalR 2.1 atamak `dynamic` tür parametresi için.) `IHubCallerConnectionContext` İstemcide yöntemleri ile başlattığınıza proxy nesnesi bir arabirimdir.
 
     Test sonra bir örneğini oluşturur `ChatHub`ve sahte bir sürümüne oluşturur `broadcastMessage` çağırarak sırayla çağrılır yöntemi `Send` hub'ında yöntemi.
 3. Tuşlarına basarak çözümü oluşturun **F6**.

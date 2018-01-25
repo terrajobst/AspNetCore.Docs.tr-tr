@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e1e77dde4602350b18508bf5d71dbcd953f8961c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-vb"></a>Toplu ekleme (VB)
 ====================
@@ -96,7 +96,7 @@ Araç kutusu varolan altındaki yerleştirme tasarımcıya'ndan bir Panel sürü
 Ardından, biz Şekil 1'de gösterilen ekleme arabirimi oluşturmanız gerekir. Bu arabirim HTML teknikleri çeşitli oluşturulabilir ancak oldukça basit bir kullanacağız: dört sütunlu, yedi satır bir tablo.
 
 > [!NOTE]
-> İşaretleme için HTML girerken `<table>` öğeleri tercih ediyorum kaynak görünümü kullanmak. Visual Studio Araçları eklemek için varken `<table>` öğelerini Tasarımcısı aracılığıyla Tasarımcı görünüyor eklemesine tüm çok istekli için sorulmamış `style` işaretleme içine ayarları. I oluşturduktan sonra `<table>` biçimlendirme, ı genellikle dönüş Web denetimleri ekleme ve bunların özelliklerini ayarlamak için Designer'a. Önceden belirlenen sütunları ve satırları tablo oluştururken, statik HTML kullanarak tercih ediyorum yerine [Tablo Web denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) yerleştirilmiş bir tablo Web denetimi tüm Web denetimleri yalnızca kullanılarak erişilebilir olduğundan `FindControl("controlID")` düzeni. Ancak, Tablo Web denetimleri tablolar için (yalnızca satır veya sütun bazı veritabanı veya kullanıcı tarafından belirtilen ölçütleri temel olanları), dinamik olarak ölçekli tablo denetim programlı olarak oluşturulabilir Web itibaren kullanabilirim.
+> İşaretleme için HTML girerken `<table>` öğeleri tercih ediyorum kaynak görünümü kullanmak. Visual Studio Araçları eklemek için varken `<table>` öğelerini Tasarımcısı aracılığıyla Tasarımcı görünüyor eklemesine tüm çok istekli için sorulmamış `style` işaretleme içine ayarları. I oluşturduktan sonra `<table>` biçimlendirme, ı genellikle dönüş Web denetimleri ekleme ve bunların özelliklerini ayarlamak için Designer'a. Önceden belirlenen sütunları ve satırları tablo oluştururken, statik HTML kullanarak tercih ediyorum yerine [Tablo Web denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) yerleştirilmiş bir tablo Web denetimi tüm Web denetimleri yalnızca kullanılarak erişilebilir olduğundan `FindControl("controlID")` düzeni. Ancak, Tablo Web denetimleri tablolar için (yalnızca satır veya sütun bazı veritabanı veya kullanıcı tarafından belirtilen ölçütleri temel olanları), dinamik olarak ölçekli tablo denetim programlı olarak oluşturulabilir Web itibaren kullanabilirim.
 
 
 İçinde aşağıdaki biçimlendirme girin `<asp:Panel>` etiketlerinin `InsertingInterface` paneli:

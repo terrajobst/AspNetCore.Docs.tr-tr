@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -22,7 +22,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](ht
 
 Bu belge, formlar ve bir Form üzerinde kullanılan HTML öğeleri ile çalışma gösterir. HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) öğesi, sunucunun geri veri göndermek için birincil mekanizmayı web apps kullanımı sağlar. Bu belge çoğunu açıklar [etiket Yardımcıları](tag-helpers/intro.md) ve nasıl bunlar üretken sağlam HTML formları oluşturmanıza yardımcı olabilir. Okumanızı öneririz [etiket Yardımcıları giriş](tag-helpers/intro.md) önce bu belgeyi okuyun.
 
-Çoğu durumda, HTML Yardımcıları alternatif bir yaklaşım için belirli bir etiket Yardımcısı sağlar, ancak etiket Yardımcıları HTML Yardımcıları değiştirmeyin ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir. HTML Yardımcısı alternatif mevcut olduğunda belirtiliyor.
+Çoğu durumda, HTML Yardımcıları alternatif bir yaklaşım için belirli bir etiket Yardımcısı sağlar, ancak etiket Yardımcıları HTML Yardımcıları Değiştir yoktur ve her HTML Yardımcısı için bir etiket Yardımcısı değil bilmek önemlidir. HTML Yardımcısı alternatif mevcut olduğunda belirtiliyor.
 
 <a name="my-asp-route-param-ref-label"></a>
 
@@ -86,7 +86,7 @@ Giriş etiketi Yardımcısı:
 
 * HTML ayarlar `type` öznitelik değeri model türüne göre ve [veri ek açıklamasını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) model özelliğine uygulanan öznitelikleri
 
-* HTML üzerine yazmaz `type` biri belirtildiğinde, öznitelik değeri
+* HTML üzerine yazılmayacak `type` biri belirtildiğinde, öznitelik değeri
 
 * Oluşturur [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) doğrulama öznitelikleri [veri ek açıklamasını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) modeli özelliklerine uygulanan öznitelikleri
 
@@ -159,7 +159,7 @@ Uygulanan veri ek açıklamaları `Email` ve `Password` özellikleri model meta 
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Giriş etiketi yardımcı HTML Yardımcısı alternatifleri
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor` giriş etiketi yardımcı özelliklerle çakışmamalıdır. Giriş etiketi yardımcı otomatik olarak ayarlayacak `type` özniteliği; `Html.TextBox` ve `Html.TextBoxFor` almayacak. `Html.Editor`ve `Html.EditorFor` işlemek koleksiyonlar, karmaşık nesneler ve şablonları; giriş etiketi yardımcı desteklemez. Giriş etiketi yardımcı `Html.EditorFor` ve `Html.TextBoxFor` kesin türü belirtilmiş (bunlar lambda ifadeleri kullanma); `Html.TextBox` ve `Html.Editor` değil (bunlar ifade adlarının kullanın).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor` giriş etiketi yardımcı özelliklerle çakışmamalıdır. Giriş etiketi yardımcı otomatik olarak ayarlayacak `type` özniteliği; `Html.TextBox` ve `Html.TextBoxFor` olmaz. `Html.Editor`ve `Html.EditorFor` işlemek koleksiyonlar, karmaşık nesneler ve şablonları; giriş etiketi yardımcı değil. Giriş etiketi yardımcı `Html.EditorFor` ve `Html.TextBoxFor` kesin türü belirtilmiş (bunlar lambda ifadeleri kullanma); `Html.TextBox` ve `Html.Editor` değil (bunlar ifade adlarının kullanın).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
@@ -436,7 +436,7 @@ Aşağıdaki HTML ("CA" Seçili ile) oluşturur:
 ```
 
 > [!NOTE]
-> Kullanmanızı önermiyoruz `ViewBag` veya `ViewData` seçin etiket Yardımcısı ile. Bir görünüm MVC meta verileri sağlayarak, daha sağlam ve genellikle daha az sorunlu modelidir.
+> Kullanmanızı öneririz yok `ViewBag` veya `ViewData` seçin etiket Yardımcısı ile. Bir görünüm MVC meta verileri sağlayarak, daha sağlam ve genellikle daha az sorunlu modelidir.
 
 `asp-for` Öznitelik değeri özel bir durumdur ve gerektirmeyen bir `Model` önek, bir etiketi yardımcı öznitelik yapın (gibi `asp-items`)
 

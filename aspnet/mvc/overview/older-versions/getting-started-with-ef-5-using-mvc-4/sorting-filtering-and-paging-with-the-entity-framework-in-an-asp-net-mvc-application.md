@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18c3825c58e7cfe0a73817a8431593c661c5fa4f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework disk belleği
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -64,7 +64,7 @@ Dizin sayfası istenen ilk kez hiçbir sorgu dizesi yok. Öğrenciler göre arta
 | Artan tarihi | ascending | descending |
 | Azalan tarihi | ascending | ascending |
 
-Bir yöntem [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) göre sıralamak için sütun belirtmek için. Kod oluşturur bir [Iqueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) önce değişken `switch` deyimi içinde değiştirir `switch` deyimi ve çağrıları `ToList` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Dönüştürülünceye kadar sorgu yürütülmedi `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToList`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
+Bir yöntem [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) göre sıralamak için sütun belirtmek için. Kod oluşturur bir [Iqueryable](https://msdn.microsoft.com/library/bb351562.aspx) önce değişken `switch` deyimi içinde değiştirir `switch` deyimi ve çağrıları `ToList` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Dönüştürülünceye kadar sorgu yürütülmedi `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToList`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Sütun başlığı Öğrenci dizini görüntülemek için köprü ekleme
 
@@ -92,7 +92,7 @@ Tıklattıktan sonra **Soyadı** başlığı Öğrenciler son adı azalan sırad
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Eklediğiniz bir `searchString` parametresi `Index` yöntemi. LINQ ifadesi de eklediğiniz bir `where` clausethat yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer. Bir metin kutusundan dizin görünümüne ekleyeceksiniz arama dizesi değeri alındı. Ekler deyimi [burada](https://msdn.microsoft.com/en-us/library/bb535040.aspx) yan tümcesi yalnızca arama için bir değer ise gerçekleştirilir.
+Eklediğiniz bir `searchString` parametresi `Index` yöntemi. LINQ ifadesi de eklediğiniz bir `where` clausethat yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer. Bir metin kutusundan dizin görünümüne ekleyeceksiniz arama dizesi değeri alındı. Ekler deyimi [burada](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesi yalnızca arama için bir değer ise gerçekleştirilir.
 
 > [!NOTE]
 > Çoğu durumda aynı yöntemi bir Entity Framework varlık kümesi veya bir bellek içi koleksiyonda bir genişletme yöntemi olarak çağırabilirsiniz. Sonuçları normalde aynıdır, ancak bazı durumlarda farklı olabilir. Örneğin, .NET Framework uygulamasını `Contains` yöntem boş bir dizeyi geçirmek, ancak SQL Server Compact 4.0 için Entity Framework sağlayıcısı boş dizeler için sıfır satır döndürür tüm satırları döndürür. Bu nedenle örnek kodda (koyma `Where` deyimi içinde bir `if` deyimi) SQL Server'ın tüm sürümleri için aynı sonucu elde emin olur. Ayrıca, .NET Framework uygulamasını `Contains` yöntemi, varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir, ancak Entity Framework SQL Server sağlayıcıları varsayılan olarak büyük küçük harf duyarlı karşılaştırmalar gerçekleştirin. Bu nedenle, çağırma `ToUpper` test açıkça büyük küçük harf duyarsız yapmak için yöntem sağlar, döndürülecek bir depo daha sonra kullanmak için kodu değiştirdiğinizde sonuçları değiştirmeyin bir `IEnumerable` koleksiyon yerine bir `IQueryable` nesnesi. (Çağırdığınızda `Contains` yöntemi bir `IEnumerable` koleksiyonu, .NET Framework uygulamasını alın; çağırdığınızda, üzerinde bir `IQueryable` nesnesi, veritabanı sağlayıcısı uygulaması alın.)
@@ -158,7 +158,7 @@ Yöntemi, sonunda `ToPagedList` genişletme yöntemi Öğrenciler üzerinde `IQu
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList` Yöntemi bir sayfa numarasını alır. İki soru işaretleri temsil [null birleşim işlecinin](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Null birleşim işleci, null atanabilir bir tür için varsayılan bir değer tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` değerine sahip veya 1 döndürür, `page` null.
+`ToPagedList` Yöntemi bir sayfa numarasını alır. İki soru işaretleri temsil [null birleşim işlecinin](https://msdn.microsoft.com/library/ms173224.aspx). Null birleşim işleci, null atanabilir bir tür için varsayılan bir değer tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` değerine sahip veya 1 döndürür, `page` null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Disk belleği bağlantılar Öğrenci dizin görünümüne ekleyin
 
@@ -170,11 +170,11 @@ Yöntemi, sonunda `ToPagedList` genişletme yöntemi Öğrenciler üzerinde `IQu
 
 `using` Bildirimi `PagedList.Mvc` erişimi verir MVC Yardımcısı için disk belleği düğmeler.
 
-Kod bir aşırı yüklemesini kullanır [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) belirtmek için sağlayan [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Kod bir aşırı yüklemesini kullanır [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) belirtmek için sağlayan [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Varsayılan [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. [HTTP GET kullanımı için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirmede sonuçlanmaz zaman GET kullanması gerektiğini belirtin.
+Varsayılan [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. [HTTP GET kullanımı için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirmede sonuçlanmaz zaman GET kullanması gerektiğini belirtin.
 
 Yeni bir sayfa tıklattığınızda geçerli arama dizesi görebilmeniz için metin kutusunda geçerli arama dizesiyle başlatıldı.
 
@@ -291,7 +291,7 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
 7. Sağ taraftaki kutusunun alt kısmındaki işaret oka tıklayın. İçin sihirbaz ilerler **veritabanı ayarlarını** adım.
 8. İçinde **adı** kutusuna *ContosoUniversityDB*.
 9. İçinde **Server** kutusunda **yeni SQL veritabanı sunucusu**. Alternatif olarak, daha önce bir sunucu oluşturduysanız, bu sunucu aşağı açılan listeden seçebilirsiniz.
-10. Bir yönetici girin **oturum açma adı** ve **parola**. Seçtiyseniz **yeni SQL veritabanı sunucusu** mevcut bir ad ve burada parola girmezsiniz, yeni bir ad ve daha sonra veritabanına eriştiğinizde kullanmak üzere şimdi tanımlayacağınız parolayı girersiniz. Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girin. Bu öğretici için seçtiğiniz olmaz ***Gelişmiş*** onay kutusu. ***Gelişmiş*** seçeneklerini veritabanını ayarlamak etkinleştirme [harmanlama](https://msdn.microsoft.com/en-us/library/aa174903(v=SQL.80).aspx).
+10. Bir yönetici girin **oturum açma adı** ve **parola**. Seçtiyseniz **yeni SQL veritabanı sunucusu** mevcut bir ad ve burada parola girmezsiniz, yeni bir ad ve daha sonra veritabanına eriştiğinizde kullanmak üzere şimdi tanımlayacağınız parolayı girersiniz. Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girin. Bu öğretici için seçtiğiniz olmaz ***Gelişmiş*** onay kutusu. ***Gelişmiş*** seçeneklerini veritabanını ayarlamak etkinleştirme [harmanlama](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx).
 11. Aynı seçin **bölge** web sitesi için seçtiğiniz.
 12. Tamamlanmış belirtmek üzere kutusunun sağ altındaki onay işaretine tıklayın.   
   
@@ -341,8 +341,7 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
 5. İçinde **bağlantı** sekmesini tıklatın, **bağlantıyı doğrula** ayarlarının doğru olduğunu doğrulayın.  
   
     ![Bağlantı doğrula](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
-6. Bağlantı doğrulandığında yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi. 
-              **İleri**'ye tıklayın.  
+6. Bağlantı doğrulandığında yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi. **İleri**'ye tıklayın.  
   
     ![Başarıyla doğrulanan bağlantı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image27.png)
 7. Açık **uzak bağlantı dizesi** açılır listesi altında **SchoolContext** ve oluşturduğunuz veritabanı için bağlantı dizesi seçin.
@@ -350,8 +349,7 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
 9. İşaretini **çalışma zamanında Bu bağlantı dizesini kullan** için **UserContext (DefaultConnection)**, bu uygulama, üyelik veritabanının kullanmadığından.   
   
     ![Ayarlar sekmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image28.png)
-10. 
-              **İleri**'ye tıklayın.
+10. **İleri**'ye tıklayın.
 11. İçinde **Önizleme** sekmesini tıklatın, **önizlemeyi Başlat**.  
   
     ![Önizleme sekmesinde StartPreview düğmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
@@ -369,7 +367,7 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-Bu noktada, *SchoolContext* veritabanı seçtiğiniz çünkü Windows Azure SQL veritabanı oluşturuldu **yürütme önce kod uygulamalı geçişler (uygulama başlatılırken çalışır)**. *Web.config* web sitesi dağıtıldı dosyasında değiştirildi böylece [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) Başlatıcı kodunuz okur veya veritabanına veri Yazar ilk kez çalıştırma (hangi Seçtiğiniz zaman oldu **Öğrenciler** sekmesi):
+Bu noktada, *SchoolContext* veritabanı seçtiğiniz çünkü Windows Azure SQL veritabanı oluşturuldu **yürütme önce kod uygulamalı geçişler (uygulama başlatılırken çalışır)**. *Web.config* web sitesi dağıtıldı dosyasında değiştirildi böylece [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) Başlatıcı kodunuz okur veya veritabanına veri Yazar ilk kez çalıştırma (hangi Seçtiğiniz zaman oldu **Öğrenciler** sekmesi):
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
@@ -389,7 +387,7 @@ Web.config dosyasının kendi bilgisayara dağıtılmış sürümünde bulabilir
 
 ## <a name="code-first-initializers"></a>Kod ilk başlatıcıları
 
-Dağıtım bölümünde gördüğünüz [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) kullanılan Başlatıcısı. Kod ilk, dahil olmak üzere kullanabileceğiniz diğer başlatıcıları de sağlar [Createdatabaseıfnotexists](https://msdn.microsoft.com/en-us/library/gg679221(v=vs.103).aspx) (varsayılan), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=VS.103).aspx) ve [ DropCreateDatabaseAlways](https://msdn.microsoft.com/en-us/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Başlatıcı birim testleri için koşullar ayarlamak için yararlı olabilir. Ayrıca kendi başlatıcıları yazabilirsiniz ve uygulama okur veya veritabanına yazar beklemek istemiyorsanız, bir başlatıcı açıkça çağırabilir. Bölüm 6 defterinin başlatıcıları kapsamlı bir açıklama için bkz: [programlama Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman ve Rowan Mert.
+Dağıtım bölümünde gördüğünüz [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) kullanılan Başlatıcısı. Kod ilk, dahil olmak üzere kullanabileceğiniz diğer başlatıcıları de sağlar [Createdatabaseıfnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (varsayılan), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) ve [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Başlatıcı birim testleri için koşullar ayarlamak için yararlı olabilir. Ayrıca kendi başlatıcıları yazabilirsiniz ve uygulama okur veya veritabanına yazar beklemek istemiyorsanız, bir başlatıcı açıkça çağırabilir. Bölüm 6 defterinin başlatıcıları kapsamlı bir açıklama için bkz: [programlama Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman ve Rowan Mert.
 
 ## <a name="summary"></a>Özet
 

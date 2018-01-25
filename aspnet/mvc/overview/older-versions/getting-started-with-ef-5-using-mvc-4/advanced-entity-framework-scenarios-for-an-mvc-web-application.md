@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d58a745896b29317c1d1049e3bf1a5ec2e628820
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Gelişmiş Entity Framework senaryoları için bir MVC Web uygulaması (10 / 10)
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -55,7 +55,7 @@ Entity Framework kod ilk API, SQL komutlarını veritabanına doğrudan geçirme
 
 - Kullanım `DbSet.SqlQuery` varlık türleri döndüren sorgular için yöntem. Döndürülen nesneleri tarafından beklenen türde olmalıdır `DbSet` nesne ve otomatik olarak izlenir tarafından veritabanı bağlamı izleme kapatmak sürece. (Aşağıdaki bölüme bakın `AsNoTracking` yöntemi.)
 - Kullanım `Database.SqlQuery` varlıkları olmayan türleri döndüren sorgular için yöntem. Varlık türlerini almak için bu yöntemi kullanmak olsa bile döndürülen verileri veritabanı bağlamı tarafından izlenen değil.
-- Kullanım [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456(v=vs.103).aspx) sorgu dışı komutları için.
+- Kullanım [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) sorgu dışı komutları için.
 
 Entity Framework kullanmanın yararları, veri depolamanın çok yakından belirli bir yöntem kodunuzu bağlamadan önler biridir. SQL sorguları ve komutlar, ayrıca bunları kendiniz yazmak zorunda kalmaktan boşaltır oluşturarak bunu yapar. Ancak el ile oluşturduğunuz belirli SQL sorguları çalıştırmak gerektiğinde olağanüstü senaryolar vardır ve bu yöntemler, bu tür özel durumları işleme mümkün kılar.
 
@@ -127,7 +127,7 @@ Bir görünüm oluşturma *Views\Course* güncelleştirme indirmelere krediler s
 
 ![Add_View_dialog_box_for_Update_Course_Credits](https://asp.net/media/2578203/Windows-Live-Writer_Advanced-Entity-Framework-Scenarios-for-_CEF8_Add_View_dialog_box_for_Update_Course_Credits.png)
 
-İçinde *Views\Course\UpdateCourseCredits.cshtml*, şablon kodu aşağıdaki kodla değiştirin:
+In *Views\Course\UpdateCourseCredits.cshtml*, replace the template code with the following code:
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample9.cshtml)]
 
@@ -255,17 +255,17 @@ Entity Framework bir varlık nasıl değiştiğini (ve bu nedenle hangi veritaba
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Çok sayıda varlık takip ettiğiniz ve aşağıdaki yöntemlerden birini birçok kez bir döngüde çağırmanız, algılama otomatik değişiklik kullanarak geçici olarak kapatarak önemli performans geliştirmeleri alabilirsiniz [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) özelliği. Daha fazla bilgi için bkz: [değişiklikleri otomatik olarak algılama](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
+Çok sayıda varlık takip ettiğiniz ve aşağıdaki yöntemlerden birini birçok kez bir döngüde çağırmanız, algılama otomatik değişiklik kullanarak geçici olarak kapatarak önemli performans geliştirmeleri alabilirsiniz [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) özelliği. Daha fazla bilgi için bkz: [değişiklikleri otomatik olarak algılama](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
 
 ## <a name="disabling-validation-when-saving-changes"></a>Doğrulama kaydedilirken devre dışı bırakma değiştirir
 
-Çağırdığınızda `SaveChanges` yöntemi, Entity Framework varsayılan doğrular tüm değiştirilen varlıkların tüm özellikleri verilerde veritabanını güncelleştirmeden önce. Çok sayıda varlık güncelleştirdik ve bu iş gereksiz verileri zaten doğruladıktan ve kaydetme işlemi yapabilir değişiklikler geçici olarak doğrulama devre dışı bırakarak daha az zaman olur. Bu kullanarak yapabilirsiniz [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) özelliği. Daha fazla bilgi için bkz: [doğrulama](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
+Çağırdığınızda `SaveChanges` yöntemi, Entity Framework varsayılan doğrular tüm değiştirilen varlıkların tüm özellikleri verilerde veritabanını güncelleştirmeden önce. Çok sayıda varlık güncelleştirdik ve bu iş gereksiz verileri zaten doğruladıktan ve kaydetme işlemi yapabilir değişiklikler geçici olarak doğrulama devre dışı bırakarak daha az zaman olur. Bu kullanarak yapabilirsiniz [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) özelliği. Daha fazla bilgi için bkz: [doğrulama](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
 
 ## <a name="summary"></a>Özet
 
 Bu, bir ASP.NET MVC uygulamasındaki Entity Framework kullanma öğreticileri bu dizi tamamlar. Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Temel aldık sonra web uygulamanızı dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/en-us/library/bb386521.aspx) MSDN Kitaplığı'nda.
+Temel aldık sonra web uygulamanızı dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET dağıtım içerik haritası](https://msdn.microsoft.com/library/bb386521.aspx) MSDN Kitaplığı'nda.
 
 MVC için kimlik doğrulama ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz: [MVC önerilen kaynakları](../../getting-started/recommended-resources-for-mvc.md).
 

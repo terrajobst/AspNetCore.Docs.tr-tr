@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 226ef83f289b8fbe9a68f0d0741c7eca0d96ba94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0224bcd2badc423ba5146feacccc44b8f33a608
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış
 ====================
@@ -199,7 +199,7 @@ ASP.NET 4 uygulama URL'leri boyutunu genişletmek için yeni seçenekler sunar. 
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Daha uzun veya kısaysa yollara (protokolü, sunucu adını ve sorgu dizesi dahil değildir URL bölümü) izin verecek şekilde değiştirmek  *[maxUrlLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  özniteliği. Daha uzun veya kısaysa sorgu dizelerine izin vermek için değeri değiştirmek  *[maxQueryStringLength](https://msdn.microsoft.com/en-us/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  özniteliği.
+Daha uzun veya kısaysa yollara (protokolü, sunucu adını ve sorgu dizesi dahil değildir URL bölümü) izin verecek şekilde değiştirmek  *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  özniteliği. Daha uzun veya kısaysa sorgu dizelerine izin vermek için değeri değiştirmek  *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  özniteliği.
 
 ASP.NET 4 URL karakter denetimi tarafından kullanılan karakter yapılandırmanızı sağlar. ASP.NET bir URL yolu bölümünde geçersiz bir karakter bulduğunda, isteği reddeder ve bir HTTP 400 hatası verir. ASP.NET önceki sürümlerinde, sabit bir karakter kümesi için sınırlı URL karakter denetler. ASP.NET 4'te yeni kullanarak geçerli karakter kümesi özelleştirebilirsiniz *requestPathInvalidChars* özniteliği *httpRuntime* yapılandırma öğesi, aşağıdaki örnekte gösterildiği gibi:
 
@@ -561,7 +561,7 @@ Yönlendirme ASP.NET 3.5 SP1'den itibaren edinilebilir. (Giriş ASP.NET 3.5 SP1'
 - İçinde tanımlanan aşağıdaki yeni ifade oluşturucularının *System.Web.Compilation.RouteUrlExpressionBuilder* ve *System.Web.Compilation.RouteValueExpressionBuilder*:
 - *RouteUrl*, bir ASP.NET sunucu denetimi içinde bir rota URL'ye karşılık gelen bir URL oluşturmak için basit bir yol sağlar.
 - *RouteValue*, bilgileri ayıklamak için basit bir yol sağlayan *RouteContext* nesnesi.
-- *RouteParameter* bulunan verileri geçirmek kolaylaştırır sınıfı bir *RouteContext* bir sorgu için veri kaynağı denetimi nesnesine (benzer şekilde [ *FormParameter* ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx)).
+- *RouteParameter* bulunan verileri geçirmek kolaylaştırır sınıfı bir *RouteContext* bir sorgu için veri kaynağı denetimi nesnesine (benzer şekilde [ *FormParameter* ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx)).
 
 #### <a name="routing-for-web-forms-pages"></a>Web formları sayfaları için yönlendirme
 
@@ -625,7 +625,7 @@ Bu denetim içerir sayfa çalıştığında değeri "tan" etiketi görüntüleni
 
 #### <a name="using-route-data-for-data-source-control-parameters"></a>Rota verileri için veri kaynağı denetim parametrelerini kullanarak
 
-*RouteParameter* sınıfı bir veri kaynağı denetimi sorguları için parametre değeri olarak rota verileri belirtmenize olanak sağlar. Bu [works çok benzer şekilde](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formparameter.aspx) , aşağıdaki örnekte gösterildiği gibi sınıfı:
+*RouteParameter* sınıfı bir veri kaynağı denetimi sorguları için parametre değeri olarak rota verileri belirtmenize olanak sağlar. Bu [works çok benzer şekilde](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formparameter.aspx) , aşağıdaki örnekte gösterildiği gibi sınıfı:
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
@@ -1146,7 +1146,7 @@ Dinamik veri sunulmuştur Orta 2008'de .NET Framework 3.5 SP1 sürümünde. Bu �
 - Kolayca alanları için oluşturulmuş biçimlendirmeyi değiştirme yeteneğini *GridView* ve *DetailsView* dinamik veri projenizi parçası olan alan şablonları kullanarak kontrol eder.
 
 > [!NOTE]
-> Not daha fazla bilgi için bkz: [dinamik veri belgelerine](https://msdn.microsoft.com/en-us/library/cc488545.aspx) MSDN Kitaplığı'nda.
+> Not daha fazla bilgi için bkz: [dinamik veri belgelerine](https://msdn.microsoft.com/library/cc488545.aspx) MSDN Kitaplığı'nda.
 
 
 ASP.NET 4 için dinamik veri geliştiricilerin hızla veri güdümlü Web siteleri oluşturmak için daha fazla güç vermek için geliştirilmiştir.
@@ -1325,7 +1325,7 @@ Visual Studio 2010 olarak adlandırılır, uygulamanız için bir sıkıştırı
 
 Bir Web paketi herhangi bir sunucuya kopyalanır ve IIS Yöneticisi'ni kullanarak el ile yüklenmiş. Alternatif olarak, otomatik dağıtım için komut satırı komutlarını kullanarak veya dağıtım API'leri kullanarak paket yüklenebilir.
 
-Visual Studio 2010 sağlayan yerleşik MSBuild görevleri ve Web paketleri oluşturmak için hedefler. Daha fazla bilgi için bkz: [ASP.NET Web uygulaması projesi dağıtımına genel bakış](https://msdn.microsoft.com/en-us/library/dd394698%28VS.100%29.aspx) MSDN Web sitesindeki ve [neden oluşturduğunuz Web paketi 10 + 20 nedeniyle](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) Vishal Joshi'nın blogunda.
+Visual Studio 2010 sağlayan yerleşik MSBuild görevleri ve Web paketleri oluşturmak için hedefler. Daha fazla bilgi için bkz: [ASP.NET Web uygulaması projesi dağıtımına genel bakış](https://msdn.microsoft.com/library/dd394698%28VS.100%29.aspx) MSDN Web sitesindeki ve [neden oluşturduğunuz Web paketi 10 + 20 nedeniyle](http://vishaljoshi.blogspot.com/2009/07/10-20-reasons-why-you-should-create-web.html) Vishal Joshi'nın blogunda.
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
@@ -1337,7 +1337,7 @@ Aşağıdaki örnek, bir kısmı gösterir bir `web.release.config` yayın yapı
 
 [!code-xml[Main](overview/samples/sample102.xml)]
 
-Daha fazla bilgi için bkz: [Web uygulama projesi dağıtımı için Web.config dönüşümü sözdizimi](https://msdn.microsoft.com/en-us/library/dd465326%28VS.100%29.aspx) MSDN'de <a id="0.2_a"> </a> Web sitesi ve[Web Dağıtımı: Web.Config dönüştürmesini](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)Vishal Joshi'nın blogunda.
+Daha fazla bilgi için bkz: [Web uygulama projesi dağıtımı için Web.config dönüşümü sözdizimi](https://msdn.microsoft.com/library/dd465326%28VS.100%29.aspx) MSDN'de <a id="0.2_a"> </a> Web sitesi ve[Web Dağıtımı: Web.Config dönüştürmesini](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html)Vishal Joshi'nın blogunda.
 
 <a id="0.2__Toc224729058"></a><a id="0.2__Toc253429295"></a><a id="0.2__Toc243304666"></a>
 
@@ -1345,7 +1345,7 @@ Daha fazla bilgi için bkz: [Web uygulama projesi dağıtımı için Web.config 
 
 Visual Studio 2010 dağıtım paketi, SQL Server veritabanlarını bağımlılıkları içerebilir. Paket tanımının bir parçası olarak, kaynak veritabanı için bağlantı dizesi girin. Web paketi oluşturduğunuzda, Visual Studio 2010 için veritabanı şeması ve veriler için isteğe bağlı olarak SQL komut dosyaları oluşturur ve bu pakete ekler. Ayrıca, özel SQL komut dosyaları sağlar ve sunucuda çalışacakları sırayı belirtin. Dağıtım sırasında hedef sunucu için uygun bir bağlantı dizesi girin; dağıtım işlemi, bu bağlantı dizesi sonra veritabanı şeması oluşturmak ve veri ekleyen komut dosyalarını çalıştırmak için kullanır.
 
-Ayrıca, tek tıklatmayla kullanarak yayımlamak, uygulama uzak paylaşılan barındırma siteye yayımlandığında, veritabanınızı doğrudan yayımlamak için dağıtım yapılandırabilirsiniz. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/en-us/library/dd465343%28VS.100%29.aspx) MSDN Web sitesindeki ve [VS 2010 ile veritabanı dağıtımı](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) Vishal Joshi'nın blogunda.
+Ayrıca, tek tıklatmayla kullanarak yayımlamak, uygulama uzak paylaşılan barındırma siteye yayımlandığında, veritabanınızı doğrudan yayımlamak için dağıtım yapılandırabilirsiniz. Daha fazla bilgi için bkz: [nasıl yapılır: bir veritabanı ile bir Web uygulaması projesi dağıtma](https://msdn.microsoft.com/library/dd465343%28VS.100%29.aspx) MSDN Web sitesindeki ve [VS 2010 ile veritabanı dağıtımı](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html) Vishal Joshi'nın blogunda.
 
 <a id="0.2__Toc224729059"></a><a id="0.2__Toc253429296"></a><a id="0.2__Toc243304667"></a>
 
@@ -1353,7 +1353,7 @@ Ayrıca, tek tıklatmayla kullanarak yayımlamak, uygulama uzak paylaşılan bar
 
 Visual Studio 2010'u da bir Web uygulaması uzak bir sunucuya yayımlamak için IIS Uzaktan Yönetim hizmetinin kullanmanıza olanak sağlar. Sunucuları test veya sunucuları hazırlama veya barındırma hesabınız için bir yayımlama profili oluşturabilirsiniz. Her profil uygun kimlik bilgilerini güvenli bir şekilde kaydedebilirsiniz. Ardından herhangi bir hedef ağa dağıtabilirsiniz sunucuları tek tıklatmayla Web kullanarak tek bir tıklatmayla Yayımla araç çubuğu. Visual Studio 2010 ile MSBuild komut satırını kullanarak yayımlayabilirsiniz. Bu bir sürekli tümleştirme modele yayımlama dahil edilecek takım yapı ortamınızı yapılandırmanıza olanak sağlar.
 
-Daha fazla bilgi için bkz: [nasıl yapılır: bir Web uygulaması projesi kullanarak tek tıklamayla yayımlama ve Web dağıtımı dağıtma](https://msdn.microsoft.com/en-us/library/dd465337%28VS.100%29.aspx) MSDN Web sitesindeki ve [Web 1-tıklatma Yayımla VS 2010 ile](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) Vishal Joshi'nın blogunda. Visual Studio 2010'da Web uygulaması dağıtımını video sunular görüntülemek için bkz [Web Developer Preview VS 2010](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Vishal Joshi'nın blogunda.
+Daha fazla bilgi için bkz: [nasıl yapılır: bir Web uygulaması projesi kullanarak tek tıklamayla yayımlama ve Web dağıtımı dağıtma](https://msdn.microsoft.com/library/dd465337%28VS.100%29.aspx) MSDN Web sitesindeki ve [Web 1-tıklatma Yayımla VS 2010 ile](http://vishaljoshi.blogspot.com/2009/05/web-1-click-publish-with-vs-2010.html) Vishal Joshi'nın blogunda. Visual Studio 2010'da Web uygulaması dağıtımını video sunular görüntülemek için bkz [Web Developer Preview VS 2010](http://vishaljoshi.blogspot.com/2008/12/vs-2010-for-web-developer-previews.html) Vishal Joshi'nın blogunda.
 
 <a id="0.2__Toc224729060"></a><a id="0.2__Toc253429297"></a><a id="0.2__Toc243304668"></a>
 
@@ -1361,9 +1361,9 @@ Daha fazla bilgi için bkz: [nasıl yapılır: bir Web uygulaması projesi kulla
 
 Aşağıdaki Web sitelerini ASP.NET 4 ve Visual Studio 2010 hakkında ek bilgi sağlar.
 
-- [ASP.NET 4](https://msdn.microsoft.com/en-us/library/ee532866%28VS.100%29.aspx) — MSDN Web sitesinde ASP.NET 4 için resmi belge.
+- [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — MSDN Web sitesinde ASP.NET 4 için resmi belge.
 - [https://www.ASP.NET/](https://www.asp.net/) — ASP.NET ekibin kendi Web sitesi.
-- [https://www.ASP.NET/DynamicData/](https://msdn.microsoft.com/en-us/library/cc488545.aspx) ve [ASP.NET dinamik veri içerik haritası](https://msdn.microsoft.com/en-us/library/cc488545%28VS.100%29.aspx) — çevrimiçi kaynaklar ASP.NET ekip sitesi ve ASP.NET dinamik veri için resmi belge.
+- [https://www.ASP.NET/DynamicData/](https://msdn.microsoft.com/library/cc488545.aspx) ve [ASP.NET dinamik veri içerik haritası](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — çevrimiçi kaynaklar ASP.NET ekip sitesi ve ASP.NET dinamik veri için resmi belge.
 - [https://www.ASP.NET/AJAX/](../../ajax/index.md) — ASP.NET Ajax geliştirme için ana Web kaynağı.
 - [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Studio 2010'da özellikleri hakkında bilgi içeren Visual Web Developer ekip blogu.
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) — ASP.NET Önizleme sürümleri için ana Web kaynağı.

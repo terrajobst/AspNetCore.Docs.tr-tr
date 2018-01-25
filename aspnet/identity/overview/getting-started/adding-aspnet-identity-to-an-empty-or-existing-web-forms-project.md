@@ -12,15 +12,15 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: f5783287a26174ddf65bb0eae34c347831d02c47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>Proje ekleme ASP.NET kimliği boş veya var olan bir Web Forms
 ====================
-tarafından [Raquel Soares De Almeida](https://github.com/raquelsa)
+by [Raquel Soares De Almeida](https://github.com/raquelsa)
 
 > Bu öğretici nasıl ekleneceğini gösterir [ASP.NET Identity](introduction-to-aspnet-identity.md) (ASP.NET yeni üyelik sistemi) için bir ASP.NET uygulaması.
 > 
@@ -102,7 +102,7 @@ Bu paket bağımlılık paketleri yükler Not: EntityFramework ve Microsoft ASP.
 
 ## <a name="configuring-the-application-for-owin-authentication"></a>OWIN kimlik doğrulaması için uygulamayı yapılandırma
 
-Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Şimdi, size bir kullanıcı oturum açma kimlik doğrulaması nasıl ekleyebiliriz göstermek için adımıdır. ASP.NET Identity Microsoft OWIN kimlik doğrulaması ara yazılımı için form kimlik doğrulaması kullanır. OWIN tanımlama bilgisi kimlik doğrulamasını bir tanımlama bilgisi ve barındırılan framework tarafından kullanılan tabanlı kimlik doğrulama mekanizması talep [OWIN](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx) veya IIS. Bu model ile aynı kimlik doğrulama paketlerine ASP.NET MVC ve Web Forms dahil olmak üzere birden çok çerçeveyi kullanılabilir. Proje Katana ve bir ana bilgisayar belirsiz bakın ara yazılımı çalıştırma hakkında daha fazla bilgi için [Katana proje ile çalışmaya başlama](https://msdn.microsoft.com/en-us/magazine/dn451439.aspx).
+Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Şimdi, size bir kullanıcı oturum açma kimlik doğrulaması nasıl ekleyebiliriz göstermek için adımıdır. ASP.NET Identity Microsoft OWIN kimlik doğrulaması ara yazılımı için form kimlik doğrulaması kullanır. OWIN tanımlama bilgisi kimlik doğrulamasını bir tanımlama bilgisi ve barındırılan framework tarafından kullanılan tabanlı kimlik doğrulama mekanizması talep [OWIN](https://msdn.microsoft.com/magazine/dn451439.aspx) veya IIS. Bu model ile aynı kimlik doğrulama paketlerine ASP.NET MVC ve Web Forms dahil olmak üzere birden çok çerçeveyi kullanılabilir. Proje Katana ve bir ana bilgisayar belirsiz bakın ara yazılımı çalıştırma hakkında daha fazla bilgi için [Katana proje ile çalışmaya başlama](https://msdn.microsoft.com/magazine/dn451439.aspx).
 
 ## <a name="installing-authentication-packages-to-your-application"></a>Uygulamanız için kimlik doğrulama paketlerini yükleme
 
@@ -135,8 +135,8 @@ Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Şimdi, si
 
     > [!NOTE] 
     > 
-    > - ASP.NET Identity ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, framework oluşturmak uygulama geliştiricisi gerektiren bir [Claimsıdentity](https://msdn.microsoft.com/en-us/library/microsoft.identitymodel.claims.claimsidentity.aspx) kullanıcı için. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.
-    > - OWIN ve arama bulunan kullanarak kullanıcı oturum `SignIn` ve yukarıda gösterildiği gibi Claimsıdentity geçirme. Bu kod kullanıcı oturum ve de bir tanımlama bilgisi oluşturur. Bu çağrı için paraleldir [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) modülü.
+    > - ASP.NET Identity ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, framework oluşturmak uygulama geliştiricisi gerektiren bir [Claimsıdentity](https://msdn.microsoft.com/library/microsoft.identitymodel.claims.claimsidentity.aspx) kullanıcı için. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.
+    > - OWIN ve arama bulunan kullanarak kullanıcı oturum `SignIn` ve yukarıda gösterildiği gibi Claimsıdentity geçirme. Bu kod kullanıcı oturum ve de bir tanımlama bilgisi oluşturur. Bu çağrı için paraleldir [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
 2. İçinde **Çözüm Gezgini**, proje tıklatmanız sağ **Ekle**ve ardından **Web formu**. Web formu ad **oturum açma**.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image12.png)
@@ -150,16 +150,16 @@ Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Şimdi, si
     > [!NOTE] 
     > 
     > - `Page_Load` Artık geçerli kullanıcının durumunu denetler ve temel eylemde kendi `Context.User.Identity.IsAuthenticated` durumu.  
-    >     **Günlüğe kaydedilen kullanıcı adını görüntülemek** : Microsoft ASP.NET Identity Framework üzerinde genişletme yöntemleri ekledi [System.Security.Principal.IIdentity](https://msdn.microsoft.com/en-us/library/system.security.principal.iidentity.aspx) almanızı sağlayan `UserName` ve `UserId` için oturum açmış olan kullanıcının. Bu uzantı yöntemleri tanımlanan `Microsoft.AspNet.Identity.Core` derleme. Bu uzantı yöntemleri yerini olan [HttpContext.User.Identity.Name](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.user.aspx) .
+    >     **Günlüğe kaydedilen kullanıcı adını görüntülemek** : Microsoft ASP.NET Identity Framework üzerinde genişletme yöntemleri ekledi [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) almanızı sağlayan `UserName` ve `UserId` için oturum açmış olan kullanıcının. Bu uzantı yöntemleri tanımlanan `Microsoft.AspNet.Identity.Core` derleme. Bu uzantı yöntemleri yerini olan [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
     > - Oturum açma yöntemi:   
     >     `This`yöntemi önceki değiştirir `CreateUser_Click` artık kullanıcı başarıyla oluşturduktan sonra kullanıcı açar ve bu örnek yöntemi.   
     >  Microsoft OWIN Framework üzerinde genişletme yöntemleri ekledi `System.Web.HttpContext` başvuru almanızı sağlayan bir `IOwinContext`. Bu uzantı yöntemleri tanımlanan `Microsoft.Owin.Host.SystemWeb` derleme. `OwinContext` Sınıf düzenlemenizi sağlayan bir `IAuthenticationManager` geçerli istekte mevcut olan kimlik doğrulaması ara yazılım işlevselliğini temsil eden özellik.  
     >  Kullanarak kullanıcı oturum `AuthenticationManager` OWIN ve arama `SignIn` ve içinde geçen `ClaimsIdentity` yukarıda gösterildiği gibi.   
     >  ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, oluşturmak için uygulama çerçevesi gerektirir bir `ClaimsIdentity` kullanıcı için.   
     >  `ClaimsIdentity` Kullanıcının ait olduğu için hangi rolleri gibi bir kullanıcı için tüm talepler hakkında bilgi yer almaktadır. Daha fazla kullanıcı talebini bu aşamada de ekleyebilirsiniz.  
-    >  Bu kod kullanıcı oturum ve de bir tanımlama bilgisi oluşturur. Bu çağrı için paraleldir [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) modülü.
+    >  Bu kod kullanıcı oturum ve de bir tanımlama bilgisi oluşturur. Bu çağrı için paraleldir [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
     > - `SignOut`yöntem:   
-    >  Bir başvuru edinir `AuthenticationManager` OWIN ve çağrıları `SignOut`. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) modülü.
+    >  Bir başvuru edinir `AuthenticationManager` OWIN ve çağrıları `SignOut`. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
 5. Tuşuna **Ctrl + F5** oluşturmak ve web uygulamasını çalıştırmak için. Yeni bir kullanıcı adı ve parola girin ve ardından tıklatın **kaydetmek**.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  

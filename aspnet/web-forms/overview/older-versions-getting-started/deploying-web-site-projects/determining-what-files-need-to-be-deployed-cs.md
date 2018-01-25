@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ccfaa2311fe7d9bf750276c969eeb08d5c5568de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d58956323275a46b44b36d4f19db4d2f607e3916
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a>Dosyaları olmak zorundadır belirleme (C#) dağıtılan
 ====================
@@ -43,7 +43,7 @@ Geçerli tarih ve saat Sayfa yüklediğinde, metin özelliği ayarlanmış bir e
 
 Bu sayfa, sayfanın kod bölümü için bir istek hizmet vermek ASP.NET altyapısı için sırayla ( `WebPage.aspx.cs` dosyası) ilk derlenmiş gerekir. Bu derleme açıkça veya otomatik olarak ortaya çıkabilir.
 
-Derleme açıkça olur sonra tüm uygulamanın kaynak kodu bir veya daha fazla derlemeye derlenmiş (`.dll` dosyaları) uygulama içinde bulunan `Bin` dizin. Elde edilen otomatik olarak oluşturulan daha sonra derleme otomatik olarak derlemedir, varsayılan olarak, olursa yerleştirilen `Temporary ASP.NET` bulunabilir dosyaları klasörü `%WINDOWS%\Microsoft.NET\Framework\`  *&lt;sürüm&gt;*, Bu konum aracılığıyla yapılandırılabilir olsa da [ `<compilation>` öğesi](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) içinde `Web.config`. Açık derleme ile bir derlemeye ASP.NET uygulama kodu derlemek için bazı işlemler yapması gerekir ve bu adımı dağıtımdan önce gerçekleşir. Kaynak ilk erişildiğinde otomatik derleme ile web sunucusu üzerinde derleme işlemi gerçekleşir.
+Derleme açıkça olur sonra tüm uygulamanın kaynak kodu bir veya daha fazla derlemeye derlenmiş (`.dll` dosyaları) uygulama içinde bulunan `Bin` dizin. Elde edilen otomatik olarak oluşturulan daha sonra derleme otomatik olarak derlemedir, varsayılan olarak, olursa yerleştirilen `Temporary ASP.NET` bulunabilir dosyaları klasörü `%WINDOWS%\Microsoft.NET\Framework\`  *&lt;sürüm&gt;*, Bu konum aracılığıyla yapılandırılabilir olsa da [ `<compilation>` öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde `Web.config`. Açık derleme ile bir derlemeye ASP.NET uygulama kodu derlemek için bazı işlemler yapması gerekir ve bu adımı dağıtımdan önce gerçekleşir. Kaynak ilk erişildiğinde otomatik derleme ile web sunucusu üzerinde derleme işlemi gerçekleşir.
 
 Hangi derleme modeli bağımsız olarak kullanırsanız, tüm ASP.NET sayfaları biçimlendirme kısmı ( `WebPage.aspx` dosyaları) üretim ortamına kopyalanması gerekir. Açık derleme ile derlemelerde yukarı kopyalamanız gerekir. `Bin` klasörü, ancak gerekmez ASP.NET sayfaları kod bölümleri kopyalayın ( `WebPage.aspx.cs` dosyaları). Otomatik derleme ile böylece kodu varsa ve sayfayı ziyaret edildiğinde otomatik olarak derlenebilir kod bölümü dosyaları kopyalamanız gerekir. Her ASP.NET web sayfası biçimlendirme bölümünü içeren bir `@Page` yönerge özelliklere sahip olan sayfa ilişkili kodu zaten açıkça derlenmiş olduğu veya olup, otomatik olarak derlenmesi için gerekli olduğunu gösteriyor. Sonuç olarak, üretim ortamında ya da derleme modeli ile sorunsuz bir şekilde çalışabilir ve açık veya otomatik derleme kullanıldığını belirtmek için özel yapılandırma ayarları uygulamak gerekmez.
 
@@ -69,7 +69,7 @@ Microsoft Visual Studio 2005 yayımlandığı zaman Web uygulama projesi modeli 
 - Visual Studio Proje derleme bir derlemede oluşturmaz `Bin` dizin. Bunun yerine, bir Web sitesi projesi oluşturma, derleme zamanı hataları bildirir.
 - Otomatik derleme desteği. Kodu önceden derlenmiş (kesin compilation) olabilse de Web sitesi projeleri genellikle üretim ortamına, biçimlendirme ve kaynak kodu kopyalayarak dağıtılır.
 
-Visual Studio 2005 Service Pack 1 yayımlandığı zaman Microsoft Web uygulama projesi modeli geri. Ancak, yalnızca Web sitesi projesini modeli desteklemek Visual Web Developer devam. İyi haber, bu sınırlamaya Visual Web Developer 2008 Service Pack 1 ile bırakıldı ' dir. Bugün, Visual Studio (ve Visual Web Developer) Web uygulama projesi modeli veya Web sitesi projesini modeli kullanarak ASP.NET uygulamaları oluşturabilirsiniz. Her iki modelleri kendi Artıları ve eksileri vardır. Başvurmak [Web Uygulama projeleri giriş: karşılaştırma Web sitesi projeleri ve Web Uygulama projeleri](https://msdn.microsoft.com/en-us/library/aa730880.aspx#wapp_topic5) iki model ve hangi proje modeli durumunuza en iyi şekilde çalışır karar vermenize yardımcı olacak bir karşılaştırması.
+Visual Studio 2005 Service Pack 1 yayımlandığı zaman Microsoft Web uygulama projesi modeli geri. Ancak, yalnızca Web sitesi projesini modeli desteklemek Visual Web Developer devam. İyi haber, bu sınırlamaya Visual Web Developer 2008 Service Pack 1 ile bırakıldı ' dir. Bugün, Visual Studio (ve Visual Web Developer) Web uygulama projesi modeli veya Web sitesi projesini modeli kullanarak ASP.NET uygulamaları oluşturabilirsiniz. Her iki modelleri kendi Artıları ve eksileri vardır. Başvurmak [Web Uygulama projeleri giriş: karşılaştırma Web sitesi projeleri ve Web Uygulama projeleri](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) iki model ve hangi proje modeli durumunuza en iyi şekilde çalışır karar vermenize yardımcı olacak bir karşılaştırması.
 
 ## <a name="exploring-the-sample-web-application"></a>Örnek Web uygulamasını keşfetme
 
@@ -175,15 +175,15 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET derleme genel bakış](https://msdn.microsoft.com/en-us/library/ms178466.aspx)
-- [ASP.NET kullanıcı denetimleri](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [ASP.NET derleme genel bakış](https://msdn.microsoft.com/library/ms178466.aspx)
+- [ASP.NET kullanıcı denetimleri](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 - [ASP inceleniyor. NET'in Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Web uygulaması projelerine giriş](https://msdn.microsoft.com/en-us/library/aa730880.aspx)
+- [Web uygulaması projelerine giriş](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Ana sayfa öğreticileri](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Kod sayfaları arasında paylaşma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
 - [Özel bir taban sınıf, ASP.NET sayfaları için arka plan kodu sınıfları kullanma](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [Visual Studio 2005'ın Web sitesi proje sisteminin: nedir ve neden biz bunu?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [İzlenecek yol: bir Web sitesi projesini Visual Studio'da bir Web uygulaması projesi dönüştürme](https://msdn.microsoft.com/en-us/library/aa983476.aspx)
+- [İzlenecek yol: bir Web sitesi projesini Visual Studio'da bir Web uygulaması projesi dönüştürme](https://msdn.microsoft.com/library/aa983476.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](asp-net-hosting-options-cs.md)

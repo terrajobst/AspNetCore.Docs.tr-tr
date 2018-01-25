@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
-ms.openlocfilehash: b9abad56a5a5b9219f92cc5b96efee7250a97c55
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ab1642f1a3de298919aa9c6c1ddbd6bbb0cb99b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET ve Web Araçları 2012.2 sürüm notları
 ====================
@@ -152,7 +152,7 @@ ASP.NET Web API OData hakkında daha fazla bilgi için bkz: [https://go.microsof
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API izlemesi
 
-ASP.NET Web API izleme, web API izleme verileri .NET izleme ile tümleşir. Şimdi, Web API projesi şablonundaki varsayılan olarak etkindir. Web için veri izleme API'leri çıkış penceresine gönderilir ve IntelliTrace kullanılabilir hale getirilir. ASP.NET Web API Tracing sağlar, Web ile tümleştirme yoluyla Windows Azure üzerinde barındırılan API izleme bilgilerine [Windows Azure Diagnostics](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx). Ayrıca yüklemek ve ASP.NET Web API izleme NuGet paketi kullanarak herhangi bir uygulamada ASP.NET Web API Tracing etkinleştirin ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+ASP.NET Web API izleme, web API izleme verileri .NET izleme ile tümleşir. Şimdi, Web API projesi şablonundaki varsayılan olarak etkindir. Web için veri izleme API'leri çıkış penceresine gönderilir ve IntelliTrace kullanılabilir hale getirilir. ASP.NET Web API Tracing sağlar, Web ile tümleştirme yoluyla Windows Azure üzerinde barındırılan API izleme bilgilerine [Windows Azure Diagnostics](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Ayrıca yüklemek ve ASP.NET Web API izleme NuGet paketi kullanarak herhangi bir uygulamada ASP.NET Web API Tracing etkinleştirin ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
 Yapılandırma ve ASP.NET Web API Tracing kullanma hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
@@ -240,8 +240,8 @@ OData URI ayrıştırıcısı kısmi datetime değişmez değerler doğru ayrı�
 
 OData büyük küçük harf duyarsız özellik adları OData sorgularını ve odata yolunu desteklemiyor. İş öğeleri bakın:
 
-- [http://aspnetwebstack.Codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
-- [http://aspnetwebstack.Codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
+- [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
+- [http://aspnetwebstack.codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
 
 Kullanıcıların farklı büyük/küçük harf javascript istemci tarafı ve sunucu tarafı varsa, bunlar büyük olasılıkla bu sorunla karşılaşır. Bu sorunu odata Protokolü tasarım gereğidir. Ancak, çok sayıda kullanıcı, bu sorunu bildirir. Bunu çözmek için kullanıcıların kendi URL durumlarda düzeltmek gerekmez.
 
@@ -277,15 +277,15 @@ JQuery 1.9/Boşaltılan ile 2.2.1 güncelleştirmek, varsayılan MVC SPA proje �
 
 Geçici çözüm başvuru [http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)ve aşağıdaki örnek kod benzer düzeltme yapın:
 
-Dosya todo.model.js  
+File todo.model.js  
  todolist(Data) işlev, ekleme aşağıdaki:  
- **self.isSelected ko.observable(false); =**
+ **self.isSelected = ko.observable(false);**
 
 todoList.prototype.addTodo işlev, aşağıdaki blacked metni ekleyin:  
  **self.isSelected(true);**  
- self.newTodoTitle (&quot;&quot;);
+ self.newTodoTitle(&quot;&quot;);
 
 Index.cshtml dosya, aşağıdaki blacked metni ekleyin:  
  &lt;Form data-bind =&quot;gönderin: addTodo&quot;&gt;  
- &lt;Giriş sınıfı =&quot;addTodo&quot; türü =&quot;metin&quot; data-bind =&quot;değeri: newTodoTitle, yer tutucu: 'eklemek için buraya Type', blurOnEnter: true, **hasfocus: IsSelected**, olay: {ölçeklendirilmelidir: addTodo}&quot; /&gt;  
+ &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
  &lt;/ Form&gt;

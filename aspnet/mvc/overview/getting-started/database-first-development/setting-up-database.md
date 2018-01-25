@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecde847841eb727a0440f0483c69d1df6757815
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb979333131cc6ac87fd640bf7c96931054a1814
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Entity Framework 6 veritabanı MVC 5 kullanarak ilk ile çalışmaya başlama
 ====================
@@ -37,7 +37,7 @@ Bu konuda nerede bir veritabanınız var ve veritabanının alanlara göre bir w
 
 Code First geliştirme giriş örneği için bkz: [ASP.NET MVC 5 ile çalışmaya başlama](../introduction/getting-started.md). Daha gelişmiş bir örnek için bkz: [bir ASP.NET MVC 4 uygulama için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
-Hangi Entity Framework yaklaşımı kullanacak şekilde seçme ile ilgili yönergeler için bkz: [Entity Framework Geliştirme yaklaşımları](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+Hangi Entity Framework yaklaşımı kullanacak şekilde seçme ile ilgili yönergeler için bkz: [Entity Framework Geliştirme yaklaşımları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -49,7 +49,7 @@ Varolan bir veritabanını sahip olmanın ortamı görüntüsü vermek için ön
 
 Bu öğretici, Web için Visual Studio 2013 veya Visual Studio Express 2013 ile LocalDB kullanımıyla geliştirilmiştir. Yerel veritabanı yerine var olan bir veritabanı sunucusu kullanabilirsiniz, ancak Visual Studio ve türünüzü veritabanının sürümüne bağlı olarak, tüm verileri araçları Visual Studio desteklenmiyor. Araçlar veritabanınız için kullanılabilir değilse, bazı yönetim paketi içinde veritabanı özgü adımlarını veritabanınız için gerçekleştirmeniz gerekebilir.
 
-Visual Studio sürümünüzde veritabanı araçları ile ilgili bir sorun varsa, veritabanı araçları en son sürümünü yüklediğinizden emin olun. Güncelleştirme veya veritabanı araçlarını yükleme hakkında daha fazla bilgi için bkz: [Microsoft SQL Server veri Araçları](https://msdn.microsoft.com/en-us/data/hh297027).
+Visual Studio sürümünüzde veritabanı araçları ile ilgili bir sorun varsa, veritabanı araçları en son sürümünü yüklediğinizden emin olun. Güncelleştirme veya veritabanı araçlarını yükleme hakkında daha fazla bilgi için bkz: [Microsoft SQL Server veri Araçları](https://msdn.microsoft.com/data/hh297027).
 
 Visual Studio'yu başlatın ve oluşturma bir **SQL Server veritabanı projesi**. Proje adı **ContosoUniversityData**.
 
@@ -112,4 +112,4 @@ Tablo verisi düzenlenebilir bir görünümünü görüntülenir.
 Veritabanınızı ayarlayabilir ve verilerle doldurulur. Sonraki öğreticide veritabanı için bir web uygulaması oluşturacaksınız.
 
 >[!div class="step-by-step"]
-[Sonraki](creating-the-web-application.md)
+[Next](creating-the-web-application.md)

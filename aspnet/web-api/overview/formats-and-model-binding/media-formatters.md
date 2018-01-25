@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7d85b995cd577d0ff90fe96bce508c7fbdc6ebbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>ASP.NET Web API 2 medya Biçimlendiricileri
 ====================
@@ -29,7 +29,7 @@ Bu öğretici gösterir, ASP.NET Web API'de ek medya biçimlerinin nasıl destek
 Bir MIME türü olarak da adlandırılan bir medya türünün bir parça veri biçimini tanımlar. HTTP, ileti gövdesinin biçimi medya türleri açıklanmaktadır. Bir medya türünün türünü ve alt olmak üzere iki dizeyi oluşur. Örneğin:
 
 - metin/html
-- Görüntü/png
+- image/png
 - Uygulama/json
 
 HTTP iletisinin bir varlık gövdesi içeriyorsa, Content-Type üstbilgisi ileti gövdesinin biçimi belirtir. Bu, ileti gövdesi içeriğini nasıl alıcı bildirir.
@@ -48,8 +48,8 @@ Medya türü nasıl Web API serileştirir ve HTTP ileti gövdesi seri durumdan �
 
 Medya biçimlendiricisi oluşturmak için bu sınıfların birinden türetilen:
 
-- [MediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.mediatypeformatter.aspx). Bu sınıfı kullanır zaman uyumsuz okuma ve yazma yöntemleri.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Bu sınıfın türetildiği **MediaTypeFormatter** ancak sychronous okuma/yazma yöntemleri kullanır.
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Bu sınıfı kullanır zaman uyumsuz okuma ve yazma yöntemleri.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Bu sınıfın türetildiği **MediaTypeFormatter** ancak sychronous okuma/yazma yöntemleri kullanır.
 
 Türetme **BufferedMediaTypeFormatter** zaman uyumsuz kodu yok, ancak aynı zamanda çağıran iş parçacığı g/ç sırasında engelleme gelir basittir.
 
@@ -91,10 +91,10 @@ Bir medya türü biçimlendiricisi Web API ardışık düzenine eklemek için ku
 
 İsteğe bağlı olarak, bir medya biçimlendiricisi UTF-8 veya ISO 8859-1 gibi birden çok karakter kodlamaları destekleyebilir.
 
-Bir veya daha fazla oluşturucuda eklemek [System.Text.Encoding](https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx) türlerine **SupportedEncodings** koleksiyonu. Varsayılan ilk kodlama yerleştirin.
+Bir veya daha fazla oluşturucuda eklemek [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) türlerine **SupportedEncodings** koleksiyonu. Varsayılan ilk kodlama yerleştirin.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-İçinde **WriteToStream** ve **ReadFromStream** yöntemlerini çağırın [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/en-us/library/hh969054.aspx) tercih edilen karakter kodlamasını seçin. Bu yöntem Desteklenen kodlamalar listesine karşı istek üstbilgileri eşleşir. Döndürülen kullanmak **kodlama** zaman okuma veya yazma akıştan:
+İçinde **WriteToStream** ve **ReadFromStream** yöntemlerini çağırın [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) tercih edilen karakter kodlamasını seçin. Bu yöntem Desteklenen kodlamalar listesine karşı istek üstbilgileri eşleşir. Döndürülen kullanmak **kodlama** zaman okuma veya yazma akıştan:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d0b76c06495c51df3ed0f61cd318507a05240392
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: dağıtma SQL Server Compact veritabanları - 12 2
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -37,7 +37,7 @@ Veritabanı erişimi için Contoso University uygulama .NET Framework dahil edil
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (veritabanı altyapısı).
 - [ASP.NET Evrensel Sağlayıcılar](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (hangi etkinleştirme SQL Server Compact kullanmak ASP.NET üyelik sistemi)
-- [Entity Framework 5.0](https://msdn.microsoft.com/en-us/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First geçişleri ile).
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First geçişleri ile).
 
 Veritabanı yapısı ve bazı (Tümü) uygulamanın iki veri veritabanlarını da dağıtılmalıdır. Genellikle, bir uygulama geliştirirken, canlı bir siteye dağıtmak için istemediğiniz bir veritabanına test verilerini girin. Ancak, dağıtmak istediğiniz bazı üretim verileri de yazabilirsiniz. Bu öğreticide gerekli yazılım ve doğru veri dağıttığınızda dahil; böylece Contoso University proje yapılandıracaksınız.
 
@@ -47,7 +47,7 @@ Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir ş
 
 Örnek uygulama SQL Server Compact 4.0 kullanır. Bu veritabanı altyapısı, Web siteleri için görece olarak daha yeni bir seçenektir; SQL Server Compact önceki sürümlerinde, bir web barındırma ortamı çalışmaz. SQL Server Compact ve SQL Server Express ile geliştirmek için tam SQL Server dağıtımı daha yaygın bir senaryo karşılaştırılan birkaç avantaj sunar. Bazı sağlayıcılar tam bir SQL Server veritabanı desteklemek için ek ücret olduğundan seçtiğiniz barındırma sağlayıcısına bağlı olarak SQL Server Compact dağıtmak, ucuz olabilir. Web uygulamanıza bir parçası olarak veritabanı altyapısı dağıtabilmeniz için SQL Server Compact için ek ücret ödemeden yoktur.
 
-Ancak, kendi sınırlamaları da. SQL Server Compact saklı yordamlar, Tetikleyiciler, görünümler veya çoğaltma desteklemez. (SQL Server Compact tarafından desteklenmez SQL Server özelliklerinin tam listesi için bkz: [SQL Server arasındaki farklar Compact ve SQL Server](https://msdn.microsoft.com/en-us/library/bb896140.aspx).) Ayrıca, bazı şemaları ve verileri SQL Server Express ve SQL Server veritabanlarını işlemek için kullanabileceğiniz araçlar ile SQL Server Compact çalışmaz. Örneğin, SQL Server Compact veritabanları ile Visual Studio ile SQL Server Management Studio veya SQL Server veri araçları kullanamazsınız. SQL Server Compact veritabanları ile çalışmak için diğer seçenekler vardır:
+Ancak, kendi sınırlamaları da. SQL Server Compact saklı yordamlar, Tetikleyiciler, görünümler veya çoğaltma desteklemez. (SQL Server Compact tarafından desteklenmez SQL Server özelliklerinin tam listesi için bkz: [SQL Server arasındaki farklar Compact ve SQL Server](https://msdn.microsoft.com/library/bb896140.aspx).) Ayrıca, bazı şemaları ve verileri SQL Server Express ve SQL Server veritabanlarını işlemek için kullanabileceğiniz araçlar ile SQL Server Compact çalışmaz. Örneğin, SQL Server Compact veritabanları ile Visual Studio ile SQL Server Management Studio veya SQL Server veri araçları kullanamazsınız. SQL Server Compact veritabanları ile çalışmak için diğer seçenekler vardır:
 
 - Visual Studio'da sınırlı veritabanı işleme işlevleri için SQL Server Compact sağlayan, sunucu Gezgini'ni kullanın.
 - Veritabanı işleme özelliğini kullanabilirsiniz [WebMatrix](https://www.microsoft.com/web/webmatrix/), Sunucu Gezgini daha fazla özelliğe sahiptir.
@@ -77,11 +77,11 @@ Projeyi oluşturun ve ardından **Çözüm Gezgini** tıklatın **tüm dosyalar�
 
 Genişletin **bin** görmek için klasör **amd64** ve **x86** klasörleri ve bu klasörleri, sağ tıklatın ve seçin ardından **projeEkle**.
 
-![amd64_and_x86_in_Solution_Explorer.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
+![amd64_and_x86_in_Solution_Explorer.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image2.png)
 
 Klasör projeye dahil olduğunu göstermek için klasör simgeleri değiştirin.
 
-![Solution_Explorer_amd64_included.PNG](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
+![Solution_Explorer_amd64_included.png](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image3.png)
 
 ## <a name="configuring-code-first-migrations-for-application-database-deployment"></a>Code First geçişleri uygulama veritabanı dağıtımı için yapılandırma
 
@@ -119,7 +119,7 @@ Gelen **Araçları** menüsünde tıklatın **kitaplık Paket Yöneticisi** ve a
 
 Üstündeki **Paket Yöneticisi Konsolu** penceresi seçin ContosoUniversity.DAL varsayılan proje ardından at `PM>` istemi "enable-migrations" girin.
 
-![Enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
+![enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
 Bu komut oluşturur bir *Configuration.cs* yeni bir dosyada *geçişler* ContosoUniversity.DAL proje klasöründe.
 
@@ -159,13 +159,13 @@ Sağ *School.sdf* dosya ve tıklayın **silmek**.
 
 İçinde **Paket Yöneticisi Konsolu** penceresinde "add-migration ilk" komutu girin ilk geçiş oluşturup "Başlangıç" olarak adlandırın.
 
-![ekleme migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
 Code First geçişleri oluşturur başka bir sınıf dosyasında *geçişler* klasörünü ve bu sınıf, veritabanı şemasını oluşturur kodunu içerir.
 
 İçinde **Paket Yöneticisi Konsolu**, komut "Güncelleştirme-veritabanı oluşturmak ve çalıştırmak için veritabanı" girin **çekirdek** yöntemi.
 
-![Güncelleştirme database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
 (Bir tablo zaten var ve oluşturulamaz belirten bir hata alırsanız, uygulama veritabanı silinmiş sonra ve, yürütülmeden önce çalışan, büyük olasılıkla çünkü `update-database`. İn that Case, silme *School.sdf* dosyasını yeniden ve yeniden deneme `update-database` komutu.)
 
@@ -190,7 +190,7 @@ Contoso University uygulama kimliğini doğrulamak ve kullanıcılara yetki verm
 Bir siteye ilk kez dağıttığınızda, çoğu veya test etmek için oluşturduğunuz tüm kullanıcı hesaplarını dışlamak için yaygın bir sorundur. Bu durumda, bir yönetici hesabı ve kullanıcı hesaplarını dağıtacaksınız. El ile test hesapları silme yerine üretimde gereken tek bir yönetici kullanıcı hesabı sahip yeni bir üyelik veritabanı oluşturacaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)**  Web.config dosyasında öğesi.
+> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  Web.config dosyasında öğesi.
 
 
 Üyelik veritabanının Code First Migrations tarafından korunmaz ve Okul veritabanı için (olduğu gibi), test hesapları veritabanıyla çekirdeğini oluşturur hiçbir otomatik başlatıcı yok. Bu nedenle, kullanılabilir test verileri tutmak için yeni bir tane oluşturmadan önce test veritabanının bir kopyasını hale getireceğiz.
@@ -241,9 +241,9 @@ Uygulamanın Web.config dosyasını açın ve bağlantı dizeleri bulun:
 
 SQL Server Compact veritabanı motoru ve her iki veritabanı artık dağıtılmaya hazır olursunuz. Aşağıdaki öğreticide otomatik ayarlama *Web.config* dosya dönüştürmeleri için geliştirme, test ve üretim ortamlarında farklı ayarlar. (Değiştirilmelidir ayarları arasında bağlantı dizeleri var, ancak bir yayımlama profili oluşturduğunuzda, bu değişiklikleri daha sonra ayarlarız.)
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
-NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için özellikle bkz [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için özellikle bkz [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Önceki](deployment-to-a-hosting-provider-introduction-1-of-12.md)

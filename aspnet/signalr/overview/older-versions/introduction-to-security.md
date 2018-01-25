@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 04487614b219f8f6f8f0524c3b5f1aa42480c4d3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR güvenlik giriş (SignalR 1.x)
 ====================
@@ -42,7 +42,7 @@ Bu belgede aşağıdaki bölümler yer alır:
     - [Güvenli bir şekilde istemcilerden girişini işleme](#input)
     - [Kullanıcı etkin bir bağlantı durumundaki bir değişiklik karşılaştırma](#reconcile)
     - [Otomatik olarak oluşturulan JavaScript proxy dosyaları](#autogen)
-    - [Özel durumlar](#exceptions)
+    - [Özel Durumlar](#exceptions)
 
 <a id="concepts"></a>
 
@@ -54,7 +54,7 @@ Bu belgede aşağıdaki bölümler yer alır:
 
 SignalR, bir uygulama için var olan kimlik doğrulama yapıda tümleştirilecek şekilde tasarlanmıştır. Herhangi bir özellik kullanıcıların kimlik doğrulamasını sağlamaz. Bunun yerine, uygulamanızda normalde ve ardından kimlik doğrulama sonuçlarını SignalR kodunuzda iş kullanıcıların kimlik doğrulaması. Örneğin, ASP.NET forms kimlik doğrulaması, kullanıcıların kimliğini doğrulamak ve ardından hub'ınıza, hangi kullanıcıların zorla veya rolleri bir yöntemi çağırmak için yetki. Hub'ınıza, kullanıcı adı veya kullanıcı istemciye bir role ait olup gibi kimlik doğrulama bilgilerini geçirebilirsiniz.
 
-SignalR sağlar [Authorize](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği hangi kullanıcıların bir hub veya yöntemi erişimine sahip olacağını belirtin. Bir hub veya belirli bir hub yöntemlerinde Authorize özniteliğini uygulayın. Authorize özniteliği olmadan hub'ındaki tüm genel yöntemler hub'ına bağlı bir istemci için kullanılabilir. Hub'ları hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme SignalR hub'ları için](../security/hub-authorization.md).
+SignalR sağlar [Authorize](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.authorizeattribute(v=vs.111).aspx) özniteliği hangi kullanıcıların bir hub veya yöntemi erişimine sahip olacağını belirtin. Bir hub veya belirli bir hub yöntemlerinde Authorize özniteliğini uygulayın. Authorize özniteliği olmadan hub'ındaki tüm genel yöntemler hub'ına bağlı bir istemci için kullanılabilir. Hub'ları hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme SignalR hub'ları için](../security/hub-authorization.md).
 
 `Authorize` Özniteliği yalnızca hub'larıyla kullanılır. Kullanırken yetkilendirme kurallarını zorunlu tutmak için bir `PersistentConnection` geçersiz kılmanız gerekir `AuthorizeRequest` yöntemi. Kalıcı bağlantılar hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme için SignalR kalıcı bağlantılar](../security/persistent-connection-authorization.md).
 

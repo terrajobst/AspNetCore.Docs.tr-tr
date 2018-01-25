@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b6f3821a8022daa26f5efcc009ab3e6283a76a19
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Onay ve parola sıfırlama (C#) e-posta ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma
 ====================
@@ -53,7 +53,7 @@ Başlangıç yüklenmesi ve çalıştırılması [için Visual Studio Express 20
  Ardından **Tamam** yeni proje oluşturmak için.  
     ![Yeni ASP.NET projesi iletişim kutusu](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image1.png)
 3. Proje için Güvenli Yuva Katmanı (SSL) etkinleştirin. Bulunan adımları **proje için SSL etkinleştir** bölümünü [Web Forms öğretici serisi ile çalışmaya başlama](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms).
-4. Uygulamayı çalıştırın, tıklatın **kaydetmek** bağlamak ve yeni bir kullanıcı kaydedin. Bu noktada, e-posta yalnızca doğrulaması dayanır [[EmailAddress]](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği e-posta adresi doğru biçimlendirilmiş olduğundan emin olun. E-posta onayı eklemek için kodu değiştirecektir. Tarayıcı penceresini kapatın.
+4. Uygulamayı çalıştırın, tıklatın **kaydetmek** bağlamak ve yeni bir kullanıcı kaydedin. Bu noktada, e-posta yalnızca doğrulaması dayanır [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği e-posta adresi doğru biçimlendirilmiş olduğundan emin olun. E-posta onayı eklemek için kodu değiştirecektir. Tarayıcı penceresini kapatın.
 5. İçinde **Sunucu Gezgini** Visual Studio (**Görünüm**  - &gt; **Sunucu Gezgini**), gitmek **veri Connections\ DefaultConnection\Tables\AspNetUsers**sağ tıklayın ve seçin **açmak tablo tanımı**. 
 
     Aşağıdaki resimde gösterildiği `AspNetUsers` tablo şemasını:
@@ -78,7 +78,7 @@ Bu öğretici yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, anc
 
 1. Visual Studio'da açın **Paket Yöneticisi Konsolu** (**Araçları**  - &gt; **NuGet Paket Yöneticisi**  - &gt; **Paket Yöneticisi Konsolu**) ve aşağıdaki komutu girin:  
     `Install-Package SendGrid`
-2. Git [Azure SendGrid kayıt sayfasına](https://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/) ve ücretsiz SendGrid hesabı kaydedin. Doğrudan üzerinde bir ücretsiz SendGrid hesabına kaydolun yapabilecekleriniz [SendGrid'ın site](http://www.sendgrid.com).
+2. Git [Azure SendGrid kayıt sayfasına](https://azure.microsoft.com/gallery/store/sendgrid/sendgrid-azure/) ve ücretsiz SendGrid hesabı kaydedin. Doğrudan üzerinde bir ücretsiz SendGrid hesabına kaydolun yapabilecekleriniz [SendGrid'ın site](http://www.sendgrid.com).
 3. Gelen **Çözüm Gezgini** açmak *IdentityConfig.cs* dosyasını *uygulama\_Başlat* klasörü sarıyavurgulananveaşağıdakikoduekleyin`EmailService` yapılandırmak için sınıf **SendGrid**:
 
     [!code-csharp[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample1.cs?highlight=3,5,8-37)]
@@ -186,5 +186,5 @@ Kimlik bilgilerinizi doğrulamak için bağlantı içeren bir e-posta almazsanı
 - [Önerilen bağlantılar ASP.NET Identity için kaynaklar](../../../identity/overview/getting-started/aspnet-identity-recommended-resources.md)
 - [Hesap onaylamayı ve parola kurtarma ASP.NET kimliğe sahip](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
 - [ASP.NET Web Forms öğretici serisi - bir OAuth 2.0 Sağlayıcısı Ekle](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#OAuthWebForms)
-- [Güvenli ASP.NET Web Forms uygulama üyeliği, OAuth ve SQL veritabanı ile Azure App Service'e dağıtma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
+- [Güvenli ASP.NET Web Forms uygulama üyeliği, OAuth ve SQL veritabanı ile Azure App Service'e dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)
 - [ASP.NET Web Forms öğretici serisi - proje için SSL etkinleştir](../getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal.md#SSLWebForms)

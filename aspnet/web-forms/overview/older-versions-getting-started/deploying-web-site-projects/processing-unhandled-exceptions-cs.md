@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c7f15053ca035a1df1222f88752b8243808bef0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95102e5e6b3e8b78e2757a2bdee39976003011e3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>İşlenmeyen özel durumlar (C#) işleme
 ====================
@@ -41,9 +41,9 @@ Bu öğretici, böylece kullanıcılar oturum işlenmeyen bir özel durum ayrın
 
 ## <a name="executing-code-when-theerrorevent-is-raised"></a>Yürütme, kod ne zaman`Error`olayı
 
-Olayları bir nesne ilginç oluştuğunu sinyal ve yanıt olarak kod yürütmek için başka bir nesne için bir mekanizma sağlar. Bir ASP.NET geliştiricisi olarak, olarak düşünmeye Olayları açısından bilirsiniz. Ziyaretçi belirli düğmesini tıklattığında bazı kodlar çalıştırmak istiyorsanız, bu düğmenin için bir olay işleyicisi oluşturun `Click` olay ve kodunuzu oraya yerleştirebilir. ASP.NET çalışma zamanı başlatır o kendi [ `Error` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) işlenmeyen bir özel durum oluştuğunda bir olay işleyicisi hatanın ayrıntıları günlüğü kodunu geçecek, kendisini izleyen. Ancak ne bir olay işleyicisi için oluşturduğunuz `Error` olay?
+Olayları bir nesne ilginç oluştuğunu sinyal ve yanıt olarak kod yürütmek için başka bir nesne için bir mekanizma sağlar. Bir ASP.NET geliştiricisi olarak, olarak düşünmeye Olayları açısından bilirsiniz. Ziyaretçi belirli düğmesini tıklattığında bazı kodlar çalıştırmak istiyorsanız, bu düğmenin için bir olay işleyicisi oluşturun `Click` olay ve kodunuzu oraya yerleştirebilir. ASP.NET çalışma zamanı başlatır o kendi [ `Error` olay](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) işlenmeyen bir özel durum oluştuğunda bir olay işleyicisi hatanın ayrıntıları günlüğü kodunu geçecek, kendisini izleyen. Ancak ne bir olay işleyicisi için oluşturduğunuz `Error` olay?
 
-`Error` Olay birçok olayları biridir [ `HttpApplication` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx) oluşturuldu HTTP ardışık düzen belirli aşamalarında bir istek ömrü boyunca. Örneğin, `HttpApplication` sınıfının [ `BeginRequest` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx) her istek; başlangıcında tetiklenir kendi [ `AuthenticateRequest` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) güvenlik modülü istek sahibinin belirledi tetiklenir. Bunlar `HttpApplication` olayları bir isteğin yaşam süresi çeşitli noktalarında özel mantığı yürütmek için bir yol sayfasında Geliştirici verin.
+`Error` Olay birçok olayları biridir [ `HttpApplication` sınıfı](https://msdn.microsoft.com/library/system.web.httpapplication.aspx) oluşturuldu HTTP ardışık düzen belirli aşamalarında bir istek ömrü boyunca. Örneğin, `HttpApplication` sınıfının [ `BeginRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx) her istek; başlangıcında tetiklenir kendi [ `AuthenticateRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) güvenlik modülü istek sahibinin belirledi tetiklenir. Bunlar `HttpApplication` olayları bir isteğin yaşam süresi çeşitli noktalarında özel mantığı yürütmek için bir yol sayfasında Geliştirici verin.
 
 Olay işleyicileri için `HttpApplication` olayları adlı özel bir dosyada yerleştirilebilen `Global.asax`. Web sitenizi bu dosyayı oluşturmak için kök Web sitenizin adıyla genel uygulama sınıfı şablonu kullanarak yeni öğe Ekle `Global.asax`.
 
@@ -60,19 +60,19 @@ Olay işleyicileri için `HttpApplication` olayları adlı özel bir dosyada yer
 > ASP.NET Uygulama dağıtırken kopyalamalısınız `Global.asax` üretim ortamına dosya. `Global.asax.cs` WAP oluşturulur, dosya, çünkü bu kod projenin derlemeye derlenir üretime kopyalanması gerekmez.
 
 
-Visual Studio'nun genel uygulama sınıfı şablonu tarafından oluşturulan olay işleyicileri eksiksiz değildir. İçin herhangi bir olay işleyicisi ekleyebilirsiniz `HttpApplication` olay işleyicisi adlandırma tarafından olay `Application_EventName`. Örneğin, aşağıdaki kodu ekleyebilirsiniz `Global.asax` için bir olay işleyicisi oluşturmak için dosya [ `AuthorizeRequest` olay](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx):
+Visual Studio'nun genel uygulama sınıfı şablonu tarafından oluşturulan olay işleyicileri eksiksiz değildir. İçin herhangi bir olay işleyicisi ekleyebilirsiniz `HttpApplication` olay işleyicisi adlandırma tarafından olay `Application_EventName`. Örneğin, aşağıdaki kodu ekleyebilirsiniz `Global.asax` için bir olay işleyicisi oluşturmak için dosya [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
 [!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
 
 Benzer şekilde, gerekli olmayan genel uygulama sınıfı şablonu tarafından oluşturulan tüm olay işleyicileri kaldırabilirsiniz. Bu öğretici için biz yalnızca bir olay işleyicisi için gereksinim `Error` olay; kullanımında diğer olay işleyicilerini kaldırmak ücretsiz `Global.asax` dosya.
 
 > [!NOTE]
-> *HTTP modülleri* olay işleyicileri için tanımlamak için başka bir yol sunar `HttpApplication` olaylar. HTTP modülleri ayrı Sınıf Kitaplığı'na doğrudan web uygulama projesi içinde yerleştirilen veya ayrılmış bir sınıf dosyası olarak oluşturulur. Bir sınıf kitaplığı'na bunlar ayrılabilir çünkü HTTP modülleri oluşturmak için daha esnek ve yeniden kullanılabilir bir modeli sunar `HttpApplication` olay işleyicileri. Ancak `Global.asax` dosyasıdır belirli HTTP modülleri bulunduğu web uygulaması için bu noktada bir Web sitesine HTTP modülü ekleme derleme bırakma olarak basit derlemeler içine derlenebilir `Bin` klasörü ve kaydetme Modülünde `Web.config`. Bu öğretici, oluşturma ve HTTP modülleri kullanarak aramaz, ancak aşağıdaki iki öğreticilerde kullanılan iki hata günlüğünü kitaplıkları HTTP modülleri uygulanır. HTTP modülleri avantajları hakkında daha fazla arka plan için başvurmak [kullanarak HTTP modülleri ve takılabilir ASP.NET bileşenleri oluşturması işleyicilerine](https://msdn.microsoft.com/en-us/library/aa479332.aspx).
+> *HTTP modülleri* olay işleyicileri için tanımlamak için başka bir yol sunar `HttpApplication` olaylar. HTTP modülleri ayrı Sınıf Kitaplığı'na doğrudan web uygulama projesi içinde yerleştirilen veya ayrılmış bir sınıf dosyası olarak oluşturulur. Bir sınıf kitaplığı'na bunlar ayrılabilir çünkü HTTP modülleri oluşturmak için daha esnek ve yeniden kullanılabilir bir modeli sunar `HttpApplication` olay işleyicileri. Ancak `Global.asax` dosyasıdır belirli HTTP modülleri bulunduğu web uygulaması için bu noktada bir Web sitesine HTTP modülü ekleme derleme bırakma olarak basit derlemeler içine derlenebilir `Bin` klasörü ve kaydetme Modülünde `Web.config`. Bu öğretici, oluşturma ve HTTP modülleri kullanarak aramaz, ancak aşağıdaki iki öğreticilerde kullanılan iki hata günlüğünü kitaplıkları HTTP modülleri uygulanır. HTTP modülleri avantajları hakkında daha fazla arka plan için başvurmak [kullanarak HTTP modülleri ve takılabilir ASP.NET bileşenleri oluşturması işleyicilerine](https://msdn.microsoft.com/library/aa479332.aspx).
 
 
 ## <a name="retrieving-information-about-the-unhandled-exception"></a>İşlenmeyen özel durum hakkında bilgi alma
 
-Global.asax dosyası ile bu noktada sahibiz bir `Application_Error` olay işleyicisi. Bu olay işleyicisi yürüttüğünde biz hata geliştiricisine bildirin ve ayrıntılarını oturum gerekir. Bu görevleri gerçekleştirmek üzere biz öncelikle gerçekleşmesine neden olan özel durum ayrıntıları belirlemeniz gerekir. Sunucu nesnesi kullanın [ `GetLastError` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.getlasterror.aspx) nedeniyle işlenmeyen bir özel durum ayrıntılarını alma `Error` tetiklenecek olay.
+Global.asax dosyası ile bu noktada sahibiz bir `Application_Error` olay işleyicisi. Bu olay işleyicisi yürüttüğünde biz hata geliştiricisine bildirin ve ayrıntılarını oturum gerekir. Bu görevleri gerçekleştirmek üzere biz öncelikle gerçekleşmesine neden olan özel durum ayrıntıları belirlemeniz gerekir. Sunucu nesnesi kullanın [ `GetLastError` yöntemi](https://msdn.microsoft.com/library/system.web.httpserverutility.getlasterror.aspx) nedeniyle işlenmeyen bir özel durum ayrıntılarını alma `Error` tetiklenecek olay.
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample2.cs)]
 
@@ -90,7 +90,7 @@ Böylece bu hata günlüğü ve bildirim kendiniz yapılandırmak gerekmez sonra
 
 Üretim ortamında işlenmeyen bir özel durum oluştuğunda hata değerlendirmek ve eylem yapılması gerektiğini belirlemek ve geliştirme ekibi uyarı önemlidir. Örneğin, varsa, çift gerekir sonra veritabanına bağlanırken bir hata bağlantı dizenizi denetleyin ve, belki de bir destek bileti web şirket barındırma ile açın. Özel bir programlama hatası nedeniyle oluştuysa, ek kod veya doğrulama mantığını gibi hataları gelecekte oluşmasını engellemek için eklenmesi gerekebilir.
 
-.NET Framework sınıfları [ `System.Net.Mail` ad alanı](https://msdn.microsoft.com/en-us/library/system.net.mail.aspx) bir e-posta göndermek kolaylaştırır. [ `MailMessage` Sınıfı](https://msdn.microsoft.com/en-us/library/system.net.mail.mailmessage.aspx) e-posta iletisine temsil eder ve benzer özelliklere sahip `To`, `From`, `Subject`, `Body`, ve `Attachments`. `SmtpClass` Göndermek için kullanılan bir `MailMessage` SMTP sunucu ayarlarını program aracılığıyla veya bildirimli olarak belirtilebilir; belirtilen bir SMTP sunucusu kullanarak nesne [ `<system.net>` öğesi](https://msdn.microsoft.com/en-us/library/6484zdc1.aspx) içinde `Web.config file`. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri my makalesine göz atın [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)ve [System.Net.Mail SSS](http://systemnetmail.com/).
+.NET Framework sınıfları [ `System.Net.Mail` ad alanı](https://msdn.microsoft.com/library/system.net.mail.aspx) bir e-posta göndermek kolaylaştırır. [ `MailMessage` Sınıfı](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) e-posta iletisine temsil eder ve benzer özelliklere sahip `To`, `From`, `Subject`, `Body`, ve `Attachments`. `SmtpClass` Göndermek için kullanılan bir `MailMessage` SMTP sunucu ayarlarını program aracılığıyla veya bildirimli olarak belirtilebilir; belirtilen bir SMTP sunucusu kullanarak nesne [ `<system.net>` öğesi](https://msdn.microsoft.com/library/6484zdc1.aspx) içinde `Web.config file`. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri my makalesine göz atın [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)ve [System.Net.Mail SSS](http://systemnetmail.com/).
 
 > [!NOTE]
 > `<system.net>` Öğesi tarafından kullanılan SMTP sunucusu ayarlarını içeren `SmtpClient` bir e-posta gönderirken, sınıf. Şirket büyük olasılıkla barındırma web uygulamanızdan e-posta göndermek için kullanabileceğiniz bir SMTP sunucusu vardır. Web uygulamanızda kullanması gereken SMTP sunucusu ayarları hakkında bilgi için web ana bilgisayarın destek bölümüne bakın.
@@ -102,7 +102,7 @@ Aşağıdaki kodu ekleyin `Application_Error` bir hata oluştuğunda bir gelişt
 
 Yukarıdaki kod oldukça uzun olsa da, bunu toplu görüntülenen HTML geliştiriciye gönderilen e-posta oluşturur. Kod başvurarak başlatır `HttpException` tarafından döndürülen `GetLastError` yöntemi (`lastErrorWrapper`). İstek tarafından başlatılan özel durumu aracılığıyla alınır `lastErrorWrapper.InnerException` ve değişkenine atanan `lastError`. Türü, iletisi ve yığın izleme bilgileri alınır `lastError` ve üç dize değişkenleri depolanır.
 
-Ardından, bir `MailMessage` adlı nesne `mm` oluşturulur. E-posta gövdesi HTML biçimli olduğundan ve istenen sayfanın URL'sini, şu anda oturum açmış kullanıcı ve (türünü, iletisi ve yığın izlemesi) özel durum hakkında bilgi adını görüntüler. Seyrek erişimli çalışmalarıdır birini `HttpException` sınıfı olan özel durum ayrıntıları sarı ekran, ölüm (YSOD) çağırarak oluşturmak için kullanılan HTML oluşturabileceğiniz [GetHtmlErrorMessage yöntemi](https://msdn.microsoft.com/en-us/library/system.web.httpexception.gethtmlerrormessage.aspx). Bu yöntem, burada özel durum ayrıntıları YSOD biçimlendirme almak ve e-posta eki olarak eklemek için kullanılır. Uyarı bir sözcük: özel durum, tetiklenen varsa `Error` olay bir HTTP tabanlı özel durum oluştu (örneğin, mevcut olmayan sayfa için bir istek) sonra `GetHtmlErrorMessage` yöntemi döndürür `null`.
+Ardından, bir `MailMessage` adlı nesne `mm` oluşturulur. E-posta gövdesi HTML biçimli olduğundan ve istenen sayfanın URL'sini, şu anda oturum açmış kullanıcı ve (türünü, iletisi ve yığın izlemesi) özel durum hakkında bilgi adını görüntüler. Seyrek erişimli çalışmalarıdır birini `HttpException` sınıfı olan özel durum ayrıntıları sarı ekran, ölüm (YSOD) çağırarak oluşturmak için kullanılan HTML oluşturabileceğiniz [GetHtmlErrorMessage yöntemi](https://msdn.microsoft.com/library/system.web.httpexception.gethtmlerrormessage.aspx). Bu yöntem, burada özel durum ayrıntıları YSOD biçimlendirme almak ve e-posta eki olarak eklemek için kullanılır. Uyarı bir sözcük: özel durum, tetiklenen varsa `Error` olay bir HTTP tabanlı özel durum oluştu (örneğin, mevcut olmayan sayfa için bir istek) sonra `GetHtmlErrorMessage` yöntemi döndürür `null`.
 
 Son adım göndermektir `MailMessage`. Bu yeni bir oluşturarak yapılır `SmtpClient` yöntemi ve çağırma kendi `Send` yöntemi.
 
@@ -139,7 +139,7 @@ Merak ediyor doğal olup olmadığını `Global.asax` dosya ve `Application_Erro
 
 Sunucu HTTP 302 yönlendirmesi ile yanıtladığında işlenmeyen bir özel durum meydana geldiği istek sona ereceğini net etkisidir. Taleplerde özel hata sayfası için yepyeni bir istektir; Bu nokta ASP.NET altyapısı hata bilgilerini iptal etti ve ayrıca, önceki istek içinde işlenmeyen bir özel özel hata sayfası için yeni istek ilişkilendirmek için hiçbir yolu yoktur. Nedeni budur `GetLastError` döndürür `null` özel hata sayfasından çağrıldığında.
 
-Ancak, hatanın nedeni aynı istek sırasında çalıştırılan özel hata sayfasının olması mümkündür. [ `Server.Transfer(url)` ](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.transfer.aspx) Yöntemi belirtilen URL'ye yürütme aktarır ve içinde aynı isteğini işler. Kod taşıma `Application_Error` özel hata sayfasının arka plandaki kod sınıfı içinde değiştirerek, olay işleyicisi `Global.asax` aşağıdaki kod ile:
+Ancak, hatanın nedeni aynı istek sırasında çalıştırılan özel hata sayfasının olması mümkündür. [ `Server.Transfer(url)` ](https://msdn.microsoft.com/library/system.web.httpserverutility.transfer.aspx) Yöntemi belirtilen URL'ye yürütme aktarır ve içinde aynı isteğini işler. Kod taşıma `Application_Error` özel hata sayfasının arka plandaki kod sınıfı içinde değiştirerek, olay işleyicisi `Global.asax` aşağıdaki kod ile:
 
 [!code-csharp[Main](processing-unhandled-exceptions-cs/samples/sample5.cs)]
 
@@ -163,9 +163,9 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [HTTP işleyicileri ve ASP.NET HTTP modülleri](http://www.15seconds.com/Issue/020417.htm)
 - [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Anlama `Global.asax` dosyası](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)
-- [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/en-us/library/aa479332.aspx)
+- [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/library/aa479332.aspx)
 - [ASP.NET ile çalışma `Global.asax` dosyası](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
-- [İle çalışma `HttpApplication` örnekleri](https://msdn.microsoft.com/en-us/library/a0xez8f2.aspx)
+- [İle çalışma `HttpApplication` örnekleri](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](displaying-a-custom-error-page-cs.md)

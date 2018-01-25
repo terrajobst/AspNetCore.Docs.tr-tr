@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e8b4e6a12c010b227ee9a236130cbfd26d75657
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 715f7e3fae89e773b686faa7c49522c587693eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Yeni oluşturma saklı yordamlar için yazılan veri kümesi'nin TableAdapters (C#)
 ====================
@@ -47,7 +47,7 @@ Tüm programlama dili için ortak bir yapı işlevlerdir. Bir işlev işlevi ça
 > Saklı yordamlar görmemeleri sprocs veya Sp'ler adlandırılır.
 
 
-Saklı yordamlar kullanılarak oluşturulan [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) T-SQL ifadesi. Örneğin, aşağıdaki T-SQL komut dosyası adlı bir saklı yordam oluşturur `GetProductsByCategoryID` adlı tek bir parametre alan `@CategoryID` ve döndürür `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` bu sütunların alanları `Products` eşleşen bir tablo `CategoryID` değeri:
+Saklı yordamlar kullanılarak oluşturulan [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) T-SQL ifadesi. Örneğin, aşağıdaki T-SQL komut dosyası adlı bir saklı yordam oluşturur `GetProductsByCategoryID` adlı tek bir parametre alan `@CategoryID` ve döndürür `ProductID`, `ProductName`, `UnitPrice`, ve `Discontinued` bu sütunların alanları `Products` eşleşen bir tablo `CategoryID` değeri:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Saklı yordamlar oluşturmak ve sürdürmek](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Saklı yordamlar oluşturmak ve sürdürmek](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Bir saklı yordam skaler verilerini alma](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [SQL Server saklı yordamı temelleri](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Saklı yordamlar: Genel bakış](http://www.sqlteam.com/item.asp?ItemID=563)
@@ -399,4 +399,4 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Hilton Geisenow oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+[Next](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)

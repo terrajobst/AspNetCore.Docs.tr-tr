@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 önemli değişiklikler
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [System.Web.Security Passport türleridir Kullanımdan kalktı](#0.1__Toc256770158 "_Toc256770158")  
 [ASP.NET 4 görüntüdeki işlemek MenuItem.PopOutImageUrl özelliği başarısız](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl ve Menu.DynamicPopOutImageUrl yolları ters eğik çizgi içerdiğinde resimleri işlemek için başarısız](#0.1__Toc256770160 "_Toc256770160")  
-[Vazgeçme](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -170,7 +170,7 @@ Sonraki iki bölümde farklı yazılım birleşimler için yapmanız gerekebilec
 
 Ancak, uygulama düzeyinde el ile değişiklik `Web.config` Visual Studio 2008 ile sunulan özgün Demirbaş yapılandırma bölümü tanımları tam olarak eşleşmiyor dosyası girdileri ASP.NET yapılandırma hataları neden olur. (Visual Studio 2008 tarafından oluşturulan varsayılan yapılandırma girdileri düzgün çalışmaz.) Sık karşılaşılan bir el ile değiştirilen sorundur `Web.config` dosyaları dışlamayı **allowDefinition** ve **requirePermission** çeşitli yapılandırma bölümünde bulunan configuration öznitelikleri tanımları. Bu uygulama düzeyi kısaltılmış yapılandırma bölümünde arasında uyuşmazlığa neden `Web.config` dosyaları ve ASP.NET 4 tam tanımında `machine.config` dosya. Sonuç olarak, çalışma zamanında, ASP.NET 4 yapılandırma sistemi bir yapılandırma hatası oluşturur.
 
-**Windows Vista SP2, Windows Server 2008 SP2, Windows 7, Windows Server 2008 R2 ve ayrıca Windows Vista SP1 ve Windows Server 2008 SP1'i düzeltme KB958854 yüklendiği.**
+**Windows Vista SP2, Windows Server 2008 SP2, Windows 7, Windows Server 2008 R2, and also Windows Vista SP1 and Windows Server 2008 SP1 where hotfix KB958854 is installed.**
 
 Üzerinde bir metin karşılaştırma gerçekleştirdiğinden Bu senaryoda, IIS 7.5 ve IIS 7 yerel yapılandırma sistemi bir yapılandırma hatası döndürür. **türü** yönetilen yapılandırma bölümü işleyicisi için tanımlı öznitelik. Çünkü tüm `Web.config` Visual Studio 2008 ve Visual Studio 2008 SP1 tarafından oluşturulan dosyalarınız türü dizesinde "3.5" **system.web.extensions** (ve ilişkili) yapılandırma bölümü işleyicileri ve ASP.NET 4 `machine.config` dosyası "4.0" sahip **türü** yapılandırma doğrulama IIS 7'de Visual Studio 2008 veya Visual Studio 2008 SP1'i her zaman oluşturulan uygulamalar aynı yapılandırma bölümü işleyicileri başarısız özniteliğinin ve IIS 7.5.
 
@@ -272,13 +272,13 @@ ASP.NET dahil önceki sürümlerini bir **PATHINFO** dahil olmak üzere çeşitl
 
 ASP.NET, önceki sürümlerinde **HttpRequest** özellikler aşağıdaki değerlere sahiptir:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
 **HttpRequest.PathInfo**: (boş)
 
 ASP.NET 4'te **HttpRequest** özellikleri, bunun yerine aşağıdaki değerlere sahiptir:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
 **HttpRequest.PathInfo**:`SomeAction`
 
@@ -385,7 +385,7 @@ ASP.NET 4'te varsayılan CA uygulama değişiklikleri üst düzey bir özeti ver
 - ASP.NET derleme sağlayıcıları tarafından oluşturulan dinamik olarak derlenmiş derlemeleri açıkça derlemeleri saydam olarak işaretlemek için güncelleştirilmiştir.
 - Tüm ASP.NET derlemeler şimdi APTCA özniteliği yalnızca barındırma ortamlarında Web uygulanır şekilde işaretlenir. Kısmen güvenilir olmayan Web barındırma ortamları ClickOnce gibi ASP.NET derlemelerine arayabilmesi için olmaz.
 
-Yeni ASP.NET 4 kod erişim güvenlik modeli hakkında daha fazla bilgi için bkz: [kullanarak kod erişim güvenliği ASP.NET uygulamalarında](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx) MSDN Web sitesinde.
+Yeni ASP.NET 4 kod erişim güvenlik modeli hakkında daha fazla bilgi için bkz: [kullanarak kod erişim güvenliği ASP.NET uygulamalarında](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx) MSDN Web sitesinde.
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 

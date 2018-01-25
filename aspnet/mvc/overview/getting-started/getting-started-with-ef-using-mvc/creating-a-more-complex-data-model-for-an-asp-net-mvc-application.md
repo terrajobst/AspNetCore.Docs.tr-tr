@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c4710c507f605c539d3e595a6c757f4d5393292b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9a89aa8e7dd3b2f6ac18e0b1a9c2a9d64d27189c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Daha karmaşık bir veri modeli için bir ASP.NET MVC uygulaması oluşturma
 ====================
@@ -45,9 +45,9 @@ Tüm bu alan için ilgilendiğiniz olmasına rağmen tarih Öğrenci kayıt tari
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,12-13)]
 
-[DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. [DataType numaralandırma](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) birçok veri türleri gibi sağlar *tarih, saat, PhoneNumber, para birimi, EmailAddress* ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir [DataType.EmailAddress](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx), ve bir tarih seçici için sağlanan [DataType.Date](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) destekleyen tarayıcılarda [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yayar HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (belirgin *veri tire*) HTML 5 tarayıcılar anlayabileceği öznitelikleri. [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri tüm doğrulama sağlamaz.
+[DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. [DataType numaralandırma](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) birçok veri türleri gibi sağlar *tarih, saat, PhoneNumber, para birimi, EmailAddress* ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), ve bir tarih seçici için sağlanan [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) destekleyen tarayıcılarda [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yayar HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (belirgin *veri tire*) HTML 5 tarayıcılar anlayabileceği öznitelikleri. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri tüm doğrulama sağlamaz.
 
-`DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/en-us/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -57,11 +57,11 @@ Tüm bu alan için ilgilendiğiniz olmasına rağmen tarih Öğrenci kayıt tari
 
 `ApplyFormatInEditMode` Ayar değeri düzenlemek için bir metin kutusu görüntülendiğinde belirtilen biçimlendirmeyi de uygulanması gerektiğini belirtir. (, Bazı alanlar için istemeyebilirsiniz — Örneğin, para birimi değerleri için metin kutusuna para birimi simgesini düzenleme için istemeyebilirsiniz.)
 
-Kullanabileceğiniz [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) kendisi, ancak tarafından özniteliktir genellikle kullanmak iyi bir fikir [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) de özniteliği. `DataType` Özniteliği ileten *semantiği* verilerin olarak ekranda işlemek nasıl değil ve ile elde etmezsiniz aşağıdaki yararları sağlar `DisplayFormat`:
+Kullanabileceğiniz [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) kendisi, ancak tarafından özniteliktir genellikle kullanmak iyi bir fikir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) de özniteliği. `DataType` Özniteliği ileten *semantiği* verilerin olarak ekranda işlemek nasıl değil ve ile elde etmezsiniz aşağıdaki yararları sağlar `DisplayFormat`:
 
 - Tarayıcı HTML5 özellikleri etkinleştirebilirsiniz (örneğin, bir Takvim denetimi, yerel ayar uygun para birimi simgesini, e-posta bağlantıları göstermek, bazı istemci-tarafı giriş doğrulama, vs.).
-- Varsayılan olarak, tarayıcı göre doğru biçimi kullanarak bir veri oluşturmaz, [yerel ayar](https://msdn.microsoft.com/en-us/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği verileri işlemek için sağ alan şablon seçmek MVC etkinleştirebilir ( [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) dize şablonu kullanır). Daha fazla bilgi için Brad Wilson'ın bkz [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2 için yazılmış olsa, bu makalede hala ASP.NET MVC geçerli sürümü için geçerlidir.)
+- Varsayılan olarak, tarayıcı göre doğru biçimi kullanarak bir veri oluşturmaz, [yerel ayar](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği verileri işlemek için sağ alan şablon seçmek MVC etkinleştirebilir ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) dize şablonu kullanır). Daha fazla bilgi için Brad Wilson'ın bkz [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2 için yazılmış olsa, bu makalede hala ASP.NET MVC geçerli sürümü için geçerlidir.)
 
 Kullanırsanız `DataType` özniteliği belirtmek zorunda tarih alanıyla `DisplayFormat` ayrıca alanın doğru Chrome tarayıcılarda işler sağlamak için öznitelik. Daha fazla bilgi için bkz: [bu StackOverflow iş parçacığı](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
@@ -73,23 +73,23 @@ Diğer tarih biçimleri mvc'de nasıl ele alınacağını hakkında daha fazla b
 
 ### <a name="the-stringlengthattribute"></a>StringLengthAttribute
 
-Veri doğrulama kuralları ve öznitelikleri kullanarak bir doğrulama hata iletisi de belirtebilirsiniz. [StringLength özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) veritabanında uzunluk üst sınırını ayarlar ve istemci tarafı ve sunucu tarafı sağlar ASP.NET MVC için doğrulama. En az dize uzunluğu Bu öznitelikte belirtebilirsiniz, ancak en düşük değer veritabanı şemasını temel bir etkisi yoktur.
+Veri doğrulama kuralları ve öznitelikleri kullanarak bir doğrulama hata iletisi de belirtebilirsiniz. [StringLength özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) veritabanında uzunluk üst sınırını ayarlar ve istemci tarafı ve sunucu tarafı sağlar ASP.NET MVC için doğrulama. En az dize uzunluğu Bu öznitelikte belirtebilirsiniz, ancak en düşük değer veritabanı şemasını temel bir etkisi yoktur.
 
-Kullanıcılar için bir ad 50'den fazla karakter girmeyin sağlamak istediğinizi varsayın. Bu sınırlama eklemek için Ekle [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliklerini `LastName` ve `FirstMidName` aşağıdaki örnekte gösterildiği gibi özellikleri:
+Kullanıcılar için bir ad 50'den fazla karakter girmeyin sağlamak istediğinizi varsayın. Bu sınırlama eklemek için Ekle [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliklerini `LastName` ve `FirstMidName` aşağıdaki örnekte gösterildiği gibi özellikleri:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample3.cs?highlight=10,12)]
 
-[StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği olmaz önlemek bir kullanıcı için bir ad boşluk girerek. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) özniteliği girişine kısıtlamalar getirmek için. Örneğin aşağıdaki kod, büyük harf olması için ilk karakter ve alfabetik olarak kalan karakterler gerektirir:
+[StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği olmaz önlemek bir kullanıcı için bir ad boşluk girerek. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) özniteliği girişine kısıtlamalar getirmek için. Örneğin aşağıdaki kod, büyük harf olması için ilk karakter ve alfabetik olarak kalan karakterler gerektirir:
 
 `[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
-[MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) özniteliği, benzer işlevsellik sağlar [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği ancak istemci tarafı sağlamaz doğrulama.
+[MaxLength](https://msdn.microsoft.com/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) özniteliği, benzer işlevsellik sağlar [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) özniteliği ancak istemci tarafı sağlamaz doğrulama.
 
 Uygulamayı çalıştırın ve tıklayın **Öğrenciler** sekmesi. Aşağıdaki hatayı alıyorsunuz:
 
 *Veritabanının oluşturulmasından 'SchoolContext' bağlamını destekleyen model değişti. Veritabanını güncelleştirmek için Code First Migrations kullanmayı düşünün ([https://go.microsoft.com/fwlink/?LinkId=238269](https://go.microsoft.com/fwlink/?LinkId=238269)).*
 
-Veritabanı modeli veritabanı şeması değişikliği gerektirdiği şekilde değişti ve Entity Framework algılandı. Kullanıcı arabirimini kullanarak veritabanına eklenen herhangi bir veri kaybetmeden şemasını güncelleştirmek için geçişler kullanacaksınız. Tarafından oluşturulan veri değiştirdiyseniz `Seed` nedeniyle özgün durumuna geri dön değiştirilecek yöntemi, [örnek](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx) , kullanmakta olduğunuz yöntemi `Seed` yöntemi. ([Örnek](https://msdn.microsoft.com/en-us/library/hh846520(v=vs.103).aspx) veritabanı terminolojisi bir "upsert" işlem eşdeğerdir.)
+Veritabanı modeli veritabanı şeması değişikliği gerektirdiği şekilde değişti ve Entity Framework algılandı. Kullanıcı arabirimini kullanarak veritabanına eklenen herhangi bir veri kaybetmeden şemasını güncelleştirmek için geçişler kullanacaksınız. Tarafından oluşturulan veri değiştirdiyseniz `Seed` nedeniyle özgün durumuna geri dön değiştirilecek yöntemi, [örnek](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) , kullanmakta olduğunuz yöntemi `Seed` yöntemi. ([Örnek](https://msdn.microsoft.com/library/hh846520(v=vs.103).aspx) veritabanı terminolojisi bir "upsert" işlem eşdeğerdir.)
 
 Paket Yöneticisi Konsolu (PMC)'da, aşağıdaki komutları girin:
 
@@ -109,11 +109,11 @@ Sınıfları ve özellikleri veritabanına nasıl eşlendiğini denetlemek için
 
 `Column` Özniteliği belirtir, bu, veritabanı oluşturulduktan sonra sütunu `Student` eşlendiği tablo `FirstMidName` özelliği adlı `FirstName`. Diğer bir deyişle, ne zaman kodunuzu başvurduğu `Student.FirstMidName`, veri öğesinden gelir veya içinde güncelleştirilmesi `FirstName` sütunu `Student` tablo. Sütun adları belirtmezseniz, bunlar özellik adı olarak aynı adı verilir.
 
-İçinde *Student.cs* dosya, ekleme bir `using` deyimi için [System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.aspx) ve sütun adı özniteliğe eklemek `FirstMidName` gösterildiği gibi özelliği Aşağıdaki vurgulanmış kodu:
+İçinde *Student.cs* dosya, ekleme bir `using` deyimi için [System.ComponentModel.DataAnnotations.Schema](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.aspx) ve sütun adı özniteliğe eklemek `FirstMidName` gösterildiği gibi özelliği Aşağıdaki vurgulanmış kodu:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample5.cs?highlight=4,14)]
 
-Eklenmesi [sütun özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) veritabanı eşleşmeyecektir şekilde SchoolContext yedekleme modeli değiştirir. Başka bir geçiş oluşturmak için PMC aşağıdaki komutları girin:
+Eklenmesi [sütun özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) veritabanı eşleşmeyecektir şekilde SchoolContext yedekleme modeli değiştirir. Başka bir geçiş oluşturmak için PMC aşağıdaki komutları girin:
 
 [!code-console[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample6.cmd)]
 
@@ -125,7 +125,7 @@ Eklenmesi [sütun özniteliği](https://msdn.microsoft.com/en-us/library/system.
 
 ![](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image5.png)
 
-Ayrıca veritabanı kullanarak eşleme değişiklik yapabilirsiniz [Fluent API](https://msdn.microsoft.com/en-us/data/jj591617), daha sonra Bu öğreticide gördüğünüz gibi.
+Ayrıca veritabanı kullanarak eşleme değişiklik yapabilirsiniz [Fluent API](https://msdn.microsoft.com/data/jj591617), daha sonra Bu öğreticide gördüğünüz gibi.
 
 > [!NOTE]
 > Tüm sınıflar aşağıdaki bölümlerde oluşturma bitirmeden derlemek çalışırsanız, derleyici hataları alabilirsiniz.
@@ -141,7 +141,7 @@ Ayrıca veritabanı kullanarak eşleme değişiklik yapabilirsiniz [Fluent API](
 
 ### <a name="the-required-attribute"></a>Gerekli özniteliği
 
-[Gerekli öznitelik](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) ad özellikler gerekli alanlar yapar. `Required attribute` DateTime, int, gibi değer türleri için çift, gerekli değildir ve kayan noktalı sayı. Değer türleri kendiliğinden gerekli alanları olarak ele şekilde bir null değer atanamaz. Kullanarak kaldırabilirsiniz [gerekli öznitelik](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) ve en az uzunluk parametresi için WITH replace `StringLength` özniteliği:
+[Gerekli öznitelik](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) ad özellikler gerekli alanlar yapar. `Required attribute` DateTime, int, gibi değer türleri için çift, gerekli değildir ve kayan noktalı sayı. Değer türleri kendiliğinden gerekli alanları olarak ele şekilde bir null değer atanamaz. Kullanarak kaldırabilirsiniz [gerekli öznitelik](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) ve en az uzunluk parametresi için WITH replace `StringLength` özniteliği:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample8.cs?highlight=2)]
 
@@ -169,7 +169,7 @@ Eğitmen sınıfı şu şekilde yazabilirsiniz şekilde tek bir çizgi birden ç
 
 ### <a name="the-courses-and-officeassignment-navigation-properties"></a>Kurslar ve OfficeAssignment Gezinti özellikleri
 
-`Courses` Ve `OfficeAssignment` özelliklerdir Gezinti özellikleri. Daha önce açıklandığı gibi bunlar genellikle olarak tanımlanır [sanal](https://msdn.microsoft.com/en-us/library/9fkccyh4(v=vs.110).aspx) adlı bir Entity Framework özelliği avantajlarından yararlanabilirsiniz [yavaş Yükleniyor](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx). Ayrıca, bir gezinti özelliği birden çok varlık tutarsanız türünü uygulamalıdır [ICollection&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/92t2ye13.aspx) arabirimi. Örneğin [IList&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/5y536ey6.aspx) niteleyen ancak [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/9eekhta0.aspx) çünkü `IEnumerable<T>` uygulamaz [Ekle ](https://msdn.microsoft.com/en-us/library/63ywd54z.aspx).
+`Courses` Ve `OfficeAssignment` özelliklerdir Gezinti özellikleri. Daha önce açıklandığı gibi bunlar genellikle olarak tanımlanır [sanal](https://msdn.microsoft.com/library/9fkccyh4(v=vs.110).aspx) adlı bir Entity Framework özelliği avantajlarından yararlanabilirsiniz [yavaş Yükleniyor](https://msdn.microsoft.com/magazine/hh205756.aspx). Ayrıca, bir gezinti özelliği birden çok varlık tutarsanız türünü uygulamalıdır [ICollection&lt;T&gt; ](https://msdn.microsoft.com/library/92t2ye13.aspx) arabirimi. Örneğin [IList&lt;T&gt; ](https://msdn.microsoft.com/library/5y536ey6.aspx) niteleyen ancak [IEnumerable&lt;T&gt; ](https://msdn.microsoft.com/library/9eekhta0.aspx) çünkü `IEnumerable<T>` uygulamaz [Ekle ](https://msdn.microsoft.com/library/63ywd54z.aspx).
 
 Bir eğitmen kurslar herhangi bir sayıda öğretmek, bu nedenle `Courses` koleksiyonu olarak tanımlanan `Course` varlıklar.
 
@@ -199,7 +199,7 @@ Aynı zamanda `Key` varlık birincil anahtarı yok ancak name özelliği farklı
 
 ### <a name="the-foreignkey-attribute"></a>ForeignKey özniteliği
 
-Bir-sıfır-veya-bir ilişkisi veya iki varlık arasında bire bir ilişki olduğunda (arasında böyle `OfficeAssignment` ve `Instructor`), hangi son ilişkinin asıl ve hangi uç bağımlı çıkışı EF çalışamıyor. Bire bir ilişkiler bir başvuru gezinti özelliği başka bir sınıfın her sınıfına sahip. [ForeignKey özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx) ilişkisi kurmak için bağımlı sınıfa uygulanabilir. Atlarsanız [ForeignKey özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx), geçiş oluşturmayı denediğinizde aşağıdaki hatayı alıyorsunuz:
+Bir-sıfır-veya-bir ilişkisi veya iki varlık arasında bire bir ilişki olduğunda (arasında böyle `OfficeAssignment` ve `Instructor`), hangi son ilişkinin asıl ve hangi uç bağımlı çıkışı EF çalışamıyor. Bire bir ilişkiler bir başvuru gezinti özelliği başka bir sınıfın her sınıfına sahip. [ForeignKey özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx) ilişkisi kurmak için bağımlı sınıfa uygulanabilir. Atlarsanız [ForeignKey özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.foreignkeyattribute.aspx), geçiş oluşturmayı denediğinizde aşağıdaki hatayı alıyorsunuz:
 
 *'ContosoUniversity.Models.OfficeAssignment' ve 'ContosoUniversity.Models.Instructor' türleri arasındaki ilişkinin asıl ucu belirlenemiyor. Bu ilişkinin asıl ucu, ilişki fluent API'si veya veri ek açıklamaları kullanılarak açıkça yapılandırılmalıdır.*
 
@@ -223,7 +223,7 @@ Put bir `[Required]` ilgili Eğitmen olmalıdır, ancak (aynı zamanda olan bu t
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated özniteliği
 
-[DatabaseGenerated özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx) ile [hiçbiri](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx) parametresini `CourseID` özelliği, birincil anahtar değerlerini kullanıcı tarafından sağlanan yerine veritabanı tarafından oluşturulan belirtir.
+[DatabaseGenerated özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute.aspx) ile [hiçbiri](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.110).aspx) parametresini `CourseID` özelliği, birincil anahtar değerlerini kullanıcı tarafından sağlanan yerine veritabanı tarafından oluşturulan belirtir.
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
@@ -253,11 +253,11 @@ Oluşturma *Models\Department.cs* aşağıdaki kod ile:
 
 ### <a name="the-column-attribute"></a>Sütun özniteliği
 
-Daha önce kullandığınız [sütun özniteliği](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) sütun adı eşlemesi değiştirmek için. Kodunda `Department` varlık, `Column` özniteliği, böylece SQL Server'ı kullanarak sütun tanımlanacak SQL veri türü eşlemesi. değiştirmek için kullanılıyor [para](https://msdn.microsoft.com/en-us/library/ms179882.aspx) veritabanındaki türü:
+Daha önce kullandığınız [sütun özniteliği](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.columnattribute.aspx) sütun adı eşlemesi değiştirmek için. Kodunda `Department` varlık, `Column` özniteliği, böylece SQL Server'ı kullanarak sütun tanımlanacak SQL veri türü eşlemesi. değiştirmek için kullanılıyor [para](https://msdn.microsoft.com/library/ms179882.aspx) veritabanındaki türü:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample21.cs)]
 
-Sütun eşlemesi Entity Framework özelliği için tanımladığınız CLR türüne göre uygun SQL Server veri türü genellikle seçtiği için genellikle gerekli değil. CLR `decimal` yazın eşlemeleri SQL Server'a `decimal` türü. Ancak bu durumda para birimi miktarları sütun bulunduran olduğunu bildiğiniz ve [para](https://msdn.microsoft.com/en-us/library/ms179882.aspx) veri türü için daha uygun olan. CLR veri türleri ve SQL Server veri türleri ile eşleştiğinden nasıl hakkında daha fazla bilgi için bkz: [varlık FrameworkTypes SqlClient](https://msdn.microsoft.com/en-us/library/bb896344.aspx).
+Sütun eşlemesi Entity Framework özelliği için tanımladığınız CLR türüne göre uygun SQL Server veri türü genellikle seçtiği için genellikle gerekli değil. CLR `decimal` yazın eşlemeleri SQL Server'a `decimal` türü. Ancak bu durumda para birimi miktarları sütun bulunduran olduğunu bildiğiniz ve [para](https://msdn.microsoft.com/library/ms179882.aspx) veri türü için daha uygun olan. CLR veri türleri ve SQL Server veri türleri ile eşleştiğinden nasıl hakkında daha fazla bilgi için bkz: [varlık FrameworkTypes SqlClient](https://msdn.microsoft.com/library/bb896344.aspx).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
@@ -325,7 +325,7 @@ Aşağıdaki çizimde Entity Framework güç araçları için tamamlanan Okul mo
 
 ## <a name="customize-the-data-model-by-adding-code-to-the-database-context"></a>Veritabanı bağlamı kodu ekleyerek veri modeli özelleştirme
 
-Yeni varlıklar sonraki ekleyeceksiniz `SchoolContext` sınıfı ve bazı kullanarak eşlemeyi özelleştirme [fluent API](https://msdn.microsoft.com/en-us/data/jj591617) çağrıları. Genellikle bir dizi yöntem çağrısı aşağıdaki örnekteki gibi tek bir deyimde birleştirerek stringing tarafından kullanılmakta olduğu için "fluent" bir API'dir:
+Yeni varlıklar sonraki ekleyeceksiniz `SchoolContext` sınıfı ve bazı kullanarak eşlemeyi özelleştirme [fluent API](https://msdn.microsoft.com/data/jj591617) çağrıları. Genellikle bir dizi yöntem çağrısı aşağıdaki örnekteki gibi tek bir deyimde birleştirerek stringing tarafından kullanılmakta olduğu için "fluent" bir API'dir:
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample28.cs)]
 
@@ -337,7 +337,7 @@ Yeni varlıklar veri modeli ve öznitelikleri kullanarak bunu siz veritabanı e�
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample29.cs)]
 
-Yeni deyiminde [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi çoktan bire çok birleşme tablo yapılandırır:
+Yeni deyiminde [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi çoktan bire çok birleşme tablo yapılandırır:
 
 - Arasında çok-çok ilişkisi için `Instructor` ve `Course` varlıklar, kodu birleştirme tablosu için tablo ve sütun adlarını belirtir. Kod ilk yapılandırabilir çok-çok ilişkisi sizin için bu kodu olmadan, ancak bunu çağırırsanız yok varsayılan adları gibi alırsınız `InstructorInstructorID` için `InstructorID` sütun.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>OAuth sağlayıcılarıyla MVC 4 ile kullanma
 ====================
@@ -148,7 +148,7 @@ Dış kimlik doğrulamasını etkinleştirmek istiyorsanız, yapılır. Ancak, d
 
 Önceki bölümlerde fark olarak çalışmak yerleşik hesap kaydı için herhangi bir ek bilgi almak gerekmez. Ancak, en dış sağlayıcıları kullanıcı hakkındaki geri ek bilgileri geçirin. Aşağıdaki bölümlerde, bu bilgileri korumak ve veritabanına kaydetme gösterilmektedir. Özellikle, kullanıcının tam adını, kullanıcının kişisel web sayfası URI değerleri ve Facebook hesap doğruladı olup olmadığını belirten bir değer saklar.
 
-Kullanacağınız [Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621) ek kullanıcı bilgilerini depolamak için bir tablo eklemek için. Geçerli veritabanının anlık görüntüsünü oluşturmak öncelikle gerekir, tablo mevcut bir veritabanına eklersiniz. Geçerli veritabanının anlık oluşturarak, yalnızca yeni bir tablo içeren bir geçiş sonrası oluşturabilirsiniz. Geçerli veritabanının anlık görüntüsünü oluşturmak için:
+Kullanacağınız [Code First Migrations](https://msdn.microsoft.com/data/jj591621) ek kullanıcı bilgilerini depolamak için bir tablo eklemek için. Geçerli veritabanının anlık görüntüsünü oluşturmak öncelikle gerekir, tablo mevcut bir veritabanına eklersiniz. Geçerli veritabanının anlık oluşturarak, yalnızca yeni bir tablo içeren bir geçiş sonrası oluşturabilirsiniz. Geçerli veritabanının anlık görüntüsünü oluşturmak için:
 
 1. Açık **Paket Yöneticisi Konsolu**
 2. Komutu çalıştırın **enable-migrations**

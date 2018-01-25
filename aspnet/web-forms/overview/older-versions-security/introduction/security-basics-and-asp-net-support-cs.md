@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 02c352c6fa1fcd1f60ebfc7b7ebf95151fe8de8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4080e3ccaffefd02c76b89a77e320e963f854961
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="security-basics-and-aspnet-support-c"></a>Güvenlik temel kavramları ve ASP.NET Destek (C#)
 ====================
@@ -102,7 +102,7 @@ Kullanıcı başarıyla oturum açtıktan sonra sonraki HTTP istekleri forms kim
 **Şekil 2**: form kimlik doğrulama iş akışı
 
 
-Biz sonraki iki öğreticileri çok daha ayrıntılı form kimlik doğrulamasını içine derinliklerine[form kimlik doğrulaması bir genel bakış](an-overview-of-forms-authentication-cs.md) ve [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](forms-authentication-configuration-and-advanced-topics-cs.md). ASP daha fazla bilgi için. NET'in kimlik doğrulama seçenekleri, bkz: [ASP.NET kimlik doğrulaması](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx).
+Biz sonraki iki öğreticileri çok daha ayrıntılı form kimlik doğrulamasını içine derinliklerine[form kimlik doğrulaması bir genel bakış](an-overview-of-forms-authentication-cs.md) ve [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](forms-authentication-configuration-and-advanced-topics-cs.md). ASP daha fazla bilgi için. NET'in kimlik doğrulama seçenekleri, bkz: [ASP.NET kimlik doğrulaması](https://msdn.microsoft.com/library/eeyk640h.aspx).
 
 ## <a name="limiting-access-to-web-pages-directories-and-page-functionality"></a>Web sayfaları, dizinler ve sayfa işlevselliği erişimi sınırlandırma
 
@@ -113,9 +113,9 @@ ASP.NET belirli bir kullanıcının belirli bir dosya veya dizin erişmek için 
 
 Dosya yetkilendirme ve URL yetkilendirmesi yetkilendirme kuralları belirli bir ASP.NET sayfasının erişmek için veya tüm ASP.NET sayfaları için belirli bir dizinde tanımlayın. Bu teknikleri kullanarak belirli bir kullanıcı için belirli bir sayfa istekleri reddetme veya bir kullanıcı kümesini erişmesine izin vermek ve erişimini herkes için ASP.NET söyleyebilirsiniz. Burada tüm kullanıcıların sayfanın erişebilirsiniz, ancak kullanıcı sayfanın işlevselliği bağlıdır senaryoları hakkında neler? Örneğin, kullanıcı hesaplarını destekleyen birçok sitelerine farklı içerik veya anonim kullanıcılar karşı kimliği doğrulanmış kullanıcılar için veri görüntüleyen sayfalar gerekir. Kimliği doğrulanmış bir kullanıcı, bunun yerine ister, geri Hoş Geldiniz bir ileti görür ancak bir anonim kullanıcı sitede oturum açmak için bir bağlantı görebilirsiniz *kullanıcıadı* yanı sıra oturum kapatma için bir bağlantı. Başka bir örnek: bir artırma sitesinde bir öğe görüntülerken bir fiyatı veren tedarikçiye veya öğeyi auctioning bir olmanıza bağlı olarak farklı bilgiler bakın.
 
-Bu tür sayfa düzeyi ayarlamaları bildirimli olarak veya program aracılığıyla gerçekleştirilebilir. Farklı içerik için göstermek için kimliği doğrulanmış kullanıcılar, yalnızca Sürükle daha anonim bir [LoginView denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) sayfanıza ve uygun içeriğin kendi Anonymous ve LoggedInTemplate şablonlara girin. Alternatif olarak, program aracılığıyla olup geçerli istek kimliği doğrulanmış kullanıcının kim olduğunu ve hangi rollerin belirleyebilirsiniz (varsa) ait. Ardından göstermek veya bir kılavuz veya paneller sütunlarında sayfasında gizlemek için bu bilgileri kullanın.
+Bu tür sayfa düzeyi ayarlamaları bildirimli olarak veya program aracılığıyla gerçekleştirilebilir. Farklı içerik için göstermek için kimliği doğrulanmış kullanıcılar, yalnızca Sürükle daha anonim bir [LoginView denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) sayfanıza ve uygun içeriğin kendi Anonymous ve LoggedInTemplate şablonlara girin. Alternatif olarak, program aracılığıyla olup geçerli istek kimliği doğrulanmış kullanıcının kim olduğunu ve hangi rollerin belirleyebilirsiniz (varsa) ait. Ardından göstermek veya bir kılavuz veya paneller sütunlarında sayfasında gizlemek için bu bilgileri kullanın.
 
-Bu seri yetkilendirme üzerinde odaklanmak üç öğreticiler içerir. ***Kullanıcı tabanlı bir yetkilendirme***belirli kullanıcı hesapları için; bir sayfa veya sayfaları bir dizinde erişimi sınırlamak nasıl inceler ***Rol tabanlı yetkilendirme*** rolü yetkilendirme kurallarında sağlama sırasında düzeyi; son olarak, görünen ***görüntüleme içerik bağlı olarak şu anda oturum açmış kullanıcı*** öğretici araştırır belirli bir değiştirme Sayfa içeriği ve sayfasını ziyaret kullanıcıyı temel alarak işlevselliği. ASP daha fazla bilgi için. NET'in yetkilendirme seçenekleri bkz [ASP.NET yetkilendirme](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx).
+Bu seri yetkilendirme üzerinde odaklanmak üç öğreticiler içerir. ***Kullanıcı tabanlı bir yetkilendirme***belirli kullanıcı hesapları için; bir sayfa veya sayfaları bir dizinde erişimi sınırlamak nasıl inceler ***Rol tabanlı yetkilendirme*** rolü yetkilendirme kurallarında sağlama sırasında düzeyi; son olarak, görünen ***görüntüleme içerik bağlı olarak şu anda oturum açmış kullanıcı*** öğretici araştırır belirli bir değiştirme Sayfa içeriği ve sayfasını ziyaret kullanıcıyı temel alarak işlevselliği. ASP daha fazla bilgi için. NET'in yetkilendirme seçenekleri bkz [ASP.NET yetkilendirme](https://msdn.microsoft.com/library/wce3kxhd.aspx).
 
 
 ## <a name="user-accounts-and-roles"></a>Kullanıcı hesapları ve rolleri
@@ -124,7 +124,7 @@ ASP. NET'in form kimlik doğrulaması, kullanıcıların bir sitede oturum açma
 
 ASP.NET 2.0 önce geliştiricilerin kendi kullanıcı ve rol depolarını oluşturmaktan sorumlu. Ayrıca kullanıcı arabirimleri tasarlama ve hesabıyla ilgili sayfaları oturum açma sayfasına ve diğerlerinin yanı sıra yeni bir hesap oluşturmak için sayfa gibi temel kullanıcı için kod yazma kanca üzerinde oldukları. ASP.NET, sorular gibi kendi tasarım kararları gelmesi uygulayan kullanıcı hesapları olan her geliştirici herhangi yerleşik kullanıcı hesabı framework olmadan nasıl ı parolalar ve diğer hassas bilgiler saklamayın? ve hangi yönergeleri ı parola uzunluğu ve gücü zorunlu tuttukları?
 
-Bugün, bir ASP.NET uygulamasındaki kullanıcı hesapları uygulama için daha kolay teşekkür olan *üyelik framework* ve oturum açma Web denetimleri yerleşik. Sınıflarda sayıda üyelik çerçevedir [System.Web.Security ad alanı](https://msdn.microsoft.com/en-us/library/system.web.security.aspx) temel kullanıcı hesabıyla ilgili görevleri gerçekleştirmek için işlevselliği sağlayan. Anahtar sınıfı üyelik Framework'te [üyelik sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx), sahip olduğu gibi yöntemleri:
+Bugün, bir ASP.NET uygulamasındaki kullanıcı hesapları uygulama için daha kolay teşekkür olan *üyelik framework* ve oturum açma Web denetimleri yerleşik. Sınıflarda sayıda üyelik çerçevedir [System.Web.Security ad alanı](https://msdn.microsoft.com/library/system.web.security.aspx) temel kullanıcı hesabıyla ilgili görevleri gerçekleştirmek için işlevselliği sağlayan. Anahtar sınıfı üyelik Framework'te [üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx), sahip olduğu gibi yöntemleri:
 
 - CreateUser
 - DeleteUser
@@ -137,8 +137,8 @@ Bugün, bir ASP.NET uygulamasındaki kullanıcı hesapları uygulama için daha 
 
 Microsoft .NET Framework iki üyelik sağlayıcısı sınıfları gelir:
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) -Active Directory ve Active Directory uygulama modu (ADAM) sunucuları üyelik API'sini kullanır.
-- [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) -bir SQL Server veritabanında üyelik API'sini kullanır.
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -Active Directory ve Active Directory uygulama modu (ADAM) sunucuları üyelik API'sini kullanır.
+- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -bir SQL Server veritabanında üyelik API'sini kullanır.
 
 Bu öğretici seri özel olarak SqlMembershipProvider odaklanır.
 
@@ -148,17 +148,17 @@ Bu öğretici seri özel olarak SqlMembershipProvider odaklanır.
 **Şekil 03**: sağlayıcısı modeli sağlayan farklı sorunsuz bir şekilde takılı içine Framework olmasını uygulamaları ([tam boyutlu görüntüyü görüntülemek için tıklatın](security-basics-and-asp-net-support-cs/_static/image5.png))
 
 
-Sağlayıcı modelinin avantajı, alternatif uygulamaları kullanılabilir Microsoft, üçüncü taraf satıcılar veya her bir geliştirici tarafından geliştirilen ve sorunsuz bir şekilde üyelik Framework'e takılı olduğunu ' dir. Örneğin, Microsoft yayımladı [Microsoft Access veritabanları için üyelik sağlayıcısı](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Üyelik sağlayıcıları hakkında daha fazla bilgi için başvurmak [sağlayıcı Araç Seti](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx), üyelik sağlayıcıları, örnek özel sağlayıcıları, sağlayıcı modeline belgelerin 100'den sayfaları bir kılavuz içerir ve Kaynak Kodu Yerleşik üyelik sağlayıcıları için (yani, ActiveDirectoryMembershipProvider ve SqlMembershipProvider) tamamlayın.
+Sağlayıcı modelinin avantajı, alternatif uygulamaları kullanılabilir Microsoft, üçüncü taraf satıcılar veya her bir geliştirici tarafından geliştirilen ve sorunsuz bir şekilde üyelik Framework'e takılı olduğunu ' dir. Örneğin, Microsoft yayımladı [Microsoft Access veritabanları için üyelik sağlayıcısı](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Üyelik sağlayıcıları hakkında daha fazla bilgi için başvurmak [sağlayıcı Araç Seti](https://msdn.microsoft.com/asp.net/aa336558.aspx), üyelik sağlayıcıları, örnek özel sağlayıcıları, sağlayıcı modeline belgelerin 100'den sayfaları bir kılavuz içerir ve Kaynak Kodu Yerleşik üyelik sağlayıcıları için (yani, ActiveDirectoryMembershipProvider ve SqlMembershipProvider) tamamlayın.
 
-ASP.NET 2.0 ayrıca rolleri framework sunulmuştur. Üyelik framework gibi rolleri framework sağlayıcı modeli üzerinde oluşturulmuştur. Kendi API aracılığıyla kullanıma sunulan [rolleri sınıfı](https://msdn.microsoft.com/en-us/library/system.web.security.roles.aspx) ve .NET Framework ile üç sağlayıcısı sınıfları gelir:
+ASP.NET 2.0 ayrıca rolleri framework sunulmuştur. Üyelik framework gibi rolleri framework sağlayıcı modeli üzerinde oluşturulmuştur. Kendi API aracılığıyla kullanıma sunulan [rolleri sınıfı](https://msdn.microsoft.com/library/system.web.security.roles.aspx) ve .NET Framework ile üç sağlayıcısı sınıfları gelir:
 
-- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.authorizationstoreroleprovider.aspx) -Active Directory veya ADAM gibi bir Yetkilendirme Yöneticisi ilke deposunda rol bilgilerini yönetir.
-- [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) -bir SQL Server veritabanında rol uygular.
-- [WindowsTokenRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.windowstokenroleprovider.aspx) -ziyaretçi Windows grubuna bağlı olarak rol bilgilerini ilişkilendirir. Bu yöntem, genellikle Windows kimlik doğrulaması ile kullanılır.
+- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) -Active Directory veya ADAM gibi bir Yetkilendirme Yöneticisi ilke deposunda rol bilgilerini yönetir.
+- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) -bir SQL Server veritabanında rol uygular.
+- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -ziyaretçi Windows grubuna bağlı olarak rol bilgilerini ilişkilendirir. Bu yöntem, genellikle Windows kimlik doğrulaması ile kullanılır.
 
 Bu öğretici seri özel olarak SqlRoleProvider odaklanır.
 
-Tek bir öne bakan API (üyelik ve roller sınıflar) sağlayıcı modeli içerir olduğundan, uygulama ayrıntıları hakkında endişelenmeye gerek kalmadan bu API geçici işlevselliği oluşturmak mümkün müdür - bu sayfa tarafından seçilen sağlayıcıları tarafından işlenir Geliştirici. Microsoft ve üçüncü taraf satıcılar, üyelik ve roller çerçeveleri arabirimiyle Web denetimleri oluşturmak bu birleşik API sağlar. ASP.NET çeşitli ile birlikte gelen [oturum açma Web denetimleri](https://msdn.microsoft.com/en-us/library/ms178329.aspx) ortak kullanıcı hesabının kullanıcı arabirimleri uygulamak için. Örneğin, [oturum açma denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx) bir kullanıcıdan kimlik bilgilerinin, bunları doğrular ve bunları form kimlik doğrulaması günlüğe kaydeder. [LoginView denetimi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) kimliği doğrulanmış kullanıcılara karşı anonim kullanıcılar için farklı bir biçimlendirme ya da kullanıcı rolüne göre farklı bir biçimlendirme görüntüleme şablonları sunar. Ve [CreateUserWizard denetim](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.aspx) yeni bir kullanıcı hesabı oluşturmak için adım adım kullanıcı arabirimi sağlar.
+Tek bir öne bakan API (üyelik ve roller sınıflar) sağlayıcı modeli içerir olduğundan, uygulama ayrıntıları hakkında endişelenmeye gerek kalmadan bu API geçici işlevselliği oluşturmak mümkün müdür - bu sayfa tarafından seçilen sağlayıcıları tarafından işlenir Geliştirici. Microsoft ve üçüncü taraf satıcılar, üyelik ve roller çerçeveleri arabirimiyle Web denetimleri oluşturmak bu birleşik API sağlar. ASP.NET çeşitli ile birlikte gelen [oturum açma Web denetimleri](https://msdn.microsoft.com/library/ms178329.aspx) ortak kullanıcı hesabının kullanıcı arabirimleri uygulamak için. Örneğin, [oturum açma denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) bir kullanıcıdan kimlik bilgilerinin, bunları doğrular ve bunları form kimlik doğrulaması günlüğe kaydeder. [LoginView denetimi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) kimliği doğrulanmış kullanıcılara karşı anonim kullanıcılar için farklı bir biçimlendirme ya da kullanıcı rolüne göre farklı bir biçimlendirme görüntüleme şablonları sunar. Ve [CreateUserWizard denetim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx) yeni bir kullanıcı hesabı oluşturmak için adım adım kullanıcı arabirimi sağlar.
 
 Kapak çeşitli oturum açma denetimleri üyelik ve roller çerçeveleri ile etkileşim. Tek satırlık bir kod yazmak zorunda kalmadan çoğu oturum açma denetimleri uygulanabilir. Sonraki öğreticileri, genişletme ve işlevleri özelleştirmek için teknikleri de dahil olmak üzere, bu denetimlerin daha ayrıntılı inceleyeceğiz.
 
@@ -175,16 +175,16 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET 2.0 üyelik, roller, form kimlik doğrulaması ve güvenlik kaynakları](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [ASP.NET 2.0 güvenlik yönergeleri](https://msdn.microsoft.com/en-us/library/ms998258.aspx)
-- [ASP.NET kimlik doğrulaması](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx)
-- [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
-- [ASP.NET oturum açma denetimleri genel bakış](https://msdn.microsoft.com/en-us/library/ms178329.aspx)
+- [ASP.NET 2.0 güvenlik yönergeleri](https://msdn.microsoft.com/library/ms998258.aspx)
+- [ASP.NET kimlik doğrulaması](https://msdn.microsoft.com/library/eeyk640h.aspx)
+- [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [ASP.NET oturum açma denetimleri genel bakış](https://msdn.microsoft.com/library/ms178329.aspx)
 - [ASP.NET 2.0'ın inceleniyor üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [I: üyelik ve roller kullanarak Sitem güvenliğini nasıl sağlayabilirim?](https://asp.net/learn/videos/video-45.aspx) (Video)
-- [Üyelik giriş](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx)
-- [MSDN güvenlik Geliştirici Merkezi](https://msdn.microsoft.com/en-us/security/default.aspx)
+- [Üyelik giriş](https://msdn.microsoft.com/library/yh26yfzy.aspx)
+- [MSDN güvenlik Geliştirici Merkezi](https://msdn.microsoft.com/security/default.aspx)
 - [Profesyonel ASP.NET 2.0 güvenlik, üyelik ve rol yönetimi](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Sağlayıcı Araç Seti](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx)
+- [Sağlayıcı Araç Seti](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
@@ -195,4 +195,4 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme serisi pek çok yararlı gözden geçirenler tarafından gözden Bu öğretici oluştu. Bu öğretici için sağlama gözden geçirenler Alicja Maziarz, John Suru ve Teresa Murphy içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](an-overview-of-forms-authentication-cs.md)
+[Next](an-overview-of-forms-authentication-cs.md)

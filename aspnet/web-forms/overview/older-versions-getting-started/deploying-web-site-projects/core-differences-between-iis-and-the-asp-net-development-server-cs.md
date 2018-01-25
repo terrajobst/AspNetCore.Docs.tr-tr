@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d4d1a5795f5edabc51b578ecc45676490711c1a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 79f06707cadf027baa03652dc722cab31f494b09
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS ve ASP.NET Geliştirme Sunucusu (C#) arasındaki temel farklar
 ====================
@@ -47,7 +47,7 @@ Bu tür hataların en son tarih ve saat depoladığı disk üzerindeki bir dosya
 [!code-csharp[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample1.cs)]
 
 > [!NOTE]
-> [ `File.WriteAllText` Yöntemi](https://msdn.microsoft.com/en-us/library/system.io.file.writealltext.aspx) yok ve belirtilen içerikleri yazar varsa yeni bir dosya oluşturur. Dosya zaten mevcutsa, var olan içeriğin üzerine yazılır.
+> [ `File.WriteAllText` Yöntemi](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) yok ve belirtilen içerikleri yazar varsa yeni bir dosya oluşturur. Dosya zaten mevcutsa, var olan içeriğin üzerine yazılır.
 
 
 Ardından, ziyaret *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki* defteri gözden geçirme sayfasını ASP.NET geliştirme sunucusu kullanarak geliştirme ortamında. Oturum açmış varsayılarak bilgisayarınızı oluşturmak ve bir metin dosyasına web değiştirmek için yeterli izinlere sahip bir hesapla uygulamanızın kök dizininde kitap gözden geçirme önceki ile aynı görünür, ancak sayfa her zaman tarih ve saat ve kullanıcının ziyaret  IP adresi depolanır `LastTYASP35Access.txt` dosya. Tarayıcınız bu dosyaya işaret; Şekil 1'de gösterilene benzer bir ileti görürsünüz.
@@ -58,7 +58,7 @@ Ardından, ziyaret *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki* defteri g
 **Şekil 1**: metin dosyası son tarih ve saat kitap gözden geçirme ziyaret içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
 
 
-Üretim web uygulamasına dağıtmak ve barındırılan ziyaret *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki* defteri İnceleme sayfası. Bu noktada normal veya Şekil 2'de gösterilen hata iletisi olarak ya da kitap gözden geçirme sayfasını görürsünüz. Bazı web ana bilgisayar sağlayıcıları durumda sayfa hatasız çalışır anonim ASP.NET makine hesabı yazma izinleri verin. Ancak, web ana bilgisayar sağlayıcınız anonim hesap için yazma erişimi engeller, sonra bir [ `UnauthorizedAccessException` özel durum](https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception.aspx) zaman tetiklenir `TYASP35.aspx` sayfa geçerli tarih ve saat için yazma girişiminde `LastTYASP35Access.txt` dosya.
+Üretim web uygulamasına dağıtmak ve barındırılan ziyaret *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki* defteri İnceleme sayfası. Bu noktada normal veya Şekil 2'de gösterilen hata iletisi olarak ya da kitap gözden geçirme sayfasını görürsünüz. Bazı web ana bilgisayar sağlayıcıları durumda sayfa hatasız çalışır anonim ASP.NET makine hesabı yazma izinleri verin. Ancak, web ana bilgisayar sağlayıcınız anonim hesap için yazma erişimi engeller, sonra bir [ `UnauthorizedAccessException` özel durum](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) zaman tetiklenir `TYASP35.aspx` sayfa geçerli tarih ve saat için yazma girişiminde `LastTYASP35Access.txt` dosya.
 
 
 [![IIS tarafından kullanılan varsayılan makine hesabı dosya sistemine yazma iznine sahip değil](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
@@ -123,7 +123,7 @@ IIS kullanmak üzere yapılandırıldıktan sonra tümleşik ardışık eklemek 
 Bu biçimlendirme IIS 7 ASP.NET tabanlı kimlik doğrulama ve yetkilendirme modülleri kullanılacağını söyler. Uygulamanızı yeniden dağıtmanıza ve PDF dosyasını yeniden ziyaret edin. Zaman IIS isteği işleyen bu süre ASP.NET zamanının kimlik doğrulama ve yetkilendirme mantığı istek İnceleme fırsatı sunar. Yalnızca kimliği doğrulanan kullanıcılar içeriği görüntüleme yetkiniz çünkü `PrivateDocs` klasörü, anonim ziyaretçi otomatik olarak oturum açma sayfasına yeniden yönlendirildiği (Şekil 3'e yeniden bakın).
 
 > [!NOTE]
-> IIS 6, web ana makine sağlayıcısı hala kullanıyorsanız, tümleşik ardışık özelliği kullanamazsınız. Bir geçici bir çözüm değildir, özel HTTP erişimi engelliyor bir klasörde koyulamıyor (gibi `App_Data`) ve sonra bu belgeleri sunmak için bir sayfa oluşturulur. Bu sayfayı adlı `GetPDF.aspx`ve bir sorgu dizesi parametresi aracılığıyla PDF adını geçirilir. `GetPDF.aspx` Sayfasında ilk doğrulayın kullanıcı dosyayı görüntülemek için izni olduğundan ve bu durumda, kullanacağınız emin, [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writefile.aspx) istenen PDF dosyasının içeriğini istekte bulunan istemciye geri gönderilecek yöntemi. Tümleşik ardışık etkinleştirmek istediğiniz değil, bu yöntem aynı zamanda IIS 7 için çalışır.
+> IIS 6, web ana makine sağlayıcısı hala kullanıyorsanız, tümleşik ardışık özelliği kullanamazsınız. Bir geçici bir çözüm değildir, özel HTTP erişimi engelliyor bir klasörde koyulamıyor (gibi `App_Data`) ve sonra bu belgeleri sunmak için bir sayfa oluşturulur. Bu sayfayı adlı `GetPDF.aspx`ve bir sorgu dizesi parametresi aracılığıyla PDF adını geçirilir. `GetPDF.aspx` Sayfasında ilk doğrulayın kullanıcı dosyayı görüntülemek için izni olduğundan ve bu durumda, kullanacağınız emin, [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) istenen PDF dosyasının içeriğini istekte bulunan istemciye geri gönderilecek yöntemi. Tümleşik ardışık etkinleştirmek istediğiniz değil, bu yöntem aynı zamanda IIS 7 için çalışır.
 
 
 ## <a name="summary"></a>Özet
@@ -138,7 +138,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 - [IIS 7.0 ile ASP.NET tümleştirme](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 - [Tüm IIS 7 üzerinde içerik türlerini ASP.NET forumları kimlik doğrulaması kullanarak](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (Video)
-- [Visual Web Developer Web sunucuları](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)
+- [Visual Web Developer Web sunucuları](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](common-configuration-differences-between-development-and-production-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 245e381eca2aca61be5f860d1ec9994b482a9863
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2bd2ccb13c44d104e8945840705a21738d8abd5c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL ve DAL düzeyi özel durumları (VB)
 ====================
@@ -101,7 +101,7 @@ Hata oluştuğunda, yalnızca bir kez görüntülenecek etiket istiyoruz. Diğer
 
 Bir özel durum oluştuğunda, özel durumu ayrıntılarını atamanız `ExceptionDetails` etiket denetimini s `Text` özelliği. Görünüm durumunu, sonraki Geri göndermeler üzerinde devre dışı olduğundan `Text` özellik s programlı değişiklikler kaybolur, böylece uyarı iletisi gizleme geri varsayılan metni (boş bir dize), döndürülüyor.
 
-Sayfada yararlı bir ileti görüntülemek için bir hata olduğunda yükseltildiğinde belirlemek için eklemek ihtiyacımız bir `Try ... Catch` için engelleyin `UpdateCommand` olay işleyicisi. `Try` Bölümü bir özel durum açabilir kodunu içerir ancak `Catch` bloğu karşısında bir özel durum yürütülen kodu içerir. Kullanıma [özel durum işleme Temelleri](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx) üzerinde bölümünde daha fazla bilgi için .NET Framework belgelerinde `Try ... Catch` bloğu.
+Sayfada yararlı bir ileti görüntülemek için bir hata olduğunda yükseltildiğinde belirlemek için eklemek ihtiyacımız bir `Try ... Catch` için engelleyin `UpdateCommand` olay işleyicisi. `Try` Bölümü bir özel durum açabilir kodunu içerir ancak `Catch` bloğu karşısında bir özel durum yürütülen kodu içerir. Kullanıma [özel durum işleme Temelleri](https://msdn.microsoft.com/library/2w8f0bss.aspx) üzerinde bölümünde daha fazla bilgi için .NET Framework belgelerinde `Try ... Catch` bloğu.
 
 
 [!code-vb[Main](handling-bll-and-dal-level-exceptions-vb/samples/sample5.vb)]
@@ -142,7 +142,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Özel durumlar için tasarım yönergeleri](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [Özel Durumlar için Tasarım Yönergeleri](https://msdn.microsoft.com/library/ms298399.aspx)
 - [Hata günlük modülleri ve işleyicileri (ELMAH)](http://workspaces.gotdotnet.com/elmah) (günlük kaydı hataları için bir açık kaynak kitaplığı)
 - [.NET Framework 2.0 için Kurumsal Kitaplığı](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (özel durum yönetimi uygulama bloğu içerir)
 

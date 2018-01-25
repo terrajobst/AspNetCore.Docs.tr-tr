@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>ASP.NET 4.5 ve Visual Studio 2012'de yenilikler
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
     - [Doğrulanmamış istekler için destek](#_Toc318097381)
     - [Antixss'i kitaplığı](#_Toc318097382)
     - [WebSockets Protokolü](#_Toc318097383)
-    - [Paketleme ve küçültme](#_Toc318097384)
+    - [Paketleme ve Küçültme](#_Toc318097384)
     - [Web barındırma için performans iyileştirmeleri](#_Toc_perf)
 
         - [Ana performans Etkenler](#_Toc_perf_1)
@@ -47,8 +47,8 @@ ms.lasthandoff: 11/10/2017
         - [Web uygulamaları için prefetching](#_Toc_perf_6)
 - [ASP.NET Web formları](#_Toc318097385)
 
-    - [Kesin türü belirtilmiş veri denetimleri](#_Toc318097386)
-    - [Model bağlama](#_Toc318097387)
+    - [Kesin Türü Belirtilmiş Veri Denetimleri](#_Toc318097386)
+    - [Model Bağlamaları](#_Toc318097387)
 
         - [Verileri seçme](#_Toc318097388)
         - [Değer sağlayıcıları](#_Toc318097389)
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/10/2017
     - [Proje Visual Studio 2010 ve Visual Studio 2012 Sürüm Adayı (Proje uyumluluk) arasında paylaşma](#project-compatibility)
     - [ASP.NET 4.5 Web sitesi şablonları yapılandırma değişiklikleri](#Configuration_Changes_In_ASPNET45_Website_Templates)
     - [IIS 7 ASP.NET yönlendirme için yerel destek](#Native_Support_In_IIS7_For_ASPNET_Routine)
-    - [HTML düzenleyicisi](#_Toc318097397)
+    - [HTML Editor](#_Toc318097397)
 
         - [Akıllı görevleri](#_Toc318097398)
         - [WAI ARIA desteği](#_Toc318097399)
@@ -83,12 +83,12 @@ ms.lasthandoff: 11/10/2017
         - [DOM IntelliSense](#_Toc318097412)
         - [VSDOC imza aşırı yüklemeleri](#_Toc318097413)
         - [Örtük başvuruları](#_Toc318097414)
-    - [CSS Düzenleyicisi](#_Toc318097415)
+    - [CSS Editor](#_Toc318097415)
 
         - [Deyim tamamlama otomatik azaltın](#_Toc318097416)
         - [Hiyerarşik girinti.](#_Toc318097417)
         - [CSS desteği yönlendirir](#_Toc318097418)
-        - [Satıcıya özgü şemaları (- moz-, - webkit)](#_Toc318097419)
+        - [Vendor specific schemas (-moz-,-webkit)](#_Toc318097419)
         - [Yorum ve uncommenting desteği](#_Toc318097420)
         - [Renk Seçici](#_Toc318097421)
         - [Kod Parçacıkları](#_Toc318097422)
@@ -268,7 +268,7 @@ Paketlenen dosyalar, ilk alfabetik olarak sıralanırlar (bunlar görüntülenir
 
 1. JQuery 1.6.2.js
 2. JQuery ui.js
-3. JQuery.Tools.js
+3. jquery.tools.js
 4. a.js
 
 CSS dosyaları da alfabetik ve reset.css ve normalize.css önce başka bir dosyayı gelmesini sağlamak için daha sonra yeniden düzenlenir. Yukarıda gösterilen stilleri klasörü paketleme son sıralama bu olacaktır:
@@ -330,7 +330,7 @@ Tüm seçenekleri görmek için bağımsız değişkenler olmadan aracı çalı�
 
 **Gereksinim**: .NET Framework 4.5
 
-Soğuk site başlangıç için yalnızca derlemeleri diskten okunan zorunda ancak site JIT derlenmiş olmalıdır. Karmaşık bir site için bu belirgin gecikmeler ekleyebilirsiniz. .NET Framework 4.5 içinde yeni bir genel amaçlı teknik kullanılabilir işlemci çekirdeği arasında JIT derleme yayarak bu gecikmelerini azaltır. Bunu kadar yapar ve mümkün olduğunca erken sırasında toplanan bilgileri kullanarak önceki sitesini başlatır. Bu işlev tarafından uygulanan [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) yöntemi.
+Soğuk site başlangıç için yalnızca derlemeleri diskten okunan zorunda ancak site JIT derlenmiş olmalıdır. Karmaşık bir site için bu belirgin gecikmeler ekleyebilirsiniz. .NET Framework 4.5 içinde yeni bir genel amaçlı teknik kullanılabilir işlemci çekirdeği arasında JIT derleme yayarak bu gecikmelerini azaltır. Bunu kadar yapar ve mümkün olduğunca erken sırasında toplanan bilgileri kullanarak önceki sitesini başlatır. Bu işlev tarafından uygulanan [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) yöntemi.
 
 Bu özelliğin avantajlarından yararlanmak için bir şey yapmanız gerekmez şekilde JIT derleme-birden çok çekirdek kullanarak ASP.NET, varsayılan olarak etkindir. Bu özellik devre dışı bırakmak istiyorsanız, aşağıdaki ayarları Web.config dosyasında yapın:
 
@@ -395,7 +395,7 @@ Bu sorunu gidermek için ASP.NET 4.5 bir denetimin bağlı olduğu verilerin ver
 Veri bağlamayı destekleyen çoğu denetimlerinde ASP.NET Web Forms framework desteklemek için güncelleştirilmemiş *ItemType* özelliği.
 
 <a id="_Toc318097387"></a>
-### <a name="model-binding"></a>Model bağlama
+### <a name="model-binding"></a>Model Binding
 
 Model bağlama kod odaklı veri erişimi ile çalışmak için veri bağlama ASP.NET Web Forms denetimlerinde genişletir. Gelen kavramları içerir *ObjectDataSource* denetim ve ASP.NET MVC, model bağlama.
 
@@ -760,7 +760,7 @@ Ayrıntılı IntelliSense açıklamaları şimdi bildirilebilir JavaScript işle
 Artık, başka bir deyişle tüm verilen JavaScript dosyası ya da Engellenenler başvuruları, içeriği için IntelliSense elde edersiniz dosya listesinde örtük olarak eklenecek merkezi bir listesi için JavaScript dosyaları da ekleyebilirsiniz. Örneğin, merkezi dosyaların listesini görmek için jQuery dosyaları ekleyebilirsiniz ve açıkça başvurulan olup olmadığını IntelliSense jQuery işlevleri için hiçbir dosya, JavaScript bloğunda alırsınız (kullanılarak / / / &lt;başvuru /&gt;) veya değil.
 
 <a id="_Toc318097415"></a>
-### <a name="css-editor"></a>CSS Düzenleyicisi
+### <a name="css-editor"></a>CSS Editor
 
 <a id="_Toc318097416"></a>
 #### <a name="auto-reduce-statement-completion"></a>Deyim tamamlama otomatik azaltın
@@ -800,7 +800,7 @@ Böylece bile uygulandığında, hiyerarşik girinti korunur tipik Seçici giri�
 ![](whats-new-in-aspnet-45-and-visual-studio-2012/_static/image29.png)
 
 <a id="_Toc318097419"></a>
-#### <a name="vendor-specific-schemas--moz---webkit"></a>Satıcıya özgü şemaları (- moz-, - webkit)
+#### <a name="vendor-specific-schemas--moz---webkit"></a>Vendor specific schemas (-moz-, -webkit)
 
 CSS3 farklı zamanlarda farklı tarayıcılar tarafından uygulanmış olan birçok özellik sunar. Bu daha önce belirli tarayıcılar için kod geliştiricilerin satıcıya özgü sözdizimini kullanarak zorlandı. Bu tarayıcı özgü özellikleri artık IntelliSense içinde dahil edilir.
 

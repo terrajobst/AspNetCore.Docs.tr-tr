@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 6da2073b18f6fff9738808c84441e59240caefe3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 60ac1844e7747002d72aa892a47490cb7a416359
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - EF çekirdek ASP.NET Core MVC Öğreticisi (3 / 10)
 
@@ -53,7 +53,7 @@ Dizin sayfası istenen ilk kez hiçbir sorgu dizesi yok. Öğrenciler artan düz
 | Artan tarihi       | ascending           | descending     |
 | Azalan tarihi      | ascending           | ascending      |
 
-Yöntemi, LINQ to Entities göre sıralamak için sütun belirlemek için kullanır. Kod oluşturur bir `IQueryable` değişken switch deyimi önce değiştirir, bunu, switch deyimi ve çağrıları `ToListAsync` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Dönüştürülünceye kadar sorgu yürütülmedi `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToListAsync`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
+Yöntemi, LINQ to Entities göre sıralamak için sütun belirlemek için kullanır. Kod oluşturur bir `IQueryable` değişken switch deyimi önce değiştirir, bunu, switch deyimi ve çağrıları `ToListAsync` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Sorgu, dönüştürülünceye kadar yürütülür değil `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToListAsync`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
 
 Bu kod, çok sayıda sütun ayrıntılı alabilirsiniz. [Bu serideki son öğretici](advanced.md#dynamic-linq) adını geçirmenize olanak verir kodunun nasıl yazılacağını gösterir `OrderBy` bir dize değişkeni sütununda.
 
@@ -92,7 +92,7 @@ Eklediğiniz bir `searchString` parametresi `Index` yöntemi. Bir metin kutusund
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Bu kodu kullanır `<form>` [yardımcı etiketi](xref:mvc/views/tag-helpers/intro) düğmesi ve arama metin kutusuna eklemek için. Varsayılan olarak, `<form>` etiket Yardımcısı parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. Kullanmanız gereken W3C yönergeleri önerilen eylemi bir güncelleştirmede sonuçlanmaz zaman alın.
+Bu kodu kullanır `<form>` [yardımcı etiketi](xref:mvc/views/tag-helpers/intro) düğmesi ve arama metin kutusuna eklemek için. Varsayılan olarak, `<form>` etiket Yardımcısı parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. Kullanmanız gereken W3C yönergeleri önerilen eylemi bir güncelleştirmede elde edemezseniz, alın.
 
 Uygulama, belirleyin **Öğrenciler** sekmesinde, bir arama dizesi girin ve filtreleme çalıştığını doğrulamak için Ara'yı tıklatın.
 

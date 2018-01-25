@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Her şeyi (Azure ile gerçek bulut uygulamaları derleme) otomatikleştirme
 ====================
@@ -45,7 +45,7 @@ Diğer bir deyişle, bir özellik için bir fikir olduğunda ve müşterilerin z
 
 İçinde [bu e-kitap giriş](introduction.md), Azure Yönetim Portalı web tabanlı konsolun gördünüz. Yönetim Portalı, izlemek ve tüm Azure'da dağıtılan kaynakları yönetmenize olanak sağlar. Oluşturma ve web uygulamaları ve VM'ler gibi hizmetleri silmek, bu hizmetleri yapılandırmak, hizmet işlemi izlemek ve benzeri için kolay bir yoludur. Harika bir araçtır, ancak bunu kullanarak el ile bir işlemdir. Herhangi bir boyuttaki bir üretim uygulaması geliştirme oluşturacağız ve bir ekip ortamında özellikle önerilir öğrenin ve Azure keşfetmek için kullanıcı Arabirimi Portalı aracılığıyla gidin ve art arda yapılması işlemleri otomatik hale getirme.
 
-Neredeyse her şeyi Yönetim Portalı'nda veya Visual Studio'dan el ile yapabilirsiniz, geri KALAN yönetim API'sini çağırarak de yapılabilir. Komut dosyalarını kullanarak yazabilirsiniz [Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx), veya bir açık kaynak framework gibi kullanabilir [Chef](http://www.opscode.com/chef/) veya [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Bu gibi durumlarda, Bash komut satırı aracı ayrıca bir Mac veya Linux ortamında kullanabilirsiniz. Azure API bu farklı ortamlar için komut dosyası ve, varsa bir [.NET Yönetim API'si](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) komut dosyası yerine kodu yazma istemeniz durumunda.
+Neredeyse her şeyi Yönetim Portalı'nda veya Visual Studio'dan el ile yapabilirsiniz, geri KALAN yönetim API'sini çağırarak de yapılabilir. Komut dosyalarını kullanarak yazabilirsiniz [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), veya bir açık kaynak framework gibi kullanabilir [Chef](http://www.opscode.com/chef/) veya [Puppet](http://puppetlabs.com/puppet/what-is-puppet). Bu gibi durumlarda, Bash komut satırı aracı ayrıca bir Mac veya Linux ortamında kullanabilirsiniz. Azure API bu farklı ortamlar için komut dosyası ve, varsa bir [.NET Yönetim API'si](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) komut dosyası yerine kodu yazma istemeniz durumunda.
 
 Düzelt uygulaması için bir test ortamı oluşturma ve bu ortama projesini dağıtma işlemlerini otomatikleştirmek bazı Windows PowerShell komut dosyalarını oluşturduk ve biz bu komut dosyalarının içeriğini bazıları gözden geçirin.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603aaa35a533fc8853ea72fc9be05ca82b213049
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 974ea50a0d12aae09107470815214b20068ea553
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>İyimser eşzamanlılık SqlDataSource (VB) ile uygulama
 ====================
@@ -116,8 +116,8 @@ Benzer şekilde, `DeleteCommand` özelliği ve `DeleteParameters` koleksiyonu, a
 
 Program.cs'ye yanı sıra `WHERE` yan tümcelerinde `UpdateCommand` ve `DeleteCommand` özellikleri (ve ek parametrelerle ilgili parametre koleksiyonuna ekleme), iyimser eşzamanlılık seçenek iki diğer ayarlar kullanım seçme Özellikler:
 
-- Değişiklikleri [ `ConflictDetection` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) gelen `OverwriteChanges` (varsayılan) için`CompareAllValues`
-- Değişiklikleri [ `OldValuesParameterFormatString` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) {0} (varsayılan) özgün\_{0}.
+- Değişiklikleri [ `ConflictDetection` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) gelen `OverwriteChanges` (varsayılan) için`CompareAllValues`
+- Değişiklikleri [ `OldValuesParameterFormatString` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) {0} (varsayılan) özgün\_{0}.
 
 Ne zaman veri Web denetimi çağırır SqlDataSource s `Update()` veya `Delete()` yöntemi, özgün değerleri geçirir. Varsa SqlDataSource s `ConflictDetection` özelliği ayarlanmış `CompareAllValues`, özgün bu değerleri komutu eklenir. `OldValuesParameterFormatString` Özelliği bu özgün değer parametreler için kullanılan adlandırma deseni sağlar. Veri Kaynağı Yapılandırma Sihirbazı'nı özgün kullanır\_{0} ve özgün her parametre adları `UpdateCommand` ve `DeleteCommand` özellikleri ve `UpdateParameters` ve `DeleteParameters` koleksiyonları buna göre.
 

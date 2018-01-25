@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 090d0777b9d541003c3115d0da7cd974820c2939
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 191de7546e2ba913fda0c8c8a8bfd3531b53336e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-vb"></a>Ana sayfa programlı olarak belirtme (VB)
 ====================
@@ -34,7 +34,7 @@ Bülteninin açılış sayısına örnekte bu yana [ *bir Site genelinde düzeni
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-vb/samples/sample1.aspx)]
 
-[ `Page` Sınıfı](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx) içinde `System.Web.UI` ad alanı içeren bir [ `MasterPageFile` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx) içerik sayfasının ana sayfa yolunu döndürür; ayarlandığındanbuözelliğidir`@Page` yönergesi. Bu özellik, program aracılığıyla içerik sayfasının ana sayfa belirtmek için de kullanılabilir. Bu yaklaşım, ana sayfa sayfasını ziyaret kullanıcı gibi dış faktörlere göre dinamik olarak atamak istiyorsanız kullanışlıdır.
+[ `Page` Sınıfı](https://msdn.microsoft.com/library/system.web.ui.page.aspx) içinde `System.Web.UI` ad alanı içeren bir [ `MasterPageFile` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) içerik sayfasının ana sayfa yolunu döndürür; ayarlandığındanbuözelliğidir`@Page` yönergesi. Bu özellik, program aracılığıyla içerik sayfasının ana sayfa belirtmek için de kullanılabilir. Bu yaklaşım, ana sayfa sayfasını ziyaret kullanıcı gibi dış faktörlere göre dinamik olarak atamak istiyorsanız kullanışlıdır.
 
 Bu öğreticide bizim Web sitesine ikinci bir ana sayfa ekleyin ve dinamik olarak çalışma zamanında kullanılacak ana sayfayı karar verin.
 
@@ -54,7 +54,7 @@ Web sunucusunda bir içerik sayfasının bir ASP.NET sayfası için bir istek ge
 
 Bu fusion hangi ana sayfa partakes değerine bağlıdır `Page` nesnenin `MasterPageFile` özelliği. Ayarı `MasterPageFile` özniteliğini `@Page` yönergesi etkisi atama net `Page`'s `MasterPageFile` ilk sayfa yaşam döngüsü aşaması başlatma aşaması sırasında özelliği. Biz alternatif olarak bu özelliği programlı olarak ayarlayabilirsiniz. Ancak, Şekil 1'deki fusion gerçekleşmeden önce bu özelliğinin ayarlanması zorunludur.
 
-PreInit aşamasının başlangıcında `Page` nesnesini başlatır, [ `PreInit` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx) ve çağırır kendi [ `OnPreInit` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx). Ana sayfaya programlı olarak ayarlamak için daha sonra biz oluşturabilir ya da bir olay işleyicisi için `PreInit` olay veya geçersiz kılma `OnPreInit` yöntemi. Her iki yaklaşımın bakalım.
+PreInit aşamasının başlangıcında `Page` nesnesini başlatır, [ `PreInit` olay](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) ve çağırır kendi [ `OnPreInit` yöntemi](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Ana sayfaya programlı olarak ayarlamak için daha sonra biz oluşturabilir ya da bir olay işleyicisi için `PreInit` olay veya geçersiz kılma `OnPreInit` yöntemi. Her iki yaklaşımın bakalım.
 
 Başlangıç açarak `Default.aspx.vb`, bizim sitenin giriş sayfası için arka plan kodu sınıf dosyası. Sayfa için bir olay işleyicisi ekleme `PreInit` aşağıdaki kodda yazarak olay:
 
@@ -275,8 +275,8 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET sayfası yaşam döngüsü diyagramı](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [ASP.NET sayfası yaşam döngüsüne genel bakış](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [ASP.NET temalar ve dış genel bakış](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [ASP.NET sayfası yaşam döngüsüne genel bakış](https://msdn.microsoft.com/library/ms178472.aspx)
+- [ASP.NET temalar ve dış genel bakış](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Ana sayfalar: İpuçlarını, püf noktaları ve tuzakları](http://www.odetocode.com/articles/450.aspx)
 - [ASP.NET temalar](http://www.odetocode.com/articles/423.aspx)
 

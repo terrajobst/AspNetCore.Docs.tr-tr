@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b82c30fe40c4badc74645dafa9f0d13f6ffae031
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8a3f4cf267998ddc7f393401059ca9d83ef2d8e7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="core-cryptography-extensibility"></a>Çekirdek şifreleme genişletilebilirliği
 
@@ -128,7 +128,7 @@ Serileştirilmiş tanımlayıcısı şifreleme anahtar malzemesi gibi hassas bil
 >[!TIP]
 > Bu öznitelik ayarlamak için bir yardımcı API yoktur. XElement.MarkAsRequiresEncryption() Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel ad alanında bulunan uzantısı yöntemini çağırın.
 
-Durumları serileştirilmiş tanımlayıcısı hassas bilgileri nerede içermiyor olabilir. Yeniden bir HSM'de depolanan bir şifreleme anahtarını durumunu göz önünde bulundurun. Tanımlayıcı anahtar malzemesi HSM malzeme düz metin biçiminde kullanıma değil bu yana kendisine serileştirilirken yazamıyor. Bunun yerine, tanımlayıcı (HSM bu şekilde verme izin veriyorsa) anahtar veya anahtar HSM'ın kendi benzersiz tanımlayıcısı anahtar Sarmalanan sürümünü kullanıma yazabilirsiniz.
+Durumları serileştirilmiş tanımlayıcısı hassas bilgileri nerede içermiyor olabilir. Yeniden bir HSM'de depolanan bir şifreleme anahtarını durumunu göz önünde bulundurun. Tanımlayıcı anahtar malzemesi HSM malzeme düz metin biçiminde kullanıma olmaz bu yana kendisine serileştirilirken yazamıyor. Bunun yerine, tanımlayıcı (HSM bu şekilde verme izin veriyorsa) anahtar veya anahtar HSM'ın kendi benzersiz tanımlayıcısı anahtar Sarmalanan sürümünü kullanıma yazabilirsiniz.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
@@ -157,7 +157,7 @@ IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri aşağıdaki ik
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-Üst düzey Fabrika olarak AlgorithmConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz bir özel anahtar ile ilişkili değil.
+Üst düzey Fabrika olarak AlgorithmConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtarı ile ilişkilendirilmiş.
 
 CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 
@@ -169,7 +169,7 @@ Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş n
 
 * CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
 
-Üst düzey Fabrika olarak IAuthenticatedEncryptorConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz bir özel anahtar ile ilişkili değil.
+Üst düzey Fabrika olarak IAuthenticatedEncryptorConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtarı ile ilişkilendirilmiş.
 
 CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 

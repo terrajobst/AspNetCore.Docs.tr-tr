@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 783557b69486c284a6ed927e32e71cb602695080
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Disk belleği rapor verilerini bir DataList ya da yineleyici denetimi (C#)
 ====================
@@ -80,7 +80,7 @@ Varsayılan disk belleği her sayfanın tüm kayıtları yeniden istekleri beri 
 
 *Özel sayfalama* istenen sayfasında görüntülenecek kayıt yalnızca kesin kısmı ele geçirme varsayılan disk belleği, performans sorunları çözer. Özel sayfalama uygularken, biz kayıtları yalnızca doğru kümesini verimli bir şekilde döndürülecek SQL sorgusu yazmanız gerekir. SQL Server 2005 s kullanarak yeni sorgu oluşturma gördüğümüz [ `ROW_NUMBER()` anahtar sözcüğü](http://www.4guysfromrolla.com/webtech/010406-1.shtml) geri [verimli bir şekilde disk belleği üzerinden büyük miktarlarda veri](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) Öğreticisi.
 
-Varsayılan disk belleği DataList veya yineleyici denetimlerinde uygulamak için biz kullanabilirsiniz [ `PagedDataSource` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx) çevresinde bir sarmalayıcı olarak `ProductsDataTable` içeriği disk belleği. `PagedDataSource` Sınıfına sahip bir `DataSource` herhangi bir numaralandırılabilir nesnesine atanabilir özelliği ve [ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) ve [ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) kaç kayıtlara belirtmek özellikleri Sayfa başına gösterilecek ve geçerli sayfa dizini. Bu özellikleri ayarladıktan sonra `PagedDataSource` herhangi bir veri Web denetimi veri kaynağı olarak kullanılabilir. `PagedDataSource`Numaralandırılan olduğunda, kendi iç kayıtların uygun bir alt yalnızca iade edecek `DataSource` göre `PageSize` ve `CurrentPageIndex` özellikleri. Şekil 4 gösterilmektedir işlevselliğini `PagedDataSource` sınıfı.
+Varsayılan disk belleği DataList veya yineleyici denetimlerinde uygulamak için biz kullanabilirsiniz [ `PagedDataSource` sınıfı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) çevresinde bir sarmalayıcı olarak `ProductsDataTable` içeriği disk belleği. `PagedDataSource` Sınıfına sahip bir `DataSource` herhangi bir numaralandırılabilir nesnesine atanabilir özelliği ve [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) ve [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) kaç kayıtlara belirtmek özellikleri Sayfa başına gösterilecek ve geçerli sayfa dizini. Bu özellikleri ayarladıktan sonra `PagedDataSource` herhangi bir veri Web denetimi veri kaynağı olarak kullanılabilir. `PagedDataSource`Numaralandırılan olduğunda, kendi iç kayıtların uygun bir alt yalnızca iade edecek `DataSource` göre `PageSize` ve `CurrentPageIndex` özellikleri. Şekil 4 gösterilmektedir işlevselliğini `PagedDataSource` sınıfı.
 
 
 ![Disk belleğine alınabilir arabirimi ile bir numaralandırma nesnesi PagedDataSource sarmalar](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image6.png)
@@ -204,7 +204,7 @@ Ek olarak `TotalRowCount`kolayca erişme sayfa boyutu, sayfa dizini için salt o
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Kayıtların aracılığıyla havuzda toplam sayısını belirleme
 
-`PagedDataSource` Nesnesi döndürülen ObjectDataSource s'den `Select()` yöntemi içinde sahip *tüm* ürün kayıtları, rağmen yalnızca bir alt kümesini görüntülenir DataList. `PagedDataSource` s [ `Count` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx) yalnızca DataList; gösterilecek öğe sayısını döndürür [ `DataSourceCount` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) toplam öğe sayısını döndürür `PagedDataSource`. Bu nedenle, ASP.NET sayfası s atamak ihtiyacımız `TotalRowCount` özellik değeri, `PagedDataSource` s `DataSourceCount` özelliği.
+`PagedDataSource` Nesnesi döndürülen ObjectDataSource s'den `Select()` yöntemi içinde sahip *tüm* ürün kayıtları, rağmen yalnızca bir alt kümesini görüntülenir DataList. `PagedDataSource` s [ `Count` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) yalnızca DataList; gösterilecek öğe sayısını döndürür [ `DataSourceCount` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) toplam öğe sayısını döndürür `PagedDataSource`. Bu nedenle, ASP.NET sayfası s atamak ihtiyacımız `TotalRowCount` özellik değeri, `PagedDataSource` s `DataSourceCount` özelliği.
 
 Bunu gerçekleştirmek için ObjectDataSource s için bir olay işleyicisi oluşturun `Selected` olay. İçinde `Selected` erişim ObjectDataSource s dönüş değerine sahip olduğumuz olay işleyicisi `Select()` bu durumda, yöntem `PagedDataSource`.
 
@@ -224,7 +224,7 @@ Bu kolaylaştırmak için oluşturma bir `RedirectUser(sendUserToPageIndex)` kul
 
 ## <a name="disabling-paging-interface-controls"></a>Disk belleği arabirimi denetimleri devre dışı bırakma
 
-Tüm dört düğmeleri görüntülenmesini sayfa bağımsız olarak şu anda etkin. Ancak, veri ve sonraki ve son düğmeleri'nın ilk sayfasında son sayfaya gösterilirken gösterilirken ilk ve önceki düğmelerini devre dışı bırakmak istiyoruz. `PagedDataSource` ObjectDataSource s tarafından döndürülen nesne `Select()` yöntemi olan özellikler [ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) ve [ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , biz görüntüleme varsa belirlemek inceleyeceğiz ilk veya son sayfasına veri.
+Tüm dört düğmeleri görüntülenmesini sayfa bağımsız olarak şu anda etkin. Ancak, veri ve sonraki ve son düğmeleri'nın ilk sayfasında son sayfaya gösterilirken gösterilirken ilk ve önceki düğmelerini devre dışı bırakmak istiyoruz. `PagedDataSource` ObjectDataSource s tarafından döndürülen nesne `Select()` yöntemi olan özellikler [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) ve [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) , biz görüntüleme varsa belirlemek inceleyeceğiz ilk veya son sayfasına veri.
 
 ObjectDataSource s aşağıdakileri ekleyin `Selected` olay işleyicisi:
 
@@ -282,4 +282,4 @@ Mutluluk programlama!
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Liz Shulok, Ken Pespisa ve Bernadette Leigh yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+[Next](sorting-data-in-a-datalist-or-repeater-control-cs.md)

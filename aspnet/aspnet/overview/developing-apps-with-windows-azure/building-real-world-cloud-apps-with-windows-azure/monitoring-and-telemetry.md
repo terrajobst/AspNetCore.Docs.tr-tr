@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: dfb0158ec05c890ecf80571d95b22d8c791ba7fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -41,7 +41,7 @@ Bulut ortamınız hakkındaki harika şeylerden satın almanız veya sırrı şe
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Mart 2015'ten itibaren [Microsoft Visual Studio Online için Application Insights](https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/) henüz yayınlanmamıştır ancak denemek için Önizleme'de kullanılabilir. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) İzleme özelliklerini de içerir.
+Mart 2015'ten itibaren [Microsoft Visual Studio Online için Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) henüz yayınlanmamıştır ancak denemek için Önizleme'de kullanılabilir. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) İzleme özelliklerini de içerir.
 
 Biz hızlı bir şekilde ne kadar kolay bir telemetri sistemi kullanmak olabilir göstermek için New Relic yapılandırılacağını adım adım.
 
@@ -156,13 +156,13 @@ Bir hizmet için uygulamanızı çağırır her zaman bir veritabanı veya bir R
 
 Ne bir üretim uygulaması oluşturduğunuzda yapılması öneririz basit bir oluşturmaktır *ILogger* arabirimi ve bazı yöntemler içinde bağlı kalın. Bu, daha sonra günlük kaydı uygulamasını değiştirin ve yapmak için tüm kodunuz gitmek zorunda değil kolaylaştırır. Biz kullanabilecek `System.Diagnostics.Trace` sınıf Düzelt uygulama boyunca, ancak bunun yerine biz uygulayan günlük sınıfında kapsar altında kullandığınız *ILogger*, ve vermiyoruz *ILogger* yöntemini çağırır boyunca uygulama.
 
-Bu şekilde, herhangi bir zamanda, günlük daha zengin, yapmak isterseniz değiştirebileceğiniz [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) ile günlük mekanizma istiyor. Uygulamanız büyüdükçe gibi daha kapsamlı bir günlük paketi gibi kullanmak istediğiniz karar verebilirsiniz [NLog](http://nlog-project.org/) veya [Kurumsal kitaplığı günlük uygulama bloğu](https://msdn.microsoft.com/en-us/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) başka bir popüler günlüğü çerçevesi, ancak zaman uyumsuz günlük yapmaz.)
+Bu şekilde, herhangi bir zamanda, günlük daha zengin, yapmak isterseniz değiştirebileceğiniz [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) ile günlük mekanizma istiyor. Uygulamanız büyüdükçe gibi daha kapsamlı bir günlük paketi gibi kullanmak istediğiniz karar verebilirsiniz [NLog](http://nlog-project.org/) veya [Kurumsal kitaplığı günlük uygulama bloğu](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) başka bir popüler günlüğü çerçevesi, ancak zaman uyumsuz günlük yapmaz.)
 
 Bir çerçeve NLog gibi kullanarak olası bir nedeni, ayrı yüksek hacimli ve yüksek değerli veri depolarına çıkış günlüğü bölerek kolaylaştırmaktır. Bu, büyük ACT verilere hızlı erişim korurken, hızlı sorguları yürütmek için gerekmeyen INFORM veri birimleri verimli bir şekilde depolamak için yardımcı olur.
 
 ### <a name="semantic-logging"></a>Semantik günlük kaydı
 
-Görece olarak daha yeni bir yöntemle daha kullanışlı tanılama bilgileri üretebilir günlük yapmak bilgi için bkz: [Kurumsal kitaplığı semantik günlük uygulama bloğu (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). BLOK kullanan [Windows için olay izleme](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803.aspx) (ETW) ve [EventSource](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.aspx) destekleyen .NET 4.5 daha fazla yapılandırılmış ve sorgulanabilir günlüklerini oluşturmanızı sağlar. Her yazma bilgi özelleştirmenize olanak tanır, oturum, olay türü için farklı bir yöntem tanımlayın. Örneğin, oturum çağrısı bir SQL veritabanı hatası için bir `LogSQLDatabaseError` yöntemi. Özel durum, bu tür için yöntemi imzada bir hata numarası parametresini ekleyin ve hata numarası yazdığınız günlük kaydı ayrı bir alana olarak kaydetmek için bir anahtar bilgi parçasını hata numarası olduğunu bilirsiniz. Ayrı bir alana olduğundan yalnızca bir ileti dizeye hata numarası birleştirme oranla SQL hata numarası dayalı raporlar daha kolay ve güvenilir bir şekilde elde edebilirsiniz.
+Görece olarak daha yeni bir yöntemle daha kullanışlı tanılama bilgileri üretebilir günlük yapmak bilgi için bkz: [Kurumsal kitaplığı semantik günlük uygulama bloğu (SLAB)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). BLOK kullanan [Windows için olay izleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) ve [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) destekleyen .NET 4.5 daha fazla yapılandırılmış ve sorgulanabilir günlüklerini oluşturmanızı sağlar. Her yazma bilgi özelleştirmenize olanak tanır, oturum, olay türü için farklı bir yöntem tanımlayın. Örneğin, oturum çağrısı bir SQL veritabanı hatası için bir `LogSQLDatabaseError` yöntemi. Özel durum, bu tür için yöntemi imzada bir hata numarası parametresini ekleyin ve hata numarası yazdığınız günlük kaydı ayrı bir alana olarak kaydetmek için bir anahtar bilgi parçasını hata numarası olduğunu bilirsiniz. Ayrı bir alana olduğundan yalnızca bir ileti dizeye hata numarası birleştirme oranla SQL hata numarası dayalı raporlar daha kolay ve güvenilir bir şekilde elde edebilirsiniz.
 
 ## <a name="logging-in-the-fix-it-app"></a>Bu düzeltme günlüğü uygulama
 
@@ -244,13 +244,13 @@ Düzelt uygulama System.Diagnostics izleme kullanır. Bir web uygulamasında otu
 
 Azure'da oturum etkinleştirdikten sonra oluşturuldukları sırada günlüklerini Visual Studio çıktı penceresinde görebilirsiniz.
 
-![Akış günlükleri menüsü](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![Akış günlükleri menüsü](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![Akış günlükleri menüsü](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![Akış günlükleri menüsü](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
 Ayrıca, depolama hesabına yazılan günlükler olabilir ve bunları herhangi biriyle aracı görünümü erişim Azure depolama tablo hizmeti gibi **Sunucu Gezgini** Visual Studio veya [Azure Storage Gezgini](https://azure.microsoft.com/features/storage-explorer/).
 
-![Sunucu Gezgininde günlükleri](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![Sunucu Gezgininde günlükleri](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
 ## <a name="summary"></a>Özet
 
@@ -264,10 +264,10 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
 Çoğunlukla telemetri ile ilgili belgeler:
 
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). İzleme ve Telemetri Kılavuzu, ölçüm hizmetini Kılavuzu, uç nokta sistem durumu izleme düzeni ve çalışma zamanı yeniden yapılandırma düzeni bakın.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). İzleme ve Telemetri Kılavuzu, ölçüm hizmetini Kılavuzu, uç nokta sistem durumu izleme düzeni ve çalışma zamanı yeniden yapılandırma düzeni bakın.
 - [Bulutta çimdik kuruş: Azure Web sitelerinde izleme New Relic performans etkinleştirme](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
-- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Telemetri ve Tanılama bölümüne bakın.
-- [Application Insights ile yeni nesil geliştirme](https://msdn.microsoft.com/en-us/magazine/dn683794.aspx). MSDN dergisi makalesi.
+- [En iyi uygulamalar için Azure bulut hizmetleri üzerinde büyük ölçekli hizmetler tasarımını](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Teknik incelemesi işareti SIMM'lerinin ve Michael Thomassy tarafından. Telemetri ve Tanılama bölümüne bakın.
+- [Application Insights ile yeni nesil geliştirme](https://msdn.microsoft.com/magazine/dn683794.aspx). MSDN dergisi makalesi.
 
 Belge çoğunlukla günlüğü hakkında:
 

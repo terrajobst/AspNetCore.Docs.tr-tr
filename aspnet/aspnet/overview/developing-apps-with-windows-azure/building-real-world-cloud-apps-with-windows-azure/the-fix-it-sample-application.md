@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzeltme bu örnek uygulama (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -62,10 +62,10 @@ Yönetici sahipliği varolan görevleri değiştirebilmesi. Örneğin, bir göre
 
 Kuyruk iletisi Düzelt uygulamada işleme en düşük miktarda kod kuyruk merkezli çalışma deseni göstermek için basit olmak üzere tasarlanmıştır. Bu basit kod gerçek üretim uygulaması için yeterli olmaz.
 
-- Kodu her kuyruk iletisi en fazla bir kez işlenir garanti etmez. Kuyruktan bir ileti aldığınızda, iletinin diğer sıra dinleyicileri görünmeyen bir zaman aşımı süresi yoktur. İleti silinmeden önce zaman aşımı süresi dolarsa, ileti yeniden görünür hale gelir. İleti işlenirken uzun süre çalışan rol örneği harcadığı varsa, bu nedenle, yinelenen bir görevi veritabanında kaynaklanan aynı ileti iki kez işlenen için teorik olarak mümkündür. Bu sorun hakkında daha fazla bilgi için bkz: [kullanarak Azure depolama sıraları](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).
-- Sıra yoklama mantığı ileti alma toplu işleme göre daha uygun maliyetli olabilir. Çağırmanız her zaman [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), bir maliyet yoktur. Bunun yerine, çağırabilirsiniz [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (çoğul 's Not '), tek bir işlemde birden çok iletiyi alır. Azure depolama kuyrukları ilişkin işlem maliyetlerini çok düşük olduğundan maliyetleri üzerindeki etkiyi Çoğu senaryoda önemli değildir.
+- Kodu her kuyruk iletisi en fazla bir kez işlenir garanti etmez. Kuyruktan bir ileti aldığınızda, iletinin diğer sıra dinleyicileri görünmeyen bir zaman aşımı süresi yoktur. İleti silinmeden önce zaman aşımı süresi dolarsa, ileti yeniden görünür hale gelir. İleti işlenirken uzun süre çalışan rol örneği harcadığı varsa, bu nedenle, yinelenen bir görevi veritabanında kaynaklanan aynı ileti iki kez işlenen için teorik olarak mümkündür. Bu sorun hakkında daha fazla bilgi için bkz: [kullanarak Azure depolama sıraları](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- Sıra yoklama mantığı ileti alma toplu işleme göre daha uygun maliyetli olabilir. Çağırmanız her zaman [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), bir maliyet yoktur. Bunun yerine, çağırabilirsiniz [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (çoğul 's Not '), tek bir işlemde birden çok iletiyi alır. Azure depolama kuyrukları ilişkin işlem maliyetlerini çok düşük olduğundan maliyetleri üzerindeki etkiyi Çoğu senaryoda önemli değildir.
 - Sıra ileti işleme kodu sıkı bir döngüde çok çekirdekli sanal makineleri verimli kullanmaz CPU benzeşimi neden olur. Daha iyi bir tasarım görev paralelliği paralel olarak birden fazla zaman uyumsuz görevleri çalıştırmak için kullanabilirsiniz.
-- Sıra ileti işleme yalnızca ilkel özel durum işleme sahiptir. Örneğin, kod işlemiyor [zehirli ileti](https://msdn.microsoft.com/en-us/library/ms789028.aspx). (Bir özel durum iletisi işleme neden olduğunda için hata günlüğüne ve iletiyi silmek için olması veya çalışan rolü yeniden işlemek dener ve döngü süresiz olarak devam eder.)
+- Sıra ileti işleme yalnızca ilkel özel durum işleme sahiptir. Örneğin, kod işlemiyor [zehirli ileti](https://msdn.microsoft.com/library/ms789028.aspx). (Bir özel durum iletisi işleme neden olduğunda için hata günlüğüne ve iletiyi silmek için olması veya çalışan rolü yeniden işlemek dener ve döngü süresiz olarak devam eder.)
 
 ### <a name="sql-queries-are-unbounded"></a>SQL sorguları sınırsız
 
@@ -85,7 +85,7 @@ Düzelt uygulama mağazaları URL bulur herkes görüntüleri erişebilmesini an
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>Kullanıcı girişi HTML kodları için özel işleme
 
-ASP.NET, kullanıcı giriş metin kutularında betiği girerek siteler arası komut dosyası saldırıları kötü niyetli kullanıcılar deneyebilir birçok yolu otomatik olarak önler. Ve MVC `DisplayFor` görev görüntülemek için kullanılan yardımcı başlıkları ve otomatik olarak tarayıcıya gönderir HTML olarak kodlar değerlerini not. Ancak, bir üretim uygulamasında ek önlemler almak isteyebilirsiniz. Daha fazla bilgi için bkz: [ASP.NET istek doğrulama](https://msdn.microsoft.com/en-us/library/hh882339.aspx).
+ASP.NET, kullanıcı giriş metin kutularında betiği girerek siteler arası komut dosyası saldırıları kötü niyetli kullanıcılar deneyebilir birçok yolu otomatik olarak önler. Ve MVC `DisplayFor` görev görüntülemek için kullanılan yardımcı başlıkları ve otomatik olarak tarayıcıya gönderir HTML olarak kodlar değerlerini not. Ancak, bir üretim uygulamasında ek önlemler almak isteyebilirsiniz. Daha fazla bilgi için bkz: [ASP.NET istek doğrulama](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Önerilen uygulamalar
@@ -146,13 +146,13 @@ Basit kod görüntülemek için Düzelt uygulamasının özgün sürümü alanla
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Değiştirmek için beklenen olmayan yüklerken özel üyelerin salt okunur olarak işaretle
 
-Örneğin, `DashboardController` örneği sınıf `FixItTaskRepository` oluşturulur ve biz olarak tanımlanan şekilde değiştirmek için beklenen değil [salt okunur](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx).
+Örneğin, `DashboardController` örneği sınıf `FixItTaskRepository` oluşturulur ve biz olarak tanımlanan şekilde değiştirmek için beklenen değil [salt okunur](https://msdn.microsoft.com/library/acdd6hb7.aspx).
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>Listeyi kullanın. Liste yerine any(). Count() &gt; 0
 
-Önem verdiğiniz tüm, ise olup listesini bir veya daha fazla öğe belirtilen ölçütlere uyan kullanın [herhangi](https://msdn.microsoft.com/en-us/library/bb534972.aspx) yöntemi, ölçüt sığdırma bir öğe bulundu hemen, ancak döndürdüğünden `Count` yöntemi her zaman sahip yinelemek her öğe. Pano *Index.cshtml* dosya ilk olarak bu kodu vardı:
+Önem verdiğiniz tüm, ise olup listesini bir veya daha fazla öğe belirtilen ölçütlere uyan kullanın [herhangi](https://msdn.microsoft.com/library/bb534972.aspx) yöntemi, ölçüt sığdırma bir öğe bulundu hemen, ancak döndürdüğünden `Count` yöntemi her zaman sahip yinelemek her öğe. Pano *Index.cshtml* dosya ilk olarak bu kodu vardı:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ Biz, bunun için değiştirilmiştir:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Bu gibi görünüm/eylem bağlantıları için bunu kullanmak en iyisidir [Url.Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx) HTML Yardımcısı, örneğin:
+Bu gibi görünüm/eylem bağlantıları için bunu kullanmak en iyisidir [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) HTML Yardımcısı, örneğin:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Task.Delay Thread.Sleep yerine çalışan rolünde kullanın.
 
-Yeni Proje şablonu koyar `Thread.Sleep` örnekte ek gereksiz iş parçacığı oluşturma iş parçacığı havuzu bir çalışan rolü ancak uyku moduna iş parçacığı neden kodu neden olabilir. Kullanarak, önleyebilirsiniz [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx) yerine.
+Yeni Proje şablonu koyar `Thread.Sleep` örnekte ek gereksiz iş parçacığı oluşturma iş parçacığı havuzu bir çalışan rolü ancak uyku moduna iş parçacığı neden kodu neden olabilir. Kullanarak, önleyebilirsiniz [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) yerine.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ Bu örnek kaynaklı `FixItQueueManager` sınıfı:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Kullanmanız gereken `async void` yalnızca üst düzey olay işleyicileri için. Bir yöntem olarak tanımlarsanız `async void`, çağıran olamaz **await** yöntemi veya yöntem oluşturulur tüm özel durumları yakalamak. Daha fazla bilgi için bkz: [zaman uyumsuz programlama en iyi yöntemleri](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx). 
+Kullanmanız gereken `async void` yalnızca üst düzey olay işleyicileri için. Bir yöntem olarak tanımlarsanız `async void`, çağıran olamaz **await** yöntemi veya yöntem oluşturulur tüm özel durumları yakalamak. Daha fazla bilgi için bkz: [zaman uyumsuz programlama en iyi yöntemleri](https://msdn.microsoft.com/magazine/jj991977.aspx). 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Çalışan rolü döngüden ayırmak için bir iptal belirteci kullanın
 
-Genellikle, **çalıştırmak** çalışan rolü yöntemini sonsuz bir döngüde içerir. Çalışan rolü durdururken [RoleEntryPoint.OnStop](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) yöntemi çağrılır. İçinde yapılan iş iptal etmek için bu yöntemi kullanmalısınız **çalıştırmak** yöntemi ve çıkış düzgün biçimde. Aksi takdirde işlem ortasında bir işlemi sona erdirildi.
+Genellikle, **çalıştırmak** çalışan rolü yöntemini sonsuz bir döngüde içerir. Çalışan rolü durdururken [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) yöntemi çağrılır. İçinde yapılan iş iptal etmek için bu yöntemi kullanmalısınız **çalıştırmak** yöntemi ve çıkış düzgün biçimde. Aksi takdirde işlem ortasında bir işlemi sona erdirildi.
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>Otomatik MIME algılaması yordamı dışında iptal et
 
@@ -219,7 +219,7 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Temel uygulamayı çalıştırın
 
-1. Yükleme [Visual Studio 2013 veya Web için Visual Studio 2013 Express](https://www.visualstudio.com/en-us/downloads).
+1. Yükleme [Visual Studio 2013 veya Web için Visual Studio 2013 Express](https://www.visualstudio.com/downloads).
 2. Yükleme [Visual Studio 2013 için .NET için Azure SDK.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. .zip dosyasını indirin [MSDN kod Galerisi'nden](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. Dosya Gezgini'nde, .zip dosyasını sağ tıklatın ve Özellikler'i tıklatın, sonra Özellikler penceresinde Engellemeyi Kaldır'ı tıklatın.
@@ -228,7 +228,7 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 7. Araçlar menüsünden kitaplık Paket Yöneticisi sonra Paket Yöneticisi konsolu'ı tıklatın.
 8. Paket Yöneticisi Konsolu (PMC)'da, geri yükleme'yi tıklatın.
 9. Visual Studio'dan çıkın.
-10. Başlat [Azure storage öykünücüsü](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx).
+10. Başlat [Azure storage öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
 11. Önceki adımda kapattığınız çözüm dosyasını açarak Visual Studio'yu yeniden başlatın.
 12. Düzelt proje başlangıç projesi olarak ayarlandığından emin olun ve sonra projeyi çalıştırmak için CTRL + F5 tuşuna basın.
 
@@ -240,7 +240,7 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 3. Uygulamadaki *Web.config* dosyasını *MyFixIt* proje (web projesi), değerini değiştirme `appSettings/UseQueues` "true": 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Varsa [Azure storage öykünücüsü](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx) hala çalışıyor, değil yeniden başlatın.
+4. Varsa [Azure storage öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) hala çalışıyor, değil yeniden başlatın.
 5. Düzelt web projesi ve MyFixItCloudService proje aynı anda çalıştırmak.
 
     Visual Studio 2013 kullanarak:
@@ -393,11 +393,11 @@ Aynı MyFixIt.WorkerRoler\app.config dosyasındaki altında `appSettings`, Azure
 
 Erişim anahtarı Portalı'ndan elde edebilirsiniz. Bkz: [depolama hesaplarını yönetmek nasıl](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-MyFixItCloudService\ServiceConfiguration.Cloud.cscfg içinde Azure depolama hesabı aynı iki yer tutucu değerlerini değiştirin.
+In MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, replace the same two placeholders values for the Azure storage account.
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-Şimdi bulut hizmeti dağıtmak hazırsınız. Çözüm keşfetmek, MyFixItCloudService projesine sağ tıklayın ve seçin **Yayımla**. Daha fazla bilgi için "[uygulamayı Azure'a dağıtmak](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", parçası 2 olduğu [Bu öğretici](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+Şimdi bulut hizmeti dağıtmak hazırsınız. Çözüm keşfetmek, MyFixItCloudService projesine sağ tıklayın ve seçin **Yayımla**. Daha fazla bilgi için "[uygulamayı Azure'a dağıtmak](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", parçası 2 olduğu [Bu öğretici](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
 >[!div class="step-by-step"]
 [Önceki](more-patterns-and-guidance.md)

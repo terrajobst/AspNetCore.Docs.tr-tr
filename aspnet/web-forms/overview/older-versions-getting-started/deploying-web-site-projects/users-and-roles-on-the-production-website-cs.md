@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0825b6bd6ca8d75f90cb7c4079e3af0213c5c4e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68f3a45b6a393f7b6a12b7c296a374536b0d66d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="users-and-roles-on-the-production-website-c"></a>Kullanıcılar ve roller üretim Web sitesinde (C#)
 ====================
@@ -37,7 +37,7 @@ ASP. NET uygulama hizmetleri için belirli bir uygulama bağlı değil. Bunun ye
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web Sitesi Yönetim Aracı'nı kullanma
 
-ASP.NET içeren bir [Web sitesi yönetim aracı](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) (WSAT) kolaylaştıran kullanıcı hesapları ve rolleri oluşturmak ve yönetmek için ve kullanıcı ve rol tabanlı yetkilendirme kurallarını belirtmek için. WSAT kullanmak için Çözüm Gezgini'nde, ASP.NET yapılandırması simgesine tıklayın veya Web sitesi veya proje menüsüne gidin ve ASP.NET yapılandırma seçeneğini seçin. Her iki yaklaşım bir web tarayıcısını başlatır ve gibi bir adresindeki WSAT işaret:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET içeren bir [Web sitesi yönetim aracı](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) kolaylaştıran kullanıcı hesapları ve rolleri oluşturmak ve yönetmek için ve kullanıcı ve rol tabanlı yetkilendirme kurallarını belirtmek için. WSAT kullanmak için Çözüm Gezgini'nde, ASP.NET yapılandırması simgesine tıklayın veya Web sitesi veya proje menüsüne gidin ve ASP.NET yapılandırma seçeneğini seçin. Her iki yaklaşım bir web tarayıcısını başlatır ve gibi bir adresindeki WSAT işaret:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT üç bölümlere ayrılmıştır:
 
@@ -116,7 +116,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 - [ASP inceleniyor. NET'in üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Kendi Web sitesi yönetim aracı alınıyor](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
-- [Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 >[!div class="step-by-step"]

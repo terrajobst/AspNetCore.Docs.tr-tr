@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 title: "ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri okuma | Microsoft Docs"
 author: tdykstra
-description: /AJAX/Tutorials/using-AJAX-Control-Toolkit-Controls-and-Control-extenders-vb
+description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC uygulamasındaki Entity Framework Veri Okuma ilgili
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -45,7 +45,7 @@ Entity Framework bir varlık Gezinti özellikleri ilgili verileri yükleyebilir 
 - *İstekli yükleme*. Varlık okurken ilgili verileri onunla birlikte alınır. Bu, genellikle tüm gerekli olan verileri alan bir tek birleştirme sorgusunda sonuçlanır. Kullanarak istekli yükleme belirtin `Include` yöntemi.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Açık yükleme*. Açıkça kod ilgili verileri almak bu yavaş yüklemeye benzerdir; bir gezinti özelliğine erişirken otomatik olarak gerçekleşmez. İlgili verileri el ile bir varlık ve arama için nesne durumu Yöneticisi girdisi alarak yüklediğiniz [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx) koleksiyonlar için yöntemi veya [Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx) yöntemi tutun özellikleri için bir tek bir varlık. (Aşağıdaki örnekte, yönetici gezinti özelliği yüklemek istiyorsanız, değiştirirler `Collection(x => x.Courses)` ile `Reference(x => x.Administrator)`.) Genellikle, yalnızca devre dışı yüklenirken yavaş açtığınız zaman açık yüklenirken kullanırsınız.
+- *Açık yükleme*. Açıkça kod ilgili verileri almak bu yavaş yüklemeye benzerdir; bir gezinti özelliğine erişirken otomatik olarak gerçekleşmez. İlgili verileri el ile bir varlık ve arama için nesne durumu Yöneticisi girdisi alarak yüklediğiniz [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) koleksiyonlar için yöntemi veya [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) yöntemi tutun özellikleri için bir tek bir varlık. (Aşağıdaki örnekte, yönetici gezinti özelliği yüklemek istiyorsanız, değiştirirler `Collection(x => x.Courses)` ile `Reference(x => x.Administrator)`.) Genellikle, yalnızca devre dışı yüklenirken yavaş açtığınız zaman açık yüklenirken kullanırsınız.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ Entity Framework bir varlık Gezinti özellikleri ilgili verileri yükleyebilir 
 
 Diğer taraftan, bazı senaryolarda yavaş yükleniyor daha etkilidir. İstekli yükleme, SQL Server verimli bir şekilde işleyemiyor oluşturulması, bir çok karmaşık birleştirme neden olabilir. Veya yalnızca bir alt kümesinin varlık için bir varlığın gezinme özelliklerinin erişmeniz gerekiyorsa işleme istekli yükleme ihtiyacınız daha fazla veri almak çünkü yavaş yükleniyor daha iyi gerçekleştirebilir. Performans önemliyse, performansı en iyi seçim yapmak için her iki yönde test en iyisidir.
 
-Yavaş yükleniyor performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, açık veya istekli yükleme belirtmiyor ancak varlıklar yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle, çok sayıda gidiş dönüş veritabanına) çok verimsiz olabilir. İyi bir şirket içi SQL server kullanarak geliştirme gerçekleştiren bir uygulama için Azure SQL veritabanı daha yüksek gecikme süresi ve yavaş yükleniyor nedeniyle taşındıklarında performans sorunları olabilir. Gerçekçi test yük veritabanı sorgularıyla profil yavaş yükleniyor uygun olup olmadığını belirleme yardımcı olur. Daha fazla bilgi için bkz: [Demystifying Entity Framework stratejileri: ilgili veri yükleme](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) ve [SQL Azure ağ gecikmesini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Yavaş yükleniyor performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, açık veya istekli yükleme belirtmiyor ancak varlıklar yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle, çok sayıda gidiş dönüş veritabanına) çok verimsiz olabilir. İyi bir şirket içi SQL server kullanarak geliştirme gerçekleştiren bir uygulama için Azure SQL veritabanı daha yüksek gecikme süresi ve yavaş yükleniyor nedeniyle taşındıklarında performans sorunları olabilir. Gerçekçi test yük veritabanı sorgularıyla profil yavaş yükleniyor uygun olup olmadığını belirleme yardımcı olur. Daha fazla bilgi için bkz: [Demystifying Entity Framework stratejileri: ilgili veri yükleme](https://msdn.microsoft.com/magazine/hh205756.aspx) ve [SQL Azure ağ gecikmesini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Seri hale getirme önce geç yükleme devre dışı bırak
 
@@ -67,9 +67,9 @@ Serileştirme Ayrıca karmaşık Entity Framework kullanan proxy sınıfları ta
 
 Seri hale getirme sorunları önlemek için bir yoldur varlık nesnesi yerine veri aktarımı nesneleri (DTOs) serileştirmek için gösterildiği gibi [Entity Framework ile Web API kullanarak](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) Öğreticisi.
 
-DTOs kullanmıyorsanız, yavaş yükleniyor devre dışı bırakabilir ve proxy sorunlarından kaçınmak [proxy oluşturma devre dışı bırakma](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
+DTOs kullanmıyorsanız, yavaş yükleniyor devre dışı bırakabilir ve proxy sorunlarından kaçınmak [proxy oluşturma devre dışı bırakma](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Bazı diğer işte [geç yükleme devre dışı bırakmak için yollar](https://msdn.microsoft.com/en-US/data/jj574232):
+Bazı diğer işte [geç yükleme devre dışı bırakmak için yollar](https://msdn.microsoft.com/data/jj574232):
 
 - Belirli Gezinti özellikleri için atlayın `virtual` özelliği bildirirken anahtar sözcüğü.
 - Tüm gezinti özelliklerini ayarlama `LazyLoadingEnabled` için `false`, aşağıdaki kodu bağlamı sınıfınız oluşturucuda koyun: 
@@ -164,7 +164,7 @@ Eğitmen kimliği seçildiyse, seçili Eğitmen görünüm modeli Eğitmen liste
 
 `Where` Yöntem koleksiyonu döndürür, ancak bu yöntem sonucu yalnızca tek bir ölçüt bu durumda geçirilen `Instructor` döndürülen varlık. `Single` Yöntemi tek bir koleksiyon dönüştürür `Instructor` bu varlığın erişmenizi varlık `Courses` özelliği.
 
-Kullandığınız [tek](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) koleksiyonu bildiğiniz durumlarda bir koleksiyon yöntemi yalnızca bir öğe olacaktır. `Single` Yöntem kendisine geçirilen koleksiyonu boş ise veya birden çok öğe varsa bir özel durum oluşturur. Bir alternatif [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), varsayılan değeri döndürür (`null` bu durumda) koleksiyonu boş ise. Ancak, bu durumda hala sonuçlanacak bir özel durum (bulunmaya çalışılırken gelen bir `Courses` özelliği bir `null` başvuru), ve özel durum iletisi daha az açıkça sorunun nedenini gösterir. Çağırdığınızda `Single` yöntemi, siz de geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
+Kullandığınız [tek](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) koleksiyonu bildiğiniz durumlarda bir koleksiyon yöntemi yalnızca bir öğe olacaktır. `Single` Yöntem kendisine geçirilen koleksiyonu boş ise veya birden çok öğe varsa bir özel durum oluşturur. Bir alternatif [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), varsayılan değeri döndürür (`null` bu durumda) koleksiyonu boş ise. Ancak, bu durumda hala sonuçlanacak bir özel durum (bulunmaya çalışılırken gelen bir `Courses` özelliği bir `null` başvuru), ve özel durum iletisi daha az açıkça sorunun nedenini gösterir. Çağırdığınızda `Single` yöntemi, siz de geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 506ecc9fad47cc39a0323e9ed18814c26e28ee47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-c"></a>Toplu güncelleştirme (C#)
 ====================
@@ -47,7 +47,7 @@ Let s başlayın!
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Tüm GridView satırları düzenlenebilir yapma adımları inceleniyor
 
-' Da anlatıldığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) öğretici, GridView, satır başına temelinde temel alınan verileri düzenleme için yerleşik destek sunar. Dahili olarak, hangi satır aracılığıyla düzenlenebilir GridView Notlar kendi [ `EditIndex` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). GridView kendi veri kaynağına bağlı olarak, her satır satırın dizini değerini eşitse görmek için denetler `EditIndex`. Bu durumda, o satırdaki alanları kendi düzenleme kullanılarak işlenir s arabirimleri. BoundFields için düzenleme TextBox arabirimidir olan `Text` özelliği BoundField s tarafından belirtilen veri alanının değeri atanan `DataField` özelliği. TemplateFields için `EditItemTemplate` yerine kullanılan `ItemTemplate`.
+' Da anlatıldığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) öğretici, GridView, satır başına temelinde temel alınan verileri düzenleme için yerleşik destek sunar. Dahili olarak, hangi satır aracılığıyla düzenlenebilir GridView Notlar kendi [ `EditIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). GridView kendi veri kaynağına bağlı olarak, her satır satırın dizini değerini eşitse görmek için denetler `EditIndex`. Bu durumda, o satırdaki alanları kendi düzenleme kullanılarak işlenir s arabirimleri. BoundFields için düzenleme TextBox arabirimidir olan `Text` özelliği BoundField s tarafından belirtilen veri alanının değeri atanan `DataField` özelliği. TemplateFields için `EditItemTemplate` yerine kullanılan `ItemTemplate`.
 
 Bir kullanıcı bir satır s Düzenle düğmesine tıkladığında düzenleme iş akışı başlayacağını geri çağırma. Bu geri gönderimin neden olur, GridView s ayarlar `EditIndex` özelliğini tıklatılan satır s dizini ve rebinds kılavuza veri. Ne zaman bir satır s iptal düğmesine tıklandığında, geri göndermede `EditIndex` değerine ayarlanmış `-1` kılavuza veri kira önce. GridView s satırları sıfırda Dizinlemeyi Başlat olduğundan, ayar `EditIndex` için `-1` GridView salt okunur modda görüntüleme etkisi vardır.
 
@@ -240,7 +240,7 @@ Adlı bir yöntem oluşturma `BatchUpdate` içinde `BatchUpdate.aspx.cs` ve aşa
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Bu yöntem ürünlerin tamamı alarak başlar geri bir `ProductsDataTable` BLL s çağrısıyla `GetProducts` yöntemi. Ardından numaralandırır `ProductGrid` GridView s [ `Rows` koleksiyonu](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Koleksiyonu içeren bir [ `GridViewRow` örneği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx) GridView görüntülenen her satır için. Biz sayfasında, GridView s başına en fazla on satır gösteren beri `Rows` koleksiyonu, en fazla on öğe olacaktır.
+Bu yöntem ürünlerin tamamı alarak başlar geri bir `ProductsDataTable` BLL s çağrısıyla `GetProducts` yöntemi. Ardından numaralandırır `ProductGrid` GridView s [ `Rows` koleksiyonu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Koleksiyonu içeren bir [ `GridViewRow` örneği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) GridView görüntülenen her satır için. Biz sayfasında, GridView s başına en fazla on satır gösteren beri `Rows` koleksiyonu, en fazla on öğe olacaktır.
 
 Her satır için `ProductID` gelen gerçekleşti `DataKeys` toplama ve uygun `ProductsRow` seçilir `ProductsDataTable`. Dört TemplateField giriş denetimlerini programlı olarak başvurulan ve değerlerine atandığı `ProductsRow` örnek s özellikleri. Sonra her GridView satır s değerleri güncelleştirmek için kullanılan `ProductsDataTable`, onu s geçirilen BLL s `UpdateWithTransaction` önceki öğreticide gördüğümüz gibi sadece DAL s çağırır yöntemi `UpdateWithTransaction` yöntemi.
 
@@ -270,7 +270,7 @@ Bu durumlarda türleri için aşağıdaki kullanmayı `BatchUpdateAlternate` yö
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`Yeni ve boş bir oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlara `Rows` koleksiyonu ve her satırın BLL s kullanarak belirli bir ürün bilgilerini alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneği sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak alınan içine satır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate`Yeni ve boş bir oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlara `Rows` koleksiyonu ve her satırın BLL s kullanarak belirli bir ürün bilgilerini alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneği sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak alınan içine satır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Sonra `foreach` döngüsü tamamlandıktan, `products` içeriyor `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), sizi doğrudan kendisine başarılı olursa `UpdateWithTransaction` yöntemi `ProductsTableAdatper` her kayıtlar veritabanına eklemek çalışacaktır. Bunun yerine, biz bu satırların her biri (eklenmedi) değiştirilmiş olduğunu belirtmeniz gerekir.
 

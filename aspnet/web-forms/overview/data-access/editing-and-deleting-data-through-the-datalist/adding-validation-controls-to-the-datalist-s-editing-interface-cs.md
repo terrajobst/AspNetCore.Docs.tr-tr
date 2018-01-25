@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06f3e59d0e6fd59a83934084422816360e915bd7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b80b25933679d5c5b465af24cf6ff5d3b824b401
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList'ın arabirime düzenleme (C#) doğrulama denetimleri ekleme
 ====================
@@ -71,11 +71,11 @@ Kaynak kodu kopyalamak için açık `ErrorHandling.aspx.vb` sayfasında ve yaln�
 
 Veri girişi formları oluşturulurken, kullanıcılar gerekli alanları girin ve kendi sağlanan tüm girişleri yasal, düzgün biçimlendirilmiş değerler olduğunu önemlidir. Bir kullanıcı s girişleri geçerli olduğundan emin olun yardımcı olmak için ASP.NET, tek bir giriş Web denetim değerini doğrulamak için tasarlanmış beş yerleşik doğrulama denetimleri sağlar:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/en-us/library/5hbw267h(VS.80).aspx) değeri sağlanmış sağlar
-- [CompareValidator](https://msdn.microsoft.com/en-us/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetimi değer veya sabit bir değer karşı doğrular veya değer s biçimi, belirtilen veri türü için geçerli olmasını sağlar
-- [RangeValidator](https://msdn.microsoft.com/en-us/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
-- [RegularExpressionValidator](https://msdn.microsoft.com/en-US/library/eahwtc9e.aspx) bir değer karşı doğrular bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/en-us/library/9eee01cx(VS.80).aspx) bir değer özel, kullanıcı tanımlı bir yöntem karşı doğrular
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) değeri sağlanmış sağlar
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetimi değer veya sabit bir değer karşı doğrular veya değer s biçimi, belirtilen veri türü için geçerli olmasını sağlar
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) bir değer karşı doğrular bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değer özel, kullanıcı tanımlı bir yöntem karşı doğrular
 
 Bu beş denetimleri hakkında daha fazla bilgi için geri başvurmak [doğrulama denetimleri ekleme düzenleme ve ekleme arabirimleri için](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md) öğretici veya kullanıma [doğrulama denetimleri bölüm](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) ,[ASP.NET Quickstart öğreticileri](https://quickstarts.asp.net).
 
@@ -93,7 +93,7 @@ S DataList gerekli doğrulama denetimlerini ekleyerek başlayın s izin `EditIte
 **Şekil 3**: bir RequiredFieldValidator eklemek `EditItemTemplate After` `ProductName` TextBox ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image9.png))
 
 
-Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, az önce eklediğimiz RequiredFieldValidator karşı doğrulamalıdır belirtmek ihtiyacımız `ProductName` TextBox; bu doğrulama denetimi s ayarlayarak yapılır [ `ControlToValidate` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` , uygun Web denetimi (`ProductName`, bu örnekte). Ardından, ayarlayın [ `ErrorMessage` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) için ürün s adını sağlayın ve [ `Text` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için \*. `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` , Gerekli özellik değeri ValidationSummary denetimi tarafından; kullanılır `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri geçersiz giriş doğrulama denetimi tarafından görüntülenir.
+Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, az önce eklediğimiz RequiredFieldValidator karşı doğrulamalıdır belirtmek ihtiyacımız `ProductName` TextBox; bu doğrulama denetimi s ayarlayarak yapılır [ `ControlToValidate` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` , uygun Web denetimi (`ProductName`, bu örnekte). Ardından, ayarlayın [ `ErrorMessage` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) için ürün s adını sağlayın ve [ `Text` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için \*. `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` , Gerekli özellik değeri ValidationSummary denetimi tarafından; kullanılır `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri geçersiz giriş doğrulama denetimi tarafından görüntülenir.
 
 Bu üç RequiredFieldValidator özelliklerini ayarladıktan sonra ekranınızın Şekil 4'e benzer görünmelidir.
 
@@ -105,7 +105,7 @@ Bu üç RequiredFieldValidator özelliklerini ayarladıktan sonra ekranınızın
 
 Eklenen RequiredFieldValidator ile `EditItemTemplate`, tüm kalan olduğunu ürün s fiyat TextBox gerekli doğrulama eklemek için. Bu yana `UnitPrice` isteğe bağlı olan bir kayıt düzenlerken, biz t bir RequiredFieldValidator eklemek gerek güncelleştireceğinizi. Ancak, emin olmak için bir CompareValidator eklemek ihtiyacımız `UnitPrice`, sağlandıysa, para birimi olarak düzgün biçimlendirildiğinden ve büyük veya 0 değerine eşit.
 
-CompareValidator içine ekleme `EditItemTemplate` ve kendi `ControlToValidate` özelliğine `UnitPrice`, kendi `ErrorMessage` fiyat özelliğine değerinden büyük veya sıfıra eşit olmalı ve para birimi simgesini içeremez ve kendi `Text` özelliğine\*. Belirtmek için `UnitPrice` değeri sıfırdan büyük veya 0 değerine eşit, CompareValidator s ayarlamak [ `Operator` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ `ValueToCompare` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 ve kendi [ `Type` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`.
+CompareValidator içine ekleme `EditItemTemplate` ve kendi `ControlToValidate` özelliğine `UnitPrice`, kendi `ErrorMessage` fiyat özelliğine değerinden büyük veya sıfıra eşit olmalı ve para birimi simgesini içeremez ve kendi `Text` özelliğine\*. Belirtmek için `UnitPrice` değeri sıfırdan büyük veya 0 değerine eşit, CompareValidator s ayarlamak [ `Operator` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ `ValueToCompare` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 ve kendi [ `Type` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`.
 
 Bu iki doğrulama denetimleri, s DataList ekledikten sonra `EditItemTemplate` s Tanımlayıcı Sözdizimi aşağıdakine benzer görünmelidir:
 
@@ -144,13 +144,13 @@ Varsayılan olarak, istemci tarafında doğrulama gerçekleştirmek için JavaSc
 
 İptal düğmesi böyle bir örnektir. Bir kullanıcı s ürün adı, atlanması gibi geçersiz veri girer ve ardından SEH içermiyor t istediğiniz ürün tüm kaydetmeye karar verir ve iptal düğmesi isabetler olduğunu düşünün. Şu anda iptal düğmesi, ürün adı eksik ve geri gönderme önlemek rapor doğrulama denetimleri sayfasında tetikler. Bizim kullanıcının bazı metin türüne sahip `ProductName` yalnızca dışında düzenleme işlemi iptal etmek için metin kutusu.
 
-Neyse ki, düğme, LinkButton ve ImageButton sahip bir [ `CausesValidation` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , belirtebilirsiniz tıklatarak olup olmadığına bakılmaksızın düğmesi doğrulama mantığını başlatmak (varsayılan olarak `True`). İptal düğmesi s ayarlamak `CausesValidation` özelliğine `False`.
+Neyse ki, düğme, LinkButton ve ImageButton sahip bir [ `CausesValidation` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , belirtebilirsiniz tıklatarak olup olmadığına bakılmaksızın düğmesi doğrulama mantığını başlatmak (varsayılan olarak `True`). İptal düğmesi s ayarlamak `CausesValidation` özelliğine `False`.
 
 ## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Olan geçerli UpdateCommand olay işleyicisi alanındaki girişleri sağlama
 
 Doğrulama denetimleri tarafından gösterilen istemci tarafı komut dosyası nedeniyle kullanıcı geçersiz giriş girerse doğrulama denetimleri LinkButton, düğme tarafından başlatılan tüm Geri göndermeler iptal veya ImageButton denetimleri `CausesValidation` özellikleri `True` ( varsayılan). Ancak, bir kullanıcı antiquated bir tarayıcı veya biri, JavaScript desteği devre dışı ziyaret, istemci tarafı doğrulama denetimlerini çalıştırmaz.
 
-Tüm ASP.NET doğrulama denetimleri geri gönderme hemen sonra kullanıcıların doğrulama mantığını yineleyin ve sayfa s girişleri genel geçerliliğini rapor [ `Page.IsValid` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.page.isvalid.aspx). Ancak, sayfa akışı kesildi veya olmayan herhangi bir şekilde değere göre durduruldu `Page.IsValid`. Geliştiricileri de bu emin olmak için bizim sorumluluğundadır `Page.IsValid` özellik değerine sahip `True` giriş geçerli varsayar kod işlemine devam etmeden önce.
+Tüm ASP.NET doğrulama denetimleri geri gönderme hemen sonra kullanıcıların doğrulama mantığını yineleyin ve sayfa s girişleri genel geçerliliğini rapor [ `Page.IsValid` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Ancak, sayfa akışı kesildi veya olmayan herhangi bir şekilde değere göre durduruldu `Page.IsValid`. Geliştiricileri de bu emin olmak için bizim sorumluluğundadır `Page.IsValid` özellik değerine sahip `True` giriş geçerli varsayar kod işlemine devam etmeden önce.
 
 Bir kullanıcının devre dışı JavaScript varsa sayfamızı ziyaret eder, bir ürün düzenler, çok fiyat değerini girer pahalıdır ve güncelleştirme düğmesine tıklar istemci tarafı doğrulama atlanır ve geri gönderimin olun. Geri gönderme, ASP.NET sayfası s üzerinde `UpdateCommand` olay işleyicisi yürütür ve çok ayrıştırma çalışılırken özel durum oluşturuldu için pahalı bir `Decimal`. Özel durum işleme sahip olduğumuz, böyle bir özel durum düzgün bir şekilde ele alınacağını ancak üzerinden ilk başta ile yalnızca etmeden tarafından kayan gelen biz geçersiz veriler engelleyebilir beri `UpdateCommand` olay işleyicisi varsa `Page.IsValid` değerine sahip `True`.
 
@@ -167,9 +167,9 @@ Bu eklenmesiyle ürün gönderilen verilerin geçerli ise güncelleştirilmesi d
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>3. adım: Veri girişi sorunlarını özetleme
 
-Beş doğrulama denetimleri ek olarak, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/en-US/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veriler algılandı bu doğrulama denetimleri s. Bu özet verilerini kalıcı, istemci-tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Doğrulama sorunları özetlemeye bir istemci-tarafı messagebox dahil etmek için bu öğreticiyi geliştirmek s olanak tanır.
+Beş doğrulama denetimleri ek olarak, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veriler algılandı bu doğrulama denetimleri s. Bu özet verilerini kalıcı, istemci-tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Doğrulama sorunları özetlemeye bir istemci-tarafı messagebox dahil etmek için bu öğreticiyi geliştirmek s olanak tanır.
 
-Bunu gerçekleştirmek için araç kutusu tasarımcıya ValidationSummary denetimi sürükleyin. ValidationSummary denetimi içermiyor t konumunu gerçekten önemli, bu yana biz yalnızca Özet messagebox görüntülemek için yapılandırmak için ekleyeceğiz. Denetim ekledikten sonra ayarlamak kendi [ `ShowSummary` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ `ShowMessageBox` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ayrıca ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenir (bkz. Şekil 6).
+Bunu gerçekleştirmek için araç kutusu tasarımcıya ValidationSummary denetimi sürükleyin. ValidationSummary denetimi içermiyor t konumunu gerçekten önemli, bu yana biz yalnızca Özet messagebox görüntülemek için yapılandırmak için ekleyeceğiz. Denetim ekledikten sonra ayarlamak kendi [ `ShowSummary` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ `ShowMessageBox` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ayrıca ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenir (bkz. Şekil 6).
 
 
 [![Doğrulama hatalarını bir istemci-tarafı Messagebox özetlenir](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-cs/_static/image16.png)

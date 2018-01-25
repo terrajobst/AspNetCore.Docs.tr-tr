@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e57886250fa98af95b61103d67481f747f44c390
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3782e3d4acc2db0e744128dad64fdfae1e8766d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-c"></a>Koruma bağlantı dizeleri ve diğer yapılandırma bilgileri (C#)
 ====================
@@ -60,10 +60,10 @@ ASP.NET 2.0, şifreleme ve yapılandırma bilgilerini şifresini çözmek için 
 
 .NET Framework iki korumalı yapılandırma sağlayıcıları ile birlikte gelir:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-Asimetrik kullanan [RSA algoritması](http://en.wikipedia.org/wiki/Rsa) şifreleme ve şifre çözme için.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/en-us/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows kullanır [Data Protection API (DPAPI)](https://msdn.microsoft.com/en-us/library/ms995355.aspx) şifreleme ve şifre çözme için.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-Asimetrik kullanan [RSA algoritması](http://en.wikipedia.org/wiki/Rsa) şifreleme ve şifre çözme için.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows kullanır [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) şifreleme ve şifre çözme için.
 
-Korumalı yapılandırma sistemi sağlayıcısı tasarım deseni uygular olduğundan, kendi korumalı yapılandırma sağlayıcısı oluşturun ve uygulamanıza takın mümkündür. Bkz: [korumalı bir yapılandırma sağlayıcısı uygulama](https://msdn.microsoft.com/en-us/library/wfc2t3az(VS.80).aspx) bu işlem hakkında daha fazla bilgi için.
+Korumalı yapılandırma sistemi sağlayıcısı tasarım deseni uygular olduğundan, kendi korumalı yapılandırma sağlayıcısı oluşturun ve uygulamanıza takın mümkündür. Bkz: [korumalı bir yapılandırma sağlayıcısı uygulama](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) bu işlem hakkında daha fazla bilgi için.
 
 RSA ve DPAPI sağlayıcıları için şifreleme ve şifre çözme yordamları tuşlarını kullanın ve bu anahtarları makine veya kullanıcı düzeyi adresindeki depolanabilir. Web uygulaması, kendi özel bir sunucu üzerinde çalıştığı senaryoları için makine düzeyinde anahtarları idealdir veya paylaşmak için gereken bir sunucuda birden çok uygulama olup olmadığını bilgi şifrelenmiş. Kullanıcı düzeyinde anahtarları nerede aynı sunucudaki diğer uygulamalar, uygulama korumalı s yapılandırma bölümlerinin şifresini çözmek açmaması gereken paylaşılan barındırma ortamlarında daha güvenli bir seçenektir.
 
@@ -96,20 +96,20 @@ Ardından, yükleyen ve içeriğini görüntüler kod yazmaya ihtiyacımız `Web
 
 [!code-csharp[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample1.cs)]
 
-`DisplayWebConfig` Yöntemi kullanan [ `File` sınıfı](https://msdn.microsoft.com/en-us/library/system.io.file.aspx) uygulama s açmak için `Web.config` dosyası [ `StreamReader` sınıfı](https://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx) dize ve içeriğiniokumakiçin[ `Path` sınıfı](https://msdn.microsoft.com/en-us/library/system.io.path.aspx) fiziksel yolu oluşturmak için `Web.config` dosya. Bu üç sınıfın tüm bulunan [ `System.IO` ad alanı](https://msdn.microsoft.com/en-us/library/system.io.aspx). Sonuç olarak, eklemeniz gerekecektir bir `using` `System.IO` deyimi arka plandaki kod sınıfı veya, alternatif olarak, bu sınıf adlarıyla önek üstüne `System.IO.` .
+`DisplayWebConfig` Yöntemi kullanan [ `File` sınıfı](https://msdn.microsoft.com/library/system.io.file.aspx) uygulama s açmak için `Web.config` dosyası [ `StreamReader` sınıfı](https://msdn.microsoft.com/library/system.io.streamreader.aspx) dize ve içeriğiniokumakiçin[ `Path` sınıfı](https://msdn.microsoft.com/library/system.io.path.aspx) fiziksel yolu oluşturmak için `Web.config` dosya. Bu üç sınıfın tüm bulunan [ `System.IO` ad alanı](https://msdn.microsoft.com/library/system.io.aspx). Sonuç olarak, eklemeniz gerekecektir bir `using` `System.IO` deyimi arka plandaki kod sınıfı veya, alternatif olarak, bu sınıf adlarıyla önek üstüne `System.IO.` .
 
 Ardından, iki düğmenin denetimleri için olay işleyicileri eklemek ihtiyacımız `Click` olayları ve şifrelemek ve şifresini çözmek için gerekli kodu eklemek `<connectionStrings>` DPAPI sağlayıcı ile bir makine düzeyinde anahtar kullanılarak bölüm. Tasarımcısı'ndan eklemek için düğmelerin her birini çift bir `Click` arka plan kodu olay işleyicisini sınıf ve aşağıdaki kodu ekleyin:
 
 
 [!code-csharp[Main](protecting-connection-strings-and-other-configuration-information-cs/samples/sample2.cs)]
 
-İki olay işleyicileri ile kullanılan kod neredeyse aynıdır. Her ikisi de geçerli uygulama s hakkında bilgi alma Başlat `Web.config` aracılığıyla dosya [ `WebConfigurationManager` sınıfı](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Bu yöntem, belirtilen sanal yol için web yapılandırma dosyası döndürür. Ardından, `Web.config` s dosyası `<connectionStrings>` bölüm aracılığıyla erişilir [ `Configuration` sınıfı](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` yöntemi](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.getsection.aspx), döndüren bir [ `ConfigurationSection` ](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.aspx) nesnesi.
+İki olay işleyicileri ile kullanılan kod neredeyse aynıdır. Her ikisi de geçerli uygulama s hakkında bilgi alma Başlat `Web.config` aracılığıyla dosya [ `WebConfigurationManager` sınıfı](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.aspx) s [ `OpenWebConfiguration` yöntemi](https://msdn.microsoft.com/library/system.web.configuration.webconfigurationmanager.openwebconfiguration.aspx). Bu yöntem, belirtilen sanal yol için web yapılandırma dosyası döndürür. Ardından, `Web.config` s dosyası `<connectionStrings>` bölüm aracılığıyla erişilir [ `Configuration` sınıfı](https://msdn.microsoft.com/library/system.configuration.configuration.aspx) s [ `GetSection(sectionName)` yöntemi](https://msdn.microsoft.com/library/system.configuration.configuration.getsection.aspx), döndüren bir [ `ConfigurationSection` ](https://msdn.microsoft.com/library/system.configuration.configurationsection.aspx) nesnesi.
 
-`ConfigurationSection` Nesne içeren bir [ `SectionInformation` özelliği](https://msdn.microsoft.com/en-us/library/system.configuration.configurationsection.sectioninformation.aspx) ek bilgiler ve yapılandırma bölümü ilgili işlevselliği sağlar. Gösterir yukarıdaki kodu biz yapılandırma bölümü şifreli olup olmadığını kontrol ederek belirleyebilirsiniz `SectionInformation` özellik s `IsProtected` özelliği. Ayrıca, bölüm bulunabilir şifrelenmiş veya aracılığıyla şifresi `SectionInformation` özellik s `ProtectSection(provider)` ve `UnprotectSection` yöntemleri.
+`ConfigurationSection` Nesne içeren bir [ `SectionInformation` özelliği](https://msdn.microsoft.com/library/system.configuration.configurationsection.sectioninformation.aspx) ek bilgiler ve yapılandırma bölümü ilgili işlevselliği sağlar. Gösterir yukarıdaki kodu biz yapılandırma bölümü şifreli olup olmadığını kontrol ederek belirleyebilirsiniz `SectionInformation` özellik s `IsProtected` özelliği. Ayrıca, bölüm bulunabilir şifrelenmiş veya aracılığıyla şifresi `SectionInformation` özellik s `ProtectSection(provider)` ve `UnprotectSection` yöntemleri.
 
 `ProtectSection(provider)` Yöntemi şifrelerken kullanmak için korumalı yapılandırma sağlayıcısının adını belirten bir dize girdi olarak kabul eder. İçinde `EncryptConnString` biz geçmesi halinde DataProtectionConfigurationProvider s düğmesi olay işleyicisi `ProtectSection(provider)` yöntemi böylece DPAPI sağlayıcısı kullanılır. `UnprotectSection` Yöntemi, yapılandırma bölümü şifrelemek için kullanılan ve bu nedenle herhangi bir giriş parametreleri gerektirmez sağlayıcı belirleyebilir.
 
-Çağırdıktan sonra `ProtectSection(provider)` veya `UnprotectSection` yöntemi, çağırmalıdır `Configuration` s nesnesi [ `Save` yöntemi](https://msdn.microsoft.com/en-us/library/system.configuration.configuration.save.aspx) değişiklikleri kalıcı hale getirmek için. Yapılandırma bilgilerini şifrelenmiş veya şifresi çözülür ve değişiklikler kaydedildi diyoruz sonra `DisplayWebConfig` güncelleştirilmiş yüklemek için `Web.config` TextBox denetimine içeriği.
+Çağırdıktan sonra `ProtectSection(provider)` veya `UnprotectSection` yöntemi, çağırmalıdır `Configuration` s nesnesi [ `Save` yöntemi](https://msdn.microsoft.com/library/system.configuration.configuration.save.aspx) değişiklikleri kalıcı hale getirmek için. Yapılandırma bilgilerini şifrelenmiş veya şifresi çözülür ve değişiklikler kaydedildi diyoruz sonra `DisplayWebConfig` güncelleştirilmiş yüklemek için `Web.config` TextBox denetimine içeriği.
 
 Yukarıdaki kodu girdikten sonra ziyaret ederek test `EncryptingConfigSections.aspx` bir tarayıcı aracılığıyla sayfası. Başlangıçta içeriğini listeler bir sayfa görmeniz gerekir `Web.config` ile `<connectionStrings>` düz metin olarak görüntülenen bölümüne (bkz: Şekil 3).
 
@@ -155,7 +155,7 @@ Geri dönmek için `<connectionStrings>` bölümünde düz metin gösterimine, b
 
 ## <a name="step-3-encrypting-configuration-sections-usingaspnetregiisexe"></a>3. adım: Yapılandırma bölümleri kullanarak şifreleme`aspnet_regiis.exe`
 
-.NET Framework komut satırı araçlarında çeşitli içerir `$WINDOWS$\Microsoft.NET\Framework\version\` klasör. İçinde [kullanarak SQL önbellek bağımlılıkları](../caching-data/using-sql-cache-dependencies-cs.md) öğretici, örneğin, biz Aranan kullanarak `aspnet_regsql.exe` SQL önbellek bağımlılıkları için gerekli altyapı eklemek için komut satırı aracı. Bu klasördeki başka yararlı komut satırı aracıdır [ASP.NET IIS Kayıt Aracı (`aspnet_regiis.exe`)](https://msdn.microsoft.com/en-us/library/k6h9cz8h(VS.80).aspx). Adından da anlaşılacağı gibi ASP.NET IIS Kayıt Aracı öncelikle Microsoft s profesyonel seviyede Web sunucusu ile IIS ASP.NET 2.0 uygulamanın kaydetmek için kullanılır. IIS ile ilgili özellikleri ek olarak, ASP.NET IIS Kayıt aracını şifrelemek veya belirtilen yapılandırma bölümlerinin şifresini çözmek için de kullanılabilir `Web.config`.
+.NET Framework komut satırı araçlarında çeşitli içerir `$WINDOWS$\Microsoft.NET\Framework\version\` klasör. İçinde [kullanarak SQL önbellek bağımlılıkları](../caching-data/using-sql-cache-dependencies-cs.md) öğretici, örneğin, biz Aranan kullanarak `aspnet_regsql.exe` SQL önbellek bağımlılıkları için gerekli altyapı eklemek için komut satırı aracı. Bu klasördeki başka yararlı komut satırı aracıdır [ASP.NET IIS Kayıt Aracı (`aspnet_regiis.exe`)](https://msdn.microsoft.com/library/k6h9cz8h(VS.80).aspx). Adından da anlaşılacağı gibi ASP.NET IIS Kayıt Aracı öncelikle Microsoft s profesyonel seviyede Web sunucusu ile IIS ASP.NET 2.0 uygulamanın kaydetmek için kullanılır. IIS ile ilgili özellikleri ek olarak, ASP.NET IIS Kayıt aracını şifrelemek veya belirtilen yapılandırma bölümlerinin şifresini çözmek için de kullanılabilir `Web.config`.
 
 Aşağıdaki deyim yapılandırma bölümü ile şifrelemek için kullanılan genel sözdizimi gösterilmektedir `aspnet_regiis.exe` komut satırı aracı:
 
@@ -203,7 +203,7 @@ Aşağıdaki örnek, SQL kimlik doğrulaması kullanan bir bağlantı dizesi gö
 Bir saldırgan, uygulama s görmeye olduğunu düşünün `Web.config` dosya. Internet üzerinden erişilebilen bir veritabanına bağlanmak için SQL kimlik doğrulaması kullanırsanız ve bu da saldırganın SQL Management Studio aracılığıyla ya da kendi Web sitesinde ASP.NET sayfaları, veritabanına bağlanmak için bu bağlantı dizesi kullanabilirsiniz. Bu tehdidi azaltmaya yardımcı olmak için bağlantı dizesi bilgilerini şifrelemek `Web.config` korumalı yapılandırma sistemini kullanarak.
 
 > [!NOTE]
-> SQL Server'da bulunan kimlik doğrulama farklı uygulama türleri hakkında daha fazla bilgi için bkz: [Güvenli ASP.NET uygulamaları oluşturma: kimlik doğrulama, yetkilendirme ve güvenli iletişim](https://msdn.microsoft.com/en-us/library/aa302392.aspx). Windows ve SQL kimlik doğrulaması sözdizimi farklılıkları gösteren daha ayrıntılı bağlantı dizesi örnekler için bkz [ConnectionStrings.com](http://www.connectionstrings.com/).
+> SQL Server'da bulunan kimlik doğrulama farklı uygulama türleri hakkında daha fazla bilgi için bkz: [Güvenli ASP.NET uygulamaları oluşturma: kimlik doğrulama, yetkilendirme ve güvenli iletişim](https://msdn.microsoft.com/library/aa302392.aspx). Windows ve SQL kimlik doğrulaması sözdizimi farklılıkları gösteren daha ayrıntılı bağlantı dizesi örnekler için bkz [ConnectionStrings.com](http://www.connectionstrings.com/).
 
 
 ## <a name="summary"></a>Özet
@@ -218,13 +218,13 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Yapı Güvenli ASP.NET uygulama: Kimlik doğrulama, yetkilendirme ve güvenli iletişim](https://msdn.microsoft.com/en-us/library/aa302392.aspx)
+- [Yapı Güvenli ASP.NET uygulama: Kimlik doğrulama, yetkilendirme ve güvenli iletişim](https://msdn.microsoft.com/library/aa302392.aspx)
 - [ASP.NET 2.0 yapılandırma bilgilerini şifrelemek uygulamaları](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
 - [Şifreleme `Web.config` ASP.NET 2.0 değerleri](https://weblogs.asp.net/scottgu/archive/2006/01/09/434893.aspx)
-- [Nasıl yapılır: ASP.NET 2.0 yapılandırma bölümlerinin şifrelemek DPAPI kullanma](https://msdn.microsoft.com/en-us/library/ms998280.aspx)
-- [Nasıl yapılır: ASP.NET 2.0 yapılandırma bölümlerinin şifrelemek RSA kullanma](https://msdn.microsoft.com/en-us/library/ms998283.aspx)
+- [Nasıl yapılır: ASP.NET 2.0 yapılandırma bölümlerinin şifrelemek DPAPI kullanma](https://msdn.microsoft.com/library/ms998280.aspx)
+- [Nasıl yapılır: ASP.NET 2.0 yapılandırma bölümlerinin şifrelemek RSA kullanma](https://msdn.microsoft.com/library/ms998283.aspx)
 - [.NET 2.0 içinde yapılandırma API'si](http://www.odetocode.com/Articles/418.aspx)
-- [Windows veri koruması](https://msdn.microsoft.com/en-us/library/ms995355.aspx)
+- [Windows veri koruması](https://msdn.microsoft.com/library/ms995355.aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 

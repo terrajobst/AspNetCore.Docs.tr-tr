@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 6790cd0deb36c9fb297ccd4df371f763dba17844
-ms.sourcegitcommit: 17b025bd33f4474f0deaafc6d0447a4e72bcad87
+ms.openlocfilehash: 829f3a024bc15bec8b60b91193ba9bca37b78009
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET yapmanız gerekenler ve bunun yerine yapmanız gerekenler
 ====================
@@ -94,7 +94,7 @@ Sonraki örnek nasıl dinamik olarak CSS sınıfı uygulanacağını gösterir.
 
 Öneri: sayfa ve denetim geri aramalar kullanarak durdurun ve bunun yerine aşağıdakilerden herhangi birini kullanın: AJAX, UpdatePanel, MVC eylem yöntemleri, Web API veya SignalR.
 
-ASP.NET önceki sürümlerde sayfa ve denetim geri çağırma yöntemlerini, tam bir sayfayı yenilemeyi olmadan web sayfasının parçası güncelleştirmek etkin. Kısmi Sayfa güncelleştirmelerini aracılığıyla şimdi gerçekleştirebileceğiniz [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/en-US/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web API](../../../web-api/index.md) veya [SignalR](../../../signalr/index.md). Kolay URL'ler ile sorunlara neden olabilir çünkü geri çağırma yöntemlerini kullanarak ve yönlendirme durdurmanız gerekir. Varsayılan olarak, denetimleri geri arama yöntemleri etkinleştirmeyin, ancak bir denetim'deki bu özellik etkinleştirildiğinde, onu devre dışı bırakmanız gerekir.
+ASP.NET önceki sürümlerde sayfa ve denetim geri çağırma yöntemlerini, tam bir sayfayı yenilemeyi olmadan web sayfasının parçası güncelleştirmek etkin. Kısmi Sayfa güncelleştirmelerini aracılığıyla şimdi gerçekleştirebileceğiniz [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web API](../../../web-api/index.md) veya [SignalR](../../../signalr/index.md). Kolay URL'ler ile sorunlara neden olabilir çünkü geri çağırma yöntemlerini kullanarak ve yönlendirme durdurmanız gerekir. Varsayılan olarak, denetimleri geri arama yöntemleri etkinleştirmeyin, ancak bir denetim'deki bu özellik etkinleştirildiğinde, onu devre dışı bırakmanız gerekir.
 
 <a id="browsercap"></a>
 
@@ -138,7 +138,7 @@ Sonraki örnekte gösterildiği nasıl arka plan kodu değerinde HTML olarak kod
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample7.cs)]
 
-Güvenli bir şekilde SQL komutları için bir değer kodlamak için komut parametreleri gibi kullandığınız [SqlParameter](https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
+Güvenli bir şekilde SQL komutları için bir değer kodlamak için komut parametreleri gibi kullandığınız [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
 
 ### <a name="cookieless-forms-authentication-and-session"></a>Cookieless form kimlik doğrulaması ve oturum
 
@@ -180,15 +180,15 @@ Kısmi güven uygulamanız yeterli koruma sağlamaz ve kullanılmamalıdır. Bun
 
 AppSettings öğe güvenlik güncelleştirmeleri için gerekli olan birden fazla değer içeriyor. Değil, değiştirmek veya bu değerleri devre dışı bırakmak gerekir. Bir güncelleştirme dağıtırken bu değerleri devre dışı bırakmanız gerekir, hemen dağıtımını tamamladıktan sonra yeniden etkinleştirin.
 
-Ayrıntılar için bkz [ASP.NET appSettings öğesi](https://msdn.microsoft.com/en-us/library/hh975440.aspx).
+Ayrıntılar için bkz [ASP.NET appSettings öğesi](https://msdn.microsoft.com/library/hh975440.aspx).
 
 <a id="urlpathencode"></a>
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-Öneri: Kullanmak [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx) yerine.
+Öneri: Kullanmak [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) yerine.
 
-UrlPathEncode yöntemi çok özel tarayıcı uyumluluk sorunu gidermek için .NET Framework eklendi. Yeterli bir URL kodlama değil ve uygulamanızı siteler arası komut dosyası korumaz. Hiçbir zaman uygulamanızda kullanmalısınız. Bunun yerine, kullanın [UrlEncode](https://msdn.microsoft.com/en-us/library/zttxte6w.aspx).
+UrlPathEncode yöntemi çok özel tarayıcı uyumluluk sorunu gidermek için .NET Framework eklendi. Yeterli bir URL kodlama değil ve uygulamanızı siteler arası komut dosyası korumaz. Hiçbir zaman uygulamanızda kullanmalısınız. Bunun yerine, kullanın [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
 
 Aşağıdaki örnek, bir köprü denetim için bir sorgu dizesi parametresi olarak kodlanmış bir URL geçirmek gösterilmiştir.
 
@@ -202,9 +202,9 @@ Aşağıdaki örnek, bir köprü denetim için bir sorgu dizesi parametresi olar
 
 ### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders ve PreSendRequestContent
 
-Öneri: Bu olayları ile yönetilen modüller kullanmayın. Bunun yerine, gerekli görev gerçekleştirmek için yerel bir IIS modül yazma. Bkz: [yerel kodlu HTTP modülleri oluşturma](https://msdn.microsoft.com/en-us/library/ms693629.aspx).
+Öneri: Bu olayları ile yönetilen modüller kullanmayın. Bunun yerine, gerekli görev gerçekleştirmek için yerel bir IIS modül yazma. Bkz: [yerel kodlu HTTP modülleri oluşturma](https://msdn.microsoft.com/library/ms693629.aspx).
 
-Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContent](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri olan olaylar.
+Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri olan olaylar.
 > [!WARNING]
 > Kullanmayın `PreSendRequestHeaders` ve `PreSendRequestContent` uygulamak yönetilen modüller ile `IHttpModule`. Bu özellikleri ayarlama ile zaman uyumsuz istekleri sorunlara neden olabilir. Uygulama istenen yönlendirme (ARR) ve websockets birleşimi w3wp çökmesine neden olabilir erişim ihlali özel durumlara neden olabilir. Örneğin, iiscore! W3_CONTEXT_BASE::GetIsLastNotification + iiscore.dll 68 bir erişim ihlali özel durumu (0xC0000005) neden.
 
@@ -212,7 +212,7 @@ Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/en-us/lib
 
 ### <a name="asynchronous-page-events-with-web-forms"></a>Web Forms ile zaman uyumsuz sayfası olayları
 
-Sayfa yaşam döngüsü olayları için void yöntemleri zaman uyumsuz yazma Web formlarında öneri: Kaçının ve bunun yerine kullanın [Page.RegisterAsyncTask](https://msdn.microsoft.com/en-us/library/system.web.ui.page.registerasynctask.aspx) zaman uyumsuz kodu.
+Sayfa yaşam döngüsü olayları için void yöntemleri zaman uyumsuz yazma Web formlarında öneri: Kaçının ve bunun yerine kullanın [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) zaman uyumsuz kodu.
 
 Bir sayfa olayla işaretlediğinizde **zaman uyumsuz** ve **void**, zaman uyumsuz kod bittiği olmadığını belirleyemez. Bunun yerine, Page.RegisterAsyncTask zaman uyumsuz kod kendi tamamlama izlemenize olanak sağlayan bir şekilde çalıştırmak için kullanın.
 
@@ -244,15 +244,15 @@ ASP.NET içine bu iş gerçekleştirmeniz gerekirse, adlı Nuget paketi ekleyebi
 
 En kısa Request.Form veya Request.InputStream okumalısınız olduğu işleyicinin sırasında yürütme olay. MVC, işleyici denetleyicisidir ve eylem yöntemi çalıştığında execute etkinliğidir. Web Forms işleyici sayfasıdır ve Page.Init olay başlatıldığında execute etkinliğidir. Execute olay'den önceki istek Varlık gövdesi okuma, isteğin işlenmesi müdahale.
 
-Execute olayından önce istek Varlık gövdesi okuma gerekiyorsa kullanın ya da [Request.GetBufferlessInputStream](https://msdn.microsoft.com/en-us/library/ff406798.aspx) veya [Request.GetBufferedInputStream](https://msdn.microsoft.com/en-us/library/system.web.httprequest.getbufferedinputstream.aspx). GetBufferlessInputStream kullandığınızda ham akış istekten alma ve tüm istek işleme sorumluluğunu üstlenmesini. Bunlar ASP.NET tarafından doldurulduğunu değil çünkü GetBufferlessInputStream çağrıldıktan sonra Request.Form ve Request.InputStream kullanılabilir değil. GetBufferedInputStream kullandığınızda, gelen isteği akış bir kopyasını alın. ASP.NET diğer kopya doldurur çünkü Request.Form ve Request.InputStream isteği daha sonra hala kullanılabilir durumdadır.
+Execute olayından önce istek Varlık gövdesi okuma gerekiyorsa kullanın ya da [Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx) veya [Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx). GetBufferlessInputStream kullandığınızda ham akış istekten alma ve tüm istek işleme sorumluluğunu üstlenmesini. Bunlar ASP.NET tarafından doldurulduğunu değil çünkü GetBufferlessInputStream çağrıldıktan sonra Request.Form ve Request.InputStream kullanılabilir değil. GetBufferedInputStream kullandığınızda, gelen isteği akış bir kopyasını alın. ASP.NET diğer kopya doldurur çünkü Request.Form ve Request.InputStream isteği daha sonra hala kullanılabilir durumdadır.
 
 <a id="redirect"></a>
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect ve Response.End
 
-Öneri: iş parçacığı çağrıldıktan sonra nasıl işleneceğini farklar haberdar [Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx).
+Öneri: iş parçacığı çağrıldıktan sonra nasıl işleneceğini farklar haberdar [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
-[Response.Redirect(String)](https://msdn.microsoft.com/en-us/library/t9dwyts4.aspx) yöntemi Response.End yöntemini çağırır. Zaman uyumlu bir işlemde hemen durdurmak geçerli iş parçacığının Request.Redirect çağırma neden olur. İstek için kod yürütme devam eder ancak, zaman uyumsuz bir işlem Response.Redirect çağırma geçerli iş parçacığının abort değil. Zaman uyumsuz bir işlem görevi kod yürütmeyi durdurmaya yönteminden döndürmelidir.
+[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) yöntemi Response.End yöntemini çağırır. Zaman uyumlu bir işlemde hemen durdurmak geçerli iş parçacığının Request.Redirect çağırma neden olur. İstek için kod yürütme devam eder ancak, zaman uyumsuz bir işlem Response.Redirect çağırma geçerli iş parçacığının abort değil. Zaman uyumsuz bir işlem görevi kod yürütmeyi durdurmaya yönteminden döndürmelidir.
 
 MVC projesinde Response.Redirect çağırmalısınız değil. Bunun yerine, bir RedirectResult döndürür.
 
@@ -286,7 +286,7 @@ Daha fazla bilgi için bkz: [ASP.NET Evrensel Sağlayıcılar Tanıtımı](http:
 
 ### <a name="long-running-requests-110-seconds"></a>Uzun süre çalışan istekler (> 110 saniye)
 
-Öneri: Kullanmak [WebSockets](https://msdn.microsoft.com/en-us/library/system.net.websockets.websocket.aspx) veya [SignalR](../../../signalr/index.md) bağlanan istemciler ve zaman uyumsuz g/ç işlemleri kullanın.
+Öneri: Kullanmak [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) veya [SignalR](../../../signalr/index.md) bağlanan istemciler ve zaman uyumsuz g/ç işlemleri kullanın.
 
 Uzun süre çalışan istekler öngörülemeyen sonuçlara ve performansın web uygulamanızda neden olabilir. Bir istek için varsayılan zaman aşımı ayarını 110 saniyedir. ASP.NET oturum durumu uzun süre çalışan istekle kullanıyorsanız, oturum nesnesi üzerinde kilit 110 saniye sonra serbest bırakır. Ancak, uygulamanızın oturum nesnesi üzerinde bir işlemi gerçekleştiriyor kilidi serbest ve işlemi başarıyla tamamlanmayabilir olabilir. İlk istek çalışırken kullanıcıdan ikinci bir isteği engellenirse, ikinci bir istek tutarsız bir duruma Session nesnesinde erişebilir.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b6e71470ae2888ac4332f896c34f666618a425e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>DataList ve yineleyici denetimleri (VB) ile verileri görüntüleme
 ====================
@@ -163,7 +163,7 @@ Ek olarak `ItemTemplate`, DataList altı isteğe bağlı şablonları destekler:
 
 - `HeaderTemplate`sağlanırsa, çıkış için bir başlık satırı ekler ve bu satır işlemek için kullanılır
 - `AlternatingItemTemplate`değişen öğeleri işlemek için kullanılan
-- `SelectedItemTemplate`Seçili öğeyi işlemek için kullanılan; Seçili öğenin dizinini karşılık gelen s DataList öğesi olan [ `SelectedIndex` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`Seçili öğeyi işlemek için kullanılan; Seçili öğenin dizinini karşılık gelen s DataList öğesi olan [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`düzenlenen öğesi oluşturmak için kullanılan
 - `SeparatorTemplate`sağlanırsa, her bir öğe arasındaki ayırıcı ekler ve bu ayırıcı işlemek için kullanılır
 - `FooterTemplate`-verdiyse, çıkışı bir altbilgi satır ekler ve bu satırı işlemek için kullanılır
@@ -222,7 +222,7 @@ ASP.NET 1.x, denetim verisini bazı veri kaynağından gelen madde işaretli bir
 - İçinde `SectionLevelTutorialListing.ascx`, geçerli site eşlemesi bölümü alt bölümlerini madde işaretli bir listesini görüntülemek için kullanılan bir yineleyici
 
 > [!NOTE]
-> ASP.NET 2.0 tanıtır yeni [Bulletedlıst denetim](https://msdn.microsoft.com/en-us/library/ms228101.aspx), hangi bağlanabilir bir veri kaynağı denetimi basit madde işaretli listesini görüntülemek için. Bulletedlıst denetimiyle biz herhangi bir listeyle ilgili HTML belirtmek gerekmez; Bunun yerine, biz yalnızca her liste öğesi için metin olarak görüntülemek için veri alanı belirtin.
+> ASP.NET 2.0 tanıtır yeni [Bulletedlıst denetim](https://msdn.microsoft.com/library/ms228101.aspx), hangi bağlanabilir bir veri kaynağı denetimi basit madde işaretli listesini görüntülemek için. Bulletedlıst denetimiyle biz herhangi bir listeyle ilgili HTML belirtmek gerekmez; Bunun yerine, biz yalnızca her liste öğesi için metin olarak görüntülemek için veri alanı belirtin.
 
 
 Yineleyici tüm verileri Web denetimi catch görev yapar. Yineleyici denetimi gerekli biçimlendirmeleri oluşturur, varolan bir denetim değilse kullanılabilir. Yineleyici kullanarak göstermek için ürün bilgi 2. adımda oluşturulan DataList yukarıda görüntülenen kategoriler listesine sahip s olanak tanır. Özellikle, let s sahip tek satır HTML biçiminde görüntülenen kategorileri `<table>` her kategoride tablodaki bir sütun olarak görüntülenir.

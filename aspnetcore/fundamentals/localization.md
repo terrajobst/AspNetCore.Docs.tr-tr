@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -39,9 +39,9 @@ ASP.NET Core içinde sunulan `IStringLocalizer` ve `IStringLocalizer<T>` yerelle
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
 
-Yukarıdaki kod `IStringLocalizer<T>` uygulama gelir [bağımlılık ekleme](dependency-injection.md). Yerelleştirilmiş hakkında "Title" değerini bulunamadı sonra Dizin Oluşturucu anahtar, başka bir deyişle, dize "hakkında Title" döndürülür. Varsayılan dil değişmez değer dizeleri uygulamada bırakın ve böylece uygulama geliştirmeye odaklanabilirsiniz bunları yerelleştiriciye içinde sarmalayın. Varsayılan dili ile uygulamanızı geliştirin ve varsayılan bir kaynak dosyası oluşturmadan yerelleştirme adım için hazırlayın. Alternatif olarak, geleneksel yaklaşım kullanın ve varsayılan dil dizesini almak için bir anahtar sağlar. Birçok geliştiriciler için bir varsayılan dil olmaması, yeni iş akışı *.resx* dosya ve yalnızca dize değişmez değerleri kaydırma uygulama yerelleştirme yükünü azaltabilir. Bu, uzun dize değişmez değerleri ile çalışır ve yerelleştirilmiş dizeleri güncelleştirme kolaylaştırmak kolaylaştırabilir gibi diğer geliştiriciler geleneksel iş akışı tercih eder.
+Yukarıdaki kod `IStringLocalizer<T>` uygulama gelir [bağımlılık ekleme](dependency-injection.md). Yerelleştirilmiş hakkında "Title" değerini bulunamadığında sonra Dizin Oluşturucu anahtar, başka bir deyişle, dize "hakkında Title" döndürülür. Varsayılan dil değişmez değer dizeleri uygulamada bırakın ve böylece uygulama geliştirmeye odaklanabilirsiniz bunları yerelleştiriciye içinde sarmalayın. Varsayılan dili ile uygulamanızı geliştirin ve varsayılan bir kaynak dosyası oluşturmadan yerelleştirme adım için hazırlayın. Alternatif olarak, geleneksel yaklaşım kullanın ve varsayılan dil dizesini almak için bir anahtar sağlar. Birçok geliştiriciler için bir varsayılan dil olmaması, yeni iş akışı *.resx* dosya ve yalnızca dize değişmez değerleri kaydırma uygulama yerelleştirme yükünü azaltabilir. Bu, uzun dize değişmez değerleri ile çalışır ve yerelleştirilmiş dizeleri güncelleştirme kolaylaştırmak kolaylaştırabilir gibi diğer geliştiriciler geleneksel iş akışı tercih eder.
 
-Kullanım `IHtmlLocalizer<T>` HTML içeren kaynaklar için uygulama. `IHtmlLocalizer`Kaynak dizesi biçimlendirilmiş bağımsız değişkenleri HTML kodlar, ancak kaynak dizesi değil HTML kodlama yapar. Aşağıdaki örnekte vurgulanmış değeri aşağıda yalnızca `name` HTML kodlu bir parametredir.
+Kullanım `IHtmlLocalizer<T>` HTML içeren kaynaklar için uygulama. `IHtmlLocalizer`Kaynak dizesi biçimlendirilmiş bağımsız değişkenleri HTML kodlar, ancak kaynak dizesi HTML kodlama değil. Aşağıdaki örnekte vurgulanmış değeri aşağıda yalnızca `name` HTML kodlu bir parametredir.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -152,7 +152,7 @@ Alternatif olarak, bu hatayı yoksayabilirsiniz. Sonraki sürümde bu sorunu gid
 
 ## <a name="resource-file-naming"></a>Kaynak dosya adlandırma
 
-Kaynaklar, derleme adı eksi kendi sınıfı tam tür adını adlandırılır. Örneğin, Fransızca kaynak, ana derleme projesinde `LocalizationWebsite.Web.dll` sınıfı için `LocalizationWebsite.Web.Startup` sayfadayken *Startup.fr.resx*. Sınıfı için bir kaynak `LocalizationWebsite.Web.Controllers.HomeController` sayfadayken *Controllers.HomeController.fr.resx*. Hedeflenen sınıfınızın ad alanı derleme adıyla aynı değilse, tam tür adı gerekir. Örneğin, bir kaynak türü için örnek proje `ExtraNamespace.Tools` sayfadayken *ExtraNamespace.Tools.fr.resx*.
+Kaynaklar, derleme adı eksi kendi sınıfı tam tür adını adlandırılır. Örneğin, Fransızca kaynak, ana derleme projesinde `LocalizationWebsite.Web.dll` sınıfı için `LocalizationWebsite.Web.Startup` sayfadayken *Startup.fr.resx*. Sınıfı için bir kaynak `LocalizationWebsite.Web.Controllers.HomeController` sayfadayken *Controllers.HomeController.fr.resx*. Hedeflenen sınıfınızın ad alanı derleme adıyla aynı değilse tam tür adı gerekir. Örneğin, bir kaynak türü için örnek proje `ExtraNamespace.Tools` sayfadayken *ExtraNamespace.Tools.fr.resx*.
 
 Örnek Proje `ConfigureServices` yöntemi kümeleri `ResourcesPath` "Kaynaklar", bu nedenle proje göreli ev denetleyicisinin Fransızca kaynak dosyasının yoludur *Resources/Controllers.HomeController.fr.resx*. Alternatif olarak, kaynak dosyaları düzenlemek için klasörler kullanabilirsiniz. Ev denetleyici için yol olacaktır *Resources/Controllers/HomeController.fr.resx*. Kullanmazsanız `ResourcesPath` seçeneği *.resx* dosya proje temel dizininde gitmek. Kaynak dosyanın `HomeController` sayfadayken *Controllers.HomeController.fr.resx*. Nokta veya yol adlandırma kuralını kullanarak seçimi nasıl, kaynak dosyalarınızı düzenlemek istediğiniz yere bağlıdır.
 
@@ -176,7 +176,7 @@ Kullanmazsanız `ResourcesPath` seçeneği *.resx* bir görünümü Görünüm o
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio ile kaynak dosyaları üretilemedi
 
-Dosya adında bir kültür olmadan Visual Studio'da bir kaynak dosyası oluşturmak istiyorsanız (örneğin, *Welcome.resx*), Visual Studio, her bir dize için bir özellik ile bir C# sınıfı oluşturur. Genellikle, ASP.NET Core ile istediğinizi değil olan; Tipik bir varsayılan yok *.resx* kaynak dosyası (A *.resx* dosyayı kültür adı olmadan). Oluşturduğunuz önerdiğimiz *.resx* bir kültür adı dosyasıyla (örneğin *Welcome.fr.resx*). Oluştururken bir *.resx* bir kültür adı, Visual Studio dosyası değil sınıf dosyası oluşturun. Çoğu geliştiricinin olacağı düşündüğünüz **değil** bir varsayılan dil kaynak dosyası oluşturun.
+Dosya adında bir kültür olmadan Visual Studio'da bir kaynak dosyası oluşturmak istiyorsanız (örneğin, *Welcome.resx*), Visual Studio, her bir dize için bir özellik ile bir C# sınıfı oluşturur. Genellikle, ASP.NET Core ile istediğinizi değil olan; Tipik bir varsayılan yok *.resx* kaynak dosyası (A *.resx* dosyayı kültür adı olmadan). Oluşturduğunuz önerdiğimiz *.resx* bir kültür adı dosyasıyla (örneğin *Welcome.fr.resx*). Oluştururken bir *.resx* dosyası bir kültür adı, Visual Studio sınıf dosyası oluşturma olmaz. Çoğu geliştiricinin olacağı düşündüğünüz **değil** bir varsayılan dil kaynak dosyası oluşturun.
 
 ### <a name="add-other-cultures"></a>Diğer kültürler ekleme
 
@@ -234,7 +234,7 @@ Yalnızca bir kültür bilgisi ve UI kültürü belirtirseniz, belirtilen kült�
 
 ### <a name="the-accept-language-http-header"></a>Accept-Language HTTP üstbilgisi
 
-[Accept-Language üstbilgi](https://www.w3.org/International/questions/qa-accept-lang-locales) çoğu tarayıcıda ayarlanabilir ve kullanıcının dil belirtmek için tasarlanmıştır. Bu ayar ne tarayıcı göndermesi için ayarlanmasının veya temel işletim sisteminden devralınan izinlere sahip gösterir. Bir tarayıcı isteğini Accept-Language HTTP başlığından kullanıcının tercih edilen dili algılamak için infallible bir yol değil (bkz [bir tarayıcıda dil tercihlerini ayarlama](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Bir üretim uygulaması kültür kendi seçtikleri özelleştirmek bir kullanıcı için bir yol içermelidir.
+[Accept-Language üstbilgi](https://www.w3.org/International/questions/qa-accept-lang-locales) çoğu tarayıcıda ayarlanabilir ve kullanıcının dil belirtmek için tasarlanmıştır. Bu ayar ne tarayıcı göndermesi için ayarlanmasının veya temel işletim sisteminden devralınan izinlere sahip gösterir. Bir tarayıcı isteğini Accept-Language HTTP başlığından kullanıcının tercih edilen dili algılamak için infallible bir yolu değildir (bkz [bir tarayıcıda dil tercihlerini ayarlama](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Bir üretim uygulaması kültür kendi seçtikleri özelleştirmek bir kullanıcı için bir yol içermelidir.
 
 ### <a name="set-the-accept-language-http-header-in-ie"></a>IE Accept-Language HTTP üstbilgisi kümesi
 

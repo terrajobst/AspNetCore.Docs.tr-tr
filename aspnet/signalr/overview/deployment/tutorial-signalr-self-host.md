@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 997756ff8d48e41da981491d6154f3107ec7a051
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d38e6fbc3407e4beca6942bbdefcaa8258ebc5ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-signalr-self-host"></a>Öğretici: SignalR kendini barındırma
 ====================
@@ -94,7 +94,7 @@ Bu öğreticide, barındırılan bir sunucu bir konsol uygulaması oluşturacaks
 
     Yukarıdaki kod üç sınıfları içerir:
 
-    - **Program**dahil **ana** yürütme birincil yolu tanımlama yöntemi. Bu yöntemde, bir web uygulaması türünün **başlangıç** belirtilen URL'de başlatıldı (`http://localhost:8080`). SSL güvenlik noktadaki gerekirse uygulanabilir. Bkz: [nasıl yapılır: bir SSL sertifikası ile bir bağlantı noktası yapılandırın](https://msdn.microsoft.com/en-us/library/ms733791.aspx) daha fazla bilgi için.
+    - **Program**dahil **ana** yürütme birincil yolu tanımlama yöntemi. Bu yöntemde, bir web uygulaması türünün **başlangıç** belirtilen URL'de başlatıldı (`http://localhost:8080`). SSL güvenlik noktadaki gerekirse uygulanabilir. Bkz: [nasıl yapılır: bir SSL sertifikası ile bir bağlantı noktası yapılandırın](https://msdn.microsoft.com/library/ms733791.aspx) daha fazla bilgi için.
     - **Başlangıç**, SignalR sunucu yapılandırmasını içeren sınıf (Bu öğretici kullanır yalnızca çağrısı yapılandırmadır `UseCors`) ve çağrısı `MapSignalR`, projede yollar için herhangi bir Hub nesne oluşturur.
     - **MyHub**, istemcilere uygulama sağlayacak SignalR hub'ı sınıfı. Bu sınıfın tek bir yönteme sahip **Gönder**, istemcilerin diğer tüm bağlı istemcilere bir ileti yayınlamak için çağırır.
 6. Derleme ve uygulamayı çalıştırın. Çalıştıran bir sunucuda adresi konsol penceresinde göstermesi gerekir.

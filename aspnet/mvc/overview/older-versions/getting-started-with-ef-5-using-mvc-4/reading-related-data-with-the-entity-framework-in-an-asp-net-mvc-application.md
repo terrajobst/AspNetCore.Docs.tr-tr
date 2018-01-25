@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f455c3656c9120f4d7e6fccdba8f705e0a1c7d35
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Okuma ilgili verileri Entity Framework bir ASP.NET MVC uygulamasındaki (5 / 10)
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -68,7 +68,7 @@ Veritabanı bağlamı sınıfının yavaş yükleniyor varsayılan olarak gerçe
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Yavaş yükleniyor performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, açık veya istekli yükleme belirtmiyor ancak varlıklar yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle, çok sayıda gidiş dönüş veritabanına) çok verimsiz olabilir. İyi bir şirket içi SQL server kullanarak geliştirme gerçekleştiren bir uygulama için Azure SQL veritabanı daha yüksek gecikme süresi ve yavaş yükleniyor nedeniyle taşındıklarında performans sorunları olabilir. Gerçekçi test yük veritabanı sorgularıyla profil yavaş yükleniyor uygun olup olmadığını belirleme yardımcı olur. Daha fazla bilgi için bkz: [Demystifying Entity Framework stratejileri: ilgili veri yükleme](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) ve [SQL Azure ağ gecikmesini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Yavaş yükleniyor performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, açık veya istekli yükleme belirtmiyor ancak varlıklar yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle, çok sayıda gidiş dönüş veritabanına) çok verimsiz olabilir. İyi bir şirket içi SQL server kullanarak geliştirme gerçekleştiren bir uygulama için Azure SQL veritabanı daha yüksek gecikme süresi ve yavaş yükleniyor nedeniyle taşındıklarında performans sorunları olabilir. Gerçekçi test yük veritabanı sorgularıyla profil yavaş yükleniyor uygun olup olmadığını belirleme yardımcı olur. Daha fazla bilgi için bkz: [Demystifying Entity Framework stratejileri: ilgili veri yükleme](https://msdn.microsoft.com/magazine/hh205756.aspx) ve [SQL Azure ağ gecikmesini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ## <a name="create-a-courses-index-page-that-displays-department-name"></a>Bu görüntüler bölüm adı kurslar dizin sayfası oluşturma
 
@@ -155,7 +155,7 @@ Yöntem isteğe bağlı rota veri kabul eder (`id`) ve bir sorgu dizesi parametr
 > 
 > Rota verilerini, model bağlayıcı yönlendirme tablosunda belirtilen URL kesimi bulunan verilerdir. Örneğin, varsayılan yolu belirtir `controller`, `action`, ve `id` kesimleri:
 > 
-> yollar. MapRoute)  
+> routes.MapRoute(  
 >  Ad: "Varsayılan"  
 >  URL: "{controller} / {action} / {id}",  
 >  Varsayılan: yeni {denetleyicisi "Home", Eylem = "Dizin" = kimliği UrlParameter.Optional =}  
@@ -194,7 +194,7 @@ Eğitmen kimliği seçildiyse, seçili Eğitmen görünüm modeli Eğitmen liste
 
 `Where` Yöntem koleksiyonu döndürür, ancak bu yöntem sonucu yalnızca tek bir ölçüt bu durumda geçirilen `Instructor` döndürülen varlık. `Single` Yöntemi tek bir koleksiyon dönüştürür `Instructor` bu varlığın erişmenizi varlık `Courses` özelliği.
 
-Kullandığınız [tek](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) koleksiyonu bildiğiniz durumlarda bir koleksiyon yöntemi yalnızca bir öğe olacaktır. `Single` Yöntem kendisine geçirilen koleksiyonu boş ise veya birden çok öğe varsa bir özel durum oluşturur. Bir alternatif [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), varsayılan değeri döndürür (`null` bu durumda) koleksiyonu boş ise. Ancak, bu durumda hala sonuçlanacak bir özel durum (bulunmaya çalışılırken gelen bir `Courses` özelliği bir `null` başvuru), ve özel durum iletisi daha az açıkça sorunun nedenini gösterir. Çağırdığınızda `Single` yöntemi, siz de geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
+Kullandığınız [tek](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) koleksiyonu bildiğiniz durumlarda bir koleksiyon yöntemi yalnızca bir öğe olacaktır. `Single` Yöntem kendisine geçirilen koleksiyonu boş ise veya birden çok öğe varsa bir özel durum oluşturur. Bir alternatif [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), varsayılan değeri döndürür (`null` bu durumda) koleksiyonu boş ise. Ancak, bu durumda hala sonuçlanacak bir özel durum (bulunmaya çalışılırken gelen bir `Courses` özelliği bir `null` başvuru), ve özel durum iletisi daha az açıkça sorunun nedenini gösterir. Çağırdığınızda `Single` yöntemi, siz de geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs)]
 

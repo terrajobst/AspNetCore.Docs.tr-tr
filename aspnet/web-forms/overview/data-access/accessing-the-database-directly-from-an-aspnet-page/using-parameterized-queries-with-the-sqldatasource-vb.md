@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1a56990c87c1faa93612dcca0732ee789078dfe2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1cda18620a970c45b05039dd380c393e3854889
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Parametreli sorgular SqlDataSource (VB) ile kullanma
 ====================
@@ -209,7 +209,7 @@ Saklı yordam giriş parametresi kabul bu yana (`@CategoryID`), İleri'yi tıkla
 **Şekil 11**: Meşrubat kategorisinde ürünleri döndürmek için 1 Hard-Coded değerini kullanın ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-parameterized-queries-with-the-sqldatasource-vb/_static/image22.png))
 
 
-Saklı yordam, SqlDataSource s kullanırken aşağıdaki gösterildiği gibi bildirim temelli biçimlendirme, `SelectCommand` özelliğini saklı yordamın adını ayarlayın ve [ `SelectCommandType` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) ayarlanır `StoredProcedure`, belirten `SelectCommand` geçici SQL deyimi yerine bir saklı yordam adıdır.
+Saklı yordam, SqlDataSource s kullanırken aşağıdaki gösterildiği gibi bildirim temelli biçimlendirme, `SelectCommand` özelliğini saklı yordamın adını ayarlayın ve [ `SelectCommandType` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.selectcommandtype.aspx) ayarlanır `StoredProcedure`, belirten `SelectCommand` geçici SQL deyimi yerine bir saklı yordam adıdır.
 
 
 [!code-aspx[Main](using-parameterized-queries-with-the-sqldatasource-vb/samples/sample9.aspx)]
@@ -237,9 +237,9 @@ Bir SqlDataSource eklemeye başlayın `ParameterizedQueries.aspx` ve kendi `ID` 
 
 `ORDER BY NEWID()`rastgele düzende sıralanmış kayıtları döndürür (bkz [kullanma `NEWID()` rastgele sıralama kayıtlara](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`ilk kaydı sonuç kümesinden döndürür. Bu sorgunun döndürdüğü araya `CategoryID` ve `CategoryName` tek, rasgele seçilen kategori sütun değerleri.
 
-S kategori görüntülenecek `CategoryName` değer, bir etiket Web denetimi sayfasına eklemesine kendi `ID` özelliğine `CategoryNameLabel`ve temizleyin, `Text` özelliği. Program aracılığıyla SqlDataSource denetimden veri almak için çağrılacak ihtiyacımız kendi `Select()` yöntemi. [ `Select()` Yöntemi](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.select.aspx) türünde tek bir giriş parametresi bekliyor [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx), nasıl veri döndürülen önce messaged belirtir. Bu verileri sıralama ve filtreleme hakkında yönergeler içerebilir ve sıralama veya bir SqlDataSource denetimi verilerden aracılığıyla disk belleği Web denetimleri verileri tarafından kullanılır. Bizim örneğimizde rağmen biz güncelleştireceğinizi döndürülen önce değiştirilecek t gerek veri ve bu nedenle de geçer `DataSourceSelectArguments.Empty` nesnesi.
+S kategori görüntülenecek `CategoryName` değer, bir etiket Web denetimi sayfasına eklemesine kendi `ID` özelliğine `CategoryNameLabel`ve temizleyin, `Text` özelliği. Program aracılığıyla SqlDataSource denetimden veri almak için çağrılacak ihtiyacımız kendi `Select()` yöntemi. [ `Select()` Yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) türünde tek bir giriş parametresi bekliyor [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), nasıl veri döndürülen önce messaged belirtir. Bu verileri sıralama ve filtreleme hakkında yönergeler içerebilir ve sıralama veya bir SqlDataSource denetimi verilerden aracılığıyla disk belleği Web denetimleri verileri tarafından kullanılır. Bizim örneğimizde rağmen biz güncelleştireceğinizi döndürülen önce değiştirilecek t gerek veri ve bu nedenle de geçer `DataSourceSelectArguments.Empty` nesnesi.
 
-`Select()` Yöntemi uygulayan bir nesne döndürür `IEnumerable`. Kesin türü döndürdü bağlıdır SqlDataSource denetimi s değerini [ `DataSourceMode` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx). Önceki öğreticide açıklandığı gibi bu özellik için herhangi bir değer ayarlanabilir `DataSet` veya `DataReader`. Varsa kümesine `DataSet`, `Select()` yöntemi döndürür bir [DataView](https://msdn.microsoft.com/en-us/library/01s96x0z.aspx) nesne; kümesine IF `DataReader`, uygulayan bir nesne döndürür [ `IDataReader` ](https://msdn.microsoft.com/en-us/library/system.data.idatareader.aspx). Bu yana `RandomCategoryDataSource` SqlDataSource sahip kendi `DataSourceMode` özelliğini `DataSet` (varsayılan), biz DataView nesnesi ile çalışacaksınız.
+`Select()` Yöntemi uygulayan bir nesne döndürür `IEnumerable`. Kesin türü döndürdü bağlıdır SqlDataSource denetimi s değerini [ `DataSourceMode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.datasourcemode.aspx). Önceki öğreticide açıklandığı gibi bu özellik için herhangi bir değer ayarlanabilir `DataSet` veya `DataReader`. Varsa kümesine `DataSet`, `Select()` yöntemi döndürür bir [DataView](https://msdn.microsoft.com/library/01s96x0z.aspx) nesne; kümesine IF `DataReader`, uygulayan bir nesne döndürür [ `IDataReader` ](https://msdn.microsoft.com/library/system.data.idatareader.aspx). Bu yana `RandomCategoryDataSource` SqlDataSource sahip kendi `DataSourceMode` özelliğini `DataSet` (varsayılan), biz DataView nesnesi ile çalışacaksınız.
 
 Aşağıdaki kod kayıtları almak nasıl gösterir `RandomCategoryDataSource` SqlDataSource DataView olarak nasıl okunacağını yanı sıra `CategoryName` ilk DataView satırdan sütun değeri:
 

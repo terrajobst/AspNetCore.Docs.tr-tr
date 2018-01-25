@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: b225d9911246b3e2be1679b73a9f31d9f8577ba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web dağıtımı yayımlama için veritabanı sunucusunu yapılandırma
 ====================
@@ -48,7 +48,7 @@ Bu konuda her bu yordamları gerçekleştirmek nasıl yapacağınızı gösterir
 SQL Server örneği yalnızca içermesi gerekir **veritabanı altyapısı Hizmetleri** otomatik olarak tüm SQL Server yüklemesine dahil rol. Ancak, yapılandırma ve Bakım kolaylaştırmak için dahil öneririz **Yönetim Araçları – temel** ve **Yönetim Araçları – tam** sunucu rolleri.
 
 > [!NOTE]
-> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). SQL Server yükleme hakkında daha fazla bilgi için bkz: [SQL Server 2008 R2 yükleme](https://technet.microsoft.com/en-us/library/bb500395.aspx).
+> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). SQL Server yükleme hakkında daha fazla bilgi için bkz: [SQL Server 2008 R2 yükleme](https://technet.microsoft.com/library/bb500395.aspx).
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>SQL Server için uzaktan erişimi etkinleştirin
@@ -66,7 +66,7 @@ SQL Server'ın TCP/IP üzerinden iletişim kurmasını sağlamak için SQL Serve
 2. Ağaç görünümü bölmesinde **SQL Server Ağ Yapılandırması**ve ardından **MSSQLSERVER protokolleri**.
 
     > [!NOTE]
-    > SQL Server'ın birden çok örneği yüklüyse göreceğiniz bir **için protokolleri***[örnek adı]* her örneği için öğesi. Bir örnek tarafından örneği bazında ağ ayarlarını yapılandırmanız gerekir.
+    > SQL Server'ın birden çok örneği yüklüyse göreceğiniz bir **için protokolleri *** [örnek adı]* her örneği için öğesi. Bir örnek tarafından örneği bazında ağ ayarlarını yapılandırmanız gerekir.
 3. Ayrıntılar bölmesinde, **TCP/IP'yi** satır ve ardından **etkinleştirmek**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -102,7 +102,7 @@ SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak traf
   
 
 > [!NOTE]
-> Teknik olarak, bir istemci bilgisayar SQL Server ile iletişim kurmak için 1024 ile 5000 arasında rastgele atanan bir TCP bağlantı noktası kullanır ve buna göre güvenlik duvarı kuralları kısıtlayabilirsiniz. SQL Server bağlantı noktaları ve güvenlik duvarları hakkında daha fazla bilgi için bkz: [SQL için bir güvenlik duvarı iletişim kurmak için gereken TCP/IP bağlantı noktası numaralarını](https://go.microsoft.com/?linkid=9805125) ve [nasıl yapılır: belirli bir TCP bağlantı noktası üzerinde (SQL Server yapılandırma dinlemek üzere yapılandırmak Yöneticisi)](https://msdn.microsoft.com/en-us/library/ms177440.aspx).
+> Teknik olarak, bir istemci bilgisayar SQL Server ile iletişim kurmak için 1024 ile 5000 arasında rastgele atanan bir TCP bağlantı noktası kullanır ve buna göre güvenlik duvarı kuralları kısıtlayabilirsiniz. SQL Server bağlantı noktaları ve güvenlik duvarları hakkında daha fazla bilgi için bkz: [SQL için bir güvenlik duvarı iletişim kurmak için gereken TCP/IP bağlantı noktası numaralarını](https://go.microsoft.com/?linkid=9805125) ve [nasıl yapılır: belirli bir TCP bağlantı noktası üzerinde (SQL Server yapılandırma dinlemek üzere yapılandırmak Yöneticisi)](https://msdn.microsoft.com/library/ms177440.aspx).
 
 
 Çoğu Windows Server ortamlarda, büyük olasılıkla veritabanı sunucusunda Windows Güvenlik duvarını yapılandırmanız gerekecektir. Bir kural özellikle engellediği sürece varsayılan olarak, Windows Güvenlik Duvarı tüm giden trafiğe izin verir. Veritabanınıza erişmek için web sunucunuzu etkinleştirmek için SQL Server örneğinin kullandığı bağlantı noktası numarasını TCP trafiğine izin veren bir gelen kuralı yapılandırmanız gerekir. SQL Server varsayılan örneğini kullanıyorsanız, bu kuralı yapılandırmak için bir sonraki yordamı kullanabilirsiniz.
@@ -126,11 +126,11 @@ SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak traf
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. Üzerinde **adı** sayfasında, kuralın düzgün açıklayıcı bir ad girin (örneğin, **SQL Server varsayılan örneğini – ağ erişimi**) ve ardından **son**.
 
-Özellikle gerekiyorsa SQL Server ile standart olmayan veya dinamik bağlantı noktaları üzerinden iletişim kurmak için bkz: SQL Server için Windows Güvenlik duvarını yapılandırma hakkında daha fazla bilgi için [nasıl yapılır: bir Windows Güvenlik Duvarı veritabanı altyapısı erişimi için yapılandırma](https://technet.microsoft.com/en-us/library/ms175043.aspx).
+Özellikle gerekiyorsa SQL Server ile standart olmayan veya dinamik bağlantı noktaları üzerinden iletişim kurmak için bkz: SQL Server için Windows Güvenlik duvarını yapılandırma hakkında daha fazla bilgi için [nasıl yapılır: bir Windows Güvenlik Duvarı veritabanı altyapısı erişimi için yapılandırma](https://technet.microsoft.com/library/ms175043.aspx).
 
 ## <a name="configure-logins-and-database-permissions"></a>Oturumu yapılandırmak ve veritabanı izinleri
 
-Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun *[etki alanı adı]***\***[makine adı]***$**&#x2014;Örneğin, **FABRIKAM\ TESTWEB1$**. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
+Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun * [etki alanı adı]***\*** [makine adı]***$** & #x 2014; Örneğin, **FABRIKAM\TESTWEB1$**. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
 
 - Web sunucusunun makine hesabı için oturum açma SQL Server örneğine ekleyin.
 - Makine hesabı oturum açma için herhangi bir gereken veritabanı rol eşleme (genellikle **db\_datareader** ve **db\_datawriter**).
@@ -183,7 +183,7 @@ Oturum açma ve veritabanı rolü eşlemeleri oluşturulmasını otomatik hale g
 Veritabanı rolleri el ile eşleme genellikle birden çok test ortamları için yeterli olmakla birlikte, hazırlık veya üretim ortamları için otomatik olarak veya tek tıklatmayla dağıtımları için daha az tercih edilir. Bu tür bir dağıtım sonrası komut dosyalarında kullanarak görev otomatikleştirme hakkında daha fazla bilgi bulabilirsiniz [Test ortamları için veritabanı rol üyeliklerini dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
 
 > [!NOTE]
-> Sunucu projeleri ve veritabanı projeler hakkında daha fazla bilgi için bkz: [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/en-us/library/ff678491.aspx).
+> Sunucu projeleri ve veritabanı projeler hakkında daha fazla bilgi için bkz: [Visual Studio 2010 SQL Server veritabanı projeleri](https://msdn.microsoft.com/library/ff678491.aspx).
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>Dağıtım hesap izinlerini yapılandırma

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 137ac45166be03ae3c4864f41666d2acd1a37dc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Kimlik doğrulama ve yetkilendirme ASP.NET Web API
 ====================
@@ -37,7 +37,7 @@ Serideki ilk makale ASP.NET Web API'de kimlik doğrulama ve yetkilendirme genel 
 
 Web API, kimlik doğrulamasının ana bilgisayarda gerçekleşir varsayar. Web barındırma için kimlik doğrulaması için HTTP modülleri kullanan IIS bir ana bilgisayardır. IIS veya ASP.NET yerleşik olarak kimlik doğrulaması modüllerinden birini kullanmak için projenizin yapılandırabilir veya özel kimlik doğrulama gerçekleştirmek için kendi HTTP modülü yazma.
 
-Ana kullanıcı kimliği doğruladığında oluşturduğu bir *asıl*, olduğu bir [IPrincipal](https://msdn.microsoft.com/en-us/library/System.Security.Principal.IPrincipal.aspx) kodu altında çalıştığı güvenlik bağlamını temsil eden nesne. Ana bilgisayar sorumlu geçerli iş parçacığına ayarlayarak iliştirir **Thread.CurrentPrincipal**. Asıl ilişkili bir içeren **kimlik** kullanıcı hakkındaki bilgileri içeren nesne. Kullanıcı kimlik doğrulaması gerekiyorsa, **Identity.IsAuthenticated** özelliği döndürür **doğru**. Anonim istekler için **IsAuthenticated** döndürür **false**. İlkeleri hakkında daha fazla bilgi için bkz: [rol tabanlı güvenlik](https://msdn.microsoft.com/en-us/library/shz8h065.aspx).
+Ana kullanıcı kimliği doğruladığında oluşturduğu bir *asıl*, olduğu bir [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) kodu altında çalıştığı güvenlik bağlamını temsil eden nesne. Ana bilgisayar sorumlu geçerli iş parçacığına ayarlayarak iliştirir **Thread.CurrentPrincipal**. Asıl ilişkili bir içeren **kimlik** kullanıcı hakkındaki bilgileri içeren nesne. Kullanıcı kimlik doğrulaması gerekiyorsa, **Identity.IsAuthenticated** özelliği döndürür **doğru**. Anonim istekler için **IsAuthenticated** döndürür **false**. İlkeleri hakkında daha fazla bilgi için bkz: [rol tabanlı güvenlik](https://msdn.microsoft.com/library/shz8h065.aspx).
 
 ### <a name="http-message-handlers-for-authentication"></a>Kimlik doğrulaması için HTTP ileti işleyicileri
 
@@ -78,7 +78,7 @@ Yetkilendirme olur ardışık denetleyiciye yakın. Bu kaynaklara erişim izni o
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Kullanma [yetkilendirmek] özniteliği
 
-Web API'si sağlar yerleşik yetkilendirme filtresi [AuthorizeAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.authorizeattribute.aspx). Bu filtre, kullanıcının kimliği doğrulanır olup olmadığını denetler. Aksi durumda, eylemi çağırma olmadan HTTP durum kodunu 401 (yetkisiz) döndürür.
+Web API'si sağlar yerleşik yetkilendirme filtresi [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Bu filtre, kullanıcının kimliği doğrulanır olup olmadığını denetler. Aksi durumda, eylemi çağırma olmadan HTTP durum kodunu 401 (yetkisiz) döndürür.
 
 Genel olarak, denetleyici düzeyinde veya inidivual Eylemler düzeyinde filtre uygulayabilirsiniz.
 

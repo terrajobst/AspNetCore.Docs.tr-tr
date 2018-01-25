@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama
 ====================
@@ -150,7 +150,7 @@ PayPal döndüğünüzde gözden geçirin ve siparişinizin tamamlayın.
 
 Başlamadan önce aşağıdaki yazılım bilgisayarınızda yüklü olduğundan emin olun:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework otomatik olarak yüklenir.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir.
 
 Bu öğretici seri Web için Microsoft Visual Studio Express 2013 kullanır. Bu öğretici seri tamamlamak için Web için Visual Studio Express 2013 Microsoft veya Microsoft Visual Studio 2013'nı kullanabilirsiniz.
 
@@ -163,7 +163,7 @@ Yüklü Visual Studio sürümü zaten varsa, yükleme işlemi yanındaki mevcut 
 
 > [!NOTE] 
 > 
-> Bu kılavuz, seçtiğiniz varsayar *Web geliştirme* ayarlar koleksiyonu, Visual Studio ilk başlattığınızda. Daha fazla bilgi için bkz: [nasıl yapılır: Web geliştirme ortamı ayarlarını seçin](https://msdn.microsoft.com/en-us/library/ff521558.aspx).
+> Bu kılavuz, seçtiğiniz varsayar *Web geliştirme* ayarlar koleksiyonu, Visual Studio ilk başlattığınızda. Daha fazla bilgi için bkz: [nasıl yapılır: Web geliştirme ortamı ayarlarını seçin](https://msdn.microsoft.com/library/ff521558.aspx).
 
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin
@@ -179,7 +179,7 @@ Yüklü Visual Studio sürümü zaten varsa, yükleme işlemi yanındaki mevcut 
 
 Karşıdan yüklemenin bir *.zip* dosyası. Bu öğretici seri oluşturur projeyi bulun ve seçin, görmek için *C#*klasöründe *.zip* dosyası. Kaydet *C#* Folder Visual Studio 2013 projelerle çalışmak için kullandığınız klasör. Varsayılan olarak, Visual Studio 2013 projeleri klasör aşağıda verilmiştir:
 
-**C:\Users\*****&lt;kullanıcıadı&gt;*** \Documents\Visual Studio 2013\Projects**
+**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
 
 Yeniden Adlandır ***C#*** klasörüne ***WingtipToys***.
 
@@ -198,4 +198,4 @@ Bu öğretici serilerinde açıklamaları Hoş Geldiniz ve hesap düzeltmeleri v
 Geliştirme sırasında bir hata olduğunda ya da Web sitesinin düzgün çalışmıyorsa, hata iletileri karmaşık ipuçları sorun kaynağına verebilir veya bu sorunun nasıl açıklayabilir değil. Bazı yaygın sorun senaryolar ile yardımcı olmak için de kullanabilirsiniz [ASP.NET forumları](https://forums.asp.net/) veya birlikte Q ve bir bölüm [ASP.NET 4.5 Web formları ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) () C#) örnek. Bir hata iletisi alırsınız veya öğreticileri devam ederken bir sorun oluşması, yukarıdaki konumları denetlediğinizden emin olun.
 
 >[!div class="step-by-step"]
-[Sonraki](create-the-project.md)
+[Next](create-the-project.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Cross-Origin istekleri (CORS) etkinleştirme
 
@@ -44,7 +44,7 @@ Bu URL'leri iki farklı çıkış önceki daha vardır:
 * `http://example.com:9000/foo.html`-Farklı bir bağlantı noktası
 
 > [!NOTE]
-> Internet Explorer bağlantı noktası kaynakları karşılaştırılırken dikkate almaz.
+> Internet Explorer bağlantı noktası kaynakları karşılaştırma göz önünde değil.
 
 ## <a name="setting-up-cors"></a>CORS ayarlama
 
@@ -160,7 +160,7 @@ Tarayıcılar nasıl bunlar Access-Control-Request-Headers kümesinde tamamen tu
 
 ### <a name="set-the-exposed-response-headers"></a>Sunulan yanıt üstbilgilerini Ayarla
 
-Varsayılan olarak, tarayıcı tüm uygulama ve yanıt üst bilgilerini kullanıma sunmuyor. (Bkz [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Varsayılan olarak kullanılabilir yanıt üstbilgilerini şunlardır:
+Varsayılan olarak, tüm uygulama yanıt üstbilgilerinin tarayıcı açığa çıkarmıyor. (Bkz [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Varsayılan olarak kullanılabilir yanıt üstbilgilerini şunlardır:
 
 * Cache-Control
 
@@ -207,7 +207,7 @@ Ayrıca, sunucu kimlik bilgilerine izin vermeniz gerekir. Çıkış noktaları a
 
 Artık HTTP yanıtı sunucunun bir çıkış noktaları arası istek için kimlik bilgilerini sağlayan tarayıcı söyler bir erişim-denetim-Allow-Credentials üstbilgisi içerecektir.
 
-Kimlik bilgilerini tarayıcı gönderir, ancak yanıt geçerli erişim-denetim-Allow-Credentials üst bilgi içermeyen, tarayıcı uygulaması yanıtı kullanıma değil ve AJAX isteği başarısız olur.
+Kimlik bilgilerini tarayıcı gönderir, ancak yanıt geçerli erişim-denetim-Allow-Credentials üst bilgi içermeyen, tarayıcı uygulaması yanıtı kullanıma olmaz ve AJAX isteği başarısız olur.
 
 Bir Web sitesi başka bir etki alanına oturum açmış kullanıcının kimlik bilgileri kullanıcı adınıza ve uygulamanızın farkına kullanıcı gönderebilir gösterdiğinden çıkış noktaları arası kimlik bilgilerine izin verme konusunda çok dikkatli olun. CORS için bu ayarı kaynakları da durumları özel "*" (tüm kaynaklara) erişim-denetim-Allow-Credentials üstbilgisi mevcut değilse geçersiz.
 
@@ -252,7 +252,7 @@ Content-Length: 12
 Test message
 ```
 
-Yanıt Access-Control-Allow-Origin üst bilgi içermeyen AJAX isteği başarısız olur. Özellikle, tarayıcı istek izin vermez. Tarayıcı yanıt, sunucunun başarılı bir yanıt döndürürse bile, istemci uygulamasının kullanımına yapmaz.
+Access-Control-Allow-Origin üstbilgisi yanıt içermiyorsa, AJAX isteği başarısız olur. Özellikle, tarayıcı istek izin vermez. Sunucu başarılı bir yanıt döndürürse bile, tarayıcı yanıtı istemci uygulamasının kullanımına yapmaz.
 
 ### <a name="preflight-requests"></a>Denetim öncesi isteği
 
@@ -260,7 +260,7 @@ Bazı CORS istekler için tarayıcı kaynak gerçek isteği göndermeden önce b
 
 * İstek yöntemini GET, HEAD veya POST, olduğundan ve
 
-* Uygulama kabul etme, Accept-Language, Content-Language, dışındaki tüm istek üstbilgileri ayarlı değil Content-Type veya son-olay-ID ve
+* Uygulama kabul etme, Accept-Language, Content-Language, dışındaki tüm istek üstbilgileri ayarlamaz Content-Type veya son-olay-ID ve
 
 * Content-Type üstbilgisi (varsa ayarlayın) aşağıdakilerden biri:
 
@@ -270,7 +270,7 @@ Bazı CORS istekler için tarayıcı kaynak gerçek isteği göndermeden önce b
 
   * Metin/düz
 
-İstek üstbilgileri hakkında kural XMLHttpRequest nesnesinde setRequestHeader çağırarak uygulama ayarlar üstbilgileri uygulanır. (CORS belirtimi bu "Yazar istek üstbilgileri" çağırır.) Kural, User-Agent, ana bilgisayar veya Content-Length gibi tarayıcı ayarlayabilirsiniz üstbilgi için geçerli değildir.
+İstek üstbilgileri hakkında kural XMLHttpRequest nesnesinde setRequestHeader çağırarak uygulama ayarlar üstbilgileri uygulanır. (CORS belirtimi bu "Yazar istek üstbilgileri" çağırır.) Kural User-Agent, ana bilgisayar veya Content-Length gibi tarayıcı ayarlayabilirsiniz üstbilgileri uygulanmaz.
 
 Bir denetim öncesi isteği bir örneği burada verilmiştir:
 
@@ -290,7 +290,7 @@ Content-Length: 0
 
 * Access-Control-Request-Method: fiili istek için kullanılacak HTTP yöntemi.
 
-* Access-Control-Request-Headers: Uygulama gerçek isteği ayarlama istek üstbilgileri listesi. (Yeniden, bu tarayıcı ayarlar üstbilgileri dahil değildir.)
+* Access-Control-Request-Headers: Uygulama gerçek isteği ayarlama istek üstbilgileri listesi. (Yeniden, bu tarayıcı ayarlar üstbilgileri içermez.)
 
 Sunucu isteği izin verdiğini varsayarak bir örnek yanıt şöyledir:
 

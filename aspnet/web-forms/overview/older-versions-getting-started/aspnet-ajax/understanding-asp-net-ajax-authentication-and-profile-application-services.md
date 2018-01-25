@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 7e0ddc15fac9af40a0a20a99979a80517eb1b6a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama
 ====================
@@ -43,7 +43,7 @@ Bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlama
 
 Profil hizmeti kimlik doğrulama hizmeti tarafından sağlanan üyeliğine göre kullanıcı verilerinin depolanması ve otomatik tümleştirme sağlar. Web.config dosyasında depolanan verilerin belirtilen ve çeşitli profil hizmet sağlayıcıları veri yönetimini işlemesine. Böylece şu anda ASP.NET Profil Hizmeti özelliklerini uygulayıp sayfaları AJAX destek ekleyerek bozuk değil hizmetiyle kimlik doğrulaması gibi AJAX profil hizmeti standart ASP.NET Profil Hizmeti ile uyumludur.
 
-ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik kapsamı dışında değil. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [https://msdn.microsoft.com/en-us/library/tw292whz.aspx](https://msdn.microsoft.com/en-us/library/tw292whz.aspx). ASP.NET üyelik varsayılan kimlik doğrulama hizmet sağlayıcısı ASP.NET üyelik için bir SQL Server ile otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx).
+ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik kapsamı dışında değil. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET üyelik varsayılan kimlik doğrulama hizmet sağlayıcısı ASP.NET üyelik için bir SQL Server ile otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama Hizmeti'ni kullanma*
 
@@ -68,7 +68,7 @@ Tanımlar: login() yöntemi, kullanıcının kimlik bilgilerini doğrulamak içi
 | Kullanıcı adı | Gerekli. Kimlik doğrulaması için kullanıcı adı. |
 | Parola | İsteğe bağlı (varsayılan değeri null). Kullanıcının parolası. |
 | isPersistent | İsteğe bağlı (varsayılan değeri FALSE). Olup kullanıcının kimlik doğrulama tanımlama bilgisi oturumlarında kalıcı olması. False ise, kullanıcı tarayıcı kapatıldığında veya oturumun süresi dolduğunda oturumunuzu. |
-| Redirecturl'yi | İsteğe bağlı (varsayılan değeri null). Başarılı kimlik doğrulamasından sonra tarayıcıya yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
+| redirectUrl | İsteğe bağlı (varsayılan değeri null). Başarılı kimlik doğrulamasından sonra tarayıcıya yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
 | customInfo | İsteğe bağlı (varsayılan değeri null). Bu parametre, şu anda kullanılmayan ve gelecekte kullanılmak üzere ayrılmıştır. |
 | loginCompletedCallback | İsteğe bağlı (varsayılan değeri null). Oturum açma başarıyla tamamlandığında çağrılacak işlev. Belirtilmişse, bu parametre defaultLoginCompleted özelliğini geçersiz kılar. |
 | failedCallback | İsteğe bağlı (varsayılan değeri null). Oturum açma başarısız olduğunda çağrılacak işlev. Belirtilmişse, bu parametre defaultFailedCallback özelliğini geçersiz kılar. |
@@ -90,7 +90,7 @@ Logout() yöntemi kimlik tanımlama bilgileri kaldırır ve geçerli kullanıcı
 
 | **Parametre adı** | **Anlamı** |
 | --- | --- |
-| Redirecturl'yi | İsteğe bağlı (varsayılan değeri null). Başarılı kimlik doğrulamasından sonra tarayıcıya yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
+| redirectUrl | İsteğe bağlı (varsayılan değeri null). Başarılı kimlik doğrulamasından sonra tarayıcıya yönlendirileceği URL. Bu parametre null veya boş bir dize ise, hiçbir yeniden yönlendirme gerçekleşir. |
 | logoutCompletedCallback | İsteğe bağlı (varsayılan değeri null). Oturum kapatma başarıyla tamamlandığında çağrılacak işlev. Belirtilmişse, bu parametre defaultLogoutCompleted özelliğini geçersiz kılar. |
 | failedCallback | İsteğe bağlı (varsayılan değeri null). Oturum açma başarısız olduğunda çağrılacak işlev. Belirtilmişse, bu parametre defaultFailedCallback özelliğini geçersiz kılar. |
 | userContext | İsteğe bağlı (varsayılan değeri null). Geri arama işlevleri iletilmesi gereken özel kullanıcı bağlam verileri. |
@@ -117,7 +117,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | Hata | Hata bilgilerini belirtir. |
 | userContext | Oturum açma veya oturum kapatma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgilerini belirtir. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *defaultLoginCompletedCallback özelliği (get, kümesi):*
 
@@ -133,7 +133,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | validCredentials | Kullanıcı geçerli kimlik bilgileri sağlanan olup olmadığını belirtir. `true`Kullanıcı başarıyla oturum Aksi takdirde `false`. |
 | userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgilerini belirtir. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *defaultLogoutCompletedCallback özelliği (get, kümesi):*
 
@@ -149,7 +149,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | Sonuç | Bu parametre her zaman olacaktır `null`; gelecekte kullanılmak üzere ayrılmış. |
 | userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgilerini belirtir. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *isLoggedIn özelliği (get):*
 
@@ -251,7 +251,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | Hata | Hata bilgilerini belirtir. |
 | userContext | Ne zaman sağlanan kullanıcı bağlamını belirtir yük veya işlevi çağrıldı. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *defaultSaveCompleted özelliği (get, kümesi):*
 
@@ -267,7 +267,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | numPropsSaved | Kaydedildi özellikleri sayısını belirtir. |
 | userContext | Ne zaman sağlanan kullanıcı bağlamını belirtir yük veya işlevi çağrıldı. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *defaultLoadCompleted özelliği (get, kümesi):*
 
@@ -283,7 +283,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 | --- | --- |
 | numPropsLoaded | Yüklenen özellikler sayısını belirtir. |
 | userContext | Ne zaman sağlanan kullanıcı bağlamını belirtir yük veya işlevi çağrıldı. |
-| MethodName | Arama yöntemin adı. |
+| methodName | Arama yöntemin adı. |
 
 *Path özelliği (get, kümesi):*
 
@@ -341,7 +341,7 @@ ASP.NET Hizmetleri - özellikle profil, üyelik ve kimlik doğrulama Hizmetleri 
 
 Ayrıca, eşdeğer yöntemi imzalarla Basitleştirilmiş web hizmeti uygulamaları oluşturarak, geliştiriciler bu iç ASP.NET hizmetleri için özel bir komut dosyası sağlayıcıları oluşturabilir. Bu teknikler desteği, çok çeşitli belirli gereksinimlerini karşılamak için esneklik geliştiriciler sağlarken zengin istemci uygulamaları geliştirme basitleştirir.
 
-## <a name="bio"></a>*Biyografisi*
+## <a name="bio"></a>*Bio*
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 

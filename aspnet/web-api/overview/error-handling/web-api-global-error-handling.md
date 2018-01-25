@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Genel hata ASP.NET Web API 2 işleme
 ====================
@@ -46,7 +46,7 @@ Ek olarak [özel durum filtreleri](exception-handling.md), [ileti işleyicileri]
 1. Birden çok özel durum günlükçüleri ancak yalnızca bir tek özel durum işleyici kaydetme destekler.
 2. Yaklaşık bağlantıyı durdurma ki olsa bile özel durum günlükçüleri her zaman çağrılmadığı. Biz yine de göndermek için hangi yanıt iletiyi seçerek tüketimi özel durum işleyicileri yalnızca çağrılır.
 
-Her iki hizmet erişebilmesi burada özel durum algılandı, noktasından ilgili bilgileri içeren bir özel durum bağlamı için özellikle [HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), özel durum ve özel durum kaynak (Ayrıntılar aşağıda) oluşturulur.
+Her iki hizmet erişebilmesi burada özel durum algılandı, noktasından ilgili bilgileri içeren bir özel durum bağlamı için özellikle [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), özel durum ve özel durum kaynak (Ayrıntılar aşağıda) oluşturulur.
 
 ### <a name="design-principles"></a>Tasarım ilkeleri
 
@@ -77,13 +77,13 @@ Framework bir özel durum günlükçüsü veya bir özel durum işleyici aradı�
 - IExceptionFilter (ExecuteAsync özel durum filtre ardışık işlenmesini ApiController'ın)
 - OWIN ana bilgisayarı:
 
-    - HttpMessageHandlerAdapter.BufferResponseContentAsync (için çıktı arabelleğe alma)
-    - HttpMessageHandlerAdapter.CopyResponseContentAsync (için çıktı akışı)
+    - HttpMessageHandlerAdapter.BufferResponseContentAsync (for buffering output)
+    - HttpMessageHandlerAdapter.CopyResponseContentAsync (for streaming output)
 - Web ana bilgisayarı:
 
-    - HttpControllerHandler.WriteBufferedResponseContentAsync (için çıktı arabelleğe alma)
-    - HttpControllerHandler.WriteStreamedResponseContentAsync (için çıktı akışı)
-    - HttpControllerHandler.WriteErrorResponseContentAsync (için arabelleğe alınan çıkış modu altında hata kurtarma hatalar)
+    - HttpControllerHandler.WriteBufferedResponseContentAsync (for buffering output)
+    - HttpControllerHandler.WriteStreamedResponseContentAsync (for streaming output)
+    - HttpControllerHandler.WriteErrorResponseContentAsync (for failures in error recovery under buffered output mode)
 
 Catch bloğu dizelerin listesi da statik salt okunur özellikler mevcuttur. (Çekirdek catch bloğu dize üzerinde statik ExceptionCatchBlocks; bir statik sınıf her OWIN ve web ana bilgisayar için kalan görünür).`IsTopLevelCatchBlock` çağrı yığını üstünde yalnızca özel durumları işleme önerilen desenini izlemek için yararlıdır. Özel durumlar 500 yanıtları bir iç içe geçmiş catch bloğu oluşur her yerden içine kapatma yerine bir özel durum işleyicisi özel durumlar hakkında ana bilgisayar tarafından görülebilir oldukları kadar yayılmasına izin verebilirsiniz.
 
@@ -97,7 +97,7 @@ Ek olarak `ExceptionContext`, tek daha fazla parça bilgi tam aracılığıyla g
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Bir özel durum işleyici, ayarlayarak bir özel durum işlediği gösterir `Result` eylem sonucunu özelliğine (örneğin, bir [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), ya da özel bir sonuç). Varsa `Result` özelliği null, işlenmemiş bir işlemdir ve özgün özel durum yeniden oluşturulur.
+Bir özel durum işleyici, ayarlayarak bir özel durum işlediği gösterir `Result` eylem sonucunu özelliğine (örneğin, bir [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), ya da özel bir sonuç). Varsa `Result` özelliği null, işlenmemiş bir işlemdir ve özgün özel durum yeniden oluşturulur.
 
 Çağrı yığını üstündeki özel durumlar için yanıt API çağıranlar için uygun olduğundan emin olmak için fazladan bir adım sürdü. Özel durum ana kadar yayılırsa, başka bir ana bilgisayarı, genellikle HTML olan yanıt ve genellikle bir uygun API hata yanıtı sağlanan veya çağıran sarı renkli kilitlenme ekranı görürsünüz. Bu durumlarda, null olmayan ve bir özel durum işleyici formu açıkça ayarlarsa yalnızca sonuç başlatır dön `null` (işlenmemiş) özel durum ana bilgisayara yayılır. Ayarı `Result` için `null` bu gibi durumlarda iki senaryo için yararlı olabilir:
 

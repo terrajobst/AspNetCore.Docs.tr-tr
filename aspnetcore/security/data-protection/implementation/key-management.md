@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9c4d293355e26d8bf5ba1360b070a7b9809bfe56
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management"></a>Anahtar Yönetimi
 
@@ -48,7 +48,7 @@ Bir istisna vardır. Uygulama geliştiricisi varsa [otomatik anahtar oluşturma 
 
 ## <a name="key-expiration-and-rolling"></a>Anahtar kullanım süresi sonu ve çalışırken
 
-Bir anahtar oluşturduğunuzda, bir etkinleştirme tarihi {şimdi + 2 gün} ve {şimdi + 90 gün} bir sona erme tarihini otomatik olarak verilir. Etkinleştirme 2 gün gecikme sisteminde yaymak için anahtar zaman verir. Diğer bir deyişle, böylece anahtar halka yayılan olur mu etkin gerekebilecek tüm uygulamaların bunu kullanmanızı olasılığını en üst düzeye çıkarma kendi sonraki otomatik yenileme dönemi sırasında anahtar izlemek yedekleme mağazada işaret eden diğer uygulamaların izin verir.
+Bir anahtar oluşturduğunuzda, bir etkinleştirme tarihi {şimdi + 2 gün} ve {şimdi + 90 gün} bir sona erme tarihini otomatik olarak verdiği. Etkinleştirme 2 gün gecikme sisteminde yaymak için anahtar zaman verir. Diğer bir deyişle, böylece anahtar halka yayılan olur mu etkin gerekebilecek tüm uygulamaların bunu kullanmanızı olasılığını en üst düzeye çıkarma kendi sonraki otomatik yenileme dönemi sırasında anahtar izlemek yedekleme mağazada işaret eden diğer uygulamaların izin verir.
 
 Varsayılan anahtar 2 gün içinde sona erecek ve anahtar halkası varsayılan anahtar sona erme sonra etkin olacak bir anahtar zaten yoksa, veri koruma sistemi otomatik olarak yeni bir anahtar halkası anahtara korunur. Bu yeni anahtarı etkinleştirme tarihi {varsayılan anahtarın sona erme tarihi} ve {şimdi + 90 gün} bir sona erme tarihi vardır. Bu anahtarlar düzenli olarak hizmet kesintisine neden olmadan otomatik olarak geri dönmek sistem sağlar.
 

@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: üretime dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -150,7 +150,7 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduğunuza g�
     5. Kapat **yapılandırma veritabanı güncelleştirmeleri** iletişim kutusu.
 10. Altında **SchoolContext** içinde **veritabanları** bölümünde, select **yürütme önce kod uygulamalı geçişler (uygulama başlatılırken çalışır)**.
 
-    Visual Studio görüntüler **Code First Migrations yürütme** yerine **güncelleştirme veritabanı** için `DbContext` sınıfları. DbDacFx sağlayıcısı kullanarak erişen bir veritabanını dağıtmak için geçişler yerine kullanmak istiyorsanız bir `DbContext` sınıfı için bkz: [geçişler olmaksızın Code First bir veritabanına nasıl dağıtırım?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) Visual Studio için Web dağıtımı SSS ve ASP.NET konusuna bakın.
+    Visual Studio görüntüler **Code First Migrations yürütme** yerine **güncelleştirme veritabanı** için `DbContext` sınıfları. DbDacFx sağlayıcısı kullanarak erişen bir veritabanını dağıtmak için geçişler yerine kullanmak istiyorsanız bir `DbContext` sınıfı için bkz: [geçişler olmaksızın Code First bir veritabanına nasıl dağıtırım?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) Visual Studio için Web dağıtımı SSS ve ASP.NET konusuna bakın.
 
     **Ayarları** sekmesini şimdi aşağıdaki gibi görünür:
 
@@ -193,7 +193,7 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduğunuza g�
 - Tahmin imkansız olan karıştırılmış bir URL kullanın.
 - Oluşturma bir *robots.txt* dosya arama motorları test uygulama ve rapor bağlantıları için arama sonuçlarında gezinme değil emin olun.
 
-Bu yöntemlerin ilki en etkili olur ancak bu öğreticide Azure uygulama hizmeti yerine bir Azure bulut hizmetine dağıtma gerekeceğinden kapsamında değildir. Bulut hizmetleri hakkında daha fazla bilgi ve Azure IP kısıtlamaları için bkz: [sağlanan işlem barındırma seçenekleri Azure tarafından](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) ve [blok belirli IP adreslerini bir Web rolü erişimini](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx). Bir üçüncü taraf barındırma sağlayıcısına dağıtıyorsanız, IP kısıtlamaları uygulamak nasıl öğrenmek için sağlayıcısına başvurun.
+Bu yöntemlerin ilki en etkili olur ancak bu öğreticide Azure uygulama hizmeti yerine bir Azure bulut hizmetine dağıtma gerekeceğinden kapsamında değildir. Bulut hizmetleri hakkında daha fazla bilgi ve Azure IP kısıtlamaları için bkz: [sağlanan işlem barındırma seçenekleri Azure tarafından](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) ve [blok belirli IP adreslerini bir Web rolü erişimini](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Bir üçüncü taraf barındırma sağlayıcısına dağıtıyorsanız, IP kısıtlamaları uygulamak nasıl öğrenmek için sağlayıcısına başvurun.
 
 Bu öğretici için oluşturacağınız bir *robots.txt* dosya.
 
@@ -256,7 +256,7 @@ Varsayılan olarak, *.pubxml* dosyaları bir yayımlama profili oluştururken an
 
 Her *.pubxml* var. dosya bir *. pubxml.user* dosya. *. Pubxml.user* dosyası seçtiyseniz, şifrelenen parolayı içerir **Parolayı Kaydet** seçeneği ve varsayılan projeden dışlandı.
 
-A *.pubxml* dosya bir belirli yayımlama profili ilgilidir ayarlarını içerir. Tüm profiller için geçerli ayarları yapılandırmak istiyorsanız, oluşturabileceğiniz bir *. wpp.targets* dosya. Yapılandırma işlemi bu dosyaya aktarır *.csproj* veya *.vbproj* proje dosyasında yapılandırabilirsiniz çoğu ayarları bu dosyalarda yapılandırılabilir şekilde proje dosyası. Hakkında daha fazla bilgi için *.pubxml* dosyaları ve *. wpp.targets* dosyaları görmek [nasıl yapılır: dağıtım ayarlarını düzenle yayımlama profili (.pubxml) dosyaları ve. wpp.targets dosyasını Visual Studio'da Web projeleri](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+A *.pubxml* dosya bir belirli yayımlama profili ilgilidir ayarlarını içerir. Tüm profiller için geçerli ayarları yapılandırmak istiyorsanız, oluşturabileceğiniz bir *. wpp.targets* dosya. Yapılandırma işlemi bu dosyaya aktarır *.csproj* veya *.vbproj* proje dosyasında yapılandırabilirsiniz çoğu ayarları bu dosyalarda yapılandırılabilir şekilde proje dosyası. Hakkında daha fazla bilgi için *.pubxml* dosyaları ve *. wpp.targets* dosyaları görmek [nasıl yapılır: dağıtım ayarlarını düzenle yayımlama profili (.pubxml) dosyaları ve. wpp.targets dosyasını Visual Studio'da Web projeleri](https://msdn.microsoft.com/library/ff398069.aspx).
 
 1. İçinde **Çözüm Gezgini**, genişletin **özellikleri** ve genişletin **PublishProfiles**.
 2. Sağ *Production.pubxml* tıklatıp **açık**.
@@ -271,7 +271,7 @@ A *.pubxml* dosya bir belirli yayımlama profili ilgilidir ayarlarını içerir.
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Dosyaları ve klasörleri dışarıda bırak hakkında daha fazla bilgi için bkz: [t belirli dosyaları veya klasörleri dağıtımdan hariç tutabilirsiniz?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) içinde **Visual Studio ve ASP.NET Web dağıtımı hakkında SSS** MSDN'de.
+    Dosyaları ve klasörleri dışarıda bırak hakkında daha fazla bilgi için bkz: [t belirli dosyaları veya klasörleri dağıtımdan hariç tutabilirsiniz?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) içinde **Visual Studio ve ASP.NET Web dağıtımı hakkında SSS** MSDN'de.
 
 ### <a name="deploy-to-production"></a>Üretime dağıtma
 
@@ -295,7 +295,7 @@ A *.pubxml* dosya bir belirli yayımlama profili ilgilidir ayarlarını içerir.
 Sonraki öğreticide uygulama kodunu güncelleştirin ve test, hazırlama ve üretim ortamları için değişiklik dağıtın.
 
 > [!NOTE]
-> Uygulamanızı üretim ortamında kullanımdayken bir kurtarma planı uygulanması. Diğer bir deyişle, düzenli aralıklarla veritabanlarınızı üretim uygulamadan bir güvenli depolama konumuna yedekleme yapıyorsanız ve böyle yedekleri birkaç nesli tutulması. Veritabanını güncelleştirirken bir yedek kopyadan hemen önce olmanız gerekir. Bir hata yaparsanız ve üretim dağıttıktan sonra kadar Bul yok, daha sonra onu bozulmasından önceki durumla durum veritabanına kurtarabilmek için devam edersiniz. Daha fazla bilgi için bkz: [Azure SQL veritabanını yedekleme ve geri yükleme](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx).
+> Uygulamanızı üretim ortamında kullanımdayken bir kurtarma planı uygulanması. Diğer bir deyişle, düzenli aralıklarla veritabanlarınızı üretim uygulamadan bir güvenli depolama konumuna yedekleme yapıyorsanız ve böyle yedekleri birkaç nesli tutulması. Veritabanını güncelleştirirken bir yedek kopyadan hemen önce olmanız gerekir. Bir hata yaparsanız ve üretim dağıttıktan sonra kadar Bul yok, daha sonra onu bozulmasından önceki durumla durum veritabanına kurtarabilmek için devam edersiniz. Daha fazla bilgi için bkz: [Azure SQL veritabanını yedekleme ve geri yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 
 
 > [!NOTE]

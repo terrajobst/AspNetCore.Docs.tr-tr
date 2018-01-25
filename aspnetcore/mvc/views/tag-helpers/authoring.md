@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>ASP.NET Core, örnekleri ile ilgili bir kılavuz olarak yazar etiket Yardımcıları
 
@@ -164,7 +164,7 @@ Bu bölümde, biz bir zaman uyumsuz e-posta Yardımcısı yazacaksınız.
 
 3.  Uygulamayı çalıştırın. Sık kullanılan tarayıcınız kaynak inceleyin ve biçimlendirmesini doğrulamak için kullanabilirsiniz.
 
-    `[HtmlTargetElement]` Yukarıda öznitelik yalnızca hedef bir özniteliğin adını "kalın" sağlayan HTML biçimlendirmesi. `<bold>` Öğesi değil etiket Yardımcısı tarafından değiştirildi.
+    `[HtmlTargetElement]` Yukarıda öznitelik yalnızca hedef bir özniteliğin adını "kalın" sağlayan HTML biçimlendirmesi. `<bold>` Öğesi etiket Yardımcısı tarafından değiştirilmiş değildi.
 
 4. Out açıklama `[HtmlTargetElement]` özniteliği satır ve varsayılan olarak hedefleniyor `<bold>` etiketleri, diğer bir deyişle, HTML biçimlendirmesi biçiminde `<bold>`. Unutmayın, varsayılan adlandırma kuralını sınıf adı eşleşir **kalın**TagHelper için `<bold>` etiketler.
 
@@ -208,13 +208,13 @@ Aynı zamanda `[HtmlTargetElement]` hedeflenen öğesinin adını değiştirmek 
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    Daha düşük kebab durum etiketini `<website-information />` değil eşleşir. Kullanmak istiyorsanız, `[HtmlTargetElement]` özniteliği, aşağıda gösterildiği gibi kebab durumda kullanmak:
+    Daha düşük kebab durum etiketini `<website-information />` eşleşen olmayacaktır. Kullanmak istiyorsanız, `[HtmlTargetElement]` özniteliği, aşağıda gösterildiği gibi kebab durumda kullanmak:
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * Kendi kendine kapanan öğe hiçbir içeriğe sahip. Bu örnekte, kendi kendine kapanan etiketi Razor biçimlendirme kullanır, ancak etiket Yardımcısı oluşturma bir [bölüm](http://www.w3.org/TR/html5/sections.html#the-section-element) öğesi (kendi kendine kapanan değil ve içeriğini yazıyorsanız `section` öğesi). Bu nedenle, ayarlamanız gerekir `TagMode` için `StartTagAndEndTag` çıkışını yazmak için. Satır ayarını WMI'ya alternatif olarak, açıklama `TagMode` ve kapanış etiketi ile işaretleme yazma. (Örneğin biçimlendirme daha sonra Bu öğreticide sağlanır.)
+    * Kendi kendine kapanan öğe hiçbir içeriğe sahip. Bu örnekte, kendi kendine kapanan etiketi Razor biçimlendirme kullanır, ancak etiket Yardımcısı oluşturma bir [bölüm](http://www.w3.org/TR/html5/sections.html#the-section-element) öğesi (hangi kendi kendine kapanan değil ve içeriğini yazıyorsanız `section` öğesi). Bu nedenle, ayarlamanız gerekir `TagMode` için `StartTagAndEndTag` çıkışını yazmak için. Satır ayarını WMI'ya alternatif olarak, açıklama `TagMode` ve kapanış etiketi ile işaretleme yazma. (Örneğin biçimlendirme daha sonra Bu öğreticide sağlanır.)
     
     * `$` (Dolar işareti) aşağıdaki satırda kullanan bir [Ara değerli dize](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
@@ -274,7 +274,7 @@ Koşul etiket Yardımcısı true değeri geçirildiğinde çıkış işler.
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  Uygulamayı çalıştırın ve giriş sayfasına göz atın. Koşullu biçimlendirme `div` değil işlenir. Sorgu dizesi eklemek `?approved=true` URL (örneğin, `http://localhost:1235/Home/Index?approved=true`). `approved`TRUE olarak ve koşullu biçimlendirme görüntülenir.
+4.  Uygulamayı çalıştırın ve giriş sayfasına göz atın. Koşullu biçimlendirme `div` işlenen olmaz. Sorgu dizesi eklemek `?approved=true` URL (örneğin, `http://localhost:1235/Home/Index?approved=true`). `approved`TRUE olarak ve koşullu biçimlendirme görüntülenir.
 
 >[!NOTE]
 >Kullanım [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) işleci kalın etiket Yardımcısı'nı kullanarak yaptığınız gibi bir dize belirtme yerine hedef özniteliği belirtin:
@@ -306,7 +306,7 @@ Bu iki Yardımcıları yakından ilişkili olan ve gelecekte yeniden çünkü bi
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Uygulamayı çalıştırın. Www metin bağlantı olarak işlenir ancak HTTP metin değil dikkat edin. Her iki sınıflarda bir kesme noktası yerleştirirseniz HTTP etiket Yardımcısı sınıfı ilk çalıştığını görebilirsiniz. , Etiket Yardımcısı çıkış önbelleğe alınır ve WWW etiket Yardımcısı çalıştırdığınızda, önbelleğe alınan çıktısı HTTP etiket Yardımcısı, üzerine yazar sorunudur. Etiket Yardımcıları Çalıştır sırasını denetlemek nasıl daha sonra öğreticide göreceğiz. Size kodu aşağıdakilerle düzeltme:
+5.  Uygulamayı çalıştırın. Www metin bağlantı olarak işlenir, ancak HTTP metin değil dikkat edin. Her iki sınıflarda bir kesme noktası yerleştirirseniz HTTP etiket Yardımcısı sınıfı ilk çalıştığını görebilirsiniz. , Etiket Yardımcısı çıkış önbelleğe alınır ve WWW etiket Yardımcısı çalıştırdığınızda, önbelleğe alınan çıktısı HTTP etiket Yardımcısı, üzerine yazar sorunudur. Etiket Yardımcıları Çalıştır sırasını denetlemek nasıl daha sonra öğreticide göreceğiz. Size kodu aşağıdakilerle düzeltme:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -321,7 +321,7 @@ Bu iki Yardımcıları yakından ilişkili olan ve gelecekte yeniden çünkü bi
     >
     >Yukarıdaki kod içeriği değiştirilmiş ve varsa, çıktı arabelleğinden içeriği alır bakar.
 
-6.  Uygulamayı çalıştırın ve iki bağlantı beklendiği gibi çalıştığını doğrulayın. Bizim otomatik bağlayıcı etiket Yardımcısı doğru ve eksiksiz görünebilir, ancak zarif bir sorun vardır. WWW etiket Yardımcısı ilk çalıştırıyorsa, www bağlantılar doğru olmaz. Kodu ekleyerek güncelleştirme `Order` etiket çalışan sırasını denetlemek için aşırı yükleme. `Order` Özelliği aynı öğeye hedefleme diğer etiket Yardımcıları göre yürütme sırasını belirler. Varsayılan sıra değeri sıfırdır ve düşük değerler örnekleriyle önce yürütülür.
+6.  Uygulamayı çalıştırın ve iki bağlantı beklendiği gibi çalıştığını doğrulayın. Bizim otomatik bağlayıcı etiket Yardımcısı doğru ve eksiksiz görünebilir, ancak zarif bir sorun vardır. WWW etiket Yardımcısı ilk çalıştırıyorsa, www bağlantılar doğru olmayacaktır. Kodu ekleyerek güncelleştirme `Order` etiket çalışan sırasını denetlemek için aşırı yükleme. `Order` Özelliği aynı öğeye hedefleme diğer etiket Yardımcıları göre yürütme sırasını belirler. Varsayılan sıra değeri sıfırdır ve düşük değerler örnekleriyle önce yürütülür.
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
@@ -333,8 +333,8 @@ Etiket Yardımcıları içerik almak için çeşitli özellikler sağlar.
 
 -  Sonucu `GetChildContentAsync` için eklenen `output.Content`.
 -  Sonucu inceleyebilirsiniz `GetChildContentAsync` ile `GetContent`.
--  Değiştirirseniz `output.Content`, TagHelper gövde yürütülen veya çağırmanız sürece çizilir `GetChildContentAsync` otomatik bağlayıcı örneğimizde olduğu gibi:
+-  Değiştirirseniz `output.Content`, TagHelper gövde olmaz yürütülen veya çağırmanız sürece çizilir `GetChildContentAsync` otomatik bağlayıcı örneğimizde olduğu gibi:
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Birden çok çağrılar `GetChildContentAsync` aynı değere döndürür ve yeniden yürütülemeyecek `TagHelper` yanlış parametre kullanılmıyor belirten önbelleğe alınan sonuç geçirmezseniz gövde.
+-  Birden çok çağrılar `GetChildContentAsync` aynı değere döndürür ve yeniden yürütmez `TagHelper` önbelleğe alınmış sonucu kullanmayacak şekilde belirten bir yanlış parametre geçirmezseniz gövde.

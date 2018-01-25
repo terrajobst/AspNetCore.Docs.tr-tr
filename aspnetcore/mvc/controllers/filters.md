@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>FilTReleri
 
@@ -70,7 +70,7 @@ Tek bir sınıftaki birden çok filtre aşamaları için arabirimleri uygulayabi
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory`uygulayan `IFilter`. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilter` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, `CreateInstance` yöntemi oluşturmak için çağrılır `IFilter` çağrılan örnek. Bu, kesin filtre ardışık düzen, uygulama başlatıldığında açıkça ayarlanmış gerekmez. bu yana çok esnek bir tasarım sağlar.
+`IFilterFactory`uygulayan `IFilter`. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilter` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, `CreateInstance` yöntemi oluşturmak için çağrılır `IFilter` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başladığında açıkça ayarlanması gerekmez bu yana çok esnek bir tasarım sağlar.
 
 Uygulayabileceğiniz `IFilterFactory` filtreleri oluşturma için başka bir yaklaşım olarak kendi özniteliği uygulamaları üzerinde:
 
@@ -177,7 +177,7 @@ Aşağıdaki kodda, hem `ShortCircuitingResourceFilter` ve `AddHeader` filtre he
 
 Filtre türü veya örnek tarafından eklenebilir. Bir örneği eklerseniz, bu örnek her istek için kullanılır. Bir türü eklerseniz, her istek için bir örneği oluşturulur ve Oluşturucusu bağımlılıkları tarafından doldurulmuş anlamına türü etkinleştirilen, olacaktır [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı). Türe göre bir filtre eklemeden eşdeğerdir `filters.Add(new TypeFilterAttribute(typeof(MyFilter)))`.
 
-Öznitelik olarak uygulanır ve doğrudan denetleyicisi sınıfları veya eylem yöntemlerine eklenen filtreleri tarafından sağlanan Oluşturucusu bağımlılıkları olamaz [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı). Bu durum, öznitelik nereye uygulanacağını sağlanan Oluşturucusu parametrelerini olmalıdır çünkü. Bu öznitelikler nasıl işe bir kısıtlamadır.
+Öznitelik olarak uygulanır ve doğrudan denetleyicisi sınıfları veya eylem yöntemlerine eklenen filtreleri tarafından sağlanan Oluşturucusu bağımlılıkları olamaz [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı). Bu durum, öznitelik burada uygulanan sağlanan Oluşturucusu parametrelerini olmalıdır çünkü. Bu öznitelikler nasıl işe bir kısıtlamadır.
 
 Filtrelerinizi dı erişmesi gereken bağımlılıkları varsa, desteklenen birçok yaklaşım vardır. Aşağıdakilerden birini kullanarak bir sınıf veya eylem yöntemi için filtre uygulayabilirsiniz:
 
@@ -207,7 +207,7 @@ System.InvalidOperationException: No service for type
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`çok benzer `ServiceFilterAttribute` (ve ayrıca uygulayan `IFilterFactory`), ancak türü doğrudan dı kapsayıcıdan çözümlenemedi. Bunun yerine, kullanarak türü başlatır `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
+`TypeFilterAttribute`çok benzer `ServiceFilterAttribute` (ve ayrıca uygulayan `IFilterFactory`), ancak türü doğrudan dı kapsayıcıdan çözülmüş değil. Bunun yerine, kullanarak türü başlatır `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
 
 Kullanarak başvurulan türleri bu farklılık nedeniyle `TypeFilterAttribute` kapsayıcıyla ilk kayıtlı olması gerekmez (ancak kapsayıcı yerine bağımlılıklarını çözümlenmedi). Ayrıca, `TypeFilterAttribute` isteğe bağlı olarak söz konusu türü için oluşturucu bağımsız değişkenleri kabul edebilir. Aşağıdaki örneği kullanarak bir tür bağımsız değişkenleri geçirmek gösterilmiştir `TypeFilterAttribute`:
 
@@ -223,7 +223,7 @@ Bu filtre sınıfları veya yöntemlerini kullanarak uygulanabilir `[SampleActio
 
 *Yetkilendirme filtreleri* eylem yöntemlerine erişimi denetlemek ve içinde filtre ardışık düzeni yürütülecek ilk filtreler. Yalnızca sahip oldukları bir yöntemi, önce ve sonra yöntemleri destek filtrelerin çoğu aksine önce. Yalnızca kendi yetkilendirme framework yazıyorsanız, bir özel yetkilendirme filtresi yazmanız gerekir. Yetkilendirme ilkelerini yapılandırma veya bir özel filtre yazma üzerinden özel yetkilendirme ilkesi yazma tercih eder. Yerleşik filtre uygulama yetkilendirme sistemi çağırmak için yalnızca sorumludur.
 
-Hiçbir şey özel işleyecek beri yetkilendirme filtreleri içinde özel durumlar oluşturmamalıdır unutmayın (özel durum filtreleri çalışmaz işlemek bunları). Bunun yerine, bir sınama vermek veya başka bir yolu bulunamıyor.
+Hiçbir şey özel işleyecek beri yetkilendirme filtreleri içinde özel durumlar oluşturma döndürmemelidir unutmayın (özel durum filtreleri çalışmaz işlemek bunları). Bunun yerine, bir sınama vermek veya başka bir yolu bulunamıyor.
 
 Daha fazla bilgi edinmek [yetkilendirme](../../security/authorization/index.md).
 
@@ -252,7 +252,7 @@ Bir örnek eylem filtresi şöyledir:
 * `Canceled`-Eylem yürütme başka bir filtre tarafından kısa devre yapılma ise true olur.
 * `Exception`-Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa null olmayan olacaktır. Bu özellik etkili bir şekilde null olarak ayarlandığında 'handles' bir özel durum, ve `Result` eylem yönteminden normalde döndürülmedi sanki yürütülür.
 
-İçin bir `IAsyncActionFilter`, çağrı `ActionExecutionDelegate` sonraki eylem filtreleri ve döndüren eylem yöntemini yürütür bir `ActionExecutedContext`. Kısa devre oluşturur, Ata için `ActionExecutingContext.Result` bazı sonucu örneği ve çağırmayın `ActionExecutionDelegate`.
+İçin bir `IAsyncActionFilter`, çağrı `ActionExecutionDelegate` sonraki eylem filtreleri ve döndüren eylem yöntemini yürütür bir `ActionExecutedContext`. Kısa devre oluşturur, Ata için `ActionExecutingContext.Result` bazı sonucu örneği ve çağrısı yok `ActionExecutionDelegate`.
 
 Çerçeve bir Özet sağlar `ActionFilterAttribute` bir alt kümesi olabilir. 
 
@@ -270,14 +270,14 @@ Aşağıdaki örnek özel durum filtresi, uygulama geliştirme olduğunda oluşa
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
-Özel durum filtreleri sahip iki olayları (önce ve sonra) - yalnızca uyguladıkları `OnException` (veya `OnExceptionAsync`). 
+(Önce ve sonra), özel durum filtreleri iki olay sahip değilseniz - yalnızca uyguladıkları `OnException` (veya `OnExceptionAsync`). 
 
 Özel durum filtreleri denetleyicisi oluşturulmasında meydana gelen işlenmeyen özel durumları işleme [model bağlama](../models/model-binding.md), eylem filtrelerini ya da eylem yöntemleri. Bunlar, kaynak filtreleri, sonuç filtreleri veya MVC sonuç yürütme oluşan özel durumları yakalamak olmaz.
 
 Özel bir durumu işlemek üzere ayarlanmış `ExceptionContext.ExceptionHandled` doğru veya bir yanıt yazma özelliği. Bu özel durumun yayma durdurur. Bir özel durum filtresi bir özel durum "başarılı" içine etkinleştiremiyor unutmayın. Yalnızca bir eylem filtresi, bunu yapabilirsiniz.
 
 > [!NOTE]
-> ASP.NET 1.1 içinde ayarlarsanız yanıtı gönderilmez `ExceptionHandled` true **ve** yanıt yazma. Bu senaryoda, ASP.NET Core 1.0 yanıtı gönder ve ASP.NET Core 1.1.2 1.0 davranışını döndürür. Daha fazla bilgi için bkz: [sorun #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub deposunda. 
+> Ayarlarsanız ASP.NET 1.1 içinde bir yanıt gönderdi değil `ExceptionHandled` true **ve** yanıt yazma. Bu senaryoda, ASP.NET Core 1.0 yanıtı gönder ve ASP.NET Core 1.1.2 1.0 davranışını döndürür. Daha fazla bilgi için bkz: [sorun #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub deposunda. 
 
 Özel durum filtreleri içinde MVC Eylemler oluşan özel durumlarını yakalama için iyi, ancak bunlar hata ara yazılım işleme kadar esnek değildir. Ara yazılımı genel örneği için tercih ettiğiniz ve hata işleme yapmak için yalnızca ihtiyaç duyacağınız filtreleri kullanın *farklı* MVC eylemi seçildi tabanlı. Örneğin, uygulamanızın eylem yöntemleri görünümler/HTML ve her iki API uç noktaları için olabilir. Görünüm tabanlı eylemler HTML olarak hata sayfasını döndürebilirsiniz sırada API uç noktaları hata bilgisi, JSON olarak döndürebilir.
 
@@ -301,13 +301,13 @@ Zaman `OnResultExecuted` yöntemi çalıştığında, yanıt istemciye bir olas�
 
 `ResultExecutedContext.Exception`Eylem sonucu veya bir sonraki sonuç filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayarı `Exception` için null etkili bir şekilde 'bir özel durum işleme' ve MVC tarafından ardışık düzeninde işlenemezse gelen özel durum engeller. Bir sonuç filtresi bir özel durum işlenirken herhangi bir veri yanıtı yazmak mümkün olmayabilir. Eylem sonucu kadar yürütülmesinin oluşturur ve üstbilgileri istemciye zaten atılmış olan, bir hata kodu göndermek için güvenilir bir mekanizma yoktur.
 
-İçin bir `IAsyncResultFilter` yapılan bir çağrı `await next()` üzerinde `ResultExecutionDelegate` sonraki sonuç filtreleri ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlamak için `ResultExecutingContext.Cancel` için doğru ve çağırmayın `ResultExectionDelegate`.
+İçin bir `IAsyncResultFilter` yapılan bir çağrı `await next()` üzerinde `ResultExecutionDelegate` sonraki sonuç filtreleri ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlamak için `ResultExecutingContext.Cancel` için doğru ve çağrısı yok `ResultExectionDelegate`.
 
 Çerçeve bir Özet sağlar `ResultFilterAttribute` bir alt kümesi olabilir. [AddHeaderAttribute](#add-header-attribute) daha önce gösterilen sınıf bir sonucu filtre özniteliği örneği verilmiştir.
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Ara yazılım filtre ardışık düzeninde kullanma
 
-Kaynak filtreleri çalışma gibi [ara yazılım](../../fundamentals/middleware.md) ardışık düzeninde gelen yürütülmesi her şeyi çevreleyen olmasıdır. Ancak MVC bağlamı ve yapılarına erişime sahip oldukları anlamına gelir MVC parçasıdır bakımından filtreler Ara farklıdır.
+Kaynak filtreleri çalışma gibi [ara yazılım](../../fundamentals/middleware.md) ardışık düzeninde gelen yürütülmesi her şeyi çevreleyen olmasıdır. Ancak MVC bağlamı ve yapılarına erişime sahip oldukları anlamına gelir MVC parçası olup olmadıklarını bakımından filtreler Ara farklıdır.
 
 ' De ASP.NET Core 1.1, filtre ardışık düzeninde ara yazılımı kullanabilirsiniz. MVC rota verilerini ya da yalnızca belirli denetleyicileri veya Eylemler çalışması gereken bir erişmesi gereken bir ara yazılım bileşeni varsa, bunu yapmak isteyebilirsiniz.
 

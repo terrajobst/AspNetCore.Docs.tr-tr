@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -35,11 +35,11 @@ ms.lasthandoff: 11/10/2017
     - [Görüntü modları](#_Toc303253810)
     - [jQuery Mobile, görünüm değiştirici ve tarayıcı geçersiz kılma](#_Toc303253811)
     - [Zaman uyumsuz denetleyicileri görev desteği](#_Toc303253813)
-    - [Azure SDK'sı](#_Toc303253814)
+    - [Azure SDK](#_Toc303253814)
     - [Veritabanı geçişleri](#_Toc303253818)
     - [Boş proje şablonu](#_Toc303253819)
     - [Denetleyici için herhangi bir proje klasör ekleme](#_Toc303253820)
-    - [Paketleme ve küçültme](#_Toc303253821)
+    - [Paketleme ve Küçültme](#_Toc303253821)
     - [Facebook ve OAuth ve Openıd kullanarak diğer sitelere oturum açmayı etkinleştirme](#_Toc303253822)
 - [ASP.NET MVC 4 için bir ASP.NET MVC 3 projesinin yükseltme](#_Toc303253806)
 - [ASP.NET MVC 4 Sürüm Adayı değişiklikler](#_Toc303253817)
@@ -61,7 +61,7 @@ ASP.NET MVC 4 yüklü ve çalışma yan yana ASP.NET MVC 3 olabilir.
 
 ASP.NET MVC için belgeleri MSDN Web sitesinde şu URL'de bulunmaktadır:
 
-[https://go.microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Öğreticiler ve diğer bilgileri ASP.NET MVC hakkında ASP.NET Web sitesi MVC 4 sayfasında kullanılabilir ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -158,7 +158,7 @@ Bir nesne türü döndüren olarak tek yöntemleri zaman uyumsuz eylem yöntemle
  Daha fazla bilgi için bkz: [kullanarak ASP.NET MVC 4'te zaman uyumsuz yöntemleri](../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md).
 
 <a id="_Toc303253814"></a>
-### <a name="azure-sdk"></a>Azure SDK'sı
+### <a name="azure-sdk"></a>Azure SDK
 
 ASP.NET MVC 4, Windows Azure SDK 1.6 ve daha yeni sürümleri destekler.
 
@@ -271,7 +271,7 @@ ASP.NET MVC 4 Sürüm Adayı önemli değişikliklerden bu sürümde, aşağıda
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Visual Studio 2010 ve Visual Web Developer 2010 yan yana yüklemeler için ASP.NET MVC 4 yüklemeye çalışırken yüklemek NuGet Paket Yöneticisi başarısız.** Her iki sürümü Visual Studio'nun zaten yüklendikten sonra Visual Studio 2010 ve Visual Web Developer 2010 ASP.NET MVC 4 yan yana çalıştırmak için ASP.NET MVC 4 yüklemeniz gerekir.
 - **Önkoşullar zaten kaldırdınız ASP.NET MVC 4 kaldırma başarısız olur.** ASP.NET MVC düzgün bir şekilde kaldırmak için 4you ASP.NET MVC 4 Visual Studio kaldırmadan önce kaldırmanız gerekir.
-- **ASP.NET MVC 4'ü yüklemeden ASP.NET MVC 3 RTM uygulamaları keser.** RTM ile oluşturulmuş bir ASP.NET MVC 3 uygulamaları yayın (değil [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/en-us/download/details.aspx?id=1491) sürüm) yana birimi ASP.NET MVC 4 ile çalışması için aşağıdaki değişiklikleri gerekiyor. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
+- **ASP.NET MVC 4'ü yüklemeden ASP.NET MVC 3 RTM uygulamaları keser.** RTM ile oluşturulmuş bir ASP.NET MVC 3 uygulamaları yayın (değil [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/download/details.aspx?id=1491) sürüm) yana birimi ASP.NET MVC 4 ile çalışması için aşağıdaki değişiklikleri gerekiyor. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
 
     **Gerekli güncelleştirmeleri**
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 086084b63cceca1c2d4e0bd4e5b654aaad6637a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 temelleri
 ====================
@@ -32,7 +32,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > > Bu uygulamalı Laboratuvar Geliştirici HTML ve JavaScript gibi Web geliştirme teknolojilerinde deneyim sahibi olduğunu varsayar.
 > 
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="The_Music_Store_application"></a>
@@ -319,7 +319,7 @@ Bu görevde, kullanacağınız **querystring** parametreleri göndermek için **
     > [!NOTE]
     > Kullanmakta olduğunuz **HttpUtility.HtmlEncode** yardımcı yöntemi, Javascript gibi bir bağlantıyla görünüme injecting gelen kullanıcılar önler   **/deposu/Gözat? Tarz =&lt;betik&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
     > 
-    > Daha fazla açıklama için lütfen şu adresi ziyaret [bu msdn makalesine](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=VS.80).aspx).
+    > Daha fazla açıklama için lütfen şu adresi ziyaret [bu msdn makalesine](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -594,7 +594,7 @@ Bu görevde denetleyicisinden geçirilen StoreIndexViewModel nesnesi türler lis
 
     ![Bir görünümü ekleme](aspnet-mvc-4-fundamentals/_static/image23.png "bir görünümü ekleme")
 
-    *Bir görünümü ekleme*
+    *Görünüm Ekleme*
 3. Çünkü **Ekle iletişim kutusunu görüntüle** gelen çağrıldı **StoreController**, varsayılan olarak şablonu görüntüleme ekleyecek bir **\Views\Store\Index.cshtml** dosya. Denetleme **bir kesin türü belirtilmiş-görünüm oluşturma** onay kutusunu ve ardından **StoreIndexViewModel** olarak **Model sınıfı**. Ayrıca, seçili görünüm altyapısı olduğundan emin olun **Razor**. **Ekle**'yi tıklatın.
 
     ![Görünüm Ekle iletişim kutusu](aspnet-mvc-4-fundamentals/_static/image24.png "Görünüm Ekle iletişim kutusu")
@@ -964,7 +964,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri göz en ilgi
         *Çözüm SimpleMembership dahil*
 
         > [!NOTE]
-        > Hakkında daha fazla bilgi bulmak [OAuthWebSecurity](https://msdn.microsoft.com/en-us/library/jj158393(v=vs.111).aspx) MSDN'de.
+        > Hakkında daha fazla bilgi bulmak [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) MSDN'de.
 
 > [!NOTE]
 > Ayrıca, Windows Azure Web siteleri aşağıdaki bu uygulamayı dağıtabilmek için [ek B: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixB).

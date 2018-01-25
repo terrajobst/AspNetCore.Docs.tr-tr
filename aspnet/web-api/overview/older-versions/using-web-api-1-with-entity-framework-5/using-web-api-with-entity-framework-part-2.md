@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>2. Kısım: etki alanı modelleri oluşturma
 ====================
@@ -32,9 +32,9 @@ Yaklaşım Entity Framework için üç yol vardır:
 - Model ilk: görsel bir modelle'ı başlatın ve Entity Framework veritabanı ve kod oluşturur.
 - Kod ilk: koduyla'ı başlatın ve Entity Framework veritabanı oluşturur.
 
-Bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatmak için ilk kod yaklaşımı kullanıyoruz. Kod ilk yaklaşımda, etki alanı nesnelerini işlemleri ya da kalıcılığı gibi veritabanı katmanı desteklemek için ek kod gerekmez. (Özellikle, bunlar devralınmalıdır gerekmez [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) sınıfı.) Entity Framework veritabanı şeması nasıl oluşturduğunu denetlemek için veri ek açıklamaları kullanmaya devam edebilirsiniz.
+Bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatmak için ilk kod yaklaşımı kullanıyoruz. Kod ilk yaklaşımda, etki alanı nesnelerini işlemleri ya da kalıcılığı gibi veritabanı katmanı desteklemek için ek kod gerekmez. (Özellikle, bunlar devralınmalıdır gerekmez [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) sınıfı.) Entity Framework veritabanı şeması nasıl oluşturduğunu denetlemek için veri ek açıklamaları kullanmaya devam edebilirsiniz.
 
-POCOs açıklayan herhangi bir ek özellik taşımayan çünkü [veritabanı durumu](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), bunlar kolayca JSON veya XML seri hale getirilebilir. Daha sonra öğreticide anlatıldığı gibi Bununla birlikte, her zaman Entity Framework Modellerinizi doğrudan istemcilere maruz bırakmamalısınız anlamına gelmez.
+POCOs açıklayan herhangi bir ek özellik taşımayan çünkü [veritabanı durumu](https://msdn.microsoft.com/library/system.data.entitystate.aspx), bunlar kolayca JSON veya XML seri hale getirilebilir. Daha sonra öğreticide anlatıldığı gibi Bununla birlikte, her zaman Entity Framework Modellerinizi doğrudan istemcilere maruz bırakmamalısınız anlamına gelmez.
 
 Aşağıdaki POCOs oluşturacağız:
 

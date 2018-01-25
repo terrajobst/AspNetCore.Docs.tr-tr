@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>(Razor) giriş hata ayıklama ASP.NET Web sayfaları
 ====================
@@ -71,7 +71,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
     - HTTP çalışma zamanı bilgileri. Bu bölümde, web sayfanızın altında çalışan Microsoft .NET Framework, yol, önbellek vb. ayrıntıları sürümü ayrıntıları. (İçinde öğrenilen [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), Razor sözdizimini kendisini kapsamlı bir yazılımı yerleşik olan Microsoft ASP.NET web sunucu teknolojisi üzerinde oluşturulan kullanarak ASP.NET Web sayfaları Geliştirme kitaplığı .NET Framework olarak adlandırılır.)
     - Ortam değişkenleri. Bu bölümde, web sunucusundaki tüm yerel ortam değişkenlerini ve değerleri listesi sağlar.
 
-    Tüm sunucu ve istek bilgilerinin tam bir açıklaması bu makalenin kapsamı dışındadır olmakla birlikte, gördüğünüz `ServerInfo` Yardımcısı çok miktarda bir tanı bilgilerini döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenleri](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
+    Tüm sunucu ve istek bilgilerinin tam bir açıklaması bu makalenin kapsamı dışındadır olmakla birlikte, gördüğünüz `ServerInfo` Yardımcısı çok miktarda bir tanı bilgilerini döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenleri](https://technet.microsoft.com/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Sayfa değerlerini görüntülemek için katıştırma çıktı ifadeleri
 
@@ -139,5 +139,5 @@ ASP.NET Razor sayfalarının hata ayıklamak için Visual Studio tümleşik hata
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [IIS Sunucu değişkenleri](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) (MSDN)
-- [Ortam değişkenleri kabul](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) (TechNet)
+- [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Ortam değişkenleri kabul](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

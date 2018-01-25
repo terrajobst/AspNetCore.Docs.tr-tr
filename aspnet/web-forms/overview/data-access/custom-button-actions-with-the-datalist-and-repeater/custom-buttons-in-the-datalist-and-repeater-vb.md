@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 14e245f5fd25079b4ee1dee566ca451f955a8b25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Özel düğmeler DataList ve yineleyici (VB)
 ====================
@@ -114,17 +114,17 @@ Bu örnekte, LinkButton s ayarlamak `CommandName` özelliğini ShowProducts ve b
 
 Düğme, geri gönderimin oluştuğu tıklatıldığında ve DataList veya yineleyici s `ItemCommand` olay etkinleşir. S düğmesi olay işleyicisi geçirilen `CommandName` ve `CommandArgument` değerleri.
 
-Yineleyici s için bir olay işleyicisi oluşturun `ItemCommand` olay ve Not ikinci parametre olay işleyiciye geçirilen (adlı `e`). Bu ikinci parametre türünde [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) ve aşağıdaki dört özelliklere sahiptir:
+Yineleyici s için bir olay işleyicisi oluşturun `ItemCommand` olay ve Not ikinci parametre olay işleyiciye geçirilen (adlı `e`). Bu ikinci parametre türünde [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) ve aşağıdaki dört özelliklere sahiptir:
 
 - `CommandArgument`Tıklatılan düğme s değerini `CommandArgument` özelliği
 - `CommandName`s düğmesinin değeri `CommandName` özelliği
 - `CommandSource`bir başvuru tıklandığını düğmesi denetimi
-- `Item`bir başvuru [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) tıklandığını düğmesi içerir; yineleyici bağlı her bir kayıt olarak bildirilmiş bir`RepeaterItem`
+- `Item`bir başvuru [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) tıklandığını düğmesi içerir; yineleyici bağlı her bir kayıt olarak bildirilmiş bir`RepeaterItem`
 
 Seçilen kategori s itibaren `CategoryID` aracılığıyla geçirilen `CommandArgument` özelliği, biz seçili kategorideki ile ilişkili ürün kümesi alabilirsiniz `ItemCommand` olay işleyicisi. Bu ürünler sonra Bulletedlıst denetiminde bağlanabilir `ItemTemplate` (hangi biz ve henüz eklemek için). Tüm kalır, böylece Bulletedlıst eklemektir içinde başvuru `ItemCommand` olay işleyicisi ve ürünleri için adım 4'te üstesinden seçilen kategori kümesi bağlayın.
 
 > [!NOTE]
-> S DataList `ItemCommand` olay işleyicisi türünde bir nesne geçirilen [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), aynı dört özellikleri sunan `RepeaterCommandEventArgs` sınıfı.
+> S DataList `ItemCommand` olay işleyicisi türünde bir nesne geçirilen [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), aynı dört özellikleri sunan `RepeaterCommandEventArgs` sınıfı.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>4. adım: Madde işaretli listede seçilen kategori s ürünleri görüntüleme

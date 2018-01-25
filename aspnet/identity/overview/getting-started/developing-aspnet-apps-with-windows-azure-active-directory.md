@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 425f8edff41588db363055d166995d5f563c5a23
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory ile ASP.NET uygulama geliştirme
 ====================
 Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Microsoft ASP.NET araçları Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için [Azure](https://www.windowsazure.com/en-us/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
+> Microsoft ASP.NET araçları Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için [Azure](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
 > 
 >  Bu öğretici Rick Anderson tarafından yazıldı[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
-Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamasının nasıl oluşturulacağını gösterir [Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/mt168838.aspx) (Azure AD). Ayrıca, şu anda oturum açmış kullanıcı hakkında bilgi almak için grafik API'sini çağırmak nasıl ve uygulamayı Azure'a dağıtmayı öğreneceksiniz.
+Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamasının nasıl oluşturulacağını gösterir [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Ayrıca, şu anda oturum açmış kullanıcı hakkında bilgi almak için grafik API'sini çağırmak nasıl ve uygulamayı Azure'a dağıtmayı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. [Web için Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express) veya [Visual Studio 2013'ün](https://www.microsoft.com/visualstudio/eng/2013-downloads).
-2. [Visual Studio 2013 güncelleştirme 4](https://www.microsoft.com/en-us/download/details.aspx?id=44921) -güncelleştirme 3 veya üstü gereklidir.
-3. Bir Azure hesabı. [Burayı](https://azure.microsoft.com/en-us/pricing/free-trial/) bir hesap zaten yoksa ücretsiz bir deneme sürümü için.
+2. [Visual Studio 2013 güncelleştirme 4](https://www.microsoft.com/download/details.aspx?id=44921) -güncelleştirme 3 veya üstü gereklidir.
+3. Bir Azure hesabı. [Burayı](https://azure.microsoft.com/pricing/free-trial/) bir hesap zaten yoksa ücretsiz bir deneme sürümü için.
 
 ## <a name="add-a-global-administrator-to-your-active-directory"></a>Genel yönetici, Active Directory'ye ekleme
 
@@ -58,7 +58,7 @@ Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamas�
 
 ## <a name="create-an-aspnet-application"></a>ASP.NET uygulaması oluşturma
 
-Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https://www.microsoft.com/en-us/download/details.aspx?id=40747)ve gerektirir [Visual Studio 2013 güncelleştirme 3'ü](https://www.microsoft.com/en-us/download/details.aspx?id=43721).
+Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https://www.microsoft.com/download/details.aspx?id=40747)ve gerektirir [Visual Studio 2013 güncelleştirme 3'ü](https://www.microsoft.com/download/details.aspx?id=43721).
 
 1. Visual Studio'da sırasıyla **dosya** ve ardından **yeni proje**. Üzerinde **yeni proje** iletişim, Visual C# Web projesi sol menüden ve tıklayın select **Tamam**. İşaretini isteyebilirsiniz **projeye Application Insights Ekle** uygulamanız için işlevselliği istemiyorsanız.
 2. İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC**ve ardından **kimlik doğrulamayı Değiştir**.   
@@ -74,7 +74,7 @@ Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https:/
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
     > [!NOTE]
-    > İsteğe bağlı olarak Azure AD içinde tıklayarak kaydedilecek uygulama kimliği URI'si yapılandırabilirsiniz **diğer seçenekler**. Uygulama Kimliği URI'si Azure AD'de kayıtlı ve Azure AD ile iletişim kurarken kendini tanıtmak için uygulama tarafından kullanılan bir uygulama için benzersiz tanıtıcıdır. Uygulama Kimliği URI'si ve diğer özellikleri kayıtlı uygulamalar hakkında daha fazla bilgi için bkz: [bu konuda](https://msdn.microsoft.com/en-us/library/azure/dn499820.aspx#BKMK_Registering). Uygulama Kimliği URI'si alan altında onay kutusunu tıklatarak, ayrıca varolan bir kayıt aynı uygulama kimliği URI'si kullanan Azure AD'de üzerine yazmayı seçebilirsiniz.
+    > İsteğe bağlı olarak Azure AD içinde tıklayarak kaydedilecek uygulama kimliği URI'si yapılandırabilirsiniz **diğer seçenekler**. Uygulama Kimliği URI'si Azure AD'de kayıtlı ve Azure AD ile iletişim kurarken kendini tanıtmak için uygulama tarafından kullanılan bir uygulama için benzersiz tanıtıcıdır. Uygulama Kimliği URI'si ve diğer özellikleri kayıtlı uygulamalar hakkında daha fazla bilgi için bkz: [bu konuda](https://msdn.microsoft.com/library/azure/dn499820.aspx#BKMK_Registering). Uygulama Kimliği URI'si alan altında onay kutusunu tıklatarak, ayrıca varolan bir kayıt aynı uygulama kimliği URI'si kullanan Azure AD'de üzerine yazmayı seçebilirsiniz.
 4. ' I tıklattıktan sonra **Tamam**, bir oturum açma iletişim kutusu görünür ve bir genel yönetici hesabı (aboneliğinizle ilişkili Microsoft hesabı değil) kullanarak oturum açmanız gerekir. Daha önce oluşturduğunuz yeni bir yönetici hesabı, parolayı değiştirmek ve yeni parolayı kullanarak yeniden oturum gerekecek.   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image9.png)
@@ -102,7 +102,7 @@ Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https:/
 
 ## <a name="basics-of-the-graph-api"></a>Grafik API'si temelleri
 
-[Grafik API'si](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx) Azure AD dizininizi CRUD ve nesneler üzerinde başka işlemler gerçekleştirmek için kullanılan programlama arabirimi. Visual Studio 2013'te yeni bir proje oluşturma sırasında kimlik doğrulaması için bir kurumsal hesap seçeneği belirlerseniz, uygulamanız zaten grafik API'sini aramak üzere yapılandırılır. Bu bölümde kısaca, grafik API'sini nasıl çalıştığını gösterir.
+[Grafik API'si](https://msdn.microsoft.com/library/azure/hh974476.aspx) Azure AD dizininizi CRUD ve nesneler üzerinde başka işlemler gerçekleştirmek için kullanılan programlama arabirimi. Visual Studio 2013'te yeni bir proje oluşturma sırasında kimlik doğrulaması için bir kurumsal hesap seçeneği belirlerseniz, uygulamanız zaten grafik API'sini aramak üzere yapılandırılır. Bu bölümde kısaca, grafik API'sini nasıl çalıştığını gösterir.
 
 1. Çalışan uygulamanızda en üstünde oturum açmış kullanıcının adına tıklayın sayfasının sağ. Bu sizi bir eylem giriş denetleyicisinde kullanıcı profili sayfasına götürür. Tablo yönetici hesabı hakkında daha önce oluşturduğunuz kullanıcı bilgilerini içeren fark edeceksiniz. Bu bilgiler dizininizde depolanır ve grafik API'si Sayfa yüklediğinde, bu bilgileri almak için çağrılır.   
   
@@ -148,9 +148,9 @@ Uygulama çalıştırdıktan sonra oturum açan kullanıcının "Null kullanıc�
 
 İzlemek için mükemmel bir öğretici Rick Rainey ait olduğu [derinlemesine bakış: Azure Web siteleri ve kuruluş Azure AD kullanarak kimlik doğrulaması](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/).
 
-## <a name="more-information"></a>Daha Fazla Bilgi
+## <a name="more-information"></a>Daha fazla bilgi
 
 - [Derin Dalış: Azure Web siteleri ve kuruluş Azure AD kullanarak kimlik doğrulaması](http://rickrainey.com/2014/08/19/deep-dive-azure-websites-and-organizational-authentication-using-azure-ad/)
-- [Azure AD Graph API genel bakış](https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx)
-- [Azure AD kimlik doğrulama senaryoları](https://msdn.microsoft.com/en-us/library/azure/dn499820.aspx)
+- [Azure AD Graph API genel bakış](https://msdn.microsoft.com/library/azure/hh974476.aspx)
+- [Azure AD kimlik doğrulama senaryoları](https://msdn.microsoft.com/library/azure/dn499820.aspx)
 - [Github'da Azure AD kod örnekleri](https://github.com/AzureADSamples)

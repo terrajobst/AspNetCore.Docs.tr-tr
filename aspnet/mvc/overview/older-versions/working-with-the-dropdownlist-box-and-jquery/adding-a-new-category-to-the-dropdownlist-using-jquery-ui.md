@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 0cc51fbe84124a62f0c1254faab796cbcdc7efd6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Yeni bir kategori jQuery UI kullanarak DropDownList ekleme
 ====================
@@ -90,7 +90,7 @@ Açık *Scripts\chooseGenre.js* dosya ve kodu inceleyin.
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample7.cshtml)]
 
-[Html.BeginForm](https://msdn.microsoft.com/en-us/library/dd492714.aspx) yardımcı aşırı kullanılan *Views\Genre\\_CreateGenre.cshtml* dosyası HTML form gönderme URL'sini içeren bir eylem özniteliğiyle oluşturur. Bir tarayıcıda oluşturma albüm sayfası görüntüleme ve tarayıcıda göster kaynak seçerek görebilirsiniz. Aşağıdaki biçimlendirmede form etiketi içeren oluşturulan HTML gösterir.
+[Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx) yardımcı aşırı kullanılan *Views\Genre\\_CreateGenre.cshtml* dosyası HTML form gönderme URL'sini içeren bir eylem özniteliğiyle oluşturur. Bir tarayıcıda oluşturma albüm sayfası görüntüleme ve tarayıcıda göster kaynak seçerek görebilirsiniz. Aşağıdaki biçimlendirmede form etiketi içeren oluşturulan HTML gösterir.
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample8.html)]
 
@@ -131,15 +131,15 @@ Rick.Anderson[at]Microsoft.com
 ### <a name="contributors"></a>Katkıda Bulunanlar
 
 - [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
-- Jean Sébastien Goupil
+- Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
 
 ### <a name="reviewers"></a>Gözden geçirenler
 
-- Jean Sébastien Goupil
+- Jean-Sébastien Goupil
 - [Brad Wilson](http://bradwilson.typepad.com/)
-- Can Pope
-- Zel Dykstra
+- Mike Pope
+- Tom Dykstra
 
 >[!div class="step-by-step"]
 [Önceki](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

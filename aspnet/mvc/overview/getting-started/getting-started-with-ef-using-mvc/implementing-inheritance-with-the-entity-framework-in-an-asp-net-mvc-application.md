@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Bir ASP.NET MVC 5 uygulaması (11 / 12) Entity Framework 6 kalıtım uygulama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -43,7 +43,7 @@ Tarafından paylaşılan özellikler için yedek kod ortadan kaldırmak istediğ
 
 Bu devralma yapı veritabanında gösterilebilir birkaç yolu vardır. Sahip olabilir bir `Person` Öğrenciler ve tek bir tablodaki Eğitmen hakkında bilgi içeren tablo. Bazı sütunları yalnızca eğitmen için geçerli olabilir (`HireDate`), bazı yalnızca Öğrenciler (`EnrollmentDate`), bazı iki (`LastName`, `FirstName`). Genellikle, olurdu bir *Ayrıştırıcıyı* her satır tür belirtmek için sütun temsil eder. Örneğin, ayrıştırıcı sütunun "Eğitmen" Eğitmen ve "Öğrenci" Öğrenciler için olabilir.
 
-![Tablo başına hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Table-per-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 Bir varlığın devralma yapısı tek veritabanı tablosundan oluşturmanın bu deseni adlı *tablo başına hiyerarşisi* (TPH) devralma.
 
@@ -57,7 +57,7 @@ Henüz başka bir tek tek tablolar için tüm Özet olmayan türlerine eşlemek 
 
 Birleştirilmiş TPT desenleri karmaşık JOIN sorguları sağladığından TPC ve TPH devralma desenleri genellikle daha iyi performans birleştirilmiş TPT devralma düzenleri daha Entity Framework sunar.
 
-Bu öğretici nasıl TPH devralma uygulanacağını gösterir. TPH olduğundan Entity Framework varsayılan devralma desende yapmanız gereken tek şey oluşturma bir `Person` sınıfı, değişiklik `Instructor` ve `Student` öğesinden türetilen sınıflar `Person`, yeni sınıf ekleyin `DbContext`ve oluşturma bir geçiş. (Bir devralma desenlerini uygulama hakkında daha fazla bilgi için bkz: [birleştirilmiş tablo başına türü (TPT) devralma eşleme](https://msdn.microsoft.com/en-us/data/jj591617#2.5) ve [tablo başına somut sınıfı (TPC) devralma eşleme](https://msdn.microsoft.com/en-us/data/jj591617#2.6) MSDN'de Entity Framework belgelerine.)
+Bu öğretici nasıl TPH devralma uygulanacağını gösterir. TPH olduğundan Entity Framework varsayılan devralma desende yapmanız gereken tek şey oluşturma bir `Person` sınıfı, değişiklik `Instructor` ve `Student` öğesinden türetilen sınıflar `Person`, yeni sınıf ekleyin `DbContext`ve oluşturma bir geçiş. (Bir devralma desenlerini uygulama hakkında daha fazla bilgi için bkz: [birleştirilmiş tablo başına türü (TPT) devralma eşleme](https://msdn.microsoft.com/data/jj591617#2.5) ve [tablo başına somut sınıfı (TPC) devralma eşleme](https://msdn.microsoft.com/data/jj591617#2.6) MSDN'de Entity Framework belgelerine.)
 
 ## <a name="create-the-person-class"></a>Kişi sınıfı oluşturma
 
@@ -159,7 +159,7 @@ Bu bölümde isteğe bağlı tamamladınız gerektirir **uygulamayı Azure'a da�
 
 ## <a name="summary"></a>Özet
 
-Tablo başına hiyerarşisi devralma uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Bu ve diğer devralma yapıları hakkında daha fazla bilgi için bkz: [birleştirilmiş TPT devralma deseni](https://msdn.microsoft.com/en-us/data/jj618293) ve [TPH devralma deseni](https://msdn.microsoft.com/en-us/data/jj618292) konusuna bakın. Sonraki öğreticide çeşitli göreceli olarak Gelişmiş Entity Framework senaryolarda nasıl ele alınacağını görürsünüz.
+Tablo başına hiyerarşisi devralma uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Bu ve diğer devralma yapıları hakkında daha fazla bilgi için bkz: [birleştirilmiş TPT devralma deseni](https://msdn.microsoft.com/data/jj618293) ve [TPH devralma deseni](https://msdn.microsoft.com/data/jj618292) konusuna bakın. Sonraki öğreticide çeşitli göreceli olarak Gelişmiş Entity Framework senaryolarda nasıl ele alınacağını görürsünüz.
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 

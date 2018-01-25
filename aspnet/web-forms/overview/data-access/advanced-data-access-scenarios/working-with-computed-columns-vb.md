@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a6ff0df27e19d6feecde27a77d4b212d1e9bc45e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52fc0b89343236b70f8a2e013ad8a33431ae3d2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-vb"></a>Hesaplanan sütunlar (VB) ile çalışma
 ====================
@@ -29,7 +29,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Giriş
 
-Microsoft SQL Server sağlar  *[hesaplanan sütunlar](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*, değerleri genellikle aynı tablodaki başka sütunlardan değerleri başvuran bir ifadeden hesaplanan sütun olduğu. Örnek olarak, bir süre veri modeli izleme adlı bir tablo olabilir `ServiceLog` dahil olmak üzere sütunlarla `ServicePerformed`, `EmployeeID`, `Rate`, ve `Duration`, diğerlerinin yanı sıra. While miktarı nedeniyle hizmeti başına öğesi (süresine çarpılan oranı olan) hesaplanacağını bir web sayfası veya diğer program arabirimi, bir sütunda dahil etmek için kullanışlı olabilecek `ServiceLog` adlı tablo `AmountDue` Bu rapor bilgi. Bu sütun için normal bir sütun olarak oluşturulamadı, ancak dilediğiniz zaman güncelleştirilmesi gerekir `Rate` veya `Duration` sütun değerlerini değiştirildi. Daha iyi bir yaklaşım sağlamak olacaktır `AmountDue` sütun ifade kullanılarak hesaplanan bir sütun `Rate * Duration`. Bunun yapılması SQL Server'ın otomatik olarak hesaplamak neden `AmountDue` sorguda başvuruldu her sütun değeri.
+Microsoft SQL Server sağlar  *[hesaplanan sütunlar](https://msdn.microsoft.com/library/ms191250.aspx)*, değerleri genellikle aynı tablodaki başka sütunlardan değerleri başvuran bir ifadeden hesaplanan sütun olduğu. Örnek olarak, bir süre veri modeli izleme adlı bir tablo olabilir `ServiceLog` dahil olmak üzere sütunlarla `ServicePerformed`, `EmployeeID`, `Rate`, ve `Duration`, diğerlerinin yanı sıra. While miktarı nedeniyle hizmeti başına öğesi (süresine çarpılan oranı olan) hesaplanacağını bir web sayfası veya diğer program arabirimi, bir sütunda dahil etmek için kullanışlı olabilecek `ServiceLog` adlı tablo `AmountDue` Bu rapor bilgi. Bu sütun için normal bir sütun olarak oluşturulamadı, ancak dilediğiniz zaman güncelleştirilmesi gerekir `Rate` veya `Duration` sütun değerlerini değiştirildi. Daha iyi bir yaklaşım sağlamak olacaktır `AmountDue` sütun ifade kullanılarak hesaplanan bir sütun `Rate * Duration`. Bunun yapılması SQL Server'ın otomatik olarak hesaplamak neden `AmountDue` sorguda başvuruldu her sütun değeri.
 
 Bir hesaplanan sütun s değeri bir ifade tarafından belirlenir olduğundan, bu sütunları salt okunur ve bu nedenle değerleri bunları atadığınız olamaz `INSERT` veya `UPDATE` deyimleri. Hesaplanan sütunlar geçici SQL deyimlerini kullanan bir TableAdapter için ana sorgu parçası olduğunda, ancak bunlar otomatik olarak otomatik olarak oluşturulan dahil `INSERT` ve `UPDATE` deyimleri. Sonuç olarak, TableAdapter s `INSERT` ve `UPDATE` sorgular ve `InsertCommand` ve `UpdateCommand` özellikleri tüm hesaplanan sütunlar başvuruları kaldırmak için güncelleştirilmesi gerekir.
 
@@ -51,7 +51,7 @@ Başlangıç açarak `Suppliers` tablo tanımı üzerinde sağ tıklayarak `Supp
 SQL dizeleri birleştirilmiş olduğunu unutmayın kullanarak `+` işleci. `CASE` Deyimi, geleneksel bir programlama dili koşullu gibi kullanılabilir. Yukarıdaki ifadede `CASE` deyimi olarak okunabilir: varsa `ContactTitle` değil `NULL` ardından çıktı `ContactTitle` virgül ile aksi takdirde birleştirilmiş değer nothing yayma. Yararlılığı hakkında daha fazla bilgi için `CASE` deyimi, bkz: [SQL güç `CASE` deyimleri](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Kullanmak yerine bir `CASE` burada deyimi, alternatif olarak kullandık `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)döndürür *checkExpression* NULL değilse, aksi takdirde döndürür *replacementValue*. While ya da `ISNULL` veya `CASE` çalışır Bu örnekte, daha karmaşık senaryolar vardır burada esnekliğini `CASE` deyimi tarafından eşleşebilecek olamaz `ISNULL`.
+> Kullanmak yerine bir `CASE` burada deyimi, alternatif olarak kullandık `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)döndürür *checkExpression* NULL değilse, aksi takdirde döndürür *replacementValue*. While ya da `ISNULL` veya `CASE` çalışır Bu örnekte, daha karmaşık senaryolar vardır burada esnekliğini `CASE` deyimi tarafından eşleşebilecek olamaz `ISNULL`.
 
 
 Bu hesaplanan sütunu ekledikten sonra ekranınızın Şekil 1'de ekran gibi görünmelidir.
@@ -69,10 +69,10 @@ Yeni eklenen sütununda dahil olmak üzere Sunucu Gezgini tablosu kaydediliyor y
 
 [!code-sql[Main](working-with-computed-columns-vb/samples/sample2.sql)]
 
-Microsoft SQL Server'da hesaplanan sütunlar üzerinde daha fazla bilgi için bkz [teknik belgeler](https://msdn.microsoft.com/en-us/library/ms191250.aspx). Ayrıca kullanıma [nasıl yapılır: hesaplanan sütunlar belirtin](https://msdn.microsoft.com/en-us/library/ms188300.aspx) hesaplanan sütunlar oluşturma adım adım kılavuz.
+Microsoft SQL Server'da hesaplanan sütunlar üzerinde daha fazla bilgi için bkz [teknik belgeler](https://msdn.microsoft.com/library/ms191250.aspx). Ayrıca kullanıma [nasıl yapılır: hesaplanan sütunlar belirtin](https://msdn.microsoft.com/library/ms188300.aspx) hesaplanan sütunlar oluşturma adım adım kılavuz.
 
 > [!NOTE]
-> Varsayılan olarak, hesaplanan sütunlar tabloda fiziksel olarak depolanan değil ancak bunun yerine bir sorguda başvurulan her zaman yeniden hesaplanır. Kalıcıdır onay kutusunu işaretleyerek, ancak, fiziksel olarak hesaplanan sütunu tabloda depolamak için SQL Server söyleyebilirsiniz. Bunun yapılması, hesaplanan sütun değeri kullanan sorguları performansını artırabilir hesaplanan sütunda oluşturulması için bir dizin verir kendi `WHERE` yan tümceleri. Bkz: [hesaplanan sütun dizinleri oluşturma](https://msdn.microsoft.com/en-us/library/ms189292.aspx) daha fazla bilgi için.
+> Varsayılan olarak, hesaplanan sütunlar tabloda fiziksel olarak depolanan değil ancak bunun yerine bir sorguda başvurulan her zaman yeniden hesaplanır. Kalıcıdır onay kutusunu işaretleyerek, ancak, fiziksel olarak hesaplanan sütunu tabloda depolamak için SQL Server söyleyebilirsiniz. Bunun yapılması, hesaplanan sütun değeri kullanan sorguları performansını artırabilir hesaplanan sütunda oluşturulması için bir dizin verir kendi `WHERE` yan tümceleri. Bkz: [hesaplanan sütun dizinleri oluşturma](https://msdn.microsoft.com/library/ms189292.aspx) daha fazla bilgi için.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>2. adım: hesaplanan sütun s değerlerini görüntüleme

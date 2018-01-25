@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -53,7 +53,7 @@ Bu öğreticiler SQL Server veritabanlarını içeren bir ASP.NET web uygulamas�
 Dağıtımdan [kaynak denetimi](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) kullanarak bir [kesintisiz teslim](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) işlem komut satırından dağıtma gösteren bir öğretici dışında bu öğreticilerdeki kapsamında değil. Sürekli teslimi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Sürekli tümleştirme ve kesintisiz teslim (Windows Azure ile gerçek bulut uygulamaları derleme)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Azure App Service'te bir web uygulaması dağıtma](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Azure App Service'te bir web uygulaması dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [Kuruluş senaryolarında Web uygulamalarını dağıtma](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (bir eski kümesi hala Kurumsal ortamlar için yararlı bilgiler sahip Visual Studio 2010 için yazılmış öğreticileri.)
 
 ## <a name="using-a-third-party-hosting-provider"></a>Bir üçüncü taraf barındırma sağlayıcısı kullanarak
@@ -130,7 +130,7 @@ Visual Studio 2010 SP1'i kullanıyorsanız, aşağıdaki yazılımı yükleyin:
 
 - [Visual Studio 2010 için Azure SDK](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [SQL Server veri Araçları](https://msdn.microsoft.com/en-us/library/hh500335.aspx).
+- [SQL Server veri Araçları](https://msdn.microsoft.com/library/hh500335.aspx).
 
 SDK bağımlılığı kaç makinenizde zaten bağlı olarak, Azure SDK'nin yüklenmesi birkaç dakikadan yarım saat veya daha uzun bir zaman ele geçirebilir. Planladığınız olsa bile bir üçüncü taraf barındırma sağlayıcısına yerine Azure yayınlamak için SDK, Visual Studio web en son güncelleştirmeleri içerdiğinden özellikleri yayımlama Azure SDK'sı gerekir.
 
@@ -203,4 +203,4 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 Bu ilk öğreticide serideki örnek Visual Studio projesi indirdiğiniz ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde otomatik olarak işlenecek bunlardan bazıları ayarlayarak dağıtımı için hazırlayın. Başkalarının size, el ile dikkatli olun.
 
 >[!div class="step-by-step"]
-[Sonraki](preparing-databases.md)
+[Next](preparing-databases.md)

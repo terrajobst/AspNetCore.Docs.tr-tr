@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1edeaa392abea96a0f5085539cd8ab7810d59e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Bir kullanıcı hesabı birçok (C# ' dan) seçmek için bir arabirim oluşturma
 ====================
@@ -134,13 +134,13 @@ Bu yöntem, öğeleri olarak filtreleme seçenekleri belirtir. `string` dizi `fi
 > Kullanıcı adları, sayıları ve noktalama işaretlerini dahil olmak üzere herhangi bir karakter ile başlayabilir. Bu hesapları görüntülemek için tüm LinkButton bu seçeneği kullanmak yöneticinin gerekir. Alternatif olarak, bir rakamla başlayamaz tüm kullanıcı hesapları döndürülecek LinkButton ekleyebilirsiniz. I bunu bir alıştırma olarak okuyucuya bırakın.
 
 
-Herhangi bir filtre LinkButtons tıklayarak geri gönderimin neden olur ve yineleyici 's başlatır `ItemCommand` olay, ancak kılavuzda herhangi bir değişiklik için biz henüz olduğunuz çünkü sonuçlara filtre uygulamak için herhangi bir kod yazma. `Membership` Sınıfı içeren bir [ `FindUsersByName` yöntemi](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx) kullanıcı adı ile eşleşen bir belirtilen arama deseni bu kullanıcı hesaplarını döndürür. Biz yalnızca bu kullanıcı hesapları, kullanıcı adları Başlat tarafından belirtilen harfiyle almak için bu yöntemi kullanabilirsiniz `CommandName` tıklandığını filtrelenmiş LinkButton biri.
+Herhangi bir filtre LinkButtons tıklayarak geri gönderimin neden olur ve yineleyici 's başlatır `ItemCommand` olay, ancak kılavuzda herhangi bir değişiklik için biz henüz olduğunuz çünkü sonuçlara filtre uygulamak için herhangi bir kod yazma. `Membership` Sınıfı içeren bir [ `FindUsersByName` yöntemi](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) kullanıcı adı ile eşleşen bir belirtilen arama deseni bu kullanıcı hesaplarını döndürür. Biz yalnızca bu kullanıcı hesapları, kullanıcı adları Başlat tarafından belirtilen harfiyle almak için bu yöntemi kullanabilirsiniz `CommandName` tıklandığını filtrelenmiş LinkButton biri.
 
 Başlangıç güncelleştirerek `ManageUser.aspx` sayfanın arka plandaki kod sınıfı adlı bir özellik içeren `UsernameToMatch`. Bu özellik kullanıcıadı filtre dizesi Geri göndermeler devam ederse:
 
 [!code-csharp[Main](building-an-interface-to-select-one-user-account-from-many-cs/samples/sample8.cs)]
 
-`UsernameToMatch` Özellik değerini atanan içine depolar `ViewState` UsernameToMatch anahtarı kullanarak koleksiyonu. Bu özelliğin değeri okurken, bir değer olup olmadığını denetler `ViewState` koleksiyonu; değilse, onu varsayılan değeri, boş bir dize döndürür. `UsernameToMatch` Özelliği öğesine özelliği yapılan değişikliklerin Geri göndermeler arasında kalıcı şekilde durumunu görüntülemek için bir değer kalıcı genel bir desen sergiler. Bu desen hakkında daha fazla bilgi için okuma [ASP.NET görünüm durumunu anlama](https://msdn.microsoft.com/en-us/library/ms972976.aspx).
+`UsernameToMatch` Özellik değerini atanan içine depolar `ViewState` UsernameToMatch anahtarı kullanarak koleksiyonu. Bu özelliğin değeri okurken, bir değer olup olmadığını denetler `ViewState` koleksiyonu; değilse, onu varsayılan değeri, boş bir dize döndürür. `UsernameToMatch` Özelliği öğesine özelliği yapılan değişikliklerin Geri göndermeler arasında kalıcı şekilde durumunu görüntülemek için bir değer kalıcı genel bir desen sergiler. Bu desen hakkında daha fazla bilgi için okuma [ASP.NET görünüm durumunu anlama](https://msdn.microsoft.com/library/ms972976.aspx).
 
 Ardından, güncelleştirme `BindUserAccounts` yöntemi çağırmak yerine bu nedenle, `Membership.GetAllUsers`, çağırır `Membership.FindUsersByName`, değeri geçen `UsernameToMatch` SQL joker karakterle eklenen özellik %.
 
@@ -177,7 +177,7 @@ Varsayılan ve özel sayfalama arasındaki performans farkının binlerce kayıt
 
 İlk GridView tarafından görüntülenen kayıtları hassas alt almak bazı mekanizma ihtiyacımız özel sayfalama uygulamak için. İyi haber olan `Membership` sınıfının `FindUsersByName` yöntemi bize sayfa dizini ve sayfa boyutunu belirtmek izin veren bir aşırı sahiptir ve bu kayıtların aralığında kullanıcı hesaplarını döndürür.
 
-Özellikle, bu aşırı aşağıdaki imzası vardır: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx).
+Özellikle, bu aşırı aşağıdaki imzası vardır: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
 *PageIndex* parametresi, döndürülecek; kullanıcı hesapları sayfa belirtir *pageSize* sayfa başına görüntülemek için kaç tane kayıtları gösterir. *TotalRecords* parametresi bir `out` parametre sayısı toplam kullanıcı hesapları, kullanıcı deposunda döndürür.
 
@@ -265,4 +265,4 @@ Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kuruc
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Alicja Maziarz oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
 >[!div class="step-by-step"]
-[Sonraki](recovering-and-changing-passwords-cs.md)
+[Next](recovering-and-changing-passwords-cs.md)

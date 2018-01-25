@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: 1c24ccd220bf6df09a958d07b13077f004da0a03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms bağlantı dayanıklılığı ve komut kişiler tarafından ele
 ====================
@@ -39,7 +39,7 @@ Bu öğreticide, bağlantı dayanıklılığı ve komut kişiler tarafından ele
 
 Başlamadan önce aşağıdaki yazılım bilgisayarınızda yüklü olduğundan emin olun:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework otomatik olarak yüklenir.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) veya [Web için Microsoft Visual Studio Express 2013](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework otomatik olarak yüklenir.
 - Böylece, bu öğreticide Wingtip Toys projede belirtilen işlevselliği uygulayabileceğiniz Wingtip Toys proje, örnek. Aşağıdaki bağlantıda indirme Ayrıntılar verilmiştir:
 
     - [ASP.NET 4.5.1 ile çalışmaya başlama Web Forms - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&amp;clcid=0x409) (C#)
@@ -81,7 +81,7 @@ Entity Framework otomatik olarak bulduğu türeyen bir sınıf kodu çalıştır
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample3.cs?highlight=14-15,17-22)]
 
-Ekleyerek `RetryLimitExceededException` özel durum, daha iyi günlüğü sağlayın veya burada bunlar seçebilirsiniz işlemi yeniden deneyin kullanıcıya bir hata iletisi görüntülenir. Yakalama tarafından `RetryLimitExceededException` özel durum, büyük olasılıkla geçici yalnızca hataların zaten alınan denedi ve birkaç kez başarısız oldu. Döndürülen özel durumu içinde kaydırılan `RetryLimitExceededException` özel durum. Ayrıca, ayrıca bir genel catch bloğu eklendi. Hakkında daha fazla bilgi için `RetryLimitExceededException` özel durum, bkz: [Entity Framework bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/en-us/data/dn456835).
+Ekleyerek `RetryLimitExceededException` özel durum, daha iyi günlüğü sağlayın veya burada bunlar seçebilirsiniz işlemi yeniden deneyin kullanıcıya bir hata iletisi görüntülenir. Yakalama tarafından `RetryLimitExceededException` özel durum, büyük olasılıkla geçici yalnızca hataların zaten alınan denedi ve birkaç kez başarısız oldu. Döndürülen özel durumu içinde kaydırılan `RetryLimitExceededException` özel durum. Ayrıca, ayrıca bir genel catch bloğu eklendi. Hakkında daha fazla bilgi için `RetryLimitExceededException` özel durum, bkz: [Entity Framework bağlantı dayanıklılığı / yeniden deneme mantığı](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="command-interception"></a>Komut kişiler tarafından ele
 

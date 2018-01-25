@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Karmaşık veri model - EF çekirdek ASP.NET Core MVC Öğreticisi (5 / 10) ile oluşturma
 
@@ -39,7 +39,7 @@ Tüm bu alan için ilgilendiğiniz olmasına rağmen tarih Öğrenci kayıt tari
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-`DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. `DataType` Tarih, saat, PhoneNumber, para birimi, EmailAddress ve daha fazla gibi birçok veri türleri için numaralandırma sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Özniteliği yayar HTML 5 `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri tire) öznitelikler. `DataType` Öznitelikleri tüm doğrulama sağlamaz.
+`DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. `DataType` Tarih, saat, PhoneNumber, para birimi, EmailAddress ve daha fazla gibi birçok veri türleri için numaralandırma sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Özniteliği yayar HTML 5 `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri tire) öznitelikler. `DataType` Öznitelikler olmayan tüm doğrulama sağlar.
 
 `DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucunun CultureInfo üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir.
 
@@ -125,7 +125,7 @@ dotnet ef database update
 
 ![SSOX Öğrenciler tabloda geçişler sonra](complex-data-model/_static/ssox-after-migration.png)
 
-İlk iki geçiş uygulamadan önce adı sütun türü nvarchar(MAX) bulunuyordu. Artık nvarchar(50) olmaları ve sütun adı FirstMidName FirstName değişti.
+İlk iki geçiş uygulamadan önce adı sütun türü nvarchar(MAX) bulunuyordu. FirstName FirstMidName nvarchar(50) ve sütun adı değişti artık oldukları.
 
 > [!Note]
 > Tüm sınıflar aşağıdaki bölümlerde oluşturma bitirmeden derlemek çalışırsanız, derleyici hataları alabilirsiniz.
@@ -140,7 +140,7 @@ dotnet ef database update
 
 ### <a name="the-required-attribute"></a>Gerekli özniteliği
 
-`Required` Öznitelik adı özellikleri gerekli alanlar yapar. `Required` Öznitelik değer türleri gibi null türleri için gerekli değildir (DateTime, int, çift, float, vb..). Null olamaz türleri gerekli alanlar olarak otomatik olarak kabul edilir.
+`Required` Öznitelik adı özellikleri gerekli alanlar yapar. `Required` Öznitelik değer türleri gibi null türleri için gerekli değil (DateTime, int, çift, float, vb..). Null olamaz türleri gerekli alanlar olarak otomatik olarak kabul edilir.
 
 Kullanarak kaldırabilirsiniz `Required` özniteliği ve en az uzunluk parametresi için WITH replace `StringLength` özniteliği:
 
@@ -231,7 +231,7 @@ Put bir `[Required]` ilgili Eğitmen olmalıdır, ancak, çünkü bunu yapmanız
 
 İndirmelere varlık yabancı anahtar özelliğine `DepartmentID` ilgili departmanı varlık ve bu işaret ettiği sahip bir `Department` gezinti özelliği.
 
-Entity Framework ilgili varlık gezinme özelliğinin olduğunda yabancı anahtar özelliği, veri modeline Ekle gerektirmez.  EF otomatik olarak gerekli olan her yerde veritabanındaki yabancı anahtarlar oluşturur ve oluşturur [gölge özellikleri](https://docs.microsoft.com/ef/core/modeling/shadow-properties) bunlar için. Ancak veri modelinde yabancı anahtar olan güncelleştirmeler daha basit ve daha verimli hale getirebilir. Düzenlemek için bir indirmelere varlık getirme, örneğin, departman varlık null olduğunda, yükleme böylece indirmelere varlık güncelleştirdiğinizde varsa ilk bölüm varlık getirilemedi. Zaman yabancı anahtar özelliği `DepartmentID` bulunan veri modelinde güncelleştirmeden önce departmanı varlık fetch gerekmez.
+Entity Framework ilgili varlık gezinme özelliğinin olduğunda yabancı anahtar özelliği, veri modeline Ekle gerektirmez.  EF otomatik olarak gerekli nerede olursa olsun veritabanındaki yabancı anahtarlar oluşturur ve oluşturur [gölge özellikleri](https://docs.microsoft.com/ef/core/modeling/shadow-properties) bunlar için. Ancak veri modelinde yabancı anahtar olan güncelleştirmeler daha basit ve daha verimli hale getirebilir. Düzenlemek için bir indirmelere varlık getirme, örneğin, departman varlık null olduğunda, yükleme böylece indirmelere varlık güncelleştirdiğinizde varsa ilk bölüm varlık getirilemedi. Zaman yabancı anahtar özelliği `DepartmentID` bulunan veri modelinde güncelleştirmeden önce departmanı varlık fetch gerekmez.
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated özniteliği
 
@@ -354,7 +354,7 @@ Her ilişki ucu ve bir yıldız işareti (*) 1 diğer sırasında bir-çok iliş
 
 Kayıt tablo düzeyde bilgi eklemediyseniz, yalnızca iki yabancı anahtarları CourseID ve StudentID içerecek şekilde gerekir. Bu durumda, bir çok-çok birleştirme tablo yükü olmadan (veya bir saf birleştirme tablo) veritabanında olacaktır. Eğitmen ve indirmelere varlıkları bu tür bir çok-çok ilişkisi vardır ve sonraki adımınız yükü olmadan birleştirme tablosu olarak çalışması için bir varlık sınıfı oluşturmaktır.
 
-(Çok-çok ilişkileri ancak EF çekirdek için örtük birleştirme tabloları desteklemez EF 6.x destekler. Daha fazla bilgi için bkz: [EF çekirdek GitHub deposuna tartışmada](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(Örtük birleştirme tablolarını çok-çok ilişkileri ancak EF çekirdek değildir EF 6.x destekler. Daha fazla bilgi için bkz: [EF çekirdek GitHub deposuna tartışmada](https://github.com/aspnet/EntityFramework/issues/1368).) 
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment varlık
 

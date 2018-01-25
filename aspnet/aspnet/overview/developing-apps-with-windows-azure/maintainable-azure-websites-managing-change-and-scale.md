@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratuvar üzerinde aktarır: sürdürülebilir Azure Web siteleri: değişiklik ve ölçek yönetme
 ====================
@@ -251,7 +251,7 @@ Bu görevde, kullanacağınız **Entity Framework Code First Migrations** modeli
 Bu alıştırmada, dağıtacağınız **günlük test** hazırlama ortamına Git kaynak denetimi kullanarak, web uygulamanızın uygulama. Bunu yapmak için web uygulaması oluşturma ve Yönetim Portalı'nı gerekli bileşenler sağlama ve yapılandırma bir **Git** depo ve anında iletme uygulamanın kaynak kodu yerel bilgisayarınızdan hazırlama yuvası için. Üretim veritabanınız güncelleştirmek **Code First Migrations** önceki alıştırmada oluşturulan. Ardından, işlemi doğrulamak için bu test ortamında uygulama yürütülür. Memnun sonra onun beklentilerinizi göre çalıştığından, üretim uygulamaya yükseltmez.
 
 > [!NOTE]
-> Hazırlanmış yayımlamayı etkinleştirmek için web uygulaması olmalıdır **Standart mod**. Web uygulamanızı standart moda değiştirirseniz, ek ücret tahakkuk olduğunu unutmayın. Fiyatlandırma hakkında daha fazla bilgi için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/en-us/pricing/details/app-service/).
+> Hazırlanmış yayımlamayı etkinleştirmek için web uygulaması olmalıdır **Standart mod**. Web uygulamanızı standart moda değiştirirseniz, ek ücret tahakkuk olduğunu unutmayın. Fiyatlandırma hakkında daha fazla bilgi için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
@@ -695,7 +695,7 @@ Bu görevde, yapılandıracağınız **GeekQuiz** görüntüyü kullanmak için 
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > URL yeniden yazma işlemi, bir gelen Web isteği kesintiye uğratan ve istek farklı bir kaynak için yönlendirme işlemidir. URL kuralları yeniden yazma isteği yönlendirilecek gerektiği zaman ve nerede yönlendirilir yazmaksızın altyapısı söyler. Yazmaksızın kural iki dizesini oluşur: İstenen URL'de aranacak deseni (genellikle, normal ifadeler kullanarak) ve desenle değiştirirseniz için dizesi bulunamadı. Daha fazla bilgi için bkz: [URL yeniden yazma işlemi ASP.NET](https://msdn.microsoft.com/en-us/library/ms972974.aspx).
+    > URL yeniden yazma işlemi, bir gelen Web isteği kesintiye uğratan ve istek farklı bir kaynak için yönlendirme işlemidir. URL kuralları yeniden yazma isteği yönlendirilecek gerektiği zaman ve nerede yönlendirilir yazmaksızın altyapısı söyler. Yazmaksızın kural iki dizesini oluşur: İstenen URL'de aranacak deseni (genellikle, normal ifadeler kullanarak) ve desenle değiştirirseniz için dizesi bulunamadı. Daha fazla bilgi için bkz: [URL yeniden yazma işlemi ASP.NET](https://msdn.microsoft.com/library/ms972974.aspx).
 3. Tuşuna **CTRL + S** değişiklikleri kaydedin.
 4. Yeni bir **Git Bash** güncelleştirilmiş uygulamayı Azure App Service'e dağıtmak için konsol.
 5. Azure'a değişiklikleri göndermek için aşağıdaki komutları yürütün. Güncelleştirme *[YOUR uygulama yolu]* yolu ile yer tutucu **GeekQuiz** çözümü. Dağıtım parolanızı girmeniz istenir.
@@ -885,7 +885,7 @@ Bu görevde alıştırma 2'de oluşturulan web uygulaması için otomatik ölçe
 
     ![LoadTest1.loadtest açma](maintainable-azure-websites-managing-change-and-scale/_static/image99.png "LoadTest1.loadtest açma")
 
-    *Açılış LoadTest1.loadtest*
+    *Opening LoadTest1.loadtest*
 2. İçinde **LoadTest1.loadtest** penceresinde, yükleme testini çalıştırmak için araç kutusu ilk düğmesini tıklatın.
 
     ![Yük testi çalıştırma](maintainable-azure-websites-managing-change-and-scale/_static/image100.png "yük testi çalıştırma")
@@ -910,7 +910,7 @@ Bu görevde alıştırma 2'de oluşturulan web uygulaması için otomatik ölçe
     > 
     > - Yük testi süresini artırın (örneğin için **10 dakika**)
     > - Maksimum ve minimum değerler, azaltmak **hedef CPU** web uygulamanız otomatik ölçeklendirme yapılandırmasını aralığı
-    > - Yük testi ile bulutta çalıştırmak **Visual Studio Online**. Daha fazla bilgi [burada](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - Yük testi ile bulutta çalıştırmak **Visual Studio Online**. Daha fazla bilgi [burada](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 

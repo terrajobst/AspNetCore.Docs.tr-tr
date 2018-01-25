@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 
@@ -25,7 +25,7 @@ Dağıtılmış önbellek özellikle bir bulut veya sunucu grubu ortamında bar�
 
 ## <a name="what-is-a-distributed-cache"></a>Dağıtılmış önbellek nedir
 
-Dağıtılmış önbellek birden çok uygulama sunucuları tarafından paylaşılan (bkz [önbelleğe alma Temelleri](memory.md#caching-basics)). Önbellek bilgileri tek tek web sunucuları bellekte depolanmaz ve önbelleğe alınan veriler tüm uygulamanın sunucuları için kullanılabilir. Bu, çeşitli avantajları sağlar:
+Dağıtılmış önbellek birden çok uygulama sunucuları tarafından paylaşılan (bkz [önbelleğe alma Temelleri](memory.md#caching-basics)). Önbellek bilgileri tek tek web sunucuları bellekte depolanan değil ve önbelleğe alınan veriler tüm uygulamanın sunucuları için kullanılabilir. Bu, çeşitli avantajları sağlar:
 
 1. Önbelleğe alınan tüm web sunucularında tutarlı verilerdir. Kullanıcıların hangi web bağlı olarak sunucu, isteği işler farklı sonuçlar görmüyorum
 
@@ -44,19 +44,19 @@ Herhangi bir önbellek gibi dağıtılmış önbellek genellikle veri bir ilişk
 
 `IDistributedCache` Arabirim, zaman uyumlu ve zaman uyumsuz yöntemleri içerir. Arabirimi eklenebilir, alınan ve dağıtılmış önbellek uygulamasından kaldırılabilir öğelerine izin verir. `IDistributedCache` Arabirimi aşağıdaki yöntemleri içerir:
 
-**GET, GetAsync**
+**Get, GetAsync**
 
 Bir dize anahtarı alır ve önbelleğe alınan bir öğe olarak alır bir `byte[]` , önbellekte bulunamadı.
 
-**Ayarlama, SetAsync**
+**Set, SetAsync**
 
 Bir öğe ekler (olarak `byte[]`) bir dize anahtarı kullanarak önbelleği için.
 
-**Yenileme, RefreshAsync**
+**Refresh, RefreshAsync**
 
 Bir öğe (varsa), kayan zaman aşımı süresi sıfırlama kendi anahtarı, temel önbelleğinde yeniler.
 
-**Kaldır, RemoveAsync**
+**Remove, RemoveAsync**
 
 Alt anahtarına göre bir önbellek girişi kaldırır.
 
@@ -140,7 +140,7 @@ Hangi uyarlamasını karar verirken `IDistributedCache` sağ uygulamanız için 
 * [Azure üzerinde SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Bellek içi önbelleğe alma](xref:performance/caching/memory)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
-* [Yanıt önbelleğe alma](xref:performance/caching/response)
-* [Yanıt önbelleğe alma Ara](xref:performance/caching/middleware)
-* [Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Yanıtları önbelleğe alma](xref:performance/caching/response)
+* [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
+* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

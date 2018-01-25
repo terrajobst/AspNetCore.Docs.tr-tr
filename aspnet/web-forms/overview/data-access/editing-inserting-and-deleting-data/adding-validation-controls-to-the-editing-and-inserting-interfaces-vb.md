@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a181be8d07ff15c33818077dc75b5cc6c6bbf65d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53414aa17514d07083fe05b8c2abcba10a01cf98
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Düzenleme için doğrulama denetimleri ekleme ve arabirimleri (VB) ekleme
 ====================
@@ -103,11 +103,11 @@ GridView DetailsView'un Özellikler ekleme, GridView's dönüştürme yerleşik 
 
 Veri girişi formları oluşturulurken, kullanıcılar gerekli alanları girin ve tüm sağlanan girişleri yasal, düzgün biçimlendirilmiş değerlerinin olduğundan önemlidir. Bir kullanıcının giriş geçerli olduğundan emin olun yardımcı olmak için ASP.NET, tek bir giriş denetiminin değerini doğrulamak için kullanılmak üzere tasarlanmış beş yerleşik doğrulama denetimleri sağlar:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/en-us/library/5hbw267h(VS.80).aspx) değeri sağlanmış sağlar
-- [CompareValidator](https://msdn.microsoft.com/en-us/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetimi değer veya sabit bir değer karşı doğrular veya değerinin biçimi, belirtilen veri türü için geçerli olmasını sağlar
-- [RangeValidator](https://msdn.microsoft.com/en-us/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
-- [RegularExpressionValidator](https://msdn.microsoft.com/en-US/library/eahwtc9e.aspx) bir değer karşı doğrular bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/en-us/library/9eee01cx(VS.80).aspx) bir değer özel, kullanıcı tanımlı bir yöntem karşı doğrular
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) değeri sağlanmış sağlar
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetimi değer veya sabit bir değer karşı doğrular veya değerinin biçimi, belirtilen veri türü için geçerli olmasını sağlar
+- [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) bir değer karşı doğrular bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değer özel, kullanıcı tanımlı bir yöntem karşı doğrular
 
 Bu beş denetimleri hakkında daha fazla bilgi için kullanıma [doğrulama denetimleri bölüm](https://quickstarts.asp.net/quickstartv20/aspnet/doc/ctrlref/validation/default.aspx) , [ASP.NET Quickstart öğreticileri](https://asp.net/QuickStart/aspnet/).
 
@@ -133,7 +133,7 @@ Gerekli doğrulama denetimlerini ekleyerek başlayalım `EditItemTemplate` GridV
 **Şekil 5**: bir RequiredFieldValidator eklemek `ProductName` `EditItemTemplate` ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image15.png))
 
 
-Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, az önce eklediğimiz RequiredFieldValidator metin kutusuna karşı doğrulamalıdır belirtmek ihtiyacımız `EditItemTemplate`; bu doğrulama denetiminin ayarlayarak gerçekleştirilir [ControlToValidate özelliğini](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` uygun Web denetimi. Metin kutusu şu anda yerine nondescript sahip `ID` , `TextBox1`, ancak bunu daha uygun bir şeye değiştirelim. Metin şablonu kutusuna tıklayın ve sonra Özellikler penceresinde değiştirmek `ID` gelen `TextBox1` için `EditProductName`.
+Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, az önce eklediğimiz RequiredFieldValidator metin kutusuna karşı doğrulamalıdır belirtmek ihtiyacımız `EditItemTemplate`; bu doğrulama denetiminin ayarlayarak gerçekleştirilir [ControlToValidate özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` uygun Web denetimi. Metin kutusu şu anda yerine nondescript sahip `ID` , `TextBox1`, ancak bunu daha uygun bir şeye değiştirelim. Metin şablonu kutusuna tıklayın ve sonra Özellikler penceresinde değiştirmek `ID` gelen `TextBox1` için `EditProductName`.
 
 
 [![TextBox'ın kimliği için EditProductName değiştirme](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image17.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image16.png)
@@ -141,7 +141,7 @@ Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak �
 **Şekil 6**: TextBox's değiştirme `ID` için `EditProductName` ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image18.png))
 
 
-Ardından, RequiredFieldValidator's ayarlayın `ControlToValidate` özelliğine `EditProductName`. Son olarak, ayarlamak [ErrorMessage özelliğini](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) "ürün adı sağlamanız gerekir" için ve [metin özelliğini](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için "\*". `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` , Gerekli özellik değeri ValidationSummary denetimi tarafından; kullanılır `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri olduğundan ayrıca geçersiz giriş doğrulama denetimi tarafından görüntülenen metni.
+Ardından, RequiredFieldValidator's ayarlayın `ControlToValidate` özelliğine `EditProductName`. Son olarak, ayarlamak [ErrorMessage özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) "ürün adı sağlamanız gerekir" için ve [metin özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için "\*". `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` , Gerekli özellik değeri ValidationSummary denetimi tarafından; kullanılır `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri olduğundan ayrıca geçersiz giriş doğrulama denetimi tarafından görüntülenen metni.
 
 Bu üç RequiredFieldValidator özelliklerini ayarladıktan sonra ekranınızın Şekil 7'ye benzer görünmelidir.
 
@@ -155,7 +155,7 @@ Eklenen RequiredFieldValidator ile `ProductName` `EditItemTemplate`, tüm gerekl
 
 Biz CompareValidator eklemeden önce `UnitPrice` `EditItemTemplate`, ilk metin kutusuna Web denetimin Kimliğinden değiştirelim `TextBox2` için `EditUnitPrice`. Bu değişikliği yaptıktan sonra CompareValidator eklemek ayarı kendi `ControlToValidate` özelliğine `EditUnitPrice`, kendi `ErrorMessage` "Fiyat değerinden büyük veya sıfıra eşit olmalı ve para birimi simgesini içeremez", özellik ve kendi `Text` özelliğine "\*".
 
-Belirtmek için `UnitPrice` değeri sıfırdan büyük veya 0 değerine eşit, CompareValidator's ayarlamak [işleci özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ValueToCompare özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) "0" ve onun [ Türü özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`. Aşağıdaki bildirim temelli söz dizimini gösterir `UnitPrice` TemplateField'ın `EditItemTemplate` bu değişiklikleri yaptıktan sonra:
+Belirtmek için `UnitPrice` değeri sıfırdan büyük veya 0 değerine eşit, CompareValidator's ayarlamak [işleci özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ValueToCompare özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) "0" ve onun [ Türü özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`. Aşağıdaki bildirim temelli söz dizimini gösterir `UnitPrice` TemplateField'ın `EditItemTemplate` bu değişiklikleri yaptıktan sonra:
 
 [!code-aspx[Main](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/samples/sample3.aspx)]
 
@@ -197,9 +197,9 @@ Bu değişikliği düzenleme arabiriminde biçimlendirilmiş Fiyat Grup ayırıc
 
 ## <a name="step-4-summarizing-data-entry-problems"></a>4. adım: Veri girişi sorunlarını özetleme
 
-Beş doğrulama denetimleri ek olarak, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/en-US/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veriler algılandı bu doğrulama denetimleri s. Bu özet verilerini kalıcı, istemci-tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Şimdi tüm doğrulama sorunlarını özetlemeye bir istemci-tarafı messagebox dahil etmek için bu öğreticiyi geliştirin.
+Beş doğrulama denetimleri ek olarak, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veriler algılandı bu doğrulama denetimleri s. Bu özet verilerini kalıcı, istemci-tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Şimdi tüm doğrulama sorunlarını özetlemeye bir istemci-tarafı messagebox dahil etmek için bu öğreticiyi geliştirin.
 
-Bunu gerçekleştirmek için araç kutusu tasarımcıya ValidationSummary denetimi sürükleyin. Yalnızca Özet messagebox görüntülemek için yapılandırma oluşturacağız beri doğrulama denetimi konumunu gerçekten, önemli değildir. Denetim ekledikten sonra ayarlamak kendi [ShowSummary özelliğinin](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ShowMessageBox özelliğini](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ayrıca ile tüm doğrulama hatalarını bir istemci-tarafı messagebox özetlenmiştir.
+Bunu gerçekleştirmek için araç kutusu tasarımcıya ValidationSummary denetimi sürükleyin. Yalnızca Özet messagebox görüntülemek için yapılandırma oluşturacağız beri doğrulama denetimi konumunu gerçekten, önemli değildir. Denetim ekledikten sonra ayarlamak kendi [ShowSummary özelliğinin](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ShowMessageBox özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ayrıca ile tüm doğrulama hatalarını bir istemci-tarafı messagebox özetlenmiştir.
 
 
 [![Doğrulama hatalarını bir istemci-tarafı Messagebox özetlenir](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image32.png)](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb/_static/image31.png)

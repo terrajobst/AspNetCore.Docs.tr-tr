@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 3c5abe84a5c7cc399e0586e680a414fab7a26c1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core dosya yüklemeleri
 
@@ -199,4 +199,4 @@ Bu ayar, yalnızca IIS için geçerlidir. Davranışı varsayılan olarak Kestre
 
 ### <a name="null-reference-exception-with-iformfile"></a>IFormFile ile null başvuru özel durumu
 
-Denetleyicinizi kabul etmiş olması durumunda kullanarak dosyaları karşıya `IFormFile` ancak değer her zaman null ise bulmak, HTML formu belirtilmesidir onaylayın bir `enctype` değerini `multipart/form-data`. Bu özniteliği ayarlanmamış ise `<form>` öğesi, dosya karşıya yükleme gerçekleşmez ve tüm ilişkili `IFormFile` bağımsız değişkenleri boş olacaktır.
+Denetleyicinizi kabul etmiş olması durumunda kullanarak dosyaları karşıya `IFormFile` ancak değer her zaman null ise bulmak, HTML formu belirtilmesidir onaylayın bir `enctype` değerini `multipart/form-data`. Bu öznitelik üzerinde ayarlanmamışsa `<form>` olmaz öğesi, dosya karşıya yükleme oluşur ve tüm ilişkili `IFormFile` bağımsız değişkenleri boş olacaktır.

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 24320b9f0262fba0aa5ac77f6c1294541c42267a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Ekleme, güncelleştirme ve silme verileri (C#) bir genel bakış
 ====================
@@ -140,7 +140,7 @@ ObjectDataSource kendi Sihirbazı'nı yapılandırdıktan sonra oluşturulan bil
 
 ObjectDataSource her giriş parametreleri için listesi gibi ilişkili yöntemlerinden biri için bir parametre içeren `SelectParameter` s'dir giriş parametresi beklediği seçme yöntemini çağırmak için ObjectDataSource yapılandırıldığında var ( gibi`GetProductsByCategoryID(categoryID)`). Kısa bir süre sonra bu değerleri anlatıldığı `DeleteParameters`, `UpdateParameters`, ve `InsertParameters` otomatik olarak GridView, DetailsView ve FormView ObjectDataSource's çağırmadan önce ayarlanır `Insert()`, `Update()`, veya `Delete()` yöntem. Sonraki öğreticide ele alacağız olarak bu değerleri de gerektiği şekilde, program aracılığıyla ayarlanabilir.
 
-ObjectDataSource için Yapılandırma Sihirbazı'nı kullanarak bir yan etkisi olan Visual Studio ayarlar [ObjectDataSource'taki özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) için `original_{0}`. Bu özellik değeri düzenlenen verilerin orijinal değerleri dahil etmek için kullanılır ve iki senaryolarda kullanışlıdır:
+ObjectDataSource için Yapılandırma Sihirbazı'nı kullanarak bir yan etkisi olan Visual Studio ayarlar [ObjectDataSource'taki özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.oldvaluesparameterformatstring(VS.80).aspx) için `original_{0}`. Bu özellik değeri düzenlenen verilerin orijinal değerleri dahil etmek için kullanılır ve iki senaryolarda kullanışlıdır:
 
 - Bir kayıt düzenlerken, kullanıcıların birincil anahtar değerini değiştirmek tamamlayabilirseniz. Böylece özgün birincil anahtar değerini içeren kayıt bulunamadı ve buna bağlı olarak güncelleştirildi onun değerine sahip, bu durumda, yeni birincil anahtar değerine ve özgün birincil anahtar değeri sağlanmalıdır.
 - İyimser eşzamanlılık kullanırken. İyimser eşzamanlılık iki emin olmak için bir tekniktir eşzamanlı kullanıcıların başka birinin değişikliklerin üzerine yazmayın ve gelecekteki bir öğretici için konudur.
@@ -168,8 +168,8 @@ Araç kutusu tasarımcıya GridView sürükleyerek başlatın. Ardından, Object
 
 Akıllı etiket aracılığıyla ObjectDataSource GridView bağlama iki faydası vardır:
 
-- BoundFields ve CheckBoxFields ObjectDataSource tarafından döndürülen alanların her biri için otomatik olarak oluşturulur. Ayrıca, temel alan meta BoundField ve CheckBoxField'ın özellikleri göre ayarlanır. Örneğin, `ProductID`, `CategoryName`, ve `SupplierName` alanları olarak salt okunur olarak işaretlenmiş `ProductsDataTable` ve bu nedenle düzenlerken güncelleştirilebilir olmamalıdır. Bu, bu BoundFields uyum sağlayacak şekilde [salt okunur özellikler](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) ayarlanır `true`.
-- [DataKeyNames özelliğini](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) nesnesini birincil anahtar alanları için atanır. Bu gerekli olduğunda bu benzersiz her kaydı tanımlayan alan (veya alanlar kümesi) Bu özellik gösterir şekilde düzenleme veya verileri silmek için GridView kullanarak. Daha fazla bilgi için `DataKeyNames` özelliği, geri başvurmak [ana/Ayrıntılar DetailView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Öğreticisi.
+- BoundFields ve CheckBoxFields ObjectDataSource tarafından döndürülen alanların her biri için otomatik olarak oluşturulur. Ayrıca, temel alan meta BoundField ve CheckBoxField'ın özellikleri göre ayarlanır. Örneğin, `ProductID`, `CategoryName`, ve `SupplierName` alanları olarak salt okunur olarak işaretlenmiş `ProductsDataTable` ve bu nedenle düzenlerken güncelleştirilebilir olmamalıdır. Bu, bu BoundFields uyum sağlayacak şekilde [salt okunur özellikler](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.readonly(VS.80).aspx) ayarlanır `true`.
+- [DataKeyNames özelliğini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames(VS.80).aspx) nesnesini birincil anahtar alanları için atanır. Bu gerekli olduğunda bu benzersiz her kaydı tanımlayan alan (veya alanlar kümesi) Bu özellik gösterir şekilde düzenleme veya verileri silmek için GridView kullanarak. Daha fazla bilgi için `DataKeyNames` özelliği, geri başvurmak [ana/Ayrıntılar DetailView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) Öğreticisi.
 
 GridView ObjectDataSource Özellikler penceresini veya tanımlayıcı sözdizimi ile ilişkili olabilir, ancak bunun yapılması uygun BoundField el ile eklemeniz gerekir ve `DataKeyNames` biçimlendirme.
 
@@ -327,7 +327,7 @@ Olarak GridView ekleme, düzenleme, ekleme veya silme desteği bir CommandField 
 
 Sil düğmesini tıklatarak olayların aynı sırası ile başlayan gibi GridView: bir geri gönderme; kendi ObjectDataSource's doldurma DetailsView tarafından izlenen `DeleteParameters` göre `DataKeyNames` değerleri; ve onun ObjectDataSource's çağrısı ile tamamlandı `Delete()` gerçekten ürün veritabanından kaldırır yöntemi. DetailsView'da düzenleme de aynı olan GridView bir şekilde çalışır.
 
-Eklemek için son kullanıcı ile yeni sunulan, tıklatıldığında düğmesini "ekleme modu" DetailsView'da işler "INSERT moduyla" Yeni düğmesi ekleme ve İptal düğmeleri ve yalnızca bu BoundFields almıştır, `InsertVisible` özelliği ayarlanmış `true` (varsayılan) görüntülenir. Tanımlanan gibi otomatik artım alanlar, bu veri alanlarını `ProductID`, sahip kendi [InsertVisible özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) kümesine `false` DetailsView akıllı etiket aracılığıyla veri kaynağına bağlanırken.
+Eklemek için son kullanıcı ile yeni sunulan, tıklatıldığında düğmesini "ekleme modu" DetailsView'da işler "INSERT moduyla" Yeni düğmesi ekleme ve İptal düğmeleri ve yalnızca bu BoundFields almıştır, `InsertVisible` özelliği ayarlanmış `true` (varsayılan) görüntülenir. Tanımlanan gibi otomatik artım alanlar, bu veri alanlarını `ProductID`, sahip kendi [InsertVisible özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datacontrolfield.insertvisible(VS.80).aspx) kümesine `false` DetailsView akıllı etiket aracılığıyla veri kaynağına bağlanırken.
 
 Akıllı etiket aracılığıyla DetailsView için bir veri kaynağına bağlanırken, Visual Studio ayarlar `InsertVisible` özelliğine `false` yalnızca otomatik artan alanları için. Salt okunur alanları `CategoryName` ve `SupplierName`, sürece "ekleme modu" kullanıcı arabiriminde görüntülenecek kendi `InsertVisible` özelliği ayarlanmış açıkça `false`. Bu iki alan ayarlamak için bir dakikanızı ayırın `InsertVisible` özelliklerine `false`, alanları Düzenle veya DetailsView'un bildirim temelli söz dizimi aracılığıyla bağlantı akıllı etiket. Şekil 19 gösterir ayarı `InsertVisible` özelliklerine `false` üzerinde alanları Düzenle bağlantısını tıklatarak.
 
@@ -354,7 +354,7 @@ Acme Çay için ayrıntıları girerek ve Ekle düğmesine tıkladıktan sonra g
 
 
 > [!NOTE]
-> DetailsView'un [CurrentMode özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) görüntülenmesini arabirimi gösterir ve aşağıdaki değerlerden biri olabilir: `Edit`, `Insert`, veya `ReadOnly`. [DefaultMode özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) DetailsView sonra bir düzen döndürür veya ekleme modu tamamlanmış ve modu Ekle veya Düzenle kalıcı olarak olup bir DetailsView görüntülemek için yararlı olduğunu gösterir.
+> DetailsView'un [CurrentMode özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.currentmode(VS.80).aspx) görüntülenmesini arabirimi gösterir ve aşağıdaki değerlerden biri olabilir: `Edit`, `Insert`, veya `ReadOnly`. [DefaultMode özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.defaultmode(VS.80).aspx) DetailsView sonra bir düzen döndürür veya ekleme modu tamamlanmış ve modu Ekle veya Düzenle kalıcı olarak olup bir DetailsView görüntülemek için yararlı olduğunu gösterir.
 
 
 GridView onunla aynı sınırlamalara gelen ekleme ve düzenleme DetailsView'un özellikleri tıklatın ve noktası yaşar: kullanıcının var girmesi gerekir `CategoryID` ve `SupplierID` textbox değerlerini; arabirimi oturumda tüm doğrulama mantığını; tüm izin verme ürün alanları `NULL` değerleri veya bir varsayılan yok ekleme arabirimi vb. veritabanı düzeyinde belirtilen değer'in eklenmesi gerekir.
@@ -443,4 +443,4 @@ Mutluluk programlama!
 [Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
-[Sonraki](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+[Next](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

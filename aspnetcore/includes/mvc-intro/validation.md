@@ -18,7 +18,7 @@ Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `String
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
-Doğrulama öznitelikleri için uygulanan model özellikleri zorlayan istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değer; olması gerekir, ancak hiçbir şey bu doğrulama karşılamak için boşluk girişini kullanıcı engeller. `RegularExpression` Özniteliği ne karakter olabilir sınırlamak için kullanılır giriş. Yukarıdaki kod `Genre` ve `Rating` yalnızca harf (beyaz alan, sayı ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Özniteliği için bir değer belirtilen aralıkta kısıtlar. `StringLength` Özniteliği bir dize özelliği en büyük uzunluğu ve isteğe bağlı olarak, minimum uzunluğu ayarlamanıza olanak tanır. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
+Doğrulama öznitelikleri uygulanan model özellikleri zorlayan istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değer; olması gerekir, ancak hiçbir şey bu doğrulama karşılamak için boşluk girişini kullanıcı engeller. `RegularExpression` Özniteliği ne karakter olabilir sınırlamak için kullanılır giriş. Yukarıdaki kod `Genre` ve `Rating` yalnızca harf (beyaz alan, sayı ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Özniteliği için bir değer belirtilen aralıkta kısıtlar. `StringLength` Özniteliği bir dize özelliği en büyük uzunluğu ve isteğe bağlı olarak, minimum uzunluğu ayarlamanıza olanak tanır. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
 
 Doğrulama kuralları otomatik olarak sahip uygulamanızı daha güçlü ASP.NET yardımcı olun tarafından zorunlu tutulur. Ayrıca, bir şey doğrulamak ve yanlışlıkla hatalı veri veritabanına izin unuttunuz olamaz sağlar.
 
@@ -37,7 +37,7 @@ Form otomatik olarak oluşturulmasını uygun doğrulama hata iletisine geçersi
 
 Önemli avantajdır kodda tek bir satırı değiştirmek ihtiyacım kalmadı `MoviesController` sınıfı veya *Create.cshtml* bu doğrulama kullanıcı arabirimini etkinleştirmek için görünümü. Denetleyici ve görünümler otomatik olarak Bu öğreticide daha önce oluşturduğunuz doğrulama kuralları özellikleri üzerinde doğrulama özniteliklerini kullanarak belirtilen yukarı çekilen `Movie` model sınıfı. Doğrulama testi kullanılarak `Edit` eylem yöntemi ve aynı doğrulama uygulanır.
 
-İstemci tarafı doğrulama hataları kadar form verilerini sunucuya gönderilmez. Bu bir kesme noktası koyarak kullanılabilir doğrulayabilirsiniz `HTTP Post` kullanarak yöntemi [Fiddler aracı](http://www.telerik.com/fiddler) , veya [F12 Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+İstemci tarafı doğrulama hataları kadar form verilerini ve sunucuya gönderilen değil. Bu bir kesme noktası koyarak kullanılabilir doğrulayabilirsiniz `HTTP Post` kullanarak yöntemi [Fiddler aracı](http://www.telerik.com/fiddler) , veya [F12 Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
 
 ## <a name="how-validation-works"></a>Doğrulama nasıl çalışır?
 
@@ -45,9 +45,9 @@ Denetleyici veya görünümler kodunda herhangi bir güncelleştirme olmadan UI 
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
-İlk (HTTP GET) `Create` eylem yönteminin ilk form oluştur görüntüler. İkinci (`[HttpPost]`) sürüm form post işler. İkinci `Create` yöntemi ( `[HttpPost]` sürüm) çağrıları `ModelState.IsValid` film herhangi bir doğrulama hatası olup olmadığını denetlemek için. Bu yöntemin çağrılması nesneye uygulanan tüm doğrulama öznitelikleri değerlendirir. Doğrulama hataları, nesne varsa, `Create` yöntemi, formu yeniden görüntüler. Herhangi bir hata varsa, yöntem yeni film veritabanına kaydeder. İstemci tarafında algılanan doğrulama hataları olduğunda film Örneğimizde, formun sunucuya nakledilir değil; İkinci `Create` yöntemi istemci tarafı doğrulama hataları olduğunda hiçbir zaman çağrılır. Tarayıcınızda JavaScript devre dışı bırakırsanız, istemci doğrulama devre dışıysa ve HTTP POST sınayabilirsiniz `Create` yöntemi `ModelState.IsValid` tüm doğrulama hatalarını algılama.
+İlk (HTTP GET) `Create` eylem yönteminin ilk form oluştur görüntüler. İkinci (`[HttpPost]`) sürüm form post işler. İkinci `Create` yöntemi ( `[HttpPost]` sürüm) çağrıları `ModelState.IsValid` film herhangi bir doğrulama hatası olup olmadığını denetlemek için. Bu yöntemin çağrılması nesneye uygulanan tüm doğrulama öznitelikleri değerlendirir. Doğrulama hataları, nesne varsa, `Create` yöntemi, formu yeniden görüntüler. Herhangi bir hata varsa, yöntem yeni film veritabanına kaydeder. İstemci tarafında algılanan doğrulama hataları olduğunda film Örneğimizde, formun sunucusuna gönderilen değil; İkinci `Create` yöntemi istemci tarafı doğrulama hataları olduğunda hiçbir zaman çağrılır. Tarayıcınızda JavaScript devre dışı bırakırsanız, istemci doğrulama devre dışıysa ve HTTP POST sınayabilirsiniz `Create` yöntemi `ModelState.IsValid` tüm doğrulama hatalarını algılama.
 
-Bir kesme noktası ayarlayabilirsiniz `[HttpPost] Create` yöntemi ve doğrulama hiçbir zaman bu yöntem çağrıldığında, istemci tarafı doğrulama değil gönderme form verileri doğrulama hatalar algılandığında. JavaScript tarayıcınızda devre dışı bırakın ve ardından hatalarla form gönderme, kesme noktası karşılaşır. Hala JavaScript olmadan tam doğrulama Al 
+Bir kesme noktası ayarlayabilirsiniz `[HttpPost] Create` yöntemi ve doğrulama yöntemi hiçbir zaman çağrılır, doğrulama hataları algılandığında, istemci tarafı doğrulama form verileri gönderme olmaz. JavaScript tarayıcınızda devre dışı bırakın ve ardından hatalarla form gönderme, kesme noktası karşılaşır. Hala JavaScript olmadan tam doğrulama Al 
 
 Aşağıdaki resimde, FireFox tarayıcısında JavaScript devre dışı bırakmak gösterilmiştir.
 
@@ -77,7 +77,7 @@ Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. `System.ComponentModel.D
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` Öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi tedarik `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için. Kullanabileceğiniz `RegularExpression` veri biçimi doğrulamak için öznitelik. `DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır, bunlar doğrulama öznitelikleri değildir. Bu durumda yalnızca tarih, saat izlemek istiyoruz. `DataType` Numaralandırması sağlar tarihi gibi birçok veri türleri için zaman PhoneNumber, para birimi, EmailAddress ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelikleri yayar HTML 5 `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri tire) öznitelikler. `DataType` Öznitelikleri yapmak **değil** tüm doğrulama sağlar.
+`DataType` Öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öğeleri/öznitelikleri gibi kaynakları `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için. Kullanabileceğiniz `RegularExpression` veri biçimi doğrulamak için öznitelik. `DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır, olmadıklarını doğrulama öznitelikleri. Bu durumda yalnızca tarih, saat izlemek istiyoruz. `DataType` Numaralandırması sağlar tarihi gibi birçok veri türleri için zaman PhoneNumber, para birimi, EmailAddress ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelikleri yayar HTML 5 `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri tire) öznitelikler. `DataType` Öznitelikleri yapmak **değil** tüm doğrulama sağlar.
 
 `DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
 
@@ -99,7 +99,7 @@ Kullanabileceğiniz `DisplayFormat` kendisi, ancak tarafından özniteliktir gen
 * `DataType` Özniteliği verileri işlemek için sağ alan şablon seçmek MVC etkinleştirebilir ( `DisplayFormat` tarafından kullanılan kendisini dize şablonu kullanıyorsa).
 
 > [!NOTE]
-> jQuery doğrulama ile çalışmıyor `Range` özniteliği ve `DateTime`. Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
+> jQuery doğrulama işe yaramazsa `Range` özniteliği ve `DateTime`. Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
 
 ```csharp
 [Range(typeof(DateTime), "1/1/1966", "1/1/2020")]
@@ -115,7 +115,7 @@ Serinin sonraki bölümünde, biz uygulama gözden geçirin ve bazı geliştirme
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Formları ile çalışma](xref:mvc/views/working-with-forms)
+* [Formlarla Çalışma](xref:mvc/views/working-with-forms)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
 * [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)

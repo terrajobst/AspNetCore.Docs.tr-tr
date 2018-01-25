@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4122f55c09f94d41f7caa3f86d1fbd5870417a20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>Özel biçimlendirme (VB) verilerine göre
 ====================
@@ -97,7 +97,7 @@ Aşağıdaki kodu nasıl belirleneceğini göstermektedir olup olmadığını `U
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample3.vb)]
 
 > [!NOTE]
-> Bu yana `UnitPrice` olabilir bir `NULL` değeri veritabanındaki ilk denetleyin biz ile ilgilenen değil olduğundan emin olmak için bir `NULL` erişmeden önce değer `ProductsRow`'s `UnitPrice` özelliği. Bu onay önemlidir çünkü erişmeye çalışırsanız `UnitPrice` olduğunda bu özellik bir `NULL` değeri `ProductsRow` nesnesi oluşturur bir [StrongTypingException özel durum](https://msdn.microsoft.com/en-us/library/system.data.strongtypingexception.aspx).
+> Bu yana `UnitPrice` olabilir bir `NULL` değeri veritabanındaki ilk denetleyin biz ile ilgilenen değil olduğundan emin olmak için bir `NULL` erişmeden önce değer `ProductsRow`'s `UnitPrice` özelliği. Bu onay önemlidir çünkü erişmeye çalışırsanız `UnitPrice` olduğunda bu özellik bir `NULL` değeri `ProductsRow` nesnesi oluşturur bir [StrongTypingException özel durum](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx).
 
 
 ## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>3. adım: DetailsView'da UnitPrice değeri biçimlendirme
@@ -193,7 +193,7 @@ Programlama aracılığıyla Web denetimi yapılan başvuruyu sahibiz sonra biz 
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample12.vb)]
 
 > [!NOTE]
-> Program aracılığıyla Web denetimi kullanarak erişen bir şablon biçimlendirme sözdizimi `FindControl("controlID")` ve stille ilgili özelliklerini ayarlayarak da kullanılabilir kullanırken [TemplateFields](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView ya da GridView denetler. Biz TemplateFields bizim sonraki öğreticide inceleyeceğiz.
+> Program aracılığıyla Web denetimi kullanarak erişen bir şablon biçimlendirme sözdizimi `FindControl("controlID")` ve stille ilgili özelliklerini ayarlayarak da kullanılabilir kullanırken [TemplateFields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) DetailsView ya da GridView denetler. Biz TemplateFields bizim sonraki öğreticide inceleyeceğiz.
 
 
 Şekil 7, bir ürün görüntülerken FormView gösterir, `UnitsInStock` Şekil 8'de ürünün değerini 10'dan sahipken değer 10'dan büyük.

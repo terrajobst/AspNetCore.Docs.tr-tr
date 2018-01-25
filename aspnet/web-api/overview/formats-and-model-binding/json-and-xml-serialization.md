@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: 7aafe4823d3a6090fae4a63f1a66fb2670ecb025
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b1fcaf70cc38d73da0a454764520197b97f34b26
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="json-and-xml-serialization-in-aspnet-web-api"></a>JSON ve XML serileştirme ASP.NET Web API
 ====================
@@ -89,7 +89,7 @@ Varsayılan olarak, saat dilimi Json.NET korur. DateTimeZoneHandling özelliğin
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample5.cs)]
 
-Kullanmayı tercih ederseniz, [Microsoft JSON tarih biçimi](https://msdn.microsoft.com/en-us/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) ISO 8601 yerine ayarlamak **DateFormatHandling** özelliği seri hale getirici ayarları:
+Kullanmayı tercih ederseniz, [Microsoft JSON tarih biçimi](https://msdn.microsoft.com/library/bb299886.aspx#intro_to_json_sidebarb) (`"\/Date(ticks)\/"`) ISO 8601 yerine ayarlamak **DateFormatHandling** özelliği seri hale getirici ayarları:
 
 [!code-csharp[Main](json-and-xml-serialization/samples/sample6.cs)]
 

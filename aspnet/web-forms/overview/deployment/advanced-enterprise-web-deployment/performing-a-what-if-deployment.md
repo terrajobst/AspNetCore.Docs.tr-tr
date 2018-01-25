@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62be7c9636fb74c40bec812e9ac76b360995da50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-a-what-if-deployment"></a>"," Dağıtım gerçekleştirme
 ====================
@@ -52,7 +52,7 @@ MSDeploy.exe doğrudan kullanıyorsanız, ekleyerek bir "," dağıtım çalışt
 "," Dağıtımınızın Sonuçlardan memnun kaldığınızda, kaldırabilirsiniz **– whatIf** dinamik dağıtımını çalıştırmak için bayrak.
 
 > [!NOTE]
-> MSDeploy.exe komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+> MSDeploy.exe komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 
 Kullanıyorsanız, *. deploy.cmd* dosyası ekleyerek bir "," dağıtım çalıştırabilirsiniz **/t** (deneme modu) bayrağı yerine bayrak **/y** bayrağı ("Evet" veya güncelleştirme modu) komutu. Örneğin, çalıştırarak ContactManager.Mvc.zip paketi dağıtılmışsa, ne olacağını değerlendirmek için *. deploy.cmd* dosya, komutunuzu şuna benzemelidir:
@@ -68,7 +68,7 @@ Kullanıyorsanız, *. deploy.cmd* dosyası ekleyerek bir "," dağıtım çalış
 
 
 > [!NOTE]
-> İçin komut satırı seçenekleri hakkında daha fazla bilgi için *. deploy.cmd* dosyaları görmek [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Çalıştırırsanız *. deploy.cmd* dosya bayrakları belirtmeden komut istemi kullanılabilir bayrakların bir listesi görüntülenir.
+> İçin komut satırı seçenekleri hakkında daha fazla bilgi için *. deploy.cmd* dosyaları görmek [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx). Çalıştırırsanız *. deploy.cmd* dosya bayrakları belirtmeden komut istemi kullanılabilir bayrakların bir listesi görüntülenir.
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>Veritabanları için bir "," dağıtım gerçekleştirme
@@ -142,7 +142,7 @@ Bu konuda, "," Web dağıtımı, VSDBCMD ve MSBuild kullanarak dağıtımları a
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Komut satırı sözdizimi Web dağıtımı hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Kullandığınızda komut satırı seçenekleri hakkında yönergeler için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/en-us/library/ff356104.aspx). VSDBCMD komut satırı sözdizimi hakkında yönergeler için bkz [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+Komut satırı sözdizimi Web dağıtımı hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Kullandığınızda komut satırı seçenekleri hakkında yönergeler için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx). VSDBCMD komut satırı sözdizimi hakkında yönergeler için bkz [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 >[!div class="step-by-step"]
 [Önceki](advanced-enterprise-web-deployment.md)

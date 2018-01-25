@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e4af20fa1fecd1f363e979023b41203096d64ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1edd53b1005449c060ff92fc7ebd02dbe7fa6ac2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Bir FTP istemcisi (C#) kullanarak sitenizi dağıtma
 ====================
@@ -144,7 +144,7 @@ Yalnızca yeni ve değiştirilen dosyaları kopyalamak için gereken bir web uyg
 > Açık derlemesini kullanarak yeni bir ASP.NET sayfası projeye ekleyin ya da kod ilgili değişiklik zaman derlemede güncelleştirmeleri projenizi yeniden derleyin gerektiğini olduğunda göz önünde bulundurmanız gereken bir şey `Bin` klasör. Sonuç olarak, üretim (yanı sıra diğer yeni ve güncelleştirilmiş içerik) üzerinde web uygulaması güncelleştirilirken bu güncelleştirilmiş derlemeyi üretim kopyalamak gerekir.
 
 
-Ayrıca değişiklikler için olduğunu anlamak `Web.config` veya dosyalarında `Bin` dizin durdurur ve Web sitesinin uygulama havuzu yeniden başlatır. Oturum durumu kullanarak depolanıyorsa `InProc` modunda (varsayılan) sonra sitenizin ziyaretçileri kaybolmasına neden olacak, oturum durumu bu anahtar dosyaları değiştirdiğinizde. Bu durumu önlemek için oturumu kullanarak depolamayı düşünün `StateServer` veya `SQLServer` modları. Bu konu hakkında daha fazla bilgi için okumaya devam [oturum durumu modu](https://msdn.microsoft.com/en-us/library/ms178586.aspx).
+Ayrıca değişiklikler için olduğunu anlamak `Web.config` veya dosyalarında `Bin` dizin durdurur ve Web sitesinin uygulama havuzu yeniden başlatır. Oturum durumu kullanarak depolanıyorsa `InProc` modunda (varsayılan) sonra sitenizin ziyaretçileri kaybolmasına neden olacak, oturum durumu bu anahtar dosyaları değiştirdiğinizde. Bu durumu önlemek için oturumu kullanarak depolamayı düşünün `StateServer` veya `SQLServer` modları. Bu konu hakkında daha fazla bilgi için okumaya devam [oturum durumu modu](https://msdn.microsoft.com/library/ms178586.aspx).
 
 Son olarak, uygulamanın yeniden dağıtma herhangi bir yere birkaç saniye sayısını ve üretim ortamına kopyalanması gereken dosyaların boyutu bağlı olarak birkaç dakika sürebilir aklınızda bulundurun. Bu süre boyunca, hataları veya garip davranış sitenizi ziyaret eden kullanıcıların karşılaşabilirsiniz. "Tüm uygulamanızı adlı bir sayfaya ekleyerek kapatabilirsiniz" `App_Offline.htm` kullanıcılarınıza açıklar, uygulamanızın kök dizinine site Bakım (veya ne olursa olsun) çalışmıyor ve olacak olması yedekleme kısa süre içinde. Zaman `App_Offline.htm` dosya varsa, ASP.NET çalışma zamanı gelen tüm istekleri için bu sayfayı yeniden yönlendirir.
 
@@ -159,7 +159,7 @@ Mutluluk programlama!
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Uygulama\_Offline.htm ve "IE kolay hatalar" özelliği geçici çalışma](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
-- [Oturum durumu modu](https://msdn.microsoft.com/en-us/library/ms178586.aspx)
+- [Oturum durumu modu](https://msdn.microsoft.com/library/ms178586.aspx)
 
 >[!div class="step-by-step"]
 [Önceki](determining-what-files-need-to-be-deployed-cs.md)

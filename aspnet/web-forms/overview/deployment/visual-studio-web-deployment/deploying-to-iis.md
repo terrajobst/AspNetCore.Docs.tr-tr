@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 97910940f9de26ca71b111b945581d2de6650b02
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Test için dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -40,7 +40,7 @@ Uygulamanızı daha güvenli şekilde bu şekilde test edebilirsiniz:
 
 Seçenek 2 test etmek için en güvenilir yoludur ve bunu yaparsanız, mutlaka seçenek 1 gerekmez. Ancak, için dağıtıyorsanız bir üçüncü taraf barındırma sağlayıcı seçeneği 2 uygulanabilir olmayabilir veya her iki yöntem de Bu öğretici seri gösterecek şekilde pahalı olabilir. Seçenek 2 için yönergeler sağlanır [üretim ortamına dağıtma](deploying-to-production.md) Öğreticisi.
 
-Visual Studio'da web sunucuları kullanma hakkında daha fazla bilgi için bkz: [ASP.NET Web projeleri için Visual Studio'da Web sunucuları](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+Visual Studio'da web sunucuları kullanma hakkında daha fazla bilgi için bkz: [ASP.NET Web projeleri için Visual Studio'da Web sunucuları](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 
 Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir şey işe yaramazsa, kontrol ettiğinizden emin olun [sorun giderme sayfası](troubleshooting.md).
 
@@ -73,7 +73,7 @@ IIS'yi yükledikten sonra çalıştırmak **IIS Yöneticisi'ni** .NET Framework 
     [![Inetmgr_showing_4.0_app_pools](deploying-to-iis/_static/image3.png)](deploying-to-iis/_static/image2.png)
 4. IIS'de ASP.NET 4 yüklemek zorunda yalnızca iki uygulama havuzları görürseniz ve bunların her ikisi de .NET Framework 2.0 için ayarlanır.
 
-    Bu ASP.NET 4.5 emin yüklüdür bölümünde veya bkz yönergeler önceki Windows 8 için bkz [Bu KB makalesi](https://support.microsoft.com/kb/2736284). Windows 7 için sağ tıklayarak bir komut istemi penceresi açın **komut istemi** Windows **Başlat** menü ve seçerek **yönetici olarak çalıştır**. Ardından çalıştırın [aspnet\_regiis.exe](https://msdn.microsoft.com/en-us/library/k6h9cz8h.aspx) aşağıdaki komutları kullanarak IIS, ASP.NET 4 yüklemek için. (32-bit sistemlerinde "Framework64" "Framework" ile değiştirin.)
+    Bu ASP.NET 4.5 emin yüklüdür bölümünde veya bkz yönergeler önceki Windows 8 için bkz [Bu KB makalesi](https://support.microsoft.com/kb/2736284). Windows 7 için sağ tıklayarak bir komut istemi penceresi açın **komut istemi** Windows **Başlat** menü ve seçerek **yönetici olarak çalıştır**. Ardından çalıştırın [aspnet\_regiis.exe](https://msdn.microsoft.com/library/k6h9cz8h.aspx) aşağıdaki komutları kullanarak IIS, ASP.NET 4 yüklemek için. (32-bit sistemlerinde "Framework64" "Framework" ile değiştirin.)
 
     [!code-console[Main](deploying-to-iis/samples/sample1.cmd)]
 
@@ -90,13 +90,13 @@ IIS artık bir web uygulamasına yayımlamak hazır, ancak bunu yapmadan önce t
 
 <a id="sqlexpress"></a>
 
-## <a name="install-sql-server-express"></a>SQL Server Express'i Yükleme
+## <a name="install-sql-server-express"></a>Install SQL Server Express
 
 Yerel veritabanı test ortamınız için SQL Server Express'in yüklü olması gerekir. böylece IIS, çalışmak üzere tasarlanmamıştır. Visual Studio 2010 SQL Server Express kullanıyorsanız, zaten varsayılan olarak yüklenir. Visual Studio 2012 kullanıyorsanız, bunu yüklemeniz gerekir.
 
-SQL Server Express'i yükleyebilmek için şuradan yükleyin [İndirme Merkezi: Microsoft SQL Server 2012 Express](https://www.microsoft.com/en-us/download/details.aspx?id=29062) tıklayarak [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) veya [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Yanlış bir seçerseniz sisteminizi yükleme başarısız olur ve diğerinde deneyebilirsiniz.
+SQL Server Express'i yükleyebilmek için şuradan yükleyin [İndirme Merkezi: Microsoft SQL Server 2012 Express](https://www.microsoft.com/download/details.aspx?id=29062) tıklayarak [ENU\x64\SQLEXPR\_x64\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLEXPR_x64_ENU.exe) veya [ ENU\x86\SQLEXPR\_x86\_ENU.exe](https://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLEXPR_x86_ENU.exe). Yanlış bir seçerseniz sisteminizi yükleme başarısız olur ve diğerinde deneyebilirsiniz.
 
-SQL Server Yükleme Merkezi'ni ilk sayfasında **yeni SQL Server tek başına yükleme veya mevcut bir yüklemeye özellikler ekleme**, varsayılan seçimleri kabul yönergeleri izleyin. Yükleme Sihirbazı'nda, varsayılan ayarları kabul edin. Yükleme seçenekleri hakkında daha fazla bilgi için bkz: [SQL Server 2012 Yükleme Sihirbazı'nı (Kurulum) yükleme](https://msdn.microsoft.com/en-us/library/ms143219.aspx).
+SQL Server Yükleme Merkezi'ni ilk sayfasında **yeni SQL Server tek başına yükleme veya mevcut bir yüklemeye özellikler ekleme**, varsayılan seçimleri kabul yönergeleri izleyin. Yükleme Sihirbazı'nda, varsayılan ayarları kabul edin. Yükleme seçenekleri hakkında daha fazla bilgi için bkz: [SQL Server 2012 Yükleme Sihirbazı'nı (Kurulum) yükleme](https://msdn.microsoft.com/library/ms143219.aspx).
 
 ## <a name="create-sql-server-express-databases-for-the-test-environment"></a>Sınama ortamı için SQL Server Express veritabanı oluşturma
 
@@ -233,7 +233,7 @@ Aşağıdaki adımları uygulamak **DefaultConnection** veritabanını **veritab
 
 Visual Studio bir Entity Framework algıladığında `DbContext` sınıfı, bir giriş oluşturur **veritabanları** sahip bölüm bir **Code First Migrations yürütme** onay kutusunu yerine bir  **Veritabanını güncelleştirme** onay kutusu. Bu öğretici için önce kod uygulamalı geçişler dağıtım belirtmek için bu onay kutusunu kullanırsınız.
 
-Bazı senaryolarda, kullanıyor olabilecek bir `DbContext` veritabanı ancak veritabanını dağıtmak için geçişler yerine dbDacFx sağlayıcısı kullanmak istiyor. Bu durumda, bkz: [geçişler olmaksızın Code First bir veritabanına nasıl dağıtırım?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) MSDN'de ASP.NET Web dağıtımı SSS.
+Bazı senaryolarda, kullanıyor olabilecek bir `DbContext` veritabanı ancak veritabanını dağıtmak için geçişler yerine dbDacFx sağlayıcısı kullanmak istiyor. Bu durumda, bkz: [geçişler olmaksızın Code First bir veritabanına nasıl dağıtırım?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) MSDN'de ASP.NET Web dağıtımı SSS.
 
 Aşağıdaki adımları uygulamak **SchoolContext** veritabanını **veritabanları** iletişim kutusunun bölümü.
 
@@ -332,7 +332,7 @@ Visual Studio'da IIS veya IIS Express çalıştırma hakkında daha fazla bilgi 
 
 - [IIS Express genel bakış](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) IIS.NET sitesinde.
 - [IIS Express Tanıtımı](https://weblogs.asp.net/scottgu/archive/2010/06/28/introducing-iis-express.aspx) Scott Guthrie'nın blogunda.
-- [ASP.NET Web projeleri için Web sunucuları Visual Studio'da](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx).
+- [ASP.NET Web projeleri için Web sunucuları Visual Studio'da](https://msdn.microsoft.com/library/58wxa9w5.aspx).
 - [Çekirdek arasındaki farklar IIS ve ASP.NET Geliştirme Sunucusu](../../older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md) ASP.NET sitesinde.
 
 Uygulamanızı Orta güven çalıştığında hangi sorunlar hakkında bilgi doğabilecek için bkz: [ASP.NET uygulamalarında barındırma Orta güven](http://www.4guysfromrolla.com/articles/100307-1.aspx) Rolla sitesinden 4 yazarlar üzerinde.

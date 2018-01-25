@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 9320c8a2aadb3b3c5bd6cd90b59d8a72db384c0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b5507021af47d96c29809c9830d0558f5501f87
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ASP.NET MVC - bölüm 1 ile kullanma
 ====================
@@ -51,7 +51,7 @@ C# ve Visual Basic kaynak koduna sahip bir Visual Studio projesi bu konuya eşli
 
 Öğrenecekleriniz aşağıda verilmiştir:
 
-- Öznitelikleri kullanma [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) görüntülendiğinde verilerin biçimini denetlemek ve olduğunda düzenleme modu için ad alanı.
+- Öznitelikleri kullanma [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) görüntülendiğinde verilerin biçimini denetlemek ve olduğunda düzenleme modu için ad alanı.
 - Şablonlarının nasıl oluşturulacağı (düzenleyin ve şablonları görüntüler) verilerin biçimlendirmesini denetlemek için.
 - Ekleme [jQuery UI datepicker](http://jqueryui.com/demos/datepicker/) tarihi alanları girmek için bir yol olarak.
 
@@ -67,7 +67,7 @@ Sağ *MvcMovie.zip* dosya ve seçin **tümünü Ayıkla** dosyanın sıkıştır
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image3.png)
 
-Tarih ve fiyat için biçimlendirme kullanarak sonucudur [DisplayFormat](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özelliklerini öznitelikte `Movie` sınıfı.
+Tarih ve fiyat için biçimlendirme kullanarak sonucudur [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) özelliklerini öznitelikte `Movie` sınıfı.
 
 Açık *Movie.cs* çıkışı açıklamadan çıkarın ve dosya `DisplayFormat` özniteliği `ReleaseDate` ve `Price` özellikleri. Elde edilen `Movie` sınıfı şu şekilde görünür:
 
@@ -79,13 +79,13 @@ Yeniden uygulama çalıştırmak ve seçmek için CTRL + F5 tuşuna basın **gir
 
 ### <a name="using-the-dataannotations-datatype-attribute-to-specify-the-data-type"></a>Veri türünü belirtmek için DataAnnotations DataType özniteliği kullanılarak
 
-Kılınan Değiştir `DisplayFormat` için öznitelik `ReleaseDate` özelliğiyle [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) özniteliğini kullanarak `Date` numaralandırması. Değiştir `DisplayFormat` için öznitelik `Price` özelliğiyle [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) yeniden, bu saati kullanarak öznitelik `Currency` numaralandırması. Tamamlanan kodu benzer şudur:
+Kılınan Değiştir `DisplayFormat` için öznitelik `ReleaseDate` özelliğiyle [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliğini kullanarak `Date` numaralandırması. Değiştir `DisplayFormat` için öznitelik `Price` özelliğiyle [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) yeniden, bu saati kullanarak öznitelik `Currency` numaralandırması. Tamamlanan kodu benzer şudur:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/samples/sample2.cs)]
 
-Uygulamayı çalıştırın. Şimdi yayın tarihi ve fiyat özellikleri doğru (, uygun tarih ve para birimi biçimleri kullanan) olarak biçimlendirilir. [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) öznitelik sağlar türü meta verileri için yerleşik ASP.NET MVC şablonları böylece doğru biçimde alanlarını işle. Kullanarak `DataType` özniteliktir kullanılması tercih `DisplayFormat` nedeni kodda, ilk olarak, öznitelik `DataType` özniteliği temizleyici ve uluslararası hale getirme gibi amaçlarla daha esnek modeli sağlar.
+Uygulamayı çalıştırın. Şimdi yayın tarihi ve fiyat özellikleri doğru (, uygun tarih ve para birimi biçimleri kullanan) olarak biçimlendirilir. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) öznitelik sağlar türü meta verileri için yerleşik ASP.NET MVC şablonları böylece doğru biçimde alanlarını işle. Kullanarak `DataType` özniteliktir kullanılması tercih `DisplayFormat` nedeni kodda, ilk olarak, öznitelik `DataType` özniteliği temizleyici ve uluslararası hale getirme gibi amaçlarla daha esnek modeli sağlar.
 
 Sonraki bölümde, veri alanlarını görüntülemek için özel şablonları nasıl görürsünüz.
 
 >[!div class="step-by-step"]
-[Sonraki](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
+[Next](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)

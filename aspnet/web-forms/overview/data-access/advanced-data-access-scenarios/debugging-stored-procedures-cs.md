@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda544d72fe3449c8d701fc579f2f26d37090f24
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3c5f797691a6920c65db7e3906aa5fd3b348b54b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="debugging-stored-procedures-c"></a>Hata ayıklama saklı yordamlar (C#)
 ====================
@@ -39,7 +39,7 @@ Bu öğreticide ulaşıldığından kesme noktaları ayarlamak için ne zaman sa
 
 ## <a name="sql-server-debugging-concepts"></a>SQL Server hata ayıklama kavramları
 
-Microsoft SQL Server 2005 ile tümleştirme sağlamak üzere tasarlanmış [ortak dil çalışma zamanı (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), tüm .NET derlemelerini tarafından kullanılan çalışma zamanı olduğu. Sonuç olarak, SQL Server 2005 yönetilen veritabanı nesnelerini destekler. Diğer bir deyişle, bir C# sınıfı yöntemleri olarak veritabanı nesnelerini saklı yordamları ve kullanıcı tanımlı işlevler (UDF'ler) gibi oluşturabilirsiniz. Bu, bu saklı yordamları ve .NET Framework ve kendi özel sınıflardan faydalanmak için UDF'ler sağlar. Elbette, SQL Server 2005 T-SQL veritabanı nesneleri için de destek sağlar.
+Microsoft SQL Server 2005 ile tümleştirme sağlamak üzere tasarlanmış [ortak dil çalışma zamanı (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), tüm .NET derlemelerini tarafından kullanılan çalışma zamanı olduğu. Sonuç olarak, SQL Server 2005 yönetilen veritabanı nesnelerini destekler. Diğer bir deyişle, bir C# sınıfı yöntemleri olarak veritabanı nesnelerini saklı yordamları ve kullanıcı tanımlı işlevler (UDF'ler) gibi oluşturabilirsiniz. Bu, bu saklı yordamları ve .NET Framework ve kendi özel sınıflardan faydalanmak için UDF'ler sağlar. Elbette, SQL Server 2005 T-SQL veritabanı nesneleri için de destek sağlar.
 
 SQL Server 2005 T-SQL ve yönetilen veritabanı nesneleri için hata ayıklama desteği sunar. Ancak, bu nesneler yalnızca Visual Studio 2005 Professional ve takım sistemleri sürümleri hata ayıklaması yapılabilir. Bu öğreticide hata ayıklama T-SQL veritabanı nesnelerini inceleyeceğiz. Sonraki öğretici, yönetilen nesneleri hata ayıklama sırasında arar.
 
@@ -53,7 +53,7 @@ Visual Studio yerel ve uzak SQL Server örnekleri üzerindeki saklı yordamlar a
 
 Yerel bir SQL Server örneği kullanıyorsanız, 1. adımla başlamak ve Bu öğreticide sonuna çalışır. Ancak, uzak bir SQL Server örneği kullanıyorsanız, hata ayıklama sırasında emin olmak için ilk gerek geliştirme makinenize bir SQL Server oturumu uzak örneğinde sahip bir Windows kullanıcı hesabı ile oturum olur. Moveover, bu veritabanı oturum açmayı ve çalışan ASP.NET uygulamasından veritabanına bağlanmak için kullanılan veritabanı oturum açma üyesi olmalıdır `sysadmin` rol. Hata ayıklama T-SQL veritabanı nesneleri, Visual Studio ve SQL Server Uzak bir örneğini hata ayıklamak için yapılandırma hakkında daha fazla bilgi için bu öğreticinin sonunda uzak örnekleri bölümüne bakın.
 
-Son olarak, hata ayıklama desteği T-SQL veritabanı nesneleri için .NET uygulamaları için destek hata ayıklama olarak zengin özellik olarak olduğunu anlayın. Hata ayıklama windows kümesini yalnızca kullanılabilir, örneğin, kesme noktası koşulları ve filtreleri, desteklenmez Düzenle ve devam et kullanamazsınız, komut penceresi yaramaz vb. işlenir. Bkz: [hata ayıklayıcı komutları ve Özellikler sınırlamalar](https://msdn.microsoft.com/en-us/library/ms165035(VS.80).aspx) daha fazla bilgi için.
+Son olarak, hata ayıklama desteği T-SQL veritabanı nesneleri için .NET uygulamaları için destek hata ayıklama olarak zengin özellik olarak olduğunu anlayın. Hata ayıklama windows kümesini yalnızca kullanılabilir, örneğin, kesme noktası koşulları ve filtreleri, desteklenmez Düzenle ve devam et kullanamazsınız, komut penceresi yaramaz vb. işlenir. Bkz: [hata ayıklayıcı komutları ve Özellikler sınırlamalar](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) daha fazla bilgi için.
 
 ## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>1. adım: Doğrudan bir saklı yordam Adımlama
 
@@ -172,10 +172,10 @@ Bir örnek noktalar açıklığa kavuşturmak yardımcı olmalıdır. Adlı bir 
 
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
 
-Bu işlemi hakkında daha ayrıntılı bir açıklaması için bkz: [William r Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Visual Studio ve SQL Server, yedinci Edition kılavuz* yanı [nasıl yapılır: SQL Server izinleri ayarlayın hata ayıklama için](https://msdn.microsoft.com/en-us/library/w1bhybwz(VS.80).aspx).
+Bu işlemi hakkında daha ayrıntılı bir açıklaması için bkz: [William r Vaughn](http://betav.com/BLOG/billva/) s *Hitchhiker s Visual Studio ve SQL Server, yedinci Edition kılavuz* yanı [nasıl yapılır: SQL Server izinleri ayarlayın hata ayıklama için](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Geliştirme makinenizde Windows XP Service Pack 2 çalışıyorsa, Internet Bağlantısı Güvenlik Duvarı uzaktan hata ayıklama izin verecek şekilde yapılandırmanız gerekir. [Nasıl için: SQL Server 2005 hata ayıklamayı etkinleştir](https://msdn.microsoft.com/en-us/library/s0fk6z6e(VS.80).aspx) makale notları bu iki adımdan oluşur: (a) Visual Studio ana makinede eklemelisiniz `Devenv.exe` özel durumlar listesine ve açık TCP 135 bağlantı noktası; ve (b) uzak makinede (SQL) açmanız gerekir TCP 135 bağlantı noktası ve ekleme `sqlservr.exe` özel durumlar listesine. Etki alanı İlkesi üzerinden IPSec yapılması ağ iletişimi gerektiriyorsa, UDP 4500 ve UDP 500 bağlantı noktalarını açmanız gerekir.
+> Geliştirme makinenizde Windows XP Service Pack 2 çalışıyorsa, Internet Bağlantısı Güvenlik Duvarı uzaktan hata ayıklama izin verecek şekilde yapılandırmanız gerekir. [Nasıl için: SQL Server 2005 hata ayıklamayı etkinleştir](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) makale notları bu iki adımdan oluşur: (a) Visual Studio ana makinede eklemelisiniz `Devenv.exe` özel durumlar listesine ve açık TCP 135 bağlantı noktası; ve (b) uzak makinede (SQL) açmanız gerekir TCP 135 bağlantı noktası ve ekleme `sqlservr.exe` özel durumlar listesine. Etki alanı İlkesi üzerinden IPSec yapılması ağ iletişimi gerektiriyorsa, UDP 4500 ve UDP 500 bağlantı noktalarını açmanız gerekir.
 
 
 ## <a name="summary"></a>Özet

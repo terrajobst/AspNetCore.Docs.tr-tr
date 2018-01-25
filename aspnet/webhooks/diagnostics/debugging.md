@@ -10,17 +10,17 @@ ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
 ms.technology: 
 ms.prod: .net-framework
-ms.openlocfilehash: 566ee353f6a947e3ef0efdfd0af3a81dff2147c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 524cdf0246eda9ef213414923cd23a92a01f211e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-webhooks-debugging"></a>ASP.NET Web Kancalarını hata ayıklama  
 
 ## <a name="debugging-in-azure"></a>Azure'da hata ayıklama
 
-Web uygulamanızı Azure'da çalıştırılırken hata ayıklamak için lütfen öğretici bakın [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
+Web uygulamanızı Azure'da çalıştırılırken hata ayıklamak için lütfen öğretici bakın [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#webserverlogs).
 
 ## <a name="debugging-with-source-and-symbols"></a>Kaynak ve simgeler ile hata ayıklama
 

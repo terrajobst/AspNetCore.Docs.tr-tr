@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild proje dosyalarından Windows PowerShell betikleri çalıştırma
 ====================
@@ -137,10 +137,10 @@ Bu hedef yapı işleminizin bir parçası olarak çalıştırdığınızda, Wind
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Bir uzak bilgisayarda bir Windows PowerShell betiğini yürütme
 
-Windows PowerShell komut dosyaları uzak bilgisayarlarda çalıştırabilen [Windows Uzaktan Yönetim](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx) (WinRM). Bunu yapmak için kullanmanız gerekir [Invoke-Command](https://technet.microsoft.com/en-us/library/dd347578.aspx) cmdlet'i. Bu, uzak bilgisayarlara betik kopyalama olmadan bir veya daha fazla uzak bilgisayarlarda komut yürütme sağlar. Komut dosyasını çalıştıran yerel bilgisayara herhangi bir sonuç döndürülür.
+Windows PowerShell komut dosyaları uzak bilgisayarlarda çalıştırabilen [Windows Uzaktan Yönetim](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). Bunu yapmak için kullanmanız gerekir [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) cmdlet'i. Bu, uzak bilgisayarlara betik kopyalama olmadan bir veya daha fazla uzak bilgisayarlarda komut yürütme sağlar. Komut dosyasını çalıştıran yerel bilgisayara herhangi bir sonuç döndürülür.
 
 > [!NOTE]
-> Kullanmadan önce **Invoke-Command** Windows PowerShell yürütmek için cmdlet'i uzak bir bilgisayarda komut dosyaları, uzak iletileri kabul etmek için bir WinRM dinleyicisi yapılandırmanız gerekir. Bu komutu çalıştırarak yapmak **winrm quickconfig** uzak bilgisayarda. Daha fazla bilgi için bkz: [yükleme ve yapılandırma için Windows Uzaktan Yönetim](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Kullanmadan önce **Invoke-Command** Windows PowerShell yürütmek için cmdlet'i uzak bir bilgisayarda komut dosyaları, uzak iletileri kabul etmek için bir WinRM dinleyicisi yapılandırmanız gerekir. Bu komutu çalıştırarak yapmak **winrm quickconfig** uzak bilgisayarda. Daha fazla bilgi için bkz: [yükleme ve yapılandırma için Windows Uzaktan Yönetim](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
 
 Bir Windows PowerShell penceresinden çalıştırmak için şu sözdizimini kullanırsınız **LogDeploy.ps1** uzak bir bilgisayarda komut dosyası:
@@ -179,7 +179,7 @@ Bu konuda bir MSBuild proje dosyasından bir Windows PowerShell betiğini çalı
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Windows PowerShell komut dosyalarını imzalama ve yürütme ilkelerini yönetme konusunda yönergeler için bkz: [çalışan Windows PowerShell komut](https://technet.microsoft.com/en-us/library/ee176949.aspx). Windows PowerShell komutları çalıştıran uzak bir bilgisayardan ile ilgili yönergeler için bkz: [çalıştıran uzak komutları](https://technet.microsoft.com/en-us/library/dd819505.aspx).
+Windows PowerShell komut dosyalarını imzalama ve yürütme ilkelerini yönetme konusunda yönergeler için bkz: [çalışan Windows PowerShell komut](https://technet.microsoft.com/library/ee176949.aspx). Windows PowerShell komutları çalıştıran uzak bir bilgisayardan ile ilgili yönergeler için bkz: [çalıştıran uzak komutları](https://technet.microsoft.com/library/dd819505.aspx).
 
 Dağıtım işlemi denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz: [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: 14f67d81a5b460da591b8fb27fedf53d228e7717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5a13405a303580ec8c1d4cdacafc26c6f8ff34a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-browser-link-in-visual-studio-2013"></a>Visual Studio 2013'te tarayıcı bağlantısı kullanma
 ====================
@@ -27,7 +27,7 @@ Tarayıcı bağlantısı, geliştirme ortamı ve bir veya daha fazla web tarayı
 - [Tarayıcı Yenile](#browser-refresh)
 - [Tarayıcı bağlantısı panoyu görüntüleme](#dashboard)
 - [Tarayıcı bağlantısı statik HTML dosyaları için etkinleştirme](#static-html)
-- [Tarayıcı bağlantısı devre dışı bırakma](#disabling)
+- [Disabling Browser Link](#disabling)
 - [Nasıl çalışır?](#how-it-works)
 
 <a id="browser-refresh"></a>
@@ -69,7 +69,7 @@ I tıklandığında **yenileme** düğmesi, her iki tarayıcı pencerelerini de�
 
 **Notlar**
 
-- Tarayıcı bağlantısını etkinleştirmek için ayarlanmış `debug=true` içinde [ &lt;derleme&gt; ](https://msdn.microsoft.com/en-us/library/s10awwz0(v=vs.85).aspx) projenin Web.config dosyasında öğesi.
+- Tarayıcı bağlantısını etkinleştirmek için ayarlanmış `debug=true` içinde [ &lt;derleme&gt; ](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx) projenin Web.config dosyasında öğesi.
 - Uygulama localhost üzerinde çalışmalıdır.
 - Uygulama, .NET 4.0 veya üzeri hedeflemesi gerekir.
 

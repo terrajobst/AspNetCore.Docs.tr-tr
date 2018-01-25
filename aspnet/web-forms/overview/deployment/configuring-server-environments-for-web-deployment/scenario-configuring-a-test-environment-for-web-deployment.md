@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 008b9cd081152e6a378d0fa2e08497a6771fd9b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Senaryo: bir Test ortamı için Web dağıtımı yapılandırma
 ====================
@@ -49,7 +49,7 @@ Sınama ortamı tek adımlı desteklemesi gerekir veya uzak bir bilgisayardan da
 - Web dağıtımı işleyici kullanarak dağıtımı desteklemek üzere test web sunucusunu yapılandırın.
 
 > [!NOTE]
-> De kullanabilirsiniz [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx) ("geçici Aracısı"). Bu gereksinimleri ve kısıtlamaları bakımından uzak aracı yaklaşım benzer.
+> De kullanabilirsiniz [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/library/ee517345(WS.10).aspx) ("geçici Aracısı"). Bu gereksinimleri ve kısıtlamaları bakımından uzak aracı yaklaşım benzer.
 
 
 Bu durumda, geliştiriciler, hedef sunucular üzerinde yönetici ayrıcalıklarına sahip ve mantıksal seçimi uzak aracı kullanarak dağıtımı desteklemek üzere test web sunucusunu yapılandırma olacak şekilde test ortamı sıkı güvenlik kısıtlamaları tabi değil. Bu daha az karmaşıktır ve Web dağıtımı işleyicisi yaklaşımı daha az başlangıç yapılandırmasını gerektirir. Uzaktan erişim ve dağıtımını desteklemek için veritabanı sunucunuzu yapılandırmak gerekir.

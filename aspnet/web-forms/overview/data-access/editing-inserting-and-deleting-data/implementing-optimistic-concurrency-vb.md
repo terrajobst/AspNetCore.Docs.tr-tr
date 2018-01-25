@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6f7507bcd4f9150e4ebf239bfa9f90fce103b0d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a31ce101c3264d10ec80a45718d9222fc18c093c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-vb"></a>İyimser eşzamanlılık (VB) uygulama
 ====================
@@ -257,7 +257,7 @@ Veri değişikliği söz konusu bu önceki öğreticiler için biz ObjectDataSou
 > Değeri `OldValuesParameterFormatString` özelliği özgün değerler beklediğiniz giriş parametresi adları için BLL eşleme gerekir. Biz bu parametreler adlı bu yana `original_productName`, `original_supplierID`ve benzeri bırakabilirsiniz `OldValuesParameterFormatString` özellik değeri olarak `original_{0}`. Ancak, BLL yöntemleri giriş parametreleri gibi adları sahip, `old_productName`, `old_supplierID`ve benzeri güncellemeniz gerekir `OldValuesParameterFormatString` özelliğine `old_{0}`.
 
 
-ObjectDataSource doğru özgün değerler BLL yöntemlere geçirmek için sırayla yapılmalıdır bir son özellik ayarı yoktur. ObjectDataSource sahip bir ['ınızı özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) için atanabilir [iki değerden birini](https://msdn.microsoft.com/en-US/library/system.web.ui.conflictoptions.aspx):
+ObjectDataSource doğru özgün değerler BLL yöntemlere geçirmek için sırayla yapılmalıdır bir son özellik ayarı yoktur. ObjectDataSource sahip bir ['ınızı özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) için atanabilir [iki değerden birini](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
 - `OverwriteChanges`-Varsayılan değer; Özgün değerler BLL yöntemleri özgün giriş parametreleri göndermez
 - `CompareAllValues`-Özgün değerler BLL yöntemlere; Gönder İyimser eşzamanlılık kullanırken bu seçeneği seçin
@@ -342,7 +342,7 @@ Bu değişikliklerle biz şimdi başarıyla silin ve ürün bilgileri düzenleye
 
 Eşzamanlılık ihlalleri algılanan (yerine doğrudan üzerine yazmaya verilerdeki elde edilen) doğrulamak için Biz bu sayfaya iki tarayıcı pencerelerini açmanız gerekir. Her iki tarayıcı durumlarda ayrıntılarını Düzenle düğmesine tıklayın. Ardından, yalnızca bir tarayıcılar, "Chai Çay" adı değiştirin ve Güncelleştir'i tıklatın. Güncelleştirme başarılı ve GridView yeni ürün adı olarak "Chai Çay" ile önceden düzenleme durumuna geri dönün.
 
-Diğer tarayıcı penceresini örneğinde, ancak, ürün adı metin kutusuna "Chai" görüntülenmeye devam eder. İkinci bir tarayıcı penceresi içinde güncelleştirme `UnitPrice` için `25.00`. İyimser eşzamanlılık desteği olmadan ikinci tarayıcı örneğinde Güncelleştir'i tıklatarak ürün adı "böylece ilk tarayıcı örneği tarafından yapılan değişikliklerin üzerine yazarak geri Chai", için değiştirirsiniz. İşe iyimser eşzamanlılık ile ancak ikinci tarayıcı örneği Güncelleştir düğmesini tıklatarak sonuçlanan bir [DBConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.dbconcurrencyexception.aspx).
+Diğer tarayıcı penceresini örneğinde, ancak, ürün adı metin kutusuna "Chai" görüntülenmeye devam eder. İkinci bir tarayıcı penceresi içinde güncelleştirme `UnitPrice` için `25.00`. İyimser eşzamanlılık desteği olmadan ikinci tarayıcı örneğinde Güncelleştir'i tıklatarak ürün adı "böylece ilk tarayıcı örneği tarafından yapılan değişikliklerin üzerine yazarak geri Chai", için değiştirirsiniz. İşe iyimser eşzamanlılık ile ancak ikinci tarayıcı örneği Güncelleştir düğmesini tıklatarak sonuçlanan bir [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
 
 
 [![Bir eşzamanlılık ihlali algılandığında bir DBConcurrencyException oluşturulur](implementing-optimistic-concurrency-vb/_static/image48.png)](implementing-optimistic-concurrency-vb/_static/image47.png)

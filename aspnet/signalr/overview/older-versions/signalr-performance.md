@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 52052ad202958eb5d648ceb64d9f06fb86ef3777
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bad742af28d6c36bb1b66207c2ba09d140332449
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR performans (SignalR 1.x)
 ====================
@@ -70,7 +70,7 @@ Ayrıca, sunucu belleği, ileti boyutunu azaltma ileti veri yolunda iletileri de
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>SignalR sunucunuz için performans ayarlama
 
-Aşağıdaki yapılandırma ayarları, bir SignalR uygulamasında daha iyi performans için sunucunuzu ayarlamak için kullanılabilir. Bir ASP.NET uygulamasında performansı hakkında genel bilgi için bkz: [ASP.NET performans geliştirme](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Aşağıdaki yapılandırma ayarları, bir SignalR uygulamasında daha iyi performans için sunucunuzu ayarlamak için kullanılabilir. Bir ASP.NET uygulamasında performansı hakkında genel bilgi için bkz: [ASP.NET performans geliştirme](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **SignalR yapılandırma ayarları**
 
@@ -223,7 +223,7 @@ Aşağıdaki performans sayaçları da uygulamanızın performansını izleme ya
 
 - İşlemci Information\Processor zamanı
 
-**TCP/IP'Yİ**
+**TCP/IP**
 
 - TCPv6/kurulan bağlantılar
 - TCPv4/kurulan bağlantılar
@@ -244,6 +244,6 @@ Aşağıdaki performans sayaçları da uygulamanızın performansını izleme ya
 
 ASP.NET Performans izleme ve ayarlama hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-- [ASP.NET Performans genel bakış](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [ASP.NET Performans genel bakış](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [IIS 7.5, IIS 7.0 ve IIS 6.0 ASP.NET iş parçacığı kullanımı](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; öğesi (Web Ayarları)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; öğesi (Web Ayarları)](https://msdn.microsoft.com/library/dd560842.aspx)

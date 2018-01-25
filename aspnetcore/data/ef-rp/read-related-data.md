@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: d0cdb5aaa4b1129c3f2404d069e9781ca16260b7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 532020a8fe4c5a0312cbd89278e61f614b1825f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Okuma data - EF çekirdek Razor sayfaları (8 6) ile ilgili
 
@@ -54,7 +54,7 @@ EF çekirdek ilgili verileri bir varlık Gezinti özellikleri yükleyebilirsiniz
 
  ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
-* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF çekirdek geç yükleme doğru şekilde desteklememektedir](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlık ilk okunduğunda ilgili verileri alınan değil. Bir gezinme özelliği ilk erişildiğinde bu gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliği erişilir DB gönderilir.
+* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF çekirdek geç yükleme şu anda desteklemiyor](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlık ilk okunduğunda ilgili verileri alınan değil. Bir gezinme özelliği ilk erişildiğinde bu gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliği erişilir DB gönderilir.
 
 * `Select` İşleci yalnızca gereken ilgili verileri yükler.
 
@@ -99,7 +99,7 @@ Güncelleştirme `OnGetAsync` aşağıdaki kod ile yöntemi:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Önceki kod ekler `AsNoTracking`. `AsNoTracking`döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilmez çünkü varlıkları izlenmez.
+Önceki kod ekler `AsNoTracking`. `AsNoTracking`döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
 
 Güncelleştirme *Views/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeyi ile:
 
@@ -108,7 +108,7 @@ Güncelleştirme *Views/Courses/Index.cshtml* aşağıdaki vurgulanmış biçiml
 İskele kurulmuş kod aşağıdaki değişiklikler yapılmıştır:
 
 * Başlık dizinden kurslara değiştirildi.
-* Eklenen bir **numarası** gösterir sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız çünkü bunlar varsayılan olarak, birincil anahtarlar iskele kurulmuş değil. Ancak, bu durumda birincil anahtarı anlamlıdır.
+* Eklenen bir **numarası** gösterir sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız oldukları için varsayılan olarak, birincil anahtarlar iskele kurulmuş değil. Ancak, bu durumda birincil anahtarı anlamlıdır.
 * Değiştirilen **departmanı** bölüm adını görüntülemek için sütun. Kod görüntüler `Name` özelliği `Department` yüklenen varlık `Department` gezinti özelliği:
 
   ```html

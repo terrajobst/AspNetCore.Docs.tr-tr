@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 1ea779cb10661512690e3fec16ae73be0f40d15a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f43f0a2dd80e26ecff15e5742e18264ddb5b26aa
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>ASP.NET kimliği için özel depolama sağlayıcıları genel bakış
 ====================
@@ -109,15 +109,15 @@ Veri erişim sınıfları oluşturduktan sonra veri erişim katmanı'ndaki belir
 <a id="user"></a>
 ## <a name="customize-the-user-class"></a>Kullanıcı sınıfı özelleştirme
 
-Kendi depolama sağlayıcısı uygularken, eşdeğer olan bir kullanıcı sınıfı oluşturmalısınız [IdentityUser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
+Kendi depolama sağlayıcısı uygularken, eşdeğer olan bir kullanıcı sınıfı oluşturmalısınız [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
 
 Aşağıdaki diyagramda, oluşturmalısınız IdentityUser sınıfı ve bu sınıfta uygulamak için arabirimi gösterir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image2.png)
 
-[Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx) arabirimi UserManager gerçekleştirme işlemleri istendiğinde arama girişiminde özellikleri tanımlar. Arabirimi iki özellikleri - kimliği ve kullanıcı adını içerir. [Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613291(v=vs.108).aspx) arabirimi genel aracılığıyla kullanıcı için anahtar türünü belirtmenize olanak sağlar **TKey** parametresi. ID özelliği TKey parametresinin değeri ile eşleşen.
+[Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi UserManager gerçekleştirme işlemleri istendiğinde arama girişiminde özellikleri tanımlar. Arabirimi iki özellikleri - kimliği ve kullanıcı adını içerir. [Iuser&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613291(v=vs.108).aspx) arabirimi genel aracılığıyla kullanıcı için anahtar türünü belirtmenize olanak sağlar **TKey** parametresi. ID özelliği TKey parametresinin değeri ile eşleşen.
 
-Identity framework de sağlar [Iuser](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) arabirimi (olmadan genel parametresini) anahtar için bir dize değerini kullanmak istediğinizde.
+Identity framework de sağlar [Iuser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.iuser(v=vs.108).aspx) arabirimi (olmadan genel parametresini) anahtar için bir dize değerini kullanmak istediğinizde.
 
 IdentityUser sınıf Iuser uygulayan ve herhangi bir ek özellikler veya oluşturucuları için web sitenizde kullanıcıları içerir. Aşağıdaki örnek, bir tamsayı anahtarı kullanan bir IdentityUser sınıfı gösterir. ID alanı ayarlamak **int** genel parametresini değer ile eşleşmelidir. 
 
@@ -128,7 +128,7 @@ IdentityUser sınıf Iuser uygulayan ve herhangi bir ek özellikler veya oluştu
 <a id="userstore"></a>
 ## <a name="customize-the-user-store"></a>Kullanıcı deposunda özelleştirme
 
-Kullanıcının tüm veri işlemleri için yöntemler sağlayan bir UserStore sınıfı oluşturabilir. Bu sınıf eşdeğerdir [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn315446(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı. UserStore sınıfınızda uygulamanız [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx) ve isteğe bağlı arabirimler. Uygulamanızda sağlamak istediğiniz işlevselliği göre uygulamak için hangi isteğe bağlı arabirimler seçin.
+Kullanıcının tüm veri işlemleri için yöntemler sağlayan bir UserStore sınıfı oluşturabilir. Bu sınıf eşdeğerdir [UserStore&lt;TUser&gt; ](https://msdn.microsoft.com/library/dn315446(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı. UserStore sınıfınızda uygulamanız [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) ve isteğe bağlı arabirimler. Uygulamanızda sağlamak istediğiniz işlevselliği göre uygulamak için hangi isteğe bağlı arabirimler seçin.
 
 Aşağıdaki resimde oluşturmanız gerekir UserStore sınıfı ile ilgili arabirimler gösterilir.
 
@@ -152,28 +152,28 @@ Sonraki resmi her arabiriminde tanımlanan işlevselliği hakkında daha fazla a
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
-- **Iuserstore**  
- [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613278(v=vs.108).aspx) kullanıcı deponuzda uygulanmalı yalnızca arabirimi bir arabirimdir. Oluşturma, güncelleştirme, silme ve kullanıcıları almak için yöntemleri tanımlar.
-- **Iuserclaimstore**  
- [Iuserclaimstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613265(v=vs.108).aspx) arabirimi tanımlar yöntemleri kullanıcı talepleri etkinleştirmek için kullanıcı deposunda uygulamalıdır. Yöntemleri veya ekleme, kaldırma ve kullanıcı taleplerini alma içerir.
-- **Iuserloginstore**  
- [Iuserloginstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613272(v=vs.108).aspx) yöntemleri tanımlar Dış kimlik doğrulama sağlayıcıları etkinleştirmek için kullanıcı deposunda uygulamalıdır. Ekleme, kaldırma ve kullanıcı oturum açma ve oturum açma bilgilerine dayalı bir kullanıcı almak için bir yöntem almak için yöntemler içerir.
-- **Iuserrolestore**  
- [Iuserrolestore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/en-us/library/dn613276(v=vs.108).aspx) arabirim yöntemleri tanımlayan bir kullanıcı rolü için eşlemek için kullanıcı deposunda uygulamalıdır. Eklemek, kaldırmak ve bir kullanıcının rollerini ve bir kullanıcı bir role atanmış olmadığını denetlemek için bir yöntem almak için yöntemler içerir.
+- **IUserStore**  
+ [Iuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) kullanıcı deponuzda uygulanmalı yalnızca arabirimi bir arabirimdir. Oluşturma, güncelleştirme, silme ve kullanıcıları almak için yöntemleri tanımlar.
+- **IUserClaimStore**  
+ [Iuserclaimstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) arabirimi tanımlar yöntemleri kullanıcı talepleri etkinleştirmek için kullanıcı deposunda uygulamalıdır. Yöntemleri veya ekleme, kaldırma ve kullanıcı taleplerini alma içerir.
+- **IUserLoginStore**  
+ [Iuserloginstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) yöntemleri tanımlar Dış kimlik doğrulama sağlayıcıları etkinleştirmek için kullanıcı deposunda uygulamalıdır. Ekleme, kaldırma ve kullanıcı oturum açma ve oturum açma bilgilerine dayalı bir kullanıcı almak için bir yöntem almak için yöntemler içerir.
+- **IUserRoleStore**  
+ [Iuserrolestore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) arabirim yöntemleri tanımlayan bir kullanıcı rolü için eşlemek için kullanıcı deposunda uygulamalıdır. Eklemek, kaldırmak ve bir kullanıcının rollerini ve bir kullanıcı bir role atanmış olmadığını denetlemek için bir yöntem almak için yöntemler içerir.
 - **Iuserpasswordstore**  
- [Iuserpasswordstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613273(v=vs.108).aspx) arabirimi tanımlar kalıcı hale getirmek için kullanıcı deposunda uygulanmalı yöntemleri parolaların karma. Karma hale getirilen parola ve kullanıcı bir parola ayarlanmış olup olmadığını belirten bir yöntem ayarlama ve alma için yöntemler içerir.
+ [Iuserpasswordstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) arabirimi tanımlar kalıcı hale getirmek için kullanıcı deposunda uygulanmalı yöntemleri parolaların karma. Karma hale getirilen parola ve kullanıcı bir parola ayarlanmış olup olmadığını belirten bir yöntem ayarlama ve alma için yöntemler içerir.
 - **IUserSecurityStampStore**  
- [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613277(v=vs.108).aspx) arabirimi tanımlar kullanıcının hesap bilgilerini değişip değişmediğini belirten bir güvenlik damgası kullanmak için kullanıcı deposunda uygulanmalı yöntemleri . Bir kullanıcı parolasını değiştirir veya ekler veya oturum açma bilgileri kaldırdığında bu damga güncelleştirilir. Kullanıcının güvenlik damgasını ayarlama ve alma için yöntemler içerir.
-- **Iusertwofactorstore**  
- [Iusertwofactorstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613279(v=vs.108).aspx) arabirimi iki faktörlü kimlik doğrulaması uygulama için uygulama gereken yöntemleri tanımlar. Bir kullanıcı için iki Etmenli kimlik doğrulamasının etkin olup olmadığını ayarlama ve alma için yöntemler içerir.
-- **Iuserphonenumberstore**  
- [Iuserphonenumberstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613275(v=vs.108).aspx) arabirimi kullanıcı telefon numaralarını depolamak için uygulanmalı yöntemleri tanımlar. Telefon numarası ve olup telefon numarasının onaylanıp ayarlama ve alma için yöntemler içerir.
-- **Iuseremailstore**  
- [Iuseremailstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613143(v=vs.108).aspx) arabirimi kullanıcı e-posta adreslerini depolamak için uygulanmalı yöntemleri tanımlar. E-posta adresi ve e-posta olup onaylandıktan ayarlama ve alma için yöntemler içerir.
-- **Iuserlockoutstore**  
- [Iuserlockoutstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613271(v=vs.108).aspx) arabirimi bir hesap kilitleme hakkında bilgi depolamak için uygulanmalı yöntemleri tanımlar. Başarısız erişim denemelerinin geçerli sayısını alma, alma ve alma hesabı kilitlenebilir ve bitiş tarihi kilitleme ayarı sayısını artırma denemeleri başarısız olup olmadığını ayarlama ve başarısız girişim sayısı sıfırlamak için yöntemler içerir.
-- **Iqueryableuserstore**  
- [Iqueryableuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613267(v=vs.108).aspx) arabirimi sorgulanabilir bir kullanıcı deposunun sağlamak için uygulanmalı üyeleri tanımlar. Sorgulanabilir kullanıcılar tutan bir özellik içerir.
+ [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) arabirimi tanımlar kullanıcının hesap bilgilerini değişip değişmediğini belirten bir güvenlik damgası kullanmak için kullanıcı deposunda uygulanmalı yöntemleri . Bir kullanıcı parolasını değiştirir veya ekler veya oturum açma bilgileri kaldırdığında bu damga güncelleştirilir. Kullanıcının güvenlik damgasını ayarlama ve alma için yöntemler içerir.
+- **IUserTwoFactorStore**  
+ [Iusertwofactorstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) arabirimi iki faktörlü kimlik doğrulaması uygulama için uygulama gereken yöntemleri tanımlar. Bir kullanıcı için iki Etmenli kimlik doğrulamasının etkin olup olmadığını ayarlama ve alma için yöntemler içerir.
+- **IUserPhoneNumberStore**  
+ [Iuserphonenumberstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) arabirimi kullanıcı telefon numaralarını depolamak için uygulanmalı yöntemleri tanımlar. Telefon numarası ve olup telefon numarasının onaylanıp ayarlama ve alma için yöntemler içerir.
+- **IUserEmailStore**  
+ [Iuseremailstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) arabirimi kullanıcı e-posta adreslerini depolamak için uygulanmalı yöntemleri tanımlar. E-posta adresi ve e-posta olup onaylandıktan ayarlama ve alma için yöntemler içerir.
+- **IUserLockoutStore**  
+ [Iuserlockoutstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) arabirimi bir hesap kilitleme hakkında bilgi depolamak için uygulanmalı yöntemleri tanımlar. Başarısız erişim denemelerinin geçerli sayısını alma, alma ve alma hesabı kilitlenebilir ve bitiş tarihi kilitleme ayarı sayısını artırma denemeleri başarısız olup olmadığını ayarlama ve başarısız girişim sayısı sıfırlamak için yöntemler içerir.
+- **IQueryableUserStore**  
+ [Iqueryableuserstore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) arabirimi sorgulanabilir bir kullanıcı deposunun sağlamak için uygulanmalı üyeleri tanımlar. Sorgulanabilir kullanıcılar tutan bir özellik içerir.
 
  Gerekli olan arabirimler uygulamanızda uygulamak; gibi Iuserclaimstore, Iuserloginstore, Iuserrolestore, Iuserpasswordstore ve IUserSecurityStampStore arabirimleri aşağıda gösterildiği gibi. 
 
@@ -183,22 +183,22 @@ Sonraki resmi her arabiriminde tanımlanan işlevselliği hakkında daha fazla a
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim, IdentityUserLogin ve IdentityUserRole
 
-Microsoft.ASPNET.Identity.entityframework ad alanı, uygulamalarını içeren [IdentityUserClaim](https://msdn.microsoft.com/en-us/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/en-us/library/dn613251(v=vs.108).aspx), ve [IdentityUserRole](https://msdn.microsoft.com/en-us/library/dn613252(v=vs.108).aspx) sınıflar. Bu özellikler kullanıyorsanız, bu sınıfları, kendi sürümlerini oluşturabilir ve uygulamanızı özelliklerini tanımlamak isteyebilirsiniz. Ancak, bazen bu varlıkları belleğe (ekleme veya kullanıcının talep kaldırma gibi) temel işlemleri gerçekleştirirken yüklememeye daha etkilidir. Bunun yerine, arka uç mağaza sınıfları bu işlemleri doğrudan veri kaynağına yürütebilir. Örneğin, userClaimTable.FindByUserId(user. UserStore.GetClaimsAsync() yöntemi çağırabilirsiniz Talepler listesinin doğrudan tablo ve bir sorgu yürütmek için kimliği) yöntemi.
+Microsoft.ASPNET.Identity.entityframework ad alanı, uygulamalarını içeren [IdentityUserClaim](https://msdn.microsoft.com/library/dn613250(v=vs.108).aspx), [IdentityUserLogin](https://msdn.microsoft.com/library/dn613251(v=vs.108).aspx), ve [IdentityUserRole](https://msdn.microsoft.com/library/dn613252(v=vs.108).aspx) sınıflar. Bu özellikler kullanıyorsanız, bu sınıfları, kendi sürümlerini oluşturabilir ve uygulamanızı özelliklerini tanımlamak isteyebilirsiniz. Ancak, bazen bu varlıkları belleğe (ekleme veya kullanıcının talep kaldırma gibi) temel işlemleri gerçekleştirirken yüklememeye daha etkilidir. Bunun yerine, arka uç mağaza sınıfları bu işlemleri doğrudan veri kaynağına yürütebilir. Örneğin, userClaimTable.FindByUserId(user. UserStore.GetClaimsAsync() yöntemi çağırabilirsiniz Talepler listesinin doğrudan tablo ve bir sorgu yürütmek için kimliği) yöntemi.
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample6.cs)]
 
 <a id="role"></a>
 ## <a name="customize-the-role-class"></a>Rol sınıfı özelleştirme
 
-Kendi depolama sağlayıcısı uygularken, eşdeğer olan rol sınıfı oluşturmalısınız [IdentityRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
+Kendi depolama sağlayıcısı uygularken, eşdeğer olan rol sınıfı oluşturmalısınız [IdentityRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityrole(v=vs.108).aspx) sınıfını [Microsoft.ASP.NET.Identity.EntityFramework](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework(v=vs.108).aspx) ad alanı:
 
 Aşağıdaki diyagramda, oluşturmalısınız IdentityRole sınıfı ve bu sınıfta uygulamak için arabirimi gösterir.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image5.png)
 
-[IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx) arabirimi RoleManager gerçekleştirme işlemleri istendiğinde arama girişiminde özellikleri tanımlar. Arabirimi iki özellikleri - kimliği ve adını içerir. [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613268(v=vs.108).aspx) arabirimi genel aracılığıyla rolü için anahtar türü belirtmenize olanak sağlar **TKey** parametresi. ID özelliği TKey parametresinin değeri ile eşleşen.
+[IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi RoleManager gerçekleştirme işlemleri istendiğinde arama girişiminde özellikleri tanımlar. Arabirimi iki özellikleri - kimliği ve adını içerir. [IRole&lt;TKey&gt; ](https://msdn.microsoft.com/library/dn613268(v=vs.108).aspx) arabirimi genel aracılığıyla rolü için anahtar türü belirtmenize olanak sağlar **TKey** parametresi. ID özelliği TKey parametresinin değeri ile eşleşen.
 
-Identity framework de sağlar [IRole](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) arabirimi (olmadan genel parametresini) anahtar için bir dize değerini kullanmak istediğinizde.
+Identity framework de sağlar [IRole](https://msdn.microsoft.com/library/microsoft.aspnet.identity.irole(v=vs.108).aspx) arabirimi (olmadan genel parametresini) anahtar için bir dize değerini kullanmak istediğinizde.
 
 Aşağıdaki örnek, bir tamsayı anahtarı kullanan bir IdentityRole sınıfı gösterir. ID alanı int'e genel parametresinin değeri eşleşecek şekilde ayarlanır. 
 
@@ -209,7 +209,7 @@ Aşağıdaki örnek, bir tamsayı anahtarı kullanan bir IdentityRole sınıfı 
 <a id="rolestore"></a>
 ## <a name="customize-the-role-store"></a>Rol deposu özelleştirme
 
-Tüm veri işlemleri rolleri için yöntemler sağlar RoleStore sınıfı oluşturabilir. Bu sınıf eşdeğerdir [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/en-us/library/dn468181(v=vs.108).aspx) Microsoft.ASP.NET.Identity.EntityFramework ad alanında sınıfı. RoleStore sınıfınızda uygulamanız [Irolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613266(v=vs.108).aspx) ve isteğe bağlı olarak [Iqueryablerolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/en-us/library/dn613262(v=vs.108).aspx) arabirim.
+Tüm veri işlemleri rolleri için yöntemler sağlar RoleStore sınıfı oluşturabilir. Bu sınıf eşdeğerdir [RoleStore&lt;TRole&gt; ](https://msdn.microsoft.com/library/dn468181(v=vs.108).aspx) Microsoft.ASP.NET.Identity.EntityFramework ad alanında sınıfı. RoleStore sınıfınızda uygulamanız [Irolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613266(v=vs.108).aspx) ve isteğe bağlı olarak [Iqueryablerolestore&lt;TRole, TKey&gt; ](https://msdn.microsoft.com/library/dn613262(v=vs.108).aspx) arabirim.
 
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image6.png)
 
@@ -217,8 +217,8 @@ Aşağıdaki örnek, bir rol deposu sınıfı gösterir. TRole genel parametre g
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
-- **Irolestore&lt;TRole&gt;**  
- [Irolestore](https://msdn.microsoft.com/en-us/library/dn468195.aspx) arabirimi rol deposu sınıfınızda uygulanacak yöntemleri tanımlar. Oluşturma, güncelleştirme, silme ve rolleri almak için yöntemler içerir.
+- **IRoleStore&lt;TRole&gt;**  
+ [Irolestore](https://msdn.microsoft.com/library/dn468195.aspx) arabirimi rol deposu sınıfınızda uygulanacak yöntemleri tanımlar. Oluşturma, güncelleştirme, silme ve rolleri almak için yöntemler içerir.
 - **RoleStore&lt;TRole&gt;**  
  RoleStore özelleştirmek için Irolestore arabirimini uygulayan bir sınıf oluşturun. Bu sınıf, uygulama yeterlidir, sisteminizde rolleri kullanmak istediğiniz. Adlı bir parametre alan oluşturucu *veritabanı* ExampleDatabase veri erişim sınıfınızda geçirmek nasıl yalnızca bir çizimi türüdür. Örneğin, MySQL uygulamasında bu oluşturucuyu MySQLDatabase türünde bir parametre alır.  
   
@@ -263,8 +263,8 @@ Yeni depolama alanı sağlayıcınıza uyguladık. Artık, uygulamanızı bu dep
 - [CouchDB / Cloudant Daniel Wertheim tarafından.](https://github.com/danielwertheim/mycouch.aspnet.identity)
 - Esnek arama[y: esnek kimlik](https://github.com/bmbsqd/elastic-identity) Bombsquad AB. tarafından
 - [MongoDB](http://www.nuget.org/packages/MongoDB.AspNet.Identity/) Jonathan Sheely Jonathan Sheely tarafından.
-- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) Antônio Milesi Bastos tarafından.
+- [NHibernate.AspNet.Identity](https://github.com/milesibastos/NHibernate.AspNet.Identity) by Antônio Milesi Bastos.
 - [RavenDB](http://www.nuget.org/packages/AspNet.Identity.RavenDB/1.0.0) tarafından [ @tourismgeek ](https://twitter.com/tourismgeek).
-- [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) tarafından [ILMServices](http://www.ilmservice.com/).
+- [RavenDB.AspNet.Identity](https://github.com/ILMServices/RavenDB.AspNet.Identity) by [ILMServices](http://www.ilmservice.com/).
 - Redis: [Redis.AspNet.Identity](https://github.com/aminjam/Redis.AspNet.Identity)
 - Kod için "ilk veritabanı" kullanıcı deposunu T4 EF oluşturmak için şablonları: [AspNet.Identity.EntityFramework](https://github.com/cbfrank/AspNet.Identity.EntityFramework)

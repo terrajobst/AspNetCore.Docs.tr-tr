@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 2ba202a1a0d0ba752576e8906b739cc9e83fde2a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5632b801586c13084f887c4c414fc8686731094c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: Proje özellikleri - 4 12 yapılandırma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -47,10 +47,10 @@ Pencere görüntülendiğinde, hesaptaki yapı yapılandırması çözüm için 
 
 İle **etkin (sürüm)** veya **sürüm** seçili, yayın yapı yapılandırması'nı kullanarak dağıttığınızda etkili değerleri bakın:
 
-- İçinde **dağıtmak için öğeleri** kutusunda **yalnızca uygulamayı çalıştırmak için gerekli dosyaları** seçilir. Diğer Seçenekler **bu projedeki tüm dosyalar** veya **bu proje klasöründeki tüm dosyalar**. Değişmeden varsayılan seçimi bırakarak kaynak kodu dosyaları, örneğin dağıtma kaçının. Bu ayar, SQL Server Compact ikili dosyaları içeren klasörlerin neden projeye dahil gerekiyordu nedenidir. Bu ayar hakkında daha fazla bilgi için bkz: **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/en-us/library/ee942158.aspx).
+- İçinde **dağıtmak için öğeleri** kutusunda **yalnızca uygulamayı çalıştırmak için gerekli dosyaları** seçilir. Diğer Seçenekler **bu projedeki tüm dosyalar** veya **bu proje klasöründeki tüm dosyalar**. Değişmeden varsayılan seçimi bırakarak kaynak kodu dosyaları, örneğin dağıtma kaçının. Bu ayar, SQL Server Compact ikili dosyaları içeren klasörlerin neden projeye dahil gerekiyordu nedenidir. Bu ayar hakkında daha fazla bilgi için bkz: **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/library/ee942158.aspx).
 - **Oluşturulan dışlama hata ayıklama simgeleri** seçilir. Bu yapı yapılandırmayı kullandığınızda, hata ayıklama olmaz.
 - **Uygulama dosyaları dışarıda\_veri klasörü** seçilmemiş. SQL Server Compact dosyanızı üyelik veritabanı için bu klasörde ve bunu dağıtmak sahip. Veritabanı değişikliklerini içermez güncelleştirmeleri dağıtırken, bu onay kutusunu seçersiniz.
-- **Bu uygulamayı yayımlamadan önce ön derleme yap** seçilmemiş. Çoğu senaryoda, web uygulaması projelerine derleneceği gerek yoktur. Bu seçenek hakkında daha fazla bilgi için bkz: [Paketle/Yayımla Web sekmesi, proje özellikleri](https://msdn.microsoft.com/en-us/library/dd410108(v=vs.110).aspx) ve [Gelişmiş önceden derleme Ayarları iletişim kutusu](https://msdn.microsoft.com/en-us/library/hh475319(v=vs.110).aspx).
+- **Bu uygulamayı yayımlamadan önce ön derleme yap** seçilmemiş. Çoğu senaryoda, web uygulaması projelerine derleneceği gerek yoktur. Bu seçenek hakkında daha fazla bilgi için bkz: [Paketle/Yayımla Web sekmesi, proje özellikleri](https://msdn.microsoft.com/library/dd410108(v=vs.110).aspx) ve [Gelişmiş önceden derleme Ayarları iletişim kutusu](https://msdn.microsoft.com/library/hh475319(v=vs.110).aspx).
 - **SQL Paketle/Yayımla sekmesinde yapılandırılmış tüm veritabanları dahil** seçilir, ancak yapılandırma değil çünkü bu seçenek artık etkisizdir **SQL Paketle/Yayımla** sekmesi. Bu sekme, SQL Server veritabanları dağıtmak için tek seçenek için kullanılan eski veritabanı dağıtım yöntemi için kullanılabilir. Kullanacağınız **SQL Paketle/Yayımla** sekmesinde [SQL Server'a geçirmeyi](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12.md) Öğreticisi.
 - **Web dağıtım paketi ayarları** tek tıklatmayla kullandığımızdan bölümü geçerli olmayan bu öğreticileri yayımlayın.
 
@@ -64,7 +64,7 @@ Değişiklik **yapılandırma** hata ayıklama derlemeleri için varsayılan aya
 
 Dağıtımdan belirli dosyaları veya klasörleri hariç ortak bir gereksinimdir; başka bir örnek, kullanıcılar dosyaları karşıya yükleyebilir bir klasör olabilir. Günlük dosyaları istemiyorsanız veya üretim dağıtılması için geliştirme ortamınızı oluşturulan dosyalarını karşıya. Ve üretim için bir güncelleştirme dağıtıyorsanız üretimde mevcut dosyaları silmek için dağıtım işlemi istemiyorum. (Bir dosya hedef site, ancak kaynak site varsa, dağıtırken nasıl bir dağıtım seçeneği ayarladığınıza bağlı olarak, Web dağıtımı, hedef siler.)
 
-Bu öğreticide daha önce gördüğünüz gibi **dağıtmak için öğeleri** seçeneğini **Paketle/Yayımla Web** sekmesini ayarlanmış **bu uygulamayı çalıştırmak için gereken dosyalar yalnızca**. Sonuç olarak, geliştirme Elmah tarafından oluşturulan günlük dosyalarını, olmasını istediğiniz olduğu dağıtılmaz. (Dağıtılması, bunlar projeye dahil edilmesi gerekir ve bunların **yapı eylemi** özelliği ayarlamak için sahip olabilir **içerik**. Daha fazla bilgi için bkz: **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/en-us/library/ee942158.aspx)). Kopyalamak için en az bir dosya olmadıkça ancak, Web dağıtımı bir klasörü hedef sitede oluşturmaz. Bu nedenle, ekleyeceksiniz bir *.txt* dosyasına klasörüne kopyalanmasını böylece yer tutucu olarak hareket edecek.
+Bu öğreticide daha önce gördüğünüz gibi **dağıtmak için öğeleri** seçeneğini **Paketle/Yayımla Web** sekmesini ayarlanmış **bu uygulamayı çalıştırmak için gereken dosyalar yalnızca**. Sonuç olarak, geliştirme Elmah tarafından oluşturulan günlük dosyalarını, olmasını istediğiniz olduğu dağıtılmaz. (Dağıtılması, bunlar projeye dahil edilmesi gerekir ve bunların **yapı eylemi** özelliği ayarlamak için sahip olabilir **içerik**. Daha fazla bilgi için bkz: **neden olmayan tüm my proje klasöründeki dosyaları dağıtılan?** içinde [ASP.NET Web uygulaması projesi dağıtım SSS](https://msdn.microsoft.com/library/ee942158.aspx)). Kopyalamak için en az bir dosya olmadıkça ancak, Web dağıtımı bir klasörü hedef sitede oluşturmaz. Bu nedenle, ekleyeceksiniz bir *.txt* dosyasına klasörüne kopyalanmasını böylece yer tutucu olarak hareket edecek.
 
 İçinde **Çözüm Gezgini**, sağ *Elmah* klasöründe seçin **Yeni Öğe Ekle**ve adlı bir dosya oluşturun *Placeholder.txt*. Aşağıdaki metni koymak: "Bu klasörü dağıtılan emin olmak için bir yer tutucu dosyasıdır." Ve dosyayı kaydedin. Tüm Visual Studio bu dosya ve klasör içinde çünkü dağıttığı emin olmak için yapmanız gereken olan **yapı eylemi** özelliği *.txt* dosyaları ayarlanmış **İçerik**varsayılan olarak.
 

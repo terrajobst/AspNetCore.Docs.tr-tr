@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d4b83d99fcf1247d08ce83364cc00e738b6a16c8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63b1266e03041c4261e71fd25e988c63932b503e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Kullanıcıların Windows kimlik doğrulaması (VB) ile kimlik doğrulaması
 ====================
@@ -51,7 +51,7 @@ Diğer yandan, bir üretim web uygulaması için web sunucunuz olarak IIS kullan
 
 > [!NOTE] 
 > 
-> Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz: [https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).
+> Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz: [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Belirli bir kimlik doğrulama türünü etkinleştirmek için Internet Information Services Yöneticisi'ni kullanabilirsiniz. Tüm kimlik doğrulama türlerini her işletim sistemi söz konusu olduğunda kullanılabilir olmadığını unutmayın. Ayrıca, IIS 7.0 ile Windows Vista kullanıyorsanız, Internet Information Services Manager'da görünmeden önce Windows kimlik doğrulaması farklı türde etkinleştirmeniz gerekir. Açık **Denetim Masası, programlar, programlar ve özellikler, kapatma Windows özelliklerini aç veya Kapat**, Internet Information Services düğümünü genişletin (bkz: Şekil 2).
@@ -72,7 +72,7 @@ Windows kimlik doğrulaması etkinleştirdikten sonra kullanabileceğiniz &lt;Au
 
 Örneğin, İNDİS(), CompanySecrets() ve StephenSecrets() adlı üç eylem listeleme 1 giriş denetleyicisi sunar. Herkes İNDİS() eylem çağırabilirsiniz. Ancak, yalnızca Windows yerel Yöneticiler grubunun üyeleri CompanySecrets() eylem çağırabilirsiniz. Son olarak, yalnızca Windows etki alanı kullanıcısı Stephen (içinde Redmond etki alanı) adlı StephenSecrets() eylem çağırabilirsiniz.
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listing 1 – Controllers\HomeController.vb**
 
 [!code-vb[Main](authenticating-users-with-windows-authentication-vb/samples/sample2.vb)]
 

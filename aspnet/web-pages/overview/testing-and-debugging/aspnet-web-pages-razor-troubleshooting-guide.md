@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: e507d97903583c7233456e9139e1a869f8bf75bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72c49ed8b76b5fb5eb15bf01f57980b382607496
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu
 ====================
@@ -60,7 +60,7 @@ Web sitenizin kök en az bir tane olduğundan emin olun *.cshtml* içindeki dosy
 
 Web sunucusu uzak bir sunucuda olduğunda bu hatayı görürseniz, sunucu yöneticisine başvurun. Veya üstü yüklü sunucu .NET Framework 4 sahip olduğundan emin olun. Ayrıca uygulamayı,.NET Framework sürümünü kullanmak üzere yapılandırılmış bir uygulama havuzunda çalıştığından emin olun.
 
-Sunucu üzerinde denetim varsa, .NET Framework doğru sürümü çalıştırdığından emin olun. Çalıştırarak yüklemesini onarmayı deneyebilirsiniz `aspnet_regiis -iru` komutu. (.NET Framework'u yükledikten sonra IIS yüklerseniz, örneğin, IIS doğru ASP.NET sayfaları çalıştırmak için yapılandırılacak değil.) Daha fazla bilgi için bkz: [ASP.NET IIS Kayıt Aracı (Aspnet\_regiis.exe)](https://msdn.microsoft.com/en-US/library/k6h9cz8h(v=vs.100).aspx).
+Sunucu üzerinde denetim varsa, .NET Framework doğru sürümü çalıştırdığından emin olun. Çalıştırarak yüklemesini onarmayı deneyebilirsiniz `aspnet_regiis -iru` komutu. (.NET Framework'u yükledikten sonra IIS yüklerseniz, örneğin, IIS doğru ASP.NET sayfaları çalıştırmak için yapılandırılacak değil.) Daha fazla bilgi için bkz: [ASP.NET IIS Kayıt Aracı (Aspnet\_regiis.exe)](https://msdn.microsoft.com/library/k6h9cz8h(v=vs.100).aspx).
 
 ### <a name="http-error-40314---forbidden"></a>HTTP Hatası 403.14 - Yasak
 
@@ -158,6 +158,6 @@ De kullanarak e-posta gönderme sorunlarını ayıklayabilirsiniz bir `try-catch
 <a id="AdditionalResources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web sayfaları (Razor) ile ilgili SSS](https://go.microsoft.com/fwlink/?LinkId=253000)
+[ASP.NET Web Sayfaları (Razor) SSS](https://go.microsoft.com/fwlink/?LinkId=253000)
 
 [WebMatrix ve ASP.NET Web sayfaları](https://forums.asp.net/1224.aspx/1?WebMatrix) ASP.NET Web sitesi Forumu

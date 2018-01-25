@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f2d480793d02c8bfa25c05fd11fa2e6ef9e54a60
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2ca76364a2e9a71dc92644bd579345ae3c304a69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (6 10) Entity Framework ile ilgili verileri güncelleştirme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -75,8 +75,7 @@ Bu kod hata iletisini görüntülemek için sayfanın görüntülendiğinde içi
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-
-              **Oluştur**'u tıklatın. Listeye eklenen yeni indirmelere indirmelere dizin sayfası görüntülenir. Bölüm adı dizin sayfası listesinde ilişki doğru şekilde kurulduğundan gösteren Gezinti özelliğinden gelir.
+**Oluştur**'u tıklatın. Listeye eklenen yeni indirmelere indirmelere dizin sayfası görüntülenir. Bölüm adı dizin sayfası listesinde ilişki doğru şekilde kurulduğundan gösteren Gezinti özelliğinden gelir.
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
@@ -111,7 +110,7 @@ Değiştir `HttpPost` `Edit` aşağıdaki kod ile yöntemi. hangi office atama g
 Kod şunları yapar:
 
 - Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını varlıktan `OfficeAssignment` gezinti özelliği. Bu yaptıklarınızın aynıdır `HttpGet` `Edit` yöntemi.
-- Alınan güncelleştirmeleri `Instructor` model bağlayıcı değerlerle varlık. [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.108).aspx) aşırı kullanılan olanak tanır *beyaz liste* dahil etmek istediğiniz özellikleri. Bu açıklandığı gibi atlayarak nakil engeller [ikinci Öğreticisi](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Alınan güncelleştirmeleri `Instructor` model bağlayıcı değerlerle varlık. [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) aşırı kullanılan olanak tanır *beyaz liste* dahil etmek istediğiniz özellikleri. Bu açıklandığı gibi atlayarak nakil engeller [ikinci Öğreticisi](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 - Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` özelliği null böylece ilgili satırda `OfficeAssignment` tablo silinecek.
@@ -147,13 +146,13 @@ Onay kutuları listesi için veri görünümüne sağlamak için bir görünüm 
 
 İstekli yükleme için kod ekler `Courses` gezinti özelliği ve yeni çağırır `PopulateAssignedCourseData` onay kutusunu dizi kullanma hakkında bilgi sağlamak için yöntemi `AssignedCourseData` görüntülemek model sınıfı.
 
-Kodda `PopulateAssignedCourseData` yöntemi okur tüm `Course` görünümü kullanarak kurslar yüklenmesi için varlıklar model sınıfı. Her Elbette, kod indirmelere Eğitmen içinde var olup olmadığını denetler `Courses` gezinti özelliği. Bir indirmelere Eğitmen atanmış olup olmadığını denetlerken verimli arama oluşturmak için Eğitmen atanan kurslar içine konur bir [Hashset'i](https://msdn.microsoft.com/en-us/library/bb359438.aspx) koleksiyonu. `Assigned` Özelliği ayarlanmış `true` kursları Eğitmen atanır. Görünüm, hangi onay kutuları olarak görüntülenmelidir seçili belirlemek için bu özelliği kullanır. Son olarak, liste görünümünde geçirilecek bir `ViewBag` özelliği.
+Kodda `PopulateAssignedCourseData` yöntemi okur tüm `Course` görünümü kullanarak kurslar yüklenmesi için varlıklar model sınıfı. Her Elbette, kod indirmelere Eğitmen içinde var olup olmadığını denetler `Courses` gezinti özelliği. Bir indirmelere Eğitmen atanmış olup olmadığını denetlerken verimli arama oluşturmak için Eğitmen atanan kurslar içine konur bir [Hashset'i](https://msdn.microsoft.com/library/bb359438.aspx) koleksiyonu. `Assigned` Özelliği ayarlanmış `true` kursları Eğitmen atanır. Görünüm, hangi onay kutuları olarak görüntülenmelidir seçili belirlemek için bu özelliği kullanır. Son olarak, liste görünümünde geçirilecek bir `ViewBag` özelliği.
 
 Ardından, kullanıcı tıklattığında yürütülen kod ekleme **kaydetmek**. Değiştir `HttpPost` `Edit` güncelleştirmeleri yeni bir yöntemi çağırır aşağıdaki kod ile yöntemi `Courses` Gezinti özelliğinin `Instructor` varlık. Değişiklikler vurgulanır.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs?highlight=3,7,20,33,37-65)]
 
-Görünüm koleksiyonu olmadığından `Course` varlıklar, model bağlayıcı güncelleştiremiyor otomatik olarak `Courses` gezinti özelliği. Kurslar gezinti özelliği güncelleştirmek için model bağlayıcı kullanmak yerine, bu yeni gerçekleştirirsiniz `UpdateInstructorCourses` yöntemi. Bu nedenle hariç gerek `Courses` model bağlama özelliğinden. Bu çağıran kodu herhangi bir değişiklik gerektirmez [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.98).aspx) kullanmakta olduğunuz çünkü *uygulamaları güvenilir listeye almayı* aşırı yükleme ve `Courses` ekleme listesinde değil.
+Görünüm koleksiyonu olmadığından `Course` varlıklar, model bağlayıcı güncelleştiremiyor otomatik olarak `Courses` gezinti özelliği. Kurslar gezinti özelliği güncelleştirmek için model bağlayıcı kullanmak yerine, bu yeni gerçekleştirirsiniz `UpdateInstructorCourses` yöntemi. Bu nedenle hariç gerek `Courses` model bağlama özelliğinden. Bu çağıran kodu herhangi bir değişiklik gerektirmez [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) kullanmakta olduğunuz çünkü *uygulamaları güvenilir listeye almayı* aşırı yükleme ve `Courses` ekleme listesinde değil.
 
 Hiçbir onay kutuları seçilmedi, varsa kodda `UpdateInstructorCourses` başlatır `Courses` boş bir koleksiyon gezinti özelliği:
 

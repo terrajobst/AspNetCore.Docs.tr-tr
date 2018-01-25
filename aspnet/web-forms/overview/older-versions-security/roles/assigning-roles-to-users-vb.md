@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 528d6f844c68cc7077a86961f9c432e405f22ee7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c790f5f9b486b6598955459827c07ec9ad33ae38
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="assigning-roles-to-users-vb"></a>(VB) kullanıcılara roller atama
 ====================
@@ -81,13 +81,13 @@ Biz şimdi DropDownList kullanıcı hesaplarına kümesini ve yineleyici rollere
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample5.vb)]
 
-`BindUsersToUserList` Yöntemi sistemindeki tüm kullanıcı hesaplarını alır [ `Membership.GetAllUsers` yöntemi](https://msdn.microsoft.com/en-us/library/dy8swhya.aspx). Bu döndürür bir [ `MembershipUserCollection` nesne](https://msdn.microsoft.com/en-us/library/system.web.security.membershipusercollection.aspx), koleksiyonu olduğu [ `MembershipUser` örnekleri](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx). Bu koleksiyonu daha sonra bağlı `UserList` DropDownList. `MembershipUser` Koleksiyon gibi çeşitli özellikler, içerir, oluşma şekli örnekleri `UserName`, `Email`, `CreationDate`, ve `IsOnline`. Değerini görüntülemek için DropDownList istemek için `UserName` özelliği emin `UserList` DropDownList'ın `DataTextField` ve `DataValueField` özellikleri "UserName" ayarlandı.
+`BindUsersToUserList` Yöntemi sistemindeki tüm kullanıcı hesaplarını alır [ `Membership.GetAllUsers` yöntemi](https://msdn.microsoft.com/library/dy8swhya.aspx). Bu döndürür bir [ `MembershipUserCollection` nesne](https://msdn.microsoft.com/library/system.web.security.membershipusercollection.aspx), koleksiyonu olduğu [ `MembershipUser` örnekleri](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx). Bu koleksiyonu daha sonra bağlı `UserList` DropDownList. `MembershipUser` Koleksiyon gibi çeşitli özellikler, içerir, oluşma şekli örnekleri `UserName`, `Email`, `CreationDate`, ve `IsOnline`. Değerini görüntülemek için DropDownList istemek için `UserName` özelliği emin `UserList` DropDownList'ın `DataTextField` ve `DataValueField` özellikleri "UserName" ayarlandı.
 
 > [!NOTE]
 > `Membership.GetAllUsers` Yöntemi iki aşırı vardır: biri hiç giriş parametresi kabul eder ve tüm kullanıcıların döndüren, diğeri sayfa dizini ve sayfa boyutu tamsayı değerlerini alır ve yalnızca belirtilen kullanıcı alt kümesini döndürür. Büyük miktarda disk belleğine alınabilir bir kullanıcı arabirimi öğesi görüntülenmesini kullanıcı hesapları olduğunda, yalnızca kullanıcı hesaplarını yerine bunların tümünün kesin kısmı döndürdüğünden ikinci aşırı kullanıcıları daha verimli bir şekilde bir sayfadan için kullanılabilir.
 
 
-`BindRolesToList` Yöntemi başlatır çağırarak `Roles` sınıfının [ `GetAllRoles` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getallroles.aspx), sistem rollerini içeren bir dize dizisi döndürür. Bu dize dizisi sonra yineleyici bağlıdır.
+`BindRolesToList` Yöntemi başlatır çağırarak `Roles` sınıfının [ `GetAllRoles` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx), sistem rollerini içeren bir dize dizisi döndürür. Bu dize dizisi sonra yineleyici bağlıdır.
 
 Son olarak, biz sayfa ilk kez yüklendiğinde bu iki yöntem çağırmanız gerekir. Aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
 
@@ -107,10 +107,10 @@ Sayfa ilk kez yüklendiğinde veya ziyaretçi aşağı açılan listeden yeni bi
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample7.vb)]
 
-Yukarıdaki kod, seçili kullanıcının kim olduğunu belirleyerek başlatır. Ardından rolleri sınıfının kullanır [ `GetRolesForUser(userName)` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getrolesforuser.aspx) rolleri bir dize dizisi olarak belirtilen kullanıcının kümesi dönün. Ardından, yineleyici'nın öğelerini numaralandırılır ve her öğenin `RoleCheckBox` onay kutusunu programlı olarak başvurulur. Karşılık gelen için rol içinde içindeyse onay kutusu işaretliyse `selectedUsersRoles` dize dizisi.
+Yukarıdaki kod, seçili kullanıcının kim olduğunu belirleyerek başlatır. Ardından rolleri sınıfının kullanır [ `GetRolesForUser(userName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx) rolleri bir dize dizisi olarak belirtilen kullanıcının kümesi dönün. Ardından, yineleyici'nın öğelerini numaralandırılır ve her öğenin `RoleCheckBox` onay kutusunu programlı olarak başvurulur. Karşılık gelen için rol içinde içindeyse onay kutusu işaretliyse `selectedUsersRoles` dize dizisi.
 
 > [!NOTE]
-> `Linq.Enumerable.Contains(Of String)(...)` ASP.NET 2.0 sürümünü kullanıyorsanız, söz dizimi derlenmez. `Contains(Of String)` Yöntemi parçasıdır [LINQ Kitaplığı](http://en.wikipedia.org/wiki/Language_Integrated_Query), ASP.NET 3.5 için yeni olan. ASP.NET 2.0 sürümünü kullanmaya devam ediyorsanız kullanmak [ `Array.IndexOf(Of String)` yöntemi](https://msdn.microsoft.com/en-us/library/eha9t187.aspx) yerine.
+> `Linq.Enumerable.Contains(Of String)(...)` ASP.NET 2.0 sürümünü kullanıyorsanız, söz dizimi derlenmez. `Contains(Of String)` Yöntemi parçasıdır [LINQ Kitaplığı](http://en.wikipedia.org/wiki/Language_Integrated_Query), ASP.NET 3.5 için yeni olan. ASP.NET 2.0 sürümünü kullanmaya devam ediyorsanız kullanmak [ `Array.IndexOf(Of String)` yöntemi](https://msdn.microsoft.com/library/eha9t187.aspx) yerine.
 
 
 `CheckRolesForSelectedUser` Yöntemi iki durumda da çağrılması gerekir: sayfa ilk kez yüklendiğinde ve her `UserList` DropDownList'ın seçili dizin değiştirildi. Bu nedenle, bu yöntemi çağırın `Page_Load` olay işleyicisi (çağrıları sonra `BindUsersToUserList` ve `BindRolesToList`). Ayrıca, olay işleyicisi DropDownList için 's oluşturmak `SelectedIndexChanged` olay ve buradan bu yöntemi çağırın.
@@ -129,7 +129,7 @@ Bir dakika içinde bu olay işleyicisi için kod yazma için döndürür. Ancak 
 
 [!code-aspx[Main](assigning-roles-to-users-vb/samples/sample10.aspx)]
 
-Bizim son tamamlamak için bir görevdir `RoleCheckBox_CheckChanged` olay işleyicisi. Bu onay kutusu örneği hangi rolü işaretli veya işaretsiz aracılığıyla bize bildiren çünkü olayı onay kutusu denetimini başvurarak başlatmak ihtiyacımız kendi `Text` ve `Checked` özellikleri. Seçilen kullanıcının kullanıcı adı ile birlikte bu bilgileri kullanarak, biz ekleme veya kullanıcı rolü kaldırma `Roles` sınıfının [ `AddUserToRole` ](https://msdn.microsoft.com/en-us/library/system.web.security.roles.addusertorole.aspx) veya [ `RemoveUserFromRole` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.roles.removeuserfromrole.aspx).
+Bizim son tamamlamak için bir görevdir `RoleCheckBox_CheckChanged` olay işleyicisi. Bu onay kutusu örneği hangi rolü işaretli veya işaretsiz aracılığıyla bize bildiren çünkü olayı onay kutusu denetimini başvurarak başlatmak ihtiyacımız kendi `Text` ve `Checked` özellikleri. Seçilen kullanıcının kullanıcı adı ile birlikte bu bilgileri kullanarak, biz ekleme veya kullanıcı rolü kaldırma `Roles` sınıfının [ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx) veya [ `RemoveUserFromRole` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx).
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample11.vb)]
 
@@ -181,7 +181,7 @@ Sayfa ilk ne zaman yüklendi veya yeni bir rolü zaman seçilir `RoleList` DropD
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample14.vb)]
 
-Bu yöntem seçili rolünden alarak başlatır `RoleList` DropDownList. Daha sonra kullanır [ `Roles.GetUsersInRole(roleName)` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getusersinrole.aspx) bir dize dizisi, bu role ait kullanıcılar kullanıcı adları alınamadı. Bu dizi sonra bağlı `RolesUserList` GridView.
+Bu yöntem seçili rolünden alarak başlatır `RoleList` DropDownList. Daha sonra kullanır [ `Roles.GetUsersInRole(roleName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx) bir dize dizisi, bu role ait kullanıcılar kullanıcı adları alınamadı. Bu dizi sonra bağlı `RolesUserList` GridView.
 
 Bu yöntem iki durumlarda çağrılması gerekir: sayfa ilk kez yüklendiğinde ve ne zaman içinde seçilen rol `RoleList` DropDownList değişiklikleri. Bu nedenle, güncelleştirme `Page_Load` olay işleyicisi çağrısından sonra bu yöntem çağrılır böylece `CheckRolesForSelectedUser`. Ardından, bir olay işleyicisi oluşturun `RoleList`'s `SelectedIndexChanged` olayı ve buradan, çok bu yöntemi çağırın.
 
@@ -242,7 +242,7 @@ Ardından, oluşturun bir `Click` için olay işleyicisini `AddUserToRoleButton`
 Kodda çoğunluğu `Click` olay işleyicisi çeşitli doğrulama denetimleri gerçekleştirir. Ziyaretçi bir kullanıcı tarafından sağlanan sağlar `UserNameToAddToRole` TextBox kullanıcı sistemde var ve bunlar zaten seçili role ait değil. Bunları herhangi biri başarısız işaretlerse, uygun bir mesaj görüntülenir `ActionStatus` ve olay işleyicisi çıkıldı. Tüm denetimler başarılı olursa kullanıcı rolüne eklenir `Roles.AddUserToRole` yöntemi. Metin kutusu ait aşağıdaki `Text` özelliği temizlendiğinde, GridView yenilenir ve `ActionStatus` etiket belirtilen kullanıcı için seçili rolü başarıyla eklendiğini belirten bir ileti görüntülenir.
 
 > [!NOTE]
-> Belirtilen kullanıcı zaten seçili rolüne ait olmadığını emin olmak için kullanırız [ `Roles.IsUserInRole(userName, roleName)` yöntemi](https://msdn.microsoft.com/en-us/library/system.web.security.roles.isuserinrole.aspx), gösteren bir Boole değeri döndürür olup olmadığını *kullanıcıadı* üyesi*roleName*. Bu yöntemde yeniden kullanacağız <a id="_msoanchor_2"> </a> [sonraki öğretici](role-based-authorization-vb.md) rol tabanlı yetkilendirme baktığınızda biz.
+> Belirtilen kullanıcı zaten seçili rolüne ait olmadığını emin olmak için kullanırız [ `Roles.IsUserInRole(userName, roleName)` yöntemi](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx), gösteren bir Boole değeri döndürür olup olmadığını *kullanıcıadı* üyesi*roleName*. Bu yöntemde yeniden kullanacağız <a id="_msoanchor_2"> </a> [sonraki öğretici](role-based-authorization-vb.md) rol tabanlı yetkilendirme baktığınızda biz.
 
 
 Bir tarayıcı aracılığıyla sayfasını ziyaret edin ve denetçiler rolünden seçin `RoleList` DropDownList. Geçersiz kullanıcı adı girmeyi deneyin – kullanıcı sistemde yok açıklayan bir ileti görürsünüz.
@@ -356,7 +356,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/en-us/library/ms228053.aspx)
+- [ASP.NET Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/library/ms228053.aspx)
 - [ASP inceleniyor. NET'in üyelik, roller ve profil](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Kendi Web sitesi yönetim aracı alınıyor](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 

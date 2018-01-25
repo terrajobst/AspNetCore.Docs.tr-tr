@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme giriş
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://scottaddie.com)
 
-ASP.NET Core sıfırdan yukarı desteklemek ve bağımlılık ekleme yararlanmak için tasarlanmıştır. ASP.NET Core uygulamaları başlangıç sınıfı yöntemleri içine eklenen sağlayarak yerleşik bir çerçeve Hizmetleri yararlanabilir ve uygulama hizmetleri de ekleme işlemi için yapılandırılabilir. En az bir özellik ayarlama ve diğer kapsayıcılar değiştirmek üzere tasarlanmamıştır ASP.NET Core tarafından sağlanan varsayılan Hizmetleri kapsayıcı sağlar.
+ASP.NET Core sıfırdan yukarı desteklemek ve bağımlılık ekleme yararlanmak için tasarlanmıştır. ASP.NET Core uygulamaları başlangıç sınıfı yöntemleri içine eklenen sağlayarak yerleşik bir çerçeve Hizmetleri yararlanabilir ve uygulama hizmetleri de ekleme işlemi için yapılandırılabilir. En az bir özellik ayarlama ve diğer kapsayıcılar değiştirmeye yönelik değil ASP.NET Core tarafından sağlanan varsayılan Hizmetleri kapsayıcı sağlar.
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -30,7 +30,7 @@ ASP.NET Core sıfırdan yukarı desteklemek ve bağımlılık ekleme yararlanmak
 
 Bağımlılık ekleme (dı), nesneleri ve ortak çalışanlar veya bağımlılıkları arasındaki bu sıkı bağ elde etmek için kullanılan bir tekniktir. Ortak Çalışanlar doğrudan başlatmasını veya statik başvuruları kullanma yerine eylemlerini gerçekleştirmek için bir sınıf gereken nesneleri şekilde sınıfında sağlanmaktadır. Sınıfları bağımlılıklarını izlemek vermeden kendi Oluşturucusu aracılığıyla çoğunlukla tanımlayacağınız [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/). Bu yaklaşım "Oluşturucu ekleme" bilinir.
 
-Sınıflar ile DI göz önünde tasarlanmıştır, kendi ortak çalışanlar üzerinde doğrudan, sabit kodlanmış bağımlılıkları yoktur çünkü bunlar daha geniş bağlı değildir. Bunu izleyen [bağımlılık ters çevirmeyi ilkesine](http://deviq.com/dependency-inversion-principle/), hangi durumları *"yüksek düzey modüller düşük düzey modülleri değil bağımlı; her ikisi de soyutlamalar üzerinde bağımlı olmalıdır."* Belirli uygulamaları başvuran yerine sınıfları isteği soyutlamalar (genellikle `interfaces`) sağlanan onlara sınıfı oluşturulduğunda. Bağımlılıklar arabirimleri içine ayıklanması ve parametre olarak bu arabirimleri uygulamalarını sağlayarak örneğidir de [stratejisi tasarım deseni](http://deviq.com/strategy-design-pattern/).
+Sınıflar ile DI göz önünde tasarlanmıştır, kendi ortak çalışanlar üzerinde doğrudan, sabit kodlu bağımlılıklar olmadığından bunlar daha gevşek. Bunu izleyen [bağımlılık ters çevirmeyi ilkesine](http://deviq.com/dependency-inversion-principle/), hangi durumları *"yüksek düzey modüller düşük düzey modülleri bağımlı döndürmemelidir; her ikisi de soyutlamalar üzerinde bağımlı olmalıdır."* Belirli uygulamaları başvuran yerine sınıfları isteği soyutlamalar (genellikle `interfaces`) sağlanan onlara sınıfı oluşturulduğunda. Bağımlılıklar arabirimleri içine ayıklanması ve parametre olarak bu arabirimleri uygulamalarını sağlayarak örneğidir de [stratejisi tasarım deseni](http://deviq.com/strategy-design-pattern/).
 
 Bir sistem dı kullanmak üzere tasarlanmış, bağımlılıklarını kendi Oluşturucusu (veya Özellikler) aracılığıyla isteyen çok sayıda sınıflarla, bunların ilişkili bağımlılıkları olan bu sınıfları oluşturmak için adanmış bir sınıf yararlıdır. Bu sınıfların denir *kapsayıcıları*, ya da daha açık belirtmek gerekirse [denetimi tersine çevirme (IOC)](http://deviq.com/inversion-of-control/) kapsayıcıları veya bağımlılık ekleme (dı) kapsayıcı. Buradan istenen türlerin örnekleri sağlamaktan sorumludur Fabrika aslında bir kapsayıcıdır. Belirli bir türde bağımlılıklara sahiptir ve kapsayıcı bağımlılık türleri sağlayacak şekilde yapılandırılmış belirtmiş, bağımlılıklar istenen örneği oluşturma bir parçası olarak oluşturur. Bu şekilde, tüm sabit kodlanmış nesne oluşturması gerek kalmadan sınıflarına karmaşık bağımlılık grafikleri sağlanabilir. Kendi bağımlılıkları olan nesneler oluşturmaya ek olarak, kapsayıcı nesne yaşam süresi uygulama içinde genellikle yönetin.
 
@@ -112,7 +112,7 @@ Kendi uygulama hizmetleri şu şekilde kaydedebilirsiniz. İlk genel tür kapsay
 
 `AddTransient` Yöntemi soyut türler bunu gerektiren her nesne için ayrı ayrı örneği somut Hizmetleri eşlemek için kullanılır. Bu hizmetin bilinir *ömrü*, ve ek ömrü seçenekler aşağıda açıklanmıştır. Kaydettiğiniz hizmetlerinin her biri için uygun bir yaşam süresi seçmek önemlidir. Hizmetinin yeni bir örneğini istediği her sınıf sağlanmalıdır? Bir örnek verilen web isteği kullanılsın mı? Veya tek bir örnek uygulama ömrü boyunca kullanılmalıdır?
 
-Bu makalede örnek adlı karakter adları görüntüleyen basit bir denetleyici yok `CharactersController`. Kendi `Index` yöntemi uygulamada depolanan karakterler geçerli listesini görüntüler ve hiçbiri yoksa koleksiyon sayıda karakter ile başlatır. Bu uygulama Entity Framework Çekirdek kullansa unutmayın ve `ApplicationDbContext` sınıfı, hiçbiri denetleyicide görünen kendi kalıcılığı için. Bunun yerine, belirli veri erişim mekanizması bir arabirim soyutlanır `ICharacterRepository`, hangi aşağıdaki [havuz deseni](http://deviq.com/repository-pattern/). Örneği `ICharacterRepository` oluşturucu aracılığıyla istenir ve ardından gerekirse karakterleri erişmek için kullanılan bir özel alan atanmış.
+Bu makalede örnek adlı karakter adları görüntüleyen basit bir denetleyici yok `CharactersController`. Kendi `Index` yöntemi uygulamada depolanan karakterler geçerli listesini görüntüler ve hiçbiri yoksa koleksiyon sayıda karakter ile başlatır. Bu uygulama Entity Framework Çekirdek kullansa unutmayın ve `ApplicationDbContext` sınıfı için kendi Kalıcılık, hiçbiri denetleyicide görünür olan. Bunun yerine, belirli veri erişim mekanizması bir arabirim soyutlanır `ICharacterRepository`, hangi aşağıdaki [havuz deseni](http://deviq.com/repository-pattern/). Örneği `ICharacterRepository` oluşturucu aracılığıyla istenir ve ardından gerekirse karakterleri erişmek için kullanılan bir özel alan atanmış.
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -120,7 +120,7 @@ Bu makalede örnek adlı karakter adları görüntüleyen basit bir denetleyici 
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
-Bu arabirim somut bir türde tarafından sırayla uygulanır `CharacterRepository`, yani çalışma zamanında kullanılır.
+Bu arabirim somut bir türde tarafından sırayla uygulanır `CharacterRepository`, çalışma zamanında kullanılır.
 
 > [!NOTE]
 > DI yolu ile kullanılan `CharacterRepository` tüm "depoları" ya da veri erişimi sınıfları, yalnızca uygulama hizmetlerinizi izleyin genel bir model bir sınıftır.
@@ -149,7 +149,7 @@ ASP.NET Hizmetleri ile aşağıdaki ömürleri yapılandırılabilir:
 
 **Geçici**
 
-Geçici ömrü hizmetleri talep edilen her zaman oluşturulur. Bu ömrü basit, durum bilgisi olmayan hizmetler için en iyi şekilde çalışır.
+Geçici ömrü Hizmetleri istedikleri her zaman oluşturulur. Bu ömrü basit, durum bilgisi olmayan hizmetler için en iyi şekilde çalışır.
 
 **Kapsamlı**
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> Sürüm 1.0, kapsayıcı adlı dispose üzerinde *tüm* `IDisposable` nesneleri, onu oluşturmadı dahil olmak üzere.
+> Sürüm 1.0, kapsayıcı adlı dispose üzerinde *tüm* `IDisposable` kaydetmedi oluşturma dahil olmak üzere nesneleri.
 
 ## <a name="replacing-the-default-services-container"></a>Varsayılan hizmet kapsayıcı değiştirme
 
@@ -310,7 +310,7 @@ Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde 
 > [!NOTE]
 > Gibi tüm ayarlar önerilerin bir yoksayılıyor gerekli olduğu durumlar karşılaşabilirsiniz. Nadir--istisnaları framework çoğunlukla çok özel durumlarını bulduk.
 
-Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne erişim desenler için. Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmaz.
+Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne erişim desenler için. Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmayacaktır.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

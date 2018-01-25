@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4332dce4c341cb8e5c241a67547048301ae9a8b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Önyükleme güzel, yanıt veren siteleriyle oluşturma
 
@@ -218,4 +218,4 @@ Ek metin ya da bir input öğesi düğmeleriyle paketleme giriş grupları kulla
 
 ## <a name="summary"></a>Özet
 
-Önyükleme hızlı ve verimli bir şekilde düzenlemeniz ve çok çeşitli Web sitelerinin ve uygulamaların stilini belirlemek için kullanılan bir web çerçevesidir sağlar. Temel tipografi ve stilleri bir eğlenceli, elle hazırlanmış veya ticari olarak satın alınan özel tema destek kolayca yönetilebilir görünüm sağlar. Bir konak geçmişte pahalı üçüncü taraf denetimleri gerçekleştirmek, açık ve modern web standartları desteklerken için şunlar gerekir web bileşenleri destekler.
+Önyükleme hızlı ve verimli bir şekilde düzenlemeniz ve çok çeşitli Web sitelerinin ve uygulamaların stilini belirlemek için kullanılan bir web çerçevesidir sağlar. Temel tipografi ve stilleri bir eğlenceli, elle hazırlanmış veya ticari olarak satın alınan özel tema destek kolayca yönetilebilir görünüm sağlar. Bir konak geçmişte pahalı üçüncü taraf denetimleri gerçekleştirmek, açık ve modern web standartları desteklerken gerekir web bileşenleri destekler.

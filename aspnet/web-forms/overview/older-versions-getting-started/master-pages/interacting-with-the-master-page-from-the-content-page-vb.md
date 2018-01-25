@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f5cb1712922c355c99bde9f8252dc84f1f590ec
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a9020115e6348d30350f8fff493efe88bd0d4c37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Ana sayfa içerik sayfası (VB) ile etkileşim kurma
 ====================
@@ -192,9 +192,9 @@ Her iki yaklaşımın inceleyelim.
 
 ### <a name="using-the-loosely-typedpagemasterproperty"></a>Geniş yazılmış kullanarak`Page.Master`özelliği
 
-Tüm ASP.NET web sayfaları öğesinden türetilmelidir `Page` bulunan sınıfı `System.Web.UI` ad alanı. `Page` Sınıfı içeren bir [ `Master` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.page.master.aspx) sayfasının ana sayfasında bir başvuru döndürür. Sayfa bir ana sayfa yoksa `Master` döndürür `Nothing`.
+Tüm ASP.NET web sayfaları öğesinden türetilmelidir `Page` bulunan sınıfı `System.Web.UI` ad alanı. `Page` Sınıfı içeren bir [ `Master` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.master.aspx) sayfasının ana sayfasında bir başvuru döndürür. Sayfa bir ana sayfa yoksa `Master` döndürür `Nothing`.
 
-`Master` Özelliği türünde bir nesne döndürür [ `MasterPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.masterpage.aspx) (bulunan `System.Web.UI` ad alanı) tüm ana sayfalar türetilen taban türü değil. Bu nedenle, kullanım ortak özellikleri veya gerekir cast bizim Web sitesinin ana sayfasında tanımlanan yöntemler için `MasterPage` döndürülen nesne `Master` özelliği uygun türü. Biz bizim ana sayfa dosyası adlı çünkü `Site.master`, arka plandaki kod sınıfı adlı `Site`. Bu nedenle, aşağıdaki atamalar kod `Page.Master` örneği özelliğine `Site` sınıfı.
+`Master` Özelliği türünde bir nesne döndürür [ `MasterPage` ](https://msdn.microsoft.com/library/system.web.ui.masterpage.aspx) (bulunan `System.Web.UI` ad alanı) tüm ana sayfalar türetilen taban türü değil. Bu nedenle, kullanım ortak özellikleri veya gerekir cast bizim Web sitesinin ana sayfasında tanımlanan yöntemler için `MasterPage` döndürülen nesne `Master` özelliği uygun türü. Biz bizim ana sayfa dosyası adlı çünkü `Site.master`, arka plandaki kod sınıfı adlı `Site`. Bu nedenle, aşağıdaki atamalar kod `Page.Master` örneği özelliğine `Site` sınıfı.
 
 
 [!code-vb[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample8.vb)]
@@ -217,7 +217,7 @@ Yakından bakarsanız, bir ASP.NET sayfasının arka plandaki kod sınıfı bir 
 
 Bir ASP.NET sayfasını ziyaret her oluşan otomatik kod oluşturma bazı yerine ilginç ve yararlı olanaklar yol paves. Biz hangi ana sayfa içerik sayfamızı tarafından kullanılan ASP.NET altyapısı bildirirseniz ana sayfalar söz konusu olduğunda, kesin türü belirtilmiş bir ürettiği `Master` bize özelliği.
 
-Kullanım [ `@MasterType` yönergesi](https://msdn.microsoft.com/en-us/library/ms228274.aspx) içerik sayfasının ana sayfa türü ASP.NET altyapısı bildirebilirsiniz. `@MasterType` Ana sayfa türü adını veya dosya yoluna yönergesi kabul edebilir. Belirtmek için `AddProduct.aspx` sayfasında kullanır `Site.master` kendi ana sayfası aşağıdaki yönergesi en üst kısmına ekleyin `AddProduct.aspx`:
+Kullanım [ `@MasterType` yönergesi](https://msdn.microsoft.com/library/ms228274.aspx) içerik sayfasının ana sayfa türü ASP.NET altyapısı bildirebilirsiniz. `@MasterType` Ana sayfa türü adını veya dosya yoluna yönergesi kabul edebilir. Belirtmek için `AddProduct.aspx` sayfasında kullanır `Site.master` kendi ana sayfası aşağıdaki yönergesi en üst kısmına ekleyin `AddProduct.aspx`:
 
 
 [!code-aspx[Main](interacting-with-the-master-page-from-the-content-page-vb/samples/sample9.aspx)]

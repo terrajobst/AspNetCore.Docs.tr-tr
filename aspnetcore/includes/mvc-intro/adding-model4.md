@@ -30,7 +30,7 @@ Oluşturulan inceleyin `Details` yönteminde *Controllers/MoviesController.cs* d
 
 `http://localhost:1234/movies/details?id=1`
 
-`id` Parametre olarak tanımlanmış bir [boş değer atanabilir tür](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) bir kimlik değeri sağlanmazsa durumda.
+`id` Parametre olarak tanımlanmış bir [boş değer atanabilir tür](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) durumda bir kimlik değeri sağlanmadı.
 
 A [lambda ifadesi](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) için geçirilen `SingleOrDefaultAsync` rota verileri veya sorgu dize değerinin eşleşmesi film varlıkları seçin.
 

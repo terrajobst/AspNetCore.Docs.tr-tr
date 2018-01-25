@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Alma Web çevrimdışı ile Web uygulamalarını dağıtma
 ====================
@@ -74,7 +74,7 @@ Sonraki adım, dosyayı dağıtım işlemi başlangıcında hedef sunucuya kopya
 > Sonraki yordam özel MSBuild proje dosyası, dağıtım işleminiz denetlemek için açıklandığı gibi kullandığınız olduğunu varsayar [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Visual Studio'dan doğrudan dağıtıyorsanız, farklı bir yaklaşım kullanmanız gerekir. Bu tür bir yaklaşım sayed Ibrahim Hashimi açıklar [nasıl ele bilgisayarınızı Web uygulaması çevrimdışı sırasında yayımlama](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
 
-Dağıtmak için bir *uygulama\_çevrimdışı* dosya MSDeploy.exe kullanarak çağırmak gereken bir hedef IIS Web sitesini [Web dağıtımı **contentPath** sağlayıcı](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx). **ContentPath** sağlayıcının desteklediği fiziksel dizin yolu ve IIS Web sitesi veya uygulama yolu, Visual Studio Proje klasörünü ve bir IIS web uygulaması arasında bir dosya eşitleme için ideal seçim kolaylaşır. Dosyayı dağıtmak için MSDeploy komutunuzu şuna benzemelidir:
+Dağıtmak için bir *uygulama\_çevrimdışı* dosya MSDeploy.exe kullanarak çağırmak gereken bir hedef IIS Web sitesini [Web dağıtımı **contentPath** sağlayıcı](https://technet.microsoft.com/library/dd569034(WS.10).aspx). **ContentPath** sağlayıcının desteklediği fiziksel dizin yolu ve IIS Web sitesi veya uygulama yolu, Visual Studio Proje klasörünü ve bir IIS web uygulaması arasında bir dosya eşitleme için ideal seçim kolaylaşır. Dosyayı dağıtmak için MSDeploy komutunuzu şuna benzemelidir:
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek 
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. **SourceRoot** özelliği tanımlanmış başka bir yerde *Publish.proj* dosya. Geçerli yolda & #x 2014 göre; diğer bir deyişle, göreli konumunu kaynak içerik için kök klasör konumunu belirten *Publish.proj* dosya.
-4. **ContentPath** sağlayıcısı değil kabul edeceği göreli dosya yolları dağıtabilmeniz için önce bir mutlak yol kaynak dosyanıza almanız gereken şekilde. Kullanabileceğiniz [ConvertToAbsolutePath](https://msdn.microsoft.com/en-us/library/bb882668.aspx) Bunu yapmak için görev.
+4. **ContentPath** sağlayıcısı değil kabul edeceği göreli dosya yolları dağıtabilmeniz için önce bir mutlak yol kaynak dosyanıza almanız gereken şekilde. Kullanabileceğiniz [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) Bunu yapmak için görev.
 5. Yeni bir ekleme **hedef** adlı öğe **GetAppOfflineAbsolutePath**. Bu hedef içinde kullanmak **ConvertToAbsolutePath** mutlak bir yol almak için görev *uygulama\_şablonu çevrimdışı* proje klasörünüzdeki dosya.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ Sonraki yordamda bu eklemek gösterilmiştir *. wpp.targets* bir web uygulaması
 1. Çözümünüzü Visual Studio 2010'da açın.
 2. İçinde **Çözüm Gezgini** penceresinde, web uygulama projesi düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından **Yeni öğe**.
 3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı]***. wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve 'ıtıklatın **Ekleme**.
+4. İçinde **adı** kutusuna *[Proje adı] ***.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

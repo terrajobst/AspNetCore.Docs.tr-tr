@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 992afc2766e817ef007e20ade44e3ddd1d404f90
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 
@@ -44,7 +44,7 @@ Daha fazla bilgi için bkz: [çalışma zamanı deposu](https://docs.microsoft.c
 
 ASP.NET Core 2.0 paketleri .NET standart 2.0 hedefleyin. Paketleri diğer .NET standart 2.0 kitaplıkları tarafından başvurulabilir ve .NET, .NET Core 2.0 ve .NET Framework 4.6.1 dahil olmak üzere, .NET standart 2.0 ile uyumlu uygulamalar üzerinde çalışabilir. 
 
-`Microsoft.AspNetCore.All` .NET Core 2.0 çalışma zamanı deposuyla kullanılmak üzere tasarlandığından metapackage .NET Core 2.0 yalnızca hedefler.
+`Microsoft.AspNetCore.All` , .NET Core 2.0 çalışma zamanı deposuyla kullanılmaya olduğundan metapackage .NET Core 2.0 yalnızca hedefler.
 
 ## <a name="configuration-update"></a>Yapılandırma güncelleştirmesi
 

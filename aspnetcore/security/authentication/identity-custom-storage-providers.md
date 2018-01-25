@@ -9,17 +9,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0953ad5d9f1bfa92ecc5169d9a211ce6b8cda8f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core kimliği bir özel depolama sağlayıcısı oluşturmak ve uygulamanıza bağlanmak sağlayan genişletilebilir bir sistemdir. Bu konu, ASP.NET Core kimliği için özelleştirilmiş depolama sağlayıcısı oluşturmayı açıklar. Kendi depolama sağlayıcısı oluşturmak için önemli kavramları içerir, ancak bir adım adım kılavuz değil.
+ASP.NET Core kimliği bir özel depolama sağlayıcısı oluşturmak ve uygulamanıza bağlanmak sağlayan genişletilebilir bir sistemdir. Bu konu, ASP.NET Core kimliği için özelleştirilmiş depolama sağlayıcısı oluşturmayı açıklar. Kendi depolama sağlayıcısı oluşturmak için önemli kavramları içerir, ancak bir adım adım kılavuz değildir.
 
 [Görüntülemek veya örnek Github'dan indirdiğinizde](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
@@ -62,7 +62,7 @@ Yeni bir örneğini oluştururken `UserManager` veya `RoleManager` kullanıcı s
 
 ### <a name="users"></a>Kullanıcılar
 
-Kayıtlı kullanıcıların web sitenizin. [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) türü genişletilmiş veya kendi özel tür için örnek olarak kullanılmıştır. Kendi özel kimlik depolama çözümü uygulamak için belirli bir türünden devralan gerekmez.
+Kayıtlı kullanıcıların web sitenizin. [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) türü genişletilmiş veya kendi özel tür için örnek olarak kullanılmıştır. Kendi özel kimlik depolama çözümü uygulamak için belirli bir türünden devralan gerek yoktur.
 
 ### <a name="user-claims"></a>Kullanıcı talepleri
 
@@ -80,7 +80,7 @@ Siteniz için yetkilendirme grupları. Rol Kimliği ve rol adı (ör. "Yönetici
 
 Bu konuda, kullanacaksanız kalıcılığı mekanizmasının ve o mekanizması için varlıkların nasıl oluşturulacağı hakkında bilgi sahibi olduğunuz varsayılır. Bu konuda depoları veya veri erişim sınıfları oluşturmak nasıl kullanılacağı hakkındaki ayrıntıları sağlamaz; ASP.NET Core kimliği ile çalışırken tasarım kararları hakkında bazı öneriler sağlar.
 
-Serbestlik çok miktarda veri erişim katmanı için özelleştirilmiş depolama sağlayıcısı tasarlarken vardır. Yalnızca uygulamanızı kullanmayı düşündüğünüz özellikleri için Kalıcılık mekanizmaları oluşturmanız gerekir. Örneğin, uygulamanızda rolleri kullanmıyorsanız, roller veya kullanıcı rolü ilişkileri için depolama alanı oluşturmak gerekmez. Teknoloji ve varolan altyapı ASP.NET Core kimliği varsayılan uygulamasından çok farklı bir yapı gerektirebilir. Veri erişim katmanı'nızda depolama uygulamanızı yapısı ile çalışmak için mantığı sağlar.
+Serbestlik çok miktarda veri erişim katmanı için özelleştirilmiş depolama sağlayıcısı tasarlarken vardır. Yalnızca uygulamanızı kullanmayı düşündüğünüz özellikleri için Kalıcılık mekanizmaları oluşturmanız gerekir. Örneğin, uygulamanızda rolleri kullanmıyorsanız, roller veya kullanıcı rolü ilişkileri için depolama oluşturmanız gerekmez. Teknoloji ve varolan altyapı ASP.NET Core kimliği varsayılan uygulamasından çok farklı bir yapı gerektirebilir. Veri erişim katmanı'nızda depolama uygulamanızı yapısı ile çalışmak için mantığı sağlar.
 
 Veri erişim katmanı verileri ASP.NET Core kimlikten bir veri kaynağına kaydetmek için mantığı sağlar. Veri erişim katmanı, özelleştirilmiş depolama sağlayıcısı için kullanıcı ve rol bilgilerini depolamak için aşağıdaki sınıflar içerebilir.
 

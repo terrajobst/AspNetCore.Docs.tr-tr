@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7a009d57f97838feb5b4a3253c6de9a872a9e9ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7694c56fa5c50ff75db931e88c2334f560631d74
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>Program aracılığıyla ayar ObjectDataSource'nın parametre değerleri (C#)
 ====================
@@ -33,7 +33,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Parametre değeri zaman gelen kaynaktan için henüz hesaba bazı yerleşik veri kaynağı biri tarafından zamanlar olabilir `Parameter` nesneleri. Kullanıcı hesapları sitemizi destekleniyorsa, biz şu anda oturum açmış kullanıcı ziyaretçi kimliği temel parametre ayarlamak isteyebilirsiniz Veya parametre değeri boyunca ObjectDataSource'nın temel alınan nesnenin yönteme göndermeden önce özelleştirmek gerekebilir.
 
-Her ObjectDataSource's `Select` yöntemi çağrıldığında ObjectDataSource ilk başlatır, [seçme olay](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). ObjectDataSource'nın temel alınan nesnenin yöntemi sonra çağrılır. ObjectDataSource's tamamlandıktan sonra [seçili olay](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) (Şekil 1, bu olaylar dizisini gösterir) etkinleşir. ObjectDataSource'nın temel alınan nesnenin yönteme geçirilen parametre değerlerini ayarlayın ya da bir olay işleyicisi için özelleştirilmiş `Selecting` olay.
+Her ObjectDataSource's `Select` yöntemi çağrıldığında ObjectDataSource ilk başlatır, [seçme olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). ObjectDataSource'nın temel alınan nesnenin yöntemi sonra çağrılır. ObjectDataSource's tamamlandıktan sonra [seçili olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) (Şekil 1, bu olaylar dizisini gösterir) etkinleşir. ObjectDataSource'nın temel alınan nesnenin yönteme geçirilen parametre değerlerini ayarlayın ya da bir olay işleyicisi için özelleştirilmiş `Selecting` olay.
 
 
 [![ObjectDataSource'nın seçili ve olayları seçme yangın önce ve sonra ait temel alınan nesnenin yöntemi çağrılır](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image1.png)
@@ -55,7 +55,7 @@ Haydi başlayalım!
 **Şekil 2**: yeni bir sorgu ekleme `EmployeesTableAdapter` ([tam boyutlu görüntüyü görüntülemek için tıklatın](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image6.png))
 
 
-Satırlar döndüren bir SQL deyimi eklemek için seçin. Belirt ulaştığınızda bir `SELECT` deyimi ekranında varsayılan `SELECT` bildirimi `EmployeesTableAdapter` önceden yüklenmiş olması gerekir. Yalnızca ekleme `WHERE` yan tümcesi: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/en-us/library/ms174420.aspx) belirli tarih bölümünü döndürür bir T-SQL işlevi bir `datetime` yazın; bu durumda biz kullanmakta olduğunuz `DATEPART` ayın döndürülecek `HireDate` sütun.
+Satırlar döndüren bir SQL deyimi eklemek için seçin. Belirt ulaştığınızda bir `SELECT` deyimi ekranında varsayılan `SELECT` bildirimi `EmployeesTableAdapter` önceden yüklenmiş olması gerekir. Yalnızca ekleme `WHERE` yan tümcesi: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) belirli tarih bölümünü döndürür bir T-SQL işlevi bir `datetime` yazın; bu durumda biz kullanmakta olduğunuz `DATEPART` ayın döndürülecek `HireDate` sütun.
 
 
 [![Dönüş yalnızca bu satırları burada HireDate sütundur küçük veya eşit @HiredBeforeDate parametresi](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-cs/_static/image7.png)

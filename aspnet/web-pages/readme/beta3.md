@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: 5fad4b659dafe5470aeb84d320ff711b8840d1e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku dosyası
 ====================
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/10/2017
 - [Yeni özellikler, değişiklikler ve Beta 3 sürümündeki bilinen sorunlar](#Known_Issues)
 
     - [WebMatrix yükleme sorunları](#Known_Issues_Installation)
-    - [ASP.NET Web sayfaları](#Known_Issues_ASPNET)
+    - [ASP.NET Web Sayfaları](#Known_Issues_ASPNET)
     - [SQL Server Compact](#Known_Issues_SQL_Server_Compact)
     - [Uygulamaları yükleme](#Known_Issues_Installing_Applications)
     - [Uygulama yayımlama](#Known_Issues_Publishing_Applications)
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/10/2017
 > Yönetilen derlemeler SQL Server Compact 4.0 için 64-bit bir bilgisayarda SQL Server Compact 4.0 yükledikten ve bilgisayarın yalnızca .NET Framework 3.5 SP1 istemci yüklü profili olduğunda Genel Derleme Önbelleği (GAC) yerleştirilmez. GAC içinde yüklenmemiş Yönetilen derlemeler şunlardır:
 > 
 > - *System.Data.SqlServerCe.dll* (ADO.NET sağlayıcısı)
-> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework)
+> - *System.Data.SqlServerCe.Entity.dll* (ADO.NET Entity Framework )
 > 
 > **Geçici çözüm**  
 > SQL Server'ı kaldırın Compact 4.0. Karşıdan yükle ve .NET Framework 3.5 SP1'ın tam sürümünü şu konumdan yükleyin:  
@@ -115,7 +115,7 @@ ms.lasthandoff: 11/10/2017
 
 <a id="Known_Issues_ASPNET"></a>
 
-### <a name="aspnet-web-pages"></a>ASP.NET Web sayfaları
+### <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 
 Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan Beta 3 sürümü, ASP.NET Web sayfaları ile ilgili bilinen sorunlar açıklanmaktadır.
 
@@ -162,7 +162,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 > Dikkat `@{ }` yardımcı ilk kodda etrafındaki karakterleri artık kullanılmamaktadır. Bu durum, Yardımcıları içeriğini kod bloğu olarak varsayılan olarak kabul edilir çünkü. Yardımcı açılırken başlatır biçimlendirmesini işler `<a>` etiketi. Yardımcı düz metin veya kapanış etiketi içermez etiketleri oluşturmak gerekir, (örneğin, `<meta>` etiketleri), işlenecek içeriği olmalıdır `<text></text>` etiketler.
 
 
-#### <a name="change-webpagecontexthttpcontext-removed"></a>Değişikliği: "WebPageContext.HttpContext" kaldırıldı
+#### <a name="change-webpagecontexthttpcontext-removed"></a>Change: "WebPageContext.HttpContext" removed
 
 > `WebPageContext.HttpContext` Özelliği kaldırılmıştır. Bunun yerine `HttpContext.Current` kullanın. ( `WebPageContext.HttpContext` Özelliği yalnızca Sarmalanan bu.)
 
@@ -265,7 +265,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 > 
 > [!code-xml[Main](beta3/samples/sample5.xml)]
 > 
-> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz: [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) MSDN Web sitesinde.
+> Bir proxy sunucusu yapılandırma hakkında daha fazla bilgi için bkz: [ &lt;proxy&gt; öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) MSDN Web sitesinde.
 
 
 #### <a name="issue-microsoftwebinfrastructuredll-cannot-be-loaded-error"></a>Sorun: "Microsoft.Web.Infrastructure.dll yüklenemiyor" hatası
@@ -547,10 +547,10 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 
 WebMatrix Beta 3 hakkında daha fazla bilgi için aşağıdaki Web sitelerine bakın:
 
-- [IIS.NET](http://iis.net/)
+- [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Microsoft.com/Web](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
 * * *
 
-© 2010 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2010 Microsoft Corporation. Tüm hakları saklıdır. [Kullanım koşulları](https://msdn.microsoft.cos/cc300389.aspx).

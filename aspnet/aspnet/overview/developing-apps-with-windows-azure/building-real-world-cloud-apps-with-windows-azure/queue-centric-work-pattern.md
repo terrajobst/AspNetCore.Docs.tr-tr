@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Kuyruk merkezli çalışma deseni (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -91,7 +91,7 @@ Sıra desen uygulamak için biz Düzelt uygulama için iki değişiklikler yapma
 - Bir kullanıcı yeni bir Düzelt görev gönderdiğinde, görev sırasındaki veritabanına yazmak yerine, yerleştirin.
 - Sıradaki iletileri işleyen bir arka uç hizmeti oluşturun.
 
-Sıra için kullanacağız [Azure kuyruk depolama hizmeti](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/). Başka bir seçenek kullanmaktır [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+Sıra için kullanacağız [Azure kuyruk depolama hizmeti](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Başka bir seçenek kullanmaktır [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 Hangi kuyruk hizmetini kullanacak biçimde karar vermek için nasıl uygulamanızın ileti gönderme ve sıraya alma gerektiğini göz önünde bulundurun:
 
@@ -106,10 +106,10 @@ Uygulama kullanılabilirliği başka bir konudur. Kuyruk depolama hizmeti kullan
 
 Düzelt görev sırasına koymak için web ön uç aşağıdaki adımları gerçekleştirir:
 
-1. Oluşturma bir [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) örneği. `CloudQueueClient` Örneği sıra hizmeti isteklerini yürütmek için kullanılır.
+1. Oluşturma bir [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) örneği. `CloudQueueClient` Örneği sıra hizmeti isteklerini yürütmek için kullanılır.
 2. Henüz yoksa kuyruk oluşturun.
 3. Düzelt görev serileştirir.
-4. Çağrı [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) ileti sıranın yerleştirilecek.
+4. Çağrı [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) ileti sıranın yerleştirilecek.
 
 Biz bu iş oluşturucuda gerçekleştirirsiniz ve `SendMessageAsync` yöntemi yeni bir `FixItQueueManager` sınıfı.
 
@@ -117,7 +117,7 @@ Biz bu iş oluşturucuda gerçekleştirirsiniz ve `SendMessageAsync` yöntemi ye
 
 Burada kullanıyoruz [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) Düzelt JSON biçiminde seri hale getirmek için kitaplık. Tercih ettiğiniz herhangi bir seri hale getirme yaklaşım kullanabilirsiniz. JSON XML daha az ayrıntılı devam ederken okunabilir, olma avantajına sahiptir.
 
-Üretim kaliteli kod hata işleme mantığı ekleme, veritabanı kullanılamaz hale geldiyse duraklatmak, kurtarmayı daha düzgün bir şekilde işlemek, sıra üzerinde uygulama başlatma oluşturmak ve yönetmek "[zarar" iletileri](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx). (Zararlı bir ileti herhangi bir nedenden dolayı işlenemeyen bir iletidir. Kuyrukta, burada çalışan rolü sürekli işlenecekleri, başarısız, yeniden deneyin, başarısız ve benzeri dener sit zarar iletileri istemediğiniz.)
+Üretim kaliteli kod hata işleme mantığı ekleme, veritabanı kullanılamaz hale geldiyse duraklatmak, kurtarmayı daha düzgün bir şekilde işlemek, sıra üzerinde uygulama başlatma oluşturmak ve yönetmek "[zarar" iletileri](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Zararlı bir ileti herhangi bir nedenden dolayı işlenemeyen bir iletidir. Kuyrukta, burada çalışan rolü sürekli işlenecekleri, başarısız, yeniden deneyin, başarısız ve benzeri dener sit zarar iletileri istemediğiniz.)
 
 Ön uç MVC uygulamasındaki size yeni bir görev oluşturur kodu güncelleştirmeniz gerekir. Görev depoya koyma yerine çağrı `SendMessageAsync` yukarıda gösterilen yöntemi.
 
@@ -156,7 +156,7 @@ Tıklatın **Tamam** iletişim tamamlamak için. Bu iki proje için Visual Studi
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Daha fazla bilgi için bkz: [Visual Studio ile bir Azure projesi oluşturma.](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+Daha fazla bilgi için bkz: [Visual Studio ile bir Azure projesi oluşturma.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 Çalışan rolü biz iletileri çağırarak yoklamak `ProcessMessageAsync` yöntemi `FixItQueueManager` daha önce gördüğümüz sınıfı.
 
@@ -168,7 +168,7 @@ Daha fazla bilgi için bkz: [Visual Studio ile bir Azure projesi oluşturma.](ht
 
 İletileri kuyruğa doğurur için küçük bir işlem yoklama gider, bunu işlenmek üzere bekleyen bir ileti olduğunda çalışan rolün `RunAsync` yöntemi bekler yoklama önce ikinci bir yeniden çağırarak `Task.Delay(1000)`.
 
-IIS sınırlı iş parçacığı havuzu yönetir çünkü bir web projesi zaman uyumsuz kod ekleme otomatik olarak performansı artırabilir. Çalışan rolü projesi durumda değil. Çalışan rolü ölçeklenebilirliği artırmak için çok iş parçacıklı kod yazmak veya uygulamak için zaman uyumsuz kodu kullanın [paralel programlama](https://msdn.microsoft.com/en-us/library/ff963553.aspx). Örnek paralel programlama uygulamaz ancak paralel programlama uygulamak için kod zaman uyumsuz nasıl yapılacağını gösterir.
+IIS sınırlı iş parçacığı havuzu yönetir çünkü bir web projesi zaman uyumsuz kod ekleme otomatik olarak performansı artırabilir. Çalışan rolü projesi durumda değil. Çalışan rolü ölçeklenebilirliği artırmak için çok iş parçacıklı kod yazmak veya uygulamak için zaman uyumsuz kodu kullanın [paralel programlama](https://msdn.microsoft.com/library/ff963553.aspx). Örnek paralel programlama uygulamaz ancak paralel programlama uygulamak için kod zaman uyumsuz nasıl yapılacağını gösterir.
 
 ## <a name="summary"></a>Özet
 
@@ -184,11 +184,11 @@ Kuyruklar hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 Belgeler:
 
 - [Microsoft Azure depolama kuyrukları bölüm 1: Başlarken](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Latin Schacherl makalesiyle.
-- [Arka plan görevleri çalıştırma](https://msdn.microsoft.com/en-us/library/ff803365.aspx), bölüm 5 [3 bulut uygulamalarını taşıma](https://msdn.microsoft.com/en-us/library/ff728592.aspx) Microsoft Patterns ve yöntemleri. (Özellikle, bölüm ["Azure depolama kuyruklarını kullanarak"](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).)
-- [Ölçeklenebilirlik ve sıra tabanlı Mesajlaşma çözümü Azure üzerinde maliyet verimliliğini en üst düzeye çıkarma için en iyi uygulamalar](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx). Teknik incelemesi Valery Mizonov tarafından.
-- [Azure kuyruklar ve hizmet veri yolu kuyrukları karşılaştırma](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx). MSDN dergisi makale kullanmak için hangi sıra hizmeti seçmenize yardımcı olabilecek ek bilgiler sağlar. Makale, Service Bus ACS kullanılamadığında SB sıraları kullanılamaz durumda olurdu anlamına gelir kimlik doğrulaması için üzerinde ACS bağımlı olduğunu tanımlamıştır. Makalenin yazıldığı olduğundan, ancak SB kullanmanızı sağlamak üzere değiştirilmiştir [SAS belirteci](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx) alternatif ACS'nin olarak.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Zaman uyumsuz Mesajlaşma primer, Kanallar ve filtreleri düzeni, karşılayan işlem düzeni, rekabet tüketicileri düzeni, CQRS düzeni bakın.
-- [CQRS gezisine](https://msdn.microsoft.com/en-us/library/jj554200). E-kitap Microsoft desenleri ve uygulamalar tarafından CQRS hakkında.
+- [Arka plan görevleri çalıştırma](https://msdn.microsoft.com/library/ff803365.aspx), bölüm 5 [3 bulut uygulamalarını taşıma](https://msdn.microsoft.com/library/ff728592.aspx) Microsoft Patterns ve yöntemleri. (Özellikle, bölüm ["Azure depolama kuyruklarını kullanarak"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Ölçeklenebilirlik ve sıra tabanlı Mesajlaşma çözümü Azure üzerinde maliyet verimliliğini en üst düzeye çıkarma için en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Teknik incelemesi Valery Mizonov tarafından.
+- [Azure kuyruklar ve hizmet veri yolu kuyrukları karşılaştırma](https://msdn.microsoft.com/magazine/jj159884.aspx). MSDN dergisi makale kullanmak için hangi sıra hizmeti seçmenize yardımcı olabilecek ek bilgiler sağlar. Makale, Service Bus ACS kullanılamadığında SB sıraları kullanılamaz durumda olurdu anlamına gelir kimlik doğrulaması için üzerinde ACS bağımlı olduğunu tanımlamıştır. Makalenin yazıldığı olduğundan, ancak SB kullanmanızı sağlamak üzere değiştirilmiştir [SAS belirteci](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) alternatif ACS'nin olarak.
+- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Zaman uyumsuz Mesajlaşma primer, Kanallar ve filtreleri düzeni, karşılayan işlem düzeni, rekabet tüketicileri düzeni, CQRS düzeni bakın.
+- [CQRS Journey](https://msdn.microsoft.com/library/jj554200). E-kitap Microsoft desenleri ve uygulamalar tarafından CQRS hakkında.
 
 Video:
 

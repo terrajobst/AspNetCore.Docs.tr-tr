@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: f225e2a93edfc552961f9f16294bc0ace6eb0002
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: e268f045e39188e9cc1e759ff7e6c553662dd669
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="layout"></a>Düzen
 
@@ -33,7 +33,7 @@ Kurala göre bir ASP.NET uygulaması için varsayılan düzeni adlı `_Layout.cs
 
 ![Çözüm Gezgini görünümler klasöründe](layout/_static/web-project-views.png)
 
-Bu düzen görünümleri için bir en üst düzey şablon uygulamada tanımlar. Uygulamalar bir düzen gerektirmez ve uygulamaları farklı düzenler belirtme farklı görünümleri ile birden fazla yerleşim tanımlayabilirsiniz.
+Bu düzen görünümleri için bir en üst düzey şablon uygulamada tanımlar. Uygulamaları bir düzen gerekmez ve uygulamaları farklı düzenler belirtme farklı görünümleri ile birden fazla yerleşim tanımlayabilirsiniz.
 
 Örnek `_Layout.cshtml`:
 
@@ -53,7 +53,7 @@ Varsayılan olarak, her düzeni çağırmalısınız `RenderBody`. Yerde çağr�
 
 ### <a name="sections"></a>Bölümler
 
-Bir düzen isteğe bağlı olarak bir veya daha fazla başvurabilir *bölümleri*, çağırarak `RenderSection`. Bölümler belirli sayfa öğelerini nereye yerleştirileceğini düzenlemek için bir yol sağlar. Her çağrı `RenderSection` bu bölümün gerekli veya isteğe bağlı olup olmadığını belirtebilirsiniz. Gerekli bölüm bulunmazsa, bir özel durum. Tek bir görünüm içinde bölüm kullanılarak oluşturulması için içeriği belirtin `@section` Razor sözdizimi. Bir görünüm bir bölüm tanımlıyorsa oluşturulması gerekir (veya bir hata meydana gelir).
+Bir düzen isteğe bağlı olarak bir veya daha fazla başvurabilir *bölümleri*, çağırarak `RenderSection`. Bölümler belirli sayfa öğelerini nereye yerleştirileceğini düzenlemek için bir yol sağlar. Her çağrı `RenderSection` bu bölümün gerekli veya isteğe bağlı olup olmadığını belirtebilirsiniz. Gerekli bölüm bulunamazsa, bir özel durum. Tek bir görünüm içinde bölüm kullanılarak oluşturulması için içeriği belirtin `@section` Razor sözdizimi. Bir görünüm bir bölüm tanımlıyorsa oluşturulması gerekir (veya bir hata meydana gelir).
 
 Örnek `@section` bir görünüm tanımında:
 

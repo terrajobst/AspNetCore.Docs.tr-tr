@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8d11bf47f8c43040ef30d7132f0bb756748dbacd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d54c0e133bc2f6f2021821dc16cdf86cc23a5667
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Sıralama, filtreleme ve ASP.NET MVC uygulamasındaki Entity Framework disk belleği
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -60,7 +60,7 @@ Dizin sayfası istenen ilk kez hiçbir sorgu dizesi yok. Öğrenciler göre arta
 | Artan tarihi | ascending | descending |
 | Azalan tarihi | ascending | ascending |
 
-Bir yöntem [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) göre sıralamak için sütun belirtmek için. Kod oluşturur bir [Iqueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) önce değişken `switch` deyimi içinde değiştirir `switch` deyimi ve çağrıları `ToList` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Dönüştürülünceye kadar sorgu yürütülmedi `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToList`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
+Bir yöntem [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) göre sıralamak için sütun belirtmek için. Kod oluşturur bir [Iqueryable](https://msdn.microsoft.com/library/bb351562.aspx) önce değişken `switch` deyimi içinde değiştirir `switch` deyimi ve çağrıları `ToList` sonra yöntemi `switch` deyimi. Ne zaman oluşturma ve değiştirme `IQueryable` değişkenleri, sorgu veritabanına gönderilir. Dönüştürülünceye kadar sorgu yürütülmedi `IQueryable` gibi bir yöntemini çağırarak bir koleksiyon nesnesine `ToList`. Bu nedenle, bu kod kadar yürütülmedi tek bir sorgu sonuçları `return View` deyimi.
 
 Her sıralama düzeni için farklı LINQ deyimleri yazma alternatif olarak, bir LINQ ifadesi dinamik olarak oluşturabilirsiniz. Dinamik LINQ hakkında daha fazla bilgi için bkz: [dinamik LINQ](https://go.microsoft.com/fwlink/?LinkID=323957).
 
@@ -90,7 +90,7 @@ Tıklattıktan sonra **Soyadı** başlığı Öğrenciler son adı azalan sırad
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Eklediğiniz bir `searchString` parametresi `Index` yöntemi. Bir metin kutusundan dizin görünümüne ekleyeceksiniz arama dizesi değeri alındı. LINQ ifadesi de eklediğiniz bir `where` yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer yan tümcesi. Ekler deyimi [burada](https://msdn.microsoft.com/en-us/library/bb535040.aspx) yan tümcesi yalnızca arama için bir değer ise gerçekleştirilir.
+Eklediğiniz bir `searchString` parametresi `Index` yöntemi. Bir metin kutusundan dizin görünümüne ekleyeceksiniz arama dizesi değeri alındı. LINQ ifadesi de eklediğiniz bir `where` yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer yan tümcesi. Ekler deyimi [burada](https://msdn.microsoft.com/library/bb535040.aspx) yan tümcesi yalnızca arama için bir değer ise gerçekleştirilir.
 
 > [!NOTE]
 > Çoğu durumda aynı yöntemi bir Entity Framework varlık kümesi veya bir bellek içi koleksiyonda bir genişletme yöntemi olarak çağırabilirsiniz. Sonuçları normalde aynıdır, ancak bazı durumlarda farklı olabilir.
@@ -160,7 +160,7 @@ Yöntemi, sonunda `ToPagedList` genişletme yöntemi Öğrenciler üzerinde `IQu
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-`ToPagedList` Yöntemi bir sayfa numarasını alır. İki soru işaretleri temsil [null birleşim işlecinin](https://msdn.microsoft.com/en-us/library/ms173224.aspx). Null birleşim işleci, null atanabilir bir tür için varsayılan bir değer tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` değerine sahip veya 1 döndürür, `page` null.
+`ToPagedList` Yöntemi bir sayfa numarasını alır. İki soru işaretleri temsil [null birleşim işlecinin](https://msdn.microsoft.com/library/ms173224.aspx). Null birleşim işleci, null atanabilir bir tür için varsayılan bir değer tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` değerine sahip veya 1 döndürür, `page` null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Disk belleği bağlantılar Öğrenci dizin görünümüne ekleyin
 
@@ -172,11 +172,11 @@ Yöntemi, sonunda `ToPagedList` genişletme yöntemi Öğrenciler üzerinde `IQu
 
 `using` Bildirimi `PagedList.Mvc` erişimi verir MVC Yardımcısı için disk belleği düğmeler.
 
-Kod bir aşırı yüklemesini kullanır [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) belirtmek için sağlayan [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+Kod bir aşırı yüklemesini kullanır [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) belirtmek için sağlayan [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-Varsayılan [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. [HTTP GET kullanımı için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirmede sonuçlanmaz zaman GET kullanması gerektiğini öneririz.
+Varsayılan [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) parametreleri HTTP ileti gövdesi yer alan ve URL sorgu dizeleri geçirilir, yani bir POST ile form verileri gönderir. HTTP GET belirttiğinizde, form verilerini URL'de sorgu dizeleri kullanıcıların URL yer işareti sağlayan geçirilir. [HTTP GET kullanımı için W3C yönergeleri](http://www.w3.org/2001/tag/doc/whenToUseGet.html) eylemi bir güncelleştirmede sonuçlanmaz zaman GET kullanması gerektiğini öneririz.
 
 Yeni bir sayfa tıklattığınızda geçerli arama dizesi görebilmeniz için metin kutusunda geçerli arama dizesiyle başlatıldı.
 

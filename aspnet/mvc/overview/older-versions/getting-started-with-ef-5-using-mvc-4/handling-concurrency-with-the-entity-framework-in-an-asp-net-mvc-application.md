@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b072134043ceda809bfeca98447a132ed407b323
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 87bb08a4d16965a10112a42c4e9318c32f192c04
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Bir ASP.NET MVC uygulamasındaki (10 7) Entity Framework eşzamanlılık işleme
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -67,18 +67,18 @@ John tıklar **kaydetmek** ilk ve tarayıcı sonra Jane dizin sayfasına geri d�
 
 ### <a name="detecting-concurrency-conflicts"></a>Eşzamanlılık çakışmalarını algılama
 
-İşleyerek çakışmalarını çözme [OptimisticConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework oluşturur özel durumları. Bu özel durumlar oluşturma zamanı bilmek için Entity Framework çakışmaları algılayabilir olması gerekir. Bu nedenle, veritabanı ve veri modelinin uygun şekilde yapılandırmanız gerekir. Çakışma algılamasını etkinleştirmek için bazı seçenekler aşağıdakileri içerir:
+İşleyerek çakışmalarını çözme [OptimisticConcurrencyException](https://msdn.microsoft.com/library/system.data.optimisticconcurrencyexception.aspx) Entity Framework oluşturur özel durumları. Bu özel durumlar oluşturma zamanı bilmek için Entity Framework çakışmaları algılayabilir olması gerekir. Bu nedenle, veritabanı ve veri modelinin uygun şekilde yapılandırmanız gerekir. Çakışma algılamasını etkinleştirmek için bazı seçenekler aşağıdakileri içerir:
 
 - Veritabanı tablosunda bir satırı değiştiğinde belirlemek için kullanılan bir izleme sütun içerir. Daha sonra bu sütununu dahil etmek için Entity Framework yapılandırabilirsiniz `Where` yan tümcesi SQL `Update` veya `Delete` komutları.
 
-    İzleme sütunun veri türünü genellikle [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx). [Rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) değerdir satır güncelleştirilir her zaman artar sıralı bir sayı. İçinde bir `Update` veya `Delete` komutu `Where` yan tümcesi izleme sütunu (özgün satır sürümü) özgün değeri içerir. Güncelleştirilen satır başka bir kullanıcı tarafından değeri değiştirildiğinde, `rowversion` sütundur özgün değerinden farklı şekilde `Update` veya `Delete` deyimi nedeniyle güncelleştirilecek satır bulamıyor `Where` yan tümcesi. Entity Framework bulduğunda tarafından hiçbir satırın güncelleştirilmediği `Update` veya `Delete` komutunu (diğer bir deyişle, etkilenen satırların sayısı sıfır olduğunda), bir eşzamanlılık çakışması yorumlar.
+    İzleme sütunun veri türünü genellikle [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx). [Rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) değerdir satır güncelleştirilir her zaman artar sıralı bir sayı. İçinde bir `Update` veya `Delete` komutu `Where` yan tümcesi izleme sütunu (özgün satır sürümü) özgün değeri içerir. Güncelleştirilen satır başka bir kullanıcı tarafından değeri değiştirildiğinde, `rowversion` sütundur özgün değerinden farklı şekilde `Update` veya `Delete` deyimi nedeniyle güncelleştirilecek satır bulamıyor `Where` yan tümcesi. Entity Framework bulduğunda tarafından hiçbir satırın güncelleştirilmediği `Update` veya `Delete` komutunu (diğer bir deyişle, etkilenen satırların sayısı sıfır olduğunda), bir eşzamanlılık çakışması yorumlar.
 - Tablodaki her sütunun özgün değerler eklemek için Entity Framework yapılandırma `Where` yan tümcesi `Update` ve `Delete` komutları.
 
     İlk seçenek satırın ilk okunuşundan bu yana, sıradaki herhangi bir şey değiştiyse, olduğu gibi `Where` yan tümcesi güncelleştirmek için bir satır dönüş kalmaz, Entity Framework bir eşzamanlılık çakışması yorumlar. Çok sayıda sütuna sahip veritabanı tabloları için bu yaklaşım çok büyük sonuçlanabilir `Where` yan tümceleri ve büyük miktarlarda durumu bakımını gerektirebilir. Sunucu kaynaklarını gerektirir ya da web sayfasının kendisi dahil gerekir çünkü daha önce belirtildiği gibi büyük miktarlarda durumu koruma uygulama performansını etkileyebilir. Bu nedenle bu yaklaşım genellikle önerilmez ve Bu öğreticide kullanılan yöntem değil.
 
-    Eşzamanlılık bu yaklaşımı uygulamak istiyorsanız, tüm birincil anahtar özellikleri'nde ekleyerek eşzamanlılık için izlemek istediğiniz varlık işaretleyin zorunda [ConcurrencyCheck](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) onlara özniteliği. Değişiklik SQL'de tüm sütunları içerecek şekilde Entity Framework sağlar `WHERE` yan tümcesi `UPDATE` deyimleri.
+    Eşzamanlılık bu yaklaşımı uygulamak istiyorsanız, tüm birincil anahtar özellikleri'nde ekleyerek eşzamanlılık için izlemek istediğiniz varlık işaretleyin zorunda [ConcurrencyCheck](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.concurrencycheckattribute.aspx) onlara özniteliği. Değişiklik SQL'de tüm sütunları içerecek şekilde Entity Framework sağlar `WHERE` yan tümcesi `UPDATE` deyimleri.
 
-Bu öğreticinin geri kalanında, ekleyeceksiniz bir [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) özelliğine izleme `Department` varlık, bir denetleyici ve görünümler oluşturma ve her şeyin doğru şekilde çalıştığını doğrulamak için test edin.
+Bu öğreticinin geri kalanında, ekleyeceksiniz bir [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) özelliğine izleme `Department` varlık, bir denetleyici ve görünümler oluşturma ve her şeyin doğru şekilde çalıştığını doğrulamak için test edin.
 
 ## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Departman varlığa bir iyimser eşzamanlılık özellik ekleme
 
@@ -86,7 +86,7 @@ Bu öğreticinin geri kalanında, ekleyeceksiniz bir [rowversion](https://msdn.m
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=18-19)]
 
-[Zaman damgası](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) özniteliği belirtir. Bu sütun olarak eklenecek `Where` yan tümcesi `Update` ve `Delete` veritabanına gönderilen komutları. Öznitelik adı verilen [zaman damgası](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.timestampattribute.aspx) bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü [zaman damgası](https://msdn.microsoft.com/en-us/library/ms182776(v=SQL.90).aspx) önce SQL veri türü [rowversion](https://msdn.microsoft.com/en-us/library/ms182776(v=sql.110).aspx) yerine. .Net türü için `rowversion` bir bayt dizisi. Fluent API kullanmayı tercih ederseniz kullanabilirsiniz [IsConcurrencyToken](https://msdn.microsoft.com/en-us/library/gg679501(v=VS.103).aspx) yöntemi izleme özelliği aşağıdaki örnekte gösterildiği gibi belirtin:
+[Zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) özniteliği belirtir. Bu sütun olarak eklenecek `Where` yan tümcesi `Update` ve `Delete` veritabanına gönderilen komutları. Öznitelik adı verilen [zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü [zaman damgası](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) önce SQL veri türü [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) yerine. .Net türü için `rowversion` bir bayt dizisi. Fluent API kullanmayı tercih ederseniz kullanabilirsiniz [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) yöntemi izleme özelliği aşağıdaki örnekte gösterildiği gibi belirtin:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 

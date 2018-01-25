@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 181d2ae85f38051ea12c7b7ac79198ec05f36bec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="purpose-strings"></a>Amaç dizeleri
 
@@ -39,7 +39,7 @@ Amacıyla parametresi itibaren `CreateProtector` bir dize dizisi yukarıdaki yer
 <a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
-> Bileşenleri tek bir kaynak amacıyla zinciri için girdi olarak güvenilmeyen kullanıcı girişi izin vermemelidir.
+> Bileşenleri tek bir kaynak amacıyla zinciri için girdi olarak güvenilmeyen kullanıcı girişi izin vermemelisiniz.
 >
 >Örneğin, bir bileşenin güvenli iletiler depolamak için sorumlu Contoso.Messaging.SecureMessage göz önünde bulundurun. Güvenli ileti sistemi bileşeni çağırmak için olsaydı `CreateProtector([ username ])`, kötü niyetli bir kullanıcının bir hesap kullanıcı adı "Contoso.Security.BearerToken" ile çağırmak için bileşen alma girişimi oluşturup `CreateProtector([ "Contoso.Security.BearerToken" ])`, böylece yanlışlıkla güvenli Mesajlaşma neden kimlik doğrulama belirteçleri algılanan Naneli yüklerini sisteme.
 >
@@ -53,9 +53,9 @@ Tarafından sağlanan yalıtım ve davranışlarını `IDataProtectionProvider`,
 
 * (Sıralı bir karşılaştırıcı kullanarak) aynı dizeleri aynı sırada içerir ve yalnızca, iki amaca bağımsız değişkenleri eşdeğerdir. Tek amaçlı bağımsız değişkeni, karşılık gelen tek öğe amacıyla diziye eşdeğerdir.
 
-* İki `IDataProtector` eşdeğerini oluşturulur ve yalnızca, nesneleri eşdeğer `IDataProtectionProvider` nesneleri eşdeğer amacıyla parametrelere sahip.
+* İki `IDataProtector` eşdeğerini oluşturulmuştur ve yalnızca, nesneleri eşdeğer `IDataProtectionProvider` nesneleri eşdeğer amacıyla parametrelere sahip.
 
 * İçin bir verilen `IDataProtector` nesnesi, bir çağrı `Unprotect(protectedData)` özgün döndürülecek `unprotectedData` ve yalnızca, `protectedData := Protect(unprotectedData)` için eşdeğer bir `IDataProtector` nesnesi.
 
 > [!NOTE]
-> Biz burada bazı bileşeni ile başka bir bileşen çakışma bilinen bir amaç dize bilerek seçer çalışması düşünüyorsunuz değil. Bu tür bir bileşen temelde kötü amaçlı olarak kabul edilir ve bu sistem kötü amaçlı kod içinde çalışan işlemi zaten çalışıyor gerektiğinde, güvenlik garantileri sağlamak üzere tasarlanmamıştır.
+> Biz burada bazı bileşeni ile başka bir bileşen çakışma bilinen bir amaç dize bilerek seçer çalışması düşünüyorsunuz değil. Bu tür bir bileşen temelde kötü amaçlı olarak kabul edilir ve bu sistem kötü amaçlı kod içinde çalışan işlemi zaten çalışıyor gerektiğinde, güvenlik garantileri sağlamaya yönelik değildir.

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: b5210f9a29f82fbadd0e6dd2d81bd85e7f23ae7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>ASP.NET MVC DropDownList yardımcı nasıl scaffolds inceleniyor
 ====================
@@ -60,7 +60,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın. İçin Select **yön
 
 ### <a name="the-html-select-tag"></a>HTML Select etiketi
 
-HTML `<select>` öğesi (HTML tarafından oluşturulan [DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) yardımcı) (örneğin, türler listesi) değerleri tam bir listesini görüntülemek için kullanılır. Geçerli değer bilindiğinde düzenleme formlar için geçerli değer seçim listesi görüntüleyebilirsiniz. Gördüğümüz daha önce bu biz seçili değerine ayarlandığında **Komedi**. Seçim listesi, kategori veya yabancı anahtar verileri görüntülemek için idealdir. `<select>` Öğesi Tarz yabancı anahtar için olası bir tarzını adları listesini görüntüler, ancak formun kaydettiğinizde Tarz özelliği Tarz yabancı anahtar değeriyle görüntülenen Tarz adı güncelleştirilir. Aşağıdaki resimde seçili Tarz olan **DISCO** ve sanatçı **Donna yaz**.
+HTML `<select>` öğesi (HTML tarafından oluşturulan [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) yardımcı) (örneğin, türler listesi) değerleri tam bir listesini görüntülemek için kullanılır. Geçerli değer bilindiğinde düzenleme formlar için geçerli değer seçim listesi görüntüleyebilirsiniz. Gördüğümüz daha önce bu biz seçili değerine ayarlandığında **Komedi**. Seçim listesi, kategori veya yabancı anahtar verileri görüntülemek için idealdir. `<select>` Öğesi Tarz yabancı anahtar için olası bir tarzını adları listesini görüntüler, ancak formun kaydettiğinizde Tarz özelliği Tarz yabancı anahtar değeriyle görüntülenen Tarz adı güncelleştirilir. Aşağıdaki resimde seçili Tarz olan **DISCO** ve sanatçı **Donna yaz**.
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image4.png)
 
@@ -70,11 +70,11 @@ Açık *Controllers\StoreManagerController.cs* dosya ve Bul `HTTP GET Create` y�
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample5.cs)]
 
-`Create` Yöntemi iki ekler [SelectList](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlist.aspx) nesneleri `ViewBag`, bir tarzını bilgiler içeren ve diğeri sanatçı bilgileri içerir. [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) Oluşturucusu aşırı yukarıda kullanılan üç bağımsız değişkeni alır:
+`Create` Yöntemi iki ekler [SelectList](https://msdn.microsoft.com/library/system.web.mvc.selectlist.aspx) nesneleri `ViewBag`, bir tarzını bilgiler içeren ve diğeri sanatçı bilgileri içerir. [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) Oluşturucusu aşırı yukarıda kullanılan üç bağımsız değişkeni alır:
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample6.cs)]
 
-1. *öğeleri*: bir [IEnumerable](https://msdn.microsoft.com/en-us/library/system.collections.ienumerable.aspx) listedeki öğeleri içeren. Yukarıdaki örnekte türler listesi tarafından döndürülen `db.Genres`.
+1. *öğeleri*: bir [IEnumerable](https://msdn.microsoft.com/library/system.collections.ienumerable.aspx) listedeki öğeleri içeren. Yukarıdaki örnekte türler listesi tarafından döndürülen `db.Genres`.
 2. *dataValueField*: bir özellik adı **IEnumerable** anahtar değeri içeren liste. Yukarıdaki örnekte `GenreId` ve `ArtistId`.
 3. *dataTextField*: bir özellik adı **IEnumerable** görüntülemek için bilgi içeren liste. Hem sanatçılar, hem de Tarz tablo `name` alanı kullanılır.
 
@@ -84,7 +84,7 @@ Açık *Views\StoreManager\Create.cshtml* dosya ve inceleyin `Html.DropDownList`
 
 İlk satırı oluştur görünümünün aldığını gösteren bir `Album` modeli. İçinde `Create` yukarıda gösterilen hiçbir model geçti, görünümü alır şekilde yöntemi bir **null** `Album` modeli. Biz yok şekilde bu noktada yeni albümü oluşturuyoruz `Album` için bu verileri.
 
-[Html.DropDownList](https://msdn.microsoft.com/en-us/library/dd492948.aspx) yukarıda gösterilen aşırı modele bağlanacak alanın adını alır. Aranacak bu ad ayrıca kullanan bir **ViewBag** nesnesini içeren bir [SelectList](https://msdn.microsoft.com/en-us/library/dd505286.aspx) nesnesi. Bu aşırı yüklemesi'ni kullanarak, adına gereklidir **ViewBag SelectList** nesne `GenreId`. İkinci parametre (`String.Empty`) hiçbir öğe seçildiğinde görüntülenecek metin. Bu, tam olarak yeni albümü oluştururken ne istiyoruz olur. İkinci parametre kaldırıldı ve aşağıdaki kodu kullanılan varsa:
+[Html.DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) yukarıda gösterilen aşırı modele bağlanacak alanın adını alır. Aranacak bu ad ayrıca kullanan bir **ViewBag** nesnesini içeren bir [SelectList](https://msdn.microsoft.com/library/dd505286.aspx) nesnesi. Bu aşırı yüklemesi'ni kullanarak, adına gereklidir **ViewBag SelectList** nesne `GenreId`. İkinci parametre (`String.Empty`) hiçbir öğe seçildiğinde görüntülenecek metin. Bu, tam olarak yeni albümü oluştururken ne istiyoruz olur. İkinci parametre kaldırıldı ve aşağıdaki kodu kullanılan varsa:
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample8.cshtml)]
 

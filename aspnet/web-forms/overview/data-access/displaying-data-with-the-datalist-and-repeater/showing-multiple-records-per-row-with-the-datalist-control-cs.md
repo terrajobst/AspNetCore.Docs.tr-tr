@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be0b831477e8f68768f1f9a0b52cbe90b3936d3f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9f04089afdbeb1b13725536c9fe97951ee8ca5c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>DataList denetimi (C#) ile satır başına birden çok kaydı gösteriliyor
 ====================
@@ -67,7 +67,7 @@ Bir tarayıcıda sayfanızı ziyaret etmek için bir dakikanızı ayırın. Şek
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>2. adım: DataList s Düzen yönünü değiştirme
 
-DataList öğelerinden tek sütunlu, çok satırlı bir tablo dikey olarak yerleştirme için varsayılan davranışı sırasında bu davranış kolayca s DataList değiştirilebilir [ `RepeatDirection` özelliği](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Özelliği iki olası değerlerden biri kabul edebilir: `Horizontal` veya `Vertical` (varsayılan).
+DataList öğelerinden tek sütunlu, çok satırlı bir tablo dikey olarak yerleştirme için varsayılan davranışı sırasında bu davranış kolayca s DataList değiştirilebilir [ `RepeatDirection` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). `RepeatDirection` Özelliği iki olası değerlerden biri kabul edebilir: `Horizontal` veya `Vertical` (varsayılan).
 
 Değiştirerek `RepeatDirection` özelliğinden `Vertical` için `Horizontal`, veri kaynağı öğesi başına bir sütunu oluşturma DataList kayıtlarını tek bir satır içinde işler. Bu etkiyi göstermeye DataList Tasarımcısı'nda tıklatın ve sonra Özellikler penceresinde değiştirme `RepeatDirection` özelliğinden `Vertical` için `Horiztonal`. Hemen Bunu yaptıktan sonra Tasarımcı DataList s düzeni tek satır, birden çok sütun bir arabirim oluşturma ayarlar (bkz: Şekil 3).
 
@@ -87,7 +87,7 @@ Küçük miktarda veri, bir tek satır, görüntülenirken çok sütunlu bir tab
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Adım 3: Çok sütunlu, çok satırlı bir tablo verilerini görüntüleme
 
-Birden çok sütun, birden fazla satır DataList oluşturmak için ayarlamak ihtiyacımız [ `RepeatColumns` özelliği](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) görüntülenecek sütunlar sayısı. Varsayılan olarak, `RepeatColumns` özelliği tek bir satır veya bir sütundaki tüm öğeleri görüntülemek DataList neden olacak 0 olarak ayarlanır (değerine bağlı olarak `RepeatDirection` özelliği).
+Birden çok sütun, birden fazla satır DataList oluşturmak için ayarlamak ihtiyacımız [ `RepeatColumns` özelliği](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) görüntülenecek sütunlar sayısı. Varsayılan olarak, `RepeatColumns` özelliği tek bir satır veya bir sütundaki tüm öğeleri görüntülemek DataList neden olacak 0 olarak ayarlanır (değerine bağlı olarak `RepeatDirection` özelliği).
 
 Bizim örneğimizde, tablo satır başına üç ürünleri görüntüler s olanak tanır. Bu nedenle, `RepeatColumns` 3 özelliği. Bu değişikliği yaptıktan sonra sonuçları bir tarayıcıda görüntülemek için bir dakikanızı ayırın. Şekil 5 gösterildiği gibi ürünler artık üç sütun, çok satırlı bir tablo listelenir.
 

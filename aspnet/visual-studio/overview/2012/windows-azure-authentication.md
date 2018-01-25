@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb38d66bd0373159e54abf822fba9c5829774ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure kimlik doğrulaması
 ====================
 Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Windows Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için Microsoft ASP.NET Araçları [Windows Azure Web siteleri](https://www.windowsazure.com/en-us/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Windows Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Windows Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
+> Windows Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için Microsoft ASP.NET Araçları [Windows Azure Web siteleri](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Windows Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Windows Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
 > 
-> ASP.NET Windows Azure kimlik doğrulaması aracı bir bulut hizmeti web rollerinde desteklenmez, ancak gelecekteki bir sürümde bunu planlıyoruz. [Windows Identity Foundation](https://msdn.microsoft.com/en-us/library/hh291066(v=VS.110).aspx) (WIF), Windows Azure web rolleri desteklenir.
+> ASP.NET Windows Azure kimlik doğrulaması aracı bir bulut hizmeti web rollerinde desteklenmez, ancak gelecekteki bir sürümde bunu planlıyoruz. [Windows Identity Foundation](https://msdn.microsoft.com/library/hh291066(v=VS.110).aspx) (WIF), Windows Azure web rolleri desteklenir.
 > 
-> Şirket içi Active Directory ve Windows Azure Active Directory kiracınızın arasındaki eşitleme kurulumu hakkında ayrıntılar için lütfen bkz [uygulamak ve yönetmek için kullanım AD FS 2.0 çoklu oturum açma](https://technet.microsoft.com/en-us/library/jj205462.aspx).
+> Şirket içi Active Directory ve Windows Azure Active Directory kiracınızın arasındaki eşitleme kurulumu hakkında ayrıntılar için lütfen bkz [uygulamak ve yönetmek için kullanım AD FS 2.0 çoklu oturum açma](https://technet.microsoft.com/library/jj205462.aspx).
 > 
 > Windows Azure Active Directory şu anda kullanılabilir olarak bir [serbest Önizleme hizmet](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 
 ## <a name="requirements"></a>Gereksinimleri:
 
-- Visual Studio 2012 veya [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express)
+- Visual Studio 2012 veya [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express)
 - [Web için Visual Studio 2012 uzantıları Araçları](https://go.microsoft.com/fwlink/?LinkID=282228&amp;clcid=0x409) veya [Web araç uzantıları için Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkID=282231&amp;clcid=0x409)
 - [Microsoft ASP.NET araçları için Windows Azure Active Directory ile Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkID=282306) veya [Microsoft ASP.NET araçları için Windows Azure Active Directory ile Web için Visual Studio Express 2012](https://go.microsoft.com/fwlink/?LinkId=282652)
 
@@ -157,15 +157,15 @@ Daha önce farklı bir Windows Azure Active Directory hesabını aynı Visual St
 
 ## <a name="acs20012-the-request-is-not-a-valid-ws-federation-protocol-message-opop"></a>ACS20012: İstek geçerli bir WS-Federasyon protokolü ileti < o: >< değilse / o: p >
 
-Zaten diğer bazı Microsoft ID Azure hizmetlerini birine oturum açtıysanız bu durum oluşabilir. Kullanım özel bir tarayıcı penceresi IE'de InPrivate veya Incognito chrome'da gibi veya tüm tanımlama bilgilerini temizleyin. < o: >< / o: p >
+Zaten diğer bazı Microsoft ID Azure hizmetlerini birine oturum açtıysanız bu durum oluşabilir. Kullanım özel bir tarayıcı penceresi IE'de InPrivate veya Incognito chrome'da gibi veya tüm tanımlama bilgilerini temizleyin. <o:p></o:p>
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [Microsoft ASP.NET araçları için Windows Azure Active Directory ile Visual Studio 2012](https://blogs.msdn.com/b/vbertocci/archive/2013/02/18/microsoft-asp-net-tools-for-windows-azure-active-directory-visual-studio-2012.aspx) – Vittorio Bertocci
 - [Windows Azure özellikleri: kimlik](https://docs.microsoft.com/azure/active-directory/)
-- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/en-us/library/hh967619.aspx)
+- [TechNet: Windows Azure Active Directory](https://technet.microsoft.com/library/hh967619.aspx)
 - [Windows Azure Active Directory: kuruluşunuz için uygulamalar geliştirme](https://activedirectory.windowsazure.com/Develop/Single-Tenant.aspx)
 - [Windows Azure Active Directory: birden çok kuruluşlar için uygulamalar geliştirme](https://activedirectory.windowsazure.com/Develop/Multi-Tenant.aspx)
 - [Çoklu oturum açma Windows Azure Active Directory ile uygulama](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect)
 - [Çoklu oturum açma Windows Azure Active Directory: derinlemesine](https://blogs.msdn.com/b/vbertocci/archive/2012/07/05/single-sign-on-with-windows-azure-active-directory-a-deep-dive.aspx) – Vittorio Bertocci
-- [Çoklu oturum açmayı uygulamak ve yönetmek için AD FS kullanma 2.0](https://technet.microsoft.com/en-us/library/jj205462.aspx)
+- [Çoklu oturum açmayı uygulamak ve yönetmek için AD FS kullanma 2.0](https://technet.microsoft.com/library/jj205462.aspx)

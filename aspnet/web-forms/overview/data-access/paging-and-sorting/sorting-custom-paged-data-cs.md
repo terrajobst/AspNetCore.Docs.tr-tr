@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f171929da3610f70f3641030d9a5fdb88f610f7f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>Özel sıralama havuzda verileri (C#)
 ====================
@@ -51,7 +51,7 @@ Ne yazık ki, parametreli `ORDER BY` yan tümcelerinde izin verilmez. Bunun yeri
 
 - Sabit kodlanmış sorguları her kullanılabilir sıralama ifadeleri yazmak; Ardından, `IF/ELSE` T-SQL deyimlerini yürütmek için hangi sorgu belirlemek için.
 - Kullanım bir `CASE` dinamik sağlamak için deyimi `ORDER BY` ifadeler temelinde `@sortExpressio` n giriş parametresi; kullanılan dinamik olarak sorgu sonuçlarını sıralama bölümüne bakın [SQL güç `CASE` deyimleri](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Daha fazla bilgi için.
-- Saklı yordam içinde bir dize olarak uygun sorgusu oluşturabilir ve ardından [ `sp_executesql` sistem saklı yordamı](https://msdn.microsoft.com/en-us/library/ms188001.aspx) dinamik sorgusu yürütülemedi.
+- Saklı yordam içinde bir dize olarak uygun sorgusu oluşturabilir ve ardından [ `sp_executesql` sistem saklı yordamı](https://msdn.microsoft.com/library/ms188001.aspx) dinamik sorgusu yürütülemedi.
 
 Her Bu çözümler, bazı sakıncaları vardır. İlk seçenek, her olası sıralama ifadesi için bir sorgu oluşturun gerektirdiğinden diğer iki olarak korunabilir değil. Daha sonra GridView yeni, sıralanabilir alanları eklemeye karar verirseniz bu nedenle, aynı zamanda geri dönün ve saklı yordam güncelleştirmek gerekir. İkinci bir yaklaşım, dize olmayan veritabanı sütuna göre sıralama performans sorunları getirir ve aynı bakım sorunlardan ilk olarak da yükselmesine bazı subtleties vardır. Ve bir saldırganın istediği giriş parametresi değerleri geçirme saklı yordamı yürütme mümkün ise dinamik SQL kullanır, üçüncü seçenek için bir SQL ekleme saldırısı riskini beraberinde getirir.
 
@@ -126,7 +126,7 @@ Son olarak, her iki dolgusu kullanma DAL yöntemleri DataTable oluşturup yönte
 
 DAL ve BLL kullanan yöntemleri eklemek için Genişletilebilir `GetProductsPagedAndSorted` tüm kalır saklı yordamı, olan ObjectDataSource yapılandırmak için `SortParameter.aspx` sayfası yeni BLL yöntemini kullanın ve geçirin `SortExpression` parametresi temel alarak kullanıcının sonuçlarına göre sıralamak için istediği sütun.
 
-Başlangıç ObjectDataSource s değiştirerek `SelectMethod` gelen `GetProductsPaged` için `GetProductsPagedAndSorted`. Bu veri kaynağı Yapılandırma Sihirbazı, Özellikler penceresini veya doğrudan bildirim temelli söz dizimi aracılığıyla yapılabilir. Ardından, ObjectDataSource s'için bir değer sağlamak ihtiyacımız [ `SortParameterName` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Bu özellik ayarlanırsa, ObjectDataSource GridView s geçirmeye çalışır `SortExpression` özelliğine `SelectMethod`. Özellikle, adı değerine eşit olan bir giriş parametresi ObjectDataSource arar `SortParameterName` özelliği. BLL s itibaren `GetProductsPagedAndSorted` yöntemi adlı sıralama ifadesi giriş parametresi var `sortExpression`, ObjectDataSource s ayarlamak `SortExpression` sortExpression özelliğine.
+Başlangıç ObjectDataSource s değiştirerek `SelectMethod` gelen `GetProductsPaged` için `GetProductsPagedAndSorted`. Bu veri kaynağı Yapılandırma Sihirbazı, Özellikler penceresini veya doğrudan bildirim temelli söz dizimi aracılığıyla yapılabilir. Ardından, ObjectDataSource s'için bir değer sağlamak ihtiyacımız [ `SortParameterName` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Bu özellik ayarlanırsa, ObjectDataSource GridView s geçirmeye çalışır `SortExpression` özelliğine `SelectMethod`. Özellikle, adı değerine eşit olan bir giriş parametresi ObjectDataSource arar `SortParameterName` özelliği. BLL s itibaren `GetProductsPagedAndSorted` yöntemi adlı sıralama ifadesi giriş parametresi var `sortExpression`, ObjectDataSource s ayarlamak `SortExpression` sortExpression özelliğine.
 
 Bu iki değişiklikleri yaptıktan sonra ObjectDataSource s Tanımlayıcı Sözdizimi aşağıdakine benzer görünmelidir:
 
@@ -139,7 +139,7 @@ Bu iki değişiklikleri yaptıktan sonra ObjectDataSource s Tanımlayıcı Sözd
 
 GridView sıralamayı etkinleştirmek için GridView s ayarlar GridView s akıllı etiket sıralama etkinleştir onay kutusunu işaretlemeniz yeterli `AllowSorting` özelliğine `true` ve LinkButton işlenmek üzere her sütun için üstbilgi metni neden olur. Son kullanıcı LinkButtons üstbilgi birinde tıkladığında, geri gönderimin ensues ve aşağıdaki adımları gerçekleşen:
 
-1. GridView güncelleştirmeleri kendi [ `SortExpression` özelliği](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) değerine `SortExpression` üstbilgi bağlantısını tıklattınız alanının
+1. GridView güncelleştirmeleri kendi [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) değerine `SortExpression` üstbilgi bağlantısını tıklattınız alanının
 2. ObjectDataSource BLL s çağırır `GetProductsPagedAndSorted` GridView s geçirerek yöntemini `SortExpression` özellik değeri s yöntemi olarak `sortExpression` giriş parametresi (uygun birlikte `startRowIndex` ve `maximumRows` giriş parametre değerleri)
 3. DAL s BLL çağırır `GetProductsPagedAndSorted` yöntemi
 4. DAL yürütür `GetProductsPagedAndSorted` içinde geçirme saklı yordamı, `@sortExpression` parametre (ile birlikte `@startRowIndex` ve `@maximumRows` giriş parametre değerleri)

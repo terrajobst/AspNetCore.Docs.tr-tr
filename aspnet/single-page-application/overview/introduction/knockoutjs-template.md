@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Tek sayfa uygulaması: Çakıştırmaları şablonu
 ====================
@@ -92,7 +92,7 @@ Visual Studio projesini sunucu tarafında kullanılan modelleri modeller klasör
 
 ![](knockoutjs-template/_static/image9.png)
 
-**Todoıtem, yapılacaklar listesi**
+**TodoItem, TodoList**
 
 Entity Framework Code First veritabanı modellerini bunlar. Bu modeller birbirlerine noktası özelliklerine sahip dikkat edin. `ToDoList`Todoıtems ve her bir koleksiyonunu içeren `ToDoItem` üst ToDoList geri bir başvuru içeriyor. Bu özellikleri Gezinti özellikleri adı verilir ve bunlar bir-çok ilişkisi Yapılacaklar listesi ve onun Yapılacaklar öğelerini temsil eder.
 
@@ -117,7 +117,7 @@ Bu dosya, site üyeliği modellerinde içerir. `UserProfile` Sınıfı üyelik D
 
 ## <a name="entity-framework"></a>Varlık Çerçevesi
 
-SPA şablon EF Code First kullanır. Code First geliştirme modeller kodda ilk tanımlamak ve ardından veritabanını oluşturmak için model EF kullanır. Var olan bir veritabanı EF de kullanabilirsiniz ([veritabanı ilk](https://msdn.microsoft.com/en-us/data/jj206878.aspx)).
+SPA şablon EF Code First kullanır. Code First geliştirme modeller kodda ilk tanımlamak ve ardından veritabanını oluşturmak için model EF kullanır. Var olan bir veritabanı EF de kullanabilirsiniz ([veritabanı ilk](https://msdn.microsoft.com/data/jj206878.aspx)).
 
 `TodoItemContext` Modeller klasörü sınıfında türer **DbContext**. Bu sınıf EF ve modelleri arasında "Yapıştır" sağlar. `TodoItemContext` Tutan bir `ToDoItem` koleksiyonu ve bir `TodoList` koleksiyonu. Veritabanını sorgulamak için yalnızca bu koleksiyonlara yönelik bir LINQ Sorgu yazma. Örneğin, işte, tüm kullanıcı "Alice" Yapılacaklar listesi nasıl seçebilirsiniz:
 
@@ -147,8 +147,8 @@ Bakalım `ToDoListController` sınıfı. Bir tek veri üyesi içerir:
 | /Api/TODO Al | `GetTodoLists` | Yapılacaklar listesi koleksiyonunu alır. |
 | GET/api/todo/*kimliği* | `GetTodoList` | Kimliğe göre bir Yapılacaklar listesi alır |
 | PUT/api/todo/*kimliği* | `PutTodoList` | Yapılacaklar listesini güncelleştirir. |
-| / Api/todo sonrası | `PostTodoList` | Yeni bir Yapılacaklar listesi oluşturur. |
-| DELETE/api/todo/*kimliği* | `DeleteTodoList` | Yapılacaklar listesi siler. |
+| POST /api/todo | `PostTodoList` | Yeni bir Yapılacaklar listesi oluşturur. |
+| DELETE /api/todo/*id* | `DeleteTodoList` | Yapılacaklar listesi siler. |
 
 URI'ler bazı işlemler için kimliği değeri için yer tutucuları içeren dikkat edin. Örneğin, bir-listeye 42 kimliği, URI'nin silmektir `/api/todo/42`.
 
@@ -180,7 +180,7 @@ Görünüm veri görünüm modeline bağlı. Görünüm modeli güncelleştirmel
 
 İstemci tarafı JavaScript SPA şablon üç katmanlara düzenler:
 
-- TODO.DataContext.js: AJAX isteği gönderir.
+- todo.datacontext.js: Sends AJAX requests.
 - TODO.model.js: modelleri tanımlar.
 - TODO.ViewModel.js: görünüm modeli tanımlar.
 
@@ -229,7 +229,7 @@ Siteler arası istek sahteciliği (CSRF), burada kötü amaçlı bir site olduğ
 
 Kötü amaçlı sayfası kaynak aynı ilkeleri nedeniyle kullanıcının belirteçleri okunamıyor çünkü sahteciliğe karşı koruma belirteçleri çalışır. (Kaynak aynı ilkeler birbirlerinin içeriğe erişmesini iki farklı sitelerde barındırılan belgelere önledi.)
 
-ASP.NET MVC aracılığıyla sahteciliğe karşı koruma belirteçleri için yerleşik destek sağlar [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx) sınıfı ve [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx) özniteliği. Şu anda bu işlevselliği Web API yerleşik olmayan. Ancak, SPA şablon özel bir uygulama için Web API içerir. Bu kod tanımlanan `ValidateHttpAntiForgeryTokenAttribute` çözümü filtreleri klasöründe bulunan sınıfı. Anti-CSRF Web API'sinde hakkında daha fazla bilgi için bkz: [önleme siteler arası istek sahteciliği (CSRF) saldırılarını](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC aracılığıyla sahteciliğe karşı koruma belirteçleri için yerleşik destek sağlar [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) sınıfı ve [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) özniteliği. Şu anda bu işlevselliği Web API yerleşik olmayan. Ancak, SPA şablon özel bir uygulama için Web API içerir. Bu kod tanımlanan `ValidateHttpAntiForgeryTokenAttribute` çözümü filtreleri klasöründe bulunan sınıfı. Anti-CSRF Web API'sinde hakkında daha fazla bilgi için bkz: [önleme siteler arası istek sahteciliği (CSRF) saldırılarını](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
 ## <a name="conclusion"></a>Sonuç
 

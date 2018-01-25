@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Parametreler Web paketi dağıtım için yapılandırma
 ====================
@@ -88,7 +88,7 @@ Uç nokta URL'sini dağıtım paketindeki kümesini parametreleştirme yanı sı
 
 Dağıtım paketini el ile yüklerseniz, IIS Yöneticisi'ni otomatik olarak parametreli özellikleri yanında hizmet uç noktası adresi için ister. Çalıştırarak dağıtım paketi yüklerseniz *. deploy.cmd* dosyasını düzenleyebilirsiniz *SetParameters.xml* dosya değerlerini birlikte hizmet uç noktası adresi için bir değer girin otomatik olarak parametreli özellikler.
 
-Nasıl oluşturulacağı hakkında ayrıntılar için bir *parameters.xml* dosya için bkz: [nasıl yapılır: kullanım parametreleri yapılandırmak dağıtım ayarları, bir paketin yüklü](https://msdn.microsoft.com/en-us/library/ff398068.aspx). Adlı yordamı **Web.config dosyası ayarları için dağıtım parametrelerini kullanmak için** adım adım yönergeler sağlar.
+Nasıl oluşturulacağı hakkında ayrıntılar için bir *parameters.xml* dosya için bkz: [nasıl yapılır: kullanım parametreleri yapılandırmak dağıtım ayarları, bir paketin yüklü](https://msdn.microsoft.com/library/ff398068.aspx). Adlı yordamı **Web.config dosyası ayarları için dağıtım parametrelerini kullanmak için** adım adım yönergeler sağlar.
 
 ## <a name="modifying-the-setparametersxml-file"></a>SetParameters.xml dosyasını değiştirme
 
@@ -144,7 +144,7 @@ Sonraki konuyu [dağıtma Web paketleri](deploying-web-packages.md), nasıl bir 
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Web paketleri oluşturma hakkında daha fazla bilgi için bkz: [bina ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md). Gerçekte bir web paketi dağıtma hakkında yönergeler için bkz: [dağıtma Web paketleri](deploying-web-packages.md). Nasıl oluşturulacağı hakkında adım adım kılavuz bir *parameters.xml* dosya için bkz: [nasıl yapılır: kullanım parametreleri yapılandırmak dağıtım ayarları, bir paketin yüklü](https://msdn.microsoft.com/en-us/library/ff398068.aspx).
+Web paketleri oluşturma hakkında daha fazla bilgi için bkz: [bina ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md). Gerçekte bir web paketi dağıtma hakkında yönergeler için bkz: [dağıtma Web paketleri](deploying-web-packages.md). Nasıl oluşturulacağı hakkında adım adım kılavuz bir *parameters.xml* dosya için bkz: [nasıl yapılır: kullanım parametreleri yapılandırmak dağıtım ayarları, bir paketin yüklü](https://msdn.microsoft.com/library/ff398068.aspx).
 
 Web dağıtımı içinde parametrelemeyi hakkında daha fazla genel bilgi için bkz: [Web dağıtımı parametrelemeyi eylem](https://go.microsoft.com/?linkid=9805119) (blog yayını).
 

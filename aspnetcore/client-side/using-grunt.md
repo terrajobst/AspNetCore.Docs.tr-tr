@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Grunt ASP.NET Core kullanarak 
 
@@ -94,7 +94,7 @@ Ardından, grunt ve grunt görevleri indirmek için NPM yapılandırın.
 
 1. Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Ekle > Yeni öğe** ve bağlam menüsünden. Seçin **NPM yapılandırma dosyası** öğesi, varsayılan adı bırakın *package.json*, tıklatıp **Ekle** düğmesi.
 
-2. İçinde *package.json* içinde dosya `devDependencies` nesne ayraçlar, "grunt" girin. Seçin `grunt` IntelliSense listesinde ve Enter tuşuna basın. Visual Studio grunt paket adı teklif ve iki nokta ekleyin. İki nokta üst üste sağında, paketin en son kararlı sürümü IntelliSense listenin başından seçin (basın `Ctrl-Space` IntelliSense görünmüyorsa).
+2. İçinde *package.json* içinde dosya `devDependencies` nesne ayraçlar, "grunt" girin. Seçin `grunt` IntelliSense listesinde ve Enter tuşuna basın. Visual Studio grunt paket adı teklif ve iki nokta ekleyin. İki nokta üst üste sağında, paketin en son kararlı sürümü IntelliSense listenin başından seçin (basın `Ctrl-Space` IntelliSense görünmüyor).
 
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     

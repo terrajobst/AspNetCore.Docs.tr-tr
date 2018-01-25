@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: e660595d66d81069fa47b77387509e73b1ec834e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d47d8f61dc7af6e1dc5887338be862ea81d7bb17
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 mobil özellikleri
 ====================
 Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Şimdi bu öğreticide kod örnekleri ile MVC 5 sürümü olan [bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web sitelerindeki dağıtmak](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
+> Şimdi bu öğreticide kod örnekleri ile MVC 5 sürümü olan [bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web sitelerindeki dağıtmak](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
 
-Bu öğretici bir ASP.NET MVC 4 Web uygulamasında mobil özellikleri ile nasıl çalışılacağını temellerini öğretmek. Bu öğretici için kullandığınız [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) veya Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer veya VWD&quot;). Zaten varsa, Visual Studio professional sürümünü kullanabilirsiniz.
+Bu öğretici bir ASP.NET MVC 4 Web uygulamasında mobil özellikleri ile nasıl çalışılacağını temellerini öğretmek. Bu öğretici için kullandığınız [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) veya Visual Web Developer 2010 Express Service Pack 1 (&quot;Visual Web Developer veya VWD&quot;). Zaten varsa, Visual Studio professional sürümünü kullanabilirsiniz.
 
 Başlamadan önce aşağıda listelenen önkoşulları kurduğunuzdan emin olun.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) (önerilir) ya da Visual Studio Web Developer Express SP1. Visual Studio 2012, ASP.NET MVC 4 içerir. Visual Web Developer 2010 kullanıyorsanız, yüklemelisiniz [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (recommended) or Visual Studio Web Developer Express SP1. Visual Studio 2012, ASP.NET MVC 4 içerir. Visual Web Developer 2010 kullanıyorsanız, yüklemelisiniz [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 Bir mobil tarayıcı öykünücüsü de gerekir. Aşağıdakilerden birini çalışır:
 
-- [Windows 7 Phone öykünücüsü](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). (Ekran görüntüleri çoğunda Bu öğreticide kullanılan öykünücüsü budur.)
+- [Windows 7 Phone öykünücüsü](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). (Ekran görüntüleri çoğunda Bu öğreticide kullanılan öykünücüsü budur.)
 - İPhone benzetmek için kullanıcı aracısı dizesi değiştirin. Bkz: [bu](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) blog girişi.
 - [Opera Mobile öykünücüsü](http://www.opera.com/developer/tools/mobile/)
 - [Apple Safari](http://www.apple.com/safari/download/) iPhone için ayarlanmış kullanıcı aracısına sahip. Kullanıcı Aracısı, "iPhone" Safari ile ayarlama hakkında daha fazla yönerge için bkz: [IE olmasından içeriğini Safari izin vermek nasıl](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) David Alison'ın blogunda.
@@ -45,7 +45,7 @@ C# kaynak kodu ile Visual Studio projeleri bu konuya eşlik etmek kullanılabili
 
 ### <a name="what-youll-build"></a>Ne oluşturacağınız
 
-Bu öğretici için sağlanan Basit konferans listeleme uygulamaya mobil özellikler ekleyeceksiniz [başlangıç projesi](https://go.microsoft.com/fwlink/?LinkId=228307). Aşağıdaki ekran görüntüsünde tamamlanan uygulama etiketleri sayfasının de görüldüğü gibi gösterir [Windows 7 Phone öykünücüsü](https://msdn.microsoft.com/en-us/library/ff402563(VS.92).aspx). Bkz: [klavye eşleme için Windows Phone öykünücüsü](https://msdn.microsoft.com/en-us/library/ff754352(v=vs.92).aspx) klavye girişi basitleştirmek için.
+Bu öğretici için sağlanan Basit konferans listeleme uygulamaya mobil özellikler ekleyeceksiniz [başlangıç projesi](https://go.microsoft.com/fwlink/?LinkId=228307). Aşağıdaki ekran görüntüsünde tamamlanan uygulama etiketleri sayfasının de görüldüğü gibi gösterir [Windows 7 Phone öykünücüsü](https://msdn.microsoft.com/library/ff402563(VS.92).aspx). Bkz: [klavye eşleme için Windows Phone öykünücüsü](https://msdn.microsoft.com/library/ff754352(v=vs.92).aspx) klavye girişi basitleştirmek için.
 
 [![p1_Tags_CompletedProj](aspnet-mvc-4-mobile-features/_static/image2.png)](aspnet-mvc-4-mobile-features/_static/image1.png)
 
@@ -137,7 +137,7 @@ Kopya *Views\Home\AllTags.cshtml* dosya *Views\Home\AllTags.Mobile.cshtml*. Yeni
 
 Bir masaüstü tarayıcısı kullanarak ve mobil tarayıcı öykünücüsü kullanarak etiketleri sayfasına göz atın. Mobil tarayıcı öykünücüsü iki değişikliklerinin gösterir.
 
-[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Buna karşılık, masaüstü görüntü değişmemiştir.
 
@@ -215,7 +215,7 @@ Aşağıdaki kod tam gösterir *Global.asax* dosya.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Internet Explorer 9 kullanıyorsanız ve görmüyorsanız `BundleMobileConfig` içinde sarı Vurgu satır yukarıda, tıklatın [Uyumluluk Görünümü düğmesini](https://windows.microsoft.com/en-US/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(Kapalı) Uyumluluk Görünümü düğmesinin resmi] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " (Kapalı) Uyumluluk Görünümü düğmesinin resmi") simge dosyasından bir anahattı Değiştir olun IE'de ![(Kapalı) Uyumluluk Görünümü düğmesinin resmi](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(Kapalı) Uyumluluk Görünümü düğmesinin resmi ") düz renk için ![(açık) Uyumluluk Görünümü düğmesinin resmi](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(açık) Uyumluluk Görünümü düğmesinin resmi"). Alternatif olarak, Bu öğretici FireFox veya Chrome görüntüleyebilirsiniz.
+> Internet Explorer 9 kullanıyorsanız ve görmüyorsanız `BundleMobileConfig` içinde sarı Vurgu satır yukarıda, tıklatın [Uyumluluk Görünümü düğmesini](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![(Kapalı) Uyumluluk Görünümü düğmesinin resmi] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " (Kapalı) Uyumluluk Görünümü düğmesinin resmi") simge dosyasından bir anahattı Değiştir olun IE'de ![(Kapalı) Uyumluluk Görünümü düğmesinin resmi](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "(Kapalı) Uyumluluk Görünümü düğmesinin resmi ") düz renk için ![(açık) Uyumluluk Görünümü düğmesinin resmi](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "(açık) Uyumluluk Görünümü düğmesinin resmi"). Alternatif olarak, Bu öğretici FireFox veya Chrome görüntüleyebilirsiniz.
 
 
 Açık *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* dosya ve aşağıdaki biçimlendirme doğrudan sonra Ekle `Html.Partial` çağırın:
@@ -270,7 +270,7 @@ Ayarlayarak genel işleme mobil düzeni içinde varsayılan (mobil olmayan) gör
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Zaman `RequireConsistentDisplayMode` ayarlanır `true`, mobil düzenini (*\_Layout.Mobile.cshtml*) yalnızca mobil görünümleri için kullanılır. (Diğer bir deyişle, görünüm dosyası biçimidir  ***Görünümadı**. Mobile.cshtml*.) Ayarlamak isteyebilirsiniz `RequireConsistentDisplayMode` için `true` mobil düzeninizi iyi mobil olmayan görünümlerle işe yaramazsa. Ekran görüntüsünün altında gösterir nasıl *konuşmacılar* sayfasını işler `RequireConsistentDisplayMode` ayarlanır `true`.
+Zaman `RequireConsistentDisplayMode` ayarlanır `true`, mobil düzenini (*\_Layout.Mobile.cshtml*) yalnızca mobil görünümleri için kullanılır. (Diğer bir deyişle, görünüm dosyası biçimidir ***Görünümadı**. Mobile.cshtml*.) Ayarlamak isteyebilirsiniz `RequireConsistentDisplayMode` için `true` mobil düzeninizi iyi mobil olmayan görünümlerle işe yaramazsa. Ekran görüntüsünün altında gösterir nasıl *konuşmacılar* sayfasını işler `RequireConsistentDisplayMode` ayarlanır `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 
@@ -396,6 +396,6 @@ Bu öğreticide, ASP.NET MVC 4 Geliştirici önizlemesi yeni mobil özelliklerin
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 - [jQuery Mobile](http://jquerymobile.com) site.
-- [jQuery Mobile genel bakış](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
+- [jQuery Mobile Overview](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
 - [W3C öneri mobil Web uygulaması en iyi uygulamalar](http://www.w3.org/TR/mwabp/)
 - [Medya sorgular için W3C adayı önerisi](http://www.w3.org/TR/css3-mediaqueries/)
