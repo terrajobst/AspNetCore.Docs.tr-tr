@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c25ebf472df5dcbc664257cdf8678bfac535d846
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 223dd48bb996de527f20291e4701e7d1b60a539d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -33,7 +33,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="code-first"></a>İlk kod
 > 
-> Entity Framework verilerle çalışma üç yolu vardır: *veritabanı ilk*, *Model First*, ve *Code First*. Bu öğretici için Code First ' dir. Senaryonuz için en uygun olanı seçmeniz konusunda bu iş akışları ve Kılavuzu arasındaki farklar hakkında bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/en-us/library/ms178359.aspx#dbfmfcf).
+> Entity Framework verilerle çalışma üç yolu vardır: *veritabanı ilk*, *Model First*, ve *Code First*. Bu öğretici için Code First ' dir. Senaryonuz için en uygun olanı seçmeniz konusunda bu iş akışları ve Kılavuzu arasındaki farklar hakkında bilgi için bkz: [Entity Framework geliştirme iş akışları](https://msdn.microsoft.com/library/ms178359.aspx#dbfmfcf).
 > 
 > ## <a name="mvc"></a>MVC
 > 
@@ -51,7 +51,7 @@ tarafından [zel Dykstra](https://github.com/tdykstra)
 > 
 > ## <a name="questions"></a>Sorular
 > 
-> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/en-US/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
+> Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx), [Entity Framework ve LINQ to Entities Forumu](https://social.msdn.microsoft.com/forums/adodotnetentityframework/threads/), veya [ StackOverflow.com](http://stackoverflow.com/).
 > 
 > ## <a name="acknowledgments"></a>İlgili kaynaklar
 > 
@@ -84,7 +84,7 @@ Visual Studio yüklüyse, yukarıdaki bağlantıyı eksik bileşenleri yükleyin
 
 ## <a name="create-an-mvc-web-application"></a>Bir MVC Web uygulaması oluşturma
 
-Visual Studio'yu açın ve "ContosoUniversity" kullanarak adlı yeni bir C# projesi oluşturun **ASP.NET MVC 4 Web uygulaması** şablonu. Hedef emin olun **.NET Framework 4.5** (kullanmaya başlayacağınız [ `enum` özellikleri](https://msdn.microsoft.com/en-us/data/hh859576.aspx), .NET 4.5 gerektirir).
+Visual Studio'yu açın ve "ContosoUniversity" kullanarak adlı yeni bir C# projesi oluşturun **ASP.NET MVC 4 Web uygulaması** şablonu. Hedef emin olun **.NET Framework 4.5** (kullanmaya başlayacağınız [ `enum` özellikleri](https://msdn.microsoft.com/data/hh859576.aspx), .NET 4.5 gerektirir).
 
 ![New_project_dialog_box](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image3.png)
 
@@ -159,7 +159,7 @@ Bir gezinti özelliği (çok- veya -çok ilişkileri) olduğu gibi birden çok v
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample5.cs)]
 
-Sınıf özelliği bir [enum](https://msdn.microsoft.com/en-us/data/hh859576.aspx). Soru işareti sonra `Grade` türü bildirimi gösterir `Grade` özelliği [boş değer atanabilir](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx). Null bir düzeyde bir sıfır ataması farklı. — bir sınıf bilinen değil veya henüz atanmamış null anlamına gelir.
+Sınıf özelliği bir [enum](https://msdn.microsoft.com/data/hh859576.aspx). Soru işareti sonra `Grade` türü bildirimi gösterir `Grade` özelliği [boş değer atanabilir](https://msdn.microsoft.com/library/2cf62fcy.aspx). Null bir düzeyde bir sıfır ataması farklı. — bir sınıf bilinen değil veya henüz atanmamış null anlamına gelir.
 
 `StudentID` Özelliği bir yabancı anahtar ve karşılık gelen gezinme özelliğini `Student`. Bir `Enrollment` varlıktır biriyle ilişkili `Student` özelliği yalnızca tek bir tutmak için varlık `Student` varlık (aksine `Student.Enrollments` gezinti özelliği gördüğünüz daha önceki sürümlerde, birden çok tutabilir `Enrollment` varlıklar).
 
@@ -175,19 +175,19 @@ Sınıf özelliği bir [enum](https://msdn.microsoft.com/en-us/data/hh859576.asp
 
 `Enrollments` Özelliği bir gezinti özelliğidir. A `Course` varlık herhangi bir sayıda için ilgili olabileceğini `Enrollment` varlıklar.
 
-Daha fazla hakkında dediğimiz [[DatabaseGenerated](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Hiçbiri)] sonraki öğreticide öznitelik. Temel olarak, bu öznitelik indirmelere yerine için oluşturmak veritabanı birincil anahtarı girmenizi sağlar.
+Daha fazla hakkında dediğimiz [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx).Hiçbiri)] sonraki öğreticide öznitelik. Temel olarak, bu öznitelik indirmelere yerine için oluşturmak veritabanı birincil anahtarı girmenizi sağlar.
 
 ## <a name="create-the-database-context"></a>Veritabanı bağlamı oluşturma
 
-Verilen veri modeli için Entity Framework işlevselliği koordinatları ana sınıf *veritabanı bağlamı* sınıfı. Bu sınıf türetme tarafından oluşturduğunuz [System.Data.Entity.DbContext](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfı. Kodunuzda hangi varlıkların veri modelinde bulunan belirtin. Ayrıca, belirli bir Entity Framework davranış özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
+Verilen veri modeli için Entity Framework işlevselliği koordinatları ana sınıf *veritabanı bağlamı* sınıfı. Bu sınıf türetme tarafından oluşturduğunuz [System.Data.Entity.DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) sınıfı. Kodunuzda hangi varlıkların veri modelinde bulunan belirtin. Ayrıca, belirli bir Entity Framework davranış özelleştirebilirsiniz. Bu projede adlı sınıfı `SchoolContext`.
 
 Adlı bir klasör oluşturun *DAL* (için veri erişim katmanı). Bu klasörde adlı yeni bir sınıf dosyası oluşturun *SchoolContext.cs*ve var olan kodu aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample7.cs)]
 
-Bu kod oluşturur bir [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=VS.103).aspx) özelliği her bir varlık kümesi. Entity Framework terminoloji içinde bir *varlık kümesini* genellikle bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablosunda bir satırı karşılık gelir.
+Bu kod oluşturur bir [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=VS.103).aspx) özelliği her bir varlık kümesi. Entity Framework terminoloji içinde bir *varlık kümesini* genellikle bir veritabanı tablosuna karşılık gelir ve bir *varlık* tablosunda bir satırı karşılık gelir.
 
-`modelBuilder.Conventions.Remove` Deyiminde [OnModelCreating](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi, pluralized öğesinden tablo adları önler. Bunu siz yaparsanız, oluşturulan tablolar sayfadayken `Students`, `Courses`, ve `Enrollments`. Bunun yerine, tablo adları olacaktır `Student`, `Course`, ve `Enrollment`. Geliştiriciler olup tablo adları veya pluralized hakkında katılmıyorum. Bu öğretici tekil kullanır, ancak önemli noktadır dahil olmak üzere veya bu kod satırı atlama tercih hangi formu seçebilirsiniz.
+`modelBuilder.Conventions.Remove` Deyiminde [OnModelCreating](https://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating(v=vs.103).aspx) yöntemi, pluralized öğesinden tablo adları önler. Bunu siz yaparsanız, oluşturulan tablolar sayfadayken `Students`, `Courses`, ve `Enrollments`. Bunun yerine, tablo adları olacaktır `Student`, `Course`, ve `Enrollment`. Geliştiriciler olup tablo adları veya pluralized hakkında katılmıyorum. Bu öğretici tekil kullanır, ancak önemli noktadır dahil olmak üzere veya bu kod satırı atlama tercih hangi formu seçebilirsiniz.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -201,15 +201,15 @@ Bu öğreticide böylece veritabanı depolanabilir LocalDB ile karşılaşmayaca
 
 [!code-xml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample8.xml)]
 
-Varsayılan olarak, aynı adlı bir bağlantı dizesi Entity Framework arar `DbContext` sınıfı (`SchoolContext` bu proje için). Adlı bir yerel veritabanı veritabanı eklediğiniz bağlantı dizesini belirtir *ContosoUniversity.mdf* bulunan *uygulama\_veri* klasör. Daha fazla bilgi için bkz: [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/en-us/library/jj653752.aspx).
+Varsayılan olarak, aynı adlı bir bağlantı dizesi Entity Framework arar `DbContext` sınıfı (`SchoolContext` bu proje için). Adlı bir yerel veritabanı veritabanı eklediğiniz bağlantı dizesini belirtir *ContosoUniversity.mdf* bulunan *uygulama\_veri* klasör. Daha fazla bilgi için bkz: [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Gerçekte bağlantı dizesi belirtmeniz gerekmez. Bir bağlantı dizesi girmezseniz, Entity Framework sizin için oluşturur; Ancak, veritabanı içinde olmayabilir *uygulama\_veri* , uygulamanızın klasör. Veritabanının oluşturulacağı hakkında daha fazla bilgi için bkz: [yeni bir veritabanına ilk kod](https://msdn.microsoft.com/en-us/data/jj193542).
+Gerçekte bağlantı dizesi belirtmeniz gerekmez. Bir bağlantı dizesi girmezseniz, Entity Framework sizin için oluşturur; Ancak, veritabanı içinde olmayabilir *uygulama\_veri* , uygulamanızın klasör. Veritabanının oluşturulacağı hakkında daha fazla bilgi için bkz: [yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542).
 
 `connectionStrings` De gruplandırmasında adlı bir bağlantı dizesi `DefaultConnection` üyelik veritabanı için kullanılır. Bu öğreticide üyelik veritabanının kullanarak olmaz. İki bağlantı dizesini arasındaki tek fark, veritabanı adı ve ad öznitelik değeri ' dir.
 
 ## <a name="set-up-and-execute-a-code-first-migration"></a>Ayarlama ve bir kod ilk geçiş yürütme
 
-Uygulama geliştirme ilk kez başlattığınızda, verilerinizi değişikliklerini sık sık ve her zaman veritabanı ile eşitlenmemiş alır model değişiklikleri model. Otomatik olarak bırakın ve veritabanı veri modeli değiştirdiğinizde yeniden oluşturmak için Entity Framework yapılandırabilirsiniz. Bu sorunun erken geliştirme test verileri kolayca yeniden oluşturulur, ancak üretim dağıttıktan sonra genellikle veritabanı şeması veritabanı bırakmadan güncelleştirmek istediğiniz değildir. Bırakma ve yeniden oluşturma veritabanını güncelleştirmek Code First geçişleri özelliği sağlar. Erken yeni bir proje geliştirme döngüsü kullanmak isteyebilirsiniz [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=vs.103).aspx) bırakma, yeniden oluşturun ve veritabanını yeniden Çekirdek değer her zaman model değişiklikleri. Uygulamanızı dağıtmak hazır edinebileceğinizi, geçişler yaklaşımı dönüştürebilirsiniz. Bu öğretici için geçişler yalnızca kullanacağız. Daha fazla bilgi için bkz: [Code First Migrations](https://msdn.microsoft.com/en-us/data/jj591621) ve [geçişler ekran kaydı serisi](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
+Uygulama geliştirme ilk kez başlattığınızda, verilerinizi değişikliklerini sık sık ve her zaman veritabanı ile eşitlenmemiş alır model değişiklikleri model. Otomatik olarak bırakın ve veritabanı veri modeli değiştirdiğinizde yeniden oluşturmak için Entity Framework yapılandırabilirsiniz. Bu sorunun erken geliştirme test verileri kolayca yeniden oluşturulur, ancak üretim dağıttıktan sonra genellikle veritabanı şeması veritabanı bırakmadan güncelleştirmek istediğiniz değildir. Bırakma ve yeniden oluşturma veritabanını güncelleştirmek Code First geçişleri özelliği sağlar. Erken yeni bir proje geliştirme döngüsü kullanmak isteyebilirsiniz [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=vs.103).aspx) bırakma, yeniden oluşturun ve veritabanını yeniden Çekirdek değer her zaman model değişiklikleri. Uygulamanızı dağıtmak hazır edinebileceğinizi, geçişler yaklaşımı dönüştürebilirsiniz. Bu öğretici için geçişler yalnızca kullanacağız. Daha fazla bilgi için bkz: [Code First Migrations](https://msdn.microsoft.com/data/jj591621) ve [geçişler ekran kaydı serisi](https://blogs.msdn.com/b/adonet/archive/2014/03/12/migrations-screencast-series.aspx).
 
 ### <a name="enable-code-first-migrations"></a>Code First geçişleri etkinleştir
 
@@ -234,9 +234,9 @@ Uygulama geliştirme ilk kez başlattığınızda, verilerinizi değişiklikleri
 
 ### <a name="set-up-the-seed-method"></a>Set Seed yöntemi
 
-[Çekirdek](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) yöntemi Code First Migrations veritabanı oluşturduğunda ve veritabanı için en son geçiş güncelleştirmeleri her zaman çalışır. Seed yöntemi amacı, uygulamanın önce tabloları veri eklemek etkinleştirmek için ilk kez veritabanına erişir budur.
+[Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi Code First Migrations veritabanı oluşturduğunda ve veritabanı için en son geçiş güncelleştirmeleri her zaman çalışır. Seed yöntemi amacı, uygulamanın önce tabloları veri eklemek etkinleştirmek için ilk kez veritabanına erişir budur.
 
-Geçişler serbest önce önceki sürümlerinde Code First, bu yaygın `Seed` her modeli değişiklik geliştirme sırasında veritabanı tamamen silinir ve baştan yeniden oluşturulması sahip olduğunuz için test verileri eklemek için yöntem. Code First Migrations, veriler, veritabanı değişikliklerinden sonra tutulur test şekilde test verileri dahil olmak üzere [çekirdek](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) yöntemi genellikle gerekli değildir. Aslında, istemediğiniz `Seed` , geçişler veritabanı üretime dağıtmak için kullanacaksanız test verileri eklemek için yöntemi `Seed` yöntemi üretimde çalışır. Bu durumda, istediğiniz `Seed` üretimde eklenmesini istediğiniz verileri veritabanına eklemek için yöntem. Örneğin, gerçek bölüm adlarında veritabanına isteyebilirsiniz `Department` uygulama üretimde kullanılabilir hale geldiğinde tablo.
+Geçişler serbest önce önceki sürümlerinde Code First, bu yaygın `Seed` her modeli değişiklik geliştirme sırasında veritabanı tamamen silinir ve baştan yeniden oluşturulması sahip olduğunuz için test verileri eklemek için yöntem. Code First Migrations, veriler, veritabanı değişikliklerinden sonra tutulur test şekilde test verileri dahil olmak üzere [çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi genellikle gerekli değildir. Aslında, istemediğiniz `Seed` , geçişler veritabanı üretime dağıtmak için kullanacaksanız test verileri eklemek için yöntemi `Seed` yöntemi üretimde çalışır. Bu durumda, istediğiniz `Seed` üretimde eklenmesini istediğiniz verileri veritabanına eklemek için yöntem. Örneğin, gerçek bölüm adlarında veritabanına isteyebilirsiniz `Department` uygulama üretimde kullanılabilir hale geldiğinde tablo.
 
 Bu öğretici için geçiş dağıtımı için kullanıyor olmanız, ancak, `Seed` yöntemi ekler test verileri yine de çok miktarda veri el ile eklemek zorunda kalmadan uygulama işlevlerinin nasıl çalıştığını görmek kolaylaştırmak için.
 
@@ -244,11 +244,11 @@ Bu öğretici için geçiş dağıtımı için kullanıyor olmanız, ancak, `See
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    [Çekirdek](https://msdn.microsoft.com/en-us/library/hh829453(v=vs.103).aspx) yöntemi giriş parametresi olarak veritabanı bağlamı nesnesini alır ve yeni varlıklar veritabanına eklemek için söz konusu nesne yöntemindeki kod kullanır. Her bir varlık türü için kod yeni varlıklar koleksiyonu oluşturur, uygun ekler [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) özellik ve değişiklikler veritabanına kaydeder. Çağrı için gerekli olmayan [SaveChanges](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi her grubu varlıkların sonra olarak burada yapılır, ancak, bunu yardımcı olan kod veritabanına yazma sırasında bir özel durum oluşursa, bir sorunun kaynağını bulun.
+    [Çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi giriş parametresi olarak veritabanı bağlamı nesnesini alır ve yeni varlıklar veritabanına eklemek için söz konusu nesne yöntemindeki kod kullanır. Her bir varlık türü için kod yeni varlıklar koleksiyonu oluşturur, uygun ekler [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) özellik ve değişiklikler veritabanına kaydeder. Çağrı için gerekli olmayan [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) yöntemi her grubu varlıkların sonra olarak burada yapılır, ancak, bunu yardımcı olan kod veritabanına yazma sırasında bir özel durum oluşursa, bir sorunun kaynağını bulun.
 
-    Bazı veri INSERT deyimleri kullanmak [örnek](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) bir "upsert" işlem yapmak için yöntemi. Çünkü `Seed` yöntemi her geçiş ile çalışır, eklemeye çalıştığınız satır zaten var. bir veritabanı oluşturur ilk geçişten sonra olacağından, verileri, yalnızca ekleyemezsiniz. "Upsert" işlemi zaten bir satır, ancak eklemeye çalışırsanız, olacağını hatalarını önler ***geçersiz kılmaları*** uygulamayı test ederken yapmış olabileceğiniz veri değişiklikleri. Bazı tablolardaki test verilerle, gerçekleşmesi için istemeyebilirsiniz: Bazı durumlarda test ederken verileri değiştirdiğinizde değişikliklerinizi sonra veritabanı güncelleştirmeleri kalmasını istiyor. Bu durumda bir koşullu ekleme işlemi yapmak istiyor: yalnızca zaten yoksa bir satır ekleyin. Seed yöntemi her iki yaklaşımın kullanır.
+    Bazı veri INSERT deyimleri kullanmak [örnek](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) bir "upsert" işlem yapmak için yöntemi. Çünkü `Seed` yöntemi her geçiş ile çalışır, eklemeye çalıştığınız satır zaten var. bir veritabanı oluşturur ilk geçişten sonra olacağından, verileri, yalnızca ekleyemezsiniz. "Upsert" işlemi zaten bir satır, ancak eklemeye çalışırsanız, olacağını hatalarını önler ***geçersiz kılmaları*** uygulamayı test ederken yapmış olabileceğiniz veri değişiklikleri. Bazı tablolardaki test verilerle, gerçekleşmesi için istemeyebilirsiniz: Bazı durumlarda test ederken verileri değiştirdiğinizde değişikliklerinizi sonra veritabanı güncelleştirmeleri kalmasını istiyor. Bu durumda bir koşullu ekleme işlemi yapmak istiyor: yalnızca zaten yoksa bir satır ekleyin. Seed yöntemi her iki yaklaşımın kullanır.
 
-    Geçirilen ilk parametre [örnek](https://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi bir satır zaten var olup olmadığını denetlemek için kullanılacak özellik belirtir. Sağlama, test Öğrenci veriler için `LastName` özelliği listedeki son her ad benzersiz olduğundan bu amaç için kullanılabilir:
+    Geçirilen ilk parametre [örnek](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi bir satır zaten var olup olmadığını denetlemek için kullanılacak özellik belirtir. Sağlama, test Öğrenci veriler için `LastName` özelliği listedeki son her ad benzersiz olduğundan bu amaç için kullanılabilir:
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
@@ -258,7 +258,7 @@ Bu öğretici için geçiş dağıtımı için kullanıyor olmanız, ancak, `See
 
     Hakkında daha fazla bilgi için `AddOrUpdate` yöntemi, bkz: [ilgilenebilmek EF 4.3 örnek yöntemiyle](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/) Julie Lerman'ın blogunda.
 
-    Ekleyen kod `Enrollment` olmayan varlıklar kullanmak `AddOrUpdate` yöntemi. Bir varlık zaten var ve yoksa varlık ekler olmadığını denetler. Bu yaklaşım geçişler çalıştırdığınızda, bir kayıt ataması yaptığınız değişiklikler korur. Kod döngüler her üye `Enrollment` [listesi](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) ve kayıt veritabanında bulunmazsa, veritabanına kayıt ekler. Her kayıt ekleyecek şekilde veritabanını güncelleştirmek ilk kez veritabanı boş olacaktır.
+    Ekleyen kod `Enrollment` olmayan varlıklar kullanmak `AddOrUpdate` yöntemi. Bir varlık zaten var ve yoksa varlık ekler olmadığını denetler. Bu yaklaşım geçişler çalıştırdığınızda, bir kayıt ataması yaptığınız değişiklikler korur. Kod döngüler her üye `Enrollment` [listesi](https://msdn.microsoft.com/library/6sh2ey19.aspx) ve kayıt veritabanında bulunmazsa, veritabanına kayıt ekler. Her kayıt ekleyecek şekilde veritabanını güncelleştirmek ilk kez veritabanı boş olacaktır.
 
     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cs)]
 
@@ -343,7 +343,7 @@ Sizin için tam bir veritabanı oluşturabilmek için Entity Framework sırayla 
 - Varlık özellik adlarını sütun adları için kullanılır.
 - Adlandırılmış varlık özellikleri `ID` veya *classname* `ID` birincil anahtar özelliği tanınır.
 
-Kuralları geçersiz kılınabilir gördünüz (örneğin, tablo adları pluralized döndürmemelidir belirttiğiniz), ve kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha fazla karmaşık bir veri modeli oluşturulurken](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) Öğreticisi Daha sonra bu dizide. Daha fazla bilgi için bkz: [kod ilk kuralları](https://msdn.microsoft.com/en-us/data/jj679962).
+Kuralları geçersiz kılınabilir gördünüz (örneğin, tablo adları pluralized döndürmemelidir belirttiğiniz), ve kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha fazla karmaşık bir veri modeli oluşturulurken](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) Öğreticisi Daha sonra bu dizide. Daha fazla bilgi için bkz: [kod ilk kuralları](https://msdn.microsoft.com/data/jj679962).
 
 ## <a name="summary"></a>Özet
 
@@ -352,4 +352,4 @@ Kuralları geçersiz kılınabilir gördünüz (örneğin, tablo adları plurali
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 >[!div class="step-by-step"]
-[Sonraki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
