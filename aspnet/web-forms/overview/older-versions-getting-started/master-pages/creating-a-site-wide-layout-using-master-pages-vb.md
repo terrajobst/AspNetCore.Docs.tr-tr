@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 69f73085198c79c01988aab9e63f3ce9e7647034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Ana sayfalar (VB) kullanarak bir Site genelinde düzeni oluşturma
 ====================
@@ -60,7 +60,7 @@ Tutarlı site genelinde sayfa düzeni ile bir Web sitesi oluşturmanın her web 
 
 Web sayfaları ile tutarlı bir görünüm ve kullanımında oluşturma teknikleri çeşitli vardır. Naïve yaklaşım yalnızca kopyalamak ve tüm web sayfalarına ortak yerleşim biçimlendirme yapıştırmak için ancak bu yaklaşım olumsuzlukları bir sayı. Yeni başlayanlar, yeni bir sayfa her oluşturulduğunda kopyalayıp paylaşılan içerik sayfaya yapıştırın unutmamanız gerekir. Yalnızca bir alt paylaşılan biçimlendirme yeni bir sayfaya yanlışlıkla kopyalamak gibi böyle kopyalama ve yapıştırma işlemlerini hatası için hazır. Ve üst için bu yaklaşım gerçek sorun sitesindeki her sayfada yeni görünüm kullanmak için düzenlenmesi gerekir çünkü ile yeni bir tane var olan site genelinde görünümünü değiştirme yapar.
 
-ASP.NET 2.0 sürümünde önce sayfasında geliştiriciler genellikle ortak biçimlendirmede yerleştirilen [kullanıcı denetimleri](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx) ve ardından bu kullanıcı denetimleri her sayfasına eklenen. Bu yaklaşım sayfasında geliştirici kullanıcı denetimleri için her yeni sayfa el ile eklemeyi unutmayın, ancak yalnızca kullanıcı denetimleri ortak biçimlendirme güncelleştirirken değiştirilmesi gereken olduğundan daha kolay site genelinde değişiklikler için izin gerekiyor. Ne yazık ki, ASP.NET 1.x uygulamalar kullanıcı denetimleri Tasarım görünümünde gri kutuları olarak çizilir.-oluşturmak için Visual Studio .NET 2002 ve 2003 - Visual Studio sürümlerinde kullanılabilir. Sonuç olarak, bu yaklaşımı kullanarak sayfa geliştiricileri WYSIWYG tasarım zamanı ortamı keyifli değil.
+ASP.NET 2.0 sürümünde önce sayfasında geliştiriciler genellikle ortak biçimlendirmede yerleştirilen [kullanıcı denetimleri](https://msdn.microsoft.com/library/y6wb1a0e.aspx) ve ardından bu kullanıcı denetimleri her sayfasına eklenen. Bu yaklaşım sayfasında geliştirici kullanıcı denetimleri için her yeni sayfa el ile eklemeyi unutmayın, ancak yalnızca kullanıcı denetimleri ortak biçimlendirme güncelleştirirken değiştirilmesi gereken olduğundan daha kolay site genelinde değişiklikler için izin gerekiyor. Ne yazık ki, ASP.NET 1.x uygulamalar kullanıcı denetimleri Tasarım görünümünde gri kutuları olarak çizilir.-oluşturmak için Visual Studio .NET 2002 ve 2003 - Visual Studio sürümlerinde kullanılabilir. Sonuç olarak, bu yaklaşımı kullanarak sayfa geliştiricileri WYSIWYG tasarım zamanı ortamı keyifli değil.
 
 Kullanıcı denetimleri kullanarak eksiklikleri ASP.NET sürüm 2.0 ve Visual Studio 2005 başlanmasıyla ele alınan *ana sayfalar*. Bir ana sayfa site genelinde işaretleme tanımlar ASP.NET sayfası özel türüdür ve *bölgeleri* ilişkili olduğu *içerik sayfalarının* kendi özel biçimlendirme tanımlayın. Adım 1'de göreceğiz gibi bu bölgeler ContentPlaceHolder denetimleri tarafından tanımlanır. ContentPlaceHolder denetimini yalnızca bir içerik sayfası tarafından özel içerik nerede yerleştirilebilir ana sayfanın denetim hiyerarşisi konumda gösterir.
 
@@ -95,7 +95,7 @@ Biz nasıl iş ana sayfa ele, bir ana sayfa ve Visual Web Developer kullanarak i
 Biz oluşturma ve ana ve içerik sayfalarını kullanarak keşfedebilirsiniz önce ilk ASP.NET Web sitesi gerekiyor. Yeni bir dosya sistemi tabanlı ASP.NET Web sitesi oluşturmaya başlayın. Bunu başarmak için Visual Web Developer başlatın ve sonra Dosya menüsüne gidin ve yeni Web sitesi, yeni Web sitesi iletişim kutusu görüntüleniyor seçin (bkz: Şekil 4) kutusunda. ASP.NET Web sitesi şablonunu seçin, dosya sistemine konum aşağı açılan listesi ayarlamak, web sitesi yerleştirmek için bir klasör seçin ve Visual Basic Dil ayarlayın. Bu yeni bir web sitesi ile oluşturacak bir `Default.aspx` ASP.NET sayfası, bir `App_Data` klasörünü ve bir `Web.config` dosya.
 
 > [!NOTE]
-> Visual Studio Proje yönetimi iki modlarını destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projeleri, Web uygulaması projelerine taklit proje mimarisi, Visual Studio .NET 2002/2003 - proje dosyasını içerir ve yerleştirilir tek bir derleme halinde projenin kaynak kodu derleme ise bir proje dosyası eksikliği `/bin` klasör. Web uygulama projesi modeli Service Pack 1'yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, projeleri; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümlerinde, yalnızca Web sitesi projeleri destekler. Bu öğretici serisinde my gösterileri ı Web sitesi projesini modelini kullanır. Express olmayan sürüm kullanıyorsanız ve kullanmak istediğiniz [Web uygulama projesi modeli](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx) bunun yerine, bunu ancak olabileceğini bazı tutarsızlıklar ekranınızı ve karşı gerçekleştirmeniz gereken adımlar gördükleri arasında unutmayın çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri sağlanan yönergeleri.
+> Visual Studio Proje yönetimi iki modlarını destekler: Web sitesi projeleri ve Web Uygulama projeleri. Web sitesi projeleri, Web uygulaması projelerine taklit proje mimarisi, Visual Studio .NET 2002/2003 - proje dosyasını içerir ve yerleştirilir tek bir derleme halinde projenin kaynak kodu derleme ise bir proje dosyası eksikliği `/bin` klasör. Web uygulama projesi modeli Service Pack 1'yeniden olsa da visual Studio 2005 başlangıçta yalnızca desteklenen Web sitesi, projeleri; Visual Studio 2008 her iki proje modelleri sunar. Ancak, Visual Web Developer 2005 ve 2008 sürümlerinde, yalnızca Web sitesi projeleri destekler. Bu öğretici serisinde my gösterileri ı Web sitesi projesini modelini kullanır. Express olmayan sürüm kullanıyorsanız ve kullanmak istediğiniz [Web uygulama projesi modeli](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) bunun yerine, bunu ancak olabileceğini bazı tutarsızlıklar ekranınızı ve karşı gerçekleştirmeniz gereken adımlar gördükleri arasında unutmayın çekinmeyin gösterilen ekran görüntüleri ve bu öğreticileri sağlanan yönergeleri.
 
 
 [![Yeni bir dosya sistemi tabanlı Web sitesi oluşturma](creating-a-site-wide-layout-using-master-pages-vb/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image8.png)
@@ -115,7 +115,7 @@ Visual Web Developer aracılığıyla yeni bir ana sayfa dosyası ekleme bir ana
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-vb/samples/sample1.aspx)]
 
-Bildirim temelli biçimlendirmede ilk satır [ `@Master` yönergesi](https://msdn.microsoft.com/en-us/library/ms228176.aspx). `@Master` Yönergesi benzer [ `@Page` yönergesi](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx) ASP.NET sayfaları görüntülenir. Sunucu tarafı dili (VB) ve ana sayfa arka plan kodu sınıfın devralma ve konumu hakkında bilgi tanımlar.
+Bildirim temelli biçimlendirmede ilk satır [ `@Master` yönergesi](https://msdn.microsoft.com/library/ms228176.aspx). `@Master` Yönergesi benzer [ `@Page` yönergesi](https://msdn.microsoft.com/library/ydy4x04a.aspx) ASP.NET sayfaları görüntülenir. Sunucu tarafı dili (VB) ve ana sayfa arka plan kodu sınıfın devralma ve konumu hakkında bilgi tanımlar.
 
 `DOCTYPE` Ve sayfanın bildirim temelli biçimlendirme altında görünür `@Master` yönergesi. Dört sunucu tarafı denetimlerle birlikte statik HTML sayfası içerir:
 
@@ -163,7 +163,7 @@ Yıllar içinde ı küçük-Orta boyutlu şirketler için ASP.NET web uygulamala
 Neyse ki, boş HTML tasarım şablonları sunar innumerous Web siteleri vardır - Google altı milyondan fazla sonuç için arama terimi "ücretsiz Web sitesi şablonları" döndürdü. Sık kullanılan my olanları biri [OpenDesigns.org](http://opendesigns.org/). CSS dosyaları ve görüntüleri Web sitesi projenize ekleyin ve şablonun HTML ana sayfanıza tümleştirme gibi bir Web sitesi şablonu bulduktan sonra.
 
 > [!NOTE]
-> Microsoft ayrıca, bir dizi sunar [ASP.NET tasarım Başlat Seti şablonları serbest](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx) Visual Studio'da yeni bir Web sitesi iletişim kutusuna tümleştirin.
+> Microsoft ayrıca, bir dizi sunar [ASP.NET tasarım Başlat Seti şablonları serbest](https://msdn.microsoft.com/asp.net/aa336613.aspx) Visual Studio'da yeni bir Web sitesi iletişim kutusuna tümleştirin.
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>2. adım: İlişkili içerik sayfaları oluşturma
@@ -272,8 +272,8 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET tasarımcıları için: serbest tasarım şablonları ve Kılavuzu ASP.NET Web siteleri Web standartlarını kullanarak oluşturma](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [ASP.NET ana sayfalar genel bakış](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET tasarımcıları için: serbest tasarım şablonları ve Kılavuzu ASP.NET Web siteleri Web standartlarını kullanarak oluşturma](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [ASP.NET ana sayfalar genel bakış](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Geçişli stil sayfaları (CSS) öğreticileri](http://www.w3schools.com/css/default.asp)
 - [Sayfanın başlığı dinamik olarak ayarlama](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [ASP.NET ana sayfalar](http://www.odetocode.com/articles/419.aspx)

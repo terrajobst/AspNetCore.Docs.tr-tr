@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/index
-ms.openlocfilehash: 029f4dc6c0e9a7b7294a39c9152b06f3eb5a54d4
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f3ee6407481f7e696b85a085026cab1f43b1211c
+ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için ASP.NET Core ve Visual Studio ile bir Razor sayfalarının web uygulaması oluşturma
 
@@ -23,11 +23,11 @@ Bu seri Razor sayfalarının web uygulaması ile ASP.NET Core Mac üzerindeki ol
 
 1. [Mac Razor sayfalarında ile çalışmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
 1. [Bir model için bir Razor sayfalarının uygulama ekleme](xref:tutorials/razor-pages-mac/model)
+1. [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
 
 
 Windows için Visual Studio sürümü bir sonraki bölüm tamamlanana kadar izleyin.
 
-1. [İskeleli Razor Sayfaları](xref:tutorials/razor-pages/page)
 1. [SQL Server Yerel Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
 1. [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
 1. [Arama ekleme](xref:tutorials/razor-pages/search)

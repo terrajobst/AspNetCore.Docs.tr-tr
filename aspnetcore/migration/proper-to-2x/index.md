@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 2804b5926f1016efcdfd1f9d1b751040d05ce671
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2263f8e9936389cf8cf18ff0c6d1d07018650e14
+ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
@@ -53,7 +53,7 @@ ASP.NET Core uygulama Önyüklemesi için yeni bir mekanizma sunar. ASP.NET uygu
 
 [!code-csharp[Main](samples/globalasax-sample.cs)]
 
-Bu yaklaşım, uygulama ve sunucunun, bir uygulama ile uğratan şekilde dağıtıldığı couples. Aynı şekilde çaba içinde [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir şekilde sağlamak için sunulmuştur. OWIN yalnızca gerekli modülleri eklemek için bir kanal sağlar. Barındırma ortamı geçen bir [başlangıç](xref:fundamentals/startup) Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup`Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulama her biri çağırır işleyicileri var olan bir dizi bağlantılı listesinin baş işaretçisi ile ara yazılımı bileşenleri. Her ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu listeye yeni başı olan işleyici başvuru döndürerek gerçekleştirilir. Her işleyici anımsama ve listedeki sonraki işleyicisi çağırma sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, aşağıdakine benzer bir ardışık düzen halinde kullanın:
+Bu yaklaşım, uygulama ve sunucunun, bir uygulama ile uğratan şekilde dağıtıldığı couples. Aynı şekilde çaba içinde [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir şekilde sağlamak için sunulmuştur. OWIN yalnızca gerekli modülleri eklemek için bir kanal sağlar. Barındırma ortamı geçen bir [başlangıç](xref:fundamentals/startup) Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup`Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulama işleyicileri var olan bir dizi bağlantılı listesinin baş işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu listeye yeni başı olan işleyici başvuru döndürerek gerçekleştirilir. Her işleyici anımsama ve listedeki sonraki işleyicisi çağırma sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, aşağıdakine benzer bir ardışık düzen halinde kullanın:
 
 [!code-csharp[Main](samples/webapi-owin.cs)]
 

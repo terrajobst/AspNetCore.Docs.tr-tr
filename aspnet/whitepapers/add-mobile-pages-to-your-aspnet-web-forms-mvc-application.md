@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: c7d893fb9633aaa8628f2f46a8db7f2c09f81830
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması
 ====================
@@ -118,7 +118,7 @@ ASP.NET Web Forms ve MVC geliştiricileri hemen Bul ziyaret tarayıcının önem
 - Request.Browser.SupportsXmlHttp
 - .. .ve diğer birçok
 
-Arka planda, ASP.NET platformu gelen eşleşen *User-Agent* tarayıcı tanım XML dosyaları kümesini normal ifadelerde karşı (UA) HTTP üstbilgisi. Varsayılan olarak platform birçok yaygın mobil cihazlar için tanımları içerir ve başkaları tarafından tanımak için istediğiniz özel tarayıcı tanım dosyalarını ekleyebilirsiniz. Daha fazla bilgi için MSDN sayfasını görmek [ASP.NET Web sunucusu denetimleri ve tarayıcı yetenekleri](https://msdn.microsoft.com/en-us/library/x3k2ssx2.aspx).
+Arka planda, ASP.NET platformu gelen eşleşen *User-Agent* tarayıcı tanım XML dosyaları kümesini normal ifadelerde karşı (UA) HTTP üstbilgisi. Varsayılan olarak platform birçok yaygın mobil cihazlar için tanımları içerir ve başkaları tarafından tanımak için istediğiniz özel tarayıcı tanım dosyalarını ekleyebilirsiniz. Daha fazla bilgi için MSDN sayfasını görmek [ASP.NET Web sunucusu denetimleri ve tarayıcı yetenekleri](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
 ### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>51Degrees.mobi Foundation aracılığıyla WURFL aygıt veritabanını kullanma
 
@@ -213,9 +213,9 @@ Biçimlendirme ve CSS mobil tarayıcılar için en iyi duruma getirme hakkında 
 
 Model-View-Controller desen uygulama mantığını (denetleyicileri) sunu mantığında (görünümler) gelen ayrıştırır olduğundan, sunucu tarafı kodu Mobil Destek işleme için aşağıdaki yaklaşımlardan birini seçebilirsiniz:
 
-1. ***Hem Masaüstü hem de mobil tarayıcılar için aynı denetleyicileri ve görünümleri kullanır, ancak cihaz türüne bağlı olarak farklı Razor düzenleri görünümlerle işleme*.** Aynı veri tüm aygıtlarda görüntülediğinizden ancak farklı CSS stil sağlayın veya kaydettiğinde için birkaç en üst düzey HTML öğeleri değiştirmek yalnızca istiyorsanız bu seçeneği en iyi şekilde çalışır.
+1. ***Aynı denetleyicileri ve görünümler hem Masaüstü hem de mobil tarayıcılar için kullanır, ancak bağlı olarak cihaz türü * farklı Razor düzenleri görünümlerle işlenemiyor.** Aynı veri tüm aygıtlarda görüntülediğinizden ancak farklı CSS stil sağlayın veya kaydettiğinde için birkaç en üst düzey HTML öğeleri değiştirmek yalnızca istiyorsanız bu seçeneği en iyi şekilde çalışır.
 2. ***Hem Masaüstü hem de mobil tarayıcılar için aynı denetleyicileri kullanır, ancak cihaz türüne bağlı olarak farklı görünümleri işleme***. Kabaca aynı verileri görüntüleme ve son kullanıcılar için aynı iş akışları sağlayan bu seçenek en iyi şekilde çalışır, ancak kullanılan aygıtı uyacak şekilde çok farklı HTML biçimlendirmesi oluşturmak istiyorsanız.
-3. ***Bağımsız denetleyicileri ve görünümler her biri için uygulama, masaüstü ve mobil tarayıcılar için ayrı alanları oluşturmak*.** Bu seçenek, iseniz çok farklı ekranlar görüntüleme, farklı bilgiler içeren ve kullanıcının kendi cihaz türü için en iyi duruma getirilmiş farklı iş akışları aracılığıyla önde gelen en iyi çalışır. Bazı yineleme kod olduğu anlamına gelebilir, ancak, temel alınan bir katman veya hizmet ortak mantığı Finansman küçültebilirsiniz.
+3. ***Bağımsız denetleyicileri ve görünümler her biri için uygulama, masaüstü ve mobil tarayıcılar için ayrı alanları oluşturmak *.** Bu seçenek, iseniz çok farklı ekranlar görüntüleme, farklı bilgiler içeren ve kullanıcının kendi cihaz türü için en iyi duruma getirilmiş farklı iş akışları aracılığıyla önde gelen en iyi çalışır. Bazı yineleme kod olduğu anlamına gelebilir, ancak, temel alınan bir katman veya hizmet ortak mantığı Finansman küçültebilirsiniz.
 
 Almak istiyorsanız **ilk** seçeneği ve yalnızca Razor düzeni farklılık aygıt türü çok kolaydır. Yalnızca değiştirmek, \_ViewStart.cshtml dosya şu şekilde:
 

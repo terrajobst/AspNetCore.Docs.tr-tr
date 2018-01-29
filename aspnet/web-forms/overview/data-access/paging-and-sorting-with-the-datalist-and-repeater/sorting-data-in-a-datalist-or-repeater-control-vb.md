@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e3f505e525fd5e701bb40dc3e6467b880bf75447
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Bir DataList veya yineleyici denetimi (VB) verileri sıralama
 ====================
@@ -81,7 +81,7 @@ Ekledikten sonra `ItemTemplate`, yineleyici ve ObjectDataSource s bildirim temel
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>3. adım: verileri sıralamak için ObjectDataSource bilgilendirerek
 
-Yineleyicideki görüntülenen verileri sıralamak için biz verilerin sıralanması gerektiğini sıralama ifadesi ObjectDataSource bildirmeniz gerekir. ObjectDataSource verisini alır. önce ilk ateşlenir kendi [ `Selecting` olay](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), bize bir sıralama ifadesi belirtmek bir fırsat sağlar. `Selecting` Olay işleyicisi türünde bir nesne geçirilen [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), adında bir özellik olan [ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) türü [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx). `DataSourceSelectArguments` Sınıf verilerle ilgili istekleri için veri kaynağı denetimi veri tüketiciden geçirmek için tasarlanmıştır ve içeren bir [ `SortExpression` özelliği](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Yineleyicideki görüntülenen verileri sıralamak için biz verilerin sıralanması gerektiğini sıralama ifadesi ObjectDataSource bildirmeniz gerekir. ObjectDataSource verisini alır. önce ilk ateşlenir kendi [ `Selecting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), bize bir sıralama ifadesi belirtmek bir fırsat sağlar. `Selecting` Olay işleyicisi türünde bir nesne geçirilen [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), adında bir özellik olan [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) türü [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). `DataSourceSelectArguments` Sınıf verilerle ilgili istekleri için veri kaynağı denetimi veri tüketiciden geçirmek için tasarlanmıştır ve içeren bir [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
 
 ObjectDataSource ASP.NET sayfasından sıralama bilgileri geçirmek için bir olay işleyicisi oluşturun `Selecting` olay ve aşağıdaki kodu kullanın:
 

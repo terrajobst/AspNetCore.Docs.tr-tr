@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f8847a70b24a2f25ff2e73a5cb2244d62c4f4c29
-ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
+ms.openlocfilehash: 1afb32fb6c5fffd38b7028741bfd8199e2e23d21
+ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
 
@@ -261,7 +261,7 @@ Tipik ASP.NET Core 2.x uygulamaları kullanma statik kolaylık metodunun `Create
 
 Önceki koşulların tümü doğruysa, komut satırı bağımsız değişkenleri geçersiz kılınır.
 
-ASP.NET Core 2.x uygulama WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) yerine kullanabileceğiniz '' CreateDefaultBuilder`. When using `WebHostBuilder', el ile kümesi yapılandırması ile [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Daha fazla bilgi için ASP.NET Core 1.x sekmesine bakın.
+ASP.NET Core 2.x uygulama kullanabileceğiniz [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) yerine `CreateDefaultBuilder`. Kullanırken `WebHostBuilder`, el ile kümesi yapılandırması ile [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Daha fazla bilgi için ASP.NET Core 1.x sekmesine bakın.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

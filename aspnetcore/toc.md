@@ -57,6 +57,7 @@
 ### [Mac üzerinde Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-mac/index)
 #### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [Model ekleme](xref:tutorials/razor-pages-mac/model)
+#### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
 ### [VS Code ile Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-vsc/index)
 #### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Model ekleme](xref:tutorials/razor-pages-vsc/model)
