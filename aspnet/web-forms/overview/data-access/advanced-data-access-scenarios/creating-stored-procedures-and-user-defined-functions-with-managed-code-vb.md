@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efec52c4085c24b1d6227a86f7c435ca657e493c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e30df9ddc094d0390d9e5985ec676713b57feaf4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Saklı yordamlar ve yönetilen kod (VB) ile kullanıcı tanımlı işlevler oluşturma
 ====================
@@ -33,12 +33,12 @@ Veritabanları Microsoft s SQL Server 2005 gibi kullanmak [Transact-Structured s
 
 Özünde, SQL veri kümeleriyle çalışmak üzere tasarlanmıştır. `SELECT`, `UPDATE`, Ve `DELETE` deyimleri kendiliğinden karşılık gelen tablosundaki tüm kayıtlar için geçerlidir ve tarafından yalnızca sınırlı kendi `WHERE` yan tümceleri. Henüz bir kayıtla aynı anda çalışmak ve skaler verileri işlemek için tasarlanmış birçok dil özellikleri vardır. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) bir kayıt kümesi için birer birer aracılığıyla Döngüdeki olmasına izin vermektedir. Dize işleme işlevleri gibi `LEFT`, `CHARINDEX`, ve `PATINDEX` skaler verileri ile çalışabilir. SQL de içeren denetim akışı ifadeleri gibi `IF` ve `WHILE`.
 
-Microsoft SQL Server 2005 önce saklı yordamları ve UDF'leri yalnızca T-SQL deyimlerini koleksiyonu olarak tanımlanabilir. SQL Server 2005, ancak ile tümleştirme sağlamak üzere tasarlanmış [ortak dil çalışma zamanı (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), tüm .NET derlemelerini tarafından kullanılan çalışma zamanı olduğu. Sonuç olarak, bir SQL Server 2005 veritabanında UDF'ler ve saklı yordamlar, yönetilen kod kullanılarak oluşturulabilir. Diğer bir deyişle, bir Visual Basic sınıfında bir yöntem olarak bir saklı yordam veya UDF oluşturabilirsiniz. Bu, bu saklı yordamları ve .NET Framework ve kendi özel sınıflardan faydalanmak için UDF'ler sağlar.
+Microsoft SQL Server 2005 önce saklı yordamları ve UDF'leri yalnızca T-SQL deyimlerini koleksiyonu olarak tanımlanabilir. SQL Server 2005, ancak ile tümleştirme sağlamak üzere tasarlanmış [ortak dil çalışma zamanı (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), tüm .NET derlemelerini tarafından kullanılan çalışma zamanı olduğu. Sonuç olarak, bir SQL Server 2005 veritabanında UDF'ler ve saklı yordamlar, yönetilen kod kullanılarak oluşturulabilir. Diğer bir deyişle, bir Visual Basic sınıfında bir yöntem olarak bir saklı yordam veya UDF oluşturabilirsiniz. Bu, bu saklı yordamları ve .NET Framework ve kendi özel sınıflardan faydalanmak için UDF'ler sağlar.
 
 İnceleyeceğiz Bu öğreticide yönetilen oluşturma, yordamlar ve kullanıcı tanımlı işlevler ve Northwind Veritabanımıza tümleştirmek nasıl depolanır. Let s başlayın!
 
 > [!NOTE]
-> Yönetilen veritabanı nesneleri SQL dekiler bazı avantajları sunar. Dil zenginliğini ve benzerlik ve var olan kodu ve mantığını yeniden kullanma olanağı ana avantajları şunlardır. Ancak yönetilen veritabanı nesnelerini kadar yordamsal mantığını içermeyen veri kümeleriyle çalışırken daha az verimli olması muhtemeldir. Yönetilen kod T-SQL ile kullanma hakkında daha kapsamlı tartışma için avantajları hakkında kullanıma [avantajları birini kullanarak yönetilen kod için veritabanı nesneleri oluşturma](https://msdn.microsoft.com/en-us/library/k2e1fb36(VS.80).aspx).
+> Yönetilen veritabanı nesneleri SQL dekiler bazı avantajları sunar. Dil zenginliğini ve benzerlik ve var olan kodu ve mantığını yeniden kullanma olanağı ana avantajları şunlardır. Ancak yönetilen veritabanı nesnelerini kadar yordamsal mantığını içermeyen veri kümeleriyle çalışırken daha az verimli olması muhtemeldir. Yönetilen kod T-SQL ile kullanma hakkında daha kapsamlı tartışma için avantajları hakkında kullanıma [avantajları birini kullanarak yönetilen kod için veritabanı nesneleri oluşturma](https://msdn.microsoft.com/library/k2e1fb36(VS.80).aspx).
 
 
 ## <a name="step-1-moving-the-northwind-database-out-ofappdata"></a>1. adım: Northwind veritabanını taşıma`App_Data`
@@ -81,7 +81,7 @@ Veritabanı eklemek için Tamam düğmesini tıklatın. Veritabanları ekleme il
 
 ## <a name="step-2-creating-a-new-solution-and-sql-server-project-in-visual-studio"></a>2. adım: Visual Studio'da yeni bir çözüm ve SQL Server projesi oluşturma
 
-Yönetilen saklı yordamları veya UDF'ler SQL Server 2005'te oluşturmak için şu saklı yordam ve UDF mantığı Visual Basic kodu bir sınıf olarak yazar. Kod yazıldıktan sonra bu sınıf bir derlemeye derlemek ihtiyacımız (bir `.dll` dosyası), derleme SQL Server veritabanı ile kaydetme ve ardından karşılık gelen yönteminde işaret veritabanında bir saklı yordam veya UDF nesne oluşturma derleme. Bu adımları tüm el ile gerçekleştirilebilir. Biz kodu herhangi bir metin düzenleyicisi oluşturun, Visual Basic derleyici kullanarak komut satırından derleme (`vbc.exe`), veritabanı kullanarak kaydetmek [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/en-us/library/ms189524.aspx) komutun veya Management Studio'dan ve saklı ekleyin yordam veya UDF nesnesi aracılığıyla benzer anlamına gelir. Neyse ki, Visual Studio Professional ve takım sistemleri sürümleri, bu görevleri otomatikleştiren bir SQL Server Proje türü içerir. Bu öğreticide biz yönetilen bir saklı yordam ve UDF oluşturmak için SQL Server Proje türü kullanılarak size yol gösterir.
+Yönetilen saklı yordamları veya UDF'ler SQL Server 2005'te oluşturmak için şu saklı yordam ve UDF mantığı Visual Basic kodu bir sınıf olarak yazar. Kod yazıldıktan sonra bu sınıf bir derlemeye derlemek ihtiyacımız (bir `.dll` dosyası), derleme SQL Server veritabanı ile kaydetme ve ardından karşılık gelen yönteminde işaret veritabanında bir saklı yordam veya UDF nesne oluşturma derleme. Bu adımları tüm el ile gerçekleştirilebilir. Biz kodu herhangi bir metin düzenleyicisi oluşturun, Visual Basic derleyici kullanarak komut satırından derleme (`vbc.exe`), veritabanı kullanarak kaydetmek [ `CREATE ASSEMBLY` ](https://msdn.microsoft.com/library/ms189524.aspx) komutun veya Management Studio'dan ve saklı ekleyin yordam veya UDF nesnesi aracılığıyla benzer anlamına gelir. Neyse ki, Visual Studio Professional ve takım sistemleri sürümleri, bu görevleri otomatikleştiren bir SQL Server Proje türü içerir. Bu öğreticide biz yönetilen bir saklı yordam ve UDF oluşturmak için SQL Server Proje türü kullanılarak size yol gösterir.
 
 > [!NOTE]
 > Visual Web Developer veya Visual Studio standart sürümünü kullanıyorsanız, el ile yaklaşımını kullanmanız gerekir. 13. adım, bu adımları el ile gerçekleştirmeye yönelik ayrıntılı yönergeler sağlar. Kullandığınız Visual Studio sürümünü bağımsız olarak uygulanması gereken önemli SQL Server yapılandırma yönergeleri Bu adımları dahil olduğundan adım 13 okumadan önce adımları 2 ile 12 okumanızı öneririz.
@@ -149,14 +149,14 @@ Bu, yeni bir Visual Basic sınıfı dosyası aşağıdaki içerik ile oluşturur
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample2.vb)]
 
-Saklı yordam olarak uygulanan Not bir `Shared` yöntemi içinde bir `Partial` adlı sınıfı dosya `StoredProcedures`. Ayrıca, `GetDiscontinuedProducts` yöntemi donatılmış ile [ `SqlProcedure` özniteliği](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlprocedureattribute.aspx), yöntemi bir saklı yordam olarak işaretler.
+Saklı yordam olarak uygulanan Not bir `Shared` yöntemi içinde bir `Partial` adlı sınıfı dosya `StoredProcedures`. Ayrıca, `GetDiscontinuedProducts` yöntemi donatılmış ile [ `SqlProcedure` özniteliği](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlprocedureattribute.aspx), yöntemi bir saklı yordam olarak işaretler.
 
 Aşağıdaki kod oluşturur bir `SqlCommand` nesne ve kümeleri kendi `CommandText` için bir `SELECT` tüm sütunlardan döndüren sorgu `Products` ürünler için tablo `Discontinued` alan eşittir 1. Komutu çalıştırır ve sonuçları istemci uygulamasına gönderir. Bu kodu ekleyin `GetDiscontinuedProducts` yöntemi.
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample3.vb)]
 
-Tüm yönetilen veritabanı nesnelerini erişimi bir [ `SqlContext` nesne](https://msdn.microsoft.com/en-us/library/ms131108.aspx) , çağıran bağlamını temsil eder. `SqlContext` Erişim sağlayan bir [ `SqlPipe` nesne](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.aspx) aracılığıyla kendi [ `Pipe` özelliği](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Bu `SqlPipe` nesnesi SQL Server veritabanı ve çağıran uygulamada arasında bilgi ferry için kullanılır. Adından da anlaşılacağı gibi [ `ExecuteAndSend` yöntemi](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) bir geçilen yürütür `SqlCommand` nesne ve sonuçları istemci uygulamasına gönderir.
+Tüm yönetilen veritabanı nesnelerini erişimi bir [ `SqlContext` nesne](https://msdn.microsoft.com/library/ms131108.aspx) , çağıran bağlamını temsil eder. `SqlContext` Erişim sağlayan bir [ `SqlPipe` nesne](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.aspx) aracılığıyla kendi [ `Pipe` özelliği](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlcontext.pipe.aspx). Bu `SqlPipe` nesnesi SQL Server veritabanı ve çağıran uygulamada arasında bilgi ferry için kullanılır. Adından da anlaşılacağı gibi [ `ExecuteAndSend` yöntemi](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlpipe.executeandsend.aspx) bir geçilen yürütür `SqlCommand` nesne ve sonuçları istemci uygulamasına gönderir.
 
 > [!NOTE]
 > Yönetilen veritabanı nesnelerini saklı yordamları ve kümesi tabanlı mantığı yerine yordamsal mantığını kullanın UDF'leri için uygundur. Bir satır temelinde temelinde veri kümeleriyle çalışmak veya skaler verilerle çalışma yordamsal mantığını içerir. `GetDiscontinuedProducts` Yöntemi yeni oluşturduğumuz, ancak hiçbir yordamsal mantığını içerir. Bu nedenle, bu ideal bir T-SQL saklı yordamı uygulanması. Saklı yordamlar oluşturmak ve dağıtmak için gereken adımları göstermek için yönetilen bir saklı yordam yönetilen olarak uygulanır.
@@ -214,7 +214,7 @@ Northwind veritabanı s yapılandırma bilgilerini inceleyin, girin ve komutu y�
 
 [!code-sql[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample5.sql)]
 
-Yeniden çalıştırırsanız `exec sp_configure` yukarıdaki ifadeyi clr etkin ayarı s yapılandırma değeri 1 olarak güncelleştirildi, ancak çalışma değeri 0'dır görürsünüz. Yürütülecek ihtiyacımız bu yapılandırma değişikliğin etkili olması için [ `RECONFIGURE` komutu](https://msdn.microsoft.com/en-us/library/ms176069.aspx), hangi ayarlayacak çalışma değeri geçerli yapılandırma değeri. Girmeniz yeterlidir `RECONFIGURE` sorgu penceresinde ve araç çubuğundaki yürütme simgesine tıklayın. Çalıştırırsanız `exec sp_configure` artık clr etkin ayarı s yapılandırma için 1 değerini görmek ve değerleri çalışması gerekir.
+Yeniden çalıştırırsanız `exec sp_configure` yukarıdaki ifadeyi clr etkin ayarı s yapılandırma değeri 1 olarak güncelleştirildi, ancak çalışma değeri 0'dır görürsünüz. Yürütülecek ihtiyacımız bu yapılandırma değişikliğin etkili olması için [ `RECONFIGURE` komutu](https://msdn.microsoft.com/library/ms176069.aspx), hangi ayarlayacak çalışma değeri geçerli yapılandırma değeri. Girmeniz yeterlidir `RECONFIGURE` sorgu penceresinde ve araç çubuğundaki yürütme simgesine tıklayın. Çalıştırırsanız `exec sp_configure` artık clr etkin ayarı s yapılandırma için 1 değerini görmek ve değerleri çalışması gerekir.
 
 Clr etkin yapılandırması tamamlandı, biz yönetilen çalıştırılmaya hazır durumda `GetDiscontinuedProducts` saklı yordamı. Sorgu penceresinde girin ve komutu yürütün `exec` `GetDiscontinuedProducts`. Saklı yordamı çağırma neden karşılık gelen yönetilen kodda `GetDiscontinuedProducts` yürütülecek yöntem. Bu kod sorunları bir `SELECT` üretilmeyen ve SQL Server Management Studio bu örnekte yer alması çağıran uygulama için bu veri döndüren tüm ürünleri döndürülecek sorgu. Management Studio bu sonuçları alır ve sonuçları penceresinde görüntüler.
 
@@ -232,7 +232,7 @@ Giriş parametreleri kabul yönetilen bir saklı yordam oluşturmak için bu par
 
 Yeni bir saklı yordam projeye eklemek için sağ `ManagedDatabaseConstructs` proje adı ve yeni bir saklı yordam eklemek için seçin. Dosya adı `GetProductsWithPriceLessThan.vb`. Adım 3'te gördüğümüz gibi bu yeni bir Visual Basic sınıfı dosyası adlı bir yöntemle oluşturacak `GetProductsWithPriceLessThan` içinde yerleştirilen `Partial` sınıfı `StoredProcedures`.
 
-Güncelleştirme `GetProductsWithPriceLessThan` kabul edecek şekilde s yöntemi tanımı bir [ `SqlMoney` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.aspx) adlı giriş parametresi `price` ve yürütün ve sorgu sonuçları döndürmek için kod yazın:
+Güncelleştirme `GetProductsWithPriceLessThan` kabul edecek şekilde s yöntemi tanımı bir [ `SqlMoney` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.aspx) adlı giriş parametresi `price` ve yürütün ve sorgu sonuçları döndürmek için kod yazın:
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample6.vb)]
@@ -400,19 +400,19 @@ Yönetilen bir UDF eklemek için `ManagedDatabaseConstructs` proje, Çözüm Gez
 **Şekil 25**: yeni bir yönetilen UDF eklemek `ManagedDatabaseConstructs` proje ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image61.png))
 
 
-Kullanıcı tanımlı işlev şablon oluşturur bir `Partial` adlı sınıf `UserDefinedFunctions` adı sınıfı s dosyası adı ile aynı olan bir yöntem (`udf_ComputeInventoryValue_Managed`, bu örnekte). Bu yöntemi kullanarak donatılmış [ `SqlFunction` özniteliği](https://msdn.microsoft.com/en-us/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), yöntemi bir yönetilen UDF olarak işaretler.
+Kullanıcı tanımlı işlev şablon oluşturur bir `Partial` adlı sınıf `UserDefinedFunctions` adı sınıfı s dosyası adı ile aynı olan bir yöntem (`udf_ComputeInventoryValue_Managed`, bu örnekte). Bu yöntemi kullanarak donatılmış [ `SqlFunction` özniteliği](https://msdn.microsoft.com/library/microsoft.sqlserver.server.sqlfunctionattribute.aspx), yöntemi bir yönetilen UDF olarak işaretler.
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample13.vb)]
 
-`udf_ComputeInventoryValue` Yöntemi şu anda döndüren bir [ `SqlString` nesne](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlstring.aspx) ve herhangi bir giriş parametreleri kabul etmez. Üç giriş parametreleri - kabul ettiği yöntem tanımı güncelleştirmeye ihtiyacımız `UnitPrice`, `UnitsInStock`, ve `Discontinued` - ve döndüren bir `SqlMoney` nesnesi. Stok değerini hesaplamak için mantığı T-SQL ile aynı `udf_ComputeInventoryValue` UDF.
+`udf_ComputeInventoryValue` Yöntemi şu anda döndüren bir [ `SqlString` nesne](https://msdn.microsoft.com/library/system.data.sqltypes.sqlstring.aspx) ve herhangi bir giriş parametreleri kabul etmez. Üç giriş parametreleri - kabul ettiği yöntem tanımı güncelleştirmeye ihtiyacımız `UnitPrice`, `UnitsInStock`, ve `Discontinued` - ve döndüren bir `SqlMoney` nesnesi. Stok değerini hesaplamak için mantığı T-SQL ile aynı `udf_ComputeInventoryValue` UDF.
 
 
 [!code-vb[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample14.vb)]
 
-Bunların karşılık gelen SQL türlerini UDF s yöntemi giriş parametreleri olduğunu unutmayın: `SqlMoney` için `UnitPrice` alanı [ `SqlInt16` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlint16.aspx) için `UnitsInStock`, ve [ `SqlBoolean` ](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlboolean.aspx) için `Discontinued`. Bu veri türlerini tanımlanan türleri yansıtacak `Products` tablosu: `UnitPrice` sütundur türü `money`, `UnitsInStock` sütun türü `smallint`ve `Discontinued` sütun türü `bit`.
+Bunların karşılık gelen SQL türlerini UDF s yöntemi giriş parametreleri olduğunu unutmayın: `SqlMoney` için `UnitPrice` alanı [ `SqlInt16` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlint16.aspx) için `UnitsInStock`, ve [ `SqlBoolean` ](https://msdn.microsoft.com/library/system.data.sqltypes.sqlboolean.aspx) için `Discontinued`. Bu veri türlerini tanımlanan türleri yansıtacak `Products` tablosu: `UnitPrice` sütundur türü `money`, `UnitsInStock` sütun türü `smallint`ve `Discontinued` sütun türü `bit`.
 
-Kod oluşturmaktır bir `SqlMoney` adlı örneği `inventoryValue` 0 değeri atanır. `Products` Tablosu için veritabanı verir `NULL` değerler `UnitsInPrice` ve `UnitsInStock` sütun. Bu nedenle, ilk denetlemek için bu değerleri içerip içermediğini görmek için ihtiyacımız `NULL` biz aracılığıyla yapmak s `SqlMoney` s nesnesi [ `IsNull` özelliği](https://msdn.microsoft.com/en-us/library/system.data.sqltypes.sqlmoney.isnull.aspx). Her iki `UnitPrice` ve `UnitsInStock` içeren olmayan`NULL` biz işlem sonra değerleri `inventoryValue` iki ürün olmalıdır. Ardından, eğer `Discontinued` biz değeri edilmesiyle yarıya sonra true olur.
+Kod oluşturmaktır bir `SqlMoney` adlı örneği `inventoryValue` 0 değeri atanır. `Products` Tablosu için veritabanı verir `NULL` değerler `UnitsInPrice` ve `UnitsInStock` sütun. Bu nedenle, ilk denetlemek için bu değerleri içerip içermediğini görmek için ihtiyacımız `NULL` biz aracılığıyla yapmak s `SqlMoney` s nesnesi [ `IsNull` özelliği](https://msdn.microsoft.com/library/system.data.sqltypes.sqlmoney.isnull.aspx). Her iki `UnitPrice` ve `UnitsInStock` içeren olmayan`NULL` biz işlem sonra değerleri `inventoryValue` iki ürün olmalıdır. Ardından, eğer `Discontinued` biz değeri edilmesiyle yarıya sonra true olur.
 
 > [!NOTE]
 > `SqlMoney` Nesne yalnızca sağlar iki `SqlMoney` birlikte çarpılacağı örnekleri. İzin vermiyorsa bir `SqlMoney` değişmez değer bir kayan noktalı sayı çarpılacağı örneği. Bu nedenle, edilmesiyle yarıya için `inventoryValue` Biz yeni tarafından Çarp `SqlMoney` 0,5 değerine sahip örnek.
@@ -498,7 +498,7 @@ Varsa v içeren klasör `bc.exe` içinde sistemde s `PATH`, tam yolunu başvuru 
 [!code-console[Main](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/samples/sample19.cmd)]
 
 
-[![Bir derlemeye GetProductsWithPriceGreaterThan.vb derleme](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image69.png)
+[![Compile GetProductsWithPriceGreaterThan.vb Into an Assembly](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image70.png)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image69.png)
 
 **Şekil 29**: derleme `GetProductsWithPriceGreaterThan.vb` içine bir derleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb/_static/image71.png))
 
@@ -559,13 +559,13 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Artıları ve eksileri kullanıcı tanımlı işlevler](http://www.samspublishing.com/articles/article.asp?p=31724&amp;rl=1)
 - [Yönetilen kodda SQL Server 2005'te nesneleri oluşturma](https://channel9.msdn.com/Showpost.aspx?postid=142413)
 - [SQL Server 2005'te tetiklemeleri yönetilen kod oluşturma](http://www.15seconds.com/issue/041006.htm)
-- [Nasıl yapılır: Oluşturup çalıştırmak bir CLR SQL Server saklı yordamı](https://msdn.microsoft.com/en-us/library/5czye81z(VS.80).aspx)
-- [Nasıl yapılır: Oluşturun ve kullanıcı tanımlı bir CLR SQL Server işlevini çalıştıramadı](https://msdn.microsoft.com/en-us/library/w2kae45k(VS.80).aspx)
-- [Nasıl yapılır: Düzenle `Test.sql` SQL nesnelerini çalıştırmak için komut dosyası](https://msdn.microsoft.com/en-us/library/ms233682(VS.80).aspx)
+- [Nasıl yapılır: Oluşturup çalıştırmak bir CLR SQL Server saklı yordamı](https://msdn.microsoft.com/library/5czye81z(VS.80).aspx)
+- [Nasıl yapılır: Oluşturun ve kullanıcı tanımlı bir CLR SQL Server işlevini çalıştıramadı](https://msdn.microsoft.com/library/w2kae45k(VS.80).aspx)
+- [Nasıl yapılır: Düzenle `Test.sql` SQL nesnelerini çalıştırmak için komut dosyası](https://msdn.microsoft.com/library/ms233682(VS.80).aspx)
 - [Giriş kullanıcı tanımlı işlevler](http://www.sqlteam.com/item.asp?ItemID=1955)
 - [Yönetilen kod ve SQL Server 2005'te (Video)](https://channel9.msdn.com/Showpost.aspx?postid=142413)
-- [Transact-SQL Başvurusu](https://msdn.microsoft.com/en-us/library/aa299742(SQL.80).aspx)
-- [İzlenecek yol: yönetilen kodda bir saklı yordam oluşturma](https://msdn.microsoft.com/en-us/library/zxsa8hkf(VS.80).aspx)
+- [Transact-SQL Başvurusu](https://msdn.microsoft.com/library/aa299742(SQL.80).aspx)
+- [İzlenecek yol: yönetilen kodda bir saklı yordam oluşturma](https://msdn.microsoft.com/library/zxsa8hkf(VS.80).aspx)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 

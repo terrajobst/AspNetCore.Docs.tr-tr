@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c34476f89677fb51abc17bd64602c41dfea8f9c7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8d43475ae2f05d83d51c53d76de4f07db70ca7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Ana/ayrıntı iki sayfalardaki (VB) filtreleme
 ====================
@@ -71,7 +71,7 @@ Yeni sayfa projeye eklerken, ayrıca, site haritası dosyasını güncelleştird
 
 Bir bağlantı eklemek ihtiyacımız ürünleri görüntüleyin her GridView satır, tıklatıldığında başlıklı kullanıcıyı götürür `ProductsForSupplierDetails.aspx` seçilen satırın 's geçirme `SupplierID` aracılığıyla sorgu dizesi değeri. Örneğin, kullanıcı Tokyo Traders tedarikçi ürünleri görüntüleyin bağlantısına tıklarsa (olan bir `SupplierID` değeri 4), bunlar gönderilmesi gereken `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
-Bunu başarmak için add bir [HyperLinkField](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx) her GridView satır köprü ekler GridView için. GridView'ın akıllı etiket sütunları düzenleme bağlantısını tıklatarak başlatın. Ardından, sol üst köşedeki listeden HyperLinkField seçin ve HyperLinkField GridView'ın alan listesine eklemek için Ekle'yi tıklatın.
+Bunu başarmak için add bir [HyperLinkField](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) her GridView satır köprü ekler GridView için. GridView'ın akıllı etiket sütunları düzenleme bağlantısını tıklatarak başlatın. Ardından, sol üst köşedeki listeden HyperLinkField seçin ve HyperLinkField GridView'ın alan listesine eklemek için Ekle'yi tıklatın.
 
 
 [![GridView bir HyperLinkField ekleyin](master-detail-filtering-across-two-pages-vb/_static/image9.png)](master-detail-filtering-across-two-pages-vb/_static/image8.png)
@@ -212,7 +212,7 @@ Varsayılan olarak, en az bir ürün kategoriye veritabanındaki tüm tedarikçi
 
 Ana/ayrıntı raporları tek bir sayfada hem ana hem de ayrıntı kayıtlarını görüntüleyebilirsiniz, ancak birçok Web sitelerinde bunlar arasında iki web sayfaları ayrılır. Bu öğreticide "Ayrıntılar" sayfasında listelenen ilişkili ürünler ve GridView "ana" web sayfasında listelenen tedarikçileri sağlayarak böyle bir ana öğe/ayrıntı raporu uygulamak nasıl inceledik. Sıranın geçirilen ayrıntıları sayfasına bir bağlantı her tedarikçi satır ana web sayfasında bulunan `SupplierID` değeri. Bu tür satır özgü bağlantıları kolayca GridView'ın HyperLinkField kullanılarak eklenebilir.
 
-Ayrıntılar sayfasında bu ürünler için belirtilen tedarikçi alma çağırarak gerçekleştirilmiştir `ProductsBLL` sınıfının `GetProductsBySupplierID(supplierID)` yöntemi.  *`supplierID`*  Bildirimli olarak sorgu dizesi parametresi kaynak olarak kullanarak bir parametre belirtildi. Ayrıca Ayrıntılar sayfasında bir FormView kullanarak sağlayıcı ayrıntıları görüntülemek nasıl inceledik.
+Ayrıntılar sayfasında bu ürünler için belirtilen tedarikçi alma çağırarak gerçekleştirilmiştir `ProductsBLL` sınıfının `GetProductsBySupplierID(supplierID)` yöntemi. *`supplierID`*  Bildirimli olarak sorgu dizesi parametresi kaynak olarak kullanarak bir parametre belirtildi. Ayrıca Ayrıntılar sayfasında bir FormView kullanarak sağlayıcı ayrıntıları görüntülemek nasıl inceledik.
 
 Bizim [sonraki öğretici](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-vb.md) ana/ayrıntı raporlarda son sunucudur. Her satır seçme düğmesi sahip olduğu bir GridView ürünlerin listesini görüntülemek nasıl inceleyeceğiz. Select düğmesini tıklatarak bu ürünün ayrıntıları DetailsView denetimini aynı sayfada görüntülenir.
 
