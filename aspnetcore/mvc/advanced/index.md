@@ -1,25 +1,26 @@
 ---
 title: "ASP.NET Core MVC için Gelişmiş konular"
 author: rick-anderson
-description: 
-ms.author: riande
+description: "ASP.NET Core MVC geliştirme için Gelişmiş konular bulur."
 manager: wpickett
+ms.author: riande
 ms.date: 01/05/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
-ms.openlocfilehash: 7e207693d91329977d80e9eebb20c2140ccbe93e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/advanced/index
+ms.openlocfilehash: 2cc93fc95afce2501d4f204c39c7f484373763f3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="advanced-topics-for-aspnet-core-mvc"></a><span data-ttu-id="e8301-102">ASP.NET Core MVC için Gelişmiş konular</span><span class="sxs-lookup"><span data-stu-id="e8301-102">Advanced topics for ASP.NET Core MVC</span></span>
+# <a name="advanced-topics-for-aspnet-core-mvc"></a><span data-ttu-id="dd277-103">ASP.NET Core MVC için Gelişmiş konular</span><span class="sxs-lookup"><span data-stu-id="dd277-103">Advanced topics for ASP.NET Core MVC</span></span>
 
-* [<span data-ttu-id="e8301-103">Uygulama Modeli ile çalışma</span><span class="sxs-lookup"><span data-stu-id="e8301-103">Working with the Application Model</span></span>](../controllers/application-model.md)
-* [<span data-ttu-id="e8301-104">Filtreler</span><span class="sxs-lookup"><span data-stu-id="e8301-104">Filters</span></span>](xref:mvc/controllers/filters)
-* [<span data-ttu-id="e8301-105">Alanlar</span><span class="sxs-lookup"><span data-stu-id="e8301-105">Areas</span></span>](xref:mvc/controllers/areas)
-* [<span data-ttu-id="e8301-106">Uygulama bölümleri</span><span class="sxs-lookup"><span data-stu-id="e8301-106">Application parts</span></span>](app-parts.md)
-* [<span data-ttu-id="e8301-107">Özel Model Bağlama</span><span class="sxs-lookup"><span data-stu-id="e8301-107">Custom Model Binding</span></span>](custom-model-binding.md)
-* [<span data-ttu-id="e8301-108">Özel biçimlendiriciler</span><span class="sxs-lookup"><span data-stu-id="e8301-108">Custom formatters</span></span>](custom-formatters.md)
+* [<span data-ttu-id="dd277-104">Uygulama Modeli ile çalışma</span><span class="sxs-lookup"><span data-stu-id="dd277-104">Working with the Application Model</span></span>](../controllers/application-model.md)
+* [<span data-ttu-id="dd277-105">Filtreler</span><span class="sxs-lookup"><span data-stu-id="dd277-105">Filters</span></span>](xref:mvc/controllers/filters)
+* [<span data-ttu-id="dd277-106">Alanlar</span><span class="sxs-lookup"><span data-stu-id="dd277-106">Areas</span></span>](xref:mvc/controllers/areas)
+* [<span data-ttu-id="dd277-107">Uygulama bölümleri</span><span class="sxs-lookup"><span data-stu-id="dd277-107">Application parts</span></span>](app-parts.md)
+* [<span data-ttu-id="dd277-108">Özel Model Bağlama</span><span class="sxs-lookup"><span data-stu-id="dd277-108">Custom Model Binding</span></span>](custom-model-binding.md)
+* [<span data-ttu-id="dd277-109">Özel biçimlendiriciler</span><span class="sxs-lookup"><span data-stu-id="dd277-109">Custom formatters</span></span>](custom-formatters.md)
 

@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
 msc.type: video
-ms.openlocfilehash: ef3a383888d59b1aeb0ec3f006694212f81b3021
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ae11e493541c57003c6675d72c76d78c7ebeacf1
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
-<a name="set-up-your-development-environment-for-aspnet-35"></a><span data-ttu-id="00c1c-103">ASP.NET 3.5 için geliştirme ortamınızı ayarlayın</span><span class="sxs-lookup"><span data-stu-id="00c1c-103">Set Up Your Development Environment for ASP.NET 3.5</span></span>
+<a name="set-up-your-development-environment-for-aspnet-35"></a><span data-ttu-id="7f8bd-103">ASP.NET 3.5 için geliştirme ortamınızı ayarlayın</span><span class="sxs-lookup"><span data-stu-id="7f8bd-103">Set Up Your Development Environment for ASP.NET 3.5</span></span>
 ====================
-<span data-ttu-id="00c1c-104">tarafından [CAN Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="00c1c-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="7f8bd-104">tarafından [CAN Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="7f8bd-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="00c1c-105">Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlamak üzere öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="00c1c-105">In this video you'll learn how to set up your Development Environment for developing ASP.NET AJAX Applications if you are targeting ASP.NET 3.5.</span></span>
+<span data-ttu-id="7f8bd-105">Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlamak üzere öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="7f8bd-105">In this video you'll learn how to set up your Development Environment for developing ASP.NET AJAX Applications if you are targeting ASP.NET 3.5.</span></span>
 
-[<span data-ttu-id="00c1c-106">&#9654; (8 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="00c1c-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/set-up-your-development-environment-for-aspnet-35)
+[<span data-ttu-id="7f8bd-106">&#9654; (8 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="7f8bd-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/set-up-your-development-environment-for-aspnet-35)
 
 >[!div class="step-by-step"]
-<span data-ttu-id="00c1c-107">[Önceki](how-to-dynamically-add-controls-to-a-web-page.md)
-[sonraki](set-up-your-development-environment-for-aspnet-20.md)</span><span class="sxs-lookup"><span data-stu-id="00c1c-107">[Previous](how-to-dynamically-add-controls-to-a-web-page.md)
+<span data-ttu-id="7f8bd-107">[Önceki](how-to-dynamically-add-controls-to-a-web-page.md)
+[sonraki](set-up-your-development-environment-for-aspnet-20.md)</span><span class="sxs-lookup"><span data-stu-id="7f8bd-107">[Previous](how-to-dynamically-add-controls-to-a-web-page.md)
 [Next](set-up-your-development-environment-for-aspnet-20.md)</span></span>

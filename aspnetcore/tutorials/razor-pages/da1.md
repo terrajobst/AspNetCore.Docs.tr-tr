@@ -1,128 +1,47 @@
 ---
-title: "Oluşturulan sayfalarını güncelleştirme"
+title: "Oluşturulan sayfaları güncelleştir"
 author: rick-anderson
-description: "Oluşturulan sayfalar daha iyi ekranıyla güncelleştiriliyor."
-ms.author: riande
+description: "Oluşturulan sayfaları ile daha iyi görünüm güncelleştirilemiyor."
 manager: wpickett
+ms.author: riande
 ms.date: 08/07/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: abf6839536150f29eaa2d07dafbe0d0c1a08e280
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a1bb1ab1e4fac9c634f4048947ac3f934af3d625
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="updating-the-generated-pages"></a><span data-ttu-id="cd95a-103">Oluşturulan sayfalarını güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="cd95a-103">Updating the generated pages</span></span>
+# <a name="update-the-generated-pages"></a><span data-ttu-id="3342c-103">Oluşturulan sayfaları güncelleştir</span><span class="sxs-lookup"><span data-stu-id="3342c-103">Update the generated pages</span></span>
 
-<span data-ttu-id="cd95a-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="cd95a-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="3342c-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="3342c-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="cd95a-105">Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal değil.</span><span class="sxs-lookup"><span data-stu-id="cd95a-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="cd95a-106">Biz (12:00: 00'da aşağıdaki görüntüde) zaman görmek istemediğiniz ve **ReleaseDate** olmalıdır **yayın tarihi** (iki sözcük).</span><span class="sxs-lookup"><span data-stu-id="cd95a-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be **Release Date** (two words).</span></span>
+<span data-ttu-id="3342c-105">Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal değil.</span><span class="sxs-lookup"><span data-stu-id="3342c-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="3342c-106">Biz (12:00: 00'da aşağıdaki görüntüde) zaman görmek istemediğiniz ve **ReleaseDate** olmalıdır **yayın tarihi** (iki sözcük).</span><span class="sxs-lookup"><span data-stu-id="3342c-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be **Release Date** (two words).</span></span>
 
 ![Film uygulaması film verileri gösteren Chrome'da Aç](sql/_static/m55.png)
 
-## <a name="update-the-generated-code"></a><span data-ttu-id="cd95a-108">Oluşturulan kod güncelleştir</span><span class="sxs-lookup"><span data-stu-id="cd95a-108">Update the generated code</span></span>
+## <a name="update-the-generated-code"></a><span data-ttu-id="3342c-108">Oluşturulan kod güncelleştir</span><span class="sxs-lookup"><span data-stu-id="3342c-108">Update the generated code</span></span>
 
-<span data-ttu-id="cd95a-109">Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterildiği vurgulanan satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="cd95a-109">Open the *Models/Movie.cs* file and add the highlighted lines shown in the following code:</span></span>
+<span data-ttu-id="3342c-109">Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterildiği vurgulanan satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="3342c-109">Open the *Models/Movie.cs* file and add the highlighted lines shown in the following code:</span></span>
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
 
-<span data-ttu-id="cd95a-110">Bir kırmızı dalgalı satıra sağ tıklayın > ** Hızlı Eylemler ve yapan yeniden düzenlemeler **.</span><span class="sxs-lookup"><span data-stu-id="cd95a-110">Right click on a red squiggly line > ** Quick Actions and Refactorings**.</span></span>
+<span data-ttu-id="3342c-110">Bir kırmızı dalgalı satıra sağ tıklayın > ** Hızlı Eylemler ve yapan yeniden düzenlemeler **.</span><span class="sxs-lookup"><span data-stu-id="3342c-110">Right click on a red squiggly line > ** Quick Actions and Refactorings**.</span></span>
 
   ![Bağlam menüsü programlarını ** > Hızlı Eylemler ve yapan yeniden düzenlemeler **.](da1/qa.png)
 
-<span data-ttu-id="cd95a-112">Seçin`using System.ComponentModel.DataAnnotations;`</span><span class="sxs-lookup"><span data-stu-id="cd95a-112">Select `using System.ComponentModel.DataAnnotations;`</span></span>
+<span data-ttu-id="3342c-112">Seçin`using System.ComponentModel.DataAnnotations;`</span><span class="sxs-lookup"><span data-stu-id="3342c-112">Select `using System.ComponentModel.DataAnnotations;`</span></span>
 
   ![listesinin başında System.ComponentModel.DataAnnotations kullanma](da1/da.png)
 
-  <span data-ttu-id="cd95a-114">Visual studio adds `using System.ComponentModel.DataAnnotations;`.</span><span class="sxs-lookup"><span data-stu-id="cd95a-114">Visual studio adds `using System.ComponentModel.DataAnnotations;`.</span></span>
+  <span data-ttu-id="3342c-114">Visual studio adds `using System.ComponentModel.DataAnnotations;`.</span><span class="sxs-lookup"><span data-stu-id="3342c-114">Visual studio adds `using System.ComponentModel.DataAnnotations;`.</span></span>
 
-<span data-ttu-id="cd95a-115">Şu konulara değineceğiz [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide.</span><span class="sxs-lookup"><span data-stu-id="cd95a-115">We'll cover [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) in the next tutorial.</span></span> <span data-ttu-id="cd95a-116">[Görüntülemek](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-116">The [Display](https://docs.microsoft.com//aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) attribute specifies what to display for the name of a field (in this case "Release Date" instead of "ReleaseDate").</span></span> <span data-ttu-id="cd95a-117">[DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmiyor şekilde (tarih), veri türünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-117">The [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) attribute specifies the type of the data (Date), so the time information stored in the field isn't displayed.</span></span>
-
-<span data-ttu-id="cd95a-118">Sayfa/filmlere göz atın ve üzerine gelerek bir **Düzenle** hedef URL görmek için bağlantı.</span><span class="sxs-lookup"><span data-stu-id="cd95a-118">Browse to Pages/Movies and  hover over an **Edit** link to see the target URL.</span></span>
-
-![Tarayıcı penceresini düzenleme bağlantısını ve bir bağlantı üzerinden fareyle http://localhost:1234/filmler/düzenleme/5 URL'sini gösterilir](da1/edit7.png)
-
-<span data-ttu-id="cd95a-120">**Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar tarafından üretilen [yer işareti etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) içinde *sayfaları/filmler / Index.cshtml* dosya.</span><span class="sxs-lookup"><span data-stu-id="cd95a-120">The **Edit**, **Details**, and **Delete** links are generated by the [Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) in the *Pages/Movies/Index.cshtml* file.</span></span>
-
-[!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
-
-<span data-ttu-id="cd95a-121">[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-121">[Tag Helpers](xref:mvc/views/tag-helpers/intro) enable server-side code to participate in creating and rendering HTML elements in Razor files.</span></span> <span data-ttu-id="cd95a-122">Önceki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` öznitelik değeri Razor (rota göreli) sayfasından `asp-page`ve rota kimliği (`asp-route-id`).</span><span class="sxs-lookup"><span data-stu-id="cd95a-122">In the preceding code, the `AnchorTagHelper` dynamically generates the HTML `href` attribute value from the Razor Page (the route is relative), the `asp-page`,  and the route id (`asp-route-id`).</span></span> <span data-ttu-id="cd95a-123">Bkz: [sayfaları için URL oluşturma](xref:mvc/razor-pages/index#url-generation-for-pages) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="cd95a-123">See [URL generation for Pages](xref:mvc/razor-pages/index#url-generation-for-pages) for more information.</span></span>
-
-<span data-ttu-id="cd95a-124">Kullanım **kaynağı görüntüle** oluşturulan biçimlendirme incelemek için sık kullanılan tarayıcınızdan.</span><span class="sxs-lookup"><span data-stu-id="cd95a-124">Use **View Source** from your favorite browser to examine the generated markup.</span></span> <span data-ttu-id="cd95a-125">Oluşturulan HTML bir bölümü aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="cd95a-125">A portion of the generated HTML is shown below:</span></span>
-
-```html
-<td>
-  <a href="/Movies/Edit?id=1">Edit</a> |
-  <a href="/Movies/Details?id=1">Details</a> |
-  <a href="/Movies/Delete?id=1">Delete</a>
-</td>
-```
-
-<span data-ttu-id="cd95a-126">Bir sorgu dizesi film Kimliğiyle dinamik olarak üretilen bağlantılar geçirin (örneğin, `http://localhost:5000/Movies/Details?id=2` ).</span><span class="sxs-lookup"><span data-stu-id="cd95a-126">The dynamically-generated links pass the movie ID with a query string (for example, `http://localhost:5000/Movies/Details?id=2` ).</span></span> 
-
-<span data-ttu-id="cd95a-127">Düzenleme, Ayrıntılar ve Razor Sayfaları Sil "{kimliği: int}" rota şablonu kullanmak için güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-127">Update the Edit, Details, and Delete Razor Pages to use the "{id:int}" route template.</span></span> <span data-ttu-id="cd95a-128">Sayfa yönergesi her bu sayfalarından değiştirme `@page` için `@page "{id:int}"`.</span><span class="sxs-lookup"><span data-stu-id="cd95a-128">Change the page directive for each of these pages from `@page` to `@page "{id:int}"`.</span></span> <span data-ttu-id="cd95a-129">Uygulamayı çalıştırın ve ardından kaynak görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-129">Run the app and then view source.</span></span> <span data-ttu-id="cd95a-130">Oluşturulan HTML kimliği URL yolu bölümüne ekler:</span><span class="sxs-lookup"><span data-stu-id="cd95a-130">The generated HTML adds the ID to the path portion of the URL:</span></span>
-
-```html
-<td>
-  <a href="/Movies/Edit/1">Edit</a> |
-  <a href="/Movies/Details/1">Details</a> |
-  <a href="/Movies/Delete/1">Delete</a>
-</td>
-```
-
-<span data-ttu-id="cd95a-131">İsteği yapan "{kimliği: int}" rota şablonuyla sayfasına **değil** dahil tamsayı (bulunamadı) HTTP 404 hata döndürür.</span><span class="sxs-lookup"><span data-stu-id="cd95a-131">A request to the page with the "{id:int}" route template that does **not** include the integer will return an HTTP 404 (not found) error.</span></span> <span data-ttu-id="cd95a-132">Örneğin, `http://localhost:5000/Movies/Details` 404 hatası döndürür.</span><span class="sxs-lookup"><span data-stu-id="cd95a-132">For example, `http://localhost:5000/Movies/Details` will return a 404 error.</span></span> <span data-ttu-id="cd95a-133">Kimliği isteğe bağlı yapmak için ekleme `?` rota kısıtlaması için:</span><span class="sxs-lookup"><span data-stu-id="cd95a-133">To make the ID optional, append `?` to the route constraint:</span></span>
-
- ```cshtml
-@page "{id:int?}"
-```
-
-### <a name="update-concurrency-exception-handling"></a><span data-ttu-id="cd95a-134">Güncelleştirme eşzamanlılık özel durum işleme</span><span class="sxs-lookup"><span data-stu-id="cd95a-134">Update concurrency exception handling</span></span>
-
-<span data-ttu-id="cd95a-135">Güncelleştirme `OnPostAsync` yönteminde *Pages/Movies/Edit.cshtml.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="cd95a-135">Update the `OnPostAsync` method in the *Pages/Movies/Edit.cshtml.cs* file.</span></span> <span data-ttu-id="cd95a-136">Aşağıdaki vurgulanmış kodu değişiklikleri gösterir:</span><span class="sxs-lookup"><span data-stu-id="cd95a-136">The following highlighted code shows the changes:</span></span>
-
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
-
-<span data-ttu-id="cd95a-137">Önceki kod, yalnızca ilk eşzamanlı istemci film siler ve ikinci eşzamanlı istemci film değişiklikler yazılarını eşzamanlılık algılar.</span><span class="sxs-lookup"><span data-stu-id="cd95a-137">The previous code only detects concurrency exceptions when the first concurrent client deletes the movie, and the second concurrent client posts changes to the movie.</span></span>
-
-<span data-ttu-id="cd95a-138">Test etmek için `catch` engelle:</span><span class="sxs-lookup"><span data-stu-id="cd95a-138">To test the `catch` block:</span></span>
-
-* <span data-ttu-id="cd95a-139">Bir kesme noktası ayarlayın`catch (DbUpdateConcurrencyException)`</span><span class="sxs-lookup"><span data-stu-id="cd95a-139">Set a breakpoint on `catch (DbUpdateConcurrencyException)`</span></span>
-* <span data-ttu-id="cd95a-140">Bir filmi düzenleyin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-140">Edit a movie.</span></span>
-* <span data-ttu-id="cd95a-141">Başka bir tarayıcı penceresinde seçin **silmek** bağlamak için aynı film ve film silin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-141">In another browser window, select the **Delete** link for the same movie, and then delete the movie.</span></span>
-* <span data-ttu-id="cd95a-142">Önceki tarayıcı penceresinde film değişiklikler gönderin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-142">In the previous browser window, post changes to the movie.</span></span>
-
-<span data-ttu-id="cd95a-143">Üretim kodu genellikle eşzamanlılık çakışması iki algılamaz veya daha fazla istemciler eşzamanlı olarak güncelleştirilen bir kaydı.</span><span class="sxs-lookup"><span data-stu-id="cd95a-143">Production code would generally detect concurrency conflicts when two or more clients concurrently updated a record.</span></span> <span data-ttu-id="cd95a-144">Bkz: [eşzamanlılık çakışmalarını işleme](xref:data/ef-rp/concurrency) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="cd95a-144">See [Handling concurrency conflicts](xref:data/ef-rp/concurrency) for more information.</span></span>
-
-### <a name="posting-and-binding-review"></a><span data-ttu-id="cd95a-145">Gönderme ve bağlama gözden geçirin</span><span class="sxs-lookup"><span data-stu-id="cd95a-145">Posting and binding review</span></span>
-
-<span data-ttu-id="cd95a-146">İncelemek *Pages/Movies/Edit.cshtml.cs* dosyası:[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]</span><span class="sxs-lookup"><span data-stu-id="cd95a-146">Examine the *Pages/Movies/Edit.cshtml.cs* file: [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]</span></span>
-
-<span data-ttu-id="cd95a-147">Ne zaman bir HTTP GET isteği yapıldığında filmler/Düzenle sayfasına (örneğin, `http://localhost:5000/Movies/Edit/2`):</span><span class="sxs-lookup"><span data-stu-id="cd95a-147">When an HTTP GET request is made to the Movies/Edit page (for example, `http://localhost:5000/Movies/Edit/2`):</span></span>
-
-* <span data-ttu-id="cd95a-148">`OnGetAsync` Yöntemi veritabanından film getirir ve döndürür `Page` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="cd95a-148">The `OnGetAsync` method fetches the movie from the database and returns the `Page` method.</span></span> 
-* <span data-ttu-id="cd95a-149">`Page` Yöntemi işler *Pages/Movies/Edit.cshtml* Razor sayfası.</span><span class="sxs-lookup"><span data-stu-id="cd95a-149">The `Page` method renders the *Pages/Movies/Edit.cshtml* Razor Page.</span></span> <span data-ttu-id="cd95a-150">*Pages/Movies/Edit.cshtml* dosyasını içeren model yönergesi (`@model RazorPagesMovie.Pages.Movies.EditModel`), hangi kullanılabilir hale getirir film modeli sayfasında.</span><span class="sxs-lookup"><span data-stu-id="cd95a-150">The *Pages/Movies/Edit.cshtml* file contains the model directive (`@model RazorPagesMovie.Pages.Movies.EditModel`), which makes the movie model available on the page.</span></span>
-* <span data-ttu-id="cd95a-151">Düzenleme formu film değerlerle görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-151">The Edit form is displayed with the values from the movie.</span></span>
-
-<span data-ttu-id="cd95a-152">Ne zaman filmler/düzenleme sayfasını nakledilir:</span><span class="sxs-lookup"><span data-stu-id="cd95a-152">When the Movies/Edit page is posted:</span></span>
-
-* <span data-ttu-id="cd95a-153">Form değerleri sayfasında bağlı olan `Movie` özelliği.</span><span class="sxs-lookup"><span data-stu-id="cd95a-153">The form values on the page are bound to the `Movie` property.</span></span> <span data-ttu-id="cd95a-154">`[BindProperty]` Özniteliği etkinleştirir [bağlama Model](xref:mvc/models/model-binding).</span><span class="sxs-lookup"><span data-stu-id="cd95a-154">The `[BindProperty]` attribute enables [Model binding](xref:mvc/models/model-binding).</span></span>
-
-  ```csharp
-  [BindProperty]
-  public Movie Movie { get; set; }
-  ```
-
-* <span data-ttu-id="cd95a-155">Model durumuna bir hata varsa (örneğin, `ReleaseDate` bir tarihe dönüştürülemez), formu yeniden gönderilen değerlerle nakledilir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-155">If there are errors in the model state (for example, `ReleaseDate` cannot be converted to a date), the form is posted again with the submitted values.</span></span>
-* <span data-ttu-id="cd95a-156">Model hatalar varsa, film kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-156">If there are no model errors, the movie is saved.</span></span>
-
-<span data-ttu-id="cd95a-157">Dizin oluşturma ve silme Razor sayfalarının HTTP GET yöntemlere benzer bir desen izleyin.</span><span class="sxs-lookup"><span data-stu-id="cd95a-157">The HTTP GET methods in the Index, Create, and Delete Razor pages follow a similar pattern.</span></span> <span data-ttu-id="cd95a-158">HTTP POST `OnPostAsync` Razor Sayfa Oluştur yönteminde benzer bir desen izler `OnPostAsync` Razor sayfasını Düzenle yöntemi.</span><span class="sxs-lookup"><span data-stu-id="cd95a-158">The HTTP POST `OnPostAsync` method in the Create Razor Page follows a similar pattern to the `OnPostAsync` method in the Edit Razor Page.</span></span>
-
-<span data-ttu-id="cd95a-159">Arama sonraki öğreticide eklenir.</span><span class="sxs-lookup"><span data-stu-id="cd95a-159">Search is added in the next tutorial.</span></span>
+[!INCLUDE[model1](../../includes/RP/da2.md)]
 
 >[!div class="step-by-step"]
-<span data-ttu-id="cd95a-160">[Önceki: SQL Server yerel veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-[arama ekleme](xref:tutorials/razor-pages/search)</span><span class="sxs-lookup"><span data-stu-id="cd95a-160">[Previous: Working with SQL Server LocalDB](xref:tutorials/razor-pages/sql)
+<span data-ttu-id="3342c-115">[Önceki: SQL Server yerel veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
+[arama ekleme](xref:tutorials/razor-pages/search)</span><span class="sxs-lookup"><span data-stu-id="3342c-115">[Previous: Working with SQL Server LocalDB](xref:tutorials/razor-pages/sql)
 [Adding Search](xref:tutorials/razor-pages/search)</span></span>
