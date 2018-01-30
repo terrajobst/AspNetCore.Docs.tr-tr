@@ -2,19 +2,19 @@
 title: "Tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanma"
 author: scottaddie
 description: "Bir tek sayfa uygulaması (ASP.NET Core tarafından yedeklenen SPA) oluşturmak için JavaScriptServices kullanmanın avantajları hakkında bilgi edinin."
-ms.author: scaddie
 manager: wpickett
-ms.date: 08/02/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/spa-services
+ms.author: scaddie
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 08/02/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/spa-services
+ms.openlocfilehash: bd18d342de7c147e3588bd6daa3aebd68aa81c36
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>ASP.NET çekirdeği ile tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanma
 
@@ -288,7 +288,7 @@ Açık *.csproj* tarafından oluşturulan dosya `dotnet new` komutu. Gerekli NuG
 
 ## <a name="testing-the-app"></a>Uygulamayı test etme
 
-SpaServices şablonları kullanarak istemci tarafı testleri çalıştırmak için önceden yapılandırılmış [Karma](https://karma-runner.github.io/1.0/index.html) ve [Jasmine](https://jasmine.github.io/). Karma bu testler için test Çalıştırıcısı iken jasmine framework JavaScript için test popüler bir birimi değil. Karma çalışmak üzere yapılandırılmış [Webpack geliştirme Ara](#webpack-dev-middleware) sağlayacak şekilde durdurmak ve değişiklikler yapılmadan her zaman testi çalıştırmak zorunda değilsiniz. Test çalışması ya da test çalışması karşı çalışan kod olup olmadığını belirtir, test otomatik olarak çalıştırılır.
+SpaServices şablonları kullanarak istemci tarafı testleri çalıştırmak için önceden yapılandırılmış [Karma](https://karma-runner.github.io/1.0/index.html) ve [Jasmine](https://jasmine.github.io/). Karma bu testler için test Çalıştırıcısı iken jasmine framework JavaScript için test popüler bir birimi değil. Karma çalışmak üzere yapılandırılmış [Webpack geliştirme Ara](#webpack-dev-middleware) sağlayacak şekilde Geliştirici durdurmak ve değişiklikler yapılmadan her zaman testi çalıştırmak için gerekli değildir. Test çalışması ya da test çalışması karşı çalışan kod olup olmadığını belirtir, test otomatik olarak çalıştırılır.
 
 Açısal uygulama örnek olarak kullanarak, iki Jasmine test çalışmaları zaten için sağlanan `CounterComponent` içinde *counter.component.spec.ts* dosyası:
 

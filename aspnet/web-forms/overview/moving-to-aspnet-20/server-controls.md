@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>Sunucu denetimleri
 ====================
@@ -161,7 +161,7 @@ Yeni sunucu denetimleri, ASP.NET 2.0 verilmiştir. Daha fazla ayrıntıya bazı 
 Görüntü eşleme denetimi post yeniden başlatmak veya bir URL'ye bir görüntü etkin eklemenize olanak sağlar. Etkin noktalarına üç tür kullanılabilir; CircleHotSpot, RectangleHotSpot ve PolygonHotSpot. Etkin noktalarına Visual Studio veya programlama kodu Koleksiyonu Düzenleyicisi aracılığıyla eklenir. Etkin noktalarına görüntüde çizim için kullanılabilir herhangi bir kullanıcı arabirimi yoktur. Koordinatları ve boyutunu veya etkin nokta RADIUS bildirimli olarak belirtilmelidir. Hiçbir görsel bir etkin nokta Tasarımcısı'nda yoktur. Bir etkin nokta URL'ye gitmek üzere yapılandırılmışsa, URL başvurulduğunda NavigateUrl özelliği belirtilir. Söz konusu olduğunda bir post etkin nokta, özelliği, sunucu tarafı kodu alınabilir post geri dizesinde geçirmenizi sağlar PostBackValue yedekleyin.
 
 
-![Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi](server-controls/_static/image1.jpg)
+![HotSpot Collection Editor in Visual Studio](server-controls/_static/image1.jpg)
 
 **Şekil 1**: Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi
 
@@ -271,7 +271,7 @@ XmlDataSource denetim veri bağlamak için bir XML veri kaynağı için kullanı
 
 SiteMapDataSource denetimi veri bağlama için bir site haritası temel site gezinti denetimlerinin sunar. Daha ayrıntılı bir sonraki modüldeki incelenecektir.
 
-## <a name="sitemappath-control"></a>ASP
+## <a name="sitemappath-control"></a>SiteMapPath Control
 
 ASP Gezinti bağlantıları içerik haritası adlandırılan bir dizi görüntüler. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
 

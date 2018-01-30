@@ -2,18 +2,18 @@
 title: "Birden çok ASP.NET Core ortamlarda ile çalışma"
 author: rick-anderson
 description: "Birden çok ortamlar genelinde uygulamanızın davranışını denetlemek için ASP.NET Core destek nasıl sağladığını öğrenin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b40ee9b1c6feae4942f05d22dab776d3cf6c26a0
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-multiple-environments"></a>Birden çok ortamı ile çalışma
 
@@ -50,9 +50,9 @@ Geliştirme ortamı üretimde kullanıma sunulan döndürmemelidir özellikleri 
 
 Yerel makine geliştirme ortamını ayarlanabilir *Properties\launchSettings.json* projenin dosya. Ortam değerleri kümesinde *launchSettings.json* sistem ortama değerlerini geçersiz kılar.
 
-Aşağıdaki XML üç profillerden gösterir bir *launchSettings.json* dosyası:
+Aşağıdaki JSON üç profillerden gösteren bir *launchSettings.json* dosyası:
 
-[!code-xml[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
+[!code-json[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
 
 Ne zaman uygulama başlatıldığında ile `dotnet run`, ilk profiliyle `"commandName": "Project"` kullanılır. Değeri `commandName` başlatmak için web sunucusunu belirtir. `commandName`aşağıdakilerden biri olabilir:
 
@@ -93,7 +93,7 @@ Web sunucu yeniden başlatılana kadar proje profillere yapılan değişiklikler
 * İstemci-tarafı kaynaklar küçültülmüş, paketlenmiş ve potansiyel olarak bir CDN hizmet.
 * Tanılama hata sayfaları devre dışı.
 * Kolay hata sayfaları etkin.
-* Üretim günlüğe kaydetme ve izleme etkin. Örneğin, [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-asp-net-five/).
+* Üretim günlüğe kaydetme ve izleme etkin. Örneğin, [Application Insights](/azure/application-insights/app-insights-asp-net-core).
 
 ## <a name="setting-the-environment"></a>Ortamını ayarlama
 
@@ -149,7 +149,7 @@ export ASPNETCORE_ENVIRONMENT=Development
 ```
 Makine düzeyi ortam değişkenleri ayarlanır *.bashrc* veya *.bash_profile* dosya. Herhangi bir metin düzenleyicisi kullanarak dosyasını düzenleyin ve aşağıdaki ifadeyi ekleyin.
 
-```
+```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
@@ -173,7 +173,7 @@ Not: Çağırma [WebHostBuilder.UseStartup<TStartup> ](https://docs.microsoft.co
 
 [!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet_all&highlight=15,37)]
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Uygulama başlatma](xref:fundamentals/startup)
 * [Yapılandırma](xref:fundamentals/configuration/index)

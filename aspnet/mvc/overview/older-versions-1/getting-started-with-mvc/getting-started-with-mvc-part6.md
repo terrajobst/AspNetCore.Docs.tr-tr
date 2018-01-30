@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 title: "Ekleme bir yöntem ve görünüm oluşturun | Microsoft Docs"
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız."
+description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 4792689087ab85be25fe186b2ec97915af448ef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 36b3d6ef0432292f21ecd8f29ea2d88ee8867436
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Ekleme bir yöntem ve görünüm oluşturun
 ====================
@@ -51,7 +51,7 @@ Ekle düğmesine tıkladıktan sonra şablonu \Movies\Create.aspx görüntüleme
 
 Şimdi yeni bir filmi oluşturabilir ve veritabanına ekleyin. Biz uygulamayı yeniden çalıştırarak bunu ve ziyaret "/ filmler" "Oluştur" bağlantı URL'si ve tıklatın yeni film eklemek için.
 
-[![Oluşturma - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Create - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
 Biz Oluştur düğmesine tıkladığınızda, size geri (HTTP POST) yeni oluşturduğumuz /Movies/Create yöntemi için bu formu verileri nakil. Yalnızca zaman sistemi otomatik olarak "numTimes" ve "name" parametre URL dışında sürdü ve daha önce bir yöntem parametrelerine eşlenen gibi sistem otomatik olarak bir GÖNDERİYE Form alanlarını alın ve nesneye eşleştirebilirsiniz. Bu durumda, "ReleaseDate" ve "Title" gibi HTML alanlarındaki değerleri otomatik olarak bir filmi yeni bir örneğini doğru özelliklerini yerleştirilecek.
 
@@ -61,7 +61,7 @@ At ikinci oluşturma yöntemi bizim MoviesController yeniden bakalım. Bağıms�
 
 Bu film nesnesi sonra bizim Create eylem yöntemi [HttpPost] sürümüne geçirildi ve veritabanına kaydedilir ve geri kaydedilen sonuç film listesinde gösterecektir İNDİS() eylem yöntemi için kullanıcı yönlendirilir:
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
 Bizim filmler ancak doğru olduğundan ve veritabanının bize bir filmi başlığı ile kaydetmek izin vermiyor denetleniyor değil. Şu hata oluştu, veritabanı önce kullanıcı söyleyebilirsiniz iyi olacaktır. Biz bu sonraki uygulamamız için doğrulama desteği ekleyerek gerçekleştirirsiniz.
 

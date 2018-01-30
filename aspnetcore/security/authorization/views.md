@@ -2,18 +2,18 @@
 title: "ASP.NET Core MVC görünümü tabanlı yetkilendirme"
 author: rick-anderson
 description: "Bu belge, Ekle ve ASP.NET Core Razor görünüm içinde yetkilendirme hizmeti kullanma gösterilmektedir."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/30/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/views
-ms.openlocfilehash: 8f87ca90b77be1efd75688e8203cb57b1a3360ad
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 22754d07882cd704309a4e1a28ad0bf6f69432ea
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="view-based-authorization"></a>Görünüm tabanlı bir yetkilendirme
 

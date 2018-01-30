@@ -2,18 +2,18 @@
 title: ASP.NET Core 2. 0 ' yenilikler nelerdir?
 author: rick-anderson
 description: ASP.NET Core 2. 0 ' yenilikler nelerdir?
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 07/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 
@@ -82,7 +82,7 @@ Angular, Aurelia, Knockout.js, React.js ve React.js Redux ile tek sayfa uygulama
 
 ## <a name="kestrel-improvements"></a>Kestrel geliştirmeleri
 
-Kestrel web sunucusu Internet'e yönelik sunucu daha uygun sağlayan yeni özellikler vardır. Sunucu kısıtlaması yapılandırma seçeneklerinde sayısı ekledik `KestrelServerOptions` sınıfı yeni `Limits` özelliği. Aşağıdakiler için sınırlar artık ekleyebilirsiniz:
+Kestrel web sunucusu Internet'e yönelik sunucu daha uygun sağlayan yeni özellikler vardır. Sunucu kısıtlaması yapılandırma seçenekleri sayısı olarak eklenen `KestrelServerOptions` sınıfı yeni `Limits` özelliği. Aşağıdakiler için sınırları ekleyin:
 
 - En fazla istemci bağlantıları
 - En büyük istek gövdesi boyutu
@@ -120,7 +120,7 @@ Planlanan belgelerine durumu hakkında daha fazla bilgi için bkz: [GitHub sorun
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Sahteciliğe karşı koruma belirteçlerini otomatik olarak kullanılmasını
 
-ASP.NET Core her zaman HTML olarak kodlanacak içeriğinizi varsayılan olarak yardımcı, ancak yeni sürümle sizi siteler arası istek sahtekarlığı (XSRF) saldırılarını önlemeye yardımcı olmak için fazladan bir adım yönlendiriyoruz. ASP.NET Core artık varsayılan olarak sahteciliğe karşı koruma belirteçleri yayma ve bunları form POST eylemleri ve ek yapılandırma olmaksızın sayfaları doğrulayın.
+ASP.NET Core her zaman siteler arası istek sahtekarlığı (XSRF) saldırılarını HTML olarak kodlanacak içerik varsayılan olarak, ancak yardımcı olmak için fazladan bir adım geçen yeni sürümle Yardım. ASP.NET Core artık varsayılan olarak sahteciliğe karşı koruma belirteçleri yayma ve bunları form POST eylemleri ve ek yapılandırma olmaksızın sayfaları doğrulayın.
 
 Daha fazla bilgi için bkz: [önleme siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını ASP.NET Core içinde](xref:security/anti-request-forgery).
 
@@ -158,4 +158,4 @@ ASP.NET Core 1.x uygulamaları ASP.NET Core 2.0 geçirme hakkında yönergeler i
 
 Değişiklikleri tam listesi için bkz: [ASP.NET Core 2.0 sürüm notları](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-ASP.NET Core geliştirme takımın ilerleme durumunu ve planları ile bağlanmak istiyorsanız, haftalık olarak ayarlamak [ASP.NET topluluk Standup](https://live.asp.net/).
+ASP.NET Core geliştirme takımın ilerleme durumunu ve planları ile bağlanmak için ince ayar [ASP.NET topluluk Standup](https://live.asp.net/).

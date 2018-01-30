@@ -2,18 +2,18 @@
 title: "Visual Studio Code ile ASP.NET Core Razor sayfalarında ile çalışmaya başlama"
 author: rick-anderson
 description: "Razor sayfalarında ASP.NET Core kullanarak Visual Studio Code ile çalışmaya başlama"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/27/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 727c3d5c8bed0aef3094816b7e5f0a940aea654c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7c01d802e59951281c86c8eab64b7c6b9d646fbf
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code ile ASP.NET Core Razor sayfalarında ile çalışmaya başlama
 

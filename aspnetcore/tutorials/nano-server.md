@@ -2,18 +2,18 @@
 title: "ASP.NET Core Nano Server üzerinde"
 author: shirhatti
 description: "Mevcut bir ASP.NET Core uygulama ve IIS çalıştıran bir Nano Server örneğine dağıtma hakkında bilgi edinin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/04/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: d9b55fb42088b447451326b7ee573d9bfa5f5941
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4fc5f6874f86130da9f66d13778516d984ff8b46
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-with-iis-on-nano-server"></a>Nano Server IIS ile ASP.NET Çekirdeği
 
@@ -31,7 +31,7 @@ Nano Server denemeniz için kolay üç yolu vardır. Ne zaman MS hesabınızla o
 
 2. Nano Server VHD indirin.
 
-3. Azure galerisinde Nano sunucu görüntüsü kullanarak azure'da bir VM oluşturun. Bir Azure hesabınız yoksa, ücretsiz 30 günlük deneme alabilirsiniz.
+3. Azure galerisinde Nano sunucu görüntüsü kullanarak azure'da bir VM oluşturun. Azure ücretsiz deneme hub ' dir.
 
 Bu öğreticide, biz 2 seçeneği, Windows Server 2016 önceden derlenmiş Nano Server VHD'den kullanacak.
 

@@ -2,18 +2,18 @@
 title: "ASP.NET Çekirdeği'nde veri koruma için olmayan dı kullanan senaryolar"
 author: rick-anderson
 description: "Burada olamaz veya bağımlılık ekleme tarafından sağlanan bir hizmet kullanmak istemiyorsanız veri koruma senaryoları desteklemek öğrenin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/configuration/non-di-scenarios
-ms.openlocfilehash: 1c84cfcf44086359a7d6900ca52781dc6f3b1b10
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: eccf914d20e04adbb113f17e262766ed2dd1a554
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a>ASP.NET Çekirdeği'nde veri koruma için olmayan dı kullanan senaryolar
 

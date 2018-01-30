@@ -2,18 +2,18 @@
 title: "ASP.NET Core istek özellikleri"
 author: ardalis
 description: "HTTP istekleri ve yanıtları arabirimlerde ASP.NET Core için tanımlanan ilgili web sunucusu uygulama ayrıntıları hakkında bilgi edinin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: f0e371f5ea6c6688ef32adcacf667a412e4625e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 11644dc646f2c0e749f0f64e80ee00ea8b671302
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core istek özellikleri
 
@@ -70,10 +70,8 @@ Ayrıca, Ara sunucu tarafından oluşturulmuş özellik koleksiyonu ekleyebilirs
 
 Özellik arabirimler belirtilen bir isteğin destekleyebilir belirli HTTP özellikleri tanımlar. Koleksiyonlar özelliklerinin ve bu sunucu tarafından desteklenen özellikler başlangıç kümesi sunucuları tanımlamak, ancak ara yazılım, bu özellikleri geliştirmek için kullanılabilir.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Sunucular](servers/index.md)
-
-* [Ara Yazılım](middleware.md)
-
-* [.NET için Açık Web Arabirimi (OWIN)](owin.md)
+* [Sunucular](xref:fundamentals/servers/index)
+* [Ara Yazılım](xref:fundamentals/middleware)
+* [.NET için Açık Web Arabirimi (OWIN)](xref:fundamentals/owin)

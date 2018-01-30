@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>Yapılandırma ve izleme
 ====================
@@ -150,7 +150,7 @@ Varsayılan sağlayıcıları ve olayları yapılandırma genel Web.config dosya
 
 | **sağlayıcıları** | Olay Görüntüleyicisi'ni, WMI ve SQL Server için ayarlanmış sağlayıcıları içerir. |
 | --- | --- |
-| **eventMappings** | Eşlemeleri için çeşitli WebBase sınıfları içerir. Kendi olay sınıfı oluşturursanız, bu listeyi genişletebilirsiniz. Kendi olay sınıfı oluşturmak daha hassas ayrıntı düzeyi için bilgi gönder sağlayıcıları üzerinden sağlar. Örneğin, SQL Server için kendi özel olaylar e-posta gönderilirken gönderilmek üzere işlenmeyen özel durumlar yapılandırabilirsiniz. |
+| **eventMappings** | Eşlemeleri için çeşitli WebBase sınıfları içerir. Kendi olay sınıfı oluşturursanız, bu listeyi genişletebilirsiniz. Kendi olay sınıfı oluşturmak daha hassas ayrıntı düzeyi için bilgi gönder sağlayıcıları üzerinden sağlar. Örneğin, SQL Server için kendi özel olaylar için e-posta gönderilirken gönderilmek üzere işlenmeyen özel durumlar yapılandırabilirsiniz. |
 | **kuralları** | EventMappings sağlayıcıya bağlar. |
 | **arabelleğe alma** | SQL Server ve e-posta sağlayıcıları ile genellikle sağlayıcıya olayları temizlemek nasıl belirlemek için kullanılır. |
 
@@ -196,15 +196,15 @@ Sağlayıcı ve olaylarını dinleyecek şekilde WMI dinleyicisi uygulama için 
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>E-posta olayları iletmek nasıl
+## <a name="how-to-forward-events-to-email"></a>E-posta olayları iletmek nasıl
 
 Ayrıca, e-posta olayları iletebilirsiniz. SQL Server veya olay günlüğü için daha uygun kasıtsız olarak kendiniz bir çok sayıda bilgi, gönderebilirsiniz gibi e-posta sağlayıcınıza eşleme hangi olay kuralları olabilir dikkatli olun. İki e-posta sağlayıcısı vardır; SimpleMailWebEventProvider ve TemplatedMailWebEventProvider. Her ikisi de yalnızca TemplatedMailWebEventProvider üzerinde kullanılabilir "Şablon" ve "detailedTemplateErrors" öznitelikleri dışında aynı yapılandırma öznitelikleri vardır.
 
 > [!NOTE]
-> Bu e-posta sağlayıcıları hiçbiri sizin için yapılandırılır. Web.config dosyanızı eklemeniz gerekir.
+> Bu e-posta sağlayıcısı hiçbiri sizin için yapılandırılır. Web.config dosyanızı eklemeniz gerekir.
 
 
-Bu iki e-posta sağlayıcıları arasındaki temel fark, SimpleMailWebEventProvider değiştirilemez genel bir şablon e-postalar gönderir ' dir. Örnek Web.config dosyası, aşağıdaki kural kullanarak, yapılandırılmış sağlayıcılar listesi için bu e-posta sağlayıcısı ekler:
+Bu iki e-posta sağlayıcısı arasındaki temel fark, SimpleMailWebEventProvider değiştirilemez genel bir şablon e-posta gönderir ' dir. Örnek Web.config dosyası, aşağıdaki kural kullanarak, yapılandırılmış sağlayıcılar listesi için bu e-posta sağlayıcısı ekler:
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample11.xml)]
 

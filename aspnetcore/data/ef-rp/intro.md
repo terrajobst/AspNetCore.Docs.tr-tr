@@ -2,18 +2,18 @@
 title: "Razor sayfalarının Entity Framework Çekirdek - 8'in Öğreticisi 1 ile"
 author: rick-anderson
 description: "Entity Framework Çekirdek kullanarak Razor sayfalarının uygulamasının nasıl oluşturulacağını gösterir"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: 6d36c0f0cabaf99195470a212091bd5e35c8eb30
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 091f34da347d52ba8e3e87779ddc4aeb790c2800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 title: Bir denetleyicisinden modelinizin verilere | Microsoft Docs
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız."
+description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: 1a733accabcd10409f5611c31001397e97533fb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf81d351aef45af3640f5d113eb3619911e03606
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Bir denetleyicisinden modelinizin verilerine erişme
 ====================
@@ -29,7 +29,7 @@ Bu bölümde size yeni bir MoviesController sınıf oluşturun ve bizim film ver
 
 Denetleyicileri klasörü sağ tıklatın ve yeni MoviesController olun.
 
-[![Denetleyici ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Add Controller](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Bu bizim \Controllers klasör Projemizin içinde altında yeni bir "MoviesController.cs" dosyası oluşturur. Şimdi yeni doldurulan bizim veritabanından filmler listesini almak için MovieController güncelleştirin.
 
@@ -49,7 +49,7 @@ Ekle'yi tıklatın ve sistem otomatik olarak kod için bir görünüm filmler li
 
 Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi artık denetleyicisi içinde temel bir sorgu kullanarak veritabanı veri alınır ve filmler hakkında bildiği bir görünüme veri döndürdü. Bu görünüm sonra filmler listesi boyunca döner ve veri tablosu bize oluşturur.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 İskele şablon bize için oluşturulan varsayılan bağlantıları gerekmez böylece Biz bu uygulamayla - düzenleme, Ayrıntılar ve silme işlevleri uygulama olmaz. /Movies/Index.aspx dosyasını açın ve bunları kaldırın.
 
@@ -59,7 +59,7 @@ Biz bu değişiklikleri yaptıktan sonra güncelleştirilmiş şablonu görünt�
 
 Biz bu örnek için silersiniz böylece biz gerekmez, bağlantılar oluşturuyor. Sonraki olduğu gibi biz yine de bizim Yeni Oluştur bağlantı devam edilecek! İşte uygulamamıza nasıl kaldırılır bu sütunla göründüğünü.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Şimdi sahip olduğumuz film verilerimizi, basit bir listesidir. Biz "Yeni Oluştur" bağlantısını tıklatın, bu sayfaya değil olarak ancak biz bir hata iletisi alırsınız! Şimdi oluşturmak eylem yöntemi uygulayabilirsiniz ve yeni filmler bizim veritabanında girmesini etkinleştirin.
 

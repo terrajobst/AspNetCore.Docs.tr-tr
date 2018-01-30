@@ -2,19 +2,19 @@
 title: "ASP.NET Core formlarında etiket Yardımcıları"
 author: rick-anderson
 description: "Etiket Yardımcıları formlarla kullanılan yerleşik açıklar."
-ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/working-with-forms
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/working-with-forms
+ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -143,7 +143,7 @@ Yukarıdaki kod aşağıdaki HTML oluşturur:
   <form method="post" action="/Demo/RegisterInput">
        Email:
        <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid e-mail address."
+              data-val-email="The Email Address field is not a valid email address."
               data-val-required="The Email Address field is required."
               id="Email" name="Email" value="" /> <br>
        Password:
@@ -382,7 +382,7 @@ Oluşturulan HTML (model geçerli olduğunda):
   <ul><li style="display:none"></li></ul></div>
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
-   data-val-email="The Email field is not a valid e-mail address."
+   data-val-email="The Email field is not a valid email address."
    data-val="true"> <br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
@@ -570,18 +570,12 @@ Doğru `<option>` öğesi seçilir (içeren `selected="selected"` özniteliği) 
  </form>
  ```
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Etiket Yardımcıları](tag-helpers/intro.md)
-
+* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
 * [HTML Form öğesi](https://www.w3.org/TR/html401/interact/forms.html)
-
-* [İstek doğrulama belirteci](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-
-* [Model Bağlamaları](../models/model-binding.md)
-
-* [Model doğrulama](../models/validation.md)
-
-* [Veri ek açıklamaları](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
-
-* [Kod parçacıkları bu belge için](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).
+* [İstek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [Model Bağlamaları](xref:mvc/models/model-binding)
+* [Model doğrulama](xref:mvc/models/validation)
+* [IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [Bu belge için kod parçacıkları](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)

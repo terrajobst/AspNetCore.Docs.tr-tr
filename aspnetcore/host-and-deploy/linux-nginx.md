@@ -1,20 +1,20 @@
 ---
 title: ASP.NET Core Nginx ile Linux ana bilgisayar
-description: "Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu Nginx Kurulum açıklar."
 author: rick-anderson
-ms.author: riande
+description: "Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu Nginx Kurulum açıklar."
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 08/21/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 465f1391ef4ff9492d9aed48cb32da0659ceda41
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9939e420fee41b11e709da911d4051a048e789b3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux ana bilgisayar
 
@@ -51,7 +51,7 @@ Ters proxy hizmet veren dinamik web uygulamaları için ortak bir kurulur. Ters 
 
 ### <a name="why-use-a-reverse-proxy-server"></a>Ters proxy sunucusu neden kullanılır?
 
-Kestrel, dinamik içerik ASP.NET çekirdek hizmet vermek için harikadır; Bununla birlikte, IIS, Apache veya Nginx gibi sunucuları olarak özellik zengin olarak web hizmet bölümleri değil. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTP sunucusundan SSL sonlandırma sıkıştırma gibi iş boşaltabilir. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılabilir.
+Kestrel, dinamik içerik ASP.NET çekirdek hizmet vermek için mükemmeldir. Bununla birlikte, IIS, Apache veya Nginx gibi sunucuları olarak özellik zengin olarak web hizmet yetenekleri değil. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTP sunucusundan SSL sonlandırma sıkıştırma gibi iş boşaltabilir. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılabilir.
 
 Bu kılavuzun amaçları Nginx tek bir örneğini kullanılır. HTTP sunucusu yanında aynı sunucu üzerinde çalışır. Gereksinimlerine bağlı olarak, farklı kurulum tarihte olabilir.
 

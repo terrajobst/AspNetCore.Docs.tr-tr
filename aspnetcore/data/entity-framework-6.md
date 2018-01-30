@@ -2,18 +2,18 @@
 title: "ASP.NET Çekirdeği ve Entity Framework 6 ile çalışmaya başlama"
 author: tdykstra
 description: "Bu makalede, bir ASP.NET Core uygulamada Entity Framework 6 kullanmayı gösterir."
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 02/24/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: data/entity-framework-6
-ms.openlocfilehash: 7f3c1f28c1e0b3a68db7f6f84c56b18643b56cc8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7407fe8a976978d7d5077d5e5ac6cc264565621d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core ve Entity Framework 6 ile çalışmaya başlama
 
@@ -37,7 +37,7 @@ ASP.NET Core projeniz .NET framework ve EF6 başvurmalıdır. Örneğin, *.cspro
 
 [!code-xml[](entity-framework-6/sample/MVCCore/MVCCore.csproj?range=3-9&highlight=2)]
 
-Yeni bir proje oluşturuyorsanız kullanmak **ASP.NET çekirdek Web uygulaması (.NET Framework)** şablonu.
+Yeni bir proje oluştururken **ASP.NET çekirdek Web uygulaması (.NET Framework)** şablonu.
 
 ## <a name="handle-connection-strings"></a>Bağlantı dizelerini işleme
 
@@ -91,6 +91,6 @@ Bu örnek, aşağıdaki adımlarda Visual Studio tarafından sıfırdan oluştur
 
 Bu makalede, bir ASP.NET Core uygulamada Entity Framework 6 kullanmaya yönelik temel kılavuz sağlamıştır.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Entity Framework - kod tabanlı yapılandırma](https://msdn.microsoft.com/data/jj680699.aspx)

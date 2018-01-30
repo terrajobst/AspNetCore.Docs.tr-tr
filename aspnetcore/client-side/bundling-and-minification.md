@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="bundling-and-minification"></a>Paketleme ve küçültme
 
@@ -27,7 +27,7 @@ Bu makalede paketleme ve küçültme, bu özellikler ASP.NET Core web apps ile n
 
 Paketleme ve küçültme bir web uygulamasını uygulayabilirsiniz iki ayrı performans iyileştirmelerini var. Birlikte kullanıldığında, paketleme ve küçültme sunucusu isteklerinin sayısını azaltmak ve istenen statik varlıklar boyutunun azaltılması performansı.
 
-Paketleme ve küçültme öncelikle ilk sayfa isteği yükleme süresini artırır. Bir web sayfası istenen sonra tarayıcı statik varlıklar (JavaScript, CSS ve görüntüleri) önbelleğe alır. Sonuç olarak, paketleme ve küçültme aynı sayfa veya sayfaları, aynı varlıklar isteyen aynı sitedeki isterken performansı yok. Ayarlamazsanız varlıklarınızı doğru başlığındaki süresi dolar ve paketleme ve küçültme kullanmıyorsanız, tarayıcının yenilik buluşsal yöntemler varlıklar eski birkaç gün sonra işaretleyin. Ayrıca, tarayıcı her varlık için bir doğrulama isteği gerektirir. Bu durumda, paketleme ve küçültme ilk sayfa isteği sonra bile performans geliştirmesi sağlar.
+Paketleme ve küçültme öncelikle ilk sayfa isteği yükleme süresini artırır. Bir web sayfası istenen sonra tarayıcı statik varlıklar (JavaScript, CSS ve görüntüleri) önbelleğe alır. Sonuç olarak, paketleme ve küçültme aynı sayfa veya sayfaları, aynı varlıklar isteyen aynı sitedeki isterken performansı yok. Varsa süresi üstbilgi değil doğru ayarladığınızdan varlıklar ve paketleme ve küçültme değil kullandıysanız, tarayıcının yenilik buluşsal yöntemler varlıklar eski birkaç gün sonra işaretleyin. Ayrıca, tarayıcı her varlık için bir doğrulama isteği gerektirir. Bu durumda, paketleme ve küçültme ilk sayfa isteği sonra bile performans geliştirmesi sağlar.
 
 ### <a name="bundling"></a>Paketleme
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda tek tek varlıklar yükleme ve paketleme ve küçültme kul
 Eylem | B/M ile | B/M | Değiştir
 --- | :---: | :---: | :---:
 Dosya istekleri  | 7   | 18     | 157%
-Aktarılan KB | 156 | 264.68 | 70%
+KB Transferred | 156 | 264.68 | 70%
 Yükleme süresi (ms) | 885 | 2360   | 167%
 
 Tarayıcılar HTTP istek üstbilgilerinin açısından oldukça ayrıntılıdır. Toplam bayt sayısı, paketleme, önemli ölçüde azalma ölçüm gördüğünüz gönderdi. Bu örnek yerel olarak çalıştı ancak önemli bir iyileştirme yükleme zamanını gösterir. Paketleme ve küçültme varlıklarla kullanarak bir ağ üzerinden aktarıldığında büyük performans artışı alırlar.
@@ -81,9 +81,9 @@ Yapılandırma seçenekleri şunlardır:
 * `inputFiles`: Birlikte paketlemektir dosyaları dizisi. Bu yapılandırma dosyasının göreli yollardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş bir değer sonuçlanır. [genelleme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenleri desteklenir.
 * `minify`: Çıkış türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan -`minify: { enabled: true }`*
   * Çıkış dosya türü yapılandırma seçenekleri kullanılabilir.
-    * [CSS küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [HTML küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Proje dosyası için oluşturulan dosyalar eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMap`: İle birlikte gelen dosyası için kaynak eşlemesi oluşturulup oluşturulmayacağını belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMapRootPath`: Oluşturulan kaynak eşleme dosyasını depolayan kök yolu.
@@ -220,11 +220,11 @@ Sayfalarınızda kullanarak eklemek için hangi dosyaların belirtin [ortam etik
 
 Aşağıdaki `environment` etiketi çalıştırırken işlenmemiş CSS dosyaları işler `Development` ortamı:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
@@ -232,11 +232,11 @@ Aşağıdaki `environment` etiketi çalıştırırken işlenmemiş CSS dosyalar�
 
 Aşağıdaki `environment` etiketi bir ortamda dışında çalıştırırken ile birlikte gelen ve küçültülmüş CSS dosyaları işler `Development`. Örneğin, çalışan `Production` veya `Staging` tetikler bu stil sayfaları oluşturma:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 

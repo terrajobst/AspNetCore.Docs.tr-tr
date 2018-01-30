@@ -2,18 +2,18 @@
 title: "Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri"
 author: rick-anderson
 description: 
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 12/07/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri 
 
@@ -378,12 +378,9 @@ public async Task Invoke(HttpContext httpContext)
 
 [!code-csharp[Main](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_SetCookies)]
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP işleyicileri ve HTTP modülleri genel bakış](https://docs.microsoft.com/iis/configuration/system.webserver/)
-
+* [HTTP işleyicileri ve HTTP modülleri genel bakış](/iis/configuration/system.webserver/)
 * [Yapılandırma](xref:fundamentals/configuration/index)
-
-* [Uygulama Başlatma](../fundamentals/startup.md)
-
-* [Ara Yazılım](../fundamentals/middleware.md)
+* [Uygulama Başlatma](xref:fundamentals/startup)
+* [Ara Yazılım](xref:fundamentals/middleware)

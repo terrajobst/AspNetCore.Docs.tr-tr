@@ -2,19 +2,19 @@
 title: "ASP.NET Core dizin yapısı"
 author: guardrex
 description: "Yayımlanan ASP.NET Core uygulamaları dizin yapısını bakın."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 03/15/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 27f0f40aea1c55315642d7d6f9b9d7be3e111cb4
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 55e1e0dac32609446243098dbb4a4373f06b4212
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Yayımlanan ASP.NET Core uygulamaları dizin yapısı
 
@@ -24,8 +24,8 @@ ASP.NET Core, uygulama dizini içinde *yayımlama*, uygulama dosyaları, yapıla
 
 | Uygulama türü                       | Dizin yapısı |
 | ------------------------------ | ------------------- |
-| Framework bağımlı dağıtım | <ul><li>Yayımlama\*<ul><li>Günlükleri\* (publishOptions içinde yer alan varsa)</li><li>refs\*</li><li>Çalışma zamanları\*</li><li>Görünümler\* (publishOptions içinde yer alan varsa)</li><li>wwwroot\* (publishOptions içinde yer alan varsa)</li><li>.dll dosyaları</li><li>MyApp.deps.JSON</li><li>MyApp.dll</li><li>MyApp.pdb</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.dll</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.pdb</li><li>MyApp.runtimeconfig.JSON</li><li>(publishOptions içinde yer alan varsa) web.config</li></ul></li></ul> |
-| Kendi içinde bulunan dağıtım      | <ul><li>Yayımlama\*<ul><li>Günlükleri\* (publishOptions içinde yer alan varsa)</li><li>refs\*</li><li>Görünümler\* (publishOptions içinde yer alan varsa)</li><li>wwwroot\* (publishOptions içinde yer alan varsa)</li><li>.dll dosyaları</li><li>MyApp.deps.JSON</li><li>MyApp.exe</li><li>MyApp.pdb</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.dll</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.pdb</li><li>MyApp.runtimeconfig.JSON</li><li>(publishOptions içinde yer alan varsa) web.config</li></ul></li></ul> |
+| Framework bağımlı dağıtım | <ul><li>Yayımlama\*<ul><li>Günlükleri\* (publishOptions içinde yer alan varsa)</li><li>refs\*</li><li>Çalışma zamanları\*</li><li>Görünümler\* (publishOptions içinde yer alan varsa)</li><li>wwwroot\* (publishOptions içinde yer alan varsa)</li><li>.dll dosyaları</li><li>myapp.deps.json</li><li>myapp.dll</li><li>myapp.pdb</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.dll</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.pdb</li><li>myapp.runtimeconfig.json</li><li>(publishOptions içinde yer alan varsa) web.config</li></ul></li></ul> |
+| Kendi içinde bulunan dağıtım      | <ul><li>Yayımlama\*<ul><li>Günlükleri\* (publishOptions içinde yer alan varsa)</li><li>refs\*</li><li>Görünümler\* (publishOptions içinde yer alan varsa)</li><li>wwwroot\* (publishOptions içinde yer alan varsa)</li><li>.dll dosyaları</li><li>myapp.deps.json</li><li>myapp.exe</li><li>myapp.pdb</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.dll</li><li>Uygulamam. (Razor görünümleri önceden derleme varsa) PrecompiledViews.pdb</li><li>myapp.runtimeconfig.json</li><li>(publishOptions içinde yer alan varsa) web.config</li></ul></li></ul> |
 \*Bir dizini gösterir
 
 İçeriğini *yayımlama* directory temsil eden *içerik kök yolu*, olarak da bilinir *uygulama temel yolu*, dağıtım. Hangi adı verilir *yayımlama* dağıtım dizininde, konumunda barındırılan uygulama sunucunun fiziksel yolu görür. *Wwwroot* dizini, varsa, yalnızca içeren statik varlıklar. *Günlükleri* dizin dahil edilebilir dağıtımda projede oluşturma ve ekleme `<Target>` aşağıda gösterildiği, *.csproj* dosya veya dizin fiziksel olarak oluşturma Sunucu.

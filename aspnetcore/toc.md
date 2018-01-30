@@ -28,6 +28,21 @@
 ### [Details ve Delete metotlarını inceleme](tutorials/first-mvc-app/details.md)
 
 ## [Çoklu platform öğreticileri](xref:tutorials/xplat)
+### [Mac üzerinde Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-mac/index)
+#### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Model ekleme](xref:tutorials/razor-pages-mac/model)
+#### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
+#### [SQLite ile çalışma](xref:tutorials/razor-pages-mac/sql)
+#### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-mac/da1)
+#### [Arama ekleme](xref:tutorials/razor-pages-mac/search)
+
+
+### [VS Code ile Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-vsc/index)
+#### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Model ekleme](xref:tutorials/razor-pages-vsc/model)
+#### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-vsc/page)
+#### [SQLite ile çalışma](xref:tutorials/razor-pages-vsc/sql)
+#### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-vsc/da1)
 
 ### [Mac için Visual Studio ile MVC web uygulaması](xref:tutorials/first-mvc-app-mac/index)
 #### [Başlarken](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -41,7 +56,7 @@
 #### [Doğrulama Ekleme](xref:tutorials/first-mvc-app-mac/validation)
 #### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
 
-### [Mac veya Linux üzerinde Visual Studio Code ile web uygulaması](xref:tutorials/first-mvc-app-xplat/index)
+### [Mac veya Linux Visual Studio Code ile MVC web uygulaması](xref:tutorials/first-mvc-app-xplat/index)
 #### [Başlarken](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Denetleyici ekleme](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Görünüm ekleme](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -52,15 +67,6 @@
 #### [Yeni Alan Ekleme](tutorials/first-mvc-app-xplat/new-field.md)
 #### [Doğrulama Ekleme](tutorials/first-mvc-app-xplat/validation.md)
 #### [Details ve Delete metotlarını inceleme](tutorials/first-mvc-app/details.md)
-
-
-### [Mac üzerinde Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-mac/index)
-#### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [Model ekleme](xref:tutorials/razor-pages-mac/model)
-#### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
-### [VS Code ile Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-vsc/index)
-#### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [Model ekleme](xref:tutorials/razor-pages-vsc/model)
 
 ### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
 ### [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
@@ -244,6 +250,7 @@
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Azure AD’yi bir ASP.NET Core web uygulamasıyla tümleştirme](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 #### [Azure AD B2C’yi müşteriyle yüz yüze çalışan ASP.NET Core web uygulamasıyla tümleştirme](xref:security/authentication/azure-ad-b2c)
+#### [Azure AD B2C ASP.NET Core web API ile tümleştirme](xref:security/authentication/azure-ad-b2c-webapi)
 #### [Azure AD kullanarak bir WPF uygulamasından ASP.NET Core Web API’sini çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Azure AD kullanarak bir ASP.NET Core web uygulamasında Web API’si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](https://identityserver4.readthedocs.io/)

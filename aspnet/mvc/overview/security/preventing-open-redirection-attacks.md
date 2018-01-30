@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 97e0aacbf21914bf95f01019cf4dcc9e7ca1c4be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Engelleme açık yeniden yönlendirme saldırılarına (C#)
 ====================
@@ -43,7 +43,7 @@ ReturnUrl sorgu dizesi parametresi doğrulanmamış olduğundan, bir saldırgan�
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Daha karmaşık bir açık yeniden yönlendirme saldırısı
 
-Bir saldırgan biz bizi karşı savunmasız yapan belirli bir Web uygulamasına oturum açmaya çalıştığınız bildiği için açık yeniden yönlendirme saldırılarına özellikle tehlikeli bir [kimlik avı saldırı](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Örneğin, bir saldırgan kötü amaçlı e-postalar Web sitesi kullanıcılara parolalarını yakalama girişimi gönderebilir. Nasıl bu NerdDinner sitede çalışır konumundaki bakalım. (Dinamik NerdDinner site açık yeniden yönlendirme saldırılarına karşı korumak için güncelleştirilmiş unutmayın.)
+Bir saldırgan biz bizi karşı savunmasız yapan belirli bir Web uygulamasına oturum açmaya çalıştığınız bildiği için açık yeniden yönlendirme saldırılarına özellikle tehlikeli bir [kimlik avı saldırı](https://www.microsoft.com/protect/fraud/phishing/symptoms.aspx). Örneğin, bir saldırgan kötü amaçlı e-postaları Web sitesi kullanıcılara parolalarını yakalama girişimi gönderebilir. Nasıl bu NerdDinner sitede çalışır konumundaki bakalım. (Dinamik NerdDinner site açık yeniden yönlendirme saldırılarına karşı korumak için güncelleştirilmiş unutmayın.)
 
 İlk olarak, bir saldırganın bize bir bağlantı, onların sahte sayfa yeniden yönlendirme içeren NerdDinner oturum açma sayfasında gönderir:
 
@@ -107,7 +107,7 @@ IsLocalUrl() yöntemi bulunduğundan, biz returnUrl parametreyi doğrulamak içi
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Şimdi biz açık yeniden yönlendirme saldırının dış dönüş URL'si kullanarak oturum açması deneyerek test edebilirsiniz. / Account/oturum açma kullanalım? ReturnUrl http://www.bing.com/ yeniden =.
+Şimdi biz açık yeniden yönlendirme saldırının dış dönüş URL'si kullanarak oturum açması deneyerek test edebilirsiniz. Let's use /Account/LogOn?ReturnUrl=http://www.bing.com/ again.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

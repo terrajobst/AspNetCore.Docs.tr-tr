@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 title: "Bir görünümü ekleme | Microsoft Docs"
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız."
+description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 509dd301eef7c00431eae194a0df69d70e6d80f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -77,13 +77,13 @@ Bizim değiştirilen başlıkla bütünüyle Site.Master şöyledir:
 
 Şimdi, dizin sayfasının başlığını değiştirelim.
 
-/HelloWorld/Index.aspx açın. Değiştirmek için iki yerde yoktur. İlk olarak, başlık tarayıcı, daha sonra H2 - da ikincil üstbilgisini - başlığında görüntülenir. Bunların her hangi bit kod görebilmeniz için biraz farklı uygulama hangi kısmına değişiklikler yapacağız.
+Open /HelloWorld/Index.aspx. Değiştirmek için iki yerde yoktur. İlk olarak, başlık tarayıcı, daha sonra H2 - da ikincil üstbilgisini - başlığında görüntülenir. Bunların her hangi bit kod görebilmeniz için biraz farklı uygulama hangi kısmına değişiklikler yapacağız.
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 
 Uygulamanızı çalıştırın ve /Movies ziyaret edin. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. Büyük küçük değişikliklerle birlikte, uygulamanızda görünümünüze değişiklik kolaydır.
 
-[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 Bizim az bitlik (Bu durumda "Hello World!" "veri" ileti), ancak kodlanmış sabit. Biz V (görünümler) aldınız ve biz C (denetleyicileri), ancak henüz hiçbir M (modeli) olduğuna. Size kısa süre içinde nasıl adım geçireceğiz bir veritabanı oluşturun ve model verileri alabilirsiniz.
 
@@ -116,7 +116,7 @@ Ayrıca, biz bu görünümü WelcomeViewModel hakkında söylediyse olduğundan,
 
 Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` yeniden. Veri URL'den yönlendiriyoruz artık bizim Denetleyicisi'nde otomatik olarak geçirilir, Denetleyicimizin bir ViewModel verileri paketleri ve söz konusu nesne bizim görünüm üzerine geçirir. Verileri HTML olarak kullanıcıya görüntüler daha görüntüleyin.
 
-[![Hoş Geldiniz - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![Welcome - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
 De, bir Model için bir "M" tür ancak veritabanı türü oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 

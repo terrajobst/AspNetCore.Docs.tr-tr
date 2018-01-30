@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET ASP.NET Core 2.0 geçirme"
 author: isaac2004
-description: "Bu başvuru belgesini mevcut ASP.NET MVC veya Web API uygulamaları geçirme ASP.NET Core 2.0 yönelik yönergeler sağlanmaktadır."
-ms.author: scaddie
+description: "ASP.NET Core 2.0 geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yönergeler alırsınız."
 manager: wpickett
+ms.author: scaddie
 ms.date: 08/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 2263f8e9936389cf8cf18ff0c6d1d07018650e14
-ms.sourcegitcommit: 09b342b45e7372ba9ebf17f35eee331e5a08fb26
+ms.openlocfilehash: d6050c7946aa45b4c1b878b96baa1b082d0c8f71
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
@@ -147,5 +147,6 @@ ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;
 
 **Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışmaya giriş](xref:fundamentals/static-files).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
-* [.NET Core kitaplıklara bağlantı noktası oluşturma](https://docs.microsoft.com/dotnet/core/porting/libraries)
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [.NET Core kitaplıklara bağlantı noktası oluşturma](/dotnet/core/porting/libraries)

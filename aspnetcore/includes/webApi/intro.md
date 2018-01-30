@@ -6,9 +6,9 @@ Bu öğretici aşağıdaki API oluşturur:
 |--- | ---- | ---- | ---- |
 |/Api/TODO Al | Tüm yapılacaklar öğelerini alma | Yok. | Yapılacaklar öğelerini dizisi|
 |/Api/todo / {id} Al | Bir öğe kimliği tarafından Al | Yok. | Yapılacaklar öğesi|
-|/ Api/todo sonrası | Yeni Öğe Ekle | Yapılacaklar öğesi | Yapılacaklar öğesi |
+|POST /api/todo | Yeni Öğe Ekle | Yapılacaklar öğesi | Yapılacaklar öğesi |
 |PUT /api/todo / {id} | Varolan öğeyi güncelleştir&nbsp; | Yapılacaklar öğesi | Yok. |
-|SİLME /api/todo / {id} &nbsp;&nbsp; | Bir öğeyi silmek &nbsp;&nbsp; | Yok. | Yok.|
+|DELETE /api/todo/{id} &nbsp; &nbsp; | Bir öğeyi silmek &nbsp;&nbsp; | Yok. | Yok.|
 
 <br>
 

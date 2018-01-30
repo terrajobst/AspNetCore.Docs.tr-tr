@@ -2,18 +2,18 @@
 title: "EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC"
 author: tdykstra
 description: "Bu öğretici ASP.NET Core uygulamada Entity Framework Çekirdek kullanarak veri modelindeki devralma uygulamak nasıl yapacağınızı gösterir."
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 03/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a4ae696bdd114ab9c36d1218f753fa3d515f2300
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 985cc38b10ef830b8274e40ad5f7050157fd4d86
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Devralma - EF çekirdek ASP.NET Core MVC Öğreticisi (9, 10)
 

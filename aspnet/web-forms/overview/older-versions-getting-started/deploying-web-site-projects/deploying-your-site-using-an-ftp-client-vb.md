@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 862f07defafb2d2613fef9f76f13aab0b11c5440
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7792891aed6f0c5e952018dacb36a1d267cb6ae0
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-vb"></a>Bir FTP istemcisi (VB) kullanarak sitenizi dağıtma
 ====================
@@ -48,7 +48,7 @@ Geri çağırma kitap gözden geçirme web uygulamasının iki sürümü vardır
 
 Giderek BookReviewsWAP proje başlatma `BookReviewsWAP` klasörü ve çift `BookReviewsWAP.sln` dosya. Proje dağıtmadan önce bu değişiklikler kaynak koduna derlenmiş derlemesinde bulunan emin olmak için yapı önemlidir. Projeyi derlemek için derleme menüsüne gidin ve yapı BookReviewsWAP menü seçeneğini belirleyin. Bu projenin kaynak kodda tek bir derleme derler `BookReviewsWAP.dll`, içinde yerleştirilen `Bin` klasör.
 
-Biz artık gerekli dosyaları dağıtmak hazırsınız! FTP istemcisi başlatın ve web ana bilgisayar Sağlayıcınızdaki web sunucusuna bağlanın. (Bir web sitesi barındırma şirketi ile oturum açtığınızda, FTP sunucusuna bağlanma hakkında bilgi e; bu FTP sunucusu olarak bir kullanıcı adı ve parola adresini içerir.)
+Biz artık gerekli dosyaları dağıtmak hazırsınız! FTP istemcisi başlatın ve web ana bilgisayar Sağlayıcınızdaki web sunucusuna bağlanın. (Bir web sitesi barındırma şirketi ile oturum açtığınızda bunlar, FTP sunucusuna bağlanma hakkında bilgi e-posta gönderir; bu FTP sunucusu olarak bir kullanıcı adı ve parola adresini içerir.)
 
 Aşağıdaki dosyaları masaüstünüzden web ana bilgisayar Sağlayıcınızdaki kök Web sitesi klasörüne kopyalayın. Web sunucusuna FTP web adresindeki sağlayıcı barındırıyorsanız, kök Web sitesi dizininde olasıdır. Ancak, bazı web ana bilgisayar sağlayıcıları adlı bir alt olan `www` veya `wwwroot` , Web sitesi dosyalarınızı için kök klasör olarak görev yapar. Son olarak, dosyaların FTPing olduğunda, üretim ortamına - karşılık gelen klasör yapısını oluşturmak gerekebilir `Bin` klasörünü `Fiction` klasörü `Images` klasörü ve benzeri.
 

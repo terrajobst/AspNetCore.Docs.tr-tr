@@ -2,18 +2,18 @@
 title: "' De ASP.NET Core 1.1 yenilikler nelerdir?"
 author: rick-anderson
 description: "' De ASP.NET Core 1.1 yenilikler nelerdir?"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: aspnetcore-1.1
-ms.openlocfilehash: 56260241cd42eeb98b47277cd3f8a139a2a2fe50
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d4cf180f283c3ac0a2151ff452aac4a1c607bcc6
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>' De ASP.NET Core 1.1 yenilikler nelerdir?
 
@@ -37,4 +37,4 @@ ASP.NET Core 1.1 1.0 daha fazla özelliğe sahiptir. Genel olarak, en son sürü
 ## <a name="additional-information"></a>Ek Bilgiler
 
 - [ASP.NET Core 1.1.0 sürüm notları](https://github.com/aspnet/Home/releases/tag/1.1.0)
-- ASP.NET Core geliştirme takımın ilerleme durumunu ve planları ile bağlanmak istiyorsanız, haftalık olarak ayarlamak [ASP.NET topluluk Standup](https://live.asp.net/).
+- ASP.NET Core geliştirme takımın ilerleme durumunu ve planları ile bağlanmak için ince ayar [ASP.NET topluluk Standup](https://live.asp.net/).

@@ -2,18 +2,18 @@
 title: "ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme"
 author: guardrex
 description: "LoggerMessage özelliklerinin Günlükçü genişletme yöntemleri daha az nesne ayırmaları yüksek performans günlük kaydı senaryoları için gerekli alınabilir temsilciler oluşturmak için nasıl kullanılacağını öğrenin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 11/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: defba75c6c9ea13d24af4cd8515d82d9e7cf9853
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
@@ -92,7 +92,7 @@ Bir teklif eklemek için statik genişletme yöntemi `QuoteAdded`, teklif bağı
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
-Dizin sayfasının arka plan kod dosyasına (*Pages/Index.cshtml.cs*), `QuoteAdded` ileti günlüğe kaydetmek üzere çağrılır:
+Dizin sayfasının sayfa modelinde (*Pages/Index.cshtml.cs*), `QuoteAdded` ileti günlüğe kaydetmek üzere çağrılır:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
@@ -114,7 +114,7 @@ info: LoggerMessageSample.Pages.IndexModel[2]
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
-Dizin Sayfası kod arkasında, başarılı teklif silme işlemini çağırır `QuoteDeleted` Günlükçü yöntemi. Bir teklif silinmek üzere bulunamadığında olduğunda bir `ArgumentNullException` oluşturulur. Özel durum tarafından yakalanan `try` &ndash; `catch` deyimi ve çağırarak günlüğe `QuoteDeleteFailed` Günlükçü yöntemi `catch` blok (*Pages/Index.cshtml.cs*):
+Dizin Sayfası sayfa modelinde başarılı teklif silme işlemini çağırır `QuoteDeleted` Günlükçü yöntemi. Bir teklif silinmek üzere bulunamadığında olduğunda bir `ArgumentNullException` oluşturulur. Özel durum tarafından yakalanan `try` &ndash; `catch` deyimi ve çağırarak günlüğe `QuoteDeleteFailed` Günlükçü yöntemi `catch` blok (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 

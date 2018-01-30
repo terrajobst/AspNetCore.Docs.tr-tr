@@ -2,19 +2,19 @@
 title: ASP.NET Core oturum ve uygulama durumu
 author: rick-anderson
 description: "Koruma uygulama ve kullanıcı (oturum) durumunu yaklaşımları istekler arasında."
-ms.author: riande
 manager: wpickett
-ms.date: 11/27/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/app-state
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00960370fbe87ac0f81f8455526221fa992decd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 11/27/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/app-state
+ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumunda giriş
 
@@ -28,7 +28,7 @@ Oturum durumunu kaydetmek ve kullanıcı web uygulamanızı gözatar sırasında
 
 ASP.NET Core her istek ile sunucuya gönderilen oturum kimliği içeren bir tanımlama bilgisi istemci vererek oturum durumunu korur. Sunucu, oturum verilerini almak için oturum kimliği kullanır. Oturum tanımlama bilgisi tarayıcıya özgü olduğundan, tarayıcılar arasında oturumları paylaşamaz. Yalnızca tarayıcı oturumu sona erdiğinde oturum tanımlama bilgileri silinir. Süresi dolmuş bir oturum için bir tanımlama bilgisi alınmazsa, aynı oturum tanımlama bilgisi kullanan yeni bir oturum oluşturulur. 
 
-Sunucunun son istekten sonra sınırlı bir süre için bir oturum korur. Oturum zaman aşımını ayarlamanız veya 20 dakikalık varsayılan değeri kullanın. Oturum durumu, belirli bir oturuma özeldir, ancak kalıcı olarak kalıcı olmasını gerektirmez kullanıcı verilerini depolamak için idealdir. Veri silindiğinden yedekleme depolama alanından ya da çağırdığınızda `Session.Clear` veya oturum veri deposunda ne zaman sona erer. Sunucu, tarayıcı kapatıldığında veya oturum tanımlama bilgisi silindiğinde bilmiyor.
+Sunucunun son istekten sonra sınırlı bir süre için bir oturum korur. Oturum zaman aşımını ayarlamanız veya 20 dakikalık varsayılan değeri kullanın. Oturum durumu, belirli bir oturuma özeldir, ancak kalıcı olarak kalıcı olmasını gerektirmez kullanıcı verilerini depolamak için idealdir. Veri silindiğinden yedekleme depolama alanından ya da çağrılırken `Session.Clear` veya oturum veri deposunda ne zaman sona erer. Sunucu, tarayıcı kapatıldığında veya oturum tanımlama bilgisi silindiğinde bilmiyor.
 
 > [!WARNING]
 > Hassas verileri oturumunda depolamayın. İstemci değil Tarayıcıyı kapatın ve oturum tanımlama bilgisi temizleyin (ve bazı tarayıcılar oturum tanımlama bilgileri windows Canlı). Ayrıca, bir oturum için tek bir kullanıcı kısıtlı olmayabilir; sonraki kullanıcı ile aynı oturumu devam edebilir.
@@ -281,9 +281,7 @@ Birisi bir alışveriş sepeti oturumunda depolar. Kullanıcı bir öğe ekler, 
 
 Bu tür hataları denetlemek için önerilen yol çağırmaktır `await feature.Session.CommitAsync();` tamamladığınızda uygulama kodundan oturuma yazma. Sonra şu hata ile şeyleri yapabilirsiniz. Çağrılırken aynı şekilde çalışır `LoadAsync`.
 
-
-### <a name="additional-resources"></a>Ek Kaynaklar
-
+### <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET Core 1.x: Bu belgede kullanılan kod örneği](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSession)
 * [ASP.NET Core 2.x: Bu belgede kullanılan kod örneği](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/sample/src/WebAppSessionDotNetCore2.0App)

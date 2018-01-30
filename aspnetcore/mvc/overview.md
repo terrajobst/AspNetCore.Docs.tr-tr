@@ -2,18 +2,18 @@
 title: "ASP.NET Core MVC’ye Genel Bakış"
 author: ardalis
 description: "ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/08/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 3c3279e7d25704f5e70bbd83cf9feebda8319203
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -29,7 +29,7 @@ Aşağıdaki diyagramda üç ana bileşeni gösterir ve hangilerinin diğer baş
 
 ![MVC Pattern](overview/_static/mvc.png)
 
-Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve bir şey (model, görünüm veya denetleyicisi) tek bir işin test etmeyi daha kolay olduğundan ölçek yardımcı olur (ve izleyen [tek sorumluluk İlkesi ](http://deviq.com/single-responsibility-principle/)). Bu güncelleştirme, test ve iki veya daha fazla üç bu alanlar arasında yayılan bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kodu ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştirdiğinizde iş mantığı içeren bir nesne değiştirmeniz gerekir. Bu, hatalara ve her en az kullanıcı arabirimi değiştirdikten sonra tüm iş mantığını retesting gerektiren olasılığı yüksektir.
+Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve bir şey (model, görünüm veya denetleyicisi) tek bir işin test etmeyi daha kolay olduğundan ölçek yardımcı olur (ve izleyen [tek sorumluluk İlkesi ](http://deviq.com/single-responsibility-principle/)). Bu güncelleştirme, test ve iki veya daha fazla üç bu alanlar arasında yayılan bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kodu ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştiğinde iş mantığı içeren bir nesne değiştirilmesi gerekir. Bu genellikle hataları tanıtır ve iş mantığını her en az kullanıcı arabirimi değişiklikten sonra retesting gerektirir.
 
 > [!NOTE]
 > Görünüm ve denetleyici modeline bağlı olarak değişir. Ancak, model, görünüm ne denetleyicisi bağlıdır. Bu, avantajları ayırma biridir. Bu ayrım oluşturulur ve test modeli görsel sunumu bağımsız olanak sağlar.

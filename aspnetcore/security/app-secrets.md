@@ -2,18 +2,18 @@
 title: "ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama"
 author: rick-anderson
 description: "Gizli geliştirme sırasında güvenli bir şekilde depolamak nasıl gösterir"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/15/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 94356cef7a0333f0faac6420b1b5425920b99deb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama
 
@@ -124,6 +124,6 @@ Değeri `userSecretsId` içinde belirtilen değerle geldiği *.csproj* dosya.
 
 Bu uygulama ayrıntılarını değişebilir gibi konumu veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kodu yazmaya döndürmemelidir. Örneğin, gizli şu anda değerlerdir *değil* bugün şifrelenir, ancak gün olabilir.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Yapılandırma](xref:fundamentals/configuration/index)

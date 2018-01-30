@@ -2,18 +2,18 @@
 title: "ASP.NET Core Microsoft.AspNetCore.All metapackage 2.x ve sonraki sürümler"
 author: Rick-Anderson
 description: "Microsoft.AspNetCore.All metapackage bağımlılıklarını yanı sıra tüm desteklenen ASP.NET Core ve Entity Framework Çekirdek paketleri içerir."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/metapackage
-ms.openlocfilehash: 8a44ee7ebb7e6b0112000429f1f080bceb7dc895
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 07220fdae299723088fa85e452cedff5e5685bd7
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 #<a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>ASP.NET Core Microsoft.AspNetCore.All metapackage 2.x
 

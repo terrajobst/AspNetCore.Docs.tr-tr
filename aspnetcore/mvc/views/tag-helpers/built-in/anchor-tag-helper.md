@@ -1,19 +1,19 @@
 ---
-title: "Bağlantı etiketi Yardımcısı | Microsoft Docs"
+title: "ASP.NET Core yer işareti etiketi yok"
 author: pkellner
 description: "Yer işareti etiketi Yardımcısı ile çalışmaya nasıl gösterir"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/20/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 404fc7bc3b35114066f035e1ac28d10a8279ccbc
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="anchor-tag-helper"></a>Yer işareti etiketi Yardımcısı
 

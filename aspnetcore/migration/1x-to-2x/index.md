@@ -2,18 +2,18 @@
 title: "ASP.NET çekirdek geçirme 1.x 2.0"
 author: scottaddie
 description: "Bu makalede, bir ASP.NET Core 1.x proje için ASP.NET Core 2.0 geçirme en yaygın adımları ve önkoşullar özetlenmektedir."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 2ab6d72ca57332eb25435a144d77ea43203a7b4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>ASP.NET çekirdek geçirme 1.x ASP.NET Core 2.0 için
 
@@ -146,7 +146,7 @@ Aşağıdaki 1.x çekirdek başlatma kodda göz önünde bulundurun `Configure` 
 
 <a name="view-compilation"></a>
 
-## <a name="review-your-razor-view-compilation-setting"></a>Razor görünüm derleme ayarları gözden geçirin
+## <a name="review-razor-view-compilation-setting"></a>Razor görünüm derleme ayarları gözden geçirin
 Daha hızlı uygulama başlangıç zamanı ve daha küçük yayımlanan paket sizin için utmost öneme sahip değildir. Bu nedenlerle, [Razor görünüm derleme](xref:mvc/views/view-compilation) ASP.NET Core 2.0 varsayılan olarak etkindir.
 
 Ayarı `MvcRazorCompileOnPublish` true özelliktir artık gerekli. Öğesinden Görünüm derleme devre dışı bırakma sürece özellik kaldırılabilir *.csproj* dosya.
@@ -157,7 +157,7 @@ Ayarı `MvcRazorCompileOnPublish` true özelliktir artık gerekli. Öğesinden G
 
 <a name="app-insights"></a>
 
-## <a name="rely-on-application-insights-light-up-features"></a>Application Insights "Işık li" özellikleri kullanır
+## <a name="rely-on-application-insights-light-up-features"></a>Application Insights "ışık li" özellikleri kullanır
 Uygulama performansı izleme zahmetsiz Kurulumu önemlidir. Şimdi yeni güvenebilirsiniz [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) "ışık li" özellikleri Visual Studio 2017 araç oluşturmada kullanılabilir.
 
 Visual Studio 2017 içinde oluşturulan ASP.NET Core 1.1 projeleri, varsayılan olarak Application Insights eklendi. Application Insights SDK'sı, doğrudan kullanmıyorsanız dışında *Program.cs* ve *haline*, şu adımları izleyin:
@@ -178,8 +178,9 @@ Application Insights SDK'sı doğrudan kullanıyorsanız, bunu yapmak devam edin
 
 <a name="auth-and-identity"></a>
 
-## <a name="adopt-authentication--identity-improvements"></a>Kimlik doğrulama benimsemeyi / kimlik geliştirmeleri
+## <a name="adopt-authenticationidentity-improvements"></a>Kimlik doğrulamasının iyileştirmeler benimsemeyi
 ASP.NET Core 2.0 yeni bir kimlik doğrulama modeli ve ASP.NET Core kimliği önemli bir değişiklik sayısı vardır. Projenizi etkin bireysel kullanıcı hesapları ile oluşturulan ya da kimlik doğrulama ve kimlik, el ile eklediyseniz bkz [geçirme kimlik doğrulaması ve ASP.NET Core 2.0 kimliğine](xref:migration/1x-to-2x/identity-2x).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
-- [ASP.NET Core 2.0 yeni değişiklikler](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [ASP.NET Core 2.0 yeni değişiklikler](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)

@@ -2,25 +2,27 @@
 title: "Azure Active Directory B2C ile bulut kimlik doğrulaması"
 author: camsoper
 description: "ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur."
-ms.author: casoper
 manager: wpickett
-ms.date: 01/12/2018
+ms.date: 01/25/2018
 ms.topic: tutorial
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-custom: mvc
-ms.openlocfilehash: 5c4716022c61e33b0301fa0077f911dcc4b3628c
-ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
+ms.openlocfilehash: d60698b5798e837a5946dbe158a647aae9e149d4
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Azure Active Directory B2C ile bulut kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü web ve mobil uygulamaları için. Hizmet Bulut ve şirket içi barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri şunlardır federe Kurumsal hesaplar ve bireysel hesaplar, sosyal ağ hesaplarını içerir.  Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü web ve mobil uygulamaları için. Hizmet Bulut ve şirket içi barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri şunlardır federe Kurumsal hesaplar ve bireysel hesaplar, sosyal ağ hesaplarını içerir. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
+
+> [!TIP]
+> Azure Active Directory (Azure AD) Azure AD B2C ayrı ürün teklifleri şunlardır. Azure AD kiracısı Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Bu öğreticide, bilgi nasıl yapılır:
 
@@ -34,7 +36,7 @@ Bu öğreticide, bilgi nasıl yapılır:
 
 Bu kılavuz için aşağıdakiler gereklidir:
 
-* [Microsoft Azure aboneliği](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+* [Microsoft Azure aboneliği](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (herhangi bir sürümünü)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C kiracısı oluşturma
@@ -49,7 +51,7 @@ Aşağıdaki değerleri kullanın:
 
 | Ayar                       | Değer                     | Notlar                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ad**                      | *\<Uygulama adı\>*            | Girin bir **adı** uygulamanızı tüketicilere tanımlar uygulaması.                                                                                                                                 |
+| **Ad**                      | *&lt;Uygulama adı&gt;*        | Girin bir **adı** uygulamanızı tüketicilere tanımlar uygulaması.                                                                                                                                 |
 | **Web uygulaması eklemek veya web API'si** | Evet                       |                                                                                                                                                                                                    |
 | **Örtük akış izin ver**       | Evet                       |                                                                                                                                                                                                    |
 | **Yanıt URL'si**                 | `https://localhost:44300` | Yanıt URL'leri Azure AD B2C uygulamanızı istekleri herhangi bir belirtece döndüğü noktalarıdır. Visual Studio kullanmak üzere yanıt URL'si sağlar. Şimdilik, girin `https://localhost:44300` formu tamamlamak için. |
@@ -59,7 +61,7 @@ Aşağıdaki değerleri kullanın:
 > [!WARNING]
 > Localhost olmayan yanıt URL'si ayarlanırken farkında olması durumunda [yanıt URL listesinde izin verilen kısıtlamaları](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
 
-Uygulama kaydedildikten sonra Kiracı uygulamaların listesi görüntülenir. Yalnızca kayıtlı uygulamayı seçin. Seçin **kopya** simgesine sağ tarafındaki **uygulama kimliği** uygulama kimliği panoya kopyalamak için alana.
+Uygulama kaydedildikten sonra Kiracı uygulamaların listesi görüntülenir. Yalnızca kayıtlı uygulamayı seçin. Seçin **kopya** simgesine sağ tarafındaki **uygulama kimliği** panoya kopyalamak için alana.
 
 Hiçbir şey daha şu anda Azure AD B2C kiracısı'nda yapılandırılabilir, ancak tarayıcı penceresini açık bırakın. ASP.NET Core uygulama oluşturulduktan sonra daha fazla yapılandırma yoktur.
 
@@ -81,15 +83,15 @@ In Visual Studio:
 
 5. Formu aşağıdaki değerlerle doldurun:
     
-    | Ayar                       | Değer                                             |
-    |-------------------------------|---------------------------------------------------|
-    | **Etki alanı adı**               | *\<B2C kiracınızın etki alanı adı\>*          |
-    | **Uygulama Kimliği**            | *\<Uygulama Kimliği panodan yapıştırın\>* |
-    | **Geri arama yolu**             | *\<Varsayılan değeri kullanın\>*                       |
-    | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                    |
-    | **Parola İlkesi Sıfırla**     | `B2C_1_SSPR`                                      |
-    | **Profil ilkesini Düzenle**       | *\<boş bırakın\>*                                 |
-
+    | Ayar                       | Değer                                                 |
+    |-------------------------------|-------------------------------------------------------|
+    | **Etki alanı adı**               | *&lt;B2C kiracınızın etki alanı adı&gt;*          |
+    | **Uygulama Kimliği**            | *&lt;Uygulama Kimliği panodan yapıştırın&gt;* |
+    | **Geri arama yolu**             | *&lt;Varsayılan değeri kullanın&gt;*                       |
+    | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                        |
+    | **Parola İlkesi Sıfırla**     | `B2C_1_SSPR`                                          |
+    | **Profil ilkesini Düzenle**       | *&lt;boş bırakın&gt;*                                 |
+    
     Seçin **kopya** bağlantısına **yanıt URI'si** yanıt URI'si panoya kopyalamak için. Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 
 ## <a name="finish-the-b2c-app-registration"></a>B2C uygulaması kaydı tamamlamak
@@ -137,3 +139,5 @@ ASP.NET Core uygulama Azure AD B2C kimlik doğrulaması için kullanmak üzere y
 * [Çok faktörlü kimlik doğrulamasını etkinleştir](/azure/active-directory-b2c/active-directory-b2c-reference-mfa).
 * Ek kimlik sağlayıcıları gibi yapılandırmadan [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [Twitter ](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)ve diğerleri.
 * [Azure AD grafik API'sini kullanın](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) Azure AD B2C kiracısı grup üyeliği gibi ek kullanıcı bilgileri alınamadı.
+* [Bir ASP.NET Core Azure AD B2C kullanarak web API'SİNİN güvenliğini](xref:security/authentication/azure-ad-b2c-api).
+* [Azure AD B2C kullanarak .NET web uygulamasından .NET web API'si çağırma](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 title: "Model için doğrulama ekleme | Microsoft Docs"
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız."
+description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 25c939bc8121589f91914e553d56e8f0975115b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5616c3c3bc77be0a770540d04cc2ae48ba9eedff
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-validation-to-the-model"></a>Model için doğrulama ekleme
 ====================
@@ -68,7 +68,7 @@ IDE içinde gösterilen kod aşağıdaki gibidir.
 
 Uygulamanızı çalıştırın ve /Movies/Create tekrar ziyaret edin ve herhangi bir veri girmeden Oluştur'u tıklatın. Hata iletileri hemen biz veri gönderme ile ilişkilendirmek flash sayfa olmadan sunucuya geriye görünür. ASP.NET MVC, artık hem giriş (JavaScript kullanarak) istemci doğruluyor olduğundan ve sunucuda budur.
 
-[![Oluşturma - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
+[![Create - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
 İyi arıyor! Artık ek bir sütun veritabanına ekleyelim.
 

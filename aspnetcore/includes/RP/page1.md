@@ -105,9 +105,9 @@ Aşağıdaki bağlantı öğesinde Bul *Pages/_Layout.cshtml* dosya.
 
 Yaptığınız değişiklikleri kaydedin ve uygulamayı tıklayarak test **RpMovie** bağlantı. Bkz: [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) GitHub dosyasında.
 
-### <a name="the-create-code-behind-page"></a>Oluştur arka plan kod sayfası
+### <a name="the-create-page-model"></a>Oluştur sayfası modeli
 
-İncelemek *Pages/Movies/Create.cshtml.cs* arka plan kod dosyası:
+İncelemek *Pages/Movies/Create.cshtml.cs* sayfa modeli:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

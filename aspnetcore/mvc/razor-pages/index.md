@@ -2,18 +2,18 @@
 title: "ASP.NET Core Razor sayfalarında giriş"
 author: Rick-Anderson
 description: "Razor sayfalarında ASP.NET Core Öğreticisi. MVC çekirdek, ASP.NET Core içerir 2.x, web geliştirme ve Visual Studio 2017 giriş. Bu belge sayfası odaklı senaryoları geliştirme kolaylığı için ASP.NET Core Razor sayfalarını kullanarak genel bir bakış sağlar."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c16959189448337b12dc4902300516b25c200eee
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -76,7 +76,7 @@ Benzer bir sayfa, kullanarak bir `PageModel` sınıfında, aşağıdaki iki dosy
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
-*Pages/Index2.cshtml.cs* "arka plan kod" dosyası:
+*Pages/Index2.cshtml.cs* sayfa modeli:
 
 [!code-cs[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml.cs)]
 
@@ -116,7 +116,7 @@ Db bağlamı:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml)]
 
-*Pages/Create.cshtml.cs* görünümü için arka plan kod dosyası:
+*Pages/Create.cshtml.cs* sayfa modeli:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
@@ -332,7 +332,7 @@ Aşağıdaki biçimlendirmede *Pages/Customers/Index.cshtml* dosyasını değeri
 <h3>Msg: @Model.Message</h3>
 ```
 
-*Pages/Customers/Index.cshtml.cs* arka plan kod dosyasının geçerli `[TempData]` özniteliğini `Message` özelliği.
+*Pages/Customers/Index.cshtml.cs* sayfa modeli uygular `[TempData]` özniteliğini `Message` özelliği.
 
 ```cs
 [TempData]
@@ -352,7 +352,7 @@ Bkz: [TempData](xref:fundamentals/app-state#temp) daha fazla bilgi için.
 
 Önceki örnekte form iki düğmeleri, her kullanarak gönderme sahip `FormActionTagHelper` farklı bir URL'ye göndermek için. `asp-page-handler` Özniteliği için bir yardımcı olan `asp-page`. `asp-page-handler`bir sayfa tarafından tanımlanan işleyici yöntemlerin her biri için gönderme URL'leri oluşturur. `asp-page`Örnek geçerli sayfasına bağlantılandırma çünkü belirtilmedi.
 
-Arka plan kod dosyası:
+Sayfa modeli:
 
 [!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml.cs?highlight=20,32)]
 

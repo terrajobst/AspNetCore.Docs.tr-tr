@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f2c7b1324e75584a80530620eea94d4ecd7a7044
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5a4d2e3468c9b7db5d3acf9f59fc13a6b791497
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>İşlenmeyen özel durumlar (VB) işleme
 ====================
@@ -90,7 +90,7 @@ Böylece bu hata günlüğü ve bildirim kendiniz yapılandırmak gerekmez sonra
 
 Üretim ortamında işlenmeyen bir özel durum oluştuğunda hata değerlendirmek ve eylem yapılması gerektiğini belirlemek ve geliştirme ekibi uyarı önemlidir. Örneğin, varsa, çift gerekir sonra veritabanına bağlanırken bir hata bağlantı dizenizi denetleyin ve, belki de bir destek bileti web şirket barındırma ile açın. Özel bir programlama hatası nedeniyle oluştuysa, ek kod veya doğrulama mantığını gibi hataları gelecekte oluşmasını engellemek için eklenmesi gerekebilir.
 
-.NET Framework sınıfları [ `System.Net.Mail` ad alanı](https://msdn.microsoft.com/library/system.net.mail.aspx) bir e-posta göndermek kolaylaştırır. [ `MailMessage` Sınıfı](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) e-posta iletisine temsil eder ve benzer özelliklere sahip `To`, `From`, `Subject`, `Body`, ve `Attachments`. `SmtpClass` Göndermek için kullanılan bir `MailMessage` SMTP sunucu ayarlarını program aracılığıyla veya bildirimli olarak belirtilebilir; belirtilen bir SMTP sunucusu kullanarak nesne [ `<system.net>` öğesi](https://msdn.microsoft.com/library/6484zdc1.aspx) içinde `Web.config file`. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri my makalesine göz atın [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)ve [System.Net.Mail SSS](http://systemnetmail.com/).
+.NET Framework sınıfları [ `System.Net.Mail` ad alanı](https://msdn.microsoft.com/library/system.net.mail.aspx) bir e-posta göndermek kolaylaştırır. [ `MailMessage` Sınıfı](https://msdn.microsoft.com/library/system.net.mail.mailmessage.aspx) bir e-posta iletisini temsil eder ve benzer özelliklere sahip `To`, `From`, `Subject`, `Body`, ve `Attachments`. `SmtpClass` Göndermek için kullanılan bir `MailMessage` SMTP sunucu ayarlarını program aracılığıyla veya bildirimli olarak belirtilebilir; belirtilen bir SMTP sunucusu kullanarak nesne [ `<system.net>` öğesi](https://msdn.microsoft.com/library/6484zdc1.aspx) içinde `Web.config file`. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri my makalesine göz atın [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)ve [System.Net.Mail SSS](http://systemnetmail.com/).
 
 > [!NOTE]
 > `<system.net>` Öğesi tarafından kullanılan SMTP sunucusu ayarlarını içeren `SmtpClient` bir e-posta gönderirken, sınıf. Şirket büyük olasılıkla barındırma web uygulamanızdan e-posta göndermek için kullanabileceğiniz bir SMTP sunucusu vardır. Web uygulamanızda kullanması gereken SMTP sunucusu ayarları hakkında bilgi için web ana bilgisayarın destek bölümüne bakın.
@@ -107,7 +107,7 @@ Ardından, bir `MailMessage` adlı nesne `mm` oluşturulur. E-posta gövdesi HTM
 Son adım göndermektir `MailMessage`. Bu yeni bir oluşturarak yapılır `SmtpClient` yöntemi ve çağırma kendi `Send` yöntemi.
 
 > [!NOTE]
-> Bu kod, web uygulamanızda kullanmadan önce değerleri değiştirmek istersiniz `ToAddress` ve `FromAddress` arasındaki sabitleri support@example.com hangi e-posta adresine hata bildirim e-posta gönderilmesi gereken ve kaynaklanan. SMTP sunucusu ayarlarını belirtmek gerekir `<system.net>` bölümüne `Web.config`. Kullanmak için SMTP sunucusu ayarlarını belirlemek için web ana bilgisayar sağlayıcınıza başvurun.
+> Bu kod, web uygulamanızda kullanmadan önce değerleri değiştirmek istersiniz `ToAddress` ve `FromAddress` arasındaki sabitleri support@example.com seçtiğiniz e-posta adresi hatası bildirim e-posta gönderilmesi gereken ve kaynaklanan. SMTP sunucusu ayarlarını belirtmek gerekir `<system.net>` bölümüne `Web.config`. Kullanmak için SMTP sunucusu ayarlarını belirlemek için web ana bilgisayar sağlayıcınıza başvurun.
 
 
 Bu kod yerinde Geliştirici var. zaman hata hata özetler ve YSOD içeren bir e-posta iletisi gönderilir. Önceki öğreticide şu çalışma zamanı hatası Genre.aspx ziyaret edip geçersiz bir geçirme tarafından gösterilen `ID` querystring gibi değer `Genre.aspx?ID=foo`. İle sayfasını ziyaret `Global.asax` dosyayı yerinde önceki öğreticide - geliştirme ortamında üretim ortamında artıracaksınız sırasında özel durum ayrıntıları sarı ekran, ölüm, görmeye devam gibi aynı kullanıcı deneyimini üretir Özel Hata sayfasına bakın. Var olan bu davranışa ek olarak, geliştirici bir e-posta gönderilir.
@@ -147,7 +147,7 @@ Ancak, hatanın nedeni aynı istek sırasında çalıştırılan özel hata sayf
 
 ## <a name="summary"></a>Özet
 
-Bir ASP.NET web uygulamasında işlenmeyen bir özel durum oluştuğunda ASP.NET çalışma zamanı başlatır `Error` olay ve yapılandırılmış hata sayfasını görüntüler. Hata Geliştirici bildirmemizi ayrıntılarını oturum veya hata olayı için bir olay işleyicisi oluşturarak bazı diğer biçimde işlenemedi. Bir olay işleyicisi oluşturmanın iki yolu vardır `HttpApplication` olayları ister `Error`: içinde `Global.asax` dosya veya HTTP modülü. Bu öğreticide gösterilen nasıl oluşturulacağı bir `Error` olay işleyicisini `Global.asax` hata geliştiricileri e-posta iletisine yoluyla uyarır dosya.
+Bir ASP.NET web uygulamasında işlenmeyen bir özel durum oluştuğunda ASP.NET çalışma zamanı başlatır `Error` olay ve yapılandırılmış hata sayfasını görüntüler. Hata Geliştirici bildirmemizi ayrıntılarını oturum veya hata olayı için bir olay işleyicisi oluşturarak bazı diğer biçimde işlenemedi. Bir olay işleyicisi oluşturmanın iki yolu vardır `HttpApplication` olayları ister `Error`: içinde `Global.asax` dosya veya HTTP modülü. Bu öğreticide gösterilen nasıl oluşturulacağı bir `Error` olay işleyicisini `Global.asax` hata geliştiricileri bir e-posta yoluyla uyarır dosya.
 
 Oluşturma bir `Error` olay işleyicisi, bazı benzersiz veya özelleştirilmiş şekilde işlenmeyen özel durumları işlemek gerekiyorsa yararlıdır. Bununla birlikte, kendi oluşturmak `Error` olay işleyicisi özel durumu günlüğe kaydetmek için veya bir geliştirici bildirmek için değil zamanınızı en etkili şekilde kullanımına zaten var gibi ayarlanabilir birkaç dakika içinde ücretsiz ve kullanımı kolay hata günlüğü kitaplıkları. Sonraki iki öğreticileri iki tür kitaplıklarını inceleyin.
 

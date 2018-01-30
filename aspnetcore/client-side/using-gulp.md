@@ -2,19 +2,19 @@
 title: "ASP.NET çekirdek Gulp kullanma"
 author: rick-anderson
 description: "ASP.NET Core Gulp kullanmayı öğrenin."
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanmaya giriş 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 Yukarıdaki kod düğümü modüllerine gerekli olduğunu belirtir. `require` İşlevi bağımlı görevler özelliklerine kullanabilir, böylece her modül içeri aktarır. Her içe aktarılmış modüllerin bir değişkene atanır. Modüller, adı veya yolu bulunabilir. Bu örnekte, modüller adlı `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, ve `gulp-uglify` adıyla alınır. Ayrıca, yolları bir dizi oluşturulur; böylece CSS ve JavaScript dosyaları konumlarını yeniden ve görevlerde başvurulan. Aşağıdaki tabloda bulunan modülleri açıklanmakta *gulpfile.js*.
 
-|Modül adı|Açıklama|
-|---|---|
-|gulp|Derleme Sistemi akış Gulp. Daha fazla bilgi için bkz: [gulp](https://www.npmjs.com/package/gulp).|
-|rimraf|Bir düğüm silme modülü. Daha fazla bilgi için bkz: [rimraf](https://www.npmjs.com/package/rimraf).|
-|concat gulp|İşletim sisteminin yeni satır karakteri bağlı olarak dosyaları art arda ekler modül. Daha fazla bilgi için bkz: [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp cssmin|CSS dosyaları küçültür modül. Daha fazla bilgi için bkz: [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
-|gulp uglify|Küçültür bir modül *.js* dosyaları. Daha fazla bilgi için bkz: [gulp uglify](https://www.npmjs.com/package/gulp-uglify).|
+| Modül adı | Açıklama |
+| ----------- | ----------- |
+| gulp        | Derleme Sistemi akış Gulp. Daha fazla bilgi için bkz: [gulp](https://www.npmjs.com/package/gulp). |
+| rimraf      | Bir düğüm silme modülü. Daha fazla bilgi için bkz: [rimraf](https://www.npmjs.com/package/rimraf). |
+| concat gulp | İşletim sisteminin yeni satır karakteri bağlı olarak dosyaları art arda ekler modül. Daha fazla bilgi için bkz: [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp cssmin | CSS dosyaları küçültür modül. Daha fazla bilgi için bkz: [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| gulp uglify | Küçültür bir modül *.js* dosyaları. Daha fazla bilgi için bkz: [gulp uglify](https://www.npmjs.com/package/gulp-uglify). |
 
 Gerekli modülleri alındığında görevleri belirtilebilir. Burada altı görevler vardır kayıtlı, aşağıdaki kod tarafından temsil edilen:
 

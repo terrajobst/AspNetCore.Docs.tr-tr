@@ -2,18 +2,18 @@
 title: "Geçirme Auth ve ASP.NET Core 2.0 kimliğine"
 author: scottaddie
 description: "Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET Core 1.x kimlik doğrulama ve kimlik için en yaygın adımlara özetlenmektedir."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: dd48b2b027d22b570aa182e748ca91738e935f49
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>Geçirme kimlik doğrulaması ve ASP.NET Core 2.0 için kimliği
 
@@ -161,7 +161,7 @@ Aşağıdaki değişiklikleri yapın *haline*:
     });
     ```
 
-### <a name="facebook-authentication"></a>Facebook kimlik doğrulaması
+### <a name="facebook-authentication"></a>facebook kimlik doğrulaması
 Aşağıdaki değişiklikleri yapın *haline*:
 - Değiştir `UseFacebookAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
  
@@ -199,7 +199,7 @@ Aşağıdaki değişiklikleri yapın *haline*:
             });    
     ```
 
-### <a name="microsoft-account-authentication"></a>Microsoft hesabı kimlik doğrulaması
+### <a name="microsoft-account-authentication"></a>Microsoft Account kimlik doğrulaması
 Aşağıdaki değişiklikleri yapın *haline*:
 - Değiştir `UseMicrosoftAccountAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:
 
@@ -296,7 +296,7 @@ Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını sınama için a
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions Instances
+## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions instances
 2.0 değişiklikleri yan etkisi seçenekleri tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanmanın anahtarıdır. Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.
 
 Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirmek için bir `IdentityCookieOptions` parametresine *AccountController.cs*. Dış tanımlama bilgisi kimlik doğrulama şeması sağlanan örneğinden erişilir:
@@ -313,7 +313,7 @@ Daha önce bahsedilen Oluşturucu ekleme 2.0 projelerinde gereksiz olur ve `_ext
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>IdentityUser POCO Gezinti özellikleri ekleyin
+## <a name="add-identityuser-poco-navigation-properties"></a>POCO IdentityUser Gezinti özellikleri ekleyin
 Entity Framework (EF) çekirdek Gezinti özellikleri taban `IdentityUser` POCO (düz eski CLR nesnesi) kaldırıldı. El ile 1.x projenizi bu özellikleri kullandıysanız, bunları 2.0 projeye ekleyin:
 
 ```csharp
@@ -398,5 +398,5 @@ Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>
 
 <a name="additional-resources"></a>
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 Ek bilgi ve tartışma için bkz: [Auth 2.0 tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.

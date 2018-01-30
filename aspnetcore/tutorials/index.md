@@ -2,18 +2,18 @@
 title: "ASP.NET Core öğreticileri"
 author: rick-anderson
 description: "ASP.NET Core uygulamaları geliştirmek öğrenme için adım adım kılavuzlar listesi."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: dc81edce2b54683b20520babeed8ddb78073e709
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -34,7 +34,7 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 
    * [Windows için Visual Studio ile Web uygulaması](first-mvc-app/index.md)
    * [Mac için Visual Studio ile Web uygulaması](first-mvc-app-mac/index.md)
-   * [Mac veya Linux Visual Studio Code ile Web uygulaması](first-mvc-app-xplat/index.md)
+   * [Mac veya Linux üzerinde Visual Studio Code ile web uygulaması](first-mvc-app-xplat/index.md)
 
 * [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](../data/ef-mvc/index.md)
 * [Etiket Yardımcıları oluşturma](../mvc/views/tag-helpers/authoring.md)
@@ -45,8 +45,8 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 * Bir Web API ile ASP.NET Core oluşturma
 
   * [Web API ile Windows için Visual Studio](first-web-api.md)
-  * [Web API Mac için Visual Studio ile](xref:tutorials/first-web-api-mac)
-  * [Web API'si Visual Studio Code ile](web-api-vsc.md)
+  * [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
+  * [Visual Studio Code ile Web API’si](web-api-vsc.md)
   
 * [Swagger kullanan ASP.NET Core Web API yardım sayfaları](web-api-help-pages-using-swagger.md)
 * [Web hizmetleri yerel mobil uygulama arka ucu oluşturma](../mobile/native-mobile-backend.md)

@@ -2,22 +2,25 @@
 title: "ASP.NET Core yanıt önbelleğe alma"
 author: rick-anderson
 description: "Düşük bant genişliği gereksinimlerini önbelleğe alma yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansı arttırır."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
 Tarafından [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), ve [Luke Latham](https://github.com/guardrex)
 
+> [!NOTE]
+> Yanıt önbelleğe alma [Razor sayfalarında ASP.NET Core 2.0 desteklenmeyen](https://github.com/aspnet/Mvc/issues/6437). Bu özellik, desteklenen [ASP.NET Core 2.1 yayın](https://github.com/aspnet/Home/wiki/Roadmap).
+  
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Yanıt önbelleğe alma, bir istemci ya da proxy web sunucusu yapar istekleri sayısını azaltır. Yanıt önbelleğe alma ayrıca miktarını azaltan bir yanıtı oluşturmak için web sunucusu çalışma gerçekleştirir. Yanıt önbelleğe alma, istemci, proxy ve önbellek yanıtları Ara nasıl istediğinizi belirtin üstbilgileri tarafından denetlenir.

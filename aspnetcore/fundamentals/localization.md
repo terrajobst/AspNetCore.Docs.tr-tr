@@ -2,18 +2,18 @@
 title: "Genelleştirme ve yerelleştirme ASP.NET Core içinde"
 author: rick-anderson
 description: "Nasıl ASP.NET Core services ve ara yazılım içerik farklı dillere ve kültürlere yerelleştirme için sağladığını öğrenin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -224,7 +224,7 @@ Yalnızca iki birinde geçirirseniz (`culture` veya `ui-culture`), sorgu dizesi 
 
 Üretim uygulamaları genellikle ASP.NET Core kültür tanımlama bilgisiyle kültür ayarlamak için bir mekanizma sağlar. Kullanım `MakeCookieValue` bir tanımlama bilgisi oluşturmak için yöntem.
 
-`CookieRequestCultureProvider` `DefaultCookieName` Kültür bilgilerini kullanıcı izlemek için kullanılan varsayılan tanımlama bilgisi adı tercih edilen döndürür. Varsayılan tanımlama bilgisi adı ". AspNetCore.Culture".
+`CookieRequestCultureProvider` `DefaultCookieName` Kültür bilgilerini kullanıcı izlemek için kullanılan varsayılan tanımlama bilgisi adı tercih edilen döndürür. Varsayılan tanımlama bilgisi adıdır `.AspNetCore.Culture`.
 
 Tanımlama bilgisi biçim `c=%LANGCODE%|uic=%LANGCODE%`, burada `c` olan `Culture` ve `uic` olan `UICulture`, örneğin:
 

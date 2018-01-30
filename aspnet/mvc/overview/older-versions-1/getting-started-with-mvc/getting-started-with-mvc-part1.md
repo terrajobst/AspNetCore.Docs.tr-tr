@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 title: "ASP.NET MVC giriş | Microsoft Docs"
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız."
+description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: b884c3c535929038f047e2c4ceedf9e7ca543292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 08c30f4aab77bff64ed3ab874d13cc5dc863fc99
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC giriş
 ====================
@@ -64,7 +64,7 @@ Visual Web Developer bir IDE veya tümleşik geliştirme ortamı değil. Belgele
 
 Visual Basic veya Visual C# kullanarak uygulama oluşturabilirsiniz. Şu an seçin Visual C# solda, ardından "ASP.NET MVC 2 Web uygulaması." seçin "Filmler" projenizi adlandırın ve Tamam'ı tıklatın.
 
-[![Yeni Proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![New Project](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
 Sağ tarafta tüm dosya ve klasörler, uygulamanızda gösteren Çözüm Gezgini ' dir. Büyük ortasında burada kodunuzu düzenleyin ve çoğu zaman, harcamanız penceredir. Visual Studio varsayılan bir şablon, yeni oluşturduğunuz, ASP.NET MVC proje için kullanılan çalışan bir uygulama şu anda herhangi bir şey yapmadan elinizde! Bu bir basit "Hello World! olur Proje ve uygulamamız için başlatmak için iyi bir yerdir.
 
@@ -85,4 +85,4 @@ Bu, bir geliştirme web sunucusu başlatmak ve (yapılandırma veya yok bunu etk
 Kutudan çıktığında bu varsayılan şablonu ziyaret etmek için iki sayfaları ve temel oturum açma sayfasına sunar. Şimdi bu uygulamayı nasıl çalıştığını değiştirin ve biraz işleminde ASP.NET MVC hakkında bilgi edinin. Tarayıcınızı kapatın ve bazı kodunu değiştirmek olanak tanır.
 
 >[!div class="step-by-step"]
-[Sonraki](getting-started-with-mvc-part2.md)
+[Next](getting-started-with-mvc-part2.md)

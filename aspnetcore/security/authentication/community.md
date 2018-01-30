@@ -2,18 +2,18 @@
 title: "Topluluk OSS kimlik doğrulama seçenekleri"
 author: rick-anderson
 description: "ASP.NET Core için kaynak kimlik doğrulama seçenekleri açık listeler."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 08/18/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authentication/community
-ms.openlocfilehash: d081292ee9d0774cf9156d42b44b693fbf46925e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 08171cec99f83677b4bf2a2de48908f31cd11fff
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="community-oss-authentication-options"></a>Topluluk OSS kimlik doğrulama seçenekleri
 

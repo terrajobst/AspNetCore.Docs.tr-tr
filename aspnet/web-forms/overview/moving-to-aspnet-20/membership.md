@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>Üyelik
 ====================
@@ -38,7 +38,7 @@ ASP.NET 2.0 ana terfi form kimlik doğrulaması başına kullanmaktansa gereklil
 3. Kullanmak istediğiniz üyelik deposu türünü belirler. Seçenekler şunlardır: 
 
     - Microsoft SQL Server (sürüm 7.0 veya üstü)
-    - Active Directory deposu
+    - Active Directory Store
     - Özel üyelik sağlayıcısı
 4. Uygulama ASP.NET Forms kimlik doğrulaması için yapılandırın. Bir kez daha, üyelik form kimlik doğrulaması yararlanmak için tasarlanmıştır ancak form kimlik doğrulaması kullanarak zorunlu değildir.
 5. Üyelik için kullanıcı hesapları tanımlayın ve isterseniz rollerini yapılandırın.
@@ -120,7 +120,7 @@ LoginView denetim varsayılan olarak iki şablonları sağlayan şablonlu deneti
 
 ## <a name="passwordrecovery-control"></a>PasswordRecovery denetimi
 
-PasswordRecovery denetimi kullanıcıların geçerli parolasını içeren bir e-posta alamıyor veya parolasını sıfırlama olanak tanır. Düz metin ve şifrelenmiş parolalar kurtarıldı ve kullanıcılara e-postayla. Parola karma, kurtarılamıyor. Bunun yerine kullanıcının parola sıfırlama işlemini gerçekleştirmek için gerekli olacaktır.
+PasswordRecovery denetimi kullanıcıların geçerli parolasını içeren bir e-posta alamıyor veya parolasını sıfırlama olanak tanır. Düz metin ve şifrelenmiş parolalar kurtarıldı ve kullanıcılara e-posta ile. Parola karma, kurtarılamıyor. Bunun yerine kullanıcının parola sıfırlama işlemini gerçekleştirmek için gerekli olacaktır.
 
 ## <a name="loginstatus-control"></a>Bu denetim
 
@@ -255,7 +255,7 @@ Aşağıdaki geçersiz kılmak gerekir:
 - GetUser işlevi
 - GetUserNameByEmail işlevi
 - MaxInvalidPasswordAttempts özelliği
-- MinRequiredNonAlphanumericCharacters özelliği
+- MinRequiredNonAlphanumericCharacters property
 - MinRequiredPasswordLength özelliği
 - PasswordAttemptWindow özelliği
 - PasswordFormat özelliği

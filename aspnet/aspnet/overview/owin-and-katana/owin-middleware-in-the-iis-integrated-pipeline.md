@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS tümleşik ardışık düzende OWIN ara yazılımı
 ====================
@@ -78,7 +78,7 @@ Owın ara yazılımı bileşenleri (OMC), aşağıdaki OWIN ardışık düzen a�
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample8.cs)]
 
 1. Varsayılan olarak, son olay OMCs çalışır (`PreHandlerExecute`). İşte bu nedenle "PreExecuteRequestHandler" ilk bizim örnek kodu görüntülenir.
-2. Kullanabileceğiniz bir `pp.UseStageMarker` OWIN ardışık düzenini herhangi bir aşamasında daha önce çalıştırılacak bir OMC kaydetmek için yöntemi listelenen `PipelineStage` enum.
+2. Kullanabileceğiniz bir `app.UseStageMarker` OWIN ardışık düzenini herhangi bir aşamasında daha önce çalıştırılacak bir OMC kaydetmek için yöntemi listelenen `PipelineStage` enum.
 3. OWIN ardışık düzenini ve IIS işlem hattı sipariş edilen, bu nedenle çağrıları `app.UseStageMarker` olması gerekir. Olay işleyicisi için kayıtlı son olay önce gelen bir olay ayarlanamaz `app.UseStageMarker`. Örneğin, *sonra* çağırma:
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]

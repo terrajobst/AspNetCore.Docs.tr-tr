@@ -2,19 +2,19 @@
 title: "ASP.NET Core işleme hatası"
 author: ardalis
 description: "ASP.NET Core uygulamaları hataların nasıl işleneceğini bulur."
-ms.author: tdykstra
 manager: wpickett
-ms.date: 11/30/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/error-handling
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 11/30/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/error-handling
+ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Hata ASP.NET çekirdek işleme giriş
 
@@ -119,7 +119,7 @@ Ana bilgisayar adresini/bağlantı noktası sonra bağlama hatası oluşursa Bar
 
 ## <a name="aspnet-mvc-error-handling"></a>ASP.NET MVC hata işleme
 
-[MVC](../mvc/index.md) uygulamalara sahip özel durum filtreleri yapılandırma ve model doğrulama gerçekleştirme gibi hataları işlemek için bazı ek seçenekleri.
+[MVC](xref:mvc/overview) uygulamalara sahip özel durum filtreleri yapılandırma ve model doğrulama gerçekleştirme gibi hataları işlemek için bazı ek seçenekleri.
 
 ### <a name="exception-filters"></a>Özel durum filtreleri
 
@@ -130,7 +130,7 @@ Ana bilgisayar adresini/bağlantı noktası sonra bağlama hatası oluşursa Bar
 
 ### <a name="handling-model-state-errors"></a>İşleme Model durumu hataları
 
-[Model doğrulama](../mvc/models/validation.md) çağrılan her denetleyici eylemi öncesinde gerçekleşir ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki.
+[Model doğrulama](../mvc/models/validation.md) her denetleyici eylemi çağırma öncesi oluşur ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki.
 
 Model doğrulama hataları, ilgilenmek için standart bir kural, bu durumda izlemeniz gereken bazı uygulamalar seçecektir bir [filtre](../mvc/controllers/filters.md) böyle bir ilke uygulamak için uygun bir yerdir olabilir. Geçersiz model durumlarıyla eylemlerinizi nasıl davranacağını test etmeniz gerekir. Daha fazla bilgi edinin [denetleyicisi mantığının test edilmesi](../mvc/controllers/testing.md).
 

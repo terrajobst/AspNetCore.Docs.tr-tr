@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 61a96b75fdc29bdd1510ed689ee0356ef30e03fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="request-validation---preventing-script-attacks"></a>İstek doğrulama - komut dosyası saldırılarını önleme
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 İstek doğrulama, bir ASP.NET özelliği sürüm 1.1 beri sunucunun içerik içeren beklemediğiniz kodlanmış HTML kabul etmesini engeller. Bu özellik, yapabildiği istemci komut dosyası kodu veya HTML bilmeden bir sunucuya gönderilen, depolanabilir ve diğer kullanıcılara sunulan bazı komut dosyası ekleme saldırıları önlemeye yardımcı olmak için tasarlanmıştır. Hala tüm giriş verilerini doğrulamak ve HTML kodlama, uygun olduğunda öneririz.
 
-Örneğin, bir kullanıcının e-posta adresi ister ve ardından bu e-posta adresi bir veritabanında depolayan bir Web sayfası oluşturun. Kullanıcı girerse &lt;BETİK&gt;uyarı komut dosyasından ("Merhaba")&lt;/SCRIPT&gt; verileri sunulduğunda, içeriği düzgün şekilde kodlanmamış, geçerli bir e-posta adresi yerine bu komut dosyası yürütülebilir. ASP.NET istek doğrulama özelliği bu oluşmasını engeller.
+Örneğin, bir kullanıcının e-posta adresi ve e-posta adresi bir veritabanında depolar ister bir Web sayfası oluşturun. Kullanıcı girerse &lt;BETİK&gt;uyarı komut dosyasından ("Merhaba")&lt;/SCRIPT&gt; verileri sunulduğunda, içeriği düzgün şekilde kodlanmamış, geçerli bir e-posta adresi yerine bu komut dosyası yürütülebilir. ASP.NET istek doğrulama özelliği bu oluşmasını engeller.
 
 ## <a name="why-this-feature-is-useful"></a>Bu özellik neden yararlıdır
 

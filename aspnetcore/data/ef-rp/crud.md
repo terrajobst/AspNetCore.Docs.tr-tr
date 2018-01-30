@@ -2,18 +2,18 @@
 title: "Razor sayfalarının EF temel - CRUD - 2 8"
 author: rick-anderson
 description: "Oluşturma, okuma, güncelleştirme, EF çekirdek ile silmek nasıl gösterir"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Oluşturma, okuma, güncelleştirme ve silme - Razor sayfaları (8, 2) ile EF çekirdek
 
@@ -23,7 +23,7 @@ Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://tw
 
 Bu öğreticide, kurulmuş CRUD (Oluştur, oku, Güncelleştir, Sil) kodu gözden ve özelleştirilebilir.
 
-Not: karmaşıklık en aza indirmek ve EF çekirdek üzerine odaklanan bu öğreticileri korumak için EF çekirdek kodu Razor sayfalarının arka plan kod dosyalarında kullanılır. Bazı geliştiriciler, kullanıcı Arabirimi (Razor sayfaları) ve veri erişim katmanı arasındaki bir Soyutlama Katmanı oluşturmak için bir hizmet katmanı veya depo desende kullanın.
+Not: karmaşıklık en aza indirmek ve EF çekirdek üzerine odaklanan bu öğreticileri korumak için EF çekirdek kodu Razor sayfalarının sayfa modellerinde kullanılır. Bazı geliştiriciler, kullanıcı Arabirimi (Razor sayfaları) ve veri erişim katmanı arasındaki bir Soyutlama Katmanı oluşturmak için bir hizmet katmanı veya depo desende kullanın.
 
 Bu öğretici, oluşturma, düzenleme, silme ve ayrıntıları Razor sayfalarında *Öğrenci* klasörünü değiştirdi.
 
@@ -147,7 +147,7 @@ Ne olursa olsun değer için belirtilen korsan `Secret` form alanı DB'de günce
 <a name="vm"></a>
 ### <a name="view-model"></a>Görünüm modeli
 
-Bir görünüm modeli genellikle uygulama tarafından kullanılan modelinde bulunan özellikler kümesini içerir. Uygulama modeli genellikle etki alanı modeli adı verilir. Etki alanı modeli genellikle veritabanında karşılık gelen varlığın gerektirdiği tüm özellikleri içerir. Görünüm modeli yalnızca UI katmanında (örneğin, Oluştur sayfası) için gereken özellikleri içerir. Görünüm modeli ek olarak, bazı uygulamalar, Razor sayfalarının arka plandaki kod sınıfı ve tarayıcı arasında veri iletmek için bir bağlama modelini veya giriş modeli kullanın. Aşağıdakileri göz önünde bulundurun `Student` görünüm modeli:
+Bir görünüm modeli genellikle uygulama tarafından kullanılan modelinde bulunan özellikler kümesini içerir. Uygulama modeli genellikle etki alanı modeli adı verilir. Etki alanı modeli genellikle veritabanında karşılık gelen varlığın gerektirdiği tüm özellikleri içerir. Görünüm modeli yalnızca UI katmanında (örneğin, Oluştur sayfası) için gereken özellikleri içerir. Görünüm modeli ek olarak, bazı uygulamalar, Razor sayfalarının sayfa model sınıfı ve tarayıcı arasında veri iletmek için bir bağlama modelini veya giriş modeli kullanın. Aşağıdakileri göz önünde bulundurun `Student` görünüm modeli:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ Razor sayfalarında `PageModel` türetilmiş sınıf, görünüm modeli.
 
 ## <a name="update-the-edit-page"></a>Güncelleştirmeyi Düzenle sayfası
 
-Düzen sayfası arka plan kodu dosyasını güncelleştirin:
+Düzen sayfası için sayfa modeli güncelleştirin:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 

@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET MVC ASP.NET Core MVC geçirme"
 author: ardalis
-description: 
-ms.author: riande
+description: "ASP.NET MVC projesinde ASP.NET Core MVC geçirme başlayacağınızı öğrenin."
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC ASP.NET Core MVC geçirme
 
@@ -94,7 +94,7 @@ Uygulamayı çalıştırın.
 
 ![Web uygulaması Microsoft Edge'de Aç](mvc/_static/hello-world.png)
 
-Bkz: [denetleyicileri](../mvc/controllers/index.md) ve [görünümleri](../mvc/views/index.md) daha fazla bilgi için.
+Bkz: [denetleyicileri](xref:mvc/controllers/actions) ve [görünümleri](xref:mvc/views/overview) daha fazla bilgi için.
 
 En az bir çalışma ASP.NET Core proje sahibiz, biz işlevselliği ASP.NET MVC projesinden geçiş başlatabilirsiniz. Aşağıdaki taşımanız gerekebilir:
 
@@ -156,7 +156,7 @@ Bkz: [istemci-tarafı paketlerle yönetmek Bower](../client-side/bower.md) daha 
 
 * Oluşturma bir *görünümler/paylaşılan* klasör.
 
-* *İsteğe bağlı:* kopya *_viewımports.cshtml* gelen *FullAspNetCore* MVC projesinin *görünümleri* ASP.NET Core projenin klasörüne*Görünümleri* klasör. Tüm ad alanı bildirimini kaldırın *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirir [etiket Yardımcıları](../mvc/views/tag-helpers/index.md). Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
+* *İsteğe bağlı:* kopya *_viewımports.cshtml* gelen *FullAspNetCore* MVC projesinin *görünümleri* ASP.NET Core projenin klasörüne*Görünümleri* klasör. Tüm ad alanı bildirimini kaldırın *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirir [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
 
 * Kopya *_Layout.cshtml* eski ASP.NET MVC projesinin dosyadan *görünümler/paylaşılan* ASP.NET Core projenin klasörüne *görünümler/paylaşılan* klasör.
 
@@ -191,9 +191,9 @@ Güncelleştirilmiş *_Layout.cshtml* dosya aşağıda gösterilmektedir:
 
 Site tarayıcıda görüntüleyin. Artık doğru yerde beklenen stilleri ile yüklenmesi gerekir.
 
-* *İsteğe bağlı:* yeni düzen dosyasını kullanmayı denemek isteyebilirsiniz. Bu proje için Düzen dosyasından kopyalayabilirsiniz *FullAspNetCore* projesi. Yeni düzen dosyasını kullanan [etiket Yardımcıları](../mvc/views/tag-helpers/index.md) ve diğer geliştirmeler sahiptir.
+* *İsteğe bağlı:* yeni düzen dosyasını kullanmayı denemek isteyebilirsiniz. Bu proje için Düzen dosyasından kopyalayabilirsiniz *FullAspNetCore* projesi. Yeni düzen dosyasını kullanan [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve diğer geliştirmeler sahiptir.
 
-## <a name="configure-bundling--minification"></a>Paketleme yapılandırmak & küçültme
+## <a name="configure-bundling-and-minification"></a>Paketleme ve küçültme yapılandırın
 
 Paketleme ve küçültme yapılandırma hakkında daha fazla bilgi için bkz: [paketleme ve küçültme](../client-side/bundling-and-minification.md).
 
@@ -222,8 +222,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 Bkz: **Geliştirici özel durum sayfasını kullanarak** içinde [işleme hatası](../fundamentals/error-handling.md) daha fazla bilgi için.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İstemci-tarafı geliştirme](../client-side/index.md)
-
-* [Etiket Yardımcıları](../mvc/views/tag-helpers/index.md)
+* [İstemci-tarafı geliştirme](xref:client-side/index)
+* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)

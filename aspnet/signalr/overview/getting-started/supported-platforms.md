@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 7f41017a2a8c058c01fe6f89a2503eb5fa77048e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="supported-platforms"></a>Desteklenen Platformlar
 ====================
@@ -41,6 +41,7 @@ SignalR sunucu bileşeni, aşağıdaki sunucu veya istemci işletim sistemlerind
 
 - Windows Server 2012
 - Windows Server 2008 r2
+- Windows 10
 - Windows 8
 - Windows 7
 - Microsoft Azure
@@ -72,7 +73,7 @@ SignalR tarayıcılarda kullanan uygulamalar, jQuery sürüm 1.6.4 veya ana sonr
 
 SignalR aşağıdaki tarayıcılarda kullanılabilir:
 
-- Microsoft Internet Explorer sürümleri 8, 9, 10 ve 11. Modern, masaüstü ve mobil sürümleri desteklenir.
+- Microsoft Internet Explorer versions 8, 9, 10, and 11. Modern, masaüstü ve mobil sürümleri desteklenir.
 - Mozilla Firefox: geçerli sürümü - 1, hem Windows hem de Mac sürümleri.
 - Google Chrome: geçerli sürümü - 1, hem Windows hem de Mac sürümleri.
 - Safari: geçerli sürümü - 1, Mac ve iOS sürümleri.
@@ -113,8 +114,8 @@ Bir web tarayıcısında çalıştırmanın yanı sıra, tek başına Windows İ
 | --- | --- | --- |
 | Web yuvaları | Windows 8 + ve .NET 4.5 + | Yok |
 | Devamlı çerçeve | Yok | Yok |
-| Sunucu tarafından gönderilen olaylar | .NET 4 + | 5+ |
-| Uzun yoklama | .NET 4 + | 5+ |
+| Sunucu tarafından gönderilen olaylar | .NET 4+ | 5+ |
+| Uzun yoklama | .NET 4+ | 5+ |
 
 <a id="android"></a>
 
@@ -124,12 +125,12 @@ SignalR, Windows mağazası uygulamaları ve Windows Phone 8 uygulamalarında ku
 
 **Windows mağazası ve Windows Phone aktarım gereksinimleri**
 
-| Taşıma | Windows mağazası / .NET | Windows mağazası / JavaScript | Windows Phone / IE | Windows Phone / .NET |
+| Taşıma | Windows Store/ .NET | Windows Store/ JavaScript | Windows Phone/ IE | Windows Phone/ .NET |
 | --- | --- | --- | --- | --- |
-| WebSockets | Yok | Olduğu Win8 + | 8+ | Yok |
-| Devamlı çerçeve | Yok | Olduğu Win8 + | 7.5+ | Yok |
-| Sunucu tarafından gönderilen olaylar | Olduğu Win8 + | Yok | Yok | 8+ |
-| Uzun yoklama | Olduğu Win8 + | Olduğu Win8 + | 7.5+ | 8+ |
+| WebSockets | Yok | Win8+ | 8+ | Yok |
+| Devamlı çerçeve | Yok | Win8+ | 7.5+ | Yok |
+| Sunucu tarafından gönderilen olaylar | Win8+ | Yok | Yok | 8+ |
+| Uzun yoklama | Win8+ | Win8+ | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

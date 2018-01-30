@@ -2,18 +2,18 @@
 title: "Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core"
 author: guardrex
 description: "Nasıl yol ve uygulama modeli sağlayıcı Kuralı Özellikleri sayfası denetimi yönlendirme, bulma ve işleme yardımcı bulur."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/23/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 69475ca9abd4e732dc704ad6a8a2fffe219984f7
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core
 
@@ -262,7 +262,7 @@ Kayıt `CustomPageApplicationModelProvider` içinde `Startup` sınıfı:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
-Arka plan kod dosyasına *Index.cshtml.cs* uygulama sayfaları için sıradan işleyici yöntemi adlandırma kuralları nasıl değiştirilir gösterir. "Açık" Razor sayfalarıyla kullanılan öneki adlandırma sıradan kaldırıldı. Sayfa durumu başlatır yöntemi şimdi adlı `Get`. Bu kural tüm sayfalar için arka plan kodu dosyasını açın, uygulama boyunca kullanılan görebilirsiniz.
+Sayfa modelinde *Index.cshtml.cs* uygulama sayfaları için sıradan işleyici yöntemi adlandırma kuralları nasıl değiştirilir gösterir. "Açık" Razor sayfalarıyla kullanılan öneki adlandırma sıradan kaldırıldı. Sayfa durumu başlatır yöntemi şimdi adlı `Get`. Bu kural sayfalar için herhangi bir sayfayı modeli açarsanız uygulama boyunca kullanılan görebilirsiniz.
 
 Diğer yöntemlerin her biri ile işlemesi açıklar HTTP fiili başlatın. İle başlayan iki yöntem `Delete` normalde DELETE HTTP fiilleri ancak mantık olarak değerlendirilmesi `TryParseHandlerMethod` açıkça fiili POST için her iki işleyicilerini ayarlar.
 
@@ -286,7 +286,7 @@ Sayfa filtresi ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipage
 
 Bu filtre denetler bir `globalTemplate` "ReplacementValue içinde" değeri "TriggerValue" ve takasları yol.
 
-`ReplaceRouteValueFilter` Özniteliği doğrudan uygulanabilir bir `PageModel` arka plan kodu içinde:
+`ReplaceRouteValueFilter` Özniteliği doğrudan uygulanabilir bir `PageModel`:
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 

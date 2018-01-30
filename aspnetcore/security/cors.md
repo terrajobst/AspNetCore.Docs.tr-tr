@@ -2,18 +2,18 @@
 title: "Cross-Origin istekleri (CORS) etkinleştirme"
 author: rick-anderson
 description: "Bu belge CORS izin verme veya reddetme bir ASP.NET Core uygulamasında cross-origin istekleri için bir standart olarak tanıtır."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 05/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Cross-Origin istekleri (CORS) etkinleştirme
 
@@ -209,7 +209,7 @@ Artık HTTP yanıtı sunucunun bir çıkış noktaları arası istek için kimli
 
 Kimlik bilgilerini tarayıcı gönderir, ancak yanıt geçerli erişim-denetim-Allow-Credentials üst bilgi içermeyen, tarayıcı uygulaması yanıtı kullanıma olmaz ve AJAX isteği başarısız olur.
 
-Bir Web sitesi başka bir etki alanına oturum açmış kullanıcının kimlik bilgileri kullanıcı adınıza ve uygulamanızın farkına kullanıcı gönderebilir gösterdiğinden çıkış noktaları arası kimlik bilgilerine izin verme konusunda çok dikkatli olun. CORS için bu ayarı kaynakları da durumları özel "*" (tüm kaynaklara) erişim-denetim-Allow-Credentials üstbilgisi mevcut değilse geçersiz.
+Çıkış noktaları arası kimlik bilgilerine izin verirken dikkatli olun. Başka bir etki alanındaki bir Web sitesi uygulama kullanıcının adına kullanıcının bilgisi olmadan oturum açmış kullanıcının kimlik bilgileri gönderebilir. CORS belirtimi de bu ayar durumları kaynakları için "*" (tüm kaynaklara) geçersiz durumunda `Access-Control-Allow-Credentials` başlığıdır mevcut.
 
 ### <a name="set-the-preflight-expiration-time"></a>Denetim öncesi sona erme süresini ayarlama
 
@@ -221,11 +221,11 @@ Ne kadar süreyle denetim öncesi isteğinin yanıtı önbelleğe erişim-deneti
 
 ## <a name="how-cors-works"></a>CORS nasıl çalışır?
 
-Bu bölümde, HTTP iletileri düzeyinde bir CORS istek olanlar açıklanmaktadır. CORS ilkesini doğru şekilde yapılandırmanız ve beklediğiniz gibi şeyler çalışmazsa sorun giderme nasıl CORS, çalışır, böylece anlamak önemlidir.
+Bu bölümde, bir CORS İstek HTTP iletileri düzeyde neler açıklanmaktadır. Böylece CORS İlkesi doğru şekilde yapılandırılabilir CORS nasıl çalıştığını ve troubleshooted beklenmeyen davranışları ortaya çıktığında anlamak önemlidir.
 
-CORS belirtimi çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üstbilgileri tanıtır. Bir tarayıcı CORS destekliyorsa, bu üstbilgileri cross-origin istekleri için otomatik olarak ayarlar; JavaScript kodunuzda özel bir şey yapmanız gerekmez.
+CORS belirtimi çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üstbilgileri tanıtır. Bir tarayıcı CORS destekliyorsa, bu üstbilgileri cross-origin istekleri için otomatik olarak ayarlar. Özel JavaScript kodu CORS etkinleştirmek için gerekli değildir.
 
-Çıkış noktaları arası istek bir örneği burada verilmiştir. "Kaynak" başlığı istekte sitenin etki alanını verir:
+Çıkış noktaları arası istek bir örneği burada verilmiştir. `Origin` Üstbilgisi isteği yapan sitenin etki alanını sağlar:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1

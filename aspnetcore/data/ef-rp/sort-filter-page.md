@@ -4,15 +4,15 @@ author: rick-anderson
 description: "Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz."
 ms.author: riande
 ms.date: 10/22/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - Razor sayfaları (8'in 3) ile EF çekirdek
 
@@ -107,7 +107,7 @@ Hata ayıklayıcı adım.
 Öğrenciler dizin sayfasına filtre eklemek için:
 
 * Bir metin kutusu ve bir gönderme düğmesi Razor sayfasına eklenir. Metin kutusuna bir arama dizesi ilk veya son adı sağlar.
-* Arka plan kod dosyası, metin kutusu değerini kullanacak şekilde güncelleştirilir.
+* Sayfa modeli metin kutusu değerini kullanacak şekilde güncelleştirilir.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Filtreleme işlevselliği dizin yöntemine ekleyin
 
@@ -245,7 +245,7 @@ Hata ayıklayıcı adım.
 Bu adımda, *Pages/About.cshtml* kaç Öğrenciler her kayıt tarihi için kayıtlı olan görüntülemek üzere güncelleştirilir. Güncelleştirme gruplandırma kullanır ve aşağıdaki adımları içerir:
 
 * Bir görünüm model sınıfı tarafından kullanılan veri oluşturma **hakkında** sayfası.
-* Razor sayfa hakkında ve arka plan kodu dosyasını değiştirin.
+* İlgili Razor sayfasını ve sayfa modelini değiştirin.
 
 ### <a name="create-the-view-model"></a>Görünüm modeli oluşturma
 
@@ -255,7 +255,7 @@ Oluşturma bir *SchoolViewModels* klasöründe *modelleri* klasör.
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
-### <a name="update-the-about-code-behind-page"></a>Güncelleştirme hakkında arka plan kod sayfası
+### <a name="update-the-about-page-model"></a>Güncelleştirme hakkında sayfa modeli
 
 Güncelleştirme *Pages/About.cshtml.cs* aşağıdaki kod ile dosya:
 
@@ -277,7 +277,7 @@ Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamaml
 
 ![Sayfa hakkında](sort-filter-page/_static/about.png)
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/Docs/issues/4155)
 

@@ -2,18 +2,18 @@
 title: Grunt ASP.NET Core kullanarak
 author: rick-anderson
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c23f170b36ac1b9623835337020f2b5ac9514971
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Grunt ASP.NET Core kullanarak 
 
@@ -51,7 +51,7 @@ Başlamak için yeni bir boş web uygulamasını ayarlama ve TypeScript örnek d
 
 4.  Adlı yeni bir klasör ekleyin `TypeScript` proje dizininiz için.
 
-5.  Herhangi bir dosya eklemeden önce Visual Studio seçeneğine sahip olduğundan emin olalım ' derleme kaydederken ' işaretli TypeScript dosyaları için. *Araçlar > Seçenekler > Metin Düzenleyicisi > Typescript > Proje*
+5.  Herhangi bir dosya eklemeden önce Visual Studio seçeneğine sahip olduğundan emin olun ' derleme kaydederken ' işaretli TypeScript dosyaları için. Gidin **Araçları** > **seçenekleri** > **metin düzenleyici** > **Typescript**  >  **Proje**:
 
     ![Otomatik compliation TypeScript dosyaları ayarlama seçenekleri](using-grunt/_static/typescript-options.png)
 

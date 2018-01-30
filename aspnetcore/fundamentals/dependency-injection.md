@@ -2,21 +2,21 @@
 title: "ASP.NET Core bağımlılık ekleme"
 author: ardalis
 description: "ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin."
-ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/dependency-injection
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/dependency-injection
+ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme giriş
+# <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
 <a name="fundamentals-dependency-injection"></a>
 
@@ -101,7 +101,7 @@ ASP.NET MVC gibi tarafından sağlanan ara yazılımı ve özellikler tek Ekle k
 >[!TIP]
 > Belirli framework tarafından sağlanan hizmetlerin içindeki istek `Startup` parametresi listelerine - yöntemlerle bkz [uygulama başlangıç](startup.md) daha fazla ayrıntı için.
 
-## <a name="registering-your-own-services"></a>Kendi Hizmetleri kaydediliyor
+## <a name="registering-services"></a>Hizmetleri kaydediliyor
 
 Kendi uygulama hizmetleri şu şekilde kaydedebilirsiniz. İlk genel tür kapsayıcıdan istenen türü (genellikle bir arabirim) temsil eder. İkinci genel türü tarafından kapsayıcı örneği ve bu tür isteklerini yerine getirmek için kullanılan somut türünü temsil eder.
 
@@ -206,7 +206,7 @@ Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektire
 > [!NOTE]
 > Erişim için Oluşturucusu parametre olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.
 
-## <a name="designing-your-services-for-dependency-injection"></a>Hizmetlerinizin bağımlılık ekleme için tasarlama
+## <a name="designing-services-for-dependency-injection"></a>Bağımlılık ekleme Hizmetleri Tasarlama
 
 Bağımlılık ekleme kendi ortak çalışanlar almak için kullanılacak hizmetlerinizi tasarlamanız gerekir. Bu durum bilgisi olan statik yöntem çağrılarını kullanımını önleme anlamına gelir (hangi neden olarak bilinen bir kod kokusu [statik cling](http://deviq.com/static-cling/)) ve hizmetlerinizi içinde bağımlı sınıfların doğrudan örnek oluşturma. Tümcecik anımsaması yardımcı olabilecek [Birleştirici yenilikleri](https://ardalis.com/new-is-glue), bir türü örneği mi, yoksa bağımlılık ekleme istemek için seçerken. İzleyerek [DÜZ ilkeler, nesne yönelimli tasarımı](http://deviq.com/solid/), sınıflarınızı doğal olarak küçük, iyi faktörlere göre ve kolayca sınanan olma eğilimindedir.
 
@@ -312,16 +312,11 @@ Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde 
 
 Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne erişim desenler için. Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmayacaktır.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Uygulama Başlatma](startup.md)
-
-* [Test etme](../testing/index.md)
-
+* [Uygulama Başlatma](xref:fundamentals/startup)
+* [Test etme](xref:testing/index)
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core temiz kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
-
 * [Kapsayıcı yönetilen uygulama tasarımı, Prelude: Burada kapsayıcı ait mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-
 * [Açık bağımlılıkları İlkesi](http://deviq.com/explicit-dependencies-principle/)
-
 * [Denetimi kapsayıcıları ve bağımlılık ekleme düzeni ters çevirmeyi](https://www.martinfowler.com/articles/injection.html) (Fowler)

@@ -2,18 +2,18 @@
 title: "ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme"
 author: guardrex
 description: "Bir Razor sayfasına dosyaları karşıya yükleme hakkında bilgi edinin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: a29043ac5d28ae8efcbbd6919e73e3774ba22699
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
@@ -76,9 +76,9 @@ Her form grubu içeren bir  **\<etiketi >** her sınıf özelliğinin adını g�
 
 Her form grubu bir doğrulama içeren  **\<span >**. Kullanıcı karşılamak üzere başarısız giriş olması durumunda özellik öznitelikleri kümesinde `FileUpload` sınıfı veya varsa `ProcessFormFile` yöntemi dosya doğrulama başarısız denetler, model doğrulamak başarısız olur. Model doğrulama başarısız olduğunda, bir yardımcı doğrulama ileti kullanıcıya işlenir. Örneğin, `Title` özellik açıklama ile `[Required]` ve `[StringLength(60, MinimumLength = 3)]`. Kullanıcı bir başlık sağlamanız başarısız olursa, bir değer gerekli olduğunu belirten bir ileti alırlar. Kullanıcı değerinden üç veya daha fazla altmış karakter değeri girerse, bunlar değeri yanlış bir uzunluğa sahip olduğunu belirten bir ileti alırsınız. İçeriği yok sağlanan bir dosya varsa, dosyayı boş olduğunu belirten bir ileti görüntülenir.
 
-## <a name="add-the-code-behind-file"></a>Arka plan kod dosyasına ekleyin
+## <a name="add-the-page-model"></a>Sayfa modeli ekleme
 
-Arka plan kod dosyasına ekleyin (*Index.cshtml.cs*) için *zamanlamaları* klasörü:
+Sayfa modeli ekleme (*Index.cshtml.cs*) için *zamanlamaları* klasörü:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
@@ -110,7 +110,7 @@ Kullanıcı bir zamanlama silinecek tıkladığında, bunları işlemi iptal etm
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-Arka plan kod dosyasına (*Delete.cshtml.cs*) tarafından tanımlanan tek bir zamanlama yükler `id` isteğin rota verilerindeki. Ekleme *Delete.cshtml.cs* dosya *zamanlamaları* klasörü:
+Sayfa modeli (*Delete.cshtml.cs*) tarafından tanımlanan tek bir zamanlama yükler `id` isteğin rota verilerindeki. Ekleme *Delete.cshtml.cs* dosya *zamanlamaları* klasörü:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 

@@ -2,18 +2,18 @@
 title: "Görünüm bileşenleri"
 author: rick-anderson
 description: "Görünüm bileşenleri yeniden kullanılabilir işleme mantığı sahip herhangi bir yere yöneliktir."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="view-components"></a>Görünüm bileşenleri
 
@@ -23,12 +23,12 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="introducing-view-components"></a>Görünüm bileşenleri Tanıtımı
 
-Yeni ASP.NET Core MVC için Görünüm bileşenleri için kısmi görünümler benzerdir, ancak çok daha güçlü. Görünüm bileşenleri yoksa model bağlama kullanın ve yalnızca içine çağrılırken sağladığınız verilerin bağlıdır. Bir görünümü bileşen:
+Yeni ASP.NET Core MVC için Görünüm bileşenleri için kısmi görünümler benzerdir, ancak çok daha güçlü. Görünüm bileşenleri yoksa model bağlama kullanın ve yalnızca içine çağrılırken sağlanan verileri bağlıdır. Bir görünümü bileşen:
 
-* Yanıtın tamamını yerine bir öbek işler
-* Bir denetleyici ve görünüm arasında bulunan Test Edilebilirlik avantajları ve aynı ayrımı-in-ile ilgili sorunlar içerir
-* Parametreleri ve iş mantığı olabilir
-* Tipik bir düzen sayfasından çağrılır
+* Yanıtın tamamını yerine bir öbek işler.
+* Bir denetleyici ve görünüm arasında bulunan Test Edilebilirlik avantajları ve aynı ayrımı-in-ile ilgili sorunlar içerir.
+* Parametreleri ve iş mantığı sahip olabilir.
+* Tipik bir düzen sayfasından çağrılır.
 
 Görünüm bileşenleri herhangi bir yere kısmi görünüm için çok karmaşık olduğu gibi yeniden kullanılabilir işleme mantığı sahip tasarlanmıştır:
 
@@ -244,6 +244,6 @@ Ekleme bir `using` , Razor ifadesine dosya görüntülemek ve kullanmak `nameof`
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Görünümlere bağımlılık ekleme](dependency-injection.md)
+* [Görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection)

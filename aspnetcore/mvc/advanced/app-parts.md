@@ -2,18 +2,18 @@
 title: "ASP.NET Core uygulama bölümleri"
 author: ardalis
 description: "Bir uygulama abstrations kaynaklardır uygulama bölümleri bulmak veya bir derlemeye ait özelliklerin yüklenmesini önlemek için uygulamanızı yapılandırmak için nasıl kullanılacağını öğrenin."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 01/04/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6b855f8725dacc89a7e0607224ef3c19ab9f5676
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core uygulama bölümleri
 

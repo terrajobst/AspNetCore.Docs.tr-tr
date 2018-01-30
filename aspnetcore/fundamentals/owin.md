@@ -2,19 +2,19 @@
 title: ".NET (OWIN) için açık Web arabirimi"
 author: ardalis
 description: "ASP.NET Core açık Web arabirimi için .NET (hangi web uygulamalarının web sunucularından ayrılmış sağlar OWIN), nasıl desteklediği bulur."
-ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/owin
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ffa01745b7a492b3b8cb2778805f254863b890
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/owin
+ms.openlocfilehash: 91e59d8568434867e10869b4db22bce9935ce573
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>.NET (OWIN) için Web Arabirimi'ni açmak için giriş
 
@@ -318,9 +318,7 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | websocket.ClientCloseStatus | `int` | İsteğe Bağlı |
 | websocket.ClientCloseDescription | `String` | İsteğe Bağlı |
 
+## <a name="additional-resources"></a>Ek kaynaklar
 
-## <a name="additional-resources"></a>Ek Kaynaklar
-
-* [Ara Yazılım](middleware.md)
-
-* [Sunucular](servers/index.md)
+* [Ara Yazılım](xref:fundamentals/middleware)
+* [Sunucular](xref:fundamentals/servers/index)

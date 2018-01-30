@@ -1,19 +1,19 @@
 ---
 title: "ASP.NET Core içinde siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını önleme"
 author: steve-smith
-ms.author: riande
 description: "ASP.NET Core içinde siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını önleme"
 manager: wpickett
+ms.author: riande
 ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core içinde siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını önleme
 
@@ -43,7 +43,7 @@ CSRF saldırı örneği:
 Form eylemi kötü amaçlı siteye değil savunmasız siteye yazılarını dikkat edin. CSRF "siteler arası" parçasıdır.
 
 4. Kullanıcı gönder düğmesine tıklar. Tarayıcı, kimlik doğrulama tanımlama bilgisi istekle istenen etki alanı (Bu durumda savunmasız site) için otomatik olarak ekler.
-5. İstek, kullanıcının kimlik doğrulaması bağlamı ile sunucuda çalışır ve kimliği doğrulanmış bir kullanıcı yapmak için izin verilen herhangi bir şey yapabilirsiniz.
+5. İstek, kullanıcının kimlik doğrulaması bağlamı ile sunucuya çalışır ve kimliği doğrulanmış bir kullanıcı yapmak için izin verilen herhangi bir eylem gerçekleştirebilir.
 
 Bu örnekte form düğmesini kullanıcıya gerektirir. Kötü amaçlı sayfası olabilir:
 
@@ -353,13 +353,12 @@ Bir kullanıcı bir sistemde oturum açtığında, kullanıcı oturumunu sunucu 
 
 ### <a name="user-tokens"></a>Kullanıcı belirteçleri
 
-Belirteç tabanlı kimlik doğrulaması oturum sunucuda depolamak değil. Bir kullanıcı oturum açtığında bunun yerine, bir belirteç (antiforgery bir belirteç değil) alacakları. Bu belirteç belirteci doğrulamak için gerekli tüm verileri içerir. Ayrıca biçiminde kullanıcı bilgilerini içeren [talep](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Bir kullanıcı kimlik doğrulaması gerektiren bir sunucu kaynağa erişmek istediğinde, belirteç taşıyıcı {belirteci} biçiminde bir ek authorization üstbilgisi sunucusuyla gönderilir. Sonraki her istek için sunucu tarafı doğrulama istekte belirteç geçirilen beri bu uygulamayı durum bilgisiz hale getirir. Bu belirteç değil *şifrelenmiş*; bunun yerine olan *kodlanmış*. Sunucu tarafında belirteç, belirtecin içinde ham bilgilerine erişmek için çözülebilir. Belirteç içinde sonraki istekleri göndermek için ya da, tarayıcının yerel depolama biriminde veya bir tanımlama bilgisinde saklayabilirsiniz. Belirtecinizi yerel depolama alanına depolanır, ancak belirteç bir tanımlama bilgisinde depolanıyorsa, bir sorun olduğundan XSRF güvenlik açığı hakkında endişelenmeniz gerekmez.
+Belirteç tabanlı kimlik doğrulaması oturum sunucuda depolamak değil. Bir kullanıcı oturum açtığında (antiforgery bir belirteç değil) bir belirteç alacakları. Bu belirteç belirteci doğrulamak için gerekli verileri tutar. Ayrıca biçiminde kullanıcı bilgilerini içeren [talep](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Bir kullanıcı kimlik doğrulaması gerektiren bir sunucu kaynağa erişmek istediğinde, belirteç taşıyıcı {belirteci} biçiminde bir ek authorization üstbilgisi sunucusuyla gönderilir. Sonraki her istek için sunucu tarafı doğrulama istekte belirteç geçirilen beri bu uygulamayı durum bilgisiz hale getirir. Bu belirteç değil *şifrelenmiş*; bunun yerine olan *kodlanmış*. Sunucu tarafında belirteç, belirtecin içinde ham bilgilerine erişmek için çözülebilir. Belirteç sonraki istekleri göndermek için ya da onu tarayıcının yerel depolama veya bir tanımlama bilgisi saklayın. XSRF güvenlik açığı hakkında belirteç yerel depolama alanına depolanır, ancak belirteç bir tanımlama bilgisinde depolanıyorsa, bir sorun olduğundan endişelenmeyin.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Bir etki alanında barındırılan birden çok uygulamalarını
 
-Olsa bile `example1.cloudapp.net` ve `example2.cloudapp.net` farklı ana altındaki tüm konaklarda arasında örtük güven ilişkisi yoktur `*.cloudapp.net` etki alanı. Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır. Kötü amaçlı bir alt etki alanı oturum belirteci üzerine mümkün olsa bile, kullanıcı için geçerli bir alan belirteci oluşturamıyor gerçekleşmesi için kullanıcı adı alanı belirteci katıştırılır, ASP.NET çekirdeği çalışma zamanı bazı azaltma sağlar. Ancak, bu tür bir ortamda barındırıldığında yerleşik anti-XSRF yordamlar hala oturumu ele geçirme veya oturum açma CSRF karşı saldırıları korumaya olamaz. Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara vunerable ' dir.
+Ancak `example1.cloudapp.net` ve `example2.cloudapp.net` farklı ana altında ana bilgisayarlar arasında örtük güven ilişkisi yoktur `*.cloudapp.net` etki alanı. Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır. Kullanıcı adı alanı belirtece katıştırılır, ASP.NET çekirdeği çalışma zamanı bazı azaltma sağlar. Kötü amaçlı bir alt etki alanı oturum belirteci üzerine mümkün olsa bile, kullanıcı için geçerli bir alan belirteci üretilemiyor. Bu tür bir ortamda barındırıldığında, yerleşik anti-XSRF yordamlar hala oturumu ele geçirme veya oturum açma CSRF karşı saldırıları korumaya olamaz. Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara vunerable ' dir.
 
-
-### <a name="additional-resources"></a>Ek Kaynaklar
+### <a name="additional-resources"></a>Ek kaynaklar
 
 * [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) üzerinde [Web uygulaması güvenlik projeyi açın](https://www.owasp.org/index.php/Main_Page) (OWASP).

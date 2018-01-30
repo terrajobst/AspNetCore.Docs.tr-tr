@@ -6,7 +6,7 @@ Bu örnek ASP.NET Core kullanımını göstermektedir 1.x URL yeniden yazma işl
 
 ## <a name="examples-in-this-sample"></a>Bu örnekte örnekleri
 
-* `AddRedirect("redirect-rule/(.*)", "$1")`
+* `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
   - Başarı durumu kodu: 302 (bulundu)
   - Örnek (Yönlendirme): **/redirect-rule / {capture_group}** için **/redirected/ {capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`

@@ -2,19 +2,19 @@
 title: "ASP.NET Core kestrel web sunucusu uygulaması"
 author: tdykstra
 description: "ASP.NET Core üzerinde libuv tabanlı için Kestrel, platformlar arası web sunucusu tanıtır."
-ms.author: tdykstra
 manager: wpickett
-ms.date: 08/02/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: fundamentals/servers/kestrel
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e2b28f15e47789ac89213e57396060ee356ee33
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 08/02/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: fundamentals/servers/kestrel
+ms.openlocfilehash: bfe7644891296c7c3485c9a870d90951ba87e9e8
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel web server ASP.NET Core uygulamasında giriş
 
