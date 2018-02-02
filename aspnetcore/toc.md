@@ -36,13 +36,13 @@
 #### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-mac/da1)
 #### [Arama ekleme](xref:tutorials/razor-pages-mac/search)
 
-
 ### [VS Code ile Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-vsc/index)
 #### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
 #### [Model ekleme](xref:tutorials/razor-pages-vsc/model)
 #### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-vsc/page)
 #### [SQLite ile çalışma](xref:tutorials/razor-pages-vsc/sql)
 #### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-vsc/da1)
+#### [Arama ekleme](xref:tutorials/razor-pages-vsc/search)
 
 ### [Mac için Visual Studio ile MVC web uygulaması](xref:tutorials/first-mvc-app-mac/index)
 #### [Başlarken](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -102,7 +102,9 @@
 # [Temeller](fundamentals/index.md)
 ## [Uygulama başlatma](fundamentals/startup.md)
 ## [Bağımlılık ekleme (hizmetler)](fundamentals/dependency-injection.md)
-## [Ara Yazılım](fundamentals/middleware.md)
+## [Ara Yazılım](xref:fundamentals/middleware/index)
+### [Ara Yazılım](xref:fundamentals/middleware/index)
+### [Fabrika tabanlı Ara](xref:fundamentals/middleware/extensibility)
 ## [Statik dosyalar ile çalışma](fundamentals/static-files.md)
 ## [Yönlendirme](fundamentals/routing.md)
 ## [URL yeniden yazma ara yazılımı](fundamentals/url-rewriting.md)

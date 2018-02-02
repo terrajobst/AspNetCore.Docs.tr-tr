@@ -1,3 +1,3 @@
-<span data-ttu-id="b9e46-101">Kopya wwwroot gelen... /Cu/ veya yeni bir Razor sayfalarının projesinden.</span><span class="sxs-lookup"><span data-stu-id="b9e46-101">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
+<span data-ttu-id="ab2b7-101">Kopya wwwroot gelen... /Cu/ veya yeni bir Razor sayfalarının projesinden.</span><span class="sxs-lookup"><span data-stu-id="ab2b7-101">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
 
-<span data-ttu-id="b9e46-102">Çalıştırma`dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="b9e46-102">Run `dotnet ef database update`</span></span>
+<span data-ttu-id="ab2b7-102">Çalıştırma`dotnet ef database update`</span><span class="sxs-lookup"><span data-stu-id="ab2b7-102">Run `dotnet ef database update`</span></span>
