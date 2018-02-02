@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET Core içinde siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını önleme
 
@@ -345,7 +345,7 @@ Bu etki alanına yapılan her isteği bir etki alanı ile ilişkili tanımlama b
 
 ### <a name="cookie-based-authentication"></a>Tanımlama bilgisi tabanlı kimlik doğrulaması
 
-Bir kullanıcı, kullanıcı adı ve parolasını kullanarak kimliğini doğrulamasından sonra bunları belirlemek ve bunlar doğrulanan olduğunu doğrulamak için kullanılan bir belirteç alacakları. Her istek istemci eşlik bir tanımlama bilgisi getirir belirteç depolanır. Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılım tarafından gerçekleştirilir. ASP.NET Core sağlar tanımlama bilgisi [ara yazılımı](../fundamentals/middleware.md) , kullanıcı asıl şifrelenmiş bir tanımlama bilgisine serileştirir ve daha sonra sonraki isteklerde tanımlama bilgisini doğrular asıl yeniden oluşturur ve atar `User` özelliği `HttpContext`.
+Bir kullanıcı, kullanıcı adı ve parolasını kullanarak kimliğini doğrulamasından sonra bunları belirlemek ve bunlar doğrulanan olduğunu doğrulamak için kullanılan bir belirteç alacakları. Her istek istemci eşlik bir tanımlama bilgisi getirir belirteç depolanır. Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılım tarafından gerçekleştirilir. ASP.NET Core sağlar tanımlama bilgisi [ara yazılımı](xref:fundamentals/middleware/index) , kullanıcı asıl şifrelenmiş bir tanımlama bilgisine serileştirir ve daha sonra sonraki isteklerde tanımlama bilgisini doğrular asıl yeniden oluşturur ve atar `User` özelliği `HttpContext`.
 
 Bir tanımlama bilgisi kullanıldığında, kimlik doğrulama tanımlama bilgisini bir form kimlik doğrulaması bileti için kapsayıcıdır. Raporu her istek ile form kimlik doğrulaması tanımlama bilgisinin değeri olarak geçirilir ve sunucuda, form kimlik doğrulaması tarafından kimliği doğrulanmış bir kullanıcıyı tanımlamak için kullanılır.
 

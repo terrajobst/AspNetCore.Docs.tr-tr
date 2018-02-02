@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 459f1793b1f1f73792bb6537856cb739774c6261
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aeb04f772fa687706bd8080b4306ff0040a159f
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -114,7 +114,7 @@ config.SignIn.RequireConfirmedEmail = true;
 
 ### <a name="configure-email-provider"></a>E-posta sağlayıcısı yapılandırma
 
-Bu öğreticide, SendGrid e-posta göndermek için kullanılır. SendGrid hesabı ve e-posta göndermek için anahtarı gerekir. Diğer e-posta sağlayıcısı kullanabilirsiniz. ASP.NET Core 2.x içeren `System.Net.Mail`, uygulamanızdan e-posta Gönder sağlar. E-posta göndermek için SendGrid veya başka bir e-posta hizmeti kullanmanızı öneririz.
+Bu öğreticide, SendGrid e-posta göndermek için kullanılır. SendGrid hesabı ve e-posta göndermek için anahtarı gerekir. Diğer e-posta sağlayıcısı kullanabilirsiniz. ASP.NET Core 2.x içeren `System.Net.Mail`, uygulamanızdan e-posta Gönder sağlar. E-posta göndermek için SendGrid veya başka bir e-posta hizmeti kullanmanızı öneririz. SMTP güvenli ve doğru şekilde ayarlanması için zordur.
 
 [Seçenekleri düzeni](xref:fundamentals/configuration/options) kullanıcı hesabı ve anahtarı ayarlarına erişmek için kullanılır. Daha fazla bilgi için bkz: [yapılandırma](xref:fundamentals/configuration/index).
 

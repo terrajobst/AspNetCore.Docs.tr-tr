@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 86fd40863f6eeef3c129335141d704769d36b4c1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 877a3e1f8c3282fdd67a389ddf5b4ff49dea3b42
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 
@@ -66,7 +66,7 @@ Kullanılacak `IDistributedCache` arabirimi:
 
    2. Belirli uygulanması yapılandırma `IDistributedCache` içinde `Startup` sınıfının `ConfigureServices` yöntemi ve orada kapsayıcıya ekleyin.
 
-   3. Uygulamanın gelen [ara yazılımı](../../fundamentals/middleware.md) veya MVC denetleyicisi sınıfları, istek örneği `IDistributedCache` oluşturucusundan. Örneği tarafından sağlanan [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı).
+   3. Uygulamanın gelen [ara yazılımı](xref:fundamentals/middleware/index) veya MVC denetleyicisi sınıfları, istek örneği `IDistributedCache` oluşturucusundan. Örneği tarafından sağlanan [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı).
 
 > [!NOTE]
 > Singleton veya kapsamındaki yaşam süresi kullanmaya gerek yoktur `IDistributedCache` örnekleri (en az yerleşik uygulamaları için). Bir gereksinim duyabileceğiniz her yerde bir örneği de oluşturabilirsiniz (kullanmak yerine [bağımlılık ekleme](../../fundamentals/dependency-injection.md)), ancak bu kodunuzu test etmek daha zor hale getirebilir ve ihlal [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/).

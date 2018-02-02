@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: ca4f40766b4ec3d59587109ec9d5a412e834e3ce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d87cb50871b956c51045558d2e4f076de4211f81
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-to-controller-actions"></a>Denetleyici eylemleri için yönlendirme
 
 Tarafından [Ryan Nowak](https://github.com/rynowak) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core MVC kullanan yönlendirme [ara yazılım](../../fundamentals/middleware.md) gelen istekleri URL'lerini eşleşen ve eylemlere eşlemek için. Yollar başlatma kodunu veya öznitelikleri tanımlanır. Yollar URL yollarını eylemler için nasıl eşleştirilmesi gerektiğini açıklar. Yollar yanıtları gönderilen (Bağlantılar) URL'lerini oluşturmak için de kullanılır. 
+ASP.NET Core MVC kullanan yönlendirme [ara yazılım](xref:fundamentals/middleware/index) gelen istekleri URL'lerini eşleşen ve eylemlere eşlemek için. Yollar başlatma kodunu veya öznitelikleri tanımlanır. Yollar URL yollarını eylemler için nasıl eşleştirilmesi gerektiğini açıklar. Yollar yanıtları gönderilen (Bağlantılar) URL'lerini oluşturmak için de kullanılır. 
 
 Öznitelik yönlendirilebilir veya Eylemler işleme, genel yönlendirilir. Bir rota denetleyici veya eylem getirir, yönlendirilmiş özniteliği. Bkz: [yönlendirme karma](#routing-mixed-ref-label) daha fazla bilgi için.
 

@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
@@ -23,11 +23,29 @@ Bu bölümde, Razor sayfasını içeren dosyaları karşıya yükleme gösterilm
 
 [Razor sayfalarının film örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) dosyaları karşıya yükleme bağlama Bu öğretici kullanan basit modelde çalıştığı iyi küçük dosyaları yüklemek için. Büyük dosyaları akış hakkında daha fazla bilgi için bkz: [akış ile büyük dosyalar](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
-Aşağıdaki adımlarda örnek uygulama için bir filmi zamanlama dosya karşıya yükleme özelliği ekleyin. Bir filmi zamanlama tarafından temsil edilen bir `Schedule` sınıfı. Sınıfı, zamanlama iki sürümünü içerir. Bir sürüm müşterilere sağlanan `PublicSchedule`. Başka bir sürüm şirket çalışanlarının kullanılan `PrivateSchedule`. Her bir sürümü ayrı bir dosya olarak yüklenir. Öğretici iki dosya yüklemeleriyle tek bir POST ile bir sayfadan sunucuya nasıl gerçekleştirileceğini gösterir.
+Aşağıdaki adımlarda, bir filmi zamanlama dosya karşıya yükleme özelliği örnek uygulaması'na eklenir. Bir filmi zamanlama tarafından temsil edilen bir `Schedule` sınıfı. Sınıfı, zamanlama iki sürümünü içerir. Bir sürüm müşterilere sağlanan `PublicSchedule`. Başka bir sürüm şirket çalışanlarının kullanılan `PrivateSchedule`. Her bir sürümü ayrı bir dosya olarak yüklenir. Öğretici iki dosya yüklemeleriyle tek bir POST ile bir sayfadan sunucuya nasıl gerçekleştirileceğini gösterir.
+
+## <a name="security-considerations"></a>Güvenlik konuları
+
+Kullanıcılar bir sunucuya dosyaları karşıya yükleme olanağı sağlarken dikkat alınması gerekir. Saldırganlar yürütme [hizmet reddi](/windows-hardware/drivers/ifs/denial-of-service) ve bir sistem diğer saldırılar. Başarılı bir saldırı olasılığını azaltmak bazı güvenlik adımlar şunlardır:
+
+* Dosyaları karşıya yükleme adanmış dosya karşıya yükleme alanına sisteminde, karşıya yüklenen içerik üzerinde güvenlik önlemleri zorunlu tuttukları kolaylaştırır. Dosya yüklemeleri sorgulamasına olduğunda, yürütme izinleri emin olun karşıya yükleme konumuna devre dışı bırakılır.
+* Uygulamadan değil kullanıcı girişi tarafından belirlenen bir güvenli dosya adı veya karşıya yüklenen dosyanın dosya adı kullanın.
+* Yalnızca onaylanan dosya uzantılarını belirli bir dizi izin verir.
+* İstemci-tarafı denetimleri sunucu üzerinde gerçekleştirilen doğrulayın. İstemci-tarafı denetimleri aşmak kolaydır.
+* Karşıya yükleme boyutunu denetlemek ve beklenenden daha büyük yüklemeler engelleyebilirsiniz.
+* Virüs/kötü amaçlı yazılım tarayıcı karşıya yüklenen içerikte çalıştırın.
+
+> [!WARNING]
+> Kötü amaçlı kod bir sisteme karşıya sık yapabilirsiniz kod yürütmek için ilk adımdır:
+> * Tamamen devralma sistemin.
+> * Sistem tamamen başarısız sonucu sistemiyle aşırı yükleme.
+> * Kullanıcı veya sistem veri tehlikeye.
+> * Graffiti ortak bir arabirim için geçerlidir.
 
 ## <a name="add-a-fileupload-class"></a>Dosya yükleme sınıfı ekleme
 
-Aşağıda, dosya yüklemeleriyle çifti işlemek için bir Razor sayfası oluşturun. Ekleme bir `FileUpload` zamanlama verileri elde etmek için sayfaya bağlı sınıfı. Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adını **dosya yükleme** ve aşağıdaki özellikleri ekleyin:
+Dosya yüklemeleri çifti işlemek için bir Razor sayfası oluşturun. Ekleme bir `FileUpload` zamanlama verileri elde etmek için sayfaya bağlı sınıfı. Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adını **dosya yükleme** ve aşağıdaki özellikleri ekleyin:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
@@ -38,6 +56,23 @@ Sınıfı, zamanlamanın başlık özelliğini ve her iki sürümü zamanlama i�
 Karşıya yüklenen zamanlama dosyalarını işlemek için kod yinelemesinden kaçınmak için önce bir statik yardımcı yöntemi ekleyin. Oluşturma bir *yardımcı programları* uygulama klasöründe ve ekleme bir *FileHelpers.cs* dosya aşağıdaki içeriğe sahip. Yardımcı yöntemi `ProcessFormFile`, alan bir [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) ve [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) ve dosyanın boyutu ve içeriğini içeren bir dize döndürür. İçerik türü ve uzunluğu denetlenir. Dosya bir doğrulama denetimi geçmiyor, bir hata eklenen `ModelState`.
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+
+### <a name="save-the-file-to-disk"></a>Dosyayı diske kaydedin
+
+Örnek uygulaması dosyanın içeriğini veritabanı alanına kaydeder. Dosyanın içeriğini diske kaydetmek için kullanın bir [FILESTREAM](/dotnet/api/system.io.filestream):
+
+```csharp
+using (var fileStream = new FileStream(filePath, FileMode.Create))
+{
+    await formFile.CopyToAsync(fileStream);
+}
+```
+
+Çalışan işlemi tarafından belirtilen konuma yazma izinlerine sahip olmalıdır `filePath`.
+
+### <a name="save-the-file-to-azure-blob-storage"></a>Dosyayı Azure Blob depolama alanına kaydedin
+
+Azure Blob Depolama birimine dosya içerik yüklemek için bkz: [.NET kullanarak Azure Blob Storage ile çalışmaya başlama](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Nasıl kullanılacağı konusunda ortaya [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) kaydetmek için bir [FILESTREAM](/dotnet/api/system.io.filestream) blob depolama.
 
 ## <a name="add-the-schedule-class"></a>Zamanlama sınıfı ekleme
 
@@ -106,7 +141,7 @@ Açık *_Layout.cshtml* ve bir bağlantı dosya karşıya yükleme sayfasına ul
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Zamanlama silmeyi onaylamak için bir sayfa ekleyin
 
-Kullanıcı bir zamanlama silinecek tıkladığında, bunları işlemi iptal etmek için bir fırsat olmasını istiyorsunuz. Silme onayı sayfası ekleme (*Delete.cshtml*) için *zamanlamaları* klasörü:
+Kullanıcı bir zamanlama silinecek tıklattığında işlemi iptal etmek için bir fırsat sağlanır. Silme onayı sayfası ekleme (*Delete.cshtml*) için *zamanlamaları* klasörü:
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
@@ -144,7 +179,7 @@ Kullanıcı tıklatabilirsiniz **silmek** buradan onaylayın ya da silme işlemi
 
 Sorun giderme bilgileri ile `IFormFile` yüklemek bkz [dosya yüklemeleri ASP.NET Core: sorun giderme](xref:mvc/models/file-uploads#troubleshooting).
 
-Bu giriş Razor sayfalarının tamamlamak için teşekkür ederiz. Çıkmadan açıklamaları veriyoruz. [MVC ve EF çekirdek Başlarken](xref:data/ef-mvc/intro) mükemmel bir izleme Bu öğretici kadar olan.
+Bu giriş Razor sayfalarının tamamlamak için teşekkür ederiz. Geri bildirim veriyoruz. [MVC ve EF çekirdek Başlarken](xref:data/ef-mvc/intro) mükemmel bir izleme Bu öğretici kadar olan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

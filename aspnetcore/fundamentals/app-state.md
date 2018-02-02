@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumunda giriş
 
@@ -84,7 +84,7 @@ Aşağıdaki `Startup` sınıf kodu oturum tabanlı TempData sağlayıcı yapıl
 
 ---
 
-Sıralama ara yazılımı bileşenleri için kritik öneme sahiptir. Önceki örnekte, türünde bir özel durum `InvalidOperationException` oluşur, `UseSession` sonra çağrılan `UseMvcWithDefaultRoute`. Bkz: [ara yazılım sıralama](xref:fundamentals/middleware#ordering) daha fazla ayrıntı için.
+Sıralama ara yazılımı bileşenleri için kritik öneme sahiptir. Önceki örnekte, türünde bir özel durum `InvalidOperationException` oluşur, `UseSession` sonra çağrılan `UseMvcWithDefaultRoute`. Bkz: [ara yazılım sıralama](xref:fundamentals/middleware/index#ordering) daha fazla ayrıntı için.
 
 > [!IMPORTANT]
 > .NET Framework hedefleme ve oturum tabanlı sağlayıcısını kullanarak eklerseniz, [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) NuGet paketini projenize.
@@ -189,7 +189,7 @@ Aşağıdaki örnek, ayarlama ve alma serileştirilebilir bir nesne gösterilmek
 
 `HttpContext` Özet türü bir sözlük koleksiyonu için destek sağlar `IDictionary<object, object>`adlı `Items`. Bu koleksiyon başından kullanılabilir bir *HttpRequest* ve her istek sonunda atılır. Anahtarlı bir girdi için bir değer atayarak ya da belirli bir anahtar değeri isteyen erişebilir.
 
-Aşağıdaki örnekte [ara yazılımı](middleware.md) ekler `isVerified` için `Items` koleksiyonu.
+Aşağıdaki örnekte, [ara yazılımı](xref:fundamentals/middleware/index) ekler `isVerified` için `Items` koleksiyonu.
 
 ```csharp
 app.Use(async (context, next) =>

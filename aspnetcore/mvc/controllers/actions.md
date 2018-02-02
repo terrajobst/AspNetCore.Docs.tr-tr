@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0f04891aaeec026120e2afff3ff24fb89f649c8d
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri istekleri işleme
 
@@ -104,4 +104,4 @@ Hata işleme ve yanıt önbelleğe alma genellikle arası kesme sorunları şunl
    * [Hata işleme](xref:mvc/controllers/filters#exception-filters)
    * [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
 
-Filtre ya da özel kullanılarak birçok arası kesme sorunları işlenebilir [Ara](xref:fundamentals/middleware).
+Filtre ya da özel kullanılarak birçok arası kesme sorunları işlenebilir [Ara](xref:fundamentals/middleware/index).

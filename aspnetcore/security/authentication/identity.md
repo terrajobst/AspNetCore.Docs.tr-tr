@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: 52b78922da54a2d4e66120552c2ffc9f585f406b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0c05c636a991371b1a1feec88b5393724a6dc629
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -65,7 +65,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
     
     Bu Hizmetleri üzerinden uygulama için kullanılabilir hale getirilir [bağımlılık ekleme](xref:fundamentals/dependency-injection).
     
-    Kimlik etkin uygulama için çağırarak `UseAuthentication` içinde `Configure` yöntemi. `UseAuthentication`kimlik doğrulama ekler [ara yazılım](xref:fundamentals/middleware) istek ardışık düzenine.
+    Kimlik etkin uygulama için çağırarak `UseAuthentication` içinde `Configure` yöntemi. `UseAuthentication`kimlik doğrulama ekler [ara yazılım](xref:fundamentals/middleware/index) istek ardışık düzenine.
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
@@ -75,7 +75,7 @@ Bu konuda, oturum açma kaydetmeyi işlevselliği eklemek için ASP.NET Core kim
     
     Bu Hizmetleri üzerinden uygulama için kullanılabilir hale getirilir [bağımlılık ekleme](xref:fundamentals/dependency-injection).
     
-    Kimlik etkin uygulama için çağırarak `UseIdentity` içinde `Configure` yöntemi. `UseIdentity`tanımlama bilgisi tabanlı kimlik doğrulaması ekler [ara yazılım](xref:fundamentals/middleware) istek ardışık düzenine.
+    Kimlik etkin uygulama için çağırarak `UseIdentity` içinde `Configure` yöntemi. `UseIdentity`tanımlama bilgisi tabanlı kimlik doğrulaması ekler [ara yazılım](xref:fundamentals/middleware/index) istek ardışık düzenine.
         
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     

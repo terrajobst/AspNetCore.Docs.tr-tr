@@ -90,7 +90,3 @@ Güncelleştirme *Index.cshtml* gibi:
 [!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 Genre, filmi ve her ikisi tarafından arayarak uygulamayı test edin.
-
->[!div class="step-by-step"]
-[Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
-[sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)

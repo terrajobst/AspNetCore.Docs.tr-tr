@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: f104c9116cfaa4a82ac88e4a83b4b6f172eb2aa1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8aac6c649b22dc8f6cfc916aa78d56efad7821a0
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri 
 
 Tarafından [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-Bu makalede mevcut ASP.NET geçirmek nasıl gösterilmektedir [HTTP modülleri ve system.webserver işleyicilerini](https://docs.microsoft.com/iis/configuration/system.webserver/) ASP.NET Core için [Ara](../fundamentals/middleware.md).
+Bu makalede mevcut ASP.NET geçirmek nasıl gösterilmektedir [HTTP modülleri ve system.webserver işleyicilerini](https://docs.microsoft.com/iis/configuration/system.webserver/) ASP.NET Core için [Ara](xref:fundamentals/middleware/index).
 
 ## <a name="modules-and-handlers-revisited"></a>Modüller ve tekrar ziyaret işleyicileri
 
@@ -65,7 +65,7 @@ Modülleri yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebil
 
    * Ara yazılım, kod kullanarak yapılandırılır yerine içinde *Web.config*
 
-   * [Ardışık Düzen dallanma](../fundamentals/middleware.md#middleware-run-map-use) yalnızca URL'yi de istek üstbilgileri, sorgu dizeleri, vb. göre belirli ara yazılımı için istekleri gönderdiğiniz sağlar.
+   * [Ardışık Düzen dallanma](xref:fundamentals/middleware/index#middleware-run-map-use) yalnızca URL'yi de istek üstbilgileri, sorgu dizeleri, vb. göre belirli ara yazılımı için istekleri gönderdiğiniz sağlar.
 
 **Ara yazılım modülleri için çok benzer:**
 
@@ -81,7 +81,7 @@ Modülleri yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebil
 
    * Modülleri sırasını istekleri ve yanıtları için aynı olsa da Ara yazılım yanıtlar için istekleri, ters sırasıdır
 
-   * Bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturma](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder)
+   * Bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Ara yazılım](http-modules/_static/middleware.png)
 
@@ -93,13 +93,13 @@ Var olan bir HTTP Modül aşağıdakine benzer görünecektir:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyModule.cs?highlight=6,8,24,31)]
 
-Gösterildiği gibi [ara yazılımı](../fundamentals/middleware.md) sayfasında, bir ASP.NET Core Ara yazılımıdır gösteren bir sınıf bir `Invoke` yöntemi alma bir `HttpContext` ve döndüren bir `Task`. Yeni Ara yazılımınızı şuna benzeyecektir:
+Gösterildiği gibi [ara yazılımı](xref:fundamentals/middleware/index) sayfasında, bir ASP.NET Core Ara yazılımıdır gösteren bir sınıf bir `Invoke` yöntemi alma bir `HttpContext` ve döndüren bir `Task`. Yeni Ara yazılımınızı şuna benzeyecektir:
 
 <a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Yukarıdaki ara yazılım şablonu bölümünden alındığı [ara yazılımı yazma](../fundamentals/middleware.md#middleware-writing-middleware).
+Önceki ara yazılım şablon bölümünden alındığı [ara yazılımı yazma](xref:fundamentals/middleware/index#middleware-writing-middleware).
 
 *MyMiddlewareExtensions* yardımcı sınıfı, Ara yapılandırmak kolaylaştırır, `Startup` sınıfı. `UseMyMiddleware` Yöntemi ara yazılım sınıfınız istek ardışık düzenine ekler. Ara yazılım tarafından gerekli hizmetleri Ara oluşturucuda ucunuz.
 
@@ -121,7 +121,7 @@ HTTP modülleri, istek ardışık düzen kullanarak genellikle eklenir *Web.conf
 
 [!code-xml[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Web.config?highlight=6&range=1-3,32-33,36,43,50,101)]
 
-Bu dönüştürme [, yeni Ara ekleme](../fundamentals/middleware.md#creating-a-middleware-pipeline-with-iapplicationbuilder) için istek ardışık düzeninde, `Startup` sınıfı:
+Bu dönüştürme [, yeni Ara ekleme](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder) için istek ardışık düzeninde, `Startup` sınıfı:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=16)]
 
@@ -383,4 +383,4 @@ public async Task Invoke(HttpContext httpContext)
 * [HTTP işleyicileri ve HTTP modülleri genel bakış](/iis/configuration/system.webserver/)
 * [Yapılandırma](xref:fundamentals/configuration/index)
 * [Uygulama Başlatma](xref:fundamentals/startup)
-* [Ara Yazılım](xref:fundamentals/middleware)
+* [Ara Yazılım](xref:fundamentals/middleware/index)

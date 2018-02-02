@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 43c937ff9631be3edc1f95b3689650e4574abfbd
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -316,6 +316,7 @@ Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne e
 
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [Test etme](xref:testing/index)
+* [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core temiz kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Kapsayıcı yönetilen uygulama tasarımı, Prelude: Burada kapsayıcı ait mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Açık bağımlılıkları İlkesi](http://deviq.com/explicit-dependencies-principle/)

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: cf9e6a25f5b9cc8395c803a11c15622349620a07
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c324918b33af82b619bb2251f32308e4a57c27e5
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulama başlangıç
 
@@ -70,7 +70,7 @@ Web ana bilgisayarı tarafından kullanılabilen bazı hizmetler sağlar `Startu
 
 ## <a name="the-configure-method"></a>Yapılandırma yöntemi
 
-[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) yöntemi uygulama HTTP isteklerine nasıl yanıt vereceğini belirtmek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılmış [ara yazılımı](xref:fundamentals/middleware) bileşenleri için bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) örneği. `IApplicationBuilder`kullanılabilir `Configure` yöntemi, ancak hizmet kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure` ([başvuru kaynağı](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
+[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) yöntemi uygulama HTTP isteklerine nasıl yanıt vereceğini belirtmek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılmış [ara yazılımı](xref:fundamentals/middleware/index) bileşenleri için bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) örneği. `IApplicationBuilder`kullanılabilir `Configure` yöntemi, ancak hizmet kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure` ([başvuru kaynağı](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
 
 [ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) bir geliştirici özel durum sayfası desteğiyle ardışık düzenini yapılandırmak [BrowserLink](http://vswebessentials.com/features/browserlink), hata sayfaları, statik dosyalar ve ASP.NET MVC:
 
@@ -80,7 +80,7 @@ Her `Use` genişletme yöntemi, istek ardışık düzenine bir ara yazılım bil
 
 Gibi ek hizmetleri `IHostingEnvironment` ve `ILoggerFactory`, yöntem imzası da belirtilebilir. Kullanılabilir ise ek hizmetler belirtildiğinde, eklenmiş.
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder`, bkz: [Ara](xref:fundamentals/middleware).
+Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder`, bkz: [Ara](xref:fundamentals/middleware/index).
 
 ## <a name="convenience-methods"></a>Kullanışlı yöntemler
 
@@ -92,7 +92,7 @@ Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder`, 
 
 Kullanım [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) bir uygulamanın başında veya sonunda ara yazılımını yapılandırma [yapılandırma](#the-configure-method) ara yazılım ardışık düzenini. `IStartupFilter`bir ara yazılım önce veya sonra Başlat veya uygulamanın istek işleme ardışık düzen sonunda kitaplıkları tarafından eklenen Ara çalıştığından emin olmak kullanışlıdır.
 
-`IStartupFilter`tek bir yöntem uygulayan [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), alır ve döndüren bir `Action<IApplicationBuilder>`. Bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bir uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware#creating-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter`tek bir yöntem uygulayan [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), alır ve döndüren bir `Action<IApplicationBuilder>`. Bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bir uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
 
 Her `IStartupFilter` istek ardışık düzeninde bir veya daha fazla middlewares uygular. Filtreler, hizmet kapsayıcısı eklendikleri sırayla çağrılır. Filtreleri önce ara ekleyebilir veya sonraki filtre denetimini geçtikten sonra bu nedenle bunlar başına veya uygulama ardışık sonuna ekleyin.
 
@@ -121,7 +121,7 @@ Ara yazılım yürütme sırası olarak ayarlanmış tarafından sırasına gör
 
 * [Barındırma](xref:fundamentals/hosting)
 * [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
-* [Ara Yazılım](xref:fundamentals/middleware)
+* [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Günlüğe kaydetme](xref:fundamentals/logging/index)
 * [Yapılandırma](xref:fundamentals/configuration/index)
 * [StartupLoader sınıfı: FindStartupType yöntemi (başvuru kaynağı)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)

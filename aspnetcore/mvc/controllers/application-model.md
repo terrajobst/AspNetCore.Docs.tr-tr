@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 08f67b517b2d7ee1186666a4eb5c6c925eb3bd5d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6e5f290c48cfe58ae3efe5ce0208c72e8ffb1daf
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="working-with-the-application-model"></a>Uygulama modeli ile çalışma
 
@@ -157,7 +157,7 @@ Kuralı, bir başlatma seçeneği olarak eklenir.
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Kurallarına ekleyebilirsiniz, [ara yazılımı](xref:fundamentals/middleware) erişerek `MvcOptions` kullanma`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Kurallarına ekleyebilirsiniz, [ara yazılımı](xref:fundamentals/middleware/index) erişerek `MvcOptions` kullanma`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 Bu örnek denetleyicisi "Namespace" adına sahip olduğu özniteliği yönlendirme kullanmıyorsanız yolları Bu kuralı uygular. Bu kural aşağıdaki denetleyicisiyle gösterir:
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 946ccc80915c5de60976a98cbbb253cb8dfacaca
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -71,7 +71,7 @@ public class Startup
 }
 ```
 
-`ConfigureServices`tanımlar [Hizmetleri](#dependency-injection-services) uygulamanız (örneğin, ASP.NET Core MVC, Entity Framework Çekirdek, kimlik) tarafından kullanılır. `Configure`tanımlar [ara yazılım](xref:fundamentals/middleware) isteği ardışık düzeni için.
+`ConfigureServices`tanımlar [Hizmetleri](#dependency-injection-services) uygulamanız (örneğin, ASP.NET Core MVC, Entity Framework Çekirdek, kimlik) tarafından kullanılır. `Configure`tanımlar [ara yazılım](xref:fundamentals/middleware/index) isteği ardışık düzeni için.
 
 Daha fazla bilgi için bkz: [uygulama başlangıç](xref:fundamentals/startup).
 
@@ -91,9 +91,9 @@ Daha fazla bilgi için bkz: [bağımlılık ekleme](xref:fundamentals/dependency
 
 ## <a name="middleware"></a>Ara yazılım
 
-ASP.NET çekirdek isteği kullanılarak ardışık düzeni oluşturma [Ara](xref:fundamentals/middleware). ASP.NET Core Ara gerçekleştirir zaman uyumsuz mantığı bir `HttpContext` ve sırayla sonraki ara yazılımı çağırır veya istek doğrudan sonlandırır. "XYZ" adlı bir ara yazılım bileşeni çağırarak eklenen bir `UseXYZ` uzantı yönteminde `Configure` yöntemi.
+ASP.NET çekirdek isteği kullanılarak ardışık düzeni oluşturma [Ara](xref:fundamentals/middleware/index). ASP.NET Core Ara gerçekleştirir zaman uyumsuz mantığı bir `HttpContext` ve sırayla sonraki ara yazılımı çağırır veya istek doğrudan sonlandırır. "XYZ" adlı bir ara yazılım bileşeni çağırarak eklenen bir `UseXYZ` uzantı yönteminde `Configure` yöntemi.
 
-ASP.NET Core zengin bir yerleşik ara yazılım kümesi ile birlikte gelir:
+ASP.NET Core zengin bir yerleşik ara yazılımı içerir:
 
 * [Statik dosyalar](xref:fundamentals/static-files)
 * [Yönlendirme](xref:fundamentals/routing)
@@ -103,7 +103,7 @@ ASP.NET Core zengin bir yerleşik ara yazılım kümesi ile birlikte gelir:
 
 [OWIN](http://owin.org)-tabanlı ara yazılım ASP.NET Core uygulamaları için kullanılabilir ve kendi özel ara yazabilirsiniz.
 
-Daha fazla bilgi için bkz: [ara yazılımı](xref:fundamentals/middleware) ve [açık Web arabirimi için .NET (OWIN)](xref:fundamentals/owin).
+Daha fazla bilgi için bkz: [ara yazılımı](xref:fundamentals/middleware/index) ve [açık Web arabirimi için .NET (OWIN)](xref:fundamentals/owin).
 
 ## <a name="environments"></a>Ortamlar
 

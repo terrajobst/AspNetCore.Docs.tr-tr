@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 8549083ad42f3b81f850c0572b36dd99c4f50350
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2ba3c226cc57f8a3fb26b4119ae9e575eff522f9
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="filters"></a>FilTReleri
 
@@ -307,7 +307,7 @@ Zaman `OnResultExecuted` yöntemi çalıştığında, yanıt istemciye bir olas�
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Ara yazılım filtre ardışık düzeninde kullanma
 
-Kaynak filtreleri çalışma gibi [ara yazılım](../../fundamentals/middleware.md) ardışık düzeninde gelen yürütülmesi her şeyi çevreleyen olmasıdır. Ancak MVC bağlamı ve yapılarına erişime sahip oldukları anlamına gelir MVC parçası olup olmadıklarını bakımından filtreler Ara farklıdır.
+Kaynak filtreleri çalışma gibi [ara yazılım](xref:fundamentals/middleware/index) ardışık düzeninde gelen yürütülmesi her şeyi çevreleyen olmasıdır. Ancak MVC bağlamı ve yapılarına erişime sahip oldukları anlamına gelir MVC parçası olup olmadıklarını bakımından filtreler Ara farklıdır.
 
 ' De ASP.NET Core 1.1, filtre ardışık düzeninde ara yazılımı kullanabilirsiniz. MVC rota verilerini ya da yalnızca belirli denetleyicileri veya Eylemler çalışması gereken bir erişmesi gereken bir ara yazılım bileşeni varsa, bunu yapmak isteyebilirsiniz.
 

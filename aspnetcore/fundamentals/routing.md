@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -36,7 +36,7 @@ Yönlendirme kullanır *yollar* (uygulamaları [IRouter](https://docs.microsoft.
 
 Genellikle, bir uygulamanın tek bir rota koleksiyonu yok. Bir istek ulaştığında rota koleksiyonu sırada işlenir. Gelen istek çağırarak istek URL'si eşleşen bir yol arar `RouteAsync` rota koleksiyonu içinde kullanılabilir her rotada yöntemi. Bunun aksine, bir yanıt rota bilgilerine dayalı URL (örneğin, yeniden yönlendirme veya bağlantılar) üretmek için yönlendirme kullanın ve bu nedenle sabit kodlu URL'lere Bakımı yardımcı olan olmamasına özen gösterin.
 
-Yönlendirme bağlı [ara yazılımı](middleware.md) tarafından kanal `RouterMiddleware` sınıfı. [ASP.NET MVC](../mvc/overview.md) yapılandırmasına bir parçası olarak ara yazılım ardışık düzene yönlendirme ekler. Bir tek başına bileşeni olarak Yönlendirme kullanma hakkında bilgi edinmek için bkz: [kullanarak-yönlendirme-Ara](#using-routing-middleware).
+Yönlendirme bağlı [ara yazılımı](xref:fundamentals/middleware/index) tarafından kanal `RouterMiddleware` sınıfı. [ASP.NET Core MVC](xref:mvc/overview) yapılandırmasına bir parçası olarak ara yazılım ardışık düzene yönlendirme ekler. Bir tek başına bileşeni olarak Yönlendirme kullanma hakkında bilgi edinmek için bkz: [yönlendirme ara yazılımı kullanarak](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 

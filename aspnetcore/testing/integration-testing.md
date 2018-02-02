@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core test tümleştirme
 
@@ -127,7 +127,7 @@ Bu kod çalışır, ancak nasıl işlevselliği bu tür bir ASP.NET Core uygulam
 
 Dikkate alınması gereken bir seçenek ekleme [MVC](xref:mvc/overview) prime denetimi işlemek için uygulama ve bir denetleyici oluşturma. Ancak, şu anda yok varsayarak bir bit herhangi diğer MVC işlevselliği, overkill.
 
-Ancak, ASP.NET Core avantajlarından yararlanmak [ara yazılımı](xref:fundamentals/middleware), hangi yardımcı olacak bize denetleme mantığı kendi sınıfında asal kapsüllemek ve daha iyi elde [sorunları ayrılması](http://deviq.com/separation-of-concerns/) içinde `Configure` yöntem.
+Ancak, ASP.NET Core avantajlarından yararlanmak [ara yazılımı](xref:fundamentals/middleware/index), hangi yardımcı olacak bize denetleme mantığı kendi sınıfında asal kapsüllemek ve daha iyi elde [sorunları ayrılması](http://deviq.com/separation-of-concerns/) içinde `Configure` yöntem.
 
 Ara yazılım kullanan ara yazılım sınıfı bekliyor biçimde bir parametre olarak belirtilmesi için bir yola izin vermek istediğiniz bir `RequestDelegate` ve `PrimeCheckerOptions` kurucusu örneği. İstek yolu bu ara yazılımın nedir eşleşmiyorsa beklediğiniz şekilde yapılandırılmış, sadece zincirde bir sonraki ara yazılım çağırın ve başka hiçbir şey yapma. İçinde uygulama kodu kalan `Configure` olduğunu `Invoke` yöntemi.
 
@@ -150,5 +150,5 @@ Bu yeniden düzenleme aşağıdaki, tüm tümleştirme testlerinizi geçtiğiniz
 ## <a name="resources"></a>Kaynaklar
 
 * [Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Ara Yazılım](xref:fundamentals/middleware)
+* [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Test denetleyicileri](xref:mvc/controllers/testing)

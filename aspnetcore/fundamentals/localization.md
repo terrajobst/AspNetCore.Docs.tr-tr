@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 794abf628beff7e5c78f9ca04309694d46910373
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 766cec5dd00b7b464eef31a3bc1721f522697608
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -198,7 +198,7 @@ Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
 
 ### <a name="localization-middleware"></a>Yerelleştirme Ara
 
-Yerelleştirme istek üzerine geçerli kültürü ayarlama [Ara](middleware.md). Yerelleştirme Ara etkin `Configure` yöntemi *Program.cs* dosya. Not, yerelleştirme ara yazılım, hangi isteği kültür kontrol Ara yazılımların önce yapılandırılmış olması gerekir (örneğin, `app.UseMvcWithDefaultRoute()`).
+Yerelleştirme istek üzerine geçerli kültürü ayarlama [Ara](xref:fundamentals/middleware/index). Yerelleştirme Ara etkin `Configure` yöntemi. Yerelleştirme ara yazılım, istek kültür kontrol Ara yazılımların önce yapılandırılması gerekir (örneğin, `app.UseMvcWithDefaultRoute()`).
 
 [!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
 
