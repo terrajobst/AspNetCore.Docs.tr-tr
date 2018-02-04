@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 5c91c91ab938f3aa4abc55049c54f399469f6163
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 71c04d2bf339467fea6897be183fca950c04b659
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>İlgili verileri - EF çekirdek Razor sayfalarının (7 8'in) güncelleştirme
 
@@ -48,7 +48,7 @@ Yeni bir indirmelere varlık oluşturulduğunda, var olan bir bölüm için bir 
 
 Oluştur sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
 
 Önceki kod:
 
@@ -81,7 +81,7 @@ Oluştur sayfası sınayın. Oluştur sayfası bölüm kimliği yerine bölüm a
 
 Düzen sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
 Değişiklikleri Oluştur sayfası modelinde yapılan benzerdir. Önceki kod `PopulateDepartmentsDropDownList` , aşağı açılan listesinde belirtilen departmanı seçin bölüm kimliği, geçirir.
 
@@ -137,7 +137,7 @@ Eğitmen kaydı düzenlerken, eğitmen office atama güncelleştirmek isteyebili
 
 Eğitmen Düzenle sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
 
 Önceki kod:
 
@@ -184,7 +184,7 @@ Oluşturma *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* temel sını
 
 Eğitmen Düzenle sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
 
 Önceki kod office atama değişiklikleri işler.
 
@@ -222,7 +222,7 @@ Eğitmen Oluştur sayfası sınayın.
 
 Delete sayfa modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 

@@ -11,21 +11,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 708f306da740870b106cbeeb96879480f8745439
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 723e371e0d0b4877f96898c68cd59b433fa97dc1
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="resource-based-authorization"></a>Kaynak tabanlı bir yetkilendirme
-
-Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
 
 Yetkilendirme stratejisi erişilen kaynak bağlıdır. Bir yazar özelliği olan bir belgeyi göz önünde bulundurun. Yalnızca yazarın belge güncelleştirme izin verilmez. Sonuç olarak, yetkilendirme değerlendirme oluşabilmesi için öncelikle belge veri deposundan alınması gerekir.
 
 Veri bağlama ve sayfa işleyici veya belge yükleyen eylem yürütülmesi önce öznitelik değerlendirme oluşur. Bu nedenlerle, bildirim temelli yetkilendirme ile bir `[Authorize]` özniteliği yeterli olmaz. Bunun yerine, bir özel yetkilendirme yöntemi çağırabilirsiniz&mdash;kesinlik temelli yetkilendirme olarak bilinen bir stili.
 
 Kullanım [örnek uygulamaları](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) Bu konuda açıklanan özellikleri keşfetmek için.
+
+[Yetkilendirme tarafından korunan kullanıcı verileri ile ASP.NET Core uygulama oluşturma](xref:security/authorization/secure-data) kaynak tabanlı bir yetkilendirme kullanan örnek bir uygulama içerir.
 
 ## <a name="use-imperative-authorization"></a>Kesinlik temelli yetkilendirme kullanın
 
@@ -35,7 +35,7 @@ Yetkilendirme olarak gerçekleştirilen bir [IAuthorizationService](/dotnet/api/
 
 `IAuthorizationService`iki sahip `AuthorizeAsync` yöntemi aşırı: kaynak ve ilke adını ve diğer kaynak ve değerlendirmek için gereksinimlerin listesi kabul bir kabul etme.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
 Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
@@ -46,7 +46,7 @@ Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
 Task<bool> AuthorizeAsync(ClaimsPrincipal user,
@@ -66,11 +66,11 @@ Aşağıdaki örnekte, güvenli olması için kaynağın özel yüklendi `Docume
 > [!NOTE]
 > Aşağıdaki kod örnekleri varsayın kimlik doğrulaması çalıştıktan ve kümesi `User` özelliği.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
@@ -80,11 +80,11 @@ Aşağıdaki örnekte, güvenli olması için kaynağın özel yüklendi `Docume
 
 Kaynak tabanlı bir yetkilendirme çok farklı değildir için bir işleyici yazmak [düz gereksinimleri işleyicisi yazma](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Bir özel gereksinim sınıf oluşturun ve bir gereksinim işleyici sınıf uygulama. İşleyici sınıfını gereksinimi ve kaynak türünü belirtir. Örneğin, bir işleyici kullanan bir `SameAuthorRequirement` gereksinim ve `Document` kaynak arar:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
@@ -102,11 +102,11 @@ CRUD sonuçları temel alarak kararları yapıyorsanız, (**C**oluştur, **R**ok
 
 İşleyici kullanılarak aşağıdaki gibi uygulanan bir `OperationAuthorizationRequirement` gereksinim ve `Document` kaynak:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
 
@@ -119,13 +119,13 @@ Bir işlem kaynak işleyicisi çağırmak için işlem çağrılırken, belirtin
 > [!NOTE]
 > Aşağıdaki kod örnekleri varsayın kimlik doğrulaması çalıştıktan ve kümesi `User` özelliği.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET 2.x çekirdek](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
 Yetkilendirme başarılı olursa, belgeyi görüntülemek için sayfanın döndürülür. Yetkilendirme başarısız olur, ancak kullanıcının kimliği doğrulanır varsa, döndürme `ForbidResult` yetkilendirme başarısız oldu herhangi bir kimlik doğrulaması ara yazılımı bildirir. A `ChallengeResult` kimlik doğrulaması gerçekleştirilmesi gereken döndürülür. Etkileşimli tarayıcı istemcileri için kullanıcının oturum açma sayfasına yeniden yönlendirmek uygun olabilir.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET 1.x çekirdek](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 

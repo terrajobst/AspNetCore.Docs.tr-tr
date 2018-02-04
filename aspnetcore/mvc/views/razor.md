@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 98021cc76555f0c1402764c845471a4730b01b20
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ef3bf31da76df47312f98f494973295f29e18743
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
 
@@ -471,7 +471,7 @@ Razor kullanıma sunan bir `Model` model erişmek için özelliği geçirilen g�
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model` Yönergesi bu özelliğin türünü belirtir. Yönergeyi belirtir `T` içinde `RazorPage<T>` türeyen görünümü oluşturulan, sınıfın. Varsa `@model` belirtilen yönerge iisn't `Model` özelliği türüdür `dynamic`. Model değeri denetleyicisinden görünümüne geçirilir. Daha fazla bilgi için [modelleri'kesin türü belirtilmiş ve @model anahtar sözcüğü.
+`@model` Yönergesi bu özelliğin türünü belirtir. Yönergeyi belirtir `T` içinde `RazorPage<T>` türeyen görünümü oluşturulan, sınıfın. Varsa `@model` yönergesi değil belirtilen, `Model` özelliği türüdür `dynamic`. Model değeri denetleyicisinden görünümüne geçirilir. Daha fazla bilgi için [modelleri'kesin türü belirtilmiş ve @model anahtar sözcüğü.
 
 ### <a name="inherits"></a>@inherits
 

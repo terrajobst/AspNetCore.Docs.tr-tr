@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 60b205bf0a45e2965f9dab46f46956947ae513fd
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
-ms.translationtype: HT
+ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalarıyla çalışma
 
@@ -64,7 +64,7 @@ Ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microso
 
 ---
 
-Yapılandırma [ara yazılım](xref:fundamentals/middleware) statik dosyaları sunma sağlar.
+Yapılandırma [ara yazılım](xref:fundamentals/middleware/index) statik dosyaları sunma sağlar.
 
 ### <a name="serve-files-inside-of-web-root"></a>Web kök içinde dosyaları sunar
 
@@ -252,6 +252,5 @@ Aşağıdaki kod bilinmeyen tür hizmet veren sağlar ve bir görüntü olarak b
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Ara Yazılım](xref:fundamentals/middleware)
-
+* [Ara Yazılım](xref:fundamentals/middleware/index)
 * [ASP.NET Core giriş](xref:index)

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -52,9 +52,10 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 * [Web hizmetleri yerel mobil uygulama arka ucu oluşturma](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Veri erişimi ve depolama
-* [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](../data/ef-mvc/index.md)
-* [EF Çekirdekli ASP.NET Core - yeni veritabanı](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
-* [EF Çekirdekli ASP.NET Core - mevcut veritabanı](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
+* [Razor sayfalarının ve EF Visual Studio kullanarak çekirdek kullanmaya başlama](xref:data/ef-rp/intro)
+* [ASP.NET Core MVC ve EF Visual Studio kullanarak çekirdek kullanmaya başlama](../data/ef-mvc/index.md)
+* [ASP.NET Core MVC EF çekirdek - yeni bir veritabanı ile](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
+* [ASP.NET Core MVC EF çekirdek - var olan veritabanı ile](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 * [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](../security/authentication/social/index.md)

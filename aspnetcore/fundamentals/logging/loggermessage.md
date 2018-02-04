@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bae970c916518070faea8a06a7bccc3da20cfeff
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
@@ -34,15 +34,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 [(LogLevel, olay kimliği, dize) tanımlamak](/dotnet/api/microsoft.extensions.logging.loggermessage.define) oluşturur bir `Action` temsilci bir ileti günlüğe kaydetme için. `Define`aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla altı türü parametreleri geçirme izin verir.
 
-## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
-
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) oluşturur bir `Func` temsilci seçme tanımlamak için bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes). `DefineScope`aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla üç türü parametreleri geçirme izin verir.
-
-## <a name="message-template-named-format-string"></a>İleti şablonu (biçim dizesi olarak adlandırılır)
-
-Sağlanan dize `Define` ve `DefineScope` yöntemleri olan bir şablonu ve Ara değerli bir dize değil. Yer tutucu türleri belirttiğiniz sırayla doldurulur. Yer tutucu adları şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar özellik adları yapılandırılmış günlük verileri içinde işlevini görür. Öneririz [Pascal büyük/küçük harf](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
-
-## <a name="implementing-loggermessagedefine"></a>LoggerMessage.Define uygulama
+Sağlanan dize `Define` yöntemdir bir şablon ve Ara değerli bir dize değil. Yer tutucu türleri belirttiğiniz sırayla doldurulur. Yer tutucu adları şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar özellik adları yapılandırılmış günlük verileri içinde işlevini görür. Öneririz [Pascal büyük/küçük harf](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
 
 Her günlük iletisi bir `Action` tarafından oluşturulan statik bir alana tutulan `LoggerMessage.Define`. Örneğin, örnek uygulamayı dizin sayfası için bir GET isteği için bir günlük iletisi tanımlamak için bir alan oluşturur (*Internal/LoggerExtensions.cs*):
 
@@ -141,7 +133,11 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>LoggerMessage.DefineScope uygulama
+## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
+
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) oluşturur bir `Func` temsilci seçme tanımlamak için bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes). `DefineScope`aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla üç türü parametreleri geçirme izin verir.
+
+İle olduğu gibi `Define` yöntemi, için sağlanan dize `DefineScope` yöntemdir bir şablon ve Ara değerli bir dize değil. Yer tutucu türleri belirttiğiniz sırayla doldurulur. Yer tutucu adları şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar özellik adları yapılandırılmış günlük verileri içinde işlevini görür. Öneririz [Pascal büyük/küçük harf](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
 
 Tanımlayan bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes) günlük iletileri kullanarak bir dizi uygulamak için [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) yöntemi.
 

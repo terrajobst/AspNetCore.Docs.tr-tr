@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 96e58c706101c8b304636947b723fc50cae7f3bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50a03799336636a8ba622b4ee3e8da99dcbc2708
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/03/2018
 ---
 <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>I: bir MVC uygulaması için özel HTML Yardımcısı nasıl oluşturulur?
 ====================
 tarafından [Chris Pels](https://twitter.com/chrispels)
 
-Bu videoda Chris Pels MVC uygulamasındaki standart kümesindeki kullanılamıyor özel bir HtmlHelper oluşturulacağını gösterir. İlk olarak, bir örnek MVC uygulaması bir tanıtım denetleyici ve görünüm özel HtmlHelper test etmek için oluşturulur. Ardından, bir modül özel HtmlHelper uyarlamasını temsil eden bir genişletme yöntemi olduğu için ortak bir işlev oluşturulur. Oluşturmak için özel yardımcı olan &amp;lt; img&amp;gt; Etiketler bir sayfasında ve kimliği, url ve resim etiketi için alternatif metin dahil olmak üzere birkaç gelen parametreleri alır. Mantığı sonra tamamlanmış döndürmek için işlevi eklenen &amp;lt; img&amp;gt; belirtilen bilgileri içeren etiketi. Ardından özel HtmlHelper demo sayfasında görüntüyü görüntülemek için kullanılır. Daha fazla bilgi için kolayca farklı oluşturma esneklik sağlayan birden çok Oluşturucusu geçersiz kılmaları kapsayacak şekilde özel HtmlHelper son olarak, Genişletilmiş &amp;lt; img&amp;gt; etiketler.
+Bu videoda Chris Pels MVC uygulamasındaki standart kümesindeki kullanılamıyor özel bir HtmlHelper oluşturulacağını gösterir. İlk olarak, bir örnek MVC uygulaması bir tanıtım denetleyici ve görünüm özel HtmlHelper test etmek için oluşturulur. Ardından, bir modül özel HtmlHelper uyarlamasını temsil eden bir genişletme yöntemi olduğu için ortak bir işlev oluşturulur. Oluşturmak için özel yardımcı olan `<img>` etiketleri içindeki bir sayfayı ve kimliği, url ve resim etiketi için alternatif metin dahil olmak üzere birkaç gelen parametreleri alır. Mantığı sonra tamamlanmış döndürmek için işlevi eklenen `<img>` belirtilen bilgileri içeren etiketi. Ardından özel HtmlHelper demo sayfasında görüntüyü görüntülemek için kullanılır. Daha fazla bilgi için kolayca farklı oluşturma esneklik sağlayan birden çok Oluşturucusu geçersiz kılmaları kapsayacak şekilde özel HtmlHelper son olarak, Genişletilmiş `<img>` etiketler.
 
 [&#9654; (18 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
 

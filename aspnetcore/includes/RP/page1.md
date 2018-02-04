@@ -66,13 +66,13 @@ Aşağıdaki HTML Yardımcısı kullanılan lambda ifadesi inceleyin:
 
 Aşağıdaki kod göz önünde bulundurun:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-)]
+[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
 Önceki vurgulanmış kodu koddan C# diline Razor örneğidir. `{` Ve `}` karakterleri bir C# kod bloğunun içine alın.
 
 `PageModel` Taban sınıfının bir `ViewData` bir görünüme iletmek istediğiniz verileri eklemek için kullanılan sözlüğü özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer modeli kullanarak sözlük. Önceki örnekte, "Title" özelliği eklenen `ViewData` sözlük. "Title" özellik kullanılır *Pages/_Layout.cshtml* dosya. Aşağıdaki biçimlendirmede ilk birkaç satırlık gösterir *Pages/_Layout.cshtml* dosya.
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-)]
+[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 Satır `@*Markup removed for brevity.*@` bir Razor açıklama. HTML açıklamaları aksine (`<!-- -->`), Razor açıklama istemciye gönderilmez.
 

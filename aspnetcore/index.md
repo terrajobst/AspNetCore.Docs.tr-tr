@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: d7957bdc6fa982790141bac9b73ad7d3b1dd3d8a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
+# <a name="aspnet-core"></a>ASP.NET Core
 
 [Daniel Roth](https://github.com/danroth27), [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Shaun Luttin](https://twitter.com/dicshaunary) tarafından hazırlanmıştır
 
@@ -65,6 +65,7 @@ ASP.NET Core, popüler istemci tarafı çerçeveler ve kitaplıklar ([Angular](x
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
+* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [ASP.NET Core öğreticileri](xref:tutorials/index)
 * [ASP.NET Core temelleri](xref:fundamentals/index)
 * [Haftalık ASP.NET topluluğu toplantısında](https://live.asp.net/), takımın ilerleme durumu ve planları ele alınır. Yeni bloglara ve üçüncü taraf yazılıma yer verilir.

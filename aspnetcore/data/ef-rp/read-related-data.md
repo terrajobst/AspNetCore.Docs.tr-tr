@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 8c69a355e6281cb7abf03b05eb2f59262cc5d4e1
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Okuma data - EF çekirdek Razor sayfaları (8 6) ile ilgili
 
@@ -179,7 +179,7 @@ Uygulamayı çalıştırın ve Eğitmen sayfasına gidin.
 
 Değiştir *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 `OnGetAsync` Yöntemi seçili Eğitmen kimliği için isteğe bağlı rota veri kabul eder.
 
@@ -248,7 +248,7 @@ Tıklayın **seçin** bağlantı. Satır stili değişiklikleri.
 
 Güncelleştirme `OnGetAsync` yönteminde *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-)]
+[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Güncelleştirilmiş sorgu inceleyin:
 
@@ -275,7 +275,7 @@ Aşağıdaki kod görünüm modelinin doldurur `Enrollments` bir indirmelere se�
 
 Aşağıdaki biçimlendirmede sonuna ekleyin *Pages/Courses/Index.cshtml* Razor sayfasını:
 
-[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-)]
+[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
 Önceki biçimlendirme bir eğitmen seçildiğinde bir eğitmen ilgili kurslar listesini görüntüler.
 

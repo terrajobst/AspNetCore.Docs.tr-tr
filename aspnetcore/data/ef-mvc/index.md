@@ -9,17 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/index
-ms.openlocfilehash: 4666148edcf77fa7b3dec40f1672d491998c870a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cbe68f6928e1d73d8e2f7f79075043dcef8ea888
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>ASP.NET Core MVC ve Entity Framework Visual Studio kullanarak çekirdek ile çalışmaya başlama
 
-Not: Bu öğreticide Razor sayfalarının sürümü kullanılabilir [burada](xref:data/ef-rp/intro). Razor sayfalarının sürümü izleyin daha kolaydır ve daha fazla EF özellikleri kapsar.
-
-Bu öğreticiler dizi veri erişimi için Entity Framework Çekirdek kullanan ASP.NET Core MVC web uygulamaları oluşturmak nasıl öğretir. Öğreticiler Visual Studio 2017 gerektirir.
+[!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
 1. [Başlarken](intro.md)
 2. [İşlem Oluşturma, Okuma, Güncelleştirme ve Silme](crud.md)

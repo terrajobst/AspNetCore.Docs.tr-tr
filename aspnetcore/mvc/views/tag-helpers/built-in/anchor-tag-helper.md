@@ -10,17 +10,17 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: f3b704174c3287edda12725b7973a2464e485bac
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 13df80983801564da08a4d65f464a5affbb06377
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="anchor-tag-helper"></a>Yer işareti etiketi Yardımcısı
 
 Tarafından [Peter Kellner](http://peterkellner.net) ve [Scott Addie](https://github.com/scottaddie)
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tag-helpers/built-in/samples/TagHelpersBuiltInAspNetCore) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 [Yer işareti etiketi yardımcı](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) standart HTML bağlantı geliştirir (`<a ... ></a>`) yeni öznitelikler ekleyerek etiketi. Kurala göre öznitelik adları ile önek `asp-`. İşlenen bağlantı öğenin `href` öznitelik değeri değerleri tarafından belirlenir `asp-` öznitelikleri.
 
@@ -122,7 +122,7 @@ Her iki `asp-controller` veya `asp-action` de olduğu gibi aynı varsayılan iş
 
 [Asp rota](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.route) özniteliği, bir URL bir adlandırılmış rota doğrudan bağlama oluşturmak için kullanılır. Kullanarak [yönlendirme öznitelikleri](xref:mvc/controllers/routing#attribute-routing), bir rota gösterildiği gibi adlı `SpeakerController` ve kullanılan kendi `Evaluations` eylem:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=22-24)]
+[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=22-24)]
 
 Aşağıdaki biçimlendirmede `asp-route` özniteliği adlandırılmış rota başvuruyor:
 
@@ -204,7 +204,7 @@ Oluşturulan HTML:
 
 [Asp Protokolü](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.protocol) özniteliği olan bir protokolü belirtmek için (gibi `https`) URL'nizde. Örneğin:
 
-[!code-cshtml[samples/TagHelpersBuiltInAspNetCore/Views/Index.cshtml?name=snippet_AspProtocol]]
+[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspProtocol)]
 
 Oluşturulan HTML:
 
