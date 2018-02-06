@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: c9fe97dbd5fe10cbde25b9daf5ddd35b2d7eaab5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Profilleri, temalar ve Web Bölümleri
 ====================
@@ -27,7 +27,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 ASP.NET 2.0 alanının önemli bir iyileştirme kişiselleştirilmiş Web sitelerinin temsil eder. Zaten kapsamdaki üyelik özellikleri weve ek olarak ASP.NET profilleri, temalar ve Web Bölümleri önemli ölçüde Web sitelerinde kişiselleştirme geliştirin.
 
-## <a name="aspnet-profiles"></a>ASP.NET profilleri
+## <a name="aspnet-profiles"></a>ASP.NET Profiles
 
 ASP.NET profilleri oturumlarına benzer. Tarayıcı kapatıldığında oturum kaybolur ancak bir profil kalıcı olduğunu farktır. Başka bir büyük oturumlar ve profilleri arasında profilleri kesinlikle, bu nedenle geliştirme sürecinde IntelliSense ile sağlama yazdığınız farktır.
 
@@ -139,14 +139,14 @@ Temalar depolandığı konumun kapsamlarına göre farklılık gösterir. Herhan
 
 `C:\WINDOWS\Microsoft.NET\Framework\v2.x.xxxxx\ASP.NETClientFiles\Themes\<Theme_Name>`
 
-Belirli bir uygulamaya özgü bir tema bir uygulamada depolanan\_Temalar\&lt; Tema\_adı&gt; Web sitesinin kök dizin.
+Belirli bir uygulamaya özgü bir tema depolanan bir `App\_Themes\<Theme\_Name>` Web sitesinin kök dizin.
 
 > [!NOTE]
 > Bir görünüm dosyası yalnızca görünümünü etkiler sunucu denetim özelliklerini değiştirmeniz gerekir.
 
 Genel bir tema herhangi bir uygulama veya Web sunucusunda çalışan Web sitesi için uygulanan bir Tema ' dir. Bu temaları varsayılan v2.x.xxxxx dizin içinde ASP.NETClientfiles\Themes dizininde depolanır. Alternatif olarak, ASP.NET tema dosyalarını taşıyabilirsiniz\_istemci/sistem\_web / [sürüm] /Themes/ [tema\_adı], Web sitenizin kök klasörüne.
 
-Uygulamaya özel temalar yalnızca dosyaların bulunduğu uygulama uygulanabilir. Bu dosyalar uygulamada depolanan\_Temalar /&lt;tema\_adı&gt; Web sitesinin kök dizin.
+Uygulamaya özel temalar yalnızca dosyaların bulunduğu uygulama uygulanabilir. Bu dosyalar depolanmış `App\_Themes/<theme\_name>` Web sitesinin kök dizin.
 
 ## <a name="the-components-of-a-theme"></a>Tema bileşenleri
 
@@ -258,7 +258,7 @@ Kullanarak **skinID değerine** özelliği, belirli bir sunucu denetimi türü f
 
 Temanın kaplama dosyasında tanımlanan özelliklerini geçersiz kılmak için isterseniz özellikleri belirtilen Tasarımcısı'nda kullanabileceğiniz **StyleSheetTheme** tema özelliğini yerine özelliği. StyleSheetTheme özelliği tema özelliği ile aynıdır, yalnızca tema özelliğini yaptığı gibi tüm açık özellik ayarları kılmaz.
 
-Bu eylem görmek için alıştırma 1'ndeki projeden web.config dosyasını açın ve değiştirme &lt;sayfaları&gt; şu öğe:
+Bu eylem görmek için alıştırma 1'ndeki projeden web.config dosyasını açın ve değiştirme `<pages>` şu öğe:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample19.xml)]
 
@@ -338,11 +338,11 @@ Kılavuzun bu bölümünde, statik içerik göstermek için Web Bölümleri dene
 1. Varsayılan sayfasını kapatın ve WebPartsDemo.aspx adlı site için yeni bir sayfa ekleyin.
 2. Geçiş **tasarım** görünümü.
 3. Gelen **Görünüm** menüsünde olduğundan emin olun **görsel olmayan denetimler** ve **ayrıntıları** düzeni etiketleri ve bir kullanıcı Arabirimi olmayan denetimleri görebilmeleri seçenekleri seçilidir.
-4. Ekleme noktasını önüne yerleştirin  **&lt;div&gt;**  etiketleri tasarım yüzeyi ile yeni bir satır eklemek için ENTER tuşuna basın. Ekleme noktasını yeni satır karakteri önüne getirin, tıklatın **blok biçimi** aşağı açılan liste denetim menüsünde ve seçin **Başlık 1** seçeneği. Başlıkta, metin eklemek **Web Bölümleri tanıtım sayfası**.
-5. Gelen **Web Bölümleri** sürükleme araç kutusu sekmesinde bir **WebPartManager** yeni satır karakteri hemen sonra ve önce konumlandırma sayfaya denetim  **&lt;div&gt;**  etiketler.   
+4. Ekleme noktasını önüne yerleştirin `<div>` etiketleri tasarım yüzeyi ile yeni bir satır eklemek için ENTER tuşuna basın. Ekleme noktasını yeni satır karakteri önüne getirin, tıklatın **blok biçimi** aşağı açılan liste denetim menüsünde ve seçin **Başlık 1** seçeneği. Başlıkta, metin eklemek **Web Bölümleri tanıtım sayfası**.
+5. Gelen **Web Bölümleri** sürükleme araç kutusu sekmesinde bir **WebPartManager** yeni satır karakteri hemen sonra ve önce konumlandırma sayfaya denetim `<div>`etiketler.   
   
  **WebPartManager** denetimi değil oluşturmak herhangi bir çıktı nedenle Tasarımcı yüzeyinde gri bir kutu olarak görünür.
-6. İçinde ekleme noktasını konumlandırın  **&lt;div&gt;**  etiketler.
+6. İçinde ekleme noktasını konumlandırın `<div>` etiketler.
 7. İçinde **düzeni** menüsünde tıklatın **Tablo Ekle**ve bir satır ve üç sütun sahip yeni bir tablo oluşturun. Tıklatın **hücre özellikleri** düğmesini seçin **üst** gelen **dikey hizalama** aşağı açılan listesinde, tıklatın **Tamam**, tıklatıp**Tamam** yeniden tablo oluşturmak için.
 8. Bir WebPartZone denetimi sol tablodaki sütuna sürükleyin. Sağ **WebPartZone** denetlemek, seçin **özellikleri**ve aşağıdaki özellikleri ayarlayın:   
   
@@ -358,13 +358,13 @@ Kılavuzun bu bölümünde, statik içerik göstermek için Web Bölümleri dene
 
 Sayfanız artık ayrı ayrı kontrol edebilirsiniz iki ayrı bölge sahiptir. Ancak, hiçbir bölge herhangi bir içerik sahiptir, böylece içerik oluşturma sonraki adımdır. Bu kılavuz için yalnızca statik içeriği görüntüle Web Bölümleri denetimleri ile çalışır.
 
-Web Bölümleri bölgesine düzenini tarafından belirtilen bir  **&lt;zonetemplate&gt;**  öğesi. Özel bir Web Bölümleri denetimi, bir kullanıcı denetimi veya var olan bir sunucu denetimi olup, bölge şablonu içinde herhangi bir ASP.NET denetimi ekleyebilirsiniz. Etiket denetimi burada kullanıyorsanız ve için statik metin yalnızca eklemekte olduğunuz dikkat edin. Normal sunucu denetiminde yerleştirdiğinizde bir **WebPartZone** bölgesi, ASP.NET davranır denetimi Web Bölümleri denetim olarak denetimi Web Bölümleri özellikleri sağlayan çalışma zamanında.
+Web Bölümleri bölgesine düzenini tarafından belirtilen bir &lt;zonetemplate&gt; öğesi. Özel bir Web Bölümleri denetimi, bir kullanıcı denetimi veya var olan bir sunucu denetimi olup, bölge şablonu içinde herhangi bir ASP.NET denetimi ekleyebilirsiniz. Etiket denetimi burada kullanıyorsanız ve için statik metin yalnızca eklemekte olduğunuz dikkat edin. Normal sunucu denetiminde yerleştirdiğinizde bir **WebPartZone** bölgesi, ASP.NET davranır denetimi Web Bölümleri denetim olarak denetimi Web Bölümleri özellikleri sağlayan çalışma zamanında.
 
 **Ana Bölge içerik oluşturmak için**
 
 1. İçinde **tasarım** görüntülemek için sürükleyin bir **etiket** gelen denetim **standart** bölgenin içeriği alanına araç sekmesinde, **kimliği** özelliği MainZone için ayarlanır.
-2. Geçiş **kaynak** görünümü. Dikkat bir  **&lt;zonetemplate&gt;**  öğesi sarmalamak için eklenen **etiket** MainZone denetiminde.
-3. Adlı bir öznitelik Ekle **başlık** için  **&lt;asp: label&gt;**  öğesi ve içeriği değerini ayarlayın. Metni kaldırmak "Etiketi" özniteliğinden =  **&lt;asp: label&gt;**  öğesi. Açma ve kapatma etiketleri arasında  **&lt;asp: label&gt;**  öğesi, bazı metinleri eklemek **my giriş sayfasına Hoş Geldiniz** çifti içinde  **&lt;h2 &gt;**  öğe etiketleri. Kodunuzu aşağıdaki gibi görünmelidir. 
+2. Geçiş **kaynak** görünümü. Dikkat bir &lt;zonetemplate&gt; öğesi sarmalamak için eklenen **etiket** MainZone denetiminde.
+3. Adlı bir öznitelik Ekle **başlık** için &lt;asp: label&gt; öğesi ve içeriği değerini ayarlayın. Metni kaldırmak "Etiketi" özniteliğinden = &lt;asp: label&gt; öğesi. Açma ve kapatma etiketleri arasında &lt;asp: label&gt; öğesi, bazı metinleri eklemek **my giriş sayfasına Hoş Geldiniz** çifti içinde &lt;h2&gt; öğe etiketleri. Kodunuzu aşağıdaki gibi görünmelidir. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample21.aspx)]
 4. Dosyayı kaydedin.
@@ -396,7 +396,7 @@ Artık kenar bölgesine Web Bölümleri denetimleri ekleyebilirsiniz. Kenar böl
 3. Oluşturduğunuz kullanıcı denetimi sayfası SearchUserControl.ascx, sürükleyin **Çözüm Gezgini** bölge içine, **kimliği** özelliği SidebarZone için ayarlanır ve sürükleyip bırakın.
 4. WebPartsDemo.aspx sayfayı kaydedin.
 5. Geçiş **kaynak** görünümü.
-6. İçinde  **&lt;asp: webpartzone&gt;**  hemen önce kullanıcı denetimi referansı SidebarZone öğesi Ekle bir  **&lt;asp: label&gt;**  Aşağıdaki örnekte gösterildiği gibi kapsanan bağlantılarla öğesi. Ayrıca, bir **başlık** öznitelik değerini kullanıcı denetiminin etiket **arama**gösterildiği gibi. 
+6. İçinde &lt;asp: webpartzone&gt; hemen önce kullanıcı denetimi referansı SidebarZone öğesi Ekle bir &lt;asp: label&gt; öğesi ile içerilen bağlantılar, aşağıdaki örnekte gösterildiği gibi. Ayrıca, bir **başlık** öznitelik değerini kullanıcı denetiminin etiket **arama**gösterildiği gibi. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample23.aspx)]
 7. Dosyayı kaydedin ve kapatın.
@@ -417,7 +417,7 @@ Başlık çubuğu, her denetim bir denetimde gerçekleştirebileceğiniz eylemle
 
 Web Bölümleri kullanıcıların bir bölgesinden diğerine sürükleyerek Web Bölümleri denetimlerin düzenini değiştirmek yeteneği sağlar. Taşımak kullanıcıların yanı sıra **Web Bölümü** diğerine denetimleri bir bölgeden denetimlerin görünüm, Düzen ve davranışlarını dahil olmak üzere çeşitli özelliklerini düzenlemek kullanıcılara izin verebilir. Web Bölümleri denetim kümesi için temel düzenleme işlevi sağlar **Web Bölümü** kontrol eder. Bu kılavuzda bunu değil olsa da, aynı zamanda özelliklerini düzenlemek kullanıcıların özel düzenleyici denetimleri oluşturabilirsiniz **Web Bölümü** kontrol eder. Konumunu değiştirme olduğu gibi bir **Web Bölümü** denetimi, denetim özelliklerini düzenleme kullanıcılar yaptığınız değişiklikleri kaydetmek için ASP.NET kişiselleştirme kullanır.
 
-Kılavuzun bu bölümünde, eklediğiniz herhangi temel özelliklerini düzenlemek kullanıcılara **Web Bölümü** sayfasında denetimi. Bu özellikleri etkinleştirmek için başka bir özel bir kullanıcı denetimi sayfasına ile birlikte eklediğiniz bir  **&lt;asp: editorzone&gt;**  öğesi ve iki düzenleme denetimleri.
+Kılavuzun bu bölümünde, eklediğiniz herhangi temel özelliklerini düzenlemek kullanıcılara **Web Bölümü** sayfasında denetimi. Bu özellikleri etkinleştirmek için başka bir özel bir kullanıcı denetimi sayfasına ile birlikte eklediğiniz bir &lt;asp: editorzone&gt; öğesi ve iki düzenleme denetimleri.
 
 ### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Değişen sayfa düzeni sağlayan bir kullanıcı denetimi oluşturmak için
 
@@ -501,7 +501,7 @@ Ayrıca, kullanıcıların Web Bölümleri denetimlerini çalışma zamanında k
 4. Gelen **Web Bölümleri** bölümü araç, bir DeclarativeCatalogPart denetimi içerik alanına sürükleyin **CatalogZone** denetim.
 5. Sağ üst köşesindeki oku tıklatın **DeclarativeCatalogPart** Görevler menüsü kullanıma sunmak için denetlemek ve ardından **Şablonları Düzenle**.
 6. Gelen **standart** sürükleme araç kutusu bölümünde bir **dosya yükleme** denetim ve **Takvim** içine kontrol **WebPartsTemplate** bölümünü **DeclarativeCatalogPart** denetim.
-7. Geçiş **kaynak** görünümü. Kaynak kodunu incelemek  **&lt;asp: catalogzone&gt;**  öğesi. Dikkat **DeclarativeCatalogPart** denetimi içeren bir  **&lt;webpartstemplate&gt;**  sayfanıza eklemek kuramaz iki kapalı sunucu denetimleri ile öğesi Kataloğu'ndan.
+7. Geçiş **kaynak** görünümü. Kaynak kodunu incelemek &lt;asp: catalogzone&gt; öğesi. Dikkat **DeclarativeCatalogPart** denetimi içeren bir &lt;webpartstemplate&gt; Kataloğu'ndan sayfanıza eklemek kuramaz iki kapalı sunucu denetimleri ile öğesi.
 8. Ekleme bir **başlık** özelliği her bir kataloğa'ı eklenen her başlık aşağıdaki kod örneğinde gösterildiği dize değeri kullanılarak denetimler. Başlık bir özelliği olmasa bile normalde bu iki sunucu denetimleri, bir kullanıcı bu denetimlerin eklediğinde tasarım zamanında ayarlayabileceğiniz bir **WebPartZone** bölge çalışma zamanında katalogdan bunlar her ile sarılır bir  **GenericWebPart** denetim. Bu, bunları başlıkları görüntüleyemeyecek olacak Web Bölümleri denetimleri davranacak şekilde sağlar.   
   
  Kod içinde yer alan iki denetimleri için **DeclarativeCatalogPart** denetimi aşağıdaki gibi görünmelidir. 

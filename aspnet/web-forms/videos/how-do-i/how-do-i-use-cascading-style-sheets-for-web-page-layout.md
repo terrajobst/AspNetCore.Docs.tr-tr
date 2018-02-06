@@ -12,16 +12,16 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
 msc.type: video
-ms.openlocfilehash: 37ac339db5cee04ee998c090ac8d36853f3bca5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f40a174d2046f64cc98382df031cc2803a9a07db
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[Nasıl stop yaparım] Geçişli stil sayfası Web sayfa düzeni için kullanılsın mı?
 ====================
 tarafından [Chris Pels](https://twitter.com/chrispels)
 
-Bu videoda biz nasıl kullanacağınızı öğrenin &amp;lt; div&amp;gt; geçişli stil sayfası sağlam ve yüksek performans web sayfaları (CSS) ile birlikte öğeleri. &amp;Lt; div&amp;gt; dayalı yaklaşımı karşılaştırılabilir &amp;lt; Tablo&amp;gt; düzen yaklaşımı son yılda çoğu web siteleri tarafından kullanılan bağlı. Ardından, öğeleri kayan mutlak konumlandırma gelen arasında değişen birçok CSS tabanlı yaklaşımlar gösterilir. Biz de yapısal HTML, CSS kullanımıyla tasarımından ayırma sağladığı avantajları öğrenin.
+Bu videoda biz nasıl kullanacağınızı öğrenin `<div>` sağlam ve yüksek performans web sayfaları oluşturmak için geçişli stil sayfaları (CSS) ile birlikte öğeleri. `<div>`Dayalı yaklaşımı karşılaştırılabilir `<table>` son yılda çoğu web siteleri tarafından kullanılan düzen yaklaşımı tabanlı. Ardından, öğeleri kayan mutlak konumlandırma gelen arasında değişen birçok CSS tabanlı yaklaşımlar gösterilir. Biz de yapısal HTML, CSS kullanımıyla tasarımından ayırma sağladığı avantajları öğrenin.
 
 [&#9654; (29 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-cascading-style-sheets-for-web-page-layout)

@@ -13,11 +13,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 0d2717eb318d282e21e9aa8622a205f556e3a4ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2f6c6feb030fc17f95e7862c39029569f3d8c5dc
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Bir Azure Web rolünde SignalR performans sayaçlarını kullanma
 
@@ -35,13 +35,13 @@ SignalR performans sayaçlarını, bir Azure Web rolünde, uygulamanızın perfo
 
 1. Visual Studio 2015'i açın.
 
-2. Visual Studio 2015'te seçin **dosya &gt; yeni &gt; proje**.
+2. Visual Studio 2015'te seçin **dosya** > **yeni** > **proje**.
 
 3. İçinde **şablonları** bölmesinde **yeni proje** penceresinde altında **Visual C#** düğümü, select **bulut** düğümü ve select **Azure bulut hizmeti** şablonu. Uygulama adı **SignalRPerfCounters** seçip **Tamam**.
 
    ![Yeni bulut uygulaması](using-signalr-performance-counters-in-an-azure-web-role/_static/image1.png)
     
-4. İçinde **yeni Microsoft Azure bulut hizmeti** iletişim kutusunda **ASP.NET Web rolü** seçip  **&gt;**  projeye rolü eklemek için düğmesi. Seçin **Tamam**.
+4. İçinde **yeni Microsoft Azure bulut hizmeti** iletişim kutusunda **ASP.NET Web rolü** ve seçin > projeye rolü eklemek için düğmesi. Seçin **Tamam**.
 
    ![ASP.NET Web rolü ekleme](using-signalr-performance-counters-in-an-azure-web-role/_static/image2.png)
     
@@ -51,27 +51,27 @@ SignalR performans sayaçlarını, bir Azure Web rolünde, uygulamanızın perfo
     
 6. İçinde **Çözüm Gezgini**, açık *diagnostics.wadcfgx* altında dosya **WebRole1**.
 
-   ![Çözüm Gezgini diagnostics.wadcfgx](using-signalr-performance-counters-in-an-azure-web-role/_static/image4.png)
+   ![Solution Explorer diagnostics.wadcfgx](using-signalr-performance-counters-in-an-azure-web-role/_static/image4.png)
     
 7. Aşağıdaki yapılandırmaya sahip dosyasının içeriğini değiştirin ve dosyayı kaydedin:
 
    [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample1.xml)]
     
-8. Açık **Paket Yöneticisi Konsolu** gelen **Araçları &gt; NuGet Paket Yöneticisi**. SignalR ve SignalR yardımcı programları paketi en son sürümünü yüklemek için aşağıdaki komutları girin:
+8. Açık **Paket Yöneticisi Konsolu** gelen **Araçları** > **NuGet Paket Yöneticisi**. SignalR ve SignalR yardımcı programları paketi en son sürümünü yüklemek için aşağıdaki komutları girin:
 
    [!code-powershell[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample2.ps1)]
     
-9. Uygulama başlatıldığında veya geri dönüştürüldüğünde SignalR performans sayaçlarını rolü örneği yüklemek için yapılandırın. İçinde **Çözüm Gezgini**, sağ tıklayın **WebRole1** proje ve seçin **Ekle &gt; yeni klasör**. Yeni bir klasör adı *başlangıç*.
+9. Uygulama başlatıldığında veya geri dönüştürüldüğünde SignalR performans sayaçlarını rolü örneği yüklemek için yapılandırın. İçinde **Çözüm Gezgini**, sağ tıklayın **WebRole1** proje ve seçin **Ekle** > **yeni klasör**. Yeni bir klasör adı *başlangıç*.
 
    ![Başlangıç klasörü Ekle](using-signalr-performance-counters-in-an-azure-web-role/_static/image5.png)
     
-10. Kopya *signalr.exe* dosyası (eklendi **Microsoft.AspNet.SignalR.Utils** paket) gelen  **&lt;proje klasörünü&gt;\SignalRPerfCounters\packages\ Microsoft.AspNet.SignalR.Utils. &lt;sürüm&gt;\tools** için *başlangıç* önceki adımda oluşturduğunuz klasör.
+10. Kopya *signalr.exe* dosyası (eklendi **Microsoft.AspNet.SignalR.Utils** paket) gelen \<proje klasörü > / SignalRPerfCounters/packages/Microsoft.AspNet.SignalR.Utils.\< Sürüm > / araçların *başlangıç* önceki adımda oluşturduğunuz klasör.
 
-11. İçinde **Çözüm Gezgini**, sağ tıklatın *başlangıç* klasörü ve select **Ekle &gt; varolan öğeyi**. Görüntülenen iletişim kutusunda, seçin *signalr.exe* seçip **Ekle**.
+11. İçinde **Çözüm Gezgini**, sağ tıklatın *başlangıç* klasörü ve select **Ekle** > **varolan öğeyi**. Görüntülenen iletişim kutusunda, seçin *signalr.exe* seçip **Ekle**.
 
     ![Signalr.exe projeye ekleyin](using-signalr-performance-counters-in-an-azure-web-role/_static/image6.png)
     
-12. Sağ *başlangıç* oluşturduğunuz klasör. Seçin **ekleme &gt; yeni öğe**. Seçin **genel** düğümü, select **metin dosyası**ve yeni öğe adını *SignalRPerfCounterInstall.cmd*. Bu komut dosyasını web rolünde SignalR performans sayaçlarını yükler.
+12. Sağ *başlangıç* oluşturduğunuz klasör. Seçin **ekleme** > **yeni öğe**. Seçin **genel** düğümü, select **metin dosyası**ve yeni öğe adını *SignalRPerfCounterInstall.cmd*. Bu komut dosyasını web rolünde SignalR performans sayaçlarını yükler.
 
     ![SignalR performans sayacı yükleme toplu iş dosyası oluşturma](using-signalr-performance-counters-in-an-azure-web-role/_static/image7.png)
      
@@ -106,7 +106,7 @@ SignalR performans sayaçlarını, bir Azure Web rolünde, uygulamanızın perfo
 
     [!code-cshtml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample6.cshtml)]
     
-21. Yeni bir klasör oluşturun **WebRole1** adlı projesi *hub*. Sağ *hub* klasöründe **Çözüm Gezgini**seçin **Web &gt; SignalR**seçip **SignalR hub'ı sınıfı (v2)**. Yeni hub'ı adı *MyHub.cs* seçip **Ekle**.
+21. Yeni bir klasör oluşturun **WebRole1** adlı projesi *hub*. Sağ *hub* klasöründe **Çözüm Gezgini**seçin **Web** > **SignalR**seçip  **SignalR hub'ı sınıfı (v2)**. Yeni hub'ı adı *MyHub.cs* seçip **Ekle**.
 
     ![Yeni Öğe Ekle iletişim kutusu hub klasöründe SignalR hub'ı sınıfı ekleme](using-signalr-performance-counters-in-an-azure-web-role/_static/image13.png)
 
@@ -114,7 +114,7 @@ SignalR performans sayaçlarını, bir Azure Web rolünde, uygulamanızın perfo
 
     [!code-csharp[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample7.cs)]
     
-23. *[Crank.exe](signalr-connection-density-testing-with-crank.md)*  olan SignalR codebase ile sağlanan aracını test bağlantısı yoğunluğu. Mili kalıcı bir bağlantı gerektirdiğinden, sitenize kullanmak için bir tane sınarken ekleyin. Yeni bir klasör ekleyin **WebRole1** adlı proje *PersistentConnections*. Bu klasörü sağ tıklatın ve seçin **Ekle &gt; sınıfı**. Yeni sınıf dosya adı *MyPersistentConnections.cs* seçip **Ekle**.
+23. *[Crank.exe](signalr-connection-density-testing-with-crank.md)*  olan SignalR codebase ile sağlanan aracını test bağlantısı yoğunluğu. Mili kalıcı bir bağlantı gerektirdiğinden, sitenize kullanmak için bir tane sınarken ekleyin. Yeni bir klasör ekleyin **WebRole1** adlı proje *PersistentConnections*. Bu klasörü sağ tıklatın ve seçin **Ekle** > **sınıfı**. Yeni sınıf dosya adı *MyPersistentConnections.cs* seçip **Ekle**.
 
 24. Visual Studio açılır *MyPersistentConnections.cs* ana penceresinde dosya. İçeriğini aşağıdaki kodla değiştirin sonra dosyayı kaydedip kapatın:
 
@@ -133,7 +133,7 @@ SignalR performans sayaçlarını, bir Azure Web rolünde, uygulamanızın perfo
 
     [!code-xml[Main](using-signalr-performance-counters-in-an-azure-web-role/samples/sample12.xml?highlight=3,7)]
     
-27. Yaklaşık bir dakika bekleyin. Visual Studio'da Cloud Explorer araç penceresi açın (**Görünüm &gt; Cloud Explorer**) ve yolun genişletin `(Local)\Storage Accounts\(Development)\Tables`. Çift **WADPerformanceCountersTable**. Tablo verisi SignalR sayaçları görmeniz gerekir. Tablo görmüyorsanız, Azure depolama kimlik bilgilerinizi yeniden girmeniz gerekebilir. Seçmeniz gerekebilir **yenileme** tablosunda görmek için düğmesi **Cloud Explorer** veya seçin **yenileme** tablosundaki verileri görmek için tabloyu Aç penceresinde düğmesini.
+27. Yaklaşık bir dakika bekleyin. Visual Studio'da Cloud Explorer araç penceresi açın (**Görünüm** > **Cloud Explorer**) ve yolun genişletin `(Local)/Storage Accounts/(Development)/Tables`. Çift **WADPerformanceCountersTable**. Tablo verisi SignalR sayaçları görmeniz gerekir. Tablo görmüyorsanız, Azure depolama kimlik bilgilerinizi yeniden girmeniz gerekebilir. Seçmeniz gerekebilir **yenileme** tablosunda görmek için düğmesi **Cloud Explorer** veya seçin **yenileme** tablosundaki verileri görmek için tabloyu Aç penceresinde düğmesini.
 
     ![Visual Studio Cloud Explorer'da WAD performans sayaçları tablo seçme](using-signalr-performance-counters-in-an-azure-web-role/_static/image11.png)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: dfb24a4c72b15737295b7aea406be24160fc6674
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a0c7de12e0d9abbe5d1706cf775dfeb2c067c760
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
 
@@ -144,7 +144,7 @@ Yukarıdaki etiket Yardımcıları HTML işleme. Dikkat `data-` HTML öznitelikl
 
 Formu geçerli olana kadar istemci tarafı doğrulama gönderimi engeller. Gönder düğmesine formu gönderdikten veya hata iletileri görüntüler JavaScript çalışır.
 
-MVC belirler türü öznitelik değerleri büyük olasılıkla kullanarak geçersiz kılınan bir özellik .NET veri türüne göre `[DataType]` öznitelikleri. Temel `[DataType]` öznitelik hiçbir gerçek sunucu tarafında doğrulama yapar. Tarayıcılar kendi hata iletileri seçin ve bu hataların ancak istedikleri, ancak jQuery doğrulama örtük paket iletileri geçersiz kılar ve bunları tutarlı bir şekilde başkalarıyla görüntülemek görüntüleyin. Bu en açıkça kullanıcılar uygulandığında gerçekleşir `[DataType]` gibi alt sınıfların `[EmailAddress]`.
+MVC belirler türü öznitelik değerleri büyük olasılıkla kullanarak geçersiz kılınan bir özellik .NET veri türüne göre `[DataType]` öznitelikleri. Temel `[DataType]` öznitelik hiçbir gerçek sunucu tarafında doğrulama yapar. Tarayıcılar kendi hata iletileri seçin ve bu hataların gibi istedikleri, ancak jQuery doğrulama örtük paket iletileri geçersiz kılar ve bunları tutarlı bir şekilde başkalarıyla görüntülemek görüntüleyin. Bu en açıkça kullanıcılar uygulandığında gerçekleşir `[DataType]` gibi alt sınıfların `[EmailAddress]`.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Dinamik formlarına doğrulama ekleme
 

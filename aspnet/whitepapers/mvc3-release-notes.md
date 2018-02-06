@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/05/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -232,7 +232,7 @@ Bu şablon, bir çalışma veri girişi kullanıcı arabirimi hızlı bir şekil
 
 İçin *veri bağlamı sınıfı*, bu seçimler yapabilirsiniz:
 
-- Sınıfı, seçin varolan bir veri bağlamı Code First kullanıyorsanız ve istiyorsanız  *&lt;yeni veri bağlamı... &gt;*". Bir veri bağlamı sınıfı, ardından sizin için oluşturulur.
+- Sınıfı, seçin varolan bir veri bağlamı Code First kullanıyorsanız ve istiyorsanız ** yeni veri bağlamı **. Bir veri bağlamı sınıfı, ardından sizin için oluşturulur.
 - Code First kullanmasına ve varolan bir veri bağlamı sınıfı sahip olmasını istiyorsanız, burada seçin. Seçtiğiniz model sınıfı kalıcı hale getirmek için güncelleştirilir.
 - Database First veya Model First kullanıyorsanız, nesne bağlamı sınıfı seçin.
 
@@ -255,7 +255,7 @@ Yeni bir Intranet uygulaması Şablonu proje şablonu listesi içerir. Bu şablo
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Proje şablonları etkin HTML5 sunulmuştur
 
-Yeni Proje iletişim kutusu artık proje şablonları HTML5 özgü özellikleri eklemek için bir seçenek içerir. Neden olan Yeni HTML5 içeren oluşturulacak görünümleri seçeneğini belirleyerek  *&lt;üstbilgi&gt;*,  *&lt;altbilgi&gt;*, ve  *&lt;Gezinti&gt;*  öğeleri.
+Yeni Proje iletişim kutusu artık proje şablonları HTML5 özgü özellikleri eklemek için bir seçenek içerir. Neden olan Yeni HTML5 içeren oluşturulacak görünümleri seçeneğini belirleyerek `<header>`, `<footer>`, ve `<navigation>` öğeleri. öğeleri.
 
 Tarayıcıların önceki sürümleri HTML5 özgü etiketler desteklemeyen unutmayın. Bu sınırlama adres için Modernizr kitaplığına bir başvuru HTML5 proje şablonları içerir. (Sonraki bölüme bakın.)
 
@@ -293,7 +293,7 @@ Yeni bir ASP.NET MVC 3 projesi oluşturduğunuzda, proje daha önce bahsedilen J
 
 Örneğin, yeni jQuery sürümler sıklığını göz önüne alındığında, proje şablona dahil jQuery sürümü belirli bir noktada güncel olacaktır. JQuery yüklü bir NuGet paketi olarak dahil olduğundan, jQuery daha yeni sürümlerinde kullanılabilir olduğunda ancak, size NuGet iletişim kutusunda bildirilecek.
 
-JQuery dosya adında sürüm numarasını içerdiğinden, jQuery en son sürüme güncelleştirilmesi de güncelleştirilmesini gerektirir  *&lt;betik&gt;*  yeni dosya adını kullanmak için jQuery dosyaya başvuruda bulunan etiketi. En son sürümlerine daha kolay güncelleştirilebilmesi için diğer dahil betik kitaplıkları betik adı sürüm numarası dahil etmeyin.
+JQuery dosya adında sürüm numarasını içerdiğinden, jQuery en son sürüme güncelleştirilmesi de güncelleştirilmesini gerektirir `<script>` yeni dosya adını kullanmak için jQuery dosyaya başvuruda bulunan etiketi. En son sürümlerine daha kolay güncelleştirilebilmesi için diğer dahil betik kitaplıkları betik adı sürüm numarası dahil etmeyin.
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
@@ -353,7 +353,7 @@ Böylece ifade doğru yapıştırma işlemi sırasında korunur RTM sürümünde
 - ReSharper yüklendiğinde Razor sözdizimi için IntelliSense çalışmaz. Yüklü ReSharper varsa ve ASP.NET MVC 3'te Razor IntelliSense desteği yararlanmak istediğiniz girişine bakın [Razor IntelliSense ve ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) Hadi Hariri'nın blogunda saptanacağını bunları birlikte bugün kullanmanın yolları.
 - ASP.NET MVC 3'in Beta sürümüyle oluşturulmuş CCSHTML ve VBHTML görünümleri kendi yapı eylemi doğru olarak ayarlanmış sahip değilse, proje yayımlandığında bu görüntülemek sonuçla türleri göz ardı edilir. Bu dosyalar için yapı eylemi değeri "İçerik" olarak ayarlanmalıdır. ASP.NET MVC 3 RTM, yeni dosyalar için bu sorunu giderir ancak yayın öncesi sürümleriyle oluşturulan bir proje için var olan dosyaların ayarını düzeltmesini değil.
 - ![](mvc3-release-notes/_static/image3.png)
-- Yükleme sırasında amaçlanan. küçük bir pencere Lisans Koşulları'nı EULA kabul iletişim kutusu görüntüler / li&gt;
+- Yükleme sırasında EULA kabul iletişim kutusunda Lisans Koşulları'nı istenenden daha küçük bir pencerede görüntüler.
 - Razor Görünüm (.cshtml dosyası) düzenlerken, Visual Studio denetleyicisi Git menü öğesi kullanılamaz ve hiçbir kod parçacıkları vardır.
 - ASP.NET MVC 3 Visual Web Developer Express için Visual Studio yüklü olduğu bir bilgisayara yükleyin ve Visual Studio daha sonra yüklemek, ASP.NET MVC 3 yeniden yüklemeniz gerekir. Visual Studio ve Visual Web Developer Express ASP.NET MVC 3 yükleyici tarafından yükseltilir bileşenleri paylaşır. ASP.NET MVC 3, Visual Studio için Visual Web Developer Express sahip ve ardından Visual Web Developer Express yükleyin bir bilgisayara yüklerseniz, aynı sorun geçerlidir.
 
@@ -398,7 +398,7 @@ Varsayılan düzenleme ve oluşturma şablonları için istemci doğrulama gerek
 <a id="_Toc2_4"></a>
 ### <a name="added-htmlraw-method"></a>Eklenen Html.Raw yöntemi
 
-Varsayılan olarak, Razor altyapısı HTML olarak kodlar tüm değerleri görüntüleyin. Örneğin, böylece sayfa olarak görüntülenir aşağıdaki kod parçacığını Tebrik değişkeni içinde HTML kodlar &amp;lt; güçlü&amp;gt; Merhaba Dünya! &amp;lt; / güçlü&amp;gt;.
+Varsayılan olarak, Razor altyapısı HTML olarak kodlar tüm değerleri görüntüleyin. Örneğin, böylece sayfa olarak görüntülenir aşağıdaki kod parçacığını Tebrik değişkeni içinde HTML kodlar `<strong>Hello World!</strong>`.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
@@ -621,7 +621,7 @@ Modelin her özelliği için istek doğrulamayı devre dışı bırakmak için a
 - Yükleyici, Visual Studio 2010 'un bileşenleri güncelleştirdiğinden tamamlamak için ASP.NET MVC önceki sürümlerinden daha uzun sürebilir.
 - Bir "Düzenle" kesinlikle seçerek görünüm iskelesini kurar yazıldığında Görünüm Ekle yapı iskelesi yalnızca özellikleri okuyun. Benzer şekilde, salt yazılır Özellikler "Görünen" görünümleri için iskele kurulmuş.
 - Yükleme sırasında EULA kabul iletişim kutusunda Lisans Koşulları'nı istenenden daha küçük bir pencerede görüntüler.
-- Yükleme [Visual Studio Async CTP'nin](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=18712f38-fcd2-4e9f-9028-8373dc5732b2&amp;displaylang=en) ASP.NET MVC yükleme tooling 3'ün bir parçası olarak dahil edilir Razor sürümüyle bir çakışmasına neden oluyor. Visual Studio Async CTP'nin ve Razor yayın aynı makinede yüklemeye çalışmayın emin olun.
+- Visual Studio Async CTP'nin yükleme ASP.NET MVC yükleme tooling 3'ün bir parçası olarak dahil edilir Razor sürümüyle bir çakışmasına neden oluyor. Visual Studio Async CTP'nin ve Razor yayın aynı makinede yüklemeye çalışmayın emin olun.
 - Razor Görünüm (.cshtml dosyası) düzenlerken, Visual Studio denetleyicisi Git menü öğesi kullanılamaz ve hiçbir kod parçacıkları vardır.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
@@ -852,7 +852,7 @@ Razor Görünüm (CSHTML dosyası) düzenlerken <a id="0.1__Toc224729061"> </a> 
 
 Kullanırken @model kesin türü belirtilmiş bir CSHTML belirtmek için sözdizimini görüntülemek, türleri için dile özgü kısayolları tanınmıyor. Örneğin, @model int çalışmaz, ancak @model Int32 çalışır. Geçici çözüm bu hata için model türü belirttiğinizde, gerçek tür adı kullanmaktır.
 
-Kullanırken @model kesin türü belirtilmiş bir CSHTML görünümü belirtmek için sözdizimi (veya @ModelType kesin türü belirtilmiş bir VBHTML görünümü belirtmek için), boş değer atanabilir türler ve dizi bildirimleri desteklenmez. Örneğin, @model int? desteklenmiyor. Bunun yerine, kullanın @model null atanabilir&lt;Int32&gt;. Sözdizimi @model string [] ayrıca desteklenmez; bunun yerine, kullanın @model IList&lt;dize&gt;.
+Kullanırken @model kesin türü belirtilmiş bir CSHTML görünümü belirtmek için sözdizimi (veya @ModelType kesin türü belirtilmiş bir VBHTML görünümü belirtmek için), boş değer atanabilir türler ve dizi bildirimleri desteklenmez. Örneğin, @model int? desteklenmiyor. Bunun yerine, kullanın `@model Nullable<Int32>`. Sözdizimi @model string [] ayrıca desteklenmez; bunun yerine, kullanın `@model IList<string>`.
 
 Bir ASP.NET MVC 2 projesini ASP.NET MVC 3'e yükselttiğinizde, Web.config dosyasının appSettings bölümünde aşağıdaki eklediğinizden emin olun:
 
