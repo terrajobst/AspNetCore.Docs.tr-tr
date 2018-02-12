@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: ac254abcb756d048d159a9b67967a581f35ac871
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: MySQL depolama EntityFramework MySQL sağlayıcısıyla (C#) kullanarak.
 ====================
@@ -65,7 +65,7 @@ Bu öğreticinin sonunda depolamak, ASP.NET kimliğe sahip bir MVC uygulaması A
 
 Öğreticinin bu bölümünde bulunan adımları tamamlamak için önce yüklemeniz gerekir [için Visual Studio Express 2013 Web](https://go.microsoft.com/fwlink/?LinkId=299058) veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Visual Studio yüklendikten sonra yeni bir MVC uygulaması projesi oluşturmak için aşağıdaki adımları kullanın:
 
-1. Visual Studio 2103 açın.
+1. Open Visual Studio 2103.
 2. Tıklatın **yeni proje** gelen **Başlat** sayfa veya tıklatabilirsiniz **dosya** menüsünü ve sonra **yeni proje**:  
   
  [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
@@ -139,7 +139,7 @@ Entity Framework Code First kullanan bir **MigrationHistory** tablo modeli deği
 
 ### <a name="creating-a-custom-entityframework-initializer-for-applicationdbcontext"></a>Bir özel ApplicationDbContext EntityFramework Başlatıcı oluşturma
 
-Veritabanına bağlanmak için model başlatıcıları kullanmanız gerekir böylece bu öğreticide öne çıkan MySQL sağlayıcı Entity Framework geçişler şu anda desteklemiyor. Bu öğretici Azure üzerinde MySQL örneği kullandığından, özel bir Entity Framework Başlatıcı oluşturmanız gerekecektir.
+Veritabanına bağlanmak için model başlatıcıları kullanmanız gerekir böylece bu öğreticide öne çıkan MySQL sağlayıcı Entity Framework geçişler şu anda desteklemiyor. Bu öğretici Azure üzerinde MySQL örneği kullandığından özel bir Entity Framework Başlatıcı oluşturmanız gerekir.
 
 > [!NOTE]
 > Azure veya şirket içinde barındırılan bir veritabanı kullanıyorsanız, SQL Server örneğine bağlanıyorsanız, bu adım gerekli değildir.

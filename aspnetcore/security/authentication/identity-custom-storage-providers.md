@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8541fe47207c0af232ca81ae45da6af201d94799
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -126,7 +126,7 @@ En az kullanıcı sınıfınıza içermelidir bir `Id` ve `UserName` özelliği.
 
 ## <a name="customize-the-user-store"></a>Kullanıcı deposunda özelleştirme
 
-Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemleri sağlayan sınıf. Bu sınıf eşdeğerdir [UserStore<TUser> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) sınıfı. İçinde `UserStore` sınıfı, uygulama `IUserStore<TUser>` ve gereken isteğe bağlı arabirimler. Uygulamanızda sağlanan işlevselliği göre uygulamak için hangi isteğe bağlı arabirimler seçin.
+Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemleri sağlayan sınıf. Bu sınıf eşdeğerdir [UserStore<TUser> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) sınıfı. İçinde `UserStore` sınıfı, uygulama `IUserStore<TUser>` ve gereken isteğe bağlı arabirimler. Uygulamanızda sağlanan işlevselliği temel uygulamak için hangi isteğe bağlı arabirimler seçin.
 
 ### <a name="optional-interfaces"></a>İsteğe bağlı arabirimler
 

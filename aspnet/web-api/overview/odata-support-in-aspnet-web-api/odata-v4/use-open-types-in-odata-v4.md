@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: c2d7454534ff0e9e0a80365793800ab7c45d3b6e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe67b9a11a82b55d5f3e0e5f1b0cee10a58833d2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 türleri Aç
 ====================
@@ -100,11 +100,11 @@ Meta veri belgeden görebilirsiniz:
 
 - İçin `Book` ve `Press` türleri, değeri `OpenType` özniteliği doğrudur. `Customer` Ve `Address` türleri, bu öznitelik zorunda kalmaz.
 - `Book` Varlık türüne sahip üç bildirilmiş özellikleri: ISBN, başlık ve tuşuna basın. OData meta veri içermemesi `Book.Properties` CLR sınıfından özelliği.
-- Benzer şekilde, `Press` karmaşık türü var. yalnızca iki bildirilmiş özellikleri: adı ve kategori. Meta veri değil içermemesi `Press.DynamicProperties` CLR sınıfından özelliği.
+- Benzer şekilde, `Press` karmaşık türü var. yalnızca iki bildirilmiş özellikleri: adı ve kategori. Meta veri içermemesi `Press.DynamicProperties` CLR sınıfından özelliği.
 
 ## <a name="query-an-entity"></a>Sorgu bir varlık
 
-ISBN defteriyle "978-0-7356-7942-9 için" eşit almak için göndermek için bir GET isteği `~/Books('978-0-7356-7942-9')`. Yanıt gövdesi aşağıdakine benzer görünmelidir. (Daha okunabilir yapmak için girintili.)
+ISBN defteriyle "978-0-7356-7942-9 için" eşit almak için bir GET isteği Gönder `~/Books('978-0-7356-7942-9')`. Yanıt gövdesi aşağıdakine benzer görünmelidir. (Daha okunabilir yapmak için girintili.)
 
 [!code-console[Main](use-open-types-in-odata-v4/samples/sample7.cmd?highlight=8-13,15-23)]
 

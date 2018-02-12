@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)
 ====================
@@ -243,8 +243,8 @@ Bir kez tüketici anahtarı ve tüketici gizli aldıysanız, web uygulamanızı 
 
 OAuth ve Openıd kullanan uygulamaları oluşturma hakkında ek bilgi için aşağıdaki URL'ler bakın:
 
-- [https://go.microsoft.com/fwlink/?LinkId=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
-- [https://go.microsoft.com/fwlink/?LinkId=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
+- [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
+- [https://go.microsoft.com/fwlink/?LinkID=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
 
 <a id="COMBINE"></a>
 ### <a name="combining-external-authentication-services"></a>Dış kimlik doğrulama hizmeti birleştirme
@@ -263,7 +263,7 @@ Bazı dış kimlik doğrulama sağlayıcıları gibi bir HTTP adresi kullanarak 
     1. Windows'da yükseltilmiş bir komut istemi açın.
     2. Şu komutu yazın:
 
-        <kbd>Not Defteri'ni %WinDir%\system32\drivers\etc\hosts</kbd>
+        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
     3. HOSTS dosyasına bir giriş aşağıdaki gibi ekleyin:
 
         <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -278,7 +278,7 @@ Bazı dış kimlik doğrulama sağlayıcıları gibi bir HTTP adresi kullanarak 
     1. Windows'da yükseltilmiş bir komut istemi açın.
     2. IIS Express klasörünüzü değiştirmek için aşağıdaki komutu yazın:
 
-        <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
+        <kbd>cd /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. FQDN uygulamanıza eklemek için aşağıdaki komutu yazın:
 
         <kbd>appcmd.exe set config-section:system.applicationHost/sites /+&quot;[ad='WebApplication1'].bindings.[Protokol='http',Bindingınformation='*:80:www.wingtiptoys.com']&quot; /Commit:APPHOST</kbd>
@@ -303,7 +303,7 @@ Windows Live Microsoft Authentication için uygulamaya bağlama basit bir işlem
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>İsteğe bağlı: Yerel kaydını devre dışı
 
-Geçerli ASP.NET yerel kayıt işlevi otomatik programları (aracılarını) hesapları üye oluşturma engellemez; Örneğin, bir bot önleme ve doğrulama teknoloji gibi kullanarak tarafından [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Bu nedenle, oturum açma sayfasındaki yerel oturum açma form ve kayıt bağlantıyı kaldırmanız gerekir. Bunu yapmak için açık  *\_Login.cshtml* projenizde sayfa açıklamadan çıkarın ve ardından satırları yerel oturum açma paneli ve kayıt bağlantısı için. Sonuçta elde edilen sayfa, aşağıdaki kod örneği gibi ister:
+Geçerli ASP.NET yerel kayıt işlevi otomatik programları (aracılarını) hesapları üye oluşturma engellemez; Örneğin, bir bot önleme ve doğrulama teknoloji gibi kullanarak tarafından [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Bu nedenle, oturum açma sayfasındaki yerel oturum açma form ve kayıt bağlantıyı kaldırmanız gerekir. Bunu yapmak için açık  *\_Login.cshtml* projenizde sayfa açıklamadan çıkarın ve ardından satırları yerel oturum açma paneli ve kayıt bağlantısı için. Sonuçta elde edilen sayfa, aşağıdaki kod örneği gibi görünmelidir:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

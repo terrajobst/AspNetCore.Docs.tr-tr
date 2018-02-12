@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -255,7 +255,7 @@ Yeni bir Intranet uygulaması Şablonu proje şablonu listesi içerir. Bu şablo
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Proje şablonları etkin HTML5 sunulmuştur
 
-Yeni Proje iletişim kutusu artık proje şablonları HTML5 özgü özellikleri eklemek için bir seçenek içerir. Neden olan Yeni HTML5 içeren oluşturulacak görünümleri seçeneğini belirleyerek `<header>`, `<footer>`, ve `<navigation>` öğeleri. öğeleri.
+Yeni Proje iletişim kutusu artık proje şablonları HTML5 özgü özellikleri eklemek için bir seçenek içerir. Neden olan Yeni HTML5 içeren oluşturulacak görünümleri seçeneğini belirleyerek `<header>`, `<footer>`, ve `<navigation>` öğeleri.
 
 Tarayıcıların önceki sürümleri HTML5 özgü etiketler desteklemeyen unutmayın. Bu sınırlama adres için Modernizr kitaplığına bir başvuru HTML5 proje şablonları içerir. (Sonraki bölüme bakın.)
 
@@ -608,7 +608,7 @@ Modelin her özelliği için istek doğrulamayı devre dışı bırakmak için a
 ## <a name="breaking-changes"></a>Yeni Değişiklikler
 
 - Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve daha önceki sürümlerde, aynı olan denetleyicisine özel durum filtreleri *sipariş* gibi bir eylem yönteminin üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genellikle olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyici ilk yürütür ASP.NET MVC 3'te bu sırasını tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtilen, filtreler belirtilen sırada çalıştırılır.
-- Adlı yeni bir özellik eklenen *FileExtensions* için *VirtualPathProviderViewEngine* temel sınıfı. Bir görünüm içinde yer alan bir dosya uzantısı yalnızca bir görünümlerle yol (ve ada göre değil), bakarken bu yeni özelliği tarafından belirtilen liste olarak kabul edilir. Özel bir kayıt olanlar web form görünümleri için bir özel dosya uzantısını etkinleştirmek için sağlayıcısı oluşturmak için bu önemli bir değişiklik olduğunu ve ve bu görünümleri bir adı yerine bir tam yol kullanarak başvuruda bulunuyor. Değerini değiştirmek için geçici bir çözüm değildir *FileExtensions* özel dosya uzantısını eklemeyi özelliği.
+- Adlı yeni bir özellik eklenen *FileExtensions* için *VirtualPathProviderViewEngine* temel sınıfı. Bir görünüm içinde yer alan bir dosya uzantısı yalnızca bir görünümlerle yol (ve ada göre değil), bakarken bu yeni özelliği tarafından belirtilen liste olarak kabul edilir. Kullanıcılar web form görünümleri için bir özel dosya uzantısını etkinleştirmek için özel yapı sağlayıcıyı kaydettirin ve bir adı yerine bir tam yol kullanarak bu görünümler başvuran için önemli bir değişiklik budur. Değerini değiştirmek için geçici bir çözüm değildir *FileExtensions* özel dosya uzantısını eklemeyi özelliği.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 71f87043be064d24bdfb203380fb6cf651527e30
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1caf836f8c92cbc9ab95e0aa990f81493e577a27
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-9-registration-and-checkout"></a>9. Kısım: Kayıt ve kullanıma alma
 ====================
@@ -119,7 +119,7 @@ Tam CheckoutController kod aşağıdaki gibidir:
 
 ## <a name="adding-the-addressandpayment-view"></a>AddressAndPayment görünümü ekleme
 
-Şimdi, AddressAndPayment görünüm oluşturalım. Aşağıdakilerden birini sağ AddressAndPayment denetleyici eylemleri ve aşağıda gösterildiği gibi bir sırada kesin türü belirtilmiş ve Düzen şablonunu kullanan AddressAndPayment adlı bir görünüm ekleyin.
+Şimdi, AddressAndPayment görünüm oluşturalım. AddressAndPayment denetleyici eylemleri birine sağ tıklayın ve aşağıda gösterildiği gibi bir sırada kesin türü belirtilmiş ve Düzen şablonunu kullanan AddressAndPayment adlı bir görünüm ekleyin.
 
 ![](mvc-music-store-part-9/_static/image6.png)
 

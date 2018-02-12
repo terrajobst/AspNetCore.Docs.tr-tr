@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı güncelleştirme dağıtma
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -90,7 +90,7 @@ Bu bölümde, bir doğum tarihi sütuna eklemek `Person` için temel sınıf `St
 6. İçinde **Web tek tık Yayımla** araç tıklatın **üretim** yayımlama profili ve ardından **Web'i Yayımla**.
 7. Çalıştırma **Eğitmen** Güncelleştirme başarılı bir şekilde dağıtıldı doğrulamak için üretim sayfasında.
 
-    İçin bir veritabanı değişikliği içeren bir gerçek üretimde uygulama güncelleştirme, aynı zamanda genellikle uygulama dağıtımı sırasında çevrimdışı kullanarak götürecek *uygulama\_offline.htm*önceki öğreticide gördüğünüz gibi.
+    Veritabanı değişikliği içeren gerçek üretimde uygulama güncelleştirmesi için aynı zamanda genellikle uygulama dağıtımı sırasında çevrimdışı kullanarak götürecek *uygulama\_offline.htm*önceki öğreticide gördüğünüz gibi.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Bir veritabanı güncelleştirmesini dbDacFx sağlayıcısı kullanarak dağıtma
 

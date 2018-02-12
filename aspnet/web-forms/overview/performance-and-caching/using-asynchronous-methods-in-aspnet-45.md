@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 73e46134cfafb9edc4c1888211eab44b8f2bf828
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 içinde zaman uyumsuz yöntemler kullanma
 ====================
@@ -123,7 +123,7 @@ Zaman uyumsuz sürümü:
 - `RegisterAsyncTask` Yöntemi, zaman uyumsuz olarak çalışan bir kod içeren zaman uyumsuz bir görevi kaydetmek için kullanılır.
 - Yeni `GetGizmosSvcAsync` yöntemi ile işaretlenmiş [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) gövde bölümlerinin geri aramalar oluşturun ve otomatik olarak oluşturmak için derleyici söyler anahtar sözcüğü bir `Task` , döndürülür.
 - &quot;Zaman uyumsuz&quot; zaman uyumsuz yöntem adına eklenmiştir. "Zaman uyumsuz" ekleyerek gerekli değildir ancak zaman uyumsuz yöntemleri yazarken kuraldır.
-- Dönüş türü yeni yeni `GetGizmosSvcAsync` yöntemi `Task`. Dönüş türü `Task` devam eden iş temsil eder ve zaman uyumsuz işlemin tamamlanması için beklenecek içinden işleyici ile yöntemini arayanlar sağlar.
+- Dönüş türü yeni `GetGizmosSvcAsync` yöntemi `Task`. Dönüş türü `Task` devam eden iş temsil eder ve zaman uyumsuz işlemin tamamlanması için beklenecek içinden işleyici ile yöntemini arayanlar sağlar.
 - [Await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) anahtar sözcüğü, web hizmeti çağrısı uygulandı.
 - Zaman uyumsuz web hizmeti API'si çağrıldı (`GetGizmosAsync`).
 

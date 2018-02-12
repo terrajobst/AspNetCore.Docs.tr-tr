@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 8c69a355e6281cb7abf03b05eb2f59262cc5d4e1
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 39e655ffcb01fb21c79cd2564862f49a86e9e9d4
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Okuma data - EF çekirdek Razor sayfaları (8 6) ile ilgili
 
@@ -126,7 +126,7 @@ Uygulamayı çalıştırın ve seçin **kurslar** bölüm adlarını listesiyle 
 
 [!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-`Select` İşleci yalnızca gereken ilgili verileri yükler. Tek öğelerin gibi `Department.Name` bir SQL INNER JOIN kullanır. Koleksiyonlar için başka bir veritabanı erişimi kullanır, ancak bu nedenle yapar.`Include` koleksiyonlarda işleci.
+`Select` İşleci yalnızca gereken ilgili verileri yükler. Tek öğelerin gibi `Department.Name` bir SQL INNER JOIN kullanır. Koleksiyon başka bir veritabanı erişimi kullanır, ancak bu nedenle mu `Include` koleksiyonlarda işleci.
 
 Aşağıdaki kod ile ilgili verileri yükler `Select` yöntemi:
 
@@ -148,7 +148,7 @@ Bu bölümde, eğitmen sayfa oluşturulur.
 Bu sayfayı okur ve ilgili verileri aşağıdaki yollarla görüntüler:
 
 * İlgili verileri Eğitmen listesini görüntüleyen `OfficeAssignment` varlık (önceki görüntüde Office). `Instructor` Ve `OfficeAssignment` varlıklardır bir tane-sıfır-veya-bir ilişkisi. İstekli yükleme için kullanıldığından `OfficeAssignment` varlıklar. İlgili verileri görüntülenecek gerektiğinde istekli yükleme genellikle daha verimli olur. Bu durumda, eğitmen office atamaları görüntülenir.
-* Kullanıcı ilişkili bir eğitmen (Harui) önceki görüntüde seçtiğinde `Course` varlıkları görüntülenir. `Instructor` Ve `Course` varlıklardır bir çok-çok ilişkisi. İçin yükleme eager `Course` varlıkları ve bunların ilgili `Department` varlıklar kullanılır. Bu durumda, yalnızca seçili Eğitmen kursları gerekli olduğu için ayrı sorgulara daha etkili olabilir. Bu örnek gezinme özelliklerinin gezinme özellikleri varlıklardaki istekli yükleme kullanmayı gösterir.
+* Kullanıcı ilişkili bir eğitmen (Harui) önceki görüntüde seçtiğinde `Course` varlıkları görüntülenir. `Instructor` Ve `Course` varlıklardır bir çok-çok ilişkisi. İstekli yükleme için kullanıldığından `Course` varlıkları ve bunların ilgili `Department` varlıklar. Bu durumda, yalnızca seçili Eğitmen kursları gerekli olduğu için ayrı sorgulara daha etkili olabilir. Bu örnek gezinme özelliklerinin gezinme özellikleri varlıklardaki istekli yükleme kullanmayı gösterir.
 * Kullanıcı indirmelere (Kimya önceki görüntüde) seçtiğinde ilgili verileri `Enrollments` varlık görüntülenir. Önceki görüntüde Öğrenci adı ve düzeyde görüntülenir. `Course` Ve `Enrollment` varlıklardır bir-çok ilişkisi.
 
 ### <a name="create-a-view-model-for-the-instructor-index-view"></a>Eğitmen dizin görünüm için Görünüm modeli oluşturma
@@ -201,7 +201,7 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme il
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"`bir rota şablonudur. Rota şablonu için rota verilerini tamsayı URL'deki sorgu dizelerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı sayfa yönergesi aşağıdaki gibi bir URL vermediğinde bir eğitmen için:
+* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"`bir rota şablonudur. Rota şablonu için rota verilerini tamsayı URL'deki sorgu dizelerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi aşağıdaki gibi bir URL oluşturur:
 
     `http://localhost:1234/Instructors?id=2`
 

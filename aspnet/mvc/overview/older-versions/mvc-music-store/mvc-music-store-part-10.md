@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: af08039de2d810948b9ab64974111b0346c7fa0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Bölüm 10: Gezinti ve Site tasarımı, sonuç son güncelleştirmeleri
 ====================
@@ -135,7 +135,7 @@ Son olarak, biz Model türü güncelleştirme ve albüm listenin altına ekleyer
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu ASP.NET MVC kolaylaştırır, gördük veritabanı erişimiyle, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vb. oldukça hızlı bir şekilde. Umarız Bu öğreticiyi kendi ASP.NET MVC uygulamaları oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
+ASP.NET MVC kolaylaştırır olmadığını gördük veritabanı erişimiyle, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vb. oldukça hızlı bir şekilde. Umarız Bu öğreticiyi kendi ASP.NET MVC uygulamaları oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
 
 
 >[!div class="step-by-step"]

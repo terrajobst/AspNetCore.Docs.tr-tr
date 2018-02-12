@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7200899d54585cd09e0a648e3aaaf839db2649e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -77,7 +77,7 @@ Bir kimliği, bir başlığı, kredisi sayısını girin ve bir bölüm seçin v
 
 ## <a name="working-with-many-to-many-relationships"></a>Çok-çok ilişkileri ile çalışma
 
-Arasındaki ilişkiyi `Courses` varlık kümesini ve `People` varlık bir çok-çok ilişkisi kümesidir. A `Course` varlık sahip adlı bir gezinti özelliği `People` sıfır, bir veya daha fazla ilgili içerebilir `Person` varlıkları (Bu indirmelere öğretmeyi atanan Eğitmen temsil eder). Ve `Person` varlık sahip adlı bir gezinti özelliği `Courses` sıfır, bir veya daha fazla ilgili içerebilir `Course` varlıkları (Bu eğitmen öğretmek atandığı kurslar temsil eder). Bir eğitmen birden çok kurslar öğretmek ve bir indirmelere tarafından birden çok Eğitmen öğrettin. Kılavuzun bu bölümünde, ekleyip arasındaki ilişkileri `Person` ve `Course` ilgili varlık Gezinti özellikleri güncelleştirerek varlıklar.
+Arasındaki ilişkiyi `Courses` varlık kümesini ve `People` varlık bir çok-çok ilişkisi kümesidir. A `Course` varlık sahip adlı bir gezinti özelliği `People` sıfır, bir veya daha fazla ilgili içerebilir `Person` varlıkları (Bu indirmelere öğretmeyi atanan Eğitmen temsil eder). Ve `Person` varlık sahip adlı bir gezinti özelliği `Courses` sıfır, bir veya daha fazla ilgili içerebilir `Course` varlıkları (kurslar temsil eden Bu eğitmen öğretmeyi atanır). Bir eğitmen birden çok kurslar öğretmek ve bir indirmelere tarafından birden çok Eğitmen öğrettin. Kılavuzun bu bölümünde, ekleyip arasındaki ilişkileri `Person` ve `Course` ilgili varlık Gezinti özellikleri güncelleştirerek varlıklar.
 
 Adlı yeni bir web sayfası oluşturun *InstructorsCourses.aspx* kullanan *Site.Master* ana sayfa ve aşağıdaki biçimlendirmeleri eklemek `Content` adlı Denetim `Content2`:
 
@@ -123,7 +123,7 @@ Sayfayı çalıştırın.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Bir eğitmen seçin. **Bir indirmelere atamak** aşağı açılan liste Eğitmen öğretmek değildir, kurslar görüntüler ve **bir indirmelere kaldırmak** aşağı açılan liste Eğitmen zaten atandığı kurslar görüntüler. İçinde **bir indirmelere atamak** bölümünde, bir indirmelere seçin ve ardından **atamak**. İndirmelere taşır **bir indirmelere kaldırmak** aşağı açılan liste. Bir indirmelere seçin **bir indirmelere kaldırmak** 'ye tıklayın **kaldırmak***.* İndirmelere taşır **bir indirmelere atamak** aşağı açılan liste.
+Bir eğitmen seçin. **Bir indirmelere atamak** aşağı açılan liste Eğitmen öğretmek değildir, kurslar görüntüler ve **bir indirmelere kaldırmak** aşağı açılan liste Eğitmen zaten atandığı kurslar görüntüler. İçinde **bir indirmelere atamak** bölümünde, bir indirmelere seçin ve ardından **atamak**. İndirmelere taşır **bir indirmelere kaldırmak** aşağı açılan liste. Bir indirmelere seçin **bir indirmelere kaldırmak** 'ye tıklayın **Kaldır ***.* İndirmelere taşır **bir indirmelere atamak** aşağı açılan liste.
 
 Şimdi ilgili verilerle çalışmak için bazı yöntemlerle gördünüz. Aşağıdaki öğreticide devralma veri modelinde uygulamanızın devamlılığını iyileştirmek için nasıl kullanılacağını öğreneceksiniz.
 

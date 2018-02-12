@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 6bce4a5d889f548cb1faec15842310703d7077b8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Modele (C#) doğrulama ekleme
 ====================
@@ -101,7 +101,7 @@ Kodu nasıl kullandığını fark bir `Html.EditorFor` çıktısını almak içi
 
 Bu yaklaşımı hakkında gerçekten iyi nedir denetleyicisi ne şablonu oluştur görüntüleme herhangi bir şey görüntülenen özel hata iletileri veya zorlanan gerçek doğrulama kuralları hakkında bildiği şeklinde değil. Doğrulama kuralları ve hata dizesi yalnızca belirtilen `Movie` sınıfı.
 
-Doğrulama mantığını daha sonra değiştirmek istiyorsanız, tek bir yerde bunu yapabilirsiniz. Kurallar nasıl zorlanır ile tutarsız olan uygulamanın farklı bölümleri hakkında endişelenmeniz gerekmez; tüm doğrulama mantığını tek bir yerde tanımlanır ve her yerde kullanılır. Bu kod çok temiz tutar ve muhafaza etmek ve gelişmesi daha kolay hale getirir. Ve olması, anlamına gelir tam olarak KURU ilkesini uygularken.
+Doğrulama mantığını daha sonra değiştirmek istiyorsanız, tek bir yerde bunu yapabilirsiniz. Kurallar nasıl zorlanır ile tutarsız olan uygulamanın farklı bölümleri hakkında endişelenmeniz gerekmez; tüm doğrulama mantığını tek bir yerde tanımlanır ve her yerde kullanılır. Bu kod çok temiz tutar ve muhafaza etmek ve gelişmesi daha kolay hale getirir. Ve, tam olarak KURU ilkesini uygularken, anlamına gelir.
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Film modeline biçimlendirme ekleme
 

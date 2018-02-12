@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8156bd1c7cfc111a6a121a89d845ca284ee1b7af
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET İstemci'den (C#) Web API'si çağırma
 ====================
@@ -116,7 +116,7 @@ Aşağıdaki kod bir ürün için bir GET isteği gönderir:
 
 Zaman **ReadAsAsync** denir hiçbir parametrelere sahip varsayılan bir kullanır *medya biçimlendiricileri* yanıt gövdesi okunamıyor. Varsayılan biçimlendiricileri JSON, XML ve formu url kodlanmış verileri destekler.
 
-Varsayılan biçimlendiricileri kullanmak yerine, için biçimlendiricileri listesi sağlayabilir **ReadAsAsync** yöntemi.  Kullanarak bir biçimlendiricileri listesi özel medya türü biçimlendiricisi varsa yararlı olur:
+Varsayılan biçimlendiricileri kullanmak yerine, için biçimlendiricileri listesi sağlayabilir **ReadAsAsync** yöntemi.  Biçimlendiricileri listesi kullanarak bir özel medya türü biçimlendiricisi varsa yararlı olur:
 
 ```csharp
 var formatters = new List<MediaTypeFormatter>() {

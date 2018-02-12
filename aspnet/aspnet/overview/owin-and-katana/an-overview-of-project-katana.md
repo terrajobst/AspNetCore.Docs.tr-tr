@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8f28116f88f3cf5143d3d5c9821519d62c4e5452
-ms.sourcegitcommit: 6541c8b11001dd617adf5eb04c814cda165070b9
+ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="an-overview-of-project-katana"></a>Proje Katana genel bakış
 ====================
@@ -103,7 +103,7 @@ Oysa hem [OWIN](http://owin.org/html/owin.html) belirtimi ve *Owin.dll* topluluk
 
 Bu ilk zaman sunulmuştur, tek bir yönüne [Node.js](http://nodejs.org/) hemen kişilerin dikkat u çizdiğini framework edildi Basitlik ile bir yazar ve bir Web sunucusunda çalıştırın. Katana hedefleri light, Çerçeveli varsa [Node.js](http://nodejs.org/), biri özetlemek bunları Katana birçok avantajları beraberinde getirir söyleyerek [Node.js](http://nodejs.org/) (ve bu gibi çerçeveleri) throw Geliştirici zorlamadan her şeyi aynen ASP.NET Web uygulamaları geliştirme hakkında bilir. Doğru tutmak bu deyim için Katana proje ile çalışmaya başlama yapısı eşit basit olmalıdır [Node.js](http://nodejs.org/).
 
-## <a name="creating-hello-world"></a>"Hello World!" oluşturma
+## <a name="creating-hello-world"></a>Creating "Hello World!"
 
 JavaScript ve .NET geliştirme arasındaki önemli bir fark derleyici varlığı (veya yokluğuna) ' dir. Bu nedenle, bir basit Katana sunucu için başlangıç noktası bir Visual Studio projesi ' dir. Ancak, biz en az proje türleri ile başlayabilirsiniz: boş ASP.NET Web uygulaması.
 

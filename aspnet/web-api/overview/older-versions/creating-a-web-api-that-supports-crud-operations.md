@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: a91bf065c9ce0fc5bd9b7115340edabea975a7e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API'de 1 CRUD işlemleri etkinleştirme
 ====================
@@ -42,11 +42,11 @@ API ürünler, yöntemleri açığa çıkarır.
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
 | Tüm ürünlerin listesini al | AL | / api/ürünleri |
-| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
-| Bir ürün kategorisine göre alma | AL | / api/ürünleri? kategori =*kategorisi* |
+| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
+| Bir ürün kategorisine göre alma | AL | /api/products?category=*category* |
 | Yeni Ürün oluşturma | YAYINLA | / api/ürünleri |
-| Bir ürün güncelleştir | PUT | /api/ürünler/*kimliği* |
-| Ürünü silme | DELETE | /api/ürünler/*kimliği* |
+| Bir ürün güncelleştir | PUT | /api/products/*id* |
+| Ürünü silme | DELETE | /api/products/*id* |
 
 Bazı URI'ler ürün kimliği yolundaki dahil dikkat edin. Örneğin, Kimliğine sahip 28 ürün almak için istemci bir GET isteği gönderir `http://hostname/api/products/28`.
 
@@ -57,7 +57,7 @@ API ürünleri URI'ler iki kaynak türleri için tanımlar:
 | Kaynak | URI |
 | --- | --- |
 | Tüm ürünler listesi. | / api/ürünleri |
-| Bir ürünün. | /api/ürünler/*kimliği* |
+| Bir ürünün. | /api/products/*id* |
 
 ### <a name="methods"></a>Yöntemler
 
@@ -127,7 +127,7 @@ ASP.NET MVC ile çalıştıysanız, ardından denetleyicileriyle bilginiz. ASP.N
 
 Bir tane ValuesController, Çözüm Gezgini'nde dosyaya sağ tıklayıp seçerek silme **silin.** Şimdi yeni bir denetleyici aşağıdaki şekilde ekleyin:
 
-İçinde **Çözüm Gezgini**, sağ denetleyicileri klasör. Seçin **Ekle** ve ardından **denetleyicisi**.
+İçinde **Çözüm Gezgini**, denetleyicileri klasörünü sağ tıklatın. Seçin **Ekle** ve ardından **denetleyicisi**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image6.png)
 
@@ -158,8 +158,8 @@ ProductStore API birkaç açığa çıkarır &quot;okuma&quot; HTTP GET yöntemi
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
 | Tüm ürünlerin listesini al | AL | / api/ürünleri |
-| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
-| Bir ürün kategorisine göre alma | AL | / api/ürünleri? kategori =*kategorisi* |
+| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
+| Bir ürün kategorisine göre alma | AL | /api/products?category=*category* |
 
 Tüm ürünlerin listesini almak için bu yöntemi ekleyin `ProductsController` sınıfı:
 

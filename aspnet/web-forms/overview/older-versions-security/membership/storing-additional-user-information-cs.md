@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 63aa9dce45ce7ac3e33f542f549b2ec620191d50
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 38dfdab395b6b3559d293c5b1488ede2e88bfe91
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="storing-additional-user-information-c"></a>Ek kullanıcı bilgileri depolayan (C#)
 ====================
@@ -353,7 +353,7 @@ I aşağıdakileri kullanarak sonuçlandı `LayoutTemplate`, `ItemTemplate`, ve 
 
 `LayoutTemplate` İşaretleme tanımlar denetim tarafından yayılan, while `ItemTemplate` SqlDataSource tarafından döndürülen her bir öğeyi işler. `ItemTemplate`'S elde edilen biçimlendirme yerleştirilir `LayoutTemplate`'s `itemPlaceholder` denetim. Ek olarak `itemPlaceholder`, `LayoutTemplate` sayfa (varsayılan) başına yalnızca 10 konuk açıklamaları gösteren için ListView sınırlar bir DataPager denetim içerdiğini ve disk belleği arabirimi işler.
 
-My `ItemTemplate` her Konuk açıklamanın konu görüntüler bir `<h4>` konu yer gövdesi bir öğesiyle. Gövde görüntülemek için kullanılan Bu sözdizimi tarafından döndürülen veri alır `Eval("Body")` Veri bağlamada bildirimi, onu bir dizeye dönüştürür ve değiştirir satır sonları ile `<br />` öğesi. Bu dönüştürme boşluk HTML tarafından göz ardı edilir beri yorum gönderirken girilen satır sonları göstermek için gereklidir. Kullanıcının imza italik, kullanıcının ev Şehir, bir bağlantı kendi giriş sayfası, tarih ve saat açıklama yapıldı ve yorum sol kişiye kullanıcı adı ve ardından gövdesinde altında görüntülenir.
+My `ItemTemplate` her Konuk açıklamanın konu görüntüler bir `<h4>` konu yer gövdesi bir öğesiyle. Gövde görüntülemek için kullanılan sözdizimi tarafından döndürülen veri alır `Eval("Body")` Veri bağlamada bildirimi, onu bir dizeye dönüştürür ve değiştirir satır sonları ile `<br />` öğesi. Bu dönüştürme boşluk HTML tarafından göz ardı edilir beri yorum gönderirken girilen satır sonları göstermek için gereklidir. Kullanıcının imza italik, kullanıcının ev Şehir, bir bağlantı kendi giriş sayfası, tarih ve saat açıklama yapıldı ve yorum sol kişiye kullanıcı adı ve ardından gövdesinde altında görüntülenir.
 
 Bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Adım 5'i burada görüntülenen defterinizde eklenecek yorumlar görmeniz gerekir.
 

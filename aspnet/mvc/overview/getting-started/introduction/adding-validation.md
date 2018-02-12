@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: b59965b2fab00cb64db06574d5ca3c6388daa7c8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8d768727772738264d088315e605cca72db8de0a
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation"></a>Doğrulama ekleme
 ====================
@@ -24,7 +24,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
-Bu konu bu bölümde, doğrulama mantığını ekleyeceksiniz `Movie` modeli, emin olun ve kullanıcı deneyip oluşturmak veya uygulama kullanarak film düzenlemek için her zaman doğrulama kuralları zorunlu tutulmaz.
+Bu bölümde için doğrulama mantığını ekleyeceksiniz `Movie` modeli, emin olun ve kullanıcı deneyip oluşturmak veya uygulama kullanarak film düzenlemek için her zaman doğrulama kuralları zorunlu tutulmaz.
 
 ## <a name="keeping-things-dry"></a>Şeyler KURU tutma
 

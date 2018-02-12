@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş
 ====================
@@ -195,7 +195,7 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 - Uygulama kullanıcı hesabı bilgilerini bir SQL Server veritabanında depolayan ASP.NET üyelik sistemini kullanır. Uygulamayı kısıtlı bazı bilgilere erişimi olan bir yönetici kullanıcının tanımlar. Test hesapları olmadan ancak bir yönetici hesabıyla üyelik veritabanının dağıtmanız gerekir.
 - Uygulama bir üçüncü taraf hata günlüğü ve yardımcı programı raporlama kullanır. Bu yardımcı programı, uygulama ile dağıtılan bir bütünleştirilmiş sağlanır.
 - Hata günlük yardımcı programı bir dosya klasörü XML dosyalarında hata bilgilerini yazar. Dağıtılan sitede ASP.NET altında çalıştığı hesabın bu klasöre yazma izni vardır ve bu klasörü dağıtımından dışlamak sahip olduğunuzdan emin yapmanız gerekir. (Aksi halde, hata günlüğü verilerini test ortamından üretim dağıtılmış olabilir ve/veya üretim hata günlük dosyalarını silinmiş.)
-- Uygulama içinde değiştirilmelidir bazı ayarları dağıtılan içerir *Web.config* hedef ortam (test, hazırlama veya üretim) ve yapı bağlı olarak değiştirilmelidir diğer ayarları bağlı olarak dosya Yapılandırma (hata ayıklama veya yayın).
+- Uygulama değiştirilmelidir bazı ayarları içerir dağıtılan içinde *Web.config* hedef ortam (test, hazırlama veya üretim) ve yapı bağlı olarak değiştirilmelidir diğer ayarları bağlı olarak dosya Yapılandırma (hata ayıklama veya yayın).
 - Visual Studio çözümü bir sınıf kitaplığı proje içerir. Bu proje oluşturan derleme dağıtılmalıdır, proje kendisini değil.
 
 ## <a name="summary"></a>Özet

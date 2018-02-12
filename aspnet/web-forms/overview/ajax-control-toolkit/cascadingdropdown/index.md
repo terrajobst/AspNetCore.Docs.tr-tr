@@ -12,22 +12,22 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: 8d0708b03deb54d41c64ed383d319b0b70549e1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================
-> Bu öğretici nasıl kullanılacağını gösterir kullanıcılar seçimi yaptığınızda bu güncelleştirmeyi ilgili açılan oluşturmak için CascadingDropDown denetim listeleri.
+> Bu öğretici CascadingDropDown denetiminin kullanıcılar seçimi yaptığınızda, güncelleştirme ilgili aşağı açılır listeler oluşturmak için nasıl kullanılacağını gösterir.
 
 
-- [CascadingDropDown (C#) kullanarak bir liste doldurma](filling-a-list-using-cascadingdropdown-cs.md)
-- [CascadingDropDown kullanarak bir veritabanıyla (C#)](using-cascadingdropdown-with-a-database-cs.md)
-- [Liste girişlerini CascadingDropDown (C#) ile önceden belirleme](presetting-list-entries-with-cascadingdropdown-cs.md)
-- [Otomatik geri gönderme kullanarak CascadingDropDown ile (C#)](using-auto-postback-with-cascadingdropdown-cs.md)
-- [CascadingDropDown (VB) kullanarak bir liste doldurma](filling-a-list-using-cascadingdropdown-vb.md)
-- [CascadingDropDown (VB) veritabanı ile kullanma](using-cascadingdropdown-with-a-database-vb.md)
-- [Liste girişlerini CascadingDropDown (VB) ile önceden belirleme](presetting-list-entries-with-cascadingdropdown-vb.md)
-- [Otomatik geri gönderme CascadingDropDown (VB) ile kullanma](using-auto-postback-with-cascadingdropdown-vb.md)
+- [CascadingDropDown Kullanarak Liste Doldurma (C#)](filling-a-list-using-cascadingdropdown-cs.md)
+- [Veritabanı ile CascadingDropDown Kullanma (C#)](using-cascadingdropdown-with-a-database-cs.md)
+- [CascadingDropDown ile Liste Girişlerini Önceden Ayarlama (C#)](presetting-list-entries-with-cascadingdropdown-cs.md)
+- [CascadingDropDown ile Otomatik Geri Gönderme Kullanma (C#)](using-auto-postback-with-cascadingdropdown-cs.md)
+- [CascadingDropDown Kullanarak Liste Doldurma (VB)](filling-a-list-using-cascadingdropdown-vb.md)
+- [Veritabanı ile CascadingDropDown Kullanma (VB)](using-cascadingdropdown-with-a-database-vb.md)
+- [CascadingDropDown ile Liste Girişlerini Önceden Ayarlama (VB)](presetting-list-entries-with-cascadingdropdown-vb.md)
+- [CascadingDropDown ile Otomatik Geri Gönderme Kullanma (VB)](using-auto-postback-with-cascadingdropdown-vb.md)

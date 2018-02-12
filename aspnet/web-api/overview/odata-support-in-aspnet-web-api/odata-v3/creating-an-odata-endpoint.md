@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: cb466124aacf6b13c1ade22ad8b865b83e6351e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 uç noktası oluşturma
 ====================
@@ -34,7 +34,7 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
 > - OData sürüm 3
-> - Varlık Çerçevesi 6
+> - Entity Framework 6
 > - [Fiddler Web Proxy (isteğe bağlı) hata ayıklama](http://www.fiddler2.com)
 > 
 > Web API OData desteği eklendi [ASP.NET ve Web Araçları 2012.2 güncelleştirmesi](https://go.microsoft.com/fwlink/?LinkId=282650). Ancak, bu öğreticide Visual Studio 2013'te eklendi yapı iskelesi kullanır.
@@ -95,7 +95,7 @@ Projeyi şimdi oluşturun. Sonraki adımda, yansıma ürün türü bulmak için 
 
 A *denetleyicisi* HTTP isteklerini işleyen sınıftır. Her varlık size OData hizmeti kümesi için ayrı bir denetleyici tanımlayın. Bu öğreticide, tek bir denetleyici oluşturacağız.
 
-Çözüm Gezgini'nde sağ denetleyicileri klasör. Seçin **Ekle** ve ardından **denetleyicisi**.
+Çözüm Gezgini'nde denetleyicileri klasörü sağ tıklatın. Seçin **Ekle** ve ardından **denetleyicisi**.
 
 ![](creating-an-odata-endpoint/_static/image5.png)
 

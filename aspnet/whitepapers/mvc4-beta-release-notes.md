@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -295,7 +295,7 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekl
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **Bir ASP.NET MVC 4 uygulamaları/bin dizininde WebMatrix.WebData.dll dahil olduğunda, form kimlik doğrulaması için URL kazanır.** (Örneğin, "ASP.NET Web sayfaları ile Razor sözdizimi" dağıtılabilir bağımlılıklar ekleme iletişim kullanırken seçerek) uygulamanıza WebMatrix.WebData.dll derleme ekleme/account/oturum açma kimlik doğrulaması oturum açma yeniden yönlendirme kılar yerine / Hesap/ASP.NET MVC hesap denetleyicisi varsayılan beklendiği gibi oturum açın. Bu davranışı önlemek ve web.config kimlik bölümünde belirtilen URL zaten kullanmak için PreserveLoginUrl adlı appSetting ekleyin ve bunu true olarak ayarlayın: 
+- **Bir ASP.NET MVC 4 uygulamaları/bin dizininde WebMatrix.WebData.dll dahil edilirse, form kimlik doğrulaması için URL kazanır.** (Örneğin, "ASP.NET Web sayfaları ile Razor sözdizimi" dağıtılabilir bağımlılıklar ekleme iletişim kullanırken seçerek) uygulamanıza WebMatrix.WebData.dll derleme ekleme/account/oturum açma kimlik doğrulaması oturum açma yeniden yönlendirme kılar yerine / Hesap/ASP.NET MVC hesap denetleyicisi varsayılan beklendiği gibi oturum açın. Bu davranışı önlemek ve web.config kimlik bölümünde belirtilen URL zaten kullanmak için PreserveLoginUrl adlı appSetting ekleyin ve bunu true olarak ayarlayın: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
 - **Visual Studio 2010 ve Visual Web Developer 2010 yan yana yüklemeler için ASP.NET MVC 4 yüklemeye çalışırken yüklemek NuGet Paket Yöneticisi başarısız.** Her iki sürümü Visual Studio'nun zaten yüklendikten sonra Visual Studio 2010 ve Visual Web Developer 2010 ASP.NET MVC 4 yan yana çalıştırmak için ASP.NET MVC 4 yüklemeniz gerekir.

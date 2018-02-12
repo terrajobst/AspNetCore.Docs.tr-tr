@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 0dd1717ff1051f18a78fe77402c7603008b9b486
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>8. Kısım: Son sayfaları, özel durum işleme ve sonuç
 ====================
@@ -77,7 +77,7 @@ Ardından çözüme Error.aspx adlı bir sayfa ekleyin ve bu işaretleme parçac
 
 ## <a id="_Toc260221683"></a>Sonuç
 
-Bu ASP.NET WebForms kolaylaştırır, gördük veritabanı erişimiyle, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vb. oldukça hızlı bir şekilde.
+ASP.NET WebForms kolaylaştırır olmadığını gördük veritabanı erişimiyle, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vb. oldukça hızlı bir şekilde.
 
 Umarız Bu öğreticiyi kendi ASP.NET WebForms uygulamalar oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
 

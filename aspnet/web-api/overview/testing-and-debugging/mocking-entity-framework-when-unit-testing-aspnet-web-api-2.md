@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8a3df94c91d2fac79006916375764c2b90dc85
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: abfde7edec85812de3560f4edefb110c3e374580
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework mocking zaman birim ASP.NET Web API 2 testi
 ====================
@@ -149,7 +149,7 @@ StoreApp.Tests projesine sağ tıklatın ve **NuGet paketlerini Yönet**. Paketl
 
 ![paketlerini yönetme](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image4.png)
 
-Çevrimiçi paketlerinden bulun ve EntityFramework paketi (sürüm 6.0 veya üstü) yükleyin. EntityFramework paket zaten yüklü olduğunu görünürse, yerine StoreApp proje seçmiş olabilirsiniz StoreApp.Tests projesi.
+Çevrimiçi paketlerinden bulun ve EntityFramework paketi (sürüm 6.0 veya üstü) yükleyin. EntityFramework paket zaten yüklü görünüyorsa, StoreApp.Tests proje yerine StoreApp proje seçmiş olabilirsiniz.
 
 ![Entity Framework ekleme](mocking-entity-framework-when-unit-testing-aspnet-web-api-2/_static/image5.png)
 

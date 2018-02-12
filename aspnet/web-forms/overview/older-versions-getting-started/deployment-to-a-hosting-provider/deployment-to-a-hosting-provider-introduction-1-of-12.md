@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 12 1
 ====================
@@ -137,7 +137,7 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 - Uygulama, uygulama veritabanındaki verilere erişmek için Entity Framework 5.0 kullanır. Entity Framework 5.0 içeren bütünleştirilmiş kodun uygulama ile dağıtılması gerekir.
 - Uygulama bir üçüncü taraf hata günlüğü ve yardımcı programı raporlama kullanır. Bu yardımcı programı, uygulama ile dağıtılan bir bütünleştirilmiş sağlanır.
 - Hata günlük yardımcı programı bir dosya klasörü XML dosyalarında hata bilgilerini yazar. Dağıtılan sitede ASP.NET altında çalıştığı hesabın bu klasöre yazma izni vardır ve bu klasörü dağıtımından dışlamak sahip olduğunuzdan emin yapmanız gerekir. (Aksi halde, hata günlüğü verilerini test ortamından üretim dağıtılmış olabilir ve/veya üretim hata günlük dosyalarını silinmiş.)
-- Uygulama içinde değiştirilmelidir bazı ayarları dağıtılan içerir *Web.config* hedef ortam (test veya üretim) ve yapı bağlı olarak değiştirilmelidir diğer ayarları bağlı olarak dosya Yapılandırma (hata ayıklama veya yayın).
+- Uygulama değiştirilmelidir bazı ayarları içerir dağıtılan içinde *Web.config* hedef ortam (test veya üretim) ve yapı bağlı olarak değiştirilmelidir diğer ayarları bağlı olarak dosya Yapılandırma (hata ayıklama veya yayın).
 - Visual Studio çözümü bir sınıf kitaplığı proje içerir. Bu proje oluşturan derleme dağıtılmalıdır, proje kendisini değil.
 
 Bu ilk öğreticide serideki örnek Visual Studio projesi indirdiğiniz ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde otomatik olarak işlenecek bunlardan bazıları ayarlayarak dağıtımı için hazırlayın. Başkalarının size, el ile dikkatli olun.

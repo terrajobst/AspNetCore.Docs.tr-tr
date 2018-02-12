@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: ef3bf31da76df47312f98f494973295f29e18743
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 68fa29b909ebea57e6a3986fca7b88c5a5cf579c
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
 
@@ -231,7 +231,7 @@ Tam bir satırın geri kalanı bir kod bloğunun içine HTML olarak işlemek iç
 
 Olmadan `@:` kodda bir Razor çalışma zamanı hatası oluşturulur.
 
-Uyarı: Ek `@` Razor dosyasının karakter bloğu içinde deyimleri neden derleyici hataları neden olabilir. Bu derleyici hataları gerçek hata önce bildirilen hata oluştuğundan anlaşılması zor olabilir. Bu hata, bir tek bir kod bloğu birden çok dolaylı/açık ifadelere birleştirme sonra yaygındır.
+Uyarı: Ek `@` Razor dosyasının karakter bloğu içinde deyimleri derleyici hataları neden olabilir. Bu derleyici hataları gerçek hata önce bildirilen hata oluştuğundan anlaşılması zor olabilir. Bu hata, bir tek bir kod bloğu birden çok dolaylı/açık ifadelere birleştirme sonra yaygındır.
 
 ## <a name="control-structures"></a>Denetim yapıları
 
