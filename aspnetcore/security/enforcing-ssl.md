@@ -1,41 +1,45 @@
 ---
-title: Bir ASP.NET Core uygulamada SSL zorlama
+title: Bir ASP.NET Core uygulamada HTTPS zorlama
 author: rick-anderson
-description: "Web uygulaması ASP.NET Core SSL gerektirecek şekilde nasıl gösterir"
+description: "Bir ASP.NET Core HTTPS/TLS gerektiren web uygulaması gösterilmektedir."
 manager: wpickett
 ms.author: riande
-ms.date: 07/19/2017
+ms.date: 2/9/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 3b72cddb7a240ad6d6e1427796e9bb4f7003a3f7
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 636077ea21581716308384ebf8d47c1e417a256a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="enforcing-ssl-in-an-aspnet-core-app"></a><span data-ttu-id="7e75a-103">Bir ASP.NET Core uygulamada SSL zorlama</span><span class="sxs-lookup"><span data-stu-id="7e75a-103">Enforcing SSL in an ASP.NET Core app</span></span>
+# <a name="enforcing-https-in-an-aspnet-core-app"></a><span data-ttu-id="8db25-103">Bir ASP.NET Core uygulamada HTTPS zorlama</span><span class="sxs-lookup"><span data-stu-id="8db25-103">Enforcing HTTPS in an ASP.NET Core app</span></span>
 
-<span data-ttu-id="7e75a-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="7e75a-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="8db25-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="8db25-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="7e75a-105">Bu belge gösterir nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="7e75a-105">This document shows how to:</span></span>
+<span data-ttu-id="8db25-105">Bu belge gösterir nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="8db25-105">This document shows how to:</span></span>
 
-- <span data-ttu-id="7e75a-106">SSL için tüm istekleri (yalnızca HTTPS istekleri) gerektirir.</span><span class="sxs-lookup"><span data-stu-id="7e75a-106">Require SSL for all requests (HTTPS requests only).</span></span>
-- <span data-ttu-id="7e75a-107">Tüm HTTP isteklerini yeniden yönlendirmek için HTTPS.</span><span class="sxs-lookup"><span data-stu-id="7e75a-107">Redirect all HTTP requests to HTTPS.</span></span>
+- <span data-ttu-id="8db25-106">HTTPS için tüm istekleri gerektirir.</span><span class="sxs-lookup"><span data-stu-id="8db25-106">Require HTTPS for all requests.</span></span>
+- <span data-ttu-id="8db25-107">Tüm HTTP isteklerini yeniden yönlendirmek için HTTPS.</span><span class="sxs-lookup"><span data-stu-id="8db25-107">Redirect all HTTP requests to HTTPS.</span></span>
 
-## <a name="require-ssl"></a><span data-ttu-id="7e75a-108">SSL iste</span><span class="sxs-lookup"><span data-stu-id="7e75a-108">Require SSL</span></span>
+> [!WARNING]
+> <span data-ttu-id="8db25-108">Yapmak **değil** kullanmak `RequireHttpsAttribute` Web API'lerde hassas bilgiler alırsınız.</span><span class="sxs-lookup"><span data-stu-id="8db25-108">Do **not** use `RequireHttpsAttribute` on Web APIs that receive sensitive information.</span></span> <span data-ttu-id="8db25-109">`RequireHttpsAttribute`HTTP tarayıcılarından HTTPS'ye yeniden yönlendirmek için HTTP durum kodları kullanır.</span><span class="sxs-lookup"><span data-stu-id="8db25-109">`RequireHttpsAttribute` uses HTTP status codes to redirect browsers from HTTP to HTTPS.</span></span> <span data-ttu-id="8db25-110">API istemcileri değil anlamak veya HTTP yönlendirir HTTPS uymaktadır.</span><span class="sxs-lookup"><span data-stu-id="8db25-110">API clients may not understand or obey redirects from HTTP to HTTPS.</span></span> <span data-ttu-id="8db25-111">Bu tür istemciler HTTP üzerinden bilgi gönderebilir.</span><span class="sxs-lookup"><span data-stu-id="8db25-111">Such clients may send information over HTTP.</span></span> <span data-ttu-id="8db25-112">Web API'leri aşağıdakilerden birini yapmalısınız:</span><span class="sxs-lookup"><span data-stu-id="8db25-112">Web APIs should either:</span></span>
+>
+>* <span data-ttu-id="8db25-113">HTTP dinleme değil.</span><span class="sxs-lookup"><span data-stu-id="8db25-113">Not listen on HTTP.</span></span>
+>* <span data-ttu-id="8db25-114">Durum kodu 400 (Hatalı istek) ile bağlantı kapatın ve istek hizmet yok.</span><span class="sxs-lookup"><span data-stu-id="8db25-114">Close the connection with status code 400 (Bad Request) and not serve the request.</span></span>
 
-<span data-ttu-id="7e75a-109">[RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) SSL gerektirmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="7e75a-109">The [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) is used to require SSL.</span></span> <span data-ttu-id="7e75a-110">Denetleyicileri veya bu öznitelik yöntemleriyle işaretleme veya aşağıda gösterildiği gibi genel uygulayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="7e75a-110">You can decorate controllers or methods with this attribute or you can apply it globally as shown below:</span></span>
+## <a name="require-https"></a><span data-ttu-id="8db25-115">HTTPS gerektirir</span><span class="sxs-lookup"><span data-stu-id="8db25-115">Require HTTPS</span></span>
 
-<span data-ttu-id="7e75a-111">Aşağıdaki kodu ekleyin `ConfigureServices` içinde `Startup`:</span><span class="sxs-lookup"><span data-stu-id="7e75a-111">Add the following code to `ConfigureServices` in `Startup`:</span></span>
+<span data-ttu-id="8db25-116">[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS gerektirecek şekilde kullanılır.</span><span class="sxs-lookup"><span data-stu-id="8db25-116">The [RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) is used to require HTTPS.</span></span> <span data-ttu-id="8db25-117">`[RequireHttpsAttribute]`denetleyicileri veya yöntemleri işaretleme veya genel olarak uygulanabilir.</span><span class="sxs-lookup"><span data-stu-id="8db25-117">`[RequireHttpsAttribute]` can decorate controllers or methods, or can be applied globally.</span></span> <span data-ttu-id="8db25-118">Öznitelik genel uygulamak için aşağıdaki kodu ekleyin `ConfigureServices` içinde `Startup`:</span><span class="sxs-lookup"><span data-stu-id="8db25-118">To apply the attribute globally, add the following code to `ConfigureServices` in `Startup`:</span></span>
 
 [!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
-<span data-ttu-id="7e75a-112">Tüm istekleri kullanır yukarıdaki vurgulanmış kodu gerektirir `HTTPS`, bu nedenle HTTP isteklerini göz ardı edilir.</span><span class="sxs-lookup"><span data-stu-id="7e75a-112">The highlighted code above requires all requests use `HTTPS`, therefore HTTP requests are ignored.</span></span> <span data-ttu-id="7e75a-113">Aşağıdaki vurgulanmış kodu tüm HTTP istekleri için HTTPS yönlendirir:</span><span class="sxs-lookup"><span data-stu-id="7e75a-113">The following highlighted code redirects all HTTP requests to HTTPS:</span></span>
+<span data-ttu-id="8db25-119">Tüm istekleri kullanır önceki vurgulanmış kodu gerektirir `HTTPS`; bu nedenle, HTTP isteklerini yok sayılır.</span><span class="sxs-lookup"><span data-stu-id="8db25-119">The preceding highlighted code requires all requests use `HTTPS`; therefore, HTTP requests are ignored.</span></span> <span data-ttu-id="8db25-120">Aşağıdaki vurgulanmış kodu tüm HTTP istekleri için HTTPS yönlendirir:</span><span class="sxs-lookup"><span data-stu-id="8db25-120">The following highlighted code redirects all HTTP requests to HTTPS:</span></span>
 
 [!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-<span data-ttu-id="7e75a-114">Bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="7e75a-114">See [URL Rewriting Middleware](xref:fundamentals/url-rewriting) for more information.</span></span>
+<span data-ttu-id="8db25-121">Daha fazla bilgi için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting).</span><span class="sxs-lookup"><span data-stu-id="8db25-121">For more information, see [URL Rewriting Middleware](xref:fundamentals/url-rewriting).</span></span>
 
-<span data-ttu-id="7e75a-115">HTTPS genel gerektiren (`options.Filters.Add(new RequireHttpsAttribute());`) bir güvenlik en iyi uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="7e75a-115">Requiring HTTPS globally (`options.Filters.Add(new RequireHttpsAttribute());`) is a security best practice.</span></span> <span data-ttu-id="7e75a-116">Uygulama `[RequireHttps]` tüm denetleyicisine özniteliği değil olarak kabul güvenli olarak genel HTTPS gerektiren.</span><span class="sxs-lookup"><span data-stu-id="7e75a-116">Applying the `[RequireHttps]` attribute to all controller isn't considered as secure as requiring HTTPS globally.</span></span> <span data-ttu-id="7e75a-117">Garanti edemez, uygulamanızın eklenen yeni denetleyicileri unutmayın uygulamak `[RequireHttps]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="7e75a-117">You can't guarantee new controllers added to your app will remember to apply the `[RequireHttps]` attribute.</span></span>
+<span data-ttu-id="8db25-122">HTTPS genel gerektiren (`options.Filters.Add(new RequireHttpsAttribute());`) bir güvenlik en iyi uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="8db25-122">Requiring HTTPS globally (`options.Filters.Add(new RequireHttpsAttribute());`) is a security best practice.</span></span> <span data-ttu-id="8db25-123">Uygulama `[RequireHttps]` tüm denetleyicileri/Razor sayfalarının özniteliğine değil olarak kabul güvenli olarak genel HTTPS gerektiren.</span><span class="sxs-lookup"><span data-stu-id="8db25-123">Applying the `[RequireHttps]` attribute to all controllers/Razor Pages isn't considered as secure as requiring HTTPS globally.</span></span> <span data-ttu-id="8db25-124">Garanti edemez `[RequireHttps]` özniteliği yeni denetleyicileri ve Razor sayfalarının eklendiğinde uygulanır.</span><span class="sxs-lookup"><span data-stu-id="8db25-124">You can't guarantee the `[RequireHttps]` attribute is applied when new controllers and Razor Pages are added.</span></span>
