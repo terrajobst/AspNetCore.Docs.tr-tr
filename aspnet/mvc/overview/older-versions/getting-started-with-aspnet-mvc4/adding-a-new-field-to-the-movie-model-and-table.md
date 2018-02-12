@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0c094c4d4c99702a5b513717126872a254ca3e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Yeni bir alan film modeli ve tablo ekleme
 ====================
@@ -81,7 +81,7 @@ Sonraki adım oluşturmaktır bir `DbMigration` ilk geçiş için sınıf. Bu ge
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Code First geçişleri oluşturur başka bir sınıf dosyasında *geçişler* klasörü (adıyla *{tarih damgası}\_Initial.cs* ), ve bu sınıf, veritabanı şemasını oluşturan kodunu içerir. Geçiş filename damgasıyla sıralama ile yardımcı olmak için önceden düzeltilmiştir. İncelemek *{tarih damgası}\_Initial.cs* dosyası için film DB filmler tablo oluşturmak için yönergeleri içerir. Aşağıda, bu yönergeler veritabanında güncelleştirdiğinizde *{tarih damgası}\_Initial.cs* dosyasını çalıştırın ve oluşturun DB şeması. Ardından **çekirdek** yöntemi DB test verileri ile doldurmak için çalışacak.
+Code First geçişleri oluşturur başka bir sınıf dosyasında *geçişler* klasörü (adıyla *{tarih damgası}\_Initial.cs* ), ve bu sınıf, veritabanı şemasını oluşturan kodunu içerir. Geçiş filename damgasıyla sıralama ile yardımcı olmak için önceden düzeltilmiştir. İncelemek *{tarih damgası}\_Initial.cs* dosyası için film DB filmler tablo oluşturmak için yönergeleri içerir. Aşağıda, bu yönergeler veritabanında güncelleştirdiğinizde *{tarih damgası}\_Initial.cs* dosyasını çalıştırın ve DB şeması oluşturun. Ardından **çekirdek** yöntemi DB test verileri ile doldurmak için çalışacak.
 
 İçinde **Paket Yöneticisi Konsolu**, komut "Güncelleştirme-veritabanı oluşturmak ve çalıştırmak için veritabanı" girin **çekirdek** yöntemi.
 
@@ -163,8 +163,7 @@ Tıklatın **Yeni Oluştur** yeni film eklemek için bağlantı. Bir derecelendi
 
 ![7_CreateRioII](adding-a-new-field-to-the-movie-model-and-table/_static/image14.png)
 
-
-              **Oluştur**'u tıklatın. Derecelendirme dahil olmak üzere yeni film şimdi listeleme filmler içinde görüntülenir:
+**Oluştur**'u tıklatın. Derecelendirme dahil olmak üzere yeni film şimdi listeleme filmler içinde görüntülenir:
 
 ![7_ourNewMovie_SM](adding-a-new-field-to-the-movie-model-and-table/_static/image15.png)
 

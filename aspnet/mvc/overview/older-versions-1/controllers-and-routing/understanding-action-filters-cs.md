@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f469894022e39048154ec1915237e448104b4b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="understanding-action-filters-c"></a>Eylem filtreleri (C#) Anlama
 ====================
@@ -82,7 +82,7 @@ Sonuç filtreleri önce ve bir görünüm sonucu yürütüldükten sonra yürüt
 
 Farklı her filtre türü belirli bir sırada yürütülür. Aynı türde filtrelerinin yürütüldüğü sırayı denetlemek istiyorsanız, filtrenin sırası özelliği ayarlayabilirsiniz.
 
-Tüm eylem filtrelerini temel sınıfı olan `System.Web.Mvc.FilterAttribute` sınıfı. Belirli bir tür filtre uygulamak istediğiniz sonra temel filtre sınıfından devralan ve bir veya daha fazla uygulayan bir sınıf oluşturmak gereken `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, veya `ExceptionFilter` arabirimleri.
+Tüm eylem filtrelerini temel sınıfı olan `System.Web.Mvc.FilterAttribute` sınıfı. Belirli bir tür filtre uygulamak istediğiniz sonra temel filtre sınıfından devralan ve bir veya daha fazla uygulayan bir sınıf oluşturmak gereken `IAuthorizationFilter`, `IActionFilter`, `IResultFilter`, veya `IExceptionFilter` arabirimleri.
 
 ### <a name="the-base-actionfilterattribute-class"></a>Temel ActionFilterAttribute sınıfı
 

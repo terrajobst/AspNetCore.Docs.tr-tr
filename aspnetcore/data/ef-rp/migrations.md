@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: e89d95702cb94556bc6e5dc73253c51acaa11578
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 32716ddcf7c2a7b11000c333453a0fde3030ae34
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Geçişler - Razor sayfalarının Öğreticisi (4. 8'in) EF çekirdek
 
@@ -181,7 +181,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Günlük iletileri, ayrıntı düzeyi azaltmak için günlük düzeyleri değiştirebilirsiniz *appsettings. Development.JSON* dosya. Daha fazla bilgi için bkz: [günlük giriş](xref:fundamentals/logging/index).
+Günlük iletilerini ayrıntı düzeyi azaltmak için günlük düzeyleri değiştirmek *appsettings. Development.JSON* dosya. Daha fazla bilgi için bkz: [günlük giriş](xref:fundamentals/logging/index).
 
 Kullanım **SQL Server Nesne Gezgini** DB incelemek için. Eklenmesi fark bir `__EFMigrationsHistory` tablo. `__EFMigrationsHistory` Hangi geçişleri Veritabanına uygulanmış olan tablo izler. Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir. Son günlük önceki CLI çıkış örnekte bu satırı oluşturur INSERT deyiminin gösterir.
 

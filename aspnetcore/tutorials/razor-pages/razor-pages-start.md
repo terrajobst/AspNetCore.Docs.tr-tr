@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 54fa970d136de3903ae08b710b55f15f96f9a012
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 30c1062762c7a374079988c143d37377507eb16a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında kullanmaya başlama
 
@@ -54,9 +54,6 @@ Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırmak için veya **C
 * Uygulama başlatma **Ctrl + F5** (olmayan hata ayıklama modu), kod değişiklikleri yapabilir, dosyayı kaydedin, tarayıcıyı yenilemek ve kod değişiklikleri görmek olanak sağlar. Çoğu geliştirici, hızlı bir şekilde uygulamayı başlatın ve değişiklikleri görmek için olmayan hata ayıklama modu kullanmayı tercih eder.
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
-
->[!div class="step-by-step"]
-[Sonraki: bir modeli ekleme](xref:tutorials/razor-pages/model)
 
 >[!div class="step-by-step"]
 [Sonraki: bir modeli ekleme](xref:tutorials/razor-pages/model)

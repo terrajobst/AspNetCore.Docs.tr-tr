@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -77,7 +77,7 @@ Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerle
 `AddAzureKeyVault`Ayrıca uygulaması kabul eden bir aşırı sağlar `IKeyVaultSecretManager`, nasıl anahtar kasasına gizli anahtarları denetlemenize olanak sağlayan yapılandırma anahtarlara dönüştürülür. Örneğin, uygulama başlatma sırasında sağladığınız bir önek değere göre gizli değerlerini yüklemek için arabirimi uygulayabilirsiniz. Bu, örneğin, uygulama sürümüne gizli yüklemek için sağlar.
 
 > [!WARNING]
-> Önekleri anahtar kasası parolaları parolaları birden fazla uygulama için aynı anahtar kasasını yerleştirmek için veya çevre gizli yerleştirmek üzere kullanma (örneğin, *geliştirme* verus *üretim* gizli) aynı içine Kasa. Farklı uygulamalar ve geliştirme/üretim ortamlarında ayrı anahtar kasalarını uygulama ortamları için yüksek düzeyde güvenlik yalıtmak için kullanmanızı öneririz.
+> Önekleri anahtar kasası parolaları parolaları birden fazla uygulama için aynı anahtar kasasını yerleştirmek için veya çevre gizli yerleştirmek üzere kullanma (örneğin, *geliştirme* karşı *üretim* gizli) aynı içine Kasa. Farklı uygulamalar ve geliştirme/üretim ortamlarında ayrı anahtar kasalarını uygulama ortamları için yüksek düzeyde güvenlik yalıtmak için kullanmanızı öneririz.
 
 İkinci örnek uygulaması kullanarak, bir gizli anahtar kasası için oluşturduğunuz `5000-AppSecret` (anahtar kasası gizli adlarında nokta izin verilmiyor) temsil eden 5.0.0.0 sürümü, uygulamanız için bir uygulama gizli anahtarı. Başka bir sürümü için 5.1.0.0, için gizli anahtar oluşturma `5100-AppSecret`. Her uygulamanın sürüm yapılandırmasıyla gizli değerini yükler `AppSecret`, çıkarma sürümü gizli yüklerken. Örnek 's uygulama aşağıda gösterilmiştir:
 

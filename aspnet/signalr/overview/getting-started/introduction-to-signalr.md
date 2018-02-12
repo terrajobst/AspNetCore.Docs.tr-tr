@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>SignalR giriş
 ====================
@@ -35,7 +35,7 @@ ASP.NET SignalR uygulamalarını gerçek zamanlı web işlevselliği ekleme işl
 
 SignalR, ASP.NET uygulamanız için herhangi bir tür "gerçek zamanlı" web işlevselliği eklemek için kullanılabilir. Sohbet genellikle bir örnek olarak kullanılır, ancak tüm çok fazla yapabilirsiniz. Bir kullanıcının her zaman yeni verileri görmek için bir web sayfasını yeniler veya sayfasını uygulayan [uzun yoklama](http://en.wikipedia.org/wiki/Push_technology#Long_polling) yeni verileri almak için bunu bir SignalR kullanmak için adaydır. Örnekler panolar ve uygulamaların izleme, (eşzamanlı belgelerin düzenleme gibi), işbirliği uygulamaları iş ilerleme güncelleştirmeleri ve gerçek zamanlı forms.
 
-SignalR ayrıca sunucusundan sık güncelleştirmelerini gerektiren web uygulamalarının tamamen yeni türleri sağlar Örneğin, gerçek zamanlı oyun. Bu harika bir örnek için bkz: [ShootR oyun.](http://shootr.signalr.net/)
+SignalR ayrıca sunucusundan sık güncelleştirmelerini gerektiren web uygulamalarının tamamen yeni türleri sağlar Örneğin, gerçek zamanlı oyun.
 
 SignalR İstemcisi'nde JavaScript işlevleri tarayıcılar (ve diğer istemci platformları) sunucu tarafı .NET kodundan çağıran sunucudan istemciye uzaktan yordam çağrısı (RPC) oluşturmak için basit bir API sağlar. SignalR bağlantı yönetimi için de API içerir (örneğin, bağlanma ve bağlantıyı kesme olayları) ve bağlantıları gruplandırma.
 
@@ -106,7 +106,7 @@ Bir tarayıcıda, hub'ın olayları günlüğe kaydetmeyi etkinleştirmek için 
 
 - Internet Explorer'da, geliştirici araçları F12 tuşuna basarak açın ve konsol sekmesini tıklatın.
 
-    ![Microsoft Internet Explorer konsolunda](introduction-to-signalr/_static/image2.png)
+    ![Console in Microsoft Internet Explorer](introduction-to-signalr/_static/image2.png)
 - Chrome'Ctrl + Shift + J tuşlarına basarak konsolunu açın.
 
     ![Google Chrome konsolunda](introduction-to-signalr/_static/image3.png)

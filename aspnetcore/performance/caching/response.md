@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -68,7 +68,7 @@ Daha fazla bilgi için bkz: [ASP.NET çekirdek bellek içi önbelleğe alma giri
 
 ### <a name="distributed-cache"></a>Dağıtılmış önbellek
 
-Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri depolamak için Dağıtılmış önbellek kullanın. Önbellek istekleri işleyen sunucular arasında paylaşılır. Bir istemci grubundaki herhangi bir sunucu tarafından işlenen ve istemci için verileri önbelleğe bir istek kullanılabilir gönderebilir. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
+Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri depolamak için Dağıtılmış önbellek kullanın. Önbellek istekleri işleyen sunucular arasında paylaşılır. Bir istemci, istemci için önbelleğe alınan verileri kullanılabilir ise grubundaki herhangi bir sunucu tarafından işlenen bir istek gönderebilir. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
 
 Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmaya](xref:performance/caching/distributed).
 
@@ -86,12 +86,14 @@ Daha fazla bilgi için bkz: [dağıtılmış önbellek etiket Yardımcısı](xre
 
 ## <a name="responsecache-attribute"></a>ResponseCache özniteliği
 
-`ResponseCacheAttribute` Yanıt önbelleğe alma uygun üstbilgileri ayarlamak için gerekli parametreleri belirtir. Bkz: [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) parametreleri açıklaması.
+[ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) yanıt önbelleğe alma uygun üstbilgileri ayarlamak için gerekli parametreleri belirtir.
 
 > [!WARNING]
 > Kimliği doğrulanmış istemcilerle ilgili bilgiler içeren içerik için önbelleğe almayı devre dışı bırakın. Önbelleğe alma yalnızca bir kullanıcının kimlik veya bir kullanıcının oturum açtığı göre değişmez içerik için etkinleştirilmiş olmalıdır.
 
-`VaryByQueryKeys string[]`(ASP.NET Core 1.1 ve üstünü gerektirir): ayarlandığında, yanıt önbelleğe alma ara yazılım, sorgu anahtarları ait belirtilen liste değerleri tarafından depolanan yanıt göre değişir. Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKeys` özellik; Aksi halde, bir çalışma zamanı özel durum oluşur. İçin karşılık gelen bir HTTP üstbilgisi yoktur `VaryByQueryKeys` özelliği. Bu özellik, yanıt önbelleğe alma ara yazılım tarafından işlenen bir HTTP özelliğidir. Önbelleğe alınan yanıt sunmak ara yazılımı için önceki bir istek sorgu dizesini ve sorgu dizesi değerini eşleşmelidir. Örneğin, istekleri ve sonuçları aşağıdaki tabloda gösterilen bir dizi göz önünde bulundurun.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) saklı yanıt sorgu anahtarları ait belirtilen liste değerleri göre değişir. Tek bir değeri olduğunda `*` ara yazılım değişir yanıtlar tarafından tüm istek sorgu dizesi parametreleri sağlanmış. `VaryByQueryKeys`ASP.NET Core 1.1 veya üstünü gerektirir.
+
+Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKeys` özellik; Aksi halde, bir çalışma zamanı özel durum oluşur. Karşılık gelen bir HTTP üstbilgisi için hiç `VaryByQueryKeys` özelliği. Özelliği, yanıt önbelleğe alma ara yazılım tarafından işlenen bir HTTP özelliğidir. Önbelleğe alınan yanıt sunmak ara yazılımı için önceki bir istek sorgu dizesini ve sorgu dizesi değerini eşleşmelidir. Örneğin, istekleri ve sonuçları aşağıdaki tabloda gösterilen bir dizi göz önünde bulundurun.
 
 | İstek                          | Sonuç                   |
 | -------------------------------- | ------------------------ |
@@ -101,7 +103,7 @@ Daha fazla bilgi için bkz: [dağıtılmış önbellek etiket Yardımcısı](xre
 
 İlk istek sunucu tarafından döndürülen ve Ara yazılımında önbelleğe alınır. Sorgu dizesi önceki istek eşleştiğinden ikinci isteği ara yazılımı tarafından döndürülür. Sorgu dizesi değerini önceki bir istek eşleşmediği için üçüncü isteği ara yazılım önbellekte değil. 
 
-`ResponseCacheAttribute` Yapılandırmak ve oluşturmak için kullanılır (aracılığıyla `IFilterFactory`) bir `ResponseCacheFilter`. `ResponseCacheFilter` Uygun HTTP üstbilgilerine ve yanıt özellikleri güncelleştirme işlemlerini gerçekleştirir. Filtresi:
+`ResponseCacheAttribute` Yapılandırmak ve oluşturmak için kullanılır (aracılığıyla `IFilterFactory`) bir [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter). `ResponseCacheFilter` Uygun HTTP üstbilgilerine ve yanıt özellikleri güncelleştirme işlemlerini gerçekleştirir. Filtresi:
 
 * Var olan tüm üstbilgileri kaldırır `Vary`, `Cache-Control`, ve `Pragma`. 
 * Kümesinde özelliklerine göre uygun üstbilgileri çıkışı Yazar `ResponseCacheAttribute`. 

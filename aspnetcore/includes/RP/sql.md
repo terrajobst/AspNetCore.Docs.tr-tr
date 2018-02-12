@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[Main](code\Models\SeedData.cs)]
 
 Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür.
 
@@ -36,10 +36,10 @@ if (context.Movie.Any())
 
 Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+[!code-csharp[Main](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
 
 (Seed yöntemi çalışacak şekilde) DB tüm kayıtları silin. Durdurun ve veritabanını oluşturmak için uygulamayı başlatın.
-   
+
 Uygulama hazırlığı yapmış veriler gösterir.

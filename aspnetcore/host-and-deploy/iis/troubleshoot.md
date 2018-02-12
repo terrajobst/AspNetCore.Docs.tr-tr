@@ -1,65 +1,172 @@
 ---
 title: "IIS üzerinde ASP.NET Core sorun giderme"
 author: guardrex
-description: "ASP.NET Core uygulamaların IIS dağıtımlarını sorunları tanılamak öğrenin."
+description: "Internet Information Services (IIS) ASP.NET Core uygulamaların dağıtımlarını sorunları tanılamak öğrenin."
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2017
+ms.date: 02/07/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: c68070a9cba5667504d1ad4927b02b73f83e6573
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorun giderme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-IIS dağıtımları ile ilgili sorunları tanılamak için:
+Bu makalede yönergeler bir ASP.NET Core tanılamak uygulama başlatma sorununu ile barındırdığında sağlar [Internet Information Services (IIS)](/iis). Bu makaledeki bilgileri, Windows Server ve Windows Masaüstü üzerinde IIS'de barındırmak için geçerlidir.
 
-* Tarayıcı çıktı üzerinde çalışın.
-* Sistemin inceleyin **uygulama** aracılığıyla oturum **Olay Görüntüleyicisi'ni**.
-* Etkinleştirme `stdout` günlüğü. **ASP.NET Core Modülü** günlük sağlanan yolunda bulunduğunda *stdoutLogFile* özniteliği `<aspNetCore>` öğesinde *web.config*. Öznitelik değerinde sağlanan yol üzerindeki herhangi bir klasörde dağıtımda mevcut olması gerekir. Ayarlama *stdoutLogEnabled* için `true`. Kullanan uygulamalar `Microsoft.NET.Sdk.Web` oluşturmak için SDK *web.config* dosya varsayılan *stdoutLogEnabled* ayarını `false`, böylece el ile sağlamak *web.config* dosya veya etkinleştirmek için dosyasını değiştirmek `stdout` günlüğü.
+Visual Studio'da, varsayılan olarak ASP.NET Core projesinde [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) hata ayıklama sırasında barındırma. A *502.5 işlem hatası* hata ayıklama troubleshooted önerileri bu konudaki kullanarak yerel olarak olabilir olduğunda oluşur.
 
-İle üç bu kaynaklardan bilgi kullanmak [sık karşılaşılan başvuru konu](xref:host-and-deploy/azure-iis-errors-reference) sorunu belirlemek için. Bu sorunu çözmek için sağlanan sorun giderme önerileri izleyin.
+Ek sorun giderme konuları:
 
-Sık karşılaşılan çeşitli tarayıcı, uygulama günlüğüne ve ASP.NET Core modülü günlük modülü kadar görünmüyor *startupTimeLimit* (varsayılan: 120 saniye) ve *startupRetryCount* (varsayılan: 2) geçti. Bu nedenle, bir tam altı önce deducing modülü uygulama için bir işlemi başlatmak için başarısız olan dakika bekleyin.
+[Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)  
+Uygulama hizmeti kullansa [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve ana bilgisayar uygulamaları için IIS uygulama hizmeti için özel yönergeler için ayrılmış konusuna bakın.
 
-Uygulamanın düzgün çalıştığını belirlemek için bir hızlı doğrudan Kestrel üzerinde uygulamayı çalıştırmak için yoludur. Uygulama olarak yayımlandıysa bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), yürütme `dotnet <assembly_name>.dll` dağıtım klasöründe olan uygulamanın IIS fiziksel yolu. Uygulama olarak yayımlandıysa bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd)çalıştırın uygulamayı doğrudan bir komut isteminden, yürütülebilir `<assembly_name>.exe`, dağıtım klasörü. Kestrel 5000 varsayılan bağlantı noktasında dinleme, uygulama kullanılabilir olmalıdır `http://localhost:5000/`. Uygulama Kestrel uç nokta adresinde normalde yanıt verirse, sorun ilişkili ters proxy yapılandırmasını ve büyük olasılıkla daha az uygulama içinde daha yüksektir.
+[Hata işleme](xref:fundamentals/error-handling)  
+Yerel sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl bulur.
 
-Ters proxy düzgün çalışıp çalışmadığını belirlemek için bir yoldur stil sayfası, betik veya uygulamanın statik dosyaları görüntüden basit statik dosya isteği gerçekleştirmek için *wwwroot* kullanarak [statik dosya ara yazılımlarını](xref:fundamentals/static-files). Uygulama statik dosyaları görebilecek ancak MVC görünümleri ve diğer uç noktaları başarısız oluyor, sorun büyük olasılıkla daha az ters proxy yapılandırma ile ilgili ve büyük olasılıkla uygulama (örneğin, MVC yönlendirme veya için 500 İç sunucu hatası) içinde ' dir.
+[Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger)  
+Bu konu, Visual Studio hata ayıklayıcısı özelliklerini tanıtır.
 
-Kestrel başlatır normalde IIS ancak uygulama başarıyla yerel olarak çalıştırdıktan sonra sistem üzerinde çalışmadığından, bir ortam değişkeni geçici olarak eklenebilir *web.config* ayarlamak için `ASPNETCORE_ENVIRONMENT` için `Development`. Uygulama başlangıç ortamı kılmadığınız sürece, ortam değişkeni ayarlamayı sağlar [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling) görünmesi uygulama çalıştırıldığında. Ortam değişkeni ayarı `ASPNETCORE_ENVIRONMENT` bu şekilde yalnızca Internet'e açık olmayan hazırlama ve test sunucuları için önerilir. Ortam değişkenini kaldırdığınızdan emin olun *web.config* dosya bitirdikten sonra. Aracılığıyla ortam değişkenlerini ayarlama hakkında bilgi için *web.config*, bkz: [aspNetCore environmentVariables alt öğesi](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
+## <a name="app-startup-errors"></a>Uygulama başlatma hataları
 
-Çoğu durumda, Uygulama günlüğünü etkinleştirme uygulama veya ters proxy sorun gidermeye yardımcı olur. Bkz: [günlüğü](xref:fundamentals/logging/index) daha fazla bilgi için.
+**502.5 işlem hatası**  
+Çalışan işlemi başarısız olur. Uygulama başlamıyor.
 
-Son sorun giderme ipucu ya da yükselttikten sonra çalışamayan uygulamalar için .NET Core SDK geliştirme makine ya da paketi sürümlerinde uygulama içinde ilgilidir. Bazı durumlarda, önemli yükseltme yaparken, bir uygulama tutarsız paketleri kesilebilir. Bu sorunların çoğunu tarafından çözülebilir:
+Çalışan işlemi başlatmak ASP.NET Core modülü çalışır ancak başlatmak başarısız olur. Bir işlem başlangıç hatanın nedenini genellikle içinde girişlerinden belirlenebilir [uygulama olay günlüğü](#application-event-log) ve [ASP.NET Core modül stdout günlük](#aspnet-core-module-stdout-log).
 
-* Silme `bin` ve `obj` projesinde klasörler.
-* Temizleme paketi önbelleğe adresindeki `%UserProfile%\.nuget\packages\` ve `%LocalAppData%\Nuget\v3-cache`.
-* Geri yükleme ve projeyi yeniden derlemeyi.
-* Önceki dağıtım sunucu üzerinde tamamen uygulamayı yeniden dağıtmadan önce silinmiş olduğunu onaylayan.
+*502.5 işlem hatası* barındırma veya uygulama yetersizliğini çalışan işleminin başarısız olmasına neden olduğunda hata sayfası döndürdü:
+
+![502.5 işlem hatası sayfasını gösteren bir tarayıcı penceresi](troubleshoot/_static/process-failure-page.png)
+
+**500 İç sunucu hatası**  
+Uygulamayı başlatır, ancak bir hata, isteği yerine getirmesini sunucu engeller.
+
+Bu hata uygulamanın kodunu içinde başlatma sırasında veya bir yanıt oluşturma sırasında oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğüne genellikle uygulamanın normal olarak başlatıldığını belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulamayı başlatmak, ancak geçerli bir yanıt oluşturulamıyor. [Bir komut isteminde uygulama çalıştırma](#run-the-app-at-a-command-prompt) sunucuda veya [ASP.NET Core modül stdout günlüğünü etkinleştirir](#aspnet-core-module-stdout-log) sorunu gidermek için.
+
+**Bağlantı sıfırlama**
+
+Üstbilgileri gönderildikten sonra bir hata oluşursa, sunucunun göndermek için çok geç bir **500 İç sunucu hatası** bir hata oluştuğunda. Bu durum, genellikle yanıt karmaşık nesne seri hale getirme sırasında bir hata ortaya çıktığında oluşur. Bu tür hatalara görünür bir *bağlantı sıfırlama* istemci hatası. [Uygulama günlüğü](xref:fundamentals/logging/index) bu tür hataların gidermenize yardımcı olacak.
+
+## <a name="default-startup-limits"></a>Varsayılan başlangıç sınırları
+
+ASP.NET çekirdeği modülü ile bir varsayılan yapılandırılmış *startupTimeLimit* 120 saniye. Varsayılan değer olarak bırakılırsa, bir uygulama modülü bir işlem hatası oturum önce başlatmak için iki dakika sürebilir. Modül yapılandırma hakkında daha fazla bilgi için bkz: [aspNetCore öğesinin özniteliklerini](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+
+## <a name="troubleshoot-app-startup-errors"></a>Uygulama başlangıç hatalarında sorun giderme
+
+### <a name="application-event-log"></a>Uygulama olay günlüğü
+
+Uygulama olay günlüğüne erişebilirsiniz:
+
+1. Başlat menüsünü açın, arama **Olay Görüntüleyicisi'ni**ve ardından **Olay Görüntüleyicisi'ni** uygulama.
+1. İçinde **Olay Görüntüleyicisi'ni**, açık **Windows Günlükleri** düğümü.
+1. Seçin **uygulama** uygulama olay günlüğünü açın.
+1. Başarısız olan uygulamayla ilişkili hatalar için arama yapın. Hatalar var değerini *IIS AspNetCore Modülü* veya *IIS Express AspNetCore Modülü* içinde *kaynak* sütun.
+
+### <a name="run-the-app-at-a-command-prompt"></a>Bir komut isteminde uygulama çalıştırma
+
+Birçok başlatma hataları yararlı bilgiler uygulama olay günlüğü'ndeki üretmediği. Bazı hatalar nedenini barındıran sistemde bir komut isteminde uygulamayı çalıştırarak bulabilirsiniz.
+
+**Framework bağımlı dağıtım**
+
+Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+
+1. Bir komut isteminde dağıtım klasörüne gidin ve uygulamanın derleme yürüterek uygulama çalıştırma *dotnet.exe*. Aşağıdaki komutta, uygulamanın derleme adı yerine \<assembly_name >: `dotnet .\<assembly_name>.dll`.
+1. Herhangi bir hata gösteren uygulamadan çıktı konsol konsol penceresine yazılır.
+1. Bir istek uygulamaya yaparken hatalar meydana gelirse, burada Kestrel dinlediği bağlantı noktası ve ana bilgisayar için istekte. Varsayılan ana bilgisayar ve post, kullanarak yaptığınız bir istek `http://localhost:5000/`. Uygulama Kestrel uç nokta adresinde normalde yanıt verirse, sorun ilişkili ters proxy yapılandırmasını ve büyük olasılıkla daha az uygulama içinde daha yüksektir.
+
+**Kendi içinde bulunan dağıtım**
+
+Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+
+1. Bir komut isteminde dağıtım klasöre gidin ve uygulamanın yürütülebilir dosyayı çalıştırın. Aşağıdaki komutta, uygulamanın derleme adı yerine \<assembly_name >: `<assembly_name>.exe`.
+1. Herhangi bir hata gösteren uygulamadan çıktı konsol konsol penceresine yazılır.
+1. Bir istek uygulamaya yaparken hatalar meydana gelirse, burada Kestrel dinlediği bağlantı noktası ve ana bilgisayar için istekte. Varsayılan ana bilgisayar ve post, kullanarak yaptığınız bir istek `http://localhost:5000/`. Uygulama Kestrel uç nokta adresinde normalde yanıt verirse, sorun ilişkili ters proxy yapılandırmasını ve büyük olasılıkla daha az uygulama içinde daha yüksektir.
+
+### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core modül stdout günlük
+
+Etkinleştirme ve stdout günlükleri görüntülemek için:
+
+1. Barındıran sistemde sitenin dağıtım klasöre gidin.
+1. Varsa *günlükleri* klasörü mevcut değilse, bir klasör oluşturun. Oluşturmaya ilişkin yönergeler için MSBuild etkinleştirme *günlükleri* dağıtım klasöründe otomatik olarak bkz [dizin yapısını](xref:host-and-deploy/directory-structure) konu.
+1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** işaret edecek şekilde yolu *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout`Günlük dosyası adı öneki yolunda bulunuyor. Günlük oluşturulduğunda, zaman damgası, işlem kimliği ve dosya uzantısını otomatik olarak eklenir. Kullanarak `stdout` dosya adı öneki tipik günlük dosyasının adı *stdout_20180205184032_5412.log*. 
+1. Güncelleştirilmiş Kaydet *web.config* dosya.
+1. Bir istek uygulamaya olun.
+1. Gidin *günlükleri* klasör. Bulma ve en son stdout günlüğü'nü açın.
+1. Hatalar için günlüğü inceleyin.
+
+**Önemli!** Sorun giderme tamamlandığında stdout günlüğü devre dışı bırakın.
+
+1. Düzen *web.config* dosya.
+1. Ayarlama **stdoutLogEnabled** için `false`.
+1. Dosyayı kaydedin.
+
+> [!WARNING]
+> Stdout günlüğünü devre dışı bırakmak için uygulama veya sunucu başarısızlığı açabilir. Günlük dosyası boyutu bir sınırlama yoktur veya oluşturulan günlük dosyalarını sayısı yoktur.
+>
+> Bir ASP.NET Core uygulamada rutin günlüğü için günlük dosyası boyutu sınırlar ve günlükleri döndüğü bir günlük kitaplığını kullanın. Daha fazla bilgi için bkz: [üçüncü taraf günlüğü sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+
+## <a name="enabling-the-developer-exception-page"></a>Geliştirici özel durum sayfasında etkinleştirme
+
+`ASPNETCORE_ENVIRONMENT` [Ortam değişkeni web.config dosyasına eklenebilir](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) geliştirme ortamında uygulamayı çalıştırmak için. Ortam uygulama başlatma işlemi tarafından kılmadığınız sürece `UseEnvironment` konak Oluşturucusu'ortam değişkeni ayarlamayı sağlar [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling) görünmesi uygulama çalıştırıldığında.
+
+```xml
+<aspNetCore processPath="dotnet"
+      arguments=".\MyApp.dll"
+      stdoutLogEnabled="false"
+      stdoutLogFile=".\logs\stdout">
+  <environmentVariables>
+    <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+  </environmentVariables>
+</aspNetCore>
+```
+
+Ortam değişkeni ayarı `ASPNETCORE_ENVIRONMENT` yalnızca hazırlama ve Internet'e açık olmayan sunucuları test kullanılması önerilir. Ortam değişkenini kaldırmak *web.config* sorun giderme sonra dosya. Ortam değişkenlerini ayarlama hakkında bilgi için *web.config*, bkz: [aspNetCore environmentVariables alt öğesi](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
+
+## <a name="common-startup-errors"></a>Ortak başlatma hataları 
+
+Bkz: [ASP.NET Core ortak hataları referans](xref:host-and-deploy/azure-iis-errors-reference). Uygulama başlangıç önlemek yaygın sorunların çoğunu başvuru konuda ele alınmıştır.
+
+## <a name="slow-or-hanging-app"></a>Yavaş ya da asılı uygulama
+
+Bir uygulama yavaş yanıt ya da bir istekte askıda elde edilir ve analiz bir [döküm dosyası](/visualstudio/debugger/using-dump-files). Döküm dosyalarını aşağıdaki araçlardan birini kullanarak elde edilebilir:
+
+* [ProcDump](/sysinternals/downloads/procdump)
+* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
+* WinDbg: [Windows için hata ayıklama araçları'nı indirmek](https://developer.microsoft.com/windows/hardware/download-windbg), [kullanarak WinDbg hata ayıklama](/windows-hardware/drivers/debugger/debugging-using-windbg)
+
+## <a name="remote-debugging"></a>Uzaktan hata ayıklama
+
+Bkz: [Visual Studio 2017 bir uzak IIS bilgisayarda uzaktan hata ayıklama ASP.NET Core](/visualstudio/debugger/remote-debugging-aspnet-on-a-remote-iis-computer) Visual Studio belgelerinde.
+
+## <a name="application-insights"></a>Application Insights
+
+[Application Insights](/azure/application-insights/) hata günlüğü ve raporlama özellikleri dahil olmak üzere IIS tarafından barındırılan uygulamalar telemetrisini sağlar. Application Insights, yalnızca uygulamanın günlüğe kaydetme özelliklerini kullanılabilir olduğunda uygulama başladıktan sonra oluşan hataları bildirebilirsiniz. Daha fazla bilgi için bkz: [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core).
+
+## <a name="additional-troubleshooting-advice"></a>Ek sorun giderme önerileri
+
+Bazen çalışan bir uygulama ya da .NET Core SDK geliştirme makine ya da paketi sürümlerinde uygulama içinde hemen yükseltildikten sonra başarısız oldu. Bazı durumlarda, önemli yükseltme yaparken, bir uygulama tutarsız paketleri kesilebilir. Bu yönergeleri izleyerek bu sorunların çoğunu sabit:
+
+1. Silme *bin* ve *obj* klasörler.
+1. Temizleyin, paketi önbelleğe *% USERPROFILE %\\.nuget\\paketleri* ve *LocalAppData %\\Nuget\\v3 önbellek*.
+1. Geri yükle ve projeyi derleyin.
+1. Önceki dağıtım sunucu üzerinde tamamen uygulama dağıtarak önce silinmiş olduğunu onaylayın.
 
 > [!TIP]
 > Yürütülecek paket önbellekleri temizlemek için kolay bir yol olduğundan `dotnet nuget locals all --clear` bir komut isteminden.
 > 
-> Paket önbelleklerini temizleme de gerçekleştirilebilir kullanarak [nuget.exe](https://www.nuget.org/downloads) aracı ve komutu yürütülürken `nuget locals all -clear`. *nuget.exe* Windows 10 ile birlikte gelen yükleme değildir ve ayrı olarak NuGet Web sitesinden alınması gerekir.
-<!--
-> [!TIP]
-> A convenient way to clear package caches is to:
->
-> * Obtain the *NuGet.exe* tool from [NuGet.org](https://www.nuget.org/).
-> * Add the path to *NuGet.exe* to the system PATH.
-> * Execute `nuget locals all -clear` from a command prompt.
->
-> Alternatively, execute `dotnet nuget locals all --clear` from a command prompt without obtaining *NuGet.exe*. -->
+> Paket önbelleklerini temizleme de gerçekleştirilebilir kullanarak [nuget.exe](https://www.nuget.org/downloads) aracı ve komutu yürütülürken `nuget locals all -clear`. *nuget.exe* Windows masaüstü işletim sistemi ile birlikte gelen yükleme değildir ve ayrı olarak alanından elde edilmesi [NuGet Web sitesi](https://www.nuget.org/downloads).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [Hata ASP.NET çekirdek işleme giriş](xref:fundamentals/error-handling)
 * [Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 * [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
+* [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)

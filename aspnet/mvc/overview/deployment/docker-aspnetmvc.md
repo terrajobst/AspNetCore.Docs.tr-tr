@@ -11,11 +11,11 @@ ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: badc1c9b10ac27c3d876e3331c855a9d5904d27d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>ASP.NET MVC Uygulamalarını Windows Kapsayıcılarına Geçirme
 
@@ -73,7 +73,7 @@ Tıklatın **Yayımla**, ve Visual Studio gerekli tüm varlıklarını hedef kla
 
 Docker görüntünüzü bir Dockerfile tanımlayın. Dockerfile temel görüntü, ek bileşenleri, çalıştırmak istediğiniz uygulama ve diğer yapılandırma görüntüleri için yönergeler içerir.  Dockerfile girdidir `docker build` görüntüsünü oluşturur komutu.
 
-Bir görüntüyü dayalı oluşturacaksınız `microsft/aspnet` görüntü bulunan [Docker hub'a](https://hub.docker.com/r/microsoft/aspnet/).
+Bir görüntüyü dayalı oluşturacaksınız `microsoft/aspnet` görüntü bulunan [Docker hub'a](https://hub.docker.com/r/microsoft/aspnet/).
 Temel görüntü `microsoft/aspnet`, bir Windows Server görüntüdür. Windows Server Core, IIS ve ASP.NET 4.6.2 içerir. Bu görüntü, kapsayıcısında çalıştırdığınızda, IIS otomatik olarak başlar ve Web siteleri yüklü.
 
 Görüntünüzü oluşturur Dockerfile şöyle görünür:
