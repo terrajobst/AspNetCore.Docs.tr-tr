@@ -53,7 +53,7 @@ HTML `<form>` etiketi kullanır [Form etiketi yardımcı](xref:mvc/views/working
 
 ## <a name="search-by-genre"></a>Türe göre ara
 
-Ekleme aşağıdaki vurgulanmış özelliklerine *Pages/Movies/Index.cshtml.cs*:
+Aşağıdaki vurgulanan özellikleri ekleyin *Pages/Movies/Index.cshtml.cs*:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
