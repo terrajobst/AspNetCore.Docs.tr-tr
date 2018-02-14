@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: e3a0a692f91c36ef1db2957b67c084e46ff358ef
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: f53697fc005352da781e88fce7ebfbe4cc93d3f6
+ms.sourcegitcommit: 725cb18ad23013e15d3dbb527958481dee79f9f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 
@@ -33,7 +33,7 @@ Aşina [Razor sayfalarının](xref:mvc/razor-pages/index). Yeni programcıları 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Olamaz çözmek bir sorunla çalıştırırsanız, genellikle çözümün kodunuzu karşılaştırarak bulabilirsiniz [tamamlandı aşama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) veya [projeyi](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu-final). Sık karşılaşılan hataları ve bunları çözmek nasıl listesi için bkz: [serideki son Öğreticisi sorun giderme bölümüne](xref:data/ef-mvc/advanced#common-errors). Var. gerekenler bulamazsanız, bir soru nakledebilirsiniz [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) için [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) veya [EF çekirdek](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Olamaz çözmek bir sorunla çalıştırırsanız, genellikle çözümün kodunuzu karşılaştırarak bulabilirsiniz [tamamlandı aşama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots). Sık karşılaşılan hataları ve bunları çözmek nasıl listesi için bkz: [serideki son Öğreticisi sorun giderme bölümüne](xref:data/ef-mvc/advanced#common-errors). Var. gerekenler bulamazsanız, bir soru nakledebilirsiniz [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) için [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) veya [EF çekirdek](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > Bu öğreticiler dizi önceki eğitimlerine bitti üzerinde oluşturur. Her başarılı öğretici tamamlandıktan sonra projeyi bir kopyasını kaydetme göz önünde bulundurun. Sorunlarla karşılaşırsanız, başlangıcına geri dönerseniz yerine önceki öğreticiden üzerinden başlatabilirsiniz. Alternatif olarak, karşıdan yükleyebileceğiniz bir [tamamlandı aşama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots) ve tamamlanmış aşama kullanarak üzerinden başlatın.
@@ -102,9 +102,9 @@ Oluşturma bir *modelleri* klasör. İçinde *modelleri* klasörünü adlı bir 
 
 `ID` Özelliği bu sınıfa karşılık gelen veritabanı (DB) tablosunun birincil anahtar sütunu haline gelir. Varsayılan olarak, EF çekirdek adlı bir özellik yorumlar `ID` veya `classnameID` birincil anahtar olarak.
 
-`Enrollments` Özelliği bir gezinti özelliğidir. Bu varlığa ilgili diğer varlıklar için Gezinti özellikleri bağlayın. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutan `Enrollment` için ilişkili olan varlıkların `Student`. Örneğin, bir öğrenci satır varsa DB iki kayıt, ilişkili satırları sahip `Enrollments` gezinti özelliği içerdiğinden bu iki `Enrollment` varlıklar. İlgili `Enrollment` satırıdır bu öğrencinin birincil anahtar değerini içeren bir satır `StudentID` sütun. Örneğin, Öğrenci kimlikli varsayalım = 1 sahip iki satır `Enrollment` tablo. `Enrollment` Tablolu sahip iki satır `StudentID` = 1. `StudentID`bir yabancı anahtar `Enrollment` Öğrenci belirtir tablo `Student` tablo.
+`Enrollments` Özelliği bir gezinti özelliğidir. Bu varlığa ilgili diğer varlıklar için Gezinti özellikleri bağlayın. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutan `Enrollment` için ilişkili olan varlıkların `Student`. Örneğin, bir öğrenci satır varsa DB iki kayıt, ilişkili satırları sahip `Enrollments` gezinti özelliği içerdiğinden bu iki `Enrollment` varlıklar. İlgili `Enrollment` satırıdır bu öğrencinin birincil anahtar değerini içeren bir satır `StudentID` sütun. Örneğin, Öğrenci kimlikli varsayalım = 1 sahip iki satır `Enrollment` tablo. `Enrollment` Tablolu sahip iki satır `StudentID` = 1. `StudentID` bir yabancı anahtar `Enrollment` Öğrenci belirtir tablo `Student` tablo.
 
-Bir gezinme özelliği birden çok varlık tutarsanız gezinti özelliği bir liste türü gibi olmalıdır `ICollection<T>`. `ICollection<T>`belirtilebilir, ya da bir türü `List<T>` veya `HashSet<T>`. Zaman `ICollection<T>` olduğu EF çekirdek oluşturur kullanıldığında, bir `HashSet<T>` varsayılan koleksiyon. Birden çok varlık tutun Gezinti özellikleri çok- ve -çok ilişkileri gelir.
+Bir gezinme özelliği birden çok varlık tutarsanız gezinti özelliği bir liste türü gibi olmalıdır `ICollection<T>`. `ICollection<T>` belirtilebilir, ya da bir türü `List<T>` veya `HashSet<T>`. Zaman `ICollection<T>` olduğu EF çekirdek oluşturur kullanıldığında, bir `HashSet<T>` varsayılan koleksiyon. Birden çok varlık tutun Gezinti özellikleri çok- ve -çok ilişkileri gelir.
 
 ### <a name="the-enrollment-entity"></a>Kayıt varlık
 
@@ -151,7 +151,7 @@ Bu kod oluşturur bir `DbSet` özelliği her bir varlık kümesi. EF çekirdek t
 * Bir varlık kümesine genellikle DB tabloya karşılık gelir.
 * Bir varlık tablosunda bir satırı karşılık gelir.
 
-`DbSet<Enrollment>`ve `DbSet<Course>` atlanabilir. EF çekirdek içerir bunları örtük olarak çünkü `Student` varlık başvuruları `Enrollment` varlık ve `Enrollment` varlık başvuruları `Course` varlık. Bu öğretici için tutmak `DbSet<Enrollment>` ve `DbSet<Course>` içinde `SchoolContext`.
+`DbSet<Enrollment>` ve `DbSet<Course>` atlanabilir. EF çekirdek içerir bunları örtük olarak çünkü `Student` varlık başvuruları `Enrollment` varlık ve `Enrollment` varlık başvuruları `Course` varlık. Bu öğretici için tutmak `DbSet<Enrollment>` ve `DbSet<Course>` içinde `SchoolContext`.
 
 DB oluşturulduğunda EF çekirdek aynı adlara sahip tablolar oluşturur `DbSet` özellik adları. Koleksiyonlar için özellik adları genellikle çoğul (Öğrenciler yerine Öğrenci). Geliştiriciler olup tablo adlarının çoğul olmalıdır hakkında katılmıyorum. Bu öğreticileri için DbContext tekil tablo adları belirterek varsayılan davranışı geçersiz kılınır. Tekil tablo adları belirtmek için aşağıdaki vurgulanmış kodu ekleyin:
 
@@ -267,7 +267,7 @@ Test **oluşturma**, **Düzenle**, ve **ayrıntıları** bağlantılar.
 
 ## <a name="view-the-db"></a>DB görüntüleyin
 
-Uygulama başlatıldığında `DbInitializer.Initialize` çağrıları `EnsureCreated`. `EnsureCreated`DB var ve bir gerekirse oluşturur olmadığını algılar. DB içinde hiçbir Öğrenciler varsa `Initialize` yöntemi Öğrenciler ekler.
+Uygulama başlatıldığında `DbInitializer.Initialize` çağrıları `EnsureCreated`. `EnsureCreated` DB var ve bir gerekirse oluşturur olmadığını algılar. DB içinde hiçbir Öğrenciler varsa `Initialize` yöntemi Öğrenciler ekler.
 
 Açık **SQL Server Nesne Gezgini** (SSOX) gelen **Görünüm** Visual Studio menüsünde.
 SSOX içinde tıklatın **(localdb) \MSSQLLocalDB > veritabanları > ContosoUniversity1**.
@@ -278,13 +278,13 @@ Sağ **Öğrenci** tablosu ve'ı tıklatın **görünüm verilerini** oluşturul
 
 *.Mdf* ve *.ldf* DB dosyalarıdır içinde *C:\Users\\ <yourusername>*  klasör.
 
-`EnsureCreated`Aşağıdaki iş akışı sağlayan uygulama Başlat'çağrılır:
+`EnsureCreated` Aşağıdaki iş akışı sağlayan uygulama Başlat'çağrılır:
 
 * DB silin.
 * DB şeması değiştirin (örneğin, bir `EmailAddress` alan).
 * Uygulamayı çalıştırın.
 
-`EnsureCreated`bir DB ile oluşturur`EmailAddress` sütun.
+`EnsureCreated` bir DB ile oluşturur`EmailAddress` sütun.
 
 ## <a name="conventions"></a>Kurallar
 
@@ -321,7 +321,7 @@ Aşağıdaki kodda, `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `aw
 
 * `await` Anahtar sözcüğü yöntemi iki parçalara bölmek derleyici neden olur. İlk bölümü ile zaman uyumsuz olarak başlatıldığında işlemi sonlandırır. İkinci bölümü işlem tamamlandığında çağrılan bir geri çağırma yöntemi konur.
 
-* `ToListAsync`zaman uyumsuz sürümü `ToList` genişletme yöntemi.
+* `ToListAsync` zaman uyumsuz sürümü `ToList` genişletme yöntemi.
 
 EF çekirdek kullanan zaman uyumsuz kodu yazarken dikkat edilmesi gereken bazı noktalar:
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: abb3b92af07a7b3b199712fcfdc459ca283d0017
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7b8a1698e1e711c9d61a5b474276c99de2831a7f
+ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -31,7 +31,7 @@ Seçenekler düzeni seçenekleri sınıfları ilgili ayar gruplarını gösterme
 
 Temel Seçenekler yapılandırma, örnek olarak gösterilmiştir &num;1'de [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-Özet olmayan bir seçenek sınıfı olmalıdır genel bir parametresiz oluşturucuya sahip. Aşağıdaki sınıf `MyOptions`, iki özelliğe sahip `Option1` ve `Option2`. Varsayılan değerleri ayarlama isteğe bağlı olmakla birlikte, aşağıdaki örnekte sınıfı oluşturucusu varsayılan değerini ayarlar `Option1`. `Option2`özellik doğrudan başlatarak ayarlamak varsayılan değeri (*Models/MyOptions.cs*):
+Özet olmayan bir seçenek sınıfı olmalıdır genel bir parametresiz oluşturucuya sahip. Aşağıdaki sınıf `MyOptions`, iki özelliğe sahip `Option1` ve `Option2`. Varsayılan değerleri ayarlama isteğe bağlı olmakla birlikte, aşağıdaki örnekte sınıfı oluşturucusu varsayılan değerini ayarlar `Option1`. `Option2` özellik doğrudan başlatarak ayarlamak varsayılan değeri (*Models/MyOptions.cs*):
 
 [!code-csharp[Main](options/sample/Models/MyOptions.cs?name=snippet1)]
 
@@ -196,7 +196,7 @@ named_options_1: option1 = value1_from_json, option2 = -1
 named_options_2: option1 = named_options_2_value1_from_action, option2 = 5
 ```
 
-`named_options_1`değerleri, gelen yüklenen yapılandırmasından sağlanan *appsettings.json* dosya. `named_options_2`değerleri tarafından sağlanır:
+`named_options_1` değerleri, gelen yüklenen yapılandırmasından sağlanan *appsettings.json* dosya. `named_options_2` değerleri tarafından sağlanır:
 
 * `named_options_2` İçinde temsilci `ConfigureServices` için `Option1`.
 * İçin varsayılan değer `Option2` tarafından sağlanan `MyOptions` sınıfı.
@@ -218,7 +218,7 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> ASP.NET Core 2.0 ve daha sonra tüm seçenekleri örnekleri adlandırılır. Varolan `IConfigureOption` örnekleri hedefleme olarak kabul edilir `Options.DefaultName` olan örneği `string.Empty`. `IConfigureNamedOptions`Ayrıca `IConfigureOptions`. Varsayılan uygulaması [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([başvuru kaynağı](https://github.com/aspnet/Options/blob/release/2.0.0/src/Microsoft.Extensions.Options/OptionsFactory.cs)) her uygun şekilde kullanmak için mantığı vardır. `null` Adlandırılmış seçeneği tüm adlandırılmış örnek yerine adlandırılmış örneği belirli bir hedef için kullanılır ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) ve [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) bu yöntemi kullanın).
+> ASP.NET Core 2.0 ve daha sonra tüm seçenekleri örnekleri adlandırılır. Varolan `IConfigureOption` örnekleri hedefleme olarak kabul edilir `Options.DefaultName` olan örneği `string.Empty`. `IConfigureNamedOptions` Ayrıca `IConfigureOptions`. Varsayılan uygulaması [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) ([başvuru kaynağı](https://github.com/aspnet/Options/blob/release/2.0/src/Microsoft.Extensions.Options/IOptionsFactory.cs) her uygun şekilde kullanmak için mantığı vardır. `null` Adlandırılmış seçeneği tüm adlandırılmış örnek yerine adlandırılmış örneği belirli bir hedef için kullanılır ([ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall) ve [PostConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) bu yöntemi kullanın).
 
 ## <a name="ipostconfigureoptions"></a>IPostConfigureOptions
 
@@ -253,7 +253,7 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="options-factory-monitoring-and-cache"></a>Seçenekler Fabrika, izleme ve önbellek
 
-[IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) bildirimler için kullanılan zaman `TOptions` örnekleri değiştirin. `IOptionsMonitor`reloadable seçeneklerini destekler, bildirimler, değiştirmek ve `IPostConfigureOptions`.
+[IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) bildirimler için kullanılan zaman `TOptions` örnekleri değiştirin. `IOptionsMonitor` reloadable seçeneklerini destekler, bildirimler, değiştirmek ve `IPostConfigureOptions`.
 
 [IOptionsFactory&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) (ASP.NET Core 2.0 or later) is responsible for creating new options instances. Tek bir sahip [oluşturma](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create) yöntemi. Varsayılan uygulamasını tüm kayıtlı alır `IConfigureOptions` ve `IPostConfigureOptions` ve tüm çalıştırır önce yapılandırır, arkasından sonrası yapılandırır. Arasında ayırt `IConfigureNamedOptions` ve `IConfigureOptions` ve yalnızca uygun arabirimi çağırır.
 
@@ -261,7 +261,7 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Başlatma sırasında erişilebilirlik seçenekleri
 
-`IOptions`kullanılabilir `Configure`, önce Hizmetleri yerleşiktir bu yana `Configure` yöntemini yürütür. Bir hizmet sağlayıcısı oluşturulursa `ConfigureServices` seçeneklerine erişmek için onu içeremez olmayacaktır seçenekleri hizmet sağlayıcısı oluşturulduktan sonra sağlanan yapılandırmaları. Bu nedenle, bir tutarsız seçenekleri durum hizmet kayıtları sıralama nedeniyle olabilir.
+`IOptions` kullanılabilir `Configure`, önce Hizmetleri yerleşiktir bu yana `Configure` yöntemini yürütür. Bir hizmet sağlayıcısı oluşturulursa `ConfigureServices` seçeneklerine erişmek için onu içeremez olmayacaktır seçenekleri hizmet sağlayıcısı oluşturulduktan sonra sağlanan yapılandırmaları. Bu nedenle, bir tutarsız seçenekleri durum hizmet kayıtları sıralama nedeniyle olabilir.
 
 Seçenekleri genellikle yapılandırmasından yüklendiğinden bu yana yapılandırma hem de başlangıç kullanılabilir `Configure` ve `ConfigureServices`. Başlatma sırasında yapılandırmayla örnekler için bkz: [uygulama başlangıç](xref:fundamentals/startup) konu.
 
