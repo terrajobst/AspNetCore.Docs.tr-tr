@@ -26,7 +26,7 @@ Bu örnek ASP.NET Core kullanımını göstermektedir 2.x URL yeniden yazma işl
   - Örnek (Yönlendirme): **/image.png** için **/png-images/image.png**
   - Örnek (Yönlendirme): **/image.jpg** için **/jpg-images/image.jpg**
 
-## <a name="using-a-physicalfileprovider"></a>Kullanarak bir`PhysicalFileProvider`
+## <a name="using-a-physicalfileprovider"></a>Kullanarak bir `PhysicalFileProvider`
 Edinebilirsiniz bir `IFileProvider` oluşturarak bir `PhysicalFileProvider` uygulamasına geçirmek için `AddApacheModRewrite()` ve `AddIISUrlRewrite()` yöntemleri:
 ```csharp
 using Microsoft.Extensions.FileProviders;

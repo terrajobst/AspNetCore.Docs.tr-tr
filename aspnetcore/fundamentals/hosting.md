@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 004487aebe5262a515e2375c30ccd2a84844dff6
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 7e5832f43155aa8aac07a4c8534700aed48fe57d
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET çekirdek barındırma
 
@@ -29,7 +29,7 @@ Bir örneği kullanılarak bir ana bilgisayar oluşturma [WebHostBuilder](/dotne
 
 [!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main)]
 
-`CreateDefaultBuilder`Aşağıdaki görevleri gerçekleştirir:
+`CreateDefaultBuilder` Aşağıdaki görevleri gerçekleştirir:
 
 * Yapılandırır [Kestrel](servers/kestrel.md) web sunucusu olarak. Kestrel varsayılan seçenekleri için bkz [Kestrel seçenekleri Kestrel web server ASP.NET Core uygulamasında bölümünü](xref:fundamentals/servers/kestrel#kestrel-options).
 * İçerik kök tarafından döndürülen yola ayarlar [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
@@ -55,11 +55,11 @@ Bir örneği kullanılarak bir ana bilgisayar oluşturma [WebHostBuilder](/dotne
 
 [!code-csharp[Main](../common/samples/WebApplication1/Program.cs)]
 
-`WebHostBuilder`gerektiren bir [IServer uygulayan sunucu](servers/index.md). Yerleşik sunucularıdır [Kestrel](servers/kestrel.md) ve [HTTP.sys](servers/httpsys.md) (ASP.NET Core 2.0 sürümünden önce HTTP.sys çağrıldı [WebListener](xref:fundamentals/servers/weblistener)). Bu örnekte, [UseKestrel genişletme yöntemi](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) Kestrel sunucuyu belirtir.
+`WebHostBuilder` gerektiren bir [IServer uygulayan sunucu](servers/index.md). Yerleşik sunucularıdır [Kestrel](servers/kestrel.md) ve [HTTP.sys](servers/httpsys.md) (ASP.NET Core 2.0 sürümünden önce HTTP.sys çağrıldı [WebListener](xref:fundamentals/servers/weblistener)). Bu örnekte, [UseKestrel genişletme yöntemi](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) Kestrel sunucuyu belirtir.
 
 *İçerik kök* konak MVC görünümü dosyaları gibi içerik dosyalarının nerede arayacağını belirler. İçin varsayılan içerik kök elde `UseContentRoot` tarafından [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1). Uygulama projenin kök klasörden başlatıldığında, projenin kök klasörü içerik kök olarak kullanılır. Kullanılan varsayılan değer budur [Visual Studio](https://www.visualstudio.com/) ve [dotnet yeni şablonlar](/dotnet/core/tools/dotnet-new).
 
-IIS ters proxy kullanmak için arama [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) konak oluşturmanın bir parçası olarak. `UseIISIntegration`yapılandırmaz bir *server*gibi [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) yapar. `UseIISIntegration`Taban yol ve sunucunun dinlediği üzerinde kullanırken bağlantı noktasını yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) Kestrel ve IIS arasında ters Ara sunucu oluşturmak için. IIS ASP.NET Core ile kullanmak için `UseKestrel` ve `UseIISIntegration` belirtilmesi gerekir. `UseIISIntegration`yalnızca IIS veya IIS Express çalıştırırken etkinleştirir. Daha fazla bilgi için bkz: [ASP.NET Core modülü için giriş](xref:fundamentals/servers/aspnet-core-module) ve [ASP.NET Core modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
+IIS ters proxy kullanmak için arama [UseIISIntegration](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) konak oluşturmanın bir parçası olarak. `UseIISIntegration` yapılandırmaz bir *server*gibi [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) yapar. `UseIISIntegration` Taban yol ve sunucunun dinlediği üzerinde kullanırken bağlantı noktasını yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) Kestrel ve IIS arasında ters Ara sunucu oluşturmak için. IIS ASP.NET Core ile kullanmak için `UseKestrel` ve `UseIISIntegration` belirtilmesi gerekir. `UseIISIntegration` yalnızca IIS veya IIS Express çalıştırırken etkinleştirir. Daha fazla bilgi için bkz: [ASP.NET Core modülü için giriş](xref:fundamentals/servers/aspnet-core-module) ve [ASP.NET Core modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
 
 Bir ana bilgisayar (ve ASP.NET Core uygulama) yapılandırır en az bir uygulama sunucusu ve yapılandırma uygulamanın istek ardışık belirtme içerir:
 
@@ -96,8 +96,8 @@ Bu ayar, başlangıç hatalarını yakalama denetler.
 **Anahtar**: captureStartupErrors  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: varsayılan olarak `false` Kestrel IIS, varsayılan olduğu arkasında ile uygulamanın çalıştığı sürece `true`.  
-**Kullanılarak ayarlanan**:`CaptureStartupErrors`  
-**Ortam değişkeni**:`ASPNETCORE_CAPTURESTARTUPERRORS`
+**Kullanılarak ayarlanan**: `CaptureStartupErrors`  
+**Ortam değişkeni**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
 Zaman `false`, çıkma konak başlangıç sonucunda sırasında hatalar. Zaman `true`, ana bilgisayar başlatma sırasında özel durumları yakalar ve sunucu başlatmaya çalışır.
 
@@ -126,8 +126,8 @@ Bu ayar, ASP.NET Core MVC görünümler gibi içerik dosyaları aranıyor başla
 **Anahtar**: contentRoot  
 **Tür**: *dize*  
 **Varsayılan**: varsayılan olarak, uygulama derleme bulunduğu klasöre.  
-**Kullanılarak ayarlanan**:`UseContentRoot`  
-**Ortam değişkeni**:`ASPNETCORE_CONTENTROOT`
+**Kullanılarak ayarlanan**: `UseContentRoot`  
+**Ortam değişkeni**: `ASPNETCORE_CONTENTROOT`
 
 İçerik kök taban yolu olarak da kullanılır [Web kök ayarı](#web-root). Yol yoksa, konağı başlatmak başarısız olur.
 
@@ -156,8 +156,8 @@ Ayrıntılı hataları yakalanan belirler.
 **Anahtar**: detailedErrors  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: yanlış  
-**Kullanılarak ayarlanan**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_DETAILEDERRORS`
+**Kullanılarak ayarlanan**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_DETAILEDERRORS`
 
 Etkin olduğunda (veya ne zaman <a href="#environment">ortam</a> ayarlanır `Development`), uygulamanın ayrıntılı özel durumları yakalar.
 
@@ -186,8 +186,8 @@ Uygulamanın ortamını ayarlar.
 **Anahtar**: ortamı  
 **Tür**: *dize*  
 **Varsayılan**: üretim  
-**Kullanılarak ayarlanan**:`UseEnvironment`  
-**Ortam değişkeni**:`ASPNETCORE_ENVIRONMENT`
+**Kullanılarak ayarlanan**: `UseEnvironment`  
+**Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
 
 Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments).
 
@@ -216,8 +216,8 @@ Uygulamanın barındırma başlangıç derlemeleri ayarlar.
 **Anahtar**: hostingStartupAssemblies  
 **Tür**: *dize*  
 **Varsayılan**: boş dize  
-**Kullanılarak ayarlanan**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
+**Kullanılarak ayarlanan**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
 Başlangıçta yüklemek için başlangıç derlemeleri barındırma noktalı virgülle ayrılmış dize. Bu özelliği, ASP.NET Core 2. 0 ' yeni bir özelliktir.
 
@@ -244,8 +244,8 @@ Ana bilgisayarı, yapılandırılmış URL'leri dinleyecek olup olmadığını g
 **Anahtar**: preferHostingUrls  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: true  
-**Kullanılarak ayarlanan**:`PreferHostingUrls`  
-**Ortam değişkeni**:`ASPNETCORE_PREFERHOSTINGURLS`
+**Kullanılarak ayarlanan**: `PreferHostingUrls`  
+**Ortam değişkeni**: `ASPNETCORE_PREFERHOSTINGURLS`
 
 Bu özelliği, ASP.NET Core 2. 0 ' yeni bir özelliktir.
 
@@ -265,13 +265,13 @@ Bu özellik ASP.NET Core kullanılamıyor 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Başlangıç barındırma engelle
 
-Uygulamanın derlemesi tarafından yapılandırılan başlangıç derlemeleri barındırma dahil olmak üzere başlangıç derlemeleri barındırma otomatik yüklenmesini engeller. Bkz: [IHostingStartup kullanarak bir dış derlemeden uygulama özelliklerini eklemek](xref:host-and-deploy/ihostingstartup) daha fazla bilgi için.
+Uygulamanın derlemesi tarafından yapılandırılan başlangıç derlemeleri barındırma dahil olmak üzere başlangıç derlemeleri barındırma otomatik yüklenmesini engeller. Bkz: [platforma özgü yapılandırma kullanarak uygulama özellik ekleme](xref:host-and-deploy/platform-specific-configuration) daha fazla bilgi için.
 
 **Anahtar**: preventHostingStartup  
 **Tür**: *bool* (`true` veya `1`)  
 **Varsayılan**: yanlış  
-**Kullanılarak ayarlanan**:`UseSetting`  
-**Ortam değişkeni**:`ASPNETCORE_PREVENTHOSTINGSTARTUP`
+**Kullanılarak ayarlanan**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_PREVENTHOSTINGSTARTUP`
 
 Bu özelliği, ASP.NET Core 2. 0 ' yeni bir özelliktir.
 
@@ -296,8 +296,8 @@ IP adresi veya ana bilgisayar adresleriyle bağlantı noktalarını ve sunucu ü
 **Anahtar**: URL'leri  
 **Tür**: *dize*  
 **Default**: http://localhost:5000  
-**Kullanılarak ayarlanan**:`UseUrls`  
-**Ortam değişkeni**:`ASPNETCORE_URLS`
+**Kullanılarak ayarlanan**: `UseUrls`  
+**Ortam değişkeni**: `ASPNETCORE_URLS`
 
 Bir noktalı virgülle ayrılmış ayarlayın (;) URL listesi önekleri sunucu yanıt. Örneğin, `http://localhost:123`. Kullan "\*" sunucu IP adresi veya ana bilgisayar adı belirtilen bağlantı noktası ve protokolü kullanarak isteklerini dinleme yapması gerektiğini belirtmek için (örneğin, `http://*:5000`). Protokol (`http://` veya `https://`) her URL ile dahil edilmelidir. Desteklenen biçimler sunucular arasında farklılık gösterir.
 
@@ -328,8 +328,8 @@ Web ana bilgisayarı kapatmak için beklenecek süreyi belirtir.
 **Anahtar**: shutdownTimeoutSeconds  
 **Tür**: *int*  
 **Varsayılan**: 5  
-**Kullanılarak ayarlanan**:`UseShutdownTimeout`  
-**Ortam değişkeni**:`ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
+**Kullanılarak ayarlanan**: `UseShutdownTimeout`  
+**Ortam değişkeni**: `ASPNETCORE_SHUTDOWNTIMEOUTSECONDS`
 
 Anahtar kabul rağmen bir *int* ile `UseSetting` (örneğin, `.UseSetting(WebHostDefaults.ShutdownTimeoutKey, "10")`), `UseShutdownTimeout` genişletme yöntemi geçen bir `TimeSpan`. Bu özelliği, ASP.NET Core 2. 0 ' yeni bir özelliktir.
 
@@ -354,8 +354,8 @@ Aranacak derleme belirler `Startup` sınıfı.
 **Anahtar**: startupAssembly  
 **Tür**: *dize*  
 **Varsayılan**: uygulamanın derleme  
-**Kullanılarak ayarlanan**:`UseStartup`  
-**Ortam değişkeni**:`ASPNETCORE_STARTUPASSEMBLY`
+**Kullanılarak ayarlanan**: `UseStartup`  
+**Ortam değişkeni**: `ASPNETCORE_STARTUPASSEMBLY`
 
 Ada göre derleme (`string`) veya türü (`TStartup`) başvurulabilir. Birden çok `UseStartup` yöntemleri çağrılmadan, son önceliklidir.
 
@@ -396,8 +396,8 @@ Uygulamanın statik varlıklar için göreli yolunu ayarlar.
 **Anahtar**: webroot  
 **Tür**: *dize*  
 **Varsayılan**: belirtilmezse, varsayılan "(Content Root)/wwwroot olur", yol varsa. Yol yoksa, yok dosya sağlayıcısı kullanılır.  
-**Kullanılarak ayarlanan**:`UseWebRoot`  
-**Ortam değişkeni**:`ASPNETCORE_WEBROOT`
+**Kullanılarak ayarlanan**: `UseWebRoot`  
+**Ortam değişkeni**: `ASPNETCORE_WEBROOT`
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -570,7 +570,7 @@ using (var host = WebHost.Start(app => app.Response.WriteAsync("Hello, World!"))
 }
 ```
 
-Tarayıcıda istekte `http://localhost:5000` "Hello World!" yanıt almak için `WaitForShutdown`break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
+Tarayıcıda istekte `http://localhost:5000` "Hello World!" yanıt almak için `WaitForShutdown` break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
 
 **Başlangıç (dize url, RequestDelegate uygulama)**
 
@@ -618,7 +618,7 @@ Aşağıdaki tarayıcı isteklerini örnekle kullanın:
 | `http://localhost:5000/Sante/Kevin`        | Sante, Kevin!                            |
 | `http://localhost:5000`                    | Merhaba Dünya!                             |
 
-`WaitForShutdown`break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
+`WaitForShutdown` break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
 
 **Başlangıç (url, eylem dize<IRouteBuilder> routeBuilder)**
 
@@ -662,7 +662,7 @@ using (var host = WebHost.StartWith(app =>
 }
 ```
 
-Tarayıcıda istekte `http://localhost:5000` "Hello World!" yanıt almak için `WaitForShutdown`break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
+Tarayıcıda istekte `http://localhost:5000` "Hello World!" yanıt almak için `WaitForShutdown` break (Ctrl-C/SIGINT veya SIGTERM) verilene kadar engeller. Uygulama görüntüler `Console.WriteLine` ileti ve çıkmak keypress bekler.
 
 **StartWith (url, eylem dize<IApplicationBuilder> uygulama)**
 
@@ -803,7 +803,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment`içine eklenen `Invoke` özel oluştururken yöntemi [Ara](xref:fundamentals/middleware/index#writing-middleware):
+`IHostingEnvironment` içine eklenen `Invoke` özel oluştururken yöntemi [Ara](xref:fundamentals/middleware/index#writing-middleware):
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)
@@ -823,17 +823,13 @@ public async Task Invoke(HttpContext context, IHostingEnvironment env)
 
 ## <a name="iapplicationlifetime-interface"></a>IApplicationLifetime arabirimi
 
-[IApplicationLifetime](/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) sonrası başlatma ve kapatma etkinlikler için sağlar. Üç arabirimde özelliklerdir kaydetmek için kullanılan iptal belirteçlerini `Action` başlatma ve kapatma olayları tanımlayan yöntemleri. Ayrıca bir `StopApplication` yöntemi.
+[IApplicationLifetime](/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) sonrası başlatma ve kapatma etkinlikler için sağlar. Üç arabirimde özelliklerdir kaydetmek için kullanılan iptal belirteçlerini `Action` başlatma ve kapatma olayları tanımlayan yöntemleri.
 
 | İptal belirteci    | &#8230;tetiklenen; |
 | --------------------- | --------------------- |
 | `ApplicationStarted`  | Ana bilgisayar tam olarak başlatıldı. |
 | `ApplicationStopping` | Konak bir kapama gerçekleştiriyor. İstekleri hala işliyor olabilir. Bu olay tamamlanana kadar kapatma engeller. |
 | `ApplicationStopped`  | Konak bir kapama üzeredir. Tüm isteklerin işlenmesi. Bu olay tamamlanana kadar kapatma engeller. |
-
-| Yöntem            | Eylem                                           |
-| ----------------- | ------------------------------------------------ |
-| `StopApplication` | Geçerli uygulamanın sonlandırılması istekleri. |
 
 ```csharp
 public class Startup 
@@ -865,6 +861,34 @@ public class Startup
     private void OnStopped()
     {
         // Perform post-stopped activities here
+    }
+}
+```
+
+[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) uygulama sonlandırılması ister. Aşağıdaki [Razor sayfalarının](xref:mvc/razor-pages/index) sayfasında modelinin sınıfı kullandığı `StopApplication` düzgün biçimde kapatma bir uygulama için. `OnPostShutdown` Yöntemi yürütüldükten sonra **kapatma** düğmesinin kullanıcı arabiriminde seçili:
+
+```cshtml
+<button type="submit" asp-page-handler="Shutdown" class="btn btn-default">Shutdown</button>
+```
+
+```csharp
+public class IndexModel : PageModel
+{
+    private readonly IApplicationLifetime _appLifetime;
+
+    public IndexModel(IApplicationLifetime appLifetime)
+    {
+        _appLifetime = appLifetime;
+    }
+
+    public void OnGet()
+    {
+        ...
+    }
+
+    public void OnPostShutdown()
+    {
+        _appLifetime.StopApplication();
     }
 }
 ```

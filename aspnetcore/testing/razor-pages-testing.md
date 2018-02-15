@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi
 
@@ -71,7 +71,7 @@ Uygulama kullanmayan ancak [havuz deseni](http://martinfowler.com/eaaCatalog/rep
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs* dizin sayfası için tümleştirme testleri içerir.</li><li>*TestFixture.cs* ileti uygulama test etmek için test ana bilgisayar oluşturur.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* DAL için birim testleri içerir.</li><li>*IndexPageTest.cs* dizin sayfası modeli için birim testleri içerir.</li></ul> |
-| *Yardımcı programlar*        | *Utilities.cs* içerir:<ul><li>`TestingDbContextOptions`Veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni bir veritabanı oluşturmak için kullanılan yöntem.</li><li>`GetRequestContentAsync`hazırlamak için kullanılan yöntem `HttpClient` ve tümleştirme sınaması sırasında ileti uygulamaya gönderilen istekleri için içerik.</li></ul>
+| Yardımcı programlar        | *Utilities.cs* içerir:<ul><li>`TestingDbContextOptions` Veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni bir veritabanı oluşturmak için kullanılan yöntem.</li><li>`GetRequestContentAsync` hazırlamak için kullanılan yöntem `HttpClient` ve tümleştirme sınaması sırasında ileti uygulamaya gönderilen istekleri için içerik.</li></ul>
 
 Test çerçevesi [xUnit](https://xunit.github.io/). Framework mocking nesne [Moq](https://github.com/moq/moq4). Tümleştirme testleri gerçekleştirilen kullanarak [ASP.NET Core Test ana](xref:testing/integration-testing#the-test-host).
 
@@ -102,7 +102,7 @@ Bu yaklaşım sorun ne olursa olsun durumu önceki test, sol içindeki her bir t
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-Kullanarak `DbContextOptions` DAL biriminde testleri ile otomatik olarak çalıştırmak her bir test sağlayan bir yeni veritabanı örneği:
+Kullanarak `DbContextOptions` DAL biriminde testleri otomatik olarak yeni veritabanı örneği ile çalıştırmak her bir test sağlar:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ Birim testi Act adım (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageT
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`Sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
+`IndexPage` Sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
@@ -212,7 +212,7 @@ Herhangi bir POST isteği iletisi App uygulamanın tarafından otomatik olarak y
 * Uygulamaya bir POST isteği yapar.
 * Yanıt yeniden yönlendirme geri dizin sayfası denetler.
 
-`Post_AddMessageHandler_ReturnsRedirectToRoot `yöntem (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
+`Post_AddMessageHandler_ReturnsRedirectToRoot ` yöntem (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 

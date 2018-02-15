@@ -1,7 +1,7 @@
 ---
 title: "Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma"
 author: rick-anderson
-description: "Kullanıcı veri yetkilendirme tarafından korunan bir Razor sayfalarının uygulaması oluşturmayı öğrenin. SSL, kimlik doğrulama, güvenlik, ASP.NET Core kimliği içerir."
+description: "Kullanıcı veri yetkilendirme tarafından korunan bir Razor sayfalarının uygulaması oluşturmayı öğrenin. HTTPS, kimlik doğrulama, güvenlik, ASP.NET Core kimliği içerir."
 manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 6333082a2b2b4f6d3f1ce2afc600b4203a0f5dca
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: e186adef2e72f852543a92ddce0e82be2a3bcd12
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -87,7 +87,7 @@ ASP.NET kullanan [kimlik](xref:security/authentication/identity) kullanıcılar 
 
 [!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-`OwnerID`kullanıcının kimliği olan `AspNetUser` tablosundaki [kimlik](xref:security/authentication/identity) veritabanı. `Status` Alanı, bir kişi genel kullanıcılar tarafından görüntülenebilir olup olmadığını belirler.
+`OwnerID` kullanıcının kimliği olan `AspNetUser` tablosundaki [kimlik](xref:security/authentication/identity) veritabanı. `Status` Alanı, bir kişi genel kullanıcılar tarafından görüntülenebilir olup olmadığını belirler.
 
 Yeni geçiş oluştur ve veritabanı güncelleştirme:
 
@@ -96,7 +96,7 @@ dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="require-ssl-and-authenticated-users"></a>SSL ve kimliği doğrulanmış kullanıcılar gerektirir
+### <a name="require-https-and-authenticated-users"></a>HTTPS ve kimliği doğrulanmış kullanıcılar gerektirir
 
 Ekleme [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) için `Startup`:
 
@@ -104,19 +104,26 @@ Ekleme [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingen
 
 İçinde `ConfigureServices` yöntemi *haline* dosya, ekleme [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) yetkilendirme Filtresi:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=19-999)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
-Visual Studio kullanıyorsanız, SSL'yi etkinleştirin.
+Visual Studio kullanıyorsanız, HTTPS etkinleştirin.
 
-HTTPS için HTTP isteklerini yeniden yönlendirmek için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting). Visual Studio Code kullanarak ya da yerel bir platformda sınama, SSL için bir test sertifikası içermez:
+HTTPS için HTTP isteklerini yeniden yönlendirmek için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting). Visual Studio Code kullanarak ya da yerel bir platformda sınama, HTTPS için bir test sertifikası içermez:
 
   Ayarlama `"LocalTest:skipSSL": true` içinde *appsettings. Developement.JSON* dosya.
 
 ### <a name="require-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar gerektirir
 
-Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama ilkesini ayarlayın. Kimlik doğrulaması ile Razor sayfasını, denetleyici veya eylem yöntemi düzeyinde dışında seçebilirsiniz `[AllowAnonymous]` özniteliği. Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama İlkesi ayarı, yeni eklenen Razor sayfalarının ve denetleyiciler korur. Kimlik doğrulaması varsayılan olarak gerekli yeni denetleyicileri ve dahil etmek için Razor sayfalarının bağlı olan daha güvenli olan `[Authorize]` özniteliği. Aşağıdakileri ekleyin `ConfigureServices` yöntemi *haline* dosyası:
+Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama ilkesini ayarlayın. Kimlik doğrulaması ile Razor sayfasını, denetleyici veya eylem yöntemi düzeyinde dışında seçebilirsiniz `[AllowAnonymous]` özniteliği. Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama İlkesi ayarı, yeni eklenen Razor sayfalarının ve denetleyiciler korur. Kimlik doğrulaması varsayılan olarak gerekli yeni denetleyicileri ve dahil etmek için Razor sayfalarının bağlı olan daha güvenli olan `[Authorize]` özniteliği. 
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=31-999)]
+Kimliği doğrulanmış, tüm kullanıcılar gereksinimiyle [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) ve [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage?view=aspnetcore-2.0) çağrıları gerekli değildir.
+
+Güncelleştirme `ConfigureServices` aşağıdaki değişiklikleri:
+
+* Out açıklama `AuthorizeFolder` ve `AuthorizePage`.
+* Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama ilkesini ayarlayın.
+
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
 
 Ekleme [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) dizine, bunlar kaydetmeden önce anonim kullanıcılar siteyle ilgili bilgileri sınıflandırıp hakkında ve iletişim sayfaları. 
 
@@ -155,11 +162,11 @@ Oluşturma bir `ContactIsOwnerAuthorizationHandler` sınıfını *yetkilendirme*
 `ContactIsOwnerAuthorizationHandler` Çağrıları [bağlamı. Başarılı](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) geçerli kimliği doğrulanmış kullanıcı kişi sahibi ise. Yetkilendirme işleyicileri genellikle:
 
 * Dönüş `context.Succeed` zaman gereksinimleri karşılandıktan.
-* Dönüş `Task.CompletedTask` zaman olmayan gereksinimlerin karşılanması. `Task.CompletedTask`ne başarılı veya başarısız olduğunu&mdash;çalıştırmak diğer yetkilendirme işleyicileri sağlar.
+* Dönüş `Task.CompletedTask` zaman olmayan gereksinimlerin karşılanması. `Task.CompletedTask` ne başarılı veya başarısız olduğunu&mdash;çalıştırmak diğer yetkilendirme işleyicileri sağlar.
 
 Açıkça başarısız gerekiyorsa, dönüş [bağlamı. Başarısız](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
-Uygulamanın kendi veri düzenleme/silme/oluşturmak için kişi sahipleri verir. `ContactIsOwnerAuthorizationHandler`gereksinim parametrede aktarılan işlemi denetlemek gerekmez.
+Uygulamanın kendi veri düzenleme/silme/oluşturmak için kişi sahipleri verir. `ContactIsOwnerAuthorizationHandler` gereksinim parametrede aktarılan işlemi denetlemek gerekmez.
 
 ### <a name="create-a-manager-authorization-handler"></a>Bir yönetici yetkilendirme işleyicisi oluşturun
 
@@ -179,7 +186,7 @@ Entity Framework Çekirdek kullanarak Hizmetleri kayıtlı, için [bağımlılı
 
 [!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
-`ContactAdministratorsAuthorizationHandler`ve `ContactManagerAuthorizationHandler` teklileri eklenir. Olup olmadıklarını teklileri EF kullanmayın ve gerekli tüm bilgileri de olduğundan `Context` parametresinin `HandleRequirementAsync` yöntemi.
+`ContactAdministratorsAuthorizationHandler` ve `ContactManagerAuthorizationHandler` teklileri eklenir. Olup olmadıklarını teklileri EF kullanmayın ve gerekli tüm bilgileri de olduğundan `Context` parametresinin `HandleRequirementAsync` yöntemi.
 
 ## <a name="support-authorization"></a>Destek yetkilendirme
 
@@ -263,9 +270,9 @@ Ayrıntılar sayfası modeli güncelleştirin:
 
 ## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
 
-Visual Studio Code kullanarak ya da yerel bir platformda sınama, SSL için bir test sertifikası içermez:
+Visual Studio Code kullanarak ya da yerel bir platformda sınama, HTTPS için bir test sertifikası içermez:
 
-* Ayarlama `"LocalTest:skipSSL": true` içinde *appsettings. Developement.JSON* SSL gereksinimlerini atlamak için dosya. SSL yalnızca geliştirme makinenizde atlayın.
+* Ayarlama `"LocalTest:skipSSL": true` içinde *appsettings. Developement.JSON* HTTPS gereksinim atlamak için dosya. Bir geliştirme makinede yalnızca HTTPS atla.
 
 Uygulamanın kişiler varsa:
 
@@ -300,7 +307,7 @@ Bir kişi yöneticinin tarayıcıda oluşturun. Delete URL'sini kopyalayın ve y
   dotnet new razor -o ContactManager -au Individual -uld
   ```
 
-  * `-uld`SQLite yerine LocalDB belirtir
+  * `-uld` SQLite yerine LocalDB belirtir
 
 * Aşağıdakileri ekleyin `Contact` modeli:
 

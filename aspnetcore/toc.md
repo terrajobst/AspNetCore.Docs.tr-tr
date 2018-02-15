@@ -233,7 +233,7 @@
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Dizin yapısı](xref:host-and-deploy/directory-structure)
 ## [Azure App Service ve IIS için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
-## [IHostingStartup kullanarak dış bütünleştirilmiş koddan uygulama özellikleri ekleme](xref:host-and-deploy/ihostingstartup)
+## [Platforma özgü yapılandırma kullanarak uygulama özellik ekleme](xref:host-and-deploy/platform-specific-configuration)
 
 # [Güvenlik](xref:security/index)
 ## [Kimlik doğrulaması](xref:security/authentication/index)

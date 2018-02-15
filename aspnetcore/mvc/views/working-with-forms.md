@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 752fa03b0cfc85fee2d945e5f65d94c01119d32e
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -36,7 +36,7 @@ Bu belge, formlar ve bir Form üzerinde kullanılan HTML öğeleri ile çalışm
 
 * Sağlar `asp-route-<Parameter Name>` özniteliği, burada `<Parameter Name>` rota değerleri eklenir. `routeValues` Parametreleri `Html.BeginForm` ve `Html.BeginRouteForm` benzer işlevsellik sağlar.
 
-* HTML Yardımcısı alternatif sahip `Html.BeginForm` ve`Html.BeginRouteForm`
+* HTML Yardımcısı alternatif sahip `Html.BeginForm` ve `Html.BeginRouteForm`
 
 Örnek:
 
@@ -82,7 +82,7 @@ Sözdizimi:
 
 Giriş etiketi Yardımcısı:
 
-* Oluşturur `id` ve `name` belirtilen ifade adı için HTML özniteliklerini `asp-for` özniteliği. `asp-for="Property1.Property2"`eşdeğer olan `m => m.Property1.Property2`. İfade için kullanılan adıdır `asp-for` öznitelik değeri. Bkz: [ifade adlarının](#expression-names) ek bilgi için bölüm.
+* Oluşturur `id` ve `name` belirtilen ifade adı için HTML özniteliklerini `asp-for` özniteliği. `asp-for="Property1.Property2"` eşdeğer olan `m => m.Property1.Property2`. İfade için kullanılan adıdır `asp-for` öznitelik değeri. Bkz: [ifade adlarının](#expression-names) ek bilgi için bölüm.
 
 * HTML ayarlar `type` öznitelik değeri model türüne göre ve [veri ek açıklamasını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) model özelliğine uygulanan öznitelikleri
 
@@ -159,11 +159,11 @@ Uygulanan veri ek açıklamaları `Email` ve `Password` özellikleri model meta 
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Giriş etiketi yardımcı HTML Yardımcısı alternatifleri
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor` giriş etiketi yardımcı özelliklerle çakışmamalıdır. Giriş etiketi yardımcı otomatik olarak ayarlayacak `type` özniteliği; `Html.TextBox` ve `Html.TextBoxFor` olmaz. `Html.Editor`ve `Html.EditorFor` işlemek koleksiyonlar, karmaşık nesneler ve şablonları; giriş etiketi yardımcı değil. Giriş etiketi yardımcı `Html.EditorFor` ve `Html.TextBoxFor` kesin türü belirtilmiş (bunlar lambda ifadeleri kullanma); `Html.TextBox` ve `Html.Editor` değil (bunlar ifade adlarının kullanın).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` ve `Html.EditorFor` giriş etiketi yardımcı özelliklerle çakışmamalıdır. Giriş etiketi yardımcı otomatik olarak ayarlayacak `type` özniteliği; `Html.TextBox` ve `Html.TextBoxFor` olmaz. `Html.Editor` ve `Html.EditorFor` işlemek koleksiyonlar, karmaşık nesneler ve şablonları; giriş etiketi yardımcı değil. Giriş etiketi yardımcı `Html.EditorFor` ve `Html.TextBoxFor` kesin türü belirtilmiş (bunlar lambda ifadeleri kullanma); `Html.TextBox` ve `Html.Editor` değil (bunlar ifade adlarının kullanın).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()`ve `@Html.EditorFor()` özel bir kullanmak `ViewDataDictionary` adlı girdi `htmlAttributes` kendi varsayılan şablonları yürütülürken. Bu davranış kullanarak isteğe bağlı olarak engagement'ta `additionalViewData` parametreleri. Anahtarı "htmlAttributes" büyük/küçük harf duyarlıdır. "HtmlAttributes" anahtar benzer şekilde işlenir `htmlAttributes` nesnesi geçirildi gibi Yardımcıları giriş `@Html.TextBox()`.
+`@Html.Editor()` ve `@Html.EditorFor()` özel bir kullanmak `ViewDataDictionary` adlı girdi `htmlAttributes` kendi varsayılan şablonları yürütülürken. Bu davranış kullanarak isteğe bağlı olarak engagement'ta `additionalViewData` parametreleri. Anahtarı "htmlAttributes" büyük/küçük harf duyarlıdır. "HtmlAttributes" anahtar benzer şekilde işlenir `htmlAttributes` nesnesi geçirildi gibi Yardımcıları giriş `@Html.TextBox()`.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
@@ -188,6 +188,13 @@ Aşağıdaki oluşturur:
 ```
 
 Koleksiyon Özellikleri ile `asp-for="CollectionProperty[23].Member"` aynı adı taşıyan oluşturur `asp-for="CollectionProperty[i].Member"` zaman `i` değerine sahip `23`.
+
+
+Ne zaman ASP.NET Core MVC hesaplar değerini `ModelExpression`, dahil olmak üzere çeşitli kaynaklardan inceler `ModelState` ve `ViewData`. Göz önünde bulundurun `<input type="text" asp-for="@Name" />`. Hesaplanan değeri `asp-for` null olmayan aşağıdaki ilk:
+
+* `ModelState` "Name" anahtarla girişi.
+* `ViewData` "Name" anahtarla girişi.
+* İfadenin sonucu `Model.Name`.
 
 ### <a name="navigating-child-properties"></a>Alt özellikleri gezinme
 
@@ -260,7 +267,7 @@ Aşağıdaki Razor, koleksiyon üzerinde yinelenecek gösterilmektedir:
 
 * Güçlü yazarak sağlar.
 
-* HTML Yardımcısı alternatif:`Html.TextAreaFor`
+* HTML Yardımcısı alternatif: `Html.TextAreaFor`
 
 Örnek:
 
@@ -322,7 +329,7 @@ Oluşturulan etiket etiket Yardımcısı `for` kimliği "e" öznitelik değeri i
 
 * Doğrulama sunucuda da gerçekleşir. İstemcileri JavaScript devre dışı olabilir ve bazı doğrulaması yalnızca sunucu tarafında yapılabilir.
 
-* HTML Yardımcısı alternatif:`Html.ValidationMessageFor`
+* HTML Yardımcısı alternatif: `Html.ValidationMessageFor`
 
 `Validation Message Tag Helper` İle kullanılan `asp-validation-for` bir HTML özniteliğinin [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesi.
 
@@ -356,7 +363,7 @@ Genellikle kullandığınız `Validation Message Tag Helper` sonra bir `Input` a
 
 * Hedefleri `<div>` öğeleriyle `asp-validation-summary` özniteliği
 
-* HTML Yardımcısı alternatif:`@Html.ValidationSummary`
+* HTML Yardımcısı alternatif: `@Html.ValidationSummary`
 
 `Validation Summary Tag Helper` Doğrulama iletilerinin bir özetini görüntülemek için kullanılır. `asp-validation-summary` Öznitelik değeri aşağıdakilerden biri olabilir:
 
@@ -399,7 +406,7 @@ Oluşturulan HTML (model geçerli olduğunda):
 
 * Oluşturur [seçin](https://www.w3.org/wiki/HTML/Elements/select) ve ilişkili [seçeneği](https://www.w3.org/wiki/HTML/Elements/option) modelinizi özelliklerini için öğeleri.
 
-* HTML Yardımcısı alternatif sahip `Html.DropDownListFor` ve`Html.ListBoxFor`
+* HTML Yardımcısı alternatif sahip `Html.DropDownListFor` ve `Html.ListBoxFor`
 
 `Select Tag Helper` `asp-for` Modeli özellik adını belirtir [seçin](https://www.w3.org/wiki/HTML/Elements/select) öğesi ve `asp-items` belirtir [seçeneği](https://www.w3.org/wiki/HTML/Elements/option) öğeleri.  Örneğin:
 
