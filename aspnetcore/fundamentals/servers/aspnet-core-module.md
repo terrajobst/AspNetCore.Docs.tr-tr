@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 4337bc42c5454d6a9634a396d9c89f3518af148b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cf02604f2a2f0eba496d0df5c4662f169d044c74
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>ASP.NET çekirdeği modülü için giriş
 
@@ -56,8 +56,12 @@ Bu bölümde, bir IIS sunucusu ve ASP.NET Core uygulama ayarlama işlemine genel
 
 ### <a name="install-ancm"></a>ANCM yükleyin
 
+ANCM, Windows Server IIS ve IIS Express'te Windows masaüstü işletim sistemlerinde yüklenir. Sunucuları ve geliştirme makineler için ANCM dahil [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting). Visual Studio yüklüyorsanız, ANCM IIS Express (ve IIS, makinedeki varsa) otomatik olarak yüklenir.
 
-ASP.NET çekirdeği modülü IIS sunucularınızda ve IIS Express geliştirme makinelerde yüklü gerekir. Sunucular için ANCM dahil [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting). Makinede zaten yüklü geliştirme makineler için Visual Studio otomatik olarak ANCM IIS ve IIS Express de yükler.
+### <a name="net-core-windows-server-hosting-bundle"></a>.NET core Windows Server barındırma paket
+
+[.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting) .NET çekirdeği çalışma zamanı, .NET Core kitaplığı ve ANCM yükler. Daha fazla bilgi için bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](
+xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
 
 ### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet paketini yükleyin
 

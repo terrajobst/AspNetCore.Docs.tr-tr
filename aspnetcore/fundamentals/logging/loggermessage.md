@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: bae970c916518070faea8a06a7bccc3da20cfeff
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: a67e610150e36165a72a2e8957b33ce7d5741936
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
@@ -21,10 +21,10 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 [LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) özellikler oluşturmak daha az nesne ayırmaları gerektiren ve hesaplama ek yükü daha azaltılmış alınabilir Temsilciler [Günlükçü genişletme yöntemleri](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), gibi `LogInformation`, `LogDebug`ve `LogError`. Yüksek performanslı günlük kaydı senaryoları için kullanmak `LoggerMessage` düzeni.
 
-`LoggerMessage`Günlükçü genişletme yöntemleri aşağıdaki performans avantajları sunar:
+`LoggerMessage` Günlükçü genişletme yöntemleri aşağıdaki performans avantajları sunar:
 
 * Günlükçü genişletme yöntemleri gerektirir "kutulama (dönüştürme)" değer türleri gibi `int`, içine `object`. `LoggerMessage` Düzeni statik kullanarak kutulama önler `Action` alanları ve kesin türü belirtilmiş parametrelerle genişletme yöntemleri.
-* Günlükçü genişletme yöntemleri, her saat bir günlük iletisi yazılır iletisi şablonunu (adlandırılmış biçim dizesi) ayrıştırma gerekir. `LoggerMessage`yalnızca ileti tanımlandığında şablon kez ayrıştırma gerektirir.
+* Günlükçü genişletme yöntemleri, her saat bir günlük iletisi yazılır iletisi şablonunu (adlandırılmış biçim dizesi) ayrıştırma gerekir. `LoggerMessage` yalnızca ileti tanımlandığında şablon kez ayrıştırma gerektirir.
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -32,7 +32,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 ## <a name="loggermessagedefine"></a>LoggerMessage.Define
 
-[(LogLevel, olay kimliği, dize) tanımlamak](/dotnet/api/microsoft.extensions.logging.loggermessage.define) oluşturur bir `Action` temsilci bir ileti günlüğe kaydetme için. `Define`aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla altı türü parametreleri geçirme izin verir.
+[(LogLevel, olay kimliği, dize) tanımlamak](/dotnet/api/microsoft.extensions.logging.loggermessage.define) oluşturur bir `Action` temsilci bir ileti günlüğe kaydetme için. `Define` aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla altı türü parametreleri geçirme izin verir.
 
 Sağlanan dize `Define` yöntemdir bir şablon ve Ara değerli bir dize değil. Yer tutucu türleri belirttiğiniz sırayla doldurulur. Yer tutucu adları şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar özellik adları yapılandırılmış günlük verileri içinde işlevini görür. Öneririz [Pascal büyük/küçük harf](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
 
@@ -60,7 +60,7 @@ Günlüğe kaydetme zenginleştirmek için olay kimliği ile sağlandığında y
 
 [!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
-`IndexPageRequested`Günlükçü olarak adlandırılan `OnGetAsync` yönteminde *Pages/Index.cshtml.cs*:
+`IndexPageRequested` Günlükçü olarak adlandırılan `OnGetAsync` yönteminde *Pages/Index.cshtml.cs*:
 
 [!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
@@ -135,7 +135,7 @@ Parameter name: entity
 
 ## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
 
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) oluşturur bir `Func` temsilci seçme tanımlamak için bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes). `DefineScope`aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla üç türü parametreleri geçirme izin verir.
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) oluşturur bir `Func` temsilci seçme tanımlamak için bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes). `DefineScope` aşırı yüklemeleri adlandırılmış biçim dizesine (şablonu) en fazla üç türü parametreleri geçirme izin verir.
 
 İle olduğu gibi `Define` yöntemi, için sağlanan dize `DefineScope` yöntemdir bir şablon ve Ara değerli bir dize değil. Yer tutucu türleri belirttiğiniz sırayla doldurulur. Yer tutucu adları şablonundaki şablonlar arasında açıklayıcı ve tutarlı olmalıdır. Bunlar özellik adları yapılandırılmış günlük verileri içinde işlevini görür. Öneririz [Pascal büyük/küçük harf](/dotnet/standard/design-guidelines/capitalization-conventions) yer tutucu adları için. Örneğin, `{Count}`, `{FirstName}`.
 
@@ -145,7 +145,7 @@ Tanımlayan bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes) g�
 
 Etkinleştirme `IncludeScopes` konsol Günlükçü seçenekleri:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
+[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Ayarı `IncludeScopes` ASP.NET Core 2.0 uygulamalarında günlük kapsamları etkinleştirmek için gereklidir. Ayarı `IncludeScopes` aracılığıyla *appsettings* yapılandırma dosyaları için ASP.NET Core 2.1 yayın planladığını bir özelliktir.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 144af8e93bb935d07fd064d5f45b40faea4a2664
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure uygulama Hizmeti'nde ASP.NET Core sorun giderme
 
@@ -37,6 +37,14 @@ Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama 
 Uygulamayı başlatır, ancak bir hata, isteği yerine getirmesini sunucu engeller.
 
 Bu hata uygulamanın kodunu içinde başlatma sırasında veya bir yanıt oluşturma sırasında oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğüne genellikle uygulamanın normal olarak başlatıldığını belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulamayı başlatmak, ancak geçerli bir yanıt oluşturulamıyor. [Uygulama Kudu konsolunda çalıştırma](#run-the-app-in-the-kudu-console) veya [ASP.NET Core modül stdout günlüğünü etkinleştirir](#aspnet-core-module-stdout-log) sorunu gidermek için.
+
+**Bağlantı sıfırlama**
+
+Üstbilgileri gönderildikten sonra bir hata oluşursa, sunucunun göndermek için çok geç bir **500 İç sunucu hatası** bir hata oluştuğunda. Bu durum, genellikle yanıt karmaşık nesne seri hale getirme sırasında bir hata ortaya çıktığında oluşur. Bu tür hatalara görünür bir *bağlantı sıfırlama* istemci hatası. [Uygulama günlüğü](xref:fundamentals/logging/index) bu tür hataların gidermenize yardımcı olacak.
+
+## <a name="default-startup-limits"></a>Varsayılan başlangıç sınırları
+
+ASP.NET çekirdeği modülü ile bir varsayılan yapılandırılmış *startupTimeLimit* 120 saniye. Varsayılan değer olarak bırakılırsa, bir uygulama modülü bir işlem hatası oturum önce başlatmak için iki dakika sürebilir. Modül yapılandırma hakkında daha fazla bilgi için bkz: [aspNetCore öğesinin özniteliklerini](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Uygulama başlangıç hatalarında sorun giderme
 
@@ -65,10 +73,9 @@ Birçok başlatma hataları yararlı bilgiler uygulama olay günlüğü'ndeki ü
 1. Seçin **Gelişmiş Araçlar** dikey penceresinde **geliştirme araçları** alanı. Seçin **Git&rarr;**  düğmesi. Kudu konsol, yeni bir tarayıcı sekmesinde veya penceresinde açılır.
 1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
 1. Yolun klasörlere açmak **site** > **wwwroot**.
-1. Konsolda, uygulamanın derleme yürüterek uygulama çalıştırma *dotnet.exe*. Aşağıdaki komutta, uygulamanın derleme adı yerine `<assembly_name>`:
-   ```console
-   dotnet .\<assembly_name>.dll
-   ```
+1. Konsolda, uygulamanın derleme yürüterek uygulamayı çalıştırın.
+   * Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), uygulamanın derleme çalıştırmak *dotnet.exe*. Aşağıdaki komutta, uygulamanın derleme adı yerine `<assembly_name>`: `dotnet .\<assembly_name>.dll`
+   * Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd)çalıştırın uygulama yürütülebilir. Aşağıdaki komutta, uygulamanın derleme adı yerine `<assembly_name>`: `<assembly_name>.exe`
 1. Herhangi bir hata gösteren uygulamadan çıktı konsol Kudu konsola varsayılır.
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core modül stdout günlük
@@ -104,13 +111,16 @@ ASP.NET Core modül stdout günlük genellikle uygulama olay günlüğüne bulun
 
 Bkz: [ASP.NET Core ortak hataları referans](xref:host-and-deploy/azure-iis-errors-reference). Uygulama başlangıç önlemek yaygın sorunların çoğunu başvuru konuda ele alınmıştır.
 
-## <a name="process-dump-for-a-slow-or-hanging-app"></a>Yavaş ya da asılı uygulaması için işlem dökümü
+## <a name="slow-or-hanging-app"></a>Yavaş ya da asılı uygulama
 
 Bir uygulama yavaş yanıt ya da bir istekte askıda bkz [sorun giderme yavaş web uygulaması performans sorunlarını Azure App Service'te](/azure/app-service/app-service-web-troubleshoot-performance-degradation) Kılavuzu hata ayıklama için.
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama
 
-Bkz: [uzaktan hata ayıklama web uygulamaları sorunlarını giderme Visual Studio kullanarak Azure App Service web uygulamasında bölümünü](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) Azure belgelerinde.
+Aşağıdaki konulara bakın:
+
+* [Uzaktan hata ayıklama Web uygulamaları sorunlarını giderme Visual Studio kullanarak Azure App Service web uygulamasında bölümünü](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) (Azure belgelerine)
+* [Visual Studio 2017 Azure'da IIS üzerinde uzaktan hata ayıklama ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) (Visual Studio belgelerinde)
 
 ## <a name="application-insights"></a>Application Insights
 

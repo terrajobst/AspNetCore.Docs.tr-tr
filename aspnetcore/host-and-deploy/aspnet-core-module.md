@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET çekirdeği modülü yapılandırma başvurusu
 
@@ -41,7 +41,7 @@ ASP.NET çekirdeği modülü bir site veya uygulama yapılandırılır *web.conf
 </configuration>
 ```
 
-*Web.config* aşağıdaki örnek olduğu için bir [müstakil dağıtım](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) için [Azure App Service](https://azure.microsoft.com/services/app-service/). Daha fazla bilgi için bkz: [IIS ile Windows konakta](xref:host-and-deploy/iis/index). Bkz: [alt uygulama yapılandırma](xref:host-and-deploy/iis/index#configuration-of-sub-applications) yapılandırmasındaki ilgili önemli bir not için *web.config* alt uygulamalarında dosyaları.
+*Web.config* aşağıdaki örnek olduğu için bir [müstakil dağıtım](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) için [Azure App Service](https://azure.microsoft.com/services/app-service/). Daha fazla bilgi için bkz: [IIS ile Windows konakta](xref:host-and-deploy/iis/index). Bkz: [alt uygulama yapılandırma](xref:host-and-deploy/iis/index#sub-application-configuration) yapılandırmasındaki ilgili önemli bir not için *web.config* alt uygulamalarında dosyaları.
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ ASP.NET çekirdeği modülü bir site veya uygulama yapılandırılır *web.conf
 
 Belirtilen işlem için ortam değişkenleri belirttiğiniz ASP.NET Core modülü sağlar `processPath` bir veya daha fazla belirterek özniteliği `environmentVariable` alt öğelerinin bir `environmentVariables` koleksiyon öğesi altında `aspNetCore` öğesi. Ortam değişkenleri Bu bölümde ayarlama işlemi için ortam değişkenleri sistem önceliklidir.
 
-Aşağıdaki örnekte, iki ortam değişkenlerini ayarlar. `ASPNETCORE_ENVIRONMENT`uygulamanın ortamına yapılandıracak `Development`. Bir geliştirici geçici olarak bu değer kümesinde *web.config* zorlamak için dosya [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling) bir uygulama özel durum hata ayıklama sırasında yüklenecek. `CONFIG_DIR`bir kullanıcı tanımlı ortam değişkeni Geliştirici uygulamanın yapılandırma dosyasını yüklemek için bir yol oluşturmak için başlangıç değerini okuma yapacak kodu yazıldığı örneğidir.
+Aşağıdaki örnekte, iki ortam değişkenlerini ayarlar. `ASPNETCORE_ENVIRONMENT` uygulamanın ortamına yapılandıracak `Development`. Bir geliştirici geçici olarak bu değer kümesinde *web.config* zorlamak için dosya [Geliştirici özel durum sayfasında](xref:fundamentals/error-handling) bir uygulama özel durum hata ayıklama sırasında yüklenecek. `CONFIG_DIR` bir kullanıcı tanımlı ortam değişkeni Geliştirici uygulamanın yapılandırma dosyasını yüklemek için bir yol oluşturmak için başlangıç değerini okuma yapacak kodu yazıldığı örneğidir.
 
 ```xml
 <aspNetCore processPath="dotnet"

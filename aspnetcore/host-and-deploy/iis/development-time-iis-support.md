@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği
 
 Göre: [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-Bu makalede [Visual Studio](https://www.visualstudio.com/vs/) destekleyen IIS Windows Server'da çalışan ASP.NET Core uygulamalarında hata ayıklama için. Bu konu, bu özelliği etkinleştirmek ve bir projeyi ayarını size yol göstermektedir.
+Bu makalede [Visual Studio](https://www.visualstudio.com/vs/) hata ayıklama IIS Windows Server'da çalışan ASP.NET Core uygulamaları için destek. Bu konu, bu özelliği etkinleştirmek ve bir projeyi ayarını size yol göstermektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -37,7 +37,7 @@ IIS yüklemesi bir yeniden başlatma gerektirirse, sistemi yeniden başlatın.
 
 ## <a name="enable-development-time-iis-support"></a>Geliştirme zamanı IIS desteğini etkinleştir
 
-IIS yüklendikten sonra Visual Studio yükleyicisi, var olan Visual Studio yüklemeyi değiştirmek için başlatın. Yükleyicisi'nde seçin **IIS desteği geliştirme zamanı** bileşeni. Bileşen isteğe bağlı bir bileşen olarak listelenen **Özet** için panel **ASP.NET ve web geliştirme** iş yükü. Bu yükler [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), ASP.NET Core uygulamaları çalıştırmak için gereken bir yerel IIS modül olduğu.
+Visual Studio yükleyicisi başlatın. Seçin **IIS desteği geliştirme zamanı** bileşeni. Bileşen, isteğe bağlı olarak listelenen **Özet** için panel **ASP.NET ve web geliştirme** iş yükü. Bu yükler [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), yerel bir IIS modül ASP.NET Core uygulamaları çalıştırmak için gerekli olduğu.
 
 ![Visual Studio özellikleri değiştirme: iş yükleri sekmesi seçilmiştir. Web ve bulut bölümünde, ASP.NET ve web geliştirme panelinde seçilir. İsteğe bağlı alan Özet bölmenin sağ tarafta IIS desteği geliştirme zamanı için bir onay kutusu yok.](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ Alternatif olarak, bir başlatma profili el ile eklemeniz [launchSettings.json](
 ```
 
 Visual Studio, bir yönetici olarak çalışmıyor, yeniden başlatma isteyebilir. İstenirse, Visual Studio'yu yeniden başlatın.
-
-Tebrikler! Bu noktada, geliştirme zamanı IIS desteği için proje yapılandırılır. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

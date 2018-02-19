@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 752fa03b0cfc85fee2d945e5f65d94c01119d32e
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 646793337037db25a321d273e10565770d76f202
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -189,11 +189,9 @@ Aşağıdaki oluşturur:
 
 Koleksiyon Özellikleri ile `asp-for="CollectionProperty[23].Member"` aynı adı taşıyan oluşturur `asp-for="CollectionProperty[i].Member"` zaman `i` değerine sahip `23`.
 
-
-Ne zaman ASP.NET Core MVC hesaplar değerini `ModelExpression`, dahil olmak üzere çeşitli kaynaklardan inceler `ModelState` ve `ViewData`. Göz önünde bulundurun `<input type="text" asp-for="@Name" />`. Hesaplanan değeri `asp-for` null olmayan aşağıdaki ilk:
+Ne zaman ASP.NET Core MVC hesaplar değerini `ModelExpression`, dahil olmak üzere çeşitli kaynaklardan inceler `ModelState`. Göz önünde bulundurun `<input type="text" asp-for="@Name" />`. Hesaplanan `value` özniteliktir değeri null olmayan gelen:
 
 * `ModelState` "Name" anahtarla girişi.
-* `ViewData` "Name" anahtarla girişi.
 * İfadenin sonucu `Model.Name`.
 
 ### <a name="navigating-child-properties"></a>Alt özellikleri gezinme
