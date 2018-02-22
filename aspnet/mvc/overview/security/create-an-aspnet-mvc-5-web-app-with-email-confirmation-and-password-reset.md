@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 5689031015279484cc616090a767a8c25eefa3c1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/20/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Onay ve parola sıfırlama (C#) e-posta ile oturum açma, Güvenli ASP.NET MVC 5 web uygulaması oluşturma
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici, e-posta onayı ve parola sıfırlama ASP.NET Identity üyelik sistemini kullanarak bir ASP.NET MVC 5 web uygulamasının nasıl oluşturulacağını gösterir. Tamamlanan uygulama indirebilirsiniz [burada](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). Yükleme, bir e-posta veya SMS Sağlayıcısı ayarlamadan test e-posta onayı ve SMS izin hata ayıklama Yardımcıları içerir.
 > 
@@ -65,7 +65,7 @@ Bu öğretici yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, anc
 1. Paket Yöneticisi konsolunda aşağıdaki girin aşağıdaki komutu: 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
-2. Git [Azure SendGrid kayıt sayfasını](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) ve ücretsiz SendGrid hesabı kaydedin. SendGrid yapılandırmak için aşağıdaki kodu ekleyin:
+2. Git [Azure SendGrid kayıt sayfasını](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) ve boş bir SendGrid hesabına kaydolun. SendGrid aşağıdakine benzer bir kod ekleyerek yapılandırma *App_Start/IdentityConfig.cs*:
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample2.cs?highlight=3,5)]
 
@@ -102,7 +102,7 @@ E-posta hesabınızı denetleyin ve e-postanızı onaylamak için bağlantıyı 
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample7.cs?highlight=14-15,23-30)]
 
-Out yorum tarafından `SignInAsync` yöntemi, kullanıcı tarafından kayıt oturum açacaksınız değil. `TempData["ViewBagLink"] = callbackUrl;` Satır için kullanılan olabilir [uygulama hata ayıklama](#dbg) ve test kayıt e-posta göndermeden. `ViewBag.Message`Onayla yönergeleri görüntülemek için kullanılır. [Örnek indirme](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952) e-posta onayı e-posta ayarlamadan test etmek için kodunu içerir ve uygulamanın hata ayıklamak için de kullanılabilir.
+Out yorum tarafından `SignInAsync` yöntemi, kullanıcı tarafından kayıt oturum açacaksınız değil. `TempData["ViewBagLink"] = callbackUrl;` Satır için kullanılan olabilir [uygulama hata ayıklama](#dbg) ve test kayıt e-posta göndermeden. `ViewBag.Message` Onayla yönergeleri görüntülemek için kullanılır. [Örnek indirme](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952) e-posta onayı e-posta ayarlamadan test etmek için kodunu içerir ve uygulamanın hata ayıklamak için de kullanılabilir.
 
 Oluşturma bir `Views\Shared\Info.cshtml` dosya ve aşağıdaki razor biçimlendirmeyi ekleyin:
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 7e5832f43155aa8aac07a4c8534700aed48fe57d
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: f85efe029baa07d963587dcd02a2c07da40de103
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET çekirdek barındırma
 
@@ -865,28 +865,19 @@ public class Startup
 }
 ```
 
-[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) uygulama sonlandırılması ister. Aşağıdaki [Razor sayfalarının](xref:mvc/razor-pages/index) sayfasında modelinin sınıfı kullandığı `StopApplication` düzgün biçimde kapatma bir uygulama için. `OnPostShutdown` Yöntemi yürütüldükten sonra **kapatma** düğmesinin kullanıcı arabiriminde seçili:
-
-```cshtml
-<button type="submit" asp-page-handler="Shutdown" class="btn btn-default">Shutdown</button>
-```
+[StopApplication](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.stopapplication) uygulama sonlandırılması ister. Aşağıdaki sınıf kullanır `StopApplication` düzgün biçimde kapatma bir uygulama için zaman sınıfının `Shutdown` yöntemi çağrılır:
 
 ```csharp
-public class IndexModel : PageModel
+public class MyClass
 {
     private readonly IApplicationLifetime _appLifetime;
 
-    public IndexModel(IApplicationLifetime appLifetime)
+    public MyClass(IApplicationLifetime appLifetime)
     {
         _appLifetime = appLifetime;
     }
 
-    public void OnGet()
-    {
-        ...
-    }
-
-    public void OnPostShutdown()
+    public void Shutdown()
     {
         _appLifetime.StopApplication();
     }

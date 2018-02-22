@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: a6bd81a4e5796c1d0a0033c2b8d5a6ba9282564c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="introduction"></a>Giriş
 
@@ -25,8 +25,10 @@ Yetkilendirme resme ve bağımsız olan bir kullanıcı ascertaining işlemidir 
 
 ## <a name="authorization-types"></a>Yetkilendirme türleri
 
-ASP.NET Core yetkilendirme sağlayan basit bir bildirim temelli [rol](roles.md) ve [zengin ilke tabanlı](policies.md) modeli. Yetkilendirme gereksinimleri ifade edilir ve gereksinimleri karşı bir kullanıcının talebi işleyicileri değerlendirin. Kesinlik temelli denetimleri basit ve kullanıcı kimliğine ve kullanıcının erişmeye çalıştığı kaynak özelliklerini değerlendirmek ilkelerindeki üzerinde temel alabilir.
+ASP.NET Core yetkilendirme sağlayan basit, bildirim temelli [rol](roles.md) ve zengin bir [ilke tabanlı](policies.md) modeli. Yetkilendirme gereksinimleri ifade edilir ve gereksinimleri karşı bir kullanıcının talebi işleyicileri değerlendirin. Kesinlik temelli denetimleri basit ve kullanıcı kimliğine ve kullanıcının erişmeye çalıştığı kaynak özelliklerini değerlendirmek ilkelerindeki üzerinde temel alabilir.
 
 ## <a name="namespaces"></a>Ad Alanları
 
 Yetkilendirme bileşenleri de dahil olmak üzere, `AuthorizeAttribute` ve `AllowAnonymousAttribute` içinde bulunan öznitelikler `Microsoft.AspNetCore.Authorization` ad alanı.
+
+Üzerinde belgelere [basit yetkilendirme](xref:security/authorization/simple).

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: cf7dcdb80f5edf9e10960cb08957793c36829a69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0ec223ce06ff116c36182b8de507138e96a277a4
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="configure-identity"></a>Kimliği yapılandırmak
 
@@ -35,7 +35,7 @@ ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NE
 
 ---
 
-`IdentityOptions.Password`aşağıdaki özelliklere sahiptir:
+`IdentityOptions.Password` aşağıdaki özelliklere sahiptir:
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
@@ -51,7 +51,7 @@ ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NE
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
 
-`IdentityOptions.Lockout`aşağıdaki özelliklere sahiptir:
+`IdentityOptions.Lockout` aşağıdaki özelliklere sahiptir:
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
@@ -63,7 +63,7 @@ ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NE
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
 
-`IdentityOptions.SignIn`aşağıdaki özelliklere sahiptir:
+`IdentityOptions.SignIn` aşağıdaki özelliklere sahiptir:
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
@@ -74,7 +74,7 @@ ASP.NET Core eklenen 2.0 `RequiredUniqueChars` özelliği. Aksi takdirde, ASP.NE
 
 [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
 
-`IdentityOptions.User`aşağıdaki özelliklere sahiptir:
+`IdentityOptions.User` aşağıdaki özelliklere sahiptir:
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
@@ -98,7 +98,7 @@ Altında `ConfigureServices` içinde `Startup` sınıfı, uygulamanın tanımlam
 
 ---
 
-`CookieAuthenticationOptions`aşağıdaki özelliklere sahiptir:
+`CookieAuthenticationOptions` aşağıdaki özelliklere sahiptir:
 
 | Özellik                | Açıklama                       | Varsayılan |
 | ----------------------- | --------------------------------- | ------- |
@@ -107,8 +107,8 @@ Altında `ConfigureServices` içinde `Startup` sınıfı, uygulamanın tanımlam
 | `ExpireTimeSpan`  | Kimlik doğrulaması bileti tanımlama bilgisinde saklanan ne kadar süre oluşturulduğu noktadan itibaren geçerli kalacağını denetler.  | 14 gün  |
 | `LoginPath`  | Bir kullanıcı yetkisiz olduğunda, bu oturum açma yoluna yönlendirilir. | / Hesap/oturum açma  |
 | `LogoutPath`  | Bir kullanıcı oturum açıldığında, bu yolu yönlendirilir.  | / Hesap/oturum kapatma  |
-| `AccessDeniedPath`  | Bir kullanıcı bir yetkilendirme denetim başarısız olduğunda, bu yolu yönlendirilir.  |   |
-| `SlidingExpiration`  | Doğru olduğunda, yeni bir tanımlama bilgisi zaman geçerli tanımlama bilgisi sona erme penceresinin yarısından fazlasını ilerlemiş yeni bir sona erme saati ile verilir.  | /Account/AccessDenied |
-| `ReturnUrlParameter`  | Bir 401 yetkilendirilmedi durum kodu oturum açma yoluna 302 yeniden yönlendirme olarak değiştirildiğinde, hangi ara yazılım tarafından eklenen sorgu dizesi parametresinin adını belirler.  |  true |
+| `AccessDeniedPath`  | Bir kullanıcı bir yetkilendirme denetim başarısız olduğunda, bu yolu yönlendirilir.  |  /Account/AccessDenied |
+| `SlidingExpiration`  | Doğru olduğunda, yeni bir tanımlama bilgisi zaman geçerli tanımlama bilgisi sona erme penceresinin yarısından fazlasını ilerlemiş yeni bir sona erme saati ile verilir.  | true |
+| `ReturnUrlParameter`  | Bir 401 yetkilendirilmedi durum kodu oturum açma yoluna 302 yeniden yönlendirme olarak değiştirildiğinde, hangi ara yazılım tarafından eklenen sorgu dizesi parametresinin adını belirler.  | ReturnUrl |
 | `AuthenticationScheme`  | Bu yalnızca ASP.NET Core için ilgili 1.x. Belirli kimlik doğrulaması düzeni için mantıksal adı. |  |
 | `AutomaticAuthenticate`  | Bu bayrak yalnızca ASP.NET Core için ilgili 1.x. Doğru olduğunda, tanımlama bilgisi kimlik doğrulamasını her istek çalıştırın ve oluşturulan herhangi bir seri hale getirilmiş asıl yeniden yapılandırma ve doğrulama girişimi.  |  |

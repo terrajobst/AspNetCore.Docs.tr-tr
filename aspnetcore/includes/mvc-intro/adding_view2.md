@@ -14,11 +14,11 @@ Tarayıcı pencerenizi (örneğin bir mobil cihazda) küçükse, geçiş (tap) g
 
 Menü Bağlantılar'a dokunun (**MvcMovie**, **giriş**, **hakkında**). Her bir sayfa aynı menü düzeni gösterilir. Menü düzeni uygulanan *Views/Shared/_Layout.cshtml* dosya. Açık *Views/Shared/_Layout.cshtml* dosya.
 
-[Düzen](xref:mvc/views/layout) şablonları tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody`olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, *Sarmalanan* düzeni sayfasında. Örneğin, **hakkında** bağlantı **Views/Home/About.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
+[Düzen](xref:mvc/views/layout) şablonları tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody` olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, *Sarmalanan* düzeni sayfasında. Örneğin, **hakkında** bağlantı **Views/Home/About.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Düzen dosyasını başlığı ve menü bağlantıyı değiştirme
 
-Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metinde değiştirmek `MvcMovie` için `Mvc Movie` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
+Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metinde değiştirmek `MvcMovie` için `Movie App` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
 
 Not: ASP.NET Core 2.0 sürümü biraz farklıdır. Bunu içermiyor `@inject ApplicationInsights` ve `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -64,7 +64,7 @@ Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri b
 <p>Hello from our View Template!</p>
 ```
 
-`ViewData["Title"] = "Movie List";`ayarlar yukarıdaki kodda `Title` özelliği `ViewData` "Film listesine" sözlük. `Title` Özelliği kullanılıyor `<title>` HTML öğesi düzeni sayfasında:
+`ViewData["Title"] = "Movie List";` ayarlar yukarıdaki kodda `Title` özelliği `ViewData` "Film listesine" sözlük. `Title` Özelliği kullanılıyor `<title>` HTML öğesi düzeni sayfasında:
 
 
 ```HTML

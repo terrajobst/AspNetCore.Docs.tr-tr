@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: bf1c895fc972310d5541d0098226d58b8183e320
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b34fd9ad8ae895087dba13f5ebcdcfd3fbb74667
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Sayfa yönlendirme, bulma ve Razor sayfalarının uygulamaları işlemede denetlemek için sayfa yol ve uygulama modeli sağlayıcı kuralı özellikleri kullanmayı öğrenin. Tek tek sayfaları, özel sayfa yolları gerektiğinde sayfalarıyla için yönlendirmeyi yapılandırma [AddPageRoute kuralı](#configure-a-page-route) bu konunun ilerleyen bölümlerinde açıklanan.
+Sayfa kullanmayı öğrenin [yol ve uygulama model sağlayıcısı kuralı](xref:mvc/controllers/application-model#conventions) denetim özellikleri sayfasında yönlendirme, bulma ve Razor sayfalarının uygulamalarda işleme. Tek tek sayfaları, özel sayfa yolları gerektiğinde sayfalarıyla için yönlendirmeyi yapılandırma [AddPageRoute kuralı](#configure-a-page-route) bu konunun ilerleyen bölümlerinde açıklanan.
 
-Kullanım [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) Bu konuda açıklanan özellikleri keşfetmek için.
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 | Özellikler | Örnek gösterir... |
 | -------- | --------------------------- |
@@ -32,7 +32,7 @@ Kullanım [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnet
 
 ## <a name="add-route-and-app-model-conventions"></a>Yol ve uygulama modeli kuralları ekleme
 
-Bir temsilci Ekle [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) Razor sayfalara Uygula yol ve uygulama modeli kuralları eklemek için.
+Bir temsilci Ekle [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) eklemek için [yol ve uygulama modeli kuralları](xref:mvc/controllers/application-model#conventions) Razor sayfalara uygulayın.
 
 **Tüm sayfalar için bir yol modeli Kuralı Ekle**
 
@@ -45,7 +45,7 @@ Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpage
 > [!NOTE]
 > `Order` Özelliği için `AttributeRouteModel` ayarlanır `0` (sıfır). Bu, bu şablonu bir tek yönlendirme değeri sağlandığında ilk rota veri değeri konumunun öncelik verilir sağlar. Örneğin, örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verilen bir `Order` , `1`. Ne zaman hakkında sayfa istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
-*Startup.cs*:
+Razor sayfalarının seçenekleri ekleme gibi [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), MVC hizmet koleksiyonunda eklendiğinde eklenen `Startup.ConfigureServices`. Bir örnek için bkz: [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
@@ -107,7 +107,7 @@ Kullanım [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.app
 
 ## <a name="configure-a-page-route"></a>Bir sayfa yolunu Yapılandır
 
-Kullanım [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) belirtilen sayfa yolda bir rota bir sayfaya yapılandırmak için. Belirtilen rota sayfasına oluşturulan bağlantıları kullanın. `AddPageRoute`kullanan `AddPageRouteModelConvention` rota oluşturmak için.
+Kullanım [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.addpageroute) belirtilen sayfa yolda bir rota bir sayfaya yapılandırmak için. Belirtilen rota sayfasına oluşturulan bağlantıları kullanın. `AddPageRoute` kullanan `AddPageRouteModelConvention` rota oluşturmak için.
 
 Örnek uygulama için bir yol oluşturur `/TheContactPage` için *Contact.cshtml*:
 
@@ -171,7 +171,7 @@ Kullanım [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.m
 
 Sayfa uygulama modeli Page2 sayfası yol kesimleri için göreli yol denetlemek için kullanılır *OtherPages* klasör. Koşul geçerse, bir başlığı eklenir. Aksi takdirde, `EmptyFilter` uygulanır.
 
-`EmptyFilter`olan bir [eylem filtresi](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor sayfalarının tarafından göz ardı edilir beri `EmptyFilter` no-ops yolu içermiyor, beklendiği gibi `OtherPages/Page2`.
+`EmptyFilter` olan bir [eylem filtresi](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor sayfalarının tarafından göz ardı edilir beri `EmptyFilter` no-ops yolu içermiyor, beklendiği gibi `OtherPages/Page2`.
 
 Örnek 's Page2 sayfanın isteği `localhost:5000/OtherPages/Page2` ve sonuçları görüntülemek için üstbilgileri inceleyin:
 
@@ -266,7 +266,7 @@ Sayfa modelinde *Index.cshtml.cs* uygulama sayfaları için sıradan işleyici y
 
 Diğer yöntemlerin her biri ile işlemesi açıklar HTTP fiili başlatın. İle başlayan iki yöntem `Delete` normalde DELETE HTTP fiilleri ancak mantık olarak değerlendirilmesi `TryParseHandlerMethod` açıkça fiili POST için her iki işleyicilerini ayarlar.
 
-Unutmayın `Async` arasında isteğe bağlı olduğu `DeleteAllMessages` ve `DeleteMessageAsync`. Her iki zaman uyumsuz yöntemleri oldukları ancak kullanmayı tercih edebileceğiniz `Async` veya sonek; bunu yapmanızı öneririz. `DeleteAllMessages`Burada gösterim amacıyla kullanılmıştır, ancak böyle bir yöntem adı öneririz `DeleteAllMessagesAsync`. İşleme etkilemez örnek 's uygulaması, ancak kullanarak `Async` zaman uyumsuz bir yöntem olduğunu olgu giden çağrıları sonek.
+Unutmayın `Async` arasında isteğe bağlı olduğu `DeleteAllMessages` ve `DeleteMessageAsync`. Her iki zaman uyumsuz yöntemleri oldukları ancak kullanmayı tercih edebileceğiniz `Async` veya sonek; bunu yapmanızı öneririz. `DeleteAllMessages` Burada gösterim amacıyla kullanılmıştır, ancak böyle bir yöntem adı öneririz `DeleteAllMessagesAsync`. İşleme etkilemez örnek 's uygulaması, ancak kullanarak `Async` zaman uyumsuz bir yöntem olduğunu olgu giden çağrıları sonek.
 
 [!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
@@ -274,7 +274,7 @@ Sağlanan işleyici adlarını not edin *Index.cshtml* eşleşen `DeleteAllMessa
 
 [!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
-`Async`işleyici yöntem adı `DeleteMessageAsync` tarafından out oluşturmak `TryParseHandlerMethod` yöntemi POST isteğinin işleyici eşlemesi. `asp-page-handler` Adını `DeleteMessage` işleyici yöntemi eşleşen `DeleteMessageAsync`.
+`Async` işleyici yöntem adı `DeleteMessageAsync` tarafından out oluşturmak `TryParseHandlerMethod` yöntemi POST isteğinin işleyici eşlemesi. `asp-page-handler` Adını `DeleteMessage` işleyici yöntemi eşleşen `DeleteMessageAsync`.
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>MVC filtreleri ve sayfa filtresi (IPageFilter)
 

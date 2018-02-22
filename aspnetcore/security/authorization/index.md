@@ -1,38 +1,41 @@
 ---
 title: ASP.NET Core yetkilendirme
 author: rick-anderson
-description: "Bu belge, çeşitli ASP.NET Core yetkilendirme konular için içindekiler tablosu olarak görev yapar."
+description: "Uygulama kullanıcılara haklar ve ayrıcalıklar sağlamak açıklanmaktadır ASP.NET Core yetkilendirme konuları bulur."
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 02/19/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: ee408afab55a80d28291a3a44e0fd1513ff34e45
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/20/2018
 ---
-# <a name="authorization-in-aspnet-core-simple-role-claims-based-and-custom"></a>ASP.NET Core yetkilendirme: basit, rol, talep tabanlı ve özel
+# <a name="authorization-in-aspnet-core"></a>ASP.NET Core yetkilendirme
 
-* [Giriş](introduction.md)
+* [Giriş](xref:security/authorization/introduction)
+
+* [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
 
 * [Razor Sayfaları yetkilendirmesi](xref:security/authorization/razor-pages-authorization)
 
-* [Basit yetkilendirme](simple.md)
+* [Basit yetkilendirme](xref:security/authorization/simple)
 
-* [Rol tabanlı yetkilendirme](roles.md)
+* [Rol tabanlı yetkilendirme](xref:security/authorization/roles)
 
-* [Talep tabanlı yetkilendirme](claims.md)
+* [Talep tabanlı yetkilendirme](xref:security/authorization/claims)
 
-* [İlke tabanlı yetkilendirme](policies.md)
+* [İlke tabanlı yetkilendirme](xref:security/authorization/policies)
 
-* [Gereksinim işleyicilerine bağımlılık ekleme](dependencyinjection.md)
+* [Gereksinim işleyicilerine bağımlılık ekleme](xref:security/authorization/dependencyinjection)
 
-* [Kaynak tabanlı yetkilendirme](resourcebased.md)
+* [Kaynak tabanlı yetkilendirme](xref:security/authorization/resourcebased)
 
-* [Görünüm tabanlı yetkilendirme](views.md)
+* [Görünüm tabanlı yetkilendirme](xref:security/authorization/views)
 
-* [Şemayla kimliği sınırlama](limitingidentitybyscheme.md)
+* [Belirli bir düzeniyle yetkilendirmek](xref:security/authorization/limitingidentitybyscheme)

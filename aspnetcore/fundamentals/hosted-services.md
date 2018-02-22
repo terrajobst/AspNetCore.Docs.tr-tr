@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosted-services
-ms.openlocfilehash: 49d7780184e915bfbfd48cc9a2285f23cac20b34
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 89e595fb6ef38745d7377fdaaf1780c64320efe3
+ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core barındırılan hizmetleri ile arka plan görevleri
 
@@ -26,7 +26,7 @@ ASP.NET çekirdek arka plan görevleri olarak uygulanabilir *barındırılan hiz
 * Kapsamlı bir hizmet etkinleştirir barındırılan hizmet. Kapsamlı hizmet bağımlılık ekleme kullanabilirsiniz.
 * Sırayla çalışır sıraya alınan arka plan görevleri.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/hosted-services/samples/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/hosted-services/samples/2.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="ihostedservice-interface"></a>IHostedService interface
 
@@ -42,11 +42,11 @@ Barındırılan hizmet uygulaması başlangıçta ve düzgün biçimde kapatma u
 
 Zamanlanmış arka plan görevi kullanır [süre System.Threading.Timer](/dotnet/api/system.threading.timer) sınıfı. Görev Zamanlayıcı tetikler `DoWork` yöntemi. Zamanlayıcı devre dışı bırakıldı `StopAsync` ve hizmet kapsayıcısı üzerinde silinmediğinde `Dispose`:
 
-[!code-csharp[](hosted-services/sample/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
+[!code-csharp[](hosted-services/samples/2.x/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
 Hizmet kayıtlı `Startup.ConfigureServices`:
 
-[!code-csharp[](hosted-services/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](hosted-services/samples/2.x/Startup.cs?name=snippet1)]
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Kapsamlı bir arka plan görevi hizmetinde kullanma
 
@@ -54,37 +54,37 @@ Kapsamlı Hizmetleri içinde kullanmak için bir `IHostedService`, bir kapsamı 
 
 Kapsamlı bir arka plan görev hizmeti arka plan görevin mantığını içerir. Aşağıdaki örnekte, [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) hizmete eklenmiş:
 
-[!code-csharp[](hosted-services/sample/Services/ScopedProcessingService.cs?name=snippet1)]
+[!code-csharp[](hosted-services/samples/2.x/Services/ScopedProcessingService.cs?name=snippet1)]
 
 Barındırılan hizmet çağırmak için kapsamlı bir arka plan görev hizmeti çözümlemek için bir kapsam oluşturur, `DoWork` yöntemi:
 
-[!code-csharp[](hosted-services/sample/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
+[!code-csharp[](hosted-services/samples/2.x/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
 Hizmetleri kayıtlı `Startup.ConfigureServices`:
 
-[!code-csharp[](hosted-services/sample/Startup.cs?name=snippet2)]
+[!code-csharp[](hosted-services/samples/2.x/Startup.cs?name=snippet2)]
 
 ## <a name="queued-background-tasks"></a>Sıraya alınan arka plan görevleri
 
 Arka plan görev sırası .NET tabanlı 4.x [QueueBackgroundWorkItem](/dotnet/api/system.web.hosting.hostingenvironment.queuebackgroundworkitem) ([ASP.NET Core 2.2 yerleşik olarak kesin zamanlanmış](https://github.com/aspnet/Hosting/issues/1280)):
 
-[!code-csharp[](hosted-services/sample/Services/BackgroundTaskQueue.cs?name=snippet1)]
+[!code-csharp[](hosted-services/samples/2.x/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
 İçinde `QueueHostedService`, arka plan görevleri (`workItem`) sırasındaki kuyruktan çıkarıldı ve yürütülemiyor:
 
-[!code-csharp[](hosted-services/sample/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
+[!code-csharp[](hosted-services/samples/2.x/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
 
 Hizmetleri kayıtlı `Startup.ConfigureServices`:
 
-[!code-csharp[](hosted-services/sample/Startup.cs?name=snippet3)]
+[!code-csharp[](hosted-services/samples/2.x/Startup.cs?name=snippet3)]
 
 Dizin sayfası modeli sınıfında `IBackgroundTaskQueue` oluşturucuya eklenen ve atanan `Queue`:
 
-[!code-csharp[](hosted-services/sample/Pages/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](hosted-services/samples/2.x/Pages/Index.cshtml.cs?name=snippet1)]
 
 Zaman **Görev Ekle** düğmesi dizin sayfasında, seçili `OnPostAddTask` yöntemi yürütüldüğünde. `QueueBackgroundWorkItem` sıraya alma, iş öğesi çağrılır:
 
-[!code-csharp[](hosted-services/sample/Pages/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](hosted-services/samples/2.x/Pages/Index.cshtml.cs?name=snippet2)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
