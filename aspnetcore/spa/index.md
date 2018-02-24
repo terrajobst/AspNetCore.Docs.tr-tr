@@ -1,26 +1,26 @@
 ---
-title: "Tek sayfalı uygulama şablonları kullanın."
+title: "Tek sayfa uygulaması şablonları kullanın."
 author: SteveSandersonMS
-description: "Yükleme ve ASP.NET Core tek sayfalı uygulama (SPA) Sürüm Adayı proje şablonları kullanmaya başlama hakkında bilgi edinin."
+description: "Yükleme ve ASP.NET Core tek sayfa uygulama (SPA) proje şablonları kullanmaya başlama hakkında bilgi edinin."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 2017c2ada835eb7206dcfd195f6e2c032909f9ef
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 63b56de101199e9ea0d66d89d2dd7288e47902f6
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-single-page-application-templates-release-candidate"></a>Tek sayfalı uygulama şablonları (Sürüm Adayı) kullanın.
+# <a name="use-the-single-page-application-templates"></a>Tek sayfa uygulaması şablonları kullanın.
 
 > [!NOTE]
-> Yayımlanan .NET Core SDK Angular için tepki, proje şablonları içerir ve Redux ile tepki 2.0.x. **Bu belge, bu yayımlanmış proje şablonları hakkında değil.** Bu belge, tepki, Angular sonraki sürümü için ve erken 2018 içinde dağıtmayı umuyoruz Redux şablonları ile tepki.
+> Yayımlanan .NET Core SDK Angular için tepki, eski proje şablonları içerir ve Redux ile tepki 2.0.x. Bu belge, bu eski proje şablonları hakkında değil. Bu belge, en son Angular için tepki, olduğundan ve ASP.NET Core 2.0 el ile yüklenebilir Redux şablonları ile tepki. Şablonlar, ASP.NET Core 2.1 ile birlikte varsayılan olarak dahil edilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/11/2018
 
 ## <a name="installation"></a>Yükleme
 
-Yüklemek için aşağıdaki komutu çalıştırın **Sürüm Adayı** Angular ASP.NET Core şablonları, tepki ve Redux ile tepki:
+ASP.NET Core 2.0 Angular için güncelleştirilmiş ASP.NET Core şablonları yüklemek için aşağıdaki komutu çalıştırın, varsa, tepki ve Redux ile tepki:
 
 ```console
-dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0-rc2-final
+dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0
 ```
 
 ## <a name="use-the-templates"></a>Şablonları kullanın.

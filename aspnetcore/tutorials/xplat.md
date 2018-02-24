@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: edec4d95715ae0965a80a656e16178db0b1874cd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1b1a20eea88d4a90696deadaab340dcfb2b85b86
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="aspnet-core-cross-platform-tutorials"></a>ASP.NET Core çapraz platform öğreticileri
+# <a name="aspnet-core-cross-platform-tutorials"></a>ASP.NET Core platformlar arası öğreticileri
 
 ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar mevcuttur:
 

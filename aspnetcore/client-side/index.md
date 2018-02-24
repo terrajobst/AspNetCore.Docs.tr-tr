@@ -4,16 +4,16 @@ author: rick-anderson
 description: 
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 02/21/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/index
-ms.openlocfilehash: 41cf3ce972de5e330dbe303e6a42fe215f3ac7a5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a4b42f7f4de07351e4e9a48ebc59bab2f187cedd
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="client-side-development-in-aspnet-core"></a>ASP.NET Core istemci-tarafı geliştirme
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/30/2018
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/asp-net-core.html)
 - [Tarayıcı Bağlantısı Kullanma](xref:client-side/using-browserlink)
 - [SPA’lar için JavaScriptServices kullanma](xref:client-side/spa-services)
-- [SPA proje şablonlarını kullanma (RC)](xref:spa/index)
+- [SPA proje şablonlarını kullanın](xref:spa/index)
     - [Angular proje şablonu](xref:spa/angular)
     - [React proje şablonu](xref:spa/react)
     - [Redux ile React proje şablonu](xref:spa/react-with-redux)

@@ -1,34 +1,34 @@
 ---
 title: "Açısal proje şablonu kullanın"
 author: SteveSandersonMS
-description: "Angular ve Açısal CLI için ASP.NET Core tek sayfalı uygulama (SPA) Sürüm Adayı proje şablonu ile başlayacağınızı öğrenin."
+description: "Angular ve Açısal CLI için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Açısal proje şablonu (Sürüm Adayı) kullanın
+# <a name="use-the-angular-project-template"></a>Açısal proje şablonu kullanın
 
 > [!NOTE]
-> Bu belge hakkında yayımlanan Açısal proje şablonu değil. **Bu belge hakkında Açısal şablonunun Sürüm Adayı ' dir.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
+> Bu belge hakkında Açısal proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni Açısal hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.
 
-Güncelleştirilmiş Açısal proje şablonu, zengin, istemci tarafı kullanıcı arabirimini (UI) uygulamak için Açısal 5 ve Açısal CLI kullanarak uygulamaları ASP.NET Core için uygun bir başlama noktası sağlar.
+Güncelleştirilmiş Açısal proje şablonu, zengin, istemci tarafı kullanıcı arabirimini (UI) uygulamak için Angular ve Açısal CLI kullanarak uygulamaları ASP.NET Core için uygun bir başlama noktası sağlar.
 
 Bir API arka ucu olarak görev yapması için bir ASP.NET Core proje ve bir kullanıcı Arabirimi hareket edecek bir Açısal CLI projesi oluşturmak için şablon eşdeğerdir. Şablon tek uygulama projesinde her iki proje türleri barındırma rahatlık sunar. Sonuç olarak, uygulama projesi oluşturulur ve tek bir birim olarak yayımlandı.
 
 ## <a name="create-a-new-app"></a>Yeni uygulama oluştur
 
-Başlamak için seçtiğiniz olun [güncelleştirilmiş Açısal proje şablonu yüklü](xref:spa/index#installation). Bu yönergeler, .NET Core dahil önceki Açısal proje şablonu için geçerli olmayan 2.0.x SDK.
+ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş Açısal proje şablonu yüklü](xref:spa/index#installation). ASP.NET Core 2.1 varsa, yüklemek için gerek yoktur.
 
 Komutunu kullanarak bir komut isteminden yeni bir proje oluşturun `dotnet new angular` boş bir dizinde. Örneğin, aşağıdaki komutları uygulaması oluşturmak bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 

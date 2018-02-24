@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamada Windows kimlik doğrulamasını yapılandırma
 
@@ -111,6 +111,9 @@ Windows kimlik doğrulaması etkinleştirildi ve adsız erişim devre dışıysa
 Windows kimlik doğrulaması ve anonim erişim etkin olduğunda, kullanın `[Authorize]` ve `[AllowAnonymous]` öznitelikleri. `[Authorize]` Özniteliği gerçekten Windows kimlik doğrulaması gerektiren uygulama parçalarını güvenli olanak tanır. `[AllowAnonymous]` Özniteliği geçersiz kılmaları `[Authorize]` özniteliği anonim erişime izin veren uygulamaların içindeki kullanım. Bkz: [basit yetkilendirme](xref:security/authorization/simple) özniteliği kullanım ayrıntıları için.
 
 ASP.NET Core içinde 2.x `[Authorize]` öznitelik, bir ek yapılandırma gerektirir *haline* Windows kimlik doğrulaması için anonim isteklere sınama için. Önerilen yapılandırma kullanılan web sunucusu göre biraz değişir.
+
+> [!NOTE]
+> Varsayılan olarak, bir sayfaya erişmek için yetkilendirme eksikliği kullanıcılar boş bir belgeyle sunulur. [StatusCodePages Ara](xref:fundamentals/error-handling#configuring-status-code-pages) kullanıcıları daha iyi bir "Erişim engellendi" deneyimi sunmak için yapılandırılabilir.
 
 #### <a name="iis"></a>IIS
 

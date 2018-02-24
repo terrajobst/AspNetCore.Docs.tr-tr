@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 43c937ff9631be3edc1f95b3689650e4574abfbd
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 85e25b92b01d84279752deb7865987746c181c72
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -132,7 +132,7 @@ Unutmayın `CharacterRepository` isteklerini bir `ApplicationDbContext` kendi ol
 > [!NOTE]
 > İstenen nesne ve tüm gerektirdiği nesneleri ve tüm bu gerektiren nesneleri oluşturma bazen olarak adlandırılır bir *Nesne grafiği*. Benzer şekilde, çözümlenmelidir bağımlılıkları toplu kümesini tipik olarak adlandırılır bir *bağımlılığı ağacı* veya *bağımlılık grafiğinin*.
 
-Bu durumda, her ikisi de `ICharacterRepository` ve dolayısıyla `ApplicationDbContext` hizmetler kapsayıcısının ile kayıtlı olması gerekir `ConfigureServices` içinde `Startup`. `ApplicationDbContext`genişletme yöntemi çağrısı ile yapılandırılmış `AddDbContext<T>`. Aşağıdaki kod kaydını gösterir `CharacterRepository` türü.
+Bu durumda, her ikisi de `ICharacterRepository` ve dolayısıyla `ApplicationDbContext` hizmetler kapsayıcısının ile kayıtlı olması gerekir `ConfigureServices` içinde `Startup`. `ApplicationDbContext` genişletme yöntemi çağrısı ile yapılandırılmış `AddDbContext<T>`. Aşağıdaki kod kaydını gösterir `CharacterRepository` türü.
 
 [!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
@@ -192,6 +192,19 @@ Hangi gözlemlemek `OperationId` değerleri, bir istek içinde ve istekler aras�
 * *Kapsamlı* nesneleri aynıdır ancak farklı istekler arasında farklı bir istek içinde
 
 * *Singleton* nesneleridir aynı her nesne ve her istek için (örneği içinde olup olmadığını sağlanan bağımsız olarak `ConfigureServices`)
+
+## <a name="scope-validation"></a>Kapsam doğrulama
+
+Uygulama geliştirme ortamında ASP.NET Core 2.0 veya sonraki sürümlerde çalıştırırken, varsayılan hizmet sağlayıcısı doğrulamak üzere denetler:
+
+* Kapsamlı Hizmetleri doğrudan veya dolaylı olarak kök servis sağlayıcısı'ndan çözülmüş değil.
+* Kapsamlı Hizmetleri doğrudan veya dolaylı olarak teklileri eklenen değil.
+
+Kök hizmet sağlayıcısı oluşturulur [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) olarak adlandırılır. Kök hizmet sağlayıcısının ömrü zaman sağlayıcı uygulamayla başlatır ve uygulamayı kapatıldığında atıldı uygulama/sunucusunun ömrü karşılık gelir.
+
+Kapsamlı Hizmetleri oluşturuldukları kapsayıcı tarafından elden. Kapsamlı bir hizmet kök kapsayıcısında oluşturduysanız, uygulama/sunucu kapatıldığında yalnızca kök kapsayıcı tarafından atıldı çünkü hizmetin ömrü tekliye etkili bir şekilde yükseltildi. Hizmet kapsamları doğrulama yakalar bu durumlarda, `BuildServiceProvider` olarak adlandırılır.
+
+Daha fazla bilgi için bkz: [kapsam doğrulama barındırma konusunda](xref:fundamentals/hosting#scope-validation).
 
 ## <a name="request-services"></a>İstek Hizmetleri
 

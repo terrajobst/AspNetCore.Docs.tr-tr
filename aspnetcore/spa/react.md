@@ -1,26 +1,26 @@
 ---
 title: "Tepki proje şablonu kullanın"
 author: SteveSandersonMS
-description: "Tepki ve oluşturma tepki-uygulama için ASP.NET Core tek sayfalı uygulama (SPA) Sürüm Adayı proje şablonu ile başlayacağınızı öğrenin."
+description: "Tepki ve oluşturma tepki-uygulama için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-project-template-release-candidate"></a>(Sürüm Adayı) tepki proje şablonu kullanın
+# <a name="use-the-react-project-template"></a>Tepki proje şablonu kullanın
 
 > [!NOTE]
-> Bu belge hakkında yayımlanan tepki proje şablonu değil. **Bu belge hakkında tepki şablonunun Sürüm Adayı ' dir.** Yayımlanmış bir sürüm erken 2018 dağıtmayı umuyoruz.
+> Bu belge hakkında tepki proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni tepki hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.
 
 Güncelleştirilmiş tepki proje şablonu uygun bir başlama noktası için ASP.NET Core tepki kullanarak uygulamaları sağlar ve [oluşturma tepki-uygulama](https://github.com/facebookincubator/create-react-app) (CRA) kuralları zengin, istemci tarafı kullanıcı arabirimini (UI).
 
@@ -28,7 +28,7 @@ Güncelleştirilmiş tepki proje şablonu uygun bir başlama noktası için ASP.
 
 ## <a name="create-a-new-app"></a>Yeni uygulama oluştur
 
-Başlamak için seçtiğiniz olun [güncelleştirilmiş tepki proje şablonu yüklü](xref:spa/index#installation). Bu yönergeler, .NET Core dahil önceki tepki proje şablonu için geçerli olmayan 2.0.x SDK.
+ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş tepki proje şablonu yüklü](xref:spa/index#installation). ASP.NET Core 2.1 varsa, yüklemek için gerek yoktur.
 
 Komutunu kullanarak bir komut isteminden yeni bir proje oluşturun `dotnet new react` boş bir dizinde. Örneğin, aşağıdaki komutları uygulaması oluşturmak bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 

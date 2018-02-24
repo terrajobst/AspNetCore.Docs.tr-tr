@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: bbfd9d748df59418345ddd3eacd6f44b75f6e851
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: bb318747e254ac244facc1fe1ff08a1f5c4727f2
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="factory-based-middleware-activation-with-a-third-party-container-in-aspnet-core"></a>ASP.NET Core üçüncü taraf kapsayıcısında ile ara yazılımı Fabrika tabanlı etkinleştirme
 
@@ -24,7 +24,7 @@ Bu makalede nasıl kullanılacağı gösterilmektedir [IMiddlewareFactory](/dotn
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-Örnek uygulama tarafından ara yazılım etkinleştirme gösterir bir `IMiddlewareFactory` uygulaması, `SimpleInjectorMiddlewareFactory`. Örnek kullanır [basit Injector](https://github.com/simpleinjector/SimpleInjector) bağımlılık ekleme (dı) kapsayıcı.
+Örnek uygulama tarafından ara yazılım etkinleştirme gösterir bir `IMiddlewareFactory` uygulaması, `SimpleInjectorMiddlewareFactory`. Örnek kullanır [basit Injector](https://simpleinjector.org) bağımlılık ekleme (dı) kapsayıcı.
 
 Bir sorgu dizesi parametresi tarafından sağlanan değer örnek 's Ara uygulama kaydeder (`key`). Ara yazılım, sorgu dizesi değerini bir bellek içi veritabanına kaydetmek için eklenen veritabanı bağlamı (kapsamlı bir hizmeti) kullanır.
 
@@ -51,7 +51,7 @@ Uzantı ara yazılımı için oluşturulan (*Middleware/MiddlewareExtensions.cs*
 
 [!code-csharp[](extensibility-third-party-container/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-`Startup.ConfigureServices`çeşitli görevleri gerçekleştirmeniz gerekir:
+`Startup.ConfigureServices` çeşitli görevleri gerçekleştirmeniz gerekir:
 
 * Basit Injector kapsayıcısı ayarlama ayarlayın.
 * Fabrika ve ara yazılımın kaydedin.

@@ -5,20 +5,20 @@ description: "Etiket Yardımcıları nelerdir ve bunları ASP.NET Core nasıl ku
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 7/14/2017
+ms.date: 2/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 669fb9b22d070a75d891e875156d62590c40fc5a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları giriş 
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Etiket Yardımcıları nelerdir?
 
@@ -32,19 +32,32 @@ Etiket Yardımcıları sunucu tarafı kodu oluşturma ve Razor dosyalarında HTM
 
 **Daha güçlü, güvenilir daha üretken ve üretmek mümkün kılmak için yolu ve yalnızca sunucu üzerinde bilgileriyle Bakımı yapılabilir kodu** Örneğin, geçmişte görüntüleri güncelleştirme mantra, görüntü adı değiştirdiğinizde edildi Resim. Görüntüleri performans nedenleriyle titizlikle önbelleğe alınması gereken ve bir görüntü adı değiştirmediğiniz sürece, eski bir kopyasını alma istemcileri risk. Tarihsel olarak, görüntünün düzenlendi sonra adı değiştirilmesi gerekti ve görüntünün web uygulamasında her başvuru güncelleştirilmesi gerekiyor. Yalnızca bu yoğun, aynı zamanda hataya (, bir başvurusu eksik, yanlışlıkla girin yanlış dize, vb.) olup çok emek mi Yerleşik `ImageTagHelper` sizin için otomatik olarak bunu yapabilirsiniz. `ImageTagHelper` Bir sürüm ekleyebilirsiniz görüntü değiştiğinde sunucu görüntüsü için yeni bir benzersiz sürümü otomatik olarak oluşturur. böylece sayı görüntü adı. Geçerli görüntü almak için istemcileri garanti. Kullanarak bu sağlamlık ve işgücü tasarrufları temelde ücretsiz gelen `ImageTagHelper`.
 
-Yerleşik etiket Yardımcıları çoğu olan HTML öğeleri hedef ve öğe için sunucu tarafı öznitelikler sağlar. Örneğin, `<input>` birçok görünümleri kullanılan öğe *görünümler/hesap* klasörde `asp-for` belirtilen model özelliğinin adı işlenmiş HTML'e ayıklar özniteliği. Aşağıdaki Razor biçimlendirme:
+En yerleşik etiket Yardımcıları standart HTML öğeleri hedef ve öğe için sunucu tarafı öznitelikler sağlar. Örneğin, `<input>` birçok görünümlerde kullanılan öğe *görünümler/hesap* klasörde `asp-for` özniteliği. Bu öznitelik belirtilen model özelliğinin adı işlenmiş HTML'e ayıklar. Razor görünüm aşağıdaki modeliyle göz önünde bulundurun:
+
+```csharp
+public class Movie
+{
+    public int ID { get; set; }
+    public string Title { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public string Genre { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+Aşağıdaki Razor biçimlendirme:
 
 ```cshtml
-<label asp-for="Email"></label>
+<label asp-for="Movie.Title"></label>
 ```
 
 Aşağıdaki HTML oluşturur:
 
-```cshtml
-<label for="Email">Email</label>
+```html
+ <label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Özniteliği tarafından kullanılabilir hale `For` özelliğinde `LabelTagHelper`. Bkz: [yazma etiket Yardımcıları](authoring.md) daha fazla bilgi için.
+`asp-for` Özniteliği tarafından kullanılabilir hale `For` özelliğinde [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Bkz: [yazma etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring) daha fazla bilgi için.
 
 ## <a name="managing-tag-helper-scope"></a>Etiket Yardımcısı kapsam yönetme
 
@@ -52,7 +65,7 @@ Etiket Yardımcıları kapsam bir birleşimi tarafından denetlenen `@addTagHelp
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`Etiket Yardımcıları kullanılabilir hale getirir
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` Etiket Yardımcıları kullanılabilir hale getirir
 
 Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelpers* (ile kimlik doğrulaması yok), aşağıdaki *Views/_ViewImports.cshtml* dosyayı projenize eklenir:
 
@@ -83,7 +96,7 @@ Daha önce belirtildiği gibi ekleme `@addTagHelper` için yönerge *Views/_View
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Etiket Yardımcıları kaldırır
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` Etiket Yardımcıları kaldırır
 
 `@removeTagHelper` Olarak aynı iki parametreye sahip `@addTagHelper`, ve daha önce eklediğiniz bir etiket Yardımcısı kaldırır. Örneğin, `@removeTagHelper` belirli görünüm kaldırır belirtilen etiket Yardımcısı görünümünden uygulanabilir. Kullanarak `@removeTagHelper` içinde bir *Views/Folder/_ViewImports.cshtml* dosyasını tüm görünümleri belirtilen etiket Yardımcısı kaldırır *klasörü*.
 
@@ -242,7 +255,7 @@ Visual Studio düzenleyicisinde yazmanıza yardımcı **tüm** biçimlendirme et
 
 * Web sunucusu denetimleri dizeleri nesnelerine dönüştürmek için tür dönüştürücüleri kullanın. Tür dönüşümü gerek kalmaması etiket Yardımcıları ile yerel olarak C# ile çalışırsınız.
 
-* Web sunucusu denetimleri kullanın [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) bileşenleri ve denetimleri çalıştırma ve tasarım zamanı davranışını uygulamak için. `System.ComponentModel`temel sınıflar ve öznitelikler ve tür dönüştürücüleri uygulama, veri kaynakları bağlama ve bileşenleri lisans arabirimleri içerir. Genellikle türetin etiket Yardımcıları için Karşıtlık `TagHelper`ve `TagHelper` temel sınıfı yalnızca iki yöntem sunar `Process` ve `ProcessAsync`.
+* Web sunucusu denetimleri kullanın [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) bileşenleri ve denetimleri çalıştırma ve tasarım zamanı davranışını uygulamak için. `System.ComponentModel` temel sınıflar ve öznitelikler ve tür dönüştürücüleri uygulama, veri kaynakları bağlama ve bileşenleri lisans arabirimleri içerir. Genellikle türetin etiket Yardımcıları için Karşıtlık `TagHelper`ve `TagHelper` temel sınıfı yalnızca iki yöntem sunar `Process` ve `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Etiketi yardımcı öğe yazı tipi özelleştirme
 
@@ -253,6 +266,6 @@ Yazı tipi ve gelen renklendirme özelleştirebilirsiniz **Araçları** > **seç
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
-* [Formları ile çalışma](xref:mvc/views/working-with-forms)
+* [Formları ile çalışma ](xref:mvc/views/working-with-forms)
 * [Github'da TagHelperSamples](https://github.com/dpaquette/TagHelperSamples) ile çalışmak için etiket Yardımcısı örnekleri içeren [önyükleme](http://getbootstrap.com/).
-* [Formları ile çalışma](xref:mvc/views/working-with-forms)
+* [Formları ile çalışma ](xref:mvc/views/working-with-forms)
