@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6b9dcfcc2fa380b601eee56095f2e6a6dbe07732
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 12635c66bacdeed7360a9d6c689212bba81439e3
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
 
@@ -63,6 +63,25 @@ Ad-değer çiftleri için yerleşik yazılmış [yapılandırma](/dotnet/api/mic
 
 Yukarıdaki örnek yapılandırma dizin oluşturucu değerleri okumak için kullanır. Erişim yapılandırması dışında `Startup`, kullanın *seçenekleri düzeni*. Daha fazla bilgi için bkz: [seçenekleri](xref:fundamentals/configuration/options) konu.
 
+## <a name="xml-configuration"></a>XML yapılandırma
+
+XML biçimli yapılandırma kaynaklarını dizilerde çalışmak için sağlayan bir `name` her öğenin dizini. Dizin değerlerine erişmek için kullanın:
+
+```xml
+<wizards>
+  <wizard name="Gandalf">
+    <age>1000</age>
+  </wizard>
+  <wizard name="Harry">
+    <age>17</age>
+  </wizard>
+</wizards>
+```
+
+```csharp
+Console.Write($"{Configuration["wizard:Harry:age"]}");
+// Output: 17
+```
 
 ## <a name="configuration-by-environment"></a>Ortam yapılandırma
 
@@ -74,7 +93,7 @@ Yukarıdaki örnek yapılandırma dizin oluşturucu değerleri okumak için kull
 
 ASP.NET Core 1.x uygulamalarına ihtiyacı çağırmak `AddJsonFile` ve [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables#Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
 
-Bkz: [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) için bir açıklama parametreleri. `reloadOnChange`yalnızca ASP.NET Core 1.1 ve sonraki sürümlerinde desteklenir.
+Bkz: [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) için bir açıklama parametreleri. `reloadOnChange` yalnızca ASP.NET Core 1.1 ve sonraki sürümlerinde desteklenir.
 
 Yapılandırma kaynaklarını belirtilen sırada salt okunurdur. Önceki kod, ortam değişkenleri son salt okunurdur. Herhangi bir yapılandırma değeri ortamı Değiştir iki önceki sağlayıcıları belirlenen ayarlayın.
 
@@ -91,7 +110,7 @@ Ortam genellikle ayarlamak `Development`, `Staging`, veya `Production`. Daha faz
 
 Yapılandırma dikkate alınacak noktalar:
 
-* `IOptionsSnapshot`değişiklik yapıldığında yapılandırma verileri yeniden yükleyebilirsiniz. Daha fazla bilgi için bkz: [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
+* `IOptionsSnapshot` değişiklik yapıldığında yapılandırma verileri yeniden yükleyebilirsiniz. Daha fazla bilgi için bkz: [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
 * Yapılandırma anahtarları **değil** büyük küçük harfe duyarlı.
 * **Hiçbir zaman** parolalar ve diğer hassas verileri yapılandırma sağlayıcısı kodu veya düz metin yapılandırma dosyalarını depolar. Verme geliştirme üretim gizlilikleri kullanın veya sınama ortamlarında. Böylece, bir kaynak kod deposuna yanlışlıkla uygulanamıyor gizli proje dışında belirtin. Daha fazla bilgi edinmek [birden çok ortamlarıyla çalışma](xref:fundamentals/environments) ve yönetme [geliştirme sırasında uygulama sırrı güvenli depolama](xref:security/app-secrets).
 * İki nokta varsa (`:`) olamaz bir sistem ortam değişkenlerini kullanıldığında, iki nokta üst üste değiştirin (`:`) ile bir çift alt çizgi (`__`).
@@ -110,7 +129,7 @@ Aşağıdaki örnek gösterilmektedir [GetValue&lt;T&gt; ](/dotnet/api/microsoft
 
 [!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
-ConfigurationBinder's `GetValue<T>` yöntemi, varsayılan değer (80 örnekteki) belirtimi sağlar. `GetValue<T>`Basit senaryolar için ve tüm bölümleri bağlı değil. `GetValue<T>`skaler değerleri alır `GetSection(key).Value` belirli bir türüne dönüştürülemiyor.
+ConfigurationBinder's `GetValue<T>` yöntemi, varsayılan değer (80 örnekteki) belirtimi sağlar. `GetValue<T>` Basit senaryolar için ve tüm bölümleri bağlı değil. `GetValue<T>` skaler değerleri alır `GetSection(key).Value` belirli bir türüne dönüştürülemiyor.
 
 ## <a name="bind-to-an-object-graph"></a>Bir nesne grafiğinin bağlama
 
@@ -122,7 +141,7 @@ Aşağıdaki örnek bağlar `AppSettings` sınıfı:
 
 [!code-csharp[Main](index/sample/ObjectGraph/Program.cs?highlight=15-16)]
 
-**ASP.NET Core 1.1** ve daha yüksek kullanabilirsiniz `Get<T>`, tüm bölümleri ile çalışır. `Get<T>`kullanmaktan daha kullanışlı olabilir `Bind`. Aşağıdaki kodu nasıl kullanılacağını gösterir `Get<T>` önceki örnekle:
+**ASP.NET Core 1.1** ve daha yüksek kullanabilirsiniz `Get<T>`, tüm bölümleri ile çalışır. `Get<T>` kullanmaktan daha kullanışlı olabilir `Bind`. Aşağıdaki kodu nasıl kullanılacağını gösterir `Get<T>` önceki örnekle:
 
 ```csharp
 var appConfig = config.GetSection("App").Get<AppSettings>();
@@ -251,11 +270,11 @@ Tipik ASP.NET Core 2.x uygulamaları kullanma statik kolaylık metodunun `Create
 
 [!code-csharp[Main](index/sample_snapshot//Program.cs?highlight=12)]
 
-`CreateDefaultBuilder`İsteğe bağlı yapılandırmasından yükler *appsettings.json*, *appsettings. { Ortam} .json*, [kullanıcı parolaları](xref:security/app-secrets) (içinde `Development` ortamı), ortam değişkenleri ve komut satırı bağımsız değişkenleri. Komut satırı yapılandırma sağlayıcısı son çağrılır. Sağlayıcı son çağırma yapılandırması bir yapılandırma sağlayıcıları tarafından ayarlanmış geçersiz kılmak için çalışma zamanında geçirilen komut satırı bağımsız değişkenleri önceki adlı sağlar.
+`CreateDefaultBuilder` İsteğe bağlı yapılandırmasından yükler *appsettings.json*, *appsettings. { Ortam} .json*, [kullanıcı parolaları](xref:security/app-secrets) (içinde `Development` ortamı), ortam değişkenleri ve komut satırı bağımsız değişkenleri. Komut satırı yapılandırma sağlayıcısı son çağrılır. Sağlayıcı son çağırma yapılandırması bir yapılandırma sağlayıcıları tarafından ayarlanmış geçersiz kılmak için çalışma zamanında geçirilen komut satırı bağımsız değişkenleri önceki adlı sağlar.
 
 İçin *appsettings* where dosyaları:
 
-* `reloadOnChange`etkin.
+* `reloadOnChange` etkin.
 * Komut satırı bağımsız değişkenleri aynı ayar içerir ve bir *appsettings* dosya.
 * *Appsettings* eşleşen komut satırı bağımsız değişkeni içeren bir dosya, uygulama başladıktan sonra değiştirilir.
 
@@ -289,11 +308,11 @@ Anahtar bir önek olabilir.
 | Anahtar öneki               | Örnek         |
 | ------------------------ | :-------------: |
 | Önek                | `key1=value1`   |
-| Tek bir tire (`-`) &#8224; | `-key2=value2`  |
+| Tek bir tire (`-`) & #8224; | `-key2=value2`  |
 | İki kısa çizgi (`--`)        | `--key3=value3` |
 | Eğik çizgi (`/`)      | `/key4=value4`  |
 
-&#8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
+& #8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
 
 Örnek komut:
 
@@ -311,11 +330,11 @@ Anahtar bir önekine sahip olmalıdır.
 
 | Anahtar öneki               | Örnek         |
 | ------------------------ | :-------------: |
-| Tek bir tire (`-`) &#8224; | `-key1 value1`  |
+| Tek bir tire (`-`) & #8224; | `-key1 value1`  |
 | İki kısa çizgi (`--`)        | `--key2 value2` |
 | Eğik çizgi (`/`)      | `/key3 value3`  |
 
-&#8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
+& #8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
 
 Örnek komut:
 
@@ -390,9 +409,9 @@ MachineName: ChadPC
 Left: 1988
 ```
 
-## <a name="the-webconfig-file"></a>Web.config dosyası
+## <a name="webconfig-file"></a>Web.config dosyası
 
-A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında gereklidir. Ayarlarında *web.config* etkinleştirmek [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) uygulamayı başlatın ve diğer IIS ayarlarını ve modülleri yapılandırmak için. Varsa *web.config* dosyası mevcut değil ve proje dosyasını içeren `<Project Sdk="Microsoft.NET.Sdk.Web">`, projeyi yayımlama oluşturur bir *web.config* yayımlanan çıktı dosyasında ( *Yayımlama* klasörü). Daha fazla bilgi için bkz: [konak ASP.NET Core IIS ile Windows](xref:host-and-deploy/iis/index#webconfig).
+A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında gereklidir. Ayarlarında *web.config* etkinleştirmek [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) uygulamayı başlatın ve diğer IIS ayarlarını ve modülleri yapılandırmak için. Varsa *web.config* dosyası mevcut değil ve proje dosyasını içeren `<Project Sdk="Microsoft.NET.Sdk.Web">`, projeyi yayımlama oluşturur bir *web.config* yayımlanan çıktı dosyasında ( *Yayımlama* klasörü). Daha fazla bilgi için bkz: [konak ASP.NET Core IIS ile Windows](xref:host-and-deploy/iis/index#webconfig-file).
 
 ## <a name="accessing-configuration-during-startup"></a>Başlatma sırasında yapılandırma erişme
 
@@ -402,9 +421,9 @@ Erişim Yapılandırması içinde `ConfigureServices` veya `Configure` başlatma
 
 * Bağımlılık ekleme (dı) değil ayarlamak kadar yukarı sonra `ConfigureServices` çağrılır.
 * Yapılandırma sistemi dı farkında değildir.
-* `IConfiguration`iki özelleştirmeleri sahiptir:
-  * `IConfigurationRoot`Kök düğüm için kullanılır. Bir yeniden yükleme tetikleyebilir.
-  * `IConfigurationSection`Yapılandırma değerlerini bir bölümünü temsil eder. `GetSection` Ve `GetChildren` yöntemleri döndürür bir `IConfigurationSection`.
+* `IConfiguration` iki özelleştirmeleri sahiptir:
+  * `IConfigurationRoot` Kök düğüm için kullanılır. Bir yeniden yükleme tetikleyebilir.
+  * `IConfigurationSection` Yapılandırma değerlerini bir bölümünü temsil eder. `GetSection` Ve `GetChildren` yöntemleri döndürür bir `IConfigurationSection`.
   * Kullanım [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) yapılandırma yeniden yükleme veya erişim her sağlayıcı için. Bunlardan hiçbirine yaygındır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
