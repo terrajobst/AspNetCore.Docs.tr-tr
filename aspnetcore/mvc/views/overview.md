@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4f55b3b439d268c371ce40a298b0f63dad9eef69
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -92,7 +92,7 @@ Varsayılan davranışını `View` yöntemi (`return View();`) içinden çağır
 
 Örtük olarak döndürürse önemli değildir `ViewResult` ile `return View();` veya Görünüm adı açıkça geçirmek `View` yöntemiyle `return View("<ViewName>");`. Her iki durumda da, bu sırada eşleşen bir görünüm dosyası görünüm bulma arar:
 
-   1. *Görünümler /\[controllername öğesi]\[Görünümadı] .cshtml*
+   1. *Görünümler /\[controllername öğesi] /\[Görünümadı] .cshtml*
    1. *Görünümler/paylaşılan/\[Görünümadı] .cshtml*
 
 Bir görünüm adı yerine bir görünüm dosya yolu sağlanabilir. Uygulama kök dizininde başlayan mutlak bir yol kullanıyorsanız (isteğe bağlı olarak başlayarak "/" veya "~ /"), *.cshtml* uzantısı belirtilmesi gerekir:
@@ -198,14 +198,14 @@ Kesin türü belirtilmiş görünümleri yanı sıra, görünümleri erişimi bi
 
 Bu koleksiyon yoluyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri ve görünümlere özellikleri. `ViewData` Zayıf yazılmış nesneleri sözlüğü bir özelliktir. `ViewBag` Özelliktir çevresinde bir sarmalayıcı `ViewData` arka plandaki için dinamik özellikler sağlayan `ViewData` koleksiyonu.
 
-`ViewData`ve `ViewBag` çalışma zamanında dinamik olarak çözümlendiği. Derleme zamanı tür denetimi sunmuyoruz olduğundan, her ikisi de genellikle daha hata-bir viewmodel kullanmaktan daha fazladır. Bu nedenle, bazı geliştiriciler en düşük düzeyde ya da hiç kullanmayı tercih ederseniz `ViewData` ve `ViewBag`.
+`ViewData` ve `ViewBag` çalışma zamanında dinamik olarak çözümlendiği. Derleme zamanı tür denetimi sunmuyoruz olduğundan, her ikisi de genellikle daha hata-bir viewmodel kullanmaktan daha fazladır. Bu nedenle, bazı geliştiriciler en düşük düzeyde ya da hiç kullanmayı tercih ederseniz `ViewData` ve `ViewBag`.
 
 
 <a name="VD"></a>
 
 **ViewData**
 
-`ViewData`olan bir [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) üzerinden erişilen nesne `string` anahtarları. Dize verilerini depolanır ve bir cast gerek kalmadan doğrudan kullanılır, ancak diğer atamalısınız `ViewData` bunları ayıkladığınızda belirli türleri için değer nesnesi. Kullanabileceğiniz `ViewData` görünümlere ve görünümler dahil olmak üzere içinde denetleyicilerinden veri iletmek için [kısmi görünümler](xref:mvc/views/partial) ve [düzenleri](xref:mvc/views/layout).
+`ViewData` olan bir [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) üzerinden erişilen nesne `string` anahtarları. Dize verilerini depolanır ve bir cast gerek kalmadan doğrudan kullanılır, ancak diğer atamalısınız `ViewData` bunları ayıkladığınızda belirli türleri için değer nesnesi. Kullanabileceğiniz `ViewData` görünümlere ve görünümler dahil olmak üzere içinde denetleyicilerinden veri iletmek için [kısmi görünümler](xref:mvc/views/partial) ve [düzenleri](xref:mvc/views/layout).
 
 Aşağıdaki tebrik kartı ve bir adresi kullanarak ilişkin değerleri ayarlayan bir örnektir `ViewData` bir eylem:
 
@@ -247,7 +247,7 @@ Bir görünümdeki verilerle çalışma:
 
 Not: `ViewBag` Razor sayfalarında kullanılamaz.
 
-`ViewBag`olan bir [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag`atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
+`ViewBag` olan bir [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag` atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
 
 ```csharp
 public IActionResult SomeAction()
@@ -318,15 +318,15 @@ Her ikisini de kullanarak `ViewData` ve `ViewBag` adresindeki karıştırma ve o
 
 **Görünüm Paketi ViewData arasındaki farkları özeti**
 
- `ViewBag`Razor sayfalarında kullanılamaz.
+ `ViewBag` Razor sayfalarında kullanılamaz.
 
 * `ViewData`
   * Türetilen [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)gibi yararlı olabilecek sözlük özelliklere sahip nedenle `ContainsKey`, `Add`, `Remove`, ve `Clear`.
-  * Boşluk izin sözlükteki anahtarları, dizelerdir. Örnek:`ViewData["Some Key With Whitespace"]`
+  * Boşluk izin sözlükteki anahtarları, dizelerdir. Örnek: `ViewData["Some Key With Whitespace"]`
   * Herhangi türdeki dışındaki bir `string` kullanmak için görünümünde dönüştürülmelidir `ViewData`.
 * `ViewBag`
   * Türetilen [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), böylece noktalı gösterim kullanılarak dinamik özellikleri oluşturulmasını sağlar (`@ViewBag.SomeKey = <value or object>`), ve hiçbir atama gereklidir. Söz dizimi `ViewBag` denetleyicileri ve görünümleri eklemek daha hızlı hale getirir.
-  * Null değerler için denetlemek daha basit. Örnek:`@ViewBag.Person?.Name`
+  * Null değerler için denetlemek daha basit. Örnek: `@ViewBag.Person?.Name`
 
 **Zaman ViewData veya Görünüm paketini kullanmak için**
 
