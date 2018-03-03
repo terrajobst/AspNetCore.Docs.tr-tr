@@ -1,10 +1,10 @@
 # <a name="working-with-sqlite-in-and-razor-pages"></a>İçinde SQLite ve Razor sayfaları ile çalışma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 
-[!code-csharp[Main](code/Startup.cs?name=snippet2&highlight=6-8)]
+[!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
 
 ## <a name="sqlite"></a>SQLite
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
 
-[!code-csharp[Main](code\Models\SeedData.cs)]
+[!code-csharp[](code\Models\SeedData.cs)]
 
 Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür.
 
@@ -36,7 +36,7 @@ if (context.Movie.Any())
 
 Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
 
-[!code-csharp[Main](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
+[!code-csharp[](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
 

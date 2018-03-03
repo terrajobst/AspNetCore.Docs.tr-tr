@@ -1,6 +1,6 @@
 # <a name="adding-validation"></a>Doğrulama ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde için doğrulama mantığını ekleyeceksiniz `Movie` modeli, emin olun ve bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman doğrulama kuralları zorunlu tutulmaz.
 
@@ -16,7 +16,7 @@ Açık *Movie.cs* dosya. DataAnnotations, herhangi bir sınıf veya özellik bil
 
 Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Doğrulama öznitelikleri uygulanan model özellikleri zorlayan istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değer; olması gerekir, ancak hiçbir şey bu doğrulama karşılamak için boşluk girişini kullanıcı engeller. `RegularExpression` Özniteliği ne karakter olabilir sınırlamak için kullanılır giriş. Yukarıdaki kod `Genre` ve `Rating` yalnızca harf (beyaz alan, sayı ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Özniteliği için bir değer belirtilen aralıkta kısıtlar. `StringLength` Özniteliği bir dize özelliği en büyük uzunluğu ve isteğe bağlı olarak, minimum uzunluğu ayarlamanıza olanak tanır. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
 
@@ -43,7 +43,7 @@ Form otomatik olarak oluşturulmasını uygun doğrulama hata iletisine geçersi
 
 Denetleyici veya görünümler kodunda herhangi bir güncelleştirme olmadan UI doğrulama nasıl oluşturulan merak ediyor. Aşağıdaki kod iki gösterir `Create` yöntemleri.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Controllers/MoviesController.cs?name=snippetCreate)]
 
 İlk (HTTP GET) `Create` eylem yönteminin ilk form oluştur görüntüler. İkinci (`[HttpPost]`) sürüm form post işler. İkinci `Create` yöntemi ( `[HttpPost]` sürüm) çağrıları `ModelState.IsValid` film herhangi bir doğrulama hatası olup olmadığını denetlemek için. Bu yöntemin çağrılması nesneye uygulanan tüm doğrulama öznitelikleri değerlendirir. Doğrulama hataları, nesne varsa, `Create` yöntemi, formu yeniden görüntüler. Herhangi bir hata varsa, yöntem yeni film veritabanına kaydeder. İstemci tarafında algılanan doğrulama hataları olduğunda film Örneğimizde, formun sunucusuna gönderilen değil; İkinci `Create` yöntemi istemci tarafı doğrulama hataları olduğunda hiçbir zaman çağrılır. Tarayıcınızda JavaScript devre dışı bırakırsanız, istemci doğrulama devre dışıysa ve HTTP POST sınayabilirsiniz `Create` yöntemi `ModelState.IsValid` tüm doğrulama hatalarını algılama.
 
@@ -63,7 +63,7 @@ JavaScript devre dışı bıraktıktan sonra geçersiz veri ve hata ayıklayıc�
 
 Aşağıda bölümüdür *Create.cshtml* öğreticinin önceki bölümlerinde iskele kurulmuş şablonu görüntüle. Bu hem gösterilen eylem yöntemleri tarafından ilk form görüntülemek ve bir hata durumunda yeniden görüntülemek için kullanılır.
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
 [Giriş etiketi yardımcı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve istemci tarafında jQuery doğrulama için gereken HTML özniteliklerini üretir. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
 
@@ -75,11 +75,11 @@ Doğrulama mantığını değiştirmeniz gerektiğinde, tek bir yerde model içi
 
 Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. `System.ComponentModel.DataAnnotations` Ad alanı, yerleşik doğrulama öznitelikleri kümesi yanı sıra biçimlendirme öznitelikleri sağlar. Zaten uyguladık bir `DataType` numaralandırma değeri yayın tarihi ve fiyat alanları. Aşağıdaki kodda gösterildiği `ReleaseDate` ve `Price` uygun özelliklerle `DataType` özniteliği.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 `DataType` Öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öğeleri/öznitelikleri gibi kaynakları `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için. Kullanabileceğiniz `RegularExpression` veri biçimi doğrulamak için öznitelik. `DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır, olmadıklarını doğrulama öznitelikleri. Bu durumda yalnızca tarih, saat izlemek istiyoruz. `DataType` Numaralandırması sağlar tarihi gibi birçok veri türleri için zaman PhoneNumber, para birimi, EmailAddress ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`, ve bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelikleri yayar HTML 5 `data-` HTML 5 tarayıcılar anlayabilirsiniz (okunur veri tire) öznitelikler. `DataType` Öznitelikleri yapmak **değil** tüm doğrulama sağlar.
 
-`DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
+`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -109,7 +109,7 @@ JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir `Rang
 
 Aşağıdaki kod, tek bir satırda birleştirme öznitelikleri gösterir:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 Serinin sonraki bölümünde, biz uygulama gözden geçirin ve bazı geliştirmeler otomatik olarak oluşturulan yapmak `Details` ve `Delete` yöntemleri.
 

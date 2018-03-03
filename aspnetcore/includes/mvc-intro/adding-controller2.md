@@ -1,6 +1,6 @@
 Değiştir *Controllers/HelloWorldController.cs* aşağıdaki:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 Her `public` bir denetleyici yöntemidir HTTP uç noktası olarak çağrılabilir. Yukarıdaki örnekte, her iki yöntem bir dize döndürür.  Her yöntem önceki açıklamaları unutmayın.
 
@@ -18,7 +18,7 @@ MVC denetleyicisi sınıfları (ve bunların içindeki eylem yöntemleri) gelen 
 
 Yönlendirme için biçimini ayarlama `Configure` yönteminde *haline* dosya.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Uygulamayı çalıştırın ve tüm URL kesimleri kaynağı yok, "Home" denetleyiciye Varsayılanları ve yukarıdaki vurgulanmış şablonu satırı "Index" yöntemi belirtilen.
 
@@ -30,7 +30,7 @@ Gözat `http://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Yöntemi çalışı
 
 Bazı parametre bilgilerini URL'den denetleyiciye geçirmek için kodu değiştirin. Örneğin, `/HelloWorld/Welcome?name=Rick&numtimes=4`. Değişiklik `Welcome` yöntemi iki parametre aşağıdaki kodda gösterildiği gibi ekleyin. 
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 Önceki kod:
 
@@ -50,14 +50,14 @@ Yukarıdaki URL kesimini görüntüsündeki (`Parameters`) kullanılmaz, `name` 
 
 Değiştir `Welcome` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Uygulamayı çalıştırın ve aşağıdaki URL'yi girin:`http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Uygulamayı çalıştırın ve aşağıdaki URL'yi girin:  `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
 ![Merhaba Rick, kimliği, bir uygulama yanıt gösteren bir tarayıcı penceresi: 3](../../tutorials/first-mvc-app/adding-controller/_static/rick_routedata.png)
 
 Bu süre üçüncü URL kesimi eşleşen rota parametresi `id`. `Welcome` Yöntemini içeren bir parametre `id` URL şablonda eşleşen `MapRoute` yöntemi. Sondaki `?` (içinde `id?`) gösteren `id` parametresi isteğe bağlıdır.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Bu örneklerde denetleyicisi MVC "VC" bölümünü yapılması - diğer bir deyişle, iş Görünüm ve denetleyici. Denetleyici HTML doğrudan döndürüyor. Genellikle, kod ve korumak için çok kullanışsız hale beri HTML doğrudan döndürerek denetleyicileri istemezsiniz. Bunun yerine, genellikle ayrı bir Razor görünüm şablon dosyası HTML yanıtı oluşturmak amacıyla kullanın. Sonraki öğreticide bunu.

@@ -1,6 +1,6 @@
 Değiştir *Views/HelloWorld/Index.cshtml* aşağıdaki Razor görünüm dosyası:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Gidin `http://localhost:xxxx/HelloWorld`. `Index` Yönteminde `HelloWorldController` çok yapmak olmadı; deyim çalışan `return View();`, hangi belirtilen tarayıcı yanıta işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Görünüm şablonu dosyasının adı açıkça belirtmediğiniz çünkü MVC kullanarak varsayılan *Index.cshtml* görünüm dosyasında */görünümler/HelloWorld* klasör. Aşağıdaki görüntü dizesi "bizim Görünüm şablonundan! Hello ifadesini" gösterir sabit kodlanmış görünümünde.
 
@@ -22,7 +22,7 @@ Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı met
 
 Not: ASP.NET Core 2.0 sürümü biraz farklıdır. Bunu içermiyor `@inject ApplicationInsights` ve `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > Uygulanan henüz `Movies` , henüz denetleyicisi, dolayısıyla bu bağlantıyı tıklatın, 404 (bulunamadı) hata iletisi alırsınız.
@@ -89,7 +89,7 @@ Denetleyicileri sırada bir yanıtı işlemek bir şablonu görüntüleme için 
 
 Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewData` sözlük. `ViewData` Dictionary'si, koyabilir istediğiniz ona; yani dinamik bir nesne `ViewData` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [MVC model bağlama sistem](xref:mvc/models/model-binding) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` Sözlük nesnesi görünüme iletilen verileri içerir. 
 
@@ -97,7 +97,7 @@ Adlı bir Hoş Geldiniz görünüm şablonu oluşturma *Views/HelloWorld/Welcome
 
 Bir döngüde oluşturacaksınız *Welcome.cshtml* "Hello" görüntüler şablonu görüntüleme `NumTimes`. Değiştir *Views/HelloWorld/Welcome.cshtml* aşağıdaki:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Yaptığınız değişiklikleri kaydedin ve aşağıdaki URL'ye gidin:
 
