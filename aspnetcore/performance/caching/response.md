@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -45,10 +45,10 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 | Üstbilgi                                                     | İşlev |
 | ---------------------------------------------------------- | -------- |
-| [Geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt beri geçen saniye cinsinden süreyi tahmini oluşturulan veya kaynak sunucuda başarıyla doğrulandı. |
+| [geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt beri geçen saniye cinsinden süreyi tahmini oluşturulan veya kaynak sunucuda başarıyla doğrulandı. |
 | [Süre sonu](https://tools.ietf.org/html/rfc7234#section-5.3) | Daha sonra yanıtı eski olarak değerlendirmeden tarih. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Geriye dönük HTTP/1.0 ile uyumluluk için ayar önbellekleri için mevcut `no-cache` davranışı. Varsa `Cache-Control` üstbilgisi mevcutsa, `Pragma` üstbilgi göz ardı edilir. |
-| [Değişir](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Önbelleğe alınan yanıt sürece tüm gönderilmemesini gerekir belirtir, `Vary` üstbilgi alanları eşleşen hem önbelleğe alınan yanıtın ilk istek hem de yeni istek. |
+| [değişir](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Önbelleğe alınan yanıt sürece tüm gönderilmemesini gerekir belirtir, `Vary` üstbilgi alanları eşleşen hem önbelleğe alınan yanıtın ilk istek hem de yeni istek. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Cache-Control yönergeleri HTTP tabanlı önbelleğe alma gizliliğinize isteği
 
@@ -91,7 +91,7 @@ Daha fazla bilgi için bkz: [dağıtılmış önbellek etiket Yardımcısı](xre
 > [!WARNING]
 > Kimliği doğrulanmış istemcilerle ilgili bilgiler içeren içerik için önbelleğe almayı devre dışı bırakın. Önbelleğe alma yalnızca bir kullanıcının kimlik veya bir kullanıcının oturum açtığı göre değişmez içerik için etkinleştirilmiş olmalıdır.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) saklı yanıt sorgu anahtarları ait belirtilen liste değerleri göre değişir. Tek bir değeri olduğunda `*` ara yazılım değişir yanıtlar tarafından tüm istek sorgu dizesi parametreleri sağlanmış. `VaryByQueryKeys`ASP.NET Core 1.1 veya üstünü gerektirir.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) saklı yanıt sorgu anahtarları ait belirtilen liste değerleri göre değişir. Tek bir değeri olduğunda `*` ara yazılım değişir yanıtlar tarafından tüm istek sorgu dizesi parametreleri sağlanmış. `VaryByQueryKeys` ASP.NET Core 1.1 veya üstünü gerektirir.
 
 Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKeys` özellik; Aksi halde, bir çalışma zamanı özel durum oluşur. Karşılık gelen bir HTTP üstbilgisi için hiç `VaryByQueryKeys` özelliği. Özelliği, yanıt önbelleğe alma ara yazılım tarafından işlenen bir HTTP özelliğidir. Önbelleğe alınan yanıt sunmak ara yazılımı için önceki bir istek sorgu dizesini ve sorgu dizesi değerini eşleşmelidir. Örneğin, istekleri ve sonuçları aşağıdaki tabloda gösterilen bir dizi göz önünde bulundurun.
 
@@ -113,7 +113,7 @@ Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKe
 
 Bu üst yalnızca zaman yazılır `VaryByHeader` özelliği ayarlanmış. Ayarlanır `Vary` özelliğin değeri. Aşağıdaki örnek kullanır `VaryByHeader` özelliği:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 Yanıt Üstbilgileri tarayıcınızın ağ araçları ile görüntüleyebilirsiniz. Aşağıdaki resim kenar çubuğunda çıktı F12 gösterir **ağ** sekmesinde `About2` eylem yöntemi yenilenir:
 
@@ -121,16 +121,16 @@ Yanıt Üstbilgileri tarayıcınızın ağ araçları ile görüntüleyebilirsin
 
 ### <a name="nostore-and-locationnone"></a>NoStore ve Location.None
 
-`NoStore`diğer özelliklerin çoğu geçersiz kılar. Bu özellik ayarlandığında `true`, `Cache-Control` üstbilgi ayarlanmış `no-store`. Varsa `Location` ayarlanır `None`:
+`NoStore` diğer özelliklerin çoğu geçersiz kılar. Bu özellik ayarlandığında `true`, `Cache-Control` üstbilgi ayarlanmış `no-store`. Varsa `Location` ayarlanır `None`:
 
-* `Cache-Control`ayarlanmış `no-store,no-cache`.
-* `Pragma`ayarlanmış `no-cache`.
+* `Cache-Control` ayarlanmış `no-store,no-cache`.
+* `Pragma` ayarlanmış `no-cache`.
 
 Varsa `NoStore` olan `false` ve `Location` olan `None`, `Cache-Control` ve `Pragma` ayarlanır `no-cache`.
 
 Genelde ayarlanan `NoStore` için `true` hata sayfalarında. Örneğin:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Bu aşağıdaki üstbilgilerinde sonuçlanır:
 
@@ -148,7 +148,7 @@ Pragma: no-cache
 
 Üstbilgileri gösteren bir örnek ayarlayarak aşağıda üretilen `Duration` ve varsayılan bırakarak `Location` değeri:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Aşağıdaki üstbilgi üretir:
 
@@ -162,11 +162,11 @@ Cache-Control: public,max-age=60
 
 Önbellek profili ayarlama:
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 Önbellek profili başvuruyor:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 `ResponseCache` Özniteliği hem de (yöntemleri) eylemlerin ve denetleyicilerin (sınıflar) uygulanabilir. Yöntem düzeyindeki öznitelikler sınıf düzeyi özniteliklerinde belirtilen ayarları geçersiz kılar.
 

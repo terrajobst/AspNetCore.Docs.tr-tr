@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
@@ -67,13 +67,13 @@ Açık *.bowerrc* altında dosya *bower.json*. `directory` Özelliği ayarlanmı
 
 Açık *görünümler/paylaşılan\_Layout.cshtml* dosya ve yazı tipi harika CSS dosyası ortama eklemek [etiket Yardımcısı](xref:mvc/views/tag-helpers/intro) için `Development`. Çözüm Gezgini'nde, sürükleme ve bırakma *yazı tipi awesome.css* içinde `<environment names="Development">` öğesi.
 
-[!code-html[Main](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
+[!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 Bir üretim uygulamasında, eklediğiniz *yazı tipi awesome.min.css* için ortam etiketi Yardımcısı için `Staging,Production`.
 
 Değiştir *Views\Home\About.cshtml* aşağıdaki biçimlendirme Razor dosyasıyla:
 
-[!code-html[Main](bower/sample/About.cshtml)]
+[!code-html[](bower/sample/About.cshtml)]
 
 Uygulamayı çalıştırın ve yazı tipi harika paket çalıştığını doğrulamak için hakkında görünümüne gidin.
 
@@ -96,7 +96,7 @@ Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. A�
 
 * Açık *bower.json*, jquery ekleme ve için bootstrap `dependencies` bölümü. Elde edilen *bower.json* dosya, aşağıdaki gibi görünür. Sürümler, zaman içinde değişir ve aşağıdaki görüntü eşleşmeyebilir.
 
-[!code-json[Main](bower/sample/bower.json?highlight=5,6)]
+[!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Kaydet *bower.json* dosya.
 
@@ -109,7 +109,7 @@ Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. A�
 * Ekleme `Microsoft.AspNetCore.StaticFiles` NuGet paketini projeye.
 * İle sunulacak statik dosyaları etkinleştir [statik dosya ara yazılımlarını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions). Bir çağrı ekleyin [UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions) için `Configure` yöntemi `Startup`.
 
-[!code-csharp[Main](bower/sample/Startup.cs?highlight=9)]
+[!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>Referans paketleri
 
@@ -119,7 +119,7 @@ Bu bölümde, dağıtılan paketler erişebildiğinizi doğrulamak için bir HTM
 
  Değiştir *Index.html* aşağıdaki biçimlendirme ile:
 
-[!code-html[Main](bower/sample/Index.html)]
+[!code-html[](bower/sample/Index.html)]
 
 * Uygulamayı çalıştırın ve gidin `http://localhost:<port>/Index.html`. Alternatif olarak, ile *Index.html* açıldı, basın `Ctrl+Shift+W`. Jumbotron stil uygulanır, düğme tıklatıldığında jQuery kodu yanıt verir ve önyükleme düğmesi durumu değiştiğinde doğrulayın.
 

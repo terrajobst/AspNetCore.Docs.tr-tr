@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET MVC ASP.NET Core MVC geçirme
 
@@ -48,17 +48,17 @@ Yeni bir *boş* ASP.NET Core web uygulaması önceki projesi olarak aynı ada sa
 
 * Yükleme `Microsoft.AspNetCore.Mvc` ve `Microsoft.AspNetCore.StaticFiles` NuGet paketleri.
 
-  `Microsoft.AspNetCore.Mvc`ASP.NET Core MVC çerçevedir. `Microsoft.AspNetCore.StaticFiles`statik dosya işleyici olur. ASP.NET çalışma zamanı modüler ve açıkça statik dosyaları işleme için kabul gerekir (bkz [statik dosyaları ile çalışma](../fundamentals/static-files.md)).
+  `Microsoft.AspNetCore.Mvc` ASP.NET Core MVC çerçevedir. `Microsoft.AspNetCore.StaticFiles` statik dosya işleyici olur. ASP.NET çalışma zamanı modüler ve açıkça statik dosyaları işleme için kabul gerekir (bkz [statik dosyaları ile çalışma](../fundamentals/static-files.md)).
 
 * Açık *.csproj* dosyası ('nde projeye sağ **Çözüm Gezgini** seçip **Düzenle WebApp1.csproj**) ve ekleme bir `PrepareForPublish` hedef:
 
-  [!code-xml[Main](mvc/sample/WebApp1.csproj?range=21-23)]
+  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
 
   `PrepareForPublish` Hedef istemci-tarafı kitaplıkları Bower aracılığıyla alınırken için gereklidir. Biz hakkında daha sonra konuşun.
 
 * Açık *haline* dosya ve kodu aşağıdaki ile eşleşecek şekilde değiştirin:
 
-  [!code-csharp[Main](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
 
   `UseStaticFiles` Genişletme yöntemi statik dosya işleyici ekler. Daha önce belirtildiği gibi ASP.NET çalışma zamanı modüler ve açıkça statik dosyaları işleme için kabul gerekir. `UseMvc` Genişletme yöntemi ekler yönlendirme. Daha fazla bilgi için bkz: [uygulama başlangıç](../fundamentals/startup.md) ve [yönlendirme](../fundamentals/routing.md).
 
@@ -114,7 +114,7 @@ En az bir çalışma ASP.NET Core proje sahibiz, biz işlevselliği ASP.NET MVC 
 
 ## <a name="controllers-and-views"></a>Denetleyicileri ve görünümler
 
-* Yöntemlerin her biri ASP.NET MVC kopyalama `HomeController` yeni `HomeController`. ASP.NET MVC uygulamasında yerleşik şablonun denetleyici eylem yönteminin dönüş türü olduğunu unutmayın [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); ASP.NET mvc'de çekirdek, dönüş eylem yöntemleri `IActionResult` yerine. `ActionResult`uygulayan `IActionResult`, bu yüzden, eylem yöntemleri dönüş türü değiştirmenize gerek yoktur.
+* Yöntemlerin her biri ASP.NET MVC kopyalama `HomeController` yeni `HomeController`. ASP.NET MVC uygulamasında yerleşik şablonun denetleyici eylem yönteminin dönüş türü olduğunu unutmayın [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult(v=vs.118).aspx); ASP.NET mvc'de çekirdek, dönüş eylem yöntemleri `IActionResult` yerine. `ActionResult` uygulayan `IActionResult`, bu yüzden, eylem yöntemleri dönüş türü değiştirmenize gerek yoktur.
 
 * Kopya *About.cshtml*, *Contact.cshtml*, ve *Index.cshtml* ASP.NET Core proje için ASP.NET MVC projesindeki Razor görünüm dosyaları.
 
@@ -140,7 +140,7 @@ Yeni projede kullanarak önyükleme (ve diğer istemci-tarafı kitaplıklar) des
 
 * Ekle bir [Bower](https://bower.io/) yapılandırma dosyası adlı *bower.json* proje kök (projeye sağ tıklayın ve ardından **Ekle > Yeni Öğe > Bower yapılandırma dosyası**). Ekleme [önyükleme](http://getbootstrap.com/) ve [jQuery](https://jquery.com/) dosyasına (aşağıda vurgulanan satırlar bakın).
 
-  [!code-json[Main](mvc/sample/bower.json?highlight=5-6)]
+  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
 
 Dosyayı kaydettikten sonra Bower otomatik olarak bağımlılıkları indirir *wwwroot/lib* klasör. Kullanabileceğiniz **arama Çözüm Gezgini** kutusunu varlıklar yolunu bulmak için:
 
@@ -156,7 +156,7 @@ Bkz: [istemci-tarafı paketlerle yönetmek Bower](../client-side/bower.md) daha 
 
 * Oluşturma bir *görünümler/paylaşılan* klasör.
 
-* *İsteğe bağlı:* kopya *_viewımports.cshtml* gelen *FullAspNetCore* MVC projesinin *görünümleri* ASP.NET Core projenin klasörüne*Görünümleri* klasör. Tüm ad alanı bildirimini kaldırın *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirir [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
+* *İsteğe bağlı:* kopya *_viewımports.cshtml* gelen *FullAspNetCore* MVC projesinin *görünümleri* ASP.NET Core projenin klasörüne  *Görünümler* klasör. Tüm ad alanı bildirimini kaldırın *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirir [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Etiket Yardımcıları yeni düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
 
 * Kopya *_Layout.cshtml* eski ASP.NET MVC projesinin dosyadan *görünümler/paylaşılan* ASP.NET Core projenin klasörüne *görünümler/paylaşılan* klasör.
 
@@ -187,7 +187,7 @@ Değiştirme komut dosyası etiketi:
 
 Güncelleştirilmiş *_Layout.cshtml* dosya aşağıda gösterilmektedir:
 
-[!code-html[Main](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
 
 Site tarayıcıda görüntüleyin. Artık doğru yerde beklenen stilleri ile yüklenmesi gerekir.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/crud
-ms.openlocfilehash: a7e0d4ff3d57e42dd7e33ffb5f26f2143520be87
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: a586fdde07ecf349d7523d43a623501af62257a2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Oluşturma, okuma, güncelleştirme ve silme - EF çekirdek ASP.NET Core MVC Öğreticisi (2 / 10)
 
@@ -42,7 +42,7 @@ Bu öğreticide, aşağıdaki web sayfalarının çalışması:
 
 İçinde *Controllers/StudentsController.cs*, Ayrıntılar için eylem yöntemini kullanır görüntüleyin `SingleOrDefaultAsync` tek bir alma yöntemi `Student` varlık. Çağıran kodu eklemek `Include`. `ThenInclude`, ve `AsNoTracking` vurgulanan aşağıdaki kodda gösterildiği gibi yöntemleri.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` Ve `ThenInclude` yöntemleri neden yüklemek bağlam `Student.Enrollments` gezinti özelliği ve her kayıt içinde `Enrollment.Course` gezinti özelliği.  Bu yöntemleri hakkında daha fazla bilgi edineceksiniz [ilgili verileri okuma](read-related-data.md) Öğreticisi.
 
@@ -52,7 +52,7 @@ Bu öğreticide, aşağıdaki web sayfalarının çalışması:
 
 Geçirilen anahtar değeri `Details` yöntemi gelir *rota veri*. Rota verilerini, model bağlayıcı URL kesimdeki bulunan verilerdir. Örneğin, denetleyici, eylem ve kimliği kesimleri varsayılan yolu belirtir:
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Route&highlight=5)]
 
 Aşağıdaki URL'de denetleyici, eylem olarak dizin ve kimlik olarak 1 olarak Eğitmen varsayılan rotayı eşler; Rota veri değerleri şunlardır.
 
@@ -114,13 +114,13 @@ Uygulama, belirleyin **Öğrenciler** sekmesine ve tıklayın **ayrıntıları**
 
 İçinde *StudentsController.cs*, HttpPost değiştirmek `Create` try-catch bloğu ekleyerek ve Kimliğinden kaldırma yöntemi `Bind` özniteliği.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
 Bu kod, ASP.NET MVC model bağlayıcı Öğrenciler varlığa tarafından oluşturulan Öğrenci varlık ayarlayın ve ardından değişiklikleri veritabanına kaydeder ekler. (Bir form tarafından sunulan verilerle çalışmayı kolaylaştırır ASP.NET MVC işlevlerini model bağlayıcı başvurduğu; bir model bağlayıcı gönderilen form değerleri CLR türlerine dönüştürür ve eylem yönteminin parametrelerini geçirir. Bu durumda, model bağlayıcı Öğrenci varlık, Form koleksiyonu özellik değerleri kullanarak başlatır.)
 
 Kaldırılan `ID` gelen `Bind` kimliği satır zaman eklenen SQL Server otomatik olarak ayarlayacak birincil anahtar değeri olduğundan özniteliği. Kullanıcı girişi kimliği değeri ayarlamaz.
 
-Dışında `Bind` , try-catch bloğu bir özniteliktir kurulmuş kodu yapılan tek değişiklik. Türetilen bir özel durum, `DbUpdateException` olan değişiklikler kaydedilirken yakalandı, genel bir hata iletisi görüntülenir. `DbUpdateException`Kullanıcı yeniden denemek için tavsiye edilir şekilde özel durumlar bazen bir programlama hatası yerine uygulama için dış bir şey tarafından hatalardır. Bu örnekte uygulanmadı karşın, bir üretim kalitesi uygulama özel durum oturum açabilirsiniz. Daha fazla bilgi için bkz: **hakkında bilgi için günlük** bölümüne [izleme ve Telemetri (yapı gerçek bulut uygulamaları Azure ile)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Dışında `Bind` , try-catch bloğu bir özniteliktir kurulmuş kodu yapılan tek değişiklik. Türetilen bir özel durum, `DbUpdateException` olan değişiklikler kaydedilirken yakalandı, genel bir hata iletisi görüntülenir. `DbUpdateException` Kullanıcı yeniden denemek için tavsiye edilir şekilde özel durumlar bazen bir programlama hatası yerine uygulama için dış bir şey tarafından hatalardır. Bu örnekte uygulanmadı karşın, bir üretim kalitesi uygulama özel durum oturum açabilirsiniz. Daha fazla bilgi için bkz: **hakkında bilgi için günlük** bölümüne [izleme ve Telemetri (yapı gerçek bulut uygulamaları Azure ile)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 `ValidateAntiForgeryToken` Öznitelik, siteler arası istek sahtekarlığı (CSRF) saldırılarını önlemeye yardımcı olur. Belirteç otomatik olarak görünüm tarafından içine eklenen [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) ve kullanıcı tarafından form gönderildiğinde yer alır. Belirteç tarafından doğrulandığından `ValidateAntiForgeryToken` özniteliği. CSRF hakkında daha fazla bilgi için bkz: [karşı istek Sahteciliğine](../../security/anti-request-forgery.md).
 
@@ -162,7 +162,7 @@ Adları ve bir tarih girin. Tarayıcınız, yapmanıza olanak sağlayan, geçers
 
 Varsayılan olarak aldığınız sunucu tarafında doğrulama budur; sonraki öğreticide istemci tarafı doğrulama kodunu da oluşturur özniteliklerini ekleme görürsünüz. Model doğrulama denetimi ile aşağıdaki vurgulanmış kodu gösterir `Create` yöntemi.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=8)]
 
 Tarih geçerli bir değere değiştirip'ı **oluşturma** görünür yeni Öğrenci görmek için **dizin** sayfası.
 
@@ -174,7 +174,7 @@ Tarih geçerli bir değere değiştirip'ı **oluşturma** görünür yeni Öğre
 
 HttpPost düzenleme eylem yöntemini aşağıdaki kodla değiştirin.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ReadFirst)]
 
 Bu değişiklikler overposting önlemek için bir en iyi güvenlik uygulaması uygulayın. Oluşturulan iskele kurucu bir `Bind` özniteliği ve varlık ile kümesi için model bağlayıcı tarafından oluşturulan varlık eklenen bir `Modified` bayrağı. Kod için birçok senaryoları için önerilmez `Bind` özniteliği temizler listelenmez alanları önceden mevcut verileri dışarı `Include` parametresi.
 
@@ -188,7 +188,7 @@ Bu değişiklikler, HttpPost yöntemi imzası sonucunda `Edit` yöntemi aynıdı
 
 Önerilen HttpPost düzenleme kod yalnızca değiştirilen sütun güncelleştirilmesi ve model bağlama için dahil istemediğiniz özellikleri verilerini korur sağlar. Ancak, ek veritabanı okuma ve eşzamanlılık çakışmalarını işleme için daha karmaşık kod sonuçlanabilir okuma ilk yaklaşım gerektirir. EF bağlamı için model bağlayıcı tarafından oluşturulan bir varlık eklemek ve değiştirilmiş olarak işaretlemek için kullanılan bir alternatiftir. (Projenizin güncelleştirmemeniz şu kodla yalnızca isteğe bağlı bir yaklaşım göstermek için gösterilen.) 
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
 Web sayfası kullanıcı Arabirimi tüm alanlar varlıkta içerir ve bunlardan herhangi birinin güncelleştirebilirsiniz, bu yaklaşım kullanabilirsiniz.
 
@@ -236,7 +236,7 @@ Try-catch bloğu HttpPost ekleyeceksiniz `Delete` veritabanı güncelleştirildi
 
 HttpGet Değiştir `Delete` hata raporlama yönetir aşağıdaki kodla eylem yöntemi.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteGet&highlight=1,9,16-21)]
 
 Bu kod değişiklikleri kaydetmek için bir hatadan sonra yöntemi çağrıldı olup olmadığını belirten isteğe bağlı bir parametre kabul eder. Bu parametre yanlış HttpGet `Delete` yöntemi, önceki bir hata çağrılır. Ne zaman çağırıldığında tarafından HttpPost `Delete` yöntemi yanıt olarak bir veritabanı güncelleştirme hatası parametresi true olduğunda ve bir hata iletisi görünüme iletilir.
 
@@ -244,7 +244,7 @@ Bu kod değişiklikleri kaydetmek için bir hatadan sonra yöntemi çağrıldı 
 
 HttpPost Değiştir `Delete` eylem yöntemi (adlı `DeleteConfirmed`) gerçek silme işlemi gerçekleştirir ve veritabanını güncelleştirme hataları yakalar aşağıdaki kodu.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
 
 Seçilen varlığın bu kodu alır sonra çağırır `Remove` varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır SQL DELETE komutu oluşturulur.
 
@@ -252,7 +252,7 @@ Seçilen varlığın bu kodu alır sonra çağırır `Remove` varlığın durumu
 
 Yüksek hacimli uygulama performansını iyileştirme bir öncelik ise, yalnızca birincil kullanarak bir öğrenci varlık örneği tarafından gereksiz bir SQL sorgusu kaçının anahtar değeri ve varlık durumu ayarı `Deleted`. Entity Framework varlığı silmek için gereken tüm budur. (Yalnızca bir alternatif göstermek için bu aşağıda verilmiştir; bu kodu projenizde koymayın.)
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithoutReadFirst&highlight=7-8)]
 
 Varlık ilgili de silinip silinmeyeceği verileri, o art arda silme veritabanında yapılandırıldığından emin olun. Varlık silme işlemi için Bu yaklaşımda, silinecek ilgili varlık vardır EF farkına varmazsınız.
 
@@ -272,7 +272,7 @@ Tıklatın **silmek**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata i
 
 İşiniz bittiğinde ile bir veritabanı bağlantısı tutan kaynakları boşaltmak için bağlam örneğinin mümkün olan en kısa sürede çıkarılması gerekir. ASP.NET Core yerleşik [bağımlılık ekleme](../../fundamentals/dependency-injection.md) alır bu görev sizin için gerçekleştirir.
 
-İçinde *haline*, çağırmanız [AddDbContext genişletme yöntemi](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) sağlamak için `DbContext` ASP.NET dı kapsayıcısında sınıfı. Yöntem hizmet ömrü ayarlar `Scoped` varsayılan olarak. `Scoped`bağlam nesne ömrü örtüşür web isteği yaşam süresiyle anlamına gelir ve `Dispose` yöntemi çağrılır otomatik olarak web isteği sonunda.
+İçinde *haline*, çağırmanız [AddDbContext genişletme yöntemi](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) sağlamak için `DbContext` ASP.NET dı kapsayıcısında sınıfı. Yöntem hizmet ömrü ayarlar `Scoped` varsayılan olarak. `Scoped` bağlam nesne ömrü örtüşür web isteği yaşam süresiyle anlamına gelir ve `Dispose` yöntemi çağrılır otomatik olarak web isteği sonunda.
 
 ## <a name="handling-transactions"></a>İşleme işlemleri
 

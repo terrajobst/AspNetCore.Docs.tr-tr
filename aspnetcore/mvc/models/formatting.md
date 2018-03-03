@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/formatting
-ms.openlocfilehash: 36231cd2bf59408e9c858ea99355c1e8dd859e6e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 704ca4f1ea6e0acd14dfa4175b61d8e2acf8f3c7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>ASP.NET Core MVC biçimlendirme yanıt verileri giriş
 
@@ -35,7 +35,7 @@ Belirli bir biçimde veri öğesinden devralınan bir denetleyici döndürmek i�
 
 JSON biçimli veriyor:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
 
 Bu eylem yanıttan örnek:
 
@@ -45,7 +45,7 @@ Yanıtın içerik türü olduğuna dikkat edin `application/json`hem ağ istekle
 
 Düz metin olarak biçimlendirilmiş verileri döndürmek için kullanmak `ContentResult` ve `Content` Yardımcısı:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
 Bu eylem yanıttan:
 
@@ -53,7 +53,7 @@ Bu eylem yanıttan:
 
 Bu durumda Not `Content-Type` döndürülen olduğu `text/plain`. Ayrıca, yalnızca bir dize yanıt türünü kullanarak bu aynı davranışı elde edebilirsiniz:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
 
 >[!TIP]
 > Birden çok önemsiz olmayan eylemler için dönüş türleri veya seçenekler (örneğin, farklı HTTP durum kodları sonucuna göre gerçekleştirilen işlemler), tercih ettiğiniz `IActionResult` dönüş türü.
@@ -64,7 +64,7 @@ Bu durumda Not `Content-Type` döndürülen olduğu `text/plain`. Ayrıca, yaln�
 
 Aşağıdaki bir eylem yöntem `Ok` ve `NotFound` yardımcı yöntemler:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
 JSON biçimli bir yanıt, başka bir biçime istendi ve sunucu istenen biçim döndürebilirsiniz sürece döndürülür. Gibi bir araç kullanabilirsiniz [Fiddler](http://www.telerik.com/fiddler) bir Accept üstbilgisi içeren bir isteği oluşturun ve başka bir biçim belirtin. Sunucusu varsa, bu durumda, bir *biçimlendirici* , istenen biçiminde bir yanıt oluşturabilirsiniz, sonuç istemci tercih edilen biçimde döndürülür.
 
@@ -76,7 +76,7 @@ Denetleyici eylemleri döndürmeyebilir POCOs (düz eski CLR nesneler), ASP.NET 
 
 Bir nesne türü döndüren:
 
-[!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
+[!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
 
 Örnekte, geçerli Yazar diğer adı için bir istek yazarın verilerle 200 Tamam bir yanıt alır. Geçersiz bir diğer ad için bir istek 204 Hayır içerik yanıtı alır. XML ve JSON biçimlerde yanıtı gösteren ekran görüntüsü aşağıda verilmiştir.
 
@@ -110,7 +110,7 @@ XML biçimlendirme için destek eklemek için yükleme `Microsoft.AspNetCore.Mvc
 
 MVC'ın yapılandırmasında XmlSerializerFormatters eklemek *haline*:
 
-[!code-csharp[Main](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
+[!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
 Alternatif olarak, yalnızca çıktı biçimlendirici ekleyebilirsiniz:
 

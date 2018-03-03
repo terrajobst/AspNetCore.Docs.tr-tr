@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-react-project-template"></a>Tepki proje şablonu kullanın
 
@@ -49,9 +49,9 @@ Oluşturma işlemi birkaç dakika sürebilir ilk çalıştırmada npm bağımlı
 
 Adlı bir ortam değişkeni olduğundan emin olun `ASPNETCORE_Environment` değeriyle `Development`. (İçinde olmayan PowerShell komut istemleri) Windows üzerinde çalışan `SET ASPNETCORE_Environment=Development`. Linux veya macOS, çalıştırılan `export ASPNETCORE_Environment=Development`.
 
-Çalıştırma `dotnet build` uygulamanızı doğrulamak için derlemeler doğru. İlk çalıştırılmasında oluşturma işlemi birkaç dakika sürebilir npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
+Çalıştırma [dotnet yapı](/dotnet/core/tools/dotnet-build) uygulamanızı doğrulamak için derlemeler doğru. İlk çalıştırılmasında oluşturma işlemi birkaç dakika sürebilir npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
 
-Çalıştırma `dotnet run` uygulamayı başlatmak için.
+Çalıştırma [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) uygulamayı başlatmak için.
 
 ---
 

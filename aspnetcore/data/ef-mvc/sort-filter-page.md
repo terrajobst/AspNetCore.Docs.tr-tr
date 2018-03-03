@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d5a9ac83b30a8173f9229e512bf843d93c11baea
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - EF çekirdek ASP.NET Core MVC Öğreticisi (3 / 10)
 
@@ -34,7 +34,7 @@ Aşağıdaki çizimde tamamladığınızda sayfa nasıl görüneceği gösterilm
 
 İçinde *StudentsController.cs*, yerine `Index` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 Bu kod alan bir `sortOrder` URL'deki sorgu dizesi parametresi. Sorgu dizesi değerini eylem yönteminin bir parametresi olarak ASP.NET Core MVC tarafından sağlanır. Parametre "Ad" veya "Tarih", ardından isteğe bağlı olarak bir alt çizgi ve azalan belirtmek için "desc" dizesi olan bir dize olur. Varsayılan sıralama düzeni artan.
 
@@ -42,7 +42,7 @@ Dizin sayfası istenen ilk kez hiçbir sorgu dizesi yok. Öğrenciler artan düz
 
 İki `ViewData` öğeleri (NameSortParm ve DateSortParm) uygun sorgu dizesi değerlerini sütun başlığını köprüler yapılandırmak için Görünüm tarafından kullanılır.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Üçlü deyimleri bunlar. Birinci anlama gelir `sortOrder` parametresi null veya boş NameSortParm "name_desc" olarak ayarlanmalıdır; Aksi halde, boş bir dize olarak ayarlanmalıdır. Bu iki ifade sütun başlığını köprüler şu şekilde ayarlamak görünümü etkinleştirin:
 
@@ -77,7 +77,7 @@ Uygulama, belirleyin **Öğrenciler** sekmesine ve tıklayın **Soyadı** ve **k
 
 İçinde *StudentsController.cs*, yerine `Index` (değişiklikleri vurgulanır) aşağıdaki kod ile yöntemi.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Eklediğiniz bir `searchString` parametresi `Index` yöntemi. Bir metin kutusundan dizin görünümüne ekleyeceksiniz arama dizesi değeri alındı. LINQ ifadesi bir where eklediğiniz yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer yan tümcesi. Where ekler deyimi yan tümcesi yalnızca arama için bir değer ise gerçekleştirilir.
 
@@ -116,7 +116,7 @@ Disk belleği Öğrenciler dizin sayfasına eklemek için oluşturacağınız bi
 
 Proje klasöründe oluşturma `PaginatedList.cs`ve ardından şablon kodu aşağıdaki kodla değiştirin.
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 `CreateAsync` Yöntemi bu kodda sayfa boyutu ve sayfa numarasını alır ve uygun geçerlidir `Skip` ve `Take` deyimlerini `IQueryable`. Zaman `ToListAsync` üzerinde adlı `IQueryable`, yalnızca istenen sayfa içeren bir liste döndürür. Özellikler `HasPreviousPage` ve `HasNextPage` etkinleştirmek veya devre dışı bırakmak için kullanılan **önceki** ve **sonraki** düğmeleri disk belleği.
 
@@ -126,7 +126,7 @@ A `CreateAsync` yöntemi yerine bir oluşturucu oluşturmak için kullanılan `P
 
 İçinde *StudentsController.cs*, yerine `Index` aşağıdaki kod ile yöntemi.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 Bu kod, yöntem imzası sayfa numarası parametre, geçerli bir sıralama sipariş parametresi ve geçerli bir filtre parametresi ekler.
 
@@ -213,21 +213,21 @@ Oluşturma bir *SchoolViewModels* klasöründe *modelleri* klasör.
 
 Yeni klasör içinde bir sınıf dosyası ekleyin *EnrollmentDateGroup.cs* ve şablon kodu aşağıdaki kodla değiştirin:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Ev denetleyicisi değiştirme
 
 İçinde *HomeController.cs*, aşağıdaki using deyimlerini dosyanın üst kısmında:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 Veritabanı bağlamı için bir sınıf değişkeni parantezinden sınıfı için hemen sonra ekleyin ve ASP.NET Core dı bağlamının bir örneği elde:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 Değiştir `About` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ ifadesi Öğrenci varlıklar kayıt tarihe göre gruplar, her grup içindeki varlıkların sayısı hesaplar ve sonuçları bir koleksiyondaki depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
 > [!NOTE] 

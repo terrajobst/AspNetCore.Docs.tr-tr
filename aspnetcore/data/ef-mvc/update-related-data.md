@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 4085ca9340291f6ab594285360f3b65738699098
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: ac9dc6f08bbcd890c5848e7cc5cb4ee93713a559
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>İlgili verileri - EF çekirdek ASP.NET Core MVC Öğreticisi (10 7) ile güncelleştirme
 
@@ -35,27 +35,27 @@ Yeni bir indirmelere varlık oluşturulduğunda, var olan bir bölüm için bir 
 
 İçinde *CoursesController.cs*, dört oluşturma ve düzenleme yöntemlerini silin ve bunları aşağıdaki kodla değiştirin:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_CreatePost)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_EditPost)]
 
 Sonra `Edit` HttpPost yöntemi, aşağı açılan liste departmanı bilgilerini yükler yeni bir yöntem oluşturun.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
 
 `PopulateDepartmentsDropDownList` Yöntemi adına göre sıralanmış tüm bölümleri listesini alır, oluşturur bir `SelectList` açılır listesi, koleksiyon ve koleksiyon görünümüne geçirir `ViewBag`. Yöntemi isteğe bağlı kabul `selectedDepartment` aşağı açılan liste işlendiğinde seçilir öğeyi seçmek arama kodu verir parametresi. Adı "DepartmentID" geçirir görünümü `<select>` etiket Yardımcısı ve yardımcı sonra bilir Bakılacak `ViewBag` için nesne bir `SelectList` "DepartmentID" adlı.
 
 HttpGet `Create` yöntem çağrılarını `PopulateDepartmentsDropDownList` için yeni bir indirmelere departman henüz kurulan değil çünkü seçili öğe ayarlama olmadan yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
 HttpGet `Edit` yöntemi, seçili öğe düzenlenmekte indirmelere zaten atanmış bölüm Kimliğini temel ayarlar:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=15&name=snippet_EditGet)]
 
 Her ikisi için de HttpPost yöntemleri `Create` ve `Edit` da bunlar sayfa bir hatanın ardından yeniden görüntüleyin seçili öğe ayarlar kodunu içerir. Bu hata iletisini görüntülemek için sayfanın görüntülendiğinde için hangi departmanı seçilmedi seçili kalmasını sağlar.
 
@@ -63,27 +63,27 @@ Her ikisi için de HttpPost yöntemleri `Create` ve `Edit` da bunlar sayfa bir h
 
 İndirmelere ayrıntıları ve Delete sayfaları performansını iyileştirmek için ekleme `AsNoTracking` çağrıları `Details` ve HttpGet `Delete` yöntemleri.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_Details)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?highlight=10&name=snippet_DeleteGet)]
 
 ### <a name="modify-the-course-views"></a>İndirmelere görünümleri değiştirme
 
 İçinde *Views/Courses/Create.cshtml*, "Select departmanı" seçeneğine ekleyin **departmanı** aşağı açılan listesinde, gelen başlığını değiştirme **DepartmentID** için  **Departman**ve bir doğrulama ileti ekleyin.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
+[!code-html[](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
 İçinde *Views/Courses/Edit.cshtml*, yaptığınız yalnızca bölüm alan için aynı değişiklik *Create.cshtml*.
 
 De *Views/Courses/Edit.cshtml*, önce bir indirmelere numarası alanı ekleme **başlık** alan. İndirmelere birincil anahtar olduğundan, bu görüntülenir, ancak değiştirilemez.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
+[!code-html[](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
 
 Gizli bir alan zaten var. (`<input type="hidden">`) düzenleme görünümü indirmelere numaralı. Ekleme bir `<label>` kullanıcı tıklattığında gönderilen veriler dahil edilecek indirmelere numarası neden değil, etiket Yardımcısı gizli alan gereksinimini ortadan değil **kaydetmek** üzerinde **Düzenle** sayfası.
 
 İçinde *Views/Courses/Delete.cshtml*, indirmelere sayı alanı üstüne ekleyin ve departman adına bölüm Kimliğini değiştirin.
 
-[!code-html[Main](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
+[!code-html[](intro/samples/cu/Views/Courses/Delete.cshtml?highlight=14-19,36)]
 
 İçinde *Views/Courses/Details.cshtml*, yalnızca yaptığınız için aynı değişiklik *Delete.cshtml*.
 
@@ -115,11 +115,11 @@ Eğitmen kaydı düzenlediğinizde, eğitmen office atama güncelleştirmek kull
 
 İçinde *InstructorsController.cs*, HttpGet kodda değişiklik `Edit` onun Eğitmen varlığın yükler şekilde yöntemi `OfficeAssignment` gezinti özelliği ve çağrıları `AsNoTracking`:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
 
 HttpPost Değiştir `Edit` office atama güncelleştirmeleri işlemek için aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
 
 Kod şunları yapar:
 
@@ -129,7 +129,7 @@ Kod şunları yapar:
 
 -  Model bağlayıcı değerlerle alınan Eğitmen varlığı güncelleştirir. `TryUpdateModel` Aşırı sağlar beyaz liste ile dahil etmek istediğiniz özellikleri. Bu açıklandığı gibi atlayarak nakil engeller [ikinci Öğreticisi](crud.md).
 
-    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -155,7 +155,7 @@ Kod şunları yapar:
 
 İçinde *Views/Instructors/Edit.cshtml*, ofis konumunda sona önce düzenlemek için yeni bir alan eklemek **kaydetmek** düğmesi:
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
 Uygulama, belirleyin **Eğitmen** sekmesini ve ardından **Düzenle** bir eğitmen üzerinde. Değişiklik **ofis konumu** tıklatıp **kaydetmek**.
 
@@ -177,11 +177,11 @@ Onay kutuları listesi için veri görünümüne sağlamak için bir görünüm 
 
 Oluşturma *AssignedCourseData.cs* içinde *SchoolViewModels* klasörü ve var olan kodu aşağıdaki kodla değiştirin:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 İçinde *InstructorsController.cs*, HttpGet Değiştir `Edit` aşağıdaki kod ile yöntemi. Değişiklikler vurgulanır.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
 
 İstekli yükleme için kod ekler `Courses` gezinti özelliği ve yeni çağırır `PopulateAssignedCourseData` onay kutusunu dizi kullanma hakkında bilgi sağlamak için yöntemi `AssignedCourseData` görüntülemek model sınıfı.
 
@@ -189,9 +189,9 @@ Kodda `PopulateAssignedCourseData` yöntemi görünüm model sınıfı kullanara
 
 Ardından, kullanıcı tıklattığında yürütülen kod ekleme **kaydetmek**. Değiştir `EditPost` yöntemi aşağıdaki kod ve güncelleştirmeleri yeni bir yöntem ekleyin `Courses` Eğitmen varlık gezinti özelliği.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=1,3,12,13,25,39-40&name=snippet_EditPostCourses)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=1-31)]
 
 Yöntem imzası HttpGet farklıdır `Edit` yöntem adını değişiklikleri şekilde yöntemi `EditPost` geri `Edit`.
 
@@ -199,17 +199,17 @@ Görünüm indirmelere varlıklar koleksiyonu sahip olmadığından, model bağl
 
 Hiçbir onay kutuları seçilmedi, varsa kodda `UpdateInstructorCourses` başlatır `CourseAssignments` gezinti özelliği boş bir koleksiyon ve döndürür:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_UpdateCourses&highlight=3-7)]
 
 Kod sonra veritabanındaki tüm kursları aracılığıyla döngüler ve her indirmelere görünümünde seçilen dosyalardan karşı Eğitmen atanmış olanları karşı denetler. Verimli aramalar kolaylaştırmak için sonraki iki koleksiyon depolanmış `HashSet` nesneleri.
 
 Bir indirmelere onay kutusunu seçildi ancak indirmelere değil `Instructor.CourseAssignments` gezinti özelliği, koleksiyon gezinti özelliği içinde indirmelere eklenir.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=14-20&name=snippet_UpdateCourses)]
 
 Bir indirmelere onay kutusunun seçili edilmedi ancak indirmelere bulunduğu `Instructor.CourseAssignments` gezinti özelliği, indirmelere Gezinti özelliğinden kaldırılır.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=21-29&name=snippet_UpdateCourses)]
 
 ### <a name="update-the-instructor-views"></a>Eğitmen görünümleri güncelleştirme
 
@@ -219,7 +219,7 @@ Bir indirmelere onay kutusunun seçili edilmedi ancak indirmelere bulunduğu `In
 > [!NOTE] 
 > Visual Studio'da kodu yapıştırın, satır sonları kodu keser bir biçimde değiştirilir.  CTRL + Z otomatik biçimlendirme geri almak için bir kez basın.  Burada gördüğünüz gibi göründükleri böylece satır sonları düzeltir. Girinti kusursuz, olmak zorunda değildir ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırlarını her tek bir satıra gösterildiği gibi veya olmalıdır, bir çalışma zamanı hatasıyla karşılaşırsınız. Seçili yeni kod bloğu ile sekme yeni kodu var olan kodu ile hizalamak için üç kez basın. Bu sorunu durumunu kontrol edebilirsiniz [burada](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
 Bu kod, üç sütun içeren bir HTML tablosu oluşturur. Her sütunda, indirmelere numarası ve başlığı oluşan bir resim yazısı tarafından izlenen bir onay kutusudur. Tüm onay kutularını grup olarak kabul edilmesi için oldukları model Bağlayıcısı bilgi veren aynı adı ("selectedCourses") sahip. Her onay kutusunun değer özniteliği değerine ayarlanmış `CourseID`. Sayfa gönderildiğinde, model bağlayıcı bir dizi oluşan denetleyicisine geçirir. `CourseID` yalnızca, seçilen onay kutuları için değerleri.
 
@@ -238,7 +238,7 @@ Bazı indirmelere atamalarını değiştirin ve Kaydet'e tıklayın. Dizin sayfa
 
 İçinde *InstructorsController.cs*, silme `DeleteConfirmed` aşağıdaki kodu yerine yöntemi ve Ekle.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
 
 Bu kod, aşağıdaki değişiklikleri yapar:
 
@@ -250,7 +250,7 @@ Bu kod, aşağıdaki değişiklikleri yapar:
 
 İçinde *InstructorsController.cs*, HttpGet silip HttpPost `Create` yöntemleri ve ardından yerine aşağıdaki kodu ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Create&highlight=3-5,12,14-22,29)]
 
 Bu kod ne için gördüğünüz için benzer `Edit` , başlangıçta hiçbir kurslar dışındaki yöntemleri seçilir. HttpGet `Create` yöntem çağrılarını `PopulateAssignedCourseData` değil olabileceğinden ancak seçilen kurslar yöntemi sipariş için boş bir koleksiyon sağlamak için `foreach` (Aksi halde görünümü kodu throw bir null başvuru özel durumu) görünümünde döngü.
 
@@ -283,7 +283,7 @@ Değiştirirseniz `CourseAssignments` özelliği bu şekilde, denetleyici açık
 
 İçinde *Views/Instructor/Create.cshtml*, bir office konumu metin kutusu ekleyin ve Gönder düğmesine önce kurslara onay kutularını işaretleyin. Düzen sayfası olduğu gibi söz konusu olduğunda [kopyalayıp yapıştırın, Visual Studio kodu yeniden biçimlendirir, biçimlendirme düzeltme](#notepad).
 
-[!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
+[!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
 Uygulama çalışırken ve bir eğitmen oluşturma sınayın. 
 

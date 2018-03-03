@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure uygulama Hizmeti'nde ASP.NET Core sorun giderme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama başlatma sorunu ASP.NET Core Tanılama hakkında yönergeler sağlar. Ek sorun giderme öneriler için bkz: [Azure App Service tanılama genel bakış](/azure/app-service/app-service-diagnostics) ve [nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme](/azure/app-service/web-sites-monitor) Azure belgelerinde.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: 76ee951f62eff43ee1dd5316baf63f1ccd1de35e
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: ba342f21350ce880485519e4e174770814a99d45
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Oluşturma, okuma, güncelleştirme ve silme - Razor sayfaları (8, 2) ile EF çekirdek
 
@@ -32,21 +32,21 @@ Bu öğretici, oluşturma, düzenleme, silme ve ayrıntıları Razor sayfaların
 * Alma ve HTTP GET yöntemiyle istenen veri görüntüleme `OnGetAsync`.
 * HTTP POST yöntemi ile verilerde yapılan değişiklikleri kaydetmek `OnPostAsync`.
 
-Dizin ve ayrıntıları sayfaları alma ve HTTP GET yöntemiyle istenen verileri görüntüleme`OnGetAsync`
+Dizin ve ayrıntıları sayfaları alma ve HTTP GET yöntemiyle istenen verileri görüntüleme `OnGetAsync`
 
 ## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a>SingleOrDefaultAsync FirstOrDefaultAsync ile değiştir
 
 Oluşturulan kodun kullanan [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) istenen varlığın getirilemedi. [FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) tek bir varlık getirme sırasında daha verimli olur:
 
 * Kod doğrulamak gerekmedikçe sorgudan döndürülen birden fazla varlık yok. 
-* `SingleOrDefaultAsync`Daha fazla veri getirir ve gereksiz çalışır.
-* `SingleOrDefaultAsync`Filtre bölümü uyan birden fazla varlık ise özel durum oluşturur.
-*  `FirstOrDefaultAsync`Filtre bölümü uyan birden fazla varlık ise throw değil.
+* `SingleOrDefaultAsync` Daha fazla veri getirir ve gereksiz çalışır.
+* `SingleOrDefaultAsync` Filtre bölümü uyan birden fazla varlık ise özel durum oluşturur.
+*  `FirstOrDefaultAsync` Filtre bölümü uyan birden fazla varlık ise throw değil.
 
-Genel olarak değiştirmek `SingleOrDefaultAsync` ile `FirstOrDefaultAsync`. `SingleOrDefaultAsync`5 yerde kullanılır:
+Genel olarak değiştirmek `SingleOrDefaultAsync` ile `FirstOrDefaultAsync`. `SingleOrDefaultAsync` 5 yerde kullanılır:
 
-* `OnGetAsync`Ayrıntılar sayfası.
-* `OnGetAsync`ve `OnPostAsync` düzenleme ve silme sayfalarında.
+* `OnGetAsync` Ayrıntılar sayfası.
+* `OnGetAsync` ve `OnPostAsync` düzenleme ve silme sayfalarında.
 
 <a name="FindAsync"></a>
 ### <a name="findasync"></a>FindAsync
@@ -66,7 +66,7 @@ Ancak, diğer varlıklar dahil etmek istediğiniz sonra bulma artık değil uygu
 
 Gözat `Pages/Students` sayfası. **Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar tarafından üretilen [yer işareti etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) içinde *sayfaları/Öğrenciler / Index.cshtml* dosya.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
 
 Ayrıntıları bağlantısını seçin. URL biçimidir `http://localhost:5000/Students/Details?id=2`. Bir sorgu dizesi kullanılarak geçirilmiş Öğrenci Kimliği (`?id=2`).
 
@@ -90,18 +90,18 @@ Genel değişiklik yapmayın `@page` için `@page "{id:int}"`, bunu sonları gir
 
 `OnGetAsync` Yöntemi *Pages/Students/Details.cshtml.cs* kullanan `FirstOrDefaultAsync` tek bir alma yöntemi `Student` varlık. Aşağıdaki vurgulanmış kodu ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
 
 `Include` Ve `ThenInclude` yöntemleri neden yüklemek bağlam `Student.Enrollments` gezinti özelliği ve her kayıt içinde `Enrollment.Course` gezinti özelliği. Bu yöntemleri ayrıntılı olarak okuma ilgili verileri öğreticide incelenir.
 
-`AsNoTracking` Yöntemi varlıkları güncelleştirilmiyor geçerli bağlamda döndürüldüğünde senaryolarda performansı artırır. `AsNoTracking`Bu öğreticinin ilerleyen bölümlerinde ele alınmıştır.
+`AsNoTracking` Yöntemi varlıkları güncelleştirilmiyor geçerli bağlamda döndürüldüğünde senaryolarda performansı artırır. `AsNoTracking` Bu öğreticinin ilerleyen bölümlerinde ele alınmıştır.
 
 ### <a name="display-related-enrollments-on-the-details-page"></a>Ayrıntıları sayfasında ilgili kayıtları görüntüleme
 
 Açık *Pages/Students/Details.cshtml*. Kayıtları listesini görüntülemek için aşağıdaki vurgulanmış kodu ekleyin:
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Kod yapıştırılan sonra kod girintileme yanlışsa, düzeltmek için CTRL-K-D tuşuna basın.
 
@@ -113,16 +113,16 @@ Uygulama, belirleyin **Öğrenciler** sekmesine ve tıklayın **ayrıntıları**
 
 Güncelleştirme `OnPostAsync` yönteminde *Pages/Students/Create.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
 İncelemek [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) kod:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
 
-Önceki kod `TryUpdateModelAsync<Student>` güncelleştirmeyi dener `emptyStudent` gönderilen form değerleri kullanarak nesne [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) özelliğinde [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync`Yalnızca listelenen özellikler güncelleştirmeleri (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
+Önceki kod `TryUpdateModelAsync<Student>` güncelleştirmeyi dener `emptyStudent` gönderilen form değerleri kullanarak nesne [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) özelliğinde [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0). `TryUpdateModelAsync` Yalnızca listelenen özellikler güncelleştirmeleri (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
 
 Önceki örnekte:
 
@@ -134,7 +134,7 @@ Güncelleştirme `OnPostAsync` yönteminde *Pages/Students/Create.cshtml.cs* aş
 
 Kullanarak `TryUpdateModel` overposting engellediğinden alanları gönderilen değerlerle güncelleştirmek için bir güvenlik en iyi uygulamadır. Örneğin, Öğrenci varlık içerdiğini varsayın bir `Secret` , bu web sayfası ekleme veya döndürmemelidir güncelleştirme özelliği:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
+[!code-csharp[](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 
 Uygulama olmasa dahi bir `Secret` oluşturma/güncelleştirme Razor sayfasını, bir bilgisayar korsanının alan kümesi `Secret` overposting tarafından değeri. Bir bilgisayar korsanının Fiddler gibi bir araç kullanın veya göndermek için bazı JavaScript Yazma bir `Secret` form değeri. Özgün kod Öğrenci örneğini oluşturduğunda, model Bağlayıcısı kullandığını alanları sınırlamak değil.
 
@@ -149,15 +149,15 @@ Ne olursa olsun değer için belirtilen korsan `Secret` form alanı DB'de günce
 
 Bir görünüm modeli genellikle uygulama tarafından kullanılan modelinde bulunan özellikler kümesini içerir. Uygulama modeli genellikle etki alanı modeli adı verilir. Etki alanı modeli genellikle veritabanında karşılık gelen varlığın gerektirdiği tüm özellikleri içerir. Görünüm modeli yalnızca UI katmanında (örneğin, Oluştur sayfası) için gereken özellikleri içerir. Görünüm modeli ek olarak, bazı uygulamalar, Razor sayfalarının sayfa model sınıfı ve tarayıcı arasında veri iletmek için bir bağlama modelini veya giriş modeli kullanın. Aşağıdakileri göz önünde bulundurun `Student` görünüm modeli:
 
-[!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
+[!code-csharp[](intro/samples/cu/Models/StudentVM.cs)]
 
 Görünüm modelleri overposting önlemek için alternatif bir yol sağlar. Görünüm modeli (Görüntüle) görüntülemek veya güncelleştirmek için yalnızca özellikleri içerir.
 
 Aşağıdaki kod `StudentVM` görünüm modeli yeni Öğrenci oluşturmak için:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
 
-[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) yöntemi diğerinden değerleri okuyarak bu nesnenin değerlerini ayarlar [PropertyValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) nesnesi. `SetValues`özellik adıyla eşleşen kullanır. Görünüm model türü için model türü ilgili gerekmez, bu yalnızca eşleşen özelliklere sahip olmalıdır.
+[SetValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) yöntemi diğerinden değerleri okuyarak bu nesnenin değerlerini ayarlar [PropertyValues](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) nesnesi. `SetValues` özellik adıyla eşleşen kullanır. Görünüm model türü için model türü ilgili gerekmez, bu yalnızca eşleşen özelliklere sahip olmalıdır.
 
 Kullanarak `StudentVM` gerektirir [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) kullanacak şekilde güncelleştirilmesi `StudentVM` yerine `Student`.
 
@@ -165,15 +165,15 @@ Razor sayfalarında `PageModel` türetilmiş sınıf, görünüm modeli.
 
 ## <a name="update-the-edit-page"></a>Güncelleştirmeyi Düzenle sayfası
 
-Düzen sayfası için sayfa modeli güncelleştirin:
+Düzen sayfası için sayfa modeli güncelleştirin. Önemli değişiklikler vurgulanmıştır:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 
 Kod değişiklikleri Oluştur sayfası birkaç istisna dışında benzerdir:
 
-* `OnPostAsync`İsteğe bağlı bir sahip `id` parametresi.
+* `OnPostAsync` İsteğe bağlı bir sahip `id` parametresi.
 * Geçerli Öğrenci DB'den getirilen boş Öğrenci oluşturmak yerine.
-* `FirstOrDefaultAsync`ile değiştirilmiştir [zaman uyumsuz olarak bulur](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync`bir varlığın birincil anahtardan seçerken olduğunda iyi bir seçimdir. Bkz: [zaman uyumsuz olarak bulur](#FindAsync) daha fazla bilgi için.
+* `FirstOrDefaultAsync` ile değiştirilmiştir [zaman uyumsuz olarak bulur](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0). `FindAsync` bir varlığın birincil anahtardan seçerken olduğunda iyi bir seçimdir. Bkz: [zaman uyumsuz olarak bulur](#FindAsync) daha fazla bilgi için.
 
 ### <a name="test-the-edit-and-create-pages"></a>Düzen sınamak ve sayfa oluşturma
 
@@ -203,19 +203,19 @@ Bir web uygulamasında `DbContext` bir varlık ve verileri bir sayfa oluşturuld
 
 Bu bölümde, bir özel hata uygulamak için kod eklenir ne zaman ileti çağrısı `SaveChanges` başarısız olur. Olası hata iletilerini içeren bir dize ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
 Değiştir `OnGetAsync` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 
-Önceki kod isteğe bağlı bir parametre içeren `saveChangesError`. `saveChangesError`yöntem Öğrenci nesnesini silmek için bir hatadan sonra çağrıldı olup olmadığını gösterir. Silme işlemi, geçici ağ sorunları nedeniyle başarısız olabilir. Geçici ağ hataları bulutta daha yüksektir. `saveChangesError`yanlış olduğunda Delete sayfa `OnGetAsync` kullanıcı Arabiriminden olarak adlandırılır. Zaman `OnGetAsync` tarafından çağrılır `OnPostAsync` (silme işlemi başarısız oldu çünkü), `saveChangesError` parametresi doğrudur.
+Önceki kod isteğe bağlı bir parametre içeren `saveChangesError`. `saveChangesError` yöntem Öğrenci nesnesini silmek için bir hatadan sonra çağrıldı olup olmadığını gösterir. Silme işlemi, geçici ağ sorunları nedeniyle başarısız olabilir. Geçici ağ hataları bulutta daha yüksektir. `saveChangesError`yanlış olduğunda Delete sayfa `OnGetAsync` kullanıcı Arabiriminden olarak adlandırılır. Zaman `OnGetAsync` tarafından çağrılır `OnPostAsync` (silme işlemi başarısız oldu çünkü), `saveChangesError` parametresi doğrudur.
 
 ### <a name="the-delete-pages-onpostasync-method"></a>Delete sayfaları OnPostAsync yöntemi
 
 Değiştir `OnPostAsync` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
 
 Seçilen varlığın önceki kod alır sonra çağırır `Remove` varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır SQL DELETE komutu oluşturulur. Varsa `Remove` başarısız olur:
 
@@ -226,7 +226,7 @@ Seçilen varlığın önceki kod alır sonra çağırır `Remove` varlığın du
 
 Aşağıdaki vurgulanan hata iletisini silme Razor sayfasına ekleyin.
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
+[!code-cshtml[](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
 
 Delete sınayın.
 

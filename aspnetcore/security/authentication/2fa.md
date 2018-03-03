@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 7bca1c6249bebe84b532b652ab736186f35c50ee
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 721c4c20234c7232b509a0cff444538c2cfeb166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="two-factor-authentication-with-sms"></a>SMS ile iki öğeli kimlik doğrulama
 
@@ -60,7 +60,7 @@ Kullanacağız [seçenekleri düzeni](xref:fundamentals/configuration/options) k
 
    * Güvenli SMS anahtar getirmek için bir sınıf oluşturun. Bu örnek için `SMSoptions` sınıfı oluşturulur *Services/SMSoptions.cs* dosya.
 
-[!code-csharp[Main](2fa/sample/Web2FA/Services/SMSoptions.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
 Ayarlama `SMSAccountIdentification`, `SMSAccountPassword` ve `SMSAccountFrom` ile [gizli Yöneticisi aracını](xref:security/app-secrets). Örneğin:
 
@@ -81,16 +81,16 @@ info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 
 
 **Twilio:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
 **ASPSMS:**  
-[!code-csharp[Main](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
+[!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_ASPSMS.cs)]
 
-### <a name="configure-startup-to-use-smsoptions"></a>Başlangıç kullanmak için yapılandırma`SMSoptions`
+### <a name="configure-startup-to-use-smsoptions"></a>Başlangıç kullanmak için yapılandırma `SMSoptions`
 
 Ekleme `SMSoptions` hizmet kapsayıcısında için `ConfigureServices` yönteminde *haline*:
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet1&highlight=4)]
 
 ### <a name="enable-two-factor-authentication"></a>İki faktörlü kimlik doğrulamasını etkinleştir
 
@@ -144,4 +144,4 @@ SMS mesajı alamazsanız twilio günlük sayfasına bakın.
 
 Hesap kilitleme 2FA ile kullanmanızı öneririz. Bir kullanıcı (yerel hesap veya sosyal hesap aracılığıyla), oturum sonra her başarısız girişimden 2FA konumunda depolanır ve (varsayılan olarak 5) en fazla deneme ulaşıldığında, kullanıcı beş dakika kilitlenmeden (süresiyle kilitleme ayarlayabilirsiniz `DefaultAccountLockoutTimeSpan`). 10 başarısız girişimden sonra 10 dakika kilitlenmesi için hesap yapılandırır.
 
-[!code-csharp[Main](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 
+[!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)] 

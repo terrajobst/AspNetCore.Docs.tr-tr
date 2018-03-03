@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: ea697e4b1d3c16dbf3ff5703000d16b93da6c582
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 70a4fd1c370b8fa6462f3958be5ce3eb76414a34
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -64,7 +64,7 @@ URL yeniden yazma kurmak ve kuralları bir örneğini oluşturarak yeniden yönl
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -92,7 +92,7 @@ Kullanım `AddRedirect` isteklerini yeniden yönlendirmek için. İlk parametre 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -162,7 +162,7 @@ Kullanım `AddRewrite` URL yeniden yazma işlemi için bir kural oluşturmak iç
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -217,7 +217,7 @@ Apache mod_rewrite kurallarıyla uygulamak `AddApacheModRewrite`. Kural dosyası
 
 A `StreamReader` kurallardan okumak için kullanılan *ApacheModRewrite.txt* kurallar dosyası.
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -237,7 +237,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Örnek uygulama isteklerinden yönlendiren `/apache-mod-rules-redirect/(.\*)` için `/redirected?id=$1`. Yanıt durum kodu 302 (bulundu) ' dir.
 
-[!code[Main](url-rewriting/sample/ApacheModRewrite.txt)]
+[!code[](url-rewriting/sample/ApacheModRewrite.txt)]
 
 Özgün istek: `/apache-mod-rules-redirect/1234`
 
@@ -282,7 +282,7 @@ IIS URL yeniden yazma modülü için geçerli bir kurallar kullanmak için `AddI
 
 A `StreamReader` kurallardan okumak için kullanılan *IISUrlRewrite.xml* kurallar dosyası.
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -302,7 +302,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Örnek uygulaması isteklerden yeniden yazar `/iis-rules-rewrite/(.*)` için `/rewritten?id=$1`. 200 (Tamam) durum kodlu istemciye gönderilen yanıtı.
 
-[!code-xml[Main](url-rewriting/sample/IISUrlRewrite.xml)]
+[!code-xml[](url-rewriting/sample/IISUrlRewrite.xml)]
 
 Özgün istek: `/iis-rules-rewrite/1234`
 
@@ -370,7 +370,7 @@ Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntem kendi kural mantı
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -388,7 +388,7 @@ public void Configure(IApplicationBuilder app)
 
 Örnek uygulama ile biten istekleri yollar için yönlendiren bir yöntem gösterilmektedir *.xml*. Bir istek yapıyorsa verilen `/file.xml`, onu yönlendireceği `/xmlfiles/file.xml`. Durum kodu 301 (taşınmış kalıcı olarak) ayarlanır. İçin bir yeniden yönlendirme, açıkça yanıtın durum kodu ayarlamanız gerekir; Aksi takdirde, 200 (Tamam) durum kodu döndürülür ve yeniden yönlendirme istemcide karşılaşılmaz.
 
-[!code-csharp[Main](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
 
 Özgün istek: `/file.xml`
 
@@ -399,7 +399,7 @@ Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak iç
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -418,7 +418,7 @@ public void Configure(IApplicationBuilder app)
 
 Örnek uygulama için parametre değerlerini `extension` ve `newPath` birkaç koşullara uyan denetlenir. `extension` Bir değer içermelidir ve değeri olmalıdır *.png*, *.jpg*, veya *.gif*. Varsa `newPath` geçerli olmayan bir `ArgumentException` oluşturulur. Bir istek yapıyorsa verilen *image.png*, onu yönlendireceği `/png-images/image.png`. Bir istek yapıyorsa verilen *image.jpg*, onu yönlendireceği `/jpg-images/image.jpg`. Durum kodu 301 (kalıcı taşınmış) olarak ayarlanır ve `context.Result` kural işlemeyi durdur ve yanıt göndermek için ayarlanır.
 
-[!code-csharp[Main](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
 
 Özgün istek: `/image.png`
 

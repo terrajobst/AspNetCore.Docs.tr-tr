@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 71c04d2bf339467fea6897be183fca950c04b659
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: a7a21aca4d822daad7a6a13f0feec5139bf6e1a5
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>İlgili verileri - EF çekirdek Razor sayfalarının (7 8'in) güncelleştirme
 
@@ -34,7 +34,7 @@ Aşağıdaki çizimler tamamlanmış sayfaları bazıları gösterir.
 
 Kurslar/oluşturma ve kurslar/düzenleme sayfaları her bölüm adlarının bir listesini gerekir. Create *Pages/Courses/DepartmentNamePageModel.cshtml.cs* oluşturma ve düzenleme sayfalar için temel sınıf:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
 Önceki kod oluşturur bir [SelectList](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) bölüm adları listesi içerecek şekilde. Varsa `selectedDepartment` belirtilirse, bu bölüm seçildiğinde, `SelectList`.
 
@@ -48,7 +48,7 @@ Yeni bir indirmelere varlık oluşturulduğunda, var olan bir bölüm için bir 
 
 Oluştur sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Create.cshtml.cs?highlight=7,18,32-999)]
 
 Önceki kod:
 
@@ -56,13 +56,13 @@ Oluştur sayfası modeli aşağıdaki kod ile güncelleştirin:
 * Kullanan `TryUpdateModelAsync` önlemek için [overposting](xref:data/ef-rp/crud#overposting).
 * Değiştirir `ViewData["DepartmentID"]` ile `DepartmentNameSL` (temel sınıfından).
 
-`ViewData["DepartmentID"]`değiştirilir kesin türü belirtilmiş ile `DepartmentNameSL`. Kesin türü belirtilmiş modeller üzerinden zayıf yazılmış tercih ettiği. Daha fazla bilgi için bkz: [verileri (ViewData ve ViewBag)'zayıf yazılmış](xref:mvc/views/overview#VD_VB).
+`ViewData["DepartmentID"]` değiştirilir kesin türü belirtilmiş ile `DepartmentNameSL`. Kesin türü belirtilmiş modeller üzerinden zayıf yazılmış tercih ettiği. Daha fazla bilgi için bkz: [verileri (ViewData ve ViewBag)'zayıf yazılmış](xref:mvc/views/overview#VD_VB).
 
 ### <a name="update-the-courses-create-page"></a>Güncelleştirme kurslar oluşturma sayfası
 
 Güncelleştirme *Pages/Courses/Create.cshtml* aşağıdaki biçimlendirme ile:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?highlight=29-34)]
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
@@ -73,7 +73,7 @@ Güncelleştirme *Pages/Courses/Create.cshtml* aşağıdaki biçimlendirme ile:
 
 Razor sayfasını kullanan [seçin etiket Yardımcısı](xref:mvc/views/working-with-forms#the-select-tag-helper):
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Create.cshtml?range=28-35&highlight=3-6)]
 
 Oluştur sayfası sınayın. Oluştur sayfası bölüm kimliği yerine bölüm adını görüntüler
 
@@ -81,13 +81,13 @@ Oluştur sayfası sınayın. Oluştur sayfası bölüm kimliği yerine bölüm a
 
 Düzen sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Edit.cshtml.cs?highlight=8,28,35,36,40,47-999)]
 
 Değişiklikleri Oluştur sayfası modelinde yapılan benzerdir. Önceki kod `PopulateDepartmentsDropDownList` , aşağı açılan listesinde belirtilen departmanı seçin bölüm kimliği, geçirir.
 
 Güncelleştirme *Pages/Courses/Edit.cshtml* aşağıdaki biçimlendirme ile:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Edit.cshtml?highlight=17-20,32-35)]
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
@@ -97,7 +97,7 @@ Güncelleştirme *Pages/Courses/Edit.cshtml* aşağıdaki biçimlendirme ile:
 * "Select departmanı" seçeneği ekler. Bu değişiklik "Select departman" yerine ilk bölümü oluşturur.
 * Departman seçili olmadığında bir doğrulama ileti ekler.
 
-Sayfa gizli bir alan içeriyor (`<input type="hidden">`) indirmelere numarası. Ekleme bir `<label>` Yardımcıyla etiketi `asp-for="Course.CourseID"` gizli alan gereksinimini ortadan kaldırmak değil. `<input type="hidden">`Kullanıcı tıklattığında gönderilen veriler dahil edilecek indirmelere numarası gereklidir **kaydetmek**.
+Sayfa gizli bir alan içeriyor (`<input type="hidden">`) indirmelere numarası. Ekleme bir `<label>` Yardımcıyla etiketi `asp-for="Course.CourseID"` gizli alan gereksinimini ortadan kaldırmak değil. `<input type="hidden">` Kullanıcı tıklattığında gönderilen veriler dahil edilecek indirmelere numarası gereklidir **kaydetmek**.
 
 Güncelleştirilmiş kod sınayın. Oluşturma, düzenleme ve bir indirmelere silin.
 
@@ -105,17 +105,17 @@ Güncelleştirilmiş kod sınayın. Oluşturma, düzenleme ve bir indirmelere si
 
 [AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) izleme gerekli olmadığı durumlarda, performansı artırabilir. Ekleme `AsNoTracking` silebilir ve Ayrıntılar sayfası modeli. Aşağıdaki kod güncelleştirilmiş Delete sayfa modeli gösterir:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
 Güncelleştirme `OnGetAsync` yönteminde *Pages/Courses/Details.cshtml.cs* dosyası:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Details.cshtml.cs?name=snippet)]
 
 ### <a name="modify-the-delete-and-details-pages"></a>Sil ve ayrıntıları sayfaları değiştirme
 
 Aşağıdaki biçimlendirmede silme Razor sayfasıyla güncelleştirmesi:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
+[!code-cshtml[](intro/samples/cu/Pages/Courses/Delete.cshtml?highlight=15-20)]
 
 Ayrıntılar sayfası aynı değişiklikleri yapın.
 
@@ -137,19 +137,19 @@ Eğitmen kaydı düzenlerken, eğitmen office atama güncelleştirmek isteyebili
 
 Eğitmen Düzenle sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit1.cshtml.cs?name=snippet&highlight=20-23,32,39-999)]
 
 Önceki kod:
 
 - Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını varlıktan `OfficeAssignment` gezinti özelliği.
-- Alınan güncelleştirmeleri `Instructor` model bağlayıcı değerlerle varlık. `TryUpdateModel`engeller [overposting](xref:data/ef-rp/crud#overposting).
+- Alınan güncelleştirmeleri `Instructor` model bağlayıcı değerlerle varlık. `TryUpdateModel` engeller [overposting](xref:data/ef-rp/crud#overposting).
 - Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` null. Zaman `Instructor.OfficeAssignment` null, ilgili satırda olduğundan `OfficeAssignment` tablo silinir.
 
 ### <a name="update-the-instructor-edit-page"></a>Eğitmen düzenleme sayfasını güncelleştir
 
 Güncelleştirme *Pages/Instructors/Edit.cshtml* office konum:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit1.cshtml?highlight=29-33)]
 
 Eğitmen ofis konumu değiştirebilir doğrulayın.
 
@@ -159,7 +159,7 @@ Eğitmen kurslar herhangi bir sayıda öğretir. Bu bölümde, indirmelere atama
 
 ![Kurslar Eğitmen Düzenle sayfası](update-related-data/_static/instructor-edit-courses.png)
 
-`Course`ve `Instructor` bir çok-çok ilişkisi vardır. İlişkileri kaldırın ve eklemek için ekleme ve kaldırma varlıklardan `CourseAssignments` katılma varlık kümesi.
+`Course` ve `Instructor` bir çok-çok ilişkisi vardır. İlişkileri kaldırın ve eklemek için ekleme ve kaldırma varlıklardan `CourseAssignments` katılma varlık kümesi.
 
 Onay kutuları bir eğitmen atandığı kurslar değişiklikler etkinleştirin. Her indirmelere veritabanındaki için bir onay kutusu görüntülenir. Eğitmen atandığı kurslar denetlenir. Kullanıcı seçin veya indirmelere atamalarını değiştirmek için onay kutularını temizleyin. Kurslar sayısı çok büyük ise:
 
@@ -170,27 +170,27 @@ Onay kutuları bir eğitmen atandığı kurslar değişiklikler etkinleştirin. 
 
 Oluşturma *SchoolViewModels/AssignedCourseData.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
 `AssignedCourseData` Sınıfı bir eğitmen tarafından atanan kurslar onay kutularını oluşturmak için verileri içerir.
 
 Oluşturma *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* temel sınıfı:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-`InstructorCoursesPageModel` Taban sınıf, düzenleme için kullanabilir ve sayfa modelleri oluşturun. `PopulateAssignedCourseData`Tüm okur `Course` doldurmak için varlıklar `AssignedCourseDataList`. Kod her Elbette, ayarlar `CourseID`, başlık ve karşılamadığını Eğitmen indirmelere atanır. A [Hashset'i](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) verimli aramalar oluşturmak için kullanılır.
+`InstructorCoursesPageModel` Taban sınıf, düzenleme için kullanabilir ve sayfa modelleri oluşturun. `PopulateAssignedCourseData` Tüm okur `Course` doldurmak için varlıklar `AssignedCourseDataList`. Kod her Elbette, ayarlar `CourseID`, başlık ve karşılamadığını Eğitmen indirmelere atanır. A [Hashset'i](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) verimli aramalar oluşturmak için kullanılır.
 
 ### <a name="instructors-edit-page-model"></a>Eğitmen Düzenle sayfası modeli
 
 Eğitmen Düzenle sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Edit.cshtml.cs?name=snippet&highlight=1,20-24,30,34,41-999)]
 
 Önceki kod office atama değişiklikleri işler.
 
 Razor görünüm Eğitmen güncelleştirin:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Edit.cshtml?highlight=34-59)]
 
 <a id="notepad"></a>
 > [!NOTE]
@@ -208,13 +208,13 @@ Not: Eğitmen indirmelere verileri düzenlemek için burada uygulanan yaklaşım
 
 Eğitmen Oluştur sayfası modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Create.cshtml.cs)]
 
 Önceki kod benzer *Pages/Instructors/Edit.cshtml.cs* kodu.
 
 Eğitmen oluşturmak Razor sayfasını aşağıdaki biçimlendirme ile güncelleştirin:
 
-[!code-cshtml[Main](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
+[!code-cshtml[](intro/samples/cu/Pages/Instructors/Create.cshtml?highlight=32-62)]
 
 Eğitmen Oluştur sayfası sınayın.
 
@@ -222,11 +222,11 @@ Eğitmen Oluştur sayfası sınayın.
 
 Delete sayfa modeli aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Delete.cshtml.cs?highlight=5,40-999)]
 
 Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
-* İstekli yükleme için kullandığı `CourseAssignments` gezinti özelliği. `CourseAssignments`dahil edilmelidir veya Eğitmen silindiğinde silinmez. Bunları okuyun gerek önlemek için veritabanında art arda silme yapılandırın.
+* İstekli yükleme için kullandığı `CourseAssignments` gezinti özelliği. `CourseAssignments` dahil edilmelidir veya Eğitmen silindiğinde silinmez. Bunları okuyun gerek önlemek için veritabanında art arda silme yapılandırın.
 
 * Silinecek Eğitmen herhangi Departmanlar yönetici olarak atanmış ise bu bölümlerden Eğitmen atama kaldırır.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 68fa29b909ebea57e6a3986fca7b88c5a5cf579c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3528965cc65d2d5ec21df40cbeb71d1333839e1a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
 
@@ -89,7 +89,7 @@ Açık Razor ifadeleri oluşur bir `@` dengeli parantez simgesiyle. Geçen hafta
 
 Örtük ifadeleri, önceki bölümde açıklanan genellikle boşluk içeremez. Aşağıdaki kodda bir hafta geçerli saatten çıkarılır değil:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact.cshtml?range=17)]
+[!code-cshtml[](razor/sample/Views/Home/Contact.cshtml?range=17)]
 
 Aşağıdaki HTML kod işler:
 
@@ -147,7 +147,7 @@ HTML tarayıcıda gösterilir:
 <span>Hello World</span>
 ```
 
-`HtmlHelper.Raw`Çıktı kodlanmış değildir, ancak geri HTML biçimlendirmesi olarak çizilir.
+`HtmlHelper.Raw` Çıktı kodlanmış değildir, ancak geri HTML biçimlendirmesi olarak çizilir.
 
 > [!WARNING]
 > Kullanarak `HtmlHelper.Raw` unsanitized kullanıcı girişi bir güvenlik riskidir. Kullanıcı girişi kötü amaçlı JavaScript veya diğer açıkları içerebilir. Kullanıcı girişi temizleme zordur. Kullanmaktan kaçının `HtmlHelper.Raw` kullanıcı girişi ile.
@@ -212,7 +212,7 @@ HTML oluşturması gerektiğini bir kod bloğunun alt tanımlamak için Razor il
 
 Bir HTML etiketi tarafından çevrelenen olmayan HTML oluşturmak için bu yaklaşımı kullanın. Bir HTML veya Razor etiketi bir Razor çalışma zamanı hatası oluşur.
 
-**\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
+ **\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
 
 * Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
@@ -237,9 +237,9 @@ Uyarı: Ek `@` Razor dosyasının karakter bloğu içinde deyimleri derleyici ha
 
 Denetim yapıları kod blokları bir uzantı var. Ayrıca kod blokları (geçiş biçimlendirmesi, satır içi C#) tüm yönlerini aşağıdaki yapıları için geçerlidir:
 
-### <a name="conditionals-if-else-if-else-and-switch"></a>Koşulları @if, başka ise, başka ve@switch
+### <a name="conditionals-if-else-if-else-and-switch"></a>Koşulları @if, başka ise, başka ve @switch
 
-`@if`kod çalıştığında denetimleri:
+`@if` kod çalıştığında denetimleri:
 
 ```cshtml
 @if (value % 2 == 0)
@@ -248,7 +248,7 @@ Denetim yapıları kod blokları bir uzantı var. Ayrıca kod blokları (geçiş
 }
 ```
 
-`else`ve `else if` gerektirmeyen `@` simgesi:
+`else` ve `else if` gerektirmeyen `@` simgesi:
 
 ```cshtml
 @if (value % 2 == 0)
@@ -348,7 +348,7 @@ Aşağıdaki döngü ifadeleri desteklenir:
 } while (i < people.Length);
 ```
 
-### <a name="compound-using"></a>Bileşik@using
+### <a name="compound-using"></a>Bileşik @using
 
 C# ' ta, bir `using` deyimi, bir nesne kapatılır emin olmak için kullanılır. Razor aynı mekanizmayı ek içeriklere sahip bir HTML Yardımcıları oluşturmak için kullanılır. Aşağıdaki kodda bir form etiketi HTML Yardımcıları işlemek `@using` deyimi:
 
@@ -370,7 +370,7 @@ Kapsam düzeyinde Eylemler ile yapılabilir [etiket Yardımcıları](xref:mvc/vi
 
 Özel durum işleme, C# benzer:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact7.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact7.cshtml)]
 
 ### <a name="lock"></a>@lock
 
@@ -419,7 +419,7 @@ Ayrılmış anahtar sözcükler aşağıdaki örtük ifadelerle ile temsil Razor
 
 Razor kod bir görünümün nasıl oluşturur anlama yönergeleri nasıl çalıştığını anlamak kolaylaştırır.
 
-[!code-html[Main](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
 
 Kod aşağıdakine benzer bir sınıf oluşturur:
 
@@ -443,7 +443,7 @@ Bu makalede, bölümün sonraki [bir görünümü için oluşturulan Razor C# s�
 
 `@using` Yönergesi ekler C# `using` yönerge oluşturulan görüntülemek için:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact9.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact9.cshtml)]
 
 ### <a name="model"></a>@model
 
@@ -483,11 +483,11 @@ Razor kullanıma sunan bir `Model` model erişmek için özelliği geçirilen g�
 
 Aşağıdaki kod bir özel Razor sayfa türüdür:
 
-[!code-csharp[Main](razor/sample/Classes/CustomRazorPage.cs)]
+[!code-csharp[](razor/sample/Classes/CustomRazorPage.cs)]
 
 `CustomText` Bir görünümde görüntülenir:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact10.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact10.cshtml)]
 
 Aşağıdaki HTML kod işler:
 
@@ -495,13 +495,13 @@ Aşağıdaki HTML kod işler:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`ve `@inherits` aynı görünümünde kullanılabilir. `@inherits`kullanılabilir bir *_viewımports.cshtml* görünümü alır dosyası:
+ `@model` ve `@inherits` aynı görünümünde kullanılabilir. `@inherits` kullanılabilir bir *_viewımports.cshtml* görünümü alır dosyası:
 
-[!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
+[!code-cshtml[](razor/sample/Views/_ViewImportsModel.cshtml)]
 
 Aşağıdaki kod, kesin türü belirtilmiş görünüm örneğidir:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Login1.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Login1.cshtml)]
 
 Varsa "rick@contoso.com" geçirilen modeldeki görünümünü aşağıdaki HTML biçimlendirme oluşturur:
 
@@ -525,7 +525,7 @@ Varsa "rick@contoso.com" geçirilen modeldeki görünümünü aşağıdaki HTML 
 
 Örneğin:
 
-[!code-cshtml[Main](razor/sample/Views/Home/Contact6.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
 Kod aşağıdaki HTML biçimlendirmeleri oluşturur:
 
@@ -535,7 +535,7 @@ Kod aşağıdaki HTML biçimlendirmeleri oluşturur:
 
 Aşağıdaki kodu oluşturulan Razor C# sınıf verilmiştir:
 
-[!code-csharp[Main](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
+[!code-csharp[](razor/sample/Classes/Views_Home_Test_cshtml.cs?range=1-19)]
 
 ### <a name="section"></a>@section
 
@@ -592,11 +592,11 @@ C# Razor anahtar sözcükler, çift kaçışlı ile olmalıdır `@(@C# Razor Key
 
 Aşağıdaki sınıf ASP.NET Core MVC projenize ekleyin:
 
-[!code-csharp[Main](razor/sample/Utilities/CustomTemplateEngine.cs)]
+[!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
 Geçersiz kılma `RazorTemplateEngine` MVC tarafından eklenen `CustomTemplateEngine` sınıfı:
 
-[!code-csharp[Main](razor/sample/Startup.cs?highlight=4&range=10-14)]
+[!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
 Bir kesme noktası ayarlayın `return csharpDocument` deyiminin `CustomTemplateEngine`. Program yürütme kesme noktasına durduğunda değerini görüntülemek `generatedCode`.
 

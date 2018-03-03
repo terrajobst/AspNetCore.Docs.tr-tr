@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: d87cb50871b956c51045558d2e4f076de4211f81
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 813d32d677663a574a24de95e06a6aa0f7336a95
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="routing-to-controller-actions"></a>Denetleyici eylemleri için yönlendirme
 
@@ -57,15 +57,15 @@ routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
 Rota şablonu:
 
-* `{controller=Home}`tanımlar `Home` varsayılan olarak`controller`
+* `{controller=Home}` tanımlar `Home` varsayılan olarak `controller`
 
-* `{action=Index}`tanımlar `Index` varsayılan olarak`action`
+* `{action=Index}` tanımlar `Index` varsayılan olarak `action`
 
-* `{id?}`tanımlar `id` isteğe bağlı olarak
+* `{id?}` tanımlar `id` isteğe bağlı olarak
 
 Varsayılan ve isteğe bağlı rota parametreler, eşleşen bir URL yolu bulunması gerekmez. Bkz: [rota şablon başvurusu](../../fundamentals/routing.md#route-template-reference) rota şablon söz dizimi ayrıntılı bir açıklaması.
 
-`"{controller=Home}/{action=Index}/{id?}"`URL yolunu eşleştirebilirsiniz `/` ve rota değerleri üretecektir `{ controller = Home, action = Index }`. Değerleri `controller` ve `action` olun varsayılan değerini kullanmak `id` URL yolu ilgili segment yok olduğundan bir değeri oluşturmuyor. MVC kullandığınız bu rota değerlerini seçmek için `HomeController` ve `Index` eylem:
+`"{controller=Home}/{action=Index}/{id?}"` URL yolunu eşleştirebilirsiniz `/` ve rota değerleri üretecektir `{ controller = Home, action = Index }`. Değerleri `controller` ve `action` olun varsayılan değerini kullanmak `id` URL yolu ilgili segment yok olduğundan bir değeri oluşturmuyor. MVC kullandığınız bu rota değerlerini seçmek için `HomeController` ve `Index` eylem:
 
 ```csharp
 public class HomeController : Controller
@@ -99,7 +99,7 @@ app.UseMvc(routes =>
 });
 ```
 
-`UseMvc`ve `UseMvcWithDefaultRoute` bir örnek ekler `RouterMiddleware` ara yazılım ardışık düzenini için. MVC doğrudan ara yazılımı ile etkileşim değil ve yönlendirme isteklerini işlemek için kullanır. MVC örneği ile yolların bağlı `MvcRouteHandler`. Kod içinde `UseMvc` aşağıdakine benzer:
+`UseMvc` ve `UseMvcWithDefaultRoute` bir örnek ekler `RouterMiddleware` ara yazılım ardışık düzenini için. MVC doğrudan ara yazılımı ile etkileşim değil ve yönlendirme isteklerini işlemek için kullanır. MVC örneği ile yolların bağlı `MvcRouteHandler`. Kod içinde `UseMvc` aşağıdakine benzer:
 
 ```csharp
 var routes = new RouteBuilder(app);
@@ -114,7 +114,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc`tüm yollar doğrudan tanımlamıyor rota koleksiyonu için bir yer tutucu ekler `attribute` rota. Aşırı `UseMvc(Action<IRouteBuilder>)` kendi yollar eklemenize olanak sağlayan ve ayrıca özniteliği yönlendirmeyi destekler.  `UseMvc`ve tüm alt çeşitleri ekler özniteliği yol için bir yer tutucu - özniteliği yönlendirme her zaman nasıl yapılandırdığınıza bakmaksızın kullanılabilir `UseMvc`. `UseMvcWithDefaultRoute`Varsayılan rota tanımlar ve öznitelik yönlendirmeyi destekler. [Özniteliği yönlendirme](#attribute-routing-ref-label) bölüm özniteliği yönlendirme hakkında daha fazla ayrıntı içerir.
+`UseMvc` tüm yollar doğrudan tanımlamıyor rota koleksiyonu için bir yer tutucu ekler `attribute` rota. Aşırı `UseMvc(Action<IRouteBuilder>)` kendi yollar eklemenize olanak sağlayan ve ayrıca özniteliği yönlendirmeyi destekler.  `UseMvc` ve tüm alt çeşitleri ekler özniteliği yol için bir yer tutucu - özniteliği yönlendirme her zaman nasıl yapılandırdığınıza bakmaksızın kullanılabilir `UseMvc`. `UseMvcWithDefaultRoute` Varsayılan rota tanımlar ve öznitelik yönlendirmeyi destekler. [Özniteliği yönlendirme](#attribute-routing-ref-label) bölüm özniteliği yönlendirme hakkında daha fazla ayrıntı içerir.
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -386,11 +386,11 @@ Tanımsız bir sırayla yürütmek geleneksel yollar aksine özniteliği yönlen
 
 Öznitelik rotaları kolaylık sağlamak için destek *belirteci değiştirme* köşeli ayraçlar içinde bir belirteç kapsayan tarafından (`[`, `]`). Belirteçleri `[action]`, `[area]`, ve `[controller]` eylem adı, alan adı ve Denetleyici adı rota tanımlandığı eylemden değerleri ile değiştirilecek. Bu örnekte açıklamaları açıklandığı gibi eylemleri URL yollarını eşleşebilir:
 
-[!code-csharp[Main](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
+[!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
 Belirteç değiştirme öznitelik rotaları oluşturmanın son adım olarak gerçekleşir. Yukarıdaki örnekte, aşağıdaki kod ile aynı davranır:
 
-[!code-csharp[Main](routing/sample/main/Controllers/ProductsController2.cs?range=7-11,13-17,20-22)]
+[!code-csharp[](routing/sample/main/Controllers/ProductsController2.cs?range=7-11,13-17,20-22)]
 
 Öznitelik rotaları da devralma ile birleştirilebilir. Bu belirteç değiştirme ile birleştirilmiş özellikle güçlüdür.
 
@@ -408,7 +408,7 @@ public class ProductsController : MyBaseController
 }
 ```
 
-Belirteç değiştirme öznitelik rotaları tarafından tanımlanan rota adları için de geçerlidir. `[Route("[controller]/[action]", Name="[controller]_[action]")]`Her eylem için bir benzersiz rota adı oluşturur.
+Belirteç değiştirme öznitelik rotaları tarafından tanımlanan rota adları için de geçerlidir. `[Route("[controller]/[action]", Name="[controller]_[action]")]` Her eylem için bir benzersiz rota adı oluşturur.
 
 Değişmez değer belirteci değiştirme sınırlayıcı eşleşecek şekilde `[` veya `]`, karakteri tekrarlayarak kaçış (`[[` veya `]]`).
 
@@ -474,7 +474,7 @@ Bkz: [rota şablon başvurusu](../../fundamentals/routing.md#route-template-refe
 
 <a name="routing-cust-rt-attr-irt-ref-label"></a>
 
-### <a name="custom-route-attributes-using-iroutetemplateprovider"></a>Özel rota öznitelikleri kullanma`IRouteTemplateProvider`
+### <a name="custom-route-attributes-using-iroutetemplateprovider"></a>Özel rota öznitelikleri kullanma `IRouteTemplateProvider`
 
 Tüm framework sağlanan rota özniteliklerini ( `[Route(...)]`, `[HttpGet(...)]` , vs.) uygulama `IRouteTemplateProvider` arabirimi. MVC arar denetleyicisi sınıfları ve eylem yöntemleri özniteliklerinde uygulamayı başlatır ve uygulama olanları kullandığında `IRouteTemplateProvider` rota ilk kümesini oluşturmak için.
 
@@ -499,7 +499,7 @@ Yukarıdaki örnekte özniteliğinden otomatik olarak ayarlar `Template` için `
 
 *Uygulama modeli* Başlangıçta tüm yönlendirmek ve eylemleri yürütmek için MVC tarafından kullanılan meta verileri ile oluşturulan bir nesne model. *Uygulama modeli* rota özniteliklerini toplanan verilerin tümünü içerir (aracılığıyla `IRouteTemplateProvider`). Yazabileceğiniz *kuralları* yönlendirme biçimini özelleştirmek için başlangıç sırasında uygulama modeli değiştirmek için. Bu bölümde, uygulama modeli kullanarak yönlendirme özelleştirme basit bir örnek gösterilmiştir.
 
-[!code-csharp[Main](routing/sample/main/NamespaceRoutingConvention.cs)]
+[!code-csharp[](routing/sample/main/NamespaceRoutingConvention.cs)]
 
 <a name="routing-mixed-ref-label"></a>
 
@@ -522,7 +522,7 @@ MVC uygulamaları 's yönlendirme URL nesil özellikleri Eylemler URL bağlantı
 
 Bu örnekte, `IUrlHelper` arabirimi aracılığıyla kullanılır `Controller.Url` başka bir eylem URL'si oluşturmak için özellik.
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationController.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationController.cs?name=snippet_1)]
 
 Uygulama geleneksel varsayılan kullanıyorsa, yol, değeri `url` değişkeni URL yolu dizesi olacaktır `/UrlGeneration/Destination`. Bu URL yolu geçerli istek (ortam değerleri), rota değerlerini birleştirerek yönlendirme tarafından geçirilen değerlerle oluşturulur `Url.Action` ve bu değerler rota şablonuna değiştirerek:
 
@@ -540,9 +540,9 @@ Rota şablonu her yol parametresinde ve ortam değerleri ile eşleşen adları y
 
 Bu örnekte, öznitelik yönlendirme kullanır:
 
-[!code-csharp[Main](routing/sample/main/StartupUseMvc.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/StartupUseMvc.cs?name=snippet_1)]
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerAttr.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationControllerAttr.cs?name=snippet_1)]
 
 MVC tüm yönlendirilen özniteliği eylemlerin bir arama tablosu oluşturur ve eşleşir `controller` ve `action` değerleri URL üretmek için kullanılacak rota şablonunu seçin. Yukarıdaki örnekteki `custom/url/to/destination` oluşturulur.
 
@@ -560,24 +560,24 @@ Yönlendirme bir URL oluşturulurken sağlamadı bilgilerinde doldurmak için or
 
 Uzun aşırı `Url.Action` de ek bir ele *rota değerleri* dışında rota parametrelerinin değerlerini sağlamak için nesne `controller` ve `action`. Bu ile kullanılan en yaygın olarak görürsünüz `id` gibi `Url.Action("Buy", "Products", new { id = 17 })`. Kural tarafından *rota değerleri* nesne, genellikle anonim türünde bir nesne ancak aynı zamanda olabilir bir `IDictionary<>` veya *düz eski .NET nesne*. Rota parametrelerine eşleşmeyen herhangi bir ek rota değeri sorgu dizesinde yerleştirilir.
 
-[!code-csharp[Main](routing/sample/main/Controllers/TestController.cs)]
+[!code-csharp[](routing/sample/main/Controllers/TestController.cs)]
 
 > [!TIP]
-> Mutlak bir URL oluşturmak için kabul eden bir aşırı yüklemesini kullanın bir `protocol`:`Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
+> Mutlak bir URL oluşturmak için kabul eden bir aşırı yüklemesini kullanın bir `protocol`: `Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
 
 <a name="routing-gen-urls-route-ref-label"></a>
 
 ### <a name="generating-urls-by-route"></a>Rota tarafından URL'ler oluşturulurken
 
-Yukarıdaki kod, denetleyici ve eylem adı geçirerek bir URL oluşturmanın gösterilmektedir. `IUrlHelper`Ayrıca sağlar `Url.RouteUrl` yöntemlerin ailesi. Bu yöntemlere benzer `Url.Action`, ancak geçerli değerlerini kopyalama `action` ve `controller` rota değerleri için. Belirli bir yolu URL'yi genellikle oluşturmak için kullanılacak rota adı belirtmek için en yaygın kullanımdır *olmadan* bir denetleyici veya eylem adı belirterek.
+Yukarıdaki kod, denetleyici ve eylem adı geçirerek bir URL oluşturmanın gösterilmektedir. `IUrlHelper` Ayrıca sağlar `Url.RouteUrl` yöntemlerin ailesi. Bu yöntemlere benzer `Url.Action`, ancak geçerli değerlerini kopyalama `action` ve `controller` rota değerleri için. Belirli bir yolu URL'yi genellikle oluşturmak için kullanılacak rota adı belirtmek için en yaygın kullanımdır *olmadan* bir denetleyici veya eylem adı belirterek.
 
-[!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
+[!code-csharp[](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
 <a name="routing-gen-urls-html-ref-label"></a>
 
 ### <a name="generating-urls-in-html"></a>HTML dosyasındaki URL'ler oluşturulurken
 
-`IHtmlHelper`sağlar `HtmlHelper` yöntemleri `Html.BeginForm` ve `Html.ActionLink` oluşturmak için `<form>` ve `<a>` öğeleri sırasıyla. Bu yöntemleri kullanmak `Url.Action` bir URL üretmek için yöntemi ve bunlar benzer bağımsız değişkenlerini kabul eder. `Url.RouteUrl` İçin arkadaşlarımız `HtmlHelper` olan `Html.BeginRouteForm` ve `Html.RouteLink` benzer işlevlere sahiptir.
+`IHtmlHelper` sağlar `HtmlHelper` yöntemleri `Html.BeginForm` ve `Html.ActionLink` oluşturmak için `<form>` ve `<a>` öğeleri sırasıyla. Bu yöntemleri kullanmak `Url.Action` bir URL üretmek için yöntemi ve bunlar benzer bağımsız değişkenlerini kabul eder. `Url.RouteUrl` İçin arkadaşlarımız `HtmlHelper` olan `Html.BeginRouteForm` ve `Html.RouteLink` benzer işlevlere sahiptir.
 
 TagHelpers oluşturmak URL'ler aracılığıyla `form` TagHelper ve `<a>` TagHelper. Bunların her ikisi de kullanmak `IUrlHelper` kendi uygulama. Bkz: [formlarla çalışmak](../views/working-with-forms.md) daha fazla bilgi için.
 
@@ -631,28 +631,28 @@ Bu rota tanımları kullanarak `Url.Action("Index", "Home")` URL yolu oluşturur
 
 Aşağıdaki örnek MVC varsayılan geleneksel yol kullanacak şekilde yapılandırır ve bir *alanı rota* adlı bir alan için `Blog`:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet1)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet1)]
 
 Bir URL yolu gibi eşleştirirken `/Manage/Users/AddUser`, ilk rota rota değerlerini üretecektir `{ area = Blog, controller = Users, action = AddUser }`. `area` Rota değeri için varsayılan bir değer tarafından oluşturulur `area`, aslında tarafından oluşturulan rota `MapAreaRoute` şuna eşdeğerdir:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet2)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet2)]
 
-`MapAreaRoute`Varsayılan değer hem için kısıtlamayı kullanan bir yol oluşturur `area` sağlanan alan adı, bu durumda kullanarak `Blog`. Varsayılan değer rota her zaman üretir sağlar `{ area = Blog, ... }`, değer kısıtlaması gerektirir `{ area = Blog, ... }` URL üretmek için.
+`MapAreaRoute` Varsayılan değer hem için kısıtlamayı kullanan bir yol oluşturur `area` sağlanan alan adı, bu durumda kullanarak `Blog`. Varsayılan değer rota her zaman üretir sağlar `{ area = Blog, ... }`, değer kısıtlaması gerektirir `{ area = Blog, ... }` URL üretmek için.
 
 > [!TIP]
 > Geleneksel yönlendirme sipariş bağlıdır. Genel olarak, bir alan olmadan yolları daha ayrıntılı olarak alanları yollar önceki rota tablosunda yerleştirilmelidir.
 
 Yukarıdaki örneği kullanarak, rota değerlerini aşağıdaki eylemi eşleşir:
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 
 `AreaAttribute` Ne bir denetleyici gösterir olan bir alan bir parçası olarak, bu denetleyicisi olduğundan emin olan dediğimiz `Blog` alanı. Denetleyicileri olmadan bir `[Area]` özniteliği herhangi bir alan üyesi olmayan ve olacak **değil** ne zaman eşleşen `area` rota değeri yönlendirme tarafından sağlanır. Aşağıdaki örnekte, rota değerleri yalnızca listelenen ilk denetleyicisi eşleştirebilirsiniz `{ area = Blog, controller = Users, action = AddUser }`.
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Blog/Controllers/UsersController.cs)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Zebra/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Zebra/Controllers/UsersController.cs)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Controllers/UsersController.cs)]
 
 > [!NOTE]
 > Her denetleyici ad alanı bütünlük açısından buraya gösterilen - çakışan ve derleme hatasına neden adlandırma denetleyicileri Aksi durumda olurdu. Sınıf ad alanları MVC'ın yönlendirme üzerinde hiçbir etkisi yoktur.
@@ -664,16 +664,16 @@ Yukarıdaki örneği kullanarak, rota değerlerini aşağıdaki eylemi eşleşir
 
 Bir alanı içinde bir eylemi yürütürken rota değeri için `area` olarak kullanılabilecek bir *ortam değeri* URL üretmek için kullanılacak yönlendirme. Varsayılan olarak alanları hareket yani *Yapışkan* aşağıdaki örneği tarafından gösterildiği gibi URL üretmek için.
 
-[!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
+[!code-csharp[](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
 
-[!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
+[!code-csharp[](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 
 <a name="iactionconstraint-ref-label"></a>
 
 ## <a name="understanding-iactionconstraint"></a>Anlama IActionConstraint
 
 > [!NOTE]
-> Bu bölüm, derin Dalış framework iç Ayrıntılar ve MVC yürütmek için bir eylem nasıl seçtiği değildir. Özel bir genel uygulama gerekmez`IActionConstraint`
+> Bu bölüm, derin Dalış framework iç Ayrıntılar ve MVC yürütmek için bir eylem nasıl seçtiği değildir. Özel bir genel uygulama gerekmez `IActionConstraint`
 
 Büyük olasılıkla zaten kullanmış `IActionConstraint` arabirimiyle hakkında bilgi sahibi olmadığınız halde. `[HttpGet]` Özniteliği ve benzer `[Http-VERB]` öznitelikleri uygulamak `IActionConstraint` bir eylem yönteminin yürütülmesi sınırlamak için.
 

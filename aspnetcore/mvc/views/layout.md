@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 140ee5a9b43ee952e46795e433ceb1553a6da906
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="layout"></a>Düzen
 
@@ -37,13 +37,13 @@ Bu düzen görünümleri için bir en üst düzey şablon uygulamada tanımlar. 
 
 Örnek `_Layout.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Bir düzen belirtme
 
 Razor görünümleri olan bir `Layout` özelliği. Tek bir görünüm, bu özelliği ayarlanarak bir düzeni belirtin:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 Belirtilen Düzen tam bir yol kullanabilirsiniz (örneğin: `/Views/Shared/_Layout.cshtml`) ya da kısmi bir ad (örnek: `_Layout`). Kısmi bir ad sağlandığında, Razor görüntüleme altyapısı kendi standart bulma işlemini kullanarak Düzen dosyayı arar. Denetleyici ilişkili klasörü, ilk olarak, arkasından aranır `Shared` klasör. Bu bulma işlemi keşfetmek için kullanılan bir benzerdir [kısmi görünümler](partial.md).
 
@@ -99,9 +99,9 @@ Dosya işlevleri ve bölüm tanımlarını gibi diğer Razor özellikleri destek
 
 Bir örnek `_ViewImports.cshtml` dosyası:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-`_ViewImports.cshtml` ASP.NET Core MVC uygulama genellikle yerleştirilir için dosya `Views` klasör. A `_ViewImports.cshtml` , onu yalnızca uygulanacak durum görünümleri bu klasörde ve alt klasörlerinde içinde herhangi bir klasör içinde dosya yerleştirilebilir. `_ViewImports`dosyaları kök düzeyinde başlangıç işlenir, ve ardından kadar önde gelen her klasör için konumun görünümünün kendisinde ayarları kök düzeyinde belirtilen şekilde geçersiz klasör düzeyinde.
+`_ViewImports.cshtml` ASP.NET Core MVC uygulama genellikle yerleştirilir için dosya `Views` klasör. A `_ViewImports.cshtml` , onu yalnızca uygulanacak durum görünümleri bu klasörde ve alt klasörlerinde içinde herhangi bir klasör içinde dosya yerleştirilebilir. `_ViewImports` dosyaları kök düzeyinde başlangıç işlenir, ve ardından kadar önde gelen her klasör için konumun görünümünün kendisinde ayarları kök düzeyinde belirtilen şekilde geçersiz klasör düzeyinde.
 
 Örneğin, bir kök düzeyinde varsa `_ViewImports.cshtml` dosyayı belirtir `@model` ve `@addTagHelper`ve başka bir `_ViewImports.cshtml` görünüm denetleyicisini ilişkili klasöründeki dosyasını farklı bir belirtir `@model` ve başka ekler `@addTagHelper`, görünümü Her iki etiket Yardımcıları erişebilir ve ikincisi kullanacağı `@model`.
 
@@ -127,7 +127,7 @@ Sahip code her görünüm önce çalıştırmanız gerekir, bu yerleştirilmelid
 
 Bir örnek `_ViewStart.cshtml` dosyası:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Yukarıdaki dosyanın tüm görünümleri kullanacağını belirtir `_Layout.cshtml` düzeni.
 

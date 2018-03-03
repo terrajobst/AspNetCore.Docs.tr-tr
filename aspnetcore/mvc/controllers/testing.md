@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c72a5adc848cad62c7c20ff7e17469476aefaf53
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core test denetleyicisi mantığı
 
@@ -49,21 +49,21 @@ Tipik denetleyicisi sorumlulukları:
 
 Birim testi göstermek için aşağıdaki denetleyicisiyle gözden geçirin. Oturumları fırtınası listesini görüntüler ve yeni bir posta ile oluşturulacak oturumları fırtınası sağlar:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 Denetleyici aşağıdaki [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/), bağımlılık ekleme örneği ile sağlamak için bekleniyor `IBrainstormSessionRepository`. Bu, oldukça sahte nesne framework gibi kullanarak test kolaylaştırır [Moq](https://www.nuget.org/packages/Moq/). `HTTP GET Index` Yöntemi hiçbir döngü veya dallanma ve yalnızca çağrıları bir yöntem vardır. Bunu test etmek için `Index` yöntemi, ihtiyacımız doğrulamak bir `ViewResult` döndürülür, ile bir `ViewModel` deponun gelen `List` yöntemi.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 `HomeController` `HTTP POST Index` (Yukarıda gösterilen) yöntemini doğrulayın:
 
-* Hatalı istek eylem yöntemine döndürür `ViewResult` uygun verilerle zaman `ModelState.IsValid` olduğu`false`
+* Hatalı istek eylem yöntemine döndürür `ViewResult` uygun verilerle zaman `ModelState.IsValid` olduğu `false`
 
 * `Add` Deposunda yöntemi çağrılır ve bir `RedirectToActionResult` doğru bağımsız değişkenlerle döndürülen zaman `ModelState.IsValid` doğrudur.
 
 Geçersiz model durumu kullanarak hataları ekleyerek test edilmiş `AddModelError` ilk testinde aşağıda gösterildiği gibi.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 İlk test ne zaman onaylar `ModelState` geçersiz, aynı `ViewResult` olarak için döndürülen bir `GET` isteği. Test geçersiz bir modelde geçirmek girişimi değil unutmayın. Bu olmayacaktır işe yine de model bağlama çalışmadığından bu yana (ancak bir [tümleştirme test](xref:mvc/controllers/testing#integration-testing) alıştırma model bağlama kullanırsınız). Bu durumda, model bağlama sınanan değil. Bu birim testleri eylem yöntemindeki kod yaptığı yalnızca test.
 
@@ -74,23 +74,23 @@ Geçersiz model durumu kullanarak hataları ekleyerek test edilmiş `AddModelErr
 
 Uygulama başka bir denetleyici belirli fırtınası oturumuyla ilgili bilgiler görüntüler. Geçersiz kimlik değerleri ile mücadele etmek için bazı mantığı içerir:
 
-[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Denetleyici eylemini sınamak için her üç durumda olan `return` deyimi:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 Uygulama bir web API (fırtınası oturumu ve yeni fikirleri bir oturuma eklemek için bir yöntem ile ilişkili fikirler listesi) işlevselliği sunar:
 
 <a name="ideas-controller"></a>
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 `ForSession` Yöntemi listesini döndürür `IdeaDTO` türleri. Doğrudan API çağrıları, iş etki alanı varlık döndüren kaçınmak için API İstemci gerektirir ve bunlar gereksiz yere, uygulamanızın iç etki alanı modeli dışarıdan kullanıma API'si ile eşleştiği daha fazla veri itibaren sık içerirler. Etki alanı varlıkları ve kablo üzerinden döndürecektir türleri arasında eşleme el ile yapılabilir (LINQ kullanarak `Select` aşağıda gösterildiği gibi) veya benzer bir kitaplık kullanılarak [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 
 Birim testleri için `Create` ve `ForSession` API yöntemlerini:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 Yöntem davranışını test etmek için daha önce belirtildiği gibi `ModelState` geçersiz model hatası denetleyiciye testin bir parçası ekleyin. Model doğrulama veya model bağlama, birim testleri test-yalnızca belirli bir ile karşılaşıldığında, eylem yönteminin davranışı test denemeyin `ModelState` değeri.
 
@@ -112,7 +112,7 @@ Yalnızca kendisine my test projesinden bağlanamıyorum şekilde bu örnek uygu
 
 `Startup` Sınıfı:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 Göreceğiniz `GetTestSession` tümleştirme testlerinde sık kullanılan yöntem.
 
@@ -127,11 +127,11 @@ The view 'Index' wasn't found. The following locations were searched:
 
 Bu sorunu gidermek için test projesi için görünümleri gidebilecektir sunucunun içerik kök yapılandırmanız gerekir. Bu çağrısıyla yapılır `UseContentRoot` içinde `TestFixture` sınıfı, aşağıda gösterilmektedir:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 `TestFixture` Sınıfı, yapılandırma ve oluşturma sorumlu `TestServer`, ayarlanırken bir `HttpClient` ile iletişim kurmak için `TestServer`. Her tümleştirme kullanır testleri `Client` özelliğini test sunucusuna bağlanmak ve bir istekte bulunun.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 Yukarıdaki ilk testinde `responseString` gerçek işlenen HTML beklenen sonuçları içerdiği onaylamak için Denetlenmekte görünümünden tutar.
 
@@ -143,7 +143,7 @@ Uygulamanızı web API'leri, buna ait otomatikleştirilmiş testleri için iyi b
 
 Testleri hedef aşağıdaki kümesini `Create` yönteminde [IdeasController](xref:mvc/controllers/testing#ideas-controller) yukarıda gösterilen sınıfı:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 HTML görünümleri döndüren eylem tümleştirme testlerin aksine, son test yukarıda gösterildiği gibi sonuçları döndüren web API yöntemleri genellikle güçlü şekilde yazılan nesnelerin seri durumdan çıkarılmış olabilir. Bu durumda, test sonucu çıkarır bir `BrainstormSession` örneği ve fikir fikirleri kendi koleksiyonuna doğru eklendiğini doğrular.
 

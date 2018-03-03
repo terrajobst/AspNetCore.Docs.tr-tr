@@ -12,21 +12,22 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c735bbdafe4b8f0423abb6bacd076f173a1be9d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 bağımlılık ekleme
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-dependency-injection"></a>ASP.NET MVC 4 bağımlılık ekleme
+
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
+
+Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC** ve **ASP.NET MVC 4 filtreler**. Değil kullandıysanız **ASP.NET MVC 4 filtreler** gitmenizi öneririz önce **ASP.NET MVC özel eylem filtrelerini** uygulamalı Laboratuvar.
 
 > [!NOTE]
-> Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC** ve **ASP.NET MVC 4 filtreler**. Değil kullandıysanız **ASP.NET MVC 4 filtreler** gitmenizi öneririz önce **ASP.NET MVC özel eylem filtrelerini** uygulamalı Laboratuvar.
-> 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresindeki kullanılabilir içinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 bağımlılık ekleme](https://github.com/Microsoft-Web/HOL-MVC4DependencyInjection).
 
 İçinde **nesne odaklı programlama** standardı, nesneleri çalışma birlikte işbirliği modelinde Katkıda Bulunanlar ve tüketicilerin olduğu. Doğal olarak, bu iletişim modelini nesneleri ve karmaşıklığını artırır yönetmek zor hale bileşenler arasındaki bağımlılıkları oluşturur.
 

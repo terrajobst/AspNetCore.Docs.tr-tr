@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 669fb9b22d070a75d891e875156d62590c40fc5a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: c775eaaa521399328d157c9b7312e6fe5325c07e
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları giriş 
 
@@ -69,13 +69,13 @@ Etiket Yardımcıları kapsam bir birleşimi tarafından denetlenen `@addTagHelp
 
 Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelpers* (ile kimlik doğrulaması yok), aşağıdaki *Views/_ViewImports.cshtml* dosyayı projenize eklenir:
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 `@addTagHelper` Yönergesi etiket Yardımcıları görüntülemek için kullanılabilir yapar. Bu durumda, görünüm dosyasıdır *Views/_ViewImports.cshtml*, varsayılan olarak tüm görünüm dosyaları tarafından devralınır *görünümleri* klasörü ve alt dizinleri; etiket Yardımcıları kullanılabilir hale getirme. Yukarıdaki kod joker sözdizimini kullanır ("\*") belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her görünüm dosyaya kullanılabilecek *görünümleri* dizini veya alt dizin. İlk parametre sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemenin belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derlemesidir.
 
 Tüm bu projede etiket Yardımcıları kullanıma sunmak için (adlı bir derleme oluşturur *AuthoringTagHelpers*), aşağıdaki kullanırsınız:
 
-[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 Projeniz içeriyorsa bir `EmailTagHelper` varsayılan ad alanı (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), etiket Yardımcısı tam adını (FQN) sağlayabilirsiniz:
 
@@ -233,7 +233,7 @@ gri bir arka plan görüntülenir. Kayıt görünümünde biçimlendirme çoğun
 
 Göz önünde bulundurun *e-posta* Grup:
 
-[!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
+[!code-csharp[](intro/sample/Register.cshtml?range=12-18)]
 
 "Asp-" özniteliklerinin her biriyle "E-posta" değerine sahip, ancak "E-posta" bir dize değil. Bu bağlamda "E-posta" C# modeli ifade özelliğidir `RegisterViewModel`.
 

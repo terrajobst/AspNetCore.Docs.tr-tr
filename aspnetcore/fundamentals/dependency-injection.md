@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 85e25b92b01d84279752deb7865987746c181c72
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: df9ae2b784e8b7b21a471f465998f09bbacbef75
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -94,7 +94,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 Genişletme yöntemleri gibi çok sayıda kullanarak kapsayıcı ek hizmetler eklemek nasıl bir örneği aşağıdadır `AddDbContext`, `AddIdentity`, ve `AddMvc`.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
 
 ASP.NET MVC gibi tarafından sağlanan ara yazılımı ve özellikler tek Ekle kullanmanın bir kuralı izleyin*ServiceName* tüm bu özellik tarafından gerekli hizmetleri kaydetmek için genişletme yöntemi.
 
@@ -105,7 +105,7 @@ ASP.NET MVC gibi tarafından sağlanan ara yazılımı ve özellikler tek Ekle k
 
 Kendi uygulama hizmetleri şu şekilde kaydedebilirsiniz. İlk genel tür kapsayıcıdan istenen türü (genellikle bir arabirim) temsil eder. İkinci genel türü tarafından kapsayıcı örneği ve bu tür isteklerini yerine getirmek için kullanılan somut türünü temsil eder.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?range=53-54)]
 
 > [!NOTE]
 > Her `services.Add<ServiceName>` genişletme yöntemi ekler (ve büyük olasılıkla yapılandırır) Hizmetleri. Örneğin, `services.AddMvc()` MVC gerektirir Hizmetleri ekler. Genişletme yöntemleri yerleştirme bu kuralı izlemeniz önerilir `Microsoft.Extensions.DependencyInjection` hizmet kayıtlar grupları kapsüllemek için ad alanı.
@@ -114,18 +114,18 @@ Kendi uygulama hizmetleri şu şekilde kaydedebilirsiniz. İlk genel tür kapsay
 
 Bu makalede örnek adlı karakter adları görüntüleyen basit bir denetleyici yok `CharactersController`. Kendi `Index` yöntemi uygulamada depolanan karakterler geçerli listesini görüntüler ve hiçbiri yoksa koleksiyon sayıda karakter ile başlatır. Bu uygulama Entity Framework Çekirdek kullansa unutmayın ve `ApplicationDbContext` sınıfı için kendi Kalıcılık, hiçbiri denetleyicide görünür olan. Bunun yerine, belirli veri erişim mekanizması bir arabirim soyutlanır `ICharacterRepository`, hangi aşağıdaki [havuz deseni](http://deviq.com/repository-pattern/). Örneği `ICharacterRepository` oluşturucu aracılığıyla istenir ve ardından gerekirse karakterleri erişmek için kullanılan bir özel alan atanmış.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
 `ICharacterRepository` Denetleyicisinin gereksinim duyduğu çalışmak için iki yöntem tanımlar `Character` örnekleri.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
 Bu arabirim somut bir türde tarafından sırayla uygulanır `CharacterRepository`, çalışma zamanında kullanılır.
 
 > [!NOTE]
 > DI yolu ile kullanılan `CharacterRepository` tüm "depoları" ya da veri erişimi sınıfları, yalnızca uygulama hizmetlerinizi izleyin genel bir model bir sınıftır.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
 
 Unutmayın `CharacterRepository` isteklerini bir `ApplicationDbContext` kendi oluşturucusuna. Bunun gibi zincirleme bir şekilde sırayla kendi bağımlılıkları isteyen her istenen bağımlılık ile kullanılacak bağımlılık ekleme ait değil. Kapsayıcı, tüm bağımlılıklarıyla grafikte çözme ve tam olarak çözümlenmiş hizmeti döndürüyor sorumludur.
 
@@ -134,7 +134,7 @@ Unutmayın `CharacterRepository` isteklerini bir `ApplicationDbContext` kendi ol
 
 Bu durumda, her ikisi de `ICharacterRepository` ve dolayısıyla `ApplicationDbContext` hizmetler kapsayıcısının ile kayıtlı olması gerekir `ConfigureServices` içinde `Startup`. `ApplicationDbContext` genişletme yöntemi çağrısı ile yapılandırılmış `AddDbContext<T>`. Aşağıdaki kod kaydını gösterir `CharacterRepository` türü.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
 Entity Framework bağlamları Hizmetleri kullanarak kapsayıcı eklenmesi `Scoped` yaşam süresi. Bu otomatik olarak yukarıda gösterildiği gibi yardımcı yöntemler kullanırsanız dikkate. Entity Framework'ü kullanın yapacak depoları aynı yaşam süresini kullanmanız gerekir.
 
@@ -163,21 +163,21 @@ Hizmetleri, çeşitli şekillerde kapsayıcısı ile kaydedilebilir. Biz, zaten 
 
 Bu yaşam süresi ve kaydını seçenekleri arasındaki farkı göstermek için bir veya daha çok görev olarak temsil eden basit bir arabirim göz önünde bulundurun. bir *işlemi* benzersiz bir tanımlayıcı `OperationId`. Nasıl Biz bu hizmet için kullanım ömrünü nasıl yapılandırdığınıza bağlı olarak, kapsayıcı ya da aynı veya farklı örneklerini isteyen sınıfına hizmet sağlar. Hangi ömrü istenen temizleyin yapmak için bir türü ömür seçeneği başına oluşturacağız:
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
 
 Biz bu arabirimleri kullanarak tek bir sınıf uygulama `Operation`, kabul eden bir `Guid` kendi Oluşturucusu ya da yeni bir kullanır `Guid` hiçbiri sağlanmazsa.
 
 Ardından `ConfigureServices`, her tür adlandırılmış yaşam göre kapsayıcı eklenir:
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
 
 Unutmayın `IOperationSingletonInstance` hizmet bilinen bir kimliği ile belirli bir örneği kullanarak `Guid.Empty` bu türü (GUID'sine tümüyle sıfırlardan olacaktır) kullanımda olduğunda Temizle olur. Biz de kayıtlı bir `OperationService` her, diğer bağımlıdır `Operation` türleri temizleyin isteği içinde bu hizmet denetleyicisi ya da her işlem türü için yeni bir tane olarak aynı örneği olup olmadığını alma olmayacaktır. Bu hizmeti yapar şey görünümünde görüntülenen şekilde bağımlılıklarını özellikleri olarak kullanıma sunar.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
 Nesne yaşam süresi içinde ve uygulama için ayrı ayrı istekler arasında göstermek için örnek içeren bir `OperationsController` her tür isteklerine `IOperation` türü yanı sıra bir `OperationService`. `Index` Sonra eylemi görüntüler tüm denetleyicinin ve hizmetin `OperationId` değerleri.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
 Şimdi iki ayrı Bu denetleyici eylemi için yapılan isteklerinin:
 

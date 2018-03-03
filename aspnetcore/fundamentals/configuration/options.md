@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 7b8a1698e1e711c9d61a5b474276c99de2831a7f
-ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
+ms.openlocfilehash: 1b6b6275633364701c27b66b1dfa55a2a037572b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -33,23 +33,23 @@ Temel Seçenekler yapılandırma, örnek olarak gösterilmiştir &num;1'de [örn
 
 Özet olmayan bir seçenek sınıfı olmalıdır genel bir parametresiz oluşturucuya sahip. Aşağıdaki sınıf `MyOptions`, iki özelliğe sahip `Option1` ve `Option2`. Varsayılan değerleri ayarlama isteğe bağlı olmakla birlikte, aşağıdaki örnekte sınıfı oluşturucusu varsayılan değerini ayarlar `Option1`. `Option2` özellik doğrudan başlatarak ayarlamak varsayılan değeri (*Models/MyOptions.cs*):
 
-[!code-csharp[Main](options/sample/Models/MyOptions.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MyOptions.cs?name=snippet1)]
 
 `MyOptions` Sınıf ile hizmet kapsayıcısı eklenen [IConfigureOptions&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) ve yapılandırmasına bağlıdır:
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example1)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example1)]
 
 Aşağıdaki modelinin kullandığı sayfa [Oluşturucusu bağımlılık ekleme](xref:fundamentals/dependency-injection#what-is-dependency-injection) ile [IOptions&lt;TOptions&gt; ](/dotnet/api/Microsoft.Extensions.Options.IOptions-1) ayarlarına erişmek için (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example1)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example1)]
 
 Örnek 's *appsettings.json* dosyayı belirtir değerlerini `option1` ve `option2`:
 
-[!code-json[Main](options/sample/appsettings.json)]
+[!code-json[](options/sample/appsettings.json)]
 
 Uygulama çalıştırıldığında, sayfa modelinin `OnGet` yöntemi seçenek sınıfı değerleri gösteren bir dize döndürür:
 
@@ -63,19 +63,19 @@ Bir temsilci ile basit seçeneklerini yapılandırma örnek olarak gösterilmiş
 
 Bir temsilci seçenekleri değerleri ayarlamak için kullanın. Örnek uygulama kullandığı `MyOptionsWithDelegateConfig` sınıfı (*Models/MyOptionsWithDelegateConfig.cs*):
 
-[!code-csharp[Main](options/sample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
 Aşağıdaki kodda, ikinci bir `IConfigureOptions<TOptions>` hizmeti için hizmet kapsayıcısı eklenir. Bağlama ile yapılandırmak için bir temsilci kullanır `MyOptionsWithDelegateConfig`:
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example2)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example2)]
 
 *Index.cshtml.cs*:
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=10)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=10)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3,9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3,9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example2)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
 Birden çok yapılandırma sağlayıcısı ekleyebilirsiniz. Yapılandırma sağlayıcıları NuGet paketleri kullanılabilir. Kayıtlı edebilmesi uygulanmasıyla.
 
@@ -97,25 +97,25 @@ Uygulamalar, uygulama (sınıflar) belirli özellik gruplarına ait seçenekleri
 
 Aşağıdaki kodda, üçüncü `IConfigureOptions<TOptions>` hizmeti için hizmet kapsayıcısı eklenir. Bunu bağlar `MySubOptions` bölümüne `subsection` , *appsettings.json* dosyası:
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example3)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example3)]
 
 `GetSection` Genişletme yöntemi gerektiren [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/) NuGet paketi. Uygulama kullanıyorsa [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) metapackage, paketi otomatik olarak dahil edilir.
 
 Örnek 's *appsettings.json* dosya tanımlayan bir `subsection` tuşları üyesiyle `suboption1` ve `suboption2`:
 
-[!code-json[Main](options/sample/appsettings.json?highlight=4-7)]
+[!code-json[](options/sample/appsettings.json?highlight=4-7)]
 
 `MySubOptions` Sınıfı tanımlayan özellikleri, `SubOption1` ve `SubOption2`, alt seçenek değerleri tutmak için (*Models/MySubOptions.cs*):
 
-[!code-csharp[Main](options/sample/Models/MySubOptions.cs?name=snippet1)]
+[!code-csharp[](options/sample/Models/MySubOptions.cs?name=snippet1)]
 
 Sayfa modelinin `OnGet` yöntemi alt seçeneği değerleri içeren bir dize döndürür (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=11)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=11)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=4,10)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=4,10)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example3)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example3)]
 
 Uygulama çalıştırıldığında `OnGet` yöntemi alt seçeneği sınıfı değerlerini gösteren bir dize döndürür:
 
@@ -129,15 +129,15 @@ Bir görünüm modeli veya doğrudan görünümü ekleme ile sağlanan seçenekl
 
 Seçenekler sağlanan bir görünüm modeli veya injecting `IOptions<TOptions>` bir görünüm doğrudan (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=9)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=9)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=2,8)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example4)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example4)]
 
 Doğrudan ekleme işlemi için ekleme `IOptions<MyOptions>` ile bir `@inject` yönergesi:
 
-[!code-cshtml[Main](options/sample/Pages/Index.cshtml?range=1-10&highlight=5)]
+[!code-cshtml[](options/sample/Pages/Index.cshtml?range=1-10&highlight=5)]
 
 Uygulama çalıştırıldığında seçenek değerlerinin oluşturulan sayfada gösterilir:
 
@@ -153,11 +153,11 @@ Yapılandırma verileri ile yeniden `IOptionsSnapshot` gösterildiği gibi &num;
 
 Aşağıdaki örnek yeni bir nasıl gösterir `IOptionsSnapshot` sonra oluşturulan *appsettings.json* değişiklikleri (*Pages/Index.cshtml.cs*). Sunucuya birden çok istek dönüş tarafından sağlanan sabit değerleri *appsettings.json* dosya değiştirildi ve yapılandırmayı yeniden yükler kadar dosya.
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=12)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=12)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=5,11)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=5,11)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example5)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example5)]
 
 Aşağıdaki resimde ilk gösterilmiştir `option1` ve `option2` değerleri yüklenen *appsettings.json* dosyası:
 
@@ -179,15 +179,15 @@ Seçenekler desteğiyle adlı [IConfigureNamedOptions](/dotnet/api/microsoft.ext
 
 *Seçenekler adlı* adlandırılmış seçeneklerini yapılandırmaları arasında ayrım yapmak uygulama desteği sağlar. Örnek uygulaması adlandırılmış seçenekleri ile bildirilen [ConfigureNamedOptions&lt;TOptions&gt;. Yapılandırma](/dotnet/api/microsoft.extensions.options.configurenamedoptions-1.configure) yöntemi:
 
-[!code-csharp[Main](options/sample/Startup.cs?name=snippet_Example6)]
+[!code-csharp[](options/sample/Startup.cs?name=snippet_Example6)]
 
 Örnek uygulaması adlandırılmış seçenekleriyle eriştiği [IOptionsSnapshot&lt;TOptions&gt;. Alma](/dotnet/api/microsoft.extensions.options.ioptionssnapshot-1.get) (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?range=13-14)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?range=13-14)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=6,12-13)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=6,12-13)]
 
-[!code-csharp[Main](options/sample/Pages/Index.cshtml.cs?name=snippet_Example6)]
+[!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example6)]
 
 Örnek uygulama çalışırken, adlandırılmış seçenekleri döndürülür:
 

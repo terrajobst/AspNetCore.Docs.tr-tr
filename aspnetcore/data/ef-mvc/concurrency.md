@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 056d3ffe3f27c45f4da9504dd00afa5e450a86b5
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Eşzamanlılık çakışmalarını - EF çekirdek ASP.NET Core MVC Öğreticisi (8, 10) ile işleme
 
@@ -89,7 +89,7 @@ Bu öğreticinin geri kalanında, ekleyeceksiniz bir `rowversion` özelliği dep
 
 İçinde *Models/Department.cs*, RowVersion adlı bir izleme özelliği ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 `Timestamp` Özniteliği belirtir. Bu sütun eklenecek Where yan tümcesi Update ve Delete komutların veritabanına gönderilen. Öznitelik adı verilen `Timestamp` bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü `timestamp` önce SQL veri türü `rowversion` yerine. .NET türü için `rowversion` bir bayt dizisi.
 
@@ -120,7 +120,7 @@ dotnet ef database update
 
 İçinde *DepartmentsController.cs* dosya, departman yönetici açılan listeleri Eğitmen tam adı yerine yalnızca son adını içerecek şekilde "FirstMidName" dört tüm oluşumlarını "FullName" değiştirin.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Departmanlar dizini görünümünü güncelleştirme
 
@@ -128,7 +128,7 @@ Yapı iskelesi altyapısı RowVersion sütun dizini görünümde oluşturulmuş,
 
 Kodla *Views/Departments/Index.cshtml* aşağıdaki kod ile.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Bu "Departman" başlığı değişikliklerini RowVersion sütunu siler ve yöneticisinin adı yerine tam adını gösterir.
 
@@ -136,11 +136,11 @@ Bu "Departman" başlığı değişikliklerini RowVersion sütunu siler ve yönet
 
 Her iki HttpGet içinde `Edit` yöntemi ve `Details` yöntemi Ekle `AsNoTracking`. HttpGet içinde `Edit` yöntemi, istekli yükleme için yönetici ekleyin.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 HttpPost için var olan kodu `Edit` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 Kod bölümünün güncelleştirilmesi okumaya çalışırken tarafından başlar. Varsa `SingleOrDefaultAsync` yöntemi null değerini döndürür, departman başka bir kullanıcı tarafından silindi. Bu durumda kod düzenleme sayfasını bir hata iletisi ile görünürler bir bölüm varlık oluşturmak üzere gönderilen form değerleri kullanır. Alternatif olarak, departman alanları yeniden görüntüleme olmadan yalnızca bir hata iletisi görüntülerseniz departmanı varlık yeniden oluşturmak zorunda olmayacaktır.
 
@@ -154,19 +154,19 @@ Entity Framework SQL güncelleştirme komut oluşturduğunda, bu komut için öz
 
 Başka bir özel durum için catch bloğu kodda güncelleştirilmiş değerleri sahip etkilenen departman varlığı alır `Entries` özel durum nesnesi özelliği.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 `Entries` Koleksiyonu tek olacaktır `EntityEntry` nesnesi.  Kullanıcı tarafından girilen yeni ve geçerli veritabanı değerlerini almak için bu nesneyi kullanabilirsiniz.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 Kod Düzenle iletişim kutusunda girilen kullanıcı sayfasında veritabanı değerleri farklı olan her bir sütun için bir özel hata iletisi ekler (yalnızca bir alan burada gösterilmiştir okumanızdır).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Son olarak, kod ayarlar `RowVersion` değerini `departmentToUpdate` yeni değere veritabanından alınır. Bu yeni `RowVersion` değeri sayfa yeniden düzenleme ve sonraki kullanıcı çalıştırdığında gizli alanında depolanacağı **kaydetmek**, düzenleme sayfasını yeniden yakalanan bu yana, eşzamanlılık hataları.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 `ModelState.Remove` Deyimi, çünkü gereklidir `ModelState` eski sahip `RowVersion` değeri. Görünümünde `ModelState` her ikisi de mevcut olduğunda bir alan modeli özellik değerlerini önceliklidir için bir değer.
 
@@ -178,7 +178,7 @@ Son olarak, kod ayarlar `RowVersion` değerini `departmentToUpdate` yeni değere
 
 * Bir "Yönetici seçin" seçeneği, aşağı açılan listesine ekleyin.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Düzenleme sayfasını test eşzamanlılık çakışıyor
 
@@ -208,13 +208,13 @@ Delete sayfa için Entity Framework birisi başka departman benzer bir şekilde 
 
 İçinde *DepartmentsController.cs*, HttpGet Değiştir `Delete` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 Yöntemi, bir eşzamanlılık hatası sonra sayfanın görünürler olup olmadığını belirten isteğe bağlı bir parametre kabul eder. Bu bayrağı true olarak ayarlandığında ve artık departman mevcut değilse, başka bir kullanıcı tarafından silindi. Bu durumda, kod dizin sayfasına yönlendirir.  Bu bayrağı true olarak ayarlandığında ve departman mevcut değilse, başka bir kullanıcı tarafından değiştirildi. Bu durumda, görünümü kullanarak kodu bir hata iletisi gönderir `ViewData`.  
 
 HttpPost kodla `Delete` yöntemi (adlı `DeleteConfirmed`) aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 Yalnızca değiştirilen kurulmuş kodda, bu yöntem yalnızca bir kayıt kimliği kabul:
 
@@ -239,7 +239,7 @@ Bir eşzamanlılık hatası yakalanmışsa kodu silme onayı sayfası görüntü
 
 İçinde *Views/Departments/Delete.cshtml*, kurulmuş kodu bir hata iletisini alan ve Gizli alanlar DepartmentID ve RowVersion özellikleri için ekleyen aşağıdaki kod ile değiştirin. Değişiklikler vurgulanır.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 Aşağıdaki değişiklikleri yapar:
 
@@ -269,11 +269,11 @@ Tıklatırsanız **silmek** yeniden departman silinip silinmediğini gösterir d
 
 Kodla *Views/Departments/Details.cshtml* RowVersion sütun silip yönetici tam adını gösterir.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Kodla *Views/Departments/Create.cshtml* Seç seçeneği aşağı açılan listeye eklemek için.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Özet
 

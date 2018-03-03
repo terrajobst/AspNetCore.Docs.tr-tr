@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama
 
@@ -45,11 +45,11 @@ Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması 
 
 Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Düzenle \<project_name\>.csproj** ve bağlam menüsünden. Vurgulanan satırı ekleyin *.csproj* dosya ve ilişkili NuGet paket geri yüklemek için kaydedin:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Çözüm Gezgini'nde projeye tekrar sağ tıklayın ve seçin **kullanıcı parolaları yönetme** ve bağlam menüsünden. Bu hareketi yeni ekler `UserSecretsId` düğümde bir `PropertyGroup` , *.csproj* dosyası, aşağıdaki örnekte vurgulanmış olarak:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Değiştirilen kaydetme *.csproj* dosya de açılır bir `secrets.json` dosyasını bir metin düzenleyicisinde. Değiştir `secrets.json` aşağıdaki kod ile dosya:
 
@@ -61,9 +61,9 @@ Değiştirilen kaydetme *.csproj* dosya de açılır bir `secrets.json` dosyası
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Ekleme `Microsoft.Extensions.SecretManager.Tools` için *.csproj* dosya ve çalıştırma `dotnet restore`. Parola Yöneticisi için komut satırını kullanarak aracı yüklemek için aynı adımları kullanabilirsiniz.
+Ekleme `Microsoft.Extensions.SecretManager.Tools` için *.csproj* dosya ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore). Parola Yöneticisi için komut satırını kullanarak aracı yüklemek için aynı adımları kullanabilirsiniz.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Parola Yöneticisi aracını aşağıdaki komutu çalıştırarak test edin:
 
@@ -80,7 +80,7 @@ Kullanıcı profilinizde depolanan projeye özgü yapılandırma ayarlarını gi
 
 Ekleme bir `UserSecretsId` projenizde için *.csproj* dosyası:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Bir parolayı ayarlamak için gizli Yöneticisi aracını kullanın. Örneğin, proje dizinden bir komut penceresinde aşağıdakileri girin:
 
@@ -100,15 +100,15 @@ Gizli Yöneticisi aracını, listesinde, kaldırmak ve uygulama temizlemek için
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Kullanıcı parolaları yapılandırması aracılığıyla erişme
 
-Gizli Yöneticisi gizli yapılandırma sistemi aracılığıyla erişebilir. Ekleme `Microsoft.Extensions.Configuration.UserSecrets` paketini ve çalıştırma `dotnet restore`.
+Gizli Yöneticisi gizli yapılandırma sistemi aracılığıyla erişebilir. Ekleme `Microsoft.Extensions.Configuration.UserSecrets` paketini ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).
 
 Kullanıcı parolaları yapılandırma kaynağı'na ekleyin `Startup` yöntemi:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 Kullanıcı parolaları yapılandırma API'si aracılığıyla erişebilirsiniz:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>Parola Yöneticisi aracını nasıl çalışır
 

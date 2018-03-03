@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 42906e95d17f76f69dddc40f351b41e6cbdd087c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>ASP.NET çekirdek geçirme 1.x ASP.NET Core 2.0 için
 
@@ -33,11 +33,11 @@ Lütfen bakın [ASP.NET Core ile çalışmaya başlama](xref:getting-started).
 ## <a name="update-target-framework-moniker-tfm"></a>Hedef Framework ad (TFM) güncelleştir
 Proje .NET Core hedefleme kullanması gereken [TFM](/dotnet/standard/frameworks#referring-to-frameworks) .NET Core 2.0 eşit veya daha büyük bir sürümü. Arama `<TargetFramework>` düğümünde *.csproj* dosya ve kendi iç metinle `netcoreapp2.0`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=3)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=3)]
 
 Proje .NET Framework hedefleme .NET Framework 4.6.1 eşit veya üzeri bir sürümü TFM kullanmanız gerekir. Arama `<TargetFramework>` düğümünde *.csproj* dosya ve kendi iç metinle `net461`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=4)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=4)]
 
 > [!NOTE]
 > .NET core 2.0 sunan bir kadar büyük yüzey alanını .NET Core daha 1.x. Yalnızca .NET .NET Core 2.0 hedefleme 1.x çalışması olasıdır Çekirdek API'leri eksik nedeniyle .NET Framework hedefleme durumunda.
@@ -47,7 +47,7 @@ Proje .NET Framework hedefleme .NET Framework 4.6.1 eşit veya üzeri bir sürü
 ## <a name="update-net-core-sdk-version-in-globaljson"></a>.NET Core SDK sürümünde global.json güncelleştir
 Çözümünüzü bağlı dayalıysa bir [ *global.json* ](https://docs.microsoft.com/dotnet/core/tools/global-json) belirli bir .NET Core SDK sürümü hedeflemek için güncelleştirme dosyası, `version` özelliğinin makinenize yüklü 2.0 sürümü kullanmak için:
 
-[!code-json[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/global.json?highlight=3)]
+[!code-json[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/global.json?highlight=3)]
 
 <a name="package-reference"></a>
 
@@ -56,7 +56,7 @@ Proje .NET Framework hedefleme .NET Framework 4.6.1 eşit veya üzeri bir sürü
 
 .NET Core 2.0, tek bir hedefleme ASP.NET Core 2.0 projesinde [metapackage](xref:fundamentals/metapackage) başvuru *.csproj* paketleri koleksiyonunu yerini alır:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=8-10)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=8-10)]
 
 ASP.NET Core 2.0 ve Entity Framework Çekirdek 2. 0'in tüm özelliklerini metapackage dahil edilir.
 
@@ -64,7 +64,7 @@ ASP.NET Core 2.0 proje .NET Framework hedefleme tek tek NuGet paketlerini başvu
 
 Örneğin, listesi aşağıdadır `<PackageReference />` .NET Framework'ü hedefleme tipik bir ASP.NET Core 2.0 projesinde kullanılan düğümleri:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=9-22)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=9-22)]
 
 <a name="dot-net-cli-tool-reference"></a>
 
@@ -73,29 +73,29 @@ ASP.NET Core 2.0 proje .NET Framework hedefleme tek tek NuGet paketlerini başvu
 
 Örneğin, .NET Core 2.0 hedefleme tipik bir ASP.NET Core 2.0 projesinde kullanılan CLI araçlarını listesi aşağıdadır:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=12-16)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=12-16)]
 
 <a name="package-target-fallback"></a>
 
 ## <a name="rename-package-target-fallback-property"></a>Paketi hedef geri dönüş özelliği yeniden adlandırma
 *.Csproj* kullanılan 1.x projenin dosya bir `PackageTargetFallback` düğümü ve değişken:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=5)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=5)]
 
 Düğüm ve değişkenine yeniden adlandırmak `AssetTargetFallback`:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=4)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=4)]
 
 <a name="program-cs"></a>
 
 ## <a name="update-main-method-in-programcs"></a>Program.cs içinde güncelleştirme Main yöntemi
 1.x projelerinde `Main` yöntemi *Program.cs* şöyle Aranan:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCs&highlight=8-19)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCs&highlight=8-19)]
 
 2.0 projelerinde `Main` yöntemi *Program.cs* basitleştirilmiştir:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program.cs?highlight=8-11)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program.cs?highlight=8-11)]
 
 Bu yeni 2.0 deseni benimsenmesi önerilir ve gibi ürün özellikleri için gereklidir [Entity Framework (EF) çekirdek geçişler](xref:data/ef-mvc/migrations) çalışmak için. Örneğin, çalışan `Update-Database` Paket Yöneticisi konsolu penceresinden veya `dotnet ef database update` komuttan satırda (Projeler) ASP.NET Core 2.0 dönüştürülen aşağıdaki hata oluşturur:
 
@@ -108,17 +108,17 @@ Unable to create an object of type '<Context>'. Add an implementation of 'IDesig
 ## <a name="add-configuration-providers"></a>Yapılandırma Sağlayıcıları Ekle
 1.x projelerinde yapılandırma sağlayıcısı için uygulama ekleme aracılığıyla gerçekleştirilmiştir `Startup` Oluşturucusu. Örneği oluşturma adımları dahil `ConfigurationBuilder`geçerli sağlayıcıları (ortam değişkenleri, uygulama ayarları, vb.) yükleme ve üyesi başlatma `IConfigurationRoot`.
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
 
 Önceki örnekte yükler `Configuration` yapılandırma ayarlarından üyesiyle *appsettings.json* herhangi yanı sıra *appsettings.\< EnvironmentName\>.json* dosya eşleşen `IHostingEnvironment.EnvironmentName` özelliği. Aynı yol bu dosyalarının konumunu altındadır *haline*.
 
 2.0 projelerinde 1.x projelerine devralınmış Demirbaş yapılandırma kodu Perde Arkası çalışır. Örneğin, ortam değişkenleri ve uygulama ayarlarını başlangıçta yüklenir. Eşdeğer *haline* kodu daha az `IConfiguration` eklenen örneği ile başlatma:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
 
 Tarafından eklenen varsayılan sağlayıcı kaldırmak için `WebHostBuilder.CreateDefaultBuilder`, çağırma `Clear` yöntemi `IConfigurationBuilder.Sources` özelliği içine `ConfigureAppConfiguration`. Geri sağlayıcıları eklemek için kullanan `ConfigureAppConfiguration` yönteminde *Program.cs*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Program.cs?name=snippet_ProgramMainConfigProviders&highlight=9-14)]
 
 Tarafından kullanılan yapılandırma `CreateDefaultBuilder` önceki kod parçacığını yönteminde görülme [burada](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L152).
 
@@ -136,11 +136,11 @@ EF çekirdek 2.0 kullanan 2.0 projelerinde `Program.BuildWebHost` uygulama hizme
 
 Aşağıdaki 1.x çekirdek başlatma kodda göz önünde bulundurun `Configure` yöntemi *haline*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_ConfigureSeedData&highlight=8)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_ConfigureSeedData&highlight=8)]
 
 2.0 projelerinde taşıma `SeedData.Initialize` çağrısı `Main` yöntemi *Program.cs*:
 
-[!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
 
 2.0 sürümünden itibaren onu bir şey yapmanız hatalı deneyimdir `BuildWebHost` dışındaki derleme ve web ana bilgisayarı yapılandırın. Uygulamayı çalıştırma hakkında olan her şeyi dışında işlenmesi gereken `BuildWebHost` &mdash; genellikle içinde `Main` yöntemi *Program.cs*.
 
@@ -153,7 +153,7 @@ Ayarı `MvcRazorCompileOnPublish` true özelliktir artık gerekli. Öğesinden G
 
 .NET Framework hedeflerken yine açıkça başvuru gerekir [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation) NuGet paketi, *.csproj* dosyası:
 
-[!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=15)]
+[!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App.csproj?range=15)]
 
 <a name="app-insights"></a>
 
@@ -164,15 +164,15 @@ Visual Studio 2017 içinde oluşturulan ASP.NET Core 1.1 projeleri, varsayılan 
 
 1. .NET Core hedefleme, aşağıdaki kaldırmanız `<PackageReference />` düğümden *.csproj* dosyası:
     
-    [!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
+    [!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
 
 2. .NET Core hedefleme, kaldırmanız `UseApplicationInsights` uzantısı yöntemi çağrısından *Program.cs*:
 
-    [!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
+    [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
 
 3. Application Insights istemci-tarafı API çağrısından kaldırmak *_Layout.cshtml*. Aşağıdaki iki kod satırı oluşur:
 
-    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
+    [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
 Application Insights SDK'sı doğrudan kullanıyorsanız, bunu yapmak devam edin. 2.0 [metapackage](xref:fundamentals/metapackage) Application Insights'ın en son sürümünü içerir, böylece daha eski bir sürümüne başvuruyor paket indirgeme hatası görüntülenir.
 

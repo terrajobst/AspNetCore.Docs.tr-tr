@@ -1,131 +1,64 @@
 ---
 title: "ASP.NET çekirdeği Modülü"
 author: tdykstra
-description: "ASP.NET çekirdeği Modülü (ANCM), IIS veya IIS Express ters proxy sunucusu olarak kullanacak Kestrel web sunucusu olanak sağlayan bir IIS Modülü tanıtır."
+description: "ASP.NET çekirdeği modülü Kestrel web sunucusuna IIS veya IIS Express ters proxy sunucusu olarak kullanmak nasıl olanak tanıdığını öğrenin."
 manager: wpickett
 ms.author: tdykstra
-ms.custom: H1Hack27Feb2017
-ms.date: 08/03/2017
+ms.custom: mvc
+ms.date: 02/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: cf02604f2a2f0eba496d0df5c4662f169d044c74
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: e2170014f1a8fc89ec7e0a02d19c943b88e005fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="introduction-to-aspnet-core-module"></a>ASP.NET çekirdeği modülü için giriş
+# <a name="aspnet-core-module"></a>ASP.NET çekirdeği Modülü
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), ve [Chris fillerin](https://github.com/Tratcher) 
 
-ASP.NET çekirdeği Modülü (ANCM) ASP.NET Core uygulamaları IIS arkasında çalıştırmak olanak tanır (güvenlik, yönetilebilirlik ve çok daha fazla) iyi nedir için IIS kullanarak ve kullanarak [Kestrel](kestrel.md) (gerçekten hızlı olmasının en), iyi nedir için ve alma aynı anda hem teknolojilerden avantajları. **ANCM yalnızca Kestrel ile çalışır; WebListener ile uyumlu değil (ASP.NET Core içinde 1.x) veya HTTP.sys (içinde 2.x).** 
+ASP.NET çekirdeği modülü ASP.NET Core uygulamaları IIS bir ters proxy yapılandırması çalıştırılacak şekilde sağlar. IIS, Gelişmiş web uygulaması güvenlik ve yönetilebilirlik özellikleri sağlar.
 
 Desteklenen Windows sürümlerine:
 
-* Windows 7 ve Windows Server 2008 R2 ve sonraki sürümler
+* Windows 7 veya üzeri
+* Windows Server 2008 R2 veya daha sonra &#8224;
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+&#8224; Kavramsal olarak, bu belgede açıklanan IIS ASP.NET Core modülüyle kullanımını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
 
-## <a name="what-aspnet-core-module-does"></a>ASP.NET çekirdeği Modülü'ne
+ASP.NET çekirdeği modülü yalnızca Kestrel ile çalışır. Modül uyumlu değil. [HTTP.sys](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)).
 
-ANCM IIS ardışık düzenine kanca oluşturur ve ASP.NET Core uygulama arka ucuna trafiğini yönlendiren yerel bir IIS modüldür. Windows kimlik doğrulaması gibi birçok diğer modüller, hala çalıştırmak için bir fırsat alın. ANCM istek için bir işleyici seçildiğinde ve işleyici eşlemesi uygulamada tanımlı denetimi yalnızca sürer *web.config* dosya.
+## <a name="aspnet-core-module-description"></a>ASP.NET Core modül açıklaması
 
-ASP.NET Core uygulamaları bir işlem olarak çalıştırmak için IIS çalışan işlemini ayrı olduğundan ANCM yönetim işlem. İlk istek geldiğinde ve onu kilitlendiğinde yeniden başlatıldığında ANCM ASP.NET Core uygulama işlemini başlatır. Klasik ASP.NET uygulamaları temelde aynı davranışı budur çalışan işlem içi IIS'de ve WAS (Windows Etkinleştirme hizmeti) tarafından yönetilir.
+ASP.NET çekirdeği modülü web istekleri arka ucuna yönlendirmek için IIS ardışık düzen halinde ASP.NET Core uygulamaları takılan yerel bir IIS modüldür. Windows kimlik doğrulaması gibi birçok yerel modül etkin kalır. IIS modülleri etkin modülüyle hakkında daha fazla bilgi için bkz: [kullanarak IIS modüllerini](xref:host-and-deploy/iis/modules).
 
-IIS, ANCM ve ASP.NET Core uygulamaları arasındaki ilişkiyi gösteren diyagram aşağıdadır.
+ASP.NET Core uygulamaları bir işlem olarak çalıştırmak için IIS çalışan işlemini ayrı olduğundan, modül işlem yönetimi da işler. İlk istek ulaştığında ve onu çökerse uygulama yeniden başlatmalarını modülü ASP.NET Core uygulama işlemini başlatır. Bu temelde aynı işlem içinde çalıştırma ASP.NET 4.x uygulamalarla görüldüğü gibi davranıştır tarafından yönetilen IIS'de [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Aşağıdaki diyagram, IIS, ASP.NET Core modülü ve ASP.NET Core uygulamaları arasındaki ilişkiyi göstermektedir:
 
 ![ASP.NET çekirdeği Modülü](aspnet-core-module/_static/ancm.png)
 
-İstekleri Web sunucusundan gelen ve bunları birincil bağlantı noktası (80) veya SSL bağlantı noktası (443) üzerinde IIS içine yönlendiren çekirdek modu Http.Sys sürücüsünü ulaştı. ANCM iletir istekleri ASP.NET Core uygulamaya bağlantı noktası olmayan uygulama için yapılandırılan HTTP bağlantı noktası 80/443'tür.
+İstekleri için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü istekleri IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yönlendirir. Modül Kestrel bağlantı noktası değil uygulama için rastgele bir bağlantı noktası isteklerini iletir 80/443'tür.
 
-ANCM gelen trafik için kestrel dinler.  ANCM başlangıçta ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [UseIISIntegration](#call-useiisintegration) yöntemi yapılandırır üzerinde dinlemek üzere `http://localhost:{port}`. ANCM değil, istekleri reddedecek şekilde ek denetimler vardır. (HTTPS üzerinden IIS tarafından alınan olsa bile istekleri HTTP üzerinden iletilir şekilde ANCM HTTPS iletme desteklemiyor.)
+Modülü başlatma sırasında bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve IIS tümleştirme Ara sunucu üzerinde dinleme yapılandırır `http://localhost:{port}`. Ek denetimleri yapılır ve modülünden kökenli olmayan istekler reddedilir. İstekleri, IIS tarafından HTTPS üzerinde alınan olsa bile HTTP üzerinden iletilir böylece modülü HTTPS iletme desteklemiyor.
 
-Kestrel ANCM istekleri seçer ve bunları daha sonra bunları işler ve bunları olarak geçirdiği ASP.NET Core ara yazılım ardışık düzenini içine iter `HttpContext` uygulama mantığını örneklerine. Uygulamanın yanıtları sonra IIS, isteklerin başlatılan HTTP istemcisi geri hangi iter dön geçirilir.
+Modül isteğinden Kestrel seçer sonra isteği ASP.NET Core ara yazılım ardışık düzenine gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örnek uygulamanın mantığı. Uygulamanın yanıt geri IIS, geri istek başlatılan HTTP istemcisi hangi iter geçirilir.
 
-ANCM birkaç diğer işlevleri de vardır:
+ASP.NET çekirdeği modülü birkaç diğer işlevleri vardır. Modül yapabilirsiniz:
 
-* Ortam değişkenlerini ayarlar.
-* Günlükleri `stdout` dosya depolama alanına çıktı.
-* Windows kimlik doğrulama belirteçleri iletir.
+* Çalışan işlemi için ortam değişkenleri ayarlayın.
+* Günlük `stdout` başlatma sorunlarını gidermek için dosya depolama alanına çıktı.
+* Windows kimlik doğrulama belirteçleri iletin.
 
-## <a name="how-to-use-ancm-in-aspnet-core-apps"></a>ASP.NET Core uygulamaları ANCM kullanma
+## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Yükleme ve ASP.NET Core modülü kullanın
 
-Bu bölümde, bir IIS sunucusu ve ASP.NET Core uygulama ayarlama işlemine genel bakış sağlar. Ayrıntılı yönergeler için bkz: [IIS ile Windows konakta](xref:host-and-deploy/iis/index).
+Yükleme ve ASP.NET Core Modülü'nü kullanma konusunda ayrıntılı yönergeler için bkz: [IIS ile Windows konakta](xref:host-and-deploy/iis/index). Modül yapılandırma hakkında daha fazla bilgi için bkz: [ASP.NET Core modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
 
-### <a name="install-ancm"></a>ANCM yükleyin
+## <a name="additional-resources"></a>Ek kaynaklar
 
-ANCM, Windows Server IIS ve IIS Express'te Windows masaüstü işletim sistemlerinde yüklenir. Sunucuları ve geliştirme makineler için ANCM dahil [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting). Visual Studio yüklüyorsanız, ANCM IIS Express (ve IIS, makinedeki varsa) otomatik olarak yüklenir.
-
-### <a name="net-core-windows-server-hosting-bundle"></a>.NET core Windows Server barındırma paket
-
-[.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting) .NET çekirdeği çalışma zamanı, .NET Core kitaplığı ve ANCM yükler. Daha fazla bilgi için bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](
-xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
-
-### <a name="install-the-iisintegration-nuget-package"></a>IISIntegration NuGet paketini yükleyin
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-[Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) paketinde ASP.NET Core metapackages ([Microsoft.AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore/) ve [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) ). Metapackages birini kullanmıyorsanız, yükleme `Microsoft.AspNetCore.Server.IISIntegration` ayrı olarak. `IISIntegration` Uygulamanızı ayarlayın ANCM tarafından yayınlanan ortam değişkenleri okur birlikte çalışabilirlik paketi paketidir. Ortam değişkenleri Dinlemenin yapılacağı bağlantı noktası gibi yapılandırma bilgilerini sağlar. 
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Uygulamanızda yüklemek [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/). `IISIntegration` Uygulamanızı ayarlayın ANCM tarafından yayınlanan ortam değişkenleri okur birlikte çalışabilirlik paketi paketidir. Ortam değişkenleri Dinlemenin yapılacağı bağlantı noktası gibi yapılandırma bilgilerini sağlar. 
-
----
-
-### <a name="call-useiisintegration"></a>Çağrı UseIISIntegration
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-`UseIISIntegration` Genişletme yöntemi [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) IIS ile çalıştırdığınızda otomatik olarak çağrılır.
-
-ASP.NET Core metapackages birini kullanmadığınız ve yüklemediniz `Microsoft.AspNetCore.Server.IISIntegration` paketi, bir çalışma zamanı hatası alın. Çağırırsanız `UseIISIntegration` paketi yüklü değilse açıkça bir derleme zamanı hatası alın.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Uygulamanızın içinde `Main` yöntemi, çağrı `UseIISIntegration` genişletme yöntemi [ `WebHostBuilder` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder). 
-
-[!code-csharp[](aspnet-core-module/sample/Program.cs?name=snippet_Main&highlight=12)]
-
----
-
-`UseIISIntegration` Yöntemi ANCM ayarlar ortam değişkenleri ve onu görünen no-ops bulunamazsa değil. Bu davranış, geliştirme ve macOS veya Linux'ta test etme ve IIS çalıştıran bir sunucuya dağıtma gibi senaryoları kolaylaştırır. MacOS ya da Linux üzerinde çalışırken, Kestrel web sunucusu gibi davranan; Ancak uygulama IIS ortamına dağıtıldığında, otomatik olarak ANCM ve IIS kullanır.
-
-### <a name="ancm-port-binding-overrides-other-port-bindings"></a>Diğer bağlantı noktası bağlamaları ANCM bağlantı noktası bağlama geçersiz kılar
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-ANCM arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi bu dinamik bir bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration). Bu nedenle, çağrı gerekmez `UseUrls` veya Kestrel'ın `Listen` ANCM kullandığınızda API. Çağırırsanız `UseUrls` veya `Listen`, Kestrel uygulama IIS olmadan çalıştırdığınızda, belirttiğiniz bağlantı noktasında dinler.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-ANCM arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi bu dinamik bir bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls`. Bu nedenle, çağrı gerekmez `UseUrls` ANCM kullandığınızda. Çağırırsanız `UseUrls`, Kestrel uygulama IIS olmadan çalıştırdığınızda, belirttiğiniz bağlantı noktasında dinler.
-
-ASP.NET Core 1.0 çağırırsanız, `UseUrls`, çağrısından **önce** çağırmanız `UseIISIntegration` böylece ANCM yapılandırılan bağlantı noktası üzerine değildir. ANCM ayarı geçersiz kıldığından bu arama sırası ASP.NET Core 1.1 gerekli olmadığından `UseUrls`.
-
----
-
-### <a name="configure-ancm-options-in-webconfig"></a>Web.config dosyasında ANCM seçeneklerini yapılandırma
-
-ASP.NET çekirdeği modülü için yapılandırması depolanır *web.config* uygulamanın kök klasöründe yer alan dosya. Noktası başlangıç komut ve ASP.NET Core uygulamanızı başlatmak bağımsız değişkenler için bu dosyadaki ayarlar. Örnek için *web.config* kod ve yapılandırma seçenekleri hakkında yönergeler bkz [ASP.NET temel modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
-
-### <a name="run-with-iis-express-in-development"></a>IIS Express ile geliştirme çalıştırın
-
-IIS Express ASP.NET Core şablonları tarafından tanımlanan varsayılan profili kullanarak Visual Studio tarafından başlatılabilir.
-
-## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>HTTP protokolünü ve bir eşleşme belirteci proxy yapılandırması kullanır
-
-ANCM arasında Kestrel oluşturulan proxy HTTP protokolünü kullanır. HTTP performansı en iyi duruma getirme ANCM ve Kestrel arasındaki trafiğin geri döngü adresine dışına ağ arabirimi gerçekleştiği kullanmaktır. Hiçbir riski ANCM ve sunucu dışına bir konumdan Kestrel arasındaki trafiğin gizli dinleme yoktur.
-
-Bir eşleşme belirteci Kestrel tarafından alınan isteği IIS tarafından yönlendirilirken ve bazı başka bir kaynaktan geliyor kaydetmedi güvence altına almak için kullanılır. Eşleştirme belirteci oluşturulur ve bir ortam değişkeni ayarlayın (`ASPNETCORE_TOKEN`) ANCM tarafından. Eşleştirme belirteci de bir üstbilgisine ayarlayın (`MSAspNetCoreToken`) yönlendirilirken her istekte. IIS Ara denetimleri eşleştirme belirteci üstbilgi değeri ortam değişkeni değeri ile eşleşen onaylamak için aldığı isteyin. Belirteç değerleri eşleşirse, isteği günlüğe ve reddetti. Eşleştirme belirteci ortam değişkenine ve ANCM ve Kestrel arasındaki trafiğin sunucunun dışına bir konumdan erişilebilir değil. Eşleştirme belirteç değeri bilmeden bir saldırgan IIS Ara yazılımında denetimini atla istek gönderemez.
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Daha fazla bilgi için aşağıdaki kaynaklara bakın:
-
-* [Bu makale için örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
-* [ASP.NET çekirdeği modülü kaynak kodu](https://github.com/aspnet/AspNetCoreModule)
-* [ASP.NET Core Module Yapılandırma Başvurusu](xref:host-and-deploy/aspnet-core-module)
 * [IIS ile Windows’da barındırma](xref:host-and-deploy/iis/index)
+* [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
+* [ASP.NET çekirdeği modülü GitHub deposunu (kaynak kodu)](https://github.com/aspnet/AspNetCoreModule)

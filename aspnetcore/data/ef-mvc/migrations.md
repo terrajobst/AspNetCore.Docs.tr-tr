@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 058c7e8821f0ccc4e0be844a7f8dd0fab9942028
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Geçişler - ASP.NET Core MVC Öğreticisi (4, 10) ile EF çekirdek
 
@@ -43,7 +43,7 @@ EF Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFr
 
 İçinde *appsettings.json* dosya, ContosoUniversity2 veya kullanmakta olduğunuz bilgisayarda kullandığınız parolalardan başka bir adı bağlantı dizesinde veritabanı adını değiştirin.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Bu değişikliğin yapılması projeyi ayarlar, böylece ilk geçiş yeni bir veritabanı oluşturur. Bu geçiş ile çalışmaya başlama için gerekli değildir, ancak iyi bir fikirdir neden, daha sonra göreceksiniz.
 
@@ -91,7 +91,7 @@ Bir hata iletisi görürseniz "*... dosyasına erişemiyor ContosoUniversity.dll
 
 Yürütülen zaman `migrations add` komutunu EF oluşturulan veritabanı sıfırdan oluşturacak kodu. Bu kod *geçişler* klasöründe adlı dosyayı  *\<zaman damgası > _InitialCreate.cs*. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen veritabanı tabloları oluşturur ve `Down` yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntem. Geri alma güncelleştirme, geçişler çağrıları komutu girdiğinizde `Down` yöntemi.
 
@@ -103,7 +103,7 @@ Veritabanı zaten mevcut olduğunda ilk geçiş oluşturduysanız, veritabanı o
 
 Geçişler da oluşturur bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bu kodu nasıl göründüğünü aşağıda verilmiştir:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
 Geçerli veritabanı şeması kodda gösterilir çünkü EF çekirdek geçişler oluşturmak için veritabanıyla etkileşim kurmak sahip değil. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler. Yalnızca veritabanını güncelleştirmek sahip olduğu EF veritabanıyla etkileşim kurar. 
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 620bfefa625f4b39cb2731b4f553caaa4526c71b
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -45,6 +45,8 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
+ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, yapılan çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
+
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Bir bağımlılık içerir [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıkları paketinde. IIS tümleştirme Ara ekleyerek kullanmak [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) genişletme yöntemi [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
@@ -57,6 +59,10 @@ var host = new WebHostBuilder()
 ```
 
 Her ikisi de [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) ve [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) gereklidir. Kod arama `UseIISIntegration` kod taşınabilirlik etkilemez. Uygulama IIS çalıştırırsanız değil (örneğin, uygulama doğrudan Kestrel üzerinde çalıştırılan) `UseIISIntegration` çalışmaz.
+
+ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls`. Bu nedenle, yapılan bir çağrı `UseUrls` Modülü'nü kullanırken gerekli değildir. Varsa `UseUrls` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
+
+Varsa `UseUrls` olan bir ASP.NET Core 1.0 uygulamada olarak adlandırılan, çağrı **önce** çağırma `UseIISIntegration` böylece modülü yapılandırılan bağlantı noktası üzerine değildir. Bu arama sırasını ayarlama modülü geçersiz kıldığından ASP.NET Core 1.1 ile gerekli değildir `UseUrls`.
 
 ---
 
@@ -164,6 +170,8 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 1. Yükleme [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting) barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core Windows Server barındırma paketini yüklemeden önce.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılması gerekir. IIS yeniden yükledikten sonra barındırma paket yükleyiciyi çalıştırın.
+   
+   Yükleyici x86 yüklenmesini önlemek için bir x64 paketleri işletim sistemi, yükleyici anahtarıyla bir yönetici komut isteminden çalıştırma `OPT_NO_X86=1`.
 
 1. Sistemi yeniden başlatın veya yürütme **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden. IIS yeniden başlatma sistem yolu yükleyici tarafından yapılan bir değişiklik seçer.
 

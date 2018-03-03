@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 36412e9d1f3143f0d1999d0e754e6627f0984ad5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b90910c88d09b11dbf43af455ac3f9b66b0d7cc4
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Yeni bir alan için bir Razor sayfası ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde kullanacağınız [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) yeni bir alan modele eklemek ve bu geçirmek için Code First geçişleri veritabanına değiştirin.
 
@@ -27,13 +27,13 @@ EF Code First otomatik olarak bir veritabanı oluşturmak için kullandığını
 
 Açık *Models/Movie.cs* dosya ve ekleme bir `Rating` özelliği:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
 
 (Ctrl + Shift + B) uygulaması oluşturma.
 
 Düzen *Pages/Movies/Index.cshtml*ve ekleme bir `Rating` alan:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
 
 Ekleme `Rating` silme ve ayrıntıları sayfaları alanı.
 
@@ -43,7 +43,7 @@ Güncelleştirme *Create.cshtml* ile bir `Rating` alan. Kopyalayıp önceki yap�
 
 Aşağıdaki kodda gösterildiği *Create.cshtml* ile bir `Rating` alan:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
 
 Ekleme `Rating` sayfasını Düzenle alanı.
 
@@ -67,13 +67,13 @@ Bu öğretici için Code First Migrations kullanın.
 
 Güncelleştirme `SeedData` böylece yeni bir sütun için bir değer sağlayan sınıf. Bir örnek değişiklik aşağıda gösterilen, ancak her biri için bu değişikliği yapmak istersiniz `new Movie` bloğu.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
 
 Çözümü oluşturun.
 
-<a name="pmc"></a>Gelen **Araçları** menüsünde, select **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
+<a name="pmc"></a> Gelen **Araçları** menüsünde, select **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
 PMC aşağıdaki komutları girin:
 
 ```powershell
@@ -88,7 +88,7 @@ Update-Database
 
 Adı "Derecelendirme" rastgeledir ve geçiş dosya adı için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
 
-<a name="ssox"></a>Veritabanındaki tüm kayıtları silerseniz, başlatıcı DB Çekirdek ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantılarla bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX). SSOX veritabanını silmek için:
+<a name="ssox"></a> Veritabanındaki tüm kayıtları silerseniz, başlatıcı DB Çekirdek ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantılarla bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX). SSOX veritabanını silmek için:
 
 * Veritabanı içinde SSOX seçin.
 * Veritabanını sağ tıklatın ve seçin *silmek*.

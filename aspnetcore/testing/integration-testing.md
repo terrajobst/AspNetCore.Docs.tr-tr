@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>ASP.NET Core test tümleştirme
 
@@ -47,7 +47,7 @@ ASP.NET Core tümleştirme test projeleri için eklenebilir ve gerçek web ana g
 
 Bir kez `Microsoft.AspNetCore.TestHost` paketini projeye dahil, oluşturma ve yapılandırma kullanabileceksiniz bir `TestServer` testlerinizde. Aşağıdaki sınama bir sitenin kök yapılan bir istek "Hello World!" döndürür doğrulamak nasıl gösterir ve ASP.NET Core boş Web şablonu Visual Studio tarafından oluşturulan varsayılan karşı başarıyla çalıştırmalısınız.
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 Bu test Yerleştir Act Assert düzeni kullanıyor. Yerleştir adım örneği oluşturan oluşturucusunda yapılır `TestServer`. Yapılandırılan bir `WebHostBuilder` oluşturmak için kullanılan bir `TestHost`; Bu örnekte, `Configure` testin (SUT) altında sistem yönteminden `Startup` sınıfı iletilir `WebHostBuilder`. Bu yöntem, istek ardışık düzenini yapılandırmak için kullanılan `TestServer` nasıl SUT sunucusunun yapılandırılması için aynı.
 
@@ -55,7 +55,7 @@ Test Act kısmı için bir istek yapıldığında `TestServer` örneği "/" yolu
 
 Artık işlevselliği denetimi asal web uygulaması aracılığıyla çalıştığını doğrulamak için birkaç ek tümleştirme testleri ekleyebilirsiniz:
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 Değil gerçekten asal sayı denetleyicisi doğruluğunu ile bu testleri test etmeye çalıştığınız ancak bunun yerine, web uygulaması beklediğiniz yaptığını unutmayın. Güven verir birim testi kapsamı zaten `PrimeService`, burada görüldüğü gibi:
 
@@ -134,13 +134,13 @@ Ara yazılım kullanan ara yazılım sınıfı bekliyor biçimde bir parametre o
 > [!NOTE]
 > Ara yazılım bağımlı olduğundan `PrimeService` service, ayrıca isteyen Oluşturucusu ile bu hizmet örneği. Bu hizmeti aracılığıyla framework sağlayacak [bağımlılık ekleme](xref:fundamentals/dependency-injection), yapılandırılmış, örneğin varsayılarak `ConfigureServices`.
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 Yolunu eşleştiğinde bu ara yazılım istek temsilci zincirde bir uç nokta gibi davranır, yoktur hiçbir çağrısına `_next.Invoke` ne zaman bu ara yazılım isteği işler.
 
 Bu ara yazılım ve yapılandırma, kolaylaştırmak için oluşturulan bazı yararlı genişletme yöntemleri işlenmiş olan `Configure` yöntemi şöyle görünür:
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 Bu yeniden düzenleme aşağıdaki, tüm tümleştirme testlerinizi geçtiğiniz beri web uygulaması halen önceki gibi çalışır durumda olduğundan emin olursunuz.
 

@@ -12,23 +12,24 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
+
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
+
+Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC 4 Temelleri** uygulamalı Laboratuvar.
+
+Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
 
 > [!NOTE]
-> Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC 4 Temelleri** uygulamalı Laboratuvar.
-> 
-> Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
-> 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 modelleri ve veri erişimi](https://github.com/Microsoft-Web/HOL-MVC4ModelsAndDataAccess).
 
 İçinde **ASP.NET MVC Temelleri** uygulamalı Laboratuvar, sabit kodlanmış veri geçirerek denetleyicilerinden görünüm şablonları. Ancak, gerçek bir Web uygulaması oluşturmak için gerçek bir veritabanını kullanmak isteyebilirsiniz.
 
@@ -666,12 +667,12 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
 
     ![İstemci IP adresi ekleme](aspnet-mvc-4-models-and-data-access/_static/image41.png)
 
-    *İstemci IP adresi ekleme*
+    İstemci IP adresi ekleme
 3. Bir kez **istemci IP adresi** izin verilen IP adreslerine eklenen listesinde, tıklayın **kaydetmek** değişiklikleri onaylamak için.
 
     ![Değişiklikleri onaylamak](aspnet-mvc-4-models-and-data-access/_static/image42.png)
 
-    *Değişiklikleri onaylamak*
+    Değişiklikleri onaylamak
 
 <a id="ApxBTask3"></a>
 

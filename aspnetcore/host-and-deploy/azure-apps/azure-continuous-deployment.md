@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 78f4eed188323f2f43fafbb69d3fca9b59129ad2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Visual Studio ve Git ile ASP.NET Core için Azure için sürekli dağıtım
 
 Tarafından [Erik Reitan](https://github.com/Erikre)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Bu öğretici, sürekli dağıtımı kullanarak Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturma ve Visual Studio'dan Azure App Service'e dağıtma gösterir.
 
@@ -194,7 +196,7 @@ Web uygulaması için Azure dağıtılır, uygulamayı çalıştırın.
 Bu iki yolla gerçekleştirilebilir:
 
 * Azure Portalı'nda, web uygulaması için web uygulaması dikey bulun. Seçin **Gözat** uygulamayı varsayılan tarayıcıda görüntülemek için.
-* Bir tarayıcı açın ve web uygulaması için URL'yi girin. Örnek:`http://SampleWebAppDemo.azurewebsites.net`
+* Bir tarayıcı açın ve web uygulaması için URL'yi girin. Örnek: `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="update-the-web-app-and-republish"></a>Web uygulaması güncelleştirin ve yeniden yayımlamanız
 
@@ -225,7 +227,7 @@ Yerel kod değişiklikleri yaptıktan sonra yeniden yayımlayın:
 
 ## <a name="view-the-updated-web-app-in-azure"></a>Görünüm Azure güncelleştirilmiş web uygulaması
 
-Güncelleştirilmiş web uygulaması seçerek görüntülemek **Gözat** Azure Portalı'nda veya bir tarayıcı açarak ve web uygulaması için URL girerek web uygulaması dikey penceresinden. Örnek:`http://SampleWebAppDemo.azurewebsites.net`
+Güncelleştirilmiş web uygulaması seçerek görüntülemek **Gözat** Azure Portalı'nda veya bir tarayıcı açarak ve web uygulaması için URL girerek web uygulaması dikey penceresinden. Örnek: `http://SampleWebAppDemo.azurewebsites.net`
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

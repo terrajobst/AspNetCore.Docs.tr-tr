@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 9600392b47fb8b1dded06faefaff1bf87d67af4e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2e20e660bfa4aa335b951e2dc770e3671f99d2a8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code ile ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/30/2018
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 [!INCLUDE[model 2a](../../includes/RP/model2a.md)]
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
 
 Herhangi bir hata yoksa doğrulamak için projeyi oluşturun.
 
@@ -41,7 +41,7 @@ Düzen *RazorPagesMovie.csproj* dosyası:
 * Seçin **dosya** > **açık dosya**ve ardından *RazorPagesMovie.csproj* dosya.
 * Aracı başvurusunu ekleyin `Microsoft.EntityFrameworkCore.Tools.DotNet` ikinci  **\<ItemGroup >**:
 
-[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
+[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
 
 [!INCLUDE[model 3](../../includes/RP/model3.md)]
 
@@ -72,7 +72,8 @@ Hatayı alırsanız:
 
 Visual Studio çıkın ve komutu yeniden çalıştırın.
 
-[!INCLUDE[model 4](../../includes/RP/model4.md)]Sonraki öğretici yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.
+[!INCLUDE[model 4](../../includes/RP/model4.md)]
+Sonraki öğretici yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.
 
 >[!div class="step-by-step"]
 [Önceki: Başlarken](xref:tutorials/razor-pages-vsc/razor-pages-start)

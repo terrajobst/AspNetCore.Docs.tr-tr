@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 1504e49d97c4e72a34597360ad05bd9116188b33
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: cab395645d46c56a1a89464a8e8e716a296a9637
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Hata ASP.NET çekirdek işleme giriş
 
@@ -28,7 +28,7 @@ Bu makalede, ASP.NET Core uygulamaları hataları işlemek için ortak appoaches
 
 Özel durumlar hakkında ayrıntılı bilgiler gösterilmektedir bir sayfasını görüntülemek için uygulamayı yapılandırmak için yükleme `Microsoft.AspNetCore.Diagnostics` NuGet paketini ve bir satırı ekleyin [başlangıç sınıfında yöntemini yapılandırma](startup.md):
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 PUT `UseDeveloperExceptionPage` Ara yazılımların, istediğiniz gibi özel durumları yakalamak için önce `app.UseMvc`.
 
@@ -51,7 +51,7 @@ Bu istek tanımlama bilgilerine sahip oldu, ancak olsaydı, üzerinde görünece
 
 Uygulama çalışmadığında kullanmak için bir özel durum işleyici sayfasını yapılandırmak için iyi bir fikirdir `Development` ortamı.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 Bir MVC uygulamasında açıkça HTTP yöntemi öznitelikleriyle hata işleyici eylem yöntemi gibi tasarlamanız yok `HttpGet`. Açık fiillerini kullanarak bazı istekleri yöntemi ulaşmasını engellemeniz.
 
@@ -77,7 +77,7 @@ Varsayılan olarak, bu ara yazılımın 404 gibi ortak durum kodları için basi
 
 Ara yazılım birkaç farklı genişletme yöntemleri destekler. Lambda ifadesi alır, başka bir içerik türü ve biçimi dizesini alır.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
@@ -85,7 +85,7 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
 Yeniden yönlendirme uzantı yöntemleri vardır. Bir 302 durum kodunu istemciye gönderir ve bir istemciye özgün durum kodunu döndüren ancak işleyicinin yeniden yönlendirme URL'si de yürütür.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

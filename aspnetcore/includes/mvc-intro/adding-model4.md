@@ -1,10 +1,10 @@
-Vurgulanan gösterildiği eklenmesini film veritabanı bağlamı kod [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı (içinde *haline* dosyası). `services.AddDbContext<MvcMovieContext>(options =>`Kullanım ve bağlantı dizesi veritabanına belirtir. `=>`olan bir [lambda işleci](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Vurgulanan gösterildiği eklenmesini film veritabanı bağlamı kod [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı (içinde *haline* dosyası). `services.AddDbContext<MvcMovieContext>(options =>` Kullanım ve bağlantı dizesi veritabanına belirtir. `=>` olan bir [lambda işleci](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Açık *Controllers/MoviesController.cs* dosya ve Oluşturucusu inceleyin:
 
 <!-- l.. Make copy of Movies controller because we comment out the initial index method and update it later  -->
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_1)] 
 
 Oluşturucusu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) veritabanı bağlamı eklemesine (`MvcMovieContext `) denetleyicisi içine. Veritabanı bağlamı her biri kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyicisi yöntemleri.
 
@@ -18,7 +18,7 @@ MVC, model nesneleri bir görünüme kesin geçirme özelliği yazılan de sağl
 
 Oluşturulan inceleyin `Details` yönteminde *Controllers/MoviesController.cs* dosyası:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
 
 `id` Parametre genellikle rota verileri olarak geçirilir. Örneğin `http://localhost:5000/movies/details/1` ayarlar:
 
@@ -47,7 +47,7 @@ return View(movie);
 
 İçeriğini incelemek *Views/Movies/Details.cshtml* dosyası:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/DetailsOriginal.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/DetailsOriginal.cshtml)]
 
 Ekleyerek bir `@model` deyimini dosyanın üst kısmındaki görünümü Görünüm bekliyor nesne türünü belirtebilirsiniz. Film denetleyicisini oluşturduğunuzda, Visual Studio otomatik olarak aşağıdaki dahil `@model` deyimi en üstündeki *Details.cshtml* dosyası:
 
@@ -59,16 +59,16 @@ Bu `@model` yönergesi kullanarak denetleyici görünüm tarafından geçirilen 
 
 İncelemek *Index.cshtml* Görünüm ve `Index` filmler denetleyicisi yöntemi. Kodu nasıl oluşturduğunu fark bir `List` nesne çağırdığında `View` yöntemi. Bu kod iletir `Movies` dan listesinde `Index` eylem yöntemi görüntülemek için:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_index)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_index)]
 
 Film denetleyicisini oluşturduğunuzda, otomatik olarak iskele aşağıdaki dahil `@model` deyimi en üstündeki *Index.cshtml* dosyası:
 
 <!-- Copy Index.cshtml to IndexOriginal.cshtml -->
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?range=1)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?range=1)]
 
 `@model` Yönergesi kullanarak denetleyici görünüm tarafından geçirilen filmler listesi erişmenize olanak sağlayan bir `Model` kesin türü belirtilmiş nesnesi. Örneğin, *Index.cshtml* görüntülemek, kod döngüler ile filmler aracılığıyla bir `foreach` kesin türü belirtilmiş üzerinden deyimi `Model` nesnesi:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
 
 Çünkü `Model` nesne kesin türü belirtilmiş (olarak bir `IEnumerable<Movie>` nesnesi), döngünün her öğe olarak yazılan `Movie`. Diğer avantajlar arasında bu derleme zamanı elde anlamına gelir kodunu denetleme:

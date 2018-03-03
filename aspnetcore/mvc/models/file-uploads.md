@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: bfcbddb208fedaa4de46df782336176d97ea5bdc
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core dosya yüklemeleri
 
@@ -47,7 +47,7 @@ Dosya yüklemeleri desteklemek için HTML formları belirtmeniz gerekir. bir `en
 
 ![Dosyayı karşıya yükle formunu](file-uploads/_static/upload-form.png)
 
-Sunucuya yüklenen tek tek dosyaların üzerinden erişilen [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile`aşağıdaki yapıya sahiptir:
+Sunucuya yüklenen tek tek dosyaların üzerinden erişilen [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile` aşağıdaki yapıya sahiptir:
 
 ```csharp
 public interface IFormFile
@@ -71,7 +71,7 @@ Model bağlama kullanarak dosyaları karşıya yüklenirken ve `IFormFile` arabi
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
 Kullanarak karşıya yüklenen dosyaların `IFormFile` tekniği arabelleğe bellek veya disk web sunucusu üzerinde işlenmeden önce. Eylem yönteminin içine `IFormFile` içeriklerini bir akış olarak erişilebilir. Yerel dosya sistemi ek olarak, dosyalar için gönderilebilen [Azure Blob Depolama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) veya [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
@@ -96,7 +96,7 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile`doğrudan eylem yöntemi parametresini veya viewmodel özelliği olarak yukarıda gösterildiği gibi kullanılabilir.
+> `IFormFile` doğrudan eylem yöntemi parametresini veya viewmodel özelliği olarak yukarıda gösterildiği gibi kullanılabilir.
 
 Kopya `IFormFile` akış ve bayt dizisine kaydedin:
 
@@ -151,15 +151,15 @@ public IActionResult Index()
 
 ASP.NET Core'nın yerleşik özniteliğini kullanır [Antiforgery](xref:security/anti-request-forgery) bir tanımlama bilgisi isteği belirteci ile ayarlamak için destek:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
 Açısal otomatik olarak geçirir antiforgery belirteci adlı bir istek üstbilgisinde `X-XSRF-TOKEN`. ASP.NET Core MVC uygulama yapılandırmasıyla bu başlığında başvurmak için yapılandırılmış *haline*:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
 `DisableFormValueModelBinding` Aşağıda gösterilen özniteliği, model bağlama için devre dışı bırakmak için kullanılan `Upload` eylem yöntemi.
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
 Model bağlama devre dışı olduğundan `Upload` eylem yönteminin parametreleri kabul etmez. Doğrudan birlikte çalıştığı `Request` özelliği `ControllerBase`. A `MultipartReader` her bölüm okumak için kullanılır. Dosya bir GUID dosya adı ile kaydedilir ve anahtar/değer veriler bir `KeyValueAccumulator`. Tüm bölümleri okuyun sonra içeriğini `KeyValueAccumulator` form verilerinin bir model türünü bağlamak için kullanılır.
 
@@ -167,7 +167,7 @@ Tam `Upload` yöntemi aşağıda gösterilmektedir:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

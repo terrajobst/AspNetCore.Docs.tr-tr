@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: adb8fde6e6cb38a1c991b9a43fd1e649380d7c0c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>ASP.NET Core MVC ve Linux, macOS ve Windows Visual Studio Code ile Web API oluşturun
 
@@ -67,7 +67,7 @@ Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) VS Code kullanma hak
 
 .NET Core 2. 0 ' yeni bir proje oluşturma ekler 'Microsoft.AspNetCore.All' Sağlayıcısında *TodoApi.csproj* dosya. Yüklemek için gerek yoktur [Entity Framework Çekirdek Inmemory](https://docs.microsoft.com/ef/core/providers/in-memory/) sağlayıcı ayrı olarak veritabanı. Bu veritabanı sağlayıcısı bir bellek içi veritabanı ile kullanılacak Entity Framework Çekirdek sağlar.
 
-[!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
+[!code-xml[](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
 
 ## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
@@ -77,7 +77,7 @@ Adlı bir klasör ekleme *modelleri*. Model sınıfları projenizde, herhangi bi
 
 Ekleme bir `TodoItem` aşağıdaki kodla sınıfı:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
 
@@ -87,7 +87,7 @@ Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
 
 Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 

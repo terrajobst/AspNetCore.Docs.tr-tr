@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 32716ddcf7c2a7b11000c333453a0fde3030ae34
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 2c7994bf41dbc0832cff25a47607ab0bada8f93b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrations---ef-core-with-razor-pages-tutorial-4-of-8"></a>Geçişler - Razor sayfalarının Öğreticisi (4. 8'in) EF çekirdek
 
@@ -52,7 +52,7 @@ Aşağıdaki biçimlendirmede güncelleştirilmiş gösterir *.csproj* vurgulanm
 
 İçinde *appsettings.json* dosya, ContosoUniversity2 için bağlantı dizesi DB'de adını değiştirin.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Bağlantı dizesindeki DB adının değiştirilmesi, yeni bir veritabanı oluşturmak ilk geçiş neden olur. Bu ada sahip bir mevcut olmadığından yeni bir veritabanı oluşturulur. Bağlantı dizesi değiştirme geçişler ile çalışmaya başlama için gerekli değildir.
 
@@ -100,7 +100,7 @@ Hata iletisi "yapılandırma başarısızsa." , komutu yeniden çalıştırın g
 
 EF çekirdek komutu `migrations add` DB'den oluşturmak için kodu oluşturulur. Bu geçiş kod *geçişler\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen DB tablolar oluşturur. `Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
 
 Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntem. Geri alma güncelleştirme, geçişler çağrıları komutu girdiğinizde `Down` yöntemi.
 
@@ -119,7 +119,7 @@ Daha önce bağlantı dizesi DB için yeni bir ad kullanmak üzere değiştirilm
 
 Geçişler oluşturur bir *anlık görüntü* geçerli DB şemasının *Migrations/SchoolContextModelSnapshot.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
 
 Geçerli DB şeması kodda gösterilir çünkü EF çekirdek geçişler oluşturmak için DB ile etkileşim kurmak sahip değil. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF çekirdek belirler. Yalnızca DB güncelleştirmek sahip olduğu EF çekirdek DB ile etkileşime girer.
 
@@ -127,7 +127,7 @@ Anlık görüntü dosyasının oluşturulduğu geçişler ile eşitlenmiş olmas
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
-Erken geliştirme `EnsureCreated` komutu kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated`aşağıdaki sınırlamalara sahiptir:
+Erken geliştirme `EnsureCreated` komutu kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
 
 * Geçişler atlar ve şeması ve DB oluşturur.
 * Geçiş tablosu oluşturmaz.
@@ -189,7 +189,7 @@ Uygulamayı çalıştırın ve her şeyi çalıştığını doğrulayın.
 
 ## <a name="appling-migrations-in-production"></a>Üretim appling geçişleri
 
-Üretim uygulamaları gereken öneririz **değil** çağrısı [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında. `Migrate`sunucu grubundaki bir uygulamadan çağrılması gerekir. Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) genişleme ile dağıtılan bulut olması durumunda.
+Üretim uygulamaları gereken öneririz **değil** çağrısı [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında. `Migrate` sunucu grubundaki bir uygulamadan çağrılması gerekir. Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) genişleme ile dağıtılan bulut olması durumunda.
 
 Veritabanı geçiş, dağıtım ve denetimli bir şekilde bir parçası olarak yapılmalıdır. Üretim veritabanı geçiş yaklaşımlar şunlardır:
 
@@ -229,7 +229,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözüm: Çalıştır`dotnet ef database update`
+Çözüm: Çalıştır `dotnet ef database update`
 
 Varsa `update` komut, "oluşturma başarısız oldu." hatasını döndürür:
 

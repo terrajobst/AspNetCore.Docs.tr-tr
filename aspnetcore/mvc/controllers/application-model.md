@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 6e5f290c48cfe58ae3efe5ce0208c72e8ffb1daf
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 89a7af0ff95754f036b027aeafb8e25e49f397e2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-the-application-model"></a>Uygulama modeli ile çalışma
 
@@ -56,7 +56,7 @@ Sonra (`Order=-990`):
 > Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` denir tanımlanmamış ve sonra bu nedenle dayanıyordu gerekir.
 
 > [!NOTE]
-> `IApplicationModelProvider`framework yazarların genişletmek için Gelişmiş bir kavramdır. Genel olarak, uygulama kuralları kullanmanız gerekir ve çerçeveleri sağlayıcıları kullanmanız gerekir. Anahtar fark sağlayıcıları her zaman önce kuralları çalıştırılan.
+> `IApplicationModelProvider` framework yazarların genişletmek için Gelişmiş bir kavramdır. Genel olarak, uygulama kuralları kullanmanız gerekir ve çerçeveleri sağlayıcıları kullanmanız gerekir. Anahtar fark sağlayıcıları her zaman önce kuralları çalıştırılan.
 
 `DefaultApplicationModelProvider` ASP.NET Core MVC tarafından kullanılan varsayılan davranışlar çoğunu oluşturur. Sorumlulukları içerir:
 
@@ -89,25 +89,25 @@ MVC seçenekler ekleyerek veya uygulama kuralları uygulanır `Attribute`s ve bu
 
 Aşağıdaki kural, bir özellik için uygulama modeli eklemek için kullanılır. 
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
 
 Uygulama modeli kuralları, seçeneği olarak uygulanır, MVC eklendiğinde `ConfigureServices` içinde `Startup`.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
 
 Özellikler erişilebilir `ActionDescriptor` özellikler koleksiyonu içinde denetleyici eylemleri:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
 
 ### <a name="sample-modifying-the-controllermodel-description"></a>Örnek: ControllerModel açıklama değiştirme
 
 Önceki örnekte olduğu gibi denetleyici modeline ayrıca özel özellikleri eklemek için değiştirilebilir. Bunlar mevcut özelliklerini uygulama modelde belirtilen aynı adda geçersiz kılar. Aşağıdaki kural öznitelik denetleyici düzeyinde bir açıklama ekler:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
 
 Bu kural, bir denetleyici özniteliği olarak uygulanır.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
 
 Önceki örneklerde olduğu gibi aynı şekilde "Açıklama" özelliği erişilebilir.
 
@@ -115,31 +115,31 @@ Bu kural, bir denetleyici özniteliği olarak uygulanır.
 
 Ayrı özniteliği kuralı ayrı Eylemler, uygulama veya denetleyici düzeyinde uygulanmış davranışı geçersiz kılma uygulanabilir.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
 
 Bu eylem önceki örnekteki denetleyicisi içinde uygulanan nasıl denetleyici düzeyinde kuralı geçersiz kılmaları gösterir:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
 ### <a name="sample-modifying-the-parametermodel"></a>Örnek: ParameterModel değiştirme
 
 Aşağıdaki kural değiştirmek için eylem parametrelerini uygulanabilir kendi `BindingInfo`. Aşağıdaki kural parametresi bir rota parametresini olmalıdır; diğer olası bağlama kaynakları (örneğin, sorgu dizesi değerlerini) göz ardı edilir.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
 
 Öznitelik için herhangi bir eylem parametre uygulanabilir:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
 ### <a name="sample-modifying-the-actionmodel-name"></a>Örnek: ActionModel adını değiştirme
 
 Aşağıdaki kural değiştirir `ActionModel` güncelleştirmek için *adı* onu Uygulanacağı eylem. Yeni bir ad özniteliği için bir parametre olarak sağlanır. Bu eylem yöntemine erişmek için kullanılan rota etkileyecek şekilde bu yeni ad yönlendirme tarafından kullanılır.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
 
 Bu öznitelik, bir eylem yöntemine uygulanan `HomeController`:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
 
 Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC kuralı geçersiz kılar ve eylem adı ile değiştirir `MyCoolAction`. Bu nedenle, bu eylem erişmek için kullanılan rota olduğu `/Home/MyCoolAction`.
 
@@ -150,18 +150,18 @@ Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC 
 
 Kullanabileceğiniz bir `IApplicationModelConvention` yönlendirmenin nasıl çalıştığını özelleştirmek için. Örneğin, aşağıdaki kural denetleyicileri ad alanları değiştirerek kendi yollar dahil `.` ile ad alanında `/` rotadaki:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
 
 Kuralı, bir başlatma seçeneği olarak eklenir.
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Kurallarına ekleyebilirsiniz, [ara yazılımı](xref:fundamentals/middleware/index) erişerek `MvcOptions` kullanma`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Kurallarına ekleyebilirsiniz, [ara yazılımı](xref:fundamentals/middleware/index) erişerek `MvcOptions` kullanma `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 Bu örnek denetleyicisi "Namespace" adına sahip olduğu özniteliği yönlendirme kullanmıyorsanız yolları Bu kuralı uygular. Bu kural aşağıdaki denetleyicisiyle gösterir:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
 
 ## <a name="application-model-usage-in-webapicompatshim"></a>Uygulama modeli WebApiCompatShim kullanımda
 
@@ -205,6 +205,6 @@ Uyumluluk Paketi kuralları kümesi yanı sıra içerir bir `System.Web.Http.Api
 
 Uygulama modeli kullanıma sunan bir [ `ApiExplorer` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) her düzeyde uygulamanın yapısı geçiş yapmak için kullanılan özellik. Bunun için kullanılabilir [Swagger gibi araçları kullanarak, Web API'leri için Yardım sayfalarına üret](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Özelliği düzenlemenizi sağlayan bir `IsVisible` uygulamanızın modeli hangi kısımlarının açılmamalıdır belirtmek için ayarlanabilir özelliği. Bir kural kullanarak bu ayarı yapılandırabilirsiniz:
 
-[!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
+[!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 
 Bu yaklaşım (ve gerekirse ek kuralları) kullanarak etkinleştirin veya uygulamanızda herhangi bir düzeyde API görünürlük devre dışı bırakın. 

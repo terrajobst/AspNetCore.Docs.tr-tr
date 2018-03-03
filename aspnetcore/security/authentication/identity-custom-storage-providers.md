@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -112,7 +112,7 @@ Hangi rollerin hangi kullanıcılara atanan alır ve depolar. [Örnek](https://d
 
 Veri erişim sınıfları Kalıcılık mekanizması için veri işlemleri gerçekleştirmek için kod sağlar. Örneğin, özel bir sağlayıcı içinde yeni bir kullanıcı oluşturmak için aşağıdaki kodu sahip olabileceğiniz *depolamak* sınıfı:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 Kullanıcı oluşturmak için uygulama mantığını bulunduğu ``_usersTable.CreateAsync`` aşağıda gösterilen yöntemi.
 
@@ -133,7 +133,7 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - Iuserclaimstore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
 - Iuserpasswordstore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- IUserSecurityStampStore<!-- make these all links and remove / -->
+- IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore
@@ -145,7 +145,7 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
 
 İçinde `UserStore` sınıfı, işlemleri gerçekleştirmek için oluşturulan veri erişim sınıfları kullanın. Bu, bağımlılık ekleme kullanılarak geçirilir. Örneğin, SQL Server'daki Dapper uygulaması `UserStore` sınıfına sahip `CreateAsync` bir örneği kullanan yöntemi `DapperUsersTable` yeni bir kayıt eklemek için:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Kullanıcı deposu özelleştirirken uygulamak için arabirimleri
 
@@ -196,7 +196,7 @@ Bir rol depolama sağlayıcısı uygularken, bir özel rol türü oluşturabilir
 
 Örnek bir rol sınıf verilmiştir:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Rol deposu özelleştirme
 

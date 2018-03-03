@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 200f02f9815966653b3b46918737c60d11f11d5a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 69f7bfa0f1e203c860abce06f6f2daffcaf47a59
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="controller-methods-and-views"></a>Denetleyici yöntemlerine ve görünümler
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal değil. Biz (12:00: 00'da aşağıdaki görüntüde) zaman görmek istemediğiniz ve **ReleaseDate** iki sözcük olmalıdır.
 
@@ -25,14 +25,14 @@ Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal de
 
 Açık *Models/Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları ekleyin:
 
-[!code-csharp[Main](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
 
 Bir kırmızı dalgalı satıra sağ tıklayın **> Hızlı Eylemler ve yapan yeniden düzenlemeler**.
 
   ![Bağlam menüsü programlarını ** > Hızlı Eylemler ve yapan yeniden düzenlemeler **.](controller-methods-views/_static/qa.png)
 
 
-' A dokunun`using System.ComponentModel.DataAnnotations;`
+' A dokunun `using System.ComponentModel.DataAnnotations;`
 
   ![listesinin başında System.ComponentModel.DataAnnotations kullanma](controller-methods-views/_static/da.png)
 
@@ -44,7 +44,7 @@ Bir kırmızı dalgalı satıra sağ tıklayın **> Hızlı Eylemler ve yapan ye
 
 Güncelleştirilmiş kod:
 
-[!code-csharp[Main](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
+[!code-csharp[](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
 
 <!-- include start -->
 

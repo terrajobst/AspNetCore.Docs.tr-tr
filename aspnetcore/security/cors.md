@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Cross-Origin istekleri (CORS) etkinleştirme
 
@@ -35,13 +35,13 @@ Bu iki URL'leri aynı kaynağa sahip:
 
 Bu URL'leri iki farklı çıkış önceki daha vardır:
 
-* `http://example.net`-Farklı bir etki alanı
+* `http://example.net` -Farklı bir etki alanı
 
-* `http://www.example.com/foo.html`-Farklı bir alt etki alanı
+* `http://www.example.com/foo.html` -Farklı bir alt etki alanı
 
-* `https://example.com/foo.html`-Farklı düzeni
+* `https://example.com/foo.html` -Farklı düzeni
 
-* `http://example.com:9000/foo.html`-Farklı bir bağlantı noktası
+* `http://example.com:9000/foo.html` -Farklı bir bağlantı noktası
 
 > [!NOTE]
 > Internet Explorer bağlantı noktası kaynakları karşılaştırma göz önünde değil.
@@ -52,7 +52,7 @@ Ayarlamak için uygulamanız için CORS eklemek `Microsoft.AspNetCore.Cors` proj
 
 CORS Hizmetleri içinde haline ekleyin:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
 ## <a name="enabling-cors-with-middleware"></a>CORS Ara yazılımla etkinleştirme
 
@@ -60,7 +60,7 @@ Etkinleştirmek için tüm uygulamanız için CORS CORS ara yazılım, istek ard
 
 CORS ara yazılımı kullanarak eklerken bir çıkış noktaları arası ilkesi belirtebilirsiniz `CorsPolicyBuilder` sınıfı. Bunu yapmanın iki yolu vardır. İlk UseCors ile bir lambda çağırmaktır:
 
-[!code-csharp[Main](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
 **Not:** URL eğik belirtilmelidir (`/`). URL ile ererse `/`, karşılaştırma döndürülecek `false` ve üst bilgi döndürülür.
 
@@ -68,11 +68,11 @@ Lambda geçen bir `CorsPolicyBuilder` nesnesi. Bir listesini bulabilirsiniz [yap
 
 Yöntem çağrıları zincir şekilde CorsPolicyBuilder fluent API olduğuna dikkat edin:
 
-[!code-csharp[Main](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
 İkinci bir veya daha fazla adlandırılmış CORS ilkelerini tanımlamak ve ardından ilkeyi çalışma zamanında adına göre seçmek için bir yaklaşımdır.
 
-[!code-csharp[Main](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 Bu örnekte "AllowSpecificOrigin" adlı bir CORS ilkesi ekler. İlkeyi seçmek için adına geçirmek `UseCors`.
 
@@ -84,19 +84,19 @@ MVC, eylem, denetleyici başına veya genel olarak tüm denetleyicileri için ba
 
 Belirtmek için belirli bir eylemi için CORS ilkesinin ekleyin `[EnableCors]` özniteliği eylem. İlke adı belirtin.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Denetleyici
 
 Belirtmek için belirli bir denetleyicinin CORS ilkesi ekleyin `[EnableCors]` özniteliği için denetleyici sınıfı. İlke adı belirtin.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>Genel
 
 CORS genel olarak tüm denetleyicilerinin ekleyerek etkinleştirebilirsiniz `CorsAuthorizationFilterFactory` genel filtre koleksiyonuna filtre:
 
-[!code-csharp[Main](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
 Öncelik sırası: eylem, denetleyici, genel. Eylem düzeyi ilkeleri denetleyicisi düzeyi ilkeleri göre önceliklidir ve denetleyici düzeyinde ilkeleri genel ilkelere göre önceliklidir.
 
@@ -104,7 +104,7 @@ CORS genel olarak tüm denetleyicilerinin ekleyerek etkinleştirebilirsiniz `Cor
 
 Denetleyici veya eylem için CORS devre dışı bırakmak için `[DisableCors]` özniteliği.
 
-[!code-csharp[Main](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
 ## <a name="cors-policy-options"></a>CORS ilkesi seçenekleri
 
@@ -128,11 +128,11 @@ Bu bölümde CORS ilke ayarlayabileceğiniz çeşitli seçenekler açıklanmakta
 
 Bir veya daha fazla belirli kaynaklara izin veren:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
 Tüm kaynaklara izin vermek için:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
 Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün. Bu, tam anlamıyla herhangi bir Web apı'nize AJAX çağrıları yapabilirsiniz anlamına gelir.
 
@@ -140,7 +140,7 @@ Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün.
 
 Tüm HTTP yöntemleri izin vermek için:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
 Bu ön uçuş istekleri ve erişim-denetim-Allow-Methods üstbilgi etkiler.
 
@@ -150,11 +150,11 @@ CORS denetim öncesi isteği uygulama tarafından ayarlanıp HTTP üst bilgileri
 
 Beyaz liste belirli üstbilgileri:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
 İzin vermek için tüm istek üstbilgileri Yazar:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
 Tarayıcılar nasıl bunlar Access-Control-Request-Headers kümesinde tamamen tutarlı değil. Üstbilgi için herhangi bir şey dışında ayarlarsanız "*", "kabul", "content-type" ve "kaynak" artı desteklemek istediğiniz tüm özel üstbilgileri en az içermelidir.
 
@@ -176,7 +176,7 @@ Varsayılan olarak, tüm uygulama yanıt üstbilgilerinin tarayıcı açığa ç
 
 CORS spec bunlar çağırır *basit yanıt üstbilgilerini*. Diğer üstbilgileri uygulama kullanılabilir hale getirmek için:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
 
 ### <a name="credentials-in-cross-origin-requests"></a>Cross-origin istekleri kimlik bilgileri
 
@@ -203,7 +203,7 @@ $.ajax({
 
 Ayrıca, sunucu kimlik bilgilerine izin vermeniz gerekir. Çıkış noktaları arası kimlik bilgilerine izin vermek için:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
 Artık HTTP yanıtı sunucunun bir çıkış noktaları arası istek için kimlik bilgilerini sağlayan tarayıcı söyler bir erişim-denetim-Allow-Credentials üstbilgisi içerecektir.
 
@@ -215,7 +215,7 @@ Kimlik bilgilerini tarayıcı gönderir, ancak yanıt geçerli erişim-denetim-A
 
 Ne kadar süreyle denetim öncesi isteğinin yanıtı önbelleğe erişim-denetim-Max-Age üstbilgisini belirtir. Bu üst ayarlamak için:
 
-[!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
 <a name="cors-how-cors-works"></a>
 

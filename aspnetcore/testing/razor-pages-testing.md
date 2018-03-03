@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi
 
@@ -71,7 +71,7 @@ Uygulama kullanmayan ancak [havuz deseni](http://martinfowler.com/eaaCatalog/rep
 | ------------------ | ----------- |
 | *IntegrationTests* | <ul><li>*IndexPageTest.cs* dizin sayfası için tümleştirme testleri içerir.</li><li>*TestFixture.cs* ileti uygulama test etmek için test ana bilgisayar oluşturur.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* DAL için birim testleri içerir.</li><li>*IndexPageTest.cs* dizin sayfası modeli için birim testleri içerir.</li></ul> |
-| Yardımcı programlar        | *Utilities.cs* içerir:<ul><li>`TestingDbContextOptions` Veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni bir veritabanı oluşturmak için kullanılan yöntem.</li><li>`GetRequestContentAsync` hazırlamak için kullanılan yöntem `HttpClient` ve tümleştirme sınaması sırasında ileti uygulamaya gönderilen istekleri için içerik.</li></ul>
+| *Yardımcı programlar*        | *Utilities.cs* içerir:<ul><li>`TestingDbContextOptions` Veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni bir veritabanı oluşturmak için kullanılan yöntem.</li><li>`GetRequestContentAsync` hazırlamak için kullanılan yöntem `HttpClient` ve tümleştirme sınaması sırasında ileti uygulamaya gönderilen istekleri için içerik.</li></ul>
 
 Test çerçevesi [xUnit](https://xunit.github.io/). Framework mocking nesne [Moq](https://github.com/moq/moq4). Tümleştirme testleri gerçekleştirilen kullanarak [ASP.NET Core Test ana](xref:testing/integration-testing#the-test-host).
 
@@ -100,7 +100,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 
 Bu yaklaşım sorun ne olursa olsun durumu önceki test, sol içindeki her bir test veritabanı aldığını olmasıdır. Birbiriyle uğratmaz atomik birim testleri yazma girişimi sırasında bu bağlantı sorunlu olabilir. Zorlamak için `AppDbContext` her test için yeni bir veritabanı içeriği kullanmak için girmeniz bir `DbContextOptions` yeni bir hizmet sağlayıcısını temel örneği. Test uygulaması kullanarak bunu gösterilmektedir, `Utilities` sınıf yöntemi `TestingDbContextOptions` (*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 Kullanarak `DbContextOptions` DAL biriminde testleri otomatik olarak yeni veritabanı örneği ile çalıştırmak her bir test sağlar:
 
@@ -119,23 +119,23 @@ Her bir test yöntemin `DataAccessLayerTest` sınıfı (*UnitTests/DataAccessLay
 
 Örneğin, `DeleteMessageAsync` yöntemi tarafından tanımlanan tek bir ileti kaldırmak için sorumlu kendi `Id` (*src/RazorPagesTestingSample/Data/AppDbContext.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
 
 Bu yöntem için iki testleri vardır. Bir sınama iletisi veritabanında mevcut olduğunda yöntemi bir iletiyi siler denetler. Veritabanı varsa değişmez bir yöntem testleri ileti `Id` için silme işlemi yok. `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` Yöntemi aşağıda gösterilmektedir:
 
-[!code-csharp[Main](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 İlk olarak, yöntem, Act adım hazırlığı gerçekleştiği Yerleştir adım gerçekleştirir. Dengeli dağıtım iletiler elde ve içinde tutulan `seedMessages`. Dengeli dağıtım iletiler veritabanına kaydedilir. İletinin bir `Id` , `1` silme işlemi için ayarlanır. Zaman `DeleteMessageAsync` yöntemi yürütüldüğünde, beklenen iletiler biriyle hariç tüm iletileri olmalıdır bir `Id` , `1`. `expectedMessages` Değişkeni bu beklenen sonucu temsil eder.
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 Yöntem davranır: `DeleteMessageAsync` tümleştirilmesidir yöntemi yürütüldüğünde `recId` , `1`:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
 Son olarak, yöntemi alır `Messages` bağlamından ve kendisine karşılaştırır `expectedMessages` iki eşit sunduğundan:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
 
 Karşılaştırmak için iki `List<Message>` aynıdır:
 
@@ -144,7 +144,7 @@ Karşılaştırmak için iki `List<Message>` aynıdır:
 
 Benzer bir test yöntem `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound` mevcut olmayan bir ileti silinmeye çalışılıyor sonucunu denetler. Bu durumda, beklenen veritabanındaki sonra gerçek iletileri eşit mesajlarının `DeleteMessageAsync` yöntemi yürütüldüğünde. Veritabanının içeriği için herhangi bir değişiklik olması gerekir:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
 
 ## <a name="unit-testing-the-page-model-methods"></a>Birim testi sayfa modeli yöntemleri
 
@@ -168,27 +168,27 @@ Bu grup test genellikle bir sayfa modeli yöntemi yürütüldüğü Act adımı 
 
 `OnGetAsync_PopulatesThePageModel_WithAListOfMessages` Test gösterir nasıl `GetMessagesAsync` yöntemi için sayfa modeli mocked:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
 
 Zaman `OnGetAsync` yöntemi Act adımda yürütülürse, sayfa modelinin çağırır `GetMessagesAsync` yöntemi.
 
 Birim testi Act adım (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
 `IndexPage` Sayfa modelinin `OnGetAsync` yöntemi (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
 `GetMessagesAsync` DAL yönteminde değil Bu yöntem çağrısının sonucunu döndürür. Yöntemin mocked sürümü sonucunu döndürür.
 
 İçinde `Assert` adım, gerçek iletileri (`actualMessages`) atanır `Messages` sayfa modelin özelliği. İletileri atandığında bir tür denetimi da gerçekleştirilir. Beklenen ve mevcut iletileri tarafından karşılaştırılır kendi `Text` özellikleri. Test onaylar iki `List<Message>` örnekleri aynı iletiler içerir.
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
 
 Bu gruptaki diğer testleri oluşturma sayfası dahil model nesneleri `DefaultHttpContext`, `ModelStateDictionary`, bir `ActionContext` kurmak için `PageContext`, `ViewDataDictionary`ve bir `PageContext`. Bunlar, testleri gerçekleştirme faydalıdır. Örneğin, ileti uygulama kurar bir `ModelState` hatasıyla `AddModelError` denetlemek için geçerli bir `PageResult` olduğunda döndürülen `OnPostAddMessageAsync` yürütülür:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
 
 ## <a name="integration-testing-the-app"></a>Uygulamayı test etme tümleştirme
 
@@ -196,7 +196,7 @@ Tümleştirme uygulamanın bileşenleri birlikte çalışan sınama odaklanması
 
 İleti Uygulama dizin sayfasına isteyen sonucunu bir tümleştirme örnek örnekten sınaması denetler (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
 
 Hiçbir Yerleştir adım yoktur. `GetAsync` Yöntemi çağrıldığında `HttpClient` uç noktaya bir GET isteği göndermek için. Test sonucu 200 Tamam durum kodu olduğunu onaylar.
 
@@ -214,19 +214,19 @@ Herhangi bir POST isteği iletisi App uygulamanın tarafından otomatik olarak y
 
 `Post_AddMessageHandler_ReturnsRedirectToRoot ` yöntem (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
 `GetRequestContentAsync` Yardımcı program yöntemi yönetir antiforgery tanımlama bilgisi ve istek doğrulama belirteci istemcisiyle hazırlanıyor. Yöntemine nasıl aldığı Not bir `IDictionary` isteğin istek doğrulama belirteci ile birlikte kodlamak veri geçirmek için arama test yöntemini verir (*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
 
 Tümleştirme testleri, ayrıca uygulamanın yanıt davranışını test etmek için uygulamaya hatalı veri geçirebilirsiniz. İleti Uygulama sınırlar 200 karakter ileti uzunluğu (*src/RazorPagesTestingSample/Data/Message.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
 
 `Post_AddMessageHandler_ReturnsSuccess_WhenMessageTextTooLong` Test `Message` 201 "X" karakterleri içeren metin açıkça geçirir. Bunun bir `ModelState` hata. POST dizin sayfasına yeniden yönlendir değil. 200 Tamam ile döndüren bir `null` `Location` üstbilgi (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

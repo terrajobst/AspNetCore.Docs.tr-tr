@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile bir ASP.NET MVC 5 uygulaması oluşturma
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici kullanıcıların oturum açmasına imkan sağlayan bir ASP.NET MVC 5 web uygulamasını kullanarak nasıl oluşturulacağını gösterir [OAuth 2.0](http://oauth.net/2/) Facebook, Twitter, LinkedIn, Microsoft veya Google gibi bir dış kimlik doğrulama sağlayıcısından kimlik bilgilerine sahip. Kolaylık olması için Bu öğretici, Facebook ve Google kimlik bilgilerini ile çalışma hakkında odaklanır.
 > 
@@ -114,6 +114,9 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için SSL
 <a id="goog"></a>
 ## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>OAuth 2 için bir Google uygulaması oluşturma ve uygulama projesine bağlanma
 
+> [!WARNING]
+> Geçerli Google OAuth yönergeler için bkz: [ASP.NET Core yapılandırma Google kimlik doğrulaması](/aspnet/core/security/authentication/social/google-logins).
+
 1. Gidin [Google geliştiriciler konsol](https://console.developers.google.com/).
 1. Önce bir projeyi oluşturmadıysanız, seçin **kimlik bilgileri** sol sekmesini ve ardından **oluşturma**.
 1. Sol sekmede tıklatın **kimlik bilgileri**.
@@ -158,6 +161,9 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için SSL
 
 <a id="fb"></a>
 ## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>İçinde Facebook uygulaması oluşturma ve uygulama projesine bağlanma
+
+> [!WARNING]
+> Geçerli Facebook OAuth2 kimlik doğrulama yönergeler için bkz: [yapılandırma Facebook kimlik doğrulaması](/aspnet/core/security/authentication/social/facebook-logins)
 
 Facebook OAuth2 kimlik doğrulaması için Facebook içinde oluşturduğunuz bir uygulamadan bazı ayarları projenize kopyalamanız gerekir.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: 06197f967e111d75531e9c3bcbcbdb971cb9f99b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET Core dosya sağlayıcıları
 
@@ -25,9 +25,9 @@ ASP.NET Core dosya sistemi erişimini dosyasını sağlayıcıları kullanımıy
 
 ## <a name="file-provider-abstractions"></a>Dosya sağlayıcısı soyutlamalar
 
-Dosya bir Özet dosya sistemleri sağlayıcılarıdır. Ana arabirim `IFileProvider`. `IFileProvider`Dosya bilgileri almak için yöntemleri gösterir (`IFileInfo`), dizin bilgilerini (`IDirectoryContents`) ve değişiklik bildirimlerini ayarlama (kullanarak bir `IChangeToken`).
+Dosya bir Özet dosya sistemleri sağlayıcılarıdır. Ana arabirim `IFileProvider`. `IFileProvider` Dosya bilgileri almak için yöntemleri gösterir (`IFileInfo`), dizin bilgilerini (`IDirectoryContents`) ve değişiklik bildirimlerini ayarlama (kullanarak bir `IChangeToken`).
 
-`IFileInfo`yöntemleri ve özellikleri hakkında belirli dosyaları veya dizinleri sağlar. İki Boole özelliğe sahip `Exists` ve `IsDirectory`, dosyanın açıklayan özelliklerinin yanı sıra `Name`, `Length` (bayt cinsinden), ve `LastModified` tarih. Kullanarak dosya okuyabilir, `CreateReadStream` yöntemi.
+`IFileInfo` yöntemleri ve özellikleri hakkında belirli dosyaları veya dizinleri sağlar. İki Boole özelliğe sahip `Exists` ve `IsDirectory`, dosyanın açıklayan özelliklerinin yanı sıra `Name`, `Length` (bayt cinsinden), ve `LastModified` tarih. Kullanarak dosya okuyabilir, `CreateReadStream` yöntemi.
 
 ## <a name="file-provider-implementations"></a>Dosya sağlayıcısı uygulamaları
 
@@ -50,15 +50,15 @@ Dizin içeriğini yineleme ya da bir alt yolu sağlayarak bir belirli dosyanın 
 
 Sağlayıcı bir denetleyicisinden istemek için denetleyicinin oluşturucuda belirtin ve bir yerel alan atayın. Eylem yöntemleri yerel örneğinin kullanın:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
 
 Ardından, uygulamanın içinde sağlayıcısı oluşturma `Startup` sınıfı:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
 
 İçinde *Index.cshtml* görüntülemek için yinelemek `IDirectoryContents` sağlanan:
 
-[!code-html[Main](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
 
 Sonuç:
 
@@ -68,7 +68,7 @@ Sonuç:
 
 `EmbeddedFileProvider` Derlemelerde katıştırılmış dosyalara erişmek için kullanılır. .NET çekirdek ile derlemedeki dosyaları ekleme `<EmbeddedResource>` öğesinde *.csproj* dosyası:
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 Kullanabileceğiniz [genelleme desenleri](#globbing-patterns) derlemede katıştırmak için dosyaları belirtirken. Bu düzenleri, bir veya daha fazla eşleştirmek için kullanılabilir.
 
@@ -97,7 +97,7 @@ Kullanılacak örnek uygulama güncelleştirme bir `EmbeddedFileProvider` sonuç
 
 `CompositeFileProvider` Birleştirir `IFileProvider` örnekleri, birden çok sağlayıcı dosyalarıyla çalışmak için tek bir arabirim gösterme. Oluştururken `CompositeFileProvider`, bir veya daha fazla geçirdiğiniz `IFileProvider` kendi oluşturucusunu örnekleri:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
 
 Kullanılacak örnek uygulama güncelleştirme bir `CompositeFileProvider` , önceden yapılandırılmış her iki fiziksel ve katıştırılmış sağlayıcıları içerir, sonuçları aşağıdaki çıktı:
 
@@ -109,7 +109,7 @@ Kullanılacak örnek uygulama güncelleştirme bir `CompositeFileProvider` , ön
 
 Bu makalenin örnekte, bir metin dosyası değiştirildiğinde bir ileti görüntülemek için bir konsol uygulaması yapılandırılır:
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 Birkaç kez dosyayı kaydettikten sonra sonucu:
 
@@ -150,7 +150,7 @@ Dosya sistemi yolları kullanın adında joker karakter düzenleri *genelleme de
 
 ## <a name="file-provider-usage-in-aspnet-core"></a>ASP.NET Core sağlayıcısı kullanım dosyası
 
-ASP.NET Core çeşitli bölümlerini dosya sağlayıcıları kullanır. `IHostingEnvironment`uygulamanın içerik kök ve web kökü olarak kullanıma sunar `IFileProvider` türleri. Statik dosya ara yazılımı dosya sağlayıcıları statik dosyaları bulmak için kullanır. Razor yapar kullanımına ağırlık `IFileProvider` görünümleri bulunmasında. DotNet'in işlevselliğini kullanır dosya sağlayıcıları ve genelleme desenleri hangi dosyaların yayımlanması belirtmek için yayımlayın.
+ASP.NET Core çeşitli bölümlerini dosya sağlayıcıları kullanır. `IHostingEnvironment` uygulamanın içerik kök ve web kökü olarak kullanıma sunar `IFileProvider` türleri. Statik dosya ara yazılımı dosya sağlayıcıları statik dosyaları bulmak için kullanır. Razor yapar kullanımına ağırlık `IFileProvider` görünümleri bulunmasında. DotNet'in işlevselliğini kullanır dosya sağlayıcıları ve genelleme desenleri hangi dosyaların yayımlanması belirtmek için yayımlayın.
 
 ## <a name="recommendations-for-use-in-apps"></a>Uygulamaları kullanmak için öneriler
 

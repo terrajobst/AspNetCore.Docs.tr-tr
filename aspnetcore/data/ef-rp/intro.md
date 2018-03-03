@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: f53697fc005352da781e88fce7ebfbe4cc93d3f6
-ms.sourcegitcommit: 725cb18ad23013e15d3dbb527958481dee79f9f8
+ms.openlocfilehash: 7aaedcd8cb1050884d308c2e81506682e18b78be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Razor sayfalarının ve Entity Framework Visual Studio (1 / 8) kullanarak çekirdek ile çalışmaya başlama
 
@@ -98,7 +98,7 @@ Aşağıdaki bölümlerde, bu varlıkların her biri için bir sınıf oluşturu
 
 Oluşturma bir *modelleri* klasör. İçinde *modelleri* klasörünü adlı bir sınıf dosyası oluşturma *Student.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
 `ID` Özelliği bu sınıfa karşılık gelen veritabanı (DB) tablosunun birincil anahtar sütunu haline gelir. Varsayılan olarak, EF çekirdek adlı bir özellik yorumlar `ID` veya `classnameID` birincil anahtar olarak.
 
@@ -112,7 +112,7 @@ Bir gezinme özelliği birden çok varlık tutarsanız gezinti özelliği bir li
 
 İçinde *modelleri* klasörü oluşturmak *Enrollment.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 `EnrollmentID` Birincil anahtarı bir özelliktir. Bu varlığı kullanan `classnameID` yerine desen `ID` gibi `Student` varlık. Genellikle geliştiriciler bir deseni seçin ve veri modelini kullanır. Sonraki öğreticide, veri modelinde devralma uygulamak daha kolay classname Kimliğini kullanarak gösterilir.
 
@@ -130,7 +130,7 @@ EF çekirdek, ise bu özellik yabancı anahtar olarak yorumlar `<navigation prop
 
 İçinde *modelleri* klasörü oluşturmak *Course.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 `Enrollments` Özelliği bir gezinti özelliğidir. A `Course` varlık herhangi bir sayıda için ilgili olabileceğini `Enrollment` varlıklar.
 
@@ -144,7 +144,7 @@ Proje klasöründe adlı bir klasör oluşturun *veri*.
 
 İçinde *veri* klasör oluşturma *SchoolContext.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
 Bu kod oluşturur bir `DbSet` özelliği her bir varlık kümesi. EF çekirdek terminolojisinde:
 
@@ -155,7 +155,7 @@ Bu kod oluşturur bir `DbSet` özelliği her bir varlık kümesi. EF çekirdek t
 
 DB oluşturulduğunda EF çekirdek aynı adlara sahip tablolar oluşturur `DbSet` özellik adları. Koleksiyonlar için özellik adları genellikle çoğul (Öğrenciler yerine Öğrenci). Geliştiriciler olup tablo adlarının çoğul olmalıdır hakkında katılmıyorum. Bu öğreticileri için DbContext tekil tablo adları belirterek varsayılan davranışı geçersiz kılınır. Tekil tablo adları belirtmek için aşağıdaki vurgulanmış kodu ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
 ## <a name="register-the-context-with-dependency-injection"></a>Bağlam bağımlılık ekleme ile kaydetme
 
@@ -163,13 +163,13 @@ ASP.NET Core içeren [bağımlılık ekleme](xref:fundamentals/dependency-inject
 
 Kaydetmek için `SchoolContext` bir hizmet olarak açmak *haline*, vurgulanan satırlar ekleyin `ConfigureServices` yöntemi.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
 Bağlantı dizesinin adını bağlamına üzerinde bir yöntemini çağırarak geçirilen bir `DbContextOptionsBuilder` nesnesi. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
 Ekleme `using` deyimleri için `ContosoUniversity.Data` ve `Microsoft.EntityFrameworkCore` ad alanları. Projeyi oluşturun.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
 Açık *appsettings.json* dosyası ve bir bağlantı dizesi aşağıdaki kodda gösterildiği gibi ekleyin:
 
@@ -187,7 +187,7 @@ EF çekirdek boş bir veritabanı oluşturur. Bu bölümde, bir *çekirdek* yön
 
 İçinde *veri* klasörünü adlı yeni bir sınıf dosyası oluşturma *DbInitializer.cs* ve aşağıdaki kodu ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
 Kod DB'de herhangi Öğrenciler olup olmadığını denetler. DB içinde hiçbir Öğrenciler varsa, DB test verilerle sağlanmış. Diziye test verileri yükler yerine `List<T>` performansı iyileştirmek için koleksiyonları.
 
@@ -201,7 +201,7 @@ Kod DB'de herhangi Öğrenciler olup olmadığını denetler. DB içinde hiçbir
 
 Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
 
-[!code-csharp[Main](intro/samples/cu/ProgramOriginal.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/ProgramOriginal.cs?name=snippet)]
 
 Uygulama bir ilk çalıştırıldığında DB oluşturulur ve test verilerle sağlanmış. Veri modeli güncelleştirildiğinde:
 * DB silin.
@@ -226,7 +226,7 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
 
 Önceki komutu NuGet paketlerini *.csproj dosyasına ekler:
 
-[!code-csharp[Main](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
+[!code-csharp[](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
 
 <a name="scaffold"></a>
 ## <a name="scaffold-the-model"></a>İskele modeli
@@ -310,7 +310,7 @@ Zaman uyumsuz kod yükünü az miktarda çalışma zamanında tanıtır. Trafiğ
 
 Aşağıdaki kodda, `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `await` anahtar sözcüğü ve `ToListAsync` yöntemi zaman uyumsuz yürütme kodu olun.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_ScaffoldedIndex)]
 
 * `async` Anahtar sözcüğü derleyiciye bildirir:
 

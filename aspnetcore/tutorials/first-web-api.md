@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1146132693681eca8f92beb00ebabd7296534688
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7c91866de60988ebfeafea6e026a3dcec25d7c3d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core ve Windows için Visual Studio ile web API oluşturma
 
@@ -69,7 +69,7 @@ Ekleme bir `TodoItem` sınıfı. Sağ *modelleri* klasörü ve select **Ekle** >
 
 Güncelleştirme `TodoItem` aşağıdaki kodla sınıfı:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
 
@@ -81,7 +81,7 @@ Ekleme bir `TodoContext` sınıfı. Sağ *modelleri* klasörü ve select **Ekle*
 
 Sınıfı aşağıdaki kodla değiştirin:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 

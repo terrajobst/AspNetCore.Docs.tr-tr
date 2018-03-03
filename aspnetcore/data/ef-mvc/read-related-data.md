@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f8454ee7d74b8f563fad8dab6fb2d478d4e119f0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Okuma ilgili verileri - EF çekirdek ASP.NET Core MVC Öğreticisi (6 10)
 
@@ -65,7 +65,7 @@ Açık *CoursesController.cs* ve inceleyin `Index` yöntemi. Otomatik yapı iske
 
 Değiştir `Index` yöntemi için daha uygun bir ad kullanan aşağıdaki kod ile `IQueryable` indirmelere varlıklar döndürüyor (`courses` yerine `schoolContext`):
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Açık *Views/Courses/Index.cshtml* ve şablon kodu aşağıdaki kodla değiştirin. Değişiklikleri vurgulanmıştır:
 
@@ -107,7 +107,7 @@ Eğitmen sayfanın üç farklı tablolardan verileri gösterir. Bu nedenle, her 
 
 İçinde *SchoolViewModels* klasörü oluşturmak *InstructorIndexData.cs* ve var olan kodu aşağıdaki kodla değiştirin:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Eğitmen denetleyicisi ve görünümler oluşturma
 
@@ -117,31 +117,31 @@ Aşağıdaki çizimde gösterildiği gibi EF okuma/yazma eylemleri ile bir eğit
 
 Açık *InstructorsController.cs* ve kullanarak bir ekleme deyimi ViewModels ad alanı için:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Dizin yöntemi, ilgili verilerin istekli yükleme yapmak ve görünüm modelinde put aşağıdaki kodla değiştirin.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 Yöntem isteğe bağlı rota veri kabul eder (`id`) ve bir sorgu dizesi parametresi (`courseID`) seçili Eğitmen ve seçili indirmelere kimliği değerlerini sağlayın. Parametreleri tarafından sağlanan **seçin** sayfasında bağlar.
 
 Kod görünüm modeli örneği oluşturmayı ve bunu Eğitmen listesi koyma başlar. İstekli yükleme için kod belirtir `Instructor.OfficeAssignment` ve `Instructor.CourseAssignments` Gezinti özellikleri. İçinde `CourseAssignments` özelliği, `Course` özelliği yüklü ve, içinde `Enrollments` ve `Department` özellikleri yüklenir ve her içinde `Enrollment` varlık `Student` özelliği yüklenir.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Görünümü her zaman OfficeAssignment varlık gerektirdiğinden, aynı sorguda fetch daha etkilidir. Yalnızca sayfa daha sık olmadan daha seçili indirmelere ile görüntüleniyorsa, tek bir sorgu birden fazla sorgu iyi olacak şekilde bir eğitmen web sayfasında seçildiğinde indirmelere varlıklar gereklidir.
 
 Kod yineler `CourseAssignments` ve `Course` iki özelliklerinden gerektiğinden `Course`. İlk dizesi `ThenInclude` alır çağırır `CourseAssignment.Course`, `Course.Enrollments`, ve `Enrollment.Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 Bu noktada kodda başka bir `ThenInclude` Gezinti özellikleri için olacaktır `Student`, gereken yok. Ancak arama `Include` üzerinden başlayan `Instructor` zinciri yeniden, bu zaman belirtme gitmek zorunda şekilde özellikleri `Course.Department` yerine `Course.Enrollments`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 Bir eğitmen seçildiğinde aşağıdaki kodu yürütür. Seçili Eğitmen görünüm modeli Eğitmen listesi alınır. Görünüm modelinin `Courses` özelliği Bu eğitmen indirmelere varlıklardan ile yüklenen sonra `CourseAssignments` gezinti özelliği.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 `Where` Yöntem koleksiyonu döndürür, ancak ölçütlere bu durumda döndürülen yalnızca tek bir eğitmen varlık o yöntemi sonuç. `Single` Yöntemi bu varlığın erişim sağlayan tek bir eğitmen varlık koleksiyonu dönüştürür `CourseAssignments` özelliği. `CourseAssignments` Özelliği içeren `CourseAssignment` istediğiniz yalnızca ilgili varlıklar `Course` varlıklar.
 
@@ -159,7 +159,7 @@ Onun yerine:
 
 Ardından, bir indirmelere seçildiyse, görünüm modeli kurslar listesinden seçili indirmelere alınır. Ardından Görünüm modelinin `Enrollments` özelliği bu indirmelere 's kayıt varlıklardan olarak yüklenen `Enrollments` gezinti özelliği.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Eğitmen dizini görünümünü değiştirme
 
@@ -231,7 +231,7 @@ Alınan zaman içinde Eğitmen listesi *InstructorsController.cs*, istekli yükl
 
 Nadiren seçili Eğitmen ve indirmelere kayıtları görmek istediğiniz kullanıcıları beklenen varsayalım. Bu durumda, yalnızca isteniyorsa kayıt verileri yüklemek isteyebilirsiniz. Açık yükleme yapmak nasıl bir örnek görmek için değiştirme `Index` yöntemini aşağıdaki kodla istekli yükleme kayıtları için kaldırır ve bu özellik açıkça yükler. Kod değişiklikleri vurgulanır.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 Yeni kod bırakır *ThenInclude* yöntemi Eğitmen varlıklar alır kodundan için kayıt verilerini çağırır. Eğitmen ve indirmelere seçtiyseniz, seçili indirmelere için kayıt varlıkları ve Öğrenci varlıklar her kayıt için vurgulanmış kodu alır.
 

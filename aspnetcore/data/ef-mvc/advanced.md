@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core MVC EF temel - Gelişmiş - 10, 10"
 author: tdykstra
-description: "Bu öğretici Entity Framework Çekirdek kullanan ASP.NET web uygulamaları geliştirme temellerini gittiğiniz zaman uyumlu olması için kullanışlı olan çeşitli konular tanıtır."
+description: "Bu öğretici için Entity Framework Çekirdek kullanan ASP.NET Core web uygulamaları geliştirme temelleri ötesine geçmesini yararlı konularını tanıtır."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d4631765b3742a076f6d7f0dbf72770a9dbf5a09
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Gelişmiş konular - EF çekirdek ASP.NET Core MVC Öğreticisi (10 / 10)
 
@@ -41,7 +41,7 @@ Bir web uygulamasında SQL komutlarını yürüttüğünüzde her zaman true ola
 
 İçinde *DepartmentsController.cs*, `Details` yöntemi, bir bölüm ile alan kodu değiştirin bir `FromSql` vurgulanan aşağıdaki kodda gösterildiği gibi yöntem çağrısı:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 Yeni kod düzgün çalıştığını doğrulamak için seçin **Departmanlar** sekmesini ve ardından **ayrıntıları** Departmanlar biri için.
 
@@ -53,11 +53,11 @@ Daha önce bir öğrenci istatistikleri kılavuz Öğrenciler sayısı için her
 
 İçinde *HomeController.cs*, yerine `About` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 Kullanarak bir ekleme deyimi:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
 Uygulamayı çalıştırın ve hakkında sayfasına gidin. Uygulama önceden olduğu aynı verileri görüntüler.
 
@@ -71,9 +71,9 @@ Contoso University yöneticiler her indirmelere için iadeleri sayısını deği
 
 İçinde *CoursesContoller.cs*, HttpGet ve HttpPost için UpdateCourseCredits yöntemleri ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 Denetleyici HttpGet isteği işlediğinde, hiçbir şey döndürülür `ViewData["RowsAffected"]`, yukarıdaki çizimde gösterildiği gibi görünümün boş bir metin kutusu ve bir gönderme düğmesi görüntüler.
 
@@ -85,7 +85,7 @@ Zaman **güncelleştirme** düğmesine tıklandığında, HttpPost yöntemi ça�
 
 İçinde *Views/Courses/UpdateCourseCredits.cshtml*, şablon kodu aşağıdaki kodla değiştirin:
 
-[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 Çalıştırma `UpdateCourseCredits` seçerek yöntemi **kurslar** sonra ekleyerek sekmesinde, "/ UpdateCourseCredits" sonuna kadar tarayıcının adres çubuğundaki URL'yi (örneğin: `http://localhost:5813/Courses/UpdateCourseCredits`). Metin kutusuna bir sayı girin:
 
@@ -182,7 +182,7 @@ Varolan bir veritabanını varlık sınıflardan dahil olmak üzere bir veri mod
 
 [Bu serideki üçüncü öğretici](sort-filter-page.md) LINQ kodunun kodlama sabit sütun adları tarafından nasıl yazılacağını gösterir bir `switch` deyimi. Aralarından seçim yapabileceğiniz iki sütunlarla bu düzgün çalışır, ancak çok sayıda sütun varsa, kodu ayrıntılı alabilir. Bu sorunu çözmek için kullanabileceğiniz `EF.Property` yöntemi bir dize olarak özellik adını belirtin. Bu yaklaşım denemek için değiştirme `Index` yönteminde `StudentsController` aşağıdaki kod ile.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

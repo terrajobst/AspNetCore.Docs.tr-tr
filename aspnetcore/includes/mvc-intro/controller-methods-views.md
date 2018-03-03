@@ -7,7 +7,7 @@ Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hede
 
 **Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar çekirdek MVC yer işareti etiketi yardımcı tarafından üretilen *Views/Movies/Index.cshtml* dosya.
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
 [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Yukarıdaki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` denetleyici eylem yöntemi ve rota kimliğinden öznitelik değeri. Kullandığınız **kaynağı görüntüle** sık kullanılan tarayıcı ya da kullanım oluşturulan biçimlendirme incelemek için geliştirici araçları. Oluşturulan HTML bir bölümü aşağıda verilmiştir:
 
@@ -21,7 +21,7 @@ Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hede
 
 Biçim için geri çağırma [yönlendirme](xref:mvc/controllers/routing) kümesinde *haline* dosyası:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 ASP.NET Core çevirir `http://localhost:1234/Movies/Edit/4` bir istek içine `Edit` eylem yöntemi `Movies` parametresiyle denetleyicisi `Id` 4. (Denetleyici olarak da bilinen eylem yöntemleri yöntemleridir.)
 
@@ -29,41 +29,41 @@ ASP.NET Core çevirir `http://localhost:1234/Movies/Edit/4` bir istek içine `Ed
 
 Açık `Movies` denetleyicisi ve iki inceleyin `Edit` eylem yöntemleri. Aşağıdaki kodda gösterildiği `HTTP GET Edit` film getirir ve tarafından oluşturulan düzenleme formu doldurur yöntemi *Edit.cshtml* Razor dosya.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerlerini işler yöntemi:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 `[Bind]` Karşı koruma yollarından özniteliğidir [aşırı gönderim](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [atlayarak nakil denetleyicinizi korumak](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlayın.
 
 İkinci fark `Edit` tarafından eylem yöntemi öncesinde `[HttpPost]` özniteliği.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
 
 `HttpPost` Özniteliği belirtir bu `Edit` yöntemi çağrılacak *yalnızca* için `POST` istekleri. Geçerli olabilir `[HttpGet]` ilk öznitelik Düzenle yöntemi, ancak gerekli değildir çünkü `[HttpGet]` varsayılandır.
 
 `ValidateAntiForgeryToken` Özniteliği için kullanılan [istek sahteciliğini önleme](xref:security/anti-request-forgery) ve düzenleme görünümü dosyasında oluşturulan sahteciliğe karşı koruma belirteci ile eşleştirilmiş (*Views/Movies/Edit.cshtml*). Düzenleme görünümü dosya sahteciliğe karşı koruma belirteci oluşturur [Form etiketi yardımcı](xref:mvc/views/working-with-forms).
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
 
 [Form etiketi yardımcı](xref:mvc/views/working-with-forms) eşleşmelidir gizli bir sahteciliğe karşı koruma belirteci oluşturur `[ValidateAntiForgeryToken]` sahteciliğe karşı koruma belirteci oluşturulan `Edit` filmler denetleyicisinin yöntemi. Daha fazla bilgi için bkz: [karşı istek Sahteciliğine](xref:security/anti-request-forgery).
 
 `HttpGet Edit` Yöntemi alır film `ID` parametresi arar Entity Framework kullanarak filmi `SingleOrDefaultAsync` yöntemi ve seçili film düzenleme görünümü döndürür. Bir filmi bulunamazsa `NotFound` (HTTP 404) döndürülür.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Yapı iskelesi sistem düzenleme görünümü oluşturduğunuzda, incelenmesi `Movie` sınıfı ve işlemek için oluşturulan kodu `<label>` ve `<input>` sınıfın her bir özellik için öğeleri. Aşağıdaki örnek, Visual Studio yapı iskelesi sistem tarafından oluşturulan düzenleme görünümü gösterir:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/EditCopy.cshtml?highlight=1)]
 
-Şablonu görüntüleme nasıl sahip fark bir `@model MvcMovie.Models.Movie` deyimini dosyanın üst. `@model MvcMovie.Models.Movie`Görünüm model türünde olmasını şablonu görüntüleme için beklediğini belirtir `Movie`.
+Şablonu görüntüleme nasıl sahip fark bir `@model MvcMovie.Models.Movie` deyimini dosyanın üst. `@model MvcMovie.Models.Movie` Görünüm model türünde olmasını şablonu görüntüleme için beklediğini belirtir `Movie`.
 
 İskele kurulmuş kod, HTML biçimlendirmesi kolaylaştırmak için birkaç etiketi yardımcı yöntemler kullanır. [Etiket etiket Yardımcısı](xref:mvc/views/working-with-forms) ("Title", "ReleaseDate", "Tarz" veya "Price") alanın adını görüntüler. [Giriş etiketi yardımcı](xref:mvc/views/working-with-forms) bir HTML işleyen `<input>` öğesi. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms) bu özellik ile ilişkili herhangi bir doğrulama iletisi görüntüler.
 
 Uygulamayı çalıştırın ve gidin `/Movies` URL. Tıklatın bir **Düzenle** bağlantı. Tarayıcıda, sayfa için kaynağı görüntüleyin. İçin oluşturulan HTML `<form>` öğesi aşağıda gösterilmektedir.
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
 
 `<input>` Öğeleri olan bir `HTML <form>` öğesi, `action` özniteliği postalamak için ayarlanmış `/Movies/Edit/id` URL. Form verileri sunucuya nakledilir zaman `Save` düğmesine tıklandığında. Son satırı kapatmadan önce `</form>` öğesini gösterir gizli [XSRF](xref:security/anti-request-forgery) tarafından oluşturulan belirteç [Form etiketi yardımcı](xref:mvc/views/working-with-forms).
 
@@ -71,7 +71,7 @@ Uygulamayı çalıştırın ve gidin `/Movies` URL. Tıklatın bir **Düzenle** 
 
 Aşağıdaki liste gösterildiği `[HttpPost]` sürümü `Edit` eylem yöntemi.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 `[ValidateAntiForgeryToken]` Özniteliği gizli doğrular [XSRF](xref:security/anti-request-forgery) sahteciliğe karşı koruma belirteci üreteci tarafından oluşturulan belirteç [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 

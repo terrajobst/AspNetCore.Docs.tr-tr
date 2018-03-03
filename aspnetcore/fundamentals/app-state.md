@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 6b81cadf39c0db373f82b8de7d8d3901d51ea088
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumunda giriş
 
@@ -38,7 +38,7 @@ Bellek içi oturum sağlayıcısı, yerel sunucuda oturum verilerini depolar. Bi
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core MVC sunan [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData`birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için özellikle yararlı olacaktır. `TempData`TempData sağlayıcıları tarafından Örneğin, tanımlama bilgilerini veya oturum durumu kullanılarak uygulanır.
+ASP.NET Core MVC sunan [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData` birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için özellikle yararlı olacaktır. `TempData` TempData sağlayıcıları tarafından Örneğin, tanımlama bilgilerini veya oturum durumu kullanılarak uygulanır.
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData sağlayıcıları
@@ -91,7 +91,7 @@ Sıralama ara yazılımı bileşenleri için kritik öneme sahiptir. Önceki ör
 
 ## <a name="query-strings"></a>Sorgu dizeleri
 
-Verileri sınırlı miktarda bir istekten başka bir yeni isteğin sorgu dizesi için ekleyerek geçirebilirsiniz. Bu durum e-posta veya sosyal ağlar paylaşılan katıştırılmış durumuyla bağlantılarına izin verir kalıcı bir şekilde yakalamak için yararlıdır. Ancak, bu nedenle, hiçbir zaman sorgu dizeleri için hassas verileri kullanmanız gerekir. Kolayca paylaşılmasını ek olarak, sorgu dizelerine verileri dahil olmak üzere fırsatı oluşturabilirsiniz [siteler arası istek sahteciliği (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) kullanıcıların kimlik doğrulaması sırasında kötü amaçlı siteleri ziyaret içine kandırarak saldırıları. Saldırganlar uygulamanızdan kullanıcı verileri çalmaya veya kullanıcı adına kötü amaçlı eylemleri gerçekleştirin. Korunan application veya session durumu CSRF saldırılarına karşı korumanız gerekir. CSRF saldırıları hakkında daha fazla bilgi için bkz: [önleme siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını ASP.NET Core içinde](../security/anti-request-forgery.md).
+Verileri sınırlı miktarda bir istekten başka bir yeni isteğin sorgu dizesi için ekleyerek geçirebilirsiniz. Bu durum e-posta veya sosyal ağlar paylaşılan katıştırılmış durumuyla bağlantılarına izin verir kalıcı bir şekilde yakalamak için yararlıdır. Ancak, bu nedenle, hiçbir zaman sorgu dizeleri için hassas verileri kullanmanız gerekir. Kolayca paylaşılmasını ek olarak, sorgu dizelerine verileri dahil olmak üzere fırsatı oluşturabilirsiniz [siteler arası istek sahteciliği (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) kullanıcıların kimlik doğrulaması sırasında kötü amaçlı siteleri ziyaret içine kandırarak saldırıları. Saldırganlar uygulamanızdan kullanıcı verileri çalmaya veya kullanıcı adına kötü amaçlı eylemleri gerçekleştirin. Korunan application veya session durumu CSRF saldırılarına karşı korumanız gerekir. CSRF saldırıları hakkında daha fazla bilgi için bkz: [önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını](xref:security/anti-request-forgery).
 
 ## <a name="post-data-and-hidden-fields"></a>Gönderme verisi ve Gizli alanlar
 
@@ -128,11 +128,11 @@ Aşağıdaki kod, bellek içi oturum Sağlayıcısı'nı ayarlama gösterilmekte
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
+[!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
 
 ---
 
@@ -156,17 +156,17 @@ Oturum Varsayılanları geçersiz kılmak için kullanın `SessionOptions`:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
+[!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
+[!code-csharp[](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
 ---
 
 Sunucunun kullandığı `IdleTimeout` içeriğinin terk önce ne kadar oturum boşta kalabileceği belirlemek için özellik. Bu özellik tanımlama bilgisinin süre sonu bağımsızdır. (Okuma veya yazma) oturum Ara geçtiği her istek zaman aşımını sıfırlar.
 
-Çünkü `Session` olan *kilitleme*, her ikisi de denemesi oturum, son içeriğini değiştirmek iki istek ilk kılıyorsa. `Session`olarak uygulanan bir *tutarlı oturum*, yani tüm içeriği birlikte depolanır. (Farklı anahtarlar) oturum farklı bölümlerini değiştirmek iki isteği hala etkisi birbirine.
+Çünkü `Session` olan *kilitleme*, her ikisi de denemesi oturum, son içeriğini değiştirmek iki istek ilk kılıyorsa. `Session` olarak uygulanan bir *tutarlı oturum*, yani tüm içeriği birlikte depolanır. (Farklı anahtarlar) oturum farklı bölümlerini değiştirmek iki isteği hala etkisi birbirine.
 
 ### <a name="setting-and-getting-session-values"></a>Ayarlama ve oturum değerleri alma
 
@@ -174,15 +174,15 @@ Oturumu aracılığıyla erişilir `Session` özelliği `HttpContext`. Bu özell
 
 Aşağıdaki örnek, ayarlama ve int ve bir dize alma gösterir:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?range=8-27,49)]
 
 Aşağıdaki genişletme yöntemleri eklerseniz, ayarlayın ve oturumuna serileştirilebilir nesneler alın:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Extensions/SessionExtensions.cs)]
 
 Aşağıdaki örnek, ayarlama ve alma serileştirilebilir bir nesne gösterilmektedir:
 
-[!code-csharp[Main](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
+[!code-csharp[](app-state/sample/src/WebAppSession/Controllers/HomeController.cs?name=snippet2)]
 
 
 ## <a name="working-with-httpcontextitems"></a>HttpContext.Items ile çalışma

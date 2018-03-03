@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 2bd593b77c10b1b3ab0b73551d01abd0b4187b8d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
@@ -47,7 +47,7 @@ Kullanıcılar bir sunucuya dosyaları karşıya yükleme olanağı sağlarken d
 
 Dosya yüklemeleri çifti işlemek için bir Razor sayfası oluşturun. Ekleme bir `FileUpload` zamanlama verileri elde etmek için sayfaya bağlı sınıfı. Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adını **dosya yükleme** ve aşağıdaki özellikleri ekleyin:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
 Sınıfı, zamanlamanın başlık özelliğini ve her iki sürümü zamanlama için bir özelliğine sahiptir. Tüm üç özellikleri gereklidir ve başlığı 3-60 karakter uzunluğunda olmalıdır.
 
@@ -55,7 +55,7 @@ Sınıfı, zamanlamanın başlık özelliğini ve her iki sürümü zamanlama i�
 
 Karşıya yüklenen zamanlama dosyalarını işlemek için kod yinelemesinden kaçınmak için önce bir statik yardımcı yöntemi ekleyin. Oluşturma bir *yardımcı programları* uygulama klasöründe ve ekleme bir *FileHelpers.cs* dosya aşağıdaki içeriğe sahip. Yardımcı yöntemi `ProcessFormFile`, alan bir [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) ve [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) ve dosyanın boyutu ve içeriğini içeren bir dize döndürür. İçerik türü ve uzunluğu denetlenir. Dosya bir doğrulama denetimi geçmiyor, bir hata eklenen `ModelState`.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
 
 ### <a name="save-the-file-to-disk"></a>Dosyayı diske kaydedin
 
@@ -78,7 +78,7 @@ Azure Blob Depolama birimine dosya içerik yüklemek için bkz: [.NET kullanarak
 
 Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adını **zamanlama** ve aşağıdaki özellikleri ekleyin:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/Schedule.cs)]
 
 Sınıf kullandığı `Display` ve `DisplayFormat` kolay başlıkları ve zamanlama veri işlendiğinde biçimlendirme oluşturur özniteliklerini.
 
@@ -86,7 +86,7 @@ Sınıf kullandığı `Display` ve `DisplayFormat` kolay başlıkları ve zamanl
 
 Belirtin bir `DbSet` içinde `MovieContext` (*Models/MovieContext.cs*) tabloları için:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Zamanlama tablo veritabanına ekleyin
 
@@ -105,7 +105,7 @@ Update-Database
 
 İçinde *sayfaları* klasörü oluşturmak bir *zamanlamaları* klasör. İçinde *zamanlamaları* klasörünü adlı bir sayfa oluşturma *Index.cshtml* aşağıdaki içeriğe sahip bir zamanlama karşıya yükleme için:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml)]
 
 Her form grubu içeren bir  **\<etiketi >** her sınıf özelliğinin adını görüntüler. `Display` Öznitelikleri `FileUpload` modeli etiketlerini görüntüleme değerleri belirtin. Örneğin, `UploadPublicSchedule` özelliğin görünen adı ayarlandığında `[Display(Name="Public Schedule")]` ve formu işleyen böylece "Ortak zamanlama" etiketi görüntülenir.
 
@@ -115,43 +115,43 @@ Her form grubu bir doğrulama içeren  **\<span >**. Kullanıcı karşılamak ü
 
 Sayfa modeli ekleme (*Index.cshtml.cs*) için *zamanlamaları* klasörü:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
 Sayfa modeli (`IndexModel` içinde *Index.cshtml.cs*) bağlar `FileUpload` sınıfı:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet1)]
 
 Model zamanlamalar listesini de kullanır (`IList<Schedule>`) sayfasında veritabanında depolanan zamanlamaları görüntülemek için:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet2)]
 
 Sayfa yüklediğinde ile `OnGetAsync`, `Schedules` veritabanından doldurulur ve yüklenen zamanlamalar HTML tablosu oluşturmak için kullanılan:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
 Sunucuya form gönderildiğinde `ModelState` denetlenir. Geçersiz, `Schedule` yeniden oluşturulur ve sayfa doğrulamayı neden geçemediğini belirten bir veya daha fazla doğrulama iletileri ile sayfasını işler. Geçerliyse, `FileUpload` özellikleri kullanıldığı *OnPostAsync* zamanlama iki sürümleri için dosya karşıya yükleme işlemini tamamlamak için ve yeni bir oluşturmak için `Schedule` verileri depolamak için nesne. Zamanlama sonra veritabanına kaydedilir:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 
 ## <a name="link-the-file-upload-razor-page"></a>Dosya karşıya yükleme Razor sayfasını bağlantı
 
 Açık *_Layout.cshtml* ve bir bağlantı dosya karşıya yükleme sayfasına ulaşmak için gezinti çubuğu ekleyin:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=31-38&highlight=4)]
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Zamanlama silmeyi onaylamak için bir sayfa ekleyin
 
 Kullanıcı bir zamanlama silinecek tıklattığında işlemi iptal etmek için bir fırsat sağlanır. Silme onayı sayfası ekleme (*Delete.cshtml*) için *zamanlamaları* klasörü:
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
 Sayfa modeli (*Delete.cshtml.cs*) tarafından tanımlanan tek bir zamanlama yükler `id` isteğin rota verilerindeki. Ekleme *Delete.cshtml.cs* dosya *zamanlamaları* klasörü:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 
 `OnPostAsync` Yöntemi işler tarafından zamanlama silinirken kendi `id`:
 
-[!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
+[!code-csharp[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs?name=snippet1&highlight=8,12-13)]
 
 Zamanlama başarıyla sildikten sonra `RedirectToPage` zamanlamaları için kullanıcı gönderir *Index.cshtml* sayfası.
 

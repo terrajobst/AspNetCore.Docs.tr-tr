@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 812d0373d24c8578bae83db4876549246f189be3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d631851b5b933d75c37a308f492840e3442e6f1a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>Korumalı yüklerini ömrü sınırlama
 
@@ -25,7 +25,7 @@ Bu bizim Geliştirici hedef kitlesi, paket kolaylaştırmak için [Microsoft.Asp
 
 `ITimeLimitedDataProtector` Koruma ve koruması kaldırıldığında, zaman sınırlı / Self süresi dolan yükü için çekirdek arabirimi bir arabirimdir. Örneği oluşturmak için bir `ITimeLimitedDataProtector`, önce bir normal örneği gerekir. [Idataprotector](overview.md) belirli bir amaç ile oluşturulmuş. Bir kez `IDataProtector` örneği kullanılabilir, çağrı `IDataProtector.ToTimeLimitedDataProtector` bir koruyucu yerleşik sona erme özellikleriyle geri almak için genişletme yöntemi.
 
-`ITimeLimitedDataProtector`Aşağıdaki API yüzeyi ve genişletme yöntemlerini gösterir:
+`ITimeLimitedDataProtector` Aşağıdaki API yüzeyi ve genişletme yöntemlerini gösterir:
 
 * CreateProtector (dize amacı): ITimeLimitedDataProtector - bu API benzer varolan `IDataProtectionProvider.CreateProtector` oluşturmak için kullanılabilir olduğunu [amaçla zincirleri](purpose-strings.md) kök zaman sınırlı koruyucusu gelen.
 
@@ -58,4 +58,4 @@ Bu bizim Geliştirici hedef kitlesi, paket kolaylaştırmak için [Microsoft.Asp
 
 Örnek kullanır [dı olmayan kod yollarının](../configuration/non-di-scenarios.md) veri koruma sisteminde başlatmasını için. Bu örneği çalıştırmak için önce Microsoft.AspNetCore.DataProtection.Extensions paketine başvuru eklediğinizden emin olun.
 
-[!code-csharp[Main](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]
+[!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

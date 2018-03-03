@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 2ba3c226cc57f8a3fb26b4119ae9e575eff522f9
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 5ee2029b3345a76cb283b88da5109ff0d81ebfa4
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filters"></a>FilTReleri
 
@@ -57,11 +57,11 @@ Filtreler farklı arabirimi tanımları aracılığıyla zaman uyumlu ve uyumsuz
 
 Çalıştırabilirsiniz zaman uyumlu filtreleri kod, her ikisi de, önce ve bunların ardışık düzen aşaması tanımladıktan sonra*aşama*Executing ve*aşama*yöntemleri yürütülür. Örneğin, `OnActionExecuting` eylem yöntemi çağrılmadan önce çağrılır ve `OnActionExecuted` eylem yöntemine döndürür sonra çağrılır.
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
 
 Zaman uyumsuz filtreleri üzerinde tek bir tanımlamak*aşama*ExecutionAsync yöntemi. Bu yöntem alır bir *FilterType*filtre ardışık düzen aşaması yürüten ExecutionDelegate temsilci. Örneğin, `ActionExecutionDelegate` ve eylem yöntemi yürütebilir çağrıları kod önce ve sonra onu çağırabilir.
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
 Tek bir sınıftaki birden çok filtre aşamaları için arabirimleri uygulayabilir. Örneğin, [ActionFilterAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute) soyut sınıf uygulayan her ikisi de `IActionFilter` ve `IResultFilter`, zaman uyumsuz eşdeğerlerine yanı sıra.
 
@@ -70,11 +70,11 @@ Tek bir sınıftaki birden çok filtre aşamaları için arabirimleri uygulayabi
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory`uygulayan `IFilter`. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilter` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, `CreateInstance` yöntemi oluşturmak için çağrılır `IFilter` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başladığında açıkça ayarlanması gerekmez bu yana çok esnek bir tasarım sağlar.
+`IFilterFactory` uygulayan `IFilter`. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilter` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, `CreateInstance` yöntemi oluşturmak için çağrılır `IFilter` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başladığında açıkça ayarlanması gerekmez bu yana çok esnek bir tasarım sağlar.
 
 Uygulayabileceğiniz `IFilterFactory` filtreleri oluşturma için başka bir yaklaşım olarak kendi özniteliği uygulamaları üzerinde:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
 
 ### <a name="built-in-filter-attributes"></a>Yerleşik filtre öznitelikleri
 
@@ -82,15 +82,15 @@ Bir alt kümesi için yerleşik öznitelik tabanlı filtreler framework içerir 
 
 <a name="add-header-attribute"></a>
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/AddHeaderAttribute.cs?highlight=5,16)]
 
 Öznitelikler, yukarıdaki örnekte gösterildiği gibi bağımsız değişken kabul etmek filtreleri sağlar. Bu öznitelik bir denetleyici veya eylem yöntemine ekleyin ve adını ve HTTP üstbilgisinin değerini belirtmek:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1)]
 
 Sonucu `Index` eylem aşağıda gösterilen - yanıt üstbilgilerini sağ alt görüntülenir.
 
-![Microsoft Edge, geliştirici araçları gösteren Yazar Steve Smith dahil olmak üzere, yanıt üstbilgileri@ardalis](filters/_static/add-header.png)
+![Microsoft Edge, geliştirici araçları gösteren Yazar Steve Smith dahil olmak üzere, yanıt üstbilgileri @ardalis](filters/_static/add-header.png)
 
 Filtre arabirimlerinin çeşitli özel uygulamalar için temel sınıf olarak kullanılabilir karşılık gelen özniteliklere sahiptir.
 
@@ -103,13 +103,13 @@ Filtre öznitelikleri:
 * `ServiceFilterAttribute`
 * `TypeFilterAttribute`
 
-`TypeFilterAttribute`ve `ServiceFilterAttribute` açıklanacak [bu makalenin ilerisinde yer](#dependency-injection).
+`TypeFilterAttribute` ve `ServiceFilterAttribute` açıklanacak [bu makalenin ilerisinde yer](#dependency-injection).
 
 ## <a name="filter-scopes-and-order-of-execution"></a>Filtre kapsamı ve yürütme sırasını
 
 Bir filtre ardışık düzen üç birinde eklenebilir *kapsamları*. Bir öznitelik kullanarak, belirli bir eylem yönteminin ya da bir denetleyici sınıfı bir filtre ekleyebilirsiniz. Veya ekleyerek genel (tüm denetleyicileri ve eylemleri) için bir filtre kaydedebilirsiniz `MvcOptions.Filters` koleksiyonunda `ConfigureServices` yönteminde `Startup` sınıfı:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=5-8)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=5-8)]
 
 ### <a name="default-order-of-execution"></a>Varsayılan yürütme sırasını
 
@@ -150,7 +150,7 @@ Uygulayarak yürütme varsayılan dizisini geçersiz kılabilirsiniz `IOrderedFi
 
 Yukarıdaki örnek ancak kümesi gösterilen 3 eylem filtrelerini aynı varsa `Order` denetleyicisinin ve genel özelliği 1 ve 2'ye sırasıyla filtreleri, yürütme sırasını tersine.
 
-| Sırası | Filtre kapsamı | `Order`özelliği | Filter yöntemi |
+| Sırası | Filtre kapsamı | `Order`  | Filter yöntemi |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1. | Yöntem | 0 | `OnActionExecuting` |
 | 2 | Denetleyici | 1.  | `OnActionExecuting` |
@@ -167,11 +167,11 @@ Herhangi bir noktada filtre ardışık düzen ayarlayarak kısa devre oluşturur
 
 <a name="short-circuiting-resource-filter"></a>
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/ShortCircuitingResourceFilterAttribute.cs?highlight=12,13,14,15)]
 
 Aşağıdaki kodda, hem `ShortCircuitingResourceFilter` ve `AddHeader` filtre hedef `SomeResource` eylem yöntemi. Ancak, çünkü `ShortCircuitingResourceFilter` ilk çalışır (kaynak filtresi olduğundan ve `AddHeader` bir eylem filtresi) ve kalan ardışık düzenini short-circuits `AddHeader` hiçbir zaman filtresi çalıştıran `SomeResource` eylem. Her iki filtreleri sağlanan eylem yöntemi düzeyinde uygulandıysa, bu davranış aynı kalır `ShortCircuitingResourceFilter` ilk çalışan (kendi filtre türü nedeniyle veya açık kullanımını `Order` özelliği örneği için).
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
 ## <a name="dependency-injection"></a>Bağımlılık ekleme
 
@@ -183,7 +183,7 @@ Filtrelerinizi dı erişmesi gereken bağımlılıkları varsa, desteklenen bir�
 
 * `ServiceFilterAttribute`
 * `TypeFilterAttribute`
-* `IFilterFactory`özniteliğinizi üzerinde uygulanmadı
+* `IFilterFactory` özniteliğinizi üzerinde uygulanmadı
 
 > [!NOTE]
 > DI almak isteyebilirsiniz bir bağımlılık Günlükçü ' dir. Bununla birlikte, oluşturma ve filtreleri tamamen günlüğe kaydetme amacıyla beri kullanarak kaçının [yerleşik framework günlüğe kaydetme özelliklerini](xref:fundamentals/logging/index) gerekenleri zaten sağlayabilir. Günlüğe kaydetme, filtrelerinizi eklemek için kullanacaksanız, iş etki alanı sorunlarının veya davranışı, filtre yerine MVC eylemler veya diğer framework olayları özgü odaklanmanız gerekir.
@@ -192,9 +192,9 @@ Filtrelerinizi dı erişmesi gereken bağımlılıkları varsa, desteklenen bir�
 
 A `ServiceFilter` dı filtre örneğini alır. Kapsayıcıda filtre eklemek `ConfigureServices`ve içinde referans bir `ServiceFilter` özniteliği
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
-[!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
+[!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
 Kullanarak `ServiceFilter` bir özel durum filtresi türü sonuçları kaydetme olmadan:
 
@@ -203,19 +203,19 @@ System.InvalidOperationException: No service for type
 'FiltersSample.Filters.AddHeaderFilterWithDI' has been registered.
 ```
 
-`ServiceFilterAttribute`uygulayan `IFilterFactory`, oluşturmak için tek bir yöntem kullanıma sunan bir `IFilter` örneği. Durumunda `ServiceFilterAttribute`, `IFilterFactory` arabiriminin `CreateInstance` yöntemi, belirtilen tür hizmet kapsayıcı (dı) yüklemek için uygulanır.
+`ServiceFilterAttribute` uygulayan `IFilterFactory`, oluşturmak için tek bir yöntem kullanıma sunan bir `IFilter` örneği. Durumunda `ServiceFilterAttribute`, `IFilterFactory` arabiriminin `CreateInstance` yöntemi, belirtilen tür hizmet kapsayıcı (dı) yüklemek için uygulanır.
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 
-`TypeFilterAttribute`çok benzer `ServiceFilterAttribute` (ve ayrıca uygulayan `IFilterFactory`), ancak türü doğrudan dı kapsayıcıdan çözülmüş değil. Bunun yerine, kullanarak türü başlatır `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
+`TypeFilterAttribute` çok benzer `ServiceFilterAttribute` (ve ayrıca uygulayan `IFilterFactory`), ancak türü doğrudan dı kapsayıcıdan çözülmüş değil. Bunun yerine, kullanarak türü başlatır `Microsoft.Extensions.DependencyInjection.ObjectFactory`.
 
 Kullanarak başvurulan türleri bu farklılık nedeniyle `TypeFilterAttribute` kapsayıcıyla ilk kayıtlı olması gerekmez (ancak kapsayıcı yerine bağımlılıklarını çözümlenmedi). Ayrıca, `TypeFilterAttribute` isteğe bağlı olarak söz konusu türü için oluşturucu bağımsız değişkenleri kabul edebilir. Aşağıdaki örneği kullanarak bir tür bağımsız değişkenleri geçirmek gösterilmiştir `TypeFilterAttribute`:
 
-[!code-csharp[Main](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
+[!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_TypeFilter&highlight=1,2)]
 
 Herhangi bir bağımsız değişken gerektirmeyen bir filtreye sahip ancak dı tarafından doldurulması gerekir Oluşturucusu bağımlılıkları olan, sınıflar ve yöntemler yerine adlandırılmış özniteliğinizi kullanabilirsiniz `[TypeFilter(typeof(FilterType))]`). Aşağıdaki filtre bu nasıl uygulanabilir gösterir:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilterAttribute.cs?name=snippet_TypeFilterAttribute&highlight=1,3,7)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilterAttribute.cs?name=snippet_TypeFilterAttribute&highlight=1,3,7)]
 
 Bu filtre sınıfları veya yöntemlerini kullanarak uygulanabilir `[SampleActionFilter]` kullanmak zorunda olmak yerine sözdizimi, `[TypeFilter]` veya `[ServiceFilter]`.
 
@@ -239,18 +239,18 @@ Daha fazla bilgi edinmek [yetkilendirme](../../security/authorization/index.md).
 
 Bir örnek eylem filtresi şöyledir:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
 [ActionExecutingContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) aşağıdaki özellikleri sağlar:
 
-* `ActionArguments`-Eylem girişleri işlemek olanak tanır.
-* `Controller`-denetleyici örneği yönlendirme sağlar. 
-* `Result`-Bu ayar, sonraki eylem filtrelerini ve eylem yönteminin yürütülmesi short-circuits. Bir özel durum atma ayrıca sonraki filtreleri ve eylem yönteminin yürütülmesi engeller, ancak başarılı sonuç yerine bir hata olarak kabul edilir.
+* `ActionArguments` -Eylem girişleri işlemek olanak tanır.
+* `Controller` -denetleyici örneği yönlendirme sağlar. 
+* `Result` -Bu ayar, sonraki eylem filtrelerini ve eylem yönteminin yürütülmesi short-circuits. Bir özel durum atma ayrıca sonraki filtreleri ve eylem yönteminin yürütülmesi engeller, ancak başarılı sonuç yerine bir hata olarak kabul edilir.
 
 [ActionExecutedContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) sağlar `Controller` ve `Result` aşağıdaki özellikleri artı:
 
-* `Canceled`-Eylem yürütme başka bir filtre tarafından kısa devre yapılma ise true olur.
-* `Exception`-Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa null olmayan olacaktır. Bu özellik etkili bir şekilde null olarak ayarlandığında 'handles' bir özel durum, ve `Result` eylem yönteminden normalde döndürülmedi sanki yürütülür.
+* `Canceled` -Eylem yürütme başka bir filtre tarafından kısa devre yapılma ise true olur.
+* `Exception` -Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa null olmayan olacaktır. Bu özellik etkili bir şekilde null olarak ayarlandığında 'handles' bir özel durum, ve `Result` eylem yönteminden normalde döndürülmedi sanki yürütülür.
 
 İçin bir `IAsyncActionFilter`, çağrı `ActionExecutionDelegate` sonraki eylem filtreleri ve döndüren eylem yöntemini yürütür bir `ActionExecutedContext`. Kısa devre oluşturur, Ata için `ActionExecutingContext.Result` bazı sonucu örneği ve çağrısı yok `ActionExecutionDelegate`.
 
@@ -258,9 +258,9 @@ Bir örnek eylem filtresi şöyledir:
 
 Otomatik olarak model durumunu doğrulamak ve herhangi bir hata durumu geçersizse dönmek için bir eylem filtresi kullanabilirsiniz:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/ValidateModelAttribute.cs)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/ValidateModelAttribute.cs)]
 
-`OnActionExecuted` Yöntemi çalışır eylem yöntemi ve can sonra görebilir ve eylem sonuçlarını işlemek `ActionExecutedContext.Result` özelliği. `ActionExecutedContext.Canceled`Eylem yürütme başka bir filtre tarafından kısa devre yapılma true değerine ayarlanır. `ActionExecutedContext.Exception`Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayarı `ActionExecutedContext.Exception` etkili bir şekilde null olarak 'bir özel durum işleme' ve `ActionExectedContext.Result` eylem yönteminden normalde döndürülmedi gibi daha sonra yürütülür.
+`OnActionExecuted` Yöntemi çalışır eylem yöntemi ve can sonra görebilir ve eylem sonuçlarını işlemek `ActionExecutedContext.Result` özelliği. `ActionExecutedContext.Canceled` Eylem yürütme başka bir filtre tarafından kısa devre yapılma true değerine ayarlanır. `ActionExecutedContext.Exception` Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayarı `ActionExecutedContext.Exception` etkili bir şekilde null olarak 'bir özel durum işleme' ve `ActionExectedContext.Result` eylem yönteminden normalde döndürülmedi gibi daha sonra yürütülür.
 
 ## <a name="exception-filters"></a>Özel durum filtreleri
 
@@ -268,7 +268,7 @@ Otomatik olarak model durumunu doğrulamak ve herhangi bir hata durumu geçersiz
 
 Aşağıdaki örnek özel durum filtresi, uygulama geliştirme olduğunda oluşan özel durumlar hakkında ayrıntıları görüntülemek için bir özel Geliştirici hata görünümü kullanır:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
 (Önce ve sonra), özel durum filtreleri iki olay sahip değilseniz - yalnızca uyguladıkları `OnException` (veya `OnExceptionAsync`). 
 
@@ -289,7 +289,7 @@ Aşağıdaki örnek özel durum filtresi, uygulama geliştirme olduğunda oluşa
 
 Bir HTTP üstbilgisi ekler bir sonuç filtresi bir örneği burada verilmiştir.
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/LoggingAddHeaderFilter.cs?name=snippet_ResultFilter)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/LoggingAddHeaderFilter.cs?name=snippet_ResultFilter)]
 
 Yürütülen sonuç türü, söz konusu eylem bağlıdır. Bir görünüm döndüren bir MVC eylem parçası olarak işleme tüm razor oluşmasıdır `ViewResult` yürütülmekte. Bir API yöntemi, sonuç yürütülmesini bir parçası olarak bazı serileştirme gerçekleştirebilir. Daha fazla bilgi edinmek [eylem sonuçlarını](actions.md)
 
@@ -297,9 +297,9 @@ Eylem veya eylem filtrelerini bir eylem sonucu, sonuç filtreleri yalnızca baş
 
 `OnResultExecuting` Yöntemi kısa devre oluşturur sonraki sonuç filtreleri ve eylem sonucu yürütülmesi ayarlayarak `ResultExecutingContext.Cancel` true. Genellikle, boş bir yanıt oluşturmamak için kısa devre zaman yanıt nesnesine yazmanız gerekir. Bir özel durum atma sonraki filtreleri ve eylem sonucu yürütülmesi da engeller, ancak başarılı sonuç yerine bir hata olarak kabul edilir.
 
-Zaman `OnResultExecuted` yöntemi çalıştığında, yanıt istemciye bir olasılıkla gönderilen ve daha fazla (bir özel durum oluştu sürece) değiştirilemez. `ResultExecutedContext.Canceled`Eylem sonucu yürütme başka bir filtre tarafından kısa devre yapılma true değerine ayarlanır.
+Zaman `OnResultExecuted` yöntemi çalıştığında, yanıt istemciye bir olasılıkla gönderilen ve daha fazla (bir özel durum oluştu sürece) değiştirilemez. `ResultExecutedContext.Canceled` Eylem sonucu yürütme başka bir filtre tarafından kısa devre yapılma true değerine ayarlanır.
 
-`ResultExecutedContext.Exception`Eylem sonucu veya bir sonraki sonuç filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayarı `Exception` için null etkili bir şekilde 'bir özel durum işleme' ve MVC tarafından ardışık düzeninde işlenemezse gelen özel durum engeller. Bir sonuç filtresi bir özel durum işlenirken herhangi bir veri yanıtı yazmak mümkün olmayabilir. Eylem sonucu kadar yürütülmesinin oluşturur ve üstbilgileri istemciye zaten atılmış olan, bir hata kodu göndermek için güvenilir bir mekanizma yoktur.
+`ResultExecutedContext.Exception` Eylem sonucu veya bir sonraki sonuç filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayarı `Exception` için null etkili bir şekilde 'bir özel durum işleme' ve MVC tarafından ardışık düzeninde işlenemezse gelen özel durum engeller. Bir sonuç filtresi bir özel durum işlenirken herhangi bir veri yanıtı yazmak mümkün olmayabilir. Eylem sonucu kadar yürütülmesinin oluşturur ve üstbilgileri istemciye zaten atılmış olan, bir hata kodu göndermek için güvenilir bir mekanizma yoktur.
 
 İçin bir `IAsyncResultFilter` yapılan bir çağrı `await next()` üzerinde `ResultExecutionDelegate` sonraki sonuç filtreleri ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlamak için `ResultExecutingContext.Cancel` için doğru ve çağrısı yok `ResultExectionDelegate`.
 
@@ -313,11 +313,11 @@ Kaynak filtreleri çalışma gibi [ara yazılım](xref:fundamentals/middleware/i
 
 Ara yazılım bir filtre olarak kullanılacak bir türüyle oluşturma bir `Configure` filtre ardışık düzenine eklemesine istediğiniz ara yazılım belirtir yöntemi. Yerelleştirme ara yazılım bir istek için geçerli kültürün kurmak için kullandığı örnek aşağıda verilmiştir:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
 
 Daha sonra kullanabilirsiniz `MiddlewareFilterAttribute` seçilen denetleyici veya eylem için ara yazılımı çalıştırmak için veya genel olarak:
 
-[!code-csharp[Main](./filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_MiddlewareFilter&highlight=2)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_MiddlewareFilter&highlight=2)]
 
 Çalışan ara yazılım aynı filtre ardışık düzen aşaması kaynağı olarak, model bağlama önce ve sonra kalan ardışık düzenini filtreleri.
 

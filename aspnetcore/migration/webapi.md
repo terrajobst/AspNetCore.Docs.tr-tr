@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 6325bdf602485b42d8193a05ede00ae275bf0a90
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-web-api"></a>ASP.NET Web API geçirme
 
@@ -29,22 +29,22 @@ Bu makalede örnek proje kullanan *ProductsApp*, makalede oluşturulmuş [ASP.NE
 
 İçinde *Global.asax.cs*, için bir çağrı yapılır `WebApiConfig.Register`:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig`tanımlanan *App_Start*, ve yalnızca bir statik `Register` yöntemi:
+`WebApiConfig` tanımlanan *App_Start*, ve yalnızca bir statik `Register` yöntemi:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
 Bu sınıf yapılandırır [özniteliği yönlendirme](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), aslında projesinde kullanılan rağmen. Ayrıca, ASP.NET Web API tarafından kullanılan yönlendirme tablosunun yapılandırır. Bu durumda, ASP.NET Web API biçim ile eşleşmesi için URL'leri beklediği */api/ {controller} / {id}*, ile *{id}* isteğe bağlı olması.
 
 *ProductsApp* proje içeriyor devraldığı tek bir basit denetleyicisi `ApiController` ve iki yöntem sunar:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
+[!code-csharp[](../migration/webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
 
 Son olarak, model, *ürün*, tarafından kullanılan *ProductsApp*, basit bir sınıf:
 
-[!code-csharp[Main](webapi/sample/ProductsApp/Models/Product.cs)]
+[!code-csharp[](webapi/sample/ProductsApp/Models/Product.cs)]
 
 Biz basit bir proje başlayacağı sahip olduğunuza göre Biz bu Web API projesi ASP.NET Core MVC geçirmek nasıl ekleyebileceğiniz gösterilmektedir.
 
@@ -66,11 +66,11 @@ Silme `Project_Readme.html` yeni proje dosyasından. Çözümünüzü gibi gör�
 
 ASP.NET Core artık kullanan *Global.asax*, *web.config*, veya *App_Start* klasörler. Bunun yerine, tüm başlangıç görevleri yapılır *haline* proje kökündeki (bkz [uygulama başlangıç](../fundamentals/startup.md)). ASP.NET Core MVC'de öznitelik tabanlı yönlendirme artık varsayılan olarak dahil edilmiştir, `UseMvc()` olarak adlandırılır; ve bu Web API yolları yapılandırmak için önerilen yaklaşımdır (ve Web API başlangıç projesi yönlendirme nasıl işler).
 
-[!code-none[Main](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
+[!code-none[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
 
 Öznitelik ileride projenizde yönlendirme kullanmak istediğiniz varsayıldığında, ek bir yapılandırma gerekmez. Yalnızca örnek gerçekleştirilir gibi denetleyicileri ve eylemleri gerektiği gibi öznitelikleri uygulanır `ValuesController` Web API starter projeye dahil sınıfı:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsCore/Controllers/ValuesController.cs?highlight=9,13,20,27,33,39)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ValuesController.cs?highlight=9,13,20,27,33,39)]
 
 Varlığını Not *[denetleyicisi]* 8 satırındaki. Öznitelik tabanlı şimdi yönlendirmeyi destekleyen belirli belirteçleri gibi *[denetleyicisi]* ve *[eylem]*. Bu belirteçler çalışma zamanında denetleyici veya eylemin, adı ile sırasıyla öznitelik uygulanmış değiştirilir. Bu proje Sihirli dizelerde sayısını azaltmak için kullanılır ve otomatik yeniden adlandırma yapan yeniden düzenlemeler uygulandığında yolların kendi ilgili denetleyicileri ve eylemleri ile eşitlenmiş tutulacak sağlar.
 
@@ -113,7 +113,7 @@ Neyse ki, bu düzeltmesi tümü çok kolay şunlardır:
 
 Bu değişiklikler yapılmış ve kullanılmayan işlendikten sonra using deyimleri kaldırıldı, geçirilen *ProductsController* sınıfı şu şekilde görünür:
 
-[!code-csharp[Main](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 Şimdi geçirilen projeyi çalıştırın ve Gözat yapabiliyor olmanız gerekir */api/ürünleri*; ve 3 ürünlerinin tam listesini görmelisiniz. Gözat */api/products/1* ve ilk ürün görmeniz gerekir.
 

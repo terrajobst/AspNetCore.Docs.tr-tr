@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 özel eylem filtreleri
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 özel eylem filtreleri
 
-> ASP.NET MVC önce ya da bir eylem yöntemi çağrıldıktan sonra filtreleme mantığını yürütme için eylem filtrelerini sağlar. Eylem filtreleri eylem öncesi ve sonrası eylem davranışı denetleyicinin eylem yöntemlerini eklemek için bildirime sağlayan özel öznitelikleridir.
-> 
-> Bu uygulamalı laboratuar ortamında MvcMusicStore çözüm denetleyicinin istekleri yakalamak ve bir site etkinlik bir veritabanı tablosunun içine oturum için bir özel eylem filtresi öznitelik oluşturur. Günlüğe yazma filtresini yerleştirme tarafından herhangi bir denetleyici veya eylem eklemeniz mümkün olacaktır. Son olarak, ziyaretçi listesini gösterir günlük görünümü görürsünüz.
-> 
-> > [!NOTE]
-> > Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC 4 Temelleri** uygulamalı Laboratuvar.
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC önce ya da bir eylem yöntemi çağrıldıktan sonra filtreleme mantığını yürütme için eylem filtrelerini sağlar. Eylem filtreleri eylem öncesi ve sonrası eylem davranışı denetleyicinin eylem yöntemlerini eklemek için bildirime sağlayan özel öznitelikleridir.
+
+Bu uygulamalı laboratuar ortamında MvcMusicStore çözüm denetleyicinin istekleri yakalamak ve bir site etkinlik bir veritabanı tablosunun içine oturum için bir özel eylem filtresi öznitelik oluşturur. Günlüğe yazma filtresini yerleştirme tarafından herhangi bir denetleyici veya eylem eklemeniz mümkün olacaktır. Son olarak, ziyaretçi listesini gösterir günlük görünümü görürsünüz.
+
+Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC 4 Temelleri** uygulamalı Laboratuvar.
+
+> [!NOTE]
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresindeki kullanılabilir içinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 özel eylem filtrelerini](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
@@ -332,7 +333,7 @@ Bu görevde, yeni filtre kaydetmek için çözüm güncelleştirmek (**MyNewCust
 1. İçinde **StoreController** sınıfı, Kaldır **[MyNewCustomActionFilter]** özniteliği ve sipariş özelliğinden **[CustomActionFilter]**. Aşağıdaki gibi görünmelidir:
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. Açık **Global.asax** dosya ve bulun **uygulama\_Başlat** yöntemi. Her thime uygulama başlar, bildirim kaydeden genel filtreleri çağırarak **RegisterGlobalFilters** yöntemi içinde **FilterConfig** sınıfı.
+2. Açık **Global.asax** dosya ve bulun **uygulama\_Başlat** yöntemi. Her uygulama başlar, bildirim kaydeden genel filtreleri çağırarak **RegisterGlobalFilters** yöntemi içinde **FilterConfig** sınıfı.
 
     ![Genel filtrelerin Global.asax dosyasında kaydetme](aspnet-mvc-4-custom-action-filters/_static/image10.png "Global.asax dosyasında genel filtreleri kaydetme")
 
@@ -484,12 +485,12 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
 
     ![İstemci IP adresi ekleme](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    *İstemci IP adresi ekleme*
+    İstemci IP adresi ekleme
 3. Bir kez **istemci IP adresi** izin verilen IP adreslerine eklenen listesinde, tıklayın **kaydetmek** değişiklikleri onaylamak için.
 
     ![Değişiklikleri onaylamak](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    *Değişiklikleri onaylamak*
+    Değişiklikleri onaylamak
 
 <a id="ApxBTask3"></a>
 

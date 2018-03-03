@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 5e7e807a0107f1f500d43b5ffd4362b11f53118b
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 2d5706f4a2b22980618f0c5c546e16774e0e16b0
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>ASP.NET Core ara yazılımı Fabrika tabanlı etkinleştirme
 
@@ -22,14 +22,14 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory)/[IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) için genişletilebilirlik noktasıdır [ara yazılım](xref:fundamentals/middleware/index) etkinleştirme.
 
-`UseMiddleware`genişletme yöntemleri denetleyin bir ara kayıtlı türün uygulayan `IMiddleware`. Aşması durumunda `IMiddlewareFactory` kapsayıcısında kayıtlı örneği çözmek için kullanılan `IMiddleware` kurala dayalı Ara etkinleştirme mantığı kullanmak yerine uygulama. Ara yazılım, uygulamanın hizmet kapsayıcısında kapsamlı veya geçici bir hizmet olarak kaydedilir.
+`UseMiddleware` genişletme yöntemleri denetleyin bir ara kayıtlı türün uygulayan `IMiddleware`. Aşması durumunda `IMiddlewareFactory` kapsayıcısında kayıtlı örneği çözmek için kullanılan `IMiddleware` kurala dayalı Ara etkinleştirme mantığı kullanmak yerine uygulama. Ara yazılım, uygulamanın hizmet kapsayıcısında kapsamlı veya geçici bir hizmet olarak kaydedilir.
 
 Yararları:
 
 * İstek (ekleme kapsamlı Hizmetleri) başına etkinleştirme
 * Ara yazılım güçlü yazma
 
-`IMiddleware`kapsamlı Hizmetleri Ara oluşturucuya yerleştirilebilir şekilde istek başına etkinleştirilir.
+`IMiddleware` kapsamlı Hizmetleri Ara oluşturucuya yerleştirilebilir şekilde istek başına etkinleştirilir.
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -46,15 +46,15 @@ Ara yazılım uygulamaları özdeş işlev ve bir sorgu dizesi parametresi taraf
 
 Kural tarafından etkinleştirilen ara:
 
-[!code-csharp[Main](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
 Ara yazılım tarafından etkinleştirilen `MiddlewareFactory`:
 
-[!code-csharp[Main](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/IMiddlewareMiddleware.cs?name=snippet1)]
 
 Uzantıları için middlewares oluşturulur:
 
-[!code-csharp[Main](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
+[!code-csharp[](extensibility/sample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
 Nesneleri Fabrika etkinleştirilmiş Ara yazılımla geçirilecek kurulamadığı `UseMiddleware`:
 
@@ -69,11 +69,11 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 
 Fabrika etkinleştirilmiş ara yazılım yerleşik kapsayıcısında eklenen *haline*:
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
 
 İstek işleme ardışık düzeninde hem middlewares kayıtlı `Configure`:
 
-[!code-csharp[Main](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 
@@ -84,4 +84,4 @@ Varsayılan `IMiddlewareFactory` uygulaması, [MiddlewareFactory](/dotnet/api/mi
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Bir üçüncü taraf kapsayıcısı ile ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility-third-party-container)
+* [Bir üçüncü taraf kapsayıcısı ile Ara yazılım etkinleştirme](xref:fundamentals/middleware/extensibility-third-party-container)

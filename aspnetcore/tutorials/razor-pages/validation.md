@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3632b40abb4a3c2343a17a9f3e08bd28fdcf7174
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Bir Razor sayfasına doğrulama ekleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde Doğrulama mantığı eklenen `Movie` modeli. Doğrulama kuralları, bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman uygulanır.
 
@@ -33,7 +33,7 @@ Açık *Movie.cs* dosya. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc
 
 Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Doğrulama öznitelikleri zorlanır davranışı model özellikleri belirtin:
 
@@ -85,7 +85,7 @@ JavaScript tarayıcıda devre dışı bırakıldığında, hatalarla form gönde
 
 Aşağıdaki kod bir kısmı gösterir *Create.cshtml* öğreticinin önceki bölümlerinde iskele kurulmuş sayfası. İlk form görüntülemek ve bir hata durumunda formu yeniden görüntüleyin, oluşturma ve düzenleme sayfaları tarafından kullanılır.
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 [Giriş etiketi yardımcı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve istemci tarafında jQuery doğrulama için gereken HTML özniteliklerini üretir. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
 
@@ -97,13 +97,13 @@ Doğrulama mantığını değiştirmek gerektiğinde, model yalnızca yapılır.
 
 İncelemek `Movie` sınıfı. `System.ComponentModel.DataAnnotations` Ad alanı, yerleşik doğrulama öznitelikleri kümesi yanı sıra biçimlendirme öznitelikleri sağlar. `DataType` Özniteliği uygulanan `ReleaseDate` ve `Price` özellikleri.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-`DataType` Öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi kaynakları `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için). Kullanım `RegularExpression` veri biçimi doğrulamak için öznitelik. `DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. `DataType`öznitelikler doğrulama öznitelikleri değildir. Örnek uygulama, yalnızca tarih, saat görüntülenir.
+`DataType` Öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi kaynakları `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için). Kullanım `RegularExpression` veri biçimi doğrulamak için öznitelik. `DataType` Özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. `DataType` öznitelikler doğrulama öznitelikleri değildir. Örnek uygulama, yalnızca tarih, saat görüntülenir.
 
 `DataType` Tarih, saat, PhoneNumber, para birimi, EmailAddress ve daha fazla gibi birçok veri türleri için numaralandırma sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir `DataType.EmailAddress`. Bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelikleri yayar HTML 5 `data-` HTML 5 tarayıcılar tüketebilir (okunur veri tire) öznitelikler. `DataType` Öznitelikleri yapmak **değil** tüm doğrulama sağlar.
 
-`DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
+`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -130,7 +130,7 @@ Bu genellikle bunu kullanarak Modellerinizi sabit tarihler derlemek için iyi bi
 
 Aşağıdaki kod, tek bir satırda birleştirme öznitelikleri gösterir:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Razor sayfalarının ve EF çekirdek Başlarken](xref:data/ef-rp/intro) Razor sayfalarının EF çekirdek işlemleriyle daha gelişmiş gösterir.
 

@@ -12,28 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 35f9402ad6090c0441425a23b2b8063350892210
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te yenilikler nelerdir?
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te yenilikler nelerdir?
 
-[Kit eğitim Web Camps indirin](http://www.microsoft.com/download/29843)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
-> ASP.NET MVC 4 tanınmış tasarım desenleri ve ASP.NET ve .NET framework gücünü kullanarak ölçeklenebilir, standartlara dayalı web uygulamaları oluşturmaya yönelik bir çerçevedir. Bu yeni, mobil web uygulaması geliştirme daha kolay hale dördüncü framework sürümünü odaklanır.
-> 
-> Başından itibaren yeni bir ASP.NET MVC 4 proje oluşturduğunuzda var. Şimdi mobil cihazlar için özellikle bir tek başına uygulamasını oluşturmak için kullanabileceğiniz bir mobil uygulama proje şablonu Ayrıca, ASP.NET MVC 4 jQuery Mobile jQuery.Mobile.MVC NuGet paketi ile tümleşir. jQuery Mobile, Windows Phone, iPhone, Android vb. de dahil olmak üzere tüm popüler mobil cihaz platformları ile uyumlu olan web uygulamaları geliştirmek için bir HTML5 tabanlı çerçevedir. Uzmanlık ihtiyacınız varsa, ancak, ASP.NET MVC 4 ayrıca farklı görünümleri farklı aygıtlar için hizmet ve cihaza özgü iyileştirmeler sağlamanıza olanak sağlar.
-> 
-> Uygulamalı bu laboratuvarda, ASP.NET MVC 4 ile başlar &quot;Internet uygulama&quot; bir Fotoğraf Galerisi uygulaması oluşturmak için proje şablonu. Farklı mobil cihaz ve masaüstü web tarayıcıları ile uyumlu hale getirmek için jQuery Mobile ve ASP.NET MVC 4'ın yeni özellikleri kullanarak uygulamayı aşamalı olarak artırır. Kod oluşturma ve nasıl ASP.NET MVC 4 görev destekleyerek zaman uyumsuz eylem yöntemleri yazmanızı kolaylaştırır için yeni kod tarif hakkında bilgi edineceksiniz&lt;ActionResult&gt; dönüş türü.
-> 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
 
+ASP.NET MVC 4 tanınmış tasarım desenleri ve ASP.NET ve .NET framework gücünü kullanarak ölçeklenebilir, standartlara dayalı web uygulamaları oluşturmaya yönelik bir çerçevedir. Bu yeni, mobil web uygulaması geliştirme daha kolay hale dördüncü framework sürümünü odaklanır.
 
-<a id="Objectives"></a>
+Başından itibaren yeni bir ASP.NET MVC 4 proje oluşturduğunuzda var. Şimdi mobil cihazlar için özellikle bir tek başına uygulamasını oluşturmak için kullanabileceğiniz bir mobil uygulama proje şablonu Ayrıca, ASP.NET MVC 4 jQuery Mobile jQuery.Mobile.MVC NuGet paketi ile tümleşir. jQuery Mobile, Windows Phone, iPhone, Android vb. de dahil olmak üzere tüm popüler mobil cihaz platformları ile uyumlu olan web uygulamaları geliştirmek için bir HTML5 tabanlı çerçevedir. Uzmanlık ihtiyacınız varsa, ancak, ASP.NET MVC 4 ayrıca farklı görünümleri farklı aygıtlar için hizmet ve cihaza özgü iyileştirmeler sağlamanıza olanak sağlar.
+
+Uygulamalı bu laboratuvarda, ASP.NET MVC 4 ile başlar &quot;Internet uygulama&quot; bir Fotoğraf Galerisi uygulaması oluşturmak için proje şablonu. Farklı mobil cihaz ve masaüstü web tarayıcıları ile uyumlu hale getirmek için jQuery Mobile ve ASP.NET MVC 4'ın yeni özellikleri kullanarak uygulamayı aşamalı olarak artırır. Kod oluşturma ve nasıl ASP.NET MVC 4 görev destekleyerek zaman uyumsuz eylem yöntemleri yazmanızı kolaylaştırır için yeni kod tarif hakkında bilgi edineceksiniz&lt;ActionResult&gt; dönüş türü.
+
+> [!NOTE]
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET 4.5 Web formları'de](https://github.com/Microsoft-Web/HOL-ASPNETWebForms).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
@@ -164,7 +162,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceks
 
     ![Günlük hizmetinde seçme](whats-new-in-aspnet-mvc-4/_static/image7.png)
 
-    *Günlük hizmetinde seçme*
+    Günlük hizmetinde seçme
 10. Google hesabınızı kullanarak oturum açın.
 11. Google hesabı bilgilerini almak site (localhost) izin verin.
 12. Son olarak, Google hesabıyla ilişkilendirmek için siteyi kaydettirmeniz gerekecektir.
@@ -258,9 +256,9 @@ Uyarlamalı işleme yöntemi kullanarak, sitenizi olacaktır **düzgün bir şek
 
 Medya sorguları örnekleri: &gt;  **@media tüm ve (en fazla genişlik: 1000px) ve (min-width: 700px) {}:** 700px 1000px arasındaki tüm çözümler için.
 
-> **@mediaekran ve (min-width: 400px) ve (en fazla genişlik: 700px) {...}:** yalnızca ekranlar için. Çözünürlüğü 400 ile 700px arasında olmalıdır.
+> **@media ekran ve (min-width: 400px) ve (en fazla genişlik: 700px) {...}:** yalnızca ekranlar için. Çözünürlüğü 400 ile 700px arasında olmalıdır.
 > 
-> **@mediataşınabilir ve (min-width: 20em), ekran ve (min-width: 20em) {...}:** el bilgisayarlarında çalışmak (Mobil ve aygıtlar) ve ekranlar için. En küçük genişliği 20em büyük olmalıdır.
+> **@media taşınabilir ve (min-width: 20em), ekran ve (min-width: 20em) {...}:** el bilgisayarlarında çalışmak (Mobil ve aygıtlar) ve ekranlar için. En küçük genişliği 20em büyük olmalıdır.
 > 
 > Bu konu hakkında daha fazla bilgi bulabilirsiniz [W3C site](http://www.w3.org/TR/css3-mediaqueries/).
 

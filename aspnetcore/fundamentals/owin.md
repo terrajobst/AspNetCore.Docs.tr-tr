@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 1a6a49715840d66dc37465758d3a896af96e2976
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 5cb5236335e71a02452788ced4e49de36092088c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>.NET (OWIN) için Web Arabirimi'ni açmak için giriş
 
@@ -95,11 +95,11 @@ app.UseOwin(pipeline =>
 
 OWIN tabanlı sunucular ASP.NET uygulamalarını barındırabilir. Bu tür bir sunucu [Nowin](https://github.com/Bobris/Nowin), bir .NET OWIN web sunucusu. Bu makalede örnek t Nowin başvuruyor ve oluşturmak için kullandığı bir proje dahil ettiğiniz bir `IServer` ASP.NET Core kendi kendine barındırma yeteneğine sahip.
 
-[!code-csharp[Main](owin/sample/src/NowinSample/Program.cs?highlight=15)]
+[!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
-`IServer`gerektiren bir arabirim bir `Features` özelliği ve `Start` yöntemi.
+`IServer` gerektiren bir arabirim bir `Features` özelliği ve `Start` yöntemi.
 
-`Start`Yapılandırma ve bu durumda bir dizi IServerAddressesFeature Ayrıştırılan adreslerini ayarlamak fluent API çağrısı yoluyla yapılır sunucu başlangıç sorumludur. Unutmayın fluent yapılandırmasını `_builder` değişkeni belirtir istekleri tarafından işlenecek `appFunc` yöntemi önceden tanımlanmış. Bu `Func` her istekte gelen istekleri işlemek üzere çağrılır.
+`Start` Yapılandırma ve bu durumda bir dizi IServerAddressesFeature Ayrıştırılan adreslerini ayarlamak fluent API çağrısı yoluyla yapılır sunucu başlangıç sorumludur. Unutmayın fluent yapılandırmasını `_builder` değişkeni belirtir istekleri tarafından işlenecek `appFunc` yöntemi önceden tanımlanmış. Bu `Func` her istekte gelen istekleri işlemek üzere çağrılır.
 
 Ayrıca ekleyeceğiz bir `IWebHostBuilder` Nowin sunucu ekleme ve yapılandırma kolaylaştırmak için uzantı.
 

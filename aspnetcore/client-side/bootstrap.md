@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: dfed5c7a8e103973048295b7607008ecc7e90eeb
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Önyükleme güzel, yanıt veren siteleriyle oluşturma
 
@@ -31,7 +31,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 Bir ASP.NET Core önyükleme ekleme proje için ekleme sorunudur *bower.json* bağımlılık olarak:
 
-[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 Bu, bir ASP.NET Core projeye önyükleme eklemek için önerilen yoludur.
 
@@ -60,7 +60,7 @@ Install-Package bootstrap
 
 Önyükleme kendi yerel sürümlerini başvuran kullanacağı herhangi sayfalarında başvuru gerekir. Üretimde CDN kullanarak önyükleme başvuruda bulunmalıdır. Varsayılan ASP.NET sitesi şablonunda *_Layout.cshtml* dosya böylece şöyle:
 
-[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > Önyükleme'nın jQuery eklentileri birini kullanarak kullanacaksanız, jQuery başvuru gerekir.

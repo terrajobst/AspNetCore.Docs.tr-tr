@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 9614d8b744776ee318e9d385b9ef40e90c0c16c1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalarıyla çalışma
 
@@ -49,7 +49,7 @@ Statik dosyalar web kök göreli bir yol üzerinden erişilebilir. Örneğin, **
 
 * **wwwroot**
   * **CSS**
-  * **görüntüleri**
+  * **Görüntüleri**
   * **js**
 
 Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >*. Örneğin, *http://localhost:9189/images/banner3.svg*.
@@ -82,10 +82,10 @@ Sunulacak statik dosyaları dışında web kök bulunduğu bir dizin hiyerarşis
 
 * **wwwroot**
   * **CSS**
-  * **görüntüleri**
+  * **Görüntüleri**
   * **js**
 * **MyStaticFiles**
-  * **görüntüleri**
+  * **Görüntüleri**
       * *banner1.svg*
 
 Bir istek erişebilirsiniz *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
@@ -146,7 +146,7 @@ Varsayılan giriş sayfası ayarı ziyaretçileri mantıksal bir başlangıç no
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles`önce çağrılmalıdır `UseStaticFiles` varsayılan dosyayı sunması için. `UseDefaultFiles`dosyayı gerçekten sunması olmayan bir URL yeniden yazan olur. Aracılığıyla statik dosya ara yazılımlarını etkinleştir `UseStaticFiles` dosyayı sunması için.
+> `UseDefaultFiles` önce çağrılmalıdır `UseStaticFiles` varsayılan dosyayı sunması için. `UseDefaultFiles` dosyayı gerçekten sunması olmayan bir URL yeniden yazan olur. Aracılığıyla statik dosya ara yazılımlarını etkinleştir `UseStaticFiles` dosyayı sunması için.
 
 İle `UseDefaultFiles`, bir klasör arama istekleri:
 
@@ -181,10 +181,10 @@ Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
 
 * **wwwroot**
   * **CSS**
-  * **görüntüleri**
+  * **Görüntüleri**
   * **js**
 * **MyStaticFiles**
-  * **görüntüleri**
+  * **Görüntüleri**
       * *banner1.svg*
   * *default.html*
 
@@ -192,7 +192,7 @@ Aşağıdaki kod statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştir
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser`ne zaman çağrılmalıdır `EnableDirectoryBrowsing` özellik değeri `true`:
+`AddDirectoryBrowser` ne zaman çağrılmalıdır `EnableDirectoryBrowsing` özellik değeri `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -208,7 +208,7 @@ Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > /
 ![Statik dosyaların listesi](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles`ve `UseDirectoryBrowser` URL'sini kullanarak *http://\<server_address > / StaticFiles* istemci tarafı tetiklemek için eğik yeniden yönlendirme *http://\<server_address > / StaticFiles /*. Eğik eklenmesi dikkat edin. Belgelerde göreli URL eğik geçersiz olarak kabul edilen.
+> `UseDefaultFiles` ve `UseDirectoryBrowser` URL'sini kullanarak *http://\<server_address > / StaticFiles* istemci tarafı tetiklemek için eğik yeniden yönlendirme *http://\<server_address > / StaticFiles /*. Eğik eklenmesi dikkat edin. Belgelerde göreli URL eğik geçersiz olarak kabul edilen.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
@@ -234,11 +234,11 @@ Aşağıdaki kod bilinmeyen tür hizmet veren sağlar ve bir görüntü olarak b
 ### <a name="considerations"></a>Dikkat Edilecekler
 
 > [!WARNING]
-> `UseDirectoryBrowser`ve `UseStaticFiles` gizli sızıntısı. Devre dışı bırakma dizin üretimde tarama kullanmamanız önerilir. Hangi dizinler aracılığıyla etkinleştirilir dikkatlice inceleyin `UseStaticFiles` veya `UseDirectoryBrowser`. Tüm dizin ve alt dizinleri genel olarak erişilebilir duruma gelir. Depolama dosyaları genel hizmet için uygun adanmış bir dizinde gibi  *\<content_root > / wwwroot*. Bu dosyalar MVC görünümleri, Razor sayfalarının (yalnızca 2.x), yapılandırma dosyalarını, vb. ayırın.
+> `UseDirectoryBrowser` ve `UseStaticFiles` gizli sızıntısı. Devre dışı bırakma dizin üretimde tarama kullanmamanız önerilir. Hangi dizinler aracılığıyla etkinleştirilir dikkatlice inceleyin `UseStaticFiles` veya `UseDirectoryBrowser`. Tüm dizin ve alt dizinleri genel olarak erişilebilir duruma gelir. Depolama dosyaları genel hizmet için uygun adanmış bir dizinde gibi  *\<content_root > / wwwroot*. Bu dosyalar MVC görünümleri, Razor sayfalarının (yalnızca 2.x), yapılandırma dosyalarını, vb. ayırın.
 
 * İle kullanıma sunulan içerik için URL'leri `UseDirectoryBrowser` ve `UseStaticFiles` büyük küçük harfe duyarlılığın ve temeldeki dosya sistemi karakter kısıtlamalarını tabidir. Örneğin, Windows büyük küçük harfe duyarlı&mdash;Mac ve Linux değil.
 
-* IIS kullanımda barındırılan ASP.NET Core uygulamaları [ASP.NET Core Modülü (ANCM)](xref:fundamentals/servers/aspnet-core-module) tüm statik dosya istekleri dahil olmak üzere uygulama isteklerini iletmek için. IIS statik dosya işleyici kullanılmaz. ANCM tarafından işlenen önce isteklerini işlemek için hiçbir olasılığı vardır.
+* IIS kullanımda barındırılan ASP.NET Core uygulamaları [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) tüm statik dosya istekleri dahil olmak üzere uygulama isteklerini iletmek için. IIS statik dosya işleyici kullanılmaz. Bir modül tarafından işlenen önce isteklerini işlemek için bir fırsat sahiptir.
 
 * Sunucu veya Web sitesi düzeyinde IIS statik dosya işleyici kaldırmak için IIS Yöneticisi'nde aşağıdaki adımları tamamlayın:
     1. Gidin **modülleri** özelliği.
@@ -246,7 +246,7 @@ Aşağıdaki kod bilinmeyen tür hizmet veren sağlar ve bir görüntü olarak b
     1. Tıklatın **kaldırmak** içinde **Eylemler** kenar.
 
 > [!WARNING]
-> IIS statik dosya işleyici etkinleştirilirse **ve** ANCM yanlış yapılandırılmış, statik dosyalar sunulduğunu. Bu, örneğin, olur *web.config* değil dosya dağıtılır.
+> IIS statik dosya işleyici etkinleştirilirse **ve** ASP.NET Core modülü yanlış yapılandırılmış, statik dosyalar sunulduğunu. Bu, örneğin, olur *web.config* değil dosya dağıtılır.
 
 * Kod dosyaları yerleştirmek (de dahil olmak üzere *.cs* ve *.cshtml*) uygulama projenin web kökü dışında. Mantıksal ayırma, bu nedenle uygulamanın istemci-tarafı içerik ve sunucu tabanlı kod arasında oluşturulur. Bu, sunucu tarafı kodu sızmasını önler.
 

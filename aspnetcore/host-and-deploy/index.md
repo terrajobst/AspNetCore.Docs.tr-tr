@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 7d8ba912da4c0e543bd4dd56632cdc41706814d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: baa77eba837ff8b86ad543a74ebeee51ace4c25d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Ana bilgisayar ve ASP.NET Core dağıtma
 
@@ -26,7 +26,7 @@ Genel ASP.NET Core uygulama için bir barındırma ortamında dağıtmak için:
 
 ## <a name="publish-to-a-folder"></a>Bir klasöre yayımlama 
 
-[Dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) CLI komut uygulama kodu derler ve uygulamaya çalıştırmak için gerekli dosyaları kopyalar bir *yayımlama* klasör. Visual Studio'dan dağıtırken `dotnet publish` adım otomatik olarak gerçekleşir dosyaları dağıtım hedefe kopyalanmadan önce.
+[Dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) CLI komut uygulama kodu derler ve uygulamaya çalıştırmak için gerekli dosyaları kopyalar bir *yayımlama* klasör. Visual Studio'dan dağıtırken [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) adım otomatik olarak gerçekleşir dosyaları dağıtım hedefe kopyalanmadan önce.
 
 ### <a name="folder-contents"></a>Klasör içeriğini
 
@@ -61,7 +61,7 @@ Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu
 
 ## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Dağıtım otomatikleştirmek için Visual Studio ve MSBuild kullanma
 
-Genellikle Dağıtımın gerektirdiği çıktısını kopyalama yanı sıra ek görevleri `dotnet publish` bir sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulması *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için bkz: [Visual Studio'da yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles) ve [kullanarak MSBuild ve Team Foundation Build](http://msbuildbook.com/) defteri.
+Genellikle Dağıtımın gerektirdiği çıktısını kopyalama yanı sıra ek görevleri [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) bir sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulması *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için bkz: [Visual Studio'da yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles) ve [kullanarak MSBuild ve Team Foundation Build](http://msbuildbook.com/) defteri.
 
 Kullanarak [Web Yayımlama özelliği](xref:tutorials/publish-to-azure-webapp-using-vs) veya [yerleşik Git Destek](xref:host-and-deploy/azure-apps/azure-continuous-deployment), uygulamaları dağıtılabilir doğrudan Visual Studio'dan Azure App Service'e. Visual Studio Team Services destekleyen [Azure App Service için sürekli dağıtım](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
 

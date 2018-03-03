@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: aa06200c6983f2c09a7271c8e8ce4b38f54163ad
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
@@ -51,19 +51,19 @@ Metapackage kullanıldığında, metapackage başvurulan hiç paket uygulamayla 
 ## <a name="globalasax-file-replacement"></a>Global.asax dosyası değiştirme
 ASP.NET Core uygulama Önyüklemesi için yeni bir mekanizma sunar. ASP.NET uygulamaları için giriş noktası *Global.asax* dosya. Yol yapılandırması ve filtre ve alan kayıtlar gibi görevleri işlenir *Global.asax* dosya.
 
-[!code-csharp[Main](samples/globalasax-sample.cs)]
+[!code-csharp[](samples/globalasax-sample.cs)]
 
-Bu yaklaşım, uygulama ve sunucunun, bir uygulama ile uğratan şekilde dağıtıldığı couples. Aynı şekilde çaba içinde [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir şekilde sağlamak için sunulmuştur. OWIN yalnızca gerekli modülleri eklemek için bir kanal sağlar. Barındırma ortamı geçen bir [başlangıç](xref:fundamentals/startup) Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup`Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulama işleyicileri var olan bir dizi bağlantılı listesinin baş işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu listeye yeni başı olan işleyici başvuru döndürerek gerçekleştirilir. Her işleyici anımsama ve listedeki sonraki işleyicisi çağırma sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, aşağıdakine benzer bir ardışık düzen halinde kullanın:
+Bu yaklaşım, uygulama ve sunucunun, bir uygulama ile uğratan şekilde dağıtıldığı couples. Aynı şekilde çaba içinde [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir şekilde sağlamak için sunulmuştur. OWIN yalnızca gerekli modülleri eklemek için bir kanal sağlar. Barındırma ortamı geçen bir [başlangıç](xref:fundamentals/startup) Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup` Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulama işleyicileri var olan bir dizi bağlantılı listesinin baş işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu listeye yeni başı olan işleyici başvuru döndürerek gerçekleştirilir. Her işleyici anımsama ve listedeki sonraki işleyicisi çağırma sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, aşağıdakine benzer bir ardışık düzen halinde kullanın:
 
-[!code-csharp[Main](samples/webapi-owin.cs)]
+[!code-csharp[](samples/webapi-owin.cs)]
 
 Bu, varsayılan yolların yapılandırır ve XmlSerialization için Json üzerinde varsayılan olarak. (Hizmetleri, yapılandırma ayarlarını, statik dosyalar, vb. yükleniyor.) gerektiği gibi diğer ara yazılımdan bu ardışık düzene ekleyin.
 
 ASP.NET Core benzer bir yaklaşım kullanır, ancak giriş işlemek OWIN kullanmaz. Bunun yerine, aracılığıyla yapılır *Program.cs* `Main` yöntemi (konsol uygulamaları gibi) ve `Startup` orada yüklenir.
 
-[!code-csharp[Main](samples/program.cs)]
+[!code-csharp[](samples/program.cs)]
 
-`Startup`içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli ara yazılım ardışık düzene ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, birkaç uzantı yöntemleri için destek ile ardışık düzenini yapılandırmak için kullanılır:
+`Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli ara yazılım ardışık düzene ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, birkaç uzantı yöntemleri için destek ile ardışık düzenini yapılandırmak için kullanılır:
 
 * [BrowserLink](http://vswebessentials.com/features/browserlink)
 * Hata sayfaları
@@ -71,7 +71,7 @@ ASP.NET Core benzer bir yaklaşım kullanır, ancak giriş işlemek OWIN kullanm
 * ASP.NET Core MVC
 * Kimlik
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
 
 Ana bilgisayar ve uygulama, gelecekte farklı bir platform için taşıma esneklik sağlayan ayrılmış.
 
@@ -80,23 +80,23 @@ Ana bilgisayar ve uygulama, gelecekte farklı bir platform için taşıma esnekl
 ## <a name="storing-configurations"></a>Depolama yapılandırmaları
 ASP.NET depolama ayarlarını destekler. Bu ayar, örneğin, uygulamaları dağıtılıp dağıtılmadığını ortamını desteklemek için kullanılır. Tüm özel anahtar-değer çiftlerini depolamak için ortak bir uygulama kullanılmasıydır `<appSettings>` bölümünü *Web.config* dosyası:
 
-[!code-xml[Main](samples/webconfig-sample.xml)]
+[!code-xml[](samples/webconfig-sample.xml)]
 
 Uygulamaları kullanarak bu ayarları okuma `ConfigurationManager.AppSettings` koleksiyonunda `System.Configuration` ad alanı:
 
-[!code-csharp[Main](samples/read-webconfig.cs)]
+[!code-csharp[](samples/read-webconfig.cs)]
 
 ASP.NET Core, herhangi bir dosyada uygulama için yapılandırma verilerini depolamak ve bunları ara yazılım önyüklemesinden bir parçası olarak yükleyin. Proje şablonlarını kullanılan varsayılan dosyası *appsettings.json*:
 
-[!code-json[Main](samples/appsettings-sample.json)]
+[!code-json[](samples/appsettings-sample.json)]
 
 Bu dosyayı bir örneğine yüklemesini `IConfiguration` uygulamanızı yapılır iç *haline*:
 
-[!code-csharp[Main](samples/startup-builder.cs)]
+[!code-csharp[](samples/startup-builder.cs)]
 
 Uygulama okur `Configuration` ayarları almak için:
 
-[!code-csharp[Main](samples/read-appsettings.cs)]
+[!code-csharp[](samples/read-appsettings.cs)]
 
 Bu yaklaşımın işlemi kullanarak gibi daha sağlam hale uzantıları vardır [bağımlılık ekleme](xref:fundamentals/dependency-injection) bu değerleri içeren bir hizmeti yüklemek için (dı). DI yaklaşım yapılandırma nesnelerini kesin türü belirtilmiş bir dizi sağlar.
 
@@ -114,19 +114,19 @@ ASP.NET uygulamalarında geliştiriciler bağımlılık ekleme uygulamak için b
 
 Bir bağımlılık ekleme Unity ile ayarlama örneği uygulama `IDependencyResolver` , saran bir `UnityContainer`:
 
-[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
 Bir örneğini oluşturun, `UnityContainer`, hizmetiniz kaydetmek ve bağımlılık çözümleyicisini ayarlayın `HttpConfiguration` yeni örneğine `UnityResolver` , kapsayıcı için:
 
-[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
 
 Eklenmeye `IProductRepository` gerektiğinde:
 
-[!code-csharp[Main](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
 Bağımlılık ekleme ASP.NET Core parçası olduğundan, hizmetinizi ekleyebilirsiniz `ConfigureServices` yöntemi *haline*:
 
-[!code-csharp[Main](samples/configure-services.cs)]
+[!code-csharp[](samples/configure-services.cs)]
 
 Depo her yerden, Unity ile doğru şekilde yerleştirilebilir.
 
@@ -139,7 +139,7 @@ ASP.NET, statik dosyalar çeşitli dizinlerde depolanan ve görünümlerde başv
 
 ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;/wwwroot*), aksi belirtilmedikçe. Dosyalar istek ardışık düzenine çağırarak yüklenir `UseStaticFiles` uzantısı yönteminden `Startup.Configure`:
 
-[!code-csharp[Main](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
+[!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 
 **Not:** .NET Framework'ü hedefleme NuGet paketini yükleyin `Microsoft.AspNetCore.StaticFiles`.
 

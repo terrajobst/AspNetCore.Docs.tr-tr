@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 7f335681581b73e36e5b4deaf513255770900965
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3aa0c4bc8d009147dd15571da4d7d63402e4c512
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="consumer-apis-overview"></a>Tüketici API'leri genel bakış
 
@@ -48,11 +48,11 @@ Aşağıdaki örnek, üç kavramları göstermektedir:
 
 3. Oluşturma bir `IDataProtector` gelen bir `IDataProtectionProvider` ve korumak ve veri korumasını kaldırmak için kullanma.
 
-[!code-csharp[Main](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
+[!code-csharp[](../using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
 Bir genişletme yöntemi Microsoft.AspNetCore.DataProtection.Abstractions paketi içeren `IServiceProvider.GetDataProtector` Geliştirici kolaylık. Her iki alma tek bir işlem olarak yalıtan bir `IDataProtectionProvider` hizmet sağlayıcısı ve arama `IDataProtectionProvider.CreateProtector`. Aşağıdaki örnek kullanımını gösterir.
 
-[!code-csharp[Main](./overview/samples/getdataprotector.cs?highlight=15)]
+[!code-csharp[](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
 > Örneklerini `IDataProtectionProvider` ve `IDataProtector` olan birden çok çağıranlar için iş parçacığı. Bir bileşen bir başvuru edinir sonra istemiş bir `IDataProtector` çağrısıyla `CreateProtector`, birden çok çağrılar için bu başvuru kullanacağı `Protect` ve `Unprotect`. Çağrı `Unprotect` korumalı yükü doğrulandı veya yararlanılarak CryptographicException özel durum oluşturacak. Bazı bileşenler hatalarını yok saymak isteyebilirsiniz sırasında işlemleri; korumayı Kaldır kimlik doğrulaması tanımlama bilgileri okuyan bir bileşeni bu hatayı işleyebilir ve isteği, tanımlama bilgisi hiç sahipmiş gibi ele alın yerine depolayabileceği isteği başarısız. Bu davranış istediğiniz bileşenleri tüm özel durumları swallowing yerine CryptographicException özellikle catch.

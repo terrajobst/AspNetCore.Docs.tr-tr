@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: d1c06e850d1a05e393a423c43cdfd368baca0cfe
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: b8066c99f8b2d7a7f1c099c87bb68671ad37b3d1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları kullanmaya giriş
 
@@ -40,7 +40,7 @@ Bu belge, formlar ve bir Form üzerinde kullanılan HTML öğeleri ile çalışm
 
 Örnek:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
 Aşağıdaki HTML Form etiketi yardımcı yukarıdaki oluşturur:
 
@@ -57,7 +57,7 @@ MVC çalışma zamanı oluşturur `action` öznitelik değeri Form etiketi yard�
 
 `asp-route` Etiketi yardımcı öznitelik için HTML biçimlendirmesi de üretebilir `action` özniteliği. Bir uygulama ile bir [rota](../../fundamentals/routing.md) adlı `register` aşağıdaki biçimlendirme kayıt sayfası için kullanabilirsiniz:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
 Görünümlerde birçoğu *görünümler/hesap* klasörü (ile yeni bir web uygulaması oluşturduğunuzda oluşturulan *tek tek kullanıcı hesaplarını*) içeren [asp rota returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) özniteliği:
 
@@ -133,9 +133,9 @@ Aşağıdaki tabloda, bazı ortak gösterilmektedir [veri ek açıklamaları](ht
 
 Örnek:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
 Yukarıdaki kod aşağıdaki HTML oluşturur:
 
@@ -198,13 +198,13 @@ Ne zaman ASP.NET Core MVC hesaplar değerini `ModelExpression`, dahil olmak üze
 
 Özellik yolu görünüm modeli kullanarak alt özelliklerine de gidebilirsiniz. Bir alt içeren daha karmaşık bir model sınıfı göz önünde bulundurun `Address` özelliği.
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
 Görünümü'nde biz bağlamak `Address.AddressLine1`:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
 Aşağıdaki HTML için oluşturulan `Address.AddressLine1`:
 
@@ -216,7 +216,7 @@ Aşağıdaki HTML için oluşturulan `Address.AddressLine1`:
 
 Örnek, bir dizi içeren bir model `Colors`:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
 Eylem yöntemi:
 
@@ -230,23 +230,23 @@ public IActionResult Edit(int id, int colorIndex)
 
 Belirli bir erişim nasıl aşağıdaki Razor gösterir `Color` öğe:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
 *Views/Shared/EditorTemplates/String.cshtml* şablonu:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
 Kullanarak örnek `List<T>`:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
 Aşağıdaki Razor, koleksiyon üzerinde yinelenecek gösterilmektedir:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
 *Views/Shared/EditorTemplates/ToDoItem.cshtml* şablonu:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
 
 >[!NOTE]
@@ -269,9 +269,9 @@ Aşağıdaki Razor, koleksiyon üzerinde yinelenecek gösterilmektedir:
 
 Örnek:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
 Aşağıdaki HTML oluşturulur:
 
@@ -305,9 +305,9 @@ Aşağıdaki HTML oluşturulur:
 
 Örnek:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
 Aşağıdaki HTML için oluşturulan `<label>` öğe:
 
@@ -375,9 +375,9 @@ Genellikle kullandığınız `Validation Message Tag Helper` sonra bir `Input` a
 
 Aşağıdaki örnekte, veri modeli ile donatılmış `DataAnnotation` üzerinde doğrulama hatası iletilerini oluşturur özniteliklerini `<input>` öğesi.  Bir doğrulama hatası oluştuğunda doğrulama etiket Yardımcısı hata iletisini görüntüler:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
 Oluşturulan HTML (model geçerli olduğunda):
 
@@ -408,23 +408,23 @@ Oluşturulan HTML (model geçerli olduğunda):
 
 `Select Tag Helper` `asp-for` Modeli özellik adını belirtir [seçin](https://www.w3.org/wiki/HTML/Elements/select) öğesi ve `asp-items` belirtir [seçeneği](https://www.w3.org/wiki/HTML/Elements/option) öğeleri.  Örneğin:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 Örnek:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
 `Index` Yöntemi başlatır `CountryViewModel`, seçilen ülke ayarlar ve buna ileten `Index` görünümü.
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 HTTP POST `Index` yöntemi seçimi görüntüler:
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
 `Index` Görünümü:
 
-[!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
+[!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
 Aşağıdaki HTML ("CA" Seçili ile) oluşturur:
 
@@ -445,7 +445,7 @@ Aşağıdaki HTML ("CA" Seçili ile) oluşturur:
 
 `asp-for` Öznitelik değeri özel bir durumdur ve gerektirmeyen bir `Model` önek, bir etiketi yardımcı öznitelik yapın (gibi `asp-items`)
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
 ### <a name="enum-binding"></a>Enum bağlama
 
@@ -453,17 +453,17 @@ Genellikle kullanmak uygun olduğunu `<select>` ile bir `enum` özelliği ve olu
 
 Örnek:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
 `GetEnumSelectList` Yöntem oluşturur bir `SelectList` bir numaralandırma nesnesi.
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
 Numaralandırıcı listenizi tasarlamanız `Display` özniteliğini daha zengin bir kullanıcı Arabirimi almak için:
 
-[!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
+[!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
 Aşağıdaki HTML oluşturulur:
 
@@ -489,7 +489,7 @@ HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup) öğenin bi
 
 `CountryViewModelGroup` Grupları `SelectListItem` "Kuzey Amerika" ve "Avrupa" gruplar halinde öğeleri:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
 İki grup aşağıda verilmiştir:
 
@@ -520,11 +520,11 @@ Oluşturulan HTML:
 
 Seçin etiket Yardımcısı otomatik olarak oluşturur [birden çok "birden çok" =](http://w3c.github.io/html-reference/select.html) özelliği olarak belirtilmişse özniteliği `asp-for` özniteliği bir `IEnumerable`. Örneğin, aşağıdaki model verilen:
 
-[!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
+[!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
 Aşağıdaki görünümü ile:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
 Aşağıdaki HTML oluşturur:
 
@@ -548,17 +548,17 @@ Aşağıdaki HTML oluşturur:
 
 Birden çok sayfada "belirtilmedi" seçeneğini kullanarak kendiniz bulursanız, HTML yinelenen ortadan kaldırmak için bir şablon oluşturabilirsiniz:
 
-[!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
+[!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
 *Views/Shared/EditorTemplates/CountryViewModel.cshtml* şablonu:
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
 HTML ekleme [ \<seçeneği >](https://www.w3.org/wiki/HTML/Elements/option) öğeleri sınırlı değil *herhangi bir seçim* durumda. Örneğin, aşağıdaki görünümü ve eylem yöntemi HTML Yukarıdaki kod benzer üretir:
 
-[!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-[!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
+[!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 Doğru `<option>` öğesi seçilir (içeren `selected="selected"` özniteliği) geçerli bağlı olarak `Country` değeri.
 

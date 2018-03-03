@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: e2911adcfa3a203a06bdae106499994671a055c4
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 76e15cb1d07924389c66f1e4e7ae1e4b9a3a9cfc
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
 
@@ -33,7 +33,7 @@ Doğrulama öznitelikleri model doğrulama kavramsal doğrulama, veritabanı tab
 
 Ek açıklama aşağıdadır `Movie` model bir uygulamadan filmler ve TV programları ile ilgili bilgileri depolar. Özelliklerin çoğu gereklidir ve birkaç dize özellikleri uzunluk gereksinimlerine sahip. Ayrıca, için yerinde sayısal aralığın bir kısıtlama yoktur `Price` özel doğrulama özniteliği birlikte $999.99, 0'dan özelliğine.
 
-[!code-csharp[Main](validation/sample/Movie.cs?range=6-29)]
+[!code-csharp[](validation/sample/Movie.cs?range=6-29)]
 
 Yalnızca modeli aracılığıyla okuma kuralları hakkında daha kolay kod korumak, bu uygulama için veri ortaya çıkarır. Aşağıda birkaç popüler yerleşik doğrulama öznitelikleri şunlardır:
 
@@ -69,7 +69,7 @@ Doğrulama ve doğrulama öznitelikleri ile ilgili değil, MVC model bağlama al
 
 Kullandığınızda, bir [null atanabilir\<T > türü](/dotnet/csharp/programming-guide/nullable-types/) (örneğin, `decimal?` veya `System.Nullable<decimal>`) ve işaretleyin `Required`, özelliği (için standart null olabilir bir tür değilmiş gibi bir sunucu tarafı doğrulama denetimi gerçekleştirilir Örneğin, bir `string`).
 
-İstemci tarafı doğrulama işaretlenen model özelliğine karşılık gelen bir form alanı için bir değer gerektiren `Required` ve işaretli olmayan bir null tür özelliği için `Required`. `Required`istemci tarafı doğrulama hata iletisi denetlemek için kullanılabilir.
+İstemci tarafı doğrulama işaretlenen model özelliğine karşılık gelen bir form alanı için bir değer gerektiren `Required` ve işaretli olmayan bir null tür özelliği için `Required`. `Required` istemci tarafı doğrulama hata iletisi denetlemek için kullanılabilir.
 
 ## <a name="model-state"></a>Model durumu
 
@@ -77,7 +77,7 @@ Model durumu doğrulama hataları gönderilen HTML form değerleri temsil eder.
 
 MVC alanları kadar ulaştığında doğrulama hatası (200 varsayılan olarak) sayısı devam eder. Aşağıdaki kodu ekleyerek bu numarayı yapılandırabilirsiniz `ConfigureServices` yönteminde *haline* dosyası:
 
-[!code-csharp[Main](validation/sample/Startup.cs?range=27)]
+[!code-csharp[](validation/sample/Startup.cs?range=27)]
 
 ## <a name="handling-model-state-errors"></a>İşleme Model durumu hataları
 
@@ -91,7 +91,7 @@ Model bağlama ve doğrulama tamamlandıktan sonra bazı bölümleri yineleyin i
 
 Doğrulama el ile çalıştırmanız gerekebilir. Bunu yapmak için arama `TryValidateModel` aşağıda gösterildiği gibi yöntemi:
 
-[!code-csharp[Main](validation/sample/MoviesController.cs?range=52)]
+[!code-csharp[](validation/sample/MoviesController.cs?range=52)]
 
 ## <a name="custom-validation"></a>Özel doğrulama
 
@@ -99,13 +99,13 @@ Doğrulama özniteliklerinin çoğu doğrulama ihtiyaçları için çalışır. 
 
 Kullanıcılar bir tarzını ayarlamaz, aşağıdaki örnekte, bir iş kuralı durumları *Klasik* 1960 sonra yayımlanan film için. `[ClassicMovie]` Özniteliği Tarz ilk denetler ve klasik ise, yayın tarihi 1960 sonraki olup olmadığını denetler. 1960 sonra yayımlanan doğrulama başarısız olur. Öznitelik verileri doğrulamak için kullanabileceğiniz yılı temsil eden bir tamsayı parametresini kabul eder. Aşağıda gösterildiği gibi özniteliğin oluşturucuda parametresinin değeri yakalamak için:
 
-[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
 
 `movie` Temsil yukarıda değişken bir `Movie` doğrulamak için form gönderme verilerini içeren nesne. İçinde bir tarzını ve tarihi bu durumda, doğrulama kodu denetler `IsValid` yöntemi `ClassicMovieAttribute` sınıfı kuralları göredir. Doğrulama başarılı bağlı `IsValid` döndürür bir `ValidationResult.Success` kodunu ve doğrulama başarısız olduğunda bir `ValidationResult` hata iletisiyle. Ne zaman bir kullanıcıyı değiştirir `Genre` alan ve formu gönderdikten `IsValid` yöntemi `ClassicMovieAttribute` film Klasik olup olmadığını doğrular. Yerleşik herhangi bir öznitelik gibi uygulama `ClassicMovieAttribute` gibi bir özelliğe `ReleaseDate` doğrulama olur, önceki kod örneğinde gösterildiği gibi sağlamak için. Bu örnek yalnızca birlikte çalışır. bu yana `Movie` türleri, daha iyi bir seçenektir kullanmak için `IValidatableObject` aşağıdaki paragrafta gösterildiği gibi.
 
 Alternatif olarak, bu aynı kodu modelde uygulayarak yerleştirilemedi `Validate` yöntemi `IValidatableObject` arabirimi. Özel doğrulama öznitelikleri de ayrı ayrı özellikler doğrulamak için çalışırken, uygulama `IValidatableObject` sınıf düzeyi doğrulama burada görüldüğü gibi uygulamak için kullanılabilir.
 
-[!code-csharp[Main](validation/sample/MovieIValidatable.cs?range=32-40)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?range=32-40)]
 
 ## <a name="client-side-validation"></a>İstemci tarafı doğrulama
 
@@ -113,13 +113,13 @@ Alternatif olarak, bu aynı kodu modelde uygulayarak yerleştirilemedi `Validate
 
 Burada gördüğünüz şekilde çalışması istemci tarafı doğrulama yerinde uygun JavaScript komut dosyası başvuruları görünümüyle olması gerekir.
 
-[!code-cshtml[Main](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
+[!code-cshtml[](validation/sample/Views/Shared/_Layout.cshtml?range=37)]
 
-[!code-cshtml[Main](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
+[!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
 [JQuery örtük doğrulama](https://github.com/aspnet/jquery-validation-unobtrusive) betiğidir popüler üzerinde oluşturan özel bir ön uç Microsoft Kitaplığı [jQuery doğrulama](https://jqueryvalidation.org/) eklentisi. JQuery örtük doğrulama iki yerde de aynı doğrulama mantığını kod gerekir: model özellikleri, sunucu tarafı doğrulama özniteliklerinde kez ve ardından yeniden istemci tarafı komut dosyalarını (jQuery doğrulama ait örnekler [ `validate()` ](https://jqueryvalidation.org/validate/) yöntemi gösterilir nasıl karmaşık bu hale gelebilir). Bunun yerine, MVC'ın [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve [HTML Yardımcıları](xref:mvc/views/overview) doğrulama öznitelikleri kullanın ve tür meta verileri HTML 5 işlemek için model özelliklerinden [veri öznitelikleri](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) içinde doğrulama gerekli form öğeleri. MVC oluşturur `data-` yerleşik ve özel öznitelikleri için öznitelikler. jQuery örtük doğrulama sonra bu ayrıştırır `data-` öznitelikleri ve jQuery etkili bir şekilde "sunucu tarafı doğrulama mantığını istemciye kopyalama" Doğrulama mantığı geçirir. Aşağıda gösterildiği gibi ilgili etiket Yardımcıları kullanılarak istemcide doğrulama hataları görüntüleyebilirsiniz:
 
-[!code-cshtml[Main](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
+[!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
 Yukarıdaki etiket Yardımcıları HTML işleme. Dikkat `data-` HTML öznitelikleri çıktı için doğrulama öznitelikleri karşılık `ReleaseDate` özelliği. `data-val-required` Özniteliği aşağıdaki kullanıcı yayın tarihi alanına doldurmazsa görüntülenecek hata iletisi içeriyor. jQuery örtük doğrulama jQuery doğrulama için bu değeri geçirir [ `required()` ](https://jqueryvalidation.org/required-method/) daha sonra bu iletiyi eşlik görüntüler yöntemi  **\<span >** öğesi.
 
@@ -194,7 +194,7 @@ $.get({
 
 İstemci tarafı mantığı, özel öznitelik için oluşturabilir ve [örtük doğrulama](http://jqueryvalidation.org/documentation/) , doğrulama bir parçası olarak otomatik olarak istemcide çalıştırır. Hangi veri öznitelikleri uygulayarak eklenen denetlemek için ilk adımdır `IClientModelValidator` arabirim aşağıda gösterildiği gibi:
 
-[!code-csharp[Main](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 
 Bu arabirimi uygulayan öznitelikleri HTML öznitelikleri için oluşturulan alanlar ekleyebilirsiniz. Çıkış için inceleniyor `ReleaseDate` öğesi artık dışında önceki örneğe benzer HTML ortaya çıkarır bir `data-val-classicmovie` tanımlanan öznitelik `AddValidation` yöntemi `IClientModelValidator`.
 
@@ -209,7 +209,7 @@ Bu arabirimi uygulayan öznitelikleri HTML öznitelikleri için oluşturulan ala
 
 Örtük doğrulama kullanır verilerde `data-` hata iletilerini görüntülemek için öznitelikler. Ancak, jQuery kuralları hakkında bilmiyor veya jQuery için 's ekleyene kadar iletileri `validator` nesnesi. Bu adlı bir yöntem ekleyen aşağıdaki örnekte gösterilen `classicmovie` jQuery için özel istemci doğrulama kodunu içeren `validator` nesnesi.
 
-[!code-javascript[Main](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
 
 Artık jQuery özel JavaScript doğrulama ve bunun yanı sıra bu doğrulama kodu false değeri döndürülürse görüntülenecek hata iletisi yürütme bilgilere sahiptir.
 
@@ -219,7 +219,7 @@ Uzak doğrulama, sunucu üzerindeki veriler karşı istemcide verilerin doğrula
 
 Uzak doğrulama iki adımda uygulayabilirsiniz. İlk olarak, modelinizi açıklama `[Remote]` özniteliği. `[Remote]` Özniteliği doğrudan çağırmak için uygun kodu için istemci tarafı JavaScript için kullanabileceğiniz birden çok aşırı kabul eder. Aşağıdaki örnek işaret `VerifyEmail` eylem yöntemi `Users` denetleyicisi.
 
-[!code-csharp[Main](validation/sample/User.cs?range=7-8)]
+[!code-csharp[](validation/sample/User.cs?range=7-8)]
 
 İkinci adım doğrulama kodu karşılık gelen eylem yönteminde tanımlandığı şekilde koyuyor `[Remote]` özniteliği. JQuery doğrulama göre [ `remote()` ](https://jqueryvalidation.org/remote-method/) yöntemi belgelerine:
 
@@ -227,17 +227,17 @@ Uzak doğrulama iki adımda uygulayabilirsiniz. İlk olarak, modelinizi açıkla
 
 Tanımını `VerifyEmail()` yöntemi aşağıda gösterildiği gibi bu kurallar izler. Doğrulama hatasını döndürür e-posta alınmışsa, ileti veya `true` e-posta ücretsizdir ve sonuçta sarmalar bir `JsonResult` nesnesi. İstemci tarafı sonra devam etmek gerekirse hata görüntülemek için döndürülen değer'nı kullanabilirsiniz.
 
-[!code-csharp[Main](validation/sample/UsersController.cs?range=19-28)]
+[!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
 Artık kullanıcıların bir e-posta girdiğinizde, JavaScript görünümünde e-posta alındıktan ve bu durumda, hata iletisi görüntüler varsa, görmek için Uzak çağrıda bulunur. Aksi takdirde kullanıcı formu her zamanki gibi gönderebilirsiniz.
 
 `AdditionalFields` Özelliği `[Remote]` öznitelik alanları sunucuda veri karşı birleşimlerini doğrulamak için yararlıdır. Örneğin, varsa `User` modeli üstten vardı adlı iki ek özellikler `FirstName` ve `LastName`, varolan kullanıcı adları bu çifti zaten yüklü olduğunu doğrulamak isteyebilirsiniz. Aşağıdaki kodda gösterildiği gibi yeni özellikler tanımlayın:
 
-[!code-csharp[Main](validation/sample/User.cs?range=10-13)]
+[!code-csharp[](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`açıkça dizelere ayarlanmış `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme. Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
+`AdditionalFields` açıkça dizelere ayarlanmış `"FirstName"` ve `"LastName"`, ancak kullanarak [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) bu like işleci basitleştirir daha sonra yeniden düzenleme. Doğrulamayı gerçekleştirmek için eylem yönteminin ardından değeri için iki bağımsız kabul etmeniz gerekir `FirstName` değeri için bir tane `LastName`.
 
-[!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
+[!code-csharp[](validation/sample/UsersController.cs?range=30-39)]
 
 Bir ad ve Soyadı, JavaScript artık kullanıcıların girdiğinizde:
 

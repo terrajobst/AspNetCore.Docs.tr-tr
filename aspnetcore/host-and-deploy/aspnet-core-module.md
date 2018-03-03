@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET çekirdeği modülü yapılandırma başvurusu
 
@@ -128,6 +128,12 @@ Aşağıdaki örnek `aspNetCore` öğesi yapılandırır `stdout` Azure App Serv
 ```
 
 Bkz: [web.config yapılandırmayla](#configuration-with-webconfig) ilişkin bir örnek `aspNetCore` öğesinde *web.config* dosya.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>HTTP protokolünü ve bir eşleşme belirteci proxy yapılandırması kullanır
+
+ASP.NET çekirdeği modülü arasında Kestrel oluşturulan proxy HTTP protokolünü kullanır. HTTP performansı iyileştirme modülü ve Kestrel arasındaki trafiğin geri döngü adresine dışına ağ arabirimi gerçekleştiği kullanmaktır. Modül ve sunucunun dışına bir konumdan Kestrel arasındaki trafiğin gizli dinleme hiçbir riski vardır.
+
+Bir eşleşme belirteci Kestrel tarafından alınan isteği IIS tarafından yönlendirilirken ve bazı başka bir kaynaktan geliyor kaydetmedi güvence altına almak için kullanılır. Eşleştirme belirteci oluşturulur ve bir ortam değişkeni ayarlayın (`ASPNETCORE_TOKEN`) modülü tarafından. Eşleştirme belirteci de bir üstbilgisine ayarlayın (`MSAspNetCoreToken`) yönlendirilirken her istekte. IIS Ara denetimleri eşleştirme belirteci üstbilgi değeri ortam değişkeni değeri ile eşleşen onaylamak için aldığı isteyin. Belirteç değerleri eşleşirse, isteği günlüğe ve reddetti. Eşleştirme belirteci ortam değişkenine ve modül ve Kestrel arasındaki trafiğin sunucunun dışına bir konumdan erişilebilir değil. Eşleştirme belirteç değeri bilmeden bir saldırgan IIS Ara yazılımında denetimini atla istek gönderemez.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>ASP.NET çekirdeği modülü ile bir IIS paylaşılan yapılandırma
 

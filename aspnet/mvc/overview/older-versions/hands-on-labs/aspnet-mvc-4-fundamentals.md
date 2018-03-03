@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 temelleri
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 temelleri
 
-> Bu uygulamalı Laboratuvar MVC (Model View Controller) müzik deposu tanıtır ve ASP.NET MVC ve Visual Studio nasıl kullanılacağını hakkında adım adım anlatan öğretici bir uygulama temel alır. Laboratuvar Basitlik öğreneceksiniz henüz güç bu teknolojiler birlikte kullanma. Basit bir uygulama ile başlar ve tam olarak işlevsel bir ASP.NET MVC 4 Web uygulaması elde edene kadar oluşturacaksınız.
-> 
-> Bu Laboratuvar, ASP.NET MVC 4 ile çalışır.
-> 
-> Eğitmen uygulama ASP.NET MVC 3 sürümünü keşfetmek isterseniz içinde bulabilirsiniz [MVC müzik deposu](https://github.com/evilDave/MVC-Music-Store).
-> 
-> > [!NOTE]
-> > Bu uygulamalı Laboratuvar Geliştirici HTML ve JavaScript gibi Web geliştirme teknolojilerinde deneyim sahibi olduğunu varsayar.
-> 
-> 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
+
+Bu uygulamalı Laboratuvar MVC (Model View Controller) müzik deposu tanıtır ve ASP.NET MVC ve Visual Studio nasıl kullanılacağını hakkında adım adım anlatan öğretici bir uygulama temel alır. Laboratuvar Basitlik öğreneceksiniz henüz güç bu teknolojiler birlikte kullanma. Basit bir uygulama ile başlar ve tam olarak işlevsel bir ASP.NET MVC 4 Web uygulaması elde edene kadar oluşturacaksınız.
+
+Bu Laboratuvar, ASP.NET MVC 4 ile çalışır.
+
+Eğitmen uygulama ASP.NET MVC 3 sürümünü keşfetmek isterseniz içinde bulabilirsiniz [MVC müzik deposu](https://github.com/evilDave/MVC-Music-Store).
+
+Bu uygulamalı Laboratuvar Geliştirici HTML ve JavaScript gibi Web geliştirme teknolojilerinde deneyim sahibi olduğunu varsayar.
+
+> [!NOTE]
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 Temelleri](https://github.com/Microsoft-Web/HOL-MVC4Fundamentals).
 
 <a id="The_Music_Store_application"></a>
 ### <a name="the-music-store-application"></a>Müzik deposu uygulama
@@ -181,7 +181,7 @@ Bu görevde URL'leri müzik deposu site giriş sayfasına işleyecek denetleyici
 
     ![Bir denetleyici komut ekleme](aspnet-mvc-4-fundamentals/_static/image5.png "denetleyicisi komut ekleme")
 
-    *Denetleyici komut ekleme*
+    *Add Controller Command*
 2. **Denetleyici Ekle** iletişim kutusu görüntülenir. Denetleyici adı *HomeController* ve basın **Ekle**.
 
     ![Denetleyici Ekle iletişim kutusu](aspnet-mvc-4-fundamentals/_static/image6.png "denetleyici Ekle iletişim kutusu")
@@ -895,7 +895,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri göz en ilgi
 #### <a name="task-1-exploring-the-aspnet-mvc-4-internet-application-template"></a>Görev 1: ASP.NET MVC 4 Internet uygulama şablonu keşfetme
 
 1. Zaten açık değilse, başlangıç **VS Express Web**
-2. Seçin **dosya | Yeni | Proje** menü komutu. İçinde **yeni proje** iletişim kutusunda **Visual C# | Web** şablonu sol bölmesindeki ağaç ve seçin **ASP.NET MVC 4 Web uygulaması**. **Ad** proje *MusicStore* ve güncelleştirme **çözüm adı** için *başlamak*, ardından bir konum seçin (veya varsayılan adı bırakın) tıklatıp**Tamam**.
+2. Seçin **dosya | Yeni | Proje** menü komutu. İçinde **yeni proje** iletişim kutusunda **Visual C# | Web** şablonu sol bölmesindeki ağaç ve seçin **ASP.NET MVC 4 Web uygulaması**. **Ad** proje *MusicStore* ve güncelleştirme **çözüm adı** için *başlamak*, ardından bir konum seçin (veya varsayılan adı bırakın) tıklatıp **Tamam** .
 
     ![Yeni bir ASP.NET MVC 4 proje oluşturma](aspnet-mvc-4-fundamentals/_static/image36.png "yeni bir ASP.NET MVC 4 proje oluşturma")
 
@@ -927,11 +927,11 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri göz en ilgi
 5. Hata ayıklayıcıyı durdurduktan ve Visual Studio'ya dönmek için tarayıcıyı kapatın.
 6. Şimdi çözümü keşfedin ve ASP.NET MVC 4 proje şablonu içinde sunulan yeni özelliklerden bazıları göz atın.
 
-    ![ASP.NET MVC4-Internet-uygulama-proje-şablonu](aspnet-mvc-4-fundamentals/_static/image40.png "ASP.NET MVC 4 Internet uygulaması proje şablonu")
+    ![ASP.NET MVC4-internet-application-project-template](aspnet-mvc-4-fundamentals/_static/image40.png "The ASP.NET MVC 4 Internet Application Project Template")
 
     *ASP.NET MVC 4 Internet uygulaması proje şablonu*
 
-    1. **HTML5 biçimlendirme**
+    1. **HTML5 markup**
 
         Şablon görünümleri yeni temayı işaretleme, örneğin açık bulmak için Gözat **About.cshtml** görünümü **giriş** klasör.
 

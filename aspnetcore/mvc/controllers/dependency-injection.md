@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 118f504311b58258b5a0510477280505135dd2d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d8253858864efa85f0d2a2175669dc27b879b175
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-injection-into-controllers"></a>Denetleyicileri içine bağımlılık ekleme
 
@@ -33,17 +33,17 @@ Bağımlılık ekleme olduğunu izleyen bir teknik [bağımlılık tersine çevi
 
 MVC denetleyicileri için ASP.NET Core'nın yerleşik Oluşturucusu tabanlı bağımlılık ekleme desteği genişletir. Yalnızca bir hizmet türünün denetleyicinizi Oluşturucusu parametre olarak ekleyerek, ASP.NET Core yerleşik hizmet kapsayıcısında kullanarak bu türde çözümlemeye çalışır. Hizmetleri genellikle, ancak her zaman, arabirimleri kullanılarak tanımlanır. Örneğin, geçerli zamanı bağımlı bir iş mantığı uygulamanız varsa, testlerinizi bir süre kullanmak uygulamalarında geçmesine izin saati (yerine sabit kodlama), alan bir hizmeti ekleyemezsiniz.
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
 
 
 Çalışma zamanında sistem saatini kullanır, böylece arabirimi bunun gibi uygulama kısmı oldukça kolaydır:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
 
 
 Bu yerinde biz hizmeti bizim denetleyicisi kullanabilir. Bu durumda, bazı mantığı ekledik `HomeController` `Index` Tebrik Kartı kullanıcıya görüntülenecek yöntemine temel günün saati.
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
 
 Biz uygulamayı şimdi çalıştırırsanız, biz büyük olasılıkla bir hatayla karşılaşırsınız:
 
@@ -56,7 +56,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 
 Bir hizmet olarak yapılandırmadıysanız bu hata oluşur `ConfigureServices` yönteminde bizim `Startup` sınıfı. Yönelik isteklere belirtmek için `IDateTime` bir örneği kullanılarak çözülmelidir `SystemDateTime`, için aşağıda listesinde vurgulanan satırı ekleyin, `ConfigureServices` yöntemi:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
 
 > [!NOTE]
 > Bu belirli bir hizmet çeşitli farklı ömrü seçeneklerden biri kullanılarak uygulanan (`Transient`, `Scoped`, veya `Singleton`). Bkz: [bağımlılık ekleme](../../fundamentals/dependency-injection.md) bu kapsam seçeneklerin her biri hizmetinizi davranışını nasıl etkileyeceğini anlamak için.
@@ -83,7 +83,7 @@ Hata iletisi durumları gibi yalnızca tek bir oluşturucuya sahip bu sorunu ç�
 
 Bazen denetleyicinizi içinde bir hizmet için birden fazla eylem gerekmez. Bu durumda, bu eylem yönteminin bir parametresi olarak hizmet Ekle mantıklı olabilir. Bu öznitelik parametresiyle işaretleyerek yapılır `[FromServices]` aşağıda gösterildiği gibi:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
 
 ## <a name="accessing-settings-from-a-controller"></a>Bir denetleyicisinden ayarlarına erişme
 
@@ -91,17 +91,17 @@ Uygulama veya yapılandırma içinden ayarlarını bir denetleyici erişim genel
 
 Seçenekleri deseni ile çalışmak için bunun gibi seçenekleri temsil eden bir sınıf oluşturmanız gerekir:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
 
 Seçenekleri modeli kullanır ve Hizmetleri koleksiyonunda yapılandırma sınıf eklemek için uygulamayı yapılandırmak gereken sonra `ConfigureServices`:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
 > Yukarıdaki listede biz ayarları JSON biçimli bir dosyadan okunan uygulamaya yapılandırmış olursunuz. Yukarıdaki açıklamalı kodda gösterildiği gibi tamamen kodda ayarları da yapılandırabilirsiniz. Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla yapılandırma seçenekleri için.
 
 Kesin türü belirtilmiş yapılandırma nesnesi belirlediğiniz sonra (Bu durumda, `SampleWebSettings`) ve ekli Hizmetleri koleksiyonuna, onu herhangi denetleyici veya eylem yönteminden bir örneğini isteyerek talep edebilir `IOptions<T>` (Bu durumda, `IOptions<SampleWebSettings>`) . Aşağıdaki kod bir denetleyicisinden ayarları nasıl istemek gösterir:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
 Seçenekleri Desen aşağıdaki ayarları ve yapılandırmayı birbirinden ayrılmış sağlar ve denetleyici izlemektir sağlar [sorunları ayrılması](http://deviq.com/separation-of-concerns/), nasıl ve nerede bilmek gerekli olmayan beri ayarları bulunamıyor bilgi. Ayrıca denetleyicisi birim testi kolaylaştırır [test denetleyicisi mantığı](testing.md), olduğundan hiçbir [statik cling](http://deviq.com/static-cling/) veya denetleyici sınıfı içinde ayarları sınıfların doğrudan örnek oluşturma.

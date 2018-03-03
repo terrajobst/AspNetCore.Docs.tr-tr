@@ -4,7 +4,7 @@ Bu adımda, veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundame
 
 DB bağlamı için yerleşik destek kullanarak hizmet kapsayıcısı kaydetme [bağımlılık ekleme](xref:fundamentals/dependency-injection). Değiştir *haline* aşağıdaki kod ile dosya:
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
+[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
 
 Önceki kod:
 

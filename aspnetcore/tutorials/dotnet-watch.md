@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: cb15e28cb98ea82091cf5ddeed12df8926079e52
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 766913594fa57b14d4dd3b2f1ab02e9714f8ad47
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>DotNet Gözcü kullanarak ASP.NET Core uygulamaları geliştirme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [kazanan Hurdugaci](https://twitter.com/victorhurdugaci)
 
-`dotnet watch`çalıştıran bir aracıdır bir [.NET Core CLI](/dotnet/core/tools) değişiklik kaynak dosyaları, komut. Örneğin, bir dosya değişikliği derleme, test yürütmesi veya dağıtım tetikleyebilir.
+`dotnet watch` çalıştıran bir aracıdır bir [.NET Core CLI](/dotnet/core/tools) değişiklik kaynak dosyaları, komut. Örneğin, bir dosya değişikliği derleme, test yürütmesi veya dağıtım tetikleyebilir.
 
 Bu öğreticide, var olan bir Web API uygulaması ile iki uç nokta kullanırız: toplam ve bir ürün döndüren bir döndüren bir. Ürün yöntemi bu öğreticinin bir parçası olarak düzeltme bir hata içeriyor.
 
@@ -61,7 +61,7 @@ Bir web tarayıcısında gidin `http://localhost:<port number>/api/math/sum?a=4&
     dotnet restore
     ```
 
-## <a name="running-net-core-cli-commands-using-dotnet-watch"></a>.NET Core CLI komutları kullanarak çalıştırma`dotnet watch`
+## <a name="running-net-core-cli-commands-using-dotnet-watch"></a>.NET Core CLI komutları kullanarak çalıştırma `dotnet watch`
 
 Tüm [.NET Core CLI komutu](/dotnet/core/tools#cli-commands) ile çalıştırılabilir `dotnet watch`. Örneğin:
 
@@ -74,7 +74,7 @@ Tüm [.NET Core CLI komutu](/dotnet/core/tools#cli-commands) ile çalıştırıl
 
 Çalıştırma `dotnet watch run` içinde *WebApp* klasör. Konsol çıktısı gösterir `watch` başlatıldı.
 
-## <a name="making-changes-with-dotnet-watch"></a>Değişiklikleri yapma`dotnet watch`
+## <a name="making-changes-with-dotnet-watch"></a>Değişiklikleri yapma `dotnet watch`
 
 Emin olun `dotnet watch` çalışıyor.
 
@@ -91,11 +91,11 @@ Dosyayı kaydedin. Konsol çıktısı belirten `dotnet watch` bir dosya değişi
 
 Doğrulama `http://localhost:<port number>/api/math/product?a=4&b=5` doğru sonucunu döndürür.
 
-## <a name="running-tests-using-dotnet-watch"></a>Kullanarak testleri çalıştırma`dotnet watch`
+## <a name="running-tests-using-dotnet-watch"></a>Kullanarak testleri çalıştırma `dotnet watch`
 
 1. Değişiklik `Product` yöntemi *MathController.cs* geri toplamı döndürmek için ve dosyayı kaydedin.
 1. Komut kabuğu'na gidin *WebAppTests* klasör.
-1. Çalıştırma `dotnet restore`.
+1. Çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).
 1. Çalıştırma `dotnet watch test`. Bir test başarısız oldu ve bu İzleyici dosya değişiklikleri bekliyor çıktısını gösterir:
 
      ```console
@@ -105,7 +105,7 @@ Doğrulama `http://localhost:<port number>/api/math/product?a=4&b=5` doğru sonu
 
 1. Düzeltme `Product` yöntemi kod ürün döndürecek şekilde. Dosyayı kaydedin.
 
-`dotnet watch`dosya değişikliği algılar ve testleri yeniden çalıştırır. Konsol çıktısı testleri geçirilen gösterir.
+`dotnet watch` dosya değişikliği algılar ve testleri yeniden çalıştırır. Konsol çıktısı testleri geçirilen gösterir.
 
 ## <a name="dotnet-watch-in-github"></a>dotnet-watch in GitHub
 

@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: e186adef2e72f852543a92ddce0e82be2a3bcd12
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 5acb65be078fd39b9e7a17ce2d8167b8f7b7db22
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -47,7 +47,7 @@ Yönetici, tüm ayrıcalıklarına sahiptir. Depoladığından, herhangi bir ki�
 
 Uygulama tarafından oluşturulan [iskele](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) aşağıdaki `Contact` modeli:
 
-[!code-csharp[Main](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
+[!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
 
 Örnek aşağıdaki yetkilendirme işleyicileri içerir:
 
@@ -85,7 +85,7 @@ Aşağıdaki bölümlerde güvenli kullanıcı veri uygulaması oluşturmak içi
 
 ASP.NET kullanan [kimlik](xref:security/authentication/identity) kullanıcılar emin olmak için kullanıcı kimliği verilerini, ancak diğer kullanıcılar verileri düzenleyebilirsiniz. Ekleme `OwnerID` ve `ContactStatus` için `Contact` modeli:
 
-[!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
+[!code-csharp[](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
 `OwnerID` kullanıcının kimliği olan `AspNetUser` tablosundaki [kimlik](xref:security/authentication/identity) veritabanı. `Status` Alanı, bir kişi genel kullanıcılar tarafından görüntülenebilir olup olmadığını belirler.
 
@@ -100,11 +100,11 @@ dotnet ef database update
 
 Ekleme [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) için `Startup`:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_env)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_env)]
 
 İçinde `ConfigureServices` yöntemi *haline* dosya, ekleme [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) yetkilendirme Filtresi:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
 Visual Studio kullanıyorsanız, HTTPS etkinleştirin.
 
@@ -123,11 +123,11 @@ Güncelleştirme `ConfigureServices` aşağıdaki değişiklikleri:
 * Out açıklama `AuthorizeFolder` ve `AuthorizePage`.
 * Kullanıcıların kimliklerinin doğrulanmasını istemek için varsayılan kimlik doğrulama ilkesini ayarlayın.
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
 
 Ekleme [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) dizine, bunlar kaydetmeden önce anonim kullanıcılar siteyle ilgili bilgileri sınıflandırıp hakkında ve iletişim sayfaları. 
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Index.cshtml.cs?name=snippet&highlight=2)]
+[!code-csharp[](secure-data/samples/final2/Pages/Index.cshtml.cs?name=snippet&highlight=2)]
 
 Ekleme `[AllowAnonymous]` için [LoginModel ve RegisterModel](https://github.com/aspnet/templating/issues/238).
 
@@ -141,23 +141,23 @@ dotnet user-secrets set SeedUserPW <PW>
 
 Güncelleştirme `Main` test parola kullanmak için:
 
-[!code-csharp[Main](secure-data/samples/final2/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Program.cs?name=snippet)]
 
 ### <a name="create-the-test-accounts-and-update-the-contacts"></a>Test hesapları oluşturabilir ve kişileri güncelleştir
 
 Güncelleştirme `Initialize` yönteminde `SeedData` test hesapları oluşturmak için sınıfı:
 
-[!code-csharp[Main](secure-data/samples/final2/Data/SeedData.cs?name=snippet_Initialize)]
+[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet_Initialize)]
 
 Yönetici kullanıcı kimliği ekleyin ve `ContactStatus` kişilere. "Gönderildi" ve bir "Reddedilen" kişilerden biri olun. Kullanıcı kimliği ve durum tüm kişileri ekleyin. Yalnızca bir kişinin gösterilir:
 
-[!code-csharp[Main](secure-data/samples/final2/Data/SeedData.cs?name=snippet1&highlight=17,18)]
+[!code-csharp[](secure-data/samples/final2/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
 ## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Sahibi, Yöneticisi ve yönetici yetkilendirme işleyicileri oluşturma
 
 Oluşturma bir `ContactIsOwnerAuthorizationHandler` sınıfını *yetkilendirme* klasör. `ContactIsOwnerAuthorizationHandler` Bir kaynakta hareket kullanıcı kaynağın sahibi doğrular.
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
 `ContactIsOwnerAuthorizationHandler` Çağrıları [bağlamı. Başarılı](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) geçerli kimliği doğrulanmış kullanıcı kişi sahibi ise. Yetkilendirme işleyicileri genellikle:
 
@@ -172,19 +172,19 @@ Uygulamanın kendi veri düzenleme/silme/oluşturmak için kişi sahipleri verir
 
 Oluşturma bir `ContactManagerAuthorizationHandler` sınıfını *yetkilendirme* klasör. `ContactManagerAuthorizationHandler` Kaynak üzerinde çalışan kullanıcı bir yönetici olduğunu doğrular. Yalnızca Yöneticiler onaylayabilir veya reddedebilirsiniz içerik değişikliklerini (yeni veya değiştirilmiş).
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactManagerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactManagerAuthorizationHandler.cs)]
 
 ### <a name="create-an-administrator-authorization-handler"></a>Bir yönetici yetkilendirme işleyicisi oluşturun
 
 Oluşturma bir `ContactAdministratorsAuthorizationHandler` sınıfını *yetkilendirme* klasör. `ContactAdministratorsAuthorizationHandler` Kaynak üzerinde çalışan kullanıcı bir yönetici olduğunu doğrular. Yönetici, tüm işlemleri yapabilir.
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
 ## <a name="register-the-authorization-handlers"></a>Yetkilendirme işleyicileri kaydetme
 
 Entity Framework Çekirdek kullanarak Hizmetleri kayıtlı, için [bağımlılık ekleme](xref:fundamentals/dependency-injection) kullanarak [AddScoped](/aspnet/core/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions). `ContactIsOwnerAuthorizationHandler` ASP.NET Core kullanan [kimlik](xref:security/authentication/identity), Entity Framework Core üzerinde oluşturulmuştur. Kullanılabilir hizmet koleksiyonuyla işleyicileri kaydolmayı `ContactsController` aracılığıyla [bağımlılık ekleme](xref:fundamentals/dependency-injection). Sonuna aşağıdaki kodu ekleyin `ConfigureServices`:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
+[!code-csharp[](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
 `ContactAdministratorsAuthorizationHandler` ve `ContactManagerAuthorizationHandler` teklileri eklenir. Olup olmadıklarını teklileri EF kullanmayın ve gerekli tüm bilgileri de olduğundan `Context` parametresinin `HandleRequirementAsync` yöntemi.
 
@@ -196,13 +196,13 @@ Bu bölümde, Razor sayfalarının güncelleştirin ve işlemleri gereksinimleri
 
 Gözden geçirme `ContactOperations` sınıfı. Bu sınıf gereksinimlerini içeren uygulama destekler:
 
-[!code-csharp[Main](secure-data/samples/final2/Authorization/ContactOperations.cs)]
+[!code-csharp[](secure-data/samples/final2/Authorization/ContactOperations.cs)]
 
 ### <a name="create-a-base-class-for-the-razor-pages"></a>Razor sayfalar için temel sınıf oluşturma
 
 Kişiler Razor sayfalarının kullanılan hizmetleri içeren temel bir sınıf oluşturun. Taban sınıfı başlatma kodun bir konuma yerleştirir:
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/DI_BasePageModel.cs)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/DI_BasePageModel.cs)]
 
 Önceki kod:
 
@@ -214,32 +214,32 @@ Kişiler Razor sayfalarının kullanılan hizmetleri içeren temel bir sınıf o
 
 Kullanılacak Oluştur sayfası modeli Oluşturucusu güncelleştirme `DI_BasePageModel` temel sınıfı:
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
 Güncelleştirme `CreateModel.OnPostAsync` yöntemi için:
 
 * Kullanıcı kimliği eklemek `Contact` modeli.
 * Kullanıcının kişiler oluşturmak için izne sahip doğrulamak için yetkilendirme işleyici çağırın.
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
 ### <a name="update-the-indexmodel"></a>Güncelleştirme IndexModel
 
 Güncelleştirme `OnGetAsync` yalnızca onaylanan kişilere genel kullanıcılara gösterilen şekilde yöntemi:
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-editmodel"></a>Güncelleştirme EditModel
 
 Kullanıcının kişinin sahip olduğu doğrulamak için bir yetkilendirme işleyici ekleyin. Kaynak Yetkilendirme doğrulandığı için `[Authorize]` özniteliği yeterli değil. Öznitelikleri değerlendirildiğinde uygulama kaynağa erişimi yok. Kaynak tabanlı bir yetkilendirme kesinlik temelli olması gerekir. Uygulama sayfası modelinde yükleme ya da işleyici içinde yükleme kaynağına erişimi olduğunda denetimlerinin gerçekleştirilmesi gerekir. Sık sık kaynak anahtarı geçirerek kaynak erişir.
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
 ### <a name="update-the-deletemodel"></a>Güncelleştirme DeleteModel
 
 Kullanıcı, kişi hakkında silme iznine sahip doğrulamak için yetkilendirme işleyicisi kullanmak için silme sayfa modeli güncelleştirin.
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
 ## <a name="inject-the-authorization-service-into-the-views"></a>Yetkilendirme hizmeti görünümlere ekleme
 
@@ -247,13 +247,13 @@ Kullanıcı, kişi hakkında silme iznine sahip doğrulamak için yetkilendirme 
 
 Yetkilendirme hizmetinde Ekle *Views/_ViewImports.cshtml* tüm görünümler kullanılabilir olacak şekilde dosya:
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/_ViewImports.cshtml?highlight=6-9)]
+[!code-cshtml[](secure-data/samples/final2/Pages/_ViewImports.cshtml?highlight=6-9)]
 
 Önceki biçimlendirme birkaç ekler `using` deyimleri.
 
 Güncelleştirme **Düzenle** ve **silmek** içinde bağlantılar *Pages/Contacts/Index.cshtml* bunlar yalnızca uygun izinlere sahip kullanıcılar için işlenen için:
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
+[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Index.cshtml?highlight=34-36,64-999)]
 
 > [!WARNING]
 > Veri değiştirme iznine sahip olmayan kullanıcılardan gelen bağlantılar gizleme uygulama güvenli değil. Bağlantılar gizleme uygulama daha kullanıcı dostu yalnızca geçerli bağlantılar görüntüleyerek yapmaz. Kullanıcıları düzenleme çağırma ve silme işlemleri ait olmayan veriler üzerinde oluşturulan URL'lerini korsan saldırılarına. Razor sayfasını veya denetleyicisi verileri korumak için erişim denetimleri zorunlu gerekir.
@@ -262,11 +262,11 @@ Güncelleştirme **Düzenle** ve **silmek** içinde bağlantılar *Pages/Contact
 
 Ayrıntılar görünümü yöneticileri onaylayabilir veya reddedebilir kişiler şekilde güncelleştirin:
 
-[!code-cshtml[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
+[!code-cshtml[](secure-data/samples/final2/Pages/Contacts/Details.cshtml?range=48-999)]
 
 Ayrıntılar sayfası modeli güncelleştirin:
 
-[!code-csharp[Main](secure-data/samples/final2/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final2/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
 ## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
 
@@ -311,7 +311,7 @@ Bir kişi yöneticinin tarayıcıda oluşturun. Delete URL'sini kopyalayın ve y
 
 * Aşağıdakileri ekleyin `Contact` modeli:
 
-  [!code-csharp[Main](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
+  [!code-csharp[](secure-data/samples/starter2/Models/Contact.cs?name=snippet1)]
 
 * İskele `Contact` modeli:
 
@@ -340,7 +340,7 @@ Ekleme `SeedData` sınıfının *veri* klasör. Örnek indirdiğiniz, kopyalayab
 
 Çağrı `SeedData.Initialize` gelen `Main`:
 
-[!code-csharp[Main](secure-data/samples/starter2/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/starter2/Program.cs?name=snippet)]
 
 Uygulama veritabanı sağlanmış sınayın. Seed yöntemi kişi DB herhangi bir satır varsa, çalıştırmaz.
 

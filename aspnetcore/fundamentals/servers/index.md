@@ -1,7 +1,7 @@
 ---
 title: "Web server ASP.NET Core uygulamalarında"
 author: tdykstra
-description: "Web sunucuları Kestrel ve WebListener için ASP.NET Core tanıtır. Birini konusunda rehberlik sağlar ve ne zaman bir ters proxy sunucusu ile kullanılır."
+description: "Kestrel ve HTTP.sys web sunucuları için ASP.NET Core bulur. Birini öğrenin ve ne zaman bir ters proxy sunucusu ile kullanılır."
 manager: wpickett
 ms.author: tdykstra
 ms.date: 08/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: 9e2bea396e50615bd02affad93f0ee55255d299f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b9a7fa4e33c56a5973b4bc35f88ca0ebb3d67101
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
 
@@ -115,7 +115,7 @@ Kestrel desteklemiyor WebListener özelliklerine gereksinim duyarsanız WebListe
 
 [ `IApplicationBuilder` ](/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder) Bulunan `Startup` sınıfı `Configure` yöntemi çıkarır `ServerFeatures` türündeki özelliği [ `IFeatureCollection` ](/aspnet/core/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel ve WebListener kullanıma yalnızca tek bir özellik olan [ `IServerAddressesFeature` ](/aspnet/core/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ancak farklı sunucu uygulamaları ek işlevsellik kullanıma.
 
-`IServerAddressesFeature`Sunucu uygulaması çalışma zamanında bağlı hangi bağlantı noktasının öğrenmek için kullanılabilir.
+`IServerAddressesFeature` Sunucu uygulaması çalışma zamanında bağlı hangi bağlantı noktasının öğrenmek için kullanılabilir.
 
 ## <a name="custom-servers"></a>Özel sunucuları
 

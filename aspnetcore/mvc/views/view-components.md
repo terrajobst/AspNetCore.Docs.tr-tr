@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2db6c22c27bad5a242771a6e44ef5e0fa8f77395
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="view-components"></a>Görünüm bileşenleri
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -66,7 +66,7 @@ Bir görünüm bileşenin sınıfı:
 
 Bir görünüm bileşeni, mantığını tanımlayan bir `InvokeAsync` döndüren yöntemi bir `IViewComponentResult`. Parametreleri doğrudan çağırma görünüm bileşeninin değil, model bağlama gelmektedir. Bir görünüm bileşeni hiçbir zaman doğrudan bir isteği işler. Genellikle, bir görünüm bileşeni bir model başlatır ve çağırarak bir görünümüne geçirir `View` yöntemi. Özet olarak, bileşen yöntemlerini görüntüleyin:
 
-* Tanımlayan bir `InvokeAsync` döndürür yöntemi bir`IViewComponentResult`
+* Tanımlayan bir `InvokeAsync` döndürür yöntemi bir `IViewComponentResult`
 * Genellikle bir model başlatır ve çağırarak bir görünümüne geçirir `ViewComponent` `View` yöntemi
 * Arama yöntemi, değil HTTP parametreleri gelir, model bağlama yok
 * Olan bir HTTP uç noktası olarak doğrudan ulaşılabilir değil, bunlar (genellikle bir görünümde) kodunuzdan çağrılan. Bir görünüm bileşeni hiçbir zaman bir isteği işler
@@ -93,13 +93,13 @@ Görünümü bileşen kullanmak için aşağıdaki çağrı görünümü içinde
 
 Parametreleri geçirilecek `InvokeAsync` yöntemi. `PriorityList` Makalesinde geliştirilen görünümü bileşen çağrılan *Views/Todo/Index.cshtml* görünüm dosyası. Aşağıdaki `InvokeAsync` yöntemi iki parametre ile çağrılır:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Bir görünümü bileşen etiket Yardımcısı olarak çağırma
 
 ASP.NET Core 1.1 ve üzeri, bir görünüm bileşeni olarak çağırabileceği bir [etiket Yardımcısı](xref:mvc/views/tag-helpers/intro):
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Pascal ortası sınıfı ve yöntem parametreleri etiket Yardımcıları için çevrilen içine kendi [alt kebab durumda](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Bir görünümü bileşen çağrılacak etiket Yardımcısı kullanan `<vc></vc>` öğesi. Görünüm bileşeni gibi belirtilir:
 
@@ -120,11 +120,11 @@ Bir görünüm bileşeni görünümü bileşen başvuran herhangi bir dosyaya et
 
 `InvokeAsync` Bu öğreticide kullanılan yöntem:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 Etiket Yardımcısı biçimlendirmede:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Yukarıdaki örnekteki `PriorityList` görünümü bileşen olur `priority-list`. Görünümü bileşen parametreleri alt kebab durumda öznitelik olarak geçirilir.
 
@@ -134,7 +134,7 @@ Görünümü bileşenler genellikle bir görünümden çağrılır, ancak doğru
 
 Bu örnekte, görünümü bileşen doğrudan denetleyicisinden çağrılır:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
+[!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>İzlenecek yol: basit bir görünümle bileşeni oluşturma
 
@@ -146,7 +146,7 @@ Bu örnekte, görünümü bileşen doğrudan denetleyicisinden çağrılır:
 
 Oluşturma bir *ViewComponents* klasörü ve aşağıdaki ekleyin `PriorityListViewComponent` sınıfı:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
+[!code-csharp[](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
 Kodu Notlar:
 
@@ -161,7 +161,7 @@ Kodu Notlar:
 
 * `[ViewComponent]` Yukarıda öznitelik adı kullanmak için görünümü bileşen Seçicisi söyler `PriorityList` bileşeni ile ve sınıf bileşen bir görünümden başvururken dizesi "PriorityList" kullanmak için ilişkili görünümleri ararken. I, daha ayrıntılı olarak daha sonra açıklanmıştır.
 * Bileşen [bağımlılık ekleme](../../fundamentals/dependency-injection.md) veri bağlamı kullanılabilmesi için.
-* `InvokeAsync`çıkarır rastgele sayıda bağımsız değişken bir görünüm ve onu denilen bir yöntem alabilir.
+* `InvokeAsync` çıkarır rastgele sayıda bağımsız değişken bir görünüm ve onu denilen bir yöntem alabilir.
 * `InvokeAsync` Yöntemi döndürür kümesini `ToDo` karşılamak öğeleri `isDone` ve `maxPriority` parametreleri.
 
 ### <a name="create-the-view-component-razor-view"></a>Görünümü bileşen Razor görünümü oluşturma
@@ -170,7 +170,7 @@ Kodu Notlar:
 
 * Oluşturma *görünümler/paylaşılan/bileşenleri/PriorityList* klasör. Bu klasör adı görünümü bileşen sınıfı adını ya da soneki eksi sınıfın adı eşleşmelidir (kuralı izleyen ve kullandıysanız *ViewComponent* sınıf adı soneki). Kullandıysanız `ViewComponent` özniteliği, sınıf adını öznitelik ataması eşleşmesi gerekir.
 
-* Oluşturma bir *Views/Shared/Components/PriorityList/Default.cshtml* Razor görünümü:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Oluşturma bir *Views/Shared/Components/PriorityList/Default.cshtml* Razor görünümü: [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    Razor görünüm bir listesini alır `TodoItem` ve bunları görüntüler. Varsa görünümü bileşen `InvokeAsync` yöntemi (olduğu gibi bizim örnek), görünümün adını geçirmek değil *varsayılan* Görünüm adı için kural tarafından kullanılır. Öğreticide daha sonra t, görünümün adını geçirmek nasıl göstereceğiz. Belirli bir denetleyicinin varsayılan stil geçersiz kılmak için denetleyici özel görünüm klasöre bir görünüm ekleyin (örneğin *Views/Todo/Components/PriorityList/Default.cshtml)*.
     
@@ -178,9 +178,9 @@ Kodu Notlar:
 
 * Ekleme bir `div` altına öncelik liste bileşeni için bir çağrı içeren *Views/Todo/index.cshtml* dosyası:
 
-    [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
+    [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-İşaretleme `@await Component.InvokeAsync` görünüm bileşenleri çağırma söz dizimi görülmektedir. İlk bağımsız değişken çağrılamadı veya çağrı istiyoruz bileşen adıdır. Sonraki parametreler bileşenine aktarılır. `InvokeAsync`rastgele sayıda bağımsız değişken alabilir.
+İşaretleme `@await Component.InvokeAsync` görünüm bileşenleri çağırma söz dizimi görülmektedir. İlk bağımsız değişken çağrılamadı veya çağrı istiyoruz bileşen adıdır. Sonraki parametreler bileşenine aktarılır. `InvokeAsync` rastgele sayıda bağımsız değişken alabilir.
 
 Uygulamayı test etme. Aşağıdaki resimde, yapılacaklar listesi ve öncelik öğeleri gösterilmektedir:
 
@@ -188,7 +188,7 @@ Uygulamayı test etme. Aşağıdaki resimde, yapılacaklar listesi ve öncelik �
 
 Ayrıca, doğrudan denetleyicisinden görünümü bileşen çağırabilirsiniz:
 
-[!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
+[!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
 ![IndexVC eylemden öncelikli öğeler](view-components/_static/indexvc.png)
 
@@ -196,17 +196,17 @@ Ayrıca, doğrudan denetleyicisinden görünümü bileşen çağırabilirsiniz:
 
 Karmaşık görünümü bileşen, varsayılan olmayan görünüm bazı koşullar altında belirtmeniz gerekebilir. Aşağıdaki kod "PVC" görünümünden belirtme gösterir `InvokeAsync` yöntemi. Güncelleştirme `InvokeAsync` yönteminde `PriorityListViewComponent` sınıfı.
 
-[!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
+[!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
 Kopya *Views/Shared/Components/PriorityList/Default.cshtml* adlı bir görünümü dosyasına *Views/Shared/Components/PriorityList/PVC.cshtml*. PVC görünümü kullanılan belirtmek için bir başlık ekleyin.
 
-[!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
+[!code-cshtml[](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
 Güncelleştirme *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 Uygulamayı çalıştırın ve PVC görünüm doğrulayın.
 
@@ -238,11 +238,11 @@ PVC görünüm işlenen değil, 4 veya daha yüksek önceliğe sahip görünüm�
 
 Zaman güvenliği derleme istiyorsanız, sabit kodlanmış görünümü bileşen adı sınıf adıyla değiştirin. "ViewComponent" soneki olmayan görünümü bileşen oluşturun:
 
-[!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
+[!code-csharp[](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
 Ekleme bir `using` , Razor ifadesine dosya görüntülemek ve kullanmak `nameof` işleci:
 
-[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

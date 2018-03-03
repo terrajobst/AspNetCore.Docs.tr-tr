@@ -1,4 +1,4 @@
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
+[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
 Önceki kod:
 
@@ -10,7 +10,7 @@
 
 Yapılacaklar öğelerini almak için aşağıdaki yöntemi ekleyin `TodoController` sınıfı.
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
+[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetAll)]
 
 Bu yöntemler iki GET yöntemleri uygulayın:
 
@@ -37,18 +37,18 @@ Bir örnek HTTP yanıtı için işte `GetAll` yöntemi:
 
 * Denetleyicinin şablonu dizesi ele `Route` özniteliği:
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
+[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
 * Değiştirir `[controller]` denetleyicinin adı ile olduğu "Controller" soneki eksi denetleyici sınıfı adı. Bu örnek, denetleyici sınıfı adı olan **Yapılacaklar**denetleyicisi ve kök "todo" adıdır. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük küçük harfe duyarlı değildir.
 * Varsa `[HttpGet]` özniteliğine sahip bir rota şablonu (gibi `[HttpGet("/products")]`, yolunu ekleyin. Bu örnek, bir şablon kullanmaz. Bkz: [özniteliği Http [eylem] özniteliklerle yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes) daha fazla bilgi için.
 
 İçinde `GetById` yöntemi:
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
+[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
-`"{id}"`Kimliği için bir yer tutucu değişkendir `todo` öğesi. Zaman `GetById` olan çağrılır, "{id}" değerini yöntemin URL'yi atar `id` parametresi.
+`"{id}"` Kimliği için bir yer tutucu değişkendir `todo` öğesi. Zaman `GetById` olan çağrılır, "{id}" değerini yöntemin URL'yi atar `id` parametresi.
 
-`Name = "GetTodo"`adlandırılmış bir yol oluşturur. Adlandırılmış yollar:
+`Name = "GetTodo"` adlandırılmış bir yol oluşturur. Adlandırılmış yollar:
 
 * Rota adını kullanarak bir HTTP bağlantısı oluşturmak için uygulama etkinleştirin.
 * Daha sonra öğreticide açıklanmıştır.
@@ -57,7 +57,7 @@ Bir örnek HTTP yanıtı için işte `GetAll` yöntemi:
 
 `GetAll` Yöntemi döndürür bir `IEnumerable`. MVC otomatik olarak serileştiren nesnesine [JSON](http://www.json.org/) ve JSON yanıt iletisi gövdesine yazar. Yanıt kodu 200 bu yöntem olduğu için hiçbir işlenmeyen özel durumları varsayılarak. (İşlenmeyen özel durumlar 5xx hatalarla karşılaşırsanız çevrilir.)
 
-Buna karşılık, `GetById` yöntemi döndürür daha genel `IActionResult` çok çeşitli dönüş türleri temsil eden tür. `GetById`iki farklı dönüş türü vardır:
+Buna karşılık, `GetById` yöntemi döndürür daha genel `IActionResult` çok çeşitli dönüş türleri temsil eden tür. `GetById` iki farklı dönüş türü vardır:
 
 * Öğe istenen kimliği eşleşirse, yöntem 404 hatası döndürür. Döndürme `NotFound` bir HTTP 404 yanıtı döndürür.
 

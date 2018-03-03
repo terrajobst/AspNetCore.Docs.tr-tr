@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 13df80983801564da08a4d65f464a5affbb06377
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 2d829b637f963c3e421fc4b89486709e38c06ab6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="anchor-tag-helper"></a>Yer işareti etiketi Yardımcısı
 
@@ -26,7 +26,7 @@ Tarafından [Peter Kellner](http://peterkellner.net) ve [Scott Addie](https://gi
 
 *SpeakerController* örnekleri bu belge boyunca kullanılır:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?name=snippet_SpeakerController)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Controllers/SpeakerController.cs?name=snippet_SpeakerController)]
 
 Bir envanterini `asp-` aşağıdaki öznitelikleri.
 
@@ -34,7 +34,7 @@ Bir envanterini `asp-` aşağıdaki öznitelikleri.
 
 [Asp denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.controller) özniteliği URL oluşturmak için kullanılan denetleyici atar. Aşağıdaki biçimlendirmede tüm konuşmacılar listeler:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspController)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspController)]
 
 Oluşturulan HTML:
 
@@ -52,7 +52,7 @@ Varsa `asp-controller` özniteliği belirtilmediyse ve `asp-action` değil, vars
 
 [Asp eylem](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.action) öznitelik değerini temsil eder oluşturulmuş dahil denetleyici eylem adı `href` özniteliği. Aşağıdaki biçimlendirmede oluşturulan ayarlar `href` Konuşmacı değerlendirmeleri sayfasına öznitelik değeri:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspAction)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspAction)]
 
 Oluşturulan HTML:
 
@@ -70,11 +70,11 @@ Varsa `asp-action` öznitelik değeri `Index`, hiçbir eylem varsayılan çağr�
 
 Aşağıdaki denetleyici eylemi göz önünde bulundurun:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/BuiltInTagController.cs?name=snippet_AnchorTagHelperAction)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Controllers/BuiltInTagController.cs?name=snippet_AnchorTagHelperAction)]
 
 Tanımlanan varsayılan rota şablonuyla *Startup.Configure*:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Startup.cs?name=snippet_UseMvc&highlight=8-10)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=8-10)]
 
 MVC görünüm gibi eylem tarafından sağlanan modeli kullanır:
 
@@ -122,11 +122,11 @@ Her iki `asp-controller` veya `asp-action` de olduğu gibi aynı varsayılan iş
 
 [Asp rota](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.route) özniteliği, bir URL bir adlandırılmış rota doğrudan bağlama oluşturmak için kullanılır. Kullanarak [yönlendirme öznitelikleri](xref:mvc/controllers/routing#attribute-routing), bir rota gösterildiği gibi adlı `SpeakerController` ve kullanılan kendi `Evaluations` eylem:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=22-24)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Controllers/SpeakerController.cs?range=22-24)]
 
 Aşağıdaki biçimlendirmede `asp-route` özniteliği adlandırılmış rota başvuruyor:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspRoute)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspRoute)]
 
 Yer işareti etiketi yardımcı doğrudan URL'yi kullanarak bu denetleyici eylemi için bir yol oluşturur */Konuşmacı/değerlendirmeleri*. Oluşturulan HTML:
 
@@ -142,7 +142,7 @@ Varsa `asp-controller` veya `asp-action` ek olarak belirtilen `asp-route`, oluş
 
 Aşağıdaki örnekte, bir sözlük başlatıldı ve Razor görünümüne geçirildi. Alternatif olarak, veri modeliniz oturum geçirilen.
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspAllRouteData)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspAllRouteData)]
 
 Yukarıdaki kod aşağıdaki HTML oluşturur:
 
@@ -152,7 +152,7 @@ Yukarıdaki kod aşağıdaki HTML oluşturur:
 
 `asp-all-route-data` Aşırı yüklenmiş gereksinimlerini karşılayan bir sorgu dizesi üretmek için Sözlük düzleştirilmiş `Evaluations` eylem:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs?range=26-30)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Controllers/SpeakerController.cs?range=26-30)]
 
 Sözlükteki tüm anahtarları rota parametrelerinin eşleşiyorsa, bu değerleri uygun şekilde rotadaki yerine kullanılır. Diğer eşleşmeyen değerleri İstek parametreleri üretilir.
 
@@ -160,7 +160,7 @@ Sözlükteki tüm anahtarları rota parametrelerinin eşleşiyorsa, bu değerler
 
 [Asp parça](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.fragment) özniteliği URL'si eklemek için URL parçası tanımlar. Yer işareti etiketi yardımcı karma karakteri ekler (#). Aşağıdaki biçimlendirmede göz önünde bulundurun:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspFragment)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspFragment)]
 
 Oluşturulan HTML:
 
@@ -189,7 +189,7 @@ Karma etiketleri, istemci-tarafı uygulamaları oluştururken yararlıdır. Bunl
 
 Yukarıdaki dizin hiyerarşisinin başvurmak için biçimlendirme verilen *AboutBlog.cshtml* dosyasıdır:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspArea)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspArea)]
 
 Oluşturulan HTML:
 
@@ -198,13 +198,13 @@ Oluşturulan HTML:
 ```
 
 > [!TIP]
-> Varsa bir MVC uygulamasında çalışmaya alanları için rota şablonu alanı için bir başvuru içermelidir. Bu şablon ikinci parametre tarafından temsil edilen `routes.MapRoute` yöntem çağrısı *Startup.Configure*:[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Startup.cs?name=snippet_UseMvc&highlight=5)]
+> Varsa bir MVC uygulamasında çalışmaya alanları için rota şablonu alanı için bir başvuru içermelidir. Bu şablon ikinci parametre tarafından temsil edilen `routes.MapRoute` yöntem çağrısı *Startup.Configure*: [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
 ## <a name="asp-protocol"></a>ASP Protokolü
 
 [Asp Protokolü](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.protocol) özniteliği olan bir protokolü belirtmek için (gibi `https`) URL'nizde. Örneğin:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspProtocol)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspProtocol)]
 
 Oluşturulan HTML:
 
@@ -218,7 +218,7 @@ Localhost ana bilgisayar adıdır örnekteki ancak yer işareti etiketi yardımc
 
 [Asp konak](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.host) özniteliktir, URL'de bir ana bilgisayar adını belirtmek için. Örneğin:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspHost)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspHost)]
 
 Oluşturulan HTML:
 
@@ -232,7 +232,7 @@ Oluşturulan HTML:
 
 Aşağıdaki örnek, katılımcı Razor sayfasını noktaları:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPage)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspPage)]
 
 Oluşturulan HTML:
 
@@ -242,7 +242,7 @@ Oluşturulan HTML:
 
 `asp-page` Özniteliği ile birbirini dışlayan `asp-route`, `asp-controller`, ve `asp-action` öznitelikleri. Ancak, `asp-page` ile kullanılan `asp-route-{value}` yönlendirme, aşağıdaki biçimlendirme gösterdiği gibi denetlemek için:
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPageAspRouteId)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspPageAspRouteId)]
 
 Oluşturulan HTML:
 
@@ -256,11 +256,11 @@ Oluşturulan HTML:
 
 Aşağıdaki sayfayı işleyicisini göz önünde bulundurun:
 
-[!code-csharp[](samples/TagHelpersBuiltInAspNetCore/Pages/Attendee.cshtml.cs?name=snippet_OnGetProfileHandler)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Pages/Attendee.cshtml.cs?name=snippet_OnGetProfileHandler)]
 
 Sayfa modeli biçimlendirme bağlantılar ilişkili `OnGetProfile` sayfası işleyicisi. Unutmayın `On<Verb>` sayfa işleyici yöntemi adı öneki atlanırsa `asp-page-handler` öznitelik değeri. Bu zaman uyumsuz bir yöntem olsaydı `Async` soneki etmeyebilirsiniz çok.
 
-[!code-cshtml[](samples/TagHelpersBuiltInAspNetCore/Views/Home/Index.cshtml?name=snippet_AspPageHandler)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspPageHandler)]
 
 Oluşturulan HTML:
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 4f55b3b439d268c371ce40a298b0f63dad9eef69
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -48,7 +48,7 @@ Görünümleri Yardım kurmak için bir [ **S**eparation **o**f **C**oncerns (So
 
 Bir denetleyiciye özgü görünümler oluşturulan *görünümler / [controllername öğesi]* klasör. Denetleyicileri arasında paylaşılan görünümleri yerleştirilir *görünümler/paylaşılan* klasör. Bir görünüm oluşturmak için yeni bir dosya ekleyin ve onun ilişkili denetleyici eylemi ile aynı adı vermek *.cshtml* dosya uzantısı. Karşılık gelen bir görünüm oluşturmak için *hakkında* eylemde *giriş* denetleyicisi oluşturma bir *About.cshtml* dosyasını *görünümler/giriş*klasörü:
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 *Razor* biçimlendirme ile başlayan `@` simgesi. C# yerleştirerek çalıştırma C# deyimleri kod içinde [Razor kod blokları](xref:mvc/views/razor#razor-code-blocks) küme ayraçları ayarlayın (`{ ... }`). Örneğin, "Hakkında" atanması için bkz: `ViewData["Title"]` yukarıda gösterilen. HTML içindeki değerleri değeriyle başvurarak görüntüleyebilirsiniz `@` simgesi. İçeriğini görmek `<h2>` ve `<h3>` yukarıdaki öğeler.
 
@@ -60,7 +60,7 @@ Görünümleri eylemlerine genellikle döndürülür bir [ViewResult](/aspnet/co
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 Bu eylem geri döndüğünde, *About.cshtml* son bölümünde gösterilen görünüm aşağıdaki Web sayfası işlenen:
 

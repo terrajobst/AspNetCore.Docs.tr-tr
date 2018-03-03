@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: b0e1a331fe3229119f4669fa336b6af4822785bf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c7825530146e5e4a879bf44db5a92bc7700de73b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Mac için ASP.NET Core MVC ve Visual Studio ile Web API oluşturma
 
@@ -88,7 +88,7 @@ Ekleme bir `TodoItem` sınıfı. Sağ *modelleri* klasörü ve select **Ekle > Y
 
 Oluşturulan kod ile değiştirin:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
 Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
 
@@ -98,7 +98,7 @@ Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
 
 Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 
@@ -130,11 +130,11 @@ Ekleyeceğiz `Create`, `Update`, ve `Delete` denetleyiciye yöntemleri. I yalnı
 
 ### <a name="create"></a>Create
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
+[!code-csharp[](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Bu belirttiği bir HTTP POST yöntemi olup [ `[HttpPost]` ](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [ `[FromBody]` ](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) Özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
 
-`CreatedAtRoute` Yöntemi yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıt 201 bir yanıt döndürür. `CreatedAtRoute`Ayrıca bir konum üstbilgisi yanıta ekler. Konum üstbilgisi yeni oluşturulan Yapılacaklar öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+`CreatedAtRoute` Yöntemi yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıt 201 bir yanıt döndürür. `CreatedAtRoute` Ayrıca bir konum üstbilgisi yanıta ekler. Konum üstbilgisi yeni oluşturulan Yapılacaklar öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 ### <a name="use-postman-to-send-a-create-request"></a>Postman oluşturma isteği göndermek için kullanın
 
@@ -143,7 +143,7 @@ Bu belirttiği bir HTTP POST yöntemi olup [ `[HttpPost]` ](/aspnet/core/api/mic
 
 ![Postman konsol](first-web-api/_static/pmc.png)
 
-* HTTP yöntemini ayarlayın`POST`
+* HTTP yöntemini ayarlayın `POST`
 * Seçin **gövde** radyo düğmesi
 * Seçin **ham** radyo düğmesi
 * Türü için JSON ayarlayın
@@ -171,9 +171,9 @@ public IActionResult GetById(string id)
 
 ### <a name="update"></a>Güncelleştirme
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+[!code-csharp[](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`Update`benzer `Create`, ancak HTTP PUT kullanır. Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP spec göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca farkları göndermek istemci gerektirir. Kısmi güncelleştirmeler desteklemek için HTTP PATCH kullanın.
+`Update` benzer `Create`, ancak HTTP PUT kullanır. Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP spec göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca farkları göndermek istemci gerektirir. Kısmi güncelleştirmeler desteklemek için HTTP PATCH kullanın.
 
 ```json
 {
@@ -187,7 +187,7 @@ public IActionResult GetById(string id)
 
 ### <a name="delete"></a>Sil
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
+[!code-csharp[](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
 Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 

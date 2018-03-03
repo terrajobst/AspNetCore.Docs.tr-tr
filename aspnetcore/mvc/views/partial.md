@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: a92466e7e8b12586efb502676cb92c1420d80453
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: c9bbfc83b8ee0cd05c71ea16b2a54a37235c8435
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="partial-views"></a>Kısmi görünümler
 
@@ -43,15 +43,15 @@ Kısmi görünümler gibi herhangi bir görünüm oluşturulur: oluşturduğunuz
 
 Gelen bir görünüm sayfası içinde kısmi görünüm işlemek birkaç yolu vardır. Kullanılacak en kolayıdır `Html.Partial`, döndüren bir `IHtmlString` ve çağrısı ile ekleyerek başvurulabilir `@`:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
 
 `PartialAsync` Yöntemi, (kod görünümlerde genellikle önerilmez rağmen) zaman uyumsuz kod içeren kısmi görünümleri için kullanılabilir:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
 Kısmi bir görünümü ile işleyebilen `RenderPartial`. Bu yöntem, bir sonuç dönmez; doğrudan yanıta işlenen çıkış akışları. Bir sonuç döndürmediğinden, Razor kod bloğu içinde çağırılmalıdır (Ayrıca çağırabilirsiniz `RenderPartialAsync` gerekirse):
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
 
 Sonuç doğrudan akışları çünkü `RenderPartial` ve `RenderPartialAsync` bazı senaryolarda daha iyi gerçekleştirebilir. Ancak, önerilir, çoğu durumda kullanmanız `Partial` ve `PartialAsync`.
 
@@ -104,19 +104,19 @@ Ayrıca, bir model kısmi görünüme geçirebilirsiniz. Bu sayfanın görünüm
 
 Örneği geçirebilirsiniz `ViewDataDictionary` ve kısmi görünüm için Görünüm modeli:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 Biçimlendirme gösterir aşağıda *Views/Articles/Read.cshtml* iki kısmi görünümleri içeren görünümü. Bir model ikinci kısmi görünüm geçirir ve `ViewData` kısmi görünüme. Yeni geçirebilirsiniz `ViewData` varolan korurken sözlük `ViewData` Oluşturucusu aşırı yüklemesini kullanırsanız `ViewDataDictionary` aşağıda vurgulanan:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Görünümler/paylaşılan/AuthorPartial*:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 *ArticleSection* kısmi:
 
-[!code-cshtml[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 Çalışma zamanında kısmi işlendiğini üst görünüme kendisi işlenen paylaşılan içinde *_Layout.cshtml*
 

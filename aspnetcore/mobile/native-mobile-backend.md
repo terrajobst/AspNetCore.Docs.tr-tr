@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: ff09f331cff5cca7b42fa89bff55c0ed5c7d82f4
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f5c0e5832b43f365c11a785af37b32e381624420
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>Yerel mobil uygulamalar için arka uç hizmetleri oluşturma
 
@@ -61,26 +61,26 @@ Visual Studio'da yeni bir ASP.NET çekirdek Web uygulaması oluşturun. Hayır k
 
 Uygulama bağlantı noktası 5000 yapılan tüm isteklere yanıt. Güncelleştirme *Program.cs* içerecek şekilde `.UseUrls("http://*:5000")` Bunu başarmak için:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
-> IIS, varsayılan olarak yerel olmayan isteklerini yoksayar Express, arkasında yapmak yerine, doğrudan, uygulama çalıştırdığınızdan emin olun. Çalıştırma `dotnet run` bir komut isteminden veya Visual Studio araç çubuğundaki hata ayıklama hedefi açılır uygulama adı profili seçin.
+> IIS, varsayılan olarak yerel olmayan isteklerini yoksayar Express, arkasında yapmak yerine, doğrudan, uygulama çalıştırdığınızdan emin olun. Çalıştırma [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) bir komut isteminden veya Visual Studio araç çubuğundaki hata ayıklama hedefi açılır uygulama adı profili seçin.
 
 Yapılacaklar öğelerini göstermek için bir model sınıfı ekleyin. İşareti gerekli alanlarını kullanarak `[Required]` özniteliği:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
 API yöntemlerini verilerle çalışmak için bazı yol gerekir. Aynı `IToDoRepository` arabirim özgün Xamarin örnek kullanır:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
 Bu örnek için uygulama, yalnızca öğeleri özel koleksiyonu kullanır:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
 Uygulamasında yapılandırma *haline*:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
 Bu noktada, oluşturmak için hazır *ToDoItemsController*.
 
@@ -93,7 +93,7 @@ Yeni bir denetleyici projeye ekleyin *ToDoItemsController*. Microsoft.AspNetCore
 
 Denetleyici gerektiren bir `IToDoRepository` için işlev; denetleyicinin Oluşturucusu aracılığıyla bu türünün bir örneği isteği. Framework'ün desteğini kullanarak bu örnek çalışma zamanında sağlanacak [bağımlılık ekleme](../fundamentals/dependency-injection.md).
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
 Bu API veri kaynağında (oluşturma, okuma, güncelleştirme, silme) CRUD işlemleri gerçekleştirmek için dört farklı HTTP fiilleri destekler. Bu bir HTTP GET isteği karşılık gelen okuma işlemi en kolayıdır.
 
@@ -101,7 +101,7 @@ Bu API veri kaynağında (oluşturma, okuma, güncelleştirme, silme) CRUD işle
 
 Bir öğe listesi isteyen bir GET isteğine ile yapılır `List` yöntemi. `[HttpGet]` Özniteliği `List` yöntemi gösterir Bu eylem yalnızca GET isteklerini işlemesi gerekir. Bu eylem için yol denetleyicisinde belirtilen yoldur. Mutlaka rota bir parçası olarak eylem adı kullanmanız gerekmez. Yalnızca benzersiz ve anlaşılır bir rota her bir eylem içerdiğinden emin olmak yeterlidir. Yönlendirme öznitelikleri, denetleyici ve belirli rotaları oluşturmak için yöntem düzeylerinde uygulanabilir.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
 `List` Yöntemi 200 Tamam yanıt kodu ve tüm JSON olarak serileştirilen Yapılacaklar öğelerini döndürür.
 
@@ -115,11 +115,11 @@ Kurala göre yeni veri öğeleri oluşturmak için HTTP POST fiil eşlenir. `Cre
 
 Yöntemi içinde öğe geçerlilik ve veri deposunda önceki varlığı için denetlenir ve herhangi bir sorun oluşursa, depo kullanılarak eklenir. Denetimi `ModelState.IsValid` gerçekleştirir [model doğrulama](../mvc/models/validation.md)ve kullanıcı girişini kabul etme her API yönteminde yapılması gerekir.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
 Örnek mobil istemciye geçirilen hata kodları içeren bir enum kullanır:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
 Postman yeni nesnesi istek gövdesinde JSON biçiminde sağlama sonrası fiil seçerek yeni öğeler eklemek sınayın. Belirten bir istek üstbilgisi de eklemeniz gerekir bir `Content-Type` , `application/json`.
 
@@ -131,7 +131,7 @@ Yöntemi yeni oluşturulan öğeyi yanıt olarak döndürür.
 
 Kayıtları değiştirme yapılır HTTP PUT isteklerini kullanarak. Bu değişiklik dışında `Edit` yöntemdir neredeyse aynı `Create`. Kaydı bulunmazsa unutmayın, `Edit` eylem döndürecektir bir `NotFound` (404) yanıt.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
 Postman ile test etmek için PUT fiili değiştirin. Güncelleştirilmiş nesne verilerini istek gövdesinde belirtin.
 
@@ -143,7 +143,7 @@ Bu yöntem bir `NoContent` başarılı olduğunda, önceden varolan API ile tuta
 
 Kayıtları silme silme isteklerinin hizmete yapma ve silinecek öğe kimliği geçirme gerçekleştirilir. Güncelleştirme ile var olmayan öğeler için istekleri alacak şekilde `NotFound` yanıtlar. Aksi takdirde, başarılı bir istek alırsınız bir `NoContent` (204) yanıt.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
 Delete işlevselliğini test etme, hiçbir şey istek gövdesinde gerektiğini unutmayın.
 

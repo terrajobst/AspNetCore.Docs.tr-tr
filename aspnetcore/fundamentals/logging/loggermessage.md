@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme"
 author: guardrex
-description: "LoggerMessage özelliklerinin Günlükçü genişletme yöntemleri daha az nesne ayırmaları yüksek performans günlük kaydı senaryoları için gerekli alınabilir temsilciler oluşturmak için nasıl kullanılacağını öğrenin."
+description: "Yüksek performanslı günlük kaydı senaryoları için daha az nesne ayırmaları gerektiren alınabilir temsilciler oluşturmak için LoggerMessage kullanmayı öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: a67e610150e36165a72a2e8957b33ce7d5741936
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
@@ -38,7 +38,7 @@ Sağlanan dize `Define` yöntemdir bir şablon ve Ara değerli bir dize değil. 
 
 Her günlük iletisi bir `Action` tarafından oluşturulan statik bir alana tutulan `LoggerMessage.Define`. Örneğin, örnek uygulamayı dizin sayfası için bir GET isteği için bir günlük iletisi tanımlamak için bir alan oluşturur (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
 İçin `Action`, belirtin:
 
@@ -52,17 +52,17 @@ Her günlük iletisi bir `Action` tarafından oluşturulan statik bir alana tutu
 * Olay Kimliği `1` adıyla `IndexPageRequested` yöntemi.
 * (Biçim dizesi olarak adlandırılır) ileti şablona bir dize.
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
 Günlüğe kaydetme zenginleştirmek için olay kimliği ile sağlandığında yapılandırılmış günlük depoları olay adı kullanabilirsiniz. Örneğin, [Serilog](https://github.com/serilog/serilog-extensions-logging) olay adını kullanır.
 
 `Action` Kesin türü belirtilmiş genişletme yöntemi çağrılır. `IndexPageRequested` Yöntemi örnek uygulamasında bir dizin sayfası GET isteği için bir ileti kaydeder:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
 `IndexPageRequested` Günlükçü olarak adlandırılan `OnGetAsync` yönteminde *Pages/Index.cshtml.cs*:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
 Uygulamanın konsol çıkışı inceleyin:
 
@@ -74,19 +74,19 @@ info: LoggerMessageSample.Pages.IndexModel[1]
 
 Bir günlük iletisine parametreleri geçirmek için statik alan oluştururken en fazla altı türünü tanımlar. Bir teklif tanımlayarak eklerken örnek uygulaması bir dize günlüklerinin bir `string` yazın `Action` alan:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
 Temsilcinin günlük iletisi şablonunu sağlanan türlerinden yer tutucu değerlerini alır. Teklif parametresi olduğu bir teklif eklemek için bir temsilci örnek uygulaması tanımlar bir `string`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
 Bir teklif eklemek için statik genişletme yöntemi `QuoteAdded`, teklif bağımsız değişken değeri alır ve buna ileten `Action` temsilci:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
 Dizin sayfasının sayfa modelinde (*Pages/Index.cshtml.cs*), `QuoteAdded` ileti günlüğe kaydetmek üzere çağrılır:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
 Uygulamanın konsol çıkışı inceleyin:
 
@@ -98,17 +98,17 @@ info: LoggerMessageSample.Pages.IndexModel[2]
 
 Örnek uygulama uygulayan bir `try` &ndash; `catch` teklif silme işlemi için desen. Bir bilgi iletisidir başarılı silme işlemi için günlüğe kaydedilir. Bir özel durum bir hata iletisi silme işlemi için günlüğe kaydedilir. Başarısız silme işlemi için özel durum yığın izleme günlüğü iletisi içerir (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
 Özel durum temsilciye nasıl geçirildiğini unutmayın `QuoteDeleteFailed`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
 Dizin Sayfası sayfa modelinde başarılı teklif silme işlemini çağırır `QuoteDeleted` Günlükçü yöntemi. Bir teklif silinmek üzere bulunamadığında olduğunda bir `ArgumentNullException` oluşturulur. Özel durum tarafından yakalanan `try` &ndash; `catch` deyimi ve çağırarak günlüğe `QuoteDeleteFailed` Günlükçü yöntemi `catch` blok (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
 Bir teklif başarıyla silindiğinde, uygulamanın konsol çıkışı inceleyin:
 
@@ -145,7 +145,7 @@ Tanımlayan bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes) g�
 
 Etkinleştirme `IncludeScopes` konsol Günlükçü seçenekleri:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
+[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Ayarı `IncludeScopes` ASP.NET Core 2.0 uygulamalarında günlük kapsamları etkinleştirmek için gereklidir. Ayarı `IncludeScopes` aracılığıyla *appsettings* yapılandırma dosyaları için ASP.NET Core 2.1 yayın planladığını bir özelliktir.
 
@@ -153,19 +153,19 @@ Ayarı `IncludeScopes` ASP.NET Core 2.0 uygulamalarında günlük kapsamları et
 
 Bir günlük kapsamı oluşturmak için tutmak için bir alan ekleyebilmek bir `Func` kapsam için temsilci. Adlı bir alan örnek uygulaması oluşturur `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
 Kullanım `DefineScope` temsilcisi oluşturmak için. Temsilci çağrıldığında en fazla üç tür şablon bağımsız değişken olarak kullanım için belirtilebilir. Örnek uygulaması silinen tekliflerinin sayısını içeren bir ileti şablonunu kullanır (bir `int` türü):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
 Günlük iletisi için bir statik genişletme yöntemi sağlar. Herhangi bir tür parametre görünür adlandırılmış özellikleri için ileti şablona dahil. Örnek uygulaması gereken bir `count` silmek için tırnak döndürür ve `_allQuotesDeletedScope`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
 Günlük uzantısı çağrıları kapsam sarmalayan bir `using` engelle:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
 Uygulamanın konsol çıkışı günlük iletilerini inceleyin. Aşağıdaki sonucu dahil günlük kapsam iletisiyle silinmiş üç teklifleri gösterir:
 

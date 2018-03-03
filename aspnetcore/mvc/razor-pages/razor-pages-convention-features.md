@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: b34fd9ad8ae895087dba13f5ebcdcfd3fbb74667
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: 54834727db70668552b2a1007c8a9be3cfe2e6b7
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core
 
@@ -40,14 +40,14 @@ Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpage
 
 Örnek uygulaması ekler bir `{globalTemplate?}` uygulamadaki tüm sayfalar için rota şablonu:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
 > `Order` Özelliği için `AttributeRouteModel` ayarlanır `0` (sıfır). Bu, bu şablonu bir tek yönlendirme değeri sağlandığında ilk rota veri değeri konumunun öncelik verilir sağlar. Örneğin, örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verilen bir `Order` , `1`. Ne zaman hakkında sayfa istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
 Razor sayfalarının seçenekleri ekleme gibi [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), MVC hizmet koleksiyonunda eklendiğinde eklenen `Startup.ConfigureServices`. Bir örnek için bkz: [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet1)]
 
 Örnek ait hakkında sayfanın isteği `localhost:5000/About/GlobalRouteValue` ve sonucu inceleyin:
 
@@ -61,11 +61,11 @@ Bu ve diğer kuralları konunun ilerleyen bölümlerinde göstermek için örnek
 
 Örnek uygulama kullandığı `AddHeaderAttribute` üst bilgi eklemek için sınıfı `GlobalHeader`, uygulamadaki tüm sayfalar için:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalHeaderPageApplicationModelConvention.cs?name=snippet1)]
 
 *Startup.cs*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet2)]
 
 Örnek ait hakkında sayfanın isteği `localhost:5000/About` ve sonuçları görüntülemek için üstbilgileri inceleyin:
 
@@ -81,7 +81,7 @@ Kullanım [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 Örnek uygulama kullandığı `AddFolderRouteModelConvention` eklemek için bir `{otherPagesTemplate?}` sayfaları için rota şablonu *OtherPages* klasörü:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
 > `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki Page1 sayfa istediyseniz `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
@@ -96,7 +96,7 @@ Kullanım [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.app
 
 Örnek uygulama kullandığı `AddPageRouteModelConvention` eklemek için bir `{aboutTemplate?}` hakkında sayfasına rota şablonu:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
 > `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki hakkında sayfa istediyseniz `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
@@ -111,13 +111,13 @@ Kullanım [AddPageRoute](/dotnet/api/microsoft.extensions.dependencyinjection.pa
 
 Örnek uygulama için bir yol oluşturur `/TheContactPage` için *Contact.cshtml*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet5)]
 
 İlgili kişi sayfası üzerinde de erişilebilir `/Contact` varsayılan yol aracılığıyla.
 
 İlgili kişi sayfası örnek uygulamanın özel yol için bir isteğe bağlı verir `text` yol kesimi (`{text?}`). Sayfa Ayrıca isteğe bağlı bu kesimdeki içerir, `@page` sayfanın ziyaretçi erişen durumda yönergesi kendi `/Contact` yol:
 
-[!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
+[!code-cshtml[](razor-pages-convention-features/sample/Pages/Contact.cshtml?highlight=1)]
 
 URL için oluşturulan Not **kişi** işlenen sayfa bağlantıyı güncelleştirilmiş rota yansıtır:
 
@@ -135,7 +135,7 @@ Uygulayan varsayılan sayfa model sağlayıcısı [IPageApplicationModelProvider
 
 Bu bölümdeki örnekler için örnek uygulamayı kullanan bir `AddHeaderAttribute` olan sınıf bir [ResultFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.resultfilterattribute), bir yanıt üstbilgisi geçerlidir:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Filters/AddHeader.cs?name=snippet1)]
 
 Kuralları kullanarak, örnek bir klasördeki tüm sayfalar için ve tek bir sayfayla öznitelik uygulamak nasıl gösterir.
 
@@ -145,7 +145,7 @@ Kullanım [AddFolderApplicationModelConvention](/dotnet/api/microsoft.aspnetcore
 
 Örnek kullanımını gösteren `AddFolderApplicationModelConvention` üst bilgi ekleyerek `OtherPagesHeader`, içinde sayfalara *OtherPages* uygulamanın klasörü:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet6)]
 
 Örnek 's Page1 sayfanın isteği `localhost:5000/OtherPages/Page1` ve sonuçları görüntülemek için üstbilgileri inceleyin:
 
@@ -157,7 +157,7 @@ Kullanım [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.m
 
 Örnek kullanımını gösteren `AddPageApplicationModelConvention` üst bilgi ekleyerek `AboutHeader`, hakkında sayfasına:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet7)]
 
 Örnek ait hakkında sayfanın isteği `localhost:5000/About` ve sonuçları görüntülemek için üstbilgileri inceleyin:
 
@@ -167,7 +167,7 @@ Kullanım [AddPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.m
 
 [ConfigureFilter](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.configurefilter) belirtilen filtre uygulamak için yapılandırır. Bir filtre sınıf uygulayabilirsiniz, ancak örnek uygulaması Perde Arkası bir filtre döndüren bir Fabrika olarak uygulanan bir lambda ifadesinde bir filtre uygulamak gösterilmektedir:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet8)]
 
 Sayfa uygulama modeli Page2 sayfası yol kesimleri için göreli yol denetlemek için kullanılır *OtherPages* klasör. Koşul geçerse, bir başlığı eklenir. Aksi takdirde, `EmptyFilter` uygulanır.
 
@@ -183,11 +183,11 @@ Sayfa uygulama modeli Page2 sayfası yol kesimleri için göreli yol denetlemek 
 
 Örnek uygulamayı kullanarak örneğidir bir [filtre Fabrika](xref:mvc/controllers/filters#ifilterfactory) üst bilgi ekleyerek `FilterFactoryHeader`, uygulamanın sayfalara iki değerlerle:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet9)]
 
 *AddHeaderWithFactory.cs*:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Factories/AddHeaderWithFactory.cs?name=snippet1)]
 
 Örnek ait hakkında sayfanın isteği `localhost:5000/About` ve sonuçları görüntülemek için üstbilgileri inceleyin:
 
@@ -246,7 +246,7 @@ Adsız ve adlandırılmış işleyici yöntemleri adlı şeklini değiştirmek t
 
 Bu düzen oluşturmak için devralınmalıdır `DefaultPageApplicationModelProvider` sınıfı ve geçersiz kılma [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) çözmek için Özel mantık sağlamak için yöntemi [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) işleyici adları. Bunun nasıl yapılacağı gösteren örnek uygulaması, `CustomPageApplicationModelProvider` sınıfı:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
+[!code-csharp[](razor-pages-convention-features/sample/CustomPageApplicationModelProvider.cs?name=snippet1&highlight=1-2,45-46,64-68,78-85,87,92,106)]
 
 Sınıf noktalar:
 
@@ -260,7 +260,7 @@ Sınıf noktalar:
 
 Kayıt `CustomPageApplicationModelProvider` içinde `Startup` sınıfı:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
+[!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet10)]
 
 Sayfa modelinde *Index.cshtml.cs* uygulama sayfaları için sıradan işleyici yöntemi adlandırma kuralları nasıl değiştirilir gösterir. "Açık" Razor sayfalarıyla kullanılan öneki adlandırma sıradan kaldırıldı. Sayfa durumu başlatır yöntemi şimdi adlı `Get`. Bu kural sayfalar için herhangi bir sayfayı modeli açarsanız uygulama boyunca kullanılan görebilirsiniz.
 
@@ -268,11 +268,11 @@ Diğer yöntemlerin her biri ile işlemesi açıklar HTTP fiili başlatın. İle
 
 Unutmayın `Async` arasında isteğe bağlı olduğu `DeleteAllMessages` ve `DeleteMessageAsync`. Her iki zaman uyumsuz yöntemleri oldukları ancak kullanmayı tercih edebileceğiniz `Async` veya sonek; bunu yapmanızı öneririz. `DeleteAllMessages` Burada gösterim amacıyla kullanılmıştır, ancak böyle bir yöntem adı öneririz `DeleteAllMessagesAsync`. İşleme etkilemez örnek 's uygulaması, ancak kullanarak `Async` zaman uyumsuz bir yöntem olduğunu olgu giden çağrıları sonek.
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
+[!code-csharp[](razor-pages-convention-features/sample/Pages/Index.cshtml.cs?name=snippet1&highlight=1,6,16,29)]
 
 Sağlanan işleyici adlarını not edin *Index.cshtml* eşleşen `DeleteAllMessages` ve `DeleteMessageAsync` işleyici yöntemleri:
 
-[!code-cshtml[Main](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
+[!code-cshtml[](razor-pages-convention-features/sample/Pages/Index.cshtml?range=29-60&highlight=7-8,24-25)]
 
 `Async` işleyici yöntem adı `DeleteMessageAsync` tarafından out oluşturmak `TryParseHandlerMethod` yöntemi POST isteğinin işleyici eşlemesi. `asp-page-handler` Adını `DeleteMessage` işleyici yöntemi eşleşen `DeleteMessageAsync`.
 
@@ -282,13 +282,13 @@ MVC [eylem filtrelerini](xref:mvc/controllers/filters#action-filters) Razor sayf
 
 Sayfa filtresi ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) Razor sayfaya uygulanan bir filtredir. Bir sayfa işleyici yönteminin yürütülmesi çevreleyen. Özel kod sayfası işleyici yöntemi yürütme aşamalarında işlemenize olanak sağlar. Örnek uygulamadan örnek aşağıda verilmiştir:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
+[!code-csharp[](razor-pages-convention-features/sample/Filters/ReplaceRouteValueFilterAttribute.cs?name=snippet1)]
 
 Bu filtre denetler bir `globalTemplate` "ReplacementValue içinde" değeri "TriggerValue" ve takasları yol.
 
 `ReplaceRouteValueFilter` Özniteliği doğrudan uygulanabilir bir `PageModel`:
 
-[!code-csharp[Main](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
+[!code-csharp[](razor-pages-convention-features/sample/Pages/OtherPages/Page3.cshtml.cs?range=10-12&highlight=1)]
 
 İle örnek uygulamasından Page3 sayfa isteği `localhost:5000/OtherPages/Page3/TriggerValue`. Filtre rota değeri nasıl değiştirir dikkat edin:
 

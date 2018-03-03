@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamada Windows kimlik doğrulamasını yapılandırma
 
@@ -56,7 +56,7 @@ Alternatif olarak, bu iki özellik de yapılandırılabilir *launchSettings.json
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS Windows kimlik doğrulamasını etkinleştirme
 
-IIS kullanan [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) (ASP.NET Core uygulamaları barındırmak için ANCM). ANCM akışları için Windows kimlik doğrulamasını IIS varsayılan olarak. Windows kimlik doğrulaması yapılandırmasını, IIS, uygulama projesi içinde yapılır. Aşağıdaki bölümlerde ASP.NET Core uygulamayı Windows kimlik doğrulaması kullanacak şekilde yapılandırmak için IIS Yöneticisi'ni kullanmayı gösterir.
+IIS kullanan [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konak ASP.NET Core uygulamaları için. Modül akışları için Windows kimlik doğrulamasını IIS varsayılan olarak. Windows kimlik doğrulaması, IIS, uygulama yapılandırılır. Aşağıdaki bölümlerde ASP.NET Core uygulamayı Windows kimlik doğrulaması kullanacak şekilde yapılandırmak için IIS Yöneticisi'ni kullanmayı gösterir.
 
 ### <a name="create-a-new-iis-site"></a>Yeni bir IIS sitesi oluştur
 
@@ -113,7 +113,7 @@ Windows kimlik doğrulaması ve anonim erişim etkin olduğunda, kullanın `[Aut
 ASP.NET Core içinde 2.x `[Authorize]` öznitelik, bir ek yapılandırma gerektirir *haline* Windows kimlik doğrulaması için anonim isteklere sınama için. Önerilen yapılandırma kullanılan web sunucusu göre biraz değişir.
 
 > [!NOTE]
-> Varsayılan olarak, bir sayfaya erişmek için yetkilendirme eksikliği kullanıcılar boş bir belgeyle sunulur. [StatusCodePages Ara](xref:fundamentals/error-handling#configuring-status-code-pages) kullanıcıları daha iyi bir "Erişim engellendi" deneyimi sunmak için yapılandırılabilir.
+> Varsayılan olarak, bir sayfaya erişmek için yetkilendirme eksikliği kullanıcılar ile boş bir HTTP 403 yanıt sunulur. [StatusCodePages Ara](xref:fundamentals/error-handling#configuring-status-code-pages) kullanıcıları daha iyi bir "Erişim engellendi" deneyimi sunmak için yapılandırılabilir.
 
 #### <a name="iis"></a>IIS
 

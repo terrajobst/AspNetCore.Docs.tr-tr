@@ -12,24 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 15db1589eb90739458b430c35cea38e93e3dec5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework İskele ve geçişleri
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework İskele ve geçişleri
 
-> ASP.NET MVC 4 denetleyici yöntemleriyle bilginiz veya tamamladınız &quot;Yardımcıları, formlar ve doğrulama&quot; uygulamalı Laboratuvar size dikkat oluşturmak için mantığı çoğunu güncelleştirme, listelemek ve onu yineleniyor herhangi bir veri varlık kaldırır uygulama arasında. Modelinizi işlemek için birden fazla sınıf varsa, değil belirtmeyi, her varlık işlemi yanı sıra her görünüm için POST ve GET eylem yöntemleri yazma önemli bir süre beklemesini olası olacaktır.
-> 
-> Bu laboratuvarda, ASP.NET MVC 4 yapı iskelesi otomatik olarak, uygulamanızın CRUD (Oluştur, okuma, güncelleştirme ve silme) taban çizgisi oluşturmak için nasıl kullanılacağını öğreneceksiniz. Basit model sınıfından ve tek satırlık bir kod yazmayı olmadan başlayarak, tüm gerekli görünümler yanı sıra tüm CRUD işlemleri içeren bir denetleyici oluşturur. Oluşturma ve basit çözüm çalıştırma sonra MVC mantığı ve verileri işleme için görünümleri ile birlikte oluşturulan uygulama veritabanı gerekir.
-> 
-> Ayrıca, tüm uygulama boyunca model güncelleştirmelerini gerçekleştirmek için Entity Framework geçişler kullanın ne kadar kolay olduğunu öğreneceksiniz. Entity Framework geçişler, model ile basit adımları değiştikten sonra veritabanını değiştirme olanak tanır. Tüm bu konularda unutmayın, ASP.NET MVC 4'ın en son özelliklerini yararlanarak oluşturmak ve web uygulamalarını daha verimli bir şekilde korumak kuramaz.
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC 4 denetleyici yöntemleriyle bilginiz veya tamamladınız &quot;Yardımcıları, formlar ve doğrulama&quot; uygulamalı Laboratuvar size dikkat oluşturmak için mantığı çoğunu güncelleştirme, listelemek ve onu yineleniyor herhangi bir veri varlık kaldırır uygulama arasında. Modelinizi işlemek için birden fazla sınıf varsa, değil belirtmeyi, her varlık işlemi yanı sıra her görünüm için POST ve GET eylem yöntemleri yazma önemli bir süre beklemesini olası olacaktır.
+
+Bu laboratuvarda, ASP.NET MVC 4 yapı iskelesi otomatik olarak, uygulamanızın CRUD (Oluştur, okuma, güncelleştirme ve silme) taban çizgisi oluşturmak için nasıl kullanılacağını öğreneceksiniz. Basit model sınıfından ve tek satırlık bir kod yazmayı olmadan başlayarak, tüm gerekli görünümler yanı sıra tüm CRUD işlemleri içeren bir denetleyici oluşturur. Oluşturma ve basit çözüm çalıştırma sonra MVC mantığı ve verileri işleme için görünümleri ile birlikte oluşturulan uygulama veritabanı gerekir.
+
+Ayrıca, tüm uygulama boyunca model güncelleştirmelerini gerçekleştirmek için Entity Framework geçişler kullanın ne kadar kolay olduğunu öğreneceksiniz. Entity Framework geçişler, model ile basit adımları değiştikten sonra veritabanını değiştirme olanak tanır. Tüm bu konularda unutmayın, ASP.NET MVC 4'ın en son özelliklerini yararlanarak oluşturmak ve web uygulamalarını daha verimli bir şekilde korumak kuramaz.
+
+> [!NOTE]
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresindeki kullanılabilir içinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 Entity Framework İskele ve geçişleri](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
@@ -291,23 +293,23 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
 
     ![Lisans koşulları kabul ediliyor](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    *Lisans koşulları kabul ediliyor*
+    Lisans koşulları kabul ediliyor
 5. İndirme ve yükleme işlemi tamamlanana kadar bekleyin.
 
     ![Yükleme ilerleme durumu](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
 
-    *Yükleme ilerleme durumu*
+    Yükleme ilerleme durumu
 6. Yükleme tamamlandığında tıklatın **son**.
 
     ![Yükleme tamamlandı](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    *Yükleme tamamlandı*
+    Yükleme tamamlandı
 7. Tıklatın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
 8. Web için Visual Studio Express açmak için Git **Başlat** ekranında ve yazmaya başlayın &quot; **VS Express**&quot;, tıklayın **VS Express Web** Döşeme.
 
     ![VS Express Web döşemeye](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    *VS Express Web döşemeye*
+    VS Express Web döşemeye
 
 <a id="AppendixB"></a>
 

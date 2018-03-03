@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 673d86c2a1d0db232aca224aba60e5e1cf3c7a31
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 79f59e62483534623c5f17f3b2716da6ae6d179e
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 en-us/
 
@@ -95,7 +95,7 @@ Eşzamanlılık çakışması algılamak için bir [rowversion](https://docs.mic
 
 DB bir sıralı oluşturur `rowversion` her satırın artar numarası güncelleştirilir. İçinde bir `Update` veya `Delete` komutu, `Where` yan tümcesi içeren getirilen değeri `rowversion`. Güncelleştirilen satır değiştiyse:
 
- * `rowversion`getirilen değerle eşleşmiyor.
+ * `rowversion` getirilen değerle eşleşmiyor.
  * `Update` Veya `Delete` olduğundan, komutları bir satır bulmak yok `Where` yan tümcesi içeren getirilen `rowversion`.
  * A `DbUpdateConcurrencyException` atılır.
 
@@ -105,7 +105,7 @@ EF tarafından hiçbir satır güncelleştirildiğinde çekirdek içinde bir `Up
 
 İçinde *Models/Department.cs*, RowVersion adlı bir izleme özelliği ekleyin:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 [Zaman damgası](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) özniteliği belirtir. Bu sütunda yer `Where` yan tümcesi `Update` ve `Delete` komutları. Öznitelik adı verilen `Timestamp` bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü `timestamp` önce SQL veri türü `rowversion` türü değiştirildi.
 
@@ -147,7 +147,7 @@ Yukarıdaki komutlar:
 * Ekler *geçişleri / {zaman stamp}_RowVersion.cs* geçiş dosyası.
 * Güncelleştirmeleri *Migrations/SchoolContextModelSnapshot.cs* dosya. Bu güncelleştirme aşağıdaki vurgulanmış kodu ekler `BuildModel` yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * DB güncelleştirmek için geçiş çalışır.
 
@@ -197,7 +197,7 @@ Bir eşzamanlılık sorunu algılamak için [OriginalValue](https://docs.microso
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
-Önceki kod `Department.RowVersion` varlık getirildi değeri olur. `OriginalValue`DB değer olduğunda `FirstOrDefaultAsync` bu yöntemi çağrıldı.
+Önceki kod `Department.RowVersion` varlık getirildi değeri olur. `OriginalValue` DB değer olduğunda `FirstOrDefaultAsync` bu yöntemi çağrıldı.
 
 Aşağıdaki kod, istemci (Bu yönteme gönderilen değerler) ve DB değerlerini alır:
 
@@ -222,7 +222,7 @@ Güncelleştirme *Pages/Departments/Edit.cshtml* aşağıdaki biçimlendirme ile
 Önceki biçimlendirme:
 
 * Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int}"`.
-* Gizli satır sürümü ekler. `RowVersion`POST geri değere bağlar şekilde eklenmesi gerekir.
+* Gizli satır sürümü ekler. `RowVersion` POST geri değere bağlar şekilde eklenmesi gerekir.
 * Son baytını görüntüler `RowVersion` hata ayıklama amacıyla.
 * Değiştirir `ViewData` kesin türü belirtilmiş ile `InstructorNameSL`.
 
@@ -262,11 +262,11 @@ Delete sayfa modeli aşağıdaki kod ile güncelleştirin:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Delete.cshtml.cs)]
 
-Varlık getirildi sonra değiştiğinde Sil sayfasında eşzamanlılık çakışması algılar. `Department.RowVersion`satır sürümü varlık getirildi durumdur. EF çekirdek SQL DELETE komutu oluşturduğunda, bir WHERE yan tümcesi ile içeren `RowVersion`. Sıfır satır SQL DELETE komutu sonuçları etkilenen ise:
+Varlık getirildi sonra değiştiğinde Sil sayfasında eşzamanlılık çakışması algılar. `Department.RowVersion` satır sürümü varlık getirildi durumdur. EF çekirdek SQL DELETE komutu oluşturduğunda, bir WHERE yan tümcesi ile içeren `RowVersion`. Sıfır satır SQL DELETE komutu sonuçları etkilenen ise:
 
 * `RowVersion` SQL DELETE komutu eşleşmeyen `RowVersion` DB'de.
 * DbUpdateConcurrencyException özel durum oluşur.
-* `OnGetAsync`çağrılır `concurrencyError`.
+* `OnGetAsync` çağrılır `concurrencyError`.
 
 ### <a name="update-the-delete-page"></a>Güncelleştirme Sil sayfası
 
@@ -281,7 +281,7 @@ Güncelleştirme *Pages/Departments/Delete.cshtml* aşağıdaki kod ile:
 * Bir hata iletisi ekler.
 * FullName içinde FirstMidName değiştirir **yönetici** alan.
 * Değişiklikleri `RowVersion` son bayta kalan görüntülemek için.
-* Gizli satır sürümü ekler. `RowVersion`POST geri değere bağlar şekilde eklenmesi gerekir.
+* Gizli satır sürümü ekler. `RowVersion` POST geri değere bağlar şekilde eklenmesi gerekir.
 
 ### <a name="test-concurrency-conflicts-with-the-delete-page"></a>Test eşzamanlılık Delete sayfa çakışıyor
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6fefbd9b28d481184e358e7d66af68d112c63696
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8e19d096fb66b23920ca012cc96e05b4bdfc000
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-portable-object-localization-with-orchard-core"></a>Taşınabilir nesne yerelleştirme Orchard çekirdek ile yapılandırma
 
@@ -74,21 +74,21 @@ Bir başvuru ekleyin `OrchardCore.Localization.Core` NuGet paketi. Üzerinde kul
 
 *.Csproj* dosyası artık aşağıdakine benzer bir satır içerir (sürüm numarası değişebilir):
 
-[!code-xml[Main](localization/sample/POLocalization/POLocalization.csproj?range=9)]
+[!code-xml[](localization/sample/POLocalization/POLocalization.csproj?range=9)]
 
 ### <a name="registering-the-service"></a>Hizmeti kaydetme
 
 Gerekli hizmetler eklemek `ConfigureServices` yöntemi *haline*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_ConfigureServices&highlight=4-21)]
 
 Gerekli Ara eklemek `Configure` yöntemi *haline*:
 
-[!code-csharp[Main](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
+[!code-csharp[](localization/sample/POLocalization/Startup.cs?name=snippet_Configure&highlight=15)]
 
 Aşağıdaki kod, seçim Razor görünümüne ekleyin. *About.cshtml* Bu örnekte kullanılır.
 
-[!code-cshtml[Main](localization/sample/POLocalization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/POLocalization/Views/Home/About.cshtml)]
 
 Bir `IViewLocalizer` örneği eklenen ve "Hello world!" metin çevirmek için kullanılır.
 
@@ -96,7 +96,7 @@ Bir `IViewLocalizer` örneği eklenen ve "Hello world!" metin çevirmek için ku
 
 Adlı bir dosya oluşturun  *<culture code>.po* uygulama kök klasörünüzde. Bu örnekte, dosya adıdır *fr.po* Fransızca Dil kullanıldığından:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 Bu dosyayı çevirmek için dize ve Fransızca çevrilen dizesi depolar. Çeviriler, gerekirse üst kültüre geri dönün. Bu örnekte, *fr.po* istenen kültürü ise dosya kullanılan `fr-FR` veya `fr-CA`.
 
@@ -133,7 +133,7 @@ Tüm diller aynı kurallar paylaşır. Bu üç çoğul forms sahip Çekçe Dil i
 
 Oluşturma `cs.po` gibi dosya ve nasıl çoğullaştırma üç farklı çevirileri gerektiğine dikkat edin:
 
-[!code-text[Main](localization/sample/POLocalization/cs.po)]
+[!code-text[](localization/sample/POLocalization/cs.po)]
 
 Çekçe yerelleştirmeler kabul etmek için add `"cs"` içinde desteklenen kültürler listesine `ConfigureServices` yöntemi:
 
@@ -206,7 +206,7 @@ msgstr "Bonjour le monde!"
 
 Belirli bir giriş verilen dosya bağlamla eşleştiğinde Orchard çekirdek'ın geri dönüş mekanizması bir bağlam olmadan uygun bir SAS dosyasını arar. Olmadığı varsayılarak olduğu için tanımlanan belirli bir dosya bağlam *Views/Home/Contact.cshtml*, gezinme için `/Home/Contact?culture=fr-FR` bir SAS dosya gibi yükler:
 
-[!code-text[Main](localization/sample/POLocalization/fr.po)]
+[!code-text[](localization/sample/POLocalization/fr.po)]
 
 ### <a name="changing-the-location-of-po-files"></a>SAS dosyalarının konumunu değiştirme
 

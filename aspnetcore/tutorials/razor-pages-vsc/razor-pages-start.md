@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio Code ile ASP.NET Core Razor sayfalarında ile çalışmaya başlama"
+title: "ASP.NET Core Razor sayfalarında, Visual Studio Code ile çalışmaya başlama"
 author: rick-anderson
-description: "Razor sayfalarında ASP.NET Core kullanarak Visual Studio Code ile çalışmaya başlama"
+description: "Visual Studio Code ile bir ASP.NET Core Razor sayfalarının web uygulaması oluşturmanın temellerini öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 08/27/2017
@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 7c01d802e59951281c86c8eab64b7c6b9d646fbf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f65395f2b7b4f37bb5e191de4a2669ac6d26461f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Visual Studio Code ile ASP.NET Core Razor sayfalarında ile çalışmaya başlama
+# <a name="getting-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>ASP.NET Core Razor sayfalarında, Visual Studio Code ile çalışmaya başlama
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici, bir ASP.NET Core Razor sayfalarının web uygulaması oluşturmanın temel öğretir. Tamamlamanız önerilir [Razor sayfalarının giriş](xref:mvc/razor-pages/index) bu öğreticiye başlamadan önce. Razor sayfalarının ASP.NET Core web uygulamaları için kullanıcı Arabirimi oluşturmak için önerilen yöntem olduğu.
 

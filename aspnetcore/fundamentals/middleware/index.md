@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5d236c79120d79195c1970cc87d164002b56d0f1
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
 
@@ -44,13 +44,13 @@ Her temsilci, önce ve sonra İleri temsilci işlemleri yapabilirsiniz. Ayrıca,
 
 En basit olası ASP.NET Core uygulama tüm istekleri işleyen tek istek temsilci ayarlar. Bu durumda, gerçek istek ardışık düzenini içermez. Bunun yerine, tek bir anonim işlevi her HTTP isteğine yanıt olarak adlandırılır.
 
-[!code-csharp[Main](index/sample/Middleware/Startup.cs)]
+[!code-csharp[](index/sample/Middleware/Startup.cs)]
 
 İlk [uygulama. Çalıştırma](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) temsilci ardışık sonlandırır.
 
 İle birlikte birden çok istek temsilcileri zincirleme [uygulama. Kullanım](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). `next` Parametresi ardışık düzende sonraki temsilci temsil eder. (Ardışık düzen tarafından kısa devre oluşturur olduğunu unutmayın *değil* çağırma *sonraki* parametresi.) Bu örnekte gösterilmiştir gibi öncesinde ve sonrasında sonraki temsilci genellikle eylemleri gerçekleştirebilirsiniz:
 
-[!code-csharp[Main](index/sample/Chain/Startup.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
 > Çağrı yok `next.Invoke` yanıtı istemciye gönderildikten sonra. Değişikliklerini `HttpResponse` yanıt başlatıldıktan sonra bir özel durum oluşturur. Örneğin, üst bilgileri, durum kodu, vb., ayarlama gibi değişiklikler, bir özel durum oluşturur. Yanıt gövdesi çağrıldıktan sonra Yazma `next`:
@@ -138,11 +138,11 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Kullanmak için çalıştırmak ve eşleme
 
-HTTP kullanarak ardışık düzen yapılandırma `Use`, `Run`, ve `Map`. `Use` Yöntemi kısa devre oluşturur ardışık düzen (diğer bir deyişle, çağrı değil, bir `next` isteği temsilci). `Run`bir kural ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışacak yöntemleri.
+HTTP kullanarak ardışık düzen yapılandırma `Use`, `Run`, ve `Map`. `Use` Yöntemi kısa devre oluşturur ardışık düzen (diğer bir deyişle, çağrı değil, bir `next` isteği temsilci). `Run` bir kural ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışacak yöntemleri.
 
-`Map*`Uzantılar, ardışık düzen dallanma için bir kural kullanılır. [Harita](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) istek ardışık düzenini belirtilen istek yolu eşleşmeleri üzerinde göre dallandırır. İstek yolu belirtilen yolun ile başlarsa, şube yürütülür.
+`Map*` Uzantılar, ardışık düzen dallanma için bir kural kullanılır. [Harita](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) istek ardışık düzenini belirtilen istek yolu eşleşmeleri üzerinde göre dallandırır. İstek yolu belirtilen yolun ile başlarsa, şube yürütülür.
 
-[!code-csharp[Main](index/sample/Chain/StartupMap.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
 Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://localhost:1234` önceki kod kullanarak:
 
@@ -157,7 +157,7 @@ Zaman `Map` olan kullanıldığında, eşleşen yolu segment(s) çıkarılır `H
 
 [MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) istek ardışık düzenini belirtilen koşulun sonucuna göre dallandırır. Herhangi bir koşul türü `Func<HttpContext, bool>` istekleri dalı ardışık eşlemek için kullanılır. Aşağıdaki örnekte, bir koşul bir sorgu dizesi değişkeni varolup olmadığını algılamak için kullanılan `branch`:
 
-[!code-csharp[Main](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
 Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://localhost:1234` önceki kod kullanarak:
 
@@ -166,7 +166,7 @@ Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://l
 | localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
 | localhost:1234/?branch=master | Kullanılan şube Yöneticisi =|
 
-`Map`iç içe, örneğin destekler:
+`Map` iç içe, örneğin destekler:
 
 ```csharp
 app.Map("/level1", level1App => {
@@ -181,7 +181,7 @@ app.Map("/level1", level1App => {
    });
    ```
 
-`Map`Ayrıca birden çok parçalı bir kerede örneğin eşleştirebilirsiniz:
+`Map` Ayrıca birden çok parçalı bir kerede örneğin eşleştirebilirsiniz:
 
  ```csharp
 app.Map("/level1/level2", HandleMultiSeg);
@@ -203,7 +203,7 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar ek
 | [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. | Yollar eşleştirmek için terminal. |
 | [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenler önce. |
 | [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. | Bir isteği dosyaları eşleşirse terminal. |
-| [URL yeniden yazma işlemi](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
+| [URL yeniden yazma işlemi ](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets Protokolü sağlar. | WebSocket isteklerini kabul etmek için gerekli bileşenleri önce. |
 
 <a name="middleware-writing-middleware"></a>
@@ -212,7 +212,7 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar ek
 
 Ara yazılım genellikle bir sınıfta kapsüllenmiş ve bir genişletme yöntemi ile gösteriliyor. Kültür geçerli istek için Sorgu dizesinden ayarlar aşağıdaki Ara göz önünde bulundurun:
 
-[!code-csharp[Main](index/sample/Culture/StartupCulture.cs?name=snippet1)]
+[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
 
 Not: Yukarıdaki örnek kod, bir ara yazılım bileşeni oluşturma göstermek için kullanılır. Bkz: [ Genelleştirme ve Yerelleştirme](xref:fundamentals/localization) ASP.NET Core'nın yerleşik yerelleştirme desteği.
 
@@ -220,19 +220,19 @@ Kültürün, örneğin geçirerek ara yazılım sınayabilirsiniz `http://localh
 
 Aşağıdaki kod bir sınıfa ara yazılım temsilci taşır:
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
 
 Ara yazılım aracılığıyla aşağıdaki uzantısı yöntemi gösterir [IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder):
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
 Aşağıdaki kod Ara çağırır `Configure`:
 
-[!code-csharp[Main](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
 
 Ara yazılım izlemelidir [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/) bağımlılıklarını kendi oluşturucusuna gösterme tarafından. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: *istek başına bağımlılıkları* üstündeyse ara yazılım istek içinde Hizmetleri paylaşmasına gerekir.
 
-Ara yazılımı bileşenleri bağımlılıklarını bağımlılık ekleme Oluşturucu parametreleri üzerinden gelen çözebilirsiniz. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary)Ayrıca ek parametreler doğrudan kabul edebilir.
+Ara yazılımı bileşenleri bağımlılıklarını bağımlılık ekleme Oluşturucu parametreleri üzerinden gelen çözebilirsiniz. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) Ayrıca ek parametreler doğrudan kabul edebilir.
 
 ### <a name="per-request-dependencies"></a>İstek başına bağımlılıkları
 
@@ -262,4 +262,4 @@ public class MyMiddleware
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [İstek Özellikleri](xref:fundamentals/request-features)
 * [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)
-* [Bir üçüncü taraf kapsayıcısı ile ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility-third-party-container)
+* [Bir üçüncü taraf kapsayıcısı ile Ara yazılım etkinleştirme](xref:fundamentals/middleware/extensibility-third-party-container)

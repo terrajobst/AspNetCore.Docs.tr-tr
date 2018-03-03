@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 
@@ -31,11 +31,11 @@ Ara yazılım bir proje eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCo
 
 İçinde `ConfigureServices`, ara yazılım hizmeti koleksiyonuna ekleyin.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 Ara yazılımla kullanmak için uygulamayı yapılandırma `UseResponseCaching` ara yazılım istek işleme ardışık düzenine ekler genişletme yöntemi. Örnek uygulaması ekler bir [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) alınabilir yanıtları 10 saniye için önbelleğe yanıtı üstbilgisi. Örnek gönderir bir [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) önbelleğe alınan yanıt eksikse sunmak için ara yazılımını yapılandırma üstbilgi [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) sonraki istekleri üstbilgisinin, özgün istek eşleşir.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum koduna neden sunucu yanıtlarını önbelleğe alır. Dahil olmak üzere diğer bir yanıtlar [hata sayfaları](xref:fundamentals/error-handling), ara yazılım tarafından göz ardı edilir.
 
@@ -125,10 +125,10 @@ Sınama ve önbelleğe alma davranışını sorun giderme, bir tarayıcı istenm
 * İstek yöntemini GET veya HEAD olması gerekir.
 * Terminal Ara gibi [statik dosya ara yazılımlarını](xref:fundamentals/static-files), yanıt önbelleğe alma yanıt Ara önce işlemez gerekir.
 * `Authorization` Üstbilgisi mevcut olmamalıdır.
-* `Cache-Control`Üstbilgi parametreleri geçerli olmalıdır ve yanıt işaretlenmelidir `public` ve işaretlenmemiş `private`.
+* `Cache-Control` Üstbilgi parametreleri geçerli olmalıdır ve yanıt işaretlenmelidir `public` ve işaretlenmemiş `private`.
 * `Pragma: no-cache` Üstbilgisi mevcut olmamalıdır, `Cache-Control` üstbilgisi olarak mevcut değil `Cache-Control` üstbilgisi geçersiz kılar `Pragma` üstbilgi varsa.
 * `Set-Cookie` Üstbilgisi mevcut olmamalıdır.
-* `Vary`Üstbilgi parametreleri geçerli ve eşit değil olmalıdır `*`.
+* `Vary` Üstbilgi parametreleri geçerli ve eşit değil olmalıdır `*`.
 * `Content-Length` Üstbilgi değeri (varsa ayarlayın) yanıt gövdesi boyutu ile eşleşmelidir.
 * [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) kullanılmaz.
 * Yanıt belirtildiği gibi eski olmamalıdır `Expires` üstbilgi ve `max-age` ve `s-maxage` önbelleğe yönergeleri.

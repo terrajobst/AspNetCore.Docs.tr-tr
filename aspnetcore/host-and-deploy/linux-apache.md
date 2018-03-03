@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 61827f456ba01ffa726f3446401156409b29111d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux ana bilgisayar
 
@@ -232,7 +232,7 @@ sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-
 
 ### <a name="configure-firewall"></a>Güvenlik duvarını yapılandırma
 
-*Firewalld* ağ bölgeleri için destek ile Güvenlik Duvarı'nı yönetmek için bir dinamik arka plan programı kullanılır. Bağlantı noktaları ve paket filtreleme hala iptables tarafından yönetilebilir. *Firewalld* varsayılan olarak yüklü olması. `yum`paketi yüklemek ya da yüklü doğrulamak için kullanılabilir.
+*Firewalld* ağ bölgeleri için destek ile Güvenlik Duvarı'nı yönetmek için bir dinamik arka plan programı kullanılır. Bağlantı noktaları ve paket filtreleme hala iptables tarafından yönetilebilir. *Firewalld* varsayılan olarak yüklü olması. `yum` paketi yüklemek ya da yüklü doğrulamak için kullanılabilir.
 
 ```bash
 sudo yum install firewalld -y
@@ -339,7 +339,7 @@ Satırı ekleyin `Header append X-FRAME-OPTIONS "SAMEORIGIN"`. Dosyayı kaydedin
 
 #### <a name="mime-type-sniffing"></a>MIME türü algılaması
 
-`X-Content-Type-Options` Üstbilgi engeller Internet Explorer'dan *MIME algılaması* (bir dosyanın belirleneceği `Content-Type` dosyanın içerikten). Sunucu ayarlarsa `Content-Type` başlığına `text/html` ile `nosniff` seçenek kümesi, Internet Explorer işler içeriği olarak `text/html` dosyanın içeriği ne olursa olsun.
+`X-Content-Type-Options` Üstbilgi engeller Internet Explorer'dan *MIME algılaması* (bir dosyanın belirleme `Content-Type` dosyanın içerikten). Sunucu ayarlarsa `Content-Type` başlığına `text/html` ile `nosniff` seçenek kümesi, Internet Explorer işler içeriği olarak `text/html` dosyanın içeriği ne olursa olsun.
 
 Düzen *httpd.conf* dosyası:
 

@@ -12,34 +12,32 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama
-====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama
 
-> İçinde **ASP.NET MVC 4 modelleri ve veri erişimi** uygulamalı Laboratuvar yükleniyor ve veritabanındaki verileri görüntüleme olmuştur. Bu uygulamalı laboratuar ortamında, ekleyecek **müzik deposu** uygulama bu verileri düzenleme özelliği.
-> 
-> Bu hedefi dikkate alarak, albümleri oluşturma, okuma, güncelleştirme ve silme (CRUD) eylemleri destekleyecek denetleyicisi ilk oluşturur. Bir HTML tablosunda albümleri özelliklerini görüntülemek için ASP.NET MVC'ın iskele özelliği yararlanarak bir dizin görünümünün şablonu oluşturur. Bu görünüm geliştirmek için uzun açıklamaları keser özel bir HTML Yardımcısı ekleyeceksiniz.
-> 
-> Daha sonra düzenleme ve oluşturma sağlayan görünümleri bırakmalar gibi form öğelerin yardımıyla veritabanında albümleri alter ekleyeceksiniz.
-> 
-> Son olarak, albümü silme kullanıcılar sağlar ve ayrıca, bunları kendi girişi doğrulama tarafından yanlış veri geçmesini engeller.
-> 
-> > [!NOTE]
-> > Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC Temelleri** uygulamalı Laboratuvar.
-> 
-> 
-> Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
-> 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
+[Kit eğitim Web Camps indirin](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+İçinde **ASP.NET MVC 4 modelleri ve veri erişimi** uygulamalı Laboratuvar yükleniyor ve veritabanındaki verileri görüntüleme olmuştur. Bu uygulamalı laboratuar ortamında, ekleyecek **müzik deposu** uygulama bu verileri düzenleme özelliği.
+
+Bu hedefi dikkate alarak, albümleri oluşturma, okuma, güncelleştirme ve silme (CRUD) eylemleri destekleyecek denetleyicisi ilk oluşturur. Bir HTML tablosunda albümleri özelliklerini görüntülemek için ASP.NET MVC'ın iskele özelliği yararlanarak bir dizin görünümünün şablonu oluşturur. Bu görünüm geliştirmek için uzun açıklamaları keser özel bir HTML Yardımcısı ekleyeceksiniz.
+
+Daha sonra düzenleme ve oluşturma sağlayan görünümleri bırakmalar gibi form öğelerin yardımıyla veritabanında albümleri alter ekleyeceksiniz.
+
+Son olarak, albümü silme kullanıcılar sağlar ve ayrıca, bunları kendi girişi doğrulama tarafından yanlış veri geçmesini engeller.
+
+Bu uygulamalı Laboratuvar temel bilgiye sahip varsayar **ASP.NET MVC**. Değil kullandıysanız **ASP.NET MVC** gitmenizi öneririz önce **ASP.NET MVC Temelleri** uygulamalı Laboratuvar.
+
+Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
+
+> [!NOTE]
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [Microsoft-Web/WebCampTrainingKit sürümleri](https://aka.ms/webcamps-training-kit). Bu Laboratuvar için belirli proje şu adresten edinilebilir [ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
@@ -659,7 +657,7 @@ Bu görevde, oluşturma ve düzenleme sayfaları alanları doğrulamak son göre
 
     ![Düzenleme sayfasını doğrulanmış alanları](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Düzenleme sayfasını doğrulanmış alanları*
+    Düzenleme sayfasını doğrulanmış alanları
 
 <a id="Exercise7"></a>
 

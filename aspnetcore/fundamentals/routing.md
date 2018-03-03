@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 1ff08ee6389ce7b12d74b162b990ddaaadc05ea8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -50,11 +50,11 @@ Gelen istekleri girin `RouterMiddleware`, çağıran `RouteAsync` dizisindeki he
 
 Bir eşleşme sırasında `RouteAsync` özelliklerini de ayarlayacaktır `RouteContext.RouteData` kadar gerçekleştirilen istek işlemenin göre uygun değerlere. Yol bir istek eşleşirse `RouteContext.RouteData` hakkındaki önemli durum bilgileri içeren *sonuç*.
 
-`RouteData.Values`bir dictionary'si *rota değerleri* rotadaki üretilen. Bu değerler genellikle URL tokenizing tarafından belirlenir ve kullanıcı girişi kabul etmek veya daha fazla dağıtırken kararları uygulama için kullanılabilir.
+`RouteData.Values` bir dictionary'si *rota değerleri* rotadaki üretilen. Bu değerler genellikle URL tokenizing tarafından belirlenir ve kullanıcı girişi kabul etmek veya daha fazla dağıtırken kararları uygulama için kullanılabilir.
 
-`RouteData.DataTokens`eşlenen rotaya ilgili ek veriler bir özellik paketi değil. `DataTokens`uygulama daha sonra rota dayalı kararlar şekilde her yol verilerle eşleşen özellikle görüntüyle durumunu desteklemek için sağlanır. Bu değerler geliştirici tarafından tanımlanan ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, veri belirteçleri gizli değerleri dizeler gelen ve giden kolayca dönüştürülebilir olmalıdır rota değerleri aksine herhangi bir türde olabilir.
+`RouteData.DataTokens`  eşlenen rotaya ilgili ek veriler bir özellik paketi değil. `DataTokens` uygulama daha sonra rota dayalı kararlar şekilde her yol verilerle eşleşen özellikle görüntüyle durumunu desteklemek için sağlanır. Bu değerler geliştirici tarafından tanımlanan ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, veri belirteçleri gizli değerleri dizeler gelen ve giden kolayca dönüştürülebilir olmalıdır rota değerleri aksine herhangi bir türde olabilir.
 
-`RouteData.Routers`istek başarıyla eşleşen yer aldığı rotaları listesidir. Yollar iç içe geçirilemez birbirine içinde ve `Routers` özellik mantıksal ağacının bir eşleşme ile sonuçlandı yolların üzerinden yolu gösterir. Listedeki ilk öğe genellikle `Routers` rota koleksiyonu ve URL üretmek için kullanılmalıdır. Son öğenin `Routers` eşleşen rota işleyicisi.
+`RouteData.Routers` istek başarıyla eşleşen yer aldığı rotaları listesidir. Yollar iç içe geçirilemez birbirine içinde ve `Routers` özellik mantıksal ağacının bir eşleşme ile sonuçlandı yolların üzerinden yolu gösterir. Listedeki ilk öğe genellikle `Routers` rota koleksiyonu ve URL üretmek için kullanılmalıdır. Son öğenin `Routers` eşleşen rota işleyicisi.
 
 ### <a name="url-generation"></a>URL oluşturma
 
@@ -74,7 +74,7 @@ Yollar öncelikle tarafından sağlanan rota değerleri kullanmak `Values` ve `A
 
 İpucu: düşünmek `Values` geçersiz kılmalar için bir dizi olarak `AmbientValues`. URL üretmek için bağlantıları aynı yol ya da rota değerlerini kullanarak URL üretmek kolaylaştırmak için geçerli istek rota değerleri yeniden dener.
 
-Çıktısını `GetVirtualPath` olan bir `VirtualPathData`. `VirtualPathData`paralel olarak olan `RouteData`; içerdiği `VirtualPath` rota tarafından ayarlanması bazı ek özellikler yanı sıra çıkış URL.
+Çıktısını `GetVirtualPath` olan bir `VirtualPathData`. `VirtualPathData` paralel olarak olan `RouteData`; içerdiği `VirtualPath` rota tarafından ayarlanması bazı ek özellikler yanı sıra çıkış URL.
 
 `VirtualPathData.VirtualPath` Özelliği içeren *sanal yol* rota tarafından üretilen. Gereksinimlerinize bağlı olarak yol daha fazla işlem gerekebilir. Örneğin, HTML oluşturulan URL'yi oluşturmak istiyorsanız, uygulamanın taban yolu başına gerekir.
 
@@ -84,7 +84,7 @@ Yollar öncelikle tarafından sağlanan rota değerleri kullanmak `Values` ve `A
 
 ### <a name="creating-routes"></a>Yollar oluşturma
 
-Yönlendirme sağlar `Route` sınıf standart uygulaması olarak `IRouter`. `Route`kullanan *rota şablonu* karşı URL yolu ile eşleşir desenlerini tanımlamak için sözdizimi zaman `RouteAsync` olarak adlandırılır. `Route`aynı yol şablonu bir URL oluşturmak için kullanacağı zaman `GetVirtualPath` olarak adlandırılır.
+Yönlendirme sağlar `Route` sınıf standart uygulaması olarak `IRouter`. `Route` kullanan *rota şablonu* karşı URL yolu ile eşleşir desenlerini tanımlamak için sözdizimi zaman `RouteAsync` olarak adlandırılır. `Route` aynı yol şablonu bir URL oluşturmak için kullanacağı zaman `GetVirtualPath` olarak adlandırılır.
 
 Çoğu uygulama çağırarak yollar oluşturacak `MapRoute` veya tanımlanan benzer genişletme yöntemleri `IRouteBuilder`. Bu yöntemlerin örneğini oluşturacak `Route` ve rota koleksiyonuna ekleyin.
 
@@ -187,13 +187,13 @@ URL oluşturma işlemi hakkında daha fazla ayrıntı için bkz: [url oluşturma
 
 Hizmet kapsayıcısında yönlendirme eklemek *haline*:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Yollar yapılandırılmalıdır `Configure` yönteminde `Startup` sınıfı. Aşağıdaki örnekte bu API'leri kullanır:
 
 * `RouteBuilder`
 * `Build`
-* `MapGet`Yalnızca HTTP GET isteklerini eşleşir
+* `MapGet`  Yalnızca HTTP GET isteklerini eşleşir
 * `UseRouter`
 
 ```csharp
@@ -275,11 +275,11 @@ Aşağıdaki tabloda bazı rota şablonlarının ve davranışlarını gösterir
 
 | Rota şablonu | Örnek URL eşleştirme | Notlar |
 | -------- | -------- | ------- |
-| Merhaba  | / Merhaba  | Yalnızca tek bir yol ile eşleşir`/hello` |
-| {Page=Home} | / | Eşleşen ve ayarlar `Page` için`Home` |
-| {Page=Home}  | / Başvurun  | Eşleşen ve ayarlar `Page` için`Contact` |
+| Merhaba  | / Merhaba  | Yalnızca tek bir yol ile eşleşir `/hello` |
+| {Page=Home} | / | Eşleşen ve ayarlar `Page` için `Home` |
+| {Page=Home}  | / Başvurun  | Eşleşen ve ayarlar `Page` için `Contact` |
 | {controller}/{action}/{id?} | / Ürünler/listesi | Eşlendiği `Products` denetleyicisi ve `List` eylem |
-| {controller}/{action}/{id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id`için 123 ayarlayın |
+| {controller}/{action}/{id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id` için 123 ayarlayın |
 | {controller=Home}/{action=Index}/{id?} | /  |  Eşlendiği `Home` denetleyicisi ve `Index` yöntemi; `id` göz ardı edilir. |
 
 Bir şablon kullanarak genellikle yönlendirme en basit yaklaşımdır. Ayrıca kısıtlamaları ve varsayılan rota şablonu dışında belirtilebilir.
@@ -351,7 +351,7 @@ Olası değerler bilinen bir dizi parametre sınırlamak için normal ifade kull
 
 Aşağıdaki örnek, rota değerleri sözlüğü verilen yolu bir bağlantı oluşturmak nasıl gösterir ve `RouteCollection`.
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 `VirtualPath` Yukarıdaki örnek sonunda oluşturulmuş `/package/create/123`.
 

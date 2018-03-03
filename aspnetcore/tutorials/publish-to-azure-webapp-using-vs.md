@@ -9,15 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14d8dd0a5e6a99bacce3bf50b0468b20e0dddb96
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0c2905575751c9880e02d8581642a1628bea5a49
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama yayımlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs), ve [Rachel Appel](https://twitter.com/rachelappel)
+
+[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Bkz: [Mac için Visual Studio'dan Azure Yayımla](https://blog.xamarin.com/publish-azure-visual-studio-mac/) Mac'te çalışıyorsanız
 
@@ -140,7 +142,7 @@ Dağıtım tamamlandığında seçin **ayarları**:
 
 ![Yayımlama iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Tıklatın **yayımlama**. Visual Studio publishs uygulamanızı azure'a. Depoyment tamamlandığında uygulamayı tarayıcıda açılır.
+Tıklatın **yayımlama**. Visual Studio publishs uygulamanızı azure'a. Dağıtım tamamlandığında, uygulama bir tarayıcıda açılır.
 
 ### <a name="test-your-app-in-azure"></a>Azure'da uygulamanızı test etme
 
@@ -152,7 +154,7 @@ Tıklatın **yayımlama**. Visual Studio publishs uygulamanızı azure'a. Depoym
 
 ### <a name="update-the-app"></a>Uygulamayı güncelleştirme
 
-* Düzen *Pages/About.cshtml* Razor sayfasında ve içeriğini değiştirin. Örneğin, "Merhaba ASP.NET Core!" söylemek için paragraf değiştirebilirsiniz:[!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Düzen *Pages/About.cshtml* Razor sayfasında ve içeriğini değiştirin. Örneğin, "Merhaba ASP.NET Core!" söylemek için paragraf değiştirebilirsiniz: [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Sağ tıklatın ve proje **Yayımla...**  yeniden.
 

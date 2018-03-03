@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET Core üçüncü taraf kapsayıcısında ile ara yazılımı Fabrika tabanlı etkinleştirme"
+title: "ASP.NET Core üçüncü taraf kapsayıcısında ile Ara yazılım etkinleştirme"
 author: guardrex
 description: "Kesin türü belirtilmiş ara yazılımı Fabrika tabanlı etkinleştirme ve bir üçüncü taraf kapsayıcı ASP.NET çekirdek kullanmayı öğrenin."
 ms.author: riande
@@ -10,13 +10,13 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: bb318747e254ac244facc1fe1ff08a1f5c4727f2
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: b6fd02d1863efe571bafe1344fb34939883e6cb5
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="factory-based-middleware-activation-with-a-third-party-container-in-aspnet-core"></a>ASP.NET Core üçüncü taraf kapsayıcısında ile ara yazılımı Fabrika tabanlı etkinleştirme
+# <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>ASP.NET Core üçüncü taraf kapsayıcısında ile Ara yazılım etkinleştirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 

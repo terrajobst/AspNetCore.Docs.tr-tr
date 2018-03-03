@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 271bae2c3aeac61f0542570d4c0289ba539091cc
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 6fc25df7eab3ab6e44d99ec687bc0ba738d9cfb8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - Razor sayfaları (8'in 3) ile EF çekirdek
 
@@ -32,12 +32,12 @@ Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamaml
 
 Dizelere ekleme *Students/Index.cshtml.cs* `PageModel` sıralama parametre içerecek şekilde:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
 
 Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
 Önceki kod alan bir `sortOrder` URL'deki sorgu dizesi parametresi. (Sorgu dizesi dahil) URL tarafından oluşturulan [yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 )
@@ -46,13 +46,13 @@ Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
 Ne zaman dizin sayfası istenen gelen **Öğrenciler** bağlantı, hiçbir sorgu dizesi. Öğrenciler son ada göre artan sırada görüntülenir. Son ada göre artan varsayılandır (başarısızlığı harf) içinde `switch` deyimi. Kullanıcı bir uygun sütun başlığını bağlantı tıkladığında `sortOrder` değeri, sorgu dizesi değerini sağlanır.
 
-`NameSort`ve `DateSort` Razor sayfa tarafından uygun sorgu dizesi değerlerini sütun başlığını köprüler yapılandırmak için kullanılır:
+`NameSort` ve `DateSort` Razor sayfa tarafından uygun sorgu dizesi değerlerini sütun başlığını köprüler yapılandırmak için kullanılır:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Aşağıdaki kod C# içeren [?: işleci](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
 İlk satırı belirtir `sortOrder` null veya boş, `NameSort` "name_desc" ayarlayın Varsa `sortOrder` olan **değil** null veya boş, `NameSort` boş bir dize olarak ayarlayın.
 
@@ -69,13 +69,13 @@ Bu iki ifade sütun başlığını köprüler şu şekilde ayarlamak görünüm�
 
 Yöntemi, LINQ to Entities göre sıralamak için sütun belirlemek için kullanır. Kod başlatır bir `IQueryable<Student> ` switch deyimi önce ve SWITCH deyiminde değiştirir:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
- Zaman bir`IQueryable` oluşturulan veya değiştirilen, hiçbir sorgu veritabanına gönderilir. Sorgu kadar yürütülür değil `IQueryable` nesnesi, bir koleksiyona dönüştürülür. `IQueryable`bir koleksiyon için bir yöntem çağırarak dönüştürülür `ToListAsync`. Bu nedenle, `IQueryable` kod şu deyimi kadar yürütülmedi tek bir sorgu sonuçları:
+ Zaman bir`IQueryable` oluşturulan veya değiştirilen, hiçbir sorgu veritabanına gönderilir. Sorgu kadar yürütülür değil `IQueryable` nesnesi, bir koleksiyona dönüştürülür. `IQueryable` bir koleksiyon için bir yöntem çağırarak dönüştürülür `ToListAsync`. Bu nedenle, `IQueryable` kod şu deyimi kadar yürütülmedi tek bir sorgu sonuçları:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
-`OnGetAsync`çok sayıda sütun ayrıntılı alabilirsiniz.
+`OnGetAsync` çok sayıda sütun ayrıntılı alabilirsiniz.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Sütun başlık köprüleri için Öğrenci dizini görünümü ekleme
 
@@ -113,7 +113,7 @@ Hata ayıklayıcı adım.
 
 Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Önceki kod:
 
@@ -122,7 +122,7 @@ Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
 Not: Yukarıdaki kod çağrıları `Where` yöntemi bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda tha uygulama çağırma `Where` yöntemi bir bellek içi koleksiyonda bir genişletme yöntemi olarak. Örneğin, varsayalım `_context.Students` değişiklikleri EF çekirdek `DbSet` döndüren depo yönteme bir `IEnumerable` koleksiyonu. Sonuç normalde aynı kalır ancak bazı durumlarda farklı olabilir.
 
-Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneği harmanlama ayarı tarafından belirlenir. SQL hizmet etmesi için büyük küçük harf duyarsız varsayılan olarak ayarlanır. `ToUpper`test açıkça büyük küçük harf duyarsız yapmak için çağrılabilir:
+Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneği harmanlama ayarı tarafından belirlenir. SQL hizmet etmesi için büyük küçük harf duyarsız varsayılan olarak ayarlanır. `ToUpper` test açıkça büyük küçük harf duyarsız yapmak için çağrılabilir:
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
@@ -164,7 +164,7 @@ Bu bölümde, bir `PaginatedList` sınıfı, disk belleği desteklemek için olu
 
 Proje klasöründe oluşturma `PaginatedList.cs` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 `CreateAsync` Önceki kod yönteminde sayfa boyutu ve sayfa numarasını alır ve uygun geçerlidir `Skip` ve `Take` deyimlerini `IQueryable`. Zaman `ToListAsync` üzerinde adlı `IQueryable`, yalnızca istenen sayfa içeren bir liste döndürür. Özellikler `HasPreviousPage` ve `HasNextPage` etkinleştirmek veya devre dışı bırakmak için kullanılan **önceki** ve **sonraki** düğmeleri disk belleği.
 
@@ -174,15 +174,15 @@ Proje klasöründe oluşturma `PaginatedList.cs` aşağıdaki kod ile:
 
 İçinde *Students/Index.cshtml.cs*, türü güncelleştirme `Student` gelen `IList<Student>` için `PaginatedList<Student>`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
 Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
 Önceki kod geçerli sayfa dizini ekler `sortOrder`ve `currentFilter` yöntemi imzası.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
 
 Tüm parametreleri ne zaman null şunlardır:
 
@@ -191,9 +191,9 @@ Tüm parametreleri ne zaman null şunlardır:
 
 Bir disk belleği bağlantıyı tıklattığında, sayfa dizini değişkeni görüntülemek için sayfa numarasını içerir.
 
-`CurrentSort`Razor sayfasını geçerli sıralama düzeni sağlar. Disk belleği sırasında sıralama düzeni tutmak için disk belleği bağlantıların geçerli sıralama düzenini yeniden eklenmesi gerekir.
+`CurrentSort` Razor sayfasını geçerli sıralama düzeni sağlar. Disk belleği sırasında sıralama düzeni tutmak için disk belleği bağlantıların geçerli sıralama düzenini yeniden eklenmesi gerekir.
 
-`CurrentFilter`Razor sayfasını ile geçerli filtre dizesini sağlar. `CurrentFilter` Değeri:
+`CurrentFilter` Razor sayfasını ile geçerli filtre dizesini sağlar. `CurrentFilter` Değeri:
 
 * Disk belleği sırasında filtre ayarlarını korumak için disk belleği bağlantıları eklenmesi gerekir.
 * Sayfası görüntülendiğinde metin kutusuna geri yüklenmelidir.
@@ -203,11 +203,11 @@ Arama dizesi çalışırken disk belleği değiştirdiyseniz, sayfa 1 olarak aya
 * Arama dizesi değiştirilir.
 * `searchString` Parametresi null değil.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
 `PaginatedList.CreateAsync` Yöntemi disk belleği destekleyen bir koleksiyon türü öğrencinin tek sayfalık Öğrenci sorgu dönüştürür. Bu sayfada Öğrenciler Razor sayfasına geçirilir.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
 İki soru işaretleri `PaginatedList.CreateAsync` temsil eden [null birleşim işlecinin](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). Null birleşim işleci, null atanabilir bir tür için varsayılan bir değer tanımlar. İfade `(pageIndex ?? 1)` anlamına gelir dönüş değerini `pageIndex` bir değer varsa. Varsa `pageIndex` bir değere sahip değil, 1 döndürür.
 
@@ -253,13 +253,13 @@ Oluşturma bir *SchoolViewModels* klasöründe *modelleri* klasör.
 
 İçinde *SchoolViewModels* klasörüne eklemek bir *EnrollmentDateGroup.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>Güncelleştirme hakkında sayfa modeli
 
 Güncelleştirme *Pages/About.cshtml.cs* aşağıdaki kod ile dosya:
 
-[!code-csharp[Main](intro/samples/cu/Pages/About.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/About.cshtml.cs)]
 
 LINQ ifadesi Öğrenci varlıklar kayıt tarihe göre gruplar, her grup içindeki varlıkların sayısı hesaplar ve sonuçları bir koleksiyondaki depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
 

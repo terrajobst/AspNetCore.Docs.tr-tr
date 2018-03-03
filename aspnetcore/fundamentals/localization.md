@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 139f6dc53b171c19a9fff67b9aba9cf90e188f62
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: eb31bd81c5c3da27c8d412462d1c537aa85e4f8b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -37,35 +37,35 @@ Uygulama yerelleştirme aşağıdakileri içerir:
 
 ASP.NET Core içinde sunulan `IStringLocalizer` ve `IStringLocalizer<T>` yerelleştirilmiş uygulama geliştirme sırasında üretkenliği artırmak için tasarlanmış. `IStringLocalizer` kullanan [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) ve [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) çalışma zamanında kültüre özgü kaynakları sağlamak için. Bir dizin oluşturucu basit arabirim sahiptir ve bir `IEnumerable` yerelleştirilmiş dizeleri döndürmek için. `IStringLocalizer` Varsayılan dil dizeleri kaynak dosyasında depolamak gerektirmez. Yerelleştirme için hedeflenen bir uygulamayı geliştirme ve erken geliştirme kaynak dosyaları oluşturmak gerekmez. Aşağıdaki kod yerelleştirme "hakkında Title" dizesi sarmalama gösterir.
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/AboutController.cs)]
+[!code-csharp[](localization/sample/Localization/Controllers/AboutController.cs)]
 
 Yukarıdaki kod `IStringLocalizer<T>` uygulama gelir [bağımlılık ekleme](dependency-injection.md). Yerelleştirilmiş hakkında "Title" değerini bulunamadığında sonra Dizin Oluşturucu anahtar, başka bir deyişle, dize "hakkında Title" döndürülür. Varsayılan dil değişmez değer dizeleri uygulamada bırakın ve böylece uygulama geliştirmeye odaklanabilirsiniz bunları yerelleştiriciye içinde sarmalayın. Varsayılan dili ile uygulamanızı geliştirin ve varsayılan bir kaynak dosyası oluşturmadan yerelleştirme adım için hazırlayın. Alternatif olarak, geleneksel yaklaşım kullanın ve varsayılan dil dizesini almak için bir anahtar sağlar. Birçok geliştiriciler için bir varsayılan dil olmaması, yeni iş akışı *.resx* dosya ve yalnızca dize değişmez değerleri kaydırma uygulama yerelleştirme yükünü azaltabilir. Bu, uzun dize değişmez değerleri ile çalışır ve yerelleştirilmiş dizeleri güncelleştirme kolaylaştırmak kolaylaştırabilir gibi diğer geliştiriciler geleneksel iş akışı tercih eder.
 
 Kullanım `IHtmlLocalizer<T>` HTML içeren kaynaklar için uygulama. `IHtmlLocalizer` Kaynak dizesi biçimlendirilmiş bağımsız değişkenleri HTML kodlar, ancak kaynak dizesi HTML kodlama değil. Aşağıdaki örnekte vurgulanmış değeri aşağıda yalnızca `name` HTML kodlu bir parametredir.
 
-[!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
+[!code-csharp[](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
 **Not:** genellikle metin ve HTML değil yalnızca yerelleştirme istiyor.
 
 En düşük düzeyde alabileceğiniz `IStringLocalizerFactory` dışı [bağımlılık ekleme](dependency-injection.md):
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
+[!code-csharp[](localization/sample/Localization/Controllers/TestController.cs?start=9&end=26&highlight=7-13)]
 
 Yukarıdaki kod her iki Üreteç gösterir yöntemleri oluşturun.
 
 Yerelleştirilmiş dizeleri alanı denetleyicisi tarafından bölüm ya da tek bir kapsayıcıya sahip. Örnek uygulamayı adlı bir kukla sınıf `SharedResource` paylaşılan kaynaklar için kullanılır.
 
-[!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
+[!code-csharp[](localization/sample/Localization/Resources/SharedResource.cs)]
 
 Bazı geliştiriciler kullanmak `Startup` sınıfı genel veya paylaşılan dizeler içeriyor. Aşağıdaki örnekte `InfoController` ve `SharedResource` çevirmenler kullanılır:
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
+[!code-csharp[](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
 ## <a name="view-localization"></a>Görünüm yerelleştirme
 
 `IViewLocalizer` Hizmetidir yerelleştirilmiş dizeleri için bir [Görünüm](https://docs.microsoft.com/aspnet/core). `ViewLocalizer` Sınıfı bu arabirimi uygular ve görünüm dosya yolundan kaynak konumu bulur. Aşağıdaki kod varsayılan uygulamasını kullanmayı gösterir `IViewLocalizer`:
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[](localization/sample/Localization/Views/Home/About.cshtml)]
 
 Varsayılan uygulaması `IViewLocalizer` görünümün dosya adına göre kaynak dosyayı bulur. Genel paylaşılan kaynak dosyası kullanmak için bir seçenek yoktur. `ViewLocalizer` kullanarak yerelleştiriciye uygulayan `IHtmlLocalizer`, HTML Razor değil yerelleştirilmiş dize kodlayın. Kaynak dizeleri Parametreleştirme ve `IViewLocalizer` HTML parametreleri, ancak kaynak dizesi kodlar. Aşağıdaki Razor biçimlendirme göz önünde bulundurun:
 
@@ -85,7 +85,7 @@ Fransızca kaynak dosyası aşağıdakileri içerebilir:
 
 Bir görünüm paylaşılan kaynak dosyasında kullanılacak Ekle `IHtmlLocalizer<T>`:
 
-[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>DataAnnotations yerelleştirme
 
@@ -94,7 +94,7 @@ DataAnnotations hata iletileri ile yerelleştirilmiş `IStringLocalizer<T>`. Se�
 * Resources/ViewModels.Account.RegisterViewModel.fr.resx
 * Resources/ViewModels/Account/RegisterViewModel.fr.resx
 
-[!code-csharp[Main](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
+[!code-csharp[](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
 ASP.NET Core MVC 1.1.0 ve daha yüksek, doğrulama olmayan öznitelikleri yerelleştirilmiş. ASP.NET Core MVC 1.0 mu **değil** doğrulama olmayan öznitelikler için yerelleştirilmiş dizeleri aramak.
 
@@ -188,7 +188,7 @@ Her dil ve kültür birleşimi (dışında varsayılan dil) bir benzersiz kaynak
 
 Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
 
-[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
 
 * `AddLocalization` Yerelleştirme Hizmetleri Hizmetleri kapsayıcıya ekler. Yukarıdaki kodu aynı zamanda "Kaynaklar" kaynakları yolunu ayarlar.
 
@@ -200,7 +200,7 @@ Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
 
 Yerelleştirme istek üzerine geçerli kültürü ayarlama [Ara](xref:fundamentals/middleware/index). Yerelleştirme Ara etkin `Configure` yöntemi. Yerelleştirme ara yazılım, istek kültür kontrol Ara yazılımların önce yapılandırılması gerekir (örneğin, `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[Main](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
 
 `UseRequestLocalization` başlatır bir `RequestLocalizationOptions` nesnesi. Her istekte listesi, `RequestCultureProvider` içinde `RequestLocalizationOptions` numaralandırılır ve istek kültür başarıyla belirleyebilirsiniz ilk sağlayıcısı kullanılır. Varsayılan sağlayıcı alınması `RequestLocalizationOptions` sınıfı:
 
@@ -286,15 +286,15 @@ Kullanım `RequestLocalizationOptions` yerelleştirme sağlayıcıları eklemek 
 Bu örnek **Localization.StarterWeb** üzerinde proje [GitHub](https://github.com/aspnet/entropy) ayarlamak için kullanıcı Arabirimi içeren `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* dosya kültürü desteklenen kültürler listesinden olanak tanır:
 
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 *Views/Shared/_SelectLanguagePartial.cshtml* dosya eklenir `footer` tüm görünümler kullanılabilir olacak şekilde Düzen dosyasının:
 
-[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 `SetLanguage` Yöntemi kültür tanımlama bilgisi ayarlar.
 
-[!code-csharp[Main](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
+[!code-csharp[](localization/sample/Localization/Controllers/HomeController.cs?range=57-67)]
 
 Tak olamaz *_SelectLanguagePartial.cshtml* bu proje için örnek kod için. **Localization.StarterWeb** üzerinde proje [GitHub](https://github.com/aspnet/entropy) akış koduna sahip `RequestLocalizationOptions` aracılığıyla kısmi bir Razor için [bağımlılık ekleme](dependency-injection.md) kapsayıcı.
 

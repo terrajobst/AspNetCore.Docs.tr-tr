@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 584dbb545c15add4401086b9160d4bf30caf41b5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37332dda794f898fb866424b38394f5d4441e166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Kaldırmayı yükü, anahtarları iptal edildi
 
@@ -30,7 +30,7 @@ Bile iptal edilen anahtarları karşısında korumasız olacak şekilde yükleri
 > [!NOTE]
 > Tüm `IDataProtector` örnekleri dönüştürülür için `IPersistedDataProtector`. Geliştiriciler C# operatör olarak kullanması gereken veya hata durumunu uygun şekilde işlemek üzere kullanılabilir olmalı ve çalışma zamanı özel durumları önlemek için tarafından geçersiz atamaları neden benzer hazır.
 
-`IPersistedDataProtector`Aşağıdaki API yüzeyi sunar:
+`IPersistedDataProtector` Aşağıdaki API yüzeyi sunar:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
@@ -46,4 +46,4 @@ Bu API korumalı Yükü (olarak bir bayt dizisi) alır ve korumasız yükü dön
 >[!WARNING]
 > Geçirilirken son derece dikkatli olun çalışma `ignoreRevocationErrors: true` için `DangerousUnprotect` yöntemi. Bu yöntemi çağrıldıktan sonra IF `wasRevoked` değer true, sonra bu yükü korumak için kullanılan anahtarı iptal edildi ve yükü 's Orijinallik şüpheli olarak değerlendirilmelidir. Bu durumda, yalnızca, örneğin gerçek, olduğunu bazı ayrı güvence varsa korumasız yük temelinde işletim güvenilmeyen web istemcisi tarafından gönderilen yerine güvenli bir veritabanında geldiğinden emin devam edin.
 
-[!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]
+[!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

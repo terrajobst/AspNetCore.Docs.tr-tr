@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 8a42f2d885bd0a0c6d2bd05f9c589def2e15d50a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 617949fb7421c20b67ffae51c241468f4c79ab38
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Özel biçimlendiricileri ASP.NET Core MVC Web API'leri
 
@@ -52,7 +52,7 @@ Bir biçimlendirici oluşturmak için:
 
 Metin medya türleri için (örneğin, vCard) türetilen [TextInputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) veya [TextOutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) temel sınıfı.
 
-[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
+[!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
 İkili türleri için türetilen [InputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) veya [OutputFormatter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) temel sınıfı.
 
@@ -60,7 +60,7 @@ Metin medya türleri için (örneğin, vCard) türetilen [TextInputFormatter](ht
 
 Ekleyerek oluşturucuda geçerli bir medya türleri ve Kodlamalar belirtin `SupportedMediaTypes` ve `SupportedEncodings` koleksiyonları.
 
-[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
+[!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
 > [!NOTE]  
 > Bir biçimlendirici sınıf oluşturucu bağımlılık ekleme yapamazsınız. Örneğin, oluşturucuya bir Günlükçü parametresini ekleyerek bir Günlükçü alınamıyor. Hizmetlere erişmek için yönteme geçirilen context nesnesi kullanmak zorunda. Kod örneği [aşağıda](#read-write) bunun nasıl yapılacağı gösterilmektedir.
@@ -69,7 +69,7 @@ Ekleyerek oluşturucuda geçerli bir medya türleri ve Kodlamalar belirtin `Supp
 
 İçine seri durumdan ya da geçersiz kılarak öğesinden seri türünü belirtmek `CanReadType` veya `CanWriteType` yöntemleri. Örneğin, yalnızca vCard metinden oluşturmak mümkün olabilir bir `Contact` türü tersi.
 
-[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
+[!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
 #### <a name="the-canwriteresult-method"></a>CanWriteResult yöntemi
 
@@ -86,13 +86,13 @@ Bazı senaryolarda geçersiz kılmak zorunda `CanWriteResult` yerine `CanWriteTy
 
 Seri durumdan veya içinde seri hale getirme gerçek yapması `ReadRequestBodyAsync` veya `WriteResponseBodyAsync`.  Aşağıdaki örnekte vurgulanmış satırlar (bunları Oluşturucusu parametrelerinden alınamıyor) bağımlılık ekleme kapsayıcısını Hizmetleri verimli şekilde nasıl gösterir.
 
-[!code-csharp[Main](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
+[!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>MVC özel bir biçimlendirici kullanacak şekilde yapılandırma
  
 Özel bir biçimlendirici kullanmak için biçimlendirici sınıfının bir örneğini ekleme `InputFormatters` veya `OutputFormatters` koleksiyonu.
 
-[!code-csharp[Main](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
+[!code-csharp[](custom-formatters/sample/Startup.cs?name=mvcoptions&highlight=3-4)]
 
 Biçimlendiricileri ekledikten sırayla değerlendirilir. Birinci öncelik kazanır. 
 

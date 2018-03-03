@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: e8f73d58bdf626910b2101ef310385f588315e26
-ms.sourcegitcommit: 725cb18ad23013e15d3dbb527958481dee79f9f8
+ms.openlocfilehash: b236b4e5d3a4fa7212453f2aec209d145f5f5e32
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -102,7 +102,7 @@ Genellikle, yeni kullanıcılar sahip oldukları onaylanan bir e-posta önce web
 
 Güncelleştirme `ConfigureServices` onaylanan bir e-posta istemek için:
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet1&highlight=12-17)]
 
 `config.SignIn.RequireConfirmedEmail = true;` kayıtlı kullanıcıların e-postalarına onaylandıktan kadar oturum açmayı engeller.
 
@@ -114,7 +114,7 @@ Bu öğreticide, SendGrid e-posta göndermek için kullanılır. SendGrid hesab�
 
 Güvenli e-posta anahtar getirmek için bir sınıf oluşturun. Bu örnek için `AuthMessageSenderOptions` sınıfı oluşturulur *Services/AuthMessageSenderOptions.cs* dosyası:
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 Ayarlama `SendGridUser` ve `SendGridKey` ile [gizli Yöneticisi aracını](xref:security/app-secrets). Örneğin:
 
@@ -140,11 +140,11 @@ Ekleme `AuthMessageSenderOptions` sonunda hizmet kapsayıcısı `ConfigureServic
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
+[!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
 ---
 
@@ -170,12 +170,12 @@ Bkz: [SendGrid ücretsiz olarak başlayın](https://sendgrid.com/free/) ücretsi
 
 SendGrid yapılandırmak için aşağıdakine benzer bir kod ekleyin *Services/EmailSender.cs*:
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 * Kod ekleme *Services/MessageServices.cs* SendGrid yapılandırmak için aşağıdakine benzer:
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
+[!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
 ---
 
@@ -193,13 +193,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 Tam yöntem vurgulanmış değiştirilen satırıyla gösterilir:
 
-[!code-csharp[Main](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Hesap doğrulama etkinleştirmek için aşağıdaki kodu açıklamadan çıkarın:
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
 
 **Not:** kodu yeni kayıtlı kullanıcı otomatik olarak aşağıdaki satırını yorum oluşturma oturum açmış engelleyen:
 
@@ -209,11 +209,11 @@ Hesap doğrulama etkinleştirmek için aşağıdaki kodu açıklamadan çıkarı
 
 Kodda uncommenting tarafından parola kurtarmayı etkinleştirme `ForgotPassword` eylemi *Controllers/AccountController.cs*:
 
-[!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
+[!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=17-23&name=snippet_ForgotPassword)]
 
 Form öğesinde açıklamadan çıkarın *Views/Account/ForgotPassword.cshtml*. Kaldırmak istediğiniz `<p> For more information on how to enable reset password ... </p>` bu makaleye bir bağlantı içeren öğe.
 
-[!code-cshtml[Main](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
+[!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
 ---
 
@@ -274,7 +274,7 @@ E-posta çalışma alınamıyor ise:
 
 ## <a name="combine-social-and-local-login-accounts"></a>Sosyal ve yerel oturum açma hesaplarını birleştirmek
 
-Bu bölümde tamamlamak için önce bir dış kimlik doğrulama sağlayıcısı etkinleştirmeniz gerekir. Bkz: [Facebook, Google ve diğer dış sağlayıcılarını kullanarak kimlik doğrulamasını etkinleştirme](social/index.md).
+Bu bölümde tamamlamak için önce bir dış kimlik doğrulama sağlayıcısı etkinleştirmeniz gerekir. Bkz: [Facebook, Google ve dış sağlayıcı kimlik doğrulaması](xref:security/authentication/social/index).
 
 Yerel ve sosyal hesapları, e-posta bağlantısını tıklatarak birleştirebilirsiniz. Aşağıdaki sırayla "RickAndMSFT@gmail.com" ilk bir yerel oturum açma; oluşturulur ancak, ilk sosyal bir oturum açma hesabı oluşturmak sonra yerel oturum açma ekleyin.
 
