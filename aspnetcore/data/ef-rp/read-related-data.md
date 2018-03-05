@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 39e655ffcb01fb21c79cd2564862f49a86e9e9d4
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 6e71e9c01a58c3f60dacce8959ac4502a3690690
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Okuma data - EF çekirdek Razor sayfaları (8 6) ile ilgili
 
@@ -97,9 +97,9 @@ Uygulamayı çalıştırın ve seçin **kurslar** bağlantı. Bölüm sütunu g�
 
 Güncelleştirme `OnGetAsync` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Önceki kod ekler `AsNoTracking`. `AsNoTracking`döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
+Önceki kod ekler `AsNoTracking`. `AsNoTracking` döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
 
 Güncelleştirme *Views/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeyi ile:
 
@@ -124,17 +124,17 @@ Uygulamayı çalıştırın ve seçin **kurslar** bölüm adlarını listesiyle 
 
 `OnGetAsync` Yöntemi ile ilgili verileri yükler `Include` yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 `Select` İşleci yalnızca gereken ilgili verileri yükler. Tek öğelerin gibi `Department.Name` bir SQL INNER JOIN kullanır. Koleksiyon başka bir veritabanı erişimi kullanır, ancak bu nedenle mu `Include` koleksiyonlarda işleci.
 
 Aşağıdaki kod ile ilgili verileri yükler `Select` yöntemi:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 `CourseViewModel`:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
 Bkz: [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) tam bir örnek için.
 
@@ -157,7 +157,7 @@ Eğitmen sayfanın üç farklı tablolardan verileri gösterir. Bir görünüm m
 
 İçinde *SchoolViewModels* klasörü oluşturmak *InstructorIndexData.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>İskele Eğitmen modeli
 
@@ -179,13 +179,13 @@ Uygulamayı çalıştırın ve Eğitmen sayfasına gidin.
 
 Değiştir *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 `OnGetAsync` Yöntemi seçili Eğitmen kimliği için isteğe bağlı rota veri kabul eder.
 
 Üzerinde sorgu inceleyin *Pages/Instructors/Index.cshtml* sayfa:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
 Sorgu iki sahip içerir:
 
@@ -201,7 +201,7 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme il
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"`bir rota şablonudur. Rota şablonu için rota verilerini tamsayı URL'deki sorgu dizelerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi aşağıdaki gibi bir URL oluşturur:
+* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Rota şablonu için rota verilerini tamsayı URL'deki sorgu dizelerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi aşağıdaki gibi bir URL oluşturur:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -248,19 +248,19 @@ Tıklayın **seçin** bağlantı. Satır stili değişiklikleri.
 
 Güncelleştirme `OnGetAsync` yönteminde *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Güncelleştirilmiş sorgu inceleyin:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 Önceki sorgunun ekler `Department` varlıklar.
 
 Aşağıdaki kod bir eğitmen seçildiğinde yürütür (`id != null`). Seçili Eğitmen görünüm modeli Eğitmen listesi alınır. Görünüm modelinin `Courses` özelliği ile yüklenir `Course` Bu eğitmen varlıklardan `CourseAssignments` gezinti özelliği.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
-`Where` Yöntem koleksiyonu döndürür. Yukarıdaki içinde `Where` yöntemi, tek bir `Instructor` varlık döndürülür. `Single` Yöntemi tek bir koleksiyon dönüştürür `Instructor` varlık. `Instructor` Varlık erişim sağlar `CourseAssignments` özelliği. `CourseAssignments`ilgili erişim sağlayan `Course` varlıklar.
+`Where` Yöntem koleksiyonu döndürür. Yukarıdaki içinde `Where` yöntemi, tek bir `Instructor` varlık döndürülür. `Single` Yöntemi tek bir koleksiyon dönüştürür `Instructor` varlık. `Instructor` Varlık erişim sağlar `CourseAssignments` özelliği. `CourseAssignments` ilgili erişim sağlayan `Course` varlıklar.
 
 ![Eğitmen kurslar m:M](complex-data-model/_static/courseassignment.png)
 
@@ -271,7 +271,7 @@ Aşağıdaki kod bir eğitmen seçildiğinde yürütür (`id != null`). Seçili 
 
 Aşağıdaki kod görünüm modelinin doldurur `Enrollments` bir indirmelere seçildiğinde özelliği:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
 Aşağıdaki biçimlendirmede sonuna ekleyin *Pages/Courses/Index.cshtml* Razor sayfasını:
 
@@ -289,7 +289,7 @@ Bu bölümde, uygulama seçili indirmelere Öğrenci verileri gösterecek biçim
 
 Sorguda güncelleştirme `OnGetAsync` yönteminde *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Güncelleştirme *Pages/Instructors/Index.cshtml*. Aşağıdaki biçimlendirmede dosyanın sonuna ekleyin:
 
@@ -305,7 +305,7 @@ Sayfayı yenileyin ve bir eğitmen seçin. Kayıtlı Öğrenciler ve bunların d
 
 `Single` Yöntemi geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
 Yukarıdaki `Single` yaklaşım kullanarak üzerinden hiçbir yararları sağlar `Where`. Bazı geliştiriciler tercih `Single` yaklaşımını stili.
 
@@ -313,13 +313,13 @@ Yukarıdaki `Single` yaklaşım kullanarak üzerinden hiçbir yararları sağlar
 
 İstekli yükleme için geçerli kod belirtir `Enrollments` ve `Students`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Kullanıcıların nadiren bir seyrinde kayıtları görmek istediğinizi varsayalım. Bu durumda, bir en iyi duruma getirme istenirse kayıt verileri yalnızca yüklemek olacaktır. Bu bölümde `OnGetAsync` açık yüklenmesini kullanmak için güncelleştirilmiş `Enrollments` ve `Students`.
 
 Güncelleştirme `OnGetAsync` aşağıdaki kod ile:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 Önceki kod bırakır *ThenInclude* için kayıt ve Öğrenci verileri yöntemini çağırır. Bir indirmelere seçtiyseniz vurgulanmış kodu alır:
 
