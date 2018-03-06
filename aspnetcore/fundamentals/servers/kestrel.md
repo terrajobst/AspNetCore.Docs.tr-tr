@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: bfe7644891296c7c3485c9a870d90951ba87e9e8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f52f8ae40bc4d135d87efc6e11917d53fdca0df5
+ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Kestrel web server ASP.NET Core uygulamasında giriş
+# <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core kestrel web sunucusu uygulaması
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Chris fillerin](https://github.com/Tratcher), ve [Stephen Halter](https://twitter.com/halter73)
 
@@ -184,7 +184,7 @@ Varsayılan olarak ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini
 
 Nasıl Bu örnek SSL için özel bir uç nokta kullanarak yapılandırır fark [ListenOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/ListenOptions.cs). Aynı API belirli uç noktaları diğer Kestrel ayarlarını yapılandırmak için kullanabilirsiniz.
 
-[!INCLUDE[How to make an SSL cert](../../includes/make-ssl-cert.md)]
+[!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
 **Bir UNIX yuvası bağlama**
 
@@ -338,7 +338,7 @@ var host = new WebHostBuilder()
 > [!NOTE]
 > Aynı bağlantı noktasında HTTPS ve HTTP barındırılamaz.
 
-[!INCLUDE[How to make an SSL cert](../../includes/make-ssl-cert.md)]
+[!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
 ---
 ## <a name="next-steps"></a>Sonraki adımlar
