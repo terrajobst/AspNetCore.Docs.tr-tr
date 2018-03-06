@@ -1,6 +1,6 @@
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET Core kurulmuş Razor sayfalarında
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici Razor önceki öğreticideki yapı iskelesi tarafından oluşturulan sayfaları inceler. 
 
@@ -8,16 +8,16 @@ Bu öğretici Razor önceki öğreticideki yapı iskelesi tarafından oluşturul
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Oluştur, Sil, Ayrıntılar ve düzenleme sayfaları.
 
-İncelemek *Pages/Movies/Index.cshtml.cs* sayfa modeli:[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+İncelemek *Pages/Movies/Index.cshtml.cs* sayfa modeli: [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
 
 Razor sayfalarının türetilir `PageModel`. Kural tarafından `PageModel`-türetilmiş sınıf çağrılır `<PageName>Model`. Oluşturucusu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) eklemek için `MovieContext` sayfası. Bu yol kurulmuş tüm sayfaları izler. Bkz: [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) Entity Framework zaman uyumsuz programing hakkında daha fazla bilgi için.
 
-Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi Razor sayfasına filmler listesini döndürür. `OnGetAsync`veya `OnGet` sayfası için durum başlatmak için bir Razor sayfasında olarak adlandırılır. Bu durumda, `OnGetAsync` filmler listesini alır ve bunları görüntüler. 
+Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi Razor sayfasına filmler listesini döndürür. `OnGetAsync` veya `OnGet` sayfası için durum başlatmak için bir Razor sayfasında olarak adlandırılır. Bu durumda, `OnGetAsync` filmler listesini alır ve bunları görüntüler. 
 
 Zaman `OnGet` döndürür `void` veya `OnGetAsync` döndürür`Task`, hiçbir dönüş yöntemi kullanılır. Dönüş türü olduğunda `IActionResult` veya `Task<IActionResult>`, bir dönüş ifadesi sağlanmalıdır. Örneğin, *Pages/Movies/Create.cshtml.cs* `OnPostAsync` yöntemi:
 
 <!-- TODO - replace with snippet
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
  -->
 
 ```csharp
@@ -36,11 +36,11 @@ public async Task<IActionResult> OnPostAsync()
 ```
 İncelemek *Pages/Movies/Index.cshtml* Razor sayfasını:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
 HTML Razor C# veya Razor özgü biçimlendirme geçiş yapabilir. Zaman bir `@` simgesi tarafından izlenen bir [Razor ayrılmış anahtar sözcüğü](xref:mvc/views/razor#razor-reserved-keywords), Razor özgü biçimlendirme geçişleri, aksi takdirde C# diline geçiş.
 
-`@page` Razor yönergesi yapar dosya MVC eyleme &mdash; istek işleyebileceği anlamına gelir. `@page`ilk Razor yönergesi bir sayfa üzerinde olmalıdır. `@page`Razor özgü biçimlendirme geçiş, bir örnek verilmiştir. Bkz: [Razor sözdizimi](xref:mvc/views/razor#razor-syntax) daha fazla bilgi için.
+`@page` Razor yönergesi yapar dosya MVC eyleme &mdash; istek işleyebileceği anlamına gelir. `@page` ilk Razor yönergesi bir sayfa üzerinde olmalıdır. `@page` Razor özgü biçimlendirme geçiş, bir örnek verilmiştir. Bkz: [Razor sözdizimi](xref:mvc/views/razor#razor-syntax) daha fazla bilgi için.
 
 Aşağıdaki HTML Yardımcısı kullanılan lambda ifadesi inceleyin:
 
@@ -53,7 +53,7 @@ Aşağıdaki HTML Yardımcısı kullanılan lambda ifadesi inceleyin:
 <a name="md"></a>
 ### <a name="the-model-directive"></a>@model Yönergesi
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` Yönergesi Razor sayfasına iletilen model türünü belirtir. Önceki örnekte `@model` satır yapar `PageModel`-türetilmiş sınıf Razor sayfasına kullanılabilir. Model kullanılan `@Html.DisplayNameFor` ve `@Html.DisplayName` [HTML Yardımcıları](https://docs.microsoft.com/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) sayfasında.
 
@@ -62,17 +62,17 @@ Aşağıdaki HTML Yardımcısı kullanılan lambda ifadesi inceleyin:
 -->
 
 <a name="vd"></a>
-###ViewData ve düzeni
+### ViewData ve düzeni
 
 Aşağıdaki kod göz önünde bulundurun:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
 Önceki vurgulanmış kodu koddan C# diline Razor örneğidir. `{` Ve `}` karakterleri bir C# kod bloğunun içine alın.
 
 `PageModel` Taban sınıfının bir `ViewData` bir görünüme iletmek istediğiniz verileri eklemek için kullanılan sözlüğü özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer modeli kullanarak sözlük. Önceki örnekte, "Title" özelliği eklenen `ViewData` sözlük. "Title" özellik kullanılır *Pages/_Layout.cshtml* dosya. Aşağıdaki biçimlendirmede ilk birkaç satırlık gösterir *Pages/_Layout.cshtml* dosya.
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 Satır `@*Markup removed for brevity.*@` bir Razor açıklama. HTML açıklamaları aksine (`<!-- -->`), Razor açıklama istemciye gönderilmez.
 
@@ -80,7 +80,7 @@ Uygulamayı çalıştırın ve bağlantıları projesinde test (**giriş**, **ha
 
 `Layout` Özelliği ayarlanmış *Pages/_ViewStart.cshtml* dosyası:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
 Düzen dosyasını önceki biçimlendirme ayarlar *Pages/_Layout.cshtml* altındaki tüm Razor dosyaları için *sayfaları* klasör. Bkz: [düzeni](xref:mvc/razor-pages/index#layout) daha fazla bilgi için.
 
@@ -88,7 +88,7 @@ Düzen dosyasını önceki biçimlendirme ayarlar *Pages/_Layout.cshtml* altınd
 
 Değişiklik `<title>` öğesinde *Pages/_Layout.cshtml* daha kısa bir dize kullanmak üzere bir dosya.
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
 Aşağıdaki bağlantı öğesinde Bul *Pages/_Layout.cshtml* dosya.
 
@@ -109,7 +109,7 @@ Yaptığınız değişiklikleri kaydedin ve uygulamayı tıklayarak test **RpMov
 
 İncelemek *Pages/Movies/Create.cshtml.cs* sayfa modeli:
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 
 `OnGet` Yöntemi sayfa için gerekli herhangi bir durum başlatır. Oluştur sayfası başlatmak için herhangi bir durum yok. `Page` Yöntemi oluşturur bir `PageResult` işleyen nesnesi *Create.cshtml* sayfası.
 
@@ -117,7 +117,7 @@ Yaptığınız değişiklikleri kaydedin ve uygulamayı tıklayarak test **RpMov
 
 `OnPostAsync` Yöntemi sayfa form verileri gönderdiğinde çalıştırın:
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetPost)]
 
 Model hatalar varsa, formu, gönderilen tüm form verileri ile birlikte yeniden görüntülenir. Formun gönderilen önce model hataların çoğu istemci tarafında yakalanabilir. Model hatası örneği bir tarihe dönüştürülemez tarih alanı için bir değer gönderme. İstemci tarafı doğrulama ve daha sonra öğreticide model doğrulama hakkında daha fazla biz konuşun.
 
@@ -127,7 +127,7 @@ Model hatalar varsa, veri kaydedilir ve tarayıcı dizin sayfasına yönlendiril
 
 İncelemek *Pages/Movies/Create.cshtml* Razor sayfa dosyası:
 
-[!code-cshtml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
+[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).
