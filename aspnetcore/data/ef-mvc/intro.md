@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 6170ee9f3e8bf1657fdea155c19356b6d5749f2d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2dced015759eebea01f0174a21819499374ccf7c
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC ve Entity Framework Visual Studio (1 / 10) kullanarak çekirdek ile çalışmaya başlama
 
@@ -311,7 +311,7 @@ Sağ **Öğrenci** tablosu ve'ı tıklatın **görünüm verilerini** oluşturul
 
 ![SSOX Öğrenci tabloda](intro/_static/ssox-student-table.png)
 
-*.Mdf* ve *.ldf* veritabanı dosyaları olan *C:\Users\<kullanıcıadınız >* klasör.
+*.Mdf* ve *.ldf* veritabanı dosyaları olan *C:\Users\\ <yourusername>*  klasör.
 
 Aradığınız çünkü `EnsureCreated` uygulama başlangıç çalıştıran Başlatıcı yönteminde artık bir değişiklik yapabilir `Student` sınıfı, veritabanını silin, uygulamayı yeniden çalıştırın ve veritabanı otomatik olarak değişikliğinizin eşleşecek şekilde yeniden oluşturulmuş olabilir. Örneğin, eklerseniz bir `EmailAddress` özelliğine `Student` sınıfı, göreceksiniz yeni bir `EmailAddress` yeniden oluşturulan tablonun sütun.
 

@@ -4,16 +4,16 @@ author: AdrienTorris
 description: "ASP.NET Core kimlik varsayılan değerleri anlayın ve özel değerleri kullanmak için kimlik özellikleri yapılandırmayı öğrenin."
 manager: wpickett
 ms.author: scaddie
-ms.date: 02/21/2018
+ms.date: 03/06/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 6aeb85063b4b6f97822062b523a0c1f7ee6b595c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 469068af2fc12627a0a5d1c5623eb60bef51cea0
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configure-identity"></a>Kimliği yapılandırmak
 
@@ -132,7 +132,7 @@ Uygulamanın tanımlama bilgisini yapılandırın `Startup.ConfigureServices`:
 | [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge) | Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> TRUE ise, kimlik doğrulaması ara yazılımı otomatik zorluklar işler. Yanlış kimlik doğrulaması ara yazılımı yalnızca açıkça belirtildiği zaman yanıtları değiştirir, `AuthenticationScheme`. |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer) | Alır veya ayarlar oluşturulan herhangi bir talep için kullanılması gereken veren (devralınan [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)). |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) | Tanımlama bilgisi ile ilişkilendirilecek etki alanı. |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | Alır veya bir tanımlama bilgisi Sysprep'in ayarlar. |
+| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration) | Alır veya HTTP tanımlama bilgisi (kimlik doğrulama tanımlama değil) Sysprep'in ayarlar. Bu özellik tarafından geçersiz kılınır [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan). CookieAuthentication bağlamında kullanılmamalıdır. |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) | Bir tanımlama bilgisinin istemci tarafı komut dosyası tarafından erişilebilir olup olmadığını gösterir.<br><br>Varsayılan değer `true` şeklindedir. |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) | Tanımlama bilgisinin adı.<br><br>Varsayılan değer `.AspNetCore.Cookies` şeklindedir. |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) | Tanımlama bilgisi yolu. |

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: 
 msc.type: content
-ms.openlocfilehash: 3d4c34a35e2e34ed78f481c759eda3718edb4da6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0ba7814d4004b17e678eab9a2a41a6d6f34773e1
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-overview"></a>ASP.NET genel bakış
 
@@ -26,7 +26,7 @@ ASP.NET, harika Web siteleri ve HTML, CSS ve JavaScript kullanarak web uygulamal
 
 ## <a name="get-started"></a>Kullanmaya başlayın
 
-[Visual Studio 2015 indirin](https://go.microsoft.com/fwlink/?LinkId=826064), bir ASP.NET Windows IDE boş.
+[Visual Studio Community 2017](https://www.visualstudio.com/downloads/), bir ASP.NET Windows IDE boş.
 
 ## <a name="websites-and-web-applications"></a>Web siteleri ve web uygulamaları
 

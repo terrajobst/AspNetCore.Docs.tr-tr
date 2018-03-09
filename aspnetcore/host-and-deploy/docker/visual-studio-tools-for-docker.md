@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: caf0e423d8e6f61fd2470d1f4ea2dd93909c3696
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 590d32342b1724a0cbc937655c35631938eb09b2
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET çekirdeği ile Docker için Visual Studio Araçları
 
@@ -38,7 +38,7 @@ Docker yükleme için bilgileri gözden geçirmeniz [Windows için Docker: yükl
 
 ## <a name="add-docker-support-to-an-app"></a>Docker desteği için bir uygulama ekleyin
 
-ASP.NET Core projenin hedef çerçevesi desteklenen kapsayıcı türleri belirler. Proje .NET Core hedefleme hem Linux hem de Windows kapsayıcıları destekler. Proje yalnızca .NET Framework hedefleme Windows kapsayıcıları destekler.
+Bir ASP.NET Core projeye Docker desteği eklemek için proje .NET Core hedeflemesi gerekir. Linux ve Windows kapsayıcıları desteklenir.
 
 Docker destek projeye eklerken, bir Windows ya da Linux kapsayıcısı seçin. Docker ana bilgisayar aynı kapsayıcı türü çalıştırması gerekir. Kapsayıcı türü çalışan Docker örneğinde değiştirmek için sistem tepsisi'nın Docker simgesini sağ tıklatın ve seçin **geçiş Windows kapsayıcılara...**  veya **geçiş Linux kapsayıcılara...** .
 
@@ -67,7 +67,7 @@ Docker için Visual Studio Araçları Ekle bir *docker-oluşturan* proje çözü
 
 A *Dockerfile*, son Docker görüntü oluşturmak için tarif proje köküne eklenir. Başvurmak [Dockerfile başvuru](https://docs.docker.com/engine/reference/builder/) içindeki komutları anlaşılması için. Bu belirli *Dockerfile* kullanan bir [çok aşama yapı](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) adlı derleme aşamaları dört farklı içeren:
 
-[!code-text[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
+[!code-dockerfile[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
 
 *Dockerfile* dayanır [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore) görüntü. Bu temel görüntü başlangıç performansını artırmak için pre-jitted silinmiş ASP.NET Core NuGet paketlerini içerir.
 
