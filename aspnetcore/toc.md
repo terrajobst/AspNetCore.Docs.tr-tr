@@ -213,6 +213,9 @@
 # [Mobil](xref:mobile/index)
 ## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
 
+# [SignalR](xref:signalr/index)
+## [Kullanmaya başlama](xref:signalr/get-started-signalr-core)
+
 # [Barındırma ve dağıtma](xref:host-and-deploy/index)
 ## [Azure App Service’te barındırma](xref:host-and-deploy/azure-apps/index)
 ### [Visual Studio ile Azure'a yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs)
