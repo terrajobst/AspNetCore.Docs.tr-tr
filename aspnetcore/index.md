@@ -4,16 +4,16 @@ author: rick-anderson
 description: "ASP.NET Core ile ilgili temel bilgiler sağlanır."
 manager: wpickett
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 112e1e4dc4eed2cf0ee94741a52ce6625e1f42a6
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core"></a>ASP.NET Core
 
@@ -43,7 +43,7 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * Windows, macOS ve Linux üzerinde derleyip çalıştırma olanağı.
 * Açık kaynak ve [topluluk odaklı](https://live.asp.net/).
 
-ASP.NET Core tamamen [NuGet](https://www.nuget.org/) paketleri olarak sunulur. Bu, uygulamanızı yalnızca gerekli NuGet paketlerini içerecek şekilde iyileştirmenize imkan sağlar. Aslına bakılırsa, .NET Core’u hedefleyen ASP.NET Core 2.x uygulamaları yalnızca [tek bir NuGet paketi](xref:fundamentals/metapackage) gerektirir. Uygulama yüzeyinin dar olmasının daha sıkı güvenlik, daha az bakım ve gelişmiş performans gibi avantajları vardır.
+ASP.NET Core tamamen [NuGet](https://www.nuget.org/) paketleri olarak sunulur. NuGet paketlerinin kullanılması, uygulamanızı yalnızca gerekli bağımlılıkları içerecek şekilde iyileştirmenize imkan sağlar. Aslına bakılırsa, .NET Core’u hedefleyen ASP.NET Core 2.x uygulamaları yalnızca [tek bir NuGet paketi](xref:fundamentals/metapackage) gerektirir. Uygulama yüzeyinin dar olmasının daha sıkı güvenlik, daha az bakım ve gelişmiş performans gibi avantajları vardır.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC kullanarak web API'leri ve web kullanıcı arabirimi oluşturma
 
@@ -59,7 +59,21 @@ ASP.NET Core MVC, [web API’leri](xref:tutorials/index#build-web-apis) ve [web 
 
 ## <a name="client-side-development"></a>İstemci tarafı geliştirme
 
-ASP.NET Core, popüler istemci tarafı çerçeveler ve kitaplıklar ([Angular](xref:spa/angular), [React](xref:spa/react) ve [Bootstrap](xref:client-side/bootstrap) dahil) ile sorunsuz bir şekilde tümleştirilir. Daha fazla ayrıntı için bkz. [İstemci tarafı geliştirme](xref:client-side/index).
+ASP.NET Core, popüler istemci tarafı çerçeveler ve kitaplıklar ([Angular](xref:spa/angular), [React](xref:spa/react) ve [Bootstrap](xref:client-side/bootstrap) dahil) ile sorunsuz bir şekilde tümleştirilir. Daha fazla bilgi için bkz. [İstemci tarafı geliştirme](xref:client-side/index).
+
+## <a name="aspnet-core-targeting-net-framework"></a>.NET Framework'ü hedefleyen ASP.NET Core
+
+ASP.NET Core, .NET Core'u veya .NET Framework'ü hedefleyebilir. .NET Framework'ü hedefleyen ASP.NET Core uygulamaları platformlar arası çalışmaz; bunlar yalnızca Windows üzerinde çalışır. ASP.NET Core'da .NET Framework hedeflemesi desteğini kaldırmaya yönelik bir plan yoktur. Genel olarak, ASP.NET Core [.NET Standard](/dotnet/standard/net-standard) kitaplıklarından oluşturulmuştur. .NET Standard 2.0 ile yazılmış uygulamalar .NET Standard 2.0'ın desteklendiği her yerde çalıştırılır.
+
+.NET Core hedeflemesinin çeşitli avantajları vardır ve bu avantajlar her yeni sürümle birlikte artmaktadır. .NET Framework'e göre .NET Core'un bazı avantajları şunlardır:
+
+* Platformlar arası. macOS, Linux ve Windows üzerinde çalışır.
+* Geliştirilmiş performans
+* Yan yana sürüm oluşturma
+* Yeni API'ler
+* Açık kaynak
+
+.NET Framework ile .NET Core arasındaki API açığını kapatmak için çok çalışıyoruz. [Windows Uyumluluk Paketi](/dotnet/core/porting/windows-compat-pack), .NET Core'da yalnızca Windows'a yönelik binlerce API'yi kullanıma sunmaktadır. Bu API'ler .NET Core 1.x'te sağlanmamıştı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
