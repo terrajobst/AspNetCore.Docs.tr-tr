@@ -29,7 +29,9 @@
 
 ## [Web API’leri oluşturma](mvc/web-api/index.md)
 ### [Mac üzerinde Web API'si oluşturma](xref:tutorials/first-web-api-mac)
-### [Swagger kullanan ASP.NET Core Web API yardım sayfaları](tutorials/web-api-help-pages-using-swagger.md)
+### [Swagger kullanan ASP.NET Core Web API yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
+#### [NSwag ile çalışmaya başlama](xref:tutorials/get-started-with-nswag)
+#### [Swashbuckle ile çalışmaya başlama](xref:tutorials/get-started-with-swashbuckle)
 ### [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](mobile/native-mobile-backend.md)
 
 ## [-EF temel veri erişimi](xref:data/index)
@@ -212,12 +214,10 @@
 
 # [SignalR](xref:signalr/introduction-signalr-core)
 ## [Giriş](xref:signalr/introduction-signalr-core)
+## [Kullanmaya başlama](xref:signalr/get-started-signalr-core)
 
 # [Mobil](xref:mobile/index)
 ## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
-
-# [SignalR](xref:signalr/index)
-## [Kullanmaya başlama](xref:signalr/get-started-signalr-core)
 
 # [Barındırma ve dağıtma](xref:host-and-deploy/index)
 ## [Azure App Service’te barındırma](xref:host-and-deploy/azure-apps/index)
