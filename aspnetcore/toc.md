@@ -210,6 +210,9 @@
 ### [React proje şablonu](xref:spa/react)
 ### [Redux ile React proje şablonu](xref:spa/react-with-redux)
 
+# [SignalR](xref:signalr/introduction-signalr-core)
+## [Giriş](xref:signalr/introduction-signalr-core)
+
 # [Mobil](xref:mobile/index)
 ## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
 
