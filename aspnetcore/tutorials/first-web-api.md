@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 7c91866de60988ebfeafea6e026a3dcec25d7c3d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6ce18cfd488d89a633bca6c02f9391c1dcca9c08
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core ve Windows için Visual Studio ile web API oluşturma
 
@@ -41,11 +41,11 @@ Bkz: [bu PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/fi
 
 Visual Studio'dan seçin **dosya** menüsünde > **yeni** > **proje**.
 
-Seçin **ASP.NET çekirdek Web uygulaması (.NET Core)** proje şablonu. Proje adı `TodoApi` seçip **Tamam**.
+Seçin **.NET Core** >  **ASP.NET çekirdek Web uygulaması** proje şablonu. Proje adı `TodoApi` seçip **Tamam**.
 
 ![Yeni Proje iletişim kutusu](first-web-api/_static/new-project.png)
 
-İçinde **yeni ASP.NET çekirdek Web uygulaması - TodoApi** iletişim kutusunda **Web API** şablonu. Seçin **Tamam**. Yapmak **değil** seçin **Docker desteğini etkinleştir**.
+İçinde **yeni ASP.NET çekirdek Web uygulaması - TodoApi** iletişim kutusunda **API** şablonu. Seçin **Tamam**. Yapmak **değil** seçin **Docker desteğini etkinleştir**.
 
 ![ASP.NET Core şablonlardan seçili Web API projesi şablonuyla yeni ASP.NET Web uygulaması iletişim kutusu](first-web-api/_static/web-api-project.png)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -47,8 +47,11 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
   * [Web API ile Windows için Visual Studio](first-web-api.md)
   * [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
   * [Visual Studio Code ile Web API’si](web-api-vsc.md)
-  
-* [Swagger kullanan ASP.NET Core Web API yardım sayfaları](web-api-help-pages-using-swagger.md)
+
+* [Swagger kullanan ASP.NET Core Web API yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
+  * [NSwag ile çalışmaya başlama](xref:tutorials/get-started-with-nswag)
+  * [Swashbuckle ile çalışmaya başlama](xref:tutorials/get-started-with-swashbuckle)
+
 * [Web hizmetleri yerel mobil uygulama arka ucu oluşturma](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Veri erişimi ve depolama

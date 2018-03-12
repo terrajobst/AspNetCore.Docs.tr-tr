@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7be257faa350476bef9f6d372ea4f140fff8d136
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: dda73ca1878396e04b8ff04a255c25bf26ed4eff
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/12/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>İşlenmeyen özel durumlar (C#) işleme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_12_CS.zip) veya [PDF indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial12_ErrorHandling_cs.pdf)
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs/samples) ([nasıl indirileceğini](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Üretim web uygulaması üzerinde bir çalışma zamanı hatası meydana geldiğinde Geliştirici bildirmek için ve böylece, daha sonraki bir noktada zamanında koydu için hata günlüğüne için önemlidir. Bu öğretici, nasıl ASP.NET çalışma zamanı hataları işler ve özel kod işlenmeyen bir özel durum balonları her ASP.NET çalışma zamanı kadar yürütmek için bir yol bakan bir genel bakış sağlar.
 
@@ -62,7 +62,7 @@ Olay işleyicileri için `HttpApplication` olayları adlı özel bir dosyada yer
 
 Visual Studio'nun genel uygulama sınıfı şablonu tarafından oluşturulan olay işleyicileri eksiksiz değildir. İçin herhangi bir olay işleyicisi ekleyebilirsiniz `HttpApplication` olay işleyicisi adlandırma tarafından olay `Application_EventName`. Örneğin, aşağıdaki kodu ekleyebilirsiniz `Global.asax` için bir olay işleyicisi oluşturmak için dosya [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx):
 
-[!code-vb[Main](processing-unhandled-exceptions-cs/samples/sample1.vb)]
+[!code-cs[Main](processing-unhandled-exceptions-cs/samples/sample1.cs)]
 
 Benzer şekilde, gerekli olmayan genel uygulama sınıfı şablonu tarafından oluşturulan tüm olay işleyicileri kaldırabilirsiniz. Bu öğretici için biz yalnızca bir olay işleyicisi için gereksinim `Error` olay; kullanımında diğer olay işleyicilerini kaldırmak ücretsiz `Global.asax` dosya.
 
@@ -159,7 +159,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 - [ASP.NET HTTP modülleri ve HTTP işleyicileri genel bakış](https://support.microsoft.com/kb/307985)
 - [İşlenmeyen özel durum işleme işlenmeyen özel durumlar için - düzgün bir şekilde yanıt](http://aspnet.4guysfromrolla.com/articles/091306-1.aspx)
-- [`HttpApplication`Sınıf ve ASP.NET uygulama nesnesi](http://www.eggheadcafe.com/articles/20030211.asp)
+- [`HttpApplication` Sınıf ve ASP.NET uygulama nesnesi](http://www.eggheadcafe.com/articles/20030211.asp)
 - [HTTP işleyicileri ve ASP.NET HTTP modülleri](http://www.15seconds.com/Issue/020417.htm)
 - [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Anlama `Global.asax` dosyası](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)

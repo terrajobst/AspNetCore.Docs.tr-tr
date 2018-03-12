@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5a4d2e3468c9b7db5d3acf9f59fc13a6b791497
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f5bf39bc2433a2fb277cb56554ddf39bea7a9c79
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/12/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>İşlenmeyen özel durumlar (VB) işleme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_12_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial12_ErrorHandling_vb.pdf)
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([nasıl indirileceğini](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Üretim web uygulaması üzerinde bir çalışma zamanı hatası meydana geldiğinde Geliştirici bildirmek için ve böylece, daha sonraki bir noktada zamanında koydu için hata günlüğüne için önemlidir. Bu öğretici, nasıl ASP.NET çalışma zamanı hataları işler ve özel kod işlenmeyen bir özel durum balonları her ASP.NET çalışma zamanı kadar yürütmek için bir yol bakan bir genel bakış sağlar.
 
@@ -159,7 +159,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 - [ASP.NET HTTP modülleri ve HTTP işleyicileri genel bakış](https://support.microsoft.com/kb/307985)
 - [İşlenmeyen özel durum işleme işlenmeyen özel durumlar için - düzgün bir şekilde yanıt](http://aspnet.4guysfromrolla.com/articles/091306-1.aspx)
-- [`HttpApplication`Sınıf ve ASP.NET uygulama nesnesi](http://www.eggheadcafe.com/articles/20030211.asp)
+- [`HttpApplication` Sınıf ve ASP.NET uygulama nesnesi](http://www.eggheadcafe.com/articles/20030211.asp)
 - [HTTP işleyicileri ve ASP.NET HTTP modülleri](http://www.15seconds.com/Issue/020417.htm)
 - [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Anlama `Global.asax` dosyası](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)

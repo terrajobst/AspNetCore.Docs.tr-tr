@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-convention-features
-ms.openlocfilehash: 54834727db70668552b2a1007c8a9be3cfe2e6b7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5105935a8f5b9e9f258fe84f839d17f6948bab1d
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="razor-pages-route-and-app-convention-features-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralı özellikleri ASP.NET Core
 
@@ -43,7 +43,7 @@ Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpage
 [!code-csharp[](razor-pages-convention-features/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
 > [!NOTE]
-> `Order` Özelliği için `AttributeRouteModel` ayarlanır `0` (sıfır). Bu, bu şablonu bir tek yönlendirme değeri sağlandığında ilk rota veri değeri konumunun öncelik verilir sağlar. Örneğin, örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verilen bir `Order` , `1`. Ne zaman hakkında sayfa istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+> `Order` Özelliği için `AttributeRouteModel` ayarlanır `-1`. Bu, bu şablonu bir tek yönlendirme değeri sağlanır ve onun üzerinde otomatik olarak oluşturulan Razor sayfalarının yollar önceliği de olurdu ilk rota veri değeri konumunun öncelik verilir sağlar. Örneğin, örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verilen bir `Order` , `1`. Ne zaman hakkında sayfa istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
 Razor sayfalarının seçenekleri ekleme gibi [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), MVC hizmet koleksiyonunda eklendiğinde eklenen `Startup.ConfigureServices`. Bir örnek için bkz: [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/razor-pages-convention-features/sample/).
 
@@ -84,7 +84,7 @@ Kullanım [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.a
 [!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
-> `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki Page1 sayfa istediyseniz `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+> `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki Page1 sayfa istediyseniz `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
 Örnek 's Page1 sayfanın isteği `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ve sonucu inceleyin:
 
@@ -99,7 +99,7 @@ Kullanım [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.app
 [!code-csharp[](razor-pages-convention-features/sample/Startup.cs?name=snippet4)]
 
 > [!NOTE]
-> `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki hakkında sayfa istediyseniz `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 0`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+> `Order` Özelliği için `AttributeRouteModel` ayarlanır `1`. Bu şablon için sağlar `{globalTemplate?}` (küme konudaki daha önceki) bir tek yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilen. Konumundaki hakkında sayfa istediyseniz `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
 
 Örnek ait hakkında sayfanın isteği `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ve sonucu inceleyin:
 
@@ -205,11 +205,11 @@ Razor sayfalarının kullanan `IPageApplicationModelProvider` oluşturmak için 
 | -------------------------- | ------------------------------ |
 | `OnGet`/`OnGetAsync`       | Sayfa durumu başlatır.     |
 | `OnPost`/`OnPostAsync`     | POST isteklerini işler.          |
-| `OnDelete`/`OnDeleteAsync` | Tanıtıcı silme isteklerinin &#8224;. |
-| `OnPut`/`OnPutAsync`       | Tanıtıcı PUT isteklerini &#8224;.    |
-| `OnPatch`/`OnPatchAsync`   | PATCH isteklerinde &#8224;işlemek;.  |
+| `OnDelete`/`OnDeleteAsync` | DELETE isteklerini işlemek&#8224;. |
+| `OnPut`/`OnPutAsync`       | PUT isteklerini işleyecek&#8224;.    |
+| `OnPatch`/`OnPatchAsync`   | Düzeltme eki istekleri işlemek&#8224;.  |
 
-&#8224; API çağrıları sayfasına yapmak için kullanılır.
+&#8224;API çağrıları sayfasına yapmak için kullanılır.
 
 **Varsayılan işleyici yöntemleri adlı**
 
@@ -219,11 +219,11 @@ Benzer bir kural ("adlı işleyici yöntemleri") geliştirici tarafından sağla
 | ---------------------------------------- | ------------------------ |
 | `OnGetMessage`/`OnGetMessageAsync`       | Bir ileti alın.        |
 | `OnPostMessage`/`OnPostMessageAsync`     | Bir ileti gönderin.          |
-| `OnDeleteMessage`/`OnDeleteMessageAsync` | Bir ileti &#8224; konumundan SİLİN. |
-| `OnPutMessage`/`OnPutMessageAsync`       | Bir ileti &#8224;PUT;.    |
-| `OnPatchMessage`/`OnPatchMessageAsync`   | Bir ileti &#8224;düzeltme eki;.  |
+| `OnDeleteMessage`/`OnDeleteMessageAsync` | İleti silme&#8224;. |
+| `OnPutMessage`/`OnPutMessageAsync`       | Bir ileti&#8224;.    |
+| `OnPatchMessage`/`OnPatchMessageAsync`   | Bir ileti düzeltme eki&#8224;.  |
 
-&#8224; API çağrıları sayfasına yapmak için kullanılır.
+&#8224;API çağrıları sayfasına yapmak için kullanılır.
 
 **İşleyici yöntemi adlarını özelleştirme**
 
@@ -233,16 +233,16 @@ Adsız ve adlandırılmış işleyici yöntemleri adlı şeklini değiştirmek t
 | ------------------------------------ | ------------------------------ |
 | `Get`                                | Sayfa durumu başlatır.     |
 | `Post`/`PostAsync`                   | POST isteklerini işler.          |
-| `Delete`/`DeleteAsync`               | Tanıtıcı silme isteklerinin &#8224;. |
-| `Put`/`PutAsync`                     | Tanıtıcı PUT isteklerini &#8224;.    |
-| `Patch`/`PatchAsync`                 | PATCH isteklerinde &#8224;işlemek;.  |
+| `Delete`/`DeleteAsync`               | DELETE isteklerini işlemek&#8224;. |
+| `Put`/`PutAsync`                     | PUT isteklerini işleyecek&#8224;.    |
+| `Patch`/`PatchAsync`                 | Düzeltme eki istekleri işlemek&#8224;.  |
 | `GetMessage`                         | Bir ileti alın.              |
 | `PostMessage`/`PostMessageAsync`     | Bir ileti gönderin.                |
 | `DeleteMessage`/`DeleteMessageAsync` | Silmek için bir ileti gönderin.      |
 | `PutMessage`/`PutMessageAsync`       | Yerleştirme için bir ileti gönderin.         |
 | `PatchMessage`/`PatchMessageAsync`   | Düzeltme eki için bir ileti gönderin.       |
 
-&#8224; API çağrıları sayfasına yapmak için kullanılır.
+&#8224;API çağrıları sayfasına yapmak için kullanılır.
 
 Bu düzen oluşturmak için devralınmalıdır `DefaultPageApplicationModelProvider` sınıfı ve geçersiz kılma [CreateHandlerModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.internal.defaultpageapplicationmodelprovider.createhandlermodel) çözmek için Özel mantık sağlamak için yöntemi [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) işleyici adları. Bunun nasıl yapılacağı gösteren örnek uygulaması, `CustomPageApplicationModelProvider` sınıfı:
 
