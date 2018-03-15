@@ -76,7 +76,7 @@
 #### [Arama ekleme](xref:tutorials/razor-pages-vsc/search)
 
 ### [Mac için Visual Studio ile MVC web uygulaması](xref:tutorials/first-mvc-app-mac/index)
-#### [Başlarken](xref:tutorials/first-mvc-app-mac/start-mvc)
+#### [Kullanmaya başlama](xref:tutorials/first-mvc-app-mac/start-mvc)
 #### [Denetleyici ekleme](xref:tutorials/first-mvc-app-mac/adding-controller)
 #### [Görünüm ekleme](xref:tutorials/first-mvc-app-mac/adding-view)
 #### [Model ekleme](xref:tutorials/first-mvc-app-mac/adding-model)
@@ -88,7 +88,7 @@
 #### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
 
 ### [Mac veya Linux Visual Studio Code ile MVC web uygulaması](xref:tutorials/first-mvc-app-xplat/index)
-#### [Başlarken](tutorials/first-mvc-app-xplat/start-mvc.md)
+#### [Kullanmaya başlama](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Denetleyici ekleme](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Görünüm ekleme](tutorials/first-mvc-app-xplat/adding-view.md)
 #### [Model ekleme](tutorials/first-mvc-app-xplat/adding-model.md)
@@ -313,7 +313,6 @@
 #### [Anahtar depolama biçimi](xref:security/data-protection/implementation/key-storage-format)
 #### [Kısa ömürlü veri koruma sağlayıcıları](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [Uyumluluk](xref:security/data-protection/compatibility/index)
-#### [Uygulamalar arasında tanımlama bilgilerini paylaşma](xref:security/data-protection/compatibility/cookie-sharing)
 #### [ASP.NET’te <machineKey> değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Enforce HTTPS](xref:security/enforcing-ssl)
 ## [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [Açık yeniden yönlendirme saldırılarını önleme](xref:security/preventing-open-redirects)
 ## [Siteler Arası Betik kullanmayı önleme](xref:security/cross-site-scripting)
 ## [Kaynaklar Arası İstekleri (CORS) etkinleştirme](xref:security/cors)
+## [Uygulamalar arasında tanımlama bilgilerini paylaşma](xref:security/cookie-sharing)
 
 # [Performans](xref:performance/index)
 ## [Önbelleğe Alma](xref:performance/caching/index)
