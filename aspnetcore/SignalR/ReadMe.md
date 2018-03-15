@@ -1,1 +1,0 @@
-Bu klasör için SignalR içerik varsa. İlk dosya bu dizine eklendiğinde bu dosyayı silin.
