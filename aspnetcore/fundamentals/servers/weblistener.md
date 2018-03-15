@@ -4,16 +4,16 @@ author: rick-anderson
 description: "WebListener, ASP.NET Core IIS olmadan Internet'e doğrudan bağlantı için kullanılan Windows için bir web sunucusu hakkında bilgi edinin."
 manager: wpickett
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5df5a0402a6852a40ab46657ac910f60e3f733d9
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 13555becb76b9df37728f78a7a8bc112d8de682f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core WebListener web sunucusu uygulaması
 
@@ -87,6 +87,9 @@ Ayrıca [Http.Sys kayıt defteri ayarları](https://support.microsoft.com/kb/820
   Varsayılan olarak ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini ve bağlantı noktalarını yapılandırmak için kullanabileceğiniz `UseURLs` genişletme yöntemi, `urls` komut satırı bağımsız değişkeni veya ASP.NET Core yapılandırma sistemi. Daha fazla bilgi için bkz: [barındırma](../../fundamentals/hosting.md).
 
   Dinleyici kullanan web [Http.Sys önek dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). WebListener için özel önek dizesi biçimi gereksinimi yoktur.
+
+  > [!WARNING]
+  > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılabilir. Üst düzey joker bağlamaları uygulamanızı güvenlik açıkları için yedekleme açabilirsiniz. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık ana bilgisayar adları kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanı denetlemek, bu güvenlik riskinin yok (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
   > [!NOTE]
   > Aynı önek dizelerde belirttiğinizden emin olun `UseUrls` , sunucu üzerinde preregister. 

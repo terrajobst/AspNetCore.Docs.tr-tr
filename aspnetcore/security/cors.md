@@ -1,7 +1,7 @@
 ---
-title: "Cross-Origin istekleri (CORS) etkinleştirme"
+title: "ASP.NET Core (CORS) çıkış noktaları arası istekleri etkinleştirme"
 author: rick-anderson
-description: "Bu belge CORS izin verme veya reddetme bir ASP.NET Core uygulamasında cross-origin istekleri için bir standart olarak tanıtır."
+description: "Bilgi nasıl CORS izin verme veya reddetme bir ASP.NET Core uygulamasında cross-origin istekleri için bir standart olarak."
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>Cross-Origin istekleri (CORS) etkinleştirme
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core (CORS) çıkış noktaları arası istekleri etkinleştirme
 
 Tarafından [CAN Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), ve [zel Dykstra](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ Tarayıcılar nasıl bunlar Access-Control-Request-Headers kümesinde tamamen tu
 
 ### <a name="set-the-exposed-response-headers"></a>Sunulan yanıt üstbilgilerini Ayarla
 
-Varsayılan olarak, tüm uygulama yanıt üstbilgilerinin tarayıcı açığa çıkarmıyor. (Bkz [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Varsayılan olarak kullanılabilir yanıt üstbilgilerini şunlardır:
+Varsayılan olarak, tüm uygulama yanıt üstbilgilerinin tarayıcı açığa çıkarmıyor. (Bkz [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Varsayılan olarak kullanılabilir yanıt üstbilgilerini şunlardır:
 
 * Cache-Control
 

@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/index
-ms.openlocfilehash: ea3a8d88a202028890cdf6ffbbd0151fba7e0a65
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8ea847c760d2b09210ffc209b5331c6153f0a512
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Razor sayfalarının ve Entity Framework Visual Studio kullanarak çekirdek ile çalışmaya başlama
+# <a name="get-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Razor sayfalarının ve Entity Framework Visual Studio kullanarak çekirdek kullanmaya başlama
 
 Bu öğreticiler dizi veri erişimi için Entity Framework (EF) çekirdek kullanan ASP.NET Core Razor sayfalarının web uygulamaları oluşturmak nasıl öğretir. Öğreticiler Visual Studio 2017 gerektirir.
 
-1. [Başlarken](xref:data/ef-rp/intro)
+1. [Kullanmaya başlama](xref:data/ef-rp/intro)
 1. [İşlem Oluşturma, Okuma, Güncelleştirme ve Silme](xref:data/ef-rp/crud)
 1. [Sıralama, filtreleme, disk belleği ve gruplandırma](xref:data/ef-rp/sort-filter-page)
 1. [Geçişler](xref:data/ef-rp/migrations)

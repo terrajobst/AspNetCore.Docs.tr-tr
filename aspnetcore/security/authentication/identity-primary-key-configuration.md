@@ -1,7 +1,7 @@
 ---
-title: "Kimlik birincil anahtar veri türünü yapılandırın"
+title: "ASP.NET Core kimlik birincil anahtar veri türünü yapılandırın"
 author: AdrienTorris
-description: "Bu makalede, ASP.NET Core kimliği birincil anahtar için istenen veri türü yapılandırma adımlarını açıklar."
+description: "ASP.NET Core kimliği birincil anahtar için istenen veri türü yapılandırma adımlarını hakkında bilgi edinin."
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/28/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: ff1c3aff3ea833081a25ea5fc4f2c2b65823f536
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 02482b81faa64b01765a90c2c6ffe9cf92b1a7e7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-the-aspnet-core-identity-primary-key-data-type"></a>ASP.NET Core kimliği birincil anahtar veri türünü yapılandırın
+# <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>ASP.NET Core kimlik birincil anahtar veri türünü yapılandırın
 
 ASP.NET Core kimlik, bir birincil anahtar temsil etmek için kullanılan veri türü yapılandırmanıza olanak sağlar. Kimlik kullanır `string` varsayılan veri türü. Bu davranışı geçersiz kılabilirsiniz.
 

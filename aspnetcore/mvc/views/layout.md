@@ -1,7 +1,7 @@
 ---
-title: "Düzen"
+title: "ASP.NET Core düzeni"
 author: ardalis
-description: 
+description: "Ortak düzenler kullanma, yönergeleri paylaşma ve işleme görünümleri önce ortak kodun bir ASP.NET Core uygulamada çalıştırmak öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 140ee5a9b43ee952e46795e433ceb1553a6da906
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8e89c8e6cf18c47abb6bf432cdc6bb6b97e8aeb0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="layout"></a>Düzen
+# <a name="layout-in-aspnet-core"></a>ASP.NET Core düzeni
 
 Tarafından [Steve Smith](https://ardalis.com/)
 

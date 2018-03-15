@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio ve Git ile Azure için sürekli dağıtım"
+title: "Visual Studio ile Azure ve Git ASP.NET Core ile sürekli dağıtım"
 author: rick-anderson
 description: "Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtımı için Azure App Service'e dağıtın."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Visual Studio ve Git ile ASP.NET Core için Azure için sürekli dağıtım
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio ile Azure ve Git ASP.NET Core ile sürekli dağıtım
 
 Tarafından [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ Bu öğretici aşağıdaki yazılımın yüklü olduğu varsayılır:
 
 1. Gelen **dosya** menüsünde, select **yeni** > **proje**.
 
-1. Seçin **ASP.NET çekirdek Web uygulaması** proje şablonu. Altında görünür **yüklü** > **şablonları** > **Visual C#** > **.NET Core**. Proje adı `SampleWebAppDemo`. Seçin **yeni Git deposunun oluşturma** seçeneğini ve tıklayın **Tamam**.
+1. Seçin **ASP.NET çekirdek Web uygulaması** proje şablonu. Altında görünür **yüklü** > **şablonları** > **Visual C#** > **.NET Core**. Proje adı `SampleWebAppDemo`. Seçin **oluştur yeni Git deposu** seçeneğini ve tıklayın **Tamam**.
 
    ![Yeni Proje iletişim kutusu](azure-continuous-deployment/_static/01-new-project.png)
 

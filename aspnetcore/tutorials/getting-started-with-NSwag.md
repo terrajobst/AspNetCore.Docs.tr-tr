@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 70923210ef8f5b23ddd3cc74efceb05cbd90a179
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: ce30ad3538c6294003a4f38ca80ebd73c0f52542
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="get-started-with-nswag"></a>NSwag ile çalışmaya başlama
 
@@ -77,7 +77,7 @@ dotnet add TodoApi.NSwag.csproj package NSwag.AspNetCore
 
 ---
 
-# <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
+## <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
 
 Aşağıdaki ad alanlarında alma `Info` sınıfı:
 
@@ -111,7 +111,7 @@ Uygulamasını başlatın. Gidin `/swagger` Swagger kullanıcı arabirimini gör
 
 ![NSwagStudio-Output](web-api-help-pages-using-swagger/_static/NSwagStudio-Output.png)
 
-* Bir istemci projeye dosya yerleştirme (örneğin, bir [Xamarin.Forms](https://developer.xamarin.com/guides/xamarin-forms/) uygulama). API tüketen başlatın:
+* Bir istemci projeye dosya yerleştirme (örneğin, bir [Xamarin.Forms](/xamarin/xamarin-forms/) uygulama). API tüketen başlatın:
 
 ```csharp
 var todoClient = new TodoClient();

@@ -1,7 +1,7 @@
 ---
-title: "Kısmi görünümler"
+title: "ASP.NET Core kısmi görünümleri"
 author: ardalis
-description: "ASP.NET Core MVC'de kısmi görünümleri kullanma"
+description: "Kısmi görünüm nasıl olduğunu öğrenin başka bir görünüm içinde işlenir ve ne zaman bunlar kullanılmalıdır ASP.NET Core uygulamaları bir görünüm."
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: c9bbfc83b8ee0cd05c71ea16b2a54a37235c8435
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: abe970b02a62ef58deb259241d7451de0185575c
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="partial-views"></a>Kısmi görünümler
+# <a name="partial-views-in-aspnet-core"></a>ASP.NET Core kısmi görünümleri
 
 Tarafından [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 

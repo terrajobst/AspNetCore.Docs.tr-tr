@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
 ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET hata işleme
 ====================
@@ -301,7 +301,7 @@ ELMAH günlüğünü görüntüleme kolaydır, ancak ilk ELMAH günlüğe kayded
 
 1. Tuşuna **CTRL + F5** Wingtip Toys örnek uygulamayı çalıştırın.
 2. İşlenmeyen bir özel durum ELMAH günlüğüne yazılması için tarayıcınızda (bağlantı noktası numarası kullanarak) aşağıdaki URL'sine gidin:  
-    `https://localhost:44300/NoPage.aspx`Hata sayfası görüntülenir.
+    `https://localhost:44300/NoPage.aspx` Hata sayfası görüntülenir.
 3. ELMAH günlüğünü görüntülemek için tarayıcınızda (bağlantı noktası numarası kullanarak) aşağıdaki URL'sine gidin:  
     `https://localhost:44300/elmah.axd`
 

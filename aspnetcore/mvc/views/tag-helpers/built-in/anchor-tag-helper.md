@@ -1,5 +1,5 @@
 ---
-title: "Yer işareti etiketi Yardımcısı"
+title: "ASP.NET Core yer işareti etiketi yok"
 author: pkellner
 description: "ASP.NET Core yer işareti etiketi yardımcı öznitelik ve her öznitelik HTML yer işareti etiketi davranışını genişletme oynadığı rolü bulur."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 2d829b637f963c3e421fc4b89486709e38c06ab6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 9aca2d2263285de36efe12e6e267778d54149e9e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="anchor-tag-helper"></a>Yer işareti etiketi Yardımcısı
+# <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET Core yer işareti etiketi yok
 
 Tarafından [Peter Kellner](http://peterkellner.net) ve [Scott Addie](https://github.com/scottaddie)
 

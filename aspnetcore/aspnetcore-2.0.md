@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core 2. 0 ' yenilikler nelerdir?
 author: rick-anderson
-description: ASP.NET Core 2. 0 ' yenilikler nelerdir?
+description: "ASP.NET Core 2.0 yeni özellikler hakkında bilgi edinin."
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 81d24088d53a7e37d17bb7c57892c98efb06ca6f
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: cfeff3abafb310c15d6623dcfbb9e1857640c79b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 

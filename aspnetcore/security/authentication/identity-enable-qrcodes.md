@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core Doğrulayıcı uygulamalar için etkinleştirme QR kodu oluşturma"
 author: rick-anderson
-description: "ASP.NET Core Doğrulayıcı uygulamalar için etkinleştirme QR kodu oluşturma"
+description: "ASP.NET Core iki faktörlü kimlik doğrulamasıyla çalışmak Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştirmek nasıl bulur."
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core Doğrulayıcı uygulamalar için etkinleştirme QR kodu oluşturma
 
@@ -25,7 +25,7 @@ ASP.NET Core web uygulama şablonları Doğrulayıcı destekler, ancak QRCode ol
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>QR kodlarını 2FA yapılandırma sayfasına ekleme
 
-Bu yönergeleri kullanmak *qrcode.js* https://davidshimjs.github.io/qrcodejs/ depoyu gelen.
+Bu yönergeleri kullanmak *qrcode.js* gelen https://davidshimjs.github.io/qrcodejs/ deposu.
 
 * Karşıdan [qrcode.js javascript Kitaplığı](https://davidshimjs.github.io/qrcodejs/) için `wwwroot\lib` projenizdeki klasöre.
 
@@ -84,8 +84,8 @@ Tercih edilen kitaplıkla QR kodunu kitaplığı değiştirebilirsiniz. HTML iç
 
 QR kodunu doğru biçimlendirilmiş URL'sini bulunur:
 
-* `AuthenticatorUri`model özelliği.
-* `data-url`bir özellik `qrCodeData` öğesi. 
+* `AuthenticatorUri` model özelliği.
+* `data-url` bir özellik `qrCodeData` öğesi. 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP istemci ve sunucu zaman eğme
 

@@ -1,5 +1,5 @@
 ---
-title: "Razor sayfalarının EF temel - CRUD - 2 8"
+title: "Razor sayfalarının ASP.NET Core - CRUD - 2 8'in EF çekirdek ile"
 author: rick-anderson
 description: "Oluşturma, okuma, güncelleştirme, EF çekirdek ile silmek nasıl gösterir"
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: ba342f21350ce880485519e4e174770814a99d45
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d46292e07b65322d85f8f0fb43c8be4af4ccb47e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Oluşturma, okuma, güncelleştirme ve silme - Razor sayfaları (8, 2) ile EF çekirdek
+# <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor sayfalarının ASP.NET Core - CRUD - 2 8'in EF çekirdek ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 

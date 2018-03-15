@@ -1,5 +1,5 @@
 ---
-title: "Razor sayfalarının EF çekirdek ile-ilgili verileri - 8'in 7 güncelleştir"
+title: "Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir"
 author: rick-anderson
 description: "Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: a7a21aca4d822daad7a6a13f0feec5139bf6e1a5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fe76405c67297891351aba2495a4d7ce22c6195b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>İlgili verileri - EF çekirdek Razor sayfalarının (7 8'in) güncelleştirme
+# <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 

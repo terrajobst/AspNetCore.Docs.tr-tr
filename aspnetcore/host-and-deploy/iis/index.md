@@ -5,16 +5,16 @@ description: "ASP.NET Core uygulamaları Windows Server Internet Information Ser
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -25,9 +25,9 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Rick Anderson](https:
 Aşağıdaki işletim sistemlerinde desteklenir:
 
 * Windows 7 veya üzeri
-* Windows Server 2008 R2 veya daha sonra &#8224;
+* Windows Server 2008 R2 veya sonraki sürümü&#8224;
 
-&#8224; Kavramsal olarak, bu belgede açıklanan IIS yapılandırmasını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
+&#8224;Kavramsal olarak, bu belgede açıklanan IIS yapılandırmasını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
 
 [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)) bir ters proxy yapılandırması IIS ile çalışmaz. Kullanım [Kestrel server](xref:fundamentals/servers/kestrel).
 
@@ -195,6 +195,9 @@ Uygulamaları sahip sunuculara dağıtırken [Web dağıtımı](/iis/publish/usi
 1. Sağlayan bir **Site adı** ve **fiziksel yolu** uygulamanın dağıtım klasörü için. Sağlamak **bağlama** yapılandırma ve seçerek Web sitesi oluşturma **Tamam**:
 
    ![Site adı, fiziksel yolunu ve ana bilgisayar adı Web sitesi Ekle adımda sağlayın.](index/_static/add-website-ws2016.png)
+
+   > [!WARNING]
+   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılabilir. Üst düzey joker bağlamaları uygulamanızı güvenlik açıkları için yedekleme açabilirsiniz. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık ana bilgisayar adları kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanı denetlemek, bu güvenlik riskinin yok (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
 1. Sunucu düğümü altında seçin **uygulama havuzları**.
 

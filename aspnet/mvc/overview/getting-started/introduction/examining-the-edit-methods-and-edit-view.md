@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme görünümü ve düzenleme yöntemler inceleniyor
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE[Tutorial Note](sample/code-location.md)]
 
@@ -62,7 +62,7 @@ Açık `Movies` denetleyicisi. İki `Edit` eylem yöntemleri aşağıda gösteri
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample6.cshtml?highlight=9)]
 
-`@Html.AntiForgeryToken()`içinde eşleşmelidir bir gizli form sahteciliğe karşı koruma belirteci oluşturur `Edit` yöntemi `Movies` denetleyicisi. Daha fazla bilgiyi hakkında siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir) my öğreticideki [XSRF/CSRF önleme mvc'de](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md).
+`@Html.AntiForgeryToken()` içinde eşleşmelidir bir gizli form sahteciliğe karşı koruma belirteci oluşturur `Edit` yöntemi `Movies` denetleyicisi. Daha fazla bilgiyi hakkında siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir) my öğreticideki [XSRF/CSRF önleme mvc'de](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md).
 
 `HttpGet` `Edit` Yöntemi film ID parametresi alır, Entity Framework kullanarak filmi arar `Find` yöntemi ve seçili film düzenleme görünümü döndürür. Bir filmi bulunamazsa [HttpNotFound](https://msdn.microsoft.com/library/gg453938(VS.98).aspx) döndürülür. Yapı iskelesi sistem düzenleme görünümü oluşturduğunuzda, incelenmesi `Movie` sınıfı ve işlemek için oluşturulan kodu `<label>` ve `<input>` sınıfın her bir özellik için öğeleri. Aşağıdaki örnek, visual studio yapı iskelesi sistem tarafından oluşturulan düzenleme görünümü gösterir:
 
@@ -100,7 +100,7 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölüm atlayın ve sonraki ö
 
 
 > [!NOTE]
-> bir virgül İngilizce dışındaki yerel ayarlar için jQuery doğrulamasına desteklemek için (&quot;,&quot;) ondalık ve ABD İngilizcesi dışındaki tarih biçimleri için içermelidir *globalize.js* ve özel  *cultures/globalize.cultures.js* dosyası (gelen [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayar kullanıyorsanız Globalize yüklemeyin.)
+> bir virgül İngilizce dışındaki yerel ayarlar için jQuery doğrulamasına desteklemek için (&quot;,&quot;) ondalık ve ABD İngilizcesi dışındaki tarih biçimleri için içermelidir *globalize.js* ve özel  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayar kullanıyorsanız Globalize yüklemeyin.)
 
 
 1. Gelen **Araçları** menüsünü tıklatın **NuGetLibrary Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.  
@@ -109,7 +109,7 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölüm atlayın ve sonraki ö
 2. Sol bölmede seçin **Gözat*. *** (aşağıdaki görüntü bakın.)
 3. Giriş kutusuna * Globalize **.  
   
-    ![](examining-the-edit-methods-and-edit-view/_static/image6.png)Seçin `jQuery.Validation.Globalize`, seçin `MvcMovie` tıklatıp **yükleme**. *Scripts\jquery.globalize\globalize.js* dosyayı projenize eklenir. *Scripts\jquery.globalize\cultures\* klasörü birçok kültür JavaScript dosyaları içerir. Not: Bu paket yüklemek için beş dakika sürebilir.
+    ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Seçin `jQuery.Validation.Globalize`, seçin `MvcMovie` tıklatıp **yükleme**. *Scripts\jquery.globalize\globalize.js* dosyayı projenize eklenir. *Scripts\jquery.globalize\cultures\* klasörü birçok kültür JavaScript dosyaları içerir. Not: Bu paket yüklemek için beş dakika sürebilir.
 
  Aşağıdaki kod Views\Movies\Edit.cshtml dosya için yapılan değişiklikleri gösterir: 
 
@@ -123,7 +123,7 @@ Geçici bir düzeltme olarak yerel çalışma doğrulama alınamıyor, bilgisaya
 
 [!code-xml[Main](examining-the-edit-methods-and-edit-view/samples/sample11.xml)]
 
-<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a>Sonraki öğreticide biz arama işlevini uygulamanız.
+<a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> Sonraki öğreticide biz arama işlevini uygulamanız.
 
 >[!div class="step-by-step"]
 [Önceki](accessing-your-models-data-from-a-controller.md)

@@ -1,5 +1,5 @@
 ---
-title: "Web API'leri Azure Active Directory B2C ile bulut kimlik doğrulaması"
+title: "Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması"
 author: camsoper
 description: "ASP.NET Core Web API ile Azure Active Directory B2C kimlik doğrulaması kurma bulur. Kimliği doğrulanmış web API'si Postman ile test edin."
 ms.author: casoper
@@ -10,13 +10,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Web API'leri Azure Active Directory B2C ile bulut kimlik doğrulaması
+# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
@@ -120,7 +120,7 @@ Aşağıdaki değerleri kullanın:
 | **Web uygulaması eklemek veya web API'si** | Evet                              |                                 |
 | **Örtük akış izin ver**       | Evet                              |                                 |
 | **Yanıt URL'si**                 | `https://getpostman.com/postman` |                                 |
-| **Uygulama Kimliği URI'si**                | *&lt;boş bırakın&gt;*            | Bu öğretici için gerekli değildir. |
+| **Uygulama Kimliği URI'si**                | *&lt;Boş bırakın&gt;*            | Bu öğretici için gerekli değildir. |
 | **Yerel istemci Ekle**     | Hayır                               |                                 |
 
 Yeni kaydettiğiniz web uygulaması web API'si kullanıcı adınıza erişmek için izniniz gerekiyor.  
@@ -177,7 +177,7 @@ Web API kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı belirt
     | **Geri çağırma URL'si**          | `https://getpostman.com/postman`                                                              |                                                                                            |
     | **Kimlik doğrulama URL'si**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Değiştir  *&lt;Kiracı etki alanı adı&gt;*  köşeli parantez olmadan kiracının etki alanı adına sahip. |
     | **İstemci kimliği**             | *&lt;Postman uygulamanın girin <b>uygulama kimliği</b>&gt;*                                       |                                                                                            |
-    | **İstemci parolası**         | *&lt;boş bırakın&gt;*                                                                         |                                                                                            |
+    | **İstemci parolası**         | *&lt;Boş bırakın&gt;*                                                                         |                                                                                            |
     | **Kapsam**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Değiştir  *&lt;Kiracı etki alanı adı&gt;*  köşeli parantez olmadan kiracının etki alanı adına sahip. |
     | **İstemci kimlik doğrulaması** | İstemci kimlik bilgileri gövdesinde Gönder                                                               |                                                                                            |
     

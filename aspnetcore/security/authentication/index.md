@@ -1,7 +1,7 @@
 ---
-title: "Kimlik doğrulaması"
+title: "ASP.NET Core kimlik doğrulaması"
 author: rick-anderson
-description: "Bu belge, çeşitli ASP.NET Core kimlik doğrulama konuları için içerik tablosu olarak görev yapar."
+description: "ASP.NET Core kimlik doğrulama teknolojileri için İlgili Konular'a bulur."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,39 +9,39 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/index
-ms.openlocfilehash: b9640e33043d452246f81b7968996bda1f7474ff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 20a6d5ae598a0d1e8d7735cb1311fac1c10513eb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="authentication"></a>Kimlik doğrulaması
+# <a name="authentication-in-aspnet-core"></a>ASP.NET Core kimlik doğrulaması
 
-* [Topluluk OSS kimlik doğrulama seçenekleri](community.md)
+* [Topluluk OSS kimlik doğrulama seçenekleri](xref:security/authentication/community)
 
-* [Kimliğe giriş](identity.md)
+* [Kimliğe giriş](xref:security/authentication/identity)
 
-* [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](social/index.md)
+* [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](xref:security/authentication/social/index)
 
-* [WS-Federasyon ile kimlik doğrulamasını etkinleştir](ws-federation.md)
+* [WS-Federasyon ile kimlik doğrulamasını etkinleştir](xref:security/authentication/ws-federation)
 
-* [Kimlik’te QR kodu oluşturmayı etkinleştirme](identity-enable-qrcodes.md)
+* [Kimlik’te QR kodu oluşturmayı etkinleştirme](xref:security/authentication/identity-enable-qrcodes)
 
-* [Windows Kimlik Doğrulaması Yapılandırma](windowsauth.md)
+* [Windows Kimlik Doğrulaması Yapılandırma](xref:security/authentication/windowsauth)
 
-* [Hesap onaylama ve parola kurtarma](accconfirm.md)
+* [Hesap onaylama ve parola kurtarma](xref:security/authentication/accconfirm)
 
-* [SMS ile iki öğeli kimlik doğrulama](2fa.md)
+* [SMS ile iki öğeli kimlik doğrulama](xref:security/authentication/2fa)
 
-* [Kimlik olmadan tanımlama bilgisi kimlik doğrulamasını kullan](cookie.md)
+* [Kimlik olmadan tanımlama bilgisi kimlik doğrulamasını kullan](xref:security/authentication/cookie)
 
-* [Azure Active Directory](azure-active-directory/index.md)
+* [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 
   * [Azure AD bir ASP.NET Core web uygulamanıza tümleştirmek](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 
-  * [Azure AD B2C’yi müşteriyle yüz yüze çalışan ASP.NET Core web uygulamasıyla tümleştirme](azure-ad-b2c.md)
+  * [Azure AD B2C’yi müşteriyle yüz yüze çalışan ASP.NET Core web uygulamasıyla tümleştirme](xref:security/authentication/azure-ad-b2c)
 
-  * [Azure AD B2C ASP.NET Core web API ile tümleştirme](azure-ad-b2c-webapi.md)
+  * [Azure AD B2C ASP.NET Core web API ile tümleştirme](xref:security/authentication/azure-ad-b2c-webapi)
 
   * [Azure AD kullanarak bir WPF uygulamasından ASP.NET çekirdek Web API çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 
@@ -49,6 +49,6 @@ ms.lasthandoff: 03/02/2018
 
 * [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](http://docs.identityserver.io/en/release/)
 
-* [ASP.NET Core uygulamaları Azure uygulama hizmeti kimlik doğrulama (kolay Auth) ile güvenli](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [ASP.NET Core uygulamaları Azure uygulama hizmeti kimlik doğrulama (kolay Auth) ile güvenli](/azure/app-service/app-service-authentication-overview)
 
 * [Bireysel kullanıcı hesapları ile oluşturulmuş projelerde tabanlı makaleler](xref:security/authentication/individual)

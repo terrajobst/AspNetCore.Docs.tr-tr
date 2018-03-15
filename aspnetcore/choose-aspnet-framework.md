@@ -4,20 +4,20 @@ author: rick-anderson
 description: "ASP.NET ve ASP.NET Core arasında seçim yapma hakkında bilgi edinin."
 manager: wpickett
 ms.author: riande
-ms.date: 09/30/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 232e82ed66ff2363230ff09d435db1074c02b53b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3986e904d6670c451edc5c9338dc07e18d3c207d
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core arasında seçim yapma 
+# <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core arasında seçim yapma
 
-ASP.NET web uygulaması oluşturuyorsanız olsun bir çözümü sizin için vardır: Windows Server hedefleme Kurumsal web uygulamalarından küçük mikro Linux kapsayıcıları ve her şeyi arasında hedefleme.
+ASP.NET web uygulaması olsun, oluşturduğunuz bir çözümü sizin için vardır: Windows Server hedefleme Kurumsal web uygulamaları ' küçük mikro Linux kapsayıcıları ve her şeyi arasında hedefleme.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
@@ -25,33 +25,34 @@ ASP.NET Core Windows, macOS ya da Linux modern, bulut tabanlı web uygulamaları
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET, kurumsal sınıf oluşturmak için gereken tüm hizmetleri Windows server tabanlı web uygulamalarını sağlayan olgun bir çerçevedir.
+ASP.NET, kurumsal sınıf oluşturmak için gereken tüm hizmetleri Windows server tabanlı web uygulamalarında sağlayan olgun bir çerçevedir.
 
 ## <a name="which-one-is-right-for-me"></a>Hangisinin benim için en uygun mi?
 
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Windows, macOS ya da Linux derleme|Windows için derleme|
-|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core 2.0 ile bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır. Ayrıca bkz. [MVC](xref:mvc/overview) ve [Web API](xref:tutorials/first-web-api)|Kullanım [Web Forms](https://docs.microsoft.com/aspnet/web-forms), [SignalR](https://docs.microsoft.com/aspnet/signalr), [MVC](https://docs.microsoft.com/aspnet/mvc), [Web API](https://docs.microsoft.com/aspnet/web-api/), veya [Web sayfaları](https://docs.microsoft.com/aspnet/web-pages)|
+|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction-signalr-core).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), veya [Web sayfaları](/aspnet/web-pages)|
 |Makine başına birden çok sürüm|Makine başına bir sürüm|
 |Visual Studio ile geliştirme [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) C# veya F # kullanma|C#, VB ve F # kullanarak Visual Studio ile geliştirme|
 |ASP.NET daha yüksek performans|İyi bir performans|
-|[.NET Framework veya .NET çekirdeği çalışma zamanı seçin](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework çalışma zamanı kullanın|
+|[.NET Framework veya .NET çekirdeği çalışma zamanı seçin](/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework çalışma zamanı kullanın|
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core senaryoları
 
 <!-- update link to Razor Pages mvc movie series when done -->
-* [Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core 2.0 ile bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır.
+* [Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x.
 * [Web siteleri](xref:tutorials/first-mvc-app/index)
 * [API'leri](xref:tutorials/first-web-api)
+* [Gerçek zamanlı](xref:signalr/index)
 
 ## <a name="aspnet-scenarios"></a>ASP.NET senaryoları
 
-* [Web siteleri](https://docs.microsoft.com/aspnet/mvc)
-* [API'leri](https://docs.microsoft.com/aspnet/web-api)
-* [Gerçek zamanlı](https://docs.microsoft.com/aspnet/signalr)
+* [Web siteleri](/aspnet/mvc)
+* [API'leri](/aspnet/web-api)
+* [Gerçek zamanlı](/aspnet/signalr)
 
 ## <a name="resources"></a>Kaynaklar
 
-* [ASP.NET giriş](https://docs.microsoft.com/aspnet/overview)
+* [ASP.NET giriş](/aspnet/overview)
 * [ASP.NET Core giriş](xref:index)

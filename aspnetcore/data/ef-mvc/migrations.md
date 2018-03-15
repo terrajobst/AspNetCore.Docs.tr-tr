@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 058c7e8821f0ccc4e0be844a7f8dd0fab9942028
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0959ebc0f566540ea8a43d4889bb0e4fa041bfd6
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Geçişler - ASP.NET Core MVC Öğreticisi (4, 10) ile EF çekirdek
 
@@ -45,7 +45,7 @@ EF Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFr
 
 [!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
-Bu değişikliğin yapılması projeyi ayarlar, böylece ilk geçiş yeni bir veritabanı oluşturur. Bu geçiş ile çalışmaya başlama için gerekli değildir, ancak iyi bir fikirdir neden, daha sonra göreceksiniz.
+Bu değişikliğin yapılması projeyi ayarlar, böylece ilk geçiş yeni bir veritabanı oluşturur. Bu geçiş ile çalışmaya başlamak için gerekli değildir, ancak iyi bir fikirdir neden, daha sonra göreceksiniz.
 
 > [!NOTE]
 > Veritabanı adının değiştirilmesi alternatif olarak, veritabanını silebilirsiniz. Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` CLI komutu:

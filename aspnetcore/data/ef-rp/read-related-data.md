@@ -1,5 +1,5 @@
 ---
-title: "Razor sayfalarının EF çekirdek ile-ilgili verileri - 8'in 6 okuma"
+title: "Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma"
 author: rick-anderson
 description: "Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüleyin."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 6e71e9c01a58c3f60dacce8959ac4502a3690690
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 44db7b49aef6bff1e57d10d569ffa9c73930b774
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Okuma data - EF çekirdek Razor sayfaları (8 6) ile ilgili
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -39,7 +39,7 @@ EF çekirdek ilgili verileri bir varlık Gezinti özellikleri yükleyebilirsiniz
 
  ![İstekli yükleme örneği](read-related-data/_static/eager-loading.png)
  
- Bir koleksiyon nvavigation dahil edildiğinde istekli yükleme birden çok sorgu gönderir:
+ Bir koleksiyon Gezinti dahil edildiğinde istekli yükleme birden çok sorgu gönderir:
 
  * Ana sorgu için bir sorgu 
  * Her bir koleksiyon yük ağacında "kenar" için bir sorgu.

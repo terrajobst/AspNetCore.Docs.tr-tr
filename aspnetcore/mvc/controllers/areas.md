@@ -1,7 +1,7 @@
 ---
-title: "Alanları"
+title: "ASP.NET Core alanları"
 author: rick-anderson
-description: "Alanları ile çalışmaya nasıl gösterir."
+description: "Alanlar (Yönlendirme) ayrı ad alanını ve klasör yapısı (için görünümler) olarak bir gruba ilgili işlevselliği düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: 1ade49de3f6c58edc4ea7b06bc593b3db797081c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cf31c10e7d4d9229a32aa06903a0ff0ed6fb0599
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="areas"></a>Alanları
+# <a name="areas-in-aspnet-core"></a>ASP.NET Core alanları
 
 Tarafından [Dhananjay Kumar](https://twitter.com/debug_mode) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -147,39 +147,39 @@ Yeni oluşturulan alanlarınızı ile çalışan bir rota tanımı ayarlayın. [
 
 * Bir alanda bir eylemden bağlantıları oluşturmak aynı denetleyicisi içinde başka bir eylem denetleyiciye bağlı.
 
-  Geçerli isteğin yolu benzer düşünelim`/Products/Home/Create`
+  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
 
-  HtmlHelper sözdizimi:`@Html.ActionLink("Go to Product's Home Page", "Index")`
+  HtmlHelper sözdizimi: `@Html.ActionLink("Go to Product's Home Page", "Index")`
 
-  TagHelper sözdizimi:`<a asp-action="Index">Go to Product's Home Page</a>`
+  TagHelper sözdizimi: `<a asp-action="Index">Go to Product's Home Page</a>`
 
   Biz 'alanı' ve 'controller' değerleri sağlamanızı olmayan Not zaten geçerli istek bağlamında kullanılabilir burada. Bu tür bir değerleri çağrılır `ambient` değerleri.
 
 * Farklı bir denetleyicideki başka bir eylem denetleyiciye bağlı bir alanda bir eylemden bağlantıları oluşturmak
 
-  Geçerli isteğin yolu benzer düşünelim`/Products/Home/Create`
+  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
 
-  HtmlHelper sözdizimi:`@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
+  HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
 
-  TagHelper sözdizimi:`<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+  TagHelper sözdizimi: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
   Burada bir 'alanı' ortam değeri kullanılır, ancak 'controller' değeri açıkça yukarıda belirtilen unutmayın.
 
 * Bir alanda bir eylemden bağlantıları oluşturmak için başka bir eylem denetleyicisi farklı bir denetleyici ve farklı bir alan göre.
 
-  Geçerli isteğin yolu benzer düşünelim`/Products/Home/Create`
+  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
 
-  HtmlHelper sözdizimi:`@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
+  HtmlHelper sözdizimi: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
 
-  TagHelper sözdizimi:`<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
+  TagHelper sözdizimi: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
 
   Unutmayın burada yok ortam değerler kullanılır.
 
 * Bir temel alan denetleyicisi içinde bir eylem bağlantıları farklı bir denetleyicideki başka bir eylem oluşturmak ve **değil** bir bölgede.
 
-  HtmlHelper sözdizimi:`@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
+  HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
 
-  TagHelper sözdizimi:`<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+  TagHelper sözdizimi: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
   Biz oluşturmak istediğinizde bu yana alanına olmayan bağlantılar 'alanı' burada ortam değeri boş biz denetleyici eylemi temel.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: cab395645d46c56a1a89464a8e8e716a296a9637
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 53f0f362f38252b86f9afd8416543ce3d515e7c4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Hata ASP.NET çekirdek işleme giriş
 
@@ -65,39 +65,44 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Yapılandırma durumu kod sayfaları
 
-Varsayılan olarak, uygulamanız için HTTP durum kodları 500 (Dahili Sunucu hatası) veya 404 (bulunamadı) gibi bir zengin durum kod sayfası sağlamayacak. Yapılandırabileceğiniz `StatusCodePagesMiddleware` bir satıra ekleyerek `Configure` yöntemi:
+Varsayılan olarak, bir uygulama zengin durum kod sayfası için HTTP durum kodları, gibi sağlamaz *404 Bulunamadı*. Kod sayfaları durumu sağlamak için bir satıra ekleyerek durum kodu sayfaları ara yazılımı yapılandırmanız `Startup.Configure` yöntemi:
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-Varsayılan olarak, bu ara yazılımın 404 gibi ortak durum kodları için basit, yalnızca metin işleyiciler ekler:
+Varsayılan olarak, durum kodu sayfaları ara yazılımı 404 gibi ortak durum kodları için basit, yalnızca metin işleyiciler ekler:
 
 ![404 sayfası](error-handling/_static/default-404-status-code.png)
 
-Ara yazılım birkaç farklı genişletme yöntemleri destekler. Lambda ifadesi alır, başka bir içerik türü ve biçimi dizesini alır.
+Ara yazılım birkaç uzantı yöntemleri destekler. Lambda ifadesi bir yöntemi alır:
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+
+Başka bir yöntem içerik türü ve biçim dizesini alır:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Yeniden yönlendirme uzantı yöntemleri vardır. Bir 302 durum kodunu istemciye gönderir ve bir istemciye özgün durum kodunu döndüren ancak işleyicinin yeniden yönlendirme URL'si de yürütür.
+Ayrıca yönlendirmek ve genişletme yöntemleri yeniden çalıştırın. Yeniden yönlendirme yöntemi 302 durum kodunu istemciye gönderir:
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+
+Yeniden çalıştırma yöntemi istemciye özgün durum kodunu döndüren ancak işleyicinin yeniden yönlendirme URL'si de yürütür:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Durum kod sayfaları belirli istekleri için devre dışı bırakmanız gerekirse, bunu yapabilirsiniz:
+Bir Razor sayfalarının işleyici yöntemi veya MVC denetleyicisi belirli istekleri için durum kod sayfaları devre dışı bırakılabilir. Durum kod sayfaları devre dışı bırakmak için alma denemesi [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) gelen isteğin [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) koleksiyonu ve kullanılabilir durumdaysa özelliği devre dışı bırakın:
 
 ```csharp
-var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
+var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
+
 if (statusCodePagesFeature != null)
 {
-  statusCodePagesFeature.Enabled = false;
+    statusCodePagesFeature.Enabled = false;
 }
 ```
 
@@ -109,7 +114,7 @@ Ayrıca, yanıt üstbilgileri gönderildikten sonra yanıtın durum kodu değiş
 
 ## <a name="server-exception-handling"></a>Sunucu özel durum işleme
 
-Özel durum işleme mantığı, uygulamanızda yanı sıra [server](servers/index.md) uygulamanızı barındırma bazı özel durum işleme gerçekleştirir. Üstbilgileri gönderilmeden önce sunucunun bir özel durum yakalar, sunucunun hiçbir gövde ile 500 İç sunucu hatası yanıt gönderir. Üstbilgileri gönderildikten sonra sunucu bir özel durum yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Sunucunun bir özel durum nedeniyle oluşan herhangi bir özel durum işlenmiş işleme. Herhangi bir özel hata sayfaları yapılandırılabilir veya özel durum işleme ara yazılımı veya filtreler bu davranışını etkilemez.
+Özel durum işleme mantığı, uygulamanızda yanı sıra [server](servers/index.md) uygulamanızı barındırma bazı özel durum işleme gerçekleştirir. Üst bilgileri gönderilmeden önce sunucunun bir özel durum yakalar, sunucunun gönderir. bir *500 İç sunucu hatası* hiçbir gövdesi olan yanıt. Üstbilgileri gönderildikten sonra sunucu bir özel durum yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Sunucunun bir özel durum nedeniyle oluşan herhangi bir özel durum işlenmiş işleme. Herhangi bir özel hata sayfaları yapılandırılabilir veya özel durum işleme ara yazılımı veya filtreler bu davranışını etkilemez.
 
 ## <a name="startup-exception-handling"></a>Başlangıç özel durum işleme
 

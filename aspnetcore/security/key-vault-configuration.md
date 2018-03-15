@@ -1,5 +1,5 @@
 ---
-title: "Azure anahtar kasası yapılandırma sağlayıcısı"
+title: "ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı"
 author: guardrex
 description: "Çalışma zamanında yüklenen ad-değer çiftleri kullanarak bir uygulamayı yapılandırmak için Azure anahtar kasası yapılandırma Sağlayıcısı'nı kullanmayı öğrenin."
 manager: wpickett
@@ -8,13 +8,13 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Azure anahtar kasası yapılandırma sağlayıcısı
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Barış Stanton-Nurse](https://github.com/anurse)
 
@@ -74,7 +74,7 @@ Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerle
 ![Azure anahtar kasası yapılandırma sağlayıcısı aracılığıyla yüklenen gizli değerleri gösteren bir tarayıcı penceresi](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Önekli anahtar kasasına gizli anahtarları oluşturma ve yapılandırma değerlerini (anahtar-adı-önek-sample) yükleme
-`AddAzureKeyVault`Ayrıca uygulaması kabul eden bir aşırı sağlar `IKeyVaultSecretManager`, nasıl anahtar kasasına gizli anahtarları denetlemenize olanak sağlayan yapılandırma anahtarlara dönüştürülür. Örneğin, uygulama başlatma sırasında sağladığınız bir önek değere göre gizli değerlerini yüklemek için arabirimi uygulayabilirsiniz. Bu, örneğin, uygulama sürümüne gizli yüklemek için sağlar.
+`AddAzureKeyVault` Ayrıca uygulaması kabul eden bir aşırı sağlar `IKeyVaultSecretManager`, nasıl anahtar kasasına gizli anahtarları denetlemenize olanak sağlayan yapılandırma anahtarlara dönüştürülür. Örneğin, uygulama başlatma sırasında sağladığınız bir önek değere göre gizli değerlerini yüklemek için arabirimi uygulayabilirsiniz. Bu, örneğin, uygulama sürümüne gizli yüklemek için sağlar.
 
 > [!WARNING]
 > Önekleri anahtar kasası parolaları parolaları birden fazla uygulama için aynı anahtar kasasını yerleştirmek için veya çevre gizli yerleştirmek üzere kullanma (örneğin, *geliştirme* karşı *üretim* gizli) aynı içine Kasa. Farklı uygulamalar ve geliştirme/üretim ortamlarında ayrı anahtar kasalarını uygulama ortamları için yüksek düzeyde güvenlik yalıtmak için kullanmanızı öneririz.

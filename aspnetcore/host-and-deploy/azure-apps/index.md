@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 8da97b2148c0a784e3b1fdfe210db35e3fcceade
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti
 
@@ -45,6 +45,9 @@ Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturmayı öğreni
 
 [VSTS ile Azure’a sürekli dağıtım](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
 Bir ASP.NET Core uygulama için bir CI yapı ayarlama sonra Azure App Service için sürekli dağıtım sürüm oluşturun.
+
+[Azure Web uygulaması korumalı alan](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+Azure uygulama hizmeti çalışma zamanı yürütme sınırlamaları Azure uygulamaları platformu tarafından zorlanan bulur.
 
 ## <a name="application-configuration"></a>Uygulama yapılandırması
 
@@ -99,4 +102,4 @@ Windows Server'da Azure uygulama hizmeti kullanan [Internet Information Services
 * [ASP.NET çekirdeği modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
 * [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
 * [ASP.NET çekirdeği ile IIS modüllerini kullanma](xref:host-and-deploy/iis/modules)
-* [Microsoft TechNet Kitaplığı: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
+* [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)

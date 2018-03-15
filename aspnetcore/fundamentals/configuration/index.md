@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
 
@@ -24,13 +24,13 @@ Yapılandırma API'si ad-değer çiftlerinin listesini temel web uygulamasını 
 
 İçin yapılandırma sağlayıcısı vardır:
 
-* Dosya biçimleri (INI, JSON ve XML)
-* Komut satırı bağımsız değişkenleri
-* Ortam değişkenleri
-* Bellek içi .NET nesneleri
-* Bir şifrelenmiş kullanıcı deposu
-* [Azure Key Vault](xref:security/key-vault-configuration)
-* (Yüklü veya oluşturulan) özel sağlayıcılar
+* Dosya biçimleri (INI, JSON ve XML).
+* Komut satırı bağımsız değişkenleri.
+* Ortam değişkenleri.
+* Bellek içi .NET nesneleri.
+* Şifrelenmemiş [gizli Yöneticisi](xref:security/app-secrets) depolama.
+* Şifrelenmiş bir kullanıcı depolamak, gibi [Azure anahtar kasası](xref:security/key-vault-configuration).
+* (Yüklü veya oluşturulan) özel sağlayıcıları.
 
 Her yapılandırma değeri bir dize anahtarı eşler. Özel bir ayarları seri durumdan çıkarılacak yerleşik bağlama Destek [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesne (basit bir .NET sınıf özelliklerine sahip).
 
@@ -308,11 +308,11 @@ Anahtar bir önek olabilir.
 | Anahtar öneki               | Örnek         |
 | ------------------------ | :-------------: |
 | Önek                | `key1=value1`   |
-| Tek bir tire (`-`) &#8224; | `-key2=value2`  |
+| Tek bir tire (`-`)&#8224; | `-key2=value2`  |
 | İki kısa çizgi (`--`)        | `--key3=value3` |
 | Eğik çizgi (`/`)      | `/key4=value4`  |
 
-&#8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
+&#8224;Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
 
 Örnek komut:
 
@@ -330,11 +330,11 @@ Anahtar bir önekine sahip olmalıdır.
 
 | Anahtar öneki               | Örnek         |
 | ------------------------ | :-------------: |
-| Tek bir tire (`-`) &#8224; | `-key1 value1`  |
+| Tek bir tire (`-`)&#8224; | `-key1 value1`  |
 | İki kısa çizgi (`--`)        | `--key2 value2` |
 | Eğik çizgi (`/`)      | `/key3 value3`  |
 
-&#8224; Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
+&#8224;Tek tire öneke sahip bir anahtar (`-`) içinde sağlanmalıdır [geçiş eşlemeleri](#switch-mappings), aşağıda açıklanmıştır.
 
 Örnek komut:
 
@@ -432,5 +432,5 @@ Erişim Yapılandırması içinde `ConfigureServices` veya `Configure` başlatma
 * [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
 * [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
 * [ASP.NET çekirdek barındırma](xref:fundamentals/hosting)
-* [Bağımlılık ekleme](xref:fundamentals/dependency-injection)
+* [Bağımlılık Ekleme](xref:fundamentals/dependency-injection)
 * [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)

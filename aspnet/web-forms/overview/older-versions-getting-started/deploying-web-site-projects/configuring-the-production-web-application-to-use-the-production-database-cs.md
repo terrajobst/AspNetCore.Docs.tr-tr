@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Üretim Web uygulamanızı üretim veritabanını (C#) kullanacak şekilde yapılandırma
 ====================
@@ -37,16 +37,16 @@ Yapılandırma bilgileri geliştirme ve üretim ortamlarını arasında farklıl
 
 ## <a name="examining-the-connection-string-information"></a>Bağlantı dizesi bilgilerini inceleniyor
 
-Kitap incelemeleri web uygulaması tarafından kullanılan bağlantı dizesi uygulama s yapılandırma dosyasında depolanan `Web.config`. `Web.config`bağlantı dizeleri, aptly adlı depolamak için özel bir bölüm içerir [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Adlı bu bölümünde tanımlanmış bir bağlantı dizesi Kitap incelemeleri Web sitesi için dosya `ReviewsConnectionString`:
+Kitap incelemeleri web uygulaması tarafından kullanılan bağlantı dizesi uygulama s yapılandırma dosyasında depolanan `Web.config`. `Web.config` bağlantı dizeleri, aptly adlı depolamak için özel bir bölüm içerir [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). `Web.config` Adlı bu bölümünde tanımlanmış bir bağlantı dizesi Kitap incelemeleri Web sitesi için dosya `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
 Bağlantı dizesi - veri kaynağı =. \SQLEXPRESS; AttachDbFilename = | DataDirectory|\Reviews.mdf;Integrated güvenlik = True; Kullanıcı örneği = True - seçeneği/değer çifti noktalı virgül ve her seçeneğin tarafından ayrılmış ve bir eşittir işareti ayrılmış değerle seçenekleri ve değerleri, bir dizi oluşur. Bu bağlantı dizesi olarak kullanılır ve dört seçenekten şunlardır:
 
-- `Data Source`-(varsa) veritabanı sunucusu ve veritabanı sunucusu örneği adı konumunu belirtir. Değer `.\SQLEXPRESS`, örnek bir veritabanı sunucusu ve bir örnek adı olduğu. Veritabanı sunucusunun uygulama ile aynı bilgisayarda olduğundan belirler; örnek adı `SQLEXPRESS`.
-- `AttachDbFilename`-veritabanı dosyasının konumunu belirtir. Yer tutucu değerini içeren `|DataDirectory|`, uygulama s tam yoluna çözülmüş olduğu `App_Data` çalışma zamanında klasör.
-- `Integrated Security`-Belirtilen bir kullanıcı adı/parola (false) veritabanı veya geçerli Windows hesabı kimlik bilgileri (true) bağlanırken kullanılıp kullanılmayacağını gösteren bir Boole değeri.
-- `User Instance`-yerel bilgisayarda yönetici olmayan kullanıcıların ekleyin ve bir SQL Server Express Edition veritabanına bağlanan izin verilip verilmeyeceğini belirten SQL Server Express sürümleri için belirli bir yapılandırma seçeneği. Bkz: [SQL Server Express kullanıcı örnekleri](https://msdn.microsoft.com/library/ms254504.aspx) Bu ayar hakkında daha fazla bilgi için.
+- `Data Source` -(varsa) veritabanı sunucusu ve veritabanı sunucusu örneği adı konumunu belirtir. Değer `.\SQLEXPRESS`, örnek bir veritabanı sunucusu ve bir örnek adı olduğu. Veritabanı sunucusunun uygulama ile aynı bilgisayarda olduğundan belirler; örnek adı `SQLEXPRESS`.
+- `AttachDbFilename` -veritabanı dosyasının konumunu belirtir. Yer tutucu değerini içeren `|DataDirectory|`, uygulama s tam yoluna çözülmüş olduğu `App_Data` çalışma zamanında klasör.
+- `Integrated Security` -Belirtilen bir kullanıcı adı/parola (false) veritabanı veya geçerli Windows hesabı kimlik bilgileri (true) bağlanırken kullanılıp kullanılmayacağını gösteren bir Boole değeri.
+- `User Instance` -yerel bilgisayarda yönetici olmayan kullanıcıların ekleyin ve bir SQL Server Express Edition veritabanına bağlanan izin verilip verilmeyeceğini belirten SQL Server Express sürümleri için belirli bir yapılandırma seçeneği. Bkz: [SQL Server Express kullanıcı örnekleri](https://msdn.microsoft.com/library/ms254504.aspx) Bu ayar hakkında daha fazla bilgi için.
   
 
 İzin verilen bağlantı dizesi seçenekleri bağlandığınız veritabanı ve kullanılan ADO.NET veritabanı sağlayıcısı bağlıdır. Bir Microsoft SQL veritabanı farklı bir Oracle veritabanına bağlanmak için kullanılan sunucusuna bağlanmak için örneğin, bağlantı dizesi. Benzer şekilde, SqlClient sağlayıcısı kullanarak Microsoft SQL Server veritabanına bağlanma OLE DB Sağlayıcısı'nı kullanırken daha farklı bir bağlantı dizesi kullanır.

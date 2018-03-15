@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi
 
@@ -59,7 +59,7 @@ dotnet test
 * Uygulama bir veri erişim katmanı (DAL), veritabanı bağlamı sınıfının içeren `AppDbContext` (*Data/AppDbContext.cs*). DAL yöntemleri işaretlenmiş `virtual`, testleri kullanımı için yöntemleri mocking izin verir.
 * Veritabanı uygulama başlangıçta boş ise, ileti deposunu üç iletileri ile başlatıldı. Bunlar *sağlanmış iletileri* testinde de kullanılır.
 
-&#8224; EF konu [Inmemory ile test](/ef/core/miscellaneous/testing/in-memory), mstest'i ile test etmek için bir bellek içi veritabanı kullanımı açıklanmaktadır. Bu konuda kullanan [xUnit](https://xunit.github.io/) framework test etme. Sınama kavramları ve test uygulamaları farklı test çerçevelerini arasında benzer, ancak aynı değildir.
+&#8224;EF konu [Inmemory ile test](/ef/core/miscellaneous/testing/in-memory), mstest'i ile test etmek için bir bellek içi veritabanı kullanımı açıklanmaktadır. Bu konuda kullanan [xUnit](https://xunit.github.io/) framework test etme. Sınama kavramları ve test uygulamaları farklı test çerçevelerini arasında benzer, ancak aynı değildir.
 
 Uygulama kullanmayan ancak [havuz deseni](http://martinfowler.com/eaaCatalog/repository.html) ve etkili bir örneği değil. [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfalarının geliştirme bu desenleri destekler. Daha fazla bilgi için bkz: [altyapı saklama katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [depo ve iş desenleri bir ASP.NET MVC uygulamasındaki uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [test etme Denetleyici mantığında](/aspnet/core/mvc/controllers/testing) (örnek havuz deseni uygular).
 

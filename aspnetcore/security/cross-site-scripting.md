@@ -1,7 +1,7 @@
 ---
-title: "Siteler arası komut dosyası önleme"
+title: "Siteler arası komut dosyası (XSS) ASP.NET Core içinde önleme"
 author: rick-anderson
-description: "Bu belge, siteler arası komut dosyası (XSS) ve ASP.NET Core uygulama bu güvenlik açığı adresleme teknikleri tanıtır."
+description: "Siteler arası komut dosyası (XSS) ve ASP.NET Core uygulama bu güvenlik açığı adresleme teknikleri hakkında bilgi edinin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 679d9689fbc2679d9ba20bf9c6dba5c95d76dbce
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="preventing-cross-site-scripting"></a>Siteler arası komut dosyası önleme
+# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası komut dosyası (XSS) ASP.NET Core içinde önleme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Siteler arası komut dosyası (XSS) istemci tarafı komut dosyalarını (genellikle JavaScript) web sayfalarına yerleştirmek bir saldırgan sağlayan bir güvenlik açığı bulunmaktadır. Diğer kullanıcıların saldırganlar komut dosyaları çalıştırılır etkilenen sayfaları yüklediğinizde ve bu da saldırganın tanımlama bilgilerini ve oturum belirteçleri çalmak etkinleştirme DOM işleme aracılığıyla web sayfasının içeriği değiştirmek veya başka bir sayfaya tarayıcı yönlendirebilirsiniz. Uygulamanın kullanıcı girişini alır ve doğrulama, kodlama veya onu kaçış olmadan bir sayfasında çıkarır XSS Güvenlik Açıkları genellikle oluşur.
 

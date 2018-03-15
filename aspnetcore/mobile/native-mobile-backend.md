@@ -1,7 +1,7 @@
 ---
-title: "Yerel mobil uygulamalar için arka uç hizmetleri oluşturma"
+title: "ASP.NET çekirdeği ile yerel mobil uygulamalar için arka uç hizmetleri oluşturma"
 author: ardalis
-description: 
+description: "Yerel mobil uygulamalar desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetlerini oluşturmayı öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: f5c0e5832b43f365c11a785af37b32e381624420
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3902cf728ab6ba776674382361ebb1b28e765711
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="creating-backend-services-for-native-mobile-applications"></a>Yerel mobil uygulamalar için arka uç hizmetleri oluşturma
+# <a name="creating-backend-services-for-native-mobile-applications-with-aspnet-core"></a>ASP.NET çekirdeği ile yerel mobil uygulamalar için arka uç hizmetleri oluşturma
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Mobil uygulamaları kolayca ASP.NET Core arka uç hizmetleriyle iletişim kurabi
 
 ## <a name="the-sample-native-mobile-app"></a>Örnek yerel mobil uygulama
 
-Bu öğretici, yerel mobil uygulamalar desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetlerini oluşturulacağını gösterir. Kullandığı [Xamarin Forms ToDoRest uygulama](https://developer.xamarin.com/guides/xamarin-forms/web-services/consuming/rest/) kendi yerel istemci olarak Android, iOS, Windows evrensel ve Windows Phone cihazları için ayrı yerel istemcilerde içerir. Sizin yerel uygulama oluşturma (ve gerekli boş Xamarin Araçları'nı yüklemek için) bağlı öğreticisini izleyin yanı Xamarin örnek çözümü indirin. Xamarin örnek bu makalenin ASP.NET Core uygulama (istemci tarafından gerekli değişiklik yok) yerine bir ASP.NET Web API 2 services projesi içerir.
+Bu öğretici, yerel mobil uygulamalar desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetlerini oluşturulacağını gösterir. Kullandığı [Xamarin Forms ToDoRest uygulama](/xamarin/xamarin-forms/data-cloud/consuming/rest) kendi yerel istemci olarak Android, iOS, Windows evrensel ve Windows Phone cihazları için ayrı yerel istemcilerde içerir. Sizin yerel uygulama oluşturma (ve gerekli boş Xamarin Araçları'nı yüklemek için) bağlı öğreticisini izleyin yanı Xamarin örnek çözümü indirin. Xamarin örnek bu makalenin ASP.NET Core uygulama (istemci tarafından gerekli değişiklik yok) yerine bir ASP.NET Web API 2 services projesi içerir.
 
 ![Bir Android smartphone üzerinde çalışan Rest yapmak uygulama](native-mobile-backend/_static/todo-android.png)
 

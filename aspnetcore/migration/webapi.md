@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Web API geçirme"
+title: "ASP.NET Web API ASP.NET Core geçirme"
 author: ardalis
-description: 
+description: "Bir Web API uygulaması için ASP.NET Core MVC ASP.NET Web API geçirmek öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 9eb5f4dfec82ec1c60d33bff94d35857a4c0cfd6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 929fab90aa88745807761e824a2cf614f078ea36
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-from-aspnet-web-api"></a>ASP.NET Web API geçirme
+# <a name="migrating-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API ASP.NET Core geçirme
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://scottaddie.com)
 
@@ -25,7 +25,7 @@ Web API'leri istemciler, tarayıcılar ve mobil cihazlar dahil olmak üzere çok
 
 ## <a name="review-aspnet-web-api-project"></a>Gözden geçirme ASP.NET Web API projesi
 
-Bu makalede örnek proje kullanan *ProductsApp*, makalede oluşturulmuş [ASP.NET Web API ile çalışmaya başlama](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) , başlangıç noktası olarak. Bu projede basit bir ASP.NET Web API projesi şu şekilde yapılandırılır.
+Bu makalede örnek proje kullanan *ProductsApp*, makalede oluşturulmuş [ASP.NET Web API 2 ile çalışmaya başlama](/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) , başlangıç noktası olarak. Bu projede basit bir ASP.NET Web API projesi şu şekilde yapılandırılır.
 
 İçinde *Global.asax.cs*, için bir çağrı yapılır `WebApiConfig.Register`:
 

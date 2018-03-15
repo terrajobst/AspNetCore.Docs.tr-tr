@@ -1,5 +1,5 @@
 ---
-title: ".NET (OWIN) için açık Web arabirimi"
+title: "ASP.NET çekirdeği ile .NET (OWIN) için Web Arabirimi'ni açmak"
 author: ardalis
 description: "ASP.NET Core açık Web arabirimi için .NET (hangi web uygulamalarının web sunucularından ayrılmış sağlar OWIN), nasıl desteklediği bulur."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 5cb5236335e71a02452788ced4e49de36092088c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 358046e87ffefcf568c8d432a5614a110ea16f22
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="introduction-to-open-web-interface-for-net-owin"></a>.NET (OWIN) için Web Arabirimi'ni açmak için giriş
+# <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET çekirdeği ile .NET (OWIN) için Web Arabirimi'ni açmak
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 

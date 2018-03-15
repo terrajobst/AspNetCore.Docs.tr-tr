@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Razor sayfalarında ile çalışmaya başlama"
+title: "ASP.NET Core Razor sayfalarında kullanmaya başlama"
 author: rick-anderson
-description: "ASP.NET Core Razor sayfalarında ile çalışmaya başlama"
+description: "Bir ASP.NET Core Razor sayfalarının web uygulaması oluşturmanın temel bilgileri bulur. Razor sayfalarının ASP.NET Core web iş yükleri için önerilir."
 manager: wpickett
 ms.author: riande
 ms.date: 12/22/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 6e2837cb0323844b3c9b9635a8bc6bb82dd9429f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2d1ab19f8d29dc8b28e3309cd74979d246de6b1b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında kullanmaya başlama
 
@@ -24,7 +24,7 @@ Bu öğretici, bir ASP.NET Core Razor sayfalarının web uygulaması oluşturman
 Bu öğretici için üç sürümü vardır:
 
 * Windows: Bu öğretici
-* MacOS: [Mac için Visual Studio ile Razor sayfaları ile Başlarken](xref:tutorials/razor-pages-mac/razor-pages-start)
+* MacOS: [Razor sayfalarının Visual Studio ile Mac için kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
 * macOS, Linux ve Windows: [ASP.NET Core Razor sayfalarında, Visual Studio Code ile çalışmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))

@@ -1,5 +1,5 @@
 ---
-title: "Razor sayfalarının EF çekirdek - veri modeli - 8'in 5 ile"
+title: "Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile"
 author: rick-anderson
 description: "Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 91dc53162c1dd99c4cdd6fb971a4ecc04dd071de
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 12c863c6eb4b4774853a94cf3001870b0d22e936
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Karmaşık veri model - EF çekirdek Razor sayfalarının öğretici (8'in 5) ile oluşturma
+# <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 

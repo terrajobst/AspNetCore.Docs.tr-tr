@@ -1,5 +1,5 @@
 ---
-title: "Kısmi etiket Yardımcısı"
+title: "ASP.NET Core kısmi etiketi yok"
 author: scottaddie
 description: "ASP.NET Core kısmi etiket Yardımcısı ve her özniteliklerini yürütmek kısmi bir görünümü işlemeye rol bulur."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: e5c71ccb7a355ffe1c24f389ab490d614d333589
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a9848539206892579501a39a9fce3044c6753948
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="partial-tag-helper"></a>Kısmi etiket Yardımcısı
+# <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core kısmi etiketi yok
 
 Tarafından [Scott Addie](https://github.com/scottaddie)
 

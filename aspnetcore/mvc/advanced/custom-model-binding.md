@@ -1,7 +1,7 @@
 ---
-title: "Özel Model bağlama"
+title: "ASP.NET Core özel Model bağlamanın"
 author: ardalis
-description: "ASP.NET Core MVC model bağlamanın özelleştirme."
+description: "Model bağlama ASP.NET Core modeli türleri ile doğrudan çalışmak denetleyici eylemleri nasıl olanak tanıdığını öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 04/10/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 4b59a70c488c08f7d3ebf0ea2344107cf3fe6eff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 941aa9e3ff4e4a75714e11b79d913418d0514d1e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="custom-model-binding"></a>Özel Model bağlama
+# <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel Model bağlamanın
 
 Tarafından [Steve Smith](https://ardalis.com/)
 

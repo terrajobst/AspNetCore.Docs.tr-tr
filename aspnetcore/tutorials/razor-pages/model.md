@@ -1,7 +1,7 @@
 ---
 title: "ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme"
 author: rick-anderson
-description: "ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme"
+description: "Entity Framework Çekirdek (EF çekirdek) kullanarak bir veritabanındaki filmler yönetmek için sınıfları ekleme bulur."
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 234af466979c8d8b14990da4d4a07e6e54649bbe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e2014ec20d5bed742c7e3398bd3a9255146ab4eb
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app"></a>Bir model için bir Razor sayfalarının uygulama ekleme
+# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
@@ -91,5 +91,5 @@ Bir SQL özel durumu alırsanız, geçişler çalıştırın ve veritabanı gün
 Sonraki öğretici yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.
 
 >[!div class="step-by-step"]
-[Önceki: Başlarken](xref:tutorials/razor-pages/razor-pages-start)
+[Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
 [sonraki: iskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)    

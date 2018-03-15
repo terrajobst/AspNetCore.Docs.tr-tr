@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Daha az stil uygulamalarla, Sass ve yazı tipi harika ASP.NET Core içinde giriş
 
@@ -97,9 +97,9 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`ve diğer @-prefixed değişkenleri öğeleridir. Bunların her biri, bir renk temsil eder. Dışında `@base`, renk işlevler kullanılarak hazırsınız: aydınlatmak, koyu ve döndür. Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar. Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur. Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.
+`@base` ve diğer @-prefixed değişkenleri öğeleridir. Bunların her biri, bir renk temsil eder. Dışında `@base`, renk işlevler kullanılarak hazırsınız: aydınlatmak, koyu ve döndür. Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar. Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur. Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.
 
-### <a name="getting-started"></a>Başlarken
+### <a name="get-started"></a>Kullanmaya başlayın
 
 Oluşturma bir **npm yapılandırma dosyası** (*package.json*) proje klasörünüzdeki ve başvurmak için düzenlemek `gulp` ve `gulp-less`:
 

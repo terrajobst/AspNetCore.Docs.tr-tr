@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 2bd593b77c10b1b3ab0b73551d01abd0b4187b8d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 184a42b3b6a458a6fbe23c4d54e03abc228b6efa
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
@@ -179,7 +179,7 @@ Kullanıcı tıklatabilirsiniz **silmek** buradan onaylayın ya da silme işlemi
 
 Sorun giderme bilgileri ile `IFormFile` yüklemek bkz [dosya yüklemeleri ASP.NET Core: sorun giderme](xref:mvc/models/file-uploads#troubleshooting).
 
-Bu giriş Razor sayfalarının tamamlamak için teşekkür ederiz. Geri bildirim veriyoruz. [MVC ve EF çekirdek Başlarken](xref:data/ef-mvc/intro) mükemmel bir izleme Bu öğretici kadar olan.
+Bu giriş Razor sayfalarının tamamlamak için teşekkür ederiz. Geri bildirim veriyoruz. [MVC ve EF çekirdek kullanmaya başlama](xref:data/ef-mvc/intro) mükemmel bir izleme Bu öğretici kadar olan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

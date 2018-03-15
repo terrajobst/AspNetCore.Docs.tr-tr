@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET Core 2.0 ile çalışmaya başlama"
+title: "ASP.NET çekirdeği ile çalışmaya başlama"
 author: rick-anderson
 description: "Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulamanın çalıştığı hızlı bir öğretici."
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: 6f6b580f700a8e2ce09901668e6b026251024619
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f772bd922d9e474d5ad99c08af19c90fe06027af
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET çekirdeği ile çalışmaya başlama
 

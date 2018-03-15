@@ -1,7 +1,7 @@
 ---
-title: "Görünüm bileşenleri"
+title: "ASP.NET Core görünümü bileşenler"
 author: rick-anderson
-description: "Görünüm bileşenleri yeniden kullanılabilir işleme mantığı sahip herhangi bir yere yöneliktir."
+description: "Görünüm bileşenleri ASP.NET Core nasıl kullanıldığı ve uygulamaları için eklemeyi öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 2db6c22c27bad5a242771a6e44ef5e0fa8f77395
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 95b68e1747296310967b7093bb7019005b92fcd7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="view-components"></a>Görünüm bileşenleri
+# <a name="view-components-in-aspnet-core"></a>ASP.NET Core görünümü bileşenler
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e03256d7b8b442569b0b0126983732c10817e20f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-core-security-overview"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -97,7 +97,6 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
         *   [Anahtar depolama biçimi](data-protection/implementation/key-storage-format.md)
         *   [Kısa ömürlü veri koruma sağlayıcıları](data-protection/implementation/key-storage-ephemeral.md)
     *   [Uyumluluk](data-protection/compatibility/index.md)
-        *   [Uygulamalar arasında tanımlama bilgilerini paylaşma](data-protection/compatibility/cookie-sharing.md)
         *   [ASP.NET’te <machineKey> değiştirme](data-protection/compatibility/replacing-machinekey.md)
 *   [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
 *   [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](app-secrets.md)
@@ -107,3 +106,4 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
 *   [Açık yeniden yönlendirme saldırılarını önleme](preventing-open-redirects.md)
 *   [Siteler Arası Betik kullanmayı önleme](cross-site-scripting.md)
 *   [Kaynaklar Arası İstekleri (CORS) etkinleştirme](cors.md)
+*   [Uygulamalar arasında tanımlama bilgilerini paylaşma](cookie-sharing.md)

@@ -1,7 +1,7 @@
 ---
-title: "Geçirme yapılandırma"
+title: "ASP.NET Core geçirme yapılandırma"
 author: ardalis
-description: 
+description: "Bir ASP.NET MVC projesinde ASP.NET Core MVC projesinde geçir öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: e1ee582072c88542565c5cb860e157afe137f9f0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6c72b324de49a03a3b2c4e96ba8886d1ed249103
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="migrating-configuration"></a>Geçirme yapılandırma
+# <a name="migrating-configuration-to-aspnet-core"></a>ASP.NET Core geçirme yapılandırma
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://scottaddie.com)
 

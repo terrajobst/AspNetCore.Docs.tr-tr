@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C ile bulut kimlik doğrulaması"
+title: "Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması"
 author: camsoper
 description: "ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a7bad452a68cf7fe7aa81645d79a0ee9e7719fe7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Azure Active Directory B2C ile bulut kimlik doğrulaması
+# <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
@@ -90,7 +90,7 @@ In Visual Studio:
     | **Geri arama yolu**             | *&lt;Varsayılan değeri kullanın&gt;*                       |
     | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                        |
     | **Parola İlkesi Sıfırla**     | `B2C_1_SSPR`                                          |
-    | **Profil ilkesini Düzenle**       | *&lt;boş bırakın&gt;*                                 |
+    | **Profil ilkesini Düzenle**       | *&lt;Boş bırakın&gt;*                                 |
     
     Seçin **kopya** bağlantısına **yanıt URI'si** yanıt URI'si panoya kopyalamak için. Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 

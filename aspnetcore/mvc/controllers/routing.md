@@ -1,7 +1,7 @@
 ---
-title: "Denetleyici eylemleri için yönlendirme"
+title: "ASP.NET Core denetleyici eylemleri için yönlendirme"
 author: rick-anderson
-description: 
+description: "Ara yazılım yönlendirme ASP.NET Core MVC gelen istekleri URL'lerini eşleşen ve eylemlere eşlemek için nasıl kullandığını öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/routing
-ms.openlocfilehash: 813d32d677663a574a24de95e06a6aa0f7336a95
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 28fe62128d0a094fa08e866a270aed26080b1e51
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="routing-to-controller-actions"></a>Denetleyici eylemleri için yönlendirme
+# <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET Core denetleyici eylemleri için yönlendirme
 
 Tarafından [Ryan Nowak](https://github.com/rynowak) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -403,7 +403,7 @@ public class ProductsController : MyBaseController
    [HttpGet] // Matches '/api/Products'
    public IActionResult List() { ... }
 
-   [HttpPost("{id}")] // Matches '/api/Products/{id}'
+   [HttpPut("{id}")] // Matches '/api/Products/{id}'
    public IActionResult Edit(int id) { ... }
 }
 ```

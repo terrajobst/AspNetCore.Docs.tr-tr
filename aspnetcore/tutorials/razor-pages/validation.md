@@ -1,7 +1,7 @@
 ---
-title: "Doğrulama ekleme"
+title: "Bir ASP.NET Core Razor sayfasına doğrulama ekleme"
 author: rick-anderson
-description: "Bir Razor doğrulama eklemek açıklanmaktadır."
+description: "ASP.NET Core bir Razor sayfasına doğrulama ekleme bulur."
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,17 +9,17 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 3632b40abb4a3c2343a17a9f3e08bd28fdcf7174
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: b07aa55d37b2d8ae65ec60f52142a8491dc46b59
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="adding-validation-to-a-razor-page"></a>Bir Razor sayfasına doğrulama ekleme
+# <a name="add-validation-to-an-aspnet-core-razor-page"></a>Bir ASP.NET Core Razor sayfasına doğrulama ekleme
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde Doğrulama mantığı eklenen `Movie` modeli. Doğrulama kuralları, bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman uygulanır.
+Bu bölümde, doğrulama mantığını eklenen `Movie` modeli. Doğrulama kuralları, bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman uygulanır.
 
 ## <a name="validation"></a>Doğrulama
 
@@ -132,7 +132,7 @@ Aşağıdaki kod, tek bir satırda birleştirme öznitelikleri gösterir:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-[Razor sayfalarının ve EF çekirdek Başlarken](xref:data/ef-rp/intro) Razor sayfalarının EF çekirdek işlemleriyle daha gelişmiş gösterir.
+[Razor sayfalarının ve EF çekirdek kullanmaya başlama](xref:data/ef-rp/intro) Razor sayfalarının EF çekirdek işlemleriyle daha gelişmiş gösterir.
 
 ### <a name="publish-to-azure"></a>Azure'a yayımlama
 

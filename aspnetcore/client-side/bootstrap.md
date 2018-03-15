@@ -1,7 +1,7 @@
 ---
-title: "Önyükleme güzel, yanıt veren siteleriyle oluşturma"
+title: "Önyükleme ve ASP.NET Core güzel, yanıt veren siteler oluşturma"
 author: ardalis
-description: 
+description: "ASP.NET Core ile esnek web uygulamaları geliştirmek için önyükleme kullanmayı öğrenin."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Önyükleme güzel, yanıt veren siteleriyle oluşturma
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Önyükleme ve ASP.NET Core güzel, yanıt veren siteler oluşturma
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 Önyükleme şu anda yanıt veren web uygulamaları geliştirmek için en popüler web çerçevesidir. Yeni ön uç tasarım ve geliştirme ya da bir uzman olsanız birçok özellik ve web sitenizi kullanıcılarınızın deneyiminizi iyileştirebilir avantajları sunar. Önyükleme CSS ve JavaScript dosyaları kümesi olarak dağıtılır ve Web sitesinin veya uygulamanın ölçek verimli bir şekilde phone'lardan masaüstlerine tabletler yardımcı olmak için tasarlanmıştır.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="get-started"></a>Kullanmaya başlayın
 
 Önyükleme ile çalışmaya başlamak için birkaç yolu vardır. Visual Studio'da yeni bir web uygulaması başlatıyorsanız, servis talebi önyükleme önceden yüklenmiş gelecektir ASP.NET Core için varsayılan başlangıç şablonu seçebilirsiniz:
 
@@ -190,7 +190,7 @@ Standart önyükleme Tema renkleri ve kendi uygulamanızın gereksinimlerine uya
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-Kendi Pano oluşturmak istiyorsanız, kullanılabilir boş örnekten burada başlatabilirsiniz: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/).
+Kendi Pano oluşturmak istiyorsanız, kullanılabilir boş örnekten burada başlatabilirsiniz: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/).
 
 ## <a name="components"></a>Bileşenler
 
@@ -214,7 +214,7 @@ Ek metin ya da bir input öğesi düğmeleriyle paketleme giriş grupları kulla
 
 ## <a name="javascript-support"></a>JavaScript desteği
 
-Önyükleme'nın JavaScript kitaplığı davranışlarını uygulamanız içinde program aracılığıyla denetlemenize izin vererek dahil bileşenleri için API desteği içerir. Ayrıca, *bootstrap.js* üzerinde bir düzine içerir geçişleri, kalıcı iletişim kutuları gibi ek özellikler sağlayan özel jQuery eklentileri kaydırma algılama, (burada kullanıcı belgede kaydırılan üzerinde göre stil güncelleştirme) ekranı kaydırarak olmayan şekilde davranışı, karusel'leri ve affixing menüleri penceresine daraltın. Lütfen daha fazla bilgi edinmek için önyükleme – yerleşik JavaScript eklentileri tümünün karşılamak için yeterli alan yok [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Önyükleme'nın JavaScript kitaplığı davranışlarını uygulamanız içinde program aracılığıyla denetlemenize izin vererek dahil bileşenleri için API desteği içerir. Ayrıca, *bootstrap.js* üzerinde bir düzine içerir geçişleri, kalıcı iletişim kutuları gibi ek özellikler sağlayan özel jQuery eklentileri kaydırma algılama, (burada kullanıcı belgede kaydırılan üzerinde göre stil güncelleştirme) ekranı kaydırarak olmayan şekilde davranışı, karusel'leri ve affixing menüleri penceresine daraltın. Lütfen daha fazla bilgi edinmek için önyükleme – yerleşik JavaScript eklentileri tümünün karşılamak için yeterli alan yok [ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Özet
 

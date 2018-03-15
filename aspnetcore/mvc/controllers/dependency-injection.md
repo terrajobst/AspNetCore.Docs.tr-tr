@@ -1,7 +1,7 @@
 ---
-title: "Denetleyicileri içine bağımlılık ekleme"
+title: "ASP.NET Core denetleyicileri içine bağımlılık ekleme"
 author: ardalis
-description: 
+description: "ASP.NET Core MVC denetleyicileri bağımlılıklarını açıkça ASP.NET Core bağımlılık ekleme ile bunların oluşturucular aracılığıyla nasıl istek bulur."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: d8253858864efa85f0d2a2175669dc27b879b175
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 75b3da9805539ee04944231ed2ff0158fad451e4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="dependency-injection-into-controllers"></a>Denetleyicileri içine bağımlılık ekleme
+# <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core denetleyicileri içine bağımlılık ekleme
 
 <a name="dependency-injection-controllers"></a>
 
@@ -66,7 +66,7 @@ Hizmet yapılandırıldıktan sonra uygulamayı çalıştıran ve giriş sayfas�
 ![Sunucu selamlama](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Bkz: [test denetleyicisi mantığı](testing.md) bağımlılıkları istemenin öğrenmek için [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) denetleyicileri kodu test etmek kolaylaştırır.
+> Bkz: [test denetleyicisi mantığı](testing.md) bağımlılıkları istemenin öğrenmek için [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) denetleyicileri kodu test etmek kolaylaştırır.
 
 ASP.NET Core'nın yerleşik bağımlılık ekleme sınıfları Hizmetleri istemek için yalnızca tek bir oluşturucuya sahip destekler. Birden fazla Oluşturucusu varsa, belirten bir özel durum alabilirsiniz:
 

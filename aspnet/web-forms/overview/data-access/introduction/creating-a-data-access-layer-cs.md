@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Veri erişim katmanı (C#) oluşturma
 ====================
@@ -233,7 +233,7 @@ Biz öncelikle olup olmadığını biz geçici SQL deyimi ya da yeni veya varola
 **Şekil 15**: Create seçin bir **seçin** deyimi döndürür satırlarını ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-Sonraki adım, verilere erişmek için kullanılan SQL sorgusu tanımlamaktır. Belirli bir kategoriye ait ürünleri döndürülecek istiyoruz olduğundan, aynı kullanmam **seçin** from deyimi **GetProducts()**, ancak aşağıdaki ekleyin **burada** yan tümcesi: **burada adlı kullanıcı, Categoryıd'si = @CategoryID** . **@CategoryID**  Parametresi TableAdapter sihirbazın oluşturma yöntemi (yani, boş değer atanabilir bir tamsayı) karşılık gelen türünde bir giriş parametresi gerektiğini gösterir.
+Sonraki adım, verilere erişmek için kullanılan SQL sorgusu tanımlamaktır. Belirli bir kategoriye ait ürünleri döndürülecek istiyoruz olduğundan, aynı kullanmam **seçin** from deyimi **GetProducts()**, ancak aşağıdaki ekleyin **burada** yan tümcesi: **burada adlı kullanıcı, Categoryıd'si = @CategoryID** .  **@CategoryID**  Parametresi TableAdapter sihirbazın oluşturma yöntemi (yani, boş değer atanabilir bir tamsayı) karşılık gelen türünde bir giriş parametresi gerektiğini gösterir.
 
 
 [![Yalnızca belirtilen bir kategorideki ürünleri döndürmek için bir sorgu girin](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -308,7 +308,7 @@ TableAdapter'ın her iki veri değişikliği modelleri kullanmanıza **InsertCom
 
 [![TableAdapter InsertCommand, UpdateCommand ve DeleteCommand özellikleri vardır](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**Şekil 23**: TableAdapter sahip **InsertCommand**, **UpdateCommand**, ve **DeleteCommand** özellikleri ([görüntülemek için tıklatın tam boyutlu görüntüyü](creating-a-data-access-layer-cs/_static/image63.png))
+**Şekil 23**: TableAdapter sahip **InsertCommand**, **UpdateCommand**, ve **DeleteCommand** özellikleri ([görünümü için tam boyutlu Görüntü](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 İnceleyin veya bu veritabanı komut özelliklerden herhangi birini değiştirmek için tıklayın **CommandText** Sorgu Oluşturucu Kurulumu getirecek alt.
@@ -316,7 +316,7 @@ TableAdapter'ın her iki veri değişikliği modelleri kullanmanıza **InsertCom
 
 [![INSERT, UPDATE ve DELETE deyimleri Sorgu Oluşturucu'da yapılandırma](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**Şekil 24**: yapılandırmak **Ekle**, **güncelleştirme**, ve **silmek** Sorgu Oluşturucusu deyimlerinde ([tam boyutlu görüntüyü görüntülemek için tıklatın ](creating-a-data-access-layer-cs/_static/image66.png))
+**Şekil 24**: yapılandırmak **Ekle**, **güncelleştirme**, ve **silmek** Sorgu Oluşturucusu deyimlerinde ([tam boyutlu görüntüyügörüntülemekiçintıklatın](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 Aşağıdaki kod örneğinde toplu güncelleştirme düzeni değil üretilmeyen ve stok veya daha az 25 birimleri olan tüm ürünleri fiyat çift için nasıl kullanılacağını gösterir:
@@ -537,7 +537,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 

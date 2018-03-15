@@ -5,16 +5,16 @@ author: spboyer
 manager: wpickett
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/19/2016
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 033adddc586b60c9f7453df5434617aa838737f8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux ana bilgisayar
 
@@ -112,27 +112,32 @@ Complete!
 ```
 
 > [!NOTE]
-> Bu örnekte, CentOS 7 sürümü 64-bit olduğundan çıktı httpd.86_64 yansıtır. Apache yüklendiği doğrulamak için çalıştırın `whereis httpd` bir komut isteminden. 
+> Bu örnekte, CentOS 7 sürümü 64-bit olduğundan çıktı httpd.86_64 yansıtır. Apache yüklendiği doğrulamak için çalıştırın `whereis httpd` bir komut isteminden.
 
 ### <a name="configure-apache-for-reverse-proxy"></a>Apache için ters proxy ayarlarını yapılandır
 
 İçinde Apache için yapılandırma dosyalarının bulunduğu `/etc/httpd/conf.d/` dizin. Herhangi dosya ile *.conf* uzantısı modül yapılandırma dosyalarında yanı sıra alfabetik sırada işlenir `/etc/httpd/conf.modules.d/`, herhangi bir yapılandırma içeren modüllerini yüklemek gerekli dosyaları.
 
-Adlı uygulama için bir yapılandırma dosyası oluşturma `hellomvc.conf`:
+Adlı bir yapılandırma dosyası oluşturma *hellomvc.conf*, uygulama için:
 
 ```
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
     ProxyPassReverse / http://127.0.0.1:5000/
-    ErrorLog /var/log/httpd/hellomvc-error.log
-    CustomLog /var/log/httpd/hellomvc-access.log common
+    ServerName www.example.com
+    ServerAlias *.example.com
+    ErrorLog ${APACHE_LOG_DIR}hellomvc-error.log
+    CustomLog ${APACHE_LOG_DIR}hellomvc-access.log common
 </VirtualHost>
 ```
 
-**VirtualHost** düğümü, bir sunucu üzerindeki bir veya daha fazla dosyalarda birden çok kez görüntülenebilir. **VirtualHost** 80 numaralı bağlantı noktasını kullanarak tüm IP adresini dinlemek üzere ayarlayın. Sonraki iki satır varsayılan olarak, bağlantı noktası 5000 127.0.0.1 sunucuda kök proxy istekleri için ayarlanır. Çift yönlü iletişimi için *ProxyPass* ve *ProxyPassReverse* gereklidir.
+`VirtualHost` Blok, bir sunucu üzerindeki bir veya daha fazla dosyalarda birden çok kez görüntülenebilir. Önceki yapılandırma dosyasında bağlantı noktası 80 üzerinde ortak trafiğin Apache kabul eder. Etki alanı `www.example.com` sunulmasını ve `*.example.com` diğer ad aynı Web sitesine giderir. Bkz: [sanal ana bilgisayar adı tabanlı destek](https://httpd.apache.org/docs/current/vhosts/name-based.html) daha fazla bilgi için. İstekleri kökündeki 127.0.0.1 server örneğinin 5000 numaralı bağlantı noktasına taşınır. Çift yönlü iletişimi için `ProxyPass` ve `ProxyPassReverse` gereklidir.
 
-Günlüğe kaydetme, başına yapılandırılabilir **VirtualHost** kullanarak **hata günlüğüne** ve **CustomLog** yönergeleri. **Hata günlüğü** burada sunucusu günlüklerini hataları, konumu ve **CustomLog** filename ve günlük dosyası biçimini ayarlar. Bu durumda, istek bilgilerini günlüğe nerede budur. Her istek için bir satır vardır.
+> [!WARNING]
+> Uygun belirtmek için hata [ServerName yönergesi](https://httpd.apache.org/docs/current/mod/core.html#servername) içinde **VirtualHost** blok güvenlik açıkları, uygulamanızın kullanıma sunar. Alt etki alanı joker bağlama (örneğin, `*.example.com`) tüm üst etki alanı denetlemek, bu güvenlik riski değil (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
+
+Günlüğe kaydetme, başına yapılandırılabilir `VirtualHost` kullanarak `ErrorLog` ve `CustomLog` yönergeleri. `ErrorLog` Burada sunucusu günlüklerini hataları, konumu ve `CustomLog` filename ve günlük dosyası biçimini ayarlar. Bu durumda, istek bilgilerini günlüğe nerede budur. Her istek için bir satır vardır.
 
 Dosyayı kaydedin ve yapılandırmayı test etme. Her şeyi geçerse, yanıt olmalıdır `Syntax [OK]`.
 
