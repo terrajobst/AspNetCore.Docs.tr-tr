@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Kurumsal Web dağıtımı
 ====================
@@ -26,7 +26,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > Bu öğretici, çok sayıda geliştirme, test, hazırlama ve üretim ortamları için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar. Öğretici bir karışımını çeşitli ortak görevler ve yordamların yol göstermesi için kavramsal ve görev odaklı içeriği ile birlikte bir başvuru çözüm içerir.
 > 
-> Bu öğreticileri için bir İtalyanca çeviri ziyaret [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Bu öğreticileri için bir İtalyanca çeviri ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="enterprise-deployment-challenges"></a>Kurumsal Dağıtım zorlukları
@@ -68,19 +68,19 @@ Bu öğretici, dört ana alanlarına kalan konuları içerir.
 
 Bu konularda başvuru çözüm #x 2014; Contact Manager çözüm & #x 2014; getirir ve indirir ve yerel makinenizde yapılandırma anlatmaktadır:
 
-- [Contact Manager çözümü](the-contact-manager-solution.md)
-- [İlgili Kişi Yöneticisi çözüm ayarlama](setting-up-the-contact-manager-solution.md)
+- [Kişi Yöneticisi Çözümü](the-contact-manager-solution.md)
+- [Kişi Yöneticisi Çözümünü Ayarlama](setting-up-the-contact-manager-solution.md)
 
 Bu konularda MSBuild proje dosyalarını tanıtmak, nasıl oluşturabilir ve özel proje dosyalarını kullanmak ve Contact Manager çözüm için dağıtım işleminde size rehberlik tanımlar:
 
-- [Proje dosyası anlama](understanding-the-project-file.md)
-- [Derleme işlemi anlama](understanding-the-build-process.md)
+- [Proje Dosyasını Anlama](understanding-the-project-file.md)
+- [Derleme İşlemini Anlama](understanding-the-build-process.md)
 
 Web uygulama dağıtımı paketleme ve derleme işleminin nasıl çalıştığı, yapı işlemi Web yayımlama ardışık ile nasıl tümleşik çalıştığını, dağıtım parametrelerini değiştirme ve web paketleri hedefe dağıtma dahil olmak üzere, bu konularda açıklanmaktadır ortamları:
 
-- [Derleme ve Web Uygulama projeleri paketleme](building-and-packaging-web-application-projects.md)
-- [Parametreler Web paketi dağıtım için yapılandırma](configuring-parameters-for-web-package-deployment.md)
-- [Web paketleri dağıtma](deploying-web-packages.md)
+- [Web Uygulaması Projelerini Derleme ve Paketleme](building-and-packaging-web-application-projects.md)
+- [Web Paketi Dağıtımı için Parametreleri Yapılandırma](configuring-parameters-for-web-package-deployment.md)
+- [Web Paketleri Dağıtma](deploying-web-packages.md)
 
 - [Veritabanı projeleri dağıtma](deploying-database-projects.md) olumlu ve olumsuz her yaklaşımın birlikte Visual Studio veritabanı projelerini dağıtmak için kullanabileceğiniz farklı teknikleri açıklar. [Oluşturma ve bir dağıtım komut dosyası çalıştırma](creating-and-running-a-deployment-command-file.md) dağıtım mantığınızı yalıtır ve karmaşık çözümleri tek adımlı işlem olarak dağıtmanıza olanak tanır basit komut dosyası oluşturmayı açıklar.
 - Son olarak, [Web paketlerini el ile yükleme](manually-installing-web-packages.md) IIS'e web paketleri almanızı göstererek öğreticiyi sonlandırır.
@@ -105,4 +105,4 @@ Bu beş eğitim serileri parçası Kurumsal ölçekte web dağıtımı oluşturu
 - [Kurumsal Web dağıtımı Gelişmiş](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, birden çok ortamlar için veritabanı dağıtımları özelleştirme, dağıtımdan dosya ve klasörleri dışarıda ve dağıtım işlemi sırasında çevrimdışı web uygulamaları alma gibi çeşitli daha gelişmiş dağıtım görevlerinin açıklar .
 
 >[!div class="step-by-step"]
-[Sonraki](the-contact-manager-solution.md)
+[Next](the-contact-manager-solution.md)

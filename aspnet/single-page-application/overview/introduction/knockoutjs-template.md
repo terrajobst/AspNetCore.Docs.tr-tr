@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Tek sayfa uygulaması: Çakıştırmaları şablonu
 ====================
@@ -94,7 +94,7 @@ Visual Studio projesini sunucu tarafında kullanılan modelleri modeller klasör
 
 **TodoItem, TodoList**
 
-Entity Framework Code First veritabanı modellerini bunlar. Bu modeller birbirlerine noktası özelliklerine sahip dikkat edin. `ToDoList`Todoıtems ve her bir koleksiyonunu içeren `ToDoItem` üst ToDoList geri bir başvuru içeriyor. Bu özellikleri Gezinti özellikleri adı verilir ve bunlar bir-çok ilişkisi Yapılacaklar listesi ve onun Yapılacaklar öğelerini temsil eder.
+Entity Framework Code First veritabanı modellerini bunlar. Bu modeller birbirlerine noktası özelliklerine sahip dikkat edin. `ToDoList` Todoıtems ve her bir koleksiyonunu içeren `ToDoItem` üst ToDoList geri bir başvuru içeriyor. Bu özellikleri Gezinti özellikleri adı verilir ve bunlar bir-çok ilişkisi Yapılacaklar listesi ve onun Yapılacaklar öğelerini temsil eder.
 
 `ToDoItem` Sınıfı ayrıca kullanır **[ForeignKey]** belirtmek için öznitelik `ToDoListId` bir yabancı anahtar içine `ToDoList` tablo. Bir yabancı anahtar kısıtlaması veritabanına eklemek için EF söyler.
 
@@ -162,7 +162,7 @@ CRUD işlemleri için Web API kullanma hakkında daha fazla bilgi edinmek için 
 
 ## <a name="mvc-controllers-and-views"></a>MVC denetleyicileri ve görünümler
 
-MVC denetleyicileri da çözüm denetleyicileri klasöründe bulunur. `HomeController`uygulama için ana HTML işler. Giriş denetleyicisi görünümünü Views/Home/Index.cshtml tanımlanır. Giriş görünümü, kullanıcının oturum açtığı bağlı olarak farklı içerik oluşturur:
+MVC denetleyicileri da çözüm denetleyicileri klasöründe bulunur. `HomeController` uygulama için ana HTML işler. Giriş denetleyicisi görünümünü Views/Home/Index.cshtml tanımlanır. Giriş görünümü, kullanıcının oturum açtığı bağlı olarak farklı içerik oluşturur:
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 

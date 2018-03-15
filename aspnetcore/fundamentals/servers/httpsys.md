@@ -5,16 +5,16 @@ description: "HTTP.sys, ASP.NET Core Windows için bir web sunucusu hakkında bi
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/28/2018
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 730ecf12f718f6bbbdefb7cdc561481b126c995b
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: d7ae6c070c7eecfd714086e15f32eff96c0943d9
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -136,6 +136,9 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
    Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarlar. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir HTTP.sys Kestrel arasında geçiş yapmak kolaydır. Daha fazla bilgi için `UseUrls`, `urls`, ve `ASPNETCORE_URLS`, bkz: [barındırma](xref:fundamentals/hosting).
 
    HTTP.sys kullanan [HTTP Sunucusu API UrlPrefix dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
+
+   > [!WARNING]
+   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılabilir. Üst düzey joker bağlamaları uygulamanızı güvenlik açıkları için yedekleme açabilirsiniz. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık ana bilgisayar adları kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanı denetlemek, bu güvenlik riskinin yok (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
 1. HTTP.sys'ye bağlayın ve x.509 sertifikalar ayarlamak için URL öneklerini preregister.
 

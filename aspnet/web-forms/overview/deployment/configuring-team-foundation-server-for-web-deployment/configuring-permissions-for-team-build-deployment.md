@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Takım yapılandırma izinlerini derleme dağıtımı
 ====================
@@ -38,7 +38,7 @@ Team Foundation Server (TFS) 2010 yapı hizmeti yüklediğinizde hizmetinin çal
 Windows kimlik doğrulaması ve ekip, kullanarak otomatikleştirmeyi planladığınız gerektiren herhangi bir dağıtım görevini yapı hizmet kimliği kullanarak çalışacaktır. Bu nedenle, yapı hizmet kimliği tüm gerekli, web sunucuları ve veritabanı sunucularınız izinleri gerekir.
 
 > [!NOTE]
-> Ağ hizmeti hesabı diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları alın formun *[etki alanı adı]\[makine adı]***$**& #x 2014; Örneğin, **FABRIKAM\TFSBUILD$**. Bu nedenle, yapı hizmetiniz Network SERVICE kimliği kullanılarak çalıştırılıyorsa, yapı sunucunuz için makine hesabı kimliği için gerekli tüm izinleri vermeniz gerekir.
+> Ağ hizmeti hesabı diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları alın formun * [etki alanı adı]\[makine adı] ***$**& #x 2014; Örneğin, **FABRIKAM\TFSBUILD$**. Bu nedenle, yapı hizmetiniz Network SERVICE kimliği kullanılarak çalıştırılıyorsa, yapı sunucunuz için makine hesabı kimliği için gerekli tüm izinleri vermeniz gerekir.
 
 
 ## <a name="configuring-web-server-permissions"></a>Web sunucusu izinlerini yapılandırma

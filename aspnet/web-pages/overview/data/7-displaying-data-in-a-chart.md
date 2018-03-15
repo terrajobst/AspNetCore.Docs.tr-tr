@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
 ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme
 ====================
@@ -41,7 +41,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>Grafik Yardımcısı
 
-Verilerinizi grafik formda görüntülemek istediğinizde, kullanabileceğiniz `Chart` Yardımcısı. `Chart` Yardımcısı, grafik türleri çeşitli verileri görüntüleyen bir görüntü işleyebilirsiniz. Biçimlendirme ve etiketleme için birçok seçenek destekler. `Chart` Yardımcı aşina Microsoft Excel veya diğer araçlar olabilecek grafikler tüm türleri &#8212;dahil olmak üzere grafikleri, 30'dan fazla tür işleyebilirsiniz; alan grafiklerinde, çubuk grafikler, sütun grafikler, çizgi grafikler ve pasta grafikler, bunların ile daha fazla bilgi Özel grafikler hisse senedi grafiklerinde ister.
+Verilerinizi grafik formda görüntülemek istediğinizde, kullanabileceğiniz `Chart` Yardımcısı. `Chart` Yardımcısı, grafik türleri çeşitli verileri görüntüleyen bir görüntü işleyebilirsiniz. Biçimlendirme ve etiketleme için birçok seçenek destekler. `Chart` Yardımcısı, Microsoft Excel veya diğer araçlar aşina olabilecek grafikler tüm türleri dahil olmak üzere grafikleri, 30'dan fazla tür işleyebilirsiniz &#8212; alan grafikleri, çubuk grafikler, sütun grafikler, çizgi grafikler ve pasta grafikler, daha fazla ile birlikte Özel grafikler hisse senedi grafiklerinde ister.
 
 | **Alan grafiği** ![Açıklama: alan grafik türünün resmi](7-displaying-data-in-a-chart/_static/image1.jpg) | **Çubuk grafik** ![Açıklama: çubuk grafik türünü resmi](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
@@ -122,7 +122,7 @@ Grafik üçüncü seçenek, grafik için veri olarak bir XML dosyası kullanmakt
 
     Kod ilk oluşturur bir `DataSet` nesnesi. Bu nesnenin XML dosyasından okuma ve şema dosyasındaki bilgiler göre düzenlemek verileri yönetmek için kullanılır. (Kod üstündeki deyimi içeren bildirim `using SystemData`. İle çalışabilmek için bu gereklidir `DataSet` nesnesi. Daha fazla bilgi için bkz: [ &quot;kullanma&quot; deyimleri ve tam olarak nitelenmiş adlar](#SB_UsingStatements) bu makalenin ilerisinde yer.)
 
-    Ardından, kod oluşturur bir `DataView` nesne veri kümesine bağlı. Veri Görünümü grafik bağlayabilirsiniz bir nesne &#8212;sağlar; diğer bir deyişle, okuma ve çizim. Grafik verileri kullanarak bağlar `AddSeries` yöntemi gördüğünüz daha önce bu süre dışında dizi veri grafiğini tıklattığınızda `xValue` ve `yValues` parametreleri ayarlandığında `DataView` nesne.
+    Ardından, kod oluşturur bir `DataView` nesne veri kümesine bağlı. Veri Görünümü grafik bağlayabilirsiniz nesneyi sağlar &#8212; diğer bir deyişle, okuma ve çizim. Grafik verileri kullanarak bağlar `AddSeries` yöntemi gördüğünüz daha önce bu süre dışında dizi veri grafiğini tıklattığınızda `xValue` ve `yValues` parametreleri ayarlandığında `DataView` nesne.
 
     Bu örnek ayrıca belirli grafik türü belirtmek nasıl gösterir. İçinde veri eklendiğinde `AddSeries` yöntemi, `chartType` pasta grafiği görüntülemek için de parametresi ayarlanmış.
 7. Bir tarayıcıda. Sayfayı çalıştırın. 
@@ -136,7 +136,7 @@ Grafik üçüncü seçenek, grafik için veri olarak bir XML dosyası kullanmakt
 > 
 > Razor sözdizimi ile ASP.NET Web sayfaları dayanır .NET Framework bileşenlerini (sınıflar) binlerce oluşur. Bu sınıfların ile çalışmak için yönetilebilir hale getirmek amacıyla halinde düzenlenmiş *ad alanları*, bakıma kitaplıkları olduğu. Örneğin, `System.Web` ad alanı, tarayıcı/sunucu iletişimi destekleyen sınıfları içerir `System.Xml` ad alanı oluşturmak ve XML dosyaları okumak için kullanılan sınıfları içerir ve `System.Data` ad alanı çalışmanıza olanak sağlayan sınıflar içerir verilerle.
 > 
-> .NET Framework'teki verilen herhangi bir sınıf erişmek için kod yalnızca sınıf adını değil, aynı zamanda sınıfı bir deyişle ad alanı bilmek ister. Örneğin, kullanmak için `Chart` Yardımcısı, kod gereken bulmak `System.Web.Helpers.Chart` ad birleştirir sınıfı (`System.Web.Helpers`) sınıf adıyla (`Chart`). Bu sınıfın bilinir *tam* ad &#8212; tam, anlaşılır konumuna vastness içinde .NET Framework'ün. Kod içinde bu aşağıdaki gibi görünür:
+> .NET Framework'teki verilen herhangi bir sınıf erişmek için kod yalnızca sınıf adını değil, aynı zamanda sınıfı bir deyişle ad alanı bilmek ister. Örneğin, kullanmak için `Chart` Yardımcısı, kod gereken bulmak `System.Web.Helpers.Chart` ad birleştirir sınıfı (`System.Web.Helpers`) sınıf adıyla (`Chart`). Bu sınıfın bilinir *tam* adı &#8212; tam, anlaşılır konumuna vastness içinde .NET Framework'ün. Kod içinde bu aşağıdaki gibi görünür:
 > 
 > `var myChart = new System.Web.Helpers.Chart(width: 600, height: 400) // etc.`
 > 
@@ -235,11 +235,11 @@ Sunucu belleği azalıyor önbelleğe kaydedilen grafik kaldırılması. Ayrıca
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample13.cshtml)]
 
-    Kod ilk şey sorgu dizesi anahtar değer olarak geçirilen olup olmadığını denetler. Bu nedenle, kod çağırarak önbellek dışında bir grafik okumaya çalışırsa `GetFromCache` yöntemi ve anahtar geçirme. Önbelleğinde (grafik istenen ilk kez olacağını) bu anahtarı altında bir şey var olan Öyle değilse kodu grafik her zamanki gibi oluşturur. Grafik bittiğinde kodu önbelleğe çağırarak kaydeder `SaveToCache`. Bu yöntem (grafik daha sonra istenebilir biçimde) bir anahtar ve grafik önbellekte kaydedilmesi gereken süreyi gerektirir. (Bir grafik önbelleğe tam zaman ne sıklıkta, temsil ettiği veri değişebilir zorlayıcı üzerinde bağlıdır.) `SaveToCache` Yöntemi de gerektiren bir `slidingExpiration` parametresi & # Bu ayarlanırsa 8212; true olarak zaman aşımı grafik erişildiğinde her zaman sayaç sıfırlanır. Bu durumda, bu uygulamada grafiğin önbellek girişinin birisi grafik erişilen son saatten sonra 2 dakika süresi anlamına gelir. (Kayan bitiş tarihinin mutlak zaman aşımı, önbellek girişi ne sıklıkta, erişilen olsun önbelleğine koyulmuş sonra tam olarak 2 dakika dolacağını anlamı alternatifidir.)
+    Kod ilk şey sorgu dizesi anahtar değer olarak geçirilen olup olmadığını denetler. Bu nedenle, kod çağırarak önbellek dışında bir grafik okumaya çalışırsa `GetFromCache` yöntemi ve anahtar geçirme. Önbelleğinde (grafik istenen ilk kez olacağını) bu anahtarı altında bir şey var olan Öyle değilse kodu grafik her zamanki gibi oluşturur. Grafik bittiğinde kodu önbelleğe çağırarak kaydeder `SaveToCache`. Bu yöntem (grafik daha sonra istenebilir biçimde) bir anahtar ve grafik önbellekte kaydedilmesi gereken süreyi gerektirir. (Bir grafik önbelleğe tam zaman ne sıklıkta, temsil ettiği veri değişebilir zorlayıcı üzerinde bağlıdır.) `SaveToCache` Yöntem de gerektirir bir `slidingExpiration` parametresi &#8212; bu ayarlandıysa true, zaman aşımı sayaç grafik erişildiğinde her zaman sıfırlanır. Bu durumda, bu uygulamada grafiğin önbellek girişinin birisi grafik erişilen son saatten sonra 2 dakika süresi anlamına gelir. (Kayan bitiş tarihinin mutlak zaman aşımı, önbellek girişi ne sıklıkta, erişilen olsun önbelleğine koyulmuş sonra tam olarak 2 dakika dolacağını anlamı alternatifidir.)
 
     Son olarak, kodu kullanan `WriteFromCache` getirin ve grafiğin önbellekten işlemek için yöntem. Bu yöntem dışında Not `if` önbellek grafik başından itibaren oluştu veya oluşturulan ve önbellekte kaydedilmesi olsa da grafiği önbellekten alır çünkü denetleyen bloğu.
 
-    Örnekte, dikkat `AddTitle` yöntemi bir zaman damgası içerir. (Geçerli tarih ve saat &#8212;ekler; `DateTime.Now` &#8212; başlığına.)
+    Örnekte, dikkat `AddTitle` yöntemi bir zaman damgası içerir. (Geçerli tarih ve saat ekler &#8212; `DateTime.Now` &#8212; başlığına.)
 5. Adlı yeni bir sayfa oluşturma *ClearCache.cshtml* ve içeriğini aşağıdakilerle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Team Foundation Server için Web dağıtımı yapılandırma
 ====================
@@ -32,7 +32,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > - Dağıtım mantığı içeren bir derleme tanımı oluşturmak nasıl.
 > - Dağıtım için izinleri nasıl yapılandıracağınızı otomatik.
 > 
-> Bu öğreticileri için bir İtalyanca çeviri ziyaret [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Bu öğreticileri için bir İtalyanca çeviri ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 Bu öğretici, TFS 2010 yüklü ve bir takım projesi koleksiyonu ilk yapılandırma işleminin bir parçası olarak oluşturulan varsayar. [İçin Visual Studio 2010 Team Foundation Yükleme Kılavuzu](https://go.microsoft.com/?linkid=9805132) bu görevlerde kapsamlı yönergeler sağlar.
@@ -78,4 +78,4 @@ Bu beş eğitim serileri parçası Kurumsal ölçekte web dağıtımı oluşturu
 - [Kurumsal Web dağıtımı Gelişmiş](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, birden çok ortamlar için veritabanı dağıtımları özelleştirme, dağıtımdan dosya ve klasörleri dışarıda ve dağıtım işlemi sırasında çevrimdışı web uygulamaları alma gibi çeşitli daha gelişmiş dağıtım görevlerinin açıklar .
 
 >[!div class="step-by-step"]
-[Sonraki](creating-a-team-project-in-tfs.md)
+[Next](creating-a-team-project-in-tfs.md)

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Dosya ve klasörleri dışarıda dağıtımından
 ====================
@@ -95,7 +95,7 @@ Sonraki yordam nasıl ekleneceğini gösterir bir *. wpp.targets* dosyasına bir
 1. Çözümünüzü Visual Studio 2010'da açın.
 2. İçinde **Çözüm Gezgini** penceresinde, web uygulama projesi düğümüne sağ tıklayın (örneğin, **ContactManager.Mvc**), işaret **Ekle**ve ardından **Yeni öğe**.
 3. İçinde **Yeni Öğe Ekle** iletişim kutusunda **XML dosyası** şablonu.
-4. İçinde **adı** kutusuna *[Proje adı]***. wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve 'ıtıklatın **Ekleme**.
+4. İçinde **adı** kutusuna *[Proje adı] ***.wpp.targets** (örneğin, **ContactManager.Mvc.wpp.targets**) ve ardından **Ekle**.
 
     ![](excluding-files-and-folders-from-deployment/_static/image3.png)
 

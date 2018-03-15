@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
 ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="understanding-the-build-process"></a>Derleme işlemi anlama
 ====================
@@ -210,7 +210,7 @@ Benzer bir gösterimde görebilirsiniz  **\_Cmd** uygun anahtarlarını VSDBCMD 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu. **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
+Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu.  **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]

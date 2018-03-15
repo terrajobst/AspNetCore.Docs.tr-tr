@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c3cb7f63cf7c0246a0c4da6038a65a6ac43a7b59
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="advanced-enterprise-web-deployment"></a>Gelişmiş Kurumsal Web dağıtımı
 ====================
@@ -26,7 +26,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > Bu öğreticide gerekli veya çok sayıda kurumsal dağıtım senaryoları arzu çeşitli görevleri gerçekleştirmek nasıl yapacağınızı gösterir.
 > 
-> Bu öğreticileri için bir İtalyanca çeviri ziyaret [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Bu öğreticileri için bir İtalyanca çeviri ziyaret [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 Bu eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası oluşturur Bu öğretici serisi örnek çözümü & #x 2014; kullanan [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) çözüm & #x 2014; Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Communication Foundation (WCF) hizmetini ve veritabanı projesi.
@@ -70,4 +70,4 @@ Bu beş eğitim serileri parçası Kurumsal ölçekte web dağıtımı oluşturu
 - [Team Foundation Server için Web dağıtımı yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğretici nasıl el ile belirli derlemeleri dağıtımları tetiklenen ve otomatik dağıtım bir CI işleminin bir parçası olarak dahil olmak üzere çeşitli dağıtım senaryoları desteklemek için TFS'ye yapılandırılacağını açıklar.
 
 >[!div class="step-by-step"]
-[Sonraki](performing-a-what-if-deployment.md)
+[Next](performing-a-what-if-deployment.md)

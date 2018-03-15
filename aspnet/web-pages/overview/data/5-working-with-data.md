@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web bir veritabanı ile çalışmaya giriş (Razor) sayfaları
 ====================
@@ -54,7 +54,7 @@ Bir genel adres defteri düşünün. Adres defteri her giriş için (diğer bir 
 
 Satırları ve sütunları içeren bir tablo resim verileri bu gibi tipik bir şekilde gibidir. Veritabanı bağlamında her satır genellikle bir kayıt olarak adlandırılır. (Bazen alanlar olarak adlandırılır) her bir sütunun her veri türü için bir değer içeriyor: ad, son adı ve benzeri.
 
-| **KİMLİĞİ** | **FirstName** | **Soyadı** | **Adres** | **E-posta** | **Telefon** |
+| **ID** | **FirstName** | **Soyadı** | **Adres** | **E-posta** | **Telefon** |
 | --- | --- | --- | --- | --- | --- |
 | 1. | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234 ana St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
@@ -91,7 +91,7 @@ Bu yordam Webmatrix'te dahil SQL Server Compact veritabanı tasarım aracını k
     Adı da anlaşılacağı gibi **birincil anahtarı** bu tablonun birincil anahtarı olacaktır veritabanı söyler. **Kimliktir** otomatik olarak her yeni bir kayıt için bir kimlik numarası oluşturmak ve (1'den başlayarak) bir sonraki sıralı numara atamak için veritabanı söyler.
 10. Sonraki satırda'ı tıklatın. Yeni bir sütun tanımı Düzenleyicisi'ni başlatır.
 11. Ad değer için girin &quot;adı&quot;.
-12. İçin **veri türü**, seçin &quot;nvarchar&quot; ve uzunluğu 50'ye ayarlayın. *Var* parçası `nvarchar` bu sütun için veri büyüklüğü kayıt kaydı farklılık bir dize olmasını veritabanı söyler. (  *n*  Önek temsil *Ulusal*, gösteren alan bir harf ya da sistem &#8212;yazma temsil eden; bu karakter verileri tutabilir, alanın Unicode tutar veri.)
+12. İçin **veri türü**, seçin &quot;nvarchar&quot; ve uzunluğu 50'ye ayarlayın. *Var* parçası `nvarchar` bu sütun için veri büyüklüğü kayıt kaydı farklılık bir dize olmasını veritabanı söyler. ( *n* önek temsil *Ulusal*, alanın herhangi alfabe temsil eden karakter veri tutabilen belirten veya sistem yazma &#8212; diğer bir deyişle, alanın Unicode verileri tutar.)
 13. Ayarlama **null değerlere izin ver** için seçenek **Hayır**. Bu zorunlu kılacak *adı* sütun değil boş bırakılır.
 14. Bu aynı işlemi kullanarak oluşturduğunuz adlı bir sütun *açıklama*. Ayarlama **veri türü** "nvarchar" ve uzunluğu ve kümesi için 50 **null değerlere izin ver** false.
 15. Adlı bir sütun oluşturmak *fiyat*. Ayarlama **"para" veri türüne** ve **null değerlere izin ver** false.
@@ -114,7 +114,7 @@ Artık makalenin sonraki bölümlerinde ile karşılaşmayacağınızı veritaba
     | --- | --- | --- |
     | Ekmek | Fırın baştan her gün. | 2.99 |
     | Çilekli Shortcake | İle organik Çilek bizim bahçesi yapılan. | 9.99 |
-    | Apple pasta | Annenizin'ın pasta yalnızca ikinci. | 12.99 |
+    | Apple Pie | Annenizin'ın pasta yalnızca ikinci. | 12.99 |
     | Pecan pasta | Pecans istiyorsanız, bunu sizin için yazılmıştır. | 10.99 |
     | Limonlu pasta | Dünyanın en iyi lemons yapılan. | 11.99 |
     | Leziz çörekler | Bunlar, çocuklarınızın ve, çocuk memnuniyet. | 7.99 |
@@ -258,7 +258,7 @@ Bir tabloya veri girildikten sonra güncelleştirmeniz gerekebilir. Bu yordam, �
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Dikkat `href` özniteliği `UpdateProducts/n`, burada  *n*  bir ürün sayıdır. Bir kullanıcı bu bağlantılardan birini tıkladığında, sonuçta elde edilen URL şöyle görünür:
+    Dikkat `href` özniteliği `UpdateProducts/n`, burada *n* bir ürün sayıdır. Bir kullanıcı bu bağlantılardan birini tıkladığında, sonuçta elde edilen URL şöyle görünür:
 
     `http://localhost:18816/UpdateProducts/6`
 
@@ -384,7 +384,7 @@ Bu bölümde, kullanıcıların bir üründen silme izin vermek gösterilmiştir
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Belirtildiği gibi `Database.Open` yöntemi, bir veritabanı adı veya bir bağlantı dizesi geçirmenize olanak sağlar ve kullanmak hangi şekil. Dağıttığınız bu oldukça yararlıdır (yayımladığınızda), Web sitesi. Kullanabileceğiniz bir *.sdf* dosyasını *uygulama\_veri* geliştirirken ve sitenizi test ederken klasör. Sitenizi üretim sunucusuna taşıdığınızda, bağlantı dizesinde kullanabilirsiniz *Web.config* aynı ada sahip dosya, *.sdf* dosyası ancak işaret barındırma sağlayıcısının veritabanı & # 8212; tüm kodunuzu değiştirmek zorunda kalmadan.
+> Belirtildiği gibi `Database.Open` yöntemi, bir veritabanı adı veya bir bağlantı dizesi geçirmenize olanak sağlar ve kullanmak hangi şekil. Dağıttığınız bu oldukça yararlıdır (yayımladığınızda), Web sitesi. Kullanabileceğiniz bir *.sdf* dosyasını *uygulama\_veri* geliştirirken ve sitenizi test ederken klasör. Sitenizi üretim sunucusuna taşıdığınızda, bağlantı dizesinde kullanabilirsiniz *Web.config* aynı ada sahip dosya, *.sdf* barındırma sağlayıcısının noktalarına &#8212;tüm kodunuzu değiştirmek zorunda kalmadan.
 > 
 > Son olarak, doğrudan bir bağlantı dizesi ile çalışmak isterseniz, çağırabilirsiniz `Database.OpenConnectionString` yöntemi ve gerçek bağlantı dizesi yalnızca birinde adı yerine geçişi *Web.config* dosya. Bu herhangi bir nedenden dolayı yok erişiminiz bağlantı dizesine durumlarda kullanışlı olabilir (veya içinde gibi değerler *.sdf* dosya adı) sayfa çalışıncaya kadar. Bununla birlikte, çoğu senaryo için kullanabileceğiniz `Database.Open` bu makalede anlatıldığı gibi.
 
@@ -393,4 +393,4 @@ Bu bölümde, kullanıcıların bir üründen silme izin vermek gösterilmiştir
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [SQL Server veya MySQL veritabanında WebMatrix bağlanma](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [ASP.NET Web sayfaları sitelerdeki kullanıcı girişini doğrulama](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [ASP.NET Web Sayfaları Sitelerinde Kullanıcı Girişini Doğrulama](https://go.microsoft.com/fwlink/?LinkId=253002)
