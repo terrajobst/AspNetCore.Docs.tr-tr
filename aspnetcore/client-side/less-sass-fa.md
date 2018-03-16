@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Daha az stil uygulamalarla, Sass ve yazı tipi harika ASP.NET Core içinde giriş
 
@@ -323,7 +323,7 @@ Daha az birkaç ek özellikler sağlar, ancak bu, bazı bu gücünü dil ön iş
 
 Sass birçok aynı özellikleri, ancak biraz farklı bir sözdizimi için destek sağlayan küçük, benzer. JavaScript yerine Ruby kullanılarak oluşturulmuştur ve böylece farklı kurulum gereksinimleri vardır. Özgün Sass dil süslü ayraçlar veya noktalı virgül kullanmadı, ancak bunun yerine boşluk ve girinti kullanarak kapsamını tanımlı. Sürümünde Sass 3, yeni bir sözdizimi sunulmuştur, **SCSS** ("Sassy CSS"). Girinti düzeyleri ve boşluk yoksayar ve bunun yerine noktalı ve süslü ayraçlar kullanır SCSS, CSS'ye benzer.
 
-Sass yüklemek için genellikle, (Mac üzerinde önceden yüklenmiş) Ruby yüklemeniz ve ardından çalıştırın:
+Sass yüklemek için genellikle, (macOS üzerinde önceden yüklenmiş) Ruby yüklemeniz ve ardından çalıştırın:
 
 ```console
 gem install sass

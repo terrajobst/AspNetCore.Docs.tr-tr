@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Mac, Linux veya Windows MVC giriş"
+title: "ASP.NET Core MVC giriş macOS, Linux veya Windows"
 author: rick-anderson
-description: "ASP.NET Core MVC ve Mac, Linux ve Windows Visual Studio Code ile çalışmaya başlama öğrenin"
+description: "MacOS, Linux ve Windows ASP.NET Core MVC ve Visual Studio Code ile çalışmaya başlama öğrenin"
 manager: wpickett
 ms.author: riande
 ms.date: 07/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 4960f5b2a82d20b9325f870296f4385e14e15b37
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a612d9b09e58fdc8071378ade15f1bdcafc9c9a6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="introduction-to-aspnet-core-mvc-on-mac-linux-or-windows"></a>ASP.NET Core Mac, Linux veya Windows MVC giriş
+# <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>ASP.NET Core MVC giriş macOS, Linux veya Windows
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -75,7 +75,7 @@ Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz k
 - [Tümleşik terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Klavye kısayolları](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [macOS klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Linux klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Windows klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 

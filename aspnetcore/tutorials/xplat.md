@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: 1b1a20eea88d4a90696deadaab340dcfb2b85b86
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: b8b10b9aaf1ef68f42fbf61982b8b2f21ab1183a
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-cross-platform-tutorials"></a>ASP.NET Core platformlar arası öğreticileri
 
@@ -26,13 +26,13 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 * [ASP.NET Core Razor sayfalarında giriş](xref:mvc/razor-pages/index)
 * ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 
-   * [Mac Razor sayfalarında](xref:tutorials/razor-pages-mac/index)
+   * [MacOS Razor sayfalarında](xref:tutorials/razor-pages-mac/index)
    * [Razor sayfalarının VS kodu](xref:tutorials/razor-pages-vsc/index)  
 
 * Bir ASP.NET Core MVC web uygulaması oluşturma
 
    * [Mac için Visual Studio ile Web uygulaması](first-mvc-app-mac/index.md)
-   * [Mac veya Linux üzerinde Visual Studio Code ile web uygulaması](first-mvc-app-xplat/index.md)
+   * [MacOS ya da Linux Visual Studio Code ile Web uygulaması](first-mvc-app-xplat/index.md)
 
 ## <a name="build-web-apis"></a>Web API'ları oluşturma
 * Bir Web API ile ASP.NET Core oluşturma

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: fd58a6a3e35a706d503603790fa1c726e6c865d6
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -27,14 +27,14 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 * ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 
    * [Windows Razor sayfalarında](xref:tutorials/razor-pages/index)
-   * [Mac Razor sayfalarında](xref:tutorials/razor-pages-mac/index)
+   * [MacOS Razor sayfalarında](xref:tutorials/razor-pages-mac/index)
    * [Razor sayfalarının VS kodu](xref:tutorials/razor-pages-vsc/index)  
 
 * Bir ASP.NET Core MVC web uygulaması oluşturma
 
    * [Windows için Visual Studio ile Web uygulaması](first-mvc-app/index.md)
    * [Mac için Visual Studio ile Web uygulaması](first-mvc-app-mac/index.md)
-   * [Mac veya Linux üzerinde Visual Studio Code ile web uygulaması](first-mvc-app-xplat/index.md)
+   * [MacOS ya da Linux Visual Studio Code ile Web uygulaması](first-mvc-app-xplat/index.md)
 
 * [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](../data/ef-mvc/index.md)
 * [Etiket Yardımcıları oluşturma](../mvc/views/tag-helpers/authoring.md)

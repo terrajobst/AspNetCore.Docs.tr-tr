@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET Core MVC Mac'te ile bir web uygulaması oluşturma"
+title: "MacOS üzerinde ASP.NET Core MVC ile bir web uygulaması oluşturma"
 author: rick-anderson
 description: "ASP.NET Core MVC oluşturun / Entity Framework uygulamasını Mac için Visual Studio ile"
 manager: wpickett
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/index
-ms.openlocfilehash: 554dda7ad7f20f90fd0a73b51eac508f99877683
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 51d62043592fbb7e1edd377c4f3ef3c1693b666a
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-using-visual-studio-for-mac"></a>ASP.NET Core Mac için Visual Studio kullanarak MVC ile bir web uygulaması oluşturma
 

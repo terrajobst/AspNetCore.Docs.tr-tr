@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 162fa4e0a6d5b6fdda7f043c9d106838a1c19954
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a437d98c2229e69bd2b66a7c9c868bf221aea94a
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 
-Bu seri ASP.NET Core Visual Studio kullanarak bir Razor sayfalarının web uygulaması oluşturmanın temel kavramları açıklar. Bu seri olanlarını yazın diğer sürümleri bir [Mac sürüm](xref:tutorials/razor-pages-mac/index) ve [Visual Studio Code sürümü](xref:tutorials/razor-pages-vsc/index).
+Bu seri ASP.NET Core Visual Studio kullanarak bir Razor sayfalarının web uygulaması oluşturmanın temel kavramları açıklar. Bu seri diğer sürümleri dahil bir [macOS sürüm](xref:tutorials/razor-pages-mac/index) ve [Visual Studio Code sürümü](xref:tutorials/razor-pages-vsc/index).
 
 1. [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 1. [Bir model için bir Razor sayfalarının uygulama ekleme](xref:tutorials/razor-pages/model)

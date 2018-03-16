@@ -28,7 +28,7 @@
 ### [Details ve Delete metotlarını inceleme](tutorials/first-mvc-app/details.md)
 
 ## [Web API’leri oluşturma](mvc/web-api/index.md)
-### [Mac üzerinde Web API'si oluşturma](xref:tutorials/first-web-api-mac)
+### [MacOS üzerinde Web API'si oluşturma](xref:tutorials/first-web-api-mac)
 ### [Swagger kullanan ASP.NET Core Web API yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
 #### [NSwag ile çalışmaya başlama](xref:tutorials/get-started-with-nswag)
 #### [Swashbuckle ile çalışmaya başlama](xref:tutorials/get-started-with-swashbuckle)
@@ -59,7 +59,7 @@
 #### [Gelişmiş konular](data/ef-mvc/advanced.md)
 
 ## [Çoklu platform öğreticileri](xref:tutorials/xplat)
-### [Mac üzerinde Razor Sayfaları web uygulaması](xref:tutorials/razor-pages-mac/index)
+### [Razor sayfalarının web uygulamasında macOS](xref:tutorials/razor-pages-mac/index)
 #### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
 #### [Model ekleme](xref:tutorials/razor-pages-mac/model)
 #### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
@@ -87,7 +87,7 @@
 #### [Doğrulama Ekleme](xref:tutorials/first-mvc-app-mac/validation)
 #### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
 
-### [Mac veya Linux Visual Studio Code ile MVC web uygulaması](xref:tutorials/first-mvc-app-xplat/index)
+### [MacOS ya da Linux Visual Studio Code ile MVC web uygulaması](xref:tutorials/first-mvc-app-xplat/index)
 #### [Kullanmaya başlama](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Denetleyici ekleme](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Görünüm ekleme](tutorials/first-mvc-app-xplat/adding-view.md)
