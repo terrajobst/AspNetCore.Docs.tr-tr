@@ -9,23 +9,23 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a><span data-ttu-id="fbda0-103">Daha az stil uygulamalarla, Sass ve yazı tipi harika ASP.NET Core içinde giriş</span><span class="sxs-lookup"><span data-stu-id="fbda0-103">Introduction to styling applications with Less, Sass, and Font Awesome in ASP.NET Core</span></span>
+# <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a><span data-ttu-id="416ab-103">Daha az stil uygulamalarla, Sass ve yazı tipi harika ASP.NET Core içinde giriş</span><span class="sxs-lookup"><span data-stu-id="416ab-103">Introduction to styling applications with Less, Sass, and Font Awesome in ASP.NET Core</span></span>
 
-<span data-ttu-id="fbda0-104">Tarafından [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="fbda0-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="416ab-104">Tarafından [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="416ab-104">By [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="fbda0-105">Stil ve genel denemek için kullanıcıların web uygulamalarının giderek yüksek beklentilerini vardır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-105">Users of web applications have increasingly high expectations when it comes to style and overall experience.</span></span> <span data-ttu-id="fbda0-106">Modern web uygulamaları sık zengin araçları ve tanımlama ve kendi görünüm tutarlı bir şekilde yönetmek için çerçeveleri yararlanın.</span><span class="sxs-lookup"><span data-stu-id="fbda0-106">Modern web applications frequently leverage rich tools and frameworks for defining and managing their look and feel in a consistent manner.</span></span> <span data-ttu-id="fbda0-107">Çerçeveler ister [önyükleme](http://getbootstrap.com/) stilleri ve düzen seçeneklerini web siteleri için ortak bir dizi tanımlama doğru uzun bir yol gidebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fbda0-107">Frameworks like [Bootstrap](http://getbootstrap.com/) can go a long way toward defining a common set of styles and layout options for web sites.</span></span> <span data-ttu-id="fbda0-108">Bununla birlikte, çoğu Önemsiz olmayan siteler ayrıca sitenin arabirimi daha sezgisel hale gelmesine yardımcı görüntü olmayan simgeler kolay erişmesini yanı sıra etkili bir şekilde tanımlamak ve stilleri ve geçişli stil sayfası (CSS) dosyaları korumak için yararlı.</span><span class="sxs-lookup"><span data-stu-id="fbda0-108">However, most non-trivial sites also benefit from being able to effectively define and maintain styles and cascading style sheet (CSS) files, as well as having easy access to non-image icons that help make the site's interface more intuitive.</span></span> <span data-ttu-id="fbda0-109">Where olan dilleri ve Destek Araçları [daha az](http://lesscss.org/) ve [Sass](http://sass-lang.com/), kitaplıklar gibi ve [yazı tipi harika](http://fontawesome.io/), geldikçe.</span><span class="sxs-lookup"><span data-stu-id="fbda0-109">That's where languages and tools that support [Less](http://lesscss.org/) and [Sass](http://sass-lang.com/), and libraries like [Font Awesome](http://fontawesome.io/), come in.</span></span>
+<span data-ttu-id="416ab-105">Stil ve genel denemek için kullanıcıların web uygulamalarının giderek yüksek beklentilerini vardır.</span><span class="sxs-lookup"><span data-stu-id="416ab-105">Users of web applications have increasingly high expectations when it comes to style and overall experience.</span></span> <span data-ttu-id="416ab-106">Modern web uygulamaları sık zengin araçları ve tanımlama ve kendi görünüm tutarlı bir şekilde yönetmek için çerçeveleri yararlanın.</span><span class="sxs-lookup"><span data-stu-id="416ab-106">Modern web applications frequently leverage rich tools and frameworks for defining and managing their look and feel in a consistent manner.</span></span> <span data-ttu-id="416ab-107">Çerçeveler ister [önyükleme](http://getbootstrap.com/) stilleri ve düzen seçeneklerini web siteleri için ortak bir dizi tanımlama doğru uzun bir yol gidebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="416ab-107">Frameworks like [Bootstrap](http://getbootstrap.com/) can go a long way toward defining a common set of styles and layout options for web sites.</span></span> <span data-ttu-id="416ab-108">Bununla birlikte, çoğu Önemsiz olmayan siteler ayrıca sitenin arabirimi daha sezgisel hale gelmesine yardımcı görüntü olmayan simgeler kolay erişmesini yanı sıra etkili bir şekilde tanımlamak ve stilleri ve geçişli stil sayfası (CSS) dosyaları korumak için yararlı.</span><span class="sxs-lookup"><span data-stu-id="416ab-108">However, most non-trivial sites also benefit from being able to effectively define and maintain styles and cascading style sheet (CSS) files, as well as having easy access to non-image icons that help make the site's interface more intuitive.</span></span> <span data-ttu-id="416ab-109">Where olan dilleri ve Destek Araçları [daha az](http://lesscss.org/) ve [Sass](http://sass-lang.com/), kitaplıklar gibi ve [yazı tipi harika](http://fontawesome.io/), geldikçe.</span><span class="sxs-lookup"><span data-stu-id="416ab-109">That's where languages and tools that support [Less](http://lesscss.org/) and [Sass](http://sass-lang.com/), and libraries like [Font Awesome](http://fontawesome.io/), come in.</span></span>
 
-## <a name="css-preprocessor-languages"></a><span data-ttu-id="fbda0-110">CSS önişlemci dilleri</span><span class="sxs-lookup"><span data-stu-id="fbda0-110">CSS preprocessor languages</span></span>
+## <a name="css-preprocessor-languages"></a><span data-ttu-id="416ab-110">CSS önişlemci dilleri</span><span class="sxs-lookup"><span data-stu-id="416ab-110">CSS preprocessor languages</span></span>
 
-<span data-ttu-id="fbda0-111">Diğer dillere temel dili ile çalışmaya deneyimini geliştirmek için derlenmiş dillerde önişlemcilerini adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-111">Languages that are compiled into other languages, in order to improve the experience of working with the underlying language, are referred to as preprocessors.</span></span> <span data-ttu-id="fbda0-112">CSS için iki popüler önişlemcilerini vardır: küçük ve Sass.</span><span class="sxs-lookup"><span data-stu-id="fbda0-112">There are two popular preprocessors for CSS: Less and Sass.</span></span>  <span data-ttu-id="fbda0-113">Bu önişlemcilerini değişkenleri ve büyük ve karmaşık stil sayfaları devamlılığını iyileştirmek iç içe geçmiş kuralları için destek gibi CSS için özellikler ekleyin.</span><span class="sxs-lookup"><span data-stu-id="fbda0-113">These preprocessors add features to CSS, such as support for variables and nested rules, which improve the maintainability of large, complex stylesheets.</span></span> <span data-ttu-id="fbda0-114">Değişkenleri olarak basit bir şey için bile desteği olmayan bir dil olarak CSS çok basit ve bu CSS dosyaları yinelenen bloated yapıp eğilimindedir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-114">CSS as a language is very basic, lacking support even for something as simple as variables, and this tends to make CSS files repetitive and bloated.</span></span> <span data-ttu-id="fbda0-115">Önişlemcilerini aracılığıyla gerçek programlama dili özellik ekleme çoğaltma azaltmak ve Stil kurallarının daha iyi düzenleme sağlamaya yardımcı olabilir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-115">Adding real programming language features via preprocessors can help reduce duplication and provide better organization of styling rules.</span></span> <span data-ttu-id="fbda0-116">Visual Studio hem daha az için yerleşik destek ve Sass yanı sıra, bu dillerde çalışırken geliştirme deneyimi daha fazla artırabilir uzantıları sağlar.</span><span class="sxs-lookup"><span data-stu-id="fbda0-116">Visual Studio provides built-in support for both Less and Sass, as well as extensions that can further improve the development experience when working with these languages.</span></span>
+<span data-ttu-id="416ab-111">Diğer dillere temel dili ile çalışmaya deneyimini geliştirmek için derlenmiş dillerde önişlemcilerini adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="416ab-111">Languages that are compiled into other languages, in order to improve the experience of working with the underlying language, are referred to as preprocessors.</span></span> <span data-ttu-id="416ab-112">CSS için iki popüler önişlemcilerini vardır: küçük ve Sass.</span><span class="sxs-lookup"><span data-stu-id="416ab-112">There are two popular preprocessors for CSS: Less and Sass.</span></span>  <span data-ttu-id="416ab-113">Bu önişlemcilerini değişkenleri ve büyük ve karmaşık stil sayfaları devamlılığını iyileştirmek iç içe geçmiş kuralları için destek gibi CSS için özellikler ekleyin.</span><span class="sxs-lookup"><span data-stu-id="416ab-113">These preprocessors add features to CSS, such as support for variables and nested rules, which improve the maintainability of large, complex stylesheets.</span></span> <span data-ttu-id="416ab-114">Değişkenleri olarak basit bir şey için bile desteği olmayan bir dil olarak CSS çok basit ve bu CSS dosyaları yinelenen bloated yapıp eğilimindedir.</span><span class="sxs-lookup"><span data-stu-id="416ab-114">CSS as a language is very basic, lacking support even for something as simple as variables, and this tends to make CSS files repetitive and bloated.</span></span> <span data-ttu-id="416ab-115">Önişlemcilerini aracılığıyla gerçek programlama dili özellik ekleme çoğaltma azaltmak ve Stil kurallarının daha iyi düzenleme sağlamaya yardımcı olabilir.</span><span class="sxs-lookup"><span data-stu-id="416ab-115">Adding real programming language features via preprocessors can help reduce duplication and provide better organization of styling rules.</span></span> <span data-ttu-id="416ab-116">Visual Studio hem daha az için yerleşik destek ve Sass yanı sıra, bu dillerde çalışırken geliştirme deneyimi daha fazla artırabilir uzantıları sağlar.</span><span class="sxs-lookup"><span data-stu-id="416ab-116">Visual Studio provides built-in support for both Less and Sass, as well as extensions that can further improve the development experience when working with these languages.</span></span>
 
-<span data-ttu-id="fbda0-117">Bu CSS önişlemcilerini okunabilirlik ve stil bilgilerini Bakımı nasıl artırabilir hızlı örnek olarak göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="fbda0-117">As a quick example of how preprocessors can improve readability and maintainability of style information, consider this CSS:</span></span>
+<span data-ttu-id="416ab-117">Bu CSS önişlemcilerini okunabilirlik ve stil bilgilerini Bakımı nasıl artırabilir hızlı örnek olarak göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="416ab-117">As a quick example of how preprocessors can improve readability and maintainability of style information, consider this CSS:</span></span>
 
 ```css
 .header {
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/15/2018
 }
 ```
 
-<span data-ttu-id="fbda0-118">Daha az kullanarak, bu çoğaltma tümünün ortadan kaldırmak için yazılabilir kullanarak bir *mixin* ("karıştırmak" olanak tanıdığından ve bu nedenle adlı bir sınıf veya içine başka bir kural kümesi özelliklerinden):</span><span class="sxs-lookup"><span data-stu-id="fbda0-118">Using Less, this can be rewritten to eliminate all of the duplication, using a *mixin* (so named because it allows you to "mix in" properties from one class or rule-set into another):</span></span>
+<span data-ttu-id="416ab-118">Daha az kullanarak, bu çoğaltma tümünün ortadan kaldırmak için yazılabilir kullanarak bir *mixin* ("karıştırmak" olanak tanıdığından ve bu nedenle adlı bir sınıf veya içine başka bir kural kümesi özelliklerinden):</span><span class="sxs-lookup"><span data-stu-id="416ab-118">Using Less, this can be rewritten to eliminate all of the duplication, using a *mixin* (so named because it allows you to "mix in" properties from one class or rule-set into another):</span></span>
 
 ```less
 .header {
@@ -59,25 +59,25 @@ ms.lasthandoff: 03/15/2018
 }
 ```
 
-## <a name="less"></a><span data-ttu-id="fbda0-119">daha az</span><span class="sxs-lookup"><span data-stu-id="fbda0-119">Less</span></span>
+## <a name="less"></a><span data-ttu-id="416ab-119">daha az</span><span class="sxs-lookup"><span data-stu-id="416ab-119">Less</span></span>
 
-<span data-ttu-id="fbda0-120">Daha az CSS önişlemci Node.js kullanarak çalışır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-120">The Less CSS preprocessor runs using Node.js.</span></span> <span data-ttu-id="fbda0-121">Daha az yüklemek için bir komut isteminden düğüm paketi Yöneticisi (npm) kullanın (-g anlamına gelir "Genel"):</span><span class="sxs-lookup"><span data-stu-id="fbda0-121">To install Less, use Node Package Manager (npm) from a command prompt (-g means "global"):</span></span>
+<span data-ttu-id="416ab-120">Daha az CSS önişlemci Node.js kullanarak çalışır.</span><span class="sxs-lookup"><span data-stu-id="416ab-120">The Less CSS preprocessor runs using Node.js.</span></span> <span data-ttu-id="416ab-121">Daha az yüklemek için bir komut isteminden düğüm paketi Yöneticisi (npm) kullanın (-g anlamına gelir "Genel"):</span><span class="sxs-lookup"><span data-stu-id="416ab-121">To install Less, use Node Package Manager (npm) from a command prompt (-g means "global"):</span></span>
 
 ```console
 npm install -g less
 ```
 
-<span data-ttu-id="fbda0-122">Visual Studio kullanıyorsanız, küçük projeniz için bir veya daha çok daha az dosyaları ekleyerek ve derleme zamanında işlemeye Gulp (veya Grunt) yapılandırma ile başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fbda0-122">If you're using Visual Studio, you can get started with Less by adding one or more Less files to your project, and then configuring Gulp (or Grunt) to process them at compile-time.</span></span> <span data-ttu-id="fbda0-123">Ekleme bir *stilleri* , projenizin klasörüne ve ardından yeni bir dosya adlı daha az ekleyin *main.less* bu klasöre.</span><span class="sxs-lookup"><span data-stu-id="fbda0-123">Add a *Styles* folder to your project, and then add a new Less file named *main.less* to this folder.</span></span>
+<span data-ttu-id="416ab-122">Visual Studio kullanıyorsanız, küçük projeniz için bir veya daha çok daha az dosyaları ekleyerek ve derleme zamanında işlemeye Gulp (veya Grunt) yapılandırma ile başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="416ab-122">If you're using Visual Studio, you can get started with Less by adding one or more Less files to your project, and then configuring Gulp (or Grunt) to process them at compile-time.</span></span> <span data-ttu-id="416ab-123">Ekleme bir *stilleri* , projenizin klasörüne ve ardından yeni bir dosya adlı daha az ekleyin *main.less* bu klasöre.</span><span class="sxs-lookup"><span data-stu-id="416ab-123">Add a *Styles* folder to your project, and then add a new Less file named *main.less* to this folder.</span></span>
 
 ![Daha az dosyası ekleme](less-sass-fa/_static/add-less-file.png)
 
-<span data-ttu-id="fbda0-125">Eklendikten sonra klasör yapısı aşağıdakine benzer görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-125">Once added, your folder structure should look something like this:</span></span>
+<span data-ttu-id="416ab-125">Eklendikten sonra klasör yapısı aşağıdakine benzer görünmelidir:</span><span class="sxs-lookup"><span data-stu-id="416ab-125">Once added, your folder structure should look something like this:</span></span>
 
 ![Klasör yapısı](less-sass-fa/_static/folder-structure.png)
 
-<span data-ttu-id="fbda0-127">Artık, CSS ile derlenen ve wwwroot klasörüne Gulp tarafından dağıtılan olan dosyasına bazı temel stil ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fbda0-127">Now you can add some basic styling to the file, which will be compiled into CSS and deployed to the wwwroot folder by Gulp.</span></span>
+<span data-ttu-id="416ab-127">Artık, CSS ile derlenen ve wwwroot klasörüne Gulp tarafından dağıtılan olan dosyasına bazı temel stil ekleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="416ab-127">Now you can add some basic styling to the file, which will be compiled into CSS and deployed to the wwwroot folder by Gulp.</span></span>
 
-<span data-ttu-id="fbda0-128">Değiştirme *main.less* tek bir temel renkten bir basit renk paleti oluşturur aşağıdaki içerik dahil etmek.</span><span class="sxs-lookup"><span data-stu-id="fbda0-128">Modify *main.less* to include the following content, which creates a simple color palette from a single base color.</span></span>
+<span data-ttu-id="416ab-128">Değiştirme *main.less* tek bir temel renkten bir basit renk paleti oluşturur aşağıdaki içerik dahil etmek.</span><span class="sxs-lookup"><span data-stu-id="416ab-128">Modify *main.less* to include the following content, which creates a simple color palette from a single base color.</span></span>
 
 ```less
 @base: #663333;
@@ -97,11 +97,11 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-<span data-ttu-id="fbda0-129">`@base` ve diğer @-prefixed değişkenleri öğeleridir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-129">`@base` and the other @-prefixed items are variables.</span></span> <span data-ttu-id="fbda0-130">Bunların her biri, bir renk temsil eder.</span><span class="sxs-lookup"><span data-stu-id="fbda0-130">Each of them represents a color.</span></span> <span data-ttu-id="fbda0-131">Dışında `@base`, renk işlevler kullanılarak hazırsınız: aydınlatmak, koyu ve döndür.</span><span class="sxs-lookup"><span data-stu-id="fbda0-131">Except for `@base`, they're set using color functions: lighten, darken, and spin.</span></span> <span data-ttu-id="fbda0-132">Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar.</span><span class="sxs-lookup"><span data-stu-id="fbda0-132">Lighten and darken do pretty much what you would expect; spin adjusts the hue of a color by a number of degrees (around the color wheel).</span></span> <span data-ttu-id="fbda0-133">Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur.</span><span class="sxs-lookup"><span data-stu-id="fbda0-133">The Less processor is smart enough to ignore variables that aren't used, so to demonstrate how these variables work, we need to use them somewhere.</span></span> <span data-ttu-id="fbda0-134">Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.</span><span class="sxs-lookup"><span data-stu-id="fbda0-134">The classes `.baseColor`, etc. will demonstrate the calculated values of each of the variables in the CSS file that's produced.</span></span>
+<span data-ttu-id="416ab-129">`@base` ve diğer @-prefixed değişkenleri öğeleridir.</span><span class="sxs-lookup"><span data-stu-id="416ab-129">`@base` and the other @-prefixed items are variables.</span></span> <span data-ttu-id="416ab-130">Bunların her biri, bir renk temsil eder.</span><span class="sxs-lookup"><span data-stu-id="416ab-130">Each of them represents a color.</span></span> <span data-ttu-id="416ab-131">Dışında `@base`, renk işlevler kullanılarak hazırsınız: aydınlatmak, koyu ve döndür.</span><span class="sxs-lookup"><span data-stu-id="416ab-131">Except for `@base`, they're set using color functions: lighten, darken, and spin.</span></span> <span data-ttu-id="416ab-132">Aydınlatmak ve koyu oldukça çok neler bekleyebileceğiniz; yapın döndürme bir renginin (etrafında renk Tekerlek) derece sayısına göre ayarlar.</span><span class="sxs-lookup"><span data-stu-id="416ab-132">Lighten and darken do pretty much what you would expect; spin adjusts the hue of a color by a number of degrees (around the color wheel).</span></span> <span data-ttu-id="416ab-133">Daha az işlemci bu değişkenleri nasıl çalıştığını göstermek için herhangi bir yerde kullanmak üzere ihtiyacımız için kullanılmaz, değişkenleri yoksaymayı akıllıca olur.</span><span class="sxs-lookup"><span data-stu-id="416ab-133">The Less processor is smart enough to ignore variables that aren't used, so to demonstrate how these variables work, we need to use them somewhere.</span></span> <span data-ttu-id="416ab-134">Sınıfları `.baseColor`, vb. her üretilen CSS dosyasında değişkenlerinin hesaplanan değerler göstermek.</span><span class="sxs-lookup"><span data-stu-id="416ab-134">The classes `.baseColor`, etc. will demonstrate the calculated values of each of the variables in the CSS file that's produced.</span></span>
 
-### <a name="get-started"></a><span data-ttu-id="fbda0-135">Kullanmaya başlayın</span><span class="sxs-lookup"><span data-stu-id="fbda0-135">Get started</span></span>
+### <a name="get-started"></a><span data-ttu-id="416ab-135">Kullanmaya başlayın</span><span class="sxs-lookup"><span data-stu-id="416ab-135">Get started</span></span>
 
-<span data-ttu-id="fbda0-136">Oluşturma bir **npm yapılandırma dosyası** (*package.json*) proje klasörünüzdeki ve başvurmak için düzenlemek `gulp` ve `gulp-less`:</span><span class="sxs-lookup"><span data-stu-id="fbda0-136">Create an **npm Configuration File** (*package.json*) in your project folder and edit it to reference `gulp` and `gulp-less`:</span></span>
+<span data-ttu-id="416ab-136">Oluşturma bir **npm yapılandırma dosyası** (*package.json*) proje klasörünüzdeki ve başvurmak için düzenlemek `gulp` ve `gulp-less`:</span><span class="sxs-lookup"><span data-stu-id="416ab-136">Create an **npm Configuration File** (*package.json*) in your project folder and edit it to reference `gulp` and `gulp-less`:</span></span>
 
 ```json
 {
@@ -115,7 +115,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-137">Proje klasörünüzdeki ya da Visual Studio ya da bir komut isteminde bağımlılıkları yükler **Çözüm Gezgini** (**bağımlılıkları > npm > paketler geri**).</span><span class="sxs-lookup"><span data-stu-id="fbda0-137">Install the dependencies either at a command prompt in your project folder, or in Visual Studio **Solution Explorer** (**Dependencies > npm > Restore packages**).</span></span>
+<span data-ttu-id="416ab-137">Proje klasörünüzdeki ya da Visual Studio ya da bir komut isteminde bağımlılıkları yükler **Çözüm Gezgini** (**bağımlılıkları > npm > paketler geri**).</span><span class="sxs-lookup"><span data-stu-id="416ab-137">Install the dependencies either at a command prompt in your project folder, or in Visual Studio **Solution Explorer** (**Dependencies > npm > Restore packages**).</span></span>
 
 ```console
 npm install
@@ -123,7 +123,7 @@ npm install
 
 ![VS paketler geri yükleme](less-sass-fa/_static/restore-packages.png)
 
-<span data-ttu-id="fbda0-139">Proje klasöründe oluşturma bir **Gulp yapılandırma dosyası** (*gulpfile.js*) otomatik işlemi tanımlamak için.</span><span class="sxs-lookup"><span data-stu-id="fbda0-139">In the project folder, create a **Gulp Configuration File** (*gulpfile.js*) to define the automated process.</span></span>  <span data-ttu-id="fbda0-140">Bir değişken daha az temsil etmek için dosya ve daha az çalışacak bir görev üstüne ekleyin:</span><span class="sxs-lookup"><span data-stu-id="fbda0-140">Add a variable at the top of the file to represent Less, and a task to run Less:</span></span>
+<span data-ttu-id="416ab-139">Proje klasöründe oluşturma bir **Gulp yapılandırma dosyası** (*gulpfile.js*) otomatik işlemi tanımlamak için.</span><span class="sxs-lookup"><span data-stu-id="416ab-139">In the project folder, create a **Gulp Configuration File** (*gulpfile.js*) to define the automated process.</span></span>  <span data-ttu-id="416ab-140">Bir değişken daha az temsil etmek için dosya ve daha az çalışacak bir görev üstüne ekleyin:</span><span class="sxs-lookup"><span data-stu-id="416ab-140">Add a variable at the top of the file to represent Less, and a task to run Less:</span></span>
 
 ```javascript
 var gulp = require("gulp"),
@@ -137,17 +137,17 @@ gulp.task("less", function () {
 });
 ```
 
-<span data-ttu-id="fbda0-141">Açık **görev Çalıştırıcı Gezgini** (**Görünüm > Diğer Pencereler > Görev Çalıştırıcı Gezgini**).</span><span class="sxs-lookup"><span data-stu-id="fbda0-141">Open the **Task Runner Explorer** (**View > Other Windows > Task Runner Explorer**).</span></span> <span data-ttu-id="fbda0-142">Görevler arasında adlı yeni bir görev görmelisiniz `less`.</span><span class="sxs-lookup"><span data-stu-id="fbda0-142">Among the tasks, you should see a new task named `less`.</span></span> <span data-ttu-id="fbda0-143">Pencereyi yenilemek gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-143">You might have to refresh the window.</span></span>
+<span data-ttu-id="416ab-141">Açık **görev Çalıştırıcı Gezgini** (**Görünüm > Diğer Pencereler > Görev Çalıştırıcı Gezgini**).</span><span class="sxs-lookup"><span data-stu-id="416ab-141">Open the **Task Runner Explorer** (**View > Other Windows > Task Runner Explorer**).</span></span> <span data-ttu-id="416ab-142">Görevler arasında adlı yeni bir görev görmelisiniz `less`.</span><span class="sxs-lookup"><span data-stu-id="416ab-142">Among the tasks, you should see a new task named `less`.</span></span> <span data-ttu-id="416ab-143">Pencereyi yenilemek gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="416ab-143">You might have to refresh the window.</span></span>
 
-<span data-ttu-id="fbda0-144">Çalıştırma `less` görev ve ne burada gösterilen için benzer bir çıktı bakın:</span><span class="sxs-lookup"><span data-stu-id="fbda0-144">Run the `less` task, and you see output similar to what is shown here:</span></span>
+<span data-ttu-id="416ab-144">Çalıştırma `less` görev ve ne burada gösterilen için benzer bir çıktı bakın:</span><span class="sxs-lookup"><span data-stu-id="416ab-144">Run the `less` task, and you see output similar to what is shown here:</span></span>
 
 ![daha az görev Çalıştırıcı](less-sass-fa/_static/less-task-runner.png)
 
-<span data-ttu-id="fbda0-146">*Wwwroot/css* klasörü artık yeni bir dosya içerir *main.css*:</span><span class="sxs-lookup"><span data-stu-id="fbda0-146">The *wwwroot/css* folder now contains a new file, *main.css*:</span></span>
+<span data-ttu-id="416ab-146">*Wwwroot/css* klasörü artık yeni bir dosya içerir *main.css*:</span><span class="sxs-lookup"><span data-stu-id="416ab-146">The *wwwroot/css* folder now contains a new file, *main.css*:</span></span>
 
 ![oluşturulan ana css](less-sass-fa/_static/main-css-created.png)
 
-<span data-ttu-id="fbda0-148">Açık *main.css* ve aşağıdaki gibi görebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="fbda0-148">Open *main.css* and you see something like the following:</span></span>
+<span data-ttu-id="416ab-148">Açık *main.css* ve aşağıdaki gibi görebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="416ab-148">Open *main.css* and you see something like the following:</span></span>
 
 ```css
 body {
@@ -170,7 +170,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-149">Basit bir HTML sayfasına ekleyin *wwwroot* klasörü ve başvuru *main.css* eylem renk paletindeki görmek için.</span><span class="sxs-lookup"><span data-stu-id="fbda0-149">Add a simple HTML page to the *wwwroot* folder, and reference *main.css* to see the color palette in action.</span></span>
+<span data-ttu-id="416ab-149">Basit bir HTML sayfasına ekleyin *wwwroot* klasörü ve başvuru *main.css* eylem renk paletindeki görmek için.</span><span class="sxs-lookup"><span data-stu-id="416ab-149">Add a simple HTML page to the *wwwroot* folder, and reference *main.css* to see the color palette in action.</span></span>
 
 ```html
 <!DOCTYPE html>
@@ -192,11 +192,11 @@ body {
 </html>
 ```
 
-<span data-ttu-id="fbda0-150">Gördüğünüz üzerinde 180 derece döndür `@base` üretmek için kullanılan `@background` rengini karşıt renk tekerleği içinde sonuçlandı `@base`:</span><span class="sxs-lookup"><span data-stu-id="fbda0-150">You can see that the 180 degree spin on `@base` used to produce `@background` resulted in the color wheel opposing color of `@base`:</span></span>
+<span data-ttu-id="416ab-150">Gördüğünüz üzerinde 180 derece döndür `@base` üretmek için kullanılan `@background` rengini karşıt renk tekerleği içinde sonuçlandı `@base`:</span><span class="sxs-lookup"><span data-stu-id="416ab-150">You can see that the 180 degree spin on `@base` used to produce `@background` resulted in the color wheel opposing color of `@base`:</span></span>
 
 ![daha az test örneği](less-sass-fa/_static/less-test-screenshot.png)
 
-<span data-ttu-id="fbda0-152">Daha az Ayrıca iç içe geçmiş kuralları, yanı sıra iç içe geçmiş medya sorguları destekler.</span><span class="sxs-lookup"><span data-stu-id="fbda0-152">Less also provides support for nested rules, as well as nested media queries.</span></span> <span data-ttu-id="fbda0-153">Örneğin, menüler ayrıntılı CSS kuralları sonuçlanabilir gibi tanımlama iç içe geçmiş hiyerarşileri bu ister:</span><span class="sxs-lookup"><span data-stu-id="fbda0-153">For example, defining nested hierarchies like menus can result in verbose CSS rules like these:</span></span>
+<span data-ttu-id="416ab-152">Daha az Ayrıca iç içe geçmiş kuralları, yanı sıra iç içe geçmiş medya sorguları destekler.</span><span class="sxs-lookup"><span data-stu-id="416ab-152">Less also provides support for nested rules, as well as nested media queries.</span></span> <span data-ttu-id="416ab-153">Örneğin, menüler ayrıntılı CSS kuralları sonuçlanabilir gibi tanımlama iç içe geçmiş hiyerarşileri bu ister:</span><span class="sxs-lookup"><span data-stu-id="416ab-153">For example, defining nested hierarchies like menus can result in verbose CSS rules like these:</span></span>
 
 ```css
 nav {
@@ -224,9 +224,9 @@ nav li a:active {
 }
 ```
 
-<span data-ttu-id="fbda0-154">İdeal olarak tüm ilgili stil kurallarını birlikte CSS dosyası içinde yer alır, ancak uygulamada bir şey yok kuralı ve belki de bloğu açıklamaları dışında bu kural zorlama.</span><span class="sxs-lookup"><span data-stu-id="fbda0-154">Ideally all of the related style rules will be placed together within the CSS file, but in practice there's nothing enforcing this rule except convention and perhaps block comments.</span></span>
+<span data-ttu-id="416ab-154">İdeal olarak tüm ilgili stil kurallarını birlikte CSS dosyası içinde yer alır, ancak uygulamada bir şey yok kuralı ve belki de bloğu açıklamaları dışında bu kural zorlama.</span><span class="sxs-lookup"><span data-stu-id="416ab-154">Ideally all of the related style rules will be placed together within the CSS file, but in practice there's nothing enforcing this rule except convention and perhaps block comments.</span></span>
 
-<span data-ttu-id="fbda0-155">Daha az kullanarak kurallar tanımlama şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="fbda0-155">Defining these same rules using Less looks like this:</span></span>
+<span data-ttu-id="416ab-155">Daha az kullanarak kurallar tanımlama şöyle görünür:</span><span class="sxs-lookup"><span data-stu-id="416ab-155">Defining these same rules using Less looks like this:</span></span>
 
 ```less
 nav {
@@ -246,11 +246,11 @@ nav {
 }
 ```
 
-<span data-ttu-id="fbda0-156">Bu durumda, tüm alt öğelerinin unutmayın `nav` kapsamında yer alır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-156">Note that in this case, all of the subordinate elements of `nav` are contained within its scope.</span></span> <span data-ttu-id="fbda0-157">Artık tüm üst öğeler yinelenmesinin değil (`nav`, `li`, `a`), ve toplam satır sayısı da bıraktı (bazıları olsa olan ikinci örnekte aynı satırlarındaki değerleri koyma sonucunu).</span><span class="sxs-lookup"><span data-stu-id="fbda0-157">There's no longer any repetition of parent elements (`nav`, `li`, `a`), and the total line count has dropped as well (though some of that's a result of putting values on the same lines in the second example).</span></span> <span data-ttu-id="fbda0-158">Bu kuruluş, tüm kurallar açıkça sınırlanmış bir kapsam içinde belirli bir kullanıcı Arabirimi öğesi için bu durumda görmek için dosyayı geri kalanından küme ayraçları ayarlayın çok yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-158">It can be very helpful, organizationally, to see all of the rules for a given UI element within an explicitly bounded scope, in this case set off from the rest of the file by curly braces.</span></span>
+<span data-ttu-id="416ab-156">Bu durumda, tüm alt öğelerinin unutmayın `nav` kapsamında yer alır.</span><span class="sxs-lookup"><span data-stu-id="416ab-156">Note that in this case, all of the subordinate elements of `nav` are contained within its scope.</span></span> <span data-ttu-id="416ab-157">Artık tüm üst öğeler yinelenmesinin değil (`nav`, `li`, `a`), ve toplam satır sayısı da bıraktı (bazıları olsa olan ikinci örnekte aynı satırlarındaki değerleri koyma sonucunu).</span><span class="sxs-lookup"><span data-stu-id="416ab-157">There's no longer any repetition of parent elements (`nav`, `li`, `a`), and the total line count has dropped as well (though some of that's a result of putting values on the same lines in the second example).</span></span> <span data-ttu-id="416ab-158">Bu kuruluş, tüm kurallar açıkça sınırlanmış bir kapsam içinde belirli bir kullanıcı Arabirimi öğesi için bu durumda görmek için dosyayı geri kalanından küme ayraçları ayarlayın çok yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="416ab-158">It can be very helpful, organizationally, to see all of the rules for a given UI element within an explicitly bounded scope, in this case set off from the rest of the file by curly braces.</span></span>
 
-<span data-ttu-id="fbda0-159">`&` Sözdizimi daha az Seçicisi, bir özellik olan & Geçerli Seçici üst temsil eden.</span><span class="sxs-lookup"><span data-stu-id="fbda0-159">The `&` syntax is a Less selector feature, with & representing the current selector parent.</span></span> <span data-ttu-id="fbda0-160">Bu nedenle, içinde {...}</span><span class="sxs-lookup"><span data-stu-id="fbda0-160">So, within the a {...}</span></span> <span data-ttu-id="fbda0-161">blok, `&` temsil eden bir `a` etiketi ve bu nedenle `&:link` eşdeğerdir `a:link`.</span><span class="sxs-lookup"><span data-stu-id="fbda0-161">block, `&` represents an `a` tag, and thus `&:link` is equivalent to `a:link`.</span></span>
+<span data-ttu-id="416ab-159">`&` Sözdizimi daha az Seçicisi, bir özellik olan & Geçerli Seçici üst temsil eden.</span><span class="sxs-lookup"><span data-stu-id="416ab-159">The `&` syntax is a Less selector feature, with & representing the current selector parent.</span></span> <span data-ttu-id="416ab-160">Bu nedenle, içinde {...}</span><span class="sxs-lookup"><span data-stu-id="416ab-160">So, within the a {...}</span></span> <span data-ttu-id="416ab-161">blok, `&` temsil eden bir `a` etiketi ve bu nedenle `&:link` eşdeğerdir `a:link`.</span><span class="sxs-lookup"><span data-stu-id="416ab-161">block, `&` represents an `a` tag, and thus `&:link` is equivalent to `a:link`.</span></span>
 
-<span data-ttu-id="fbda0-162">Medya sorguları, esnek tasarımlar oluşturmak için son derece yararlıdır da yoğun yineleme ve CSS karmaşıklığı katkıda bulunabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fbda0-162">Media queries, extremely useful in creating responsive designs, can also contribute heavily to repetition and complexity in CSS.</span></span> <span data-ttu-id="fbda0-163">Böylece tüm sınıf tanımı içinde farklı yinelenmesi gerekmez daha az medya sorguları sınıfları içinde iç içe en üst düzey verir `@media` öğeleri.</span><span class="sxs-lookup"><span data-stu-id="fbda0-163">Less allows media queries to be nested within classes, so that the entire class definition doesn't need to be repeated within different top-level `@media` elements.</span></span> <span data-ttu-id="fbda0-164">Örneğin, bir yanıt menüsü CSS şöyledir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-164">For example, here is CSS for a responsive menu:</span></span>
+<span data-ttu-id="416ab-162">Medya sorguları, esnek tasarımlar oluşturmak için son derece yararlıdır da yoğun yineleme ve CSS karmaşıklığı katkıda bulunabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="416ab-162">Media queries, extremely useful in creating responsive designs, can also contribute heavily to repetition and complexity in CSS.</span></span> <span data-ttu-id="416ab-163">Böylece tüm sınıf tanımı içinde farklı yinelenmesi gerekmez daha az medya sorguları sınıfları içinde iç içe en üst düzey verir `@media` öğeleri.</span><span class="sxs-lookup"><span data-stu-id="416ab-163">Less allows media queries to be nested within classes, so that the entire class definition doesn't need to be repeated within different top-level `@media` elements.</span></span> <span data-ttu-id="416ab-164">Örneğin, bir yanıt menüsü CSS şöyledir:</span><span class="sxs-lookup"><span data-stu-id="416ab-164">For example, here is CSS for a responsive menu:</span></span>
 
 ```css
 .navigation {
@@ -270,7 +270,7 @@ nav {
 }
 ```
 
-<span data-ttu-id="fbda0-165">Bu daha iyi daha az tanımlanabilir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-165">This can be better defined in Less as:</span></span>
+<span data-ttu-id="416ab-165">Bu daha iyi daha az tanımlanabilir:</span><span class="sxs-lookup"><span data-stu-id="416ab-165">This can be better defined in Less as:</span></span>
 
 ```less
 .navigation {
@@ -286,11 +286,11 @@ nav {
 }
 ```
 
-<span data-ttu-id="fbda0-166">Başka bir özellik zaten anlatıldığı daha az önceden tanımlanmış değişkenler arasından oluşturulması stil öznitelikleri izin vererek, matematiksel işlemler için desteğidir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-166">Another feature of Less that we have already seen is its support for mathematical operations, allowing style attributes to be constructed from pre-defined variables.</span></span> <span data-ttu-id="fbda0-167">Bu temel değişkeni değiştirilebilir ve tüm bağımlı değerleri otomatik olarak değiştir ilgili stilleri çok daha kolay güncelleştirme hale getirir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-167">This makes updating related styles much easier, since the base variable can be modified and all dependent values change automatically.</span></span>
+<span data-ttu-id="416ab-166">Başka bir özellik zaten anlatıldığı daha az önceden tanımlanmış değişkenler arasından oluşturulması stil öznitelikleri izin vererek, matematiksel işlemler için desteğidir.</span><span class="sxs-lookup"><span data-stu-id="416ab-166">Another feature of Less that we have already seen is its support for mathematical operations, allowing style attributes to be constructed from pre-defined variables.</span></span> <span data-ttu-id="416ab-167">Bu temel değişkeni değiştirilebilir ve tüm bağımlı değerleri otomatik olarak değiştir ilgili stilleri çok daha kolay güncelleştirme hale getirir.</span><span class="sxs-lookup"><span data-stu-id="416ab-167">This makes updating related styles much easier, since the base variable can be modified and all dependent values change automatically.</span></span>
 
-<span data-ttu-id="fbda0-168">Özellikle büyük siteler için CSS dosyaları (ve bir özellikle medya sorguları kullanılıyorsa), bunlarla çalışmaya yönetilmeleri yapmadan zamanla oldukça büyük alma eğilimindedir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-168">CSS files, especially for large sites (and especially if media queries are being used), tend to get quite large over time, making working with them unwieldy.</span></span> <span data-ttu-id="fbda0-169">Less dosyaları birlikte kullanarak çekilen ayrı olarak tanımlanabilir `@import` yönergeleri.</span><span class="sxs-lookup"><span data-stu-id="fbda0-169">Less files can be defined separately, then pulled together using `@import` directives.</span></span> <span data-ttu-id="fbda0-170">Daha az da bireysel CSS dosyaları de içe aktarmak için isterseniz kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-170">Less can also be used to import individual CSS files, as well, if desired.</span></span>
+<span data-ttu-id="416ab-168">Özellikle büyük siteler için CSS dosyaları (ve bir özellikle medya sorguları kullanılıyorsa), bunlarla çalışmaya yönetilmeleri yapmadan zamanla oldukça büyük alma eğilimindedir.</span><span class="sxs-lookup"><span data-stu-id="416ab-168">CSS files, especially for large sites (and especially if media queries are being used), tend to get quite large over time, making working with them unwieldy.</span></span> <span data-ttu-id="416ab-169">Less dosyaları birlikte kullanarak çekilen ayrı olarak tanımlanabilir `@import` yönergeleri.</span><span class="sxs-lookup"><span data-stu-id="416ab-169">Less files can be defined separately, then pulled together using `@import` directives.</span></span> <span data-ttu-id="416ab-170">Daha az da bireysel CSS dosyaları de içe aktarmak için isterseniz kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="416ab-170">Less can also be used to import individual CSS files, as well, if desired.</span></span>
 
-<span data-ttu-id="fbda0-171">*Mixins* parametreleri kabul edebilir ve ne zaman belirli mixins etkili tanımlamak için bildirim temelli bir yolunu sağlar mixin koruyucuları formunda daha az destekler koşullu mantık.</span><span class="sxs-lookup"><span data-stu-id="fbda0-171">*Mixins* can accept parameters, and Less supports conditional logic in the form of mixin guards, which provide a declarative way to define when certain mixins take effect.</span></span> <span data-ttu-id="fbda0-172">Mixin koruyucuları için yaygın bir kullanımdır nasıl ışık göre renkleri ayarlamak için veya koyu kaynak rengi.</span><span class="sxs-lookup"><span data-stu-id="fbda0-172">A common use for mixin guards is to adjust colors based on how light or dark the source color is.</span></span> <span data-ttu-id="fbda0-173">Renk için bir parametre kabul eden bir mixin göz önüne alındığında, bir mixin koruma o rengi temel mixin değiştirmek için kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-173">Given a mixin that accepts a parameter for color, a mixin guard can be used to modify the mixin based on that color:</span></span>
+<span data-ttu-id="416ab-171">*Mixins* parametreleri kabul edebilir ve ne zaman belirli mixins etkili tanımlamak için bildirim temelli bir yolunu sağlar mixin koruyucuları formunda daha az destekler koşullu mantık.</span><span class="sxs-lookup"><span data-stu-id="416ab-171">*Mixins* can accept parameters, and Less supports conditional logic in the form of mixin guards, which provide a declarative way to define when certain mixins take effect.</span></span> <span data-ttu-id="416ab-172">Mixin koruyucuları için yaygın bir kullanımdır nasıl ışık göre renkleri ayarlamak için veya koyu kaynak rengi.</span><span class="sxs-lookup"><span data-stu-id="416ab-172">A common use for mixin guards is to adjust colors based on how light or dark the source color is.</span></span> <span data-ttu-id="416ab-173">Renk için bir parametre kabul eden bir mixin göz önüne alındığında, bir mixin koruma o rengi temel mixin değiştirmek için kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="416ab-173">Given a mixin that accepts a parameter for color, a mixin guard can be used to modify the mixin based on that color:</span></span>
 
 ```less
 .box (@color) when (lightness(@color) >= 50%) {
@@ -308,7 +308,7 @@ nav {
 }
 ```
 
-<span data-ttu-id="fbda0-174">Bizim geçerli verilen `@base` değerini `#663333`, bu daha az komut dosyasını aşağıdaki CSS üretir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-174">Given our current `@base` value of `#663333`, this Less script will produce the following CSS:</span></span>
+<span data-ttu-id="416ab-174">Bizim geçerli verilen `@base` değerini `#663333`, bu daha az komut dosyasını aşağıdaki CSS üretir:</span><span class="sxs-lookup"><span data-stu-id="416ab-174">Given our current `@base` value of `#663333`, this Less script will produce the following CSS:</span></span>
 
 ```css
 .feature {
@@ -317,19 +317,19 @@ nav {
 }
 ```
 
-<span data-ttu-id="fbda0-175">Daha az birkaç ek özellikler sağlar, ancak bu, bazı bu gücünü dil ön işleme fikir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-175">Less provides a number of additional features, but this should give you some idea of the power of this preprocessing language.</span></span>
+<span data-ttu-id="416ab-175">Daha az birkaç ek özellikler sağlar, ancak bu, bazı bu gücünü dil ön işleme fikir.</span><span class="sxs-lookup"><span data-stu-id="416ab-175">Less provides a number of additional features, but this should give you some idea of the power of this preprocessing language.</span></span>
 
-## <a name="sass"></a><span data-ttu-id="fbda0-176">Sass</span><span class="sxs-lookup"><span data-stu-id="fbda0-176">Sass</span></span>
+## <a name="sass"></a><span data-ttu-id="416ab-176">Sass</span><span class="sxs-lookup"><span data-stu-id="416ab-176">Sass</span></span>
 
-<span data-ttu-id="fbda0-177">Sass birçok aynı özellikleri, ancak biraz farklı bir sözdizimi için destek sağlayan küçük, benzer.</span><span class="sxs-lookup"><span data-stu-id="fbda0-177">Sass is similar to Less, providing support for many of the same features, but with slightly different syntax.</span></span> <span data-ttu-id="fbda0-178">JavaScript yerine Ruby kullanılarak oluşturulmuştur ve böylece farklı kurulum gereksinimleri vardır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-178">It's built using Ruby, rather than JavaScript, and so has different setup requirements.</span></span> <span data-ttu-id="fbda0-179">Özgün Sass dil süslü ayraçlar veya noktalı virgül kullanmadı, ancak bunun yerine boşluk ve girinti kullanarak kapsamını tanımlı.</span><span class="sxs-lookup"><span data-stu-id="fbda0-179">The original Sass language didn't use curly braces or semicolons, but instead defined scope using white space and indentation.</span></span> <span data-ttu-id="fbda0-180">Sürümünde Sass 3, yeni bir sözdizimi sunulmuştur, **SCSS** ("Sassy CSS").</span><span class="sxs-lookup"><span data-stu-id="fbda0-180">In version 3 of Sass, a new syntax was introduced, **SCSS** ("Sassy CSS").</span></span> <span data-ttu-id="fbda0-181">Girinti düzeyleri ve boşluk yoksayar ve bunun yerine noktalı ve süslü ayraçlar kullanır SCSS, CSS'ye benzer.</span><span class="sxs-lookup"><span data-stu-id="fbda0-181">SCSS is similar to CSS in that it ignores indentation levels and whitespace, and instead uses semicolons and curly braces.</span></span>
+<span data-ttu-id="416ab-177">Sass birçok aynı özellikleri, ancak biraz farklı bir sözdizimi için destek sağlayan küçük, benzer.</span><span class="sxs-lookup"><span data-stu-id="416ab-177">Sass is similar to Less, providing support for many of the same features, but with slightly different syntax.</span></span> <span data-ttu-id="416ab-178">JavaScript yerine Ruby kullanılarak oluşturulmuştur ve böylece farklı kurulum gereksinimleri vardır.</span><span class="sxs-lookup"><span data-stu-id="416ab-178">It's built using Ruby, rather than JavaScript, and so has different setup requirements.</span></span> <span data-ttu-id="416ab-179">Özgün Sass dil süslü ayraçlar veya noktalı virgül kullanmadı, ancak bunun yerine boşluk ve girinti kullanarak kapsamını tanımlı.</span><span class="sxs-lookup"><span data-stu-id="416ab-179">The original Sass language didn't use curly braces or semicolons, but instead defined scope using white space and indentation.</span></span> <span data-ttu-id="416ab-180">Sürümünde Sass 3, yeni bir sözdizimi sunulmuştur, **SCSS** ("Sassy CSS").</span><span class="sxs-lookup"><span data-stu-id="416ab-180">In version 3 of Sass, a new syntax was introduced, **SCSS** ("Sassy CSS").</span></span> <span data-ttu-id="416ab-181">Girinti düzeyleri ve boşluk yoksayar ve bunun yerine noktalı ve süslü ayraçlar kullanır SCSS, CSS'ye benzer.</span><span class="sxs-lookup"><span data-stu-id="416ab-181">SCSS is similar to CSS in that it ignores indentation levels and whitespace, and instead uses semicolons and curly braces.</span></span>
 
-<span data-ttu-id="fbda0-182">Sass yüklemek için genellikle, (Mac üzerinde önceden yüklenmiş) Ruby yüklemeniz ve ardından çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="fbda0-182">To install Sass, typically you would first install Ruby (pre-installed on Mac), and then run:</span></span>
+<span data-ttu-id="416ab-182">Sass yüklemek için genellikle, (macOS üzerinde önceden yüklenmiş) Ruby yüklemeniz ve ardından çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="416ab-182">To install Sass, typically you would first install Ruby (pre-installed on macOS), and then run:</span></span>
 
 ```console
 gem install sass
 ```
 
-<span data-ttu-id="fbda0-183">Visual Studio çalıştırıyorsanız, daha az olduğu gibi ancak, Sass ile çok aynı şekilde kullanmaya başlayabilir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-183">However, if you're running Visual Studio, you can get started with Sass in much the same way as you would with Less.</span></span> <span data-ttu-id="fbda0-184">Açık *package.json* ve "gulp-sass" paketi eklemek `devDependencies`:</span><span class="sxs-lookup"><span data-stu-id="fbda0-184">Open *package.json* and add the "gulp-sass" package to `devDependencies`:</span></span>
+<span data-ttu-id="416ab-183">Visual Studio çalıştırıyorsanız, daha az olduğu gibi ancak, Sass ile çok aynı şekilde kullanmaya başlayabilir.</span><span class="sxs-lookup"><span data-stu-id="416ab-183">However, if you're running Visual Studio, you can get started with Sass in much the same way as you would with Less.</span></span> <span data-ttu-id="416ab-184">Açık *package.json* ve "gulp-sass" paketi eklemek `devDependencies`:</span><span class="sxs-lookup"><span data-stu-id="416ab-184">Open *package.json* and add the "gulp-sass" package to `devDependencies`:</span></span>
 
 ```json
 "devDependencies": {
@@ -339,7 +339,7 @@ gem install sass
 }
 ```
 
-<span data-ttu-id="fbda0-185">Ardından, değişiklik *gulpfile.js* sass değişkeni ve Sass dosyalarınızı derlemek ve sonuçları wwwroot klasöre yerleştirmek için bir görev eklemek için:</span><span class="sxs-lookup"><span data-stu-id="fbda0-185">Next, modify *gulpfile.js* to add a sass variable and a task to compile your Sass files and place the results in the wwwroot folder:</span></span>
+<span data-ttu-id="416ab-185">Ardından, değişiklik *gulpfile.js* sass değişkeni ve Sass dosyalarınızı derlemek ve sonuçları wwwroot klasöre yerleştirmek için bir görev eklemek için:</span><span class="sxs-lookup"><span data-stu-id="416ab-185">Next, modify *gulpfile.js* to add a sass variable and a task to compile your Sass files and place the results in the wwwroot folder:</span></span>
 
 ```javascript
 var gulp = require("gulp"),
@@ -356,11 +356,11 @@ gulp.task("sass", function () {
 });
 ```
 
-<span data-ttu-id="fbda0-186">Sass dosya ekleyebilirsiniz artık *main2.scss* için *stilleri* projenin kök klasöründe:</span><span class="sxs-lookup"><span data-stu-id="fbda0-186">Now you can add the Sass file *main2.scss* to the *Styles* folder in the root of the project:</span></span>
+<span data-ttu-id="416ab-186">Sass dosya ekleyebilirsiniz artık *main2.scss* için *stilleri* projenin kök klasöründe:</span><span class="sxs-lookup"><span data-stu-id="416ab-186">Now you can add the Sass file *main2.scss* to the *Styles* folder in the root of the project:</span></span>
 
 ![scss dosyası ekleme](less-sass-fa/_static/add-scss-file.png)
 
-<span data-ttu-id="fbda0-188">Açık *main2.scss* ve aşağıdakileri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="fbda0-188">Open *main2.scss* and add the following:</span></span>
+<span data-ttu-id="416ab-188">Açık *main2.scss* ve aşağıdakileri ekleyin:</span><span class="sxs-lookup"><span data-stu-id="416ab-188">Open *main2.scss* and add the following:</span></span>
 
 ```sass
 $base: #CC0000;
@@ -369,7 +369,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-189">Tüm dosyalarını kaydedin.</span><span class="sxs-lookup"><span data-stu-id="fbda0-189">Save all of your files.</span></span> <span data-ttu-id="fbda0-190">Yenilediğinizde şimdi **görev Çalıştırıcı Gezgini**, gördüğünüz bir `sass` görev.</span><span class="sxs-lookup"><span data-stu-id="fbda0-190">Now when you refresh **Task Runner Explorer**, you see a `sass` task.</span></span> <span data-ttu-id="fbda0-191">Çalıştırın ve konum */wwwroot/css* klasör.</span><span class="sxs-lookup"><span data-stu-id="fbda0-191">Run it, and look in the */wwwroot/css* folder.</span></span> <span data-ttu-id="fbda0-192">Var olan şimdi bir *main2.css* dosyasıyla bu içeriği:</span><span class="sxs-lookup"><span data-stu-id="fbda0-192">There's now a *main2.css* file, with these contents:</span></span>
+<span data-ttu-id="416ab-189">Tüm dosyalarını kaydedin.</span><span class="sxs-lookup"><span data-stu-id="416ab-189">Save all of your files.</span></span> <span data-ttu-id="416ab-190">Yenilediğinizde şimdi **görev Çalıştırıcı Gezgini**, gördüğünüz bir `sass` görev.</span><span class="sxs-lookup"><span data-stu-id="416ab-190">Now when you refresh **Task Runner Explorer**, you see a `sass` task.</span></span> <span data-ttu-id="416ab-191">Çalıştırın ve konum */wwwroot/css* klasör.</span><span class="sxs-lookup"><span data-stu-id="416ab-191">Run it, and look in the */wwwroot/css* folder.</span></span> <span data-ttu-id="416ab-192">Var olan şimdi bir *main2.css* dosyasıyla bu içeriği:</span><span class="sxs-lookup"><span data-stu-id="416ab-192">There's now a *main2.css* file, with these contents:</span></span>
 
 ```css
 body {
@@ -377,13 +377,13 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-193">Sass çok daha az, benzer yararlarını sunarak yaptığı aynı olan iç içe geçme destekler.</span><span class="sxs-lookup"><span data-stu-id="fbda0-193">Sass supports nesting in much the same was that Less does, providing similar benefits.</span></span> <span data-ttu-id="fbda0-194">Dosyaları işlevi tarafından bölünebilir ve kullanma dahil `@import` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="fbda0-194">Files can be split up by function and included using the `@import` directive:</span></span>
+<span data-ttu-id="416ab-193">Sass çok daha az, benzer yararlarını sunarak yaptığı aynı olan iç içe geçme destekler.</span><span class="sxs-lookup"><span data-stu-id="416ab-193">Sass supports nesting in much the same was that Less does, providing similar benefits.</span></span> <span data-ttu-id="416ab-194">Dosyaları işlevi tarafından bölünebilir ve kullanma dahil `@import` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="416ab-194">Files can be split up by function and included using the `@import` directive:</span></span>
 
 ```sass
 @import 'anotherfile';
 ```
 
-<span data-ttu-id="fbda0-195">Sass kullanarak mixins de destekler `@mixin` bunları tanımlamak için anahtar sözcüğü ve `@include` Bu örnekte olduğu gibi dahil etmek için [sass lang.com](http://sass-lang.com):</span><span class="sxs-lookup"><span data-stu-id="fbda0-195">Sass supports mixins as well, using the `@mixin` keyword to define them and `@include` to include them, as in this example from [sass-lang.com](http://sass-lang.com):</span></span>
+<span data-ttu-id="416ab-195">Sass kullanarak mixins de destekler `@mixin` bunları tanımlamak için anahtar sözcüğü ve `@include` Bu örnekte olduğu gibi dahil etmek için [sass lang.com](http://sass-lang.com):</span><span class="sxs-lookup"><span data-stu-id="416ab-195">Sass supports mixins as well, using the `@mixin` keyword to define them and `@include` to include them, as in this example from [sass-lang.com](http://sass-lang.com):</span></span>
 
 ```sass
 @mixin border-radius($radius) {
@@ -396,7 +396,7 @@ body {
 .box { @include border-radius(10px); }
 ```
 
-<span data-ttu-id="fbda0-196">Mixins yanı sıra Sass ayrıca devralma, kavramı başka genişletmek bir sınıf destekler.</span><span class="sxs-lookup"><span data-stu-id="fbda0-196">In addition to mixins, Sass also supports the concept of inheritance, allowing one class to extend another.</span></span> <span data-ttu-id="fbda0-197">Kavramsal olarak bir mixin, ancak daha az CSS kod sonuçlarında benzer.</span><span class="sxs-lookup"><span data-stu-id="fbda0-197">It's conceptually similar to a mixin, but results in less CSS code.</span></span> <span data-ttu-id="fbda0-198">Kullanılarak gerçekleştirilir `@extend` anahtar sözcüğü.</span><span class="sxs-lookup"><span data-stu-id="fbda0-198">It's accomplished using the `@extend` keyword.</span></span> <span data-ttu-id="fbda0-199">Out mixins denemek için aşağıdakileri ekleyin, *main2.scss* dosyası:</span><span class="sxs-lookup"><span data-stu-id="fbda0-199">To try out mixins, add the following to your *main2.scss* file:</span></span>
+<span data-ttu-id="416ab-196">Mixins yanı sıra Sass ayrıca devralma, kavramı başka genişletmek bir sınıf destekler.</span><span class="sxs-lookup"><span data-stu-id="416ab-196">In addition to mixins, Sass also supports the concept of inheritance, allowing one class to extend another.</span></span> <span data-ttu-id="416ab-197">Kavramsal olarak bir mixin, ancak daha az CSS kod sonuçlarında benzer.</span><span class="sxs-lookup"><span data-stu-id="416ab-197">It's conceptually similar to a mixin, but results in less CSS code.</span></span> <span data-ttu-id="416ab-198">Kullanılarak gerçekleştirilir `@extend` anahtar sözcüğü.</span><span class="sxs-lookup"><span data-stu-id="416ab-198">It's accomplished using the `@extend` keyword.</span></span> <span data-ttu-id="416ab-199">Out mixins denemek için aşağıdakileri ekleyin, *main2.scss* dosyası:</span><span class="sxs-lookup"><span data-stu-id="416ab-199">To try out mixins, add the following to your *main2.scss* file:</span></span>
 
 ```sass
 @mixin alert {
@@ -418,7 +418,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-200">Çıktıyı inceleyin *main2.css* çalıştırdıktan sonra `sass` içinde görev **görev Çalıştırıcı Gezgini**:</span><span class="sxs-lookup"><span data-stu-id="fbda0-200">Examine the output in *main2.css* after running the `sass` task in **Task Runner Explorer**:</span></span>
+<span data-ttu-id="416ab-200">Çıktıyı inceleyin *main2.css* çalıştırdıktan sonra `sass` içinde görev **görev Çalıştırıcı Gezgini**:</span><span class="sxs-lookup"><span data-stu-id="416ab-200">Examine the output in *main2.css* after running the `sass` task in **Task Runner Explorer**:</span></span>
 
 ```css
 .success {
@@ -438,9 +438,9 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-201">Tüm uyarı mixin ortak özelliklerinin her sınıfında yinelenip dikkat edin.</span><span class="sxs-lookup"><span data-stu-id="fbda0-201">Notice that all of the common properties of the alert mixin are repeated in each class.</span></span> <span data-ttu-id="fbda0-202">Mixin çoğaltma geliştirme zaman ortadan kaldırmanıza yardımcı olmak için iyi bir iş vermedi, ancak bunu hala CSS gerekli CSS dosyaları - olası performans sorunu büyük sonuçta çoğaltma da, birçok oluşturuyor.</span><span class="sxs-lookup"><span data-stu-id="fbda0-202">The mixin did a good job of helping eliminate duplication at development time, but it's still creating CSS with a lot of duplication in it, resulting in larger than necessary CSS files - a potential performance issue.</span></span>
+<span data-ttu-id="416ab-201">Tüm uyarı mixin ortak özelliklerinin her sınıfında yinelenip dikkat edin.</span><span class="sxs-lookup"><span data-stu-id="416ab-201">Notice that all of the common properties of the alert mixin are repeated in each class.</span></span> <span data-ttu-id="416ab-202">Mixin çoğaltma geliştirme zaman ortadan kaldırmanıza yardımcı olmak için iyi bir iş vermedi, ancak bunu hala CSS gerekli CSS dosyaları - olası performans sorunu büyük sonuçta çoğaltma da, birçok oluşturuyor.</span><span class="sxs-lookup"><span data-stu-id="416ab-202">The mixin did a good job of helping eliminate duplication at development time, but it's still creating CSS with a lot of duplication in it, resulting in larger than necessary CSS files - a potential performance issue.</span></span>
 
-<span data-ttu-id="fbda0-203">Uyarı mixin ile şimdi değiştirmek bir `.alert` sınıfı ve değiştirme `@include` için `@extend` (genişletmek hatırlamak `.alert`değil `alert`):</span><span class="sxs-lookup"><span data-stu-id="fbda0-203">Now replace the alert mixin with a `.alert` class, and change `@include` to `@extend` (remembering to extend `.alert`, not `alert`):</span></span>
+<span data-ttu-id="416ab-203">Uyarı mixin ile şimdi değiştirmek bir `.alert` sınıfı ve değiştirme `@include` için `@extend` (genişletmek hatırlamak `.alert`değil `alert`):</span><span class="sxs-lookup"><span data-stu-id="416ab-203">Now replace the alert mixin with a `.alert` class, and change `@include` to `@extend` (remembering to extend `.alert`, not `alert`):</span></span>
 
 ```sass
 .alert {
@@ -462,7 +462,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-204">Sass kez daha çalıştırın ve sonuçta elde edilen CSS inceleyin:</span><span class="sxs-lookup"><span data-stu-id="fbda0-204">Run Sass once more, and examine the resulting CSS:</span></span>
+<span data-ttu-id="416ab-204">Sass kez daha çalıştırın ve sonuçta elde edilen CSS inceleyin:</span><span class="sxs-lookup"><span data-stu-id="416ab-204">Run Sass once more, and examine the resulting CSS:</span></span>
 
 ```css
 .alert, .success, .error {
@@ -482,25 +482,25 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-205">Yalnızca sayıda gerektiği gibi özellikleri artık tanımlanır ve daha iyi CSS oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="fbda0-205">Now the properties are defined only as many times as needed, and better CSS is generated.</span></span>
+<span data-ttu-id="416ab-205">Yalnızca sayıda gerektiği gibi özellikleri artık tanımlanır ve daha iyi CSS oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="416ab-205">Now the properties are defined only as many times as needed, and better CSS is generated.</span></span>
 
-<span data-ttu-id="fbda0-206">Sass işlevleri ve koşullu mantık işlemleri, daha az benzer de içerir.</span><span class="sxs-lookup"><span data-stu-id="fbda0-206">Sass also includes functions and conditional logic operations, similar to Less.</span></span> <span data-ttu-id="fbda0-207">Aslında, iki dil özellikleri çok benzer.</span><span class="sxs-lookup"><span data-stu-id="fbda0-207">In fact, the two languages' capabilities are very similar.</span></span>
+<span data-ttu-id="416ab-206">Sass işlevleri ve koşullu mantık işlemleri, daha az benzer de içerir.</span><span class="sxs-lookup"><span data-stu-id="416ab-206">Sass also includes functions and conditional logic operations, similar to Less.</span></span> <span data-ttu-id="416ab-207">Aslında, iki dil özellikleri çok benzer.</span><span class="sxs-lookup"><span data-stu-id="416ab-207">In fact, the two languages' capabilities are very similar.</span></span>
 
-## <a name="less-or-sass"></a><span data-ttu-id="fbda0-208">Daha az veya Sass?</span><span class="sxs-lookup"><span data-stu-id="fbda0-208">Less or Sass?</span></span>
+## <a name="less-or-sass"></a><span data-ttu-id="416ab-208">Daha az veya Sass?</span><span class="sxs-lookup"><span data-stu-id="416ab-208">Less or Sass?</span></span>
 
-<span data-ttu-id="fbda0-209">Hala daha az kullanın veya Sass genellikle daha iyi olup konusunda hiçbir anlaşma yok (veya hatta verilip özgün Sass ya da daha yeni SCSS söz dizimi Sass içinde tercih).</span><span class="sxs-lookup"><span data-stu-id="fbda0-209">There's still no consensus as to whether it's generally better to use Less or Sass (or even whether to prefer the original Sass or the newer SCSS syntax within Sass).</span></span> <span data-ttu-id="fbda0-210">Büyük olasılıkla en önemli için bir karardır **Bu araçlardan birini kullanın**, yalnızca elle CSS dosyalarınızı kodlama için aygıtlardır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-210">Probably the most important decision is to **use one of these tools**, as opposed to just hand-coding your CSS files.</span></span> <span data-ttu-id="fbda0-211">Yaptıktan sonra karar, her iki Less ve Sass iyi seçenek olan.</span><span class="sxs-lookup"><span data-stu-id="fbda0-211">Once you've made that decision, both Less and Sass are good choices.</span></span>
+<span data-ttu-id="416ab-209">Hala daha az kullanın veya Sass genellikle daha iyi olup konusunda hiçbir anlaşma yok (veya hatta verilip özgün Sass ya da daha yeni SCSS söz dizimi Sass içinde tercih).</span><span class="sxs-lookup"><span data-stu-id="416ab-209">There's still no consensus as to whether it's generally better to use Less or Sass (or even whether to prefer the original Sass or the newer SCSS syntax within Sass).</span></span> <span data-ttu-id="416ab-210">Büyük olasılıkla en önemli için bir karardır **Bu araçlardan birini kullanın**, yalnızca elle CSS dosyalarınızı kodlama için aygıtlardır.</span><span class="sxs-lookup"><span data-stu-id="416ab-210">Probably the most important decision is to **use one of these tools**, as opposed to just hand-coding your CSS files.</span></span> <span data-ttu-id="416ab-211">Yaptıktan sonra karar, her iki Less ve Sass iyi seçenek olan.</span><span class="sxs-lookup"><span data-stu-id="416ab-211">Once you've made that decision, both Less and Sass are good choices.</span></span>
 
-## <a name="font-awesome"></a><span data-ttu-id="fbda0-212">Harika yazı tipi</span><span class="sxs-lookup"><span data-stu-id="fbda0-212">Font Awesome</span></span>
+## <a name="font-awesome"></a><span data-ttu-id="416ab-212">Harika yazı tipi</span><span class="sxs-lookup"><span data-stu-id="416ab-212">Font Awesome</span></span>
 
-<span data-ttu-id="fbda0-213">CSS önişlemcilerini yanı sıra, başka bir harika stil modern web uygulamaları için yazı tipi harika bir kaynaktır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-213">In addition to CSS preprocessors, another great resource for styling modern web applications is Font Awesome.</span></span> <span data-ttu-id="fbda0-214">Yazı tipi Başar web uygulamalarınızda serbestçe kullanılabilir 500'den fazla ölçeklenebilir vektör simgeleri sağlayan bir araç takımıdır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-214">Font Awesome is a toolkit that provides over 500 scalable vector icons that can be freely used in your web applications.</span></span> <span data-ttu-id="fbda0-215">İlk önyükleme ile çalışmak için tasarlanmıştır ancak bu framework veya herhangi bir JavaScript kitaplıklarını üzerinde hiçbir bağımlılık içeriyor.</span><span class="sxs-lookup"><span data-stu-id="fbda0-215">It was originally designed to work with Bootstrap, but it has no dependency on that framework or on any JavaScript libraries.</span></span>
+<span data-ttu-id="416ab-213">CSS önişlemcilerini yanı sıra, başka bir harika stil modern web uygulamaları için yazı tipi harika bir kaynaktır.</span><span class="sxs-lookup"><span data-stu-id="416ab-213">In addition to CSS preprocessors, another great resource for styling modern web applications is Font Awesome.</span></span> <span data-ttu-id="416ab-214">Yazı tipi Başar web uygulamalarınızda serbestçe kullanılabilir 500'den fazla ölçeklenebilir vektör simgeleri sağlayan bir araç takımıdır.</span><span class="sxs-lookup"><span data-stu-id="416ab-214">Font Awesome is a toolkit that provides over 500 scalable vector icons that can be freely used in your web applications.</span></span> <span data-ttu-id="416ab-215">İlk önyükleme ile çalışmak için tasarlanmıştır ancak bu framework veya herhangi bir JavaScript kitaplıklarını üzerinde hiçbir bağımlılık içeriyor.</span><span class="sxs-lookup"><span data-stu-id="416ab-215">It was originally designed to work with Bootstrap, but it has no dependency on that framework or on any JavaScript libraries.</span></span>
 
-<span data-ttu-id="fbda0-216">Yazı tipi harika ile çalışmaya başlamak için en kolay yolu, ortak içerik teslim ağı (CDN) konumuna kullanarak başvuru eklemektir:</span><span class="sxs-lookup"><span data-stu-id="fbda0-216">The easiest way to get started with Font Awesome is to add a reference to it, using its public content delivery network (CDN) location:</span></span>
+<span data-ttu-id="416ab-216">Yazı tipi harika ile çalışmaya başlamak için en kolay yolu, ortak içerik teslim ağı (CDN) konumuna kullanarak başvuru eklemektir:</span><span class="sxs-lookup"><span data-stu-id="416ab-216">The easiest way to get started with Font Awesome is to add a reference to it, using its public content delivery network (CDN) location:</span></span>
 
 ```html
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 ```
 
-<span data-ttu-id="fbda0-217">Ayrıca, Visual Studio projenizi "bağımlılıkları" ekleyerek içinde ekleyebileceğiniz *bower.json*:</span><span class="sxs-lookup"><span data-stu-id="fbda0-217">You can also add it to your Visual Studio project by adding it to the "dependencies" in *bower.json*:</span></span>
+<span data-ttu-id="416ab-217">Ayrıca, Visual Studio projenizi "bağımlılıkları" ekleyerek içinde ekleyebileceğiniz *bower.json*:</span><span class="sxs-lookup"><span data-stu-id="416ab-217">You can also add it to your Visual Studio project by adding it to the "dependencies" in *bower.json*:</span></span>
 
 ```json
 {
@@ -518,7 +518,7 @@ body {
 }
 ```
 
-<span data-ttu-id="fbda0-218">Başvuru yazı tipi harika bir sayfada oluşturduktan sonra simgeler uygulamanıza genellikle önekine sahip "fa-" satır içi HTML öğeleriniz için yazı tipi harika sınıfları uygulayarak ekleyebilirsiniz (gibi `<span>` veya `<i>`).</span><span class="sxs-lookup"><span data-stu-id="fbda0-218">Once you have a reference to Font Awesome on a page, you can add icons to your application by applying Font Awesome classes, typically prefixed with "fa-", to your inline HTML elements (such as `<span>` or `<i>`).</span></span>  <span data-ttu-id="fbda0-219">Örneğin, basit listeleri ve menüleri aşağıdakine benzer bir kod kullanarak simgeler ekleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="fbda0-219">For example, you can add icons to simple lists and menus using code like this:</span></span>
+<span data-ttu-id="416ab-218">Başvuru yazı tipi harika bir sayfada oluşturduktan sonra simgeler uygulamanıza genellikle önekine sahip "fa-" satır içi HTML öğeleriniz için yazı tipi harika sınıfları uygulayarak ekleyebilirsiniz (gibi `<span>` veya `<i>`).</span><span class="sxs-lookup"><span data-stu-id="416ab-218">Once you have a reference to Font Awesome on a page, you can add icons to your application by applying Font Awesome classes, typically prefixed with "fa-", to your inline HTML elements (such as `<span>` or `<i>`).</span></span>  <span data-ttu-id="416ab-219">Örneğin, basit listeleri ve menüleri aşağıdakine benzer bir kod kullanarak simgeler ekleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="416ab-219">For example, you can add icons to simple lists and menus using code like this:</span></span>
 
 ```html
 <!DOCTYPE html>
@@ -537,14 +537,14 @@ body {
 </html>
 ```
 
-<span data-ttu-id="fbda0-220">Bu aşağıdaki tarayıcıda oluşturur - her öğenin yanındaki simge dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="fbda0-220">This produces the following in the browser - note the icon beside each item:</span></span>
+<span data-ttu-id="416ab-220">Bu aşağıdaki tarayıcıda oluşturur - her öğenin yanındaki simge dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="416ab-220">This produces the following in the browser - note the icon beside each item:</span></span>
 
 ![listesi simgeleri](less-sass-fa/_static/list-icons-screenshot.png)
 
-<span data-ttu-id="fbda0-222">Burada kullanılabilen simgeleri tam bir listesi görüntüleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="fbda0-222">You can view a complete list of the available icons here:</span></span>
+<span data-ttu-id="416ab-222">Burada kullanılabilen simgeleri tam bir listesi görüntüleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="416ab-222">You can view a complete list of the available icons here:</span></span>
 
 http://fontawesome.io/icons/
 
-## <a name="summary"></a><span data-ttu-id="fbda0-223">Özet</span><span class="sxs-lookup"><span data-stu-id="fbda0-223">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="416ab-223">Özet</span><span class="sxs-lookup"><span data-stu-id="416ab-223">Summary</span></span>
 
-<span data-ttu-id="fbda0-224">Modern web uygulamaları, temiz, sezgisel ve kullanımı kolay aygıtları çeşitli esnek, akıcı tasarımları giderek talep.</span><span class="sxs-lookup"><span data-stu-id="fbda0-224">Modern web applications increasingly demand responsive, fluid designs that are clean, intuitive, and easy to use from a variety of devices.</span></span> <span data-ttu-id="fbda0-225">Bu hedeflere ulaşmak için gerekli CSS stil sayfaları karmaşıklığını yönetme önişlemci LIKE daha az kullanarak veya Sass en iyi şekilde yapılır.</span><span class="sxs-lookup"><span data-stu-id="fbda0-225">Managing the complexity of the CSS stylesheets required to achieve these goals is best done using a preprocessor like Less or Sass.</span></span> <span data-ttu-id="fbda0-226">Ayrıca, araç takımları yazı tipi harika gibi hızlı bir şekilde metinsel Gezinti menüleri iyi bilinen simgeleri sağlayın ve uygulamanızın veya düğmeleri, genel kullanıcı geliştirme deneyimi.</span><span class="sxs-lookup"><span data-stu-id="fbda0-226">In addition, toolkits like Font Awesome quickly provide well-known icons to textual navigation menus and buttons, improving the overall user experience of your application.</span></span>
+<span data-ttu-id="416ab-224">Modern web uygulamaları, temiz, sezgisel ve kullanımı kolay aygıtları çeşitli esnek, akıcı tasarımları giderek talep.</span><span class="sxs-lookup"><span data-stu-id="416ab-224">Modern web applications increasingly demand responsive, fluid designs that are clean, intuitive, and easy to use from a variety of devices.</span></span> <span data-ttu-id="416ab-225">Bu hedeflere ulaşmak için gerekli CSS stil sayfaları karmaşıklığını yönetme önişlemci LIKE daha az kullanarak veya Sass en iyi şekilde yapılır.</span><span class="sxs-lookup"><span data-stu-id="416ab-225">Managing the complexity of the CSS stylesheets required to achieve these goals is best done using a preprocessor like Less or Sass.</span></span> <span data-ttu-id="416ab-226">Ayrıca, araç takımları yazı tipi harika gibi hızlı bir şekilde metinsel Gezinti menüleri iyi bilinen simgeleri sağlayın ve uygulamanızın veya düğmeleri, genel kullanıcı geliştirme deneyimi.</span><span class="sxs-lookup"><span data-stu-id="416ab-226">In addition, toolkits like Font Awesome quickly provide well-known icons to textual navigation menus and buttons, improving the overall user experience of your application.</span></span>
