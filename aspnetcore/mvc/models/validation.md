@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC model doğrulama"
+title: ASP.NET Core MVC model doğrulama
 author: rachelappel
-description: "ASP.NET Core MVC model doğrulama hakkında bilgi edinin."
+description: ASP.NET Core MVC model doğrulama hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 12/18/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 76e15cb1d07924389c66f1e4e7ae1e4b9a3a9cfc
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: befbec393c089ec1f4dfdac5dbbdc3bdc7ddbf69
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Model doğrulama ASP.NET Core mvc'de giriş
+# <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
 Tarafından [Rachel Appel](https://github.com/rachelappel)
 

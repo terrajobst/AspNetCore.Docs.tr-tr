@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: "Alma Web çevrimdışı ile Web uygulamalarını dağıtma | Microsoft Docs"
+title: Alma Web çevrimdışı ile Web uygulamalarını dağıtma | Microsoft Docs
 author: jrjlee
-description: "Bu konu, Internet Information Services (IIS) Web Dağı kullanarak bir otomatik dağıtım süre için çevrimdışı web uygulaması yapılacak açıklar..."
+description: Bu konu, Internet Information Services (IIS) Web Dağı kullanarak bir otomatik dağıtım süre için çevrimdışı web uygulaması yapılacak açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Alma Web çevrimdışı ile Web uygulamalarını dağıtma
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, bir web uygulaması çevrimdışı için Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanarak bir otomatik dağıtım süresini yapılacak açıklar. Web uygulaması'na göz kullanıcılar için yönlendirilir bir *uygulama\_offline.htm* dağıtım işlemi tamamlanana kadar dosya.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -94,7 +94,7 @@ Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek 
 2. Kök **proje** öğesi, yeni bir **PropertyGroup** değişkenleri depolamak için öğesi *uygulama\_çevrimdışı* dağıtım:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. **SourceRoot** özelliği tanımlanmış başka bir yerde *Publish.proj* dosya. Geçerli yolda & #x 2014 göre; diğer bir deyişle, göreli konumunu kaynak içerik için kök klasör konumunu belirten *Publish.proj* dosya.
+3. **SourceRoot** özelliği tanımlanmış başka bir yerde *Publish.proj* dosya. Göreli geçerli kaynak içerik için kök klasör konumunu belirten&#x2014;diğer bir deyişle, göreli konumunu *Publish.proj* dosya.
 4. **ContentPath** sağlayıcısı değil kabul edeceği göreli dosya yolları dağıtabilmeniz için önce bir mutlak yol kaynak dosyanıza almanız gereken şekilde. Kullanabileceğiniz [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) Bunu yapmak için görev.
 5. Yeni bir ekleme **hedef** adlı öğe **GetAppOfflineAbsolutePath**. Bu hedef içinde kullanmak **ConvertToAbsolutePath** mutlak bir yol almak için görev *uygulama\_şablonu çevrimdışı* proje klasörünüzdeki dosya.
 
@@ -116,7 +116,7 @@ Derleme ve dağıtım işleminin bir parçası bu komutları otomatikleştirmek 
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Bir uygulama ekleme\_dağıtım paketleri için çevrimdışı dosya
 
-Nasıl dağıtımınız, varolan içeriğin hedef IIS web uygulamasını & #x 2014; yapılandırdığınıza bağlı olarak ister *uygulama\_offline.htm* dosyası & #x 2014; bir web dağıtımı otomatik olarak silinebilir paketi hedef. Emin olmak için *uygulama\_offline.htm* dosyası için dağıtım süresini yerde kalır, dosyanın doğrudan başlangıcında dağıtmak için web dağıtım paketi kendisini dosyasında ayrıca eklemeniz gerekir dağıtım işlemi.
+Dağıtımınızı nasıl yapılandırdığınıza bağlı olarak herhangi bir IIS hedefte içerik varolan web uygulaması&#x2014;gibi *uygulama\_offline.htm* dosya&#x2014;bir web dağıtımı otomatik olarak silinebilir paketi hedef. Emin olmak için *uygulama\_offline.htm* dosyası için dağıtım süresini yerde kalır, dosyanın doğrudan başlangıcında dağıtmak için web dağıtım paketi kendisini dosyasında ayrıca eklemeniz gerekir dağıtım işlemi.
 
 - Bu konuda önceki görevleri varsa uyguladıysanız, eklediğiniz *uygulama\_offline.htm* dosyasını farklı bir dosya adı altında web uygulaması projenize (kullandık *uygulama\_ template.htm çevrimdışı*) ve yapı eylemi ayarladığınız **hiçbiri**. Bu değişiklikler ile geliştirme çakışarak ve hata ayıklama dosyadan önlemek gereklidir. Sonuç olarak, emin olmak için paketleme işlemi özelleştirmek ihtiyacınız *uygulama\_offline.htm* dosyası web dağıtım paketinde yer almaktadır.
 
@@ -125,7 +125,7 @@ Web yayımlama ardışık düzen (WPP) adlı bir öğe listesi kullanan **FilesF
 1. Adlı bir özel proje dosyası oluşturma *[Proje adı].wpp.targets* proje dosyası ile aynı klasörde.
 
     > [!NOTE]
-    > *. Wpp.targets* dosya gereken web uygulaması proje dosyası & #x 2014; aynı klasöre gitmek Örneğin, *ContactManager.Mvc.csproj*& tüm #x 2014; yerine aynı klasörü Özel proje dosyalarını denetimi derleme ve dağıtım işlemini kullanın.
+    > *. Wpp.targets* dosyasının gerekir, web uygulaması proje dosyası ile aynı klasörde gitmek&#x2014;Örneğin, *ContactManager.Mvc.csproj*&#x2014;yerine herhangi bir özel ile aynı klasörde Proje dosyalarını derleme ve dağıtım işlemini kontrol eden kullanın.
 2. İçinde *. wpp.targets* dosya, yürütür yeni bir MSBuild hedef oluşturmak *önce* **CopyAllFilesToSingleFolderForPackage** hedef. Bu pakete dahil edilecek noktalar listesini oluşturan WPP hedefidir.
 3. Yeni hedef oluşturma bir **ItemGroup** öğesi.
 4. İçinde **ItemGroup** öğesi ekleme bir **FilesForPackagingFromProject** öğesi ve belirtin *uygulama\_offline.htm* dosya.
@@ -175,6 +175,6 @@ Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz: [bina ve p
 
 Yerine web uygulamalarınızın doğrudan Visual Studio'dan yayımlamak varsa bu öğreticileri açıklanan özel MSBuild proje dosyası yaklaşımı kullanarak, uygulamanızı çevrimdışı yayımlama sırasında olması için biraz farklı bir yaklaşım kullanmanız gerekecektir işlem. Daha fazla bilgi için bkz: [yayımlama sırasında çevrimdışı web uygulamanızı nasıl](https://go.microsoft.com/?linkid=9805135) (blog yayını).
 
->[!div class="step-by-step"]
-[Önceki](excluding-files-and-folders-from-deployment.md)
-[sonraki](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Önceki](excluding-files-and-folders-from-deployment.md)
+> [sonraki](running-windows-powershell-scripts-from-msbuild-project-files.md)

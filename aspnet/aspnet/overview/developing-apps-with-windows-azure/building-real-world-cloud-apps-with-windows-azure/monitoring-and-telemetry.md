@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
-title: "İzleme ve Telemetri (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: İzleme ve Telemetri (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2015
 ms.topic: article
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d58c495b3888c146a2a9bc831865cf7cc0d94c7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -292,6 +292,6 @@ Kod örneği:
 
 - [Bulut hizmeti temel bilgileri Azure](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Örnek uygulaması Microsoft Azure Müşteri danışma ekibi tarafından oluşturuldu. Telemetri ve günlüğe kaydetme yöntemler aşağıdaki makalelerde açıklanan gösterir. Örnek Uygulama günlüğünü kullanarak uygulayan [NLog](http://nlog-project.org/). İlgili belgeler için bkz: [telemetri ve günlüğe kaydetme hakkında dört TechNet wiki makaleleri dizi](https://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx#Telemetry_coming_soon).
 
->[!div class="step-by-step"]
-[Önceki](design-to-survive-failures.md)
-[sonraki](transient-fault-handling.md)
+> [!div class="step-by-step"]
+> [Önceki](design-to-survive-failures.md)
+> [sonraki](transient-fault-handling.md)

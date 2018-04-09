@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 title: Bir denetleyici (C#) ekleme | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici Microsoft Visual Web Developer 2010 Express Serivice Pack 1, hangi i kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici Microsoft Visual Web Developer 2010 Express Serivice Pack 1, hangi i kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 77bfc8f3778dcf75453c216579e50a016b1ac971
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 963d3bbbadf408d7045c50bfd693069e4097d45d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller-c"></a>Bir denetleyici (C#) ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Bu öğretici güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Daha güvenli, izlemek çok daha kolaydır ve daha fazla özelliklerini gösterir.
@@ -85,6 +85,6 @@ Uygulamanızı çalıştırın ve örnek URL'sine gidin (`http://localhost:xxxx/
 
 MVC "VC" bölümünü yapılması edilmiş hem de bu örneklerde denetleyicisi — diğer bir deyişle, Görünüm ve denetleyici çalışma. Denetleyici HTML doğrudan döndürüyor. Normalde kodu çok kullanışsız hale beri HTML doğrudan döndürerek denetleyicileri istemezsiniz. Bunun yerine genellikle ayrı görünüm şablon dosyası HTML yanıtı oluşturmak yardımcı olmak için kullanacağız. Nasıl biz bunu yapmak için sonraki olarak bakalım.
 
->[!div class="step-by-step"]
-[Önceki](intro-to-aspnet-mvc-3.md)
-[sonraki](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Önceki](intro-to-aspnet-mvc-3.md)
+> [sonraki](adding-a-view.md)

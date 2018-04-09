@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2013/release-notes
-title: "ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları | Microsoft Docs"
+title: ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları | Microsoft Docs
 author: microsoft
-description: "Bu belgede, ASP.NET ve Web Araçları Visual Studio 2013 için sürüm açıklanmaktadır."
+description: Bu belgede, ASP.NET ve Web Araçları Visual Studio 2013 için sürüm açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları
 ====================
@@ -201,14 +201,14 @@ Kimlik doğrulaması filtreleri olan yeni bir ASP.NET MVC ardışık düzenine y
 
 ### <a name="attribute-routing"></a>Öznitelik yönlendirme
 
-ASP.NET MVC şimdi destekleyen bir katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [http://attributerouting.net](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin yorumlama yollarınızı belirtebilirsiniz.
+ASP.NET MVC şimdi destekleyen bir katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin yorumlama yollarınızı belirtebilirsiniz.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
 ### <a name="attribute-routing"></a>Öznitelik yönlendirme
 
-ASP.NET Web API artık destekliyor katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [http://attributerouting.net](http://attributerouting.net). Öznitelik yönlendirme ile Web API yollarınızı eylemleri ve bu gibi denetleyicileri yorumlama belirtebilirsiniz:
+ASP.NET Web API artık destekliyor katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile Web API yollarınızı eylemleri ve bu gibi denetleyicileri yorumlama belirtebilirsiniz:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -332,7 +332,7 @@ SignalR 2.0 tamamen üzerinde kurulu [OWIN (.NET için açık Web arabirimi)](ht
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs ve MapConnection MapSignalR sunulmuştur
 
-OWIN standartları ile uyumluluk için bu yöntemleri için yeniden adlandırıldığı `MapSignalR`. `MapSignalR`parametreleri tüm hub'ları eşler olmadan adlı (olarak `MapHubs` sürümünde mu 1.x); tek tek eşlemek için **PersistentConnection** nesneleri, tür parametresi ve bağlantı olarak URL uzantısı olarak bağlantı türünü belirtin ilk bağımsız değişken.
+OWIN standartları ile uyumluluk için bu yöntemleri için yeniden adlandırıldığı `MapSignalR`. `MapSignalR` parametreleri tüm hub'ları eşler olmadan adlı (olarak `MapHubs` sürümünde mu 1.x); tek tek eşlemek için **PersistentConnection** nesneleri, tür parametresi ve bağlantı olarak URL uzantısı olarak bağlantı türünü belirtin ilk bağımsız değişken.
 
 `MapSignalR` Yöntemi, bir Owın başlangıç sınıfı çağrılır. Visual Studio 2013 Owın başlangıç sınıfı için yeni bir şablon içerir; Bu şablonu kullanmak için aşağıdakileri yapın:
 
@@ -392,7 +392,7 @@ Aşağıdaki kod, CORS veya JSONP SignalR 2.0 projede etkinleştirme gösterilmi
 
 İOS ve MonoTouch ve MonoDroid bileşenlerini kullanan Android istemciler için destek eklenmiştir [Xamarin Kitaplığı](https://xamarin.com/). Bunların nasıl kullanılacağını hakkında daha fazla bilgi için bkz: [kullanarak Xamarin bileşen](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Bu bileşenlerin kullanılabilir olması [Xamarin mağazasında](https://store.xamarin.com/) SignalR RTW yayın olduğunda kullanılabilir.
 
-<a id="portable"></a>### Taşınabilir .NET istemcisi
+<a id="portable"></a> ### Taşınabilir .NET istemcisi
 
 Platformlar arası geliştirme, Silverlight, WinRT daha iyi kolaylaştırmak ve Windows Phone istemcileri, aşağıdaki platformları destekleyen bir tek taşınabilir .NET istemcisi ile değiştirilmiştir:
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 aşağıdaki yeni özellikleri içerir:
 - Sekme düzenleme desteği. Preivously, **belgeyi Biçimlendir** komutu, otomatik girintileme ve Visual Studio'da biçimlendirme otomatik işe doğru kullanırken **sekmeleri tut** seçeneği. Bu değişiklik, Visual Studio için biçimlendirme sekmesini Razor kodu biçimlendirme düzeltir.
 - Bağlantıları oluşturulurken URL yeniden yazma kuralı desteği.
 - Güvenliği saydam öznitelik kaldırma.
- > [!NOTE]
- > Bu önemli bir değişiklik ve Razor 2 MVC5 veya MVC5 karşı derlenmiş derlemeler ile uyumsuz durumdayken Razor 3 MVC4 ve önceki sürümlerinde, uyumsuz hale getirir.
+  > [!NOTE]
+  > Bu önemli bir değişiklik ve Razor 2 MVC5 veya MVC5 karşı derlenmiş derlemeler ile uyumsuz durumdayken Razor 3 MVC4 ve önceki sürümlerinde, uyumsuz hale getirir.
 
 Visual Studio 2013'te yayın öncesi sürümlerinden sabit razor 3 sorunları bulunabilir [burada](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
@@ -603,7 +603,7 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`döndürmez `IQueryable<T>` desteği eklediğimiz olarak her zaman `$select` ve `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` döndürmez `IQueryable<T>` desteği eklediğimiz olarak her zaman `$select` ve `$expand`.
 
     Önceki örneklerimizi `ODataQueryOptions<T>` her zaman Integer dönüş değeri `ApplyTo` için `IQueryable<T>`. Bu sorgu seçenekleri olduğundan daha önce çalışan biz daha önce desteklenen (`$filter`, `$orderby`, `$skip`, `$top`) şekli sorgusunun değiştirmeyin. Destekliyoruz göre `$select` ve `$expand` yönteminden döndürülen değer `ApplyTo` değişmeyecek `IQueryable<T>` her zaman.
 
@@ -632,7 +632,7 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
 
     *'/' Uygulamasında sunucu hatası.*
 
-    *Bir talep türü 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier' veya 'http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider' üzerinde sağlanan Claimsıdentity yoktu. Talep tabanlı kimlik doğrulaması ile sahteciliğe karşı koruma belirteci desteğini etkinleştirmek için lütfen yapılandırılmış Talep sağlayıcı ürettiği Claimsıdentity örneklerinde bu talepler her ikisi de sağladığını doğrulayın. Yapılandırılmış Talep sağlayıcı yerine farklı bir talep türüyle benzersiz bir tanımlayıcı olarak kullanıyorsa, AntiForgeryConfig.UniqueClaimTypeIdentifier statik özelliği ayarlanarak yapılandırılabilir.*
+    <em>Bir talep türü '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'veya'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' üzerinde sağlanan Claimsıdentity yoktu. Talep tabanlı kimlik doğrulaması ile sahteciliğe karşı koruma belirteci desteğini etkinleştirmek için lütfen yapılandırılmış Talep sağlayıcı ürettiği Claimsıdentity örneklerinde bu talepler her ikisi de sağladığını doğrulayın. Yapılandırılmış Talep sağlayıcı yerine farklı bir talep türüyle benzersiz bir tanımlayıcı olarak kullanıyorsa, AntiForgeryConfig.UniqueClaimTypeIdentifier statik özelliği ayarlanarak yapılandırılabilir.</em>
 
     **Geçici çözüm**:
 
@@ -647,14 +647,14 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
 
     Yukarıdaki hatayı düzeltmek için açık *tüm* (görünümler klasöründe olanlar dahil) Web.config dosyasında projenizi ve aşağıdakileri yapın:
 
-    1. Sürümüne "4.0.0.0" "System.Web.Mvc" "5.0.0.0" tüm oluşumlarını güncelleştirin.
-    2. "System.Web.Helpers", "2.0.0.0" sürümünü tüm oluşumlarını güncelleştirme &quot;System.Web.WebPages&quot; ve &quot;System.Web.WebPages.Razor&quot; "3.0.0.0" için
+   1. Sürümüne "4.0.0.0" "System.Web.Mvc" "5.0.0.0" tüm oluşumlarını güncelleştirin.
+   2. "System.Web.Helpers", "2.0.0.0" sürümünü tüm oluşumlarını güncelleştirme &quot;System.Web.WebPages&quot; ve &quot;System.Web.WebPages.Razor&quot; "3.0.0.0" için
 
-    Örneğin, yukarıdaki değişiklikleri yaptıktan sonra derleme bağlamaları aşağıdaki gibi görünmelidir:
+      Örneğin, yukarıdaki değişiklikleri yaptıktan sonra derleme bağlamaları aşağıdaki gibi görünmelidir:
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+      MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 3. İstemci tarafı doğrulama örtük doğrulama jQuery ile kullanırken, doğrulama iletisi bazen türüne sahip bir HTML input öğesi için geçersiz = 'number'. Doğrulama hatasını gerekli değeri ("Yaş alanı gereklidir") geçersiz bir sayı geçerli bir sayı gerekli olduğunu doğru ileti yerine girildiğinde gösterilir.
 
     Bu sorun sık kurulmuş kodu ile oluşturma ve düzenleme görünümleri bir tamsayı özelliği ile bir model için bulunamadı.
@@ -697,13 +697,13 @@ Geçici çözüm:
 - MVC için bu hatayı düzeltmek için yeni iskele kurulmuş Öğe Ekle ve MVC 5 bağımlılıkları seçin (en az veya tam). Bu işlem tüm gerekli değişiklikleri projenize ekleyin.
 - Web API için bu hatayı düzeltmek için:
 
-    1. WebApiConfig sınıfı projenize ekleyin.
+  1. WebApiConfig sınıfı projenize ekleyin.
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. Uygulamada WebApiConfig.Register yapılandırma\_yöntemi Global.asax dosyasında şu şekilde başlatın:
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. Uygulamada WebApiConfig.Register yapılandırma\_yöntemi Global.asax dosyasında şu şekilde başlatın:
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
-title: "Özel yollar (VB) oluşturma | Microsoft Docs"
+title: Özel yollar (VB) oluşturma | Microsoft Docs
 author: microsoft
-description: "Bir ASP.NET MVC uygulaması için özel yollar eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme öğrenin."
+description: Bir ASP.NET MVC uygulaması için özel yollar eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d3161bd1bf74df425d3c53873875a1abcfbfa05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e827725ab7ce54c86ae9f4193d0a8a7ef4af8512
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-vb"></a>Özel yollar (VB) oluşturma
 ====================
@@ -55,7 +55,7 @@ Yol tablosu ekleme yolları sıralama önemlidir. Bizim yeni özel Blog rota ön
 
 2. listeleme denetleyicisiyle Blog özel rota kullanabilirsiniz.
 
-**2 - ArchiveController.vb listeleme**
+**Listing 2 - ArchiveController.vb**
 
 [!code-vb[Main](creating-custom-routes-vb/samples/sample2.vb)]
 
@@ -73,6 +73,6 @@ Listeleme 2 Entry() yönteminde DateTime türünde bir parametre kabul eden dikk
 
 Özel rota nasıl oluşturabileceğinizi göstermek için bu öğreticinin amacı oluştu. Yol tablosu blog girdileri temsil eder Global.asax dosyasında özel bir rota eklemek öğrendiniz. Biz ArchiveController adlı bir denetleyici ve Entry() adlı bir denetleyici eylemi için blog girdileri isteklerinde eşlemek açıklanır.
 
->[!div class="step-by-step"]
-[Önceki](asp-net-mvc-controller-overview-vb.md)
-[sonraki](creating-a-route-constraint-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](asp-net-mvc-controller-overview-vb.md)
+> [sonraki](creating-a-route-constraint-vb.md)

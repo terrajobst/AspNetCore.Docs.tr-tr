@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
-title: "Yineleme #2 – olun iyi (VB) Ara uygulama | Microsoft Docs"
+title: 'Yineleme #2 – olun iyi (VB) Ara uygulama | Microsoft Docs'
 author: microsoft
-description: "Bu yinelemede biz ana görünüm sayfası, ASP.NET MVC varsayılan değiştirme ve geçişli stil sayfası uygulama görünümünü geliştirir."
+description: Bu yinelemede biz ana görünüm sayfası, ASP.NET MVC varsayılan değiştirme ve geçişli stil sayfası uygulama görünümünü geliştirir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07c4eaaf9ae5a389605a98951e970d410ca23122
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8545351b099e52533789b372903cd493f533f834
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Yineleme #2 – olun iyi (VB) Ara uygulama
 ====================
@@ -66,7 +66,7 @@ ASP.NET MVC Tasarım Galerisi'nden Contact Manager uygulaması için bir şablon
 
 ASP.NET MVC Tasarım Galerisi, Microsoft tarafından sağlanan ücretsiz bir kaynaktır. ASP.NET MVC galeri şu adresten bulunur:
 
-[https://www.ASP.NET/MVC/Gallery](https://www.asp.net/mvc/gallery)
+[https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
 ASP.NET MVC Tasarım Galerisi özellikle, bir ASP.NET MVC projesinde kullanılarak oluşturulan ücretsiz Web sitesi tasarımları koleksiyonu barındırır. Tasarımlar topluluk üyeleri tarafından yüklenir. Galeri ziyaretçileri için sık kullanılan kendi tasarımları oy verin (bkz: Şekil 2).
 
@@ -115,7 +115,7 @@ ASP.NET MVC Tasarım Galerisi farklı tasarım stillerini iyi seçimi vardır. G
 
 Ancak, Web siteniz için tamamen benzersiz bir tasarım oluşturmak gerekebilir. Bu durumda, bir Web sitesi tasarım şirketinin ile çalışmak için mantıklıdır. Kişi Manager uygulaması için tasarım için bu yaklaşımı benimsemeye karar.
 
-I yukarı yineleme #1 Contact Manager'dan daraltılmış ve proje tasarım şirkete gönderilir. Etmedi t var ancak bu bir sorun, Visual Studio (shame bunlardaki!), sahibi değildi. Microsoft Visual Web Developer ücretsiz indirebilir [https://www.asp.net](https://www.asp.net) Web sitesi ve Visual Web Developer Contact Manager uygulamasında açın. Birkaç gün içinde Şekil 7'deki Tasarım üretilen.
+I yukarı yineleme #1 Contact Manager'dan daraltılmış ve proje tasarım şirkete gönderilir. Etmedi t var ancak bu bir sorun, Visual Studio (shame bunlardaki!), sahibi değildi. Microsoft Visual Web Developer ücretsiz indirebilir [ https://www.asp.net ](https://www.asp.net) Web sitesi ve Visual Web Developer Contact Manager uygulamasında açın. Birkaç gün içinde Şekil 7'deki Tasarım üretilen.
 
 
 [![Yeni Proje iletişim kutusu](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
@@ -163,6 +163,6 @@ Ardından, varsayılan geçişli stil sayfası dosyası ve ana görünüm sayfas
 
 Sonraki yinelemede doğrulama çok önemli konu üstesinden. Bir kullanıcı bir kişi s gibi gerekli değerleri girmeden önce yeni bir kişi oluşturabilir ve Soyadı böylece biz uygulamamız için doğrulama kodu ekleyin.
 
->[!div class="step-by-step"]
-[Önceki](iteration-1-create-the-application-vb.md)
-[sonraki](iteration-3-add-form-validation-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](iteration-1-create-the-application-vb.md)
+> [sonraki](iteration-3-add-form-validation-vb.md)

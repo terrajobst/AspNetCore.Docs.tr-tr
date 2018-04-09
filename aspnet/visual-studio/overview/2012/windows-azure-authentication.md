@@ -1,26 +1,26 @@
 ---
 uid: visual-studio/overview/2012/windows-azure-authentication
-title: "Windows Azure kimlik doğrulaması | Microsoft Docs"
+title: Windows Azure kimlik doğrulaması | Microsoft Docs
 author: Rick-Anderson
-description: "Windows Azure Active Directory için Microsoft ASP.NET araçları, kolaylaştırır Windows Azure Web sitelerinde barındırılan web uygulamaları kimlik doğrulamasını etkinleştirmek..."
+description: Windows Azure Active Directory için Microsoft ASP.NET araçları, kolaylaştırır Windows Azure Web sitelerinde barındırılan web uygulamaları kimlik doğrulamasını etkinleştirmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2013
 ms.topic: article
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09cb37ceb0132958a48f5f3a5d52dc46c6f0a78d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="windows-azure-authentication"></a>Windows Azure kimlik doğrulaması
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Windows Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için Microsoft ASP.NET Araçları [Windows Azure Web siteleri](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Windows Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Windows Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
 > 
@@ -50,7 +50,7 @@ Mevcut bir Windows Azure Active Directory Kiracı (örneğin, mevcut Office 365 
 
 1. Proje menüsünden seçin **Windows Azure kimlik doğrulamasını etkinleştir**:  
   
- ![](windows-azure-authentication/_static/image2.png)
+   ![](windows-azure-authentication/_static/image2.png)
 
 2. Windows Azure Active Directory kiracınıza ait (örneğin, contoso.onmicrosoft.com) etki alanını girin ve tıklayın **etkinleştirme**:
 
@@ -58,7 +58,7 @@ Mevcut bir Windows Azure Active Directory Kiracı (örneğin, mevcut Office 365 
 
 3. Web kimlik doğrulaması iletişim oturum açma Windows Azure Active Directory kiracınızın için yönetici olarak:  
   
- ![](windows-azure-authentication/_static/image4.png)
+   ![](windows-azure-authentication/_static/image4.png)
 
 ![](windows-azure-authentication/_static/image5.png)
 

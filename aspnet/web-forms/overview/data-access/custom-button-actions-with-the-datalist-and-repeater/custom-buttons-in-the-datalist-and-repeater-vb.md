@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
-title: "Özel düğmeler DataList ve yineleyici (VB) | Microsoft Docs"
+title: Özel düğmeler DataList ve yineleyici (VB) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz kategorileri sistemde kendi associ göstermek için bir düğmeye sağlayan her kategorisiyle listelemek için bir yineleyici kullanan bir arabirim yapı..."
+description: Bu öğreticide biz kategorileri sistemde kendi associ göstermek için bir düğmeye sağlayan her kategorisiyle listelemek için bir yineleyici kullanan bir arabirim yapı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6e470590252102c486bb72ff46f516180aa09ba8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Özel düğmeler DataList ve yineleyici (VB)
 ====================
@@ -104,8 +104,8 @@ Düğme, LinkButton veya bir DataList ya da yineleyici şablonu içindeki ImageB
 
 Bir düğme DataList ya da yineleyici içinde tıklatıldığında görmemeleri hangi düğmeyi (birden çok denetim hem bir düzen gibi içindeki düğmeler ve Sil düğmesini olabileceğini durumda) tıklandığını ve belki de bazı ek bilgiler (gibi iletmek ihtiyacımız birincil anahtar değeri, düğme tıklandığını öğesi). Düğme, LinkButton ve ImageButton iki özellik değerleri için geçirilir sağlamak `ItemCommand` olay işleyicisi:
 
-- `CommandName`genellikle her düğme şablonda tanımlamak için kullanılan bir dize
-- `CommandArgument`birincil anahtar değeri gibi bazı veri alanının değeri tutmak için yaygın olarak kullanılan
+- `CommandName` genellikle her düğme şablonda tanımlamak için kullanılan bir dize
+- `CommandArgument` birincil anahtar değeri gibi bazı veri alanının değeri tutmak için yaygın olarak kullanılan
 
 Bu örnekte, LinkButton s ayarlamak `CommandName` özelliğini ShowProducts ve bağ geçerli kayıt s birincil anahtar değerine `CategoryID` için `CommandArgument` özelliği veri bağlama sözdizimini kullanarak `CategoryArgument='<%# Eval("CategoryID") %>'`. Bu iki özellik belirttikten sonra LinkButton s tanımlayıcı sözdizimi aşağıdaki gibi görünmelidir:
 
@@ -116,10 +116,10 @@ Düğme, geri gönderimin oluştuğu tıklatıldığında ve DataList veya yinel
 
 Yineleyici s için bir olay işleyicisi oluşturun `ItemCommand` olay ve Not ikinci parametre olay işleyiciye geçirilen (adlı `e`). Bu ikinci parametre türünde [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) ve aşağıdaki dört özelliklere sahiptir:
 
-- `CommandArgument`Tıklatılan düğme s değerini `CommandArgument` özelliği
-- `CommandName`s düğmesinin değeri `CommandName` özelliği
-- `CommandSource`bir başvuru tıklandığını düğmesi denetimi
-- `Item`bir başvuru [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) tıklandığını düğmesi içerir; yineleyici bağlı her bir kayıt olarak bildirilmiş bir`RepeaterItem`
+- `CommandArgument` Tıklatılan düğme s değerini `CommandArgument` özelliği
+- `CommandName` s düğmesinin değeri `CommandName` özelliği
+- `CommandSource` bir başvuru tıklandığını düğmesi denetimi
+- `Item` bir başvuru [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) tıklandığını düğmesi içerir; yineleyici bağlı her bir kayıt olarak bildirilmiş bir `RepeaterItem`
 
 Seçilen kategori s itibaren `CategoryID` aracılığıyla geçirilen `CommandArgument` özelliği, biz seçili kategorideki ile ilişkili ürün kümesi alabilirsiniz `ItemCommand` olay işleyicisi. Bu ürünler sonra Bulletedlıst denetiminde bağlanabilir `ItemTemplate` (hangi biz ve henüz eklemek için). Tüm kalır, böylece Bulletedlıst eklemektir içinde başvuru `ItemCommand` olay işleyicisi ve ürünleri için adım 4'te üstesinden seçilen kategori kümesi bağlayın.
 
@@ -162,11 +162,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Dennis Patterson oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](custom-buttons-in-the-datalist-and-repeater-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](custom-buttons-in-the-datalist-and-repeater-cs.md)

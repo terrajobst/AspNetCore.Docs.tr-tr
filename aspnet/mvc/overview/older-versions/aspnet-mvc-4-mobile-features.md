@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
-title: "ASP.NET MVC 4 mobil özellikleri | Microsoft Docs"
+title: ASP.NET MVC 4 mobil özellikleri | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici dağıtma bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web sitelerindeki, kod örnekleri ile MVC 5 sürümü artık yoktur."
+description: Bu öğretici dağıtma bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web sitelerindeki, kod örnekleri ile MVC 5 sürümü artık yoktur.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: f4e0e4eb558e0c7b9e94fc83ede986fa4c666739
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 mobil özellikleri
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Şimdi bu öğreticide kod örnekleri ile MVC 5 sürümü olan [bir ASP.NET MVC 5 mobil Web uygulamasını Azure Web sitelerindeki dağıtmak](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/).
 
@@ -190,7 +190,7 @@ Yükleme *jQuery.Mobile.MVC* bunu yaparak NuGet paketi:
 1. Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
-2. İçinde **Paket Yöneticisi Konsolu**, girin`Install-Package jQuery.Mobile.MVC -version 1.0.0`
+2. İçinde **Paket Yöneticisi Konsolu**, girin `Install-Package jQuery.Mobile.MVC -version 1.0.0`
 
 Aşağıdaki resimde eklenir ve MvcMobile projesi için NuGet jQuery.Mobile.MVC paketi tarafından değiştirilen dosyaları gösterir. [Ekle] sonra dosya adını verdiğinizden eklenen dosyalar. GIF resim göstermez ve PNG dosyaları eklenen *Content\images* klasör.
 
@@ -204,7 +204,7 @@ JQuery.Mobile.MVC NuGet paketi aşağıdaki yükler:
 - jQuery Mobile JavaScript dosyaları.
 - JQuery Mobile stilde düzeni dosyasını (*görünümler/paylaşılan\\_Layout.Mobile.cshtml*).
 - Görünüm değiştirici kısmi Görünüm *(MvcMobile\Views\Shared\\_ViewSwitcher.cshtml*) sayfanın üst kısmındaki Masaüstü görünümden mobil Görünüm ve tersi yönde geçiş yapmak için her bir bağlantı sağlar.
-- Birkaç*.png* ve *.gif* görüntü dosyaları *Content\images* klasör.
+- Birkaç<em>.png</em> ve <em>.gif</em> görüntü dosyaları <em>Content\images</em> klasör.
 
 Açık *Global.asax* dosya ve son satırının aşağıdaki kodu ekleyin `Application_Start` yöntemi.
 
@@ -270,7 +270,7 @@ Ayarlayarak genel işleme mobil düzeni içinde varsayılan (mobil olmayan) gör
 
 [!code-cshtml[Main](aspnet-mvc-4-mobile-features/samples/sample17.cshtml)]
 
-Zaman `RequireConsistentDisplayMode` ayarlanır `true`, mobil düzenini (*\_Layout.Mobile.cshtml*) yalnızca mobil görünümleri için kullanılır. (Diğer bir deyişle, görünüm dosyası biçimidir ***Görünümadı**. Mobile.cshtml*.) Ayarlamak isteyebilirsiniz `RequireConsistentDisplayMode` için `true` mobil düzeninizi iyi mobil olmayan görünümlerle işe yaramazsa. Ekran görüntüsünün altında gösterir nasıl *konuşmacılar* sayfasını işler `RequireConsistentDisplayMode` ayarlanır `true`.
+Zaman `RequireConsistentDisplayMode` ayarlanır `true`, mobil düzenini (<em>\_Layout.Mobile.cshtml</em>) yalnızca mobil görünümleri için kullanılır. (Diğer bir deyişle, görünüm dosyası biçimidir <em>** Görünümadı</em><em>. Mobile.cshtml</em>.) Ayarlamak isteyebilirsiniz `RequireConsistentDisplayMode` için `true` mobil düzeninizi iyi mobil olmayan görünümlerle işe yaramazsa. Ekran görüntüsünün altında gösterir nasıl <em>konuşmacılar</em> sayfasını işler `RequireConsistentDisplayMode` ayarlanır `true`.
 
 [![p3_speakersConsistent](aspnet-mvc-4-mobile-features/_static/image33.png)](aspnet-mvc-4-mobile-features/_static/image32.png)
 

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET ASP.NET Core 2.0 geçirme"
+title: ASP.NET ASP.NET Core 2.0 geçirme
 author: isaac2004
-description: "Mevcut ASP.NET MVC veya Web API uygulamaları geçirme ASP.NET Core 2.0 için yönergeler alırsınız."
+description: Mevcut ASP.NET MVC veya Web API uygulamaları geçirme ASP.NET Core 2.0 için yönergeler alırsınız.
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
 Tarafından [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,12 @@ Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET uygulamaları için bir başvuru 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET core 2.0.0 SDK](https://www.microsoft.com/net/core) veya sonraki bir sürümü.
+Yükleme **bir** birini [.NET indirir: Windows](https://www.microsoft.com/net/download/windows):
+
+* .NET Core SDK
+* Windows için Visual Studio
+  * **ASP.NET ve web geliştirme** iş yükü
+  * **.NET core platformlar arası geliştirme** iş yükü
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
 ASP.NET Core 2.0 projeleri geliştiriciler .NET Core, .NET Framework veya her ikisini hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim yapma](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) hangi hedef Framework'ü en uygun olduğunu belirlemek için.
@@ -145,7 +150,7 @@ ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;
 
 Örneğin, bir görüntü varlığı *wwwroot/görüntüleri* klasördür erişilebilir bir konumda tarayıcıya gibi `http://<app>/images/<imageFileName>`.
 
-**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışmaya giriş](xref:fundamentals/static-files).
+**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışma](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

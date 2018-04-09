@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
-title: "2. Kısım: Denetleyicileri | Microsoft Docs"
+title: '2. Kısım: Denetleyicileri | Microsoft Docs'
 author: jongalloway
-description: "Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. Bölüm denetleyicileri kapsar."
+description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. Bölüm denetleyicileri kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: bdafd751e996e759d516d0fa25b09eff21241ed7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-controllers"></a>Bölüm 2: denetleyicileri
 ====================
@@ -63,7 +63,7 @@ Yöntem gibi görünmelidir:
 Şimdi Şimdi siteyi çalıştırın. Biz bizim web sunucusu başlatır ve aşağıdakilerden herhangi birini kullanarak site deneyin::
 
 - Hata ayıklama ⇨ hata ayıklamayı Başlat menü öğesini seçin
-- Araç çubuğundaki yeşil ok düğmesine tıklayın![](mvc-music-store-part-2/_static/image2.jpg)
+- Araç çubuğundaki yeşil ok düğmesine tıklayın ![](mvc-music-store-part-2/_static/image2.jpg)
 - F5 klavye kısayolunu kullanın.
 
 Yukarıdaki adımları kullanarak Projemizin derleyin ve ardından yerleşik-Visual Web başlatmak için geliştiricinin ASP.NET Geliştirme Sunucusu neden. Bir bildirim ASP.NET Geliştirme Sunucusu başlatıldığını belirtmek için ekranın alt köşedeki görünür ve bağlantı noktası numarasını altında çalıştığını gösterir.
@@ -116,7 +116,7 @@ Harika olan, ancak bunlar yalnızca sabit dizelerdir. URL'den bilgi alın ve say
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*Not: Biz HttpUtility.HtmlEncode yardımcı program yöntemi kullanıcı girişini temizlenmeye için kullanmakta olduğunuz. Bizim görünüme Javascript injecting /Store/Browse gibi bir bağlantıyla birlikte gelen engel olur? Tarz =&lt;betik&gt;window.location= 'http://hackersite.com'&lt;/script&gt;.*
+*Not: Biz HttpUtility.HtmlEncode yardımcı program yöntemi kullanıcı girişini temizlenmeye için kullanmakta olduğunuz. Bizim görünüme Javascript injecting /Store/Browse gibi bir bağlantıyla birlikte gelen engel olur? Tarz =&lt;betik&gt;window.location='http://hackersite.com'&lt;/script&gt;.*
 
 Şimdi Şimdi Gözat/deposu/için Gözat? Tarz DISCO =
 
@@ -141,6 +141,6 @@ Uygulamayı çalıştırın ve /Store/Details/5 için göz atın:
 - Eylem yöntemleri URL isteklerine yanıt vermek ve metin tarayıcıya dönün bizim denetleyicilerine ekledik
 
 
->[!div class="step-by-step"]
-[Önceki](mvc-music-store-part-1.md)
-[sonraki](mvc-music-store-part-3.md)
+> [!div class="step-by-step"]
+> [Önceki](mvc-music-store-part-1.md)
+> [sonraki](mvc-music-store-part-3.md)

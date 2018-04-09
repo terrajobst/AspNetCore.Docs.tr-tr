@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: "1. Kısım: Genel bakış ve Yeni Proje -> Dosya | Microsoft Docs"
+title: '1. Kısım: Genel bakış ve Yeni Proje -> Dosya | Microsoft Docs'
 author: jongalloway
-description: "Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 1 kapak genel bakış ve Dosya -> Yeni proje."
+description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 1 kapak genel bakış ve Dosya -> Yeni proje.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 1e3373a21c7d1766cfad390a7ba68b1363d8d895
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-file-new-project"></a>1. Kısım: Genel bakış ve Yeni Proje -> Dosya
 ====================
@@ -125,5 +125,5 @@ ASP.NET MVC klasör adları için bazı temel adlandırma kuralları kullanır:
 
 ASP.NET MVC çerçevesi varsayılan olarak "kuralı yapılandırması üzerinden" bir yaklaşım kullanır ve klasör adlandırma kurallarına göre bazı varsayılan varsayımlar yapar çünkü bu klasörleri bile bir boş ASP.NET MVC uygulamasındaki dahil edilir. Örneğin, denetleyicileri görünümler klasöründe görünümlerinde varsayılan olarak bu kodunuzda açıkça belirtmek zorunda kalmadan arayın. Varsayılan kuralları ile kalmanız yazmak için gereken kod miktarını azaltır ve aynı zamanda, projenizin anlamak diğer geliştiriciler için kolaylaştırabilir. Bu kuralları biz uygulamamız yapı gibi daha fazla açıklayacağız.
 
->[!div class="step-by-step"]
-[Sonraki](mvc-music-store-part-2.md)
+> [!div class="step-by-step"]
+> [Next](mvc-music-store-part-2.md)

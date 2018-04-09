@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
-title: "ASP.NET MVC farklı sürümleri IIS (VB) ile kullanma | Microsoft Docs"
+title: ASP.NET MVC farklı sürümleri IIS (VB) ile kullanma | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, ASP.NET MVC ve URL yönlendirme, Internet Information Services farklı sürümlerini kullanmayı öğrenin. Farklı stratejileri öğrenin..."
+description: Bu öğreticide, ASP.NET MVC ve URL yönlendirme, Internet Information Services farklı sürümlerini kullanmayı öğrenin. Farklı stratejileri öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a131d5ae540356251e8d05178f8eef95be0ace39
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>ASP.NET MVC farklı sürümleri IIS (VB) ile kullanma
 ====================
@@ -33,7 +33,7 @@ IIS farklı sürümlerini bir özeti aşağıda verilmiştir:
 - IIS 7.0 (Klasik mod) - ASP.NET yönlendirmeyi kullanmak için özel yapılandırma gerçekleştirmeniz gerekir.
 - IIS 6.0 veya aşağıda - ASP.NET yönlendirmeyi kullanmak için özel yapılandırma gerçekleştirmeniz gerekir.
 
-En son IIS sürüm 7.5 (Win7) sürümüdür. IIS 7'ın IIS ile Windows Server 2008 ve VISTA/SP1 dahil ve daha yüksek. IIS 7.0 Vista işletim sisteminin Home Basic dışında herhangi bir sürümü yükleyebilirsiniz (bkz [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
+En son IIS sürüm 7.5 (Win7) sürümüdür. IIS 7'ın IIS ile Windows Server 2008 ve VISTA/SP1 dahil ve daha yüksek. IIS 7.0 Vista işletim sisteminin Home Basic dışında herhangi bir sürümü yükleyebilirsiniz (bkz [ https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx ](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 istekleri işlemek için iki modunu destekler. Tümleşik mod veya Klasik modda kullanabilirsiniz. IIS 7.0 tümleşik modunda kullanırken hiçbir özel yapılandırma adımlarını gerçekleştirmeniz gerekmez. Ancak, IIS 7.0 Klasik modda kullanılırken ek yapılandırma gerçekleştirmeniz gerekir.
 
@@ -64,9 +64,9 @@ Varsayılan olarak, iki uygulama havuzları desteklemek için IIS yapılandırı
 
 İstek işleme modunu uygulamasını Düzenle iletişim kutusunda değiştirebilirsiniz dikkat edin. Seç düğmesini tıklayın ve uygulama ile ilişkili uygulama havuzunu değiştirmek. Bir ASP.NET uygulaması için tümleşik mod Klasikten değiştirirken uyumluluk sorunları olduğunu unutmayın. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- IIS 7.0 Windows Vista ve Windows Server 2008--ASP.NET 1.1 yükseltme [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
+- IIS 7.0 Windows Vista ve Windows Server 2008 üzerinde ASP.NET 1.1 yükseltme-- [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/upgrading-aspnet-11-to-iis-on-windows-vista-and-windows-server-2008)
 
-- ASP.NET ve IIS 7.0 - tümleşmesi [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
+- IIS 7.0 ile ASP.NET tümleştirme- [https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 
 
 Bir ASP.NET uygulaması DefaultAppPool kullanıyorsanız, ASP.NET yönlendirme (ve bu nedenle ASP.NET MVC) çalışmaya almak için ek adımlar gerçekleştirmeniz gerekmez. Ancak, ASP.NET uygulaması Classic .NET AppPool kullanın sonra okuma korumak için yapılandırılmışsa, yapmak için daha fazla iş sahip.
@@ -109,7 +109,7 @@ IIS eski sürümleri, ASP.NET framework yalnızca belirli isteklerini eşler. İ
 
 ASP.NET framework eşlenen bir dosya uzantısı içeren bu nedenle, ASP.NET yönlendirmesinin çalışması için almak için biz varsayılan yol değiştirmeniz gerekir.
 
-Bu yapılır adlı bir komut dosyası kullanarak `registermvc.wsf`. ASP.NET MVC 1 sürümde bulunan `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, ancak ASP.NET 2 itibariyle bu betiği adresinde ASP.NET Futures taşındı [http://aspnet.codeplex.com/releases/view/39978](http://aspnet.codeplex.com/releases/view/39978).
+Bu yapılır adlı bir komut dosyası kullanarak `registermvc.wsf`. ASP.NET MVC 1 sürümde bulunan `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, ancak ASP.NET 2 itibariyle bu betiği adresinde ASP.NET Futures taşındı [ http://aspnet.codeplex.com/releases/view/39978 ](http://aspnet.codeplex.com/releases/view/39978).
 
 Bu betiği yürüten yeni .mvc uzantısı IIS ile kaydeder. .Mvc uzantısı kaydettikten sonra böylece yolları .mvc bu uzantıyı kullanan yollarınızı Global.asax dosyasında değiştirebilirsiniz.
 
@@ -228,5 +228,5 @@ Bu öğreticinin amacı, IIS (veya IIS 7. 0'Klasik modda) eski bir sürümünü 
 
 İkinci seçenek, bir joker karakter betik eşlemesi oluşturmaktır. Bu ikinci seçeneği avantajlarından URL'nizde değişiklik gerekmez ' dir. Bu ikinci seçeneği bir dezavantajı, ASP.NET MVC uygulamanızın performansını etkileyebilir olmasıdır.
 
->[!div class="step-by-step"]
-[Önceki](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](using-asp-net-mvc-with-different-versions-of-iis-cs.md)

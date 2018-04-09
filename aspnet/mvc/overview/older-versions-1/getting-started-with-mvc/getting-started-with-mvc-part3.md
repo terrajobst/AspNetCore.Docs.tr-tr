@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
-title: "Bir görünümü ekleme | Microsoft Docs"
+title: Bir görünümü ekleme | Microsoft Docs
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
+description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -120,6 +120,6 @@ Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcom
 
 De, bir Model için bir "M" tür ancak veritabanı türü oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 
->[!div class="step-by-step"]
-[Önceki](getting-started-with-mvc-part2.md)
-[sonraki](getting-started-with-mvc-part4.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started-with-mvc-part2.md)
+> [sonraki](getting-started-with-mvc-part4.md)

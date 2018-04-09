@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdeği Modülü"
+title: ASP.NET çekirdeği Modülü
 author: tdykstra
-description: "ASP.NET çekirdeği modülü Kestrel web sunucusuna IIS veya IIS Express ters proxy sunucusu olarak kullanmak nasıl olanak tanıdığını öğrenin."
+description: ASP.NET çekirdeği modülü Kestrel web sunucusuna IIS veya IIS Express ters proxy sunucusu olarak kullanmak nasıl olanak tanıdığını öğrenin.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: e2170014f1a8fc89ec7e0a02d19c943b88e005fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d99a4b446b53c431b11bfe083b1bb6133f8e0078
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-module"></a>ASP.NET çekirdeği Modülü
 
@@ -25,15 +25,15 @@ ASP.NET çekirdeği modülü ASP.NET Core uygulamaları IIS bir ters proxy yapı
 Desteklenen Windows sürümlerine:
 
 * Windows 7 veya üzeri
-* Windows Server 2008 R2 veya daha sonra &#8224;
+* Windows Server 2008 R2 veya sonraki sürümü&#8224;
 
-&#8224; Kavramsal olarak, bu belgede açıklanan IIS ASP.NET Core modülüyle kullanımını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
+&#8224;Kavramsal olarak, bu belgede açıklanan IIS ASP.NET Core modülüyle kullanımını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
 
 ASP.NET çekirdeği modülü yalnızca Kestrel ile çalışır. Modül uyumlu değil. [HTTP.sys](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)).
 
 ## <a name="aspnet-core-module-description"></a>ASP.NET Core modül açıklaması
 
-ASP.NET çekirdeği modülü web istekleri arka ucuna yönlendirmek için IIS ardışık düzen halinde ASP.NET Core uygulamaları takılan yerel bir IIS modüldür. Windows kimlik doğrulaması gibi birçok yerel modül etkin kalır. IIS modülleri etkin modülüyle hakkında daha fazla bilgi için bkz: [kullanarak IIS modüllerini](xref:host-and-deploy/iis/modules).
+ASP.NET çekirdeği modülü web istekleri arka ucuna yönlendirmek için IIS ardışık düzen halinde ASP.NET Core uygulamaları takılan yerel bir IIS modüldür. Windows kimlik doğrulaması gibi birçok yerel modül etkin kalır. IIS modülleri etkin modülüyle hakkında daha fazla bilgi için bkz: [IIS modüllerini](xref:host-and-deploy/iis/modules).
 
 ASP.NET Core uygulamaları bir işlem olarak çalıştırmak için IIS çalışan işlemini ayrı olduğundan, modül işlem yönetimi da işler. İlk istek ulaştığında ve onu çökerse uygulama yeniden başlatmalarını modülü ASP.NET Core uygulama işlemini başlatır. Bu temelde aynı işlem içinde çalıştırma ASP.NET 4.x uygulamalarla görüldüğü gibi davranıştır tarafından yönetilen IIS'de [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
-title: "Veri Görünümü ana sayfalar için (C#) geçirme | Microsoft Docs"
+title: Veri Görünümü ana sayfalar için (C#) geçirme | Microsoft Docs
 author: microsoft
-description: "Bu öğreticinin nasıl veri bir denetleyicisinden görünümü ana sayfaya geçirebilirsiniz açıklamak için hedeftir. Veri görünümüne m geçirme iki stratejileri inceleyeceğiz..."
+description: Bu öğreticinin nasıl veri bir denetleyicisinden görünümü ana sayfaya geçirebilirsiniz açıklamak için hedeftir. Veri görünümüne m geçirme iki stratejileri inceleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8bc8ce0690d2e45877be75011d8883facbc74a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bfb58cbe0c415c092f3a41e518281a7461d2803c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="passing-data-to-view-master-pages-c"></a>Görünüm ana sayfalar (C#) için veri geçirme
 ====================
@@ -53,7 +53,7 @@ Görünüm veri görünümü ana sayfaya bir denetleyicisinden geçirme için ba
 
 Denetleyici 1 listeleme göz önünde bulundurun. Adlı iki eylem sunan `Index()` ve `Details()`. `Index()` Eylem yöntemi, filmler veritabanı tablosunda her film döndürür. `Details()` Eylem yöntemi bir belirli film kategorideki her film döndürür.
 
-**Kod 1 –`Controllers\HomeController.cs`**
+**Kod 1 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample1.cs)]
 
@@ -69,13 +69,13 @@ Details() eylem ayrıca kategorileri ve filmler adlı iki anahtar ekler. Kategor
 
 Dizin görünümünün listeleme 2'de yer alır. Bunu yalnızca görünüm verilerini filmler öğesi tarafından temsil edilen filmler listesini dolaşır.
 
-**Kod 2 –`Views\Home\Index.aspx`**
+**Kod 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample2.aspx)]
 
 Görünüm ana sayfa listeleme 3'te yer alır. Görünüm ana sayfa tekrarlanan ve tüm kategorileri öğesiyle görünüm verileri temsil film kategorilerini işler.
 
-**Kod 3 –`Views\Shared\Site.master`**
+**Kod 3 – `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample3.aspx)]
 
@@ -89,7 +89,7 @@ Bu bölümde, veri görünümü ana sayfaya denetleyicisi eylemden geçirme içi
 
 ApplicationController sınıfı listeleme 4'te yer alır.
 
-**4 listeleme –`Controllers\ApplicationController.cs`**
+**4 listeleme – `Controllers\ApplicationController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample4.cs)]
 
@@ -101,7 +101,7 @@ Uygulama denetleyicisi listeleme 4 hakkında dikkat etmelidir üç nokta vardır
 
 Film denetleyicisi listeleme 5'te uygulama denetleyicisinden devralır.
 
-**5 listeleme –`Controllers\MoviesController.cs`**
+**5 listeleme – `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample5.cs)]
 
@@ -115,6 +115,6 @@ Bu öğreticide, bir görünüm ana sayfaya bir denetleyicisinden görünüm ver
 
 Ardından, bir görünüm ana sayfa verileri görüntülemek için gerekli verileri eklemek için çok daha iyi bir stratejiye incelendi. Görünüm verilerini her denetleyici eylem eklemek yerine, bir uygulama denetleyicisi içinde yalnızca bir kez görünüm verileri eklediğimiz. Bu şekilde, bir ASP.NET MVC uygulamasındaki bir görünüm ana sayfasına veri geçirilirken yinelenen kod önleyebilirsiniz.
 
->[!div class="step-by-step"]
-[Önceki](creating-page-layouts-with-view-master-pages-cs.md)
-[sonraki](asp-net-mvc-views-overview-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-page-layouts-with-view-master-pages-cs.md)
+> [sonraki](asp-net-mvc-views-overview-vb.md)

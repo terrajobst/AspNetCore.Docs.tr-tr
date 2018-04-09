@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
-title: "LINQ-SQL (VB) ile modeli sınıfları oluşturma | Microsoft Docs"
+title: LINQ-SQL (VB) ile modeli sınıfları oluşturma | Microsoft Docs
 author: microsoft
-description: "Bu öğretici bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin..."
+description: Bu öğretici bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 972d5b11049825e84e070ef1c4b2b90116654397
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5438838123c40d82afbda191a48878d6dca80736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ-SQL (VB) ile modeli sınıfları oluşturma
 ====================
@@ -53,9 +53,10 @@ Bu öğreticide--modeli sınıfları--nasıl oluşturulacağına göstermek içi
 
 Yeni veritabanı oluşturduktan sonra uygulama MoviesDB.mdf dosyasını çift tıklatarak veritabanını açabilirsiniz\_veri klasörü. MoviesDB.mdf dosyasını çift tıklayarak Sunucu Gezgini penceresini açar (bkz: Şekil 2).
 
-|  | Sunucu Gezgini penceresini Visual Web Developer kullanırken veritabanı Gezgini penceresi adı verilir. |
-| --- | --- |
 
+|   | Sunucu Gezgini penceresini Visual Web Developer kullanırken veritabanı Gezgini penceresi adı verilir. |
+|---|----------------------------------------------------------------------------------------------------|
+|   |                                                                                                    |
 
 [![Sunucu Gezgini penceresini kullanma](creating-model-classes-with-linq-to-sql-vb/_static/image5.png)](creating-model-classes-with-linq-to-sql-vb/_static/image4.png)
 
@@ -112,7 +113,7 @@ Bizim LINQ'ten SQL'e sınıflarını sahibiz, biz bu sınıfların veritabanınd
 
 İlk olarak, biz HomeController sınıfı değiştirmeniz gerekir. Bu sınıf, uygulamanızın denetleyicileri klasöründe bulunabilir. Sınıfı, listeleme 1 sınıfında benzer şekilde değiştirin.
 
-**Kod 1 –`Controllers\HomeController.vb`**
+**Kod 1 – `Controllers\HomeController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample1.vb)]
 
@@ -122,7 +123,7 @@ LINQ Sorgu tüm filmler tblMovies veritabanı tablosundan almak için DataContex
 
 Film gösterebilmeniz biz sonraki dizin görünümünün değiştirmeniz gerekir. Dizin görünümünün Views\Home\ klasöründe bulabilirsiniz. Dizin görünümünün listeleme 2 görünümünde benzer şekilde güncelleştirin.
 
-**Kod 2 –`Views\Home\Index.aspx`**
+**Kod 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample2.aspx)]
 
@@ -164,19 +165,19 @@ Depo sınıfını oluşturduğunuzda, tüm depo sınıfı tarafından kullanıla
 
 Listeleme 3 arabiriminde IMovieRepository adlandırılır ve ListAll() adlı tek bir yöntemi temsil eder.
 
-**Kod 3 –`Models\IMovieRepository.vb`**
+**Kod 3 – `Models\IMovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample3.vb)]
 
 Listeleme 4 deposu sınıfında IMovieRepository arabirimini uygular. IMovieRepository arabirimi tarafından gerekli yöntemi karşılık gelen ListAll() adlı bir yöntem içerdiğine dikkat edin.
 
-**4 listeleme –`Models\MovieRepository.vb`**
+**4 listeleme – `Models\MovieRepository.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample4.vb)]
 
 Son olarak, 5 listeleme MoviesController sınıfında havuz deseni kullanır. Artık LINQ SQL'e sınıflarını doğrudan kullanır.
 
-**5 listeleme –`Controllers\MoviesController.vb`**
+**5 listeleme – `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](creating-model-classes-with-linq-to-sql-vb/samples/sample5.vb)]
 
@@ -186,7 +187,7 @@ Listeleme 5 MoviesController sınıfında iki oluşturucular olduğuna dikkat ed
 
 MoviesController sınıfı bağımlılık ekleme düzeni adlı bir yazılım tasarım modelinin avantajı, sürüyor. Özellikle, bir şey Oluşturucusu bağımlılık ekleme adlı kullanıyor. Daha fazla bilgiyi aşağıdaki makaleyi Martin Fowler tarafından okuyarak bu desen hakkında:
 
-[http://martinfowler.com/articles/injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Tüm MoviesController kodda (ilk Oluşturucusu hariç olmak üzere) sınıf bildirimi gerçek MovieRepository sınıfı yerine IMovieRepository arabirimi ile etkileşim kurar. Kod arabirimin somut bir uygulama yerine soyut bir arabirim ile etkileşim kurar.
 
@@ -200,6 +201,6 @@ Microsoft LINQ SQL yararlanarak MVC model sınıfları nasıl oluşturabileceği
 
 Ardından, veritabanı verilerini görüntülemek için biraz daha zor ancak kesinlikle daha virtuous bir yolu incelediniz. Biz depo modelinin avantajı, sürdü ve tüm veritabanı erişimi mantığımızı ayrı deposu sınıfında yerleştirilir. Bizim denetleyicisi tüm kodumuza arabirimin somut bir sınıf yerine karşı yazdığımız. Depo modelinin avantajı, bize kolayca veritabanı erişim teknolojileri gelecekte değiştirmek etkinleştirir ve bize kolayca bizim denetleyicisi sınıfları test etmek yararlanmanızı sağlamasıdır.
 
->[!div class="step-by-step"]
-[Önceki](creating-model-classes-with-the-entity-framework-vb.md)
-[sonraki](displaying-a-table-of-database-data-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-model-classes-with-the-entity-framework-vb.md)
+> [sonraki](displaying-a-table-of-database-data-vb.md)

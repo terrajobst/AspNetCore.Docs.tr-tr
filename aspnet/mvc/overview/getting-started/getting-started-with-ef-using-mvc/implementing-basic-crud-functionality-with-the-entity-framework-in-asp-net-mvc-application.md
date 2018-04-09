@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: "ASP.NET MVC uygulamasındaki temel CRUD işlevselliği Entity Framework ile uygulama | Microsoft Docs"
+title: ASP.NET MVC uygulamasındaki temel CRUD işlevselliği Entity Framework ile uygulama | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 14f5143bb5086890d4a2f2fb3b98f1be88a549a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>ASP.NET MVC uygulamasındaki temel CRUD işlevselliği Entity Framework ile uygulama
 ====================
@@ -108,7 +108,7 @@ Aşağıdaki kodda, `courseID` sorgu dizesi olarak eklenmiş şekilde varsayıla
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    Yüklü olmasa bile, bir `Secret` alan web sayfasında, bir bilgisayar korsanının kullanabilir bir aracı gibi [fiddler](http://fiddler2.com/home), veya sonrası için bazı JavaScript Yazma bir `Secret` form değeri. Olmadan [bağlamak](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) oluştururken, model Bağlayıcısı kullandığını alanları sınırlama özniteliği bir `Student` örneği*,* model bağlayıcı ayarladıysanız çekme `Secret` form değeri ve için bunu kullanın oluşturma `Student` varlık örneği. Sonra ne olursa olsun değer için belirtilen korsan `Secret` form alanı veritabanınızda güncelleştirilmesi. Aşağıdaki resimde fiddler gösterilmiştir aracı ekleme `Secret` gönderilen form değerlerine alanı ("OverPost" değeriyle).
+    Yüklü olmasa bile, bir `Secret` alan web sayfasında, bir bilgisayar korsanının kullanabilir bir aracı gibi [fiddler](http://fiddler2.com/home), veya sonrası için bazı JavaScript Yazma bir `Secret` form değeri. Olmadan [bağlamak](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) oluştururken, model Bağlayıcısı kullandığını alanları sınırlama özniteliği bir `Student` örneği<em>,</em> model bağlayıcı ayarladıysanız çekme `Secret` form değeri ve için bunu kullanın oluşturma `Student` varlık örneği. Sonra ne olursa olsun değer için belirtilen korsan `Secret` form alanı veritabanınızda güncelleştirilmesi. Aşağıdaki resimde fiddler gösterilmiştir aracı ekleme `Secret` gönderilen form değerlerine alanı ("OverPost" değeriyle).
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
@@ -201,27 +201,27 @@ Ekleyeceksiniz bir `try-catch` için engelleyin `HttpPost` `Delete` veritabanı 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
     Bu kodu kabul eden bir [isteğe bağlı bir parametre](https://msdn.microsoft.com/library/dd264739.aspx) değişiklikleri kaydetmek için bir hatadan sonra yöntemi çağrıldı olup olmadığını gösterir. Bu parametre `false` zaman `HttpGet` `Delete` yöntemi, önceki bir hata çağrılır. Ne zaman çağırıldığında `HttpPost` `Delete` yöntemi yanıt olarak bir veritabanı güncelleştirme hatası parametredir `true` ve bir hata iletisi görünümüne geçirilir.
-- Değiştir `HttpPost` `Delete` eylem yöntemi (adlı `DeleteConfirmed`) gerçek silme işlemi gerçekleştirir ve veritabanını güncelleştirme hataları yakalar aşağıdaki kodu.
+2. Değiştir `HttpPost` `Delete` eylem yöntemi (adlı `DeleteConfirmed`) gerçek silme işlemi gerçekleştirir ve veritabanını güncelleştirme hataları yakalar aşağıdaki kodu.
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    Seçilen varlığın bu kodu alır sonra çağırır [kaldırmak](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır, bir SQL `DELETE` komutu oluşturulur. Ayrıca eylem yönteminin adı değiştirilmiştir `DeleteConfirmed` için `Delete`. Adlı kurulmuş kodu `HttpPost` `Delete` yöntemi `DeleteConfirmed` vermek için `HttpPost` yöntemi benzersiz bir imza. (CLR farklı yöntem parametreleri sağlamak için aşırı yüklenmiş yöntemler gerektirir.) İmzaları benzersiz, MVC kuralı ile takılıyor ve için aynı adı kullanmak `HttpPost` ve `HttpGet` yöntemlerini silin.
+     Seçilen varlığın bu kodu alır sonra çağırır [kaldırmak](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır, bir SQL `DELETE` komutu oluşturulur. Ayrıca eylem yönteminin adı değiştirilmiştir `DeleteConfirmed` için `Delete`. Adlı kurulmuş kodu `HttpPost` `Delete` yöntemi `DeleteConfirmed` vermek için `HttpPost` yöntemi benzersiz bir imza. (CLR farklı yöntem parametreleri sağlamak için aşırı yüklenmiş yöntemler gerektirir.) İmzaları benzersiz, MVC kuralı ile takılıyor ve için aynı adı kullanmak `HttpPost` ve `HttpGet` yöntemlerini silin.
 
-    Yüksek hacimli uygulama performansını iyileştirme bir öncelik ise, çağrı kod satırlarını değiştirerek satır almak için gerekli olmayan bir SQL sorgusu kaçının `Find` ve `Remove` yöntemleri ile aşağıdaki kodu:
+     Yüksek hacimli uygulama performansını iyileştirme bir öncelik ise, çağrı kod satırlarını değiştirerek satır almak için gerekli olmayan bir SQL sorgusu kaçının `Find` ve `Remove` yöntemleri ile aşağıdaki kodu:
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
 
-    Bu kod başlatır bir `Student` yalnızca birincil anahtar değerini kullanarak varlık ve varlık durumu ayarlar `Deleted`. Entity Framework varlığı silmek için gereken tüm budur.
+     Bu kod başlatır bir `Student` yalnızca birincil anahtar değerini kullanarak varlık ve varlık durumu ayarlar `Deleted`. Entity Framework varlığı silmek için gereken tüm budur.
 
-    Belirtildiği gibi `HttpGet` `Delete` yöntemi verileri sil değil. Bir GET'e yanıt olarak bir silme işlemi isteği (veya herhangi bir düzenleme işlemi gerçekleştirme Bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturmak) bir güvenlik riski oluşturur. Daha fazla bilgi için bkz: [ASP.NET MVC ipucu #46 — güvenlik açıklarını oluşturduğundan bağlantılarını sil kullanmayan](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) Stephen Walther'ın blogunda.
-- İçinde *Views\Student\Delete.cshtml*, hata iletisi arasında eklemek `h2` başlık ve `h3` , aşağıdaki örnekte gösterildiği gibi Başlık:
+     Belirtildiği gibi `HttpGet` `Delete` yöntemi verileri sil değil. Bir GET'e yanıt olarak bir silme işlemi isteği (veya herhangi bir düzenleme işlemi gerçekleştirme Bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturmak) bir güvenlik riski oluşturur. Daha fazla bilgi için bkz: [ASP.NET MVC ipucu #46 — güvenlik açıklarını oluşturduğundan bağlantılarını sil kullanmayan](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) Stephen Walther'ın blogunda.
+3. İçinde *Views\Student\Delete.cshtml*, hata iletisi arasında eklemek `h2` başlık ve `h3` , aşağıdaki örnekte gösterildiği gibi Başlık:
 
-    [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
+     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-    Sayfayı seçerek çalıştırın **Öğrenciler** sekmesi ve tıklayarak bir **silmek** köprü:
+     Sayfayı seçerek çalıştırın **Öğrenciler** sekmesi ve tıklayarak bir **silmek** köprü:
 
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
-- Tıklatın **silmek**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata işleyen kodu eyleminin içine bir örneğini göreceksiniz [eşzamanlılık Öğreticisi](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
+     ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
+4. Tıklatın **silmek**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata işleyen kodu eyleminin içine bir örneğini göreceksiniz [eşzamanlılık Öğreticisi](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
 
 ## <a name="closing-database-connections"></a>Kapatma veritabanı bağlantıları
 
@@ -246,6 +246,6 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-[sonraki](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+> [sonraki](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

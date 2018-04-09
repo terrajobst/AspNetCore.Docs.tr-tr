@@ -1,7 +1,7 @@
 ---
-title: Uygulama
+title: ASP.NET Core veri koruma uygulama
 author: rick-anderson
-description: "Bu belge, çeşitli ASP.NET Core veri koruma uygulama konuları İçindekiler olarak görev yapar."
+description: Çeşitli ASP.NET Core veri koruma uygulama konuları bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,28 +9,28 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/index
-ms.openlocfilehash: a464e961c0df1eb5f3def40d2a8c306454ed02d8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ac891077342bb60cf321b96ba6d55df1a90655cd
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="implementation"></a>Uygulama
+# <a name="aspnet-core-data-protection-implementation"></a>ASP.NET Core veri koruma uygulama
 
-* [Kimliği doğrulanmış şifreleme ayrıntıları](authenticated-encryption-details.md)
+* [Kimliği doğrulanmış şifreleme ayrıntıları](xref:security/data-protection/implementation/authenticated-encryption-details)
 
-* [Alt Anahtar Türetme ve Kimliği Doğrulanmış Şifreleme](subkeyderivation.md)
+* [Alt Anahtar Türetme ve Kimliği Doğrulanmış Şifreleme](xref:security/data-protection/implementation/subkeyderivation)
 
-* [Bağlam üst bilgileri](context-headers.md)
+* [Bağlam üst bilgileri](xref:security/data-protection/implementation/context-headers)
 
-* [Anahtar Yönetimi](key-management.md)
+* [Anahtar Yönetimi](xref:security/data-protection/implementation/key-management)
 
-* [Anahtar Depolama Sağlayıcıları](key-storage-providers.md)
+* [Anahtar Depolama Sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)
 
-* [Bekleme Durumunda Anahtar Şifreleme](key-encryption-at-rest.md)
+* [Bekleme Durumunda Anahtar Şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-* [Anahtar Değiştirilemezliği ve Ayarları Değiştirme](key-immutability.md)
+* [Anahtar girişi ve ayarları](xref:security/data-protection/implementation/key-immutability)
 
-* [Anahtar Depolama Biçimi](key-storage-format.md)
+* [Anahtar Depolama Biçimi](xref:security/data-protection/implementation/key-storage-format)
 
-* [Kısa ömürlü veri koruma sağlayıcıları](key-storage-ephemeral.md)
+* [Kısa ömürlü veri koruma sağlayıcıları](xref:security/data-protection/implementation/key-storage-ephemeral)

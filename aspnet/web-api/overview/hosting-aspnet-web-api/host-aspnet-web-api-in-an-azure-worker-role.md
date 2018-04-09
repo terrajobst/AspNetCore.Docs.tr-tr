@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
-title: "ASP.NET Web API 2 Azure çalışan rolünde konak | Microsoft Docs"
+title: ASP.NET Web API 2 Azure çalışan rolünde konak | Microsoft Docs
 author: MikeWasson
-description: "Bu öğretici bir Azure çalışan rolünde ASP.NET Web API barındırmak OWIN Web API çerçevesi Self barındırmak için kullanma gösterilmektedir. Web arabirimi için .NET (OWIN) de Aç..."
+description: Bu öğretici bir Azure çalışan rolünde ASP.NET Web API barındırmak OWIN Web API çerçevesi Self barındırmak için kullanma gösterilmektedir. Web arabirimi için .NET (OWIN) de Aç...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>ASP.NET Web API 2 Azure çalışan rolünde ana bilgisayar
 ====================
@@ -131,7 +131,7 @@ WorkerRole.cs için tam kod aşağıdaki gibidir:
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-IP adresi hizmet dağıtımları, dağıtım [kimlik], hizmet ayrıntıları altında bulabilirsiniz. Bir web tarayıcısı açın ve http:// gidin*adresi*/test/1, burada *adresi* işlem öykünücüsü tarafından; atanan IP adresidir Örneğin, `http://127.0.0.1:80/test/1`. Web API denetleyicisi yanıtı görmeniz gerekir:
+IP adresi hizmet dağıtımları, dağıtım [kimlik], hizmet ayrıntıları altında bulabilirsiniz. Bir web tarayıcısı açın ve http:// gidin<em>adresi</em>/test/1, burada <em>adresi</em> işlem öykünücüsü tarafından; atanan IP adresidir Örneğin, `http://127.0.0.1:80/test/1`. Web API denetleyicisi yanıtı görmeniz gerekir:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 
@@ -159,7 +159,7 @@ Tıklatın **yayımlama**.
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image20.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image19.png)
 
-Azure etkinlik günlüğü penceresi dağıtımının ilerlemesini gösterir. Uygulama dağıtıldığında, http://appname.cloudapp.net/test/1 için göz atın.
+Azure etkinlik günlüğü penceresi dağıtımının ilerlemesini gösterir. Uygulama dağıtıldığında, Gözat http://appname.cloudapp.net/test/1.
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image21.png)
 

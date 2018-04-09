@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC 5 uygulaması (11 / 12) Entity Framework 6 kalıtım uygulama | Microsoft Docs"
+title: Bir ASP.NET MVC 5 uygulaması (11 / 12) Entity Framework 6 kalıtım uygulama | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1826659626106993d4796641492c62fcbd22a1b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Bir ASP.NET MVC 5 uygulaması (11 / 12) Entity Framework 6 kalıtım uygulama
 ====================
@@ -152,7 +152,7 @@ Bu bölümde isteğe bağlı tamamladınız gerektirir **uygulamayı Azure'a da�
   
     ![Yayımlama](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)  
   
- Web uygulaması, varsayılan tarayıcıda açılır.
+   Web uygulaması, varsayılan tarayıcıda açılır.
 3. Bunu doğrulamak için uygulamayı test çalışıyor.
 
     Bir sayfa, ilk kez çalıştırdığınızda veritabanına erişir, Entity Framework tüm geçişler çalıştırılır `Up` veritabanı geçerli veri modeli ile güncel duruma getirmek için gereken yöntemleri.
@@ -163,6 +163,6 @@ Tablo başına hiyerarşisi devralma uyguladık `Person`, `Student`, ve `Instruc
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

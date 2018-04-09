@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core WebSockets desteği"
+title: ASP.NET Core WebSockets desteği
 author: tdykstra
-description: "ASP.NET Core WebSockets kullanmaya başlayacağınızı öğrenin."
+description: ASP.NET Core WebSockets kullanmaya başlayacağınızı öğrenin.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: c6ad2ea249bf837ce86685b67e6460e433692849
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: e744ab5b81ff85f48edb012a86b55003cc74929c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-websockets-in-aspnet-core"></a>ASP.NET Core WebSockets giriş
+# <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Barış Stanton-Nurse](https://github.com/anurse)
 
@@ -43,7 +43,7 @@ Bu makalede, ASP.NET Core WebSockets kullanmaya başlama açıklanmaktadır. [We
 
   * Windows 8 / Windows Server 2012 veya üzeri
 
-* Desteklenen tarayıcılar için https://caniuse.com/#feat=websockets bakın.
+* Desteklenen tarayıcılar için bkz: https://caniuse.com/#feat=websockets.
 
 ## <a name="when-to-use-websockets"></a>WebSockets kullanma zamanı
 

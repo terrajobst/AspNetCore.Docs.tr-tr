@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC denetleyicileri istekleri işleme"
+title: ASP.NET Core MVC denetleyicileri tanıtıcı istekleri
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1223eacfb88e1e6adb6edaf5ea4ba2b653292850
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2f37bc7999b4c4ccc985d25d2ef009954d8f3f0
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri istekleri işleme
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri tanıtıcı istekleri
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://github.com/scottaddie)
 
@@ -76,7 +76,7 @@ Bu kategoride iki sonuç türü vardır: yeniden yönlendirme ve HTTP durum kodu
 
 Bu kategorideki çoğu yardımcı yöntemler içerir bir `ContentType` ayarlamanıza olanak veren özelliği, `Content-Type` yanıt gövdesi açıklamak için yanıt üstbilgisi.
 
-Bu kategoride iki sonuç türü vardır: [Görünüm](xref:mvc/views/overview) ve [biçimlendirilmiş yanıt](xref:mvc/models/formatting).
+Bu kategoride iki sonuç türü vardır: [Görünüm](xref:mvc/views/overview) ve [biçimlendirilmiş yanıt](xref:web-api/advanced/formatting).
 
 * **Görünümü**
 
@@ -90,7 +90,7 @@ Bu kategoride iki sonuç türü vardır: [Görünüm](xref:mvc/views/overview) v
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. İstemciyle anlaşılan bir içerik türü boş yanıt gövdesi içinde kaynaklanan yöntemleri biçimlendirilmiş
 
-Bu kategori daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:mvc/models/formatting#content-negotiation) bir eylem döndürür her geçerli bir [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) de biçimlendirilmiş bir yanıt döndürür.
+Bu kategori daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) bir eylem döndürür her geçerli bir [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) de biçimlendirilmiş bir yanıt döndürür.
 
 Bu türdeki bazı yardımcı yöntemler içerir `BadRequest`, `CreatedAtRoute`, ve `Ok`. Bu yöntemler örnekleridir `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, ve `return Ok(value);`sırasıyla. Unutmayın `BadRequest` ve `Ok` yalnızca bir değer geçirildiğinde içerik anlaşması gerçekleştirin; bir değer geçirilen olmadan, bunun yerine HTTP durum kodu sonuç türleri olarak verdikleri. `CreatedAtRoute` Yöntemi, diğer yandan, içerik anlaşmasını tüm gerektiren bir değere geçirilecek kendi aşırı itibaren her zaman gerçekleştirir.
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
-title: "Daha karmaşık bir veri modeli için bir ASP.NET MVC uygulaması oluşturma | Microsoft Docs"
+title: Daha karmaşık bir veri modeli için bir ASP.NET MVC uygulaması oluşturma | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9a89aa8e7dd3b2f6ac18e0b1a9c2a9d64d27189c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fd8bf6502b0dd261505a86a2ed86d4c3f42e8755
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Daha karmaşık bir veri modeli için bir ASP.NET MVC uygulaması oluşturma
 ====================
@@ -47,7 +47,7 @@ Tüm bu alan için ilgilendiğiniz olmasına rağmen tarih Öğrenci kayıt tari
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. [DataType numaralandırma](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) birçok veri türleri gibi sağlar *tarih, saat, PhoneNumber, para birimi, EmailAddress* ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), ve bir tarih seçici için sağlanan [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) destekleyen tarayıcılarda [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yayar HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (belirgin *veri tire*) HTML 5 tarayıcılar anlayabileceği öznitelikleri. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri tüm doğrulama sağlamaz.
 
-`DataType.Date`Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -151,7 +151,7 @@ Ayrıca veritabanı kullanarak eşleme değişiklik yapabilirsiniz [Fluent API](
 
 ### <a name="the-fullname-calculated-property"></a>FullName özelliği hesaplanan
 
-`FullName`diğer iki özellik birleştirerek oluşturulan bir değer döndürür hesaplanan bir özelliktir. Bu nedenle yalnızca sahip bir `get` erişimci ve Hayır `FullName` sütun veritabanında oluşturulmayacak.
+`FullName` diğer iki özellik birleştirerek oluşturulan bir değer döndürür hesaplanan bir özelliktir. Bu nedenle yalnızca sahip bir `get` erişimci ve Hayır `FullName` sütun veritabanında oluşturulmayacak.
 
 ## <a name="create-the-instructor-entity"></a>Eğitmen varlık oluştur
 
@@ -270,8 +270,8 @@ Yabancı anahtar ve gezinti özellikleri aşağıdaki ilişkileri yansıtır:
 
     [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample23.cs)]
 
- > [!NOTE]
- > Kurala göre art arda silme çok-çok ilişkileri ve null yabancı anahtarlar için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda, bir özel durum neden olacak döngüsel cascade delete kuralları'nda neden olabilir. Örneğin, tanımlamadığınız, `Department.InstructorID` özelliği null olarak, aşağıdaki özel durum iletisi almak: "başvuru ilişkisi verilmeyen döngüsel başvuru neden olur." İş kuralları gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API deyimi kullanması gerekir: 
+  > [!NOTE]
+  > Kurala göre art arda silme çok-çok ilişkileri ve null yabancı anahtarlar için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda, bir özel durum neden olacak döngüsel cascade delete kuralları'nda neden olabilir. Örneğin, tanımlamadığınız, `Department.InstructorID` özelliği null olarak, aşağıdaki özel durum iletisi almak: "başvuru ilişkisi verilmeyen döngüsel başvuru neden olur." İş kuralları gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API deyimi kullanması gerekir: 
 
 [!code-csharp[Main](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/samples/sample24.cs)]
 
@@ -413,6 +413,6 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

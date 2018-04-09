@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC uygulamasındaki (6 10) Entity Framework ile ilgili verileri güncelleştirme | Microsoft Docs"
+title: Bir ASP.NET MVC uygulamasındaki (6 10) Entity Framework ile ilgili verileri güncelleştirme | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2ca76364a2e9a71dc92644bd579345ae3c304a69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 227a7fed0ced884db591f0375454d6d0a62518f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Bir ASP.NET MVC uygulamasındaki (6 10) Entity Framework ile ilgili verileri güncelleştirme
 ====================
@@ -214,6 +214,6 @@ Yönetici olarak bir birime atanmış bir eğitmen silmeye çalışırsanız, bi
 
 Diğer Entity Framework kaynaklarına bağlantılar sonunda bulunabilir [bu serideki son Öğreticisi](advanced-entity-framework-scenarios-for-an-mvc-web-application.md).
 
->[!div class="step-by-step"]
-[Önceki](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

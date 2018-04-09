@@ -1,26 +1,26 @@
 ---
 uid: single-page-application/overview/introduction/other-libraries
-title: "Bir kitaplık Boşaltılan dışında biliyor musunuz? | Microsoft Docs"
+title: Bir kitaplık Boşaltılan dışında biliyor musunuz? | Microsoft Docs
 author: madskristensen
-description: "Bir kitaplık Boşaltılan dışında biliyor musunuz?"
+description: Bir kitaplık Boşaltılan dışında biliyor musunuz?
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/05/2013
 ms.topic: article
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 5a863f50401a4e2bab3f772374b7fd178f6c6cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ac260e88fd156bad4b414e93325d5a04c490c88
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="know-a-library-other-than-knockout"></a>Bir kitaplık Boşaltılan dışında biliyor musunuz?
 ====================
-tarafından [Kristensen Mads](https://github.com/madskristensen)
+by [Mads Kristensen](https://github.com/madskristensen)
 
 [Tek sayfa uygulama (SPA) şablonu](knockoutjs-template.md) tek sayfa uygulamaları yazma başlamak için harika bir yoludur. Şablonu kullanan [Çakıştırmaları](http://knockoutjs.com/) uygulama verilerini DOM öğesine bağlanamadı.
 
@@ -57,15 +57,17 @@ Burada listelenen diğer şablonları ile karşılaştırıldığında, sık kul
 
 Her SPA şablon tarafından sağlanan özellikleri şunlardır:
 
-|  | ASP.NET SPA | Omurga | Kolay/Açısal | Kolay/KO | Ember | Sık kullanılan havlu |
-| --- | --- | --- | --- | --- | --- | --- |
-| Yapılacaklar örnek | &#10003; |  | &#10003; | &#10003; | &#10003; |  |
-| Tam şablonu |  | &#10003; |  |  |  | &#10003; |
-| Gezinti ve geçmişi |  | &#10003; | &#10003; |  | &#10003; | &#10003; |
-| Kitaplıkları |  |  |  |  |  |  |
-| Açısal |  |  | &#10003; |  |  |  |
-| &#8195; Omurga |  | &#10003; |  |  |  |  |
-| Kolay |  |  | &#10003; | &#10003; |  | &#10003; |
-| Durandal |  |  |  |  |  | &#10003; |
-| Ember |  |  |  |  | &#10003; |  |
-| Boşaltılan | &#10003; |  |  | &#10003; |  | &#10003; |
+
+|                        | ASP.NET SPA | Omurga | Kolay/Açısal | Breeze/KO |  Ember   | Sık kullanılan havlu |
+|------------------------|-------------|----------|----------------|-----------|----------|-----------|
+|      Yapılacaklar örnek       |  &#10003;   |          |    &#10003;    | &#10003;  | &#10003; |           |
+|     Tam şablonu      |             | &#10003; |                |           |          | &#10003;  |
+| Gezinti ve geçmişi |             | &#10003; |    &#10003;    |           | &#10003; | &#10003;  |
+|        Kitaplıkları        |             |          |                |           |          |           |
+|        Angular         |             |          |    &#10003;    |           |          |           |
+|    &#8195;Backbone     |             | &#10003; |                |           |          |           |
+|         Breeze         |             |          |    &#10003;    | &#10003;  |          | &#10003;  |
+|        Durandal        |             |          |                |           |          | &#10003;  |
+|         Ember          |             |          |                |           | &#10003; |           |
+|        Boşaltılan        |  &#10003;   |          |                | &#10003;  |          | &#10003;  |
+

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
-title: "EF veritabanıyla ilk ASP.NET MVC: veri modelleri ve Web uygulaması oluşturma | Microsoft Docs"
+title: 'EF veritabanıyla ilk ASP.NET MVC: veri modelleri ve Web uygulaması oluşturma | Microsoft Docs'
 author: tfitzmac
-description: "ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri..."
+description: ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: f495bfa3aa5332e4ca3e44c2ffbfb760fbbeafc8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04ccc00fa48702608fdc7b5b00d73778985852f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a>EF veritabanıyla ilk ASP.NET MVC: veri modelleri ve Web uygulaması oluşturma
 ====================
@@ -63,8 +63,7 @@ Varlık veri modeli Sihirbazı'nda seçin **veritabanından EF Designer**.
 
 ![veritabanından oluştur](creating-the-web-application/_static/image6.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 Veritabanı bağlantıları geliştirme ortamınızı içinde tanımlı varsa, önceden seçilmiş bu bağlantılarından biri görebilirsiniz. Ancak, bu öğreticinin ilk bölümünde oluşturulan veritabanı için yeni bir bağlantı oluşturmak istediğiniz. Tıklatın **yeni bağlantı** düğmesi.
 
@@ -80,8 +79,7 @@ Doğru bağlantı özellikleri artık görüntülenir. Web.Config dosyasında ba
 
 ![bağlantı ayarları](creating-the-web-application/_static/image9.png)
 
-
-              **İleri**'ye tıklayın.
+**İleri**'ye tıklayın.
 
 Seçin **tabloları** tüm üç tablolar için model oluşturmak için.
 
@@ -103,6 +101,6 @@ Modeller klasörü artık veritabanından oluşturulan modelleri ilgili çok say
 
 Bu öğretici ile devam etmeden önce projeyi oluşturun. Proje oluşturulmadı bölüm çalışmaz ancak bu, sonraki bölümde, veri modellerinde göre kod oluşturur.
 
->[!div class="step-by-step"]
-[Önceki](setting-up-database.md)
-[sonraki](generating-views.md)
+> [!div class="step-by-step"]
+> [Önceki](setting-up-database.md)
+> [sonraki](generating-views.md)

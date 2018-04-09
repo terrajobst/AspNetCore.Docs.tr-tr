@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
-title: "Bir rota kısıtlaması (C#) oluşturma | Microsoft Docs"
+title: Bir rota kısıtlaması (C#) oluşturma | Microsoft Docs
 author: StephenWalther
-description: "Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir."
+description: Bu öğreticide, Normal ifadelerle rota kısıtlamalarını oluşturarak tarayıcı eşleşen yolların nasıl istekleri nasıl kontrol edebilir Stephen Walther gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ee83a134dcbdd1abfb296f3126a64c7d4ebab7f5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3159feb6538e3048f4f235f7d549e692604ca4e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-route-constraint-c"></a>Bir rota kısıtlaması (C#) oluşturma
 ====================
@@ -67,7 +67,7 @@ Gerçekten yapmak istediğinize uygun tamsayı ProductID içeren URL'ler yalnız
 
 Normal ifade \d+ bir veya daha fazla tamsayılar eşleşir. Bu sınırlama aşağıdaki URL'ler eşleştirmek ürün yol neden olur:
 
-- / Ürün/3
+- /Product/3
 - / Ürün/8999
 
 Ancak aşağıdaki URL'ler:
@@ -77,6 +77,6 @@ Ancak aşağıdaki URL'ler:
 
 - Bu tarayıcı istekleri başka bir rota tarafından işlenecek veya eşleşen hiçbir yol varsa bir *kaynak bulunamadı* hata döndürülecek.
 
->[!div class="step-by-step"]
-[Önceki](creating-custom-routes-cs.md)
-[sonraki](creating-a-custom-route-constraint-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-custom-routes-cs.md)
+> [sonraki](creating-a-custom-route-constraint-cs.md)

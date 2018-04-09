@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
-title: "Sayfa düzenleri görünümü ana sayfalar (VB) oluşturma | Microsoft Docs"
+title: Sayfa düzenleri görünümü ana sayfalar (VB) oluşturma | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, birden çok sayfa için ortak bir sayfa düzeni uygulamanızda görünümü ana sayfalar yararlanarak oluşturmayı öğrenin. Kullanabileceğiniz bir..."
+description: Bu öğreticide, birden çok sayfa için ortak bir sayfa düzeni uygulamanızda görünümü ana sayfalar yararlanarak oluşturmayı öğrenin. Kullanabileceğiniz bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5466ea8a33bd2ccfe36c0f01b6b474bbb8d540a3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5208cedd8d24a290a0227bdcbaa84ae6210cd969
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a>Sayfa düzenleri görünümü ana sayfalar (VB) ile oluşturma
 ====================
@@ -51,7 +51,7 @@ Bir görünüm ana sayfa gibi standart bir ASP.NET MVC görünümü çok arar. A
 
 Örneğin, iki sütun düzeni listeleme 1 görüntüle ana sayfasında tanımlar. İki içeren `<contentplaceholder>` etiketler. Bir `<ContentPlaceHolder>` her sütun için.
 
-**Kod 1 –`Views\Shared\Site.master`**
+**Kod 1 – `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample1.aspx)]
 
@@ -83,7 +83,7 @@ Ekle düğmesini tıklattıktan sonra yeni bir iletişim kutusu görünümü iç
 
 Site.master ana sayfasını temel alan yeni bir görünüm içerik sayfası oluşturduktan sonra listeleme 2 dosyasında alın.
 
-**Kod 2 –`Views\Home\Index.aspx`**
+**Kod 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample2.aspx)]
 
@@ -97,7 +97,7 @@ Geçersiz kılma gerekmez her `<asp:ContentPlaceHolder>` bir ana sayfa içerik g
 
 Örneğin, değiştirilmiş dizin görünümünün listeleme 3'te yalnızca iki içeren `<asp:Content>` etiketler. Her biri `<asp:Content>` etiketleri bazı metinleri içerir.
 
-**Kod 3 –`Views\Home\Index.aspx (modified)`**
+**Kod 3 – `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -127,7 +127,7 @@ Ana görünüm sayfası çalışması başlık özniteliği de getirmelidir öne
 
 Değiştirmek istediğiniz bölgeyi sarmalamak için ana sayfa içeriği tek tek görünüm içerik sayfasından değiştirme için alternatif bir yaklaşım olan bir `<asp:ContentPlaceHolder>` etiketi. Örneğin, yalnızca başlık, aynı zamanda bir ana görünüm sayfası tarafından oluşturulan meta etiketleri değiştirmek istediğiniz düşünün. Ana görünüm sayfası 4 listeleme içeren bir `<asp:ContentPlaceHolder>` içinde etiketi kendi `<head>` etiketi.
 
-**4 listeleme –`Views\Shared\Site2.master`**
+**4 listeleme – `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample5.aspx)]
 
@@ -135,7 +135,7 @@ Dikkat `<asp:ContentPlaceHolder>` listeleme 4 etiketinde varsayılan içerik iç
 
 Geçersiz kılmaları listeleme 5'teki içerik görünümü sayfası `<asp:ContentPlaceHolder>` özel bir başlık ve özel meta etiketler görüntülemek için etiketi.
 
-**5 listeleme –`Views\Home\Index2.aspx`**
+**5 listeleme – `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample6.aspx)]
 
@@ -143,6 +143,6 @@ Geçersiz kılmaları listeleme 5'teki içerik görünümü sayfası `<asp:Conte
 
 Bu öğretici ana sayfalar görüntülemek ve içerik sayfalarını görüntülemek için temel bir giriş sağlanan. İçin yeni bir görünüm ana sayfalar ve bunlar üzerinde temel içerik sayfalarını görüntüleme oluşturun öğrendiniz. Ayrıca belirli Görünüm İçerik sayfasından bir görünüm ana sayfasının içeriği nasıl değiştirebileceğiniz incelendi.
 
->[!div class="step-by-step"]
-[Önceki](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
-[sonraki](passing-data-to-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
+> [sonraki](passing-data-to-view-master-pages-vb.md)

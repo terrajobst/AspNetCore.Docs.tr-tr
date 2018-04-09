@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
-title: "Kullanıcıların Windows kimlik doğrulaması (C#) ile kimlik doğrulaması | Microsoft Docs"
+title: Kullanıcıların Windows kimlik doğrulaması (C#) ile kimlik doğrulaması | Microsoft Docs
 author: microsoft
-description: "Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web co içinde Windows kimlik doğrulamasını etkinleştirmek öğrenin..."
+description: Bir MVC uygulaması bağlamında Windows kimlik doğrulaması kullanmayı öğrenin. Uygulamanızın web co içinde Windows kimlik doğrulamasını etkinleştirmek öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d52597e65272fa202ef4980924f669dcc4cec593
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 140d2232f7826e178301d1d2064e12657be23385
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Kullanıcıların Windows kimlik doğrulaması (C#) ile kimlik doğrulaması
 ====================
@@ -51,7 +51,7 @@ Diğer yandan, bir üretim web uygulaması için web sunucunuz olarak IIS kullan
 
 > [!NOTE] 
 > 
-> Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz: [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
+> Bu farklı kimlik doğrulama türleri daha ayrıntılı bir genel bakış için bkz: [ https://msdn.microsoft.com/library/aa292114(VS.71).aspx ](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Belirli bir kimlik doğrulama türünü etkinleştirmek için Internet Information Services Yöneticisi'ni kullanabilirsiniz. Tüm kimlik doğrulama türlerini her işletim sistemi söz konusu olduğunda kullanılabilir olmadığını unutmayın. Ayrıca, IIS 7.0 ile Windows Vista kullanıyorsanız, Internet Information Services Manager'da görünmeden önce Windows kimlik doğrulaması farklı türde etkinleştirmeniz gerekir. Açık **Denetim Masası, programlar, programlar ve özellikler, kapatma Windows özelliklerini aç veya Kapat**, Internet Information Services düğümünü genişletin (bkz: Şekil 2).
@@ -93,6 +93,6 @@ Diğer taraftan, IIS anonim kimlik doğrulamasını devre dışı ve temel kimli
 
 Bu öğretici, Windows kimlik doğrulaması bir ASP.NET MVC uygulaması bağlamında nasıl kullanabileceğiniz açıklanmıştır. Uygulamanızın web yapılandırma dosyası içinde Windows kimlik doğrulamasını etkinleştirmek ve IIS ile kimlik doğrulamasını yapılandırmak öğrendiniz. Son olarak, [Authorize] özniteliği denetleyici eylemleri belirli Windows kullanıcılar veya gruplar için erişimi kısıtlamak için nasıl kullanılacağı hakkında bilgi edindiniz.
 
->[!div class="step-by-step"]
-[Önceki](authenticating-users-with-forms-authentication-cs.md)
-[sonraki](preventing-javascript-injection-attacks-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](authenticating-users-with-forms-authentication-cs.md)
+> [sonraki](preventing-javascript-injection-attacks-cs.md)

@@ -1,7 +1,7 @@
 ---
-title: "Kimliği doğrulanmış şifreleme ayrıntıları"
+title: ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 author: rick-anderson
-description: "Bu belge anahatları ASP.NET Core veri koruma uygulama ayrıntılarını şifreleme kimlik doğrulaması."
+description: Kimliği doğrulanmış ASP.NET Core veri koruması şifreleme uygulama ayrıntılarını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: b58f36a5f0353da69d6f1ef4db542aba8267027a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authenticated-encryption-details"></a>Kimliği doğrulanmış şifreleme ayrıntıları
+# <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
@@ -31,7 +31,7 @@ Korumalı yük biçimi üç birincil bileşenden oluşur:
 
 * Bu belirli yükü korumak için kullanılan anahtarı tanımlar 128-bit anahtar kimliği.
 
-* Korumalı yük kalan [bu anahtarı tarafından kapsüllenmiş Şifreleyici belirli](subkeyderivation.md#data-protection-implementation-subkey-derivation). Aşağıdaki örnekte anahtarı temsil eden bir AES 256 CBC + HMACSHA256 Şifreleyici ve yükü daha ayrıntılı şekilde ayrılır: * A 128-bit anahtar değiştiricisi. * Bir 128-bit başlatma vektörü. * AES 256 CBC çıktı 48 bayt sayısı. * Bir HMACSHA256 kimlik doğrulaması etiketi.
+* Korumalı yük kalan [bu anahtarı tarafından kapsüllenmiş Şifreleyici belirli](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Aşağıdaki örnekte anahtarı temsil eden bir AES 256 CBC + HMACSHA256 Şifreleyici ve yükü daha ayrıntılı şekilde ayrılır: * A 128-bit anahtar değiştiricisi. * Bir 128-bit başlatma vektörü. * AES 256 CBC çıktı 48 bayt sayısı. * Bir HMACSHA256 kimlik doğrulaması etiketi.
 
 Bir örnek korumalı yükü aşağıda gösterilmiştir.
 

@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core filtreleri
 author: ardalis
-description: "Filtreler nasıl çalışır ve bunları ASP.NET Core MVC'de nasıl kullanacağınızı öğrenin."
+description: Filtreler nasıl çalışır ve bunları ASP.NET Core MVC'de nasıl kullanacağınızı öğrenin.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/12/2016
@@ -9,17 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: adb80c8161741506188c963d0a1cef721a21bd63
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7a857bc60500985c9b0547dc0d7e372e987a9099
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreleri
 
 Tarafından [zel Dykstra](https://github.com/tdykstra/) ve [Steve Smith](https://ardalis.com/)
 
 *Filtreler* ASP.NET Core MVC'de, önce veya sonra istek işleme ardışık düzeninde belirli aşamaları kodu çalıştırmanızı sağlar.
+
+> [!IMPORTANT]
+> Bu konuda mu **değil** Razor sayfalarına uygulayın. ASP.NET Core 2.1 önizleme ve sonraki destekler `IPageFilter` ve `IAsyncPageFilter` Razor sayfalarının.
 
  (Bir kullanıcı için yetkili değil kaynaklarına erişimini engelleme) yetkilendirme gibi yerleşik filtreler tanıtıcı görevleri, tüm istekleri HTTPS ve yanıt (önbelleğe alınan yanıt döndürmek için istek ardışık düzenini kısa devre) önbelleğe almayı kullanmak sağlama. 
 
@@ -57,7 +60,7 @@ Filtreler farklı arabirimi tanımları aracılığıyla zaman uyumlu ve uyumsuz
 
 Çalıştırabilirsiniz zaman uyumlu filtreleri kod, her ikisi de, önce ve bunların ardışık düzen aşaması tanımladıktan sonra*aşama*Executing ve*aşama*yöntemleri yürütülür. Örneğin, `OnActionExecuting` eylem yöntemi çağrılmadan önce çağrılır ve `OnActionExecuted` eylem yöntemine döndürür sonra çağrılır.
 
-[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?highlight=6,8,13)]
+[!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?&name=snippet1)]
 
 Zaman uyumsuz filtreleri üzerinde tek bir tanımlamak*aşama*ExecutionAsync yöntemi. Bu yöntem alır bir *FilterType*filtre ardışık düzen aşaması yürüten ExecutionDelegate temsilci. Örneğin, `ActionExecutionDelegate` ve eylem yöntemi yürütebilir çağrıları kod önce ve sonra onu çağırabilir.
 
@@ -277,7 +280,7 @@ Aşağıdaki örnek özel durum filtresi, uygulama geliştirme olduğunda oluşa
 Özel bir durumu işlemek üzere ayarlanmış `ExceptionContext.ExceptionHandled` doğru veya bir yanıt yazma özelliği. Bu özel durumun yayma durdurur. Bir özel durum filtresi bir özel durum "başarılı" içine etkinleştiremiyor unutmayın. Yalnızca bir eylem filtresi, bunu yapabilirsiniz.
 
 > [!NOTE]
-> Ayarlarsanız ASP.NET 1.1 içinde bir yanıt gönderdi değil `ExceptionHandled` true **ve** yanıt yazma. Bu senaryoda, ASP.NET Core 1.0 yanıtı gönder ve ASP.NET Core 1.1.2 1.0 davranışını döndürür. Daha fazla bilgi için bkz: [sorun #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub deposunda. 
+> Ayarlarsanız ASP.NET Core 1.1 içinde bir yanıt gönderdi değil `ExceptionHandled` true **ve** yanıt yazma. Bu senaryoda, ASP.NET Core 1.0 yanıtı gönder ve ASP.NET Core 1.1.2 1.0 davranışını döndürür. Daha fazla bilgi için bkz: [sorun #5594](https://github.com/aspnet/Mvc/issues/5594) GitHub deposunda. 
 
 Özel durum filtreleri içinde MVC Eylemler oluşan özel durumlarını yakalama için iyi, ancak bunlar hata ara yazılım işleme kadar esnek değildir. Ara yazılımı genel örneği için tercih ettiğiniz ve hata işleme yapmak için yalnızca ihtiyaç duyacağınız filtreleri kullanın *farklı* MVC eylemi seçildi tabanlı. Örneğin, uygulamanızın eylem yöntemleri görünümler/HTML ve her iki API uç noktaları için olabilir. Görünüm tabanlı eylemler HTML olarak hata sayfasını döndürebilirsiniz sırada API uç noktaları hata bilgisi, JSON olarak döndürebilir.
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC uygulamasındaki (8, 10) Entity Framework kalıtım uygulama | Microsoft Docs"
+title: Bir ASP.NET MVC uygulamasındaki (8, 10) Entity Framework kalıtım uygulama | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 54e46c6f996b6fe86a227c851562e61678b02780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee088f841bdb68f4806b0b62be7d379b9eab9f8c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Bir ASP.NET MVC uygulamasındaki (8, 10) Entity Framework kalıtım uygulama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
@@ -47,7 +47,7 @@ Tarafından paylaşılan özellikler için yedek kod ortadan kaldırmak istediğ
 
 Bu devralma yapı veritabanında gösterilebilir birkaç yolu vardır. Sahip olabilir bir `Person` Öğrenciler ve tek bir tablodaki Eğitmen hakkında bilgi içeren tablo. Bazı sütunları yalnızca eğitmen için geçerli olabilir (`HireDate`), bazı yalnızca Öğrenciler (`EnrollmentDate`), bazı iki (`LastName`, `FirstName`). Genellikle, olurdu bir *Ayrıştırıcıyı* her satır tür belirtmek için sütun temsil eder. Örneğin, ayrıştırıcı sütunun "Eğitmen" Eğitmen ve "Öğrenci" Öğrenciler için olabilir.
 
-![Tablo başına hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
+![Table-per-hierarchy_example](https://asp.net/media/2578125/Windows-Live-Writer_58f5a93579b2_CC7B_Table-per-hierarchy_example_244067cd-b451-4e9b-9595-793b9afca505.png)
 
 Bir varlığın devralma yapısı tek veritabanı tablosundan oluşturmanın bu deseni adlı *tablo başına hiyerarşisi* (TPH) devralma.
 
@@ -100,7 +100,7 @@ Bu değişikliği gerekli değildir; yalnızca, çoktan bire çok birleşme tabl
 Sonraki değiştirmeye ihtiyaç `InstructorID` için `PersonID` ve `StudentID` için `PersonID` proje boyunca ***dışında*** zaman damgalı geçişler dosyalarında *geçişler* klasör. Bunu yapmak için bulmak ve açık yalnızca değiştirilmesi gereken dosyalar ardından açık dosyalarda genel değişiklik yapmak. Yalnızca dosyasında *geçişler* değiştirmek klasördür *Migrations\Configuration.cs.*
 
 1. > [!IMPORTANT]
- > Visual Studio'da açık olan tüm dosyaları kapatarak başlar.
+   > Visual Studio'da açık olan tüm dosyaları kapatarak başlar.
 2. Tıklatın **Bul ve Değiştir – tüm dosyaları bulmak** içinde **Düzenle** menüsüne ve ardından arama içeren projedeki tüm dosyalar için `InstructorID`.  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
@@ -108,7 +108,7 @@ Sonraki değiştirmeye ihtiyaç `InstructorID` için `PersonID` ve `StudentID` i
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 4. Açık **dosyalarda Değiştir** iletişim ve değişiklik **konum** için **tüm açık belgeleri**.
-5. Kullanım **dosyalarda Değiştir** tüm değiştirmek için iletişim `InstructorID` için`PersonID.`  
+5. Kullanım **dosyalarda Değiştir** tüm değiştirmek için iletişim `InstructorID` için `PersonID.`  
   
     ![](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 6. Tüm dosyaları içeren projeye bulmak `StudentID`.
@@ -169,6 +169,6 @@ Tablo başına hiyerarşisi devralma şimdi uygulandıktan için `Person`, `Stud
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)

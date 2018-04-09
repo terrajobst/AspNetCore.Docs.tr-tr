@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: "ASP.NET Identity giriş | Microsoft Docs"
+title: ASP.NET Identity giriş | Microsoft Docs
 author: jongalloway
-description: "Yolları web uygulamaları typicall birçok değişiklikler olmuştur sonra ASP.NET üyelik sistemini 2005'te ve bu yana ASP.NET 2.0 sonradan sunulmuştur..."
+description: Yolları web uygulamaları typicall birçok değişiklikler olmuştur sonra ASP.NET üyelik sistemini 2005'te ve bu yana ASP.NET 2.0 sonradan sunulmuştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 59272f4659256e108ee99b22eb3bd3e2583a617c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>ASP.NET Identity giriş
 ====================
@@ -112,37 +112,37 @@ Aşağıdaki yordamı kullanarak ASP.NET Identity uygulanır. Bu makalenin amac�
 2. Oluşturulan proje için ASP.NET Identity aşağıdaki üç paketleri içerir.
 
     - [`Microsoft.AspNet.Identity.EntityFramework`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/)  
- Bu paket, ASP.NET Identity veri ve şema SQL Server'a korunur ASP.NET Identity Entity Framework uygulamasını sahiptir.
+   Bu paket, ASP.NET Identity veri ve şema SQL Server'a korunur ASP.NET Identity Entity Framework uygulamasını sahiptir.
     - [`Microsoft.AspNet.Identity.Core`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/)  
- Bu paket, ASP.NET kimliği için çekirdek arabirimleri vardır. Bu paket, hedefleri farklı Kalıcılık veritabanlarını vb. Azure Table Storage, NoSQL gibi depolayan ASP.NET kimliği için bir uygulama yazmak için kullanılabilir.
+   Bu paket, ASP.NET kimliği için çekirdek arabirimleri vardır. Bu paket, hedefleri farklı Kalıcılık veritabanlarını vb. Azure Table Storage, NoSQL gibi depolayan ASP.NET kimliği için bir uygulama yazmak için kullanılabilir.
     - [`Microsoft.AspNet.Identity.OWIN`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Owin/)  
- Bu paket OWIN kimlik doğrulaması, ASP.NET uygulamalarındaki ASP.NET kimliği ile bağlamak için kullanılan işlevselliği içerir. Günlük, uygulama ve bir tanımlama bilgisi oluşturmak için OWIN tanımlama bilgisi kimlik doğrulaması ara yazılımı çağrısına işlevindeki eklediğinizde, bu kullanılır.
+   Bu paket OWIN kimlik doğrulaması, ASP.NET uygulamalarındaki ASP.NET kimliği ile bağlamak için kullanılan işlevselliği içerir. Günlük, uygulama ve bir tanımlama bilgisi oluşturmak için OWIN tanımlama bilgisi kimlik doğrulaması ara yazılımı çağrısına işlevindeki eklediğinizde, bu kullanılır.
 3. Bir kullanıcı oluşturma.  
- Uygulamayı başlatın ve sonra tıklatın **kaydetmek** bir kullanıcı oluşturmak için bağlantı. Aşağıdaki resimde kullanıcı adı ve parola toplayan kayıt sayfası gösterir.  
+   Uygulamayı başlatın ve sonra tıklatın **kaydetmek** bir kullanıcı oluşturmak için bağlantı. Aşağıdaki resimde kullanıcı adı ve parola toplayan kayıt sayfası gösterir.  
   
     ![](introduction-to-aspnet-identity/_static/image2.png)  
   
- Kullanıcı tıkladığında **kaydetmek** düğmesini `Register` eylem hesabı denetleyicisinin aşağıda vurgulandığı gibi ASP.NET Identity API'sini çağırarak kullanıcı oluşturur:
+   Kullanıcı tıkladığında **kaydetmek** düğmesini `Register` eylem hesabı denetleyicisinin aşağıda vurgulandığı gibi ASP.NET Identity API'sini çağırarak kullanıcı oluşturur:
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample1.cs?highlight=8-9)]
 4. Oturum aç.  
- Kullanıcı başarıyla oluşturulduysa tarafından açmışken `SignInAsync` yöntemi.  
+   Kullanıcı başarıyla oluşturulduysa tarafından açmışken `SignInAsync` yöntemi.  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample2.cs?highlight=12)]
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- Yukarıdaki vurgulanmış kodu `SignInAsync` yöntem oluşturur bir [Claimsıdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, kullanıcı için bir Claimsıdentity oluşturmak için uygulama framework gerektirir. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.  
+   Yukarıdaki vurgulanmış kodu `SignInAsync` yöntem oluşturur bir [Claimsıdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, kullanıcı için bir Claimsıdentity oluşturmak için uygulama framework gerektirir. Claimsıdentity hangi rolleri kullanıcının ait olduğu gibi kullanıcı için tüm talepleri hakkında bilgi yer almaktadır. Bu aşamada daha fazla kullanıcı talebini de ekleyebilirsiniz.  
   
- Aşağıda vurgulanan kod `SignInAsync` yöntemi, bulunan OWIN ve arama kullanarak kullanıcı oturum açtığında `SignIn` ve Claimsıdentity geçirme.  
+   Aşağıda vurgulanan kod `SignInAsync` yöntemi, bulunan OWIN ve arama kullanarak kullanıcı oturum açtığında `SignIn` ve Claimsıdentity geçirme.  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample4.cs?highlight=8-11)]
 5. Oturumunuzu kapatın.  
- Tıklatarak **oturumunu** bağlantı hesabı denetleyicide kapatma eylemi çağırır. 
+   Tıklatarak **oturumunu** bağlantı hesabı denetleyicide kapatma eylemi çağırır. 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- Vurgulanan gösterildiği OWIN kod `AuthenticationManager.SignOut` yöntemi. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web Forms modülünde.
+   Vurgulanan gösterildiği OWIN kod `AuthenticationManager.SignOut` yöntemi. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) Web Forms modülünde.
 
 ## <a name="components-of-aspnet-identity"></a>ASP.NET Identity bileşenleri
 

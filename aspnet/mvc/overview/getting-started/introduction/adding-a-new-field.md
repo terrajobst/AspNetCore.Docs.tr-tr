@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-new-field
 title: Yeni bir alan ekleyerek | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0dac798eba586cdcc232cedd262e610b954004df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field"></a>Yeni bir alan ekleme
 ====================
 tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 Bu bölümde değişiklik veritabanına uyguladınız bazı değişiklikler model sınıflarına geçirmek için Entity Framework Code First geçişleri kullanın.
 
@@ -62,7 +62,7 @@ Bunun yapılması ekler aşağıdaki using deyimi:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Code First Migrations çağrıları `Seed` yöntemi her geçişten sonra (diğer bir deyişle, çağırma **update-database** Paket Yöneticisi konsolunda), ve bu yöntem zaten eklenmiş veya if ekler satır güncelleştirir. Bunlar henüz mevcut değil.
 > 
@@ -71,15 +71,15 @@ Bunun yapılması ekler aşağıdaki using deyimi:
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
 > Çünkü [çekirdek](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) yöntemi her geçiş ile çalışır, eklemeye çalıştığınız satır zaten var. bir veritabanı oluşturur ilk geçişten sonra olacağından, verileri, yalnızca ekleyemezsiniz. "[Upsert](http://en.wikipedia.org/wiki/Upsert)" işlemi zaten bir satır eklemeye çalışırsanız, olacağını hataları engeller, ancak uygulamayı test ederken yapmış olabileceğiniz veri değişiklikleri geçersiz kılar. Bazı tablolardaki test verilerle, gerçekleşmesi için istemeyebilirsiniz: Bazı durumlarda test ederken verileri değiştirdiğinizde değişikliklerinizi sonra veritabanı güncelleştirmeleri kalmasını istiyor. Bu durumda bir koşullu ekleme işlemi yapmak istiyor: yalnızca zaten yoksa bir satır ekleyin.   
->   
+> 
 > Geçirilen ilk parametre [örnek](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi bir satır zaten var olup olmadığını denetlemek için kullanılacak özellik belirtir. Sağlama, test film veriler için `Title` özellik listesinde her başlık benzersiz olduğundan bu amaç için kullanılabilir:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
 > Bu kod başlıkları benzersiz olduğunu varsayar. Yinelenen bir başlık el ile eklerseniz, şu özel bir geçiş gerçekleştirmek sonraki açışınızda elde edersiniz.   
->   
+> 
 >  *Sıra birden fazla öğe içeriyor*  
->   
+> 
 > Hakkında daha fazla bilgi için [örnek](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) yöntemi, bkz: [ilgilenebilmek EF 4.3 örnek yöntemiyle](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
@@ -135,7 +135,7 @@ Uygulamayı çalıştırın ve gidin */Movies* URL. Ancak, bunu yaptığınızda
 
 ![](adding-a-new-field/_static/image9.png)  
   
-Veritabanının oluşturulmasından 'MovieDBContext' bağlamını destekleyen model değişti. Veritabanı (https://go.microsoft.com/fwlink/?LinkId=238269) güncelleştirmek için Code First Migrations kullanmayı düşünün.
+Veritabanının oluşturulmasından 'MovieDBContext' bağlamını destekleyen model değişti. Veritabanını güncelleştirmek için Code First Migrations kullanmayı düşünün (https://go.microsoft.com/fwlink/?LinkId=238269).
 
 ![](adding-a-new-field/_static/image10.png)
 
@@ -191,6 +191,6 @@ Ayrıca eklemelisiniz `Rating` düzenleme, Ayrıntılar ve Delete görünüm şa
 
 Bu bölümde nasıl model nesneleri değiştirmek ve veritabanı değişiklikleri eşit tutmak gördünüz. Ayrıca, senaryolarını deneyebilirsiniz şekilde yeni oluşturulan bir veritabanını örnek verilerle doldurmak için bir yöntem de öğrendiniz. Bu yalnızca bir giriş Code First, bkz: [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) konu hakkında daha kapsamlı bir öğretici. Ardından, nasıl daha zengin doğrulama mantığını model sınıfları ekleyebilir ve zorlanacak bazı iş kurallarını etkinleştirme sırasında bakalım.
 
->[!div class="step-by-step"]
-[Önceki](adding-search.md)
-[sonraki](adding-validation.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-search.md)
+> [sonraki](adding-validation.md)

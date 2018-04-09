@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
-title: "Web hizmeti arka uç ile (C#) bir sayısal yukarı/aşağı denetim oluşturma | Microsoft Docs"
+title: Web hizmeti arka uç ile (C#) bir sayısal yukarı/aşağı denetim oluşturma | Microsoft Docs
 author: wenz
-description: "Bir onay kutusuna bir değer yazın kullanıcının yapmasına izin vermek yerine bir sayısal yukarı/aşağı (Windows ve diğer işletim sistemleri mevcut) denetimi olarak daha fazla c kanıtlamak..."
+description: Bir onay kutusuna bir değer yazın kullanıcının yapmasına izin vermek yerine bir sayısal yukarı/aşağı (Windows ve diğer işletim sistemleri mevcut) denetimi olarak daha fazla c kanıtlamak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0cce9aa215c2b4480e845326f69cad4679ecf847
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 942902bdba93fe4fef8a9122403c6d5c62e6123c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Web hizmeti arka uç ile (C#) sayısal yukarı/aşağı denetimi oluşturma
 ====================
@@ -45,10 +45,10 @@ Bu örnek için yukarı/aşağı Denetim sayısal yalnızca iki tabanların olan
 
 Son olarak, yeni bir ASP.NET sayfası oluşturun. Her zamanki gibi ihtiyacınız bir `ScriptManager` denetimi, bir `TextBox` denetim ve `NumericUpDownExtender` denetim. İkincisi, web hizmeti bilgileri sağlamak için gerekenler:
 
-- `ServiceDownMethod`Aşağı adını web yöntemi veya sayfa yöntemi
-- `ServiceDownPath`Aşağı hizmet yöntemi web hizmetiyle yolu; bir sayfa yöntemini kullanıyorsanız atlayın
-- `ServiceUpMethod`Yukarı adını web yöntemi veya sayfa yöntemi
-- `ServiceUpPath`Yukarı hizmet yöntemi web hizmetiyle yolu; bir sayfa yöntemini kullanıyorsanız atlayın
+- `ServiceDownMethod` Aşağı adını web yöntemi veya sayfa yöntemi
+- `ServiceDownPath` Aşağı hizmet yöntemi web hizmetiyle yolu; bir sayfa yöntemini kullanıyorsanız atlayın
+- `ServiceUpMethod` Yukarı adını web yöntemi veya sayfa yöntemi
+- `ServiceUpPath` Yukarı hizmet yöntemi web hizmetiyle yolu; bir sayfa yöntemini kullanıyorsanız atlayın
 
 Sayfa için tam biçimlendirme şöyledir:
 
@@ -61,5 +61,5 @@ Sayfa çalıştırırsanız, üst düğmeyi tıklatın ve daha düşük düğmey
 
 Yalnızca 2'in sayılar görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Sonraki](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)

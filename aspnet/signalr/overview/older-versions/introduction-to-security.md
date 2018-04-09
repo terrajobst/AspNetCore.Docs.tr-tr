@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/introduction-to-security
-title: "SignalR güvenlik giriş (SignalR 1.x) | Microsoft Docs"
+title: SignalR güvenlik giriş (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik sorunları açıklar."
+description: Bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik sorunları açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: ebc83098b73902fa3f7a90a38dafc43b413e75fe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b756d3e71d89b6c826bd497f73d052c4c8f634e8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>SignalR güvenlik giriş (SignalR 1.x)
 ====================
@@ -98,7 +98,7 @@ CSRF saldırı bir örneği burada verilmiştir:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
- Form eylemi kötü amaçlı siteye değil savunmasız siteye yazılarını dikkat edin. CSRF "siteler arası" parçasıdır.
+   Form eylemi kötü amaçlı siteye değil savunmasız siteye yazılarını dikkat edin. CSRF "siteler arası" parçasıdır.
 4. Kullanıcı gönder düğmesine tıklar. Tarayıcı kimlik doğrulama tanımlama bilgisi istekle içerir.
 5. İstek, kullanıcının kimlik doğrulaması bağlamı ile example.com sunucuda çalışır ve kimliği doğrulanmış bir kullanıcı yapmak için izin verilen herhangi bir şey yapabilirsiniz.
 

@@ -1,7 +1,7 @@
 ---
-title: "Bir MVC uygulamasına bir görünümü ekleme"
+title: Bir MVC uygulamasına bir görünümü ekleme
 author: Rick-Anderson
-description: "Bir MVC uygulamasına bir görünümü ekleme"
+description: Bir MVC uygulamasına bir görünümü ekleme
 ms.author: riande
 manager: wpickett
 ms.date: 09/1721/2017
@@ -9,17 +9,17 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21db97e635b5db580df31f46ca7f8b60a80d6f94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 Bu bölümde değiştirme oluşturacağız `HelloWorldController` sınıfı şablon dosyalarını düzgün bir şekilde kapsülleyen bir istemci HTML yanıtlarını oluşturma işlemine görünümünü kullanın. 
 
@@ -71,7 +71,7 @@ Oldukça iyi görünür. Ancak, tarayıcının başlık çubuğunda gösterdiği
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody`olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, &quot;Sarmalanan&quot; düzeni sayfasında. Örneğin, **hakkında** bağlantı *Views\Home\About.cshtml* görünümü içinde işlenir `RenderBody` yöntemi.
+Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody` olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, &quot;Sarmalanan&quot; düzeni sayfasında. Örneğin, **hakkında** bağlantı *Views\Home\About.cshtml* görünümü içinde işlenir `RenderBody` yöntemi.
 
 Title öğesi içeriğini değiştirin. Değişiklik [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) Düzen şablonu içinde &quot;uygulama adı&quot; için &quot;MVC film&quot; ve denetleyicisinden `Home` için `Movies`. Tam yerleşimi dosya aşağıda gösterilmiştir:
 
@@ -85,7 +85,7 @@ Ne zaman önce oluşturduğumuz *Views\HelloWorld\Index.cshtml* dosya, aşağıd
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Yukarıdaki Razor kod açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosyası tam aynı Razor biçimlendirme içeriyor. *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)*  dosyası tüm görünümleri kullanacağı ortak yerleşim tanımlar, out veya bu koddan kaldırma bu nedenle yorum yapabileceği *Views\HelloWorld\ Index.cshtml* dosya.
+Yukarıdaki Razor kod açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosyası tam aynı Razor biçimlendirme içeriyor. *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* dosyası tüm görünümleri kullanacağı ortak yerleşim tanımlar, out veya bu koddan kaldırma bu nedenle yorum yapabileceği *Views\HelloWorld\ Index.cshtml* dosya.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 
@@ -119,7 +119,7 @@ Denetleyicileri sırada tarayıcı yanıta işlemek bir şablonu görüntüleme 
 
 Şu anda `Welcome` eylem yönteminde `HelloWorldController` sınıfını alır bir `name` ve `numTimes` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine bir görünüm şablonu kullanmayı denetleyicisi değiştirelim. Şablonu görüntüleme yanıtı oluşturmak için uygun veri bitleri denetleyicisinden görünüme iletmek gerektiği anlamına gelir dinamik bir yanıt oluşturur. Bu şablonu görüntüleme gereksinimlerinize dinamik veri (parametre) put denetleyicisi sağlayarak yapmak bir `ViewBag` şablonu görüntüle daha sonra erişebilirsiniz nesnesi.
 
-Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewBag` nesnesi. `ViewBag`istediğiniz ona koyabilirsiniz yani dinamik bir nesne değil; `ViewBag` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [ASP.NET MVC model bağlama sistem](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
+Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewBag` nesnesi. `ViewBag` istediğiniz ona koyabilirsiniz yani dinamik bir nesne değil; `ViewBag` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [ASP.NET MVC model bağlama sistem](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
 [!code-csharp[Main](adding-a-view/samples/sample8.cs)]
 
@@ -151,6 +151,6 @@ Yukarıdaki örnekte, kullandık bir `ViewBag` denetleyicisinden bir görünüme
 
 Bir tür iyi, bir &quot;M&quot; modeli, ancak veritabanı türü değil. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 
->[!div class="step-by-step"]
-[Önceki](adding-a-controller.md)
-[sonraki](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-a-controller.md)
+> [sonraki](adding-a-model.md)

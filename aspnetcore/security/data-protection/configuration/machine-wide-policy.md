@@ -1,7 +1,7 @@
 ---
-title: "Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği"
+title: Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği
 author: rick-anderson
-description: "ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan bir makine genelinde ilkesini ayarlamak için desteği hakkında bilgi edinin."
+description: ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan bir makine genelinde ilkesini ayarlamak için desteği hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Windows üzerinde çalışırken, veri koruma sisteminde ASP.NET Core veri koruması kullanan tüm uygulamalar için varsayılan bir makine genelinde ilkesini ayarlamak için destek sınırlıdır. Bir yönetici gibi algoritmalar kullanılan varsayılan ayar veya el ile makinedeki her bir uygulamayı güncelleştirmek için gerek kalmadan anahtar yaşam süresi değiştirmek isteyebilir genel bir fikir olabilir.
 
@@ -71,4 +71,4 @@ EncryptionType yönetiliyorsa, sistem yönetilen SymmetricAlgorithm gizliliği v
 Başka bir değer null dışında ya da boş EncryptionType varsa, veri koruma sisteminde başlangıçta bir özel durum oluşturur.
 
 > [!WARNING]
-> Tür adları (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) içeren bir varsayılan ilkeyi yapılandırırken türleri uygulamaya kullanılabilir olması gerekir. Başka bir deyişle, Masaüstü CLR üzerinde çalışan uygulamalar için bu tür içeren derlemeleri Genel Derleme Önbelleği'ne (GAC) mevcut olmalıdır. Çalışan ASP.NET Core uygulamaları için [.NET Core](https://www.microsoft.com/net/core), bu tür içeren paketleri yüklü olmalıdır.
+> Tür adları (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks) içeren bir varsayılan ilkeyi yapılandırırken türleri uygulamaya kullanılabilir olması gerekir. Başka bir deyişle, Masaüstü CLR üzerinde çalışan uygulamalar için bu tür içeren derlemeleri Genel Derleme Önbelleği'ne (GAC) mevcut olmalıdır. .NET Core üzerinde çalışan ASP.NET Core uygulamaları için bu tür içeren paketleri yüklü olmalıdır.

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core içinde etiket Yardımcıları"
+title: ASP.NET Core içinde etiket Yardımcıları
 author: rick-anderson
-description: "Etiket Yardımcıları nelerdir ve bunları ASP.NET Core nasıl kullanacağınızı öğrenin."
+description: Etiket Yardımcıları nelerdir ve bunları ASP.NET Core nasıl kullanacağınızı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c775eaaa521399328d157c9b7312e6fe5325c07e
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 27246ece3eaaecb708f922bcaaf05658034bce82
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları giriş 
+# <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -54,10 +54,10 @@ Aşağıdaki Razor biçimlendirme:
 Aşağıdaki HTML oluşturur:
 
 ```html
- <label for="Movie_Title">Title</label>
+<label for="Movie_Title">Title</label>
 ```
 
-`asp-for` Özniteliği tarafından kullanılabilir hale `For` özelliğinde [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Bkz: [yazma etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring) daha fazla bilgi için.
+`asp-for` Özniteliği tarafından kullanılabilir hale `For` özelliğinde [LabelTagHelper](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.labeltaghelper?view=aspnetcore-2.0). Bkz: [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring) daha fazla bilgi için.
 
 ## <a name="managing-tag-helper-scope"></a>Etiket Yardımcısı kapsam yönetme
 
@@ -185,7 +185,7 @@ Konumunda (`@`) simgesi söyler Razor kod başlangıcı budur. Sonraki iki param
 new {@class="caption"}
 ```
 
-Bir anonim nesnenin özniteliklerini temsil etmek için kullanılır. Çünkü **sınıfı** ayrılmış bir anahtar C# ' ta, kullandığınız `@` yorumlamak için C# zorlamak için simge "@class=" (özellik adı) sembol olarak. Ön uç tasarımcıya (birisi HTML/CSS/JavaScript ve diğer istemci teknolojileri hakkında bilgi sahibi ancak C# ve Razor tanıdık), satır çoğunu yabancı. Tüm satırı IntelliSense hiçbir Yardım ile yazılmış olabilir.
+Bir anonim nesnenin özniteliklerini temsil etmek için kullanılır. Çünkü <strong>sınıfı</strong> ayrılmış bir anahtar C# ' ta, kullandığınız `@` yorumlamak için C# zorlamak için simge "@class=" (özellik adı) sembol olarak. Ön uç tasarımcıya (birisi HTML/CSS/JavaScript ve diğer istemci teknolojileri hakkında bilgi sahibi ancak C# ve Razor tanıdık), satır çoğunu yabancı. Tüm satırı IntelliSense hiçbir Yardım ile yazılmış olabilir.
 
 Kullanarak `LabelTagHelper`, aynı biçimlendirme olarak yazılabilir:
 
@@ -265,7 +265,6 @@ Yazı tipi ve gelen renklendirme özelleştirebilirsiniz **Araçları** > **seç
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
+* [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 * [Formları ile çalışma ](xref:mvc/views/working-with-forms)
 * [Github'da TagHelperSamples](https://github.com/dpaquette/TagHelperSamples) ile çalışmak için etiket Yardımcısı örnekleri içeren [önyükleme](http://getbootstrap.com/).
-* [Formları ile çalışma ](xref:mvc/views/working-with-forms)

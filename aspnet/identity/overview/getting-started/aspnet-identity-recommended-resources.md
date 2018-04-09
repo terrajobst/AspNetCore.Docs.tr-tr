@@ -1,26 +1,26 @@
 ---
 uid: identity/overview/getting-started/aspnet-identity-recommended-resources
-title: "ASP.NET Identity önerilen kaynakları | Microsoft Docs"
+title: ASP.NET Identity önerilen kaynakları | Microsoft Docs
 author: Rick-Anderson
-description: "Bu konu, ASP.NET Identity kullanma hakkında belgeler kaynaklarına bağlantılar sağlar. Harika blog gönderisi, stackoverflow iş parçacığı veya başka bir çizgi biliyorsanız..."
+description: Bu konu, ASP.NET Identity kullanma hakkında belgeler kaynaklarına bağlantılar sağlar. Harika blog gönderisi, stackoverflow iş parçacığı veya başka bir çizgi biliyorsanız...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2015
 ms.topic: article
 ms.assetid: 0f78aec2-f509-46fa-b20f-d5208425d8ec
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-recommended-resources
 msc.type: authoredcontent
-ms.openlocfilehash: cb6e378d6b1de7d43bbc4272b64f9029f4e92924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f2e1693a32fce6956ddb1e095e6f208b9f0faab6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-identity-recommended-resources"></a>ASP.NET Identity kaynaklar önerilir
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu konu, ASP.NET Identity kullanma hakkında belgeler kaynaklarına bağlantılar sağlar.
 > 
@@ -94,7 +94,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
     - [Owın Dış kimlik doğrulaması işlem hattı anlama](http://coding.abel.nu/2014/06/understanding-the-owin-external-authentication-pipeline/)
     - [ASP.NET kimliği ve Owın genel bakış](http://coding.abel.nu/2014/06/asp-net-identity-and-owin-overview/)
 
- Tarafından [K. Scott Allen](https://twitter.com/OdeToCode) kodu için kod hakkında
+  Tarafından [K. Scott Allen](https://twitter.com/OdeToCode) kodu için kod hakkında
 
     - [ASP.NET Core kimliği](http://odetocode.com/blogs/scott/archive/2013/11/25/asp-net-core-identity.aspx) Iuser, Iuserstore ve t dahil olmak üzere çekirdek soyutlamalar bu blog inceler\*depolamak arabirimleri.
     - [ASP.NET Identity Entity Framework](http://odetocode.com/blogs/scott/archive/2014/01/03/asp-net-identity-with-the-entity-framework.aspx) MVC 5, Web API ve SPA uygulamaları, bağlantı dizeleri ve yönetme bağlamları bireysel kullanıcı hesapları
@@ -132,7 +132,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 - Kanal 9 [ASP.NET kimliği ile Web sitenizin güvenliğini](https://channel9.msdn.com/Events/TechDays/Techdays-2014-the-Netherlands/Securing-your-website-with-ASP-NET-Identity) Alex Thissen tarafından
 - [ASP.NET kimliği mevcut bir DB-Model kullanmak](https://www.youtube.com/watch?v=elfqejow5hM) Alexander Etikan tarafından
 - [Bir ASP.NET Identity](https://www.youtube.com/watch?v=w8GD-QIusKk) Ivaylo Kenov Telerik biri tarafından
-- [Çekçe ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) bu ders temel kimlik doğrulaması dağıtma, Twitter veya FaceBook'ta gibi dış kimlik sağlayıcıları için destek ekleme ve tek kullanımlık parola (OTP) kullanmayı göstereceğiz. [ASP.NET Identity je nástupce üyelik rol sağlayıcısı &#367; v ASP.NET, tedy knihovna pro zajišt &#283; ní autentizace uživatel &#367;. V této p &#345; ednášce si ukážeme jak nasad]
+- [Çekçe ASP.NET Identity](https://www.youtube.com/watch?v=tVbZp5brcpY) bu ders temel kimlik doğrulaması dağıtma, Twitter veya FaceBook'ta gibi dış kimlik sağlayıcıları için destek ekleme ve tek kullanımlık parola (OTP) kullanmayı göstereceğiz. [ASP.NET Identity je nástupce üyelik rol sağlayıcısı&#367; v ASP.NET, tedy knihovna pro zajišt&#283;ní autentizace uživatel&#367;. V této p&#345;ednášce si ukážeme jak nasad]
 
 <a id="cust"></a>
 ## <a name="custom-storage-providers-for-aspnet-identity"></a>ASP.NET kimliği için özel depolama sağlayıcıları

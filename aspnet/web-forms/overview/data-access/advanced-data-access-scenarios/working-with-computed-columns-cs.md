@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
-title: "Hesaplanan sütunlar (C#) çalışma | Microsoft Docs"
+title: Hesaplanan sütunlar (C#) çalışma | Microsoft Docs
 author: rick-anderson
-description: "Bir veritabanı tablosu oluştururken, Microsoft SQL Server, hesaplanan bir sütun değeri ifadeden hesaplanan tanımlamanıza olanak sağlar, genellikle referen..."
+description: Bir veritabanı tablosu oluştururken, Microsoft SQL Server, hesaplanan bir sütun değeri ifadeden hesaplanan tanımlamanıza olanak sağlar, genellikle referen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a67abd2a0c140c0503c07f764549a6d90ef7298
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="working-with-computed-columns-c"></a>Hesaplanan sütunlar (C#) ile çalışma
 ====================
@@ -51,7 +51,7 @@ Başlangıç açarak `Suppliers` tablo tanımı üzerinde sağ tıklayarak `Supp
 SQL dizeleri birleştirilmiş olduğunu unutmayın kullanarak `+` işleci. `CASE` Deyimi, geleneksel bir programlama dili koşullu gibi kullanılabilir. Yukarıdaki ifadede `CASE` deyimi olarak okunabilir: varsa `ContactTitle` değil `NULL` ardından çıktı `ContactTitle` virgül ile aksi takdirde birleştirilmiş değer nothing yayma. Yararlılığı hakkında daha fazla bilgi için `CASE` deyimi, bkz: [SQL güç `CASE` deyimleri](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> Kullanmak yerine bir `CASE` burada deyimi, alternatif olarak kullandık `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)döndürür *checkExpression* NULL değilse, aksi takdirde döndürür *replacementValue*. While ya da `ISNULL` veya `CASE` çalışır Bu örnekte, daha karmaşık senaryolar vardır burada esnekliğini `CASE` deyimi tarafından eşleşebilecek olamaz `ISNULL`.
+> Kullanmak yerine bir `CASE` burada deyimi, alternatif olarak kullandık `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx) döndürür *checkExpression* NULL değilse, aksi takdirde döndürür *replacementValue*. While ya da `ISNULL` veya `CASE` çalışır Bu örnekte, daha karmaşık senaryolar vardır burada esnekliğini `CASE` deyimi tarafından eşleşebilecek olamaz `ISNULL`.
 
 
 Bu hesaplanan sütunu ekledikten sonra ekranınızın Şekil 1'de ekran gibi görünmelidir.
@@ -261,12 +261,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Hilton Geisenow ve Teresa Murphy yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](adding-additional-datatable-columns-cs.md)
-[sonraki](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-additional-datatable-columns-cs.md)
+> [sonraki](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)

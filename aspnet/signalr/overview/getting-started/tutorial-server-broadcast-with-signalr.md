@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: "Öğretici: Sunucu yayın 2 SignalR ile | Microsoft Docs"
+title: 'Öğretici: Sunucu yayın 2 SignalR ile | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici sunucu yayın işlevselliği sağlamak için ASP.NET SignalR 2 kullanan bir web uygulamasının nasıl oluşturulacağını gösterir. Sunucu yayın o commun anlama gelir..."
+description: Bu öğretici sunucu yayın işlevselliği sağlamak için ASP.NET SignalR 2 kullanan bir web uygulamasının nasıl oluşturulacağını gösterir. Sunucu yayın o commun anlama gelir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: Sunucu yayın SignalR 2 ile
 ====================
@@ -65,7 +65,7 @@ Bu öğreticinin ilk bölümü oluşturacağınız uygulama hisse senedi veriler
 
 ![StockTicker ilk sürüm](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-Düzenli aralıklarla sunucu rastgele hisse senedi fiyatları güncelleştirir ve tüm bağlı istemcileri güncelleştirmeleri iter. Tarayıcı sayıları ve sembolleri **değiştirme** ve  **%**  sütunları dinamik olarak değiştirme bildirimlere yanıt olarak sunucudan. Aynı URL'ye ek tarayıcılar açarsanız, hepsi aynı veri ve veri aynı değişiklikleri aynı anda gösterin.
+Düzenli aralıklarla sunucu rastgele hisse senedi fiyatları güncelleştirir ve tüm bağlı istemcileri güncelleştirmeleri iter. Tarayıcı sayıları ve sembolleri **değiştirme** ve **%** sütunları dinamik olarak değiştirme bildirimlere yanıt olarak sunucudan. Aynı URL'ye ek tarayıcılar açarsanız, hepsi aynı veri ve veri aynı değişiklikleri aynı anda gösterin.
 
 Bu öğretici aşağıdaki bölümleri içerir:
 
@@ -218,7 +218,7 @@ Sunucu kodu ayarlama tamamladınız. Sonraki bölümde istemci ayarlarsınız.
 
     Komut dosyası etiketlerini jQuery komut dosyası, SignalR core komut dosyası, SignalR proxy'leri komut dosyası ve daha sonra oluşturacaksınız StockTicker komut dosyasını belirtin. "/ Signalr/hub" URL'yi belirtir, SignalR proxy'leri komut dosyası dinamik olarak oluşturulur ve Hub sınıfı yöntemleri için proxy yöntemleri için StockTickerHub.GetAllStocks bu durumda tanımlar. Tercih ederseniz, bu JavaScript dosyası el ile kullanarak oluşturabileceğiniz [SignalR yardımcı programları](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) ve MapHubs yöntem çağrısı içinde dinamik dosya oluşturma devre dışı bırakın.
 3. > [!IMPORTANT]
- > JavaScript dosyası içinde başvurduğundan emin olun *StockTicker.html* doğrudur. Diğer bir deyişle, komut dosyası etiketinin (örnekte 1.10.2) jQuery sürümünü projenizin jQuery sürümü ile aynı olduğundan emin olun *betikleri* klasörünü ve komut dosyası etiketinin SignalR sürümünde SignalR ile aynı olduğundan emin olun projenizin sürümünde *betikleri* klasör. Komut dosyası etiketlerini dosya adlarında gerekiyorsa değiştirin.
+   > JavaScript dosyası içinde başvurduğundan emin olun *StockTicker.html* doğrudur. Diğer bir deyişle, komut dosyası etiketinin (örnekte 1.10.2) jQuery sürümünü projenizin jQuery sürümü ile aynı olduğundan emin olun *betikleri* klasörünü ve komut dosyası etiketinin SignalR sürümünde SignalR ile aynı olduğundan emin olun projenizin sürümünde *betikleri* klasör. Komut dosyası etiketlerini dosya adlarında gerekiyorsa değiştirin.
 4. İçinde **Çözüm Gezgini**, sağ *StockTicker.html*ve ardından **Başlangıç Sayfası Ayarla**.
 5. Proje klasöründe yeni bir JavaScript dosyası oluşturun ve adlandırın *StockTicker.js*...
 6. Şablon kodu aşağıdaki kodla değiştirin:

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
-title: "ColorPicker denetim genişletici (C#) kullanarak | Microsoft Docs"
+title: ColorPicker denetim genişletici (C#) kullanarak | Microsoft Docs
 author: microsoft
-description: "ColorPicker kullanıcı Arabirimi ile bir açılan denetiminde istemci-tarafı renk çekme işlevselliği sağlayan ASP.NET AJAX genişletici ' dir. Tüm ASP.NET eklenebilecek..."
+description: ColorPicker kullanıcı Arabirimi ile bir açılan denetiminde istemci-tarafı renk çekme işlevselliği sağlayan ASP.NET AJAX genişletici ' dir. Tüm ASP.NET eklenebilecek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3cde9552e8aecd5e7e651a825902fb79ae108c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d44fc81305e668b545246cf044dce275563d81a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-colorpicker-control-extender-c"></a>ColorPicker denetim genişletici (C#) kullanarak
 ====================
@@ -37,7 +37,7 @@ Bu öğreticinin amacı AJAX Denetim Araç Seti ColorPicker denetim genişletici
 **Şekil 01**: bir iş kartı oluşturmak için basit form ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-cs/_static/image2.png))
 
 
-**1 - CreateCard.aspx listeleme**
+**Listing 1 - CreateCard.aspx**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-cs/samples/sample1.aspx)]
 
@@ -58,7 +58,7 @@ ColorPicker denetim genişletici listeleme 1 formunda ile kullanmak için iki ad
 
 ColorPicker kullanabilmeniz için önce bir ScriptManager sayfanıza eklemeniz gerekir. ScriptManager eklemek için sağ açılış sunucu tarafı uygundur &lt;form&gt; etiketi. (ScriptManager AJAX uzantılar sekmesi altında bulunur) araç sayfaya ScriptManager sürükleyin. Alternatif olarak, aşağıdaki etiketi açma sunucu tarafı form etiketi altında kaynak görünüme yazabilirsiniz:
 
-&lt;ASP: ScriptManager kimliği = "ScriptManager1" runat = "Server" /&gt;
+&lt;asp:ScriptManager ID="ScriptManager1" runat="server" /&gt;
 
 Tasarım görünümünde ColorPicker denetim genişletici eklemek için en kolay yoludur. Farenizi TextBox txtCardColor gelin, bir akıllı görev seçeneği etkinleştirir görünür genişletici eklemenizi (bkz: Şekil 3). Bu seçeneği seçerseniz, (bkz: Şekil 4) genişletici Sihirbazı görünür.
 
@@ -94,7 +94,7 @@ ColorPicker genişletici aşağıdaki özellikleri destekler:
 
 Renk Seçici iletişim nasıl görüntülenir ve seçilen rengin nasıl görüntüleneceğini özelleştirmek için bu özellikleri kullanabilirsiniz. Sayfanın listeleme 3'te birkaç bu özelliklerin nasıl kullanabileceğiniz gösterilmektedir.
 
-**3 - CreateCardButton.aspx listeleme**
+**Listing 3 - CreateCardButton.aspx**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-cs/samples/sample3.aspx)]
 
@@ -114,5 +114,5 @@ SampleControlID özelliği ColorPicker seçili renkle görüntüleyen bir deneti
 
 Bu öğreticide, ColorPicker denetim genişletici açılan Renk Seçici iletişim kutusunu görüntülemek için nasıl kullanılacağı hakkında bilgi edindiniz. İlk olarak, odak TextBox denetimine taşındığında nasıl iletişim kutusunu görüntüleyebilir incelendi. Ardından, Renk Seçici iletişim düğmesine tıklandığında görüntüleyen bir düğmeye oluşturma hakkında bilgi edindiniz.
 
->[!div class="step-by-step"]
-[Sonraki](using-the-colorpicker-control-extender-vb.md)
+> [!div class="step-by-step"]
+> [Next](using-the-colorpicker-control-extender-vb.md)

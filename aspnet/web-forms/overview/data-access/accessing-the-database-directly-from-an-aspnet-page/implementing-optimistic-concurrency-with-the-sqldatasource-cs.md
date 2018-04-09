@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
-title: "İyimser eşzamanlılık SqlDataSource (C#) ile uygulama | Microsoft Docs"
+title: İyimser eşzamanlılık SqlDataSource (C#) ile uygulama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide iyimser eşzamanlılık denetimini essentials gözden geçirin ve SqlDataSource denetimi kullanarak uygulama keşfedin."
+description: Bu öğreticide iyimser eşzamanlılık denetimini essentials gözden geçirin ve SqlDataSource denetimi kullanarak uygulama keşfedin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b089a0b25aa5a520f3e20af8ec5212072ad7c7bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 246e8d0c2aee7358680fbca7229cc9b05ceca1cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>İyimser eşzamanlılık SqlDataSource (C#) ile uygulama
 ====================
@@ -116,7 +116,7 @@ Benzer şekilde, `DeleteCommand` özelliği ve `DeleteParameters` koleksiyonu, a
 
 Program.cs'ye yanı sıra `WHERE` yan tümcelerinde `UpdateCommand` ve `DeleteCommand` özellikleri (ve ek parametrelerle ilgili parametre koleksiyonuna ekleme), iyimser eşzamanlılık seçenek iki diğer ayarlar kullanım seçme Özellikler:
 
-- Değişiklikleri [ `ConflictDetection` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) gelen `OverwriteChanges` (varsayılan) için`CompareAllValues`
+- Değişiklikleri [ `ConflictDetection` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) gelen `OverwriteChanges` (varsayılan) için `CompareAllValues`
 - Değişiklikleri [ `OldValuesParameterFormatString` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) {0} (varsayılan) özgün\_{0}.
 
 Ne zaman veri Web denetimi çağırır SqlDataSource s `Update()` veya `Delete()` yöntemi, özgün değerleri geçirir. Varsa SqlDataSource s `ConflictDetection` özelliği ayarlanmış `CompareAllValues`, özgün bu değerleri komutu eklenir. `OldValuesParameterFormatString` Özelliği bu özgün değer parametreler için kullanılan adlandırma deseni sağlar. Veri Kaynağı Yapılandırma Sihirbazı'nı özgün kullanır\_{0} ve özgün her parametre adları `UpdateCommand` ve `DeleteCommand` özellikleri ve `UpdateParameters` ve `DeleteParameters` koleksiyonları buna göre.
@@ -231,8 +231,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
-[sonraki](querying-data-with-the-sqldatasource-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](inserting-updating-and-deleting-data-with-the-sqldatasource-cs.md)
+> [sonraki](querying-data-with-the-sqldatasource-control-vb.md)

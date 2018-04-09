@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: "ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#) | Microsoft Docs"
+title: ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#) | Microsoft Docs
 author: rmcmurray
-description: "ASP.NET Web API'de Dış kimlik doğrulama hizmetleri kullanmayı açıklar."
+description: ASP.NET Web API'de Dış kimlik doğrulama hizmetleri kullanmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)
 ====================
@@ -119,7 +119,7 @@ Aşağıdaki bölümlerde, Visual Studio 2013'te ASP.NET ile sağlanan Dış kim
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Facebook kimlik doğrulamasını etkinleştirme
 
-Facebook kullanarak kimlik doğrulaması Facebook developer hesabı oluşturma gerektirir ve projenizin bir uygulama kimliği ile gizli anahtarını facebook'taki çalışması için gerektirir. Bir Facebook developer hesabı oluşturma ve uygulama kimliği ve gizli anahtar alma hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Facebook kullanarak kimlik doğrulaması Facebook developer hesabı oluşturma gerektirir ve projenizin bir uygulama kimliği ile gizli anahtarını facebook'taki çalışması için gerektirir. Bir Facebook developer hesabı oluşturma ve uygulama kimliği ve gizli anahtar alma hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Uygulama kimliği ile gizli anahtarını kez almış, web uygulamanız için Facebook kimlik doğrulamasını etkinleştirmek için aşağıdaki adımları kullanın:
 
@@ -180,7 +180,7 @@ Web uygulamanızın Google kimlik doğrulamasını etkinleştirmek için aşağ�
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Microsoft kimlik doğrulamasını etkinleştirme
 
-Microsoft kimlik doğrulaması bir geliştirici hesabı oluşturmanızı gerektirir ve çalışmak için bir istemci kimliği ve istemci gizli anahtarı gerektirir. Microsoft developer hesabı oluşturma ve istemci kimliği ve istemci gizli anahtarı edinme hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070).
+Microsoft kimlik doğrulaması bir geliştirici hesabı oluşturmanızı gerektirir ve çalışmak için bir istemci kimliği ve istemci gizli anahtarı gerektirir. Microsoft developer hesabı oluşturma ve istemci kimliği ve istemci gizli anahtarı edinme hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070).
 
 Bir kez tüketici anahtarı ve tüketici gizli aldıysanız, web uygulamanızı Microsoft kimlik doğrulamasını etkinleştirmek için aşağıdaki adımları kullanın:
 
@@ -212,7 +212,7 @@ Bir kez tüketici anahtarı ve tüketici gizli aldıysanız, web uygulamanızı 
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Twitter kimlik doğrulamasını etkinleştirme
 
-Twitter kimlik doğrulaması, bir geliştirici hesabı oluşturmak gerektirir ve çalışmak için bir tüketici anahtarı ve tüketici gizli anahtarı gerektirir. Bir Twitter developer hesabı oluşturma ve tüketici anahtarı ve tüketici gizli anahtarı edinme hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Twitter kimlik doğrulaması, bir geliştirici hesabı oluşturmak gerektirir ve çalışmak için bir tüketici anahtarı ve tüketici gizli anahtarı gerektirir. Bir Twitter developer hesabı oluşturma ve tüketici anahtarı ve tüketici gizli anahtarı edinme hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Bir kez tüketici anahtarı ve tüketici gizli aldıysanız, web uygulamanızı Twitter kimlik doğrulamasını etkinleştirmek için aşağıdaki adımları kullanın:
 
@@ -260,19 +260,21 @@ Bazı dış kimlik doğrulama sağlayıcıları gibi bir HTTP adresi kullanarak 
 
 - HOSTS dosyasını eşleme statik bir FQDN ekleyin:
 
-    1. Windows'da yükseltilmiş bir komut istemi açın.
-    2. Şu komutu yazın:
+  1. Windows'da yükseltilmiş bir komut istemi açın.
+  2. Şu komutu yazın:
 
-        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
-    3. HOSTS dosyasına bir giriş aşağıdaki gibi ekleyin:
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
+  3. HOSTS dosyasına bir giriş aşağıdaki gibi ekleyin:
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. HOSTS dosyasını kaydedip kapatın.
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. HOSTS dosyasını kaydedip kapatın.
+
 - Visual Studio projenizi FQDN'si kullanacak şekilde yapılandırın:
 
-    1. Projeniz Visual Studio 2013'te açık olduğunda tıklatın **proje** menüsünde ve projenizin Özellikler'i seçin. Örneğin, seçebilirsiniz **WebApplication1 özellikleri**.
-    2. Seçin **Web** sekmesi.
-    3. İçin FQDN değerinizi girin **proje URL'si**. Örneğin, girersiniz <kbd>http://www.wingtiptoys.com</kbd> HOSTS dosyasına eklenen FQDN eşleme olup olmadığı.
+  1. Projeniz Visual Studio 2013'te açık olduğunda tıklatın **proje** menüsünde ve projenizin Özellikler'i seçin. Örneğin, seçebilirsiniz **WebApplication1 özellikleri**.
+  2. Seçin **Web** sekmesi.
+  3. İçin FQDN değerinizi girin <strong>proje URL'si</strong>. Örneğin, girersiniz <kbd> <http://www.wingtiptoys.com> </kbd> HOSTS dosyasına eklenen FQDN eşleme olup olmadığı.
+
 - Uygulamanız için FQDN kullanmak için IIS Express yapılandırın:
 
     1. Windows'da yükseltilmiş bir komut istemi açın.
@@ -283,14 +285,14 @@ Bazı dış kimlik doğrulama sağlayıcıları gibi bir HTTP adresi kullanarak 
 
         <kbd>appcmd.exe set config-section:system.applicationHost/sites /+&quot;[ad='WebApplication1'].bindings.[Protokol='http',Bindingınformation='*:80:www.wingtiptoys.com']&quot; /Commit:APPHOST</kbd>
 
- Burada **WebApplication1** projenizi adıdır ve **Bindingınformation** , test için kullanmak istediğiniz bağlantı noktası numarası ve FQDN içerir.
+  Burada **WebApplication1** projenizi adıdır ve **Bindingınformation** , test için kullanmak istediğiniz bağlantı noktası numarası ve FQDN içerir.
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>Microsoft kimlik doğrulaması için uygulama ayarlarınızı edinme
 
 Windows Live Microsoft Authentication için uygulamaya bağlama basit bir işlemdir. Windows Live uygulamaya bağlanmamış değilse, aşağıdaki adımları kullanabilirsiniz:
 
-1. Gözat [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) ve Microsoft hesap adınızı ve istendiğinde parolayı girin ve ardından **oturum**:
+1. Gözat [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) ve Microsoft hesap adınızı ve istendiğinde parolayı girin ve ardından **oturum**:
 
     [![](external-authentication-services/_static/image64.png "Görüntü genişletmek için tıklatın")](external-authentication-services/_static/image63.png)
 2. İstendiğinde, uygulamanızın dil ve adını girin ve ardından **kabul ediyorum**:

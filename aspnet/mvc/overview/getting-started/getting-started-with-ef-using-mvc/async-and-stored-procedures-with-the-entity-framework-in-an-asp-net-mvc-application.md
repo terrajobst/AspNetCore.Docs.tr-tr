@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Zaman uyumsuz ve ASP.NET MVC uygulamasındaki Entity Framework saklı yordamlar | Microsoft Docs"
+title: Zaman uyumsuz ve ASP.NET MVC uygulamasındaki Entity Framework saklı yordamlar | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7412b32ac29179dfa319544781d4c7165c58196b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 84cf427c7da7905444568ac34534e9ed98a7d8c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Zaman uyumsuz ve ASP.NET MVC uygulamasındaki Entity Framework saklı yordamlar
 ====================
@@ -117,16 +117,16 @@ Bazı geliştiriciler ve DBAs veritabanı erişimi için saklı yordamlar kullan
     Açık *geçişler\&lt; zaman damgası&gt;\_DepartmentSP.cs* kodu görmek için `Up` oluşturan yöntemi INSERT, Update ve Delete saklı yordamlar:
 
     [!code-csharp[Main](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs?highlight=3-4,26-27,42-43)]
-- Paket yönetmek konsolunda, aşağıdaki komutu girin:
+3. Paket yönetmek konsolunda, aşağıdaki komutu girin:
 
-    `update-database`
-- Uygulamayı hata ayıklama modunda çalıştırmak, tıklatın **Departmanlar** sekmesini ve ardından **Yeni Oluştur**.
-- Verileri için yeni bir bölüm girin ve ardından **oluşturma**.
+     `update-database`
+4. Uygulamayı hata ayıklama modunda çalıştırmak, tıklatın **Departmanlar** sekmesini ve ardından **Yeni Oluştur**.
+5. Verileri için yeni bir bölüm girin ve ardından **oluşturma**.
 
-    ![Departman oluşturma](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-- Visual Studio'da günlüklerine bakın **çıkış** bir saklı yordam yeni bölüm satır eklemek için kullanıldığını görmek için pencere.
+     ![Departman oluşturma](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+6. Visual Studio'da günlüklerine bakın **çıkış** bir saklı yordam yeni bölüm satır eklemek için kullanıldığını görmek için pencere.
 
-    ![Bölüm Ekle SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+     ![Bölüm Ekle SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 Kod ilk varsayılan depolanmış yordam adları oluşturur. Varolan bir veritabanını kullanıyorsanız, zaten veritabanında tanımlı saklı yordamları kullanmak için saklı yordam adları özelleştirme gerekebilir. Bunun hakkında daha fazla bilgi için bkz: [Entity Framework kod ilk ekleme/güncelleştirme/silme saklı yordamlar](https://msdn.microsoft.com/data/dn468673).
 
@@ -152,6 +152,6 @@ Bu öğreticide zaman uyumsuz olarak yürütür kodlar yazarak sunucu verimlili�
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

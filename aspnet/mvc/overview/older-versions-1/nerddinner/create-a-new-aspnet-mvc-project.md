@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
-title: "Yeni bir ASP.NET MVC projesi oluşturun | Microsoft Docs"
+title: Yeni bir ASP.NET MVC projesi oluşturun | Microsoft Docs
 author: microsoft
-description: "1. adım temel NerdDinner uygulama yapısı yerleştirdiniz gösterilmiştir."
+description: 1. adım temel NerdDinner uygulama yapısı yerleştirdiniz gösterilmiştir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
-ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d15ca67f0ddd8db6842bc5112996ae2dee433536
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Yeni bir ASP.NET MVC projesi oluşturma
 ====================
@@ -136,6 +136,6 @@ Daha sonra Bu öğreticide biz otomatikleştirilmiş testleri hakkında daha faz
 
 Temel uygulama yapısı artık yerinde açıyor. Şimdi, şimdi [bizim uygulama verilerini depolamak için bir veritabanı oluşturun](create-a-database.md).
 
->[!div class="step-by-step"]
-[Önceki](introducing-the-nerddinner-tutorial.md)
-[sonraki](create-a-database.md)
+> [!div class="step-by-step"]
+> [Önceki](introducing-the-nerddinner-tutorial.md)
+> [sonraki](create-a-database.md)

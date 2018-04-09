@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
-title: "ASP.NET MVC 4 özel eylem filtreleri | Microsoft Docs"
+title: ASP.NET MVC 4 özel eylem filtreleri | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC önce ya da bir eylem yöntemi çağrıldıktan sonra filtreleme mantığını yürütme için eylem filtrelerini sağlar. Eylem filtreleri özel öznitelikler tha olan..."
+description: ASP.NET MVC önce ya da bir eylem yöntemi çağrıldıktan sonra filtreleme mantığını yürütme için eylem filtrelerini sağlar. Eylem filtreleri özel öznitelikler tha olan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8b135b23aea64b0c7c7d4368eef9ee80914159e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>ASP.NET MVC 4 özel eylem filtreleri
 
@@ -139,14 +139,14 @@ Bu görevde günlük kaydı mantığı içeren bir özel filtre öznitelik sın�
 
 1. Açık **başlamak** çözüm bulunan **\Source\Ex01-LoggingActions\Begin** klasör.
 
-    1. Devam etmeden önce bazı eksik NuGet paketlerini karşıdan yüklemeniz gerekir. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Devam etmeden önce bazı eksik NuGet paketlerini karşıdan yüklemeniz gerekir. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-    > 
-    > Bu makalede daha fazla bilgi için bkz: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > 
+      > Bu makalede daha fazla bilgi için bkz: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Yeni bir C# sınıfına ekleme **filtreleri** klasörü ve adlandırın *CustomActionFilter.cs*. Bu klasör, tüm özel filtreler depolar.
 3. Açık **CustomActionFilter.cs** ve bir başvuru ekleyin **System.Web.Mvc** ve **MvcMusicStore.Models** ad alanları:
 
@@ -185,10 +185,10 @@ Belirli denetleyici yöntemi müdahale mümkündür.
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
-    > [!NOTE]
-    > Bir filtre denetleyici sınıfına eklenen, tüm eylemleri de eklenmiş. Yalnızca bir dizi eylemi için filtre uygulamak istiyorsanız, eklemesine olurdu **[CustomActionFilter]** her biri için:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
+   > [!NOTE]
+   > Bir filtre denetleyici sınıfına eklenen, tüm eylemleri de eklenmiş. Yalnızca bir dizi eylemi için filtre uygulamak istiyorsanız, eklemesine olurdu **[CustomActionFilter]** her biri için:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
 <a id="Ex1Task3"></a>
 
@@ -204,14 +204,14 @@ Bu görevde, günlüğe yazma filtresini çalışıp çalışmadığını test e
 
     *Sayfa etkinliği önce günlük İzleyici durumu*
 
-    > [!NOTE]
-    > Varsayılan olarak, var olan türler menüsü alınırken oluşturulan bir öğe her zaman gösterir.
-    > 
-    > Kolaylık olması amacıyla şu Temizleme **ActionLog** tablo uygulamanın yalnızca belirli her görevin doğrulama günlükleri gösterir şekilde her çalıştığında.
-    > 
-    > Aşağıdaki kod kaldırmanız gerekebilir **oturum\_Başlat** yöntemi (içinde **Global.asax** sınıfı) deposu içinde yürütülen tüm eylemler için geçmişe dönük bir günlüğünü kaydetmek için Denetleyici.
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
+   > [!NOTE]
+   > Varsayılan olarak, var olan türler menüsü alınırken oluşturulan bir öğe her zaman gösterir.
+   > 
+   > Kolaylık olması amacıyla şu Temizleme **ActionLog** tablo uygulamanın yalnızca belirli her görevin doğrulama günlükleri gösterir şekilde her çalıştığında.
+   > 
+   > Aşağıdaki kod kaldırmanız gerekebilir **oturum\_Başlat** yöntemi (içinde **Global.asax** sınıfı) deposu içinde yürütülen tüm eylemler için geçmişe dönük bir günlüğünü kaydetmek için Denetleyici.
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. Birini tıklatın **türler** menüsünde ve kullanılabilir albüm gözatma gibi bazı eylemleri gerçekleştirebilirsiniz.
 4. Gözat **/ActionLog** ve günlük boş tuşuna ise **F5** sayfayı yenilemek için. Ziyaretleriniz izlenmekte olan denetleyin:
 
@@ -250,7 +250,7 @@ Bu görevde, filtrelerin uygulanma sırası yönetmek öğrenme StoreController 
         > [!NOTE]
         > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
         > 
-        > Bu makalede daha fazla bilgi için bkz: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+        > Bu makalede daha fazla bilgi için bkz: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Yeni bir C# sınıfına ekleme **filtreleri** klasörü ve adlandırın *MyNewCustomActionFilter.cs*
 3. Açık **MyNewCustomActionFilter.cs** ve bir başvuru ekleyin **System.Web.Mvc** ve **MvcMusicStore.Models** ad alanı:
 
@@ -264,7 +264,7 @@ Bu görevde, filtrelerin uygulanma sırası yönetmek öğrenme StoreController 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > Bu özel eylem filtresi neredeyse daha önceki alıştırmada oluşturulan aynıdır. Ana farktır olduğunu  *&quot;oturum tarafından&quot;*  öznitelik wich filtresi tanımlamak için bu yeni sınıf adıyla güncelleştirildiğinde günlük kayıtlı.
+    > Bu özel eylem filtresi neredeyse daha önceki alıştırmada oluşturulan aynıdır. Ana farktır olduğunu *&quot;oturum tarafından&quot;* öznitelik wich filtresi tanımlamak için bu yeni sınıf adıyla güncelleştirildiğinde günlük kayıtlı.
 
 <a id="Ex2Task2"></a>
 
@@ -376,9 +376,9 @@ Bu uygulamalı Laboratuvar tamamlayarak özel eylemleri yürütmek için bir eyl
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/? LinkID 9810169 =](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/? LinkId 9810169 =](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -485,12 +485,12 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
 
     ![İstemci IP adresi ekleme](aspnet-mvc-4-custom-action-filters/_static/image27.png)
 
-    İstemci IP adresi ekleme
+    *İstemci IP adresi ekleme*
 3. Bir kez **istemci IP adresi** izin verilen IP adreslerine eklenen listesinde, tıklayın **kaydetmek** değişiklikleri onaylamak için.
 
     ![Değişiklikleri onaylamak](aspnet-mvc-4-custom-action-filters/_static/image28.png)
 
-    Değişiklikleri onaylamak
+    *Değişiklikleri onaylamak*
 
 <a id="ApxBTask3"></a>
 
@@ -522,14 +522,14 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-    - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-    - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-    - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
-    - Yeni bir veritabanı adı yazın.
+   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
+   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
+   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - Yeni bir veritabanı adı yazın.
 
-    ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-custom-action-filters/_static/image33.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-custom-action-filters/_static/image33.png "hedef bağlantı dizesi yapılandırma")
 
-    *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesi yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](aspnet-mvc-4-custom-action-filters/_static/image34.png "veritabanı dizesi oluşturma")

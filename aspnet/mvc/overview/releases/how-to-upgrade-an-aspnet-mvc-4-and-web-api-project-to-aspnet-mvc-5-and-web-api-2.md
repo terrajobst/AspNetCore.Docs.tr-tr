@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
-title: "Bir ASP.NET MVC 4 yükseltme ve Web API projesi ASP.NET MVC 5 ve Web API 2 | Microsoft Docs"
+title: Bir ASP.NET MVC 4 yükseltme ve Web API projesi ASP.NET MVC 5 ve Web API 2 | Microsoft Docs
 author: Rick-Anderson
-description: "ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin."
+description: ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 05a3189cf105d1230b96e90b46ea5ab60fef1bf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f61502933a5ba92896ee97cef9cff915fe23831d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme yapma
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin. Bkz: [https://www.asp.net/vnext](https://www.asp.net/core) daha fazla ayrıntı için.
+> ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin. Bkz: [ https://www.asp.net/vnext ](https://www.asp.net/core) daha fazla ayrıntı için.
 > 
 > Bu kılavuz, uygulamanızın en son sürüme yükseltmek için gerekli adımları size yol gösterecektir.  
 > 
@@ -41,7 +41,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample1.cs)]
 
- to
+   to
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample2.cs)]
 3. Projelerinizi kullanan tüm paketler MVC 5 ve Web API 2 ile uyumlu olduğundan emin olun. Aşağıdaki tabloda gösterildiği MVC 4 ve Web API paketleri değiştirilmesi gereken daha ilgili. Lütfen aşağıda listelenen paketlerden birini bağlı bir paket varsa, MVC 5 ve Web API 2 ile uyumlu olan daha yeni sürümlerini almak için yayımcılar başvurun. Bu paket için kaynak kodu varsa, MVC 5 ve Web API 2 yeni derlemeler ile derlemeniz.   
@@ -68,7 +68,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
     | Microsoft.Data.Edm | 5.2.x | 5.6.x |
     | Microsoft.AspNet.Mvc.FixedDisplayModes | < o: >< / o: p > | Kaldırıldı |
     | Microsoft.AspNet.WebPages.Administration | < o: >< / o: p > | Kaldırıldı |
-    | Microsoft Web Yardımcıları | < o: >< / o: p > | Microsoft.AspNet.WebHelpers |
+    | Microsoft-Web-Helpers | < o: >< / o: p > | Microsoft.AspNet.WebHelpers |
 
     > [!NOTE]
     > Microsoft Web Yardımcıları Microsoft.AspNet.WebHelpers ile değiştirilmiştir. Eski paketi kaldırın ve sonra yeni paketi yükleyin.   
@@ -78,17 +78,17 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 5. Yüklü olan aşağıdaki ASP.NET NuGet paketlerinden birini kaldırın. Bu paket Yöneticisi Konsolu (PMC) kullanarak kaldırır. PMC açmak için seçin **Araçları** menüsüne ve ardından **kitaplık Paket Yöneticisi** seçip **Paket Yöneticisi Konsolu**. Projenizi bunların tümünü içermeyebilir.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
- Bu paket, MVC 3 ile MVC 4'e yükseltme yaparken genellikle eklenir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paket, MVC 3 ile MVC 4'e yükseltme yaparken genellikle eklenir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft.AspNet.WebPages.Administration`
     2. `Microsoft-Web-Helpers`   
- Bu paket olarak rebranded `Microsoft.AspNet.WebHelpers`. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paket olarak rebranded `Microsoft.AspNet.WebHelpers`. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft-Web-Helpers`
     3. `Microsoft.AspNet.Mvc.FixedDisplayMode`  
- Bu paket, MVC 5'te düzeltilen MVC 4'te bir hata için geçici bir çözüm içerir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paket, MVC 5'te düzeltilen MVC 4'te bir hata için geçici bir çözüm içerir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft.AspNet.Mvc.FixedDisplayModes`
 6. PMC kullanarak tüm ASP.NET NuGet paketleri yükseltin. PMC içinde aşağıdaki komutu çalıştırın:  
     `Update-Package`  
- `Update-Package` Herhangi bir parametre her paketi güncelleştirir olmadan komutu. Paketleri kimliği bağımsız değişkeni kullanarak tek tek güncelleştirebilirsiniz. Güncelleştirme komut hakkında daha fazla bilgi için Çalıştır `get-help update-package` .
+   `Update-Package` Herhangi bir parametre her paketi güncelleştirir olmadan komutu. Paketleri kimliği bağımsız değişkeni kullanarak tek tek güncelleştirebilirsiniz. Güncelleştirme komut hakkında daha fazla bilgi için Çalıştır `get-help update-package` .
 
 ## <a name="update-the-application-webconfig-file"></a>Uygulama güncelleştirmesi *web.config* dosyası
 

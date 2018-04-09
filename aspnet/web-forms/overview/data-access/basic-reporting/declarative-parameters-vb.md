@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 title: Bildirim temelli parametreleri (VB) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz parametresi sabit kodlanmış bir değerine ayarlanmış bir DetailsView denetiminde görüntülenecek verileri seçmek için nasıl kullanılacağını gösteren."
+description: Bu öğreticide biz parametresi sabit kodlanmış bir değerine ayarlanmış bir DetailsView denetiminde görüntülenecek verileri seçmek için nasıl kullanılacağını gösteren.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 933b7276c6dac5cce0e278fd23ff010c5b4a6fdd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-vb"></a>Bildirim temelli parametreleri (VB)
 ====================
@@ -127,7 +127,7 @@ Ziyaretçi bir ülkede ancak girer ve bir geri gönderme ObjectDataSource's nede
 
 ## <a name="showing-all-suppliers-by-default"></a>Varsayılan olarak tüm tedarikçileri gösterme
 
-Bunun yerine tedarikçileri hiçbiri ilk sayfa görüntülerken Göster daha göstermek istiyoruz *tüm* ilk, metin kutusuna bir ülke adı girerek listede aşağı Karşılaştır arkasından üreticiler. Metin kutusu boş olduğunda `SuppliersBLL` sınıfının `GetSuppliersByCountry(country)` yöntemi geçirilir `Nothing` için kendi  *`country`*  giriş parametresi. Bu `Nothing` değeri sonra geçirilir DAL ait `GetSupplierByCountry(country)` yöntemi, burada da çevrilir veritabanına `NULL` değerini `@Country` aşağıdaki sorgu parametresinde:
+Bunun yerine tedarikçileri hiçbiri ilk sayfa görüntülerken Göster daha göstermek istiyoruz *tüm* ilk, metin kutusuna bir ülke adı girerek listede aşağı Karşılaştır arkasından üreticiler. Metin kutusu boş olduğunda `SuppliersBLL` sınıfının `GetSuppliersByCountry(country)` yöntemi geçirilir `Nothing` için kendi *`country`* giriş parametresi. Bu `Nothing` değeri sonra geçirilir DAL ait `GetSupplierByCountry(country)` yöntemi, burada da çevrilir veritabanına `NULL` değerini `@Country` aşağıdaki sorgu parametresinde:
 
 [!code-sql[Main](declarative-parameters-vb/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Hilton Giesenow oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](displaying-data-with-the-objectdatasource-vb.md)
-[sonraki](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](displaying-data-with-the-objectdatasource-vb.md)
+> [sonraki](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)

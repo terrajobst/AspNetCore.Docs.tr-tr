@@ -7,8 +7,8 @@ Bu öğretici aşağıdaki API oluşturur:
 |/Api/TODO Al | Tüm yapılacaklar öğelerini alma | Yok. | Yapılacaklar öğelerini dizisi|
 |/Api/todo / {id} Al | Bir öğe kimliği tarafından Al | Yok. | Yapılacaklar öğesi|
 |POST /api/todo | Yeni Öğe Ekle | Yapılacaklar öğesi | Yapılacaklar öğesi |
-|PUT /api/todo / {id} | Varolan öğeyi güncelleştir&nbsp; | Yapılacaklar öğesi | Yok. |
-|DELETE /api/todo/{id} &nbsp; &nbsp; | Bir öğeyi silmek &nbsp;&nbsp; | Yok. | Yok.|
+|PUT /api/todo / {id} | Varolan öğeyi güncelleştir &nbsp; | Yapılacaklar öğesi | Yok. |
+|DELETE /api/todo/{id} &nbsp; &nbsp; | Bir öğeyi silin &nbsp; &nbsp; | Yok. | Yok.|
 
 <br>
 
@@ -18,7 +18,7 @@ Aşağıdaki diyagramda, uygulamanın temel tasarım gösterir.
 
 * Her web API'si (mobil uygulama, tarayıcı, vb.) tüketir istemcidir. Bu öğretici, bir istemci oluşturmaz. [Postman](https://www.getpostman.com/) veya [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html) istemci olarak uygulama test etmek için kullanılır.
 
-* A *modeli* uygulama verileri temsil eden bir nesnedir. Bu durumda, yalnızca bir Yapılacaklar öğesi modelidir. C# sınıfları olarak modelleri temsil edilen, ayrıca olarak bilmeniz **P**larak **O**ld **C**# **O**nesne (POCOs).
+* A *modeli* uygulama verileri temsil eden bir nesnedir. Bu durumda, yalnızca bir Yapılacaklar öğesi modelidir. Modelleri temsil C# sınıfları olarak da olarak da bilinen **P**larak **O**ld **C**# **O**nesne (POCOs).
 
 * A *denetleyicisi* HTTP işleyen nesneyi ister ve HTTP yanıtı oluşturur. Bu uygulamanın tek bir denetleyici yok.
 

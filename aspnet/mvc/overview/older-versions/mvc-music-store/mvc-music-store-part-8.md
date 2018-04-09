@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
-title: "8. Kısım: Alışveriş sepeti Ajax güncelleştirmeleriyle | Microsoft Docs"
+title: '8. Kısım: Alışveriş sepeti Ajax güncelleştirmeleriyle | Microsoft Docs'
 author: jongalloway
-description: "Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 8 Ajax güncelleştirmelerini ile alışveriş sepeti kapsar."
+description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 8 Ajax güncelleştirmelerini ile alışveriş sepeti kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 75e1dff96f8b56d74c28ff9d522f4766fbad669f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 195c01ff0d71b2bfd0c00e71244d47a166330921
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>8. Kısım: Alışveriş sepetine Ajax güncelleştirmelerle
 ====================
@@ -161,6 +161,6 @@ Alışveriş Sepetiniz yüklendikten sonra alışveriş Sepetiniz Ajax güncelle
 Kaydı kullanıcıların kendi sepetine öğeleri eklemesine olanak veren alışveriş çalışma çıkışı temel aldık. Aşağıdaki bölümde, bunları kaydetmek ve kullanıma alma işlemini tamamlamak izin veriyoruz.
 
 
->[!div class="step-by-step"]
-[Önceki](mvc-music-store-part-7.md)
-[sonraki](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Önceki](mvc-music-store-part-7.md)
+> [sonraki](mvc-music-store-part-9.md)

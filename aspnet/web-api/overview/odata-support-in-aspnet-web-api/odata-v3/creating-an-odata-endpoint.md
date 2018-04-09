@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
-title: "Web API 2 OData v3 uç noktası oluşturma | Microsoft Docs"
+title: Web API 2 OData v3 uç noktası oluşturma | Microsoft Docs
 author: MikeWasson
-description: "Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData veri yapısı, verileri sorgulamak ve verileri işlemek için Tekdüzen bir yol sağlar..."
+description: Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData veri yapısı, verileri sorgulamak ve verileri işlemek için Tekdüzen bir yol sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 uç noktası oluşturma
 ====================
@@ -150,7 +150,7 @@ Bir EDM verilerin soyut bir modelidir. EDM meta veri belgesi oluşturmak ve hizm
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-İlk parametre, yol için bir kolay addır. Hizmetinizin istemciler bu adı görmezsiniz. İkinci parametre uç noktası için URI öneki ' dir. Bu kod verildiğinde, ürünleri varlık kümesi için http:// URI'dir*ana bilgisayar adı*  /odata/ürünler. Uygulamanız birden fazla OData uç noktası olabilir. Her uç noktası için çağrı **MapODataRoute** ve benzersiz rota adı ve benzersiz bir URI öneki belirtin.
+İlk parametre, yol için bir kolay addır. Hizmetinizin istemciler bu adı görmezsiniz. İkinci parametre uç noktası için URI öneki ' dir. Bu kod verildiğinde, ürünleri varlık kümesi için http:// URI'dir<em>ana bilgisayar adı</em>  /odata/ürünler. Uygulamanız birden fazla OData uç noktası olabilir. Her uç noktası için çağrı <strong>MapODataRoute</strong> ve benzersiz rota adı ve benzersiz bir URI öneki belirtin.
 
 <a id="seed-db"></a>
 ## <a name="seed-the-database-optional"></a>Çekirdek veritabanı (isteğe bağlı)

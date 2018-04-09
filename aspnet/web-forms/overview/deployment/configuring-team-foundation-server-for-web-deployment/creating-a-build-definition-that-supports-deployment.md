@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: "Dağıtım destekleyen bir yapı tanımı oluşturma | Microsoft Docs"
+title: Dağıtım destekleyen bir yapı tanımı oluşturma | Microsoft Docs
 author: jrjlee
-description: "Team Foundation Server (TFS) 2010 her türlü derleme gerçekleştirmek istiyorsanız, bir derleme tanımı takım projenizin içinde oluşturmanız gerekir. Bu konuda des..."
+description: Team Foundation Server (TFS) 2010 her türlü derleme gerçekleştirmek istiyorsanız, bir derleme tanımı takım projenizin içinde oluşturmanız gerekir. Bu konuda des...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Dağıtım destekleyen bir yapı tanımı oluşturma
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Team Foundation Server (TFS) 2010 her türlü derleme gerçekleştirmek istiyorsanız, bir derleme tanımı takım projenizin içinde oluşturmanız gerekir. Bu konuda TFS'de yeni bir derleme tanımı oluşturun ve web dağıtımı ekip oluşturma işleminde bir parçası olarak denetim açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi iki proje dosyalarını & #x 2014 tarafından kontrol edilir; o Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren ne. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -62,7 +62,7 @@ Bu işlem gösterilmektedir:
 Sonraki bölümde, yeni bir derleme tanımı oluşturarak bu işlemi uygulamak açıklanmaktadır.
 
 > [!NOTE]
-> & Bu yordam, tek bir otomatik işlem derlemeler, #x 2014; testleri ve bir çözüm & #x 2014 dağıtır; sınama ortamlarında dağıtım için en uygun olması olasıdır. Hazırlama ve üretim ortamları için içerik, önceden doğrulandı ve bir test ortamında doğrulanmış önceki derlemeden dağıtmak istediğiniz çok büyük olasılıkla. Bu yaklaşım sonraki konu olan açıklanan [belirli bir yapı dağıtma](deploying-a-specific-build.md).
+> Bu yordamı&#x2014;, tek bir otomatik işlemi oluşturur, test ve bir çözüm dağıtır&#x2014;ortamları test etmek için dağıtım için en uygun olması olasıdır. Hazırlama ve üretim ortamları için içerik, önceden doğrulandı ve bir test ortamında doğrulanmış önceki derlemeden dağıtmak istediğiniz çok büyük olasılıkla. Bu yaklaşım sonraki konu olan açıklanan [belirli bir yapı dağıtma](deploying-a-specific-build.md).
 
 
 ### <a name="who-performs-this-procedure"></a>Bu yordamı kimin yapar?
@@ -133,7 +133,7 @@ Yapı tanımınızı CI kullanmak için yapılandırdıysanız, iki yolla yapı 
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-İlerleme durumu ve sonucu bir yapı & #x 2014; olup, el ile veya otomatik olarak tetiklendi & #x 2014; bağımsız olarak gözden geçirmek için yapı tanımı'nda çift **Takım Gezgini** penceresi. Bu açılır bir **Yapı Gezgini** sekmesi.
+İlerleme durumunu ve bir yapı sonucunu gözden geçirmek için&#x2014;olup, el ile veya otomatik olarak tetiklendi bağımsız olarak&#x2014;derleme tanımı'nda çift **Takım Gezgini** penceresi. Bu açılır bir **Yapı Gezgini** sekmesi.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
@@ -161,6 +161,6 @@ Derleme işleminin bir parçası başarılı olması bir otomatik dağıtım iç
 
 Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz: [temel yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/library/ms181715.aspx). Sıraya alma yapılar hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Önceki](configuring-a-tfs-build-server-for-web-deployment.md)
-[sonraki](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-a-tfs-build-server-for-web-deployment.md)
+> [sonraki](deploying-a-specific-build.md)

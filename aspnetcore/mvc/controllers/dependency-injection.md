@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core denetleyicileri içine bağımlılık ekleme"
+title: ASP.NET Core denetleyicileri içine bağımlılık ekleme
 author: ardalis
-description: "ASP.NET Core MVC denetleyicileri bağımlılıklarını açıkça ASP.NET Core bağımlılık ekleme ile bunların oluşturucular aracılığıyla nasıl istek bulur."
+description: ASP.NET Core MVC denetleyicileri bağımlılıklarını açıkça ASP.NET Core bağımlılık ekleme ile bunların oluşturucular aracılığıyla nasıl istek bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 75b3da9805539ee04944231ed2ff0158fad451e4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c3e26d294d51dc7044158b05c1ac39015c494610
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET Core denetleyicileri içine bağımlılık ekleme
 
@@ -66,7 +66,7 @@ Hizmet yapılandırıldıktan sonra uygulamayı çalıştıran ve giriş sayfas�
 ![Sunucu selamlama](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Bkz: [test denetleyicisi mantığı](testing.md) bağımlılıkları istemenin öğrenmek için [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) denetleyicileri kodu test etmek kolaylaştırır.
+> Bkz: [Test denetleyicisi mantığı](testing.md) bağımlılıkları istemenin öğrenmek için [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) denetleyicileri kodu test etmek kolaylaştırır.
 
 ASP.NET Core'nın yerleşik bağımlılık ekleme sınıfları Hizmetleri istemek için yalnızca tek bir oluşturucuya sahip destekler. Birden fazla Oluşturucusu varsa, belirten bir özel durum alabilirsiniz:
 
@@ -104,4 +104,4 @@ Kesin türü belirtilmiş yapılandırma nesnesi belirlediğiniz sonra (Bu durum
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Seçenekleri Desen aşağıdaki ayarları ve yapılandırmayı birbirinden ayrılmış sağlar ve denetleyici izlemektir sağlar [sorunları ayrılması](http://deviq.com/separation-of-concerns/), nasıl ve nerede bilmek gerekli olmayan beri ayarları bulunamıyor bilgi. Ayrıca denetleyicisi birim testi kolaylaştırır [test denetleyicisi mantığı](testing.md), olduğundan hiçbir [statik cling](http://deviq.com/static-cling/) veya denetleyici sınıfı içinde ayarları sınıfların doğrudan örnek oluşturma.
+Seçenekleri Desen aşağıdaki ayarları ve yapılandırmayı birbirinden ayrılmış sağlar ve denetleyici izlemektir sağlar [sorunları ayrılması](http://deviq.com/separation-of-concerns/), nasıl ve nerede bilmek gerekli olmayan beri ayarları bulunamıyor bilgi. Ayrıca denetleyicisi birim testi kolaylaştırır [Test denetleyicisi mantığı](testing.md), olduğundan hiçbir [statik cling](http://deviq.com/static-cling/) veya denetleyici sınıfı içinde ayarları sınıfların doğrudan örnek oluşturma.

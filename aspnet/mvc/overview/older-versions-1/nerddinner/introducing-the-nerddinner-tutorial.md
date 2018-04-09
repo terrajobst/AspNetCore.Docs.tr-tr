@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
-title: "NerdDinner Öğreticisi giriş | Microsoft Docs"
+title: NerdDinner Öğreticisi giriş | Microsoft Docs
 author: shanselman
-description: "Yeni bir çerçeve öğrenmenin en iyi yolu onunla bir şeyler oluşturmaktır. Bu öğreticide ASP.NE kullanarak küçük, ancak tam, bir uygulama oluşturmak nasıl aracılığıyla açıklanmaktadır..."
+description: Yeni bir çerçeve öğrenmenin en iyi yolu onunla bir şeyler oluşturmaktır. Bu öğreticide ASP.NE kullanarak küçük, ancak tam, bir uygulama oluşturmak nasıl aracılığıyla açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 57eedb224e26867c78cc399b89f91b95f722074d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d925a7dc89fc0c742468653c5c138a0f1d71231
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner Öğreticisi Tanıtımı
 ====================
@@ -59,7 +59,7 @@ Bunlar daha sonra olay katılmak için bir AJAX tabanlı RSVP bağlantıyı tık
 
 ![](introducing-the-nerddinner-tutorial/_static/image7.png)
 
-### <a name="implementing-nerddinner"></a>NerdDinner uygulama
+### <a name="implementing-nerddinner"></a>Implementing NerdDinner
 
 Dosya - kullanarak NerdDinner uygulamamız başlamaya kalacaklarını&gt;yepyeni bir ASP.NET MVC projesini oluşturmak için Visual Studio içindeki yeni proje komutu. Ardından artımlı olarak işlev ve özellikleri ekleyeceğiz. Yol boyunca şu konulara değineceğiz:
 
@@ -88,5 +88,5 @@ Biz NerdDinner nedir kapsamına, şimdi bizim kollarýný attıysanız ve biraz 
 
 Biz dosya - kullanarak başlarsınız&gt;NerdDinner uygulaması oluşturmak için Visual Studio'da yeni proje.
 
->[!div class="step-by-step"]
-[Sonraki](create-a-new-aspnet-mvc-project.md)
+> [!div class="step-by-step"]
+> [Next](create-a-new-aspnet-mvc-project.md)

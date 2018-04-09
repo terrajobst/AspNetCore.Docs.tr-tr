@@ -1,7 +1,7 @@
 ---
-title: "Anahtar depolama biçimi"
+title: ASP.NET Core anahtar depolama biçimi
 author: tdykstra
-description: "Bu belgede ASP.NET Core veri koruma anahtarı depolama alanı biçimi, uygulama ayrıntıları açıklanmaktadır."
+description: ASP.NET Core veri koruması anahtar depolama biçimi uygulama ayrıntılarını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 66783eb7264a4551eafdd9d5c7d99b014701a6de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: abe23da3de70107aa4f4d84f4da27aadfe7b2061
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-format"></a>Anahtar depolama biçimi
+# <a name="key-storage-format-in-aspnet-core"></a>ASP.NET Core anahtar depolama biçimi
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
@@ -66,7 +66,7 @@ Belirli biçimi \<tanımlayıcısı > öğesi anahtarının kapsüllenmiş kimli
 
 ## <a name="the-encryptedsecret-element"></a>\<EncryptedSecret > öğesi
 
-Bir <encryptedSecret> şifrelenmiş gizli anahtar malzemesi içeren öğesi mevcut olması durumunda [REST gizli şifreleme etkinleştirilmiştir](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest). Öznitelik decryptorType IXmlDecryptor uygulayan bir tür bütünleştirilmiş kod tam adı olacaktır. Bu tür iç okumak için sorumlu olduğu <encryptedKey> öğesi ve özgün düz metin kurtarmak için şifre çözme.
+Bir <encryptedSecret> şifrelenmiş gizli anahtar malzemesi içeren öğesi mevcut olması durumunda [REST gizli şifreleme etkinleştirilmiştir](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest). Öznitelik decryptorType IXmlDecryptor uygulayan bir tür bütünleştirilmiş kod tam adı olacaktır. Bu tür iç okumak için sorumlu olduğu <encryptedKey> öğesi ve özgün düz metin kurtarmak için şifre çözme.
 
 İle \<tanımlayıcısı >, belirli biçimi <encryptedSecret> kullanımda çalışmıyorken şifreleme mekanizması öğesi bağlıdır. Yukarıdaki örnekte, ana anahtar yorum Windows DPAPI kullanılarak şifrelenir.
 

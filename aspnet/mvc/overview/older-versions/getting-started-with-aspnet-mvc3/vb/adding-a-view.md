@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
-title: "Bir görünüm (VB) ekleme | Microsoft Docs"
+title: Bir görünüm (VB) ekleme | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>Bir görünüm (VB) ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack ücretsiz Microsoft Visual Studio sürümünü olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek. Başlamadan önce aşağıda listelenen önkoşulları kurduğunuzdan emin olun. Bunların tümünün aşağıdaki bağlantıyı tıklatarak yükleyin: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 > 
@@ -65,7 +65,7 @@ Oldukça iyi görünür. Ancak, tarayıcının başlık çubuğunda yazmadığı
 
 İlk olarak, metin değiştirelim &quot;MVC Uygulamam.&quot; Bu metin paylaşılır ve her sayfada görüntülenir. Uygulamamızı her sayfasında olsa bile gerçekte bizim projesinde, yalnızca tek bir yerde görünür. Git */görünümler/paylaşılan* klasöründe **Çözüm Gezgini** açarak  *\_Layout.vbhtml* dosya. Bu dosyayı bir düzen sayfası olarak adlandırılır ve paylaşılan ise &quot;Kabuk&quot; , diğer tüm sayfalar kullanın.
 
-Not `@RenderBody()` dosyasının altına kod satırı. `RenderBody`Burada oluşturduğunuz tüm sayfalar gösterir, bir yer tutucudur &quot;Sarmalanan&quot; düzeni sayfasında. Değişiklik `<h1>` gelen başlık  **&quot;**  MVC Uygulamam&quot; için &quot;MVC film uygulaması&quot;.
+Not `@RenderBody()` dosyasının altına kod satırı. `RenderBody` Burada oluşturduğunuz tüm sayfalar gösterir, bir yer tutucudur &quot;Sarmalanan&quot; düzeni sayfasında. Değişiklik `<h1>` gelen başlık **&quot;** MVC Uygulamam&quot; için &quot;MVC film uygulaması&quot;.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -79,7 +79,7 @@ Tam  *\_Layout.vbhtml* dosya aşağıda gösterilmektedir:
 
 [!code-vbhtml[Main](adding-a-view/samples/sample5.vbhtml)]
 
-Açık *MvcMovie\Views\HelloWorld\Index.vbhtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biz biraz farklı yapmanız.
+Open *MvcMovie\Views\HelloWorld\Index.vbhtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biz biraz farklı yapmanız.
 
 Uygulamayı çalıştırın ve Gözat`http://localhost:xx/HelloWorld`. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. Büyük küçük değişikliklerle, uygulamanızdaki bir görünüme değişiklik kolaydır. (Değişiklikleri tarayıcıda görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Yüklenecek sunucudan yanıt zorlamak için tarayıcınızda CTRL + F5'e basın.)
 
@@ -111,11 +111,11 @@ Tam `HelloWorldController.vb` aynı dosyada yeni sınıf ile.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Altında aşağıdaki kodu ekleyin `<h2>` öğesinde yeni *Hoş Geldiniz.* vbhtml dosyası. Biz döngü olmak ve söyleyin &quot;Hello&quot; sayıda kullanıcı biz gerektiğini bildiren!
+Altında aşağıdaki kodu ekleyin `<h2>` öğesinde yeni <em>Hoş Geldiniz.</em> vbhtml dosyası. Biz döngü olmak ve söyleyin &quot;Hello&quot; sayıda kullanıcı biz gerektiğini bildiren!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Uygulamayı çalıştırın ve göz atın`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Uygulamayı çalıştırın ve göz atın `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 Artık veriler URL'den gerçekleştirilecek ve denetleyiciye otomatik olarak geçirildi. Denetleyici paketler veri bir `Model` nesnesini ve nesne görünümüne geçirir. Verileri HTML olarak kullanıcıya görüntüler daha görüntüleyin.
 
@@ -123,6 +123,6 @@ Artık veriler URL'den gerçekleştirilecek ve denetleyiciye otomatik olarak ge�
 
 Bir tür iyi, bir &quot;M&quot; modeli, ancak veritabanı türü değil. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 
->[!div class="step-by-step"]
-[Önceki](adding-a-controller.md)
-[sonraki](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-a-controller.md)
+> [sonraki](adding-a-model.md)

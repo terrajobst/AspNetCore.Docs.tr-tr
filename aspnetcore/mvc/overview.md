@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC’ye Genel Bakış"
+title: ASP.NET Core MVC’ye Genel Bakış
 author: ardalis
-description: "ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın."
+description: ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın.
 manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -185,13 +185,13 @@ Uygulamanızı de kullanabilirsiniz [bağımlılık ekleme görünümünde dosya
 
 Web siteleri oluşturmak için harika bir platform olmaya ek olarak, ASP.NET Core MVC Web API'ları oluşturmak için harika desteğe sahiptir. Tarayıcılar ve mobil cihazlar dahil olmak üzere istemcileri geniş bir yelpazedeki ulaşmak hizmetler oluşturabilirsiniz.
 
-HTTP İçerik anlaşma desteği için yerleşik destek ile framework içeren [veri biçimlendirme](models/formatting.md) JSON veya XML olarak. Yazma [özel biçimlendiricileri](advanced/custom-formatters.md) kendi biçimleri için destek eklemek için.
+HTTP İçerik anlaşma desteği için yerleşik destekle framework içeren [biçimlendirmek veri](xref:web-api/advanced/formatting) JSON veya XML olarak. Yazma [özel biçimlendiricileri](xref:web-api/advanced/custom-formatters) kendi biçimleri için destek eklemek için.
 
 Bağlantı oluşturma iletilir desteğini etkinleştirmek için kullanın. Kolayca desteğini etkinleştirme [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/) böylece Web API'leri birden çok Web uygulamaları arasında paylaşılabilir.
 
 ### <a name="testability"></a>Test Edilebilirlik
 
-Framework'ün kullanımını arabirimleri ve bağımlılık ekleme kılmaktadır birim testi ve framework (gibi bir TestHost ve Inmemory sağlayıcısı için Entity Framework) olun özellikler içerir [tümleştirme sınaması](../testing/integration-testing.md) hızlı ve kolay de. Daha fazla bilgi edinmek [denetleyicisi mantığının test edilmesi](controllers/testing.md).
+Framework'ün kullanımını arabirimleri ve bağımlılık ekleme kılmaktadır birim testi ve framework (gibi bir TestHost ve Inmemory sağlayıcısı için Entity Framework) olun özellikler içerir [tümleştirme testleri](../testing/integration-testing.md) hızlı ve kolay de. Daha fazla bilgi edinmek [denetleyici mantığında test etme](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Razor görüntüleme altyapısı
 

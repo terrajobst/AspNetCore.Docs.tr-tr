@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
-title: "Bir hizmet katmanı ile (C#) doğrulanıyor | Microsoft Docs"
+title: Bir hizmet katmanı ile (C#) doğrulanıyor | Microsoft Docs
 author: StephenWalther
-description: "Doğrulama mantığınız denetleyici eylemleri dışında ve ayrı bir hizmet katmana taşıma konusunda bilgi edinin. Bu öğreticide, Stephen Walther açıklar nasıl..."
+description: Doğrulama mantığınız denetleyici eylemleri dışında ve ayrı bir hizmet katmana taşıma konusunda bilgi edinin. Bu öğreticide, Stephen Walther açıklar nasıl...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f36301aef4377c6c00cb4fc33dbc5c57b1c426a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06042ac197cc54da767a94a44c57eb09bb3db9fa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-a-service-layer-c"></a>Bir hizmet katmanı ile (C#) doğrulanıyor
 ====================
@@ -99,6 +99,6 @@ IValidationDictionary kullanarak arabirimi ve ModelStateWrapper sınıfı sağla
 
 Bu öğreticinin amacı, bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmek için bir yaklaşım tartışmak için oluştu. Bu öğreticide, tüm doğrulama mantığınız denetleyicilerinizi dışında ve ayrı bir hizmet katmana taşımak öğrendiniz. Ayrıca, hizmet katmanı denetleyicisi katmanından ModelStateWrapper sınıfı oluşturarak yalıtmak öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](validating-with-the-idataerrorinfo-interface-cs.md)
-[sonraki](validation-with-the-data-annotation-validators-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](validating-with-the-idataerrorinfo-interface-cs.md)
+> [sonraki](validation-with-the-data-annotation-validators-cs.md)

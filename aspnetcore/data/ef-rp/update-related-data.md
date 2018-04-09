@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir"
+title: Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir
 author: rick-anderson
-description: "Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin."
+description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: fe76405c67297891351aba2495a4d7ce22c6195b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d793a7ca3635108ed7941ccc8578572afd79c305
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Bu öğretici, ilgili verileri güncelleştirme gösterir. Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part7).
 
@@ -230,6 +230,6 @@ Yukarıdaki kod aşağıdaki değişiklikleri yapar:
 
 * Silinecek Eğitmen herhangi Departmanlar yönetici olarak atanmış ise bu bölümlerden Eğitmen atama kaldırır.
 
->[!div class="step-by-step"]
-[Önceki](xref:data/ef-rp/read-related-data)
-[sonraki](xref:data/ef-rp/concurrency)
+> [!div class="step-by-step"]
+> [Önceki](xref:data/ef-rp/read-related-data)
+> [sonraki](xref:data/ef-rp/concurrency)

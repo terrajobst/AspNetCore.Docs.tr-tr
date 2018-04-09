@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET ve ASP.NET Core arasında seçim yapma"
+title: ASP.NET ve ASP.NET Core arasında seçim yapma
 author: rick-anderson
-description: "ASP.NET ve ASP.NET Core arasında seçim yapma hakkında bilgi edinin."
+description: ASP.NET ve ASP.NET Core arasında seçim yapma hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 3986e904d6670c451edc5c9338dc07e18d3c207d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e6ac9f54ef623895b81eea33d90791e5f0ad5120
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core arasında seçim yapma
 
@@ -32,7 +32,7 @@ ASP.NET, kurumsal sınıf oluşturmak için gereken tüm hizmetleri Windows serv
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Windows, macOS ya da Linux derleme|Windows için derleme|
-|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction-signalr-core).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), veya [Web sayfaları](/aspnet/web-pages)|
+|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), veya [Web sayfaları](/aspnet/web-pages)|
 |Makine başına birden çok sürüm|Makine başına bir sürüm|
 |Visual Studio ile geliştirme [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) C# veya F # kullanma|C#, VB ve F # kullanarak Visual Studio ile geliştirme|
 |ASP.NET daha yüksek performans|İyi bir performans|

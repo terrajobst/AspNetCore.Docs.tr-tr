@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
-title: "Yukarı NerdDinner kaydırma | Microsoft Docs"
+title: Yukarı NerdDinner kaydırma | Microsoft Docs
 author: microsoft
-description: "Bu sonuç NerdDinner öğreticinin ve daha fazla bilgi edinin hakkında bilgi sağlar."
+description: Bu sonuç NerdDinner öğreticinin ve daha fazla bilgi edinin hakkında bilgi sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/nerddinner-wrap-up
 msc.type: authoredcontent
-ms.openlocfilehash: bb55668c714532c0a9ff499511b7a47572314194
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d418f40f6d2911491c1a4f2498a4f711e9c271c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nerddinner-wrap-up"></a>NerdDinner satın alın
 ====================
@@ -43,11 +43,11 @@ Yeni ilk bölüm bu NerdDinner öğreticidir [Professional ASP.NET MVC 1.0](http
 
 ASP.NET MVC hakkında daha fazla bilgi edinmek için kitap kalan okuyabilir.
 
-Mükemmel ASP.NET MVC öğreticiler ve videolar konumunda bulabilirsiniz: [https://www.asp.net/mvc](../../../index.md) diğer mükemmel bir ASP.NET MVC books kısa süre içinde yayımlanır. Kullanılabilir olduklarında ek kitaplar bağlantılar dahil etmek için bu sayfayı güncelleştirmek.
+Mükemmel ASP.NET MVC öğreticiler ve videolar konumunda bulabilirsiniz: [ https://www.asp.net/mvc ](../../../index.md) diğer mükemmel bir ASP.NET MVC books kısa süre içinde yayımlanır. Kullanılabilir olduklarında ek kitaplar bağlantılar dahil etmek için bu sayfayı güncelleştirmek.
 
 Bu yardımcı umuyoruz,
 
 Tan
 
->[!div class="step-by-step"]
-[Önceki](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Önceki](enable-automated-unit-testing.md)

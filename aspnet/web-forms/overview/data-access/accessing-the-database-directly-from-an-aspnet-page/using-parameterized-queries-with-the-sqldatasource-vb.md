@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 title: Parametreli sorgular SqlDataSource (VB) ile kullanma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide SqlDataSource denetimi bizim bakma devam ve parametreli sorgular tanımlamak öğrenin. Parametrelerle belirtilen hem decla..."
+description: Bu öğreticide SqlDataSource denetimi bizim bakma devam ve parametreli sorgular tanımlamak öğrenin. Parametrelerle belirtilen hem decla...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b1cda18620a970c45b05039dd380c393e3854889
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a7442ef3bebb2742cc36d695914b745aa2dfa721
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Parametreli sorgular SqlDataSource (VB) ile kullanma
 ====================
@@ -235,7 +235,7 @@ Bir SqlDataSource eklemeye başlayın `ParameterizedQueries.aspx` ve kendi `ID` 
 
 [!code-sql[Main](using-parameterized-queries-with-the-sqldatasource-vb/samples/sample10.sql)]
 
-`ORDER BY NEWID()`rastgele düzende sıralanmış kayıtları döndürür (bkz [kullanma `NEWID()` rastgele sıralama kayıtlara](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1`ilk kaydı sonuç kümesinden döndürür. Bu sorgunun döndürdüğü araya `CategoryID` ve `CategoryName` tek, rasgele seçilen kategori sütun değerleri.
+`ORDER BY NEWID()` rastgele düzende sıralanmış kayıtları döndürür (bkz [kullanma `NEWID()` rastgele sıralama kayıtlara](http://www.sqlteam.com/item.asp?ItemID=8747)). `SELECT TOP 1` ilk kaydı sonuç kümesinden döndürür. Bu sorgunun döndürdüğü araya `CategoryID` ve `CategoryName` tek, rasgele seçilen kategori sütun değerleri.
 
 S kategori görüntülenecek `CategoryName` değer, bir etiket Web denetimi sayfasına eklemesine kendi `ID` özelliğine `CategoryNameLabel`ve temizleyin, `Text` özelliği. Program aracılığıyla SqlDataSource denetimden veri almak için çağrılacak ihtiyacımız kendi `Select()` yöntemi. [ `Select()` Yöntemi](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.select.aspx) türünde tek bir giriş parametresi bekliyor [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx), nasıl veri döndürülen önce messaged belirtir. Bu verileri sıralama ve filtreleme hakkında yönergeler içerebilir ve sıralama veya bir SqlDataSource denetimi verilerden aracılığıyla disk belleği Web denetimleri verileri tarafından kullanılır. Bizim örneğimizde rağmen biz güncelleştireceğinizi döndürülen önce değiştirilecek t gerek veri ve bu nedenle de geçer `DataSourceSelectArguments.Empty` nesnesi.
 
@@ -246,7 +246,7 @@ Aşağıdaki kod kayıtları almak nasıl gösterir `RandomCategoryDataSource` S
 
 [!code-vb[Main](using-parameterized-queries-with-the-sqldatasource-vb/samples/sample11.vb)]
 
-`randomCategoryView(0)`ilk döndürür `DataRowView` DataView. `randomCategoryView(0)("CategoryName")`değerini döndürür `CategoryName` bu ilk satırı sütun. DataView geniş yazılmış olduğuna dikkat edin. Belirli bir sütun değeri başvurmak için sütun adına (Bu durumda, CategoryName) dize olarak geçirmek ihtiyacımız. Şekil 13 gösterir görüntülenen iletisi `CategoryNameLabel` sayfayı görüntülerken. Elbette, görüntülenen gerçek kategori adı rastgele tarafından seçilen `RandomCategoryDataSource` SqlDataSource (Geri göndermeler dahil) sayfası her ziyaret.
+`randomCategoryView(0)` ilk döndürür `DataRowView` DataView. `randomCategoryView(0)("CategoryName")` değerini döndürür `CategoryName` bu ilk satırı sütun. DataView geniş yazılmış olduğuna dikkat edin. Belirli bir sütun değeri başvurmak için sütun adına (Bu durumda, CategoryName) dize olarak geçirmek ihtiyacımız. Şekil 13 gösterir görüntülenen iletisi `CategoryNameLabel` sayfayı görüntülerken. Elbette, görüntülenen gerçek kategori adı rastgele tarafından seçilen `RandomCategoryDataSource` SqlDataSource (Geri göndermeler dahil) sayfası her ziyaret.
 
 
 [![Adı görüntülenir rastgele seçilen kategori s](using-parameterized-queries-with-the-sqldatasource-vb/_static/image13.gif)](using-parameterized-queries-with-the-sqldatasource-vb/_static/image25.png)
@@ -306,12 +306,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Scott Clyde, Randell Etikan ve Ken Pespisa yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](querying-data-with-the-sqldatasource-control-vb.md)
-[sonraki](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](querying-data-with-the-sqldatasource-control-vb.md)
+> [sonraki](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

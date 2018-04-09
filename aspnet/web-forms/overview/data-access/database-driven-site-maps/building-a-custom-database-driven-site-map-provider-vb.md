@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
-title: "Özel veritabanı kaynaklı Site haritası sağlayıcısı (VB) oluşturma | Microsoft Docs"
+title: Özel veritabanı kaynaklı Site haritası sağlayıcısı (VB) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Varsayılan site haritası sağlayıcısı, ASP.NET 2.0 statik bir XML dosyasından verisini alır. XML tabanlı sağlayıcı çok sayıda küçük ve orta boyut uygun olmasına rağmen..."
+description: Varsayılan site haritası sağlayıcısı, ASP.NET 2.0 statik bir XML dosyasından verisini alır. XML tabanlı sağlayıcı çok sayıda küçük ve orta boyut uygun olmasına rağmen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9b71ed89dce4e973a9096a9e2326d2c16c30673
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df295f1b8bf0b83647ffb90501936181894634d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Özel veritabanı kaynaklı Site haritası sağlayıcısı (VB) oluşturma
 ====================
@@ -145,7 +145,7 @@ Ardından, bir HyperLinkField ekleyin ve en solundaki konuma taşıyın. Ayarlam
 
 ![İçin ProductDetails.aspx gösteren bir görünüm ayrıntıları HyperLinkField Ekle](building-a-custom-database-driven-site-map-provider-vb/_static/image10.gif)
 
-**Şekil 10**: bir görünüm ayrıntıları işaret HyperLinkField Ekle`ProductDetails.aspx`
+**Şekil 10**: bir görünüm ayrıntıları işaret HyperLinkField Ekle `ProductDetails.aspx`
 
 
 Bu özelleştirmeler yaptıktan sonra GridView ve ObjectDataSource s bildirim temelli biçimlendirme aşağıdakine benzemelidir:
@@ -208,9 +208,9 @@ Site haritasını üzerinden erişilebilir [ `SiteMap` sınıfı](https://msdn.m
 
 Zaman `SiteMap` s sınıfı özellikleri erişilir, onu bazı kalıcı Orta site haritası yapısından belleğe seri gerekir. Ancak, site haritası serileştirme mantığı uygulamasına kodlanmış sabit değil `SiteMap` sınıfı. Bunun yerine, çalışma zamanında `SiteMap` sınıfı belirler hangi site haritası *sağlayıcı* seri hale getirme için kullanılacak. Varsayılan olarak, [ `XmlSiteMapProvider` sınıfı](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx) kullanılır, doğru biçimlendirilmiş XML dosyasından site haritası s yapısı okur. Ancak, biraz iş ile kendi özel site haritası sağlayıcısı oluşturabilir.
 
-Tüm site haritası sağlayıcıları öğesinden türetilmelidir [ `SiteMapProvider` sınıfı](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), temel yöntemleri içerir ve site için gereken özellikleri eşlemek sağlayıcıları, ancak çoğu uygulama ayrıntılarını atlar. İkinci sınıfı [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), genişletir `SiteMapProvider` sınıfı ve gerekli işlevselliği, daha sağlam bir uygulama içerir. Dahili olarak, `StaticSiteMapProvider` depolar `SiteMapNode` site örneklerini harita bir `Hashtable` ve yöntemleri ister sağlar `AddNode(child, parent)`, `RemoveNode(siteMapNode),` ve `Clear()` ekleme ve kaldırma `SiteMapNode` iç s `Hashtable`. `XmlSiteMapProvider`türetilmiş `StaticSiteMapProvider`.
+Tüm site haritası sağlayıcıları öğesinden türetilmelidir [ `SiteMapProvider` sınıfı](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), temel yöntemleri içerir ve site için gereken özellikleri eşlemek sağlayıcıları, ancak çoğu uygulama ayrıntılarını atlar. İkinci sınıfı [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), genişletir `SiteMapProvider` sınıfı ve gerekli işlevselliği, daha sağlam bir uygulama içerir. Dahili olarak, `StaticSiteMapProvider` depolar `SiteMapNode` site örneklerini harita bir `Hashtable` ve yöntemleri ister sağlar `AddNode(child, parent)`, `RemoveNode(siteMapNode),` ve `Clear()` ekleme ve kaldırma `SiteMapNode` iç s `Hashtable`. `XmlSiteMapProvider` türetilmiş `StaticSiteMapProvider`.
 
-Özel site haritası sağlayıcısı oluşturma zaman genişletir `StaticSiteMapProvider`, geçersiz kılınmalıdır soyut iki yöntem vardır: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) ve [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, adından da anlaşılacağı gibi site haritası yapısının kalıcı depolama biriminden yüklenmesi ve bellekte oluşturma sorumludur. `GetRootNodeCore`kök düğüm site eşlemesinde döndürür.
+Özel site haritası sağlayıcısı oluşturma zaman genişletir `StaticSiteMapProvider`, geçersiz kılınmalıdır soyut iki yöntem vardır: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) ve [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, adından da anlaşılacağı gibi site haritası yapısının kalıcı depolama biriminden yüklenmesi ve bellekte oluşturma sorumludur. `GetRootNodeCore` kök düğüm site eşlemesinde döndürür.
 
 Önce bir web uygulaması uygulama s yapılandırmasında kaydedilmelidir site haritası sağlayıcısı kullanabilir. Varsayılan olarak, `XmlSiteMapProvider` sınıf adını kullanarak kayıtlı `AspNetXmlSiteMapProvider`. Ek site haritası sağlayıcıları kaydetmek için aşağıdaki biçimlendirme eklemek `Web.config`:
 
@@ -221,10 +221,10 @@ Tüm site haritası sağlayıcıları öğesinden türetilmelidir [ `SiteMapProv
 
 Erişilen gelen ilk kez site haritası sağlayıcı sınıfının örneği `SiteMap` sınıfı ve web uygulamasının kullanım süresi için bellekte kalır. Yalnızca bir örneği birden çok, eşzamanlı web sitesi ziyaretçilerden çağrılan site haritası sağlayıcısı olduğundan, s sağlayıcısı yöntemleri olmasını kesinlik temelli *iş parçacığı*.
 
-Performans ve ölçeklenebilirlik, onu s biz bellek içi sitenin önbelleğe önemli eşleme yapısı ve bu önbelleğe her zaman yeniden yerine yapısı dönmek `BuildSiteMap` yöntemi çağrılır. `BuildSiteMap`Sayfa ve site haritası yapısının derinliği kullanımda Gezinti denetimlere bağlı olarak kullanıcı başına sayfa isteği başına birkaç kez çağrılabilir. Biz site haritası yapısında önbelleğe alma, her durumda, `BuildSiteMap` çalıştırıldığında her zaman biz (hangi sorguda veritabanına neden olur) mimarisi ürün ve kategori bilgilerini yeniden almaya gerekir. Biz önceki önbelleğe alma eğitimlerine açıklandığı gibi önbelleğe alınan veriler eski haline gelebilir. Bu mücadele etmek için size zaman - ya da SQL önbellek bağımlılık tabanlı expiries kullanabilirsiniz.
+Performans ve ölçeklenebilirlik, onu s biz bellek içi sitenin önbelleğe önemli eşleme yapısı ve bu önbelleğe her zaman yeniden yerine yapısı dönmek `BuildSiteMap` yöntemi çağrılır. `BuildSiteMap` Sayfa ve site haritası yapısının derinliği kullanımda Gezinti denetimlere bağlı olarak kullanıcı başına sayfa isteği başına birkaç kez çağrılabilir. Biz site haritası yapısında önbelleğe alma, her durumda, `BuildSiteMap` çalıştırıldığında her zaman biz (hangi sorguda veritabanına neden olur) mimarisi ürün ve kategori bilgilerini yeniden almaya gerekir. Biz önceki önbelleğe alma eğitimlerine açıklandığı gibi önbelleğe alınan veriler eski haline gelebilir. Bu mücadele etmek için size zaman - ya da SQL önbellek bağımlılık tabanlı expiries kullanabilirsiniz.
 
 > [!NOTE]
-> Bir site haritası sağlayıcısı isteğe bağlı olarak geçersiz kılabilir [ `Initialize` yöntemi](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize`site haritası sağlayıcısı ilk örneği ve sağlayıcı atanan özel öznitelikleri geçirilen değiştiğinde çağrılan `Web.config` içinde `<add>` öğesi gibi: `<add name="name" type="type" customAttribute="value" />`. Sağlayıcı s kodu değiştirmek zorunda kalmadan çeşitli site haritası sağlayıcısı ile ilgili ayarları belirtmek bir sayfa Geliştirici izin vermek istiyorsanız yararlıdır. Biz kategori ve ürünleri verileri doğrudan veritabanından tersine mimarisi d biz yoluyla büyük olasılıkla okuma Örneğin, veritabanı bağlantı dizesi aracılığıyla belirtin sayfasında Geliştirici izin vermek istiyorsanız `Web.config` sabit kodlanmış kullanarak yerine Sağlayıcı s kodu değeri. Biz adım 6'yapı özel site haritası sağlayıcısı bu kılmaz `Initialize` yöntemi. Kullanma örneği için `Initialize` yöntemi, başvurmak [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [SQL Server'daki Site Haritaları depolama](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) makalesi.
+> Bir site haritası sağlayıcısı isteğe bağlı olarak geçersiz kılabilir [ `Initialize` yöntemi](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize` site haritası sağlayıcısı ilk örneği ve sağlayıcı atanan özel öznitelikleri geçirilen değiştiğinde çağrılan `Web.config` içinde `<add>` öğesi gibi: `<add name="name" type="type" customAttribute="value" />`. Sağlayıcı s kodu değiştirmek zorunda kalmadan çeşitli site haritası sağlayıcısı ile ilgili ayarları belirtmek bir sayfa Geliştirici izin vermek istiyorsanız yararlıdır. Biz kategori ve ürünleri verileri doğrudan veritabanından tersine mimarisi d biz yoluyla büyük olasılıkla okuma Örneğin, veritabanı bağlantı dizesi aracılığıyla belirtin sayfasında Geliştirici izin vermek istiyorsanız `Web.config` sabit kodlanmış kullanarak yerine Sağlayıcı s kodu değeri. Biz adım 6'yapı özel site haritası sağlayıcısı bu kılmaz `Initialize` yöntemi. Kullanma örneği için `Initialize` yöntemi, başvurmak [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [SQL Server'daki Site Haritaları depolama](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) makalesi.
 
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>6. adım: özel Site haritası sağlayıcısı oluşturma
@@ -238,13 +238,13 @@ Bu sınıf s keşfe s izin `BuildSiteMap` ile başlayan yöntemi bir [ `lock` de
 
 Sınıf düzeyi `SiteMapNode` değişkeni `root` site haritası yapısı önbelleğe almak için kullanılır. Site haritasını ilk kez veya temel alınan veri değiştirildikten sonra ilk kez oluşturulduğunda `root` olacaktır `Nothing` ve site haritası yapısı oluşturulur. Site haritası s kök düğümü atandığı `root` sonraki bu yöntem, oluşturma sırasında işlem çağrılırken, `root` değişmeyecek `Nothing`. Sonuç olarak, sürece `root` değil `Nothing` yeniden oluşturmak zorunda kalmadan, site haritası yapısı çağırana döndürülür.
 
-Kök ise `Nothing`, ürün ve kategori bilgileri site haritası yapısı oluşturulur. Site haritasını oluşturarak yerleşik `SiteMapNode` örnekleri ve hiyerarşisi aracılığıyla çağrı oluşturuluyor `StaticSiteMapProvider` s sınıfı `AddNode` yöntemi. `AddNode`getirilebilir depolama iç muhasebe gerçekleştirir `SiteMapNode` içinde örnekler bir `Hashtable`. Hiyerarşi oluşturma başlamadan önce arayarak Başlat `Clear` iç öğeleri çıkışı temizler yöntemi `Hashtable`. Ardından, `ProductsBLL` s sınıfı `GetProducts` yöntemi ve elde edilen `ProductsDataTable` yerel değişkenleri depolanır.
+Kök ise `Nothing`, ürün ve kategori bilgileri site haritası yapısı oluşturulur. Site haritasını oluşturarak yerleşik `SiteMapNode` örnekleri ve hiyerarşisi aracılığıyla çağrı oluşturuluyor `StaticSiteMapProvider` s sınıfı `AddNode` yöntemi. `AddNode` getirilebilir depolama iç muhasebe gerçekleştirir `SiteMapNode` içinde örnekler bir `Hashtable`. Hiyerarşi oluşturma başlamadan önce arayarak Başlat `Clear` iç öğeleri çıkışı temizler yöntemi `Hashtable`. Ardından, `ProductsBLL` s sınıfı `GetProducts` yöntemi ve elde edilen `ProductsDataTable` yerel değişkenleri depolanır.
 
 Kök düğüm oluşturarak ve atanarak site haritası s yapım başlar `root`. Aşırı yüklemesini [ `SiteMapNode` s Oluşturucusu](https://msdn.microsoft.com/library/system.web.sitemapnode.sitemapnode.aspx) burada ve bu boyunca kullanılan `BuildSiteMap` aşağıdaki bilgileri geçirilir:
 
 - Site haritası sağlayıcısı başvuru (`Me`).
 - `SiteMapNode` s `Key`. Bu değer her biri için benzersiz olmalıdır, gerekli `SiteMapNode`.
-- `SiteMapNode` s `Url`. `Url`isteğe bağlıdır, ancak verdiyse, her `SiteMapNode` s `Url` değer benzersiz olmalıdır.
+- `SiteMapNode` s `Url`. `Url` isteğe bağlıdır, ancak verdiyse, her `SiteMapNode` s `Url` değer benzersiz olmalıdır.
 - `SiteMapNode` s `Title`, hangi gereklidir.
 
 `AddNode(root)` Yöntem çağrısı ekler `SiteMapNode` `root` kök olarak site haritası için. Ardından, her `ProductRow` içinde `ProductsDataTable` numaralandırılır. Zaten var. bir `SiteMapNode` için geçerli ürün s kategorisi, başvurulan. Aksi takdirde, yeni bir `SiteMapNode` kategori oluşturulur ve bir alt öğesi olarak eklenir için `SiteMapNode``root` aracılığıyla `AddNode(categoryNode, root)` yöntem çağrısı. Uygun kategoriyi sonra `SiteMapNode` düğüm bulunamadı veya oluşturduğunuz bir `SiteMapNode` geçerli ürün için oluşturulur ve bir alt kategori öğesi olarak eklenir `SiteMapNode` aracılığıyla `AddNode(productNode, categoryNode)`. Unutmayın kategori `SiteMapNode` s `Url` özellik değeri `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` while ürün `SiteMapNode` s `Url` özelliği atandığında `~/SiteMapNode/ProductDetails.aspx?ProductID=productID`.
@@ -261,7 +261,7 @@ Site haritası oluşturduktan sonra rasgele bir nesne üzerinde bir SQL önbelle
 
 `BuildSiteMap` Yöntemi tamamlayan site haritası kök düğümünün döndürerek.
 
-Kalan yöntemleri oldukça basittir. `GetRootNodeCore`kök düğüm döndürmek için sorumludur. Bu yana `BuildSiteMap` kökünü döndürür `GetRootNodeCore` yalnızca döndürür `BuildSiteMap` s dönüş değeri. `OnSiteMapChanged` Yöntemi kümeleri `root` başa `Nothing` önbellek öğesi kaldırıldığında. Döndürülmek kök ile `Nothing`, sonraki `BuildSiteMap` olan çağrılır, site haritası yapısı yeniden oluşturulacak. Son olarak, `CachedDate` özelliği, bu tür bir değeri varsa, veri önbelleğinde depolanan tarih ve saat değeri döndürür. Bu özellik sayfasında geliştirici tarafından site haritası verileri en son ne zaman önbelleğe ilişkili belirlemek için kullanılabilir.
+Kalan yöntemleri oldukça basittir. `GetRootNodeCore` kök düğüm döndürmek için sorumludur. Bu yana `BuildSiteMap` kökünü döndürür `GetRootNodeCore` yalnızca döndürür `BuildSiteMap` s dönüş değeri. `OnSiteMapChanged` Yöntemi kümeleri `root` başa `Nothing` önbellek öğesi kaldırıldığında. Döndürülmek kök ile `Nothing`, sonraki `BuildSiteMap` olan çağrılır, site haritası yapısı yeniden oluşturulacak. Son olarak, `CachedDate` özelliği, bu tür bir değeri varsa, veri önbelleğinde depolanan tarih ve saat değeri döndürür. Bu özellik sayfasında geliştirici tarafından site haritası verileri en son ne zaman önbelleğe ilişkili belirlemek için kullanılabilir.
 
 ## <a name="step-7-registering-thenorthwindsitemapprovider"></a>7. adım: Kaydetme`NorthwindSiteMapProvider`
 
@@ -362,11 +362,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Dave Gardner, Zack Can, Teresa Murphy ve Bernadette Leigh yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](building-a-custom-database-driven-site-map-provider-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](building-a-custom-database-driven-site-map-provider-cs.md)

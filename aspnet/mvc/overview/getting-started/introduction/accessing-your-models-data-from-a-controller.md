@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 title: Bir denetleyicisinden modelinizin verilere | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Bir denetleyicisinden modelinizin verilerine erişme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 Bu bölümde, yeni oluşturacağınız `MoviesController` sınıfı ve film verileri alır ve bir görünüm şablonu kullanarak tarayıcıda görüntüleyen kod yazın.
 
@@ -40,7 +40,7 @@ Bu bölümde, yeni oluşturacağınız `MoviesController` sınıfı ve film veri
 - Seçin **MovieDBContext (MvcMovie.Models)** veri bağlamı sınıfı için.
 - Denetleyici adı **MoviesController**.
 
- Aşağıdaki görüntü, tamamlanan iletişim kutusunu gösterir.  
+  Aşağıdaki görüntü, tamamlanan iletişim kutusunu gösterir.  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
@@ -64,7 +64,7 @@ Seçin **Yeni Oluştur** bağlantı. Bir filmi bazı ayrıntılarını girin ve 
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Ondalık ayırıcıların veya virgül Fiyat alanına girmeniz mümkün olmayabilir. bir virgül İngilizce dışındaki yerel ayarlar için jQuery doğrulamasına desteklemek için (&quot;,&quot;) ondalık ve ABD İngilizcesi dışındaki tarih biçimleri için içermelidir *globalize.js* ve özel  *cultures/globalize.cultures.js* dosyası (gelen [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. Sonraki öğreticide bunu nasıl göster. Şimdilik, yalnızca tam sayılar 10 gibi girin.
+> Ondalık ayırıcıların veya virgül Fiyat alanına girmeniz mümkün olmayabilir. bir virgül İngilizce dışındaki yerel ayarlar için jQuery doğrulamasına desteklemek için (&quot;,&quot;) ondalık ve ABD İngilizcesi dışındaki tarih biçimleri için içermelidir *globalize.js* ve özel  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. Sonraki öğreticide bunu nasıl göster. Şimdilik, yalnızca tam sayılar 10 gibi girin.
 
 
 Tıklatarak **oluşturma** düğmesi sunucuya film bilgileri veritabanında kaydedildiği postalama forma neden olur. Ardından için yönlendirilirsiniz */Movies* burada görebilirsiniz listesinde yeni oluşturulan film URL.
@@ -157,6 +157,6 @@ Bildirim nasıl şeması `Movies` tablo eşlenir `Movie` daha önce oluşturduğ
 
 Bir veritabanı ve görüntüleme, düzenleme, güncelleştirme ve verileri silmek için sayfaları artık sahipsiniz. Sonraki öğreticide biz kurulmuş kodu kalan inceleyin ve ekleme bir `SearchIndex` yöntemi ve `SearchIndex` bu veritabanında filmler arama yapmanıza olanak tanıyan görünümü. Entity Framework MVC ile kullanma hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
->[!div class="step-by-step"]
-[Önceki](creating-a-connection-string.md)
-[sonraki](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-connection-string.md)
+> [sonraki](examining-the-edit-methods-and-edit-view.md)

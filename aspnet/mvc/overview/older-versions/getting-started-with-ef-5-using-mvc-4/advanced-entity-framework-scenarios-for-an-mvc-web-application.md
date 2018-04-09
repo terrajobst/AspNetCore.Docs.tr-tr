@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: "Gelişmiş bir MVC Web uygulaması (10 / 10) için Entity Framework senaryoları | Microsoft Docs"
+title: Gelişmiş bir MVC Web uygulaması (10 / 10) için Entity Framework senaryoları | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 277503b65d9b75a9d3cc05538d5327f9367f45e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Gelişmiş Entity Framework senaryoları için bir MVC Web uygulaması (10 / 10)
 ====================
@@ -107,7 +107,7 @@ Contoso University yöneticiler her indirmelere için iadeleri sayısını deği
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cs)]
 
-İçinde *UnitOfWork.cs*, değiştirme `Course` depo türünden `GenericRepository<Course>` için`CourseRepository:`
+İçinde *UnitOfWork.cs*, değiştirme `Course` depo türünden `GenericRepository<Course>` için `CourseRepository:`
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
@@ -299,7 +299,7 @@ Birkaç saniye bekleyin ve sayfayı yenileyin.
 
 Hata iletisi:
 
-*'Update-Database' terimi, bir cmdlet, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol dahilse, yolun doğru olduğundan emin olun ve yeniden deneyin.* (Gelen  *`Update-Database`*  PMC komutunu.)
+*'Update-Database' terimi, bir cmdlet, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol dahilse, yolun doğru olduğundan emin olun ve yeniden deneyin.* (Gelen *`Update-Database`* PMC komutunu.)
 
 Çözüm:
 
@@ -309,7 +309,7 @@ Visual Studio'dan çıkın. Projeyi yeniden açın ve yeniden deneyin.
 
 Hata iletisi:
 
-*Bir veya daha fazla varlıklar için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.* (Gelen  *`Update-Database`*  PMC komutunu.)
+*Bir veya daha fazla varlıklar için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.* (Gelen *`Update-Database`* PMC komutunu.)
 
 Çözüm:
 
@@ -335,6 +335,6 @@ Hata iletisi:
 
 Bağlantı dizesini kontrol edin. Veritabanını el ile sildiyseniz, yapı dizesinde veritabanı adını değiştirin.
 
->[!div class="step-by-step"]
-[Önceki](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
-[sonraki](building-the-ef5-mvc4-chapter-downloads.md)
+> [!div class="step-by-step"]
+> [Önceki](implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md)
+> [sonraki](building-the-ef5-mvc4-chapter-downloads.md)

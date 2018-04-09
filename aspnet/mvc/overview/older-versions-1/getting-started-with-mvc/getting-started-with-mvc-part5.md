@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 title: Bir denetleyicisinden modelinizin verilere | Microsoft Docs
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
+description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part5
 msc.type: authoredcontent
-ms.openlocfilehash: cf81d351aef45af3640f5d113eb3619911e03606
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Bir denetleyicisinden modelinizin verilerine erişme
 ====================
@@ -63,6 +63,6 @@ Biz bu örnek için silersiniz böylece biz gerekmez, bağlantılar oluşturuyor
 
 Şimdi sahip olduğumuz film verilerimizi, basit bir listesidir. Biz "Yeni Oluştur" bağlantısını tıklatın, bu sayfaya değil olarak ancak biz bir hata iletisi alırsınız! Şimdi oluşturmak eylem yöntemi uygulayabilirsiniz ve yeni filmler bizim veritabanında girmesini etkinleştirin.
 
->[!div class="step-by-step"]
-[Önceki](getting-started-with-mvc-part4.md)
-[sonraki](getting-started-with-mvc-part6.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started-with-mvc-part4.md)
+> [sonraki](getting-started-with-mvc-part6.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-search
 title: Arama | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 116f681e14af0a09a4eb1502ef9f057c5db2f97d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8afa72d4dbc4695e7d26c6ef4052be08a7c69080
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="search"></a>Ara
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Search yöntemini ve arama görünümü ekleme
 
@@ -157,6 +157,6 @@ Uygulamayı çalıştırın ve Gözat */filmler/dizin*. Bir arama Tarz, film ad�
 
 Bu bölümde bir arama eylem yöntemi ve filmi ve türe göre arama, kullanıcıların izin görünüm oluşturuldu. Sonraki bölümde, yeni özellik eklemek nasıl göreceğiz `Movie` modeli ve otomatik olarak bir test veritabanı oluşturacak bir başlatıcı ekleme.
 
->[!div class="step-by-step"]
-[Önceki](examining-the-edit-methods-and-edit-view.md)
-[sonraki](adding-a-new-field.md)
+> [!div class="step-by-step"]
+> [Önceki](examining-the-edit-methods-and-edit-view.md)
+> [sonraki](adding-a-new-field.md)

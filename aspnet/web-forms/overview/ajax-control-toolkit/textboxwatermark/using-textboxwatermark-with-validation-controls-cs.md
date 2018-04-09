@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
-title: "TextBoxWatermark ile doğrulama denetimleri (C#) kullanarak | Microsoft Docs"
+title: TextBoxWatermark ile doğrulama denetimleri (C#) kullanarak | Microsoft Docs
 author: wenz
-description: "Böylece bir metin kutusu içinde görüntülenir AJAX Denetim Araç Seti TextBoxWatermark denetiminde bir metin kutusu genişletir. Bir kullanıcı kutunun içine tıkladığında, ı..."
+description: Böylece bir metin kutusu içinde görüntülenir AJAX Denetim Araç Seti TextBoxWatermark denetiminde bir metin kutusu genişletir. Bir kullanıcı kutunun içine tıkladığında, ı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61fa55c8c4580800de1097b7242c7077cda27115
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5cc7974f3444b54770cba54b991aab7b103f753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>TextBoxWatermark ile doğrulama denetimleri (C#) kullanma
 ====================
@@ -56,6 +56,6 @@ Son olarak, bir hata iletisi Doğrulayıcı verilen olursa metin alanına çık�
 
 Doğrulayıcı alanı metin yok complains ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](using-textboxwatermark-in-a-formview-cs.md)
-[sonraki](using-textboxwatermark-in-a-formview-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-textboxwatermark-in-a-formview-cs.md)
+> [sonraki](using-textboxwatermark-in-a-formview-vb.md)

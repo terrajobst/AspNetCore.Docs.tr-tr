@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
-title: "Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (C#) yapılandırma | Microsoft Docs"
+title: Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (C#) yapılandırma | Microsoft Docs
 author: rick-anderson
-description: "TableAdapters yazılmış bir veri kümesi içinde otomatik olarak veritabanına bağlanırken, komutları veren ve sonuçları bir DataTable doldurma dikkatli olun..."
+description: TableAdapters yazılmış bir veri kümesi içinde otomatik olarak veritabanına bağlanırken, komutları veren ve sonuçları bir DataTable doldurma dikkatli olun...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f5f221fd792956fc21cb6eb5834299d3c5bfa80d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (C#) yapılandırma
 ====================
@@ -93,7 +93,7 @@ Genişletme s izin `ProductsTableAdapter` içinde `Northwind` dahil etmek için 
 
 ![ConnectionAndCommandSettings adlı bir alt klasör Ekle](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
-**Şekil 3**: adlı bir alt klasör Ekle`ConnectionAndCommandSettings`
+**Şekil 3**: adlı bir alt klasör Ekle `ConnectionAndCommandSettings`
 
 
 Adlı yeni bir sınıf dosyası ekleyin `ProductsTableAdapter.ConnectionAndCommandSettings.cs` ve aşağıdaki kodu girin:
@@ -169,12 +169,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Burnadette Leigh, S ren Jacob Lauritsen Teresa Murphy ve Hilton Geisenow yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](working-with-computed-columns-cs.md)
-[sonraki](protecting-connection-strings-and-other-configuration-information-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](working-with-computed-columns-cs.md)
+> [sonraki](protecting-connection-strings-and-other-configuration-information-cs.md)

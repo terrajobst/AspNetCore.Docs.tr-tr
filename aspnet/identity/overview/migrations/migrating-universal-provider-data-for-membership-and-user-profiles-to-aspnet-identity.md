@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
-title: "Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcı veri geçirme | Microsoft Docs"
+title: Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcı veri geçirme | Microsoft Docs
 author: rustd
-description: "Bu öğretici, kullanıcı ve rol verileri ve mevcut uygulama Evrensel sağlayıcıları kullanılarak oluşturulan kullanıcı profili verilerini geçirmek için gerekli olan adımları açıklanmıştır..."
+description: Bu öğretici, kullanıcı ve rol verileri ve mevcut uygulama Evrensel sağlayıcıları kullanılarak oluşturulan kullanıcı profili verilerini geçirmek için gerekli olan adımları açıklanmıştır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013
 ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: e00bcfc111425d5dd26c7ff341eaf87fd969e089
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f65f93b20543d06ea70a9009b6921e297477c99e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcısı verileri geçirme
 ====================
@@ -30,7 +30,7 @@ Visual Studio 2013 sürümüyle, yeni bir ASP.NET Identity sistemi ASP.NET takı
 Örnek olarak, biz sağlayıcıları modeli kullanan Visual Studio 2012 kullanılarak oluşturulan bir web uygulaması ile başlar. Biz sonra profil yönetimi için kodu ekleyin, bir kullanıcı kaydı, kullanıcılar için profil verileri eklemek, veritabanı şemasını geçirmek ve sonra uygulamayı kimlik sistemi için kullanıcı ve rol yönetimi kullanacak şekilde değiştirin. Bir test geçiş olarak Evrensel sağlayıcıları kullanılarak oluşturulan kullanıcılar oturum açamaz ve yeni kullanıcılar kaydetmeniz gerekir.
 
 > [!NOTE]
-> Tam örneğini şurada bulabilirsiniz [https://github.com/suhasj/UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
+> Tam örneğini şurada bulabilirsiniz [ https://github.com/suhasj/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations).
 
 
 ## <a name="profile-data-migration-summary"></a>Profil verileri geçiş özeti
@@ -61,11 +61,11 @@ Yeni ASP.NET kimlik sistemi kullanmak için uygulamayı taşıdıktan sonra prof
 
     [!code-html[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample3.html)]
 
- Arkasındaki kodda aşağıdaki kodu ekleyin:
+   Arkasındaki kodda aşağıdaki kodu ekleyin:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample4.cs)]
 
- Hangi AppProfile altında sınıfı derleme hataları kaldırmak için tanımlanmış bir ad ekleyin.
+   Hangi AppProfile altında sınıfı derleme hataları kaldırmak için tanımlanmış bir ad ekleyin.
 6. Uygulamayı çalıştırın ve kullanıcı adı olan yeni bir kullanıcı oluşturmak '**olduser'.** 'AddProfileData' sayfasına gidin ve kullanıcı için profil bilgilerini ekleyin.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image2.png)
 
@@ -81,7 +81,7 @@ Kimlik sistemi ile çalışmak için varolan veritabanı yapmak için şu kimlik
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image5.png)
 
-SQL komut dosyasından Yapıştır [https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) ve çalıştırın. 'DefaultConnection' yenilenirse, yeni tablolar eklenen görebiliriz. İçindeki bilgileri geçirilmiş görmek için tablo verileri kontrol edebilirsiniz.
+SQL komut dosyasından Yapıştır [ https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt ](https://raw.github.com/suhasj/UniversalProviders-Identity-Migrations/master/Migration.txt) ve çalıştırın. 'DefaultConnection' yenilenirse, yeni tablolar eklenen görebiliriz. İçindeki bilgileri geçirilmiş görmek için tablo verileri kontrol edebilirsiniz.
 
 ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image6.png)
 
@@ -89,22 +89,22 @@ SQL komut dosyasından Yapıştır [https://raw.github.com/suhasj/UniversalProvi
 
 1. ASP.NET kimliği için gereken Nuget paketlerini yükleyin:
 
-    - Microsoft.ASPNET.Identity.entityframework
-    - Microsoft.ASPNET.Identity.owin
+    - Microsoft.AspNet.Identity.EntityFramework
+    - Microsoft.AspNet.Identity.Owin
     - Microsoft.Owin.Host.SystemWeb
     - Microsoft.Owin.Security.Facebook
     - Microsoft.Owin.Security.Google
     - Microsoft.Owin.Security.MicrosoftAccount
     - Microsoft.Owin.Security.Twitter
 
- Nuget paketlerini yönetme hakkında daha fazla bilgi bulunabilir [burada](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
+   Nuget paketlerini yönetme hakkında daha fazla bilgi bulunabilir [burada](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog)
 2. Tabloda varolan veriler çalışmak için size geri tablolara harita ve kimlik sistemi takma modeli sınıflarını oluşturmanız gerekir. Kimlik sözleşmesinin bir parçası olarak modeli sınıfları Identity.Core DLL'de tanımlanan arabirimleri ya da uygulamanız gerekir veya bu arabirimleri Microsoft.ASPNET.Identity.entityframework içinde kullanılabilir varolan uyarlamasını genişletebilirsiniz. Biz mevcut sınıflarını rolü, kullanıcı oturumu ve kullanıcı talepleri için kullanır. Bizim örnek için özel bir kullanıcı kullanmamız gerekiyor. Projeye sağ tıklayın ve 'IdentityModels' yeni bir klasör oluşturun. Yeni bir 'User' sınıf aşağıda gösterildiği gibi ekleyin:
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample5.cs)]
 
- 'ProfileInfo' artık kullanıcı sınıfı bir özellik olduğuna dikkat edin. Bu nedenle biz doğrudan profili verilerle çalışmak için kullanıcı sınıfını kullanabilirsiniz.
+   'ProfileInfo' artık kullanıcı sınıfı bir özellik olduğuna dikkat edin. Bu nedenle biz doğrudan profili verilerle çalışmak için kullanıcı sınıfını kullanabilirsiniz.
 
-Dosyaları kopyalama **IdentityModels** ve **IdentityAccount** klasörleri yükleme kaynağından ( [https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/ UniversalProviders-Identity-Migrations](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Bunlar, kalan modeli sınıfları ve kullanıcı ve rol yönetimi ASP.NET Identity API'lerini kullanarak için gereken yeni sayfalar içerir. Kullanılan yaklaşımı SQL üyelik benzer ve ayrıntılı açıklama bulunabilir [burada](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
+Dosyaları kopyalama **IdentityModels** ve **IdentityAccount** klasörleri yükleme kaynağından ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Bunlar, kalan modeli sınıfları ve kullanıcı ve rol yönetimi ASP.NET Identity API'lerini kullanarak için gereken yeni sayfalar içerir. Kullanılan yaklaşımı SQL üyelik benzer ve ayrıntılı açıklama bulunabilir [burada](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
 
 ## <a name="copying-profile-data-to-the-new-tables"></a>Yeni tablolar için profil verileri kopyalama
 
@@ -118,7 +118,7 @@ Daha önce belirtildiği gibi biz profilleri tablolarındaki xml verileri seri d
 
     [!code-csharp[Main](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/samples/sample6.cs)]
 
- Karşılık gelen ad alanları içermelidir şekilde kullanılan modellerin bazıları web uygulama projesi 'IdentityModels' klasöründe tanımlanır.
+   Karşılık gelen ad alanları içermelidir şekilde kullanılan modellerin bazıları web uygulama projesi 'IdentityModels' klasöründe tanımlanır.
 5. Yukarıdaki kod uygulama veritabanı dosyasında çalışır\_web uygulaması projesi veri klasörü önceki adımlarda oluşturulacak. Başvuran için web uygulamasının web.config dosyasında bağlantı dizesiyle konsol uygulamasındaki app.config dosyasında bağlantı dizesini güncelleştirin. Ayrıca 'AttachDbFilename' özelliğindeki tam fiziksel yolunu belirtin.
 6. Bir komut istemi açın ve yukarıdaki konsol uygulaması bin klasörüne gidin. Yürütülebilir dosyayı çalıştırmak ve aşağıdaki görüntüde gösterildiği gibi günlük çıkışı gözden geçirin.  
     ![](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity/_static/image3.jpg)

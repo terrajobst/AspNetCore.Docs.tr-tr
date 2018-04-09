@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
-title: "Özel biçimlendirme (C#) verilerine dayalı | Microsoft Docs"
+title: Özel biçimlendirme (C#) verilerine dayalı | Microsoft Docs
 author: rick-anderson
-description: "GridView, DetailsView veya ona veriye bağlı FormView biçimini ayarlama birden çok yolla gerçekleştirilebilir. Bu öğreticide l gerekir..."
+description: GridView, DetailsView veya ona veriye bağlı FormView biçimini ayarlama birden çok yolla gerçekleştirilebilir. Bu öğreticide l gerekir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 606721b01fae34a7bce85d497a442cb110f1b51e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 31cf628baf2250c2e7e71ab38cd64b218dc927e7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-formatting-based-upon-data-c"></a>Özel biçimlendirme (C#) verilerine göre
 ====================
@@ -217,19 +217,19 @@ Yalnızca tek bir kaydını görüntülemek için bu üç basit adım DetailsVie
 
 GridView veri kaynağı numaralandırır ve her bir kayıt oluşturur 2. adımda bir `GridViewRow` örneği ve geçerli kayıt kendisine bağlar. Her `GridViewRow` GridView eklenen, iki olaylar oluşturulur:
 
-- **`RowCreated`**sonra ateşlenir `GridViewRow` oluşturuldu
-- **`RowDataBound`**Geçerli kayıt için bağlı sonra ateşlenir `GridViewRow`.
+- **`RowCreated`** sonra ateşlenir `GridViewRow` oluşturuldu
+- **`RowDataBound`** Geçerli kayıt için bağlı sonra ateşlenir `GridViewRow`.
 
 GridView, daha sonra veri bağlama daha doğru bir şekilde aşağıdaki adımlar dizisini açıklanmıştır:
 
 1. GridView's `DataBinding` olay etkinleşir.
 2. Veri GridView bağlıdır.   
   
- Veri kaynağındaki her kayıt için 
+   Veri kaynağındaki her kayıt için 
 
     1. Oluşturma bir `GridViewRow` nesnesi
     2. Yangın `RowCreated` olayı
-    3. Kayda bağlama`GridViewRow`
+    3. Kayda bağlama `GridViewRow`
     4. Yangın `RowDataBound` olayı
     5. Ekleme `GridViewRow` için `Rows` koleksiyonu
 3. GridView's `DataBound` olay etkinleşir.
@@ -275,12 +275,12 @@ Zaman `RowDataBound` olay ateşlenir olay işleyicisine geçirilir, ikinci param
 
 İle çalışırken `RowDataBound` GridView satırları farklı türdeki oluşur ve bu olay için ateşlenir göz önünde bulundurmanız önemlidir olay işleyicisi *tüm* satır türleri. A `GridViewRow`'s türü tarafından belirlenebilir kendi `RowType` özelliği ve olası değerlerden biri olabilir:
 
-- `DataRow`bir kayda GridView bilgisayarın bağlı olduğu bir satır`DataSource`
-- `EmptyDataRow`görüntülenen satır GridView's `DataSource` boş
-- `Footer`altbilgi satırı; gösterilen IF GridView's `ShowFooter` özelliği ayarlanmış`true`
-- `Header`Üstbilgi satırındaki; GridView'ın ShowHeader özelliği ayarlanmışsa gösterilen `true` (varsayılan)
-- `Pager`GridView için kullanıcının, disk belleği, disk belleği arabirimini görüntüler satır uygulayın.
-- `Separator`GridView için kullanılmaz, ancak tarafından kullanılan `RowType` DataList ve yineleyici özelliklerini denetimleri, iki veri aşağıdakiler ele gelecekte öğreticileri Web denetimleri
+- `DataRow` bir kayda GridView bilgisayarın bağlı olduğu bir satır `DataSource`
+- `EmptyDataRow` görüntülenen satır GridView's `DataSource` boş
+- `Footer` altbilgi satırı; gösterilen IF GridView's `ShowFooter` özelliği ayarlanmış `true`
+- `Header` Üstbilgi satırındaki; GridView'ın ShowHeader özelliği ayarlanmışsa gösterilen `true` (varsayılan)
+- `Pager` GridView için kullanıcının, disk belleği, disk belleği arabirimini görüntüler satır uygulayın.
+- `Separator` GridView için kullanılmaz, ancak tarafından kullanılan `RowType` DataList ve yineleyici özelliklerini denetimleri, iki veri aşağıdakiler ele gelecekte öğreticileri Web denetimleri
 
 Bu yana `EmptyDataRow`, `Header`, `Footer`, ve `Pager` satırları ile ilişkili olmayan bir `DataSource` kayıt, bunlar her zaman olacaktır bir `null` değerini kendi `DataItem` özelliği. Geçerli çalışma denemeden önce bu nedenle, `GridViewRow`'s `DataItem` özelliği, biz ilk biz ile ilgilenen olduğundan emin olmalısınız bir `DataRow`. Bu denetleyerek gerçekleştirilebilir `GridViewRow`'s `RowType` özellik sözlüğüdür:
 
@@ -319,11 +319,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için E.R. gözden geçirenler sağlama Gilmore, Dennis Patterson ve Dan Jagers. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](using-templatefields-in-the-gridview-control-cs.md)
+> [!div class="step-by-step"]
+> [Next](using-templatefields-in-the-gridview-control-cs.md)

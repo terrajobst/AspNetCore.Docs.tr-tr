@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: "Dosya ve klasörleri dışarıda dağıtımından | Microsoft Docs"
+title: Dosya ve klasörleri dışarıda dağıtımından | Microsoft Docs
 author: jrjlee
-description: "Bu konu, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklar."
+description: Bu konu, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Dosya ve klasörleri dışarıda dağıtımından
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konu, yapı ve bir web uygulaması projesi paketini nasıl, dosya ve klasörleri web dağıtım paketinden hariç tutabilirsiniz açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -74,7 +74,7 @@ Belirli dosyaları ve klasörleri dışlamak için proje dosyalarınıza düzenl
 1. Adlı bir özel proje dosyası oluşturma *[Proje adı].wpp.targets* proje dosyası ile aynı klasörde.
 
     > [!NOTE]
-    > *. Wpp.targets* dosya gereken web uygulaması proje dosyası & #x 2014; aynı klasöre gitmek Örneğin, *ContactManager.Mvc.csproj*& tüm #x 2014; yerine aynı klasörü Özel proje dosyalarını denetimi derleme ve dağıtım işlemini kullanın.
+    > *. Wpp.targets* dosyasının gerekir, web uygulaması proje dosyası ile aynı klasörde gitmek&#x2014;Örneğin, *ContactManager.Mvc.csproj*&#x2014;yerine herhangi bir özel ile aynı klasörde Proje dosyalarını derleme ve dağıtım işlemini kontrol eden kullanın.
 2. İçinde *. wpp.targets* dosya, ekleme bir **ItemGroup** öğesi.
 3. İçinde **ItemGroup** öğesi ekleme **ExcludeFromPackageFolders** ve **ExcludeFromPackageFiles** belirli dosyaları ve klasörleri gerektiği gibi dışlamak için öğeleri.
 
@@ -106,16 +106,16 @@ Sonraki yordam nasıl ekleneceğini gösterir bir *. wpp.targets* dosyasına bir
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Web paketinden klasörleri dışlamak istiyorsanız, eklemeniz bir **ExcludeFromPackageFolders** öğesine **ItemGroup** öğe:
 
-    1. İçinde **INCLUDE** özniteliği, dışlamak istediğiniz klasörleri noktalı virgülle ayrılmış bir listesini sağlayın.
-    2. İçinde **FromTarget** meta veri öğesi neden klasörleri, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
+   1. İçinde **INCLUDE** özniteliği, dışlamak istediğiniz klasörleri noktalı virgülle ayrılmış bir listesini sağlayın.
+   2. İçinde **FromTarget** meta veri öğesi neden klasörleri, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Web paketinden dosyaları hariç tutmak istiyorsanız, ekleyin bir **ExcludeFromPackageFiles** öğesine **ItemGroup** öğe:
 
-    1. İçinde **INCLUDE** özniteliği, hariç tutmak istediğiniz dosyaları noktalı virgülle ayrılmış bir listesini sağlayın.
-    2. İçinde **FromTarget** meta veri öğesi neden dosyaları, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
+   1. İçinde **INCLUDE** özniteliği, hariç tutmak istediğiniz dosyaları noktalı virgülle ayrılmış bir listesini sağlayın.
+   2. İçinde **FromTarget** meta veri öğesi neden dosyaları, adı gibi dışlanan belirtmek için anlamlı bir değer sağlayın *. wpp.targets* dosya.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. *[Proje adı].wpp.targets* dosya şimdi benzer bu:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ Sonraki başlatışınızda yapı ve paket, web uygulama projesi, WPP otomatik o
 
 Dağıtım işlemi denetlemek için özel Microsoft Build Engine (MSBuild) proje dosyalarını kullanma hakkında daha fazla bilgi için bkz: [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Paketleme ve dağıtım işlemi hakkında daha fazla bilgi için bkz: [bina ve paketleme Web Uygulama projeleri](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [Web paketi dağıtımı için yapılandırma parametreleri](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), ve [ Web paketleri dağıtma](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
->[!div class="step-by-step"]
-[Önceki](deploying-membership-databases-to-enterprise-environments.md)
-[sonraki](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-membership-databases-to-enterprise-environments.md)
+> [sonraki](taking-web-applications-offline-with-web-deploy.md)

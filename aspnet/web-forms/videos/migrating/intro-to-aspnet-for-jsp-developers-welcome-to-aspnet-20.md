@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20
-title: "ASP.NET JSP geliştiriciler için giriş:'na Hoş Geldiniz ASP.NET 2.0 | Microsoft Docs"
+title: ASP.NET JSP geliştiriciler için giriş:'na Hoş Geldiniz ASP.NET 2.0 | Microsoft Docs
 author: microsoft
-description: "Bu oturumda, ASP.NET ve ASP.NET .NET Framework ve Microsoft IIS ile nasıl tümleşik çalıştığını anlamak temel arka plan odaklanır."
+description: Bu oturumda, ASP.NET ve ASP.NET .NET Framework ve Microsoft IIS ile nasıl tümleşik çalıştığını anlamak temel arka plan odaklanır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20
 msc.type: video
-ms.openlocfilehash: 47439d7dc857ad40921be04c0bbf285b1392cffc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f73bfeb0ad00725482af35941c998407dec776
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20"></a>ASP.NET JSP geliştiriciler için giriş: ASP.NET 2.0 için Hoş Geldiniz
 ====================
@@ -24,8 +24,8 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 Bu oturumda, ASP.NET ve ASP.NET .NET Framework ve Microsoft IIS ile nasıl tümleşik çalıştığını anlamak temel arka plan odaklanır.
 
-[&#9654; (61 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20)
+[&#9654;(61 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20)
 
->[!div class="step-by-step"]
-[Önceki](migrating-from-classic-asp-to-aspnet.md)
-[sonraki](intro-to-aspnet-for-jsp-developers-building-applications.md)
+> [!div class="step-by-step"]
+> [Önceki](migrating-from-classic-asp-to-aspnet.md)
+> [sonraki](intro-to-aspnet-for-jsp-developers-building-applications.md)

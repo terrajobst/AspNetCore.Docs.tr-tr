@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
-title: "Özel rota kısıtlaması (C#) oluşturma | Microsoft Docs"
+title: Özel rota kısıtlaması (C#) oluşturma | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther özel rota kısıtlaması nasıl oluşturabileceğinizi gösterir. Biz basit bir uygulama bir rota engeller özel kısıtlama eşleşen w..."
+description: Stephen Walther özel rota kısıtlaması nasıl oluşturabileceğinizi gösterir. Biz basit bir uygulama bir rota engeller özel kısıtlama eşleşen w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c31ba3382b9dbe22a6826b9f858944c223efdd9d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c120a102b117433b6774f2ea7800f1c4a609f8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-c"></a>Özel rota kısıtlaması (C#) oluşturma
 ====================
@@ -53,6 +53,6 @@ Localhost kısıtlama yönetici rota tanımında kullanılır. Bu yol, bir uzak 
 
 Varsayılan rota listeleme 2'deki Global.asax dosyasındaki yorum olarak belirtilmiştir, dikkat edin. Varsayılan rota eklerseniz, varsayılan yol yönetim denetleyicisi için istekleri eşleşir. Bu durumda, kendi isteklerini yönetici rota ile eşleşmekte olmayacaktır olsa da uzak kullanıcıların hala Eylemler yönetim denetleyicisinin çağıramadı.
 
->[!div class="step-by-step"]
-[Önceki](creating-a-route-constraint-cs.md)
-[sonraki](asp-net-mvc-controller-overview-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-route-constraint-cs.md)
+> [sonraki](asp-net-mvc-controller-overview-vb.md)

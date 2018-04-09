@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
-title: "Derecelendirme denetim (VB) oluşturma | Microsoft Docs"
+title: Derecelendirme denetim (VB) oluşturma | Microsoft Docs
 author: wenz
-description: "E-ticaret topluluk siteleri için birçok Web sitesi, kullanıcılar oranı makaleler veya öğeleri sunar. Bu genellikle bazı kodlama çaba gerektirir, ancak sahibiz..."
+description: E-ticaret topluluk siteleri için birçok Web sitesi, kullanıcılar oranı makaleler veya öğeleri sunar. Bu genellikle bazı kodlama çaba gerektirir, ancak sahibiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ff3394865e084c5a24e7e79469a4a7d26aabb552
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c19f36dfe1b72a3954db61ff1845e99c02e47c14
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-rating-control-vb"></a>Derecelendirme denetim (VB) oluşturma
 ====================
@@ -41,12 +41,12 @@ Ardından, yeni bir ASP.NET dosyası oluşturun ve ekleyerek başlayın bir `Scr
 
 Ardından, ekleyin `Rating` ASP.NET AJAX Denetim araç setinden denetim. Aşağıdaki öznitelikler Bu örnek için ayarlanmış olması gerekir:
 
-- `CurrentRating`kullanılacak ilk derecelendirme
-- `MaxRating`en yüksek derecelendirme
-- `EmptyStarCssClass`Derecelendirme öğesi (yıldız) boş olduğunda kullanılacak CSS sınıfı
-- `FilledStarCssClass`Derecelendirme öğesi (yıldız) doldurulurken kullanılacak CSS sınıfı
-- `StarCssClass`görünür stat için kullanılacak CSS sınıfı
-- `WaitingStarCssClass`bir yıldız derecesiyle sunucuya geri gönderilirken kullanılacak CSS sınıfı
+- `CurrentRating` kullanılacak ilk derecelendirme
+- `MaxRating` en yüksek derecelendirme
+- `EmptyStarCssClass` Derecelendirme öğesi (yıldız) boş olduğunda kullanılacak CSS sınıfı
+- `FilledStarCssClass` Derecelendirme öğesi (yıldız) doldurulurken kullanılacak CSS sınıfı
+- `StarCssClass` görünür stat için kullanılacak CSS sınıfı
+- `WaitingStarCssClass` bir yıldız derecesiyle sunucuya geri gönderilirken kullanılacak CSS sınıfı
 
 Burada da bir derecelendirme denetimi ile beşinci oluşturan biçimlendirme hangisinin hiçbiri doldurulur çıkışı başlangıçta öğeleri (smileys):
 
@@ -73,5 +73,5 @@ Sayfa kaydedin ve tarayıcınıza yükleyin. (Başlangıçta boş) derecelendirm
 
 Bir derecelendirme sistemi ile en az kod oluşturma ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-rating-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](creating-a-rating-control-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-rating-control-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
-title: "ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama | Microsoft Docs"
+title: ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 4 modelleri ve veri erişim uygulamalı Laboratuvar, alınan yükleniyor ve veritabanındaki verileri görüntüleme. Bu uygulamalı Laboratuvar için ekleyeceksiniz..."
+description: ASP.NET MVC 4 modelleri ve veri erişim uygulamalı Laboratuvar, alınan yükleniyor ve veritabanındaki verileri görüntüleme. Bu uygulamalı Laboratuvar için ekleyeceksiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama
 
@@ -112,12 +112,12 @@ Bu görevde adlı yeni bir denetleyici oluşturacak **StoreManagerController** C
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-CreatingTheStoreManagerController/başlangıç/** klasörü.
 
-    1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Yeni denetleyici ekleyin. Bunu yapmak için sağ **denetleyicileri** Klasör Seç Çözüm Gezgini içinde **Ekle** ve ardından **denetleyicisi** komutu. Değişiklik **denetleyicisi** **adı** için **StoreManagerController** ve seçeneği emin olun **boşokuma/yazmaeylemleriileMVCdenetleyicisi**seçilir. **Ekle**'yi tıklatın.
 
     ![Ekle denetleyicisi iletişim](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "Ekle denetleyicisi iletişim")
@@ -184,7 +184,7 @@ Bu görevde, istediğiniz alanları görüntülemek için ASP.NET MVC yapı iske
 1. Oluşturulan kod gözden geçirin. Alan listesinin oluşturulmasını aşağıdaki parçası olacak HTML tablo **İskele** tablo veri görüntülemek için kullanma.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
-2. Değiştir  **&lt;tablo&gt;**  yalnızca görüntülemek için aşağıdaki kodu koduyla **Tarz**, **sanatçı**, **albüm başlığı**, ve **fiyat** alanları. Bu siler **AlbumId** ve **albüm resim URL'si** sütun. Ayrıca, kullanıcıların bağlı sınıf özelliklerini görüntülemek için GenreId ve ArtistId sütunları değiştirir **Artist.Name** ve **Genre.Name**ve kaldırır **ayrıntıları** bağlantı.
+2. Değiştir **&lt;tablo&gt;** yalnızca görüntülemek için aşağıdaki kodu koduyla **Tarz**, **sanatçı**, **albüm başlığı**, ve **fiyat** alanları. Bu siler **AlbumId** ve **albüm resim URL'si** sütun. Ayrıca, kullanıcıların bağlı sınıf özelliklerini görüntülemek için GenreId ve ArtistId sütunları değiştirir **Artist.Name** ve **Genre.Name**ve kaldırır **ayrıntıları** bağlantı.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample5.cshtml)]
 3. Aşağıdaki açıklamaları değiştirin.
@@ -231,14 +231,14 @@ Bu görevde, yeni bir yöntem ekleyecek **Truncate** için **HTML** ASP.NET MVC 
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-AddingAnHTMLHelper/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. StoreManager'ın dizini görünümünü açın. Bunu yapmak için Çözüm Gezgini'nde genişletin **görünümleri** klasörü, sonra **StoreManager** açarak **Index.cshtml** dosya.
-3. Aşağıdaki kodu ekleyin  **@model**  tanımlamak için yönergesi **Truncate** yardımcı yöntemi.
+3. Aşağıdaki kodu ekleyin <strong>@model</strong> tanımlamak için yönergesi <strong>Truncate</strong> yardımcı yöntemi.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample7.cshtml)]
 
@@ -275,7 +275,7 @@ Bu görevde, sınayacak **StoreManager** **dizin** şablonu görüntüleme albü
 
 Bu alıştırmada, albüm düzenlemek Mağaza yöneticileri izin vermek için bir formun nasıl oluşturulacağını öğreneceksiniz. Gözat **/StoreManager/Edit/id** URL (**kimliği** düzenlemek için albümü benzersiz kimliğini olan), böylece sunucusuna bir HTTP GET çağrısı yapma.
 
-Denetleyici Düzenle eylem yöntemi uygun albüm veritabanından, oluşturma bir **StoreManagerViewModel** nesne (listesini Sanatçılar ve türler ile birlikte) kapsüllemek ve daha sonra bir görünüm şablonuna geçirin için HTML sayfası kullanıcıya geri işlenemiyor. Bu sayfayı içerecek bir  **&lt;form&gt;**  metin kutuları ve albüm özelliklerini düzenlemek için bırakmalar öğe.
+Denetleyici Düzenle eylem yöntemi uygun albüm veritabanından, oluşturma bir **StoreManagerViewModel** nesne (listesini Sanatçılar ve türler ile birlikte) kapsüllemek ve daha sonra bir görünüm şablonuna geçirin için HTML sayfası kullanıcıya geri işlenemiyor. Bu sayfayı içerecek bir **&lt;form&gt;** metin kutuları ve albüm özelliklerini düzenlemek için bırakmalar öğe.
 
 Kullanıcı albüm form değerleri güncelleştirir ve tıklar sonra **kaydetmek** düğmesi, değişiklikleri aracılığıyla gönderilir bir HTTP POST geri çağrı **/StoreManager/Edit/id**. URL son çağrı olduğu gibi aynı kalsa da, ASP.NET MVC, bir HTTP POST ve bu nedenle farklı bir düzen eylem yöntemi yürütülmeden bu kez tanımlar (bir donatılmış ile **[HttpPost]**).
 
@@ -288,12 +288,12 @@ Bu görevde, uygun albüm veritabanından almak için düzenleme eylem yöntemin
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex3-CreatingTheEditView/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **StoreManagerController** sınıfı. Bunu yapmak için sırasıyla **denetleyicileri** klasörü ve çift **StoreManagerController.cs**.
 3. Değiştir **HTTP GET Düzenle** uygun almak için aşağıdaki kodu eylem yöntemiyle **albüm** yanı sıra **türler** ve **Sanatçılar**listeler.
 
@@ -425,12 +425,12 @@ Bu görevde, tüm türler ve Sanatçılar listesini almak için içine bu veri p
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex4-AddingACreateView/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **StoreManagerController** sınıfı. Bunu yapmak için sırasıyla **denetleyicileri** klasörü ve çift **StoreManagerController.cs**.
 3. Değiştir **oluşturma** eylem yöntemini aşağıdaki kodla:
 
@@ -524,12 +524,12 @@ Bu görevde, albüm bilgileri almak için Delete eylem yöntemini HTTP GET sür�
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex5-HandlingDeletion/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **StoreManagerController** sınıfı. Bunu yapmak için sırasıyla **denetleyicileri** klasörü ve çift **StoreManagerController.cs**.
 3. Delete denetleyici eylemi tam olarak önceki deposu ayrıntıları denetleyici eylemi aynıdır: Bu sorgular **albüm** kullanarak veritabanını nesnesinin **kimliği** sağlanan URL ve döndürür uygun **Görünüm**. Bunu yapmak için HTTP GET yerini **silmek** eylem yöntemini aşağıdaki kodla:
 
@@ -613,12 +613,12 @@ Varlık veri modeli oluşturulduğu bu uygulama gibi durumlarda biraz daha karma
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex6-AddingValidation/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **Album.cs** gelen **modelleri** klasör.
 3. Değiştir **Album.cs** aşağıdaki gibi görünüyor. böylece vurgulanmış kodu ile içerik:
 
@@ -657,7 +657,7 @@ Bu görevde, oluşturma ve düzenleme sayfaları alanları doğrulamak son göre
 
     ![Düzenleme sayfasını doğrulanmış alanları](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    Düzenleme sayfasını doğrulanmış alanları
+    *Düzenleme sayfasını doğrulanmış alanları*
 
 <a id="Exercise7"></a>
 
@@ -679,12 +679,12 @@ Bu görevde, hem doğrulama modeli karşılaştırmak için jQuery dahil olmak �
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex7-UnobtrusivejQueryValidation/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Tuşuna **F5** uygulamayı çalıştırın.
 3. Proje giriş sayfası başlatır. Gözat **/StoreManager/oluşturma** tıklatıp **oluşturma** doğrulama iletileri almak doğrulamak için formu doldurarak olmadan:
 
@@ -739,24 +739,24 @@ Bu görevde, sınayacak **StoreManager** şablonu gerçekleştiren kullanıcı y
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample23.html)]
 
-    > [!NOTE]
-    > Her istemci doğrulama kuralı için örtük jQuery verilerle bir öznitelik ekler-val -*rulename*=&quot;*ileti*&quot;. Etiketlerin listesini bu Unobtrusive aşağıdadır jQuery istemci doğrulama gerçekleştirmek için html giriş alanında ekler:
-    > 
-    > - Veri val
-    > - Data-val-number
-    > - Veri val aralığı
-    > - Veri val aralığı min / val aralığı maksimum veri
-    > - Veri val gerekiyor
-    > - Veri val uzunluğu
-    > - Verileri-val-uzunluk-max / verileri-val-uzunluk-min
-    > 
-    > Tüm veri değerleri ile model doldurulur **veri ek açıklamasını**. Ardından, sunucu tarafında çalışan tüm mantığı istemci tarafında çalıştırılabilir. Örneğin, fiyat özniteliği aşağıdaki veri ek açıklamasını modele sahiptir:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
-    > 
-    > Örtük jQuery kullandıktan sonra oluşturulan kodu verilmiştir:
-    >  
-    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
+   > [!NOTE]
+   > Her istemci doğrulama kuralı için örtük jQuery verilerle bir öznitelik ekler-val -*rulename*=&quot;*ileti*&quot;. Etiketlerin listesini bu Unobtrusive aşağıdadır jQuery istemci doğrulama gerçekleştirmek için html giriş alanında ekler:
+   > 
+   > - Veri val
+   > - Data-val-number
+   > - Veri val aralığı
+   > - Veri val aralığı min / val aralığı maksimum veri
+   > - Veri val gerekiyor
+   > - Veri val uzunluğu
+   > - Verileri-val-uzunluk-max / verileri-val-uzunluk-min
+   > 
+   > Tüm veri değerleri ile model doldurulur **veri ek açıklamasını**. Ardından, sunucu tarafında çalışan tüm mantığı istemci tarafında çalıştırılabilir. Örneğin, fiyat özniteliği aşağıdaki veri ek açıklamasını modele sahiptir:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
+   > 
+   > Örtük jQuery kullandıktan sonra oluşturulan kodu verilmiştir:
+   > 
+   > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
 * * *
 
@@ -781,9 +781,9 @@ Bu uygulamalı Laboratuvar tamamlayarak kullanıcılar aşağıdakileri kullanar
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 

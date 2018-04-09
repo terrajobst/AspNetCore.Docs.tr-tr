@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
-title: "Rapor verileri bir DataList ya da yineleyici denetimi (C#) disk belleği | Microsoft Docs"
+title: Rapor verileri bir DataList ya da yineleyici denetimi (C#) disk belleği | Microsoft Docs
 author: rick-anderson
-description: "DataList ne yineleyici teklif otomatik sayfalama veya sıralama desteği, Bu öğretici sayfalama desteğini DataList ya da yineleyici nasıl ekleneceğini gösterir..."
+description: DataList ne yineleyici teklif otomatik sayfalama veya sıralama desteği, Bu öğretici sayfalama desteğini DataList ya da yineleyici nasıl ekleneceğini gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4952adff752ec834b8be5f190181be98a034ccfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 43b1370e1411858cef02bca534d082a3c105e51e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Disk belleği rapor verilerini bir DataList ya da yineleyici denetimi (C#)
 ====================
@@ -100,10 +100,10 @@ Bu öğreticide biz varsayılan disk belleği bir DataList uygulanmasına yeni b
 
 Bir yöntem ekleme `ProductsBLL` adlı sınıf `GetProductsAsPagedDataSource` iki tamsayı giriş parametreleri alır:
 
-- `pageIndex`görüntülemek için sayfanın dizini sıfır olarak dizin oluşturulmuş ve
-- `pageSize`Sayfa başına görüntülenecek kayıt sayısı.
+- `pageIndex` görüntülemek için sayfanın dizini sıfır olarak dizin oluşturulmuş ve
+- `pageSize` Sayfa başına görüntülenecek kayıt sayısı.
 
-`GetProductsAsPagedDataSource`alarak başlatır *tüm* kayıtlarını `GetProducts()`. Daha sonra oluşturur bir `PagedDataSource` ayarı nesne, kendi `CurrentPageIndex` ve `PageSize` geçilen değerlerini özelliklerine `pageIndex` ve `pageSize` parametreleri. Yöntemi bu yapılandırılmış döndürerek sonucuna `PagedDataSource`:
+`GetProductsAsPagedDataSource` alarak başlatır *tüm* kayıtlarını `GetProducts()`. Daha sonra oluşturur bir `PagedDataSource` ayarı nesne, kendi `CurrentPageIndex` ve `PageSize` geçilen değerlerini özelliklerine `pageIndex` ve `pageSize` parametreleri. Yöntemi bu yapılandırılmış döndürerek sonucuna `PagedDataSource`:
 
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample2.cs)]
@@ -275,11 +275,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Liz Shulok, Ken Pespisa ve Bernadette Leigh yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](sorting-data-in-a-datalist-or-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [Next](sorting-data-in-a-datalist-or-repeater-control-cs.md)

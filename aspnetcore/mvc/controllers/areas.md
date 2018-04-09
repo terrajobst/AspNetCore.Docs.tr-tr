@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core alanları"
+title: ASP.NET Core alanları
 author: rick-anderson
-description: "Alanlar (Yönlendirme) ayrı ad alanını ve klasör yapısı (için görünümler) olarak bir gruba ilgili işlevselliği düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin."
+description: Alanlar (Yönlendirme) ayrı ad alanını ve klasör yapısı (için görünümler) olarak bir gruba ilgili işlevselliği düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/areas
-ms.openlocfilehash: cf31c10e7d4d9229a32aa06903a0ff0ed6fb0599
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 61527eb350b5aba9cb37b1de5acdeae1287bf073
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET Core alanları
 
@@ -125,7 +125,7 @@ Klasör hiyerarşisi tanımladığınız sonra MVC her denetleyici bir alanı il
    }
    ```
 
-Yeni oluşturulan alanlarınızı ile çalışan bir rota tanımı ayarlayın. [Denetleyici eylemleri için yönlendirme](routing.md) makale gider içine öznitelik rotaları karşı geleneksel yolları kullanma dahil olmak üzere yönlendirme tanımları oluşturma hakkında ayrıntılı bilgi. Bu örnekte, geleneksel bir rota kullanacağız. Bunu yapmak için açık *haline* dosya ve ekleyerek değiştirmeye `areaRoute` route tanımını aşağıdaki adlı.
+Yeni oluşturulan alanlarınızı ile çalışan bir rota tanımı ayarlayın. [Denetleyici eylemleri için rota](routing.md) makale gider içine öznitelik rotaları karşı geleneksel yolları kullanma dahil olmak üzere yönlendirme tanımları oluşturma hakkında ayrıntılı bilgi. Bu örnekte, geleneksel bir rota kullanacağız. Bunu yapmak için açık *haline* dosya ve ekleyerek değiştirmeye `areaRoute` route tanımını aşağıdaki adlı.
 
 ```csharp
 ...

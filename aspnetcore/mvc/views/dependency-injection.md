@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core görünümlerde içine bağımlılık ekleme"
+title: ASP.NET Core görünümlerde içine bağımlılık ekleme
 author: ardalis
-description: "ASP.NET Core bağımlılık ekleme MVC görünümleri içine nasıl destekler? öğrenin."
+description: ASP.NET Core bağımlılık ekleme MVC görünümleri içine nasıl destekler? öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cde30322450529f5b3b58f9ee54c22b4cbda65c8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core görünümlerde içine bağımlılık ekleme
 
@@ -39,7 +39,7 @@ Bu görünüm bir listesini görüntüler `ToDoItem` genel istatistiklerini gös
 
 `StatisticsService` Kümesi üzerinde bazı hesaplamalar gerçekleştirir `ToDoItem` depo erişen örnekleri:
 
-[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,26)]
+[!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/StatisticsService.cs?highlight=15,20,25)]
 
 Örnek deposu, bir bellek içi koleksiyonu kullanır. Yukarıda gösterilen uygulama (tüm verilerin bellekte faaliyet) büyük, uzaktan erişilen veri kümeleri için önerilmez.
 

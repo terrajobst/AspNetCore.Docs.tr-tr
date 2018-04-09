@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
-title: "Bir Accordion bölmesi (VB) dinamik olarak ekleme | Microsoft Docs"
+title: Bir Accordion bölmesi (VB) dinamik olarak ekleme | Microsoft Docs
 author: wenz
-description: "AJAX Denetim Araç Seti Accordion denetiminde birden çok bölmeleri sağlar ve bunlardan biri aynı anda görüntülenecek kullanıcı sağlar. Paneller genellikle w bildirilir..."
+description: AJAX Denetim Araç Seti Accordion denetiminde birden çok bölmeleri sağlar ve bunlardan biri aynı anda görüntülenecek kullanıcı sağlar. Paneller genellikle w bildirilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6adc0b7985e5ba3da1684b645ae1b71b5112594a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68c60ba6d4be5eb6709f7558d6be4165f8232a4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-adding-an-accordion-pane-vb"></a>Bir Accordion bölmesi (VB) dinamik olarak ekleme
 ====================
@@ -62,5 +62,5 @@ Yalnızca eksik, ASP.NET varlığına bağlı Accordion kendisini öğedir `Scri
 
 Accordion verilerde sunucu tarafı kodu tarafından dinamik olarak eklendi ([tam boyutlu görüntüyü görüntülemek için tıklatın](dynamically-adding-an-accordion-pane-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](databinding-to-an-accordion-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](databinding-to-an-accordion-vb.md)

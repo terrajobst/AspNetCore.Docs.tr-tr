@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
-title: "Türü belirtilmiş veri kümesi'nin TableAdapters (VB) için saklı yordamlar Varolanı kullanma | Microsoft Docs"
+title: Türü belirtilmiş veri kümesi'nin TableAdapters (VB) için saklı yordamlar Varolanı kullanma | Microsoft Docs
 author: rick-anderson
-description: "Önceki öğreticide TableAdapter Sihirbazı'nı kullanarak yeni saklı yordamlar oluşturmak nasıl öğrendiniz. Biz bu öğreticide öğrenin nasıl aynı TableAdapter..."
+description: Önceki öğreticide TableAdapter Sihirbazı'nı kullanarak yeni saklı yordamlar oluşturmak nasıl öğrendiniz. Biz bu öğreticide öğrenin nasıl aynı TableAdapter...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5d1be6c30cda5a06087516210a77f48b6a3fe45b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac319b67c9215c5dde8e7507076ed45a1f7825c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Türü belirtilmiş veri kümesi'nin TableAdapters (VB) saklı yordamları Varolanı kullanma
 ====================
@@ -56,7 +56,7 @@ Aşağıdaki komut dosyasını girin:
 
 Çalıştırıldığında, bu komut, yeni bir saklı yordam adlı Northwind veritabanı ekleyecek `Products_SelectByCategoryID`. Bu saklı yordam tek bir giriş parametre kabul eder (`@CategoryID`, türü `int`) ve eşleşen bu ürünler için alanların tümünü döndürür `CategoryID` değeri.
 
-Bu yürütmek için `CREATE PROCEDURE` komut dosyası ve saklı yordam veritabanına ekleyin, araç çubuğunda Kaydet simgesine tıklayın veya Ctrl + S isabet. Bunu, saklı yordamlar klasörü yenilemeler yaptıktan sonra yeni oluşturulan gösteren saklı yordamı. Komut penceresinde gelen subtlety da, değiştirir `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` için `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE`veritabanına yeni bir saklı yordam ekler sırada `ALTER PROCEDURE` mevcut bir güncelleştirir. Komut dosyası başlangıcı için değiştikten `ALTER PROCEDURE`, saklı yordamları değiştirme giriş parametreleri veya SQL deyimlerini ve Kaydet simgesine tıklayarak güncelleştirilecek saklı yordamı bu değişikliklerle.
+Bu yürütmek için `CREATE PROCEDURE` komut dosyası ve saklı yordam veritabanına ekleyin, araç çubuğunda Kaydet simgesine tıklayın veya Ctrl + S isabet. Bunu, saklı yordamlar klasörü yenilemeler yaptıktan sonra yeni oluşturulan gösteren saklı yordamı. Komut penceresinde gelen subtlety da, değiştirir `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` için `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE` veritabanına yeni bir saklı yordam ekler sırada `ALTER PROCEDURE` mevcut bir güncelleştirir. Komut dosyası başlangıcı için değiştikten `ALTER PROCEDURE`, saklı yordamları değiştirme giriş parametreleri veya SQL deyimlerini ve Kaydet simgesine tıklayarak güncelleştirilecek saklı yordamı bu değişikliklerle.
 
 Şekil 2 gösterir sonra Visual Studio `Products_SelectByCategoryID` saklı yordam kaydedildi.
 
@@ -273,12 +273,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Hilton Geisenow, S ren Jacob Lauritsen ve Teresa Murphy yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-[sonraki](updating-the-tableadapter-to-use-joins-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [sonraki](updating-the-tableadapter-to-use-joins-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
-title: "Bir parola (C#) gücünü sınama | Microsoft Docs"
+title: Bir parola (C#) gücünü sınama | Microsoft Docs
 author: wenz
-description: "Parolalar, neredeyse her yerden, böylece yavaş kullanıcıları ayırmak kolay olan basit parolalar seçmesini eğilimindedir gereklidir. ASP PasswordStrength denetiminde. N..."
+description: Parolalar, neredeyse her yerden, böylece yavaş kullanıcıları ayırmak kolay olan basit parolalar seçmesini eğilimindedir gereklidir. ASP PasswordStrength denetiminde. N...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda7baae1833b074ba34d8f10fa434df14cc592e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5f4a7128f2edbef4fbe95faf9de19bdae5f436e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="testing-the-strength-of-a-password-c"></a>Bir parola (C#) gücünü test etme
 ====================
@@ -35,10 +35,10 @@ Parolalar, neredeyse her yerden, böylece yavaş kullanıcıları ayırmak kolay
 
 `PasswordStrength` Denetim metin kutusu genişletir ve parola yeterince iyi olup olmadığını denetler. Bol miktarda öznitelikleri aracılığıyla seçenekleri sunar. bunları yalnızca bazıları şunlardır:
 
-- `MinimumNumericCharacters`Parolada kullanılması gereken sayı karakteri sayısının alt sınırı
-- `MinimumSymbolCharacters`Parolada kullanılması gereken en az sayıda simge karakteri (harfler ve sayılar değil)
-- `PreferredPasswordLength`Minimum parola uzunluğu
-- `RequiresUpperAndLowerCaseCharacters`olup büyük ve küçük harf karakterler kullanmak parola gerekiyor
+- `MinimumNumericCharacters` Parolada kullanılması gereken sayı karakteri sayısının alt sınırı
+- `MinimumSymbolCharacters` Parolada kullanılması gereken en az sayıda simge karakteri (harfler ve sayılar değil)
+- `PreferredPasswordLength` Minimum parola uzunluğu
+- `RequiresUpperAndLowerCaseCharacters` olup büyük ve küçük harf karakterler kullanmak parola gerekiyor
 
 `StrengthIndicatorType` Metin olarak parola gücünü sunmak nasıl bilgiler sunar (değer `"Text"`) veya bir ilerleme çubuğu tür olarak (değer `"BarIndicator"`). İçinde `DisplayPosition` özniteliği, yapılandırma bilgileri göründüğü. ASP.NET AJAX dahil olmak üzere tam bir örnek, işte `ScriptManager` denetimi `PasswordStrength` denetimi ve tabi ki burada kullanıcı girebilirsiniz parola metin kutusu. Geliştirme sırasında yazmakta olduğunuz görebilmeniz için tanıtım amacıyla, ikinci form bir normal metin alanı ve parola alanı alanıdır.
 
@@ -51,5 +51,5 @@ Sayfayı çalıştırın ve hemen yazın: yalnızca küçük harfler, büyük ha
 
 Parola (oldukça) iyi şimdi ([tam boyutlu görüntüyü görüntülemek için tıklatın](testing-the-strength-of-a-password-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Sonraki](testing-the-strength-of-a-password-vb.md)
+> [!div class="step-by-step"]
+> [Next](testing-the-strength-of-a-password-vb.md)

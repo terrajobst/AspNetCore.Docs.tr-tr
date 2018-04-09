@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/preventing-open-redirection-attacks
-title: "Açık yeniden yönlendirme saldırılarına (C#) önleme | Microsoft Docs"
+title: Açık yeniden yönlendirme saldırılarına (C#) önleme | Microsoft Docs
 author: jongalloway
-description: "Bu öğreticide, ASP.NET MVC uygulamalarınızı açık yeniden yönlendirme saldırılarına nasıl engelleyebilirsiniz açıklanmaktadır. Bu öğretici yapmış olduğunuz değişiklikler tartışılır..."
+description: Bu öğreticide, ASP.NET MVC uygulamalarınızı açık yeniden yönlendirme saldırılarına nasıl engelleyebilirsiniz açıklanmaktadır. Bu öğretici yapmış olduğunuz değişiklikler tartışılır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Engelleme açık yeniden yönlendirme saldırılarına (C#)
 ====================
@@ -39,7 +39,7 @@ Aşağıdaki ekran görüntüsünde, oturum açmadığı zaman /Account/ChangePa
 
 **Şekil 01**: açık bir yeniden yönlendirme ile oturum açma sayfası
 
-ReturnUrl sorgu dizesi parametresi doğrulanmamış olduğundan, bir saldırganın açık yeniden yönlendirme saldırının yürütmek için parametre herhangi bir URL adresi eklemesine değiştirebilirsiniz. Bunu göstermek için biz ReturnUrl parametresi değiştirebilirsiniz [http://bing.com](http://bing.com), böylece ortaya çıkan oturum açma URL'si/Account/oturum açma olur? ReturnUrl = http://www.bing.com/. Başarıyla siteye oturum açtıktan sonra biz yönlendirilirsiniz [http://bing.com](http://bing.com). Bu yeniden yönlendirme doğrulanmamış olduğundan, bunun yerine kullanıcının kandırarak girişiminde kötü amaçlı bir siteye işaret edebilir.
+ReturnUrl sorgu dizesi parametresi doğrulanmamış olduğundan, bir saldırganın açık yeniden yönlendirme saldırının yürütmek için parametre herhangi bir URL adresi eklemesine değiştirebilirsiniz. Bunu göstermek için biz ReturnUrl parametresi değiştirebilirsiniz [ http://bing.com ](http://bing.com), böylece ortaya çıkan oturum açma URL'si/Account/oturum açma olur? ReturnUrl =<http://www.bing.com/>. Başarıyla siteye oturum açtıktan sonra biz yönlendirilirsiniz [ http://bing.com ](http://bing.com). Bu yeniden yönlendirme doğrulanmamış olduğundan, bunun yerine kullanıcının kandırarak girişiminde kötü amaçlı bir siteye işaret edebilir.
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Daha karmaşık bir açık yeniden yönlendirme saldırısı
 
@@ -55,7 +55,7 @@ Dönüş URL'SİNİN word Yemeği "n" eksik nerddiner.com işaret unutmayın. Bu
 
 **Şekil 02**: açık bir yeniden yönlendirme NerdDinner oturum açma sayfası
 
-Biz doğru oturum açtığınızda, ASP.NET MVC AccountController'ın oturum açma eylemi bize returnUrl querystring parametresinde belirtilen URL'ye yeniden yönlendirir. Bu durumda olan ve bu da saldırganın girdiği, URL olan [http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn). Özellikle saldırgan emin olmak dikkatli olarak geçtiğinden biz bunu farkına olasılığı yüksektir son derece watchful ki sürece onların sahte sayfa tam olarak yasal oturum açma sayfası gibi görünüyor. Bu oturum açma sayfasına ki yeniden oturum olduğunu isteyen bir hata iletisi içerir. Biçimsiz bize, biz bizim parola yanlış yazmış gerekir.
+Biz doğru oturum açtığınızda, ASP.NET MVC AccountController'ın oturum açma eylemi bize returnUrl querystring parametresinde belirtilen URL'ye yeniden yönlendirir. Bu durumda olan ve bu da saldırganın girdiği, URL olan [ http://nerddiner.com/Account/LogOn ](http://nerddiner.com/Account/LogOn). Özellikle saldırgan emin olmak dikkatli olarak geçtiğinden biz bunu farkına olasılığı yüksektir son derece watchful ki sürece onların sahte sayfa tam olarak yasal oturum açma sayfası gibi görünüyor. Bu oturum açma sayfasına ki yeniden oturum olduğunu isteyen bir hata iletisi içerir. Biçimsiz bize, biz bizim parola yanlış yazmış gerekir.
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
@@ -67,13 +67,13 @@ Biz bizim kullanıcı adı ve parolayı yeniden yazın, sahte oturum açma sayfa
 
 Bir ASP.NET MVC 2 uygulamada oturum açma eylemi için kod aşağıda verilmiştir. Bir oturum açma başarılı olduğunda, bir yeniden yönlendirme denetleyicisi returnUrl döndürür unutmayın. Hiçbir doğrulama karşı returnUrl parametre gerçekleştirildiği görebilirsiniz.
 
-**1 – ASP.NET MVC 2 oturum açma eylemde listeleme`AccountController.cs`**
+**1 – ASP.NET MVC 2 oturum açma eylemde listeleme `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
 Şimdi ASP.NET MVC 3 oturum açma eyleme değişiklikleri bakalım. Adlı System.Web.Mvc.Url yardımcı sınıfı içinde yeni bir yöntemini çağırarak returnUrl parametreyi doğrulamak için bu kodu değiştirildi `IsLocalUrl()`.
 
-**2 – ASP.NET MVC 3 oturum açma eylemde listeleme`AccountController.cs`**
+**2 – ASP.NET MVC 3 oturum açma eylemde listeleme `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
@@ -85,7 +85,7 @@ Biz ASP.NET MVC 3 değişiklikleri bizim mevcut ASP.NET MVC 1.0 ve 2 uygulamalar
 
 Gerçekte yalnızca bu doğrulama olarak System.Web.WebPages bir yöntemi çağırma UrlHelper IsLocalUrl() yöntemi, ASP.NET Web Pages uygulamaları tarafından da kullanılır.
 
-**3 – ASP.NET MVC 3 UrlHelper IsLocalUrl() yönteminden listeleme`class`**
+**3 – ASP.NET MVC 3 UrlHelper IsLocalUrl() yönteminden listeleme `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
@@ -107,7 +107,7 @@ IsLocalUrl() yöntemi bulunduğundan, biz returnUrl parametreyi doğrulamak içi
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Şimdi biz açık yeniden yönlendirme saldırının dış dönüş URL'si kullanarak oturum açması deneyerek test edebilirsiniz. Let's use /Account/LogOn?ReturnUrl=http://www.bing.com/ again.
+Şimdi biz açık yeniden yönlendirme saldırının dış dönüş URL'si kullanarak oturum açması deneyerek test edebilirsiniz. /Account/LogOn kullanalım? ReturnUrl =<http://www.bing.com/> yeniden.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

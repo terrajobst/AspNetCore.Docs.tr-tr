@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: "Azure Azure App Service'e uygulama yayımlama | Microsoft Docs"
+title: Azure Azure App Service'e uygulama yayımlama | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 08994815cb339800619caacdcb8d717e9986f9d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Azure Azure App Service'e uygulamayı yayımlama
 ====================
@@ -51,12 +51,11 @@ Değil onay **buluttaki konağa** ilk proje oluşturduğunuzda, yeni bir web uyg
 
 ![](part-10/_static/image9.png)
 
-Bir site adı girin. Azure aboneliğinizi ve bölge seçin. Altında **veritabanı sunucusu**seçin **Create New Server**, var olan bir sunucu veya seçin. 
-              **Oluştur**'u tıklatın.
+Bir site adı girin. Azure aboneliğinizi ve bölge seçin. Altında **veritabanı sunucusu**seçin **Create New Server**, var olan bir sunucu veya seçin. **Oluştur**'u tıklatın.
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
 ' I tıklatın **ayarları** sekmesinde ve denetleme &quot;Code First Migrations yürütme&quot;. Ardından **Yayımla**.
 
->[!div class="step-by-step"]
-[Önceki](part-9.md)
+> [!div class="step-by-step"]
+> [Önceki](part-9.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
-title: "Belirli bir yapı dağıtma | Microsoft Docs"
+title: Belirli bir yapı dağıtma | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, web paketleri ve hazırlık veya üretim ortamını gibi yeni bir hedefe belirli bir önceki yapıdan veritabanı komut dosyalarında dağıtmayı açıklar..."
+description: Bu konuda, web paketleri ve hazırlık veya üretim ortamını gibi yeni bir hedefe belirli bir önceki yapıdan veritabanı komut dosyalarında dağıtmayı açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>Belirli bir yapı dağıtma
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, web paketleri ve bir hazırlık veya üretim ortamı gibi yeni bir hedefe belirli bir önceki yapıdan veritabanı komut dosyalarında dağıtmayı açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi iki proje dosyalarını & #x 2014 tarafından kontrol edilir; o Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren ne. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -54,13 +54,13 @@ Bunu başarmak için Microsoft Build Engine (MSBuild) web paketleri ve belirli b
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Proje dosyanızı web paketleri ve farklı bir konuma & #x 2014; bir önceki TFS derlemesi & #x 2014; çıkışları gibi veritabanı komut dosyalarında dağıtmak istiyorsanız, geçersiz kılmak yeterlidir **OutputRoot** özelliği. Özellik değeri ilgili derleme klasörüne ekip sunucuda ayarlamanız gerekir. MSBuild komut satırından çalışıyormuş için bir değer belirtebilirsiniz **OutputRoot** komut satırı bağımsız değişkeni olarak:
+Web paketleri dağıtmak ve komut dosyaları farklı bir konumdan veritabanı için proje dosyanızı istiyorsanız&#x2014;ister bir önceki TFS derlemesi çıkışları&#x2014;geçersiz kılmak yeterlidir **OutputRoot** özelliği. Özellik değeri ilgili derleme klasörüne ekip sunucuda ayarlamanız gerekir. MSBuild komut satırından çalışıyormuş için bir değer belirtebilirsiniz **OutputRoot** komut satırı bağımsız değişkeni olarak:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-Uygulamada, ancak aynı zamanda atlamak istediğiniz **yapı** hedef & #x 2014; derleme çıktıları kullanmayı planlamıyorsanız, çözümü oluşturma içinde noktası yok. Bu komut satırından çalıştırmak istediğiniz hedefleri belirterek yapabilirsiniz:
+Uygulamada, ancak aynı zamanda atlamak istediğiniz **yapı** hedef&#x2014;yapı çıktıları kullanmayı planlamıyorsanız, çözümü oluşturma içinde noktası yok. Bu komut satırından çalıştırmak istediğiniz hedefleri belirterek yapabilirsiniz:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ Bununla birlikte, çoğu durumda, dağıtım mantığınızı TFS derleme tanım
 
 Sonraki yordam, tetikleyici dağıtımları için hazırlama ortamında tek bir komutla kullanıcılara sağlayan bir derleme tanımınız oluşturmayı açıklar.
 
-Bu durumda, gerçekten her şeyi oluşturmak için derleme tanımını istemediğiniz & #x 2014; yalnızca özel proje dosyanızda dağıtım mantığı yürütmek istediğiniz. *Publish.proj* dosyası atlar koşullu mantık içerir **yapı** dosya ekip çalışıyorsa, hedef. Bunu yerleşik değerlendirerek yapar **BuildingInTeamBuild** otomatik olarak ayarlamak için özellik **true** ekip içinde proje dosyanızı çalıştırırsanız. Sonuç olarak, yapı işlemi atlayın ve varolan bir yapıyı dağıtmak için proje dosyası çalıştırmanız yeterlidir.
+Bu durumda, gerçekten her şeyi oluşturmak için derleme tanımını istemediğiniz&#x2014;yalnızca özel proje dosyanızda dağıtım mantığı yürütmek istediğiniz. *Publish.proj* dosyası atlar koşullu mantık içerir **yapı** dosya ekip çalışıyorsa, hedef. Bunu yerleşik değerlendirerek yapar **BuildingInTeamBuild** otomatik olarak ayarlamak için özellik **true** ekip içinde proje dosyanızı çalıştırırsanız. Sonuç olarak, yapı işlemi atlayın ve varolan bir yapıyı dağıtmak için proje dosyası çalıştırmanız yeterlidir.
 
 **El ile dağıtımı tetikleyecek bir yapı tanımı oluşturmak için**
 
@@ -133,6 +133,6 @@ Bu konuda web paketleri ve veritabanı betikleri gibi dağıtım kaynaklarını 
 
 Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz: [temel yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/library/ms181715.aspx). Sıraya alma yapılar hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Önceki](creating-a-build-definition-that-supports-deployment.md)
-[sonraki](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-build-definition-that-supports-deployment.md)
+> [sonraki](configuring-permissions-for-team-build-deployment.md)

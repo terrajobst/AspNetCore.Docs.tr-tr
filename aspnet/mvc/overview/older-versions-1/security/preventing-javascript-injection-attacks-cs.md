@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
-title: "JavaScript ekleme saldırıları (C#) önleme | Microsoft Docs"
+title: JavaScript ekleme saldırıları (C#) önleme | Microsoft Docs
 author: StephenWalther
-description: "JavaScript ekleme saldırıları ve siteler arası komut dosyası saldırıları için olmaması. Bu öğreticide, Stephen Walther de kolayca nasıl yapabileceğiniz açıklanır..."
+description: JavaScript ekleme saldırıları ve siteler arası komut dosyası saldırıları için olmaması. Bu öğreticide, Stephen Walther de kolayca nasıl yapabileceğiniz açıklanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 67f53162cb1bb0771d632ba7a3f5960db00e2744
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fbec58c009640164d908db5a45557c9e50041173
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>Engelleme JavaScript ekleme saldırıları (C#)
 ====================
@@ -43,7 +43,7 @@ Bir müşteri geri bildirim Web sitesi oluşturduğunuzu düşünün (bkz: Şeki
 
 Müşteri geri bildirim Web sitesinin kullandığı `controller` listeleme 1. Bu `controller` adlı iki eylemleri içeriyor `Index()` ve `Create()`.
 
-**Kod 1 –`HomeController.cs`**
+**Kod 1 – `HomeController.cs`**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample1.cs)]
 
@@ -53,7 +53,7 @@ Müşteri geri bildirim Web sitesinin kullandığı `controller` listeleme 1. Bu
 
 `Index` Görünüm listeleme 2'de bulunan.
 
-**Kod 2 –`Index.aspx`**
+**Kod 2 – `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample2.aspx)]
 
@@ -65,7 +65,7 @@ Müşteri geri bildirim forma aşağıdaki metni girin düşünün:
 
 [!code-html[Main](preventing-javascript-injection-attacks-cs/samples/sample3.html)]
 
-Bu metin, bir uyarı iletisi kutusu görüntüler bir JavaScript komut temsil eder. Birisi bu komut dosyası geri bildirim gönderdikten sonra form, ileti *hata!* Herkes müşteri geri bildirim Web sitesi gelecekte (bkz: Şekil 2) ziyaret olduğunda görüntülenir.
+Bu metin, bir uyarı iletisi kutusu görüntüler bir JavaScript komut temsil eder. Birisi bu komut dosyası geri bildirim gönderdikten sonra form, ileti <em>hata!</em> Herkes müşteri geri bildirim Web sitesi gelecekte (bkz: Şekil 2) ziyaret olduğunda görüntülenir.
 
 
 [![JavaScript ekleme](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
@@ -107,7 +107,7 @@ Uygulamasında fark `Index` listeleme 3'te yalnızca değerini görüntülemek `
 
 HTML yapabileceğiniz bir görünümde veri görüntülediğinizde kodlama verileri HTML yerine yalnızca veritabanına veri göndermeden önce verileri kodlayın. Bu ikinci yaklaşımı durumunda alınır `controller` listeleme 4.
 
-**4 – listeleme `HomeController.cs` (HTML olarak kodlanmış)**
+**Listing 4 – `HomeController.cs` (HTML Encoded)**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample6.cs)]
 
@@ -121,6 +121,6 @@ Neden bu hatalı mi? Bir web sayfası dışında bir şey veritabanı verilerini
 
 JavaScript ekleme saldırı aday hakkında korkutmak için bu öğreticinin amacı bulunuyordu. Bu öğreticide ASP.NET MVC uygulamalarınızı JavaScript ekleme saldırılarına karşı savunma için iki yaklaşım ele alınan: ya da HTML yapabilecekleriniz gönderilen kullanıcı kodlamak görünümü veya verileri için HTML gönderilen kullanıcı kodlamak denetleyicisi verileri.
 
->[!div class="step-by-step"]
-[Önceki](authenticating-users-with-windows-authentication-cs.md)
-[sonraki](authenticating-users-with-forms-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](authenticating-users-with-windows-authentication-cs.md)
+> [sonraki](authenticating-users-with-forms-authentication-vb.md)

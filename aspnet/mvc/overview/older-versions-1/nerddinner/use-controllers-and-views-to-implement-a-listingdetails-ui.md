@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
-title: "Kullanın denetleyicileri ve görünümleri listeleme/Ayrıntılar UI uygulamak için | Microsoft Docs"
+title: Kullanın denetleyicileri ve görünümleri listeleme/Ayrıntılar UI uygulamak için | Microsoft Docs
 author: microsoft
-description: "Adım 4 modelimizi kullanıcıların bir veri dökümü/ayrıntıları gezinme deneyimi sunmak için yararlanır uygulama için bir denetleyici eklemeyi gösterir..."
+description: Adım 4 modelimizi kullanıcıların bir veri dökümü/ayrıntıları gezinme deneyimi sunmak için yararlanır uygulama için bir denetleyici eklemeyi gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve görünümleri listeleme/Ayrıntılar UI uygulamak için kullanın
 ====================
@@ -92,13 +92,13 @@ Varsayılan ASP.NET MVC yönlendirme kuralları bu sınıf "RegisterRoutes" yön
 
 "Yolları. MapRoute() "yöntem çağrısı yukarıdaki gelen URL'ler için URL biçimi kullanılarak denetleyicisi sınıfları eşleyen varsayılan yönlendirme kuralı kaydeder:" / {controller} / {action} / {id} "– örneği oluşturmak için denetleyici sınıfı adı"denetleyici"burada"eylem"adı olan bir Bunu ve "id" çağırmak için ortak yöntemi yöntemi için bağımsız değişken olarak geçirilebilir URL'de katıştırılmış isteğe bağlı bir parametredir. "MapRoute()" yöntem çağrısına geçirilen üçüncü parametre URL'de olmadıkları gerektiğinde, eylem/denetleyici/kimliği değerleri kullanmak için varsayılan değerler kümesidir (denetleyicisi "Home", Eylem = "Dizin", kimliği = = "").
 
-URL'leri çeşitli nasıl gösteren bir tablo, varsayılan kullanılarak eşlendi aşağıdadır "*/ {denetleyicileri} / {action} / {id}"*yol kuralı:
+URL'leri çeşitli nasıl gösteren bir tablo, varsayılan kullanılarak eşlendi aşağıdadır "<em>/ {denetleyicileri} / {action} / {id}"</em>yol kuralı:
 
 | **URL** | **Denetleyici sınıfı** | **Eylem yöntemi** | **Geçirilen parametre** |
 | --- | --- | --- | --- |
-| */ Azalma/Ayrıntılar/2* | DinnersController | Details(id) | ID = 2 |
-| */ Azalma/düzenleme/5* | DinnersController | Edit(id) | ID = 5 |
-| */ Azalma/oluşturma* | DinnersController | Create() | Yok |
+| */ Azalma/Ayrıntılar/2* | DinnersController | Details(id) | id=2 |
+| */ Azalma/düzenleme/5* | DinnersController | Edit(id) | id=5 |
+| */Dinners/Create* | DinnersController | Create() | Yok |
 | */ Azalma* | DinnersController | İNDİS() | Yok |
 | */ Giriş* | HomeController | İNDİS() | Yok |
 | */* | HomeController | İNDİS() | Yok |
@@ -301,6 +301,6 @@ Bu denetleyici kodumuza biraz temizleyin ve kodumuza adlarında iki kez çoğalt
 
 Şimdi CRUD (oluşturma, okuma, güncelleştirme, silme) veri form destek düzenleme şimdi etkinleştirin.
 
->[!div class="step-by-step"]
-[Önceki](build-a-model-with-business-rule-validations.md)
-[sonraki](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [Önceki](build-a-model-with-business-rule-validations.md)
+> [sonraki](provide-crud-create-read-update-delete-data-form-entry-support.md)

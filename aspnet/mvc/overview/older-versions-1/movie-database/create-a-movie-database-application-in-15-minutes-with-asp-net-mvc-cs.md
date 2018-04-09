@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
-title: "ASP.NET MVC ile (C#) 15 dakikada bir film veritabanı uygulaması oluşturma | Microsoft Docs"
+title: ASP.NET MVC ile (C#) 15 dakikada bir film veritabanı uygulaması oluşturma | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther tamamlamak için bir tüm veritabanı kaynaklı ASP.NET MVC uygulaması başından oluşturur. Bu öğretici, yeni t kişiler için harika bir giriş olduğunu..."
+description: Stephen Walther tamamlamak için bir tüm veritabanı kaynaklı ASP.NET MVC uygulaması başından oluşturur. Bu öğretici, yeni t kişiler için harika bir giriş olduğunu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a67ca5422d4353b8c23b3fd804246906b8b6d717
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 81e0ae42bc3e7656c933ba70920eaeeffa4c4bd6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-c"></a>ASP.NET MVC ile (C#) 15 dakikada bir film veritabanı uygulaması oluşturma
 ====================
@@ -368,5 +368,5 @@ Bir ASP.NET MVC uygulaması oluşturmanın deneyiminin bir fikir vermek için bu
 
 Bu öğreticide, ASP.NET MVC çerçevesi, yalnızca en temel özellikleri incelendi. Sonraki öğreticilerde, biz daha derin denetleyicileri, denetleyici eylemleri, görünümler, verileri görüntüleme ve HTML yardımcıları gibi konular halinde daha yakından inceleyin.
 
->[!div class="step-by-step"]
-[Next](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)
+> [!div class="step-by-step"]
+> [Next](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb.md)

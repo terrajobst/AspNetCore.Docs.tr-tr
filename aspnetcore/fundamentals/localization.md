@@ -1,7 +1,7 @@
 ---
-title: "Genelleştirme ve yerelleştirme ASP.NET Core içinde"
+title: Genelleştirme ve yerelleştirme ASP.NET Core içinde
 author: rick-anderson
-description: "Nasıl ASP.NET Core services ve ara yazılım içerik farklı dillere ve kültürlere yerelleştirme için sağladığını öğrenin."
+description: Nasıl ASP.NET Core services ve ara yazılım içerik farklı dillere ve kültürlere yerelleştirme için sağladığını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: eb31bd81c5c3da27c8d412462d1c537aa85e4f8b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3ae73cb40b4db492883f302aeb559b9606aa8ee7
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -91,8 +91,8 @@ Bir görünüm paylaşılan kaynak dosyasında kullanılacak Ekle `IHtmlLocalize
 
 DataAnnotations hata iletileri ile yerelleştirilmiş `IStringLocalizer<T>`. Seçeneğini kullanarak `ResourcesPath = "Resources"`, hata iletilerini `RegisterViewModel` aşağıdaki yollardan birini depolanabilir:
 
-* Resources/ViewModels.Account.RegisterViewModel.fr.resx
-* Resources/ViewModels/Account/RegisterViewModel.fr.resx
+* *Resources/ViewModels.Account.RegisterViewModel.fr.resx*
+* *Resources/ViewModels/Account/RegisterViewModel.fr.resx*
 
 [!code-csharp[](localization/sample/Localization/ViewModels/Account/RegisterViewModel.cs?start=9&end=26)]
 
@@ -114,9 +114,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Önceki kod `SharedResource` olan resx karşılık gelen sınıf, doğrulama iletilerinin depolandığı. Bu yaklaşımda, DataAnnotations yalnızca kullanacağı `SharedResource`, her sınıf için kaynak yerine. 
+Önceki kod `SharedResource` olan resx karşılık gelen sınıf, doğrulama iletilerinin depolandığı. Bu yaklaşımda, DataAnnotations yalnızca kullanacağı `SharedResource`, her sınıf için kaynak yerine.
 
-## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Yerelleştirilmiş kaynakları dillere ve kültürlere desteklediğiniz için sağlar  
+## <a name="provide-localized-resources-for-the-languages-and-cultures-you-support"></a>Yerelleştirilmiş kaynakları dillere ve kültürlere desteklediğiniz için sağlar
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures ve SupportedUICultures
 
@@ -172,17 +172,25 @@ Kullanmazsanız `ResourcesPath` seçeneği *.resx* bir görünümü Görünüm o
 
 ## <a name="culture-fallback-behavior"></a>Kültüre geri dönüş davranışı
 
+Bir kaynak için arama yaparken, yerelleştirme "kültürün geri dönüş" ilgilenir. İstenen başlayarak kültür, bulunamazsa, kültüre üst kültüre geri döner. Bir aralık olarak [CultureInfo.Parent](/dotnet/api/system.globalization.cultureinfo.parent) özelliği, üst kültür temsil eder. Bu genellikle (ancak her zaman) Ulusal signifier ISO'yu makineden kaldırılması anlamına gelir. Örneğin, İspanyolca Meksika konuşulan dialect "es-MX" olur. "Es" üst öğeye sahip&mdash;İspanyolca belirli olmayan herhangi bir ülkede için.
+
+Sitenizi kültür "fr-CA" kullanarak bir "Hoş Geldiniz" kaynağı için bir istek alırsa düşünün. Yerelleştirme sistem aşağıdaki kaynaklar, sırayla arar ve ilk eşleşmeyi seçer:
+
+* *Welcome.fr-CA.resx*
+* *Welcome.fr.resx*
+* *Welcome.resx* (varsa `NeutralResourcesLanguage` "fr-CA" dır)
+
 Örneğin, ".fr" kültür Belirleyicisi kaldırın ve Fransızca kültür varsa, varsayılan kaynak dosyasını okuma ve dizeleri yerelleştirilmiş. Hiçbir şey istenen kültürü karşıladığında varsayılan veya geri dönüş kaynağı için Kaynak Yöneticisi'ni belirler. İstenen kültür için bir kaynak eksik varsayılan kaynak dosyası olmamalıdır yalnızca anahtar döndürülecek istiyorsanız.
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Visual Studio ile kaynak dosyaları üretilemedi
 
-Dosya adında bir kültür olmadan Visual Studio'da bir kaynak dosyası oluşturmak istiyorsanız (örneğin, *Welcome.resx*), Visual Studio, her bir dize için bir özellik ile bir C# sınıfı oluşturur. Genellikle, ASP.NET Core ile istediğinizi değil olan; Tipik bir varsayılan yok *.resx* kaynak dosyası (A *.resx* dosyayı kültür adı olmadan). Oluşturduğunuz önerdiğimiz *.resx* bir kültür adı dosyasıyla (örneğin *Welcome.fr.resx*). Oluştururken bir *.resx* dosyası bir kültür adı, Visual Studio sınıf dosyası oluşturma olmaz. Çoğu geliştiricinin olacağı düşündüğünüz **değil** bir varsayılan dil kaynak dosyası oluşturun.
+Dosya adında bir kültür olmadan Visual Studio'da bir kaynak dosyası oluşturmak istiyorsanız (örneğin, *Welcome.resx*), Visual Studio, her bir dize için bir özellik ile bir C# sınıfı oluşturur. Genellikle, ASP.NET Core ile istediğinizi değil olmasıdır. Tipik bir varsayılan yok *.resx* kaynak dosyası (bir *.resx* dosyayı kültür adı olmadan). Oluşturduğunuz önerdiğimiz *.resx* bir kültür adı dosyasıyla (örneğin *Welcome.fr.resx*). Oluştururken bir *.resx* dosyası bir kültür adı, Visual Studio sınıf dosyası oluşturma olmaz. Çoğu geliştiricinin bir varsayılan dil kaynak dosyasına oluşturmaz beklenir.
 
 ### <a name="add-other-cultures"></a>Diğer kültürler ekleme
 
-Her dil ve kültür birleşimi (dışında varsayılan dil) bir benzersiz kaynak dosyası gerektirir. ISO dil kodlarını dosya adının bir parçası olan yeni kaynak dosyaları oluşturarak farklı kültürler ve yerel ayarlar için kaynak dosyaları oluşturun (örneğin, **en-us**, **fr-ca**, ve  **tr gb**). Bu ISO kodları arasında dosya adı yerleştirilir ve *.resx* dosya adı uzantısı olarak *Welcome.es MX.resx* (İspanyolca/Meksika). Bir culturally dilden belirtmek için ülke kodunu Kaldır (`MX` önceki örnekte). İspanyolca culturally dilden bağımsız kaynak dosya adı *Welcome.es.resx*.
+Her dil ve kültür birleşimi (dışında varsayılan dil) bir benzersiz kaynak dosyası gerektirir. ISO dil kodlarını dosya adının bir parçası olan yeni kaynak dosyaları oluşturarak farklı kültürler ve yerel ayarlar için kaynak dosyaları oluşturun (örneğin, **en-us**, **fr-ca**, ve  **tr gb**). Bu ISO kodları arasında dosya adı yerleştirilir ve *.resx* gibi dosya uzantısı, *Welcome.es MX.resx* (İspanyolca/Meksika).
 
-## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Her istek için dil/kültür seçmek için bir strateji uygulama  
+## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Her istek için dil/kültür seçmek için bir strateji uygulama
 
 ### <a name="configure-localization"></a>Yerelleştirme yapılandırın
 

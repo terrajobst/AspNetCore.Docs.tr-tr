@@ -1,7 +1,7 @@
 ---
-title: Basit yetkilendirme
+title: ASP.NET Core basit yetkilendirme
 author: rick-anderson
-description: "Bu belgede Authorize öznitelik ASP.NET Core denetleyicileri ve eylemleri için erişimi kısıtlamak için nasıl kullanılacağı açıklanmaktadır."
+description: Authorize öznitelik ASP.NET Core denetleyicileri ve eylemleri için erişimi kısıtlamak için nasıl kullanılacağını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/simple
-ms.openlocfilehash: 503ebc665efd460a85f49844ddc847eb12114308
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: cef5cb146c6c1ff052430748a9a64c6a822d6fa3
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="simple-authorization"></a>Basit yetkilendirme
+# <a name="simple-authorization-in-aspnet-core"></a>ASP.NET Core basit yetkilendirme
 
 <a name="security-authorization-simple"></a>
 
@@ -75,4 +75,4 @@ public class AccountController : Controller
 Bu, yalnızca kimliği doğrulanmış kullanıcılara olanak tanır `AccountController`, dışında `Login` kimliği doğrulanmış veya doğrulanmamış / anonim durumlarını bakılmaksızın herkes tarafından erişilebilir olan eylem.
 
 >[!WARNING]
-> `[AllowAnonymous]`Tüm Yetkilendirme deyimleri atlar. Birleştirme uygularsanız `[AllowAnonymous]` ve tüm `[Authorize]` özniteliği sonra Authorize öznitelikleri her zaman yok sayılacak. Örneğin, uygulama `[AllowAnonymous]` denetleyicisinde herhangi düzey `[Authorize]` öznitelikleri aynı denetleyicisi veya içindeki herhangi bir işlem yok sayılacak.
+> `[AllowAnonymous]` Tüm Yetkilendirme deyimleri atlar. Birleştirme uygularsanız `[AllowAnonymous]` ve tüm `[Authorize]` özniteliği sonra Authorize öznitelikleri her zaman yok sayılacak. Örneğin, uygulama `[AllowAnonymous]` denetleyicisinde herhangi düzey `[Authorize]` öznitelikleri aynı denetleyicisi veya içindeki herhangi bir işlem yok sayılacak.

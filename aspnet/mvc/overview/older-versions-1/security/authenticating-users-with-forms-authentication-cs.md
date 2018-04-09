@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
-title: "Form kimlik doğrulamasını (C#) ile kullanıcıların kimlik doğrulaması | Microsoft Docs"
+title: Form kimlik doğrulamasını (C#) ile kullanıcıların kimlik doğrulaması | Microsoft Docs
 author: microsoft
-description: "[Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfaları için parola koruması. Web sitesi yönetim çok kullanmayı öğrenin..."
+description: '[Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfaları için parola koruması. Web sitesi yönetim çok kullanmayı öğrenin...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>Form kimlik doğrulaması (C#) ile kullanıcıların kimlik doğrulaması
 ====================
@@ -107,7 +107,7 @@ SQL Express varsayılan veritabanı kullanan bir uygulama geliştirirken uygundu
 
 İlk adım üretim veritabanınız için tüm gerekli veritabanı nesnelerini (tabloları ve saklı yordamlar) eklemektir. Bu nesne için yeni bir veritabanı eklemek için en kolay ASP.NET SQL Sunucusu Kurulum Sihirbazı'nı yararlanmak için yoludur (bkz. Şekil 8). Bu araç, Microsoft Visual Studio 2008 program grubundan Visual Studio 2008 komut istemi açarak ve komut isteminden aşağıdaki komutu yürütülürken başlatabilirsiniz:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **ASP.NET SQL Sunucusu Kurulum Sihirbazı'nı 8 – Şekil**
 
@@ -152,5 +152,5 @@ Gerekli oturum açma oluşturduktan sonra doğru veritabanı rolleri ile bir ver
 
 Bu öğreticide, bir ASP.NET MVC uygulaması oluştururken, Forms kimlik doğrulaması kullanan öğrendiniz. İlk olarak, Web Sitesi Yönetim Aracı'nı yararlanarak yeni kullanıcılar ve roller oluşturma hakkında bilgi edindiniz. Ardından, [Authorize] özniteliği denetleyici eylemleri çağırma yetkisiz kullanıcıların önlemek için nasıl kullanılacağı hakkında bilgi edindiniz. Son olarak, bir üretim veritabanında kullanıcı ve rol bilgilerini depolamak için MVC uygulamasının nasıl yapılandırılacağını öğrendiniz.
 
->[!div class="step-by-step"]
-[Sonraki](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [Next](authenticating-users-with-windows-authentication-cs.md)

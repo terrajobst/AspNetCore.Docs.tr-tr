@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
-title: "Yineleme #1 – (VB) uygulaması oluşturma | Microsoft Docs"
+title: 'Yineleme #1 – (VB) uygulaması oluşturma | Microsoft Docs'
 author: microsoft
-description: "İlk yinelemede Contact Manager en basit yolu olası oluşturuyoruz. Temel veritabanı işlemleri için destek eklediğimiz: oluşturma, okuma, güncelleştirme ve D...."
+description: 'İlk yinelemede Contact Manager en basit yolu olası oluşturuyoruz. Temel veritabanı işlemleri için destek eklediğimiz: oluşturma, okuma, güncelleştirme ve D....'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 11d3d4f174207f5370849fdf4517f272b4b6bc6b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52029816bd9f37c3d5c3321d3c5e60599314a33b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-vb"></a>Yineleme #1 – (VB) uygulama oluşturma
 ====================
@@ -67,7 +67,7 @@ Bu yinelemede aşağıdaki adımları tamamlayın:
 
 ASP.NET MVC uygulamalarında Visual Studio 2008 veya Visual Web Developer 2008 (Visual Web Developer bir ücretsiz Visual Studio Gelişmiş özelliklerin tümünü içermiyorsa Visual Studio sürümüdür) bilgisayarınızda yüklü olması gerekir. Visual Studio 2008'in deneme sürümünü veya Visual Web Developer aşağıdaki adresinden indirebilirsiniz:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
@@ -76,17 +76,17 @@ ASP.NET MVC uygulamalarında Visual Studio 2008 veya Visual Web Developer 2008 (
 
 ASP.NET MVC çerçevesi. ASP.NET MVC çerçevesi aşağıdaki adresinden indirebilirsiniz:
 
-[https://www.ASP.NET/MVC](../../../index.md)
+[https://www.asp.net/mvc](../../../index.md)
 
 Bu öğreticide, bir veritabanına erişmek için Microsoft Entity Framework kullanın. Entity Framework .NET Framework 3.5 Service Pack 1 ile dahil edilir. Bu hizmet paketi aşağıdaki konumdan yükleyebilirsiniz:
 
-[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang = tr](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 Bu indirmeleri tek tek her gerçekleştirme alternatif olarak, Web Platformu Yükleyicisi (Web PI) avantajından yararlanabilirsiniz. Web PI aşağıdaki adresinden indirebilirsiniz:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
-## <a name="aspnet-mvc-project"></a>ASP.NET MVC proje
+## <a name="aspnet-mvc-project"></a>ASP.NET MVC Project
 
 ASP.NET MVC Web uygulaması projesi. Visual Studio'yu başlatın ve menü seçeneğini **dosya, yeni proje**. **Yeni proje** iletişim kutusu görüntülenir (bkz: Şekil 1). Seçin **Web** proje türü ve **ASP.NET MVC Web uygulaması** şablonu. Yeni projeniz ad *ContactManager* ve Tamam düğmesine tıklayın.
 
@@ -252,7 +252,7 @@ Sonraki adım, bizim giriş denetleyicisi oluşturmaktır. Bir ASP.NET MVC uygul
 
 Giriş denetleyicisini oluşturduğunuzda, listeleme 1'de sınıf alın.
 
-**1 - Controllers\HomeController.vb listeleme**
+**Listing 1 - Controllers\HomeController.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample1.vb)]
 
@@ -262,7 +262,7 @@ Kişiler veritabanı tablosunda kayıtları görüntülemek için biz İNDİS() 
 
 Giriş denetleyicisi İNDİS() eylem zaten var. Biz, böylece listeleme 2 gibi görünüyor. Bu yöntem değiştirmeniz gerekir.
 
-**2 - Controllers\HomeController.vb listeleme**
+**Listing 2 - Controllers\HomeController.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample2.vb)]
 
@@ -292,13 +292,13 @@ Tıkladığınızda **Ekle** düğmesi, listeleme 3'te dizin görünümünün ol
 
 Dizin görünümünün gövdesini Model sınıfı tarafından temsil edilen kişileri dolaşır foreach döngüsü içerir. Kişi sınıfın her bir özellik değeri bir HTML tablosu içinde görüntülenir.
 
-**3 - (değiştirilmemiş) Views\Home\Index.aspx listeleme**
+**Listing 3 - Views\Home\Index.aspx (unmodified)**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample3.aspx)]
 
 Dizin görünümünün bir değişiklik yapmanız gerekir. Ayrıntılar görünümü oluşturmadığınızı olduğundan, biz ayrıntıları bağlantıyı kaldırabilirsiniz. Bulun ve aşağıdaki kodu dizin görünümden kaldır:
 
-{.id = madde. % Kimliği})&gt;
+{.id = item.Id})%&gt;
 
 Dizin görünümünün değiştirdikten sonra kişinin yöneticisi uygulamayı çalıştırabilirsiniz. Menü seçeneğinin hata ayıklama, hata ayıklamayı Başlat seçin veya F5 tuşuna basmanız yeterlidir. Uygulamayı çalıştırın ilk kez Şekil 14'te iletişim alın. Seçeneğini **hata ayıklamayı etkinleştirmek üzere Web.config dosyasında değişiklik** ve Tamam düğmesine tıklayın.
 
@@ -354,7 +354,7 @@ Create() yöntemin gövdesine Entity Framework yeni kişi veritabanına eklemek 
 
 Oluştur görünümünün form alanlarını her ilgili kişi sınıf özelliklerini içerir. Oluştur görünümünün kodunu listeleme 5'te bulunur.
 
-**5 - Views\Home\Create.aspx listeleme**
+**Listing 5 - Views\Home\Create.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample5.aspx)]
 
@@ -390,7 +390,7 @@ Edit() yöntemi sağ tıklayıp Ekle görüntüle menü seçeneğini seçerek d�
 
 Yeni bir düzenleme Görünümü Ekle düğmesine tıkladığınızda otomatik olarak oluşturulur. Oluşturulan HTML formu her kişi sınıfı (7 listeleme bakın) özelliklerini karşılık gelen alan içeriyor.
 
-**7 - Views\Home\Edit.aspx listeleme**
+**Listing 7 - Views\Home\Edit.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample7.aspx)]
 
@@ -419,7 +419,7 @@ Kişiler silmek istiyorsanız giriş denetleyici sınıfına iki Delete() eylem 
 
 (Bkz. Şekil 21) ilgili kişi kayıtları silmek için bir bağlantı içeren dizin görünümü değiştirmek gerekir. Aşağıdaki kod düzenleme bağlantısını içeren aynı tablo hücresi eklemeniz gerekir:
 
-{.id = madde. % Kimliği})&gt;
+{.id = item.Id})%&gt;
 
 
 [![Yeni Proje iletişim kutusu](iteration-1-create-the-application-vb/_static/image21.jpg)](iteration-1-create-the-application-vb/_static/image41.png)
@@ -439,7 +439,7 @@ Aksine listesi, oluşturma ve düzenleme görünümler söz konusu olduğunda, G
 
 Delete Görünümü içeriğini listeleme 9'yer alır. Bu görünüm onaylar bir formu içeren karşılamadığını belirli bir kişi olması gerekir (bkz. Şekil 21) silindi.
 
-**9 - Views\Home\Delete.aspx listeleme**
+**Listing 9 - Views\Home\Delete.aspx**
 
 [!code-aspx[Main](iteration-1-create-the-application-vb/samples/sample9.aspx)]
 
@@ -490,6 +490,6 @@ Ne yazık ki, uygulamamız bazı sorunlar vardır. İlk ve bu haklıymış istem
 
 Son ve en önemlisi, kişinin Yöneticisi uygulamasının geçerli yinelemeye kolayca tutulan veya değiştirilemez. Örneğin, veritabanı erişim mantığı sağ denetleyicisi eylemlere baked. Başka bir deyişle, biz bizim denetleyicileri değiştirmeden bizim veri erişim kodu değiştiremezsiniz. Sonraki yinelemelerde Contact Manager değiştirmek için daha esnek olmak için uygulayabileceğiniz yazılım tasarım desenleri keşfedin.
 
->[!div class="step-by-step"]
-[Önceki](iteration-7-add-ajax-functionality-cs.md)
-[sonraki](iteration-2-make-the-application-look-nice-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](iteration-7-add-ajax-functionality-cs.md)
+> [sonraki](iteration-2-make-the-application-look-nice-vb.md)

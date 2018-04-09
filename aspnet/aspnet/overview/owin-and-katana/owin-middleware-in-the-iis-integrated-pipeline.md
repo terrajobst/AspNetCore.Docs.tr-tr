@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: "OWIN ara yazılımı IIS tümleşik ardışık düzen | Microsoft Docs"
+title: OWIN ara yazılımı IIS tümleşik ardışık düzen | Microsoft Docs
 author: Praburaj
-description: "Bu makalede OWIN ara yazılımı bileşenleri (OMCs) çalıştırmak IIS tümleşik ardışık düzeninde gösterilmiştir ve ardışık düzen olay bir OMC ayarlamak nasıl çalışır. Yapmanız gerekenler..."
+description: Bu makalede OWIN ara yazılımı bileşenleri (OMCs) çalıştırmak IIS tümleşik ardışık düzeninde gösterilmiştir ve ardışık düzen olay bir OMC ayarlamak nasıl çalışır. Yapmanız gerekenler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS tümleşik ardışık düzende OWIN ara yazılımı
 ====================
@@ -83,13 +83,13 @@ Owın ara yazılımı bileşenleri (OMC), aşağıdaki OWIN ardışık düzen a�
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- çağrılar `app.UseStageMarker` geçirme `Authenticate` veya `PostAuthenticate` ayardaki olmayacak ve hiçbir özel durum. Olan varsayılan olarak en son aşamada çalıştıracağınız OMCs `PreHandlerExecute`. Aşama işaretçileri, daha önce çalışmasını sağlamak için kullanılır. Aşama işaretçileri bozuk belirtirseniz, biz önceki işaretçisi yuvarlar. Diğer bir deyişle, aşama işaretçisi ekleme "Aşama X'den sonraki Çalıştır" söyler. Bunlardan sonra OWIN ardışık düzeninde eklenen erken aşama işaretçisi OMC'ın Çalıştır.
+   çağrılar `app.UseStageMarker` geçirme `Authenticate` veya `PostAuthenticate` ayardaki olmayacak ve hiçbir özel durum. Olan varsayılan olarak en son aşamada çalıştıracağınız OMCs `PreHandlerExecute`. Aşama işaretçileri, daha önce çalışmasını sağlamak için kullanılır. Aşama işaretçileri bozuk belirtirseniz, biz önceki işaretçisi yuvarlar. Diğer bir deyişle, aşama işaretçisi ekleme "Aşama X'den sonraki Çalıştır" söyler. Bunlardan sonra OWIN ardışık düzeninde eklenen erken aşama işaretçisi OMC'ın Çalıştır.
 4. Çağrı erken aşaması `app.UseStageMarker` WINS. Örneğin sırasını geçiş yaparsanız `app.UseStageMarker` önceki örneğimizde gelen çağrıları:
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- Çıktı penceresi görüntülenir: 
+   Çıktı penceresi görüntülenir: 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- İçindeki tüm çalışma OMCs `AuthenticateRequest` son OMC kayıtlı olduğundan, aşama `Authenticate` olayı ve `Authenticate` olay önündeki tüm diğer olaylar.
+   İçindeki tüm çalışma OMCs `AuthenticateRequest` son OMC kayıtlı olduğundan, aşama `Authenticate` olayı ve `Authenticate` olay önündeki tüm diğer olaylar.

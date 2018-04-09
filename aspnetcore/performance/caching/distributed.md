@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core dağıtılmış önbelleğinde ile çalışma"
+title: ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 author: ardalis
-description: "Dağıtılmış ASP.NET Core uygulama performans ve ölçeklenebilirlik, özellikle bir bulut veya sunucu grubu ortamında artırmak için önbelleğe alma kullanmayı öğrenin."
+description: Dağıtılmış ASP.NET Core uygulama performans ve ölçeklenebilirlik, özellikle bir bulut veya sunucu grubu ortamında artırmak için önbelleğe alma kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
+# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Dağıtılmış önbellek özellikle bir bulut veya sunucu grubu ortamında bar�
 
 ## <a name="what-is-a-distributed-cache"></a>Dağıtılmış önbellek nedir
 
-Dağıtılmış önbellek birden çok uygulama sunucuları tarafından paylaşılan (bkz [önbelleğe alma Temelleri](memory.md#caching-basics)). Önbellek bilgileri tek tek web sunucuları bellekte depolanan değil ve önbelleğe alınan veriler tüm uygulamanın sunucuları için kullanılabilir. Bu, çeşitli avantajları sağlar:
+Dağıtılmış önbellek birden çok uygulama sunucuları tarafından paylaşılan (bkz [önbellek Temelleri](memory.md#caching-basics)). Önbellek bilgileri tek tek web sunucuları bellekte depolanan değil ve önbelleğe alınan veriler tüm uygulamanın sunucuları için kullanılabilir. Bu, çeşitli avantajları sağlar:
 
 1. Önbelleğe alınan tüm web sunucularında tutarlı verilerdir. Kullanıcıların hangi web bağlı olarak sunucu, isteği işler farklı sonuçlar görmüyorum
 
@@ -95,7 +95,7 @@ Redis uygulamasında yapılandırma `ConfigureServices` ve örneği isteyerek uy
 [!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
-> Yerel makinenizde Redis yüklemek için chocolatey paketini Yükle [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
+> Yerel makinenizde Redis yüklemek için chocolatey paketini Yükle [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
 
 ## <a name="using-a-sql-server-distributed-cache"></a>SQL Server'ı kullanarak dağıtılmış önbellek
 
@@ -138,7 +138,7 @@ Hangi uyarlamasını karar verirken `IDistributedCache` sağ uygulamanız için 
 
 * [Azure önbelleği redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure üzerinde SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
+* [Önbellek-](xref:performance/caching/memory)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)

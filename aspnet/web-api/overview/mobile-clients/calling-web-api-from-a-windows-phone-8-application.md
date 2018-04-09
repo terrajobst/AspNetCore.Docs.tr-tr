@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
-title: "Web API çağırma bir Windows Phone 8 uygulama (C#) | Microsoft Docs"
+title: Web API çağırma bir Windows Phone 8 uygulama (C#) | Microsoft Docs
 author: rmcmurray
-description: "Bir Windows Phone 8 uygulaması defterlerine kataloğunu sağlayan bir ASP.NET Web API uygulaması oluşan eksiksiz bir uçtan uca senaryo oluşturun."
+description: Bir Windows Phone 8 uygulaması defterlerine kataloğunu sağlayan bir ASP.NET Web API uygulaması oluşan eksiksiz bir uçtan uca senaryo oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2025f31f369153b93cd293884880c97635fc8ab8
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 7d0486b4cab85ffe77fda87d4b34dd3ec0a9e8fe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Bir Windows Phone 8 uygulamasından (C#) Web API'si çağırma
 ====================
@@ -40,7 +40,7 @@ Bu uçtan uca öğretici kapsamında, Web API aşağıdaki projeleri oluşturmak
 - Ek gereksinimler listesi için bkz *sistem gereksinimleri* bölümünde [Windows Phone SDK 8.0](https://www.microsoft.com/download/details.aspx?id=35471) sayfa indirin.
 
 > [!NOTE]
-> Web API ve Windows Phone 8 projeleri yerel sisteminizde arasındaki bağlantıyı sınamak için kullanacaksanız,'ndaki yönergeleri izleyin gerekir  *[yerel bir Web API uygulamalarını Windows Phone 8 öykünücüsü bağlanma Bilgisayar](https://go.microsoft.com/fwlink/?LinkId=324014)*  makale test ortamınızı ayarlayın.
+> Web API ve Windows Phone 8 projeleri yerel sisteminizde arasındaki bağlantıyı sınamak için kullanacaksanız,'ndaki yönergeleri izleyin gerekir *[yerel bir Web API uygulamalarını Windows Phone 8 öykünücüsü bağlanma Bilgisayar](https://go.microsoft.com/fwlink/?LinkId=324014)* makale test ortamınızı ayarlayın.
 
 
 <a id="STEP1"></a>
@@ -52,15 +52,21 @@ Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir We
 2. Tıklatın **dosya**, ardından **yeni**ve ardından **proje**.
 3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **şablonları**, ardından **Visual C#**ve ardından **Web**.
 
-    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
-    | --- |
-    | Genişletmek için tıklayın |
+
+   | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
+   |-----------------------------------------------------------------------------------------------------------------------------------------------------|
+   |                                                                Genişletmek için tıklayın                                                                |
+
+
 4. Vurgula **ASP.NET Web uygulaması**, girin **kitap** proje adı ve ardından **Tamam**.
 5. Zaman **yeni ASP.NET projesi** iletişim kutusu görüntülenir, seçin **Web API** şablonu ve ardından **Tamam**.
 
-    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image4.png)](calling-web-api-from-a-windows-phone-8-application/_static/image3.png) |
-    | --- |
-    | Genişletmek için tıklayın |
+
+   | [![](calling-web-api-from-a-windows-phone-8-application/_static/image4.png)](calling-web-api-from-a-windows-phone-8-application/_static/image3.png) |
+   |-----------------------------------------------------------------------------------------------------------------------------------------------------|
+   |                                                                Genişletmek için tıklayın                                                                |
+
+
 6. Web API projesi açıldığında, örnek denetleyicisi projeden kaldırın:
 
     1. Genişletme **denetleyicileri** Çözüm Gezgininde klasör.
@@ -68,30 +74,33 @@ Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir We
     3. Tıklatın **Tamam** silme işlemini onaylamanız istendiğinde.
 7. XML veri dosyası, Web API projesine ekleyin; Bu dosya kitap katalog içeriğinin içerir:
 
-    1. Sağ **uygulama\_veri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **yeni öğe**.
-    2. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, vurgulayın **XML dosyası** şablonu.
-    3. Dosya adı **Books.xml**ve ardından **Ekle**.
-    4. Zaman **Books.xml** dosya açıldığında, örnekten XML dosyasındaki kodu yerine **books.xml** MSDN'de dosyası: 
+   1. Sağ **uygulama\_veri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **yeni öğe**.
+   2. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, vurgulayın **XML dosyası** şablonu.
+   3. Dosya adı **Books.xml**ve ardından **Ekle**.
+   4. Zaman **Books.xml** dosya açıldığında, örnekten XML dosyasındaki kodu yerine **books.xml** MSDN'de dosyası: 
 
-        [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample1.xml)]
-    5. XML dosyasını kaydedip kapatın.
+       [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample1.xml)]
+   5. XML dosyasını kaydedip kapatın.
+
 8. Kitap modelin Web API projesine ekleyin; Bu model Kitaplığı'nı uygulama oluşturma, okuma, güncelleştirme ve Sil (CRUD) mantığını içerir:
 
-    1. Sağ **modelleri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **sınıfı**.
-    2. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, sınıf dosya adı **BookDetails.cs**ve ardından **Ekle**.
-    3. Zaman **BookDetails.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
+   1. Sağ **modelleri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **sınıfı**.
+   2. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, sınıf dosya adı **BookDetails.cs**ve ardından **Ekle**.
+   3. Zaman **BookDetails.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
 
-        [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample2.cs)]
-    4. Kaydet ve Kapat **BookDetails.cs** dosya.
+       [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample2.cs)]
+   4. Kaydet ve Kapat **BookDetails.cs** dosya.
+
 9. Kitap denetleyicisi için Web API projesi ekleyin:
 
-    1. Sağ **denetleyicileri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **denetleyicisi**.
-    2. Zaman **İskele Ekle** iletişim kutusu görüntülenir, vurgulayın **Web API 2 denetleyici - boş**ve ardından **Ekle**.
-    3. Zaman **denetleyici Ekle** iletişim kutusu görüntülenir, denetleyici adı **BooksController**ve ardından **Ekle**.
-    4. Zaman **BooksController.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
+   1. Sağ **denetleyicileri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **denetleyicisi**.
+   2. Zaman **İskele Ekle** iletişim kutusu görüntülenir, vurgulayın **Web API 2 denetleyici - boş**ve ardından **Ekle**.
+   3. Zaman **denetleyici Ekle** iletişim kutusu görüntülenir, denetleyici adı **BooksController**ve ardından **Ekle**.
+   4. Zaman **BooksController.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
 
-        [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample3.cs)]
-    5. Kaydet ve Kapat **BooksController.cs** dosya.
+       [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample3.cs)]
+   5. Kaydet ve Kapat **BooksController.cs** dosya.
+
 10. Hataları denetlemek için Web API uygulaması oluşturma.
 
 <a id="STEP2"></a>
@@ -111,46 +120,50 @@ Bu uçtan uca senaryoyu bir sonraki adım, Windows Phone 8 için katalog uygulam
     5. Yükleme tamamlandığında, tıklayın **Kapat**.
 5. Ekleme **BookDetails** için model **BookCatalog** proje; bu kitap sınıfının genel bir modeli içerir:
 
-    1. Sağ **BookCatalog** Çözüm Gezgini'nde proje ve ardından **Ekle**ve ardından **yeni klasör**.
-    2. Yeni bir klasör adı **modelleri**.
-    3. Sağ **modelleri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **sınıfı**.
-    4. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, sınıf dosya adı **BookDetails.cs**ve ardından **Ekle**.
-    5. Zaman **BookDetails.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
+   1. Sağ **BookCatalog** Çözüm Gezgini'nde proje ve ardından **Ekle**ve ardından **yeni klasör**.
+   2. Yeni bir klasör adı **modelleri**.
+   3. Sağ **modelleri** Çözüm Gezgininde klasör ardından **Ekle**ve ardından **sınıfı**.
+   4. Zaman **Yeni Öğe Ekle** iletişim kutusu görüntülenir, sınıf dosya adı **BookDetails.cs**ve ardından **Ekle**.
+   5. Zaman **BookDetails.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin: 
 
-        [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample4.cs)]
-    6. Kaydet ve Kapat **BookDetails.cs** dosya.
+       [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample4.cs)]
+   6. Kaydet ve Kapat **BookDetails.cs** dosya.
+
 6. Güncelleştirme **MainViewModel.cs** sınıf kitaplığı Web API uygulamayla iletişim kurmak için işlevselliğini içerir:
 
-    1. Genişletme **ViewModels** Çözüm Gezgini ve çift tıklatarak klasöründe **MainViewModel.cs** dosya.
-    2. Zaman **MainViewModel.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin; değerini güncelleştirmeniz gerekecektir Not `apiUrl` Web API gerçek URL'si ile sabit: 
+   1. Genişletme **ViewModels** Çözüm Gezgini ve çift tıklatarak klasöründe **MainViewModel.cs** dosya.
+   2. Zaman **MainViewModel.cs** dosya açıldığında, dosyasındaki kodu aşağıdaki ile değiştirin; değerini güncelleştirmeniz gerekecektir Not `apiUrl` Web API gerçek URL'si ile sabit: 
 
-        [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample5.cs)]
-    3. Kaydet ve Kapat **MainViewModel.cs** dosya.
+       [!code-csharp[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample5.cs)]
+   3. Kaydet ve Kapat **MainViewModel.cs** dosya.
+
 7. Güncelleştirme **MainPage.xaml** uygulama adı özelleştirmek için dosya:
 
-    1. Çift **MainPage.xaml** Çözüm Gezgini'nde dosya.
-    2. Zaman **MainPage.xaml** dosya açıldığında, aşağıdaki kod satırlarını bulun: 
+   1. Çift **MainPage.xaml** Çözüm Gezgini'nde dosya.
+   2. Zaman **MainPage.xaml** dosya açıldığında, aşağıdaki kod satırlarını bulun: 
 
-        [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample6.xml)]
-    3. Bu satırlar aşağıdakiyle değiştirin: 
+       [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample6.xml)]
+   3. Bu satırlar aşağıdakiyle değiştirin: 
 
-        [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample7.xml)]
-    4. Kaydet ve Kapat **MainPage.xaml** dosya.
+       [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample7.xml)]
+   4. Kaydet ve Kapat **MainPage.xaml** dosya.
+
 8. Güncelleştirme **DetailsPage.xaml** görüntülenen öğelerini özelleştirmek için dosya:
 
-    1. Çift **DetailsPage.xaml** Çözüm Gezgini'nde dosya.
-    2. Zaman **DetailsPage.xaml** dosya açıldığında, aşağıdaki kod satırlarını bulun: 
+   1. Çift **DetailsPage.xaml** Çözüm Gezgini'nde dosya.
+   2. Zaman **DetailsPage.xaml** dosya açıldığında, aşağıdaki kod satırlarını bulun: 
 
-        [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample8.xml)]
-    3. Bu satırlar aşağıdakiyle değiştirin: 
+       [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample8.xml)]
+   3. Bu satırlar aşağıdakiyle değiştirin: 
 
-        [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample9.xml)]
-    4. Kaydet ve Kapat **DetailsPage.xaml** dosya.
+       [!code-xml[Main](calling-web-api-from-a-windows-phone-8-application/samples/sample9.xml)]
+   4. Kaydet ve Kapat **DetailsPage.xaml** dosya.
+
 9. Hataları denetlemek için Windows Phone Uygulama oluşturun.
 
 ### <a name="step-3-testing-the-end-to-end-solution"></a>3. adım: uçtan uca çözüm test ediliyor
 
-Bölümünde belirtildiği gibi *Önkoşullar* bölüm Web API ve Windows Phone 8 arasındaki bağlantıyı sınarken Bu öğreticinin yerel sisteminizde projeleri,'ndaki yönergeleri izleyin gerekecek  *[ Yerel bir bilgisayarda Web API uygulamalarını Windows Phone 8 öykünücüsü bağlanma](https://go.microsoft.com/fwlink/?LinkId=324014)*  makale test ortamınızı ayarlayın.
+Bölümünde belirtildiği gibi *Önkoşullar* bölüm Web API ve Windows Phone 8 arasındaki bağlantıyı sınarken Bu öğreticinin yerel sisteminizde projeleri,'ndaki yönergeleri izleyin gerekecek *[ Yerel bir bilgisayarda Web API uygulamalarını Windows Phone 8 öykünücüsü bağlanma](https://go.microsoft.com/fwlink/?LinkId=324014)* makale test ortamınızı ayarlayın.
 
 Yapılandırılmış test ortamını olduktan sonra Windows Phone Uygulama başlangıç projesi olarak ayarlamanız gerekir. Bunu yapmak için vurgulayın **BookCatalog** Çözüm Gezgini ve ardından uygulama **başlangıç projesi olarak ayarla**:
 
@@ -184,6 +197,8 @@ Uygulama, Web API'si ile iletişim kuramıyor, bir hata iletisi görüntülenir:
 
 Hata iletisinde dokunursanız, hatayla ilgili ek ayrıntılar görüntülenir:
 
+
 | [![](calling-web-api-from-a-windows-phone-8-application/_static/image16.png)](calling-web-api-from-a-windows-phone-8-application/_static/image15.png) |
-| --- |
-| Genişletmek için tıklayın |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                                                                 Genişletmek için tıklayın                                                                 |
+

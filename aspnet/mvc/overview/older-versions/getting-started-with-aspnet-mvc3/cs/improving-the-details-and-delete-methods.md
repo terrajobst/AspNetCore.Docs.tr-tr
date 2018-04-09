@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
-title: "Ayrıntılar ve silme yöntemleri (C#) geliştirme | Microsoft Docs"
+title: Ayrıntılar ve silme yöntemleri (C#) geliştirme | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: e46616d45ad0e4a0ab861e6fb53f33bc567cbdea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 55945eb373c79fd6ae018fe8f896dc5e6bbe7744
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-the-details-and-delete-methods-c"></a>Ayrıntılar ve silme yöntemleri (C#) artırma
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Bu öğretici güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Daha güvenli, izlemek çok daha kolaydır ve daha fazla özelliklerini gösterir.
@@ -61,7 +61,7 @@ Unutmayın `Delete` yöntemi verileri sil değil. Bir GET'e yanıt olarak bir si
 
 Ortak dil çalışma zamanı (CLR) benzersiz bir imza (aynı adı, farklı parametrelerin listesi) sağlamak için aşırı yüklenmiş yöntemler gerektirir. Ancak, burada, her ikisi de aynı imza gerektiren iki silme yöntemleri--biri--get ve POST için bir gerekir. (Her ikisi de tek bir tamsayı bir parametre olarak kabul etmeniz gerekir.)
 
-Bu sorunu anlamak sıralamak için şunları yapabilirsiniz. Farklı adlar yöntemleri vermek biridir. Ne kendisinin önceki örnekte yaptığımız olmasıdır. Ancak, bu küçük bir sorunla sunar: ASP.NET eylem yöntemleri için bir URL kesimleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak bağlanamayacak. Eklemek için örnekte bkz çözümdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Bir URL içeren bu etkin yönlendirme sistemi için eşleme gerçekleştirir */Delete/*için bir POST isteği bulacaksınız `DeleteConfirmed` yöntemi.
+Bu sorunu anlamak sıralamak için şunları yapabilirsiniz. Farklı adlar yöntemleri vermek biridir. Ne kendisinin önceki örnekte yaptığımız olmasıdır. Ancak, bu küçük bir sorunla sunar: ASP.NET eylem yöntemleri için bir URL kesimleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak bağlanamayacak. Eklemek için örnekte bkz çözümdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Bir URL içeren bu etkin yönlendirme sistemi için eşleme gerçekleştirir <em>/Delete/</em>için bir POST isteği bulacaksınız `DeleteConfirmed` yöntemi.
 
 Aynı ad ve imza sahip yöntemleri ile ilgili bir sorun önlemek için başka bir yol kullanılmamış bir parametre eklemek için POST yöntemini imza yapay olarak değiştirmektir. Örneğin, bir parametre türü bazı geliştiriciler ekleyin `FormCollection` POST yöntemine geçirilen ve ardından parametresi yalnızca kullanmayın:
 
@@ -81,11 +81,11 @@ Uygulamanızı dağıtmak istiyorsanız, ilk test yerel IIS 7 sunucunuzda uygula
 - [IIS etkinleştirme 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Web Uygulama projeleri dağıtımı](https://msdn.microsoft.com/library/dd394698.aspx)
 
-I şimdi bizim orta düzey taşımanızı öneririz [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) ve [MVC müzik deposu](../../mvc-music-store/mvc-music-store-part-1.md) keşfetmek için öğreticileri, [ASP.NET MSDN'de makaleleri](https://msdn.microsoft.com/library/gg416514(VS.98).aspx), birçok videolar ve kaynaklara göz atın ve [https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sorular sormak için harika bir yerdir.
+I şimdi bizim orta düzey taşımanızı öneririz [bir ASP.NET MVC uygulaması için Entity Framework veri modeli oluşturma](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) ve [MVC müzik deposu](../../mvc-music-store/mvc-music-store-part-1.md) keşfetmek için öğreticileri, [ASP.NET MSDN'de makaleleri](https://msdn.microsoft.com/library/gg416514(VS.98).aspx), birçok videolar ve kaynaklara göz atın ve [ https://asp.net/mvc ](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için! [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx) sorular sormak için harika bir yerdir.
 
 Keyfini çıkarın!
 
-— Scott Hanselman ([http://hanselman.com](http://hanselman.com) ve [ @shanselman ](http://twitter.com/shanselman) Twitter'da) ve Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+— Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) ve [ @shanselman ](http://twitter.com/shanselman) Twitter'da) ve Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
->[!div class="step-by-step"]
-[Önceki](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-validation-to-the-model.md)

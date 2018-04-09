@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
-title: "Geri göndermeler bir UpdatePanel (C#) ile açılan kontrolü işleme | Microsoft Docs"
+title: Geri göndermeler bir UpdatePanel (C#) ile açılan kontrolü işleme | Microsoft Docs
 author: wenz
-description: "AJAX Denetim araç setindeki PopupControl genişletici herhangi bir denetimi etkinleştirildiğinde popup tetiklemek için kolay bir yol sunar. Özellikle dikkat edilmelidir..."
+description: AJAX Denetim araç setindeki PopupControl genişletici herhangi bir denetimi etkinleştirildiğinde popup tetiklemek için kolay bir yol sunar. Özellikle dikkat edilmelidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2abcf381aa95ad10d2f36e72d1be64c70fb7d9e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: abedb5247f710b02752651a7bfb011ab63d32844
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>Geri göndermeler bir UpdatePanel (C#) ile açılan kontrolü işleme
 ====================
@@ -61,6 +61,6 @@ Takvim kullanıcı metin kutusuna tıklattığında görüntülenir ([tam boyutl
 
 Bir tarihte tıklatarak koyar, metin kutusuna ([tam boyutlu görüntüyü görüntülemek için tıklatın](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs/_static/image6.png))
 
->[!div class="step-by-step"]
-[Önceki](using-multiple-popup-controls-cs.md)
-[sonraki](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](using-multiple-popup-controls-cs.md)
+> [sonraki](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)

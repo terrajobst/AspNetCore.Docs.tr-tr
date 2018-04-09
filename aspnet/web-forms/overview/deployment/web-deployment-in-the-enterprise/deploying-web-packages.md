@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
-title: "Web paketleri dağıtma | Microsoft Docs"
+title: Web paketleri dağıtma | Microsoft Docs
 author: jrjlee
-description: "Bu konu, uzak bir sunucuya Internet Information Services (IIS) Web Dağıtım Aracı (Web... kullanarak web dağıtımı paketleri nasıl yayımlayabilirsiniz açıklar."
+description: Bu konu, uzak bir sunucuya Internet Information Services (IIS) Web Dağıtım Aracı (Web... kullanarak web dağıtımı paketleri nasıl yayımlayabilirsiniz açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-packages"></a>Web paketleri dağıtma
 ====================
@@ -43,10 +43,10 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 Çalıştıran [*proje adı*]*. deploy.cmd* web paketini dağıtmak için en basit yolu bir dosyadır. Özellikle, kullanarak *. deploy.cmd* dosyası MSDeploy.exe kullanarak doğrudan bu avantajları sunar:
 
-- Web dağıtım paketi & #x 2014; konumunu belirtmeniz gerekmez *. deploy.cmd* dosya zaten bilir olduğu.
-- Konumunu belirtmeniz gerekmez *SetParameters.xml* dosyası & #x 2014; *. deploy.cmd* dosya zaten bilir olduğu.
-- Kaynak ve hedef MSDeploy sağlayıcıları & #x 2014; belirtmenize gerek yoktur *. deploy.cmd* dosyasını kullanmak için hangi değerlerin zaten bilir.
-- MSDeploy işlemi ayarlarını & #x 2014; belirtmenize gerek yoktur *. deploy.cmd* dosya sık gereken değerleri otomatik olarak MSDeploy.exe komutu ekler.
+- Web dağıtım paketi konumunu belirtmek gerekmeyen&#x2014; *. deploy.cmd* dosya zaten bilir olduğu.
+- Konumunu belirtmeniz gerekmez *SetParameters.xml* dosya&#x2014; *. deploy.cmd* dosya zaten bilir olduğu.
+- Kaynak ve hedef MSDeploy sağlayıcıları belirtmenize gerek yoktur&#x2014; *. deploy.cmd* dosyasını kullanmak için hangi değerlerin zaten bilir.
+- MSDeploy işlemi ayarları belirtmenize gerek yoktur&#x2014; *. deploy.cmd* dosya sık gereken değerleri otomatik olarak MSDeploy.exe komutu ekler.
 
 Kullanmadan önce *. deploy.cmd* web paketini dağıtmak için dosya emin olmanız:
 
@@ -92,7 +92,7 @@ Bu bayrakların ek olarak, Web Dağıtımı işlemi ayarları ek olarak belirteb
 Bu örnekte:
 
 - **/Y** bayrağı gösterir gerçekte paketini dağıtmak istediğiniz yerine bir deneme yapılması çalıştırın.
-- **/M** bayrağı, paketi TESTWEB1 adlı sunucuya dağıtmak istediğiniz gösterir. Bu değerden MSDeploy.exe http://TESTWEB1/MSDeployAgentService adresindeki Web dağıtımı uzak aracısının hizmet paketi dağıtmak dener.
+- **/M** bayrağı, paketi TESTWEB1 adlı sunucuya dağıtmak istediğiniz gösterir. Bu değerden adresindeki Web dağıtımı uzak aracısının hizmet paketi dağıtmak MSDeploy.exe deneyecek http://TESTWEB1/MSDeployAgentService.
 - **/A** bayrağı NTLM kimlik doğrulaması kullanmak istediğiniz gösterir. Bu nedenle, bir kullanıcı adı ve parola belirtmeniz gerekmez.
 
 Göstermek için nasıl *. deploy.cmd* dosya dağıtım işlemini basitleştirir, ve oluşturulan çalıştırdığınızda yürütülen MSDeploy.exe komutu bakalım *ContactManager.Mvc.deploy.cmd* Yukarıda gösterilen seçenekleri kullanarak.
@@ -117,7 +117,7 @@ MSDeploy.exe kullandığınızda, üç temel bilgiler sağlamanız gerekir:
 - A **– taşınmaya** parametresi için verilerinizin nerede bulunacağını belirtir.
 - A **– fiil** gösterir parametresi [işlemi](https://technet.microsoft.com/library/dd568989(WS.10).aspx) gerçekleştirmek istediğiniz.
 
-MSDeploy.exe kullanır [Web dağıtımı sağlayıcıları](https://technet.microsoft.com/library/dd569040(WS.10).aspx) kaynak ve hedef verileri işlemek için. Web dağıtımı ile çalışabilir uygulamalar ve veri kaynaklarını & #x 2014 aralığı temsil eden sağlayıcılarının çok içerir; örneğin, SQL Server veritabanları, IIS web sunucuları, sertifika, Genel Derleme Önbelleği (GAC) derlemeler için sağlayıcıları vardır çeşitli farklı yapılandırma dosyalarını ve diğer veri türleri çok sayıda. Her iki **– kaynak** parametre ve **– taşınmaya** parametresi biçiminde bir sağlayıcı belirtmelisiniz **– kaynak**: [*providerName*] [=*konumu*]. Bir IIS Web sitesine bir web paketi dağıtıyorsanız, bu değerleri kullanmanız gerekir:
+MSDeploy.exe kullanır [Web dağıtımı sağlayıcıları](https://technet.microsoft.com/library/dd569040(WS.10).aspx) kaynak ve hedef verileri işlemek için. Web dağıtımı uygulamaları ve veri kaynakları ile çalışabilir aralığı temsil eden sağlayıcılarının çok içeren&#x2014;Örneğin, SQL Server veritabanları, IIS web sunucuları, sertifika, Genel Derleme Önbelleği (GAC) derlemeler için sağlayıcıları vardır çeşitli farklı yapılandırma dosyalarını ve diğer veri türleri çok sayıda. Her iki **– kaynak** parametre ve **– taşınmaya** parametresi biçiminde bir sağlayıcı belirtmelisiniz **– kaynak**: [*providerName*] [=*konumu*]. Bir IIS Web sitesine bir web paketi dağıtıyorsanız, bu değerleri kullanmanız gerekir:
 
 - **– Kaynak** sağlayıcısıdır her zaman [paket](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Örneğin:
 
@@ -213,6 +213,6 @@ Bir web paketi çalıştırarak ya da dağıtımı bu konuda açıklanan *. depl
 
 Oluşturma ve bir web dağıtım paketi Parametreleştirme hakkında yönergeler için bkz [bina ve paketleme Web Uygulama projeleri](building-and-packaging-web-application-projects.md) ve [Web paketi dağıtımı için yapılandırma parametreleri](configuring-parameters-for-web-package-deployment.md). Derleme ve Team Foundation Server (TFS) örneğinden web paketlerini dağıtma hakkında yönergeler için bkz [otomatik Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Özelleştirme ve dağıtım işlemini sorun giderme hakkında daha fazla bilgi için bkz: [hariç dosya ve klasörleri dağıtımından](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
 
->[!div class="step-by-step"]
-[Önceki](configuring-parameters-for-web-package-deployment.md)
-[sonraki](deploying-database-projects.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-parameters-for-web-package-deployment.md)
+> [sonraki](deploying-database-projects.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework disk belleği | Microsoft Docs"
+title: Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework disk belleği | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09327b760d9be38d7e004cbcef08cad4eab3a26c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework disk belleği
 ====================
@@ -146,7 +146,7 @@ Bu kod ekleyen bir `page` parametre, geçerli bir sıralama sipariş parametresi
 
 Kullanıcı bir disk belleği veya bağlantı sıralama kurmadı tıkladıysanız, tüm parametreleri null veya ilk kez sayfası görüntülenir. Disk belleği bağlantıya tıkladıysanız `page` değişkeni görüntülemek için sayfa numarasını içerir.
 
-`A ViewBag`Bu disk belleği bağlantıları sıralama sırasında disk belleği aynı tutmak için dahil edilmesi için geçerli sıralama düzenini görünümüyle özelliği sağlar:
+`A ViewBag` Bu disk belleği bağlantıları sıralama sırasında disk belleği aynı tutmak için dahil edilmesi için geçerli sıralama düzenini görünümüyle özelliği sağlar:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
@@ -277,7 +277,7 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
 
     ![Yönetim Portalı'nda veritabanı bağlantısı oluşturun](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
 
- **Yeni Web sitesi - özel Oluştur** Sihirbazı açılır.
+   **Yeni Web sitesi - özel Oluştur** Sihirbazı açılır.
 3. İçinde **yeni Web sitesi** adım Sihirbazı'nın bir dize girin **URL** kutusunu uygulamanız için benzersiz bir URL olarak kullanın. Tam URL ne buraya girdiğiniz ve metin kutusunun yanında göreceğiniz sonekine oluşur. "ConU" çizimde gösterilmektedir, ancak farklı bir seçmek olması için bu URL'yi büyük olasılıkla alınır.
 
     ![Yönetim Portalı'nda veritabanı bağlantısı oluşturun](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
@@ -297,11 +297,11 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
   
     ![Veritabanı ayarlarını adım Veritabanı Sihirbazı ile yeni Web sitesi - oluşturun](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image16.png)  
 
- Aşağıdaki resimde bir var olan SQL Server ve oturum açma kullanarak gösterir.   
+    Aşağıdaki resimde bir var olan SQL Server ve oturum açma kullanarak gösterir.   
   
     ![Veritabanı ayarlarını adım Veritabanı Sihirbazı ile yeni Web sitesi - oluşturun](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image17.png)  
   
- Yönetim Portalı Web siteleri sayfasına döndürür ve **durum** sütunda görüntülenir site oluşturulmaktadır. (Genellikle bir dakikadan az), bir süre sonra **durum** sütunda görüntülenir sitesi başarıyla oluşturuldu. Sol gezinti çubuğunda hesabınızda kullandığınız sitelerin sayısı görüntülenir **Web siteleri** simgesini ve veritabanı sayısı görünür yanına **SQL veritabanları** simgesi.
+    Yönetim Portalı Web siteleri sayfasına döndürür ve **durum** sütunda görüntülenir site oluşturulmaktadır. (Genellikle bir dakikadan az), bir süre sonra **durum** sütunda görüntülenir sitesi başarıyla oluşturuldu. Sol gezinti çubuğunda hesabınızda kullandığınız sitelerin sayısı görüntülenir **Web siteleri** simgesini ve veritabanı sayısı görünür yanına **SQL veritabanları** simgesi.
 
 ## <a name="deploy-the-application-to-windows-azure"></a>Windows Azure için uygulama dağıtma
 
@@ -354,16 +354,16 @@ Windows Azure SQL veritabanı, SQL Server teknolojilerini yerleşik olarak bulun
   
     ![Önizleme sekmesinde StartPreview düğmesi](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image29.png)  
   
- Sekme sunucuya kopyalanacak dosyaların bir listesini görüntüler. Önizleme görüntüleme uygulamayı yayımlamak için gerekli değildir ancak farkında olması için kullanışlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesi ile herhangi bir şey yapmanız gerekmez. Bu uygulamayı dağıtabilmek sonraki açışınızda değişen dosyaları bu listede yer alacaktır.  
+    Sekme sunucuya kopyalanacak dosyaların bir listesini görüntüler. Önizleme görüntüleme uygulamayı yayımlamak için gerekli değildir ancak farkında olması için kullanışlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesi ile herhangi bir şey yapmanız gerekmez. Bu uygulamayı dağıtabilmek sonraki açışınızda değişen dosyaları bu listede yer alacaktır.  
   
     ![StartPreview dosya çıktısı](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image30.png)
 12. Tıklatın **yayımlama**.  
- Visual Studio dosyaları Windows Azure sunucusuna kopyalama işlemi başlar.
+    Visual Studio dosyaları Windows Azure sunucusuna kopyalama işlemi başlar.
 13. **Çıkış** penceresinde hangi dağıtım eylemlerinin gerçekleştirilen gösterir ve dağıtımın başarılı şekilde tamamlandığını bildirir.  
   
     ![Çıktı penceresi başarılı dağıtım raporlama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image31.png)
 14. Başarılı dağıtım sırasında varsayılan tarayıcı otomatik olarak dağıtılan web sitesinin URL'sini açar.  
- Oluşturduğunuz uygulama bulutta şu anda çalışıyor. Öğrenciler sekmesini tıklatın.  
+    Oluşturduğunuz uygulama bulutta şu anda çalışıyor. Öğrenciler sekmesini tıklatın.  
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
@@ -395,6 +395,6 @@ Bu öğreticide bir veri modeli oluşturmak ve temel CRUD, sıralama, filtreleme
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-[sonraki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [sonraki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

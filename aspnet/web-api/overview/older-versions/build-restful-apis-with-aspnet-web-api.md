@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
-title: "ASP.NET Web API ile RESTful API'lerini yapı | Microsoft Docs"
+title: ASP.NET Web API ile RESTful API'lerini yapı | Microsoft Docs
 author: rick-anderson
-description: "Son yıllarda Temizle HTTP HTML sayfaları yalnızca hizmet vermek için olmadığından emin olur. Web API'leri, bazı o kullanarak oluşturmak için de güçlü bir platformdur..."
+description: Son yıllarda Temizle HTTP HTML sayfaları yalnızca hizmet vermek için olmadığından emin olur. Web API'leri, bazı o kullanarak oluşturmak için de güçlü bir platformdur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,25 +12,25 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 49dcd86649ceb77cd5a02ebeb5d9d7b11ff4f344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'lerini derleme
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 > Son yıllarda Temizle HTTP HTML sayfaları yalnızca hizmet vermek için olmadığından emin olur. Ayrıca Web API'leri, birkaç basit kavramları gibi fiiller (GET, POST ve benzeri) sayıda kullanarak oluşturmak için güçlü bir platform olan *URI'ler* ve *üstbilgileri*. ASP.NET Web API HTTP programlama basitleştirmek bileşenleri kümesidir. ASP.NET MVC çalışma zamanı üzerine inşa edildiğinden, Web API HTTP alt düzey taşıma ayrıntılarını otomatik olarak yönetir. Aynı zamanda Web API HTTP programlama modeli doğal olarak kullanıma sunar. Aslında, bir Web API için hedefidir *değil* hemen HTTP gerçekte soyut. Sonuç olarak, Web API esnek ve kolay genişletmek ' dir. Bu uygulamalı laboratuarda bir kişi manager uygulaması için basit bir REST API oluşturmak için Web API'sini kullanır. Ayrıca, API kullanmak için bir istemci oluşturacaksınız. Bunu kesinlikle yalnızca geçerli bir yaklaşım HTTP olmasa da HTTP - yararlanmak için etkili bir yol olması REST mimari stili kanıtlamış. Kişi Yöneticisi, listeleme, ekleme ve diğerlerinin yanı sıra kişiler kaldırma için RESTful açığa çıkarır. Bu Laboratuvar, HTTP, REST, temel bir anlayış gerektirir ve HTML, JavaScript ve jQuery temel bilgiye sahip olduğunu varsayar.
 > 
 > > [!NOTE]
-> > ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ [https://asp.net/web-api](https://asp.net/web-api)](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
+> > ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
 > > 
 > > ASP.NET Web API, ASP.NET MVC 4'e benzer birkaç kullanılabilir bağımlılık ekleme çerçeveleri oldukça kullanmanızı sağlayan denetleyicilerinden hizmet katmanı ayırarak açısından büyük esneklik vardır. ASP.NET Web API projesinde buradan indirebilirsiniz bağımlılık ekleme için Ninject kullanmayı gösterir MSDN'de iyi bir örnek yok [burada](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -172,7 +172,9 @@ Bu görevde, API yöntemlerini yer alacağı denetleyicisi sınıfları oluştur
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi sınıfı*)
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
+~~~
 4. İçinde **ContactController** sınıfı, word seçin **dize** yöntemi tanımındaki **almak** yöntemi ve türünü word *kişi*. Word yazılmış sonra bir gösterge sözcüğün başında görünür **kişi**. Ya da basılı **Ctrl** anahtar ve nokta (.) tuşuna basın veya Yardım iletişim kutusu otomatik olarak doldurmak için kod düzenleyicisinde açmak için farenizi kullanarak simgesini **kullanarak** modelleri için yönergesi ad alanı.
 
     ![Ad alanı bildirimleri için IntelliSense Yardım'ı kullanarak](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -185,16 +187,16 @@ Bu görevde, API yöntemlerini yer alacağı denetleyicisi sınıfları oluştur
     [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample3.cs)]
 6. Tuşuna **F5** tarayıcıda web uygulamasını hata ayıklamak için. API yanıt çıkışı yapılan değişiklikleri görmek için aşağıdaki adımları gerçekleştirin.
 
-    1. Tarayıcı açılır sonra basın **F12** geliştirici araçları henüz açık değilse.
-    2. Tıklatın **ağ** sekmesi.
-    3. Tuşuna **Başlat yakalama** düğmesi.
-    4. URL soneki eklemek **/api/kişi** basın ve adres çubuğuna URL'yi için **Enter** anahtarı.
-    5. Tuşuna **ayrıntılı görünümüne gidin** düğmesi.
-    6. Seçin **yanıt gövdesi** sekmesi. Kişi örnekleri bir dizi serileştirilmiş biçiminde temsil eden bir JSON dizesinde görmeniz gerekir.
+   1. Tarayıcı açılır sonra basın **F12** geliştirici araçları henüz açık değilse.
+   2. Tıklatın **ağ** sekmesi.
+   3. Tuşuna **Başlat yakalama** düğmesi.
+   4. URL soneki eklemek **/api/kişi** basın ve adres çubuğuna URL'yi için **Enter** anahtarı.
+   5. Tuşuna **ayrıntılı görünümüne gidin** düğmesi.
+   6. Seçin **yanıt gövdesi** sekmesi. Kişi örnekleri bir dizi serileştirilmiş biçiminde temsil eden bir JSON dizesinde görmeniz gerekir.
 
-    ![JSON serileştirilmiş karmaşık Web API yöntem çağrısının çıktısını](build-restful-apis-with-aspnet-web-api/_static/image13.png "JSON serileştirilmiş karmaşık Web API yöntem çağrısı çıktısı")
+      ![JSON serileştirilmiş karmaşık Web API yöntem çağrısının çıktısını](build-restful-apis-with-aspnet-web-api/_static/image13.png "JSON serileştirilmiş karmaşık Web API yöntem çağrısı çıktısı")
 
-    *Karmaşık Web API yöntem çağrısının çıktısını JSON seri hale getirilmiş*
+      *Karmaşık Web API yöntem çağrısının çıktısını JSON seri hale getirilmiş*
 
 <a id="Ex1Task4"></a>
 
@@ -221,7 +223,9 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
 4. Kullanarak bir eklemek için yönerge **ContactRepository.cs** dosyasını modelleri ad alanı içerecek şekilde.
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
+~~~
 5. Aşağıdaki vurgulanmış kodu ekleyin **ContactRepository.cs** GetAllContacts yöntemi uygulamak için dosya.
 
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi depo*)
@@ -231,7 +235,9 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
 7. Aşağıdaki ekleme deyimini dosyanın ad alanı bildirimi bölümünü kullanarak.
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
+~~~
 8. Aşağıdaki vurgulanmış kodu ekleyin **ContactController.cs** üyeleri yapabilir sınıfı rest hizmeti uygulaması kullanabileceğiniz deposu örneğini temsil etmek için özel bir alan eklemek için sınıfı.
 
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi denetleyicisi*)
@@ -244,9 +250,9 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
     [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample8.cs)]
 10. Bir kesme noktası yerleştirin **ContactController**'s **almak** yöntemi tanımı.
 
-    ![Kesme noktaları kişi denetleyiciye ekleme](build-restful-apis-with-aspnet-web-api/_static/image17.png "kişi denetleyiciye kesme noktaları ekleme")
+   ![Kesme noktaları kişi denetleyiciye ekleme](build-restful-apis-with-aspnet-web-api/_static/image17.png "kişi denetleyiciye kesme noktaları ekleme")
 
-    *Kişi denetleyiciye kesme noktaları ekleme*
+   *Kişi denetleyiciye kesme noktaları ekleme*
 11. Tuşuna **F5** uygulamayı çalıştırın.
 12. Tarayıcı açıldığında basın **F12** Geliştirici Araçları'nı açın.
 13. Tıklatın **ağ** sekmesi.
@@ -254,9 +260,9 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
 15. Soneki adres çubuğundaki URL'yi ekleme **/api/kişi** ve basın **Enter** API denetleyicisi yüklemek için.
 16. Visual Studio 2012 bölün kez **almak** yöntemi yürütülmesine başlar.
 
-    ![Get yöntemi içinde çiğnemekten](build-restful-apis-with-aspnet-web-api/_static/image18.png "içinde Get yöntemi bölme")
+   ![Get yöntemi içinde çiğnemekten](build-restful-apis-with-aspnet-web-api/_static/image18.png "içinde Get yöntemi bölme")
 
-    *Get yöntemi içinde sonu*
+   *Get yöntemi içinde sonu*
 17. Tuşuna **F5** devam etmek için.
 18. Odak değilse geri Internet Explorer'a gidin. Ağ yakalama penceresi unutmayın.
 
@@ -287,12 +293,12 @@ Bu görevde, böylece kullanıcı girişi kabul edebilir alıştırma 1'de oluş
 1. Çalıştırma **için Visual Studio 2012 Express Web**, bu Git yapmak için **Başlat** ve türü **VS Express Web** tuşuna basarak **Enter**.
 2. Açık **başlamak** çözüm bulunan **kaynak/Ex02-ReadWriteWebAPI/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Açık **Services/ContactRepository.cs** dosya.
 
 <a id="Ex2Task2"></a>
@@ -341,21 +347,25 @@ Bu görevde, bir HTML tarayıcısında varolan kişilerinizin listesini görünt
 1. Açık **için Visual Studio 2012 Express Web** zaten açık değilse.
 2. Açık **başlamak** çözüm bulunan **kaynak/Ex03-ConsumingWebAPI/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Açık **Index.cshtml** konumunda bulunan dosya **görünümler/giriş** klasör.
 4. Div öğesinin içinde HTML kod kimliğiyle değiştirin **gövde** böylece aşağıdaki kod gibi görünüyor.
 
 
-    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
+~~~
+[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
+~~~
 5. Web API HTTP isteği gerçekleştirmek için dosyanın sonuna şu Javascript kodunu ekleyin.
 
 
-    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
+~~~
+[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
+~~~
 6. Açık **ContactController.cs** zaten açık değilse, dosya.
 7. Bir kesme noktası yerleştirin **almak** yöntemi **ContactController** sınıfı.
 
@@ -391,12 +401,16 @@ Bu görevde, MVC uygulaması dizini görünümünü değiştirmeye devam eder. B
     (Kod parçacığını - *Web API Laboratuvar - Ex03 - Post yöntemini*)
 
 
-    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
+~~~
 3. Açık **Index.cshtml** zaten açık değilse, Visual Studio'da dosya.
 4. Aşağıdaki HTML kod, yalnızca önceki görevde eklenen sırasız liste sonra dosyasına ekleyin.
 
 
-    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
+~~~
+[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
+~~~
 5. Belgenin sonuna betik öğesi içinde bir HTTP POST çağrısı kullanarak Web API'sine verileri gönderecek düğme tıklama olayları işlemek için aşağıdaki vurgulanmış kodu ekleyin.
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]
@@ -414,14 +428,14 @@ Bu görevde, MVC uygulaması dizini görünümünü değiştirmeye devam eder. B
     *Web API İstemci tarafından gönderilen kişi nesnesi*
 10. Hata ayıklayıcı kadar yöntemiyle adım **yanıt** değişkeni oluşturuldu. İncelemesinin bağlı **Yereller** hata ayıklayıcı penceresinde, tüm özellikler ayarlandıktan göreceksiniz.
 
-    ![Hata ayıklayıcı oluşturma aşağıdaki yanıt](build-restful-apis-with-aspnet-web-api/_static/image26.png "hata ayıklayıcısında oluşturma aşağıdaki yanıt")
+   ![Hata ayıklayıcı oluşturma aşağıdaki yanıt](build-restful-apis-with-aspnet-web-api/_static/image26.png "hata ayıklayıcısında oluşturma aşağıdaki yanıt")
 
-    *Hata ayıklayıcı oluşturma aşağıdaki yanıt*
+   *Hata ayıklayıcı oluşturma aşağıdaki yanıt*
 11. Basarsanız **F5** veya **devam** Hata Ayıklayıcısı'ndaki istek tamamlayacak. Tarayıcıya geçiş yaptıktan sonra yeni kişi tarafından depolanan kişiler listesine eklenmiş olan **ContactRepository** uygulaması.
 
-    ![Yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır](build-restful-apis-with-aspnet-web-api/_static/image27.png "yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır")
+   ![Yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır](build-restful-apis-with-aspnet-web-api/_static/image27.png "yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır")
 
-    *Yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır*
+   *Yeni kişi örneğinin başarılı oluşturulmasını tarayıcı yansıtır*
 
 > [!NOTE]
 > Ayrıca, Azure aşağıdaki bu uygulamayı dağıtabilmek için [ek C: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixC).
@@ -434,7 +448,7 @@ Bu görevde, MVC uygulaması dizini görünümünü değiştirmeye devam eder. B
 
 Bu Laboratuvar yeni ASP.NET Web API çerçevesi ve framework kullanarak RESTful Web API uygulaması için sunulan. Buradan, herhangi bir sayıda mekanizmalarını kullanarak veri kalıcılığını kolaylaştıran yeni bir havuz oluşturabilir ve bu laboratuarda bir örnek olarak sağlanan Basit bir yerine yukarı hizmet wire. Web API HTTP ve JSON veya XML destekleyen herhangi bir dilde yazılmış olarak HTML olmayan istemcilerden gelen iletişimi etkinleştirme gibi ek özellikleri destekler. Tipik web uygulaması dışında bir Web API barındırmak için özelliği de mümkündür, aynı zamanda kendi serileştirme biçimleri oluşturma yeteneği.
 
-ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ [https://asp.net/web-api](https://asp.net/web-api)](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
+ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
 
 <a id="AppendixA"></a>
 
@@ -492,9 +506,9 @@ Kod parçacıkları ile parmaklarınızın ucunda gerek duyduğunuz tüm koduna 
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Ek B: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -638,14 +652,14 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-    - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-    - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-    - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
-    - Yeni bir veritabanı adı girin: *MVC4SampleDB*.
+   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
+   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
+   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - Yeni bir veritabanı adı girin: *MVC4SampleDB*.
 
-    ![Hedef bağlantı dizesi yapılandırma](build-restful-apis-with-aspnet-web-api/_static/image55.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](build-restful-apis-with-aspnet-web-api/_static/image55.png "hedef bağlantı dizesi yapılandırma")
 
-    *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesi yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](build-restful-apis-with-aspnet-web-api/_static/image56.png "veritabanı dizesi oluşturma")

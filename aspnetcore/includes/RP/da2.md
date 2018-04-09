@@ -53,7 +53,7 @@ Test etmek için `catch` engelle:
 * Başka bir tarayıcı penceresinde seçin **silmek** bağlamak için aynı film ve film silin.
 * Önceki tarayıcı penceresinde film değişiklikler gönderin.
 
-Üretim kodu genellikle eşzamanlılık çakışması iki algılamaz veya daha fazla istemciler eşzamanlı olarak güncelleştirilen bir kaydı. Bkz: [eşzamanlılık çakışmalarını işleme](xref:data/ef-rp/concurrency) daha fazla bilgi için.
+Üretim kodu genellikle eşzamanlılık çakışması iki algılamaz veya daha fazla istemciler eşzamanlı olarak güncelleştirilen bir kaydı. Bkz: [eşzamanlılık çakışmalarını ele](xref:data/ef-rp/concurrency) daha fazla bilgi için.
 
 ### <a name="posting-and-binding-review"></a>Gönderme ve bağlama gözden geçirin
 

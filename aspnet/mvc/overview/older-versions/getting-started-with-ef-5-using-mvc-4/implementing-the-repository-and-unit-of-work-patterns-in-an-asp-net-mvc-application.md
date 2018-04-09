@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: "Depo ve iş desenleri biriminin bir ASP.NET MVC uygulamasındaki (9, 10) uygulama | Microsoft Docs"
+title: Depo ve iş desenleri biriminin bir ASP.NET MVC uygulamasındaki (9, 10) uygulama | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Depo ve iş desenleri biriminin bir ASP.NET MVC uygulamasındaki (9, 10) uygulama
 ====================
@@ -124,7 +124,7 @@ Yalnızca vurgulanmış kodu değiştirildi.
 
 Kod özgün sürümünde `students` olarak yazılan bir `IQueryable` nesnesi. Bir yöntemi kullanarak bir koleksiyona dönüştürülünceye kadar sorgu veritabanına gönderilen değil `ToList`, hangi oluşmaz dizin görünümünün Öğrenci modeli erişen kadar. `Where` Yukarıdaki özgün kod yönteminde hale bir `WHERE` veritabanına gönderilen SQL sorgusunda yan tümcesi. Sırayla yalnızca seçilen varlıklar veritabanı tarafından döndürülür anlamına gelir. Bununla birlikte, sonucu olarak değiştirme `context.Students` için `studentRepository.GetStudents()`, `students` bu bildirimi tamamlandıktan sonra değişkeni bir `IEnumerable` tüm Öğrenciler veritabanında içeren koleksiyonu. Uygulamanın son sonucu `Where` yöntemi aynıdır, ancak artık iş bellek web sunucusu ve veritabanı tarafından yapılır. Büyük miktarda veriyi döndüren sorgular için bu verimsiz olabilir.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Iqueryable vs. IEnumerable**
 > 
@@ -249,6 +249,6 @@ Sayfa arar ve aynı değişikliklerinizi önce yapılmış ve diğer indirmelere
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Önceki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core bağımlılık ekleme"
+title: ASP.NET Core bağımlılık ekleme
 author: ardalis
-description: "ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin."
+description: ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: df9ae2b784e8b7b21a471f465998f09bbacbef75
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0cab1f8b16979f55d550115920807b192d3a5c56
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -47,7 +47,6 @@ ASP.NET Core içeren basit bir yerleşik kapsayıcı (tarafından temsil edilen 
 Oluşturucu ekleme, söz konusu Oluşturucusu olmasını gerektirir *ortak*. Aksi takdirde, uygulamanızı özel durum oluşturacak bir `InvalidOperationException`:
 
 > 'YourType' türü için uygun bir oluşturucu bulunamadı. Türü somut ve Hizmetleri bir public oluşturucuya tüm parametreler için kayıtlı emin olun.
-
 
 Bu yalnızca bir geçerli Oluşturucusu mevcut Oluşturucu ekleme gerektirir. Oluşturucu aşırı desteklenir, ancak yalnızca bir aşırı yüklemesi olan bağımsız değişkenler tüm tarafından bağımlılık ekleme yerine getirmenin bulunabilir. Birden fazla varsa, uygulamanızı özel durum oluşturacak bir `InvalidOperationException`:
 
@@ -98,7 +97,7 @@ Genişletme yöntemleri gibi çok sayıda kullanarak kapsayıcı ek hizmetler ek
 
 ASP.NET MVC gibi tarafından sağlanan ara yazılımı ve özellikler tek Ekle kullanmanın bir kuralı izleyin*ServiceName* tüm bu özellik tarafından gerekli hizmetleri kaydetmek için genişletme yöntemi.
 
->[!TIP]
+> [!TIP]
 > Belirli framework tarafından sağlanan hizmetlerin içindeki istek `Startup` parametresi listelerine - yöntemlerle bkz [uygulama başlangıç](startup.md) daha fazla ayrıntı için.
 
 ## <a name="registering-services"></a>Hizmetleri kaydediliyor
@@ -138,7 +137,7 @@ Bu durumda, her ikisi de `ICharacterRepository` ve dolayısıyla `ApplicationDbC
 
 Entity Framework bağlamları Hizmetleri kullanarak kapsayıcı eklenmesi `Scoped` yaşam süresi. Bu otomatik olarak yukarıda gösterildiği gibi yardımcı yöntemler kullanırsanız dikkate. Entity Framework'ü kullanın yapacak depoları aynı yaşam süresini kullanmanız gerekir.
 
->[!WARNING]
+> [!WARNING]
 > Çok dikkatli olmak ana tehlike çözümlenirken bir `Scoped` tek gelen hizmet. Hizmet hatalı durum istekler işlenirken gerekir çalışması olasıdır.
 
 Bağımlılıkları olan hizmetleri bunları kapsayıcısında kaydetmeniz. Bir hizmetin yapıcı, ilkel gibi gerektiriyorsa bir `string`, bunu kullanarak yerleştirilebilir [yapılandırma](xref:fundamentals/configuration/index) ve [seçenekleri düzeni](xref:fundamentals/configuration/options).
@@ -154,6 +153,9 @@ Geçici ömrü Hizmetleri istedikleri her zaman oluşturulur. Bu ömrü basit, d
 **Kapsamlı**
 
 Kapsamlı ömrü Hizmetleri istek başına bir kez oluşturulur.
+
+> [!WARNING]
+> Bir ara yazılımında kapsamlı bir hizmeti kullanıyorsanız hizmete Ekle `Invoke` veya `InvokeAsync` yöntemi. Singleton gibi davranır hizmete zorladığından Oluşturucu ekleme Ekle yok.
 
 **Singleton**
 
@@ -193,6 +195,35 @@ Hangi gözlemlemek `OperationId` değerleri, bir istek içinde ve istekler aras�
 
 * *Singleton* nesneleridir aynı her nesne ve her istek için (örneği içinde olup olmadığını sağlanan bağımsız olarak `ConfigureServices`)
 
+## <a name="resolve-a-scoped-service-within-the-application-scope"></a>Uygulama kapsamındaki kapsamlı hizmetinin çözümleyin
+
+Oluşturma bir [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) ile [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) uygulamanın kapsam içinde kapsamlı bir hizmeti çözümlemek için. Bu yaklaşım başlatma görevleri çalıştırmak için başlangıçta kapsamlı bir hizmete erişmek kullanışlıdır. Aşağıdaki örnekte bir bağlam için edinmeyi gösteren `MyScopedService` içinde `Program.Main`:
+
+```csharp
+public static void Main(string[] args)
+{
+    var host = BuildWebHost(args);
+
+    using (var serviceScope = host.Services.CreateScope())
+    {
+        var services = serviceScope.ServiceProvider;
+
+        try
+        {
+            var serviceContext = services.GetRequiredService<MyScopedService>();
+            // Use the context here
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred.");
+        }
+    }
+
+    host.Run();
+}
+```
+
 ## <a name="scope-validation"></a>Kapsam doğrulama
 
 Uygulama geliştirme ortamında ASP.NET Core 2.0 veya sonraki sürümlerde çalıştırırken, varsayılan hizmet sağlayıcısı doğrulamak üzere denetler:
@@ -214,7 +245,7 @@ Bir ASP.NET içinde kullanılabilir hizmetler isteği `HttpContext` aracılığ�
 
 İstek hizmetleri yapılandırmak ve uygulamanızı bir parçası olarak istek Hizmetleri temsil eder. Nesnelerinizi bağımlılıklarını belirttiğinizde, bunlar bulunan tür tarafından karşılanır `RequestServices`değil `ApplicationServices`.
 
-Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [test](../testing/index.md)) ve daha geniş bağlı değildir.
+Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](../testing/index.md)) ve daha geniş bağlı değildir.
 
 > [!NOTE]
 > Erişim için Oluşturucusu parametre olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.
@@ -328,7 +359,7 @@ Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne e
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Uygulama Başlatma](xref:fundamentals/startup)
-* [Test etme](xref:testing/index)
+* [Test ve hata ayıklama](xref:testing/index)
 * [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core temiz kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Kapsayıcı yönetilen uygulama tasarımı, Prelude: Burada kapsayıcı ait mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

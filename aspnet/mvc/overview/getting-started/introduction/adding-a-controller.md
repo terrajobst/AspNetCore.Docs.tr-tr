@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-controller
 title: Bir denetleyici ekleme | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Bir denetleyici ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 MVC anlamına gelir *model-view-controller*. MVC, iyi tasarlanmış, test edilebilir ve bakımını kolay uygulamaları geliştirmek için bir desen olur. MVC tabanlı uygulamalar içerir:
 
@@ -95,7 +95,7 @@ Hoş Geldiniz yöntemini aşağıdaki kodla değiştirin:
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-Uygulamayı çalıştırın ve aşağıdaki URL'yi girin:`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+Uygulamayı çalıştırın ve aşağıdaki URL'yi girin: `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
@@ -115,6 +115,6 @@ Birçok MVC uygulamaları için varsayılan yolu düzgün çalışır. Model ba�
 
 Bu örneklerde denetleyicisi bulunurken &quot;VC&quot; MVC kısmı — diğer bir deyişle, Görünüm ve denetleyici çalışma. Denetleyici HTML doğrudan döndürüyor. Normalde kodu çok kullanışsız hale beri HTML doğrudan döndürerek denetleyicileri istemezsiniz. Bunun yerine genellikle ayrı görünüm şablon dosyası HTML yanıtı oluşturmak yardımcı olmak için kullanacağız. Nasıl biz bunu yapmak için sonraki olarak bakalım.
 
->[!div class="step-by-step"]
-[Önceki](getting-started.md)
-[sonraki](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started.md)
+> [sonraki](adding-a-view.md)

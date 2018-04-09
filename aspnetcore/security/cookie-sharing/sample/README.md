@@ -16,4 +16,4 @@ Yönergeler:
 1. Oturum açma kullanıcı herhangi üç uygulamalar için. Kimlik doğrulama tanımlama bilgisi, uygulamalar arasında paylaşılır. Kullanıcı otomatik olarak diğer iki uygulamalarda oturum unutmayın.
 1. Herhangi bir uygulama kullanıcıdan çıkışı oturum açın. Kullanıcının diğer iki uygulamalarının oturumunu otomatik olarak imzalanır unutmayın.
 
-Bu örnek açıklanan özelliklerini gösterir [uygulamalar arasında tanımlama bilgilerini paylaşımı](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) konu.
+Bu örnek açıklanan özelliklerini gösterir [tanımlama bilgilerini uygulamalar arasında paylaşmak](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) konu.

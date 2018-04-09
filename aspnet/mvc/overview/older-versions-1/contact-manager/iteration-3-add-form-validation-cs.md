@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
-title: "Yineleme #3 – Ekle form doğrulama (C#) | Microsoft Docs"
+title: 'Yineleme #3 – Ekle form doğrulama (C#) | Microsoft Docs'
 author: microsoft
-description: "Üçüncü yinelemede temel form doğrulama ekleyin. Biz, kişilerin gerekli form alanları tamamlamadan bir form gönderme engelleyin. Biz de emai doğrula..."
+description: Üçüncü yinelemede temel form doğrulama ekleyin. Biz, kişilerin gerekli form alanları tamamlamadan bir form gönderme engelleyin. Biz de emai doğrula...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b9353c32b2839fd760513982c5742bb8f521e94a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Yineleme #3 – Ekle form doğrulama (C#)
 ====================
@@ -118,7 +118,7 @@ Doğrulama kuralları yürütüldükten sonra ModelState IsValid özelliğinin d
 
 > [!NOTE] 
 > 
-> Sırasında normal ifade depodan telefon numarası ve e-posta adresini doğrulamak için normal ifadeler var [ *http://regexlib.com*](http://regexlib.com)
+> Sırasında normal ifade depodan telefon numarası ve e-posta adresini doğrulamak için normal ifadeler var [*http://regexlib.com*](http://regexlib.com)
 
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Doğrulama mantığını düzenleme eyleme ekleme
@@ -139,6 +139,6 @@ Bu yinelemede doğrulama mantığını Contact Manager uygulamamız en kolay yol
 
 Sonraki yinelemede biz bizim doğrulama mantığını ve veritabanı erişim mantığı dışı bizim denetleyicileri yeniden düzenlemeniz. Biz bize daha geniş eşleşmiş ve daha rahat bir uygulama oluşturmak etkinleştirmek için birkaç yazılım tasarım ilkeleri yararlanmak.
 
->[!div class="step-by-step"]
-[Önceki](iteration-2-make-the-application-look-nice-cs.md)
-[sonraki](iteration-4-make-the-application-loosely-coupled-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](iteration-2-make-the-application-look-nice-cs.md)
+> [sonraki](iteration-4-make-the-application-loosely-coupled-cs.md)

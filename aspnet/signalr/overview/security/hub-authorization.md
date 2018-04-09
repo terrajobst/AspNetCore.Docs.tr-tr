@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/hub-authorization
-title: "Kimlik doğrulama ve yetkilendirme SignalR hub'ları için | Microsoft Docs"
+title: Kimlik doğrulama ve yetkilendirme SignalR hub'ları için | Microsoft Docs
 author: pfletcher
-description: "Bu konuda, hangi kullanıcılar ya da roller hub yöntemlerini erişebilecek kişileri kısıtlayın açıklar. Yazılım sürümleri, Visual Studio 2013 .NET 4.5 SignalR ve bu konuda kullanılan..."
+description: Bu konuda, hangi kullanıcılar ya da roller hub yöntemlerini erişebilecek kişileri kısıtlayın açıklar. Yazılım sürümleri, Visual Studio 2013 .NET 4.5 SignalR ve bu konuda kullanılan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Kimlik doğrulama ve yetkilendirme için SignalR hub'ları
 ====================
@@ -73,10 +73,10 @@ Veya bir hub tüm kullanıcılar için kullanılabilir bir yöntem ve aşağıda
 
 Aşağıdaki örnekler farklı yetkilendirme senaryosu:
 
-- `[Authorize]`– Kimliği doğrulanmış kullanıcılar yalnızca
-- `[Authorize(Roles = "Admin,Manager")]`– Belirtilen rollerdeki kullanıcılar kimlik doğrulaması yalnızca
-- `[Authorize(Users = "user1,user2")]`– Belirtilen kullanıcı adları olan kullanıcıların kimlik doğrulaması yalnızca
-- `[Authorize(RequireOutgoing=false)]`– yalnızca kimliği doğrulanan kullanıcılar hub çağırma ancak sunucudan geri çağrı istemcileri sınırı yoktur yetkilendirme tarafından gibi yalnızca belirli kullanıcılara ileti gönderme ancak diğerlerini ileti alabilir. Requireoutgoing'i özelliği yalnızca hub içinde kişiler yöntemlerini üzerinde değil tüm hub'ına uygulanabilir. Requireoutgoing'i false olarak ayarlanmadığında, kimlik doğrulama gereksinimini karşılayan kullanıcılar sunucudan denir.
+- `[Authorize]` – Kimliği doğrulanmış kullanıcılar yalnızca
+- `[Authorize(Roles = "Admin,Manager")]` – Belirtilen rollerdeki kullanıcılar kimlik doğrulaması yalnızca
+- `[Authorize(Users = "user1,user2")]` – Belirtilen kullanıcı adları olan kullanıcıların kimlik doğrulaması yalnızca
+- `[Authorize(RequireOutgoing=false)]` – yalnızca kimliği doğrulanan kullanıcılar hub çağırma ancak sunucudan geri çağrı istemcileri sınırı yoktur yetkilendirme tarafından gibi yalnızca belirli kullanıcılara ileti gönderme ancak diğerlerini ileti alabilir. Requireoutgoing'i özelliği yalnızca hub içinde kişiler yöntemlerini üzerinde değil tüm hub'ına uygulanabilir. Requireoutgoing'i false olarak ayarlanmadığında, kimlik doğrulama gereksinimini karşılayan kullanıcılar sunucudan denir.
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Kimliği doğrulanmış kullanıcılara sınırlı bir hub ile etkileşime giren
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-Konsol uygulaması için kimlik bilgilerini yazılarını **www.contoso.com/RemoteLogin** , aşağıdaki arka plan kodu dosyasını içeren bir boş sayfa bakın.
+Konsol uygulaması için kimlik bilgilerini yazılarını <strong>www.contoso.com/RemoteLogin</strong> , aşağıdaki arka plan kodu dosyasını içeren bir boş sayfa bakın.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
-title: "Liste girişlerini CascadingDropDown (VB) ile önceden ayarlama | Microsoft Docs"
+title: Liste girişlerini CascadingDropDown (VB) ile önceden ayarlama | Microsoft Docs
 author: wenz
-description: "Böylece bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir..."
+description: Böylece bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c28c7893c39d9ba9f828c34da7ffdce525ee248e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f74e6ac80b756240870d9406a03db11c610093aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-vb"></a>Liste girişlerini CascadingDropDown (VB) ile önceden belirleme
 ====================
@@ -60,6 +60,6 @@ Yükleme sayfasını tarayıcıda açılır listenin üç satıcılarla seçilmi
 
 Liste doldurulur ve otomatik olarak seçilmiş ([tam boyutlu görüntüyü görüntülemek için tıklatın](presetting-list-entries-with-cascadingdropdown-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](using-cascadingdropdown-with-a-database-vb.md)
-[sonraki](using-auto-postback-with-cascadingdropdown-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-cascadingdropdown-with-a-database-vb.md)
+> [sonraki](using-auto-postback-with-cascadingdropdown-vb.md)

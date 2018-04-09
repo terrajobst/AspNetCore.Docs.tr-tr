@@ -1,7 +1,7 @@
 ---
-title: "REST anahtar şifrelemesi"
+title: ASP.NET Core bekleyen anahtar şifrelemesi
 author: rick-anderson
-description: "Bu belge ASP.NET Core koruma anahtar bekleyen verileri şifreleme uygulama ayrıntılarını özetlemektedir."
+description: Bekleyen anahtar şifreleme ASP.NET Core veri koruma uygulama ayrıntılarını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9247b141a44c958f34529e5a42a0ddc8c8893cb0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-encryption-at-rest"></a>REST anahtar şifrelemesi
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET Core bekleyen anahtar şifrelemesi
 
 <a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 Varsayılan olarak, veri koruma sisteminde [buluşsal yöntemi kullanan](xref:security/data-protection/configuration/default-settings) nasıl şifreleme anahtar malzemesini belirlemek üzere bekleyen şifrelenmelidir. Geliştirici, buluşsal yöntem geçersiz kılabilir ve el ile nasıl anahtarları bekleyen şifrelenmelidir belirtin.
 
 > [!NOTE]
-> Rest mekanizması açık bir anahtar şifreleme belirtirseniz, veri koruma sisteminde buluşsal yöntem sağlanan varsayılan anahtar depolama mekanizmasını kaydını. Yapmanız gerekenler [açık anahtar depolama mekanizmasını belirtme](key-storage-providers.md#data-protection-implementation-key-storage-providers), aksi halde veri koruma sisteminde başlayamaz.
+> Rest mekanizması açık bir anahtar şifreleme belirtirseniz, veri koruma sisteminde buluşsal yöntem sağlanan varsayılan anahtar depolama mekanizmasını kaydını. Yapmanız gerekenler [açık anahtar depolama mekanizmasını belirtme](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), aksi halde veri koruma sisteminde başlayamaz.
 
 <a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
@@ -95,7 +95,7 @@ Bu senaryoda, AD etki alanı denetleyicisi DPAPI NG işlemleri tarafından kulla
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Sertifika tabanlı şifreleme ile Windows DPAPI-NG
 
-Windows 8.1 üzerinde çalıştırıyorsanız / Windows Server 2012 R2 veya daha sonra uygulama çalışıyor olsa bile sertifika tabanlı şifreleme gerçekleştirmek için Windows DPAPI-NG kullanabilirsiniz [.NET Core](https://www.microsoft.com/net/core). Bu yararlanmak için kuralı tanımlayıcısı dizesi kullanın "Sertifika HashId:thumbprint =" onaltılık kodlamalı SHA1 sertifikanın parmak izi kullanmak için parmak izi eder. Aşağıda bir örnek için bkz.
+Windows 8.1 üzerinde çalıştırıyorsanız / Windows Server 2012 R2 veya daha sonra uygulamayı .NET Core üzerinde çalışıyor olsa bile sertifika tabanlı şifreleme gerçekleştirmek için Windows DPAPI-NG kullanabilirsiniz. Bu yararlanmak için kuralı tanımlayıcısı dizesi kullanın "Sertifika HashId:thumbprint =" onaltılık kodlamalı SHA1 sertifikanın parmak izi kullanmak için parmak izi eder. Aşağıda bir örnek için bkz.
 
 ```csharp
 sc.AddDataProtection()

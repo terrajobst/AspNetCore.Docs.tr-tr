@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Razor sayfalarının EF temel - öğretici serisi"
+title: ASP.NET Core Razor sayfalarının EF temel - öğretici serisi
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/index
-ms.openlocfilehash: 8ea847c760d2b09210ffc209b5331c6153f0a512
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4247dff434b83658d18cd6d4bd22d6165258230e
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="get-started-with-razor-pages-and-entity-framework-core-using-visual-studio"></a>Razor sayfalarının ve Entity Framework Visual Studio kullanarak çekirdek kullanmaya başlama
+# <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>ASP.NET Core Razor sayfalarının EF temel - öğretici serisi
 
 Bu öğreticiler dizi veri erişimi için Entity Framework (EF) çekirdek kullanan ASP.NET Core Razor sayfalarının web uygulamaları oluşturmak nasıl öğretir. Öğreticiler Visual Studio 2017 gerektirir.
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC 5 uygulamada (10 / 12) Entity Framework 6 eşzamanlılık işleme | Microsoft Docs"
+title: Bir ASP.NET MVC 5 uygulamada (10 / 12) Entity Framework 6 eşzamanlılık işleme | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9df5b9c7e955b784bca7a4195b7c9cf3d2bca7a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b92aded80ad6b435a2409a137bb96fe4d0a726f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Bir ASP.NET MVC 5 uygulamada (10 / 12) Entity Framework 6 eşzamanlılık işleme
 ====================
@@ -236,6 +236,6 @@ Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. Çeşitli eşzam
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[sonraki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [sonraki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
-title: "ASP.NET MVC 4 giriş | Microsoft Docs"
+title: ASP.NET MVC 4 giriş | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici, burada Visual Studio 2013 kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni öğretici t birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır..."
+description: Bu öğretici, burada Visual Studio 2013 kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni öğretici t birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 519bac22ba2607931c5f3123b9b567859a2b3d1c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4 giriş
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Yeni öğretici Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır.
 > 
@@ -88,5 +88,5 @@ F5 IIS Express başlatmak ve web uygulamanızı çalıştırmak Visual Studio ne
 
 Bu varsayılan şablonu kullanıma hazır giriş, kişi ve ilgili sayfaları sunar. Ayrıca kayıt ve oturum açmak için destek sağlar ve Facebook ve Twitter bağlar. Bu uygulama şeklini değiştirmek ve biraz ASP.NET MVC hakkında bilgi almak için sonraki adımdır bakın. Tarayıcınızı kapatın ve biraz kod değiştirelim.
 
->[!div class="step-by-step"]
-[Next](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Next](adding-a-controller.md)

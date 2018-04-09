@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
-title: "Azure ile gerçek bulut uygulamaları derleme | Microsoft Docs"
+title: Azure ile gerçek bulut uygulamaları derleme | Microsoft Docs
 author: MikeWasson
-description: "Bu e-kitap desenleri dayalı bir yaklaşım ile gerçek bulut çözümleri oluşturmak için anlatılmaktadır. Geliştirme sürecinin olarak da desenleri uygulamak bir..."
+description: Bu e-kitap desenleri dayalı bir yaklaşım ile gerçek bulut çözümleri oluşturmak için anlatılmaktadır. Geliştirme sürecinin olarak da desenleri uygulamak bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a62818a2dc21128bb0a42a8b296ade460e7b060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek bulut uygulamaları derleme
 ====================
@@ -60,7 +60,7 @@ Bu e-kitap On üç desenleri bulut geliştirme için önerilen açıklanmaktadı
     - Web Katmanı durum bilgisiz tutun.
     - Gösteri: ölçekleme ve Azure App Service'te Web uygulamalarını, otomatik ölçeklendirme.
     - Oturum durumu kaçının.
-    - Bir CDN kullanın.
+    - CDN kullanılamıyorsa bir CDN geri dönüş ile kullanın.
     - Zaman uyumsuz programlama modeli kullanır.
     - Demo: ASP.NET MVC ve Entity Framework zaman uyumsuz.
 - [Çoklu oturum açma](single-sign-on.md). 
@@ -177,5 +177,5 @@ Videolar:
 - [Web siteleri mimarisiyle - Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Azure Web siteleri iç Nir Mashkowski ile](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
->[!div class="step-by-step"]
-[Next](automate-everything.md)
+> [!div class="step-by-step"]
+> [Next](automate-everything.md)

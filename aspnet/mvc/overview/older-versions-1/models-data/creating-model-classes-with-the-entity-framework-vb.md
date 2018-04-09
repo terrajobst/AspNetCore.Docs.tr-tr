@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
-title: "Entity Framework (VB) ile modeli sınıfları oluşturma | Microsoft Docs"
+title: Entity Framework (VB) ile modeli sınıfları oluşturma | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, ASP.NET MVC Microsoft Entity Framework ile kullanmayı öğrenin. Bir ADO.NET varlık Da oluşturmak için varlık Sihirbazı'nı kullanmayı öğrenin..."
+description: Bu öğreticide, ASP.NET MVC Microsoft Entity Framework ile kullanmayı öğrenin. Bir ADO.NET varlık Da oluşturmak için varlık Sihirbazı'nı kullanmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efc190d856fe9ebf1c09e0ae4758aabb1e3254dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3442435c7b2b9ce2ce6bd016ba74fe671eb76f62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Entity Framework (VB) ile modeli sınıfları oluşturma
 ====================
@@ -38,7 +38,7 @@ Microsoft Entity Framework ASP.NET MVC ile nasıl kullanabileceğiniz göstermek
 
 Bu öğreticide, Visual Studio 2008 veya Visual Web Developer 2008 Service Pack 1 sahip olduğunuzu varsayar. Entity Framework kullanmak için Service Pack 1 gerekir. Visual Studio 2008 Service Pack 1 veya Service Pack 1 ile Visual Web Developer aşağıdaki adresinden indirebilirsiniz:
 
-> [https://www.ASP.NET/downloads/](https://www.asp.net/downloads)
+> [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 
 ## <a name="creating-the-movie-sample-database"></a>Film örnek veritabanı oluşturma
@@ -119,7 +119,7 @@ Değişikliklerinizi Entity Designer bir sonraki kullanışınızda üzerine yaz
 
 Film veritabanı uygulamamızı oluşturmaya film kayıtların listesini görüntüleyen bir sayfa oluşturarak başlayalım. İNDİS() adlı bir eylem listeleme 1 giriş denetleyicisi sunar. İNDİS() eylem film kayıtların tümünü Entity Framework yararlanarak film veritabanı tablosundan döndürür.
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listing 1 – Controllers\HomeController.vb**
 
 [!code-vb[Main](creating-model-classes-with-the-entity-framework-vb/samples/sample1.vb)]
 
@@ -135,7 +135,7 @@ En kullanışlı bulabileceğiniz hangi LINQ sözdizimini – yöntem sözdizimi
 
 Listeleme 2 görünümünde film kayıtları görüntülemek için kullanılır.
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-vb/samples/sample3.aspx)]
 
@@ -197,7 +197,7 @@ Doğrulama hatası varsa, son olarak, daha sonra temel filmler veritabanı tablo
 
 Veritabanı kayıtlarını düzenlerken, veritabanı güncelleştirme gerçekleştirir denetleyici eylemi düzenlenmekte kayıt kimliğini geçmesi gerekir. Aksi takdirde, denetleyici eylemi, temel veritabanında güncelleştirmek için kayıt bilmez. Listeleme 5'te yer alan düzenleme görünümü düzenlenmekte veritabanı kayıt kimliğini temsil eden gizli bir form alanı içerir.
 
-**5 – Views\Home\Edit.aspx listeleme**
+**Listing 5 – Views\Home\Edit.aspx**
 
 [!code-aspx[Main](creating-model-classes-with-the-entity-framework-vb/samples/sample8.aspx)]
 
@@ -205,7 +205,7 @@ Veritabanı kayıtlarını düzenlerken, veritabanı güncelleştirme gerçekle�
 
 Bu öğreticide üstesinden gelmek için ihtiyacımız, son veritabanı işlemi veritabanı kayıtlarını siliyor. Belirli veritabanı kaydını silmek için listeleme 6'denetleyici eylemini kullanın.
 
-**6--listeleme \Controllers\HomeController.vb (Delete eylem)**
+**Listing 6 -- \Controllers\HomeController.vb (Delete action)**
 
 [!code-vb[Main](creating-model-classes-with-the-entity-framework-vb/samples/sample9.vb)]
 
@@ -217,6 +217,6 @@ ASP.NET MVC ve Microsoft Entity Framework yararlanarak veritabanı tarafından y
 
 İlk olarak, bir varlık veri modeli Visual Studio'dan oluşturmak için varlık veri modeli Sihirbazı'nı nasıl kullanabileceğiniz açıklanmıştır. Ardından, LINQ to Entities veritabanı kayıt kümesinin bir veritabanı tablosunun almak için nasıl kullanılacağını öğrenin. Son olarak, Entity Framework ekleme, güncelleştirme ve veritabanı kayıtlarını sil kullandık.
 
->[!div class="step-by-step"]
-[Önceki](validation-with-the-data-annotation-validators-cs.md)
-[sonraki](creating-model-classes-with-linq-to-sql-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](validation-with-the-data-annotation-validators-cs.md)
+> [sonraki](creating-model-classes-with-linq-to-sql-vb.md)

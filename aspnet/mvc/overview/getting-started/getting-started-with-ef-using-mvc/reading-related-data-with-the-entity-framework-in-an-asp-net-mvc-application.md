@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri okuma | Microsoft Docs"
+title: ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri okuma | Microsoft Docs
 author: tdykstra
 description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 06784d8b610856e71eae78b0db2d0253faedb955
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>ASP.NET MVC uygulamasındaki Entity Framework Veri Okuma ilgili
 ====================
@@ -156,7 +156,7 @@ Kod görünüm modeli örneği oluşturmayı ve bunu Eğitmen listesi koyma baş
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
-Daha önce belirtildiği gibi istekli yüklenmesi gerekli değildir ancak performansı artırmak için yapılır. Görünümü her zaman gerektirdiğinden `OfficeAssignment` varlık, onu aynı sorguda fetch daha verimli. `Course`web sayfasında bir eğitmen seçildiğinde istekli yükleme yalnızca sayfa daha sık olmadan daha seçili indirmelere ile görüntüleniyorsa, yavaş yüklemekten daha iyi şekilde varlıklar gereklidir.
+Daha önce belirtildiği gibi istekli yüklenmesi gerekli değildir ancak performansı artırmak için yapılır. Görünümü her zaman gerektirdiğinden `OfficeAssignment` varlık, onu aynı sorguda fetch daha verimli. `Course` web sayfasında bir eğitmen seçildiğinde istekli yükleme yalnızca sayfa daha sık olmadan daha seçili indirmelere ile görüntüleniyorsa, yavaş yüklemekten daha iyi şekilde varlıklar gereklidir.
 
 Eğitmen kimliği seçildiyse, seçili Eğitmen görünüm modeli Eğitmen listesi alınır. Görünüm modelinin `Courses` özelliği ile yüklenen sonra `Course` Bu eğitmen varlıklardan `Courses` gezinti özelliği.
 
@@ -250,6 +250,6 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-[sonraki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [sonraki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

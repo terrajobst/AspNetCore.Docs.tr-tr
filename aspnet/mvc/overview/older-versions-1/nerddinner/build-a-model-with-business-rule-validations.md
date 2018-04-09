@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
-title: "İş kuralı doğrulamaları ile bir Model oluşturma | Microsoft Docs"
+title: İş kuralı doğrulamaları ile bir Model oluşturma | Microsoft Docs
 author: microsoft
-description: "Adım 3 biz için her iki sorgusunu kullanın ve böylelikle NerdDinner uygulamamız için veritabanını güncelleştirmek bir model oluşturmak nasıl gösterir."
+description: Adım 3 biz için her iki sorgusunu kullanın ve böylelikle NerdDinner uygulamamız için veritabanını güncelleştirmek bir model oluşturmak nasıl gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: dbe6370979f218988c168df3e80314ef9b338fbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5a482474fd2f41836f70952306ada5cd9136455
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-a-model-with-business-rule-validations"></a>İş kuralı doğrulamaları ile bir Model oluşturma
 ====================
@@ -91,7 +91,7 @@ Yemeği 's LCV'ler koleksiyonuna RSVP nesnesini ekleyerek biz LINQ-SQL Yemeği V
 
 Tasarımcı nasıl modellenir veya bir tablo ilişkisi adlı hoşlanmıyorsanız, geçersiz kılabilirsiniz. Yalnızca Tasarımcısı'nda ilişkilendirme oku tıklatın ve özelliklerini yeniden adlandırmak, silmek veya değiştirmek için özellik kılavuzunu aracılığıyla erişebilirsiniz. NerdDinner uygulamamız için yine de iyi veri modeli sınıflarını oluşturmakta olduğunuz varsayılan ilişkilendirme kuralları çalışır ve biz yalnızca varsayılan davranışı kullanabilirsiniz.
 
-### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext sınıfı
+### <a name="nerddinnerdatacontext-class"></a>NerdDinnerDataContext Class
 
 Visual Studio modelleri ve LINQ-SQL Tasarımcısı kullanılarak tanımlanan veritabanı ilişkiler temsil eden .NET sınıfları otomatik olarak oluşturur. Bir LINQ to SQL DataContext sınıfı, ayrıca her LINQ-SQL Tasarımcı dosya çözüme eklenmesi için oluşturulur. Biz bizim LINQ-SQL sınıfı öğesi "NerdDinner" adlı çünkü oluşturulan DataContext sınıfı "NerdDinnerDataContext" adı verilir. Bu NerdDinnerDataContext sınıfı veritabanı ile etkileşime gireceğini birincil yoludur.
 
@@ -228,6 +228,6 @@ Biz şimdi biz sorgu hem bizim veritabanını güncelleştirmek için kullanabil
 
 Şimdi bazı denetleyicilerinin ve görünümlerin bir HTML UI deneyimi çevresinde yapı kullanırız projesine ekleyelim.
 
->[!div class="step-by-step"]
-[Önceki](create-a-database.md)
-[sonraki](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [!div class="step-by-step"]
+> [Önceki](create-a-database.md)
+> [sonraki](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

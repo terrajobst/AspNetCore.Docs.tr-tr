@@ -12,9 +12,9 @@ Aşağıdaki tabloda, dosya ve klasörleri projesinde listeler. Bu öğretici i�
 | ----------------- | ------------ | 
 | wwwroot | Statik dosyaları içerir. Bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files). |
 | Sayfaları | Klasör için [Razor sayfalarının](xref:mvc/razor-pages/index). | 
-| *appSettings.JSON* | [Yapılandırma](xref:fundamentals/configuration/index) |
+| *appsettings.json* | [Yapılandırma](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Ana bilgisayar](xref:fundamentals/hosting) ASP.NET Core uygulama.|
-| *Haline* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|
+| *Startup.cs* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|
 
 ### <a name="the-pages-folder"></a>Sayfaları klasörü
 

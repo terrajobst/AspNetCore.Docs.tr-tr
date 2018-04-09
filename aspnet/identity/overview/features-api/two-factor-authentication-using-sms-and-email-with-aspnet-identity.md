@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
-title: "SMS ve e-posta ile ASP.NET Identity kullanan iki öğeli kimlik doğrulaması | Microsoft Docs"
+title: SMS ve e-posta ile ASP.NET Identity kullanan iki öğeli kimlik doğrulaması | Microsoft Docs
 author: HaoK
-description: "Bu öğretici SMS ve e-posta kullanarak iki faktörlü kimlik doğrulamasını (2FA) ayarlamak nasıl yapacağınızı gösterir. Bu makalede Rick Anderson tarafından yazılan ( @RickAndMSFT ), başına..."
+description: Bu öğretici SMS ve e-posta kullanarak iki faktörlü kimlik doğrulamasını (2FA) ayarlamak nasıl yapacağınızı gösterir. Bu makalede Rick Anderson tarafından yazılan ( @RickAndMSFT ), başına...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2015
 ms.topic: article
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8f628d177004a8569dde2651469ed591e48591e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>SMS ve e-posta ile ASP.NET Identity kullanan iki öğeli kimlik doğrulaması
 ====================
@@ -52,11 +52,11 @@ Bu bölümde, biz ile çalışacak bir örnek indirmek için NuGet kullanma. Ba�
     `Install-Package SendGrid`  
     `Install-Package -Prerelease Microsoft.AspNet.Identity.Samples`  
   
- Bu öğreticide, kullanacağız [SendGrid](http://sendgrid.com/) e-posta göndermek için ve [Twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms metin için. `Identity.Samples` Çalışmalarımız ile kod paketi yükler.
+   Bu öğreticide, kullanacağız [SendGrid](http://sendgrid.com/) e-posta göndermek için ve [Twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) sms metin için. `Identity.Samples` Çalışmalarımız ile kod paketi yükler.
 3. Ayarlama [SSL kullanmak üzere proje](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. *İsteğe bağlı*:'ndaki yönergeleri izleyin my [e-posta onayı öğretici](account-confirmation-and-password-recovery-with-aspnet-identity.md) SendGrid kanca uygulamayı çalıştırın ve bir e-posta hesabını kaydetmek için.
 5. * İsteğe bağlı: * tanıtım e-posta bağlantısı onay kodu örnekten kaldırın ( `ViewBag.Link` hesap denetleyicisi kodu. Bkz: `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve razor görünümleri).
-6. * İsteğe bağlı: * kaldırmak `ViewBag.Status` yönetin ve hesap denetleyicilerinden gelen ve gelen kodu *Views\Account\VerifyCode.cshtml* ve *Views\Manage\VerifyPhoneNumber.cshtml* razor görünümleri. Alternatif olarak, tutabilirsiniz `ViewBag.Status` bu uygulamayı yerel olarak takma ve e-posta ve SMS iletileri göndermek zorunda kalmadan nasıl çalıştığını test etmek için görüntüleme.
+6. <em>İsteğe bağlı: * kaldırmak `ViewBag.Status` kod yönetin ve hesap denetleyicileri ve *Views\Account\VerifyCode.cshtml</em> ve <em>Views\Manage\VerifyPhoneNumber.cshtml</em> razor görünümleri. Alternatif olarak, tutabilirsiniz `ViewBag.Status` bu uygulamayı yerel olarak takma ve e-posta ve SMS iletileri göndermek zorunda kalmadan nasıl çalıştığını test etmek için görüntüleme.
 
 > [!NOTE]
 > Uyarı: Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, açıkça yapılan değişiklikleri çağıran bir güvenlik denetimi uygulanabilecek üretim uygulamaları gerekir.
@@ -70,44 +70,44 @@ Bu öğretici Twilio veya ASPSMS kullanma yönergeleri sağlar ancak herhangi bi
 
 1. **Bir SMS Sağlayıcısı ile bir kullanıcı hesabı oluşturma**  
   
- Oluşturma bir [Twilio](https://www.twilio.com/try-twilio) veya bir [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı.
+   Oluşturma bir [Twilio](https://www.twilio.com/try-twilio) veya bir [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı.
 2. **Ek paketler yükleme veya hizmet başvuruları ekleme**  
   
- Twilio:  
- Paket Yöneticisi konsolunda aşağıdaki komutu girin:  
+   Twilio:  
+   Paket Yöneticisi konsolunda aşağıdaki komutu girin:  
     `Install-Package Twilio`  
   
- ASPSMS:  
- Aşağıdaki hizmet başvurusu eklenmesi gerekir:  
+   ASPSMS:  
+   Aşağıdaki hizmet başvurusu eklenmesi gerekir:  
   
     ![](two-factor-authentication-using-sms-and-email-with-aspnet-identity/_static/image1.png)  
   
- Adresi:  
+   Adresi:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- Ad alanı:  
+   Ad alanı:  
     `ASPSMSX2`
 3. **SMS Sağlayıcısı kullanıcı kimlik bilgilerini açık**  
   
- Twilio:  
- Gelen **Pano** Twilio hesabınızı kopyalama sekmesinde **hesabının SID** ve **kimlik doğrulama belirteci**.  
+   Twilio:  
+   Gelen **Pano** Twilio hesabınızı kopyalama sekmesinde **hesabının SID** ve **kimlik doğrulama belirteci**.  
   
- ASPSMS:  
- Hesap ayarlarınızı, gitmek **Userkey** ve, kendi kendine tanımlı birlikte kopyalayın **parola**.  
+   ASPSMS:  
+   Hesap ayarlarınızı, gitmek **Userkey** ve, kendi kendine tanımlı birlikte kopyalayın **parola**.  
   
- Daha sonra bu değerler değişkenlerde depolarız `SMSAccountIdentification` ve `SMSAccountPassword` .
+   Daha sonra bu değerler değişkenlerde depolarız `SMSAccountIdentification` ve `SMSAccountPassword` .
 4. **Senderıd belirtme / gönderen**  
   
- Twilio:  
- Gelen **numaraları** sekmesinde, Twilio telefon numaranızı kopyalayın.  
+   Twilio:  
+   Gelen **numaraları** sekmesinde, Twilio telefon numaranızı kopyalayın.  
   
- ASPSMS:  
- İçinde **kilidini başlatıcılarını** menüsünde, bir veya daha fazla başlatıcılarını kilidini veya bir alfasayısal başlatanın (tüm ağları tarafından desteklenmez) seçin.  
+   ASPSMS:  
+   İçinde **kilidini başlatıcılarını** menüsünde, bir veya daha fazla başlatıcılarını kilidini veya bir alfasayısal başlatanın (tüm ağları tarafından desteklenmez) seçin.  
   
- Daha sonra bu değer değişken depolarız `SMSAccountFrom` .
+   Daha sonra bu değer değişken depolarız `SMSAccountFrom` .
 5. **SMS Sağlayıcısı kimlik bilgileri bir uygulamaya aktarma**  
   
- Kimlik bilgileri ve gönderen telefon numarasını uygulama kullan:
+   Kimlik bilgileri ve gönderen telefon numarasını uygulama kullan:
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample1.cs)]
 
@@ -115,9 +115,9 @@ Bu öğretici Twilio veya ASPSMS kullanma yönergeleri sağlar ancak herhangi bi
     > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Hesabı ve kimlik bilgileri örneği basit tutmak için yukarıdaki kod eklenir. Tan Atten'ın bkz [ASP.NET MVC: kaynak denetimi özel ayarları dışında tutmak](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 6. **Veri aktarımı için SMS sağlayıcı uygulaması**  
   
- Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* dosya.  
+   Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* dosya.  
   
- Ya da bağlı olarak kullanılan SMS sağlayıcı etkinleştirme **Twilio** veya **ASPSMS** bölümü: 
+   Ya da bağlı olarak kullanılan SMS sağlayıcı etkinleştirme **Twilio** veya **ASPSMS** bölümü: 
 
     [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample2.cs)]
 7. Uygulamayı çalıştırın ve daha önce kaydettiğiniz hesabıyla oturum açın.

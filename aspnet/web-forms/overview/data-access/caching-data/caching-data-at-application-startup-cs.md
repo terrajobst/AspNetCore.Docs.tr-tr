@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
-title: "Uygulama başlangıcında (C#) verileri önbelleğe alma | Microsoft Docs"
+title: Uygulama başlangıcında (C#) verileri önbelleğe alma | Microsoft Docs
 author: rick-anderson
-description: "Herhangi bir Web uygulamasında bazı verileri sık kullanılır ve bazı verileri sık kullanılır. Biz bizim ASP.NET uygulama b performansını artırabilir..."
+description: Herhangi bir Web uygulamasında bazı verileri sık kullanılır ve bazı verileri sık kullanılır. Biz bizim ASP.NET uygulama b performansını artırabilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3a618ad702763a59b87336784afd1cb74de06d4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8d962a182b5136d3e44ce678a355c9679b4c8be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching-data-at-application-startup-c"></a>Verileri önbelleğe alma uygulama başlangıcında (C#)
 ====================
@@ -129,11 +129,11 @@ Ekle `Global.asax` dosyasını Visual Studio s Solution Explorer Web sitesi proj
 
 Varsayılan `Global.asax` dosya şablonu içeren sunucu tarafı içinde beş yöntemlerini `<script>` etiketi:
 
-- **`Application_Start`**web uygulaması ilk başladığında yürütür
-- **`Application_End`**uygulamanın kapanacağını çalışır
-- **`Application_Error`**İşlenmeyen bir özel durum uygulama eriştiğinde yürütür
-- **`Session_Start`**Yeni bir oturum oluşturulduğunda yürütür
-- **`Session_End`**bir oturum süresi doldu veya terk çalışır
+- **`Application_Start`** web uygulaması ilk başladığında yürütür
+- **`Application_End`** uygulamanın kapanacağını çalışır
+- **`Application_Error`** İşlenmeyen bir özel durum uygulama eriştiğinde yürütür
+- **`Session_Start`** Yeni bir oturum oluşturulduğunda yürütür
+- **`Session_End`** bir oturum süresi doldu veya terk çalışır
 
 `Application_Start` Olay işleyicisi s uygulaması yaşam döngüsü boyunca yalnızca bir kez çağrılır. Uygulama içeriğini değiştirerek gerçekleşebilir bir ASP.NET kaynağı uygulamadan istenir ve uygulamayı yeniden başlatılana kadar çalışmaya devam eder ilk kez başlar `/Bin` klasörü değiştirme `Global.asax`, değiştirme içinde içeriği `App_Code` klasör veya değiştirme `Web.config` diğer nedenleri arasında dosya. Başvurmak [ASP.NET uygulama yaşam döngüsü genel bakış](https://msdn.microsoft.com/library/ms178473.aspx) uygulama yaşam döngüsü hakkında ayrıntılı bilgiler için.
 
@@ -194,12 +194,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve Zack CAN yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](caching-data-in-the-architecture-cs.md)
-[sonraki](using-sql-cache-dependencies-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](caching-data-in-the-architecture-cs.md)
+> [sonraki](using-sql-cache-dependencies-cs.md)

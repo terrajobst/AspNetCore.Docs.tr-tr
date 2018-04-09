@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
-title: "Çıkış önbelleğe alma (VB) ile performansı iyileştirme | Microsoft Docs"
+title: Çıkış önbelleğe alma (VB) ile performansı iyileştirme | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, nasıl, önemli ölçüde ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma yararlanarak artırabilir öğrenin. ..."
+description: Bu öğreticide, nasıl, önemli ölçüde ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma yararlanarak artırabilir öğrenin. ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3bd4b6c3ac52577cbee451d2986f1167e441f0e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ee933b477307f5c3f2377e112a1a98d3d6bc337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-vb"></a>Çıktı önbelleği (VB) ile performansı iyileştirme
 ====================
@@ -35,12 +35,12 @@ Bu öğreticinin nasıl önemli ölçüde performansı ASP.NET MVC uygulamasın�
 
 Çıktı ekleyerek önbelleğe almayı etkinleştirmek bir &lt;OutputCache&gt; tek tek denetleyici eylem ya da tüm denetleyicinin Sınıf özniteliği. Örneğin, denetleyici listeleme 1 İNDİS() adlı bir eylem kullanıma sunar. İNDİS() eylem çıktısını 10 saniye için önbelleğe alınır.
 
-**1 – Controllers\HomeController.vb listeleme**
+**Listing 1 – Controllers\HomeController.vb**
 
 [!code-vb[Main](improving-performance-with-output-caching-vb/samples/sample1.vb)]
 
 
-ASP.NET MVC Beta sürümlerinde, çıktı önbelleği için bir URL gibi çalışmaz [http://www.MySite.com/](http://www.mysite.com/). Bunun yerine, gibi bir URL girmelisiniz [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index).
+ASP.NET MVC Beta sürümlerinde, çıktı önbelleği için bir URL gibi çalışmaz [ http://www.MySite.com/ ](http://www.mysite.com/). Bunun yerine, gibi bir URL girmelisiniz [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index).
 
 
 Listeleme 1'de İNDİS() eylem çıktısını 10 saniye için önbelleğe alınır. İsterseniz, daha uzun bir önbellek süresi belirtebilirsiniz. Bir denetleyici eylemi bir gün çıkışını önbelleğe almak istiyorsanız, örneğin, ardından 86400 saniye cinsinden önbellek süresi belirleyebilirsiniz (60 saniye \* 60 dakika \* 24 saat).
@@ -49,7 +49,7 @@ Var olan içeriğin garanti, belirttiğiniz süre miktarı için önbelleğe al�
 
 Listeleme 1 giriş denetleyicisi listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Dizin görünümünün yalnızca geçerli saati görüntüler (bkz: Şekil 1).
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](improving-performance-with-output-caching-vb/samples/sample2.aspx)]
 
@@ -134,7 +134,7 @@ Daha fazla önbelleğe alma işleminde VaryByParam özelliği sonuçları kullan
 
 Aşağıdaki değerlere VaryByParam özelliği de ayarlayabilirsiniz:
 
-> \*= Bir form veya sorgu dizesi parametresi değişir her farklı bir önbelleğe alınan sürüm oluşturun.
+> \* = Bir form veya sorgu dizesi parametresi değişir her farklı bir önbelleğe alınan sürüm oluşturun.
 > 
 > Hiçbiri = hiçbir zaman farklı önbelleğe alınmış sürümlerini oluşturun
 > 
@@ -167,6 +167,6 @@ Listeleme 7 denetleyicisi tarafından sunulan İNDİS() eylemi çağırmak olurs
 
 Çıktı önbelleği, ASP.NET MVC uygulamalarınızın performansını önemli ölçüde artırmak çok kolay bir yöntem sağlar. Bu öğreticide kullanmak üzere öğrendiniz &lt;OutputCache&gt; denetleyici eylemleri çıkışını önbelleğe almak için öznitelik. Ayrıca özelliklerini değiştirmek nasıl öğrendiniz &lt;OutputCache&gt; nasıl içeriği önbelleğe değiştirmek için süre ve VaryByParam özellikler gibi öznitelik. Son olarak, web yapılandırma dosyasında önbellek profilleri tanımlamak nasıl öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](understanding-action-filters-vb.md)
-[sonraki](adding-dynamic-content-to-a-cached-page-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-action-filters-vb.md)
+> [sonraki](adding-dynamic-content-to-a-cached-page-vb.md)

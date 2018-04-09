@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
-title: "Başka bir denetim (C#) animasyonda tetikleme | Microsoft Docs"
+title: Başka bir denetim (C#) animasyonda tetikleme | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Genellikle, başlatma bir..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Genellikle, başlatma bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/triggering-an-animation-in-another-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d243eebc42b66f1e86b38a1b7531e527144ea7e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e94046ca70607e37c1b5ef57d5cedef67a236b94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="triggering-an-animation-in-another-control-c"></a>Başka bir denetim (C#) animasyonda tetikleme
 ====================
@@ -64,6 +64,6 @@ Tek tek animasyonları göründüğü özel sıra unutmayın. İlk olarak animas
 
 Fare tıklatma düğmesine paneli animasyonu başlatır ([tam boyutlu görüntüyü görüntülemek için tıklatın](triggering-an-animation-in-another-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](disabling-actions-during-animation-cs.md)
-[sonraki](modifying-animations-from-the-server-side-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](disabling-actions-during-animation-cs.md)
+> [sonraki](modifying-animations-from-the-server-side-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
-title: "AJAX senaryolarında eşleme uygulamak için kullandığınız | Microsoft Docs"
+title: AJAX senaryolarında eşleme uygulamak için kullandığınız | Microsoft Docs
 author: microsoft
-description: "11. adım, AJAX eşleme destek oluşturma, düzenleme veya l görmek için azalma görüntüleme kullanıcıları etkinleştirme bizim NerdDinner uygulamasına tümleştirmek gösterilmektedir..."
+description: 11. adım, AJAX eşleme destek oluşturma, düzenleme veya l görmek için azalma görüntüleme kullanıcıları etkinleştirme bizim NerdDinner uygulamasına tümleştirmek gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-implement-mapping-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: cc55560ce691826b6d52971b16d0515ed73d72a6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4b3f1e46886c4c1f054e43768b0a44695d71bf09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a>AJAX senaryolarında eşleme uygulamak için kullanın
 ====================
@@ -115,7 +115,7 @@ Bizim AJAX uygulama devre dışı tamamlamak için bir harita grafik bunları ya
 
 ![](use-ajax-to-implement-mapping-scenarios/_static/image7.png)
 
-Biz azalma konum temelli RADIUS Ara verimli bir şekilde gerçekleştirmek için veritabanı ve veri deposu katman içinde destek uygulayarak başlarsınız. Biz yeni kullanabilirsiniz [Jeo-uzamsal özellikleri SQL 2008'in](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) Bunu uygulamak için veya alternatif olarak biz Gary Dryden burada makalesinde açıklanan bir SQL işlevi yaklaşım kullanabilirsiniz: [http://www.codeproject.com/KB/cs/ distancebetweenlocations.aspx](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) ve LINQ-SQL ile burada kullanma hakkında Ramiz Conery blogged: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
+Biz azalma konum temelli RADIUS Ara verimli bir şekilde gerçekleştirmek için veritabanı ve veri deposu katman içinde destek uygulayarak başlarsınız. Biz yeni kullanabilirsiniz [Jeo-uzamsal özellikleri SQL 2008'in](https://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx) Bunu uygulamak için veya alternatif olarak biz Gary Dryden burada makalesinde açıklanan bir SQL işlevi yaklaşım kullanabilirsiniz: [ http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx ](http://www.codeproject.com/KB/cs/distancebetweenlocations.aspx) ve Ramiz Conery LINQ-SQL ile burada kullanma hakkında blogged: [http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/](http://blog.wekeroad.com/2007/08/30/linq-and-geocoding/)
 
 Bu teknik uygulamak için biz "Server" Visual Studio içinde Gezgini, NerdDinner veritabanını seçin ve ardından altında "işlevleri" alt düğümünü sağ tıklatın ve yeni bir "skaler değerli işlev" oluşturmak için seçin:
 
@@ -193,6 +193,6 @@ Yemeği başlığını tıklatarak Kabarcık veya HTML listesinde sağ taraftaki
 
 Şimdi NerdDinner uygulamamız tüm uygulama işlevselliğini uyguladık. Şimdi nasıl etkinleştirme göz birim artık otomatik sınama.
 
->[!div class="step-by-step"]
-[Önceki](use-ajax-to-deliver-dynamic-updates.md)
-[sonraki](enable-automated-unit-testing.md)
+> [!div class="step-by-step"]
+> [Önceki](use-ajax-to-deliver-dynamic-updates.md)
+> [sonraki](enable-automated-unit-testing.md)

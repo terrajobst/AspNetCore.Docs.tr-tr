@@ -1,7 +1,7 @@
 ---
-title: "Tepki-ile-Redux proje şablonu kullanın"
+title: ASP.NET Core ile tepki-ile-Redux proje şablonu kullanın
 author: SteveSandersonMS
-description: "ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile tepki Redux ve oluşturma tepki-uygulama için başlama öğrenin."
+description: ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile tepki Redux ve oluşturma tepki-uygulama için başlama öğrenin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>Tepki-ile-Redux proje şablonu kullanın
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki-ile-Redux proje şablonu kullanın
 
 > [!NOTE]
 > Bu belge hakkında tepki-ile-Redux proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni tepki-ile-Redux hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.

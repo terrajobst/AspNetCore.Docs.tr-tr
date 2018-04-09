@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
-title: "Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme | Microsoft Docs"
+title: Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici, kullanıcı ve rol verileri SQL üyelik yeni ASP.NET Kimliğe s kullanarak oluşturduğunuz varolan bir web uygulamasıyla geçirmek için adımlar gösterilmektedir..."
+description: Bu öğretici, kullanıcı ve rol verileri SQL üyelik yeni ASP.NET Kimliğe s kullanarak oluşturduğunuz varolan bir web uygulamasıyla geçirmek için adımlar gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/19/2014
 ms.topic: article
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 3638c6779a0fcedaaa49623126b28ecf09a4954f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme
 ====================
@@ -67,14 +67,14 @@ Bu öğretici için size kullanıcı ve rol verileri oluşturmak için Visual St
 
 1. Çözüm Gezgini'nde projeye sağ &gt; **NuGet paketlerini Yönet**. Arama kutusuna "Asp.net Identity" girin. Sonuçlar listesinde istediğiniz paketi seçin ve Yükle'yi tıklatın. "Kabul ediyorum" düğmesini tıklatarak Lisans Sözleşmesi'ni kabul edin. Bu paket bağımlılık paketleri yükler Not: EntityFramework ve Microsoft ASP.NET Identity Core. Benzer şekilde (OAuth oturum açma etkinleştirmek istemiyorsanız, son 4 OWIN paketleri atlayın) aşağıdaki paketler yükleyin:
 
-    - Microsoft.AspNet.Identity.Owin
-    - Microsoft.Owin.Host.SystemWeb
-    - Microsoft.Owin.Security.Facebook
-    - Microsoft.Owin.Security.Google
-    - Microsoft.Owin.Security.MicrosoftAccount
-    - Microsoft.Owin.Security.Twitter
+   - Microsoft.AspNet.Identity.Owin
+   - Microsoft.Owin.Host.SystemWeb
+   - Microsoft.Owin.Security.Facebook
+   - Microsoft.Owin.Security.Google
+   - Microsoft.Owin.Security.MicrosoftAccount
+   - Microsoft.Owin.Security.Twitter
 
-    ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
+     ![](migrating-an-existing-website-from-sql-membership-to-aspnet-identity/_static/image6.png)
 
 ### <a name="migrate-database-to-the-new-identity-system"></a>Yeni kimlik sistemi veritabanını geçirme
 
@@ -102,7 +102,7 @@ ASP.NET Identity sınıfları kutusu mevcut kullanıcıların dışında veriler
 
 Biz tabloları her Bu modeller için özellikler karşılık gelen sütunlara sahip olması gerekir. Sınıfları ve tablolar arasında eşleme tanımlanan `OnModelCreating` yöntemi `IdentityDBContext`. Bu yapılandırma fluent API yöntemi olarak bilinir ve daha fazla bilgi bulunabilir [burada](https://msdn.microsoft.com/data/jj591617.aspx). Aşağıda belirtildiği gibi sınıfları için yapılandırma gereklidir
 
-| **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
+| **sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Kimliği |  |
 | IdentityRole | AspnetRoles | Kimliği |  |
@@ -193,7 +193,7 @@ Bizim örnek AspNetRoles, AspNetUserClaims, AspNetLogins ve AspNetUserRole tablo
 
 ### <a name="create-new-account-management-pages"></a>Yeni hesabı yönetim sayfaları oluşturma
 
-Sonraki adım geçiş, bir kullanıcının kayıt ve oturum açma sağlayacaktır hesabı yönetim sayfaları eklemektir. SQL üyelik eski hesabı sayfaları ile yeni kimlik sistemi çalışmıyor denetimleri kullanın. Yeni kullanıcı eklemek için bu bağlantıyı öğreticiye yönetim sayfaları takip [https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) adımından başlayarak ' Uygulamanız için kullanıcılar kayıt için Web Forms ekleme ' bu yana biz zaten projenin oluşturulur ve NuGet paketleri eklenir.
+Sonraki adım geçiş, bir kullanıcının kayıt ve oturum açma sağlayacaktır hesabı yönetim sayfaları eklemektir. SQL üyelik eski hesabı sayfaları ile yeni kimlik sistemi çalışmıyor denetimleri kullanın. Yeni kullanıcı eklemek için bu bağlantıyı öğreticiye yönetim sayfaları takip [ https://www.asp.net/identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project ](../getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md) 'Web Forms, uygulamanızın kullanıcılara kaydettirmek için ekleme' adım başlayarak biz zaten projesi oluşturmuş ve NuGet eklenmiş olduğundan paketler.
 
 Burada sahibiz proje ile çalışmak örnek bazı değişiklikler yapmanız gerekir.
 

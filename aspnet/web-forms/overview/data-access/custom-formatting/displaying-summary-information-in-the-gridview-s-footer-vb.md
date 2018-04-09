@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
-title: "GridView'ın altbilgi (VB) özet bilgilerini görüntüleme | Microsoft Docs"
+title: GridView'ın altbilgi (VB) özet bilgilerini görüntüleme | Microsoft Docs
 author: rick-anderson
-description: "Özet bilgileri genellikle özet satırı raporda sonundaki görüntülenir. GridView denetiminin pr geçebiliriz olan hücrelere bir alt satır içerebilir..."
+description: Özet bilgileri genellikle özet satırı raporda sonundaki görüntülenir. GridView denetiminin pr geçebiliriz olan hücrelere bir alt satır içerebilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e5b7e39a44d43a857c62842ea3e1dddcacf05c9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a1a3f3c680f367395f984254da6cdcdd3c08d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>GridView'ın altbilgi (VB) özet bilgileri görüntüleme
 ====================
@@ -101,7 +101,7 @@ Bu yana `GetProductsByCategoryID(categoryID)` yöntemi bir giriş parametresi al
 
 [![Adlı kullanıcı, Categoryıd'si parametre değeri seçili kategorileri DropDownList Al](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**Şekil 8**: Get  *`categoryID`*  seçili kategorileri DropDownList parametre değerinin ([tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**Şekil 8**: Get *`categoryID`* seçili kategorileri DropDownList parametre değerinin ([tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 Sihirbazı tamamladıktan sonra GridView bir BoundField her ürün özellikleri için sahip olur. Bu nedenle, yalnızca bu BoundFields şimdi temizlemek `ProductName`, `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` BoundFields görüntülenir. Herhangi bir alan düzeyindeki ayarı kalan BoundFields eklemekten çekinmeyin (biçimlendirme gibi `UnitPrice` bir para birimi olarak). Bu değişiklikleri yaptıktan sonra GridView'ın bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
@@ -114,7 +114,7 @@ Bu noktada seçilen kategoriye ait bu ürünler için sipariş adı, birim fiyat
 
 [![Adlı kullanıcı, Categoryıd'si parametre değeri seçili kategorileri DropDownList Al](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**Şekil 9**: Get  *`categoryID`*  seçili kategorileri DropDownList parametre değerinin ([tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**Şekil 9**: Get *`categoryID`* seçili kategorileri DropDownList parametre değerinin ([tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>2. adım: altbilgi GridView görüntüleme
@@ -177,10 +177,10 @@ Oluşturma bir `RowDataBound` GridView Tasarımcısı'nda, Özellikler penceresi
 
 Çalışan bir toplam korumak için olay işleyicisini kapsamı dışında değişkenlerini tanımlamak ihtiyacımız. Aşağıdaki dört sayfa düzeyi değişkenleri oluşturun:
 
-- `_totalUnitPrice`, türü`Decimal`
-- `_totalNonNullUnitPriceCount`, türü`Integer`
-- `_totalUnitsInStock`, türü`Integer`
-- `_totalUnitsOnOrder`, türü`Integer`
+- `_totalUnitPrice`, türü `Decimal`
+- `_totalNonNullUnitPriceCount`, türü `Integer`
+- `_totalUnitsInStock`, türü `Integer`
+- `_totalUnitsOnOrder`, türü `Integer`
 
 Ardından, her veri satırı karşılaştı için bu üç değişkenleri artırmak için kod yazma `RowDataBound` olay işleyicisi.
 
@@ -221,7 +221,7 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-the-formview-s-templates-vb.md)

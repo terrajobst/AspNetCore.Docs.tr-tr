@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: "Kurumsal Web Dağıtımı: Senaryoya genel bakış | Microsoft Docs"
+title: 'Kurumsal Web Dağıtımı: Senaryoya genel bakış | Microsoft Docs'
 author: jrjlee
-description: "Bu öğreticiler örnek bir çözüm kurgusal kuruluş dağıtım senaryosu birlikte karmaşıklık gerçekçi düzeyine sahip bir ref sağlamak üzere kullanıyor..."
+description: Bu öğreticiler örnek bir çözüm kurgusal kuruluş dağıtım senaryosu birlikte karmaşıklık gerçekçi düzeyine sahip bir ref sağlamak üzere kullanıyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: f90db22bf98456661c530e728e854ce109aec6fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Kurumsal Web Dağıtımı: Senaryoya genel bakış
 ====================
@@ -122,6 +122,6 @@ Ayrıca, sık sık ve artımlı güncelleştirmeler olduğunda dağıtımını y
 - Dağıtım etkinliklerini günlüğe kaydetmek istediğiniz. Dağıtım işlemi, belirtilen alıcılara e-posta bildirimleri başarılı veya başarısız dağıtımlarını göndermesi gerekir.
 - Bir otomatik dağıtım başarısız olursa, dağıtım işlemi geçerli dağıtımı yeniden deneyin veya bunun yerine önceki web paketini dağıtmak gerekir.
 
->[!div class="step-by-step"]
-[Önceki](deploying-web-applications-in-enterprise-scenarios.md)
-[sonraki](application-lifecycle-management-from-development-to-production.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-web-applications-in-enterprise-scenarios.md)
+> [sonraki](application-lifecycle-management-from-development-to-production.md)

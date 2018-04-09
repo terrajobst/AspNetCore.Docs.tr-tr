@@ -1,7 +1,7 @@
 ---
-title: "Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması"
+title: Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 author: rick-anderson
-description: "Bu öğretici, bir ASP.NET Core Dış kimlik doğrulama sağlayıcıları ile OAuth 2.0 kullanan 2.x uygulamasının nasıl oluşturulacağını gösterir."
+description: Bu öğretici, bir ASP.NET Core Dış kimlik doğrulama sağlayıcıları ile OAuth 2.0 kullanan 2.x uygulamasının nasıl oluşturulacağını gösterir.
 manager: wpickett
 ms.author: riande
 ms.date: 11/01/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 76433f814d6850a449434c29eb0bd27570ce193a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -23,7 +23,7 @@ Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](
 
 Bu öğretici, bir ASP.NET Core, OAuth 2.0 Dış kimlik doğrulama sağlayıcıları kimlik bilgilerini kullanarak oturum açmalarını sağlar 2.x uygulamasının nasıl oluşturulacağını gösterir.
 
-[Facebook](facebook-logins.md), [Twitter](twitter-logins.md), [Google](google-logins.md), ve [Microsoft](microsoft-logins.md) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcıları gibi üçüncü taraf paketlerden kullanılabilir [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
+[Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcıları gibi üçüncü taraf paketlerden kullanılabilir [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 ![Facebook, Twitter, Google artı ve Windows için sosyal medya simgeleri](index/_static/social.png)
 
@@ -58,7 +58,7 @@ OAuth 2.0 HTTPS protokolü üzerinden kimlik doğrulaması için SSL kullanımı
 
 Not: kullanılarak oluşturulan projeleri **Web uygulaması** veya **Web API** ASP.NET 2.x SSL etkinleştirmek ve varsa https URL'si ile başlatmak için otomatik olarak yapılandırılır çekirdek için proje şablonları **tek tek Kullanıcı hesaplarını** seçeneği seçildiğinde üzerinde **kimlik doğrulamayı Değiştir iletişim** yukarıda gösterildiği gibi Proje Sihirbazı'nda.
 
-* İçindeki adımları izleyerek, sitenizde SSL iste [zorlamayı SSL bir ASP.NET Core uygulamasında](xref:security/enforcing-ssl) konu.
+* İçindeki adımları izleyerek, sitenizde SSL iste [Zorla SSL bir ASP.NET Core uygulamasında](xref:security/enforcing-ssl) konu.
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Oturum açma sağlayıcıları tarafından atanan belirteçleri depolamak için SecretManager kullanın
 
@@ -66,17 +66,17 @@ Sosyal oturum açma sağlayıcılarıyla atamak **uygulama kimliği** ve **uygul
 
 Bu değerler etkili bir şekilde *kullanıcı adı* ve *parola* uygulamanız kendi API erişip "uygulama yapılandırmasında yardımıyla bağlı gizli" oluşturan kullanır **Gizli Yöneticisi** doğrudan yapılandırma dosyalarını depolamak veya bunlara kodlamak yerine.
 
-Adımları [ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama](xref:security/app-secrets) konu böylece her oturum açma sağlayıcısı atanan belirteçleri depolayabilirsiniz.
+Adımları [ASP.NET Core geliştirme uygulama gizli anahtarları Güvenli Depolama](xref:security/app-secrets) konu böylece her oturum açma sağlayıcısı atanan belirteçleri depolayabilirsiniz.
 
 ## <a name="setup-login-providers-required-by-your-application"></a>Uygulamanızın gerektirdiği oturum açma sağlayıcılarıyla Kurulumu
 
 Uygulamanızı ilgili sağlayıcılarını kullanacak şekilde yapılandırmak için aşağıdaki konulara bakın:
 
-* [Facebook](facebook-logins.md) yönergeleri
-* [Twitter](twitter-logins.md) yönergeleri
-* [Google](google-logins.md) yönergeleri
-* [Microsoft](microsoft-logins.md) yönergeleri
-* [Diğer sağlayıcı](other-logins.md) yönergeleri
+* [Facebook](xref:security/authentication/facebook-logins) yönergeleri
+* [Twitter](xref:security/authentication/twitter-logins) yönergeleri
+* [Google](xref:security/authentication/google-logins) yönergeleri
+* [Microsoft](xref:security/authentication/microsoft-logins) yönergeleri
+* [Diğer sağlayıcı](xref:security/authentication/otherlogins) yönergeleri
 
 ## <a name="optionally-set-password"></a>İsteğe bağlı olarak parola ayarlama
 

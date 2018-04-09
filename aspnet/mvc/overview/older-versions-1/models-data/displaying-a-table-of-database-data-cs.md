@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
-title: "Bir tablo veritabanı verilerinin (C#) görüntüleyen | Microsoft Docs"
+title: Bir tablo veritabanı verilerinin (C#) görüntüleyen | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, ı veritabanı kayıt kümesini görüntülemek için iki yöntem gösterilmektedir. I HTML veritabanı kayıt kümesinin eri biçimlendirme için iki yöntem göster..."
+description: Bu öğreticide, ı veritabanı kayıt kümesini görüntülemek için iki yöntem gösterilmektedir. I HTML veritabanı kayıt kümesinin eri biçimlendirme için iki yöntem göster...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 37ea081df2ee26e186669b815a4d769e1976ae9c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1d5dc9dd4a82e4577c6c1a3b124d45fef0b0f67c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-c"></a>Bir tablo veritabanı verilerinin (C#) görüntüleme
 ====================
@@ -135,7 +135,7 @@ Menü seçeneğini seçerek uygulamanızı **yapı, yapı çözümü**. Uygulama
 
 Tıklattıktan sonra **Ekle** düğmesi, listeleme 2 görünümünde otomatik olarak oluşturulur. Bu görünüm filmler toplulukta tekrarlama ve her bir filmi özelliklerini görüntülemek için gerekli kodu içerir.
 
-**2 – Views\Movie\Index.aspx listeleme**
+**Listing 2 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-cs/samples/sample2.aspx)]
 
@@ -173,7 +173,7 @@ Kısmi listeleme 3'te kayıt tek bir satır için bir şablonu içerir.
 
 Listeleme 4 değiştirilmiş dizin görünümünde kısmi MovieTemplate kullanır.
 
-**4 – Views\Movie\Index.aspx listeleme**
+**Listing 4 – Views\Movie\Index.aspx**
 
 [!code-aspx[Main](displaying-a-table-of-database-data-cs/samples/sample4.aspx)]
 
@@ -189,6 +189,6 @@ Bir dize döndürmediğinden diğer yardımcı yöntemlerinin bir çoğunu Rende
 
 Bu öğreticinin amacı, bir HTML tablosunda veritabanı kayıt kümesinin nasıl görüntüleyebilirsiniz açıklamak için oluştu. İlk olarak, Microsoft Entity Framework yararlanarak bir denetleyici eylemi bir veritabanı kayıt kümesi döndürmek nasıl öğrendiniz. Ardından, Visual Studio yapı iskelesi öğeleri koleksiyonu otomatik olarak görüntüleyen bir görünüm oluşturmak için nasıl kullanılacağı hakkında bilgi edindiniz. Son olarak, kısmi yararlanarak görünümü basitleştirmek nasıl öğrendiniz. Kısmi bir şablon olarak kullanabilir, böylece her veritabanı kaydı biçimlendirebilirsiniz öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](creating-model-classes-with-linq-to-sql-cs.md)
-[sonraki](performing-simple-validation-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-model-classes-with-linq-to-sql-cs.md)
+> [sonraki](performing-simple-validation-cs.md)

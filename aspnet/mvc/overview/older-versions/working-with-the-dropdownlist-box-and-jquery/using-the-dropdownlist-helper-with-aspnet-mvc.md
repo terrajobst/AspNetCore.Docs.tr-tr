@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
-title: "DropDownList Yardımcısı ASP.NET MVC ile kullanma | Microsoft Docs"
+title: DropDownList Yardımcısı ASP.NET MVC ile kullanma | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 278d04aec68e93f3ebfd12d06a96b59f3bcbef4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 21373deeded801c5cea9e89f6dac0f3542a55ca5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını kullanma
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 Bu öğretici ile çalışma temellerini öğretmek [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) Yardımcısı ve [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) bir ASP.NET MVC Web uygulaması yok. Microsoft Visual Web Developer 2010 Express Service Pack öğreticiyi izlemek için Microsoft Visual Studio ücretsiz sürümü olan 1, kullanabilirsiniz. Başlamadan önce aşağıda listelenen önkoşulları kurduğunuzdan emin olun. Bunların tümünün aşağıdaki bağlantıyı tıklatarak yükleyin: [Web Platformu yükleyicisi](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Alternatif olarak, aşağıdaki bağlantıları kullanarak önkoşulları ayrı ayrı yükleyebilirsiniz:
 
-- [Visual Studio Web Developer Express SP1 Önkoşullar](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)<a id="post"></a>
+- [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack) <a id="post"></a>
 - [ASP.NET MVC 3 araçları güncelleştirme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=MVC3)
 - [SQL Server Compact 4.0](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLCE;SQLCEVSTools_4_0)(çalışma zamanı + araçları destekler)
 
@@ -193,7 +193,7 @@ Açık *Views\Home\MultiSelectCountry.cshtml* dosya ve ekleme bir `htmlAttribute
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Yukarıdaki kod öznitelik değeri ve HTML öznitelik ekliyoruz `class = "chzn-select"`. @ Karakteri sınıfı önceki Razor görüntüleme altyapısı ile ilgisi vardır. `class`olan bir [C# anahtar sözcüğü](https://msdn.microsoft.com/library/x53a06bb.aspx). @ Önek olarak içerirler sürece C# anahtar sözcükleri tanımlayıcıları kullanılamaz. Yukarıdaki örnekte `@class` geçerli bir tanımlayıcı değil ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
+Yukarıdaki kod öznitelik değeri ve HTML öznitelik ekliyoruz `class = "chzn-select"`. @ Karakteri sınıfı önceki Razor görüntüleme altyapısı ile ilgisi vardır. `class` olan bir [C# anahtar sözcüğü](https://msdn.microsoft.com/library/x53a06bb.aspx). @ Önek olarak içerirler sürece C# anahtar sözcükleri tanımlayıcıları kullanılamaz. Yukarıdaki örnekte `@class` geçerli bir tanımlayıcı değil ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
 
 Başvurular ekleyin *Chosen/chosen.jquery.js* ve *Chosen/chosen.css* dosyaları. *Chosen/chosen.jquery.js* ve uygulayan seçilen eklentisi, işlevsel olarak. *Chosen/chosen.css* dosyası stil sağlar. Altındaki bu başvuruları ekleyin *Views\Home\MultiSelectCountry.cshtml* dosya. Aşağıdaki kod, seçilen eklentisi başvuru gösterilmektedir.
 
@@ -217,5 +217,5 @@ Uygulamayı çalıştırın ve gidin `MultiSelectCountry` görünümü. Eklemeyi
 
 Sonraki bölümde ile ASP.NET MVC yapı iskelesi mekanizması nasıl çalıştığını görürsünüz **DropDownList** Yardımcısı.
 
->[!div class="step-by-step"]
-[Next](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Next](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

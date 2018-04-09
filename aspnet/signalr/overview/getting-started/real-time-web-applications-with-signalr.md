@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: "Laboratuvar durum: SignalR ile gerçek zamanlı Web uygulamaları | Microsoft Docs"
+title: 'Laboratuvar durum: SignalR ile gerçek zamanlı Web uygulamaları | Microsoft Docs'
 author: rick-anderson
-description: "Gerçek zamanlı Web uygulamaları, sunucu tarafı, gerçek zamanlı olarak olduğu sürece bağlı istemcilere içerik anında iletme yeteneği özelliği. ASP.NET geliştiricilerinin ASP..."
+description: Gerçek zamanlı Web uygulamaları, sunucu tarafı, gerçek zamanlı olarak olduğu sürece bağlı istemcilere içerik anında iletme yeteneği özelliği. ASP.NET geliştiricilerinin ASP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 22123a9c61e6830f3f9f66a45182e1e923950341
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5a2bc120ded18ad2302fd6c5cde65a5323e86ca8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Laboratuvar durum: SignalR ile gerçek zamanlı Web uygulamaları
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 [Kit eğitim Web Camps indirin](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > ![SignalR mimarisi](real-time-web-applications-with-signalr/_static/image1.png)
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -160,12 +160,12 @@ Bu görevde, SignalR çözüme eklemek ve yeni bir yanıtı sunucuya gönderildi
 
     *SignalR paket yükleme*
 
-    > [!NOTE]
-    > Yüklerken **SignalR** NuGet paketleri sürümünden 2.0.2 yepyeni bir MVC 5 uygulaması, el ile güncelleştirmeniz gerekecektir **OWIN** sürüm 2.0.1 paketlere (veya sonrası) SignalR yüklemeden önce. Bunu yapmak için aşağıdaki komut dosyasında yürütebilir **Paket Yöneticisi Konsolu**:
-    > 
-    > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
-    > 
-    > Gelecekteki bir SignalR sürümünde, OWIN bağımlılıkları otomatik olarak güncelleştirilir.
+   > [!NOTE]
+   > Yüklerken **SignalR** NuGet paketleri sürümünden 2.0.2 yepyeni bir MVC 5 uygulaması, el ile güncelleştirmeniz gerekecektir **OWIN** sürüm 2.0.1 paketlere (veya sonrası) SignalR yüklemeden önce. Bunu yapmak için aşağıdaki komut dosyasında yürütebilir **Paket Yöneticisi Konsolu**:
+   > 
+   > [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample2.ps1)]
+   > 
+   > Gelecekteki bir SignalR sürümünde, OWIN bağımlılıkları otomatik olarak güncelleştirilir.
 3. İçinde **Çözüm Gezgini**, genişletin **betikleri** klasörü ve dikkat edin, SignalR *js* dosyaları çözüme eklendi.
 
     ![SignalR JavaScript başvuran](real-time-web-applications-with-signalr/_static/image10.png "SignalR JavaScript başvurur")
@@ -349,7 +349,7 @@ Bu görevde için devre kartı olarak davranacak bir veritabanı oluşturacak **
     ![Hizmet Aracısı durumu sorgulama](real-time-web-applications-with-signalr/_static/image25.png "hizmet Aracısı durumu sorgulanıyor")
 
     *Hizmet Aracısı durumu sorgulanıyor*
-8. Varsa değerini **olan\_Aracısı\_etkin** veritabanınızdaki sütundur &quot;0&quot;, etkinleştirmek için aşağıdaki komutu kullanın. Değiştir  **&lt;YOUR veritabanı&gt;**  veritabanı oluşturulurken ayarlanan adı (ör: SignalR).
+8. Varsa değerini **olan\_Aracısı\_etkin** veritabanınızdaki sütundur &quot;0&quot;, etkinleştirmek için aşağıdaki komutu kullanın. Değiştir **&lt;YOUR veritabanı&gt;** veritabanı oluşturulurken ayarlanan adı (ör: SignalR).
 
     [!code-sql[Main](real-time-web-applications-with-signalr/samples/sample12.sql)]
 
@@ -369,7 +369,7 @@ Bu görevde, yapılandıracağınız **günlük test** SQL Server devre kartına
 
     [!code-powershell[Main](real-time-web-applications-with-signalr/samples/sample13.ps1)]
 2. Önceki adımda ancak bu kez projesi için tekrarlayın **GeekQuiz2**.
-3. SQL Server devre kartı yapılandırmak için açın **haline** dosyasının **GeekQuiz** proje ve aşağıdaki kodu ekleyin **yapılandırma** yöntemi. Değiştir  **&lt;YOUR veritabanı&gt;**  SQL Server devre kartı oluştururken kullandığınız veritabanı adıyla. İçin bu adımı yineleyin **GeekQuiz2** projesi.
+3. SQL Server devre kartı yapılandırmak için açın **haline** dosyasının **GeekQuiz** proje ve aşağıdaki kodu ekleyin **yapılandırma** yöntemi. Değiştir **&lt;YOUR veritabanı&gt;** SQL Server devre kartı oluştururken kullandığınız veritabanı adıyla. İçin bu adımı yineleyin **GeekQuiz2** projesi.
 
     (Kod parçacığını - *RealTimeSignalR - Ex2 - StartupConfiguration*)
 

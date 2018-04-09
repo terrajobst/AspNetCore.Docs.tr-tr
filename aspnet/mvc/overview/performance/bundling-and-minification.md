@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/bundling-and-minification
-title: "Paketleme ve küçültme | Microsoft Docs"
+title: Paketleme ve küçültme | Microsoft Docs
 author: Rick-Anderson
-description: "Paketleme ve küçültme olan iki teknikleri isteği yükleme süresini artırmak için ASP.NET 4.5 içinde kullanabilirsiniz. Paketleme ve küçültme tarafından reducin yükleme süresini artırır..."
+description: Paketleme ve küçültme olan iki teknikleri isteği yükleme süresini artırmak için ASP.NET 4.5 içinde kullanabilirsiniz. Paketleme ve küçültme tarafından reducin yükleme süresini artırır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>Paketleme ve küçültme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Paketleme ve küçültme olan iki teknikleri isteği yükleme süresini artırmak için ASP.NET 4.5 içinde kullanabilirsiniz. Paketleme ve küçültme sunucuya isteklerinin sayısını azaltmak ve istenilen varlıkların (örneğin, CSS ve JavaScript.) boyutunu azaltarak yükleme süresini artırır
 
@@ -65,7 +65,7 @@ Gereksiz boşluk ve açıklamaları kaldırma ek olarak, aşağıdaki parametrel
 
 Aşağıdaki tablo arasındaki tüm varlıklarını ayrı ayrı listeleme paketleme ve küçültme (B/M) örnek programı kullanarak birkaç önemli farklılık gösterir.
 
-|  | **B/M kullanma** | **B/M** | **Değiştirme** |
+|  | **B/M kullanma** | **B/M** | **değiştirme** |
 | --- | --- | --- | --- |
 | **Dosya istekleri** | 9 | 34 | 256% |
 | **KB Sent** | 3.26 | 11.92 | 266% |
@@ -98,7 +98,7 @@ Paketleme ve küçültme etkinleştirmek için ayarlanmış `debug` "false" değ
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> Sürece `EnableOptimizations` olan `true` veya hata ayıklama özniteliğinde [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosya ayarlanmış `false`, dosyaları paketlenebilir veya küçültülmüş. Ayrıca, dosyaların .min sürümünü kullanılmayacak, tam hata ayıklama sürümleri seçilir. `EnableOptimizations`hata ayıklama özniteliği geçersiz kılar [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosyası
+> Sürece `EnableOptimizations` olan `true` veya hata ayıklama özniteliğinde [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosya ayarlanmış `false`, dosyaları paketlenebilir veya küçültülmüş. Ayrıca, dosyaların .min sürümünü kullanılmayacak, tam hata ayıklama sürümleri seçilir. `EnableOptimizations` hata ayıklama özniteliği geçersiz kılar [derleme öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde *Web.config* dosyası
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Kullanarak paketleme ve küçültme ASP.NET Web formları ve Web sayfaları
@@ -186,7 +186,7 @@ Açıkça bir pakete ait her bir dosya ekleme, genellikle tercih edilen dosyalar
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- Joker karakteriyle Seçici "\*.css" klasöründeki her CSS dosyasında getirir dahil olmak üzere *Content\themes\base\jquery.ui.all.css* dosya. *Jquery.ui.all.css* dosyasını diğer CSS dosyaları aktarır.
+  Joker karakteriyle Seçici "\*.css" klasöründeki her CSS dosyasında getirir dahil olmak üzere *Content\themes\base\jquery.ui.all.css* dosya. *Jquery.ui.all.css* dosyasını diğer CSS dosyaları aktarır.
 
 ## <a name="bundle-caching"></a>Paketini önbelleğe alma
 
@@ -233,15 +233,15 @@ Paketleri tarafından gereksinim duyulan sayfaları bölümlenmiş. Örneğin, v
 
 `System.Web.Optimization` Ad alanı içinde System.Web.Optimization.DLL uygulanır. Bu WebGrease kitaplığı (WebGrease.dll) küçültme özellikleri için sırayla Antlr3.Runtime.dll kullanan yararlanır.
 
-*Twitter hızlı gönderileri yapın ve bağlantıları paylaşmak için kullandığım. My Twitter tanıtıcısı*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Twitter hızlı gönderileri yapın ve bağlantıları paylaşmak için kullandığım. My Twitter tanıtıcısı*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - Video:[paketleme ve en iyi duruma getirme](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) tarafından [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Web sayfaları siteye Web iyileştirme ekleme](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
 - [Ekleme paketleme ve küçültme Web formları için](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Performans etkileri paketleme ve küçültme Web gözatma](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) tarafından [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [CDN'ler kullanarak Web sitesi performansını artırmak için dolmadan](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) tarafından Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Performans etkileri paketleme ve küçültme Web gözatma](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) tarafından [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [CDN'ler kullanarak Web sitesi performansını artırmak için dolmadan](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) tarafından Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [RTT (iletim süreleriyle) simge durumuna küçült](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Katkıda Bulunanlar

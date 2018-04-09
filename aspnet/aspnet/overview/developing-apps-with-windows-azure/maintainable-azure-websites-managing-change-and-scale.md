@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: "Laboratuvar üzerinde aktarır: sürdürülebilir Azure Web siteleri: değişiklik ve ölçek yönetme | Microsoft Docs"
+title: 'Laboratuvar üzerinde aktarır: sürdürülebilir Azure Web siteleri: değişiklik ve ölçek yönetme | Microsoft Docs'
 author: rick-anderson
-description: "Bu laboratuar ortamında nasıl Microsoft Azure, derleme ve üretim Web siteleri dağıtma kolaylaştırır öğrenin."
+description: Bu laboratuar ortamında nasıl Microsoft Azure, derleme ve üretim Web siteleri dağıtma kolaylaştırır öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 4bce02b2c592ff04e0dbce78d18004c69268e4fd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a79921681b4e742b5cd23f7119d19f4dd74c3f83
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratuvar üzerinde aktarır: sürdürülebilir Azure Web siteleri: değişiklik ve ölçek yönetme
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 [Kit eğitim Web Camps indirin](http://aka.ms/webcamps-training-kit)
 
@@ -28,13 +28,13 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Azure, güvenli ve esnek geliştirme, dağıtımı ve ölçeklendirme herhangi bir boyutu web uygulaması için seçenekleri sunar. Altyapı yönetme uğraşmadan uygulamalar oluşturmak ve dağıtmak için varolan araçlarınızı yararlanın.
 > 
-> Bir üretim web uygulaması, sık kullanılan geliştirme aracını kullanarak oluşturduğunuz içeriği kolayca dağıtarak kendiniz dakika cinsinden sağlayın. Mevcut bir site için destek ile kaynak denetiminden doğrudan dağıtabilirsiniz **Git**, **GitHub**, **Bitbucket**, **TFS**ve hatta ** DropBox**. Doğrudan sık kullanılan IDE'yi veya komut dosyalarını kullanarak dağıtmak **PowerShell** Windows veya **CLI** üzerinde herhangi bir işletim sistemi çalıştıran araçları. Uygulama dağıtıldıktan sonra siteleriniz sürekli dağıtım desteği ile sürekli güncel tutun.
+> Bir üretim web uygulaması, sık kullanılan geliştirme aracını kullanarak oluşturduğunuz içeriği kolayca dağıtarak kendiniz dakika cinsinden sağlayın. Mevcut bir site için destek ile kaynak denetiminden doğrudan dağıtabilirsiniz **Git**, **GitHub**, **Bitbucket**, **TFS**ve hatta  **DropBox**. Doğrudan sık kullanılan IDE'yi veya komut dosyalarını kullanarak dağıtmak **PowerShell** Windows veya **CLI** üzerinde herhangi bir işletim sistemi çalıştıran araçları. Uygulama dağıtıldıktan sonra siteleriniz sürekli dağıtım desteği ile sürekli güncel tutun.
 > 
 > Azure ölçeklenebilir, dayanıklı bulut depolama, yedekleme ve kurtarma çözümleri büyük veya küçük herhangi bir veri sağlar. Bir üretim ortamında, tablolar, BLOB'lar ve SQL veritabanları gibi depolama hizmetleri uygulamaları dağıtırken, uygulamayı bulutta ölçek yardımcı olur.
 > 
 > SQL veritabanları ile dağıtırken, uygulamanın yeni sürümlerini üretken veritabanınızı güncel tutmak önemlidir. Teşekkürler **Entity Framework Code First Migrations**, ortamınızı dakika cinsinden güncelleştirmek için veri modelinizi dağıtımını ve geliştirme basitleştirilmiştir. Bu uygulamalı Laboratuvar web uygulamanızı Microsoft Azure üretim ortamlarında dağıtırken karşılaşabileceği farklı konuları gösterilir.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 > 
 > Daha fazla ayrıntılı kapsamını Bu konu için bkz: [Azure e-kitap ile yapı gerçek bulut uygulamaları](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -170,7 +170,7 @@ Bu görevde, etkinleştirme adımları boyunca geçer **Entity Framework Code Fi
     ![SQL Server nesne Gezgini'nde Aç](maintainable-azure-websites-managing-change-and-scale/_static/image4.png "SQL Server nesne Gezgini'nde Aç")
 
     *SQL Server nesne Gezgini'nde Aç*
-9. İçinde **SQL Server Nesne Gezgini** penceresinde sağ tıklayarak, yerel veritabanı örneğine bağlanın **SQL Server** düğümü ve seçerek **SQL Server Ekle... ** seçeneği.
+9. İçinde **SQL Server Nesne Gezgini** penceresinde sağ tıklayarak, yerel veritabanı örneğine bağlanın **SQL Server** düğümü ve seçerek **SQL Server Ekle...**  seçeneği.
 
     ![Bir SQL Server örneği ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image5.png "bir SQL Server örneği ekleme")
 
@@ -281,13 +281,13 @@ Bu görevde, bir web uygulaması oluşturacak **Azure App Service** Yönetim Por
     *Yeni web uygulamasını özelleştirme*
 5. Veritabanı ayarları için aşağıdaki bilgileri belirtin:
 
-    - İçinde **adı** metin kutusunda, bir veritabanı adı girin (örneğin *geekquiz\_db*)
-    - Sunucudaki **açılan** listesinde **yeni SQL veritabanı sunucusuna**. Alternatif olarak, var olan bir sunucu seçebilirsiniz.
-    - İçinde **veritabanı kullanıcı adı** ve **veritabanı parolasını** kutularına için SQL veritabanı sunucusu yönetici kullanıcı adı ve parola girin. Bir sunucu seçerseniz oluşturduysanız, parola girmesi istenir.
+   - İçinde **adı** metin kutusunda, bir veritabanı adı girin (örneğin *geekquiz\_db*)
+   - Sunucudaki **açılan** listesinde **yeni SQL veritabanı sunucusuna**. Alternatif olarak, var olan bir sunucu seçebilirsiniz.
+   - İçinde **veritabanı kullanıcı adı** ve **veritabanı parolasını** kutularına için SQL veritabanı sunucusu yönetici kullanıcı adı ve parola girin. Bir sunucu seçerseniz oluşturduysanız, parola girmesi istenir.
 
-    ![Veritabanı ayarlarını belirtme](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![Veritabanı ayarlarını belirtme](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-    *Veritabanı ayarlarını belirtme*
+     *Veritabanı ayarlarını belirtme*
 6. Devam etmek için **İleri** 'ye tıklayın.
 7. Seçin **yerel Git deposu** kullanın ve'ı tıklatın Kaynak denetimi için **sonraki**.
 
@@ -426,10 +426,10 @@ Bu görevde, web uygulamanızı hazırlanmış yayımlamayı etkinleştirir. Ard
     *Azure'a dağıtmaya*
 
     > [!NOTE]
-    > FTP ana bilgisayarına veya bir web uygulaması GIT deposuna içerik dağıttığınızda, kullanarak kimliğini doğrulaması gerekir **dağıtım kimlik bilgileri** web uygulamasından 's oluşturduğunuz **Hızlı Başlangıç** veya **Panosu ** yönetim sayfaları. Dağıtım kimlik bilgilerinizi bilmiyorsanız, bunları Yönetim Portalı'nı kullanarak kolayca sıfırlayabilirsiniz. Web uygulamasını açın **Pano** sayfasında ve tıklayın **dağıtım kimlik bilgilerinizi sıfırlayın** bağlantı. Yeni bir parola sağlayın ve tıklatın **Tamam**. Dağıtım kimlik bilgileri, aboneliğinizle ilişkilendirilmiş tüm web uygulamaları ile kullanım için geçerli değil.
+    > FTP ana bilgisayarına veya bir web uygulaması GIT deposuna içerik dağıttığınızda, kullanarak kimliğini doğrulaması gerekir **dağıtım kimlik bilgileri** web uygulamasından 's oluşturduğunuz **Hızlı Başlangıç** veya **Panosu**  yönetim sayfaları. Dağıtım kimlik bilgilerinizi bilmiyorsanız, bunları Yönetim Portalı'nı kullanarak kolayca sıfırlayabilirsiniz. Web uygulamasını açın **Pano** sayfasında ve tıklayın **dağıtım kimlik bilgilerinizi sıfırlayın** bağlantı. Yeni bir parola sağlayın ve tıklatın **Tamam**. Dağıtım kimlik bilgileri, aboneliğinizle ilişkilendirilmiş tüm web uygulamaları ile kullanım için geçerli değil.
 10. Web uygulaması için Azure başarıyla gönderilen doğrulamak için Yönetim Portalı'na geri dönün ve **Web siteleri**.
 11. Web uygulamanızı bulun ve hazırlama yuvasıyla görüntülemek için giriş genişletin. ' I tıklatın, **adı** yönetimi sayfasına gidin.
-12. Tıklatın **dağıtımları** görmek için **dağıtım geçmişi**. Olduğunu doğrulayın bir **etkin dağıtım** ile * &quot;ilk yürütme&quot;*.
+12. Tıklatın **dağıtımları** görmek için **dağıtım geçmişi**. Olduğunu doğrulayın bir **etkin dağıtım** ile  *&quot;ilk yürütme&quot;*.
 
     ![Etkin dağıtım](maintainable-azure-websites-managing-change-and-scale/_static/image40.png)
 
@@ -505,7 +505,7 @@ Bu görevde kodunu küçük bir parçasını yeniden düzenlemeniz **TriviaContr
     ![Kod seçme](maintainable-azure-websites-managing-change-and-scale/_static/image47.png)
 
     *Kod seçme*
-4. Seçili kodu sağ tıklayın, genişletin **yeniden düzenlemeniz** menü ve select **ayıklama yöntemi... **.
+4. Seçili kodu sağ tıklayın, genişletin **yeniden düzenlemeniz** menü ve select **ayıklama yöntemi...** .
 
     ![Yeni bir yöntem olarak kodu ayıklanıyor](maintainable-azure-websites-managing-change-and-scale/_static/image48.png)
 
@@ -624,18 +624,18 @@ Bu görevde, depolama hesabınıza bağlanmak için Sunucu Gezgini penceresini V
 
 1. Visual Studio örneğiyle geçin **GeekQuiz** önceki alıştırmada çözümden.
 2. Menü çubuğundan seçin **Görünüm** ve ardından **Sunucu Gezgini**.
-3. İçinde **Sunucu Gezgini**, sağ **Azure** düğümü ve select **Azure Bağlan... **. Aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
+3. İçinde **Sunucu Gezgini**, sağ **Azure** düğümü ve select **Azure Bağlan...** . Aboneliğinizle ilişkili Microsoft hesabı kullanarak oturum açın.
 
     ![Microsoft Azure'a Bağlan](maintainable-azure-websites-managing-change-and-scale/_static/image62.png)
 
     *Azure'a bağlanma*
-4. Genişletin **Azure** düğümünü sağ tıklatın **depolama** seçip **harici depolamayı Ekle... **.
+4. Genişletin **Azure** düğümünü sağ tıklatın **depolama** seçip **harici depolamayı Ekle...** .
 5. İçinde **yeni depolama hesabı Ekle** iletişim kutusunda, girin **hesap adı** ve **hesap anahtarı** önceki görev ve tıklatın Elde **Tamam**.
 
     ![Yeni depolama hesabı iletişim kutusu ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image63.png)
 
     *Yeni depolama hesabı iletişim kutusu ekleme*
-6. Depolama hesabınızın altında görünmelidir **depolama** düğümü. Depolama hesabınızı ve sağ **BLOB'lar** seçip **Blob kapsayıcı oluşturun... **.
+6. Depolama hesabınızın altında görünmelidir **depolama** düğümü. Depolama hesabınızı ve sağ **BLOB'lar** seçip **Blob kapsayıcı oluşturun...** .
 
     ![BLOB kapsayıcı oluşturun](maintainable-azure-websites-managing-change-and-scale/_static/image64.png "Blob kapsayıcı oluşturun")
 
@@ -687,7 +687,7 @@ Bu görevde, depolama hesabınıza bağlanmak için Sunucu Gezgini penceresini V
 
 Bu görevde, yapılandıracağınız **GeekQuiz** görüntüyü kullanmak için çözüm karşıya Azure Blob depolama alanına (yerine web uygulamasında bulunan görüntü) bir ASP.NET URL yeniden yazma kuralı ekleyerek **web.config**dosya.
 
-1. Visual Studio'da açın **Web.config** içinde dosya **GeekQuiz** proje ve bulun ** &lt;system.webServer&gt; ** öğesi.
+1. Visual Studio'da açın **Web.config** içinde dosya **GeekQuiz** proje ve bulun **&lt;system.webServer&gt;** öğesi.
 2. Bir URL ile depolama hesabınızın adını yer tutucu güncelleştirme kuralı, yeniden eklemek için aşağıdaki kodu ekleyin.
 
     (Kod parçacığını - *WebSitesInProduction - Ex4 - UrlRewriteRule*)
@@ -770,7 +770,7 @@ Bu görevde alıştırma 2'de oluşturulan web uygulaması için otomatik ölçe
 
 Şimdi **otomatik ölçeklendirme** bırakıldı oluşturacağınız yapılandırılmış, bir **Web performansı ve yük testi projesi** bazı CPU yükünü web uygulamanızı oluşturmak için Visual Studio'da.
 
-1. Açık **Visual Studio Ultimate 2013** seçip **dosya | Yeni | Proje... ** yeni bir çözüm başlatmak için.
+1. Açık **Visual Studio Ultimate 2013** seçip **dosya | Yeni | Proje...**  yeni bir çözüm başlatmak için.
 
     ![Yeni proje oluşturma](maintainable-azure-websites-managing-change-and-scale/_static/image79.png "yeni proje oluşturma")
 
@@ -785,31 +785,31 @@ Bu görevde alıştırma 2'de oluşturulan web uygulaması için otomatik ölçe
     ![Bir istek için WebTest1'i ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "WebTest1'i için bir istek ekleme")
 
     *Bir istek için WebTest1'i ekleme*
-4. İçinde **özellikleri** penceresi yeni istek düğümünün güncelleştirme **Url** , web uygulamanızın URL'sine işaret edecek şekilde özelliği (örneğin * [http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/) *).
+4. İçinde **özellikleri** penceresi yeni istek düğümünün güncelleştirme **Url** , web uygulamanızın URL'sine işaret edecek şekilde özelliği (örneğin *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
 
     ![Url özelliğini değiştirmek](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "Url özelliğini değiştirme")
 
     *Url özelliğini değiştirme*
-5. İçinde **WebTest1.webtest** penceresinde sağ tıklayın **WebTest1'i** tıklatıp **döngü Ekle... **.
+5. İçinde **WebTest1.webtest** penceresinde sağ tıklayın **WebTest1'i** tıklatıp **döngü Ekle...** .
 
     ![Döngü WebTest1'i için ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image83.png "WebTest1'i için bir döngü ekleme")
 
     *Döngü WebTest1'i için ekleme*
 6. İçinde **koşullu Kuralı Ekle ve döngü öğeler** iletişim kutusunda **For döngüsü** kural ve aşağıdaki özellikleri değiştirin.
 
-    1. **Değeri sonlandırma:** 1000
-    2. **Bağlam parametresi adı:** yineleyici
-    3. **Artış değeri:** 1
+   1. **Değeri sonlandırma:** 1000
+   2. **Bağlam parametresi adı:** yineleyici
+   3. **Artış değeri:** 1
 
-    ![For döngüsü kuralı seçip özelliklerini güncelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For döngüsü kuralı seçip özelliklerini güncelleştirme")
+      ![For döngüsü kuralı seçip özelliklerini güncelleştirme](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "For döngüsü kuralı seçip özelliklerini güncelleştirme")
 
-    *For döngüsü kuralı seçip özelliklerini güncelleştirme*
+      *For döngüsü kuralı seçip özelliklerini güncelleştirme*
 7. Altında **Döngüdeki öğeler** bölümünde, daha önce oluşturduğunuz döngü için ilk ve son öğeyi olmasını isteği seçin. Devam etmek için **Tamam** 'a tıklayın.
 
     ![Döngünün ilk ve son öğeler seçme](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "döngünün ilk ve son öğeler seçme")
 
     *Döngünün ilk ve son öğeler seçme*
-8. İçinde **Çözüm Gezgini**, sağ tıklatın **WebAndLoadTestProject** projesi, genişletin **Ekle** menü ve select **yük testi... **.
+8. İçinde **Çözüm Gezgini**, sağ tıklatın **WebAndLoadTestProject** projesi, genişletin **Ekle** menü ve select **yük testi...** .
 
     ![Bir yük testi WebAndLoadTestProject projesine ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image86.png "bir yük testi WebAndLoadTestProject projesine ekleme")
 
@@ -834,7 +834,7 @@ Bu görevde alıştırma 2'de oluşturulan web uygulaması için otomatik ölçe
     ![Test karışımı modeli seçme](maintainable-azure-websites-managing-change-and-scale/_static/image90.png "test karışımı modeli seçme")
 
     *Test karışımı modeli seçme*
-13. İçinde **Test karışımı modeli** sayfasında, **Ekle... ** test Karışıma eklemek için.
+13. İçinde **Test karışımı modeli** sayfasında, **Ekle...**  test Karışıma eklemek için.
 
     ![Bir testi için test karışımını ekleme](maintainable-azure-websites-managing-change-and-scale/_static/image91.png "bir testi için test karışımını ekleme")
 

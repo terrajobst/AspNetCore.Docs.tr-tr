@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
-title: "MVC veritabanı ilk site için Azure yayımlama | Microsoft Docs"
+title: MVC veritabanı ilk site için Azure yayımlama | Microsoft Docs
 author: tfitzmac
-description: "ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri..."
+description: ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>MVC veritabanı ilk site için Azure yayımlama
 ====================
@@ -152,7 +152,7 @@ Bir süredir çalıştırdıktan sonra yayımlama sonuçları görüntülenir.
 
 ![Yeni tablolar](publish-to-azure/_static/image22.png)
 
-Artık Azure'a dağıtılan web uygulamasını test etmek hazırsınız. Azure web uygulamasında (örneğin, http://contosositeexample.azurewebsites.net/) gidin. Öğrenciler listesi bağlantısına tıklayın ve öğrenciler için dizin görünümünün görmeniz gerekir.
+Artık Azure'a dağıtılan web uygulamasını test etmek hazırsınız. Azure web uygulamasında gidin (gibi http://contosositeexample.azurewebsites.net/). Öğrenciler listesi bağlantısına tıklayın ve öğrenciler için dizin görünümünün görmeniz gerekir.
 
 ![Görünümü](publish-to-azure/_static/image23.png)
 
@@ -166,5 +166,5 @@ Code First geliştirme giriş örneği için bkz: [ASP.NET MVC 5 ile çalışmay
 
 Daha gelişmiş bir örnek için bkz: [bir ASP.NET MVC 4 uygulama için bir Entity Framework veri modeli oluşturma](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Veritabanı ilk verilerle çalışmak için kullandığınız DbContext API Code First verilerle çalışmak için kullandığınız API ile aynı olduğunu unutmayın. Veritabanı ilk kullanmayı düşündüğünüz olsa bile, vb. bir Code First öğretici öğesinden eşzamanlılık çakışmalarını işleme okuma ve ilgili verileri güncelleştirme gibi daha karmaşık senaryolara nasıl ele alınacağını öğrenebilirsiniz. Tek fark, nasıl veritabanı, bağlam sınıfı ve varlığın sınıfları oluşturulduğunu içinde ' dir.
 
->[!div class="step-by-step"]
-[Önceki](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Önceki](enhancing-data-validation.md)

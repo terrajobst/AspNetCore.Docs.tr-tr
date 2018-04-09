@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/http-cookies
-title: "ASP.NET Web API HTTP tanımlama bilgilerini | Microsoft Docs"
+title: ASP.NET Web API HTTP tanımlama bilgilerini | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/http-cookies
 msc.type: authoredcontent
-ms.openlocfilehash: e17c51946a268aa13ec035d18dc516928c9f4419
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 363ca975cf75b635b766a53eeda87cf957eed60c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="http-cookies-in-aspnet-web-api"></a>ASP.NET Web API HTTP tanımlama bilgileri
 ====================
@@ -36,7 +36,7 @@ Bir tanımlama bilgisi, bir sunucu HTTP yanıt olarak gönderir veri parçasıd�
 
 [!code-powershell[Main](http-cookies/samples/sample2.ps1)]
 
-Bir tanımlama bilgisinin sunucuya, istemci görevlerin bir tanımlama bilgisi üstbilgisi sonraki isteklerde geri dönün.
+Bir tanımlama bilgisinin sunucuya döndürülmesi için istemci tanımlama bilgisi üstbilgisi içinde sonraki istekleri içerir.
 
 [!code-console[Main](http-cookies/samples/sample3.cmd)]
 
@@ -79,7 +79,7 @@ A **CookieHeaderValue** oluşan bir koleksiyon içeren **CookieState** örnekler
 
 ## <a name="structured-cookie-data"></a>Yapılandırılmış tanımlama bilgisi verileri
 
-Birçok tarayıcılar depolayacak mı kaç tanımlama bilgilerini &#8212; toplam sayısı hem etki alanı sayısı sınırı. Bu nedenle, çok sayıda tanımlama bilgisini ayarlamak yerine tek bir çerez yapılandırılmış veri yerleştirin yararlı olabilir.
+Bunlar depolar kaç tanımlama bilgilerini birçok tarayıcılar sınırlamak&#8212;toplam sayısı hem etki alanı başına sayı. Bu nedenle, çok sayıda tanımlama bilgisini ayarlamak yerine tek bir çerez yapılandırılmış veri yerleştirin yararlı olabilir.
 
 > [!NOTE]
 > RFC 6265 tanımlama bilgisi veri yapısı tanımlamıyor.

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: "EF veritabanıyla ilk ASP.NET MVC: veri doğrulama geliştirme | Microsoft Docs"
+title: 'EF veritabanıyla ilk ASP.NET MVC: veri doğrulama geliştirme | Microsoft Docs'
 author: tfitzmac
-description: "ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri..."
+description: ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 842496c2d3ec56fb81f2409dd7d05d800f83799b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8ea2e94db7956b76c5ccf0a139ac024e38910b49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF veritabanıyla ilk ASP.NET MVC: veri doğrulama geliştirme
 ====================
@@ -87,6 +87,6 @@ Değişiklikleri uygulamak için ContosoModel.edmx dosyasını kaydedin.
 
 Student.cs veya Enrollment.cs dosyasını açın ve daha önce uygulanan veri doğrulama öznitelikleri artık dosyasında olduğuna dikkat edin. Ancak, uygulamayı çalıştırın ve veri girdiğinizde doğrulama kuralları yine uygulanır dikkat edin.
 
->[!div class="step-by-step"]
-[Önceki](customizing-a-view.md)
-[sonraki](publish-to-azure.md)
+> [!div class="step-by-step"]
+> [Önceki](customizing-a-view.md)
+> [sonraki](publish-to-azure.md)

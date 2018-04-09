@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
-title: "Sunucu tarafı (VB) gelen animasyonları değiştirme | Microsoft Docs"
+title: Sunucu tarafı (VB) gelen animasyonları değiştirme | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon de olabilir..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon de olabilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/modifying-animations-from-the-server-side-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5b23cce529be24157a8a3f9136de7ad7bafc1ea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2b9ce85fc5040b2318233b3c553c2cf53dd03555
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="modifying-animations-from-the-server-side-vb"></a>Sunucu tarafı (VB) gelen animasyonları değiştirme
 ====================
@@ -62,6 +62,6 @@ Son olarak ekleyin `AnimationExtender` geçerli sayfanın içinde kontrol `<form
 
 Animasyonun sunucu tarafı C# /VB kodu kullanılarak oluşturulan ([tam boyutlu görüntüyü görüntülemek için tıklatın](modifying-animations-from-the-server-side-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](triggering-an-animation-in-another-control-vb.md)
-[sonraki](executing-animations-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](triggering-an-animation-in-another-control-vb.md)
+> [sonraki](executing-animations-using-client-side-code-vb.md)

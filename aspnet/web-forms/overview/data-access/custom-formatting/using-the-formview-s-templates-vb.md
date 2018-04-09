@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
-title: "FormView'ın şablonları (VB) kullanarak | Microsoft Docs"
+title: FormView'ın şablonları (VB) kullanarak | Microsoft Docs
 author: rick-anderson
-description: "DetailsView FormView alanlarının oluşur değil. Bunun yerine, FormView şablonları kullanılarak işlenir. Bu öğreticide f kullanarak inceleyeceğiz..."
+description: DetailsView FormView alanlarının oluşur değil. Bunun yerine, FormView şablonları kullanılarak işlenir. Bu öğreticide f kullanarak inceleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 05e97ce5efeaf72192ed294b946e2249c60007d1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 16293960f5d8758c93646844bd159547f5e0f38c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-formviews-templates-vb"></a>FormView'ın şablonları (VB) kullanma
 ====================
@@ -33,12 +33,12 @@ Son iki eğitimlerine TemplateFields kullanarak GridView ve DetailsView denetiml
 
 DetailsView FormView alanlarının oluşur değil. FormView için BoundField veya TemplateField ekleyemezsiniz. Bunun yerine, FormView şablonları kullanılarak işlenir. FormView, tek bir TemplateField içeren bir DetailsView denetimi düşünün. FormView aşağıdaki şablonları destekler:
 
-- `ItemTemplate`FormView görüntülenen belirli kayıt işlemek için kullanılan
-- `HeaderTemplate`bir isteğe bağlı üstbilgi satırını belirtmek için kullanılır
-- `FooterTemplate`bir isteğe bağlı altbilgi satırı belirtmek için kullanılır
-- `EmptyDataTemplate`zaman FormView's `DataSource` herhangi bir kayıt eksik `EmptyDataTemplate` yerine kullanılan `ItemTemplate` denetimin biçimlendirme işlemek için
-- `PagerTemplate`disk belleği etkin olan FormViews için disk belleği arabirimini özelleştirmek için kullanılabilir
-- `EditItemTemplate` / `InsertItemTemplate`Bu tür işlevleri desteklemek için FormViews düzenleme arabirimi veya ekleme arabirimi özelleştirmek için kullanılır
+- `ItemTemplate` FormView görüntülenen belirli kayıt işlemek için kullanılan
+- `HeaderTemplate` bir isteğe bağlı üstbilgi satırını belirtmek için kullanılır
+- `FooterTemplate` bir isteğe bağlı altbilgi satırı belirtmek için kullanılır
+- `EmptyDataTemplate` zaman FormView's `DataSource` herhangi bir kayıt eksik `EmptyDataTemplate` yerine kullanılan `ItemTemplate` denetimin biçimlendirme işlemek için
+- `PagerTemplate` disk belleği etkin olan FormViews için disk belleği arabirimini özelleştirmek için kullanılabilir
+- `EditItemTemplate` / `InsertItemTemplate` Bu tür işlevleri desteklemek için FormViews düzenleme arabirimi veya ekleme arabirimi özelleştirmek için kullanılır
 
 Biz inceleyeceğiz Bu öğreticide FormView denetim ürünleri daha az katı bir görünümünü sunmak için kullanma. Ad, kategori, tedarikçi vb. FormView's için alanları sahip yerine `ItemTemplate` bir üstbilgi öğesi bir birleşimini kullanarak bu değerleri gösterir ve `<table>` (bkz: Şekil 1).
 
@@ -111,12 +111,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme E.R. edildi Gilmore. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](using-templatefields-in-the-detailsview-control-vb.md)
-[sonraki](displaying-summary-information-in-the-gridview-s-footer-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-templatefields-in-the-detailsview-control-vb.md)
+> [sonraki](displaying-summary-information-in-the-gridview-s-footer-vb.md)

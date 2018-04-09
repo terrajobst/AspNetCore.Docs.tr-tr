@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
-title: "Yineleyici (VB) içinde bir ConfirmButton kullanarak | Microsoft Docs"
+title: Yineleyici (VB) içinde bir ConfirmButton kullanarak | Microsoft Docs
 author: wenz
-description: "AJAX Denetim araç setindeki ConfirmButton genişletici Evet oluşturur/Kullanıcı bir düğmesine tıkladığında herhangi bir açılır pencere (LinkButton denetim dahil). Yalnızca Evet ise..."
+description: AJAX Denetim araç setindeki ConfirmButton genişletici Evet oluşturur/Kullanıcı bir düğmesine tıkladığında herhangi bir açılır pencere (LinkButton denetim dahil). Yalnızca Evet ise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5da8491c157ad6f35c2c25803680f262a35ce6e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89f412c242a3a5bcd10b72b7f0cbfb23705edb51
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Yineleyici (VB) içinde bir ConfirmButton kullanma
 ====================
@@ -33,7 +33,7 @@ AJAX Denetim araç setindeki ConfirmButton genişletici Evet oluşturur/Kullanı
 
 ## <a name="steps"></a>Adımlar
 
-Öncelikle, bir veri kaynağı gereklidir. Bu örnekte, AdventureWorks veritabanını ve Microsoft SQL Server 2005 Express Edition kullanır. Veritabanı (express edition dahil) bir Visual Studio yükleme isteğe bağlı bir parçasıdır ve ayrıca altında ayrı bir yükleme olarak kullanılabilir [https://go.microsoft.com/fwlink/?LinkId=64064](https://go.microsoft.com/fwlink/?LinkId=64064). AdventureWorks veritabanını SQL Server 2005 örnekler ve örnek veritabanları parçasıdır (adresinden [https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). En kolay yolu veritabanını için Microsoft SQL Server Management Studio Express kullanmaktır ([https://www.microsoft.com/downloads/details.aspx? FamilyID c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796 =&amp;DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) ve attach `AdventureWorks.mdf` veritabanı dosyası.
+Öncelikle, bir veri kaynağı gereklidir. Bu örnekte, AdventureWorks veritabanını ve Microsoft SQL Server 2005 Express Edition kullanır. Veritabanı (express edition dahil) bir Visual Studio yükleme isteğe bağlı bir parçasıdır ve ayrıca altında ayrı bir yükleme olarak kullanılabilir [ https://go.microsoft.com/fwlink/?LinkId=64064 ](https://go.microsoft.com/fwlink/?LinkId=64064). AdventureWorks veritabanını SQL Server 2005 örnekler ve örnek veritabanları parçasıdır (adresinden [ https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e &amp;DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=e719ecf7-9f46-4312-af89-6ad8702e4e6e&amp;DisplayLang=en)). En kolay yolu veritabanını için Microsoft SQL Server Management Studio Express kullanmaktır ([https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang = tr](https://www.microsoft.com/downloads/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796&amp;DisplayLang=en)) ve attach `AdventureWorks.mdf` veritabanı dosyası.
 
 Bu örnek için SQL Server 2005 Express Edition'ın örneğini çağrıldığından emin olan varsayıyoruz `SQLEXPRESS` ve web sunucusu; ile aynı makinede bulunan varsayılan kurulum de budur. Kurulumunuzu farklıysa, veritabanı için bağlantı bilgilerini uymak zorunda.
 
@@ -54,5 +54,5 @@ Bu veri kaynağı yineleyici içinde kullanılabilir. Her zamanki gibi `DataBind
 
 Her giriş veri kaynağından yanındaki Onayla düğmesi görünür ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-a-confirmbutton-in-a-repeater-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](using-a-confirmbutton-in-a-repeater-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](using-a-confirmbutton-in-a-repeater-cs.md)

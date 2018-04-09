@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
-title: "SignalR giriş | Microsoft Docs"
+title: SignalR giriş | Microsoft Docs
 author: pfletcher
-description: "Bu makalede, SignalR nedir ve oluşturmak için tasarlandığı çözümleri bazıları açıklanmaktadır."
+description: Bu makalede, SignalR nedir ve oluşturmak için tasarlandığı çözümleri bazıları açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 5bb49c9c2405d232ba5e067d99f8879b3bc99361
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-signalr"></a>SignalR giriş
 ====================
@@ -85,11 +85,11 @@ Aşağıdaki listede, hangi aktarım kullanılacak karar vermek için SignalR ku
 2. JSONP yapılandırılmışsa (diğer bir deyişle, `jsonp` parametrenin ayarlanmış `true` bağlantısı başlatıldığında), uzun yoklama kullanılır.
 3. (Diğer bir deyişle, SignalR uç nokta barındırma sayfası aynı etki alanında değilse), etki alanları arası bağlantı yapılıyor, WebSocket aşağıdaki ölçütler karşılanıyorsa kullanılacak:
 
-    - İstemci, CORS (çıkış noktaları arası kaynak paylaşımı) destekler. İstemciler üzerinde CORS desteği Ayrıntılar için bkz [CORS caniuse.com adresindeki](http://www.caniuse.com/CORS).
-    - İstemci, WebSocket destekler.
-    - WebSocket sunucu destekler
+   - İstemci, CORS (çıkış noktaları arası kaynak paylaşımı) destekler. İstemciler üzerinde CORS desteği Ayrıntılar için bkz [CORS caniuse.com adresindeki](http://www.caniuse.com/CORS).
+   - İstemci, WebSocket destekler.
+   - WebSocket sunucu destekler
 
-    Bu ölçütler hiçbirini karşılanmazsa uzun yoklama kullanılır. Etki alanları arası bağlantılar hakkında daha fazla bilgi için bkz: [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+     Bu ölçütler hiçbirini karşılanmazsa uzun yoklama kullanılır. Etki alanları arası bağlantılar hakkında daha fazla bilgi için bkz: [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
 4. İstemci ve sunucu destekliyorsa JSONP yapılandırılmamış ve bağlantı etki alanları arası değil, WebSocket kullanılır.
 5. İstemci veya sunucu WebSocket desteği yoksa sunucu gönderilen olayları varsa kullanılır.
 6. Sunucu gönderilen olaylar kullanılabilir durumda değilse, sonsuza kadar çerçeve denenir.

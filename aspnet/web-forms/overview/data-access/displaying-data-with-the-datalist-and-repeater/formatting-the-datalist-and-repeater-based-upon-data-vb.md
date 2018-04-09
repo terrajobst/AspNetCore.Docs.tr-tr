@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
-title: "Yineleyici ve DataList biçimlendirme (VB) verilerine dayalı | Microsoft Docs"
+title: Yineleyici ve DataList biçimlendirme (VB) verilerine dayalı | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz biz DataList ve yineleyici denetimlerin görünümünü, biçimlendirme işlevleriyle kullanarak ya da biçimini örnekleri adım..."
+description: Bu öğreticide biz biz DataList ve yineleyici denetimlerin görünümünü, biçimlendirme işlevleriyle kullanarak ya da biçimini örnekleri adım...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 460fc36062f3338ffd178aceda2b3b224752a089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 174a68cf0785b33c85139d57ede9717ce7e135e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Yineleyici (VB) verilerine göre ve DataList biçimlendirme
 ====================
@@ -42,19 +42,19 @@ DataList ve yineleyici denetimleriyle teknikleri biçimlendirme bunların her ik
 
 Ne zaman veri bağlı bir DataList için bir veri kaynağı denetimi veya program aracılığıyla veri s denetimine atama yoluyla `DataSource` özelliği ve arama kendi `DataBind()` yöntemi, s DataList `DataBinding` olay gönderir, numaralandırılmış, veri kaynağı ve her veri kaydı DataList bağlıdır. Veri kaynağındaki her kayıt için DataList oluşturur bir [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) diğer bir deyişle nesne sonra geçerli kayda bağlı. Bu işlem sırasında DataList iki olaylar oluşur:
 
-- **`ItemCreated`**sonra ateşlenir `DataListItem` oluşturuldu
-- **`ItemDataBound`**Geçerli kayıt için bağlı sonra ateşlenir`DataListItem`
+- **`ItemCreated`** sonra ateşlenir `DataListItem` oluşturuldu
+- **`ItemDataBound`** Geçerli kayıt için bağlı sonra ateşlenir `DataListItem`
 
 Veri bağlama işlemini DataList denetimi için aşağıdaki adımları verilmiştir.
 
 1. S DataList [ `DataBinding` olay](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) etkinleşir
 2. DataList veri bağlama  
   
- Veri kaynağındaki her kayıt için 
+   Veri kaynağındaki her kayıt için 
 
     1. Oluşturma bir `DataListItem` nesnesi
     2. Yangın [ `ItemCreated` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. Kayda bağlama`DataListItem`
+    3. Kayda bağlama `DataListItem`
     4. Yangın [ `ItemDataBound` olayı](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Ekleme `DataListItem` için `Items` koleksiyonu
 
@@ -172,7 +172,7 @@ Bizim ASP.NET sayfası s arka plandaki kod sınıfı eklenen biçimlendirme işl
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample5.aspx)]
 
-S DataList içinde `ItemTemplate` `ProductNameLabel` etiket Web denetimi şu anda atayarak ürün s adını görüntüler, `Text` özelliği sonucu, `<%# Eval("ProductName") %>`. Bunun yerine atar olması için gerektiğinde adına ve [üretimi DURDURULMUŞ] metni görüntülemek Tanımlayıcı Sözdizimi güncelleştirerek `Text` özellik değeri, `DisplayProductNameAndDiscontinuedStatus` yöntemi. Bunun yapılması, biz s ürün adı ve devam etmeyen değerlerini kullanarak geçmelidir `Eval("columnName")` sözdizimi. `Eval`türünde bir değer döndürür `Object`, ancak `DisplayProductNameAndDiscontinuedStatus` yöntemi türü giriş parametreleri bekliyor `String` ve `Boolean`; bu nedenle, tarafından döndürülen değer dönüştürmeniz gerekir `Eval` yöntemine beklenen giriş parametre türleri şu şekilde:
+S DataList içinde `ItemTemplate` `ProductNameLabel` etiket Web denetimi şu anda atayarak ürün s adını görüntüler, `Text` özelliği sonucu, `<%# Eval("ProductName") %>`. Bunun yerine atar olması için gerektiğinde adına ve [üretimi DURDURULMUŞ] metni görüntülemek Tanımlayıcı Sözdizimi güncelleştirerek `Text` özellik değeri, `DisplayProductNameAndDiscontinuedStatus` yöntemi. Bunun yapılması, biz s ürün adı ve devam etmeyen değerlerini kullanarak geçmelidir `Eval("columnName")` sözdizimi. `Eval` türünde bir değer döndürür `Object`, ancak `DisplayProductNameAndDiscontinuedStatus` yöntemi türü giriş parametreleri bekliyor `String` ve `Boolean`; bu nedenle, tarafından döndürülen değer dönüştürmeniz gerekir `Eval` yöntemine beklenen giriş parametre türleri şu şekilde:
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-vb/samples/sample6.aspx)]
@@ -200,12 +200,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Yaakov Ellis, Randy Etikan ve Liz Shulok yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
-[sonraki](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [sonraki](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

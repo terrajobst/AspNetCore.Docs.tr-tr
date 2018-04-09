@@ -1,7 +1,7 @@
 ---
-title: "Veri koruma giriş"
+title: ASP.NET Core veri koruması
 author: rick-anderson
-description: "Bu belge, veri koruma kavramını sunmaktadır ve ilişkili ASP.NET Core API tasarım ilkeleri özetlenmektedir."
+description: Veri koruma kavramını ve ASP.NET Core veri koruma API tasarım ilkeleri hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: acd38679390b92705703111b72816f1a5d3ba848
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-data-protection"></a>Veri koruma giriş
+# <a name="aspnet-core-data-protection"></a>ASP.NET Core veri koruması
 
 Web uygulamaları, genellikle güvenlik açısından duyarlı verileri depolamak gerekir. Windows Masaüstü uygulamaları için DPAPI sağlar ancak bu web uygulamaları için uygun değil. ASP.NET Core veri koruma yığını Geliştirici anahtar yönetimi ve döndürme dahil olmak üzere verileri korumak için kullanabileceğiniz basit, kullanımı kolay bir şifreleme API sağlar.
 
@@ -45,7 +45,7 @@ Varolan yığını sorun belirleyerek başlatıldı. Biz, vardı sonra biz varol
 
 * Anahtarları bekleyen mümkün olduğunda korunmalıdır. Sistem, uygun varsayılan koruma mekanizması şekil ve otomatik olarak uygula.
 
-Bu ilkeler aklınızda ile biz basit bir geliştirilen [kullanımı kolay](using-data-protection.md) veri koruma yığını.
+Bu ilkeler aklınızda ile biz basit bir geliştirilen [kullanımı kolay](xref:security/data-protection/using-data-protection) veri koruma yığını.
 
 ASP.NET Core veri koruma API değil öncelikle yöneliktir gizli yüklerini belirsiz kalıcılığını. Diğer teknolojiler ister [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) ve [Azure Rights Management](https://docs.microsoft.com/rights-management/) belirsiz depolama senaryosu için daha uygundur ve buna bağlı olarak güçlü anahtar yönetim olanaklarına sahip olursunuz. Bu, gizli verilerin uzun dönem koruma için ASP.NET Core veri koruma API'ları kullanarak bir geliştirici yasaklanması hiçbir şey belirtti.
 
@@ -53,11 +53,11 @@ ASP.NET Core veri koruma API değil öncelikle yöneliktir gizli yüklerini beli
 
 Veri koruma sisteminde beş ana paketlere ayrılmıştır. Bu API'leri çeşitli yönlerini üç ana izleyicileri hedef;
 
-1. [Tüketici API'leri genel bakış](consumer-apis/overview.md) hedef uygulama ve framework geliştiriciler.
+1. [Tüketici API'leri genel bakış](xref:security/data-protection/consumer-apis/overview) hedef uygulama ve framework geliştiriciler.
 
    "Yığını nasıl çalıştığı hakkında veya nasıl yapılandırılacağı hakkında bilgi edinin istemiyorum. Yalnızca, başka bir işlem olarak basit bir şekilde mümkün olduğunca API'leri başarıyla kullanımının yüksek olasılık gerçekleştirmek istiyorum."
 
-2. [Yapılandırma API'leri](configuration/overview.md) hedef uygulama geliştiricileri ve sistem yöneticileri.
+2. [Yapılandırma API'leri](xref:security/data-protection/configuration/overview) hedef uygulama geliştiricileri ve sistem yöneticileri.
 
    "I veri koruma sisteminde my ortam varsayılan olmayan yolları veya ayarları gerektirir bildirmeniz gerekir."
 
@@ -75,6 +75,6 @@ Veri koruma yığını beş paketlerini oluşur.
 
 * Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Örneğin, bu paket, bir basit bir "Hiçbir bağımlılık ekleme Kurulum sahip bir özel anahtar depolama dizin gösteren sistem örneği" API (daha fazla bilgi) içerir. Ayrıca, korumalı yüklerini (daha fazla bilgi) ömrü sınırlamak için genişletme yöntemleri içerir.
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb can be installed into an existing ASP.NET 4.x application to redirect its <machineKey> operations to instead use the new data protection stack. Bkz: [Uyumluluk](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) daha fazla bilgi için.
+* Microsoft.AspNetCore.DataProtection.SystemWeb can be installed into an existing ASP.NET 4.x application to redirect its <machineKey> operations to instead use the new data protection stack. Bkz: [Uyumluluk](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) daha fazla bilgi için.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Bkz: [parola karma](consumer-apis/password-hashing.md) daha fazla bilgi için.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Bkz: [karma parolaları](xref:security/data-protection/consumer-apis/password-hashing) daha fazla bilgi için.

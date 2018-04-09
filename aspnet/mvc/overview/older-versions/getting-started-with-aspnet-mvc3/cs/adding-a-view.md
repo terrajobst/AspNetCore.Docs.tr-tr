@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
-title: "Bir görünüm (C#) ekleme | Microsoft Docs"
+title: Bir görünüm (C#) ekleme | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 46d5494e668dfe156aeb6647ded83e6ce5366714
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50ce4a2024ffd9e2bbb5526717052d486689ff38
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-c"></a>Bir görünüm (C#) ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Bu öğretici güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Daha güvenli, izlemek çok daha kolaydır ve daha fazla özelliklerini gösterir.
@@ -77,7 +77,7 @@ Oldukça iyi görünür. Ancak, "Index" tarayıcının başlık çubuğunda diyo
 
 [![_LayoutCshtml](adding-a-view/_static/image8.png)](adding-a-view/_static/image7.png)
 
-Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Not `@RenderBody()` satır dosyanın sonuna yakın. `RenderBody`Burada oluşturduğunuz tüm görünüm özgü sayfaları, "Düzen sayfası Sarmalanan" gösteri bir yer tutucudur. "MVC Uygulamam" "MVC film uygulaması" için Düzen şablonu başlık başlığına değiştirin.
+Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Not `@RenderBody()` satır dosyanın sonuna yakın. `RenderBody` Burada oluşturduğunuz tüm görünüm özgü sayfaları, "Düzen sayfası Sarmalanan" gösteri bir yer tutucudur. "MVC Uygulamam" "MVC film uygulaması" için Düzen şablonu başlık başlığına değiştirin.
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml)]
 
@@ -91,7 +91,7 @@ Tam  *\_Layout.cshtml* dosya aşağıda gösterilmektedir:
 
 Şimdi, dizin sayfası (Görünüm) başlığı değiştirelim.
 
-Açık *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
+Open *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml)]
 
@@ -113,7 +113,7 @@ Denetleyicileri sırada tarayıcı yanıta işlemek bir şablonu görüntüleme 
 
 Şu anda `Welcome` eylem yönteminde `HelloWorldController` sınıfını alır bir `name` ve `numTimes` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine bir görünüm şablonu kullanmayı denetleyicisi değiştirelim. Şablonu görüntüleme yanıtı oluşturmak için uygun veri bitleri denetleyicisinden görünüme iletmek gerektiği anlamına gelir dinamik bir yanıt oluşturur. Bu şablonu görüntüleme gereksinimlerinize dinamik veri put denetleyicisi sağlayarak yapmak bir `ViewBag` şablonu görüntüle daha sonra erişebilirsiniz nesnesi.
 
-Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewBag` nesnesi. `ViewBag`istediğiniz ona koyabilirsiniz yani dinamik bir nesne değil; `ViewBag` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
+Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewBag` nesnesi. `ViewBag` istediğiniz ona koyabilirsiniz yani dinamik bir nesne değil; `ViewBag` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
 [!code-csharp[Main](adding-a-view/samples/sample6.cs)]
 
@@ -141,6 +141,6 @@ Artık veriler URL'den gerçekleştirilecek ve denetleyiciye otomatik olarak ge�
 
 De, "M" türde bir model, ancak veritabanı türü için oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 
->[!div class="step-by-step"]
-[Önceki](adding-a-controller.md)
-[sonraki](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-a-controller.md)
+> [sonraki](adding-a-model.md)

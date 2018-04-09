@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
-title: "İç içe veri Web denetimleri (VB) | Microsoft Docs"
+title: İç içe veri Web denetimleri (VB) | Microsoft Docs
 author: rick-anderson
-description: "Biz inceleyeceksiniz Bu öğreticide bir yineleyici kullanma başka bir yineleyici içinde iç içe geçmiş. Örnekler, her iki d iç yineleyici doldurmak nasıl çalışılacağını..."
+description: Biz inceleyeceksiniz Bu öğreticide bir yineleyici kullanma başka bir yineleyici içinde iç içe geçmiş. Örnekler, her iki d iç yineleyici doldurmak nasıl çalışılacağını...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 944f208d6fe4f9fde13b530fb236ecc69ff5e9cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d8bb5eae2003273fa8d8a06cc4adaa959378f1e2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-vb"></a>İç içe veri Web denetimleri (VB)
 ====================
@@ -93,14 +93,14 @@ Bu noktada sayfası bir tarayıcı aracılığıyla ziyaret ederseniz ekranını
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>ObjectDataSource Denetimi ile bildirimli olarak verilere erişilirken ve`ItemDataBound`olay işleyicisi
 
-Bu yana ve Bu öğretici serisi, bu örnek ile ObjectDataSource takılıyor için verilere erişmek için en iyi seçenek genelinde yaygın ObjectDataSource kullandık. `ProductsBLL` Sınıfına sahip bir `GetProductsByCategoryID(categoryID)` belirtilen ait bu ürünlerle ilgili bilgileri döndürür yöntemi  *`categoryID`* . Bu nedenle, bir ObjectDataSource ekleyebiliriz `CategoryList` yineleyici s `ItemTemplate` ve bu sınıf s yönteminden kendi verilerine erişim yapılandırın.
+Bu yana ve Bu öğretici serisi, bu örnek ile ObjectDataSource takılıyor için verilere erişmek için en iyi seçenek genelinde yaygın ObjectDataSource kullandık. `ProductsBLL` Sınıfına sahip bir `GetProductsByCategoryID(categoryID)` belirtilen ait bu ürünlerle ilgili bilgileri döndürür yöntemi *`categoryID`*. Bu nedenle, bir ObjectDataSource ekleyebiliriz `CategoryList` yineleyici s `ItemTemplate` ve bu sınıf s yönteminden kendi verilerine erişim yapılandırın.
 
 Ne yazık ki, yineleyici içermiyor t Biz bu ObjectDataSource Denetimi bildirim temelli söz dizimi el ile eklemeniz gerekir böylece Tasarım görünümü düzenlenmesi için kendi şablonlarını verin. Aşağıdaki sözdizimi görülmektedir `CategoryList` yineleyici s `ItemTemplate` bu yeni ObjectDataSource ekledikten sonra (`ProductsByCategoryDataSource`):
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample3.aspx)]
 
-ObjectDataSource yaklaşım kullanırken ayarlamak ihtiyacımız `ProductsByCategoryList` yineleyici s `DataSourceID` özelliğine `ID` ObjectDataSource, (`ProductsByCategoryDataSource`). Ayrıca, bizim ObjectDataSource sahip bildirimi bir `<asp:Parameter>` belirtir öğesi  *`categoryID`*  içine geçirilen değer `GetProductsByCategoryID(categoryID)` yöntemi. Ancak Biz bu değerin nasıl belirtmezseniz? İdeal olarak, d biz yalnızca ayarlayabilmek `DefaultValue` özelliği `<asp:Parameter>` databinding sözdizimini kullanarak öğesi sözlüğüdür:
+ObjectDataSource yaklaşım kullanırken ayarlamak ihtiyacımız `ProductsByCategoryList` yineleyici s `DataSourceID` özelliğine `ID` ObjectDataSource, (`ProductsByCategoryDataSource`). Ayrıca, bizim ObjectDataSource sahip bildirimi bir `<asp:Parameter>` belirtir öğesi *`categoryID`* içine geçirilen değer `GetProductsByCategoryID(categoryID)` yöntemi. Ancak Biz bu değerin nasıl belirtmezseniz? İdeal olarak, d biz yalnızca ayarlayabilmek `DefaultValue` özelliği `<asp:Parameter>` databinding sözdizimini kullanarak öğesi sözlüğüdür:
 
 
 [!code-aspx[Main](nested-data-web-controls-vb/samples/sample4.aspx)]
@@ -133,7 +133,7 @@ Geçerli kategorideki ürünleri almak için bir ObjectDataSource kullanmak yeri
 
 Yineleyici s `DataSource` özelliği verilerini alanından gelir belirtmek için veri bağlama sözdizimini kullanan `GetProductsInCategory(categoryID)` yöntemi. Bu yana `Eval("CategoryID")` türünde bir değer döndürür `Object`, biz nesnesine cast bir `Integer` içine geçirmeden önce `GetProductsInCategory(categoryID)` yöntemi. Unutmayın `CategoryID` erişilen veri bağlama söz dizimi şöyledir `CategoryID` içinde *dış* yineleyici (`CategoryList`), o s bir bağlı kayıtları için `Categories` tablo. Biliyoruz bu nedenle, `CategoryID` bir veritabanı olamaz `NULL` biz doğrudan çevirebilirsiniz neden olan değeri, `Eval` varsa denetlemeden yöntemi biz postalarla re bir `DBNull`.
 
-Bu yaklaşımda, oluşturmamız gerekir `GetProductsInCategory(categoryID)` yöntemi ve sağlanan verilen ürünleri uygun kümesini almak  *`categoryID`* . Bu basitçe döndürerek yapabiliriz `ProductsDataTable` tarafından döndürülen `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Oluşturma s izin `GetProductsInCategory(categoryID)` arka plandaki kod sınıfı yönteminde bizim `NestedControls.aspx` sayfası. Aşağıdaki kodu kullanarak bunu yapın:
+Bu yaklaşımda, oluşturmamız gerekir `GetProductsInCategory(categoryID)` yöntemi ve sağlanan verilen ürünleri uygun kümesini almak *`categoryID`*. Bu basitçe döndürerek yapabiliriz `ProductsDataTable` tarafından döndürülen `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Oluşturma s izin `GetProductsInCategory(categoryID)` arka plandaki kod sınıfı yönteminde bizim `NestedControls.aspx` sayfası. Aşağıdaki kodu kullanarak bunu yapın:
 
 
 [!code-vb[Main](nested-data-web-controls-vb/samples/sample7.vb)]
@@ -179,11 +179,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Liz Shulok yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](showing-multiple-records-per-row-with-the-datalist-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](showing-multiple-records-per-row-with-the-datalist-control-vb.md)

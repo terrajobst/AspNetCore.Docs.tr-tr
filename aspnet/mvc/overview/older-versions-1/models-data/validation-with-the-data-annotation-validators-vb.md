@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
-title: "Veri ek açıklaması doğrulayıcıları (VB) ile doğrulama | Microsoft Docs"
+title: Veri ek açıklaması doğrulayıcıları (VB) ile doğrulama | Microsoft Docs
 author: microsoft
-description: "Bir ASP.NET MVC uygulaması içindeki doğrulama gerçekleştirmek için veri ek açıklaması Model bağlayıcı yararlanın. Doğrulayıcı farklı türde kullanmayı öğrenin..."
+description: Bir ASP.NET MVC uygulaması içindeki doğrulama gerçekleştirmek için veri ek açıklaması Model bağlayıcı yararlanın. Doğrulayıcı farklı türde kullanmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 227c1acb5e478047c4e5cdc7dbddedd703e91292
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d1987182a44a0ad3f91f455342dc934d1dd50267
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Veri ek açıklaması doğrulayıcıları (VB) ile doğrulama
 ====================
@@ -78,7 +78,7 @@ Product sınıfında **listeleme 1** bu Doğrulayıcı öznitelikleri nasıl kul
 
 > [!NOTE] 
 > 
-> Tamamen Doğrulayıcısı tarafından görüntülenen hata iletisini özelleştirmek istiyorsanız bu gibi Doğrulayıcısı'nın ErrorMessage özelliği için bir özel hata iletisi atayabilirsiniz:`<Required(ErrorMessage:="This field needs a value!")>`
+> Tamamen Doğrulayıcısı tarafından görüntülenen hata iletisini özelleştirmek istiyorsanız bu gibi Doğrulayıcısı'nın ErrorMessage özelliği için bir özel hata iletisi atayabilirsiniz: `<Required(ErrorMessage:="This field needs a value!")>`
 
 
 Product sınıfında kullanabilirsiniz **listeleme 1** Create() denetleyici eylemi ile **listeleme 2**. Model durumu hataları içerdiğinde Bu denetleyici eylemi Oluştur görünümünün görüntüler.
@@ -95,7 +95,7 @@ Son olarak, görünümünde oluşturabilirsiniz **listeleme 3** Create() eylem s
 
 [!code-aspx[Main](validation-with-the-data-annotation-validators-vb/samples/sample4.aspx)]
 
-**Kod 3**: Views\Product\Create.aspx
+**Listing 3**: Views\Product\Create.aspx
 
 > [!NOTE] 
 > 
@@ -153,5 +153,5 @@ Sayfanın **Şekil 6** film özelliklerini geçersiz değerler girdiğinizde dö
 
 Bu öğreticide, bir ASP.NET MVC uygulaması içindeki doğrulama gerçekleştirmek için veri ek açıklaması Model bağlayıcı yararlanmak nasıl öğrendiniz. Gerekli gibi Doğrulayıcı öznitelikleri ve StringLength öznitelikleri farklı türleri kullanmayı öğrendiniz. Ayrıca Microsoft Entity Framework ile çalışırken, bu öznitelikler kullanma hakkında bilgi edindiniz.
 
->[!div class="step-by-step"]
-[Önceki](validating-with-a-service-layer-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](validating-with-a-service-layer-vb.md)

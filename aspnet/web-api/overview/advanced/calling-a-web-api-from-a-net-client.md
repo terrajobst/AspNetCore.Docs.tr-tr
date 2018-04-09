@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/calling-a-web-api-from-a-net-client
-title: "Bir .NET İstemci'den (C#) Web API'si çağırma | Microsoft Docs"
+title: Bir .NET İstemci'den (C#) Web API'si çağırma | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/24/2017
@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 44e02888b53ee372ab93db5f90acb691f26b7519
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET İstemci'den (C#) Web API'si çağırma
 ====================
@@ -48,7 +48,7 @@ Visual Studio'da adlı yeni bir Windows konsol uygulaması oluşturma **HttpClie
 
 Önceki kod tam istemci uygulamasıdır.
 
-`RunAsync`çalıştırır ve tamamlanana kadar engeller. Çoğu **HttpClient** yöntemleridir zaman uyumsuz, ağ g/ç gerçekleştirdiğinden. Zaman uyumsuz görevlerin tümünü içinde yapılır `RunAsync`. Bir uygulamanın ana iş parçacığı normalde engellemez, ancak bu uygulama etkileşimi izin vermez.
+`RunAsync` çalıştırır ve tamamlanana kadar engeller. Çoğu **HttpClient** yöntemleridir zaman uyumsuz, ağ g/ç gerçekleştirdiğinden. Zaman uyumsuz görevlerin tümünü içinde yapılır `RunAsync`. Bir uygulamanın ana iş parçacığı normalde engellemez, ancak bu uygulama etkileşimi izin vermez.
 
 [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet_run)]
 
@@ -109,7 +109,7 @@ Aşağıdaki kod bir ürün için bir GET isteği gönderir:
 
 **GetAsync** yöntem, HTTP GET isteği gönderir. Yöntem tamamlandığında, döndürdüğü bir **httpresponsemessage öğesini** HTTP yanıtı içerir. Yanıt durum kodu bir başarı kodu ise, yanıt gövdesi bir ürün JSON gösterimi içerir. Çağrı **ReadAsAsync** JSON yükü seri durumdan çıkarılacak bir `Product` örneği. **ReadAsAsync** yöntemi olduğundan zaman uyumsuz yanıt gövdesi rasgele büyük olabilir.
 
-**HttpClient** HTTP yanıtı bir hata kodu içerdiğinde bir özel durum oluşturmaz. Bunun yerine, **IsSuccessStatusCode** özelliği **false** durumu hata kodu ise. HTTP hata kodları özel durumlar olarak işlemek tercih ederseniz, çağrı [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) yanıt nesnesi üzerinde. `EnsureSuccessStatusCode`bir özel durum kodu 200 aralığının dışında döndürürse&ndash;299. Unutmayın **HttpClient** istisnalar başka nedenlerle atabilirsiniz &mdash; Örneğin, istek zaman aşımına uğrarsa.
+**HttpClient** HTTP yanıtı bir hata kodu içerdiğinde bir özel durum oluşturmaz. Bunun yerine, **IsSuccessStatusCode** özelliği **false** durumu hata kodu ise. HTTP hata kodları özel durumlar olarak işlemek tercih ederseniz, çağrı [HttpResponseMessage.EnsureSuccessStatusCode](https://msdn.microsoft.com/library/system.net.http.httpresponsemessage.ensuresuccessstatuscode(v=vs.110).aspx) yanıt nesnesi üzerinde. `EnsureSuccessStatusCode` bir özel durum kodu 200 aralığının dışında döndürürse&ndash;299. Unutmayın **HttpClient** istisnalar başka nedenlerle atabilirsiniz &mdash; Örneğin, istek zaman aşımına uğrarsa.
 
 <a id="MediaTypeFormatters"></a>
 ### <a name="media-type-formatters-to-deserialize"></a>Medya türü Biçimlendiricilerini serisini kaldırmak için
@@ -173,10 +173,10 @@ GET gibi bir istek gövdesi bir silme isteği yok. JSON veya XML biçiminde SİL
 
 3. İstemci uygulaması çalıştırın. Şu çıktı üretilir:
 
- ```console
- Created at http://localhost:64195/api/products/4
-Name: Gizmo     Price: 100.0    Category: Widgets
-Updating price...
-Name: Gizmo     Price: 80.0     Category: Widgets
-Deleted (HTTP Status = 204)
-```
+   ```console
+   Created at http://localhost:64195/api/products/4
+   Name: Gizmo     Price: 100.0    Category: Widgets
+   Updating price...
+   Name: Gizmo     Price: 80.0     Category: Widgets
+   Deleted (HTTP Status = 204)
+   ```

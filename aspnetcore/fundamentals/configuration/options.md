@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core desende seçenekleri"
+title: ASP.NET Core desende seçenekleri
 author: guardrex
-description: "ASP.NET Core uygulamalarda ilgili ayar gruplarını göstermek için seçenekleri düzeni kullanmayı keşfedin."
+description: ASP.NET Core uygulamalarda ilgili ayar gruplarını göstermek için seçenekleri düzeni kullanmayı keşfedin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1b6b6275633364701c27b66b1dfa55a2a037572b
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 660ee2365e2e186dd93d57ec79628e0bd7d24d52
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Seçenekler düzeni seçenekleri sınıfları ilgili ayar gruplarını göstermek için kullanır. Yapılandırma ayarlarını ayrı seçenekler sınıflara özelliğiyle yalıtılır, uygulama için iki önemli yazılım mühendislik ilkeden uyar:
+Seçenekler düzeni sınıfları ilgili ayar gruplarını göstermek için kullanır. Yapılandırma ayarları ayrı sınıflara özelliğiyle yalıtılır, uygulama için iki önemli yazılım mühendislik ilkeden aynılarını:
 
 * [Arabirimi arasında ayrım yapma ilkesine (ISS)](http://deviq.com/interface-segregation-principle/): yapılandırma ayarlarına bağlıdır (sınıflar) özelliklerine bağlıdır, kullandıkları yapılandırma ayarları.
 * [Sorunları ayrılması](http://deviq.com/separation-of-concerns/): uygulamanın farklı bölümleri için ayarları bağımlı veya birbiriyle eşleşmiş değil.

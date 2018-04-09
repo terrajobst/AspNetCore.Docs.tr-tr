@@ -1,7 +1,7 @@
 ---
-title: "Siteler arası komut dosyası (XSS) ASP.NET Core içinde önleme"
+title: Siteler arası komut dosyası (XSS) ASP.NET Core içinde engelle
 author: rick-anderson
-description: "Siteler arası komut dosyası (XSS) ve ASP.NET Core uygulama bu güvenlik açığı adresleme teknikleri hakkında bilgi edinin."
+description: Siteler arası komut dosyası (XSS) ve ASP.NET Core uygulama bu güvenlik açığı adresleme teknikleri hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası komut dosyası (XSS) ASP.NET Core içinde önleme
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası komut dosyası (XSS) ASP.NET Core içinde engelle
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ En temel düzey XSS çalışır ekleme içine uygulamanızın kullanmak üzere k
 
 ## <a name="html-encoding-using-razor"></a>Razor kullanarak HTML kodlama
 
-MVC'de otomatik olarak kullanılan Razor altyapısının tüm kodlar çıkış kaynaklanan değişkenlerinden, böylece önlemek için gerçekten çok çalışan sürece. HTML kodlama kurallarını, kullandığınızda özniteliğini kullanır  *@*  yönergesi. HTML olarak bunu kendiniz, HTML kodlaması veya HTML öznitelik kodlaması kullanmanız gerekir ile ilgili gerekmediği anlamına gelir HTML kodlaması bir üst öznitelik kodlaması kümesidir. Yalnızca @ bir HTML bağlamında doğrudan JavaScript ile güvenilmeyen giriş eklemek değil çalışırken kullandığınız emin olmanız gerekir. Etiket Yardımcıları giriş etiketi parametrelerinde kullanmak da kodlar.
+MVC'de otomatik olarak kullanılan Razor altyapısının tüm kodlar çıkış kaynaklanan değişkenlerinden, böylece önlemek için gerçekten çok çalışan sürece. HTML kodlama kurallarını, kullandığınızda özniteliğini kullanır *@* yönergesi. HTML olarak bunu kendiniz, HTML kodlaması veya HTML öznitelik kodlaması kullanmanız gerekir ile ilgili gerekmediği anlamına gelir HTML kodlaması bir üst öznitelik kodlaması kümesidir. Yalnızca @ bir HTML bağlamında doğrudan JavaScript ile güvenilmeyen giriş eklemek değil çalışırken kullandığınız emin olmanız gerekir. Etiket Yardımcıları giriş etiketi parametrelerinde kullanmak da kodlar.
 
 Aşağıdaki Razor görünüm alın;
 
@@ -145,7 +145,7 @@ Bu tarayıcıda şu şekilde oluşturulur;
 
 ## <a name="accessing-encoders-in-code"></a>Kodda kodlayıcılar erişme
 
-HTML, JavaScript ve URL kodlayıcılar kodunuzu iki yolla kullanılabilir, bunları aracılığıyla Ekle [bağımlılık ekleme](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) veya içinde yer alan varsayılan Kodlayıcıları kullanabilirsiniz `System.Text.Encodings.Web` ad alanı. Herhangi bir için uygulanan sonra varsayılan kodlayıcılar kullanırsanız, güvenli olarak kabul edilmesi için karakter aralıkları uygulanmayacak - varsayılan kodlayıcılar olası güvenli kodlama kuralları kullanın.
+HTML, JavaScript ve URL kodlayıcılar kodunuzu iki yolla kullanılabilir, bunları aracılığıyla Ekle [bağımlılık ekleme](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) veya içinde yer alan varsayılan Kodlayıcıları kullanabilirsiniz `System.Text.Encodings.Web` ad alanı. Herhangi bir için uygulanan sonra varsayılan kodlayıcılar kullanırsanız, güvenli olarak kabul edilmesi için karakter aralıkları uygulanmayacak - varsayılan kodlayıcılar olası güvenli kodlama kuralları kullanın.
 
 DI, Oluşturucular almalıdır aracılığıyla yapılandırılabilir kodlayıcılar kullanmak için bir *HtmlEncoder*, *JavaScriptEncoder* ve *UrlEncoder* uygun şekilde parametresi. Örneğin;
 

@@ -1,28 +1,28 @@
 ---
 uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
-title: "OWIN ve Katana Başlarken | Microsoft Docs"
+title: OWIN ve Katana Başlarken | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/27/2013
 ms.topic: article
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8922aada723da9b149ec111902fcd883c8241dfb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac0302ef1a786f6b1eef8119b3134a965f01c533
+ms.sourcegitcommit: 5ab5c5f4bfdb0150f42ba84c2770eadf540cae48
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 <a name="getting-started-with-owin-and-katana"></a>OWIN ve Katana ile çalışmaya başlama
 ====================
 tarafından [CAN Wasson](https://github.com/MikeWasson)
 
-[.NET (OWIN) için Web Arabirimi'ni açmak](http://owin.org/) .NET web sunucuları ve web uygulamaları arasındaki bir Özet tanımlar. Uygulama web sunucusundan ayrıştırarak OWIN ara yazılımı .NET web geliştirme için oluşturmak kolaylaştırır. Ayrıca, OWIN diğer konaklarla &#8212; bağlantı noktası web uygulamalarını kolaylaştırır Örneğin, bir Windows hizmeti veya başka bir işlem kendi kendine barındırma.
+[.NET (OWIN) için Web Arabirimi'ni açmak](http://owin.org/) .NET web sunucuları ve web uygulamaları arasındaki bir Özet tanımlar. Uygulama web sunucusundan ayrıştırarak OWIN ara yazılımı .NET web geliştirme için oluşturmak kolaylaştırır. Ayrıca, OWIN, bağlantı noktası web uygulamalarının diğer Konaklara kolaylaştırır&#8212;Örneğin, bir Windows hizmeti veya başka bir işlem kendi kendine barındırma.
 
 OWIN bir topluluk ait olmayan bir uygulama tanımıdır. Katana proje, Microsoft tarafından geliştirilen açık kaynak OWIN bileşenleri kümesidir. OWIN ve Katana genel bir bakış için bkz: [bir genel bakış, proje Katana](an-overview-of-project-katana.md). Bu makalede, ı başlamak koda sağ atlayacaktır.
 
@@ -74,7 +74,7 @@ Hata ayıklama başlatmak için F5 tuşuna basın. Visual Studio, bir tarayıcı
 
 ## <a name="self-host-owin-in-a-console-application"></a>Bir konsol uygulamasında OWIN kendini barındırma
 
-Bu uygulama, özel bir işlem olarak kendi kendine barındırma için IIS barındırma Dönüştür kolaydır. IIS barındırma ile IIS HTTP sunucusu ve işlem olarak barındıran sunucu yapar. Kendi kendine barındırma, uygulamanızın işlem oluşturur ve kullanır **HttpListener** sınıf HTTP sunucusu olarak.
+Bu uygulama, özel bir işlem olarak kendi kendine barındırma için IIS barındırma Dönüştür kolaydır. IIS barındırma ile IIS hizmeti barındıran işleme ve her iki HTTP sunucusu olarak işlev görür. Kendi kendine barındırma, uygulamanızın işlem oluşturur ve kullanır **HttpListener** sınıf HTTP sunucusu olarak.
 
 Visual Studio'da yeni bir konsol uygulaması oluşturun. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu yazın:
 
@@ -108,6 +108,6 @@ Böylece Visual Studio bir özel durum nedeniyle kesecektir değil şimdi hata a
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- [OWIN başlangıç sınıfı algılama](owin-startup-class-detection.md)
+- [OWIN Başlangıç Sınıfı Algılama](owin-startup-class-detection.md)
 - [ASP.NET Web API Self barındırmak için OWIN kullanın](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [SignalR kendi kendine barındırmak için OWIN kullanın](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

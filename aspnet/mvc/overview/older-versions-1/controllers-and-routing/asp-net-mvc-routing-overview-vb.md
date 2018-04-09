@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
-title: "ASP.NET MVC yönlendirmeye genel bakış (VB) | Microsoft Docs"
+title: ASP.NET MVC yönlendirmeye genel bakış (VB) | Microsoft Docs
 author: StephenWalther
-description: "Bu öğreticide, ASP.NET MVC çerçevesi tarayıcı isteklerini denetleyici eylemleri için nasıl eşlendiğini Stephen Walther gösterir."
+description: Bu öğreticide, ASP.NET MVC çerçevesi tarayıcı isteklerini denetleyici eylemleri için nasıl eşlendiğini Stephen Walther gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4c74e61b1a0d5f5020154756e34dd2fa507034
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3de0e21552a4aa03aa21f21a4e26028f1475f3e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-vb"></a>ASP.NET MVC yönlendirmeye genel bakış (VB)
 ====================
@@ -47,7 +47,7 @@ Varsayılan rota tablosu (varsayılan olarak adlandırılır) tek bir yol içeri
 
 Web tarayıcınızın adres çubuğuna aşağıdaki URL'yi girin düşünün:
 
-/ Home/Index/3
+/Home/Index/3
 
 Varsayılan rota bu URL için aşağıdaki parametreleri eşler:
 
@@ -55,7 +55,7 @@ Varsayılan rota bu URL için aşağıdaki parametreleri eşler:
 
 - Eylem dizini =
 
-- ID = 3
+- id = 3
 
 URL /Home/dizin/3 istediğinizde, aşağıdaki kod çalıştırılır:
 
@@ -69,7 +69,7 @@ Varsayılan rota URL'leri denetleyici eylemleri için nasıl eşlendiğini birka
 
 Varsayılan rota parametre varsayılanlarını nedeniyle bu URL girerek listeleme çağrılacak 2'de HomeController sınıfının İNDİS() yöntemi neden olur.
 
-**2 - HomeController.vb listeleme**
+**Listing 2 - HomeController.vb**
 
 [!code-vb[Main](asp-net-mvc-routing-overview-vb/samples/sample2.vb)]
 
@@ -109,6 +109,6 @@ URL /Home/dizin/3, diğer yandan düzgün listeleme 5'te dizin denetleyici eylem
 
 ASP.NET yönlendirme için kısa bir giriş sağlamak için bu öğreticinin amacı oluştu. Yeni bir ASP.NET MVC uygulamasını almak varsayılan rota tablosu bileşen başvuru incelenir. Varsayılan rota URL'leri denetleyici eylemleri için nasıl eşlendiğini öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](creating-an-action-cs.md)
-[sonraki](understanding-action-filters-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-an-action-cs.md)
+> [sonraki](understanding-action-filters-vb.md)

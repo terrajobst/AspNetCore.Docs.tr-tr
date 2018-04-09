@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek bellek içi önbelleğe alma"
+title: Bellek içi ASP.NET Core, önbelleğe alma
 author: rick-anderson
-description: "ASP.NET Core bellekte önbelleğe öğrenin."
+description: ASP.NET Core bellekte önbelleğe öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 64635235c11b55818da02d63d044334f4b2cdb08
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: c2eae83219e8995a614b2933b1290d061f1b7869
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="in-memory-caching-in-aspnet-core"></a>ASP.NET çekirdek bellek içi önbelleğe alma
+# <a name="cache-in-memory-in-aspnet-core"></a>Bellek içi ASP.NET Core, önbelleğe alma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), ve [Steve Smith](https://ardalis.com/)
 
@@ -98,7 +98,7 @@ Kullanarak bir `CancellationTokenSource` grup olarak çıkarılacak birden fazla
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
+* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)

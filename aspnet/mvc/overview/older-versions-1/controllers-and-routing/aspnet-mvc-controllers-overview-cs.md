@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
-title: "ASP.NET MVC denetleyicisi genel bakış (C#) | Microsoft Docs"
+title: ASP.NET MVC denetleyicisi genel bakış (C#) | Microsoft Docs
 author: StephenWalther
-description: "Bu öğreticide, Stephen Walther ASP.NET MVC denetleyicisi sunar. Yeni denetleyicileri oluşturun ve eylem res farklı türlerde iade hakkında bilgi edinin..."
+description: Bu öğreticide, Stephen Walther ASP.NET MVC denetleyicisi sunar. Yeni denetleyicileri oluşturun ve eylem res farklı türlerde iade hakkında bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9e4ca745fa068b1813e01b131d53a0199cc47d5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 95e7c555a52c8c3b765a6fffab15276491cf5714
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-c"></a>ASP.NET MVC denetleyicisi genel bakış (C#)
 ====================
@@ -88,8 +88,8 @@ Listeleme 2 İNDİS() eylemde bir ViewResult() döndürmüyor dikkat edin. Bunun
 3. RedirectToAction - RedirectToRouteResult eylem sonucunu döndürür.
 4. RedirectToRoute - RedirectToRouteResult eylem sonucunu döndürür.
 5. JSON - JsonResult eylem sonucunu döndürür.
-6. JavaScriptResult - bir JavaScriptResult döndürür.
-7. İçerik - ContentResult eylem sonucunu döndürür.
+6. JavaScriptResult - Returns a JavaScriptResult.
+7. Content - Returns a ContentResult action result.
 8. Dosya - FileContentResult, FilePathResult veya FileStreamResult parametreleri bağlı olarak yönteme geçirilen döndürür.
 
 Bu nedenle, tarayıcıya bir görünüme dönmek istiyorsanız, View() yöntemini çağırın. Bir denetleyici eylem kullanıcıya yönlendirmek istiyorsanız, RedirectToAction() yöntemini çağırın. Örneğin, listeleme 3 Details() eylemde görüntüleyen bir görünüm ya da kullanıcı ID parametresi bir değer olup bağlı olarak İNDİS() eyleme yeniden yönlendirir.
@@ -118,6 +118,6 @@ Listeleme 5 İNDİS() eylemde bir DateTime nesnesi döndürür. ASP.NET MVC çer
 
 ASP.NET MVC denetleyicileri, denetleyici eylemleri ve denetleyici eylem sonuçlarını kavramlarını tanıtmak için bu öğreticinin amacı oluştu. Bu bölümde, ASP.NET MVC projesinde yeni denetleyicileri ekleme öğrendiniz. Ardından, bir denetleyicinin nasıl ortak yöntemlerini öğrenilen universe denetleyici eylemleri sunulur. Son olarak, farklı türdeki bir denetleyici eylemin getirdiği eylem sonuçlarını ele. Özellikle, bir ViewResult, RedirectToActionResult ve ContentResult denetleyicisi eylemden döndürmek nasıl ele.
 
->[!div class="step-by-step"]
-[Önceki](creating-an-action-vb.md)
-[sonraki](creating-custom-routes-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-an-action-vb.md)
+> [sonraki](creating-custom-routes-cs.md)

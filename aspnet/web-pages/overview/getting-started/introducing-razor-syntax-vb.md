@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
-title: "Razor sözdizimini (Visual Basic) kullanarak ASP.NET Web programlamaya giriş | Microsoft Docs"
+title: Razor sözdizimini (Visual Basic) kullanarak ASP.NET Web programlamaya giriş | Microsoft Docs
 author: tfitzmac
-description: "Bu ekte Razor sözdizimini kullanarak Visual Basic'te, ASP.NET Web sayfaları ile programlama genel bir bakış sağlar."
+description: Bu ekte Razor sözdizimini kullanarak Visual Basic'te, ASP.NET Web sayfaları ile programlama genel bir bakış sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Razor sözdizimini (Visual Basic) kullanarak ASP.NET Web programlamaya giriş
 ====================
@@ -125,7 +125,7 @@ Bir tarayıcıda görüntülenen sonuç:
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Kodlama çoğunu nesnelerle çalışmayı içerir
 
-Bir nesne ile program bir şey &#8212;temsil eder; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır), vb. Nesnelerin özelliklerine &#8212;açıklayan özelliklere sahip; bir metin kutusu nesnesi bir `Text` istek nesnesi özelliğine sahip bir `Url` bir e-posta iletisi özelliğine sahip bir `From` özelliğine ve bir müşteri nesnesi sahiptir bir `FirstName` özelliği. Nesneleri olan yöntemlerini de &quot;fiiller&quot; yapabilirler. Örnekler bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve e-posta nesnenin `Send` yöntemi.
+Bir nesne ile program bir şeyi temsil eden &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb. Nesnelerin özelliklerini açıklayan özellikleri vardır &#8212; bir metin kutusu nesnesi bir `Text` istek nesnesi özelliğine sahip bir `Url` bir e-posta iletisi özelliğine sahip bir `From` özelliğine ve bir müşteri nesnesi sahiptir bir `FirstName` özellik. Nesneleri olan yöntemlerini de &quot;fiiller&quot; yapabilirler. Örnekler bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve e-posta nesnenin `Send` yöntemi.
 
 Genellikle ile karşılaşmayacağınızı `Request` form değerleri gibi bilgileri verir nesne alanları sayfasında (metin kutuları, vb.), tarayıcının ne tür, sayfa, kullanıcı kimliği, vb. URL'sini istekte. Bu örnek özelliklerine erişmek nasıl gösterir `Request` nesne ve nasıl çağrılacağını `MapPath` yöntemi `Request` sayfasının mutlak yolu sunucuda verir nesnesi:
 
@@ -180,11 +180,11 @@ Bu yordam temel programlama tekniklerinin gösteren bir sayfa oluşturulacağın
 
 ## <a name="visual-basic-language-and-syntax"></a>Visual Basic dili ve sözdizimi
 
-Daha önce bir ASP.NET web sayfası oluşturma ve sunucu kodunu HTML biçimlendirmesi nasıl ekleyebileceğiniz temel bir örneği gördünüz. Burada Razor sözdizimi &#8212;kullanarak ASP.NET sunucusu kod yazmak için Visual Basic kullanma hakkında temel bilgileri öğreneceksiniz; diğer bir deyişle, programlama dili kuralları.
+Daha önce bir ASP.NET web sayfası oluşturma ve sunucu kodunu HTML biçimlendirmesi nasıl ekleyebileceğiniz temel bir örneği gördünüz. Burada Razor sözdizimini kullanarak ASP.NET sunucusu kod yazmak için Visual Basic kullanılarak temellerini öğreneceksiniz &#8212; diğer bir deyişle, programlama dili kuralları.
 
 (Özellikle, C, C++, C#, Visual Basic veya JavaScript kullandıysanız) programlama ile deneyimli değilseniz, ne burada okuma çoğunu tanıdık gelecektir. Büyük olasılıkla yalnızca nasıl WebMatrix kod biçimlendirmede eklenen ile öğrenmeniz gerekir *.vbhtml* dosyaları.
 
-### <a id="BM_CombiningTextMarkupAndCode"></a>Metin, biçimlendirme ve kod blokları içinde kodu birleştirme
+### <a id="BM_CombiningTextMarkupAndCode"></a>  Metin, biçimlendirme ve kod blokları içinde kodu birleştirme
 
 Sunucu kod bloğu, genellikle metin ve biçimlendirme sayfasına çıkış istersiniz. Sunucu kod bloğu kodu değil ve, bunun yerine olarak işleneceğini metin içeriyorsa, ASP.NET metnin kodunu ayırt etmek gerekir. Bunu yapmanın birkaç yolu vardır.
 
@@ -207,7 +207,7 @@ Sunucu kod bloğu, genellikle metin ve biçimlendirme sayfasına çıkış ister
     [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample14.vbhtml)]
 
     > [!NOTE]
-    > Ne zaman bu bölümde &#8212;gösterildiği gibi metin çıktısını; bir HTML öğesi kullanarak `@:` işleci veya `<text>` öğesi &#8212; ASP.NET çıktı HTML olarak kodlanacak değil. (Daha önce belirtildiği gibi ASP.NET sunucu kodu ifadeleri ve tarafından öncesinde sunucu kod blokları çıktısını kodlamak `@`, bu bölümde belirtildiği özel durumlar hariç.)
+    > Olduğunda, çıktı metin bu bölümde gösterilen &#8212; bir HTML öğesi kullanarak `@:` işleci veya `<text>` öğesi &#8212; ASP.NET olmayan HTML olarak kodlanacak çıktı. (Daha önce belirtildiği gibi ASP.NET sunucu kodu ifadeleri ve tarafından öncesinde sunucu kod blokları çıktısını kodlamak `@`, bu bölümde belirtildiği özel durumlar hariç.)
 
 ### <a name="whitespace"></a>Boşluk
 
@@ -275,31 +275,33 @@ Tamsayılara değerleri dönüştürmek için arama `AsInt` yöntemi. Dönüşt�
 
 Aşağıdaki tabloda bazı yaygın dönüştürme ve test yöntemleri değişkenleri listeler.
 
-| **Yöntemi** | **Açıklama** | **Örnek** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | Bir tam sayı temsil eden bir dize dönüştürür (gibi &quot;593&quot;) bir tamsayı. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-| `AsBool(), IsBool()` | Gibi bir dizeyi dönüştürür &quot;true&quot; veya &quot;false&quot; bir Boolean türü. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-| `AsFloat(), IsFloat()` | Gibi ondalık bir değeri olan bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-| `AsDecimal(), IsDecimal()` | Gibi ondalık bir değeri olan bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık sayıya. (ASP.NET, ondalık sayı bir kayan nokta numarasından daha kesin.) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` | ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-| `ToString()` | Başka bir veri türü bir dizeye dönüştürür. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+
+|   <strong>Yöntemi</strong>    |                                                                              <strong>Açıklama</strong>                                                                              |                     <strong>Örnek</strong>                      |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                 Bir tam sayı temsil eden bir dize dönüştürür (gibi &quot;593&quot;) bir tamsayı.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
+|     `AsBool(), IsBool()`     |                                                    Gibi bir dizeyi dönüştürür &quot;true&quot; veya &quot;false&quot; bir Boolean türü.                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
+|    `AsFloat(), IsFloat()`    |                                    Gibi ondalık bir değeri olan bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
+|  `AsDecimal(), IsDecimal()`  | Gibi ondalık bir değeri olan bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık sayıya. (ASP.NET, ondalık sayı bir kayan nokta numarasından daha kesin.) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
+| `AsDateTime(), IsDateTime()` |                                                ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
+|         `ToString()`         |                                                                       Başka bir veri türü bir dizeye dönüştürür.                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
 
 ## <a name="operators"></a>İşleçler
 
 Bir işleç bir anahtar sözcük veya ASP ne tür bir ifadede gerçekleştirmek için komutu bir karakter değil. Visual Basic birçok işleçleri destekler, ancak yalnızca ASP.NET web sayfaları geliştirmeye başlamak için birkaç tanıması gerekir. Aşağıdaki tabloda, en yaygın işleçleri özetler.
 
-| **Operator** | **Açıklama** | **Örnekler** |
-| --- | --- | --- |
-| `+ - * /` | Matematik işleçleri sayısal ifadelerde kullanılır. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)] |
-| `=` | Atama ve eşitlik. Bağlam, bağlı olarak ya da sol tarafında nesnede deyiminin sağ taraftaki değer atayan veya eşitlik için değerleri denetler. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)] |
-| `<>` | Eşitsizlik. Döndürür `True` değerler eşit değilse. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)] |
-| `< > <= >=` | Küçük, büyük, küçük veya eşit ve büyüktür veya eşittir. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)] |
-| `&` | Birleştirme dizeleri eklemek için kullanılır. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-| `+= -=` | Ekleme ve 1 (sırasıyla) bir değişkeninden artırma ve azaltma işleçleri. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)] |
-| `.` | Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)] |
-| `()` | Parantez. Parametreleri yöntemleri ve erişim üyeleri dizileri ve koleksiyonları geçirmek için Grup ifadeleri için kullanılır. | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-| `Not` | Değil. True değeri false ve tersi yönde tersine çevirir. Sınamak için bir toplu şekilde genelde kullanılan `False` (diğer bir deyişle, için değil `True`). | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)] |
-| `AndAlso OrElse` | Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır. | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)] |
+
+| <strong>Operator</strong> |                                                                        <strong>Açıklama</strong>                                                                         |                         <strong>Örnekler</strong>                         |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+|         `+ - * /`         |                                                                Matematik işleçleri sayısal ifadelerde kullanılır.                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
+|            `=`            | Atama ve eşitlik. Bağlam, bağlı olarak ya da sol tarafında nesnede deyiminin sağ taraftaki değer atayan veya eşitlik için değerleri denetler. |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
+|           `<>`            |                                                           Eşitsizlik. Döndürür `True` değerler eşit değilse.                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
+|        `< > <= >=`        |                                                   Küçük, büyük, küçük veya eşit ve büyüktür veya eşittir.                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
+|            `&`            |                                                                Birleştirme dizeleri eklemek için kullanılır.                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
+|          `+= -=`          |                                       Ekleme ve 1 (sırasıyla) bir değişkeninden artırma ve azaltma işleçleri.                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
+|            `.`            |                                                     Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
+|           `()`            |                           Parantez. Parametreleri yöntemleri ve erişim üyeleri dizileri ve koleksiyonları geçirmek için Grup ifadeleri için kullanılır.                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
+|           `Not`           |                    Değil. True değeri false ve tersi yönde tersine çevirir. Sınamak için bir toplu şekilde genelde kullanılan `False` (diğer bir deyişle, için değil `True`).                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
+|     `AndAlso OrElse`      |                                                       Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Dosya ve klasör yollarında kodu ile çalışma
 
@@ -443,7 +445,7 @@ Koleksiyonlarda verileri genellikle çalışmak. İki ortak koleksiyon türü *d
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample52.vbhtml)]
 
-Dizilerle, bir özel veri türü gibi bildirdiğiniz `String`, `Integer`, veya `DateTime`. Bir dizi değişkeni içerebilir, değişken adı bildiriminde parantez eklemek belirtmek için (gibi `Dim myVar() As String`). Öğeleri konumlarını (dizin) kullanarak bir dizi veya kullanarak erişebilirsiniz `For Each` deyimi. Dizinin sıfır tabanlı olan &#8212;dizinler; diğer bir deyişle, ilk öğe adresindeki konumlandırın 0, ikinci öğesi konum 1 ve benzeri.
+Dizilerle, bir özel veri türü gibi bildirdiğiniz `String`, `Integer`, veya `DateTime`. Bir dizi değişkeni içerebilir, değişken adı bildiriminde parantez eklemek belirtmek için (gibi `Dim myVar() As String`). Öğeleri konumlarını (dizin) kullanarak bir dizi veya kullanarak erişebilirsiniz `For Each` deyimi. Dizi dizinleri sıfır tabanlı &#8212; diğer bir deyişle, ilk öğe adresindeki konumlandırın 0, ikinci öğesi konum 1 ve benzeri.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample53.vbhtml)]
 
@@ -475,7 +477,7 @@ Bu makalede anlatıldığı gibi ile program nesnelerin yöntemleri vardır. Ör
 
 Bu yöntem, belirtilen sanal yolu sunucuda karşılık gelen fiziksel yolu döndürür. Yöntem için üç parametreleri `virtualPath`, `baseVirtualDir`, ve `allowCrossAppMapping`. (Kabul verileri veri türleriyle parametreleri bildiriminde listelenen dikkat edin.) Bu yöntemi çağırdığınızda, tüm üç parametreleri için değerler girmeniz gerekir.
 
-Visual Basic Razor sözdizimi ile kullanırken, bir yöntem parametreleri geçirme için iki seçeneğiniz vardır: *konumsal parametreler* veya *adlandırılmış parametreleri*. Konumsal parametreler kullanarak bir yöntemi çağırmak için yöntem bildiriminde belirtilen katı bir sırada parametreleri geçirin. (Genellikle bu sırada yöntemi belgelerine okuyarak bilmeniz.) Sırayı izler ve parametrelerinden herhangi biri &#8212;atlayamazsınız; Gerekirse, boş bir dize geçirdiğiniz (`""`) için bir değer yoksa konumsal bir parametre için ya da null.
+Visual Basic Razor sözdizimi ile kullanırken, bir yöntem parametreleri geçirme için iki seçeneğiniz vardır: *konumsal parametreler* veya *adlandırılmış parametreleri*. Konumsal parametreler kullanarak bir yöntemi çağırmak için yöntem bildiriminde belirtilen katı bir sırada parametreleri geçirin. (Genellikle bu sırada yöntemi belgelerine okuyarak bilmeniz.) Sırayı izler ve parametrelerinden herhangi birini atlayamazsınız &#8212; gerekirse, boş bir dize geçirdiğiniz (`""`) için bir değer yoksa konumsal bir parametre için ya da null.
 
 Aşağıdaki örnek adlı bir klasör olduğunu varsayar *betikleri* Web sitenizde. Kod çağrıları `Request.MapPath` üç parametre doğru sırada yöntemi ve geçişleri değerlerini. Ardından, elde edilen eşlenen yolun görüntüler.
 

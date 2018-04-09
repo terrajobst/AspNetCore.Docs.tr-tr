@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için"
+title: Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için
 author: rick-anderson
-description: "Nasıl oluşturulacağını Bul Visual Studio'da yayımlama profillerini ASP.NET Core uygulamaları için."
+description: Nasıl oluşturulacağını Bul Visual Studio'da yayımlama profillerini ASP.NET Core uygulamaları için.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: d2c4ec317f235c6d042bd130dbf79f6cb5e2d47d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64c96f572c42c56480cfe2bd58f926d54eddf35e
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için
 
@@ -91,7 +91,7 @@ MSBuild veya Visual Studio Proje yüklediğinde, aşağıdaki yüksek düzey eyl
 * Yayımlanacak dosyaları işlem
 * Dosyaları hedefe yayımlama
 
-### <a name="compute-project-items"></a>Proje öğeleri işlem
+## <a name="compute-project-items"></a>Proje öğeleri işlem
 
 Proje yüklendiğinde, proje öğeleri (dosyaları) hesaplanır. `item type` Özniteliği dosya nasıl işleneceğini belirler. Varsayılan olarak, *.cs* dosyaları dahil edilmiştir `Compile` öğe listesi. Dosyalar `Compile` öğe listesi derlenir.
 
@@ -197,11 +197,12 @@ Yayımlama Sihirbazı'nı aşağıdaki Yayımla hedefleri destekler:
 Bkz: [hangi yayımlama seçeneklerini benim için en uygun?](https://docs.microsoft.com/visualstudio/ide/not-in-toc/web-publish-options) daha fazla bilgi için.
 
 Bir yayımlama profili Visual Studio ile oluştururken bir *özellikleri/PublishProfiles/\<Yayımla adı > .pubxml* MSBuild dosyası oluşturulur. Bu *.pubxml* dosyası MSBuild dosyadır ve içeren yapılandırma ayarlarını yayımlayın. Bu dosya, yapı özelleştirmek ve işlem yayımlamak için değiştirilebilir. Bu dosya yayımlama işlemi tarafından okunur. `<LastUsedBuildConfiguration>` Genel bir özellik olduğundan ve yapı alınan herhangi bir dosya olmamalıdır özeldir. Bkz: [MSBuild: Yapılandırma özelliğinin nasıl ayarlandığını](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) daha fazla bilgi için.
+
 *.Pubxml* dosya döndürmemelidir kontrol edileceği kaynak denetimine bağımlı olduğundan dolayı *.kullanıcı* dosya. *.Kullanıcı* dosya hiç işaretlenmelidir kaynak denetimine hassas bilgileri içerebileceği ve yalnızca bir kullanıcı ve makine için geçerli olur.
 
 (Yayımla parola gibi) hassas bilgileri şifrelenir bir kullanıcı/makine düzeyi ve depolanan başına *özellikleri/PublishProfiles/\<Yayımla adı >. pubxml.user* dosya. Bu dosya hassas bilgileri içerdiğinden gereken **değil** kaynak denetimine iade edilmelidir.
 
-ASP.NET Core üzerinde bir web uygulaması yayımlama genel bakış için bkz: [konak dağıtıp](index.md). [Ana bilgisayar ve dağıtma](index.md) https://github.com/aspnet/websdk adresindeki bir açık kaynaklı proje.
+ASP.NET Core üzerinde bir web uygulaması yayımlama genel bakış için bkz: [konak dağıtıp](index.md). [Ana bilgisayar ve dağıtma](index.md) adresindeki bir açık kaynaklı proje https://github.com/aspnet/websdk.
 
 `dotnet publish` klasörü, MSDeploy, kullanabilirsiniz ve [KUDU](https://github.com/projectkudu/kudu/wiki) yayımlama profilleri:
  
@@ -444,7 +445,7 @@ MSBuild file.
 
 Bkz: [WebSDK Benioku](https://github.com/aspnet/websdk) daha fazla dağıtım örnekleri için.
 
-### <a name="run-a-target-before-or-after-publishing"></a>Bir hedef önce veya sonra yayımlama çalıştırın
+## <a name="run-a-target-before-or-after-publishing"></a>Bir hedef önce veya sonra yayımlama çalıştırın
 
 Yerleşik `BeforePublish` ve `AfterPublish` hedefleri, bir hedef önce veya sonra yayımlama hedefi yürütmek için kullanılabilir. Aşağıdaki biçimlendirmede önce ve sonra yayımlama konsol çıktısı iletilerini günlüğe kaydetmek için yayımlama profili eklenebilir:
 
@@ -455,6 +456,16 @@ Yerleşik `BeforePublish` ve `AfterPublish` hedefleri, bir hedef önce veya sonr
   <Target Name="CustomActionsAfterPublish" AfterTargets="AfterPublish">
     <Message Text="Inside AfterPublish" Importance="high" />
 </Target>
+```
+
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>Güvenilmeyen bir sertifika kullanarak bir sunucuya yayımlayın
+
+Ekleme `<AllowUntrustedCertificate>` özellik değerini `True` yayımlama profili için:
+
+```xml
+<PropertyGroup>
+  <AllowUntrustedCertificate>True</AllowUntrustedCertificate>
+</PropertyGroup>
 ```
 
 ## <a name="the-kudu-service"></a>Kudu hizmeti
@@ -471,4 +482,4 @@ Seçin [hata ayıklama Konsolu'nda](https://github.com/projectkudu/kudu/wiki/Kud
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Web dağıtımı](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) web uygulamaları ve IIS sunucuları için Web siteleri dağıtımını basitleştirir.
-* [https://github.com/ASPNET/websdk](https://github.com/aspnet/websdk/issues): dosya sorunları ve dağıtım için özelliklerini isteyin.
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Dosya sorunları ve dağıtım için özelliklerini isteyin.

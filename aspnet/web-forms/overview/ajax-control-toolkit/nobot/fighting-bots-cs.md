@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-cs
-title: "Bot (C#) mücadele | Microsoft Docs"
+title: Bot (C#) mücadele | Microsoft Docs
 author: wenz
-description: "Otomatik bot, herhangi bir kullanıcı etkileşimi olmadan yorum form gönderme istenmeyen posta, Web Günlükleri ve diğer Web siteleri yapıştırmaları. ASP.NET AJAX Con NoBot denetiminde..."
+description: Otomatik bot, herhangi bir kullanıcı etkileşimi olmadan yorum form gönderme istenmeyen posta, Web Günlükleri ve diğer Web siteleri yapıştırmaları. ASP.NET AJAX Con NoBot denetiminde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8eedff4691c1115e242be884f9e74663dc0b4f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1ea3aaa5461c2f58a927ae975568f18a34a4729b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="fighting-bots-c"></a>Mücadele aracılarını (C#)
 ====================
@@ -37,7 +37,7 @@ Bot üstesinden gelmek için ortak bir yaklaşım, bilgisayarlar ve insanlar bir
 
 Çeşitli avantajları ve dezavantajları Bu yaklaşımın vardır, ancak bu tartışması Bu öğretici kapsamında değildir. Yoktur ancak benzer bir yaklaşım sağlayan ASP.NET AJAX Denetim araç denetiminde: `NoBot`. Bir güvenlik kodu üstesinden daha kolaydır, ancak kullanımı çok kolaydır ve çok iyi nerede kabul başarı çoğu denemeleri istenmeyen posta durumunda bloglar gibi sitelerindeki fares engellenmediğinden, hangi `NoBot` denetim yapabilir.
 
-`NoBot`Bu koşullardan biri karşılandığında geçerli ASP.NET web formunun geri gönderme karşılar:
+`NoBot` Bu koşullardan biri karşılandığında geçerli ASP.NET web formunun geri gönderme karşılar:
 
 - JavaScript Bulmacanın çözmek tarayıcı başarısız (örneğin, JavaScript kullanılmazsa)
 - Kullanıcı formu hızlı gönderildi
@@ -45,9 +45,9 @@ Bot üstesinden gelmek için ortak bir yaklaşım, bilgisayarlar ve insanlar bir
 
 Bu koşullar için denetlemek için `NoBot` denetimi gerektirir bu öznitelikler (bunların tümü isteğe bağlı):
 
-- `ResponseMinimumDelaySeconds`az miktarda Geri göndermeler arasındaki saniye
-- `CutoffWindowSeconds`bir IP adresinden Geri göndermeler ölçüleri olduğu zaman aralığı uzunluğu
-- `CutoffMaximumInstances`Maksimum saniyede bir zaman aralığı
+- `ResponseMinimumDelaySeconds` az miktarda Geri göndermeler arasındaki saniye
+- `CutoffWindowSeconds` bir IP adresinden Geri göndermeler ölçüleri olduğu zaman aralığı uzunluğu
+- `CutoffMaximumInstances` Maksimum saniyede bir zaman aralığı
 
 Geri göndermeler arasında aşağıdaki biçimlendirme taleplerini bu en az iki saniye geçtikten ve yalnızca beş Geri göndermeler vardır veya 30 saniyelik bir aralıkta içinde daha az:
 
@@ -72,5 +72,5 @@ Bu komut dosyasını çalıştırın ve JavaScript devre dışı bırakma veya i
 
 Bu hata iletisini tarafından bot olmuş ([tam boyutlu görüntüyü görüntülemek için tıklatın](fighting-bots-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Sonraki](fighting-bots-vb.md)
+> [!div class="step-by-step"]
+> [Next](fighting-bots-vb.md)

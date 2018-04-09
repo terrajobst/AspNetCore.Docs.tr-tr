@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi"
+title: Razor sayfalarının birim ve tümleştirme testlerinde ASP.NET Çekirdeği
 author: guardrex
-description: "Razor sayfalarının uygulamaları için birim ve tümleştirme testleri oluşturmayı öğrenin."
+description: Razor sayfalarının uygulamaları için birim ve tümleştirme testleri oluşturmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Razor sayfalarının birim ve ASP.NET Core test tümleştirmesi
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>Razor sayfalarının birim ve tümleştirme testlerinde ASP.NET Çekirdeği
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
@@ -32,7 +32,7 @@ Bu konu, Razor sayfalarının uygulamaların, birim testi ve tümleştirme ilgil
 * [Razor sayfalarının giriş](xref:mvc/razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Birim testi C# .NET çekirdek dotnet test ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Tümleştirme testi](xref:testing/integration-testing)
+* [Tümleştirme testleri](xref:testing/integration-testing)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/razor-pages-testing/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -59,9 +59,9 @@ dotnet test
 * Uygulama bir veri erişim katmanı (DAL), veritabanı bağlamı sınıfının içeren `AppDbContext` (*Data/AppDbContext.cs*). DAL yöntemleri işaretlenmiş `virtual`, testleri kullanımı için yöntemleri mocking izin verir.
 * Veritabanı uygulama başlangıçta boş ise, ileti deposunu üç iletileri ile başlatıldı. Bunlar *sağlanmış iletileri* testinde de kullanılır.
 
-&#8224;EF konu [Inmemory ile test](/ef/core/miscellaneous/testing/in-memory), mstest'i ile test etmek için bir bellek içi veritabanı kullanımı açıklanmaktadır. Bu konuda kullanan [xUnit](https://xunit.github.io/) framework test etme. Sınama kavramları ve test uygulamaları farklı test çerçevelerini arasında benzer, ancak aynı değildir.
+&#8224;EF konu [Inmemory ile Test](/ef/core/miscellaneous/testing/in-memory), mstest'i ile test etmek için bir bellek içi veritabanı kullanımı açıklanmaktadır. Bu konuda kullanan [xUnit](https://xunit.github.io/) framework test etme. Sınama kavramları ve test uygulamaları farklı test çerçevelerini arasında benzer, ancak aynı değildir.
 
-Uygulama kullanmayan ancak [havuz deseni](http://martinfowler.com/eaaCatalog/repository.html) ve etkili bir örneği değil. [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfalarının geliştirme bu desenleri destekler. Daha fazla bilgi için bkz: [altyapı saklama katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [depo ve iş desenleri bir ASP.NET MVC uygulamasındaki uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [test etme Denetleyici mantığında](/aspnet/core/mvc/controllers/testing) (örnek havuz deseni uygular).
+Uygulama kullanmayan ancak [havuz deseni](http://martinfowler.com/eaaCatalog/repository.html) ve etkili bir örneği değil. [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfalarının geliştirme bu desenleri destekler. Daha fazla bilgi için bkz: [altyapı saklama katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [depo ve iş desenleri bir ASP.NET MVC uygulamasındaki uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [Test denetleyicisi mantığı](/aspnet/core/mvc/controllers/testing) (örnek havuz deseni uygular).
 
 ## <a name="test-app-organization"></a>Test uygulama kuruluş
 
@@ -231,7 +231,7 @@ Tümleştirme testleri, ayrıca uygulamanın yanıt davranışını test etmek i
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Birim testi C# .NET çekirdek dotnet test ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Tümleştirme testi](xref:testing/integration-testing)
+* [Tümleştirme testleri](xref:testing/integration-testing)
 * [Test denetleyicileri](xref:mvc/controllers/testing)
 * [Birim testi kodunuzu](/visualstudio/test/unit-test-your-code) (Visual Studio)
 * [xUnit.net](https://xunit.github.io/)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 title: Entity Framework 4.0 yenilikler | Microsoft Docs
 author: tdykstra
-description: "Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I..."
+description: Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04444ce98fa60045cf617a6c518dd55677258148
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Entity Framework 4.0 yenilikler
 ====================
@@ -203,7 +203,7 @@ Geliştirme için ilk kod yaklaşımı kullanma hakkında daha fazla bilgi için
 - [MVC müzik deposu Öğreticisi - bölümü 4: modelleri ve veri erişimi](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [MVC 3 - bölüm 4 ile Başlarken: Entity Framework Code First geliştirme](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
-Contoso University uygulamaya benzer bir uygulama oluşturur Yeni bir MVC kod-ilk öğreticide 2011 yay yayımlanmasını ek olarak, öngörülen [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
+Contoso University uygulamaya benzer bir uygulama oluşturur Yeni bir MVC kod-ilk öğreticide 2011 yay yayımlanmasını ek olarak, yansıtılır [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
@@ -212,5 +212,5 @@ Bu Entity Framework ve Entity Framework öğretici serisi ile bu devam yenilikle
 - [ADO.NET yenilikler](https://msdn.microsoft.com/library/ex6y04yf.aspx) MSDN konu Entity Framework 4 sürümündeki yeni özellikler hakkında.
 - [Entity Framework 4'ün yayın Duyurusu](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) Entity Framework geliştirme ekibinin blog gönderisi sürüm 4'deki yeni özellikler hakkında.
 
->[!div class="step-by-step"]
-[Önceki](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Önceki](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

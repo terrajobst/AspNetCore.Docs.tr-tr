@@ -1,7 +1,7 @@
 ---
-title: "Tüketici API'leri genel bakış"
+title: ASP.NET Core tüketici API'leri genel bakış
 author: rick-anderson
-description: "Bu belge, çeşitli tüketici API'leri ASP.NET Core veri koruma kitaplıkta kullanılabilir kısa bir genel bakış sağlar."
+description: Çeşitli API'ler ASP.NET Core veri koruma kitaplıkta kullanılabilir tüketici kısa bir genel bakış alırsınız.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 3aa0c4bc8d009147dd15571da4d7d63402e4c512
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5d161ed8fbc39bcf4a970644480b4e909810b555
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis-overview"></a>Tüketici API'leri genel bakış
+# <a name="consumer-apis-overview-for-aspnet-core"></a>ASP.NET Core tüketici API'leri genel bakış
 
 `IDataProtectionProvider` Ve `IDataProtector` arabirimlerdir temel arabirimleri tüketiciler veri koruma sistemi kullanır. Bulunan [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) paket.
 
 ## <a name="idataprotectionprovider"></a>IDataProtectionProvider
 
-Sağlayıcı arabirimi veri koruma sisteminde kökünü temsil eder. Koruma veya verilerin korumasını doğrudan kullanılamaz. Bunun yerine, bir başvuru tüketici almalısınız bir `IDataProtector` çağırarak `IDataProtectionProvider.CreateProtector(purpose)`amacı hedeflenen tüketici kullanım örneğini tanımlayan bir dize olmalıdır. Bkz: [amacı dizeleri](purpose-strings.md) Bu parametre ve uygun bir değer seçme hedefi üzerinde çok daha fazla bilgi için.
+Sağlayıcı arabirimi veri koruma sisteminde kökünü temsil eder. Koruma veya verilerin korumasını doğrudan kullanılamaz. Bunun yerine, bir başvuru tüketici almalısınız bir `IDataProtector` çağırarak `IDataProtectionProvider.CreateProtector(purpose)`amacı hedeflenen tüketici kullanım örneğini tanımlayan bir dize olmalıdır. Bkz: [amacı dizeleri](xref:security/data-protection/consumer-apis/purpose-strings) Bu parametre ve uygun bir değer seçme hedefi üzerinde çok daha fazla bilgi için.
 
 ## <a name="idataprotector"></a>IDataProtector
 
@@ -31,18 +31,18 @@ Veri parçası korumak için verileri geçirmek `Protect` yöntemi. Hangi dönü
 
 Daha önce korunan bir veri korumasını kaldırmak için korumalı veri geçirmek `Unprotect` yöntemi. (Byte [] vardır-tabanlı ve dize tabanlı aşırı geliştiriciye kolaylık sağlamak için.) Korumalı yükü için önceki bir çağrı tarafından oluşturulmuşsa `Protect` bu aynı üzerinde `IDataProtector`, `Unprotect` yöntemi özgün korumasız yükü döndürür. Korumalı yükü oynanmış veya farklı bir tarafından üretilmiş `IDataProtector`, `Unprotect` yöntemi CryptographicException oluşturur.
 
-Kavramı aynı, farklı karşılaştırması `IDataProtector` TIES amacı kavramı yedekleyin. İki `IDataProtector` örnekleri aynı kökünden oluşturuldu `IDataProtectionProvider` ancak farklı amaç dizeleri çağrısında aracılığıyla `IDataProtectionProvider.CreateProtector`, kabul sonra [farklı koruyucuları](purpose-strings.md), ve bir edemez korumasını kaldırmak tarafından oluşturulan yükler.
+Kavramı aynı, farklı karşılaştırması `IDataProtector` TIES amacı kavramı yedekleyin. İki `IDataProtector` örnekleri aynı kökünden oluşturuldu `IDataProtectionProvider` ancak farklı amaç dizeleri çağrısında aracılığıyla `IDataProtectionProvider.CreateProtector`, kabul sonra [farklı koruyucuları](xref:security/data-protection/consumer-apis/purpose-strings), ve bir edemez korumasını kaldırmak tarafından oluşturulan yükler.
 
 ## <a name="consuming-these-interfaces"></a>Bu arabirimleri kullanma
 
 DI algılayan bir bileşen için bileşen yapmanızı hedeflenen kullanım olan bir `IDataProtectionProvider` kurucusu parametresinde ve bileşen örneği oluşturulduğunda dı sistem otomatik olarak bu hizmet sağlar.
 
 > [!NOTE]
-> Bazı uygulamalar (örneğin, konsol uygulaması veya ASP.NET 4.x uygulamaları) dı açıklanan mekanizması burada kullanamazlar uyumlu olmayabilir. Bu senaryolar başvurun [olmayan dı kullanan senaryolar](../configuration/non-di-scenarios.md) belge örneği alma hakkında daha fazla bilgi için bir `IDataProtection` dı giderek olmadan sağlayıcısı.
+> Bazı uygulamalar (örneğin, konsol uygulaması veya ASP.NET 4.x uygulamaları) dı açıklanan mekanizması burada kullanamazlar uyumlu olmayabilir. Bu senaryolar başvurun [olmayan dı kullanan senaryolar](xref:security/data-protection/configuration/non-di-scenarios) belge örneği alma hakkında daha fazla bilgi için bir `IDataProtection` dı giderek olmadan sağlayıcısı.
 
 Aşağıdaki örnek, üç kavramları göstermektedir:
 
-1. [Veri koruma sisteminde ekleme](../configuration/overview.md) hizmet kapsayıcısı
+1. [Veri koruma sisteminde eklemek](xref:security/data-protection/configuration/overview) hizmet kapsayıcısı
 
 2. Örneğini almak için dı kullanarak bir `IDataProtectionProvider`, ve
 

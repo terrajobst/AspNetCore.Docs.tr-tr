@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
-title: "Etkinleştirme otomatik birim testi | Microsoft Docs"
+title: Etkinleştirme otomatik birim testi | Microsoft Docs
 author: microsoft
-description: "12. adımı bizim NerdDinner işlevselliğini doğrulayın ve hangi bize değişiklik yapmak için güvenirlik verecektir otomatik birim testleri dizisi geliştirmek gösterilmektedir..."
+description: 12. adımı bizim NerdDinner işlevselliğini doğrulayın ve hangi bize değişiklik yapmak için güvenirlik verecektir otomatik birim testleri dizisi geliştirmek gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 1a4258054d90b2d5bcc06a63fb6f3b4673a4837d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fede08be7e06327c6d04fa5d36f7dd818d79b380
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-automated-unit-testing"></a>Otomatik birim testi etkinleştir
 ====================
@@ -45,7 +45,7 @@ Otomatikleştirilmiş testler uygulamalarınızı sürekli olarak geliştirmeniz
 
 ASP.NET MVC çerçevesi, kolay ve birim testi uygulama işlevine doğal kolaylaştırır. Ayrıca, önce test tabanlı geliştirme sağlayan bir Test güdümlü geliştirme (TDD) iş akışı sağlar.
 
-### <a name="nerddinnertests-project"></a>NerdDinner.Tests proje
+### <a name="nerddinnertests-project"></a>NerdDinner.Tests Project
 
 Bu öğretici, başında NerdDinner uygulamamız oluşturduğumuz, biz biz yanı sıra uygulama projesi gitmek için birim testi projesi oluşturmak istemeniz olup olmadığını soran bir iletişim kutusuyla istenmiş:
 
@@ -234,7 +234,7 @@ Denetleyici temel sınıfı kullanıcı nesnesindeki oturum açan kullanıcı ha
 
 Mocking çerçeveleri bize dinamik olarak testlerimizde destek bağımlı nesneler sahte sürümleri oluşturmanıza olanak sağlayarak daha kolay test edin. Örneğin, biz mocking framework düzenleme eylem testimizde dinamik olarak bizim DinnersController sanal bir kullanıcı adı aramak için kullanabileceğiniz bir kullanıcı nesnesi oluşturmak için kullanabilirsiniz. Bu, biz bizim testi çalıştırdığınızda oluşturulan gelen bir null başvuru önlenmiş olur.
 
-ASP.NET MVC ile kullanılan çerçeveler mocking birçok .NET vardır (listesini bunları burada görebilirsiniz: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). "Moq" adlı framework mocking bir açık kaynak kullanırız NerdDinner uygulamamızı test etmek için ücretsiz adresinden yüklenebilir [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
+ASP.NET MVC ile kullanılan çerçeveler mocking birçok .NET vardır (listesini bunları burada görebilirsiniz: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). "Moq" adlı framework mocking bir açık kaynak kullanırız NerdDinner uygulamamızı test etmek için ücretsiz adresinden yüklenebilir [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
 
 Yüklendikten sonra bir başvuru NerdDinner.Tests Projemizin Moq.dll derlemeye ekleyeceğiz:
 
@@ -285,6 +285,6 @@ Kitap sonraki bölümde, Test güdümlü geliştirme (TDD) ve ASP.NET MVC ile ku
 
 Bazı son kaydırma yorumları.
 
->[!div class="step-by-step"]
-[Önceki](use-ajax-to-implement-mapping-scenarios.md)
-[sonraki](nerddinner-wrap-up.md)
+> [!div class="step-by-step"]
+> [Önceki](use-ajax-to-implement-mapping-scenarios.md)
+> [sonraki](nerddinner-wrap-up.md)

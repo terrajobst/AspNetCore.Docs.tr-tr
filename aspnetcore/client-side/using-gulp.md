@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek Gulp kullanma"
+title: ASP.NET çekirdek Gulp kullanın
 author: rick-anderson
-description: "ASP.NET Core Gulp kullanmayı öğrenin."
+description: ASP.NET Core Gulp kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanmaya giriş 
+# <a name="use-gulp-in-aspnet-core"></a>ASP.NET çekirdek Gulp kullanın
 
 Tarafından [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Daniel Roth](https://github.com/danroth27), ve [Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ Yeni bir Web uygulaması zaten oluşturmadıysanız, Visual Studio'da yeni bir A
     **Görev Çalıştırıcı Gezgini** Gulp görevleri listesini gösterir. (Tıklatın gerekebilir **yenileme** proje adı solunda görüntülenen düğmesini.)
     
     ![Görev Çalıştırıcı Gezgini](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > **Görev Çalıştırıcı Gezgini** bağlam menüsü öğesini görünüp görünmeyeceğini yalnızca *gulpfile.js* kök proje dizininde değil.
 
 4.  Altındaki **görevleri** içinde **görev Çalıştırıcı Gezgini**, sağ **temiz**seçip **çalıştırmak** açılır menüden.
 
@@ -228,7 +231,7 @@ Yeni bir Gulp görev tanımlamak için değiştirme *gulpfile.js*.
 
     ![Görev Çalıştırıcı Gezgini ilk görevi çalıştırma](using-gulp/_static/06-TaskRunner-First.png)
 
-    Çıkış metnini görüntülendiğini göreceksiniz. Yaygın bir senaryo tabanlı örneklerde ilgileniyorsanız Gulp tarif bakın.
+    Çıktı metin görüntülenir. Ortak senaryolarını temel alarak örneklerini görmek için bkz: [Gulp tarif](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Tanımlama ve sıralı görevleri çalıştırma
 
@@ -323,7 +326,7 @@ Farklı ortamlar için derleme arasında geçiş yapmak için değiştirme **ASP
 
     CSS dosyaları unminified sürümleri için stil bağlantı noktası dikkat edin.
 
-ASP.NET Core ortamlarda ilgili daha fazla bilgi için bkz: [birden çok ortamlarıyla çalışma](../fundamentals/environments.md).
+ASP.NET Core ortamlarda ilgili daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](../fundamentals/environments.md).
 
 ## <a name="task-and-module-details"></a>Görev ve modül ayrıntıları
 
@@ -346,4 +349,4 @@ Gulp Gulp topluluk sağlar [tarif](https://github.com/gulpjs/gulp/blob/master/do
 
 * [Gulp belgeleri](https://github.com/gulpjs/gulp/blob/master/docs/README.md)
 * [Paketleme ve ASP.NET Core küçültme](bundling-and-minification.md)
-* [Grunt ASP.NET Core kullanarak](using-grunt.md)
+* [ASP.NET çekirdek Grunt kullanın](using-grunt.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 title: Yeni bir kategori jQuery UI kullanarak DropDownList ekleme | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16f7af1d679aace24fff86abb19740beebafe785
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Yeni bir kategori jQuery UI kullanarak DropDownList ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 HTML `Select` etiketi sabit kategori verileri listesini sunmak için ideal olmakla birlikte, çoğu zaman gereken yeni bir kategori ekleyin. Biz "Opera" Tarz Veritabanımıza kategorileri eklemek istediğiniz varsayın. Bu bölümde, yeni bir kategori ekleyin kullanırız bir iletişim kutusu eklemek için jQuery UI kullanacağız. Aşağıdaki görüntü UI tarayıcıda nasıl sunacaktır gösterir.
 
@@ -36,7 +36,7 @@ Yeni bir tarzını ad zaman girilir ve **kaydetmek** düğmesi gönderilir, aşa
 2. JavaScript yeni Tarz verileri seçme listesine ekler.
 3. JavaScript yeni Tarz seçili öğe yapar.
 
- Aşağıdaki görüntüde **Opera** veritabanına eklenir ve seçili **Tarz** açılan liste. 
+   Aşağıdaki görüntüde **Opera** veritabanına eklenir ve seçili **Tarz** açılan liste. 
 
 ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image3.png)
 
@@ -102,7 +102,7 @@ JQuery `$.post` satır action özniteliği için bir AJAX çağrısı yapar (`/S
 3. Arama kutusuna GenreID girin.
 4. Sonraki simgesini kullanarak,   
     ![](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/_static/image9.png)  
- Aşağıdaki select etiketine gidin:
+   Aşağıdaki select etiketine gidin:
 
     [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample9.html)]
 5. Son seçenek değerini genişletin.
@@ -141,5 +141,5 @@ Rick.Anderson[at]Microsoft.com
 - Mike Pope
 - Tom Dykstra
 
->[!div class="step-by-step"]
-[Önceki](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)
+> [!div class="step-by-step"]
+> [Önceki](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper.md)

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: "Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -66,7 +66,7 @@ Ana dala her zaman üretim kodu eşleşir. Ana altındaki dalları farklı aşam
 
 Büyük ekipler için her yeni özellik için ayrı dalları olabilir; daha küçük bir takım için herkes geliştirme dala denetimi olabilir.
 
-Özellik A hazır, birleştirme olduğunda her bir özellik için bir dalı varsa, kaynak kod değişikliklerini geliştirme içine dal ve diğer özellik dala aşağı. Birleştirme işlemi bu kaynak kodu zaman alabilir ve tutarken özellikleri ayrı çalışan önlemek için bazı ekipler olarak adlandırılan alternatif uygulamak  *[özelliğini değiştirir](http://en.wikipedia.org/wiki/Feature_toggle)*  (da bilinir*özellik bayrakları*). Bu, tüm özellikler için kod tümünün aynı dalda olmakla birlikte, etkinleştirme veya kodda anahtarlarını kullanarak her bir özellik devre dışı anlamına gelir. Örneğin, özellik A Düzelt uygulama görevler için yeni bir alan ve önbelleğe alma işlevselliği özellik B ekler varsayalım. Her iki özellik için kod Geliştirme dalında olabilir, ancak uygulama yalnızca görünen true ve bu değişken ayarlandığında yeni alanın yalnızca farklı değişken ayarlandığında önbelleğe alma kullanacağı true. Özellik A yükseltilmesi hazır değil, ancak özellik B hazırdır, tüm üretim koda özelliği A anahtarıyla yükseltebilirsiniz ve özellik B açın. Sonra son özellik A ve bunu daha sonra tüm hiçbir kaynak kodu birleştirme ile yükseltin.
+Özellik A hazır, birleştirme olduğunda her bir özellik için bir dalı varsa, kaynak kod değişikliklerini geliştirme içine dal ve diğer özellik dala aşağı. Birleştirme işlemi bu kaynak kodu zaman alabilir ve tutarken özellikleri ayrı çalışan önlemek için bazı ekipler olarak adlandırılan alternatif uygulamak *[özelliğini değiştirir](http://en.wikipedia.org/wiki/Feature_toggle)* (da bilinir*özellik bayrakları*). Bu, tüm özellikler için kod tümünün aynı dalda olmakla birlikte, etkinleştirme veya kodda anahtarlarını kullanarak her bir özellik devre dışı anlamına gelir. Örneğin, özellik A Düzelt uygulama görevler için yeni bir alan ve önbelleğe alma işlevselliği özellik B ekler varsayalım. Her iki özellik için kod Geliştirme dalında olabilir, ancak uygulama yalnızca görünen true ve bu değişken ayarlandığında yeni alanın yalnızca farklı değişken ayarlandığında önbelleğe alma kullanacağı true. Özellik A yükseltilmesi hazır değil, ancak özellik B hazırdır, tüm üretim koda özelliği A anahtarıyla yükseltebilirsiniz ve özellik B açın. Sonra son özellik A ve bunu daha sonra tüm hiçbir kaynak kodu birleştirme ile yükseltin.
 
 Özellikleri dalları veya değiştirme düğmelerini kullanın ya da kullanmayın, böyle bir dallanma yapısı üretime geliştirme kodunuzdan Çevik ve tekrarlanabilir bir yolla akış sağlar.
 
@@ -221,6 +221,6 @@ Kaynak denetimi depoları tutulmalıdır değil gizli bilgileri işler hakkında
 
 Kaynak denetimi dışında tutma önemli bilgiler için diğer yöntemler hakkında daha fazla bilgi için bkz: [ASP.NET MVC: tutmak özel ayarları dışı kaynak denetimi](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
->[!div class="step-by-step"]
-[Önceki](automate-everything.md)
-[sonraki](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [Önceki](automate-everything.md)
+> [sonraki](continuous-integration-and-continuous-delivery.md)

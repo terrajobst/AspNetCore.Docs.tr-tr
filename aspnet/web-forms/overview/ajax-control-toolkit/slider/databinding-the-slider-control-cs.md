@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-cs
-title: "Veri bağlama kaydırıcı denetimi (C#) | Microsoft Docs"
+title: Veri bağlama kaydırıcı denetimi (C#) | Microsoft Docs
 author: wenz
-description: "AJAX Denetim Araç Seti, kaydırıcı denetimi fare kullanılarak denetlenebilir bir grafik kaydırıcı sağlar. Geçerli konum bağlamak mümkündür..."
+description: AJAX Denetim Araç Seti, kaydırıcı denetimi fare kullanılarak denetlenebilir bir grafik kaydırıcı sağlar. Geçerli konum bağlamak mümkündür...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2aa770bce5969a4ab57893d5ceecc127cf7f7872
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7644c991cd88868235511ba372be1f5b47c68fea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="databinding-the-slider-control-c"></a>Veri bağlama kaydırıcı denetimi (C#)
 ====================
@@ -52,6 +52,6 @@ Veri bağlama tarayıcıda gördüğünüz gibi her iki yönde de çalışır: m
 
 Kaydırıcı ve metin kutusu eşitlenmiş ([tam boyutlu görüntüyü görüntülemek için tıklatın](databinding-the-slider-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](using-the-slider-control-with-auto-postback-cs.md)
-[sonraki](using-the-slider-control-with-auto-postback-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-the-slider-control-with-auto-postback-cs.md)
+> [sonraki](using-the-slider-control-with-auto-postback-vb.md)

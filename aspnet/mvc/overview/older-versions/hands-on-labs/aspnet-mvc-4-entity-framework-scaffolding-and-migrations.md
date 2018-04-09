@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
-title: "ASP.NET MVC 4 Entity Framework İskele ve geçişleri | Microsoft Docs"
+title: ASP.NET MVC 4 Entity Framework İskele ve geçişleri | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 4 denetleyici yöntemleriyle bilginiz veya tamamladınız &quot;Yardımcıları, formlar ve doğrulama&quot; uygulamalı Laboratuvar olmanız gerekir kullanan..."
+description: ASP.NET MVC 4 denetleyici yöntemleriyle bilginiz veya tamamladınız &quot;Yardımcıları, formlar ve doğrulama&quot; uygulamalı Laboratuvar olmanız gerekir kullanan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework İskele ve geçişleri
 
@@ -109,7 +109,9 @@ Bu alıştırmada, ASP.NET MVC 4 yapı iskelesi koduyla ilk CRUD yöntemleri olu
     (Kod parçacığını - *ASP.NET MVC 4 ve Entity Framework geçişleri - Ex1 kişi özellikleri*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
 6. Tıklatın **yapı | Çözümü derlemek** değişiklikleri kaydetmek ve projeyi oluşturmak için.
 
     ![Uygulama oluşturma](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "uygulama oluşturma")
@@ -118,14 +120,14 @@ Bu alıştırmada, ASP.NET MVC 4 yapı iskelesi koduyla ilk CRUD yöntemleri olu
 7. Çözüm Gezgini'nde denetleyicileri klasörünü sağ tıklatın ve seçin **Ekle | Denetleyici**.
 8. Denetleyici adı *PersonController* ve tamamlamak **yapı İskelesi seçenekleri** aşağıdaki değerlere sahip.
 
-    1. İçinde **şablonu** aşağı açılan listesinden, **okuma/yazma eylemleri ve Entity Framework kullanarak görünümleri ile MVC denetleyicisi** seçeneği.
-    2. İçinde **Model sınıfı** aşağı açılan listesinden, **kişi** sınıfı.
-    3. İçinde **veri bağlamı sınıfı** listesinde  **&lt;yeni veri bağlamı... &gt;**. Herhangi bir ad seçin ve tıklatın **Tamam**.
-    4. İçinde **görünümleri** aşağı açılan listesinde, olduğundan emin olun **Razor** seçilir.
+   1. İçinde **şablonu** aşağı açılan listesinden, **okuma/yazma eylemleri ve Entity Framework kullanarak görünümleri ile MVC denetleyicisi** seçeneği.
+   2. İçinde **Model sınıfı** aşağı açılan listesinden, **kişi** sınıfı.
+   3. İçinde **veri bağlamı sınıfı** listesinde  **&lt;yeni veri bağlamı... &gt;**. Herhangi bir ad seçin ve tıklatın **Tamam**.
+   4. İçinde **görünümleri** aşağı açılan listesinde, olduğundan emin olun **Razor** seçilir.
 
-    ![Yapı iskelesi ile kişi denetleyicisi ekleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "yapı iskelesi ile kişi denetleyicisi ekleme")
+      ![Yapı iskelesi ile kişi denetleyicisi ekleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "yapı iskelesi ile kişi denetleyicisi ekleme")
 
-    *Yapı iskelesi ile kişi denetleyicisi ekleme*
+      *Yapı iskelesi ile kişi denetleyicisi ekleme*
 9. Tıklatın **Ekle** yeni denetleyicisi kişi için yapı iskelesi ile oluşturmak için. Denetleyici eylemleri ve bunun yanı sıra görünümleri şimdi oluşturdunuz.
 
     ![Yapı iskelesi ile kişi denetleyicisi oluşturduktan sonra](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image5.png "yapı iskelesi ile kişi denetleyicisi oluşturduktan sonra")
@@ -133,9 +135,9 @@ Bu alıştırmada, ASP.NET MVC 4 yapı iskelesi koduyla ilk CRUD yöntemleri olu
     *Yapı iskelesi ile kişi denetleyicisi oluşturduktan sonra*
 10. Açık **PersonController** sınıfı. Tam CRUD eylem yöntemlerine otomatik olarak oluşturulmuş olan dikkat edin.
 
-    ![Kişi denetleyicisi içinde](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "içinde kişi denetleyicisi")
+   ![Kişi denetleyicisi içinde](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "içinde kişi denetleyicisi")
 
-    *İçinde kişi denetleyicisi*
+   *İçinde kişi denetleyicisi*
 
 <a id="Ex1Task2"></a>
 
@@ -195,11 +197,15 @@ Bu görevde Entity Framework geçişler kullanarak veritabanını güncelleştir
 3. Açık **Configuration.cs** Migrations klasörünü dosyasında. Sınıf oluşturucu bulun ve değiştirin **AutomaticMigrationsEnabled** değeri *doğru*.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
 4. Kişi sınıfı açın ve bir öznitelik için kişinin ikinci adını ekleyin. Bu yeni öznitelik model değiştiriyorsunuz.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
 5. Seçin **yapı | Çözümü derlemek** uygulamayı yapılandırmak için menüsünde.
 
     ![Uygulama oluşturma](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "uygulama oluşturma")
@@ -247,9 +253,9 @@ Bu görevde Entity Framework geçişler kullanarak veritabanını güncelleştir
     *Denetleyici güncelleştiriliyor*
 10. **Ekle**'yi tıklatın. Ardından, değerleri seçin **üzerine PersonController.cs** ve **üzerine yaz ilişkili görünümleri** tıklatıp **Tamam**.
 
-    ![Bir denetleyici üzerine yaz ekleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
+   ![Bir denetleyici üzerine yaz ekleme](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
 
-    *Denetleyici güncelleştiriliyor*
+   *Denetleyici güncelleştiriliyor*
 
 <a id="Ex1Task4"></a>
 
@@ -280,9 +286,9 @@ Uygulamalı bu laboratuvarda, ASP.NET MVC 4 herhangi bir model sınıfını kull
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/? LinkID 9810169 =](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/? LinkId 9810169 =](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -293,23 +299,23 @@ Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya ba�
 
     ![Lisans koşulları kabul ediliyor](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    Lisans koşulları kabul ediliyor
+    *Lisans koşulları kabul ediliyor*
 5. İndirme ve yükleme işlemi tamamlanana kadar bekleyin.
 
     ![Yükleme ilerleme durumu](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
 
-    Yükleme ilerleme durumu
+    *Yükleme ilerleme durumu*
 6. Yükleme tamamlandığında tıklatın **son**.
 
     ![Yükleme tamamlandı](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    Yükleme tamamlandı
+    *Yükleme tamamlandı*
 7. Tıklatın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
 8. Web için Visual Studio Express açmak için Git **Başlat** ekranında ve yazmaya başlayın &quot; **VS Express**&quot;, tıklayın **VS Express Web** Döşeme.
 
     ![VS Express Web döşemeye](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    VS Express Web döşemeye
+    *VS Express Web döşemeye*
 
 <a id="AppendixB"></a>
 

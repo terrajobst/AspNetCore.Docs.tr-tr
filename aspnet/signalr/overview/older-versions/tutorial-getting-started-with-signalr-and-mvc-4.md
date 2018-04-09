@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
-title: "Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4 | Microsoft Docs"
+title: 'Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4 | Microsoft Docs'
 author: pfletcher
-description: "ASP.NET SignalR ve ASP.NET MVC 4 gerçek zamanlı sohbet uygulaması oluşturmak için kullanın."
+description: ASP.NET SignalR ve ASP.NET MVC 4 gerçek zamanlı sohbet uygulaması oluşturmak için kullanın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4
 ====================
@@ -63,17 +63,17 @@ Bu bölümde, bir ASP.NET MVC 4 uygulama oluşturmak, SignalR Kitaplığı eklem
         > VS 2010'da seçin **.NET Framework 4** Framework sürümü açılır denetimindeki. SignalR kodu .NET Framework sürüm 4 ve 4.5 çalışır.
 
         ![MVC web oluşturma](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. Internet uygulaması şablonunu seçin, seçeneğini temizleyin **birim testi projesi oluşturma**, Tamam'ı tıklatın.
+      2. Internet uygulaması şablonunu seçin, seçeneğini temizleyin **birim testi projesi oluşturma**, Tamam'ı tıklatın.
 
-        ![MVC internet sitesi oluştur](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. Açık **Araçlar | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvurularını projeye ekler.
+         ![MVC internet sitesi oluştur](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. Açık **Araçlar | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvurularını projeye ekler.
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. İçinde **Çözüm Gezgini** komut dosyaları klasörünü genişletin. SignalR için komut dosyası kitaplıkları projeye eklendiğini unutmayın.
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. İçinde **Çözüm Gezgini** komut dosyaları klasörünü genişletin. SignalR için komut dosyası kitaplıkları projeye eklendiğini unutmayın.
 
-        ![Kitaplık Başvurusu](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, seçin **Ekle | Yeni klasör**, ve adlı yeni bir klasör ekleyin **hub**.
-    6. Sağ **hub** klasörünü tıklatın **Ekle | Sınıf**ve adlı yeni bir C# sınıfı oluşturmanız **ChatHub.cs**. Bu sınıf, tüm istemcilere iletileri gönderen bir SignalR sunucu hub olarak kullanır.
+         ![Kitaplık Başvurusu](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, seçin **Ekle | Yeni klasör**, ve adlı yeni bir klasör ekleyin **hub**.
+      6. Sağ **hub** klasörünü tıklatın **Ekle | Sınıf**ve adlı yeni bir C# sınıfı oluşturmanız **ChatHub.cs**. Bu sınıf, tüm istemcilere iletileri gönderen bir SignalR sunucu hub olarak kullanır.
 
 > [!NOTE]
 > Visual Studio 2012 kullanın ve yüklediyseniz [ASP.NET ve Web Araçları 2012.2 güncelleştirme](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), hub sınıfı oluşturmak için yeni SignalR öğe şablonu kullanabilirsiniz. Bunu yapmak için sağ **hub** klasörünü tıklatın **Ekle | Yeni öğe**seçin **SignalR hub'ı sınıfı (v1)**ve sınıf adını **ChatHub.cs**.
@@ -117,7 +117,7 @@ Bu bölümde, bir ASP.NET MVC 4 uygulama oluşturmak, SignalR Kitaplığı eklem
 6. Aşağıdaki ekran görüntüsünde bir tarayıcıda çalışan sohbet uygulamayı gösterir.
 
     ![Sohbet tarayıcılar](tutorial-getting-started-with-signalr-and-mvc-4/_static/image11.png)
-7. İçinde **Çözüm Gezgini**, inceleme **betik belgelerini** çalışan uygulama için düğüm. Tarayıcı olarak Internet Explorer kullanıyorsanız, bu hata ayıklama modunda görünür bir düğümdür. Adlı bir komut dosyası **hub** , SignalR kitaplık çalışma zamanında dinamik olarak oluşturur. Bu dosya, jQuery betik sunucu tarafı kodu arasında iletişim yönetir. Internet Explorer dışında bir tarayıcı kullanıyorsanız, dinamik da erişebilirsiniz **hub** kendisine doğrudan, örneğin http://mywebsite/signalr/hubs giderek dosya.
+7. İçinde **Çözüm Gezgini**, inceleme **betik belgelerini** çalışan uygulama için düğüm. Tarayıcı olarak Internet Explorer kullanıyorsanız, bu hata ayıklama modunda görünür bir düğümdür. Adlı bir komut dosyası **hub** , SignalR kitaplık çalışma zamanında dinamik olarak oluşturur. Bu dosya, jQuery betik sunucu tarafı kodu arasında iletişim yönetir. Internet Explorer dışında bir tarayıcı kullanıyorsanız, dinamik da erişebilirsiniz **hub** kendisine doğrudan, örneğin giderek dosya http://mywebsite/signalr/hubs.
 
     ![Oluşturulan hub komut dosyası](tutorial-getting-started-with-signalr-and-mvc-4/_static/image13.png)
 

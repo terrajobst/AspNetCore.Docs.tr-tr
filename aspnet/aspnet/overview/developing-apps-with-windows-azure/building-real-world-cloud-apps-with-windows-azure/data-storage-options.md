@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
-title: "Veri depolama seçenekleri (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: Veri depolama seçenekleri (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -301,6 +301,6 @@ Hdınsight (Hadoop Azure ile ilgili):
 - [Hadoop ve Hdınsight: azure'da büyük veri](https://msdn.microsoft.com/magazine/dn385705.aspx). MSDN dergisi makale Bruno Terkaly ve Hadoop azure'da Tanıtımı Attila Villalobos.
 - [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz: MapReduce düzeni.
 
->[!div class="step-by-step"]
-[Önceki](single-sign-on.md)
-[sonraki](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [Önceki](single-sign-on.md)
+> [sonraki](data-partitioning-strategies.md)

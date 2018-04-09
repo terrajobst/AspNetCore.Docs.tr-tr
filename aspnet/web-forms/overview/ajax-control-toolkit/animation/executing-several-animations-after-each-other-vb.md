@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb
-title: "Birkaç animasyon her art arda (VB) yürütme | Microsoft Docs"
+title: Birkaç animasyon her art arda (VB) yürütme | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Severa çalışmasına izin..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Severa çalışmasına izin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-after-each-other-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e949d181c0b742ee38ebbcc46e0e08efc678a1f8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 700946b9f32c5ed2dcb8586e7c0e84d2238ff103
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-after-each-other-vb"></a>Birkaç animasyon her art arda (VB) yürütme
 ====================
@@ -45,7 +45,7 @@ Animasyonun bir panel şöyle metin uygulanır:
 
 [!code-css[Main](executing-several-animations-after-each-other-vb/samples/sample3.css)]
 
-Ardından, ekleyin `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetControlID` özniteliği ve zorunlu`runat="server":`
+Ardından, ekleyin `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetControlID` özniteliği ve zorunlu `runat="server":`
 
 [!code-aspx[Main](executing-several-animations-after-each-other-vb/samples/sample4.aspx)]
 
@@ -65,6 +65,6 @@ Bu komut, bölmenin ilk alır ve ardından daha küçük geniş çalıştırdı�
 
 Yükseklik azalır sonra ([tam boyutlu görüntüyü görüntülemek için tıklatın](executing-several-animations-after-each-other-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Önceki](executing-several-animations-at-the-same-time-vb.md)
-[sonraki](animation-depending-on-a-condition-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](executing-several-animations-at-the-same-time-vb.md)
+> [sonraki](animation-depending-on-a-condition-vb.md)

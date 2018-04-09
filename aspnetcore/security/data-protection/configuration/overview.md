@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek veri korumasını yapılandırma"
+title: ASP.NET Core veri korumasını yapılandırma
 author: rick-anderson
-description: "Veri koruma ASP.NET Core yapılandırmayı öğrenin."
+description: Veri koruma ASP.NET Core yapılandırmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 07/17/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 0fe1fd7b81a0e5aa00ae14c7e6fdbd9cc88ec4fe
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="configuring-data-protection-in-aspnet-core"></a>ASP.NET çekirdek veri korumasını yapılandırma
+# <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Veri koruma sistem başlatıldığında geçerli [varsayılan ayarları](xref:security/data-protection/configuration/default-settings) işletimsel ortamına bağlı. Bu ayarlar genellikle tek bir makinede çalışan uygulamalar için uygundur. Burada bir geliştirici kendi uygulama birden fazla makine arasında veya uyumluluk nedenleriyle yayıldığı için varsayılan ayarları, belki de değiştirmek isteyebilirsiniz durumlar vardır. Bu senaryolar için veri koruması sistemi zengin yapılandırma API'si sunar.
 
-Bir genişletme yöntemi yoktur [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndüren bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder`genişletme yöntemleri, veri korumayı yapılandırmak için seçenekleri zincir olduğunu gösterir.
+Bir genişletme yöntemi yoktur [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndüren bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` genişletme yöntemleri, veri korumayı yapılandırmak için seçenekleri zincir olduğunu gösterir.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

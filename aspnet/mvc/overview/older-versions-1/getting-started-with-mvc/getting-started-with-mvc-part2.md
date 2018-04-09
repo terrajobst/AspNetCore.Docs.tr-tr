@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 title: Bir denetleyici ekleme | Microsoft Docs
 author: shanselman
-description: "Bu öğretici, burada Visual Studio 2013 kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni öğretici t birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır..."
+description: Bu öğretici, burada Visual Studio 2013 kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni öğretici t birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 93a362cf83d39b29fcba3f2dee0c28257805a89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c6ecd1ffdd53a629d0079d57b85c7f6db2f316ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Bir denetleyici ekleme
 ====================
@@ -77,6 +77,6 @@ Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcom
 
 Bu örneklerin her ikisi de denetleyicisi tüm çalışarak olmuştur ve HTML doğrudan döndürüyor. Normalde biz bizim denetleyicileri istemediğiniz kodu oldukça zahmetli olan bitip beri HTML doğrudan - döndürüyor. Bunun yerine genellikle ayrı bir görünüm şablon dosyası HTML yanıtı oluşturmak yardımcı olmak için kullanacağız. Nasıl bunu yapabiliriz konumundaki bakalım. Tarayıcınızı kapatın ve IDE döndürür.
 
->[!div class="step-by-step"]
-[Önceki](getting-started-with-mvc-part1.md)
-[sonraki](getting-started-with-mvc-part3.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started-with-mvc-part1.md)
+> [sonraki](getting-started-with-mvc-part3.md)

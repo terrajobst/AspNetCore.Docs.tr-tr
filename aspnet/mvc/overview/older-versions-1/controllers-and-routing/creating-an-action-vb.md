@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
-title: "Bir eylem (VB) oluşturma | Microsoft Docs"
+title: Bir eylem (VB) oluşturma | Microsoft Docs
 author: microsoft
-description: "ASP.NET MVC denetleyicisi için yeni bir eylem eklemeyi öğrenin. Bir yöntemin bir eylem gereksinimleri hakkında bilgi edinin."
+description: ASP.NET MVC denetleyicisi için yeni bir eylem eklemeyi öğrenin. Bir yöntemin bir eylem gereksinimleri hakkında bilgi edinin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3d1d355599c17df597f9c08d9d7f129fffc1a2e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c77e4738444c61d60bdd78a50b36f98be41fc271
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-action-vb"></a>Bir eylem (VB) oluşturma
 ====================
@@ -31,7 +31,7 @@ Bu öğretici, yeni bir denetleyici eylemi nasıl oluşturabileceğinizi açıkl
 
 Yeni bir eylem denetleyicisi için yeni bir yöntem ekleyerek bir denetleyiciye ekleyin. Örneğin, denetleyici listeleme 1 İNDİS() adlı bir eylem ve SayHello() adlı bir eylem içerir. Her iki yöntem eylemler olarak sunulur.
 
-**1 - Controllers\HomeController.vb listeleme**
+**Listing 1 - Controllers\HomeController.vb**
 
 [!code-vb[Main](creating-an-action-vb/samples/sample1.vb)]
 
@@ -64,6 +64,6 @@ Ardından, tarayıcınızın adres çubuğuna /Work/CompanySecrets yazarak Compa
 
 **Şekil 01**: NonAction yöntemi çağırma ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-an-action-vb/_static/image2.png))
 
->[!div class="step-by-step"]
-[Önceki](creating-a-controller-vb.md)
-[sonraki](aspnet-mvc-controllers-overview-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-controller-vb.md)
+> [sonraki](aspnet-mvc-controllers-overview-cs.md)

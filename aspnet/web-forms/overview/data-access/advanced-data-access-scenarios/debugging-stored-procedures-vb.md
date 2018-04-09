@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
-title: "Saklı yordamlar (VB) hata ayıklama | Microsoft Docs"
+title: Saklı yordamlar (VB) hata ayıklama | Microsoft Docs
 author: rick-anderson
-description: "Visual Studio Professional ve Team System sürümleri kesme noktalarını ayarlayın ve saklı yordamlar SQL Server içinde adım depolanan hata ayıklama yapmadan izin ver..."
+description: Visual Studio Professional ve Team System sürümleri kesme noktalarını ayarlayın ve saklı yordamlar SQL Server içinde adım depolanan hata ayıklama yapmadan izin ver...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3391a78eaeb0add46e75048069a614ba00628f67
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>Saklı yordamlar (VB) hata ayıklama
 ====================
@@ -167,7 +167,7 @@ Visual Studio ile aynı makinede SQL Server veritabanı örneği olduğunda, ver
 
 İkinci görev uygulamada hata ayıklama için kullandığınız Windows kullanıcı hesabı Uzak veritabanı üzerinde geçerli bir oturum açma olmasını gerektirir. Ancak, büyük olasılıkla ile iş istasyonunuzu oturum Windows hesabı SQL Server üzerinde geçerli bir oturum değil değildir. Belirli bir oturum açma hesabınızın SQL Server'a eklemek yerine, bazı Windows kullanıcı hesabı SQL Server hata ayıklama hesabı olarak belirlemek için daha iyi bir seçim olacaktır. Ardından, uzak bir SQL Server örneğinin veritabanı nesnelerini hata ayıklamak için Visual Studio, Windows oturum açma hesabı s kimlik bilgilerini kullanarak çalışır.
 
-Bir örnek noktalar açıklığa kavuşturmak yardımcı olmalıdır. Adlı bir Windows hesabı olduğunu düşünün `SQLDebug` Windows etki alanı içinde. Bu hesap için Uzak SQL Server örneği geçerli bir oturum açma ve bir üyesi olarak eklenmesi gerekir `sysadmin` rol. Ardından, Visual Studio'dan uzak SQL Server örneği hata ayıklamak için Visual Studio olarak çalıştırmak ihtiyacımız `SQLDebug` kullanıcı. Bu bizim iş istasyonu dışında olarak oturum açmayı tekrar açarak yapılabilir `SQLDebug`, ve ardından Visual Studio, ancak basit bir yaklaşım başlatma kendi kimlik bilgilerini kullanarak bizim iş istasyonunda oturum açmak ve ardından olacaktır `runas.exe` olarak Visual Studio'yu başlatmak için `SQLDebug` kullanıcı. `runas.exe`farklı bir kullanıcı hesabı gerçekleştirebilirler altında yürütülmek üzere belirli bir uygulama sağlar. Visual Studio olarak başlatmak için `SQLDebug`, komut satırında şu deyimi girebilirsiniz:
+Bir örnek noktalar açıklığa kavuşturmak yardımcı olmalıdır. Adlı bir Windows hesabı olduğunu düşünün `SQLDebug` Windows etki alanı içinde. Bu hesap için Uzak SQL Server örneği geçerli bir oturum açma ve bir üyesi olarak eklenmesi gerekir `sysadmin` rol. Ardından, Visual Studio'dan uzak SQL Server örneği hata ayıklamak için Visual Studio olarak çalıştırmak ihtiyacımız `SQLDebug` kullanıcı. Bu bizim iş istasyonu dışında olarak oturum açmayı tekrar açarak yapılabilir `SQLDebug`, ve ardından Visual Studio, ancak basit bir yaklaşım başlatma kendi kimlik bilgilerini kullanarak bizim iş istasyonunda oturum açmak ve ardından olacaktır `runas.exe` olarak Visual Studio'yu başlatmak için `SQLDebug` kullanıcı. `runas.exe` farklı bir kullanıcı hesabı gerçekleştirebilirler altında yürütülmek üzere belirli bir uygulama sağlar. Visual Studio olarak başlatmak için `SQLDebug`, komut satırında şu deyimi girebilirsiniz:
 
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
@@ -190,8 +190,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](protecting-connection-strings-and-other-configuration-information-vb.md)
-[sonraki](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [sonraki](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

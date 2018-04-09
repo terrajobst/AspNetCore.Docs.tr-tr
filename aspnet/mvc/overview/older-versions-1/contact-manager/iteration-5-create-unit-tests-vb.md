@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
-title: "Yineleme #5 – Oluştur birim testleri (VB) | Microsoft Docs"
+title: 'Yineleme #5 – Oluştur birim testleri (VB) | Microsoft Docs'
 author: microsoft
-description: "Beşinci yinelemede biz uygulamamız korumak ve birim testleri ekleyerek değiştirmek kolaylaştırır. Biz bizim veri modeli sınıflarını mock ve o için birim testleri oluştur..."
+description: Beşinci yinelemede biz uygulamamız korumak ve birim testleri ekleyerek değiştirmek kolaylaştırır. Biz bizim veri modeli sınıflarını mock ve o için birim testleri oluştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ab9ff5629cb468b785f5b82178f9f6247a55cacb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fe59792a1e1a7950a318e7e893b3da12d53a8efa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
 ====================
@@ -105,9 +105,9 @@ Birim testleri oluştururken, neredeyse her zaman bir Mock nesne çerçevesinden
 
 Visual Studio Mock nesne framework içermez. Ancak, çeşitli ticari ve açık kaynak Mock nesne çerçeveleri .NET framework için kullanılabilen vardır:
 
-1. Moq - bu çerçeve açık kaynak BSD lisans kapsamında kullanılabilir. Gelen Moq indirebilirsiniz [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
-2. Kemalu Mocks - bu çerçeve açık kaynak BSD lisans kapsamında kullanılabilir. Kemalu Mocks indirebilirsiniz [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
-3. Typemock ayırıcı - bu ticari bir çerçevedir. Deneme sürümünden indirebilirsiniz [http://www.typemock.com/](http://www.typemock.com/).
+1. Moq - bu çerçeve açık kaynak BSD lisans kapsamında kullanılabilir. Gelen Moq indirebilirsiniz [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
+2. Kemalu Mocks - bu çerçeve açık kaynak BSD lisans kapsamında kullanılabilir. Kemalu Mocks indirebilirsiniz [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
+3. Typemock ayırıcı - bu ticari bir çerçevedir. Deneme sürümünden indirebilirsiniz [ http://www.typemock.com/ ](http://www.typemock.com/).
 
 Bu öğreticide, t Moq kullanmaya karar vermiştir. Ancak, kemalu Mocks kolayca kullanabilirsiniz veya Contact Manager uygulaması için Typemock Mock oluşturmak için ayırıcı nesneleri.
 
@@ -238,6 +238,6 @@ Birim testleri iki kümesi oluşturduk. İlk olarak, doğrulama mantığımızı
 
 İlgili kişi grupları destekler şekilde sonraki yinelemede biz Kişi Yöneticisi uygulaması değiştirin. Bu yeni işlevsellik teste dayalı geliştirme adlı bir yazılım tasarım işlemi kullanarak uygulamamız ekleyeceğiz.
 
->[!div class="step-by-step"]
-[Önceki](iteration-4-make-the-application-loosely-coupled-vb.md)
-[sonraki](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [sonraki](iteration-6-use-test-driven-development-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 title: GridView denetiminde (VB) TemplateFields kullanma | Microsoft Docs
 author: rick-anderson
-description: "Esneklik sağlamak için bir şablon kullanarak işler TemplateField GridView sunar. Bir şablon statik HTML, Web denetimleri bir karışımını içerebilir ve..."
+description: Esneklik sağlamak için bir şablon kullanarak işler TemplateField GridView sunar. Bir şablon statik HTML, Web denetimleri bir karışımını içerebilir ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 337765988cc6ec92384bec09a72fd00505d9a039
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f236c1cfaaeaa00f30b6a90553ad4e468e05ca23
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a>GridView denetiminde (VB) TemplateFields kullanma
 ====================
@@ -94,7 +94,7 @@ Bir tane Dönüştür `FirstName` bir TemplateField içine BoundField. Bu deği�
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-vb/samples/sample2.aspx)]
 
-Gördüğünüz gibi iki şablonları TemplateField oluşur bir `ItemTemplate` bir etikete sahip olan `Text` özelliği değerine ayarlanmış `FirstName` veri alanı ve bir `EditItemTemplate` bir kutusuyla özelliği kontrol `Text` özelliğini de ayarlayın için `FirstName` veri alanı. Veri bağlama sözdizimi - `<%# Bind("fieldName") %>` -belirten veri alanı  *`fieldName`*  belirtilen Web denetimi özelliğe bağlıdır.
+Gördüğünüz gibi iki şablonları TemplateField oluşur bir `ItemTemplate` bir etikete sahip olan `Text` özelliği değerine ayarlanmış `FirstName` veri alanı ve bir `EditItemTemplate` bir kutusuyla özelliği kontrol `Text` özelliğini de ayarlayın için `FirstName` veri alanı. Veri bağlama sözdizimi - `<%# Bind("fieldName") %>` -belirten veri alanı *`fieldName`* belirtilen Web denetimi özelliğe bağlıdır.
 
 Eklemek için `LastName` veri alanı ihtiyacımız başka bir etiket Web denetimi eklemek için bu TemplateField değerine `ItemTemplate` ve bağlama kendi `Text` özelliğine `LastName`. Bu, el ile veya Tasarımcısı aracılığıyla gerçekleştirilebilir. Yalnızca uygun tanımlayıcı sözdizimi yapmak için el ile eklemek `ItemTemplate`:
 
@@ -239,7 +239,7 @@ Bu yeni TemplateField's ayarlamak `HeaderText` "İş üzerinde gün" özelliğin
 
 [!code-aspx[Main](using-templatefields-in-the-gridview-control-vb/samples/sample6.aspx)]
 
-`Container.DataItem`döndüren bir `DataRowView` nesne karşılık gelen `DataSource` kayıt bağlı `GridViewRow`. Kendi `Row` özelliği döndürür kesin türü belirtilmiş `Northwind.EmployeesRow`, için geçirilen `DisplayDaysOnJob` yöntemi. Bu veri bağlama sözdizimini doğrudan görünebilir `ItemTemplate` (bildirim temelli aşağıdaki sözdiziminde gösterildiği gibi) veya atanabilir `Text` bir etiket Web denetimi özelliği.
+`Container.DataItem` döndüren bir `DataRowView` nesne karşılık gelen `DataSource` kayıt bağlı `GridViewRow`. Kendi `Row` özelliği döndürür kesin türü belirtilmiş `Northwind.EmployeesRow`, için geçirilen `DisplayDaysOnJob` yöntemi. Bu veri bağlama sözdizimini doğrudan görünebilir `ItemTemplate` (bildirim temelli aşağıdaki sözdiziminde gösterildiği gibi) veya atanabilir `Text` bir etiket Web denetimi özelliği.
 
 > [!NOTE]
 > Alternatif olarak, bilgilerinde yerine bir `EmployeesRow` örneği, biz geçirmeniz yeterlidir `HireDate` kullanarak değer `<%# DisplayDaysOnJob(Eval("HireDate")) %>`. Ancak, `Eval` yöntemi döndürür bir `Object`, biz değiştirmeniz gerekir böylece bizim `DisplayDaysOnJob` türünde bir giriş parametresi kabul etmek için yöntem imzası `Object`, bunun yerine. Biz doğrudan atanamaz `Eval("HireDate")` çağrısı bir `DateTime` çünkü `HireDate` sütununda `Employees` tablo içerebilir `NULL` değerleri. Bu nedenle, biz kabul etmeniz gerekir bir `Object` giriş parametresi olarak `DisplayDaysOnJob` yöntemi, bir veritabanına sahip olmadığını görmek için onay `NULL` değeri (gerçekleştirilebilir kullanarak `Convert.IsDBNull(objectToCheck)`) ve buna göre devam edin.
@@ -276,12 +276,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Dan Jagers oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](custom-formatting-based-upon-data-vb.md)
-[sonraki](using-templatefields-in-the-detailsview-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](custom-formatting-based-upon-data-vb.md)
+> [sonraki](using-templatefields-in-the-detailsview-control-vb.md)

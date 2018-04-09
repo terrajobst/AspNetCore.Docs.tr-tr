@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
-title: "İstemci tarafı kodlar (VB) kullanarak animasyonları yürütme | Microsoft Docs"
+title: İstemci tarafı kodlar (VB) kullanarak animasyonları yürütme | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon yürütme..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon yürütme...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c97ce87addd566ed1ba63ccdb81206c6449f49a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2b8c499edaccc70d439a576feb80e91cb28c1c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-animations-using-client-side-code-vb"></a>İstemci tarafı kodlar (VB) kullanarak animasyonları yürütme
 ====================
@@ -70,6 +70,6 @@ Tanıtım amacıyla, bu animasyon (ve Denetim Araç Seti kullanılarak oluşturu
 
 Animasyonun bir tıklatma olmadan hemen çalıştırır ([tam boyutlu görüntüyü görüntülemek için tıklatın](executing-animations-using-client-side-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](modifying-animations-from-the-server-side-vb.md)
-[sonraki](changing-an-animation-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](modifying-animations-from-the-server-side-vb.md)
+> [sonraki](changing-an-animation-using-client-side-code-vb.md)

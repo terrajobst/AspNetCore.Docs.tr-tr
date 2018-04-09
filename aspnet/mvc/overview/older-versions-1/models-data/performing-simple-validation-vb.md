@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
-title: "Basit bir doğrulama (VB) gerçekleştirme | Microsoft Docs"
+title: Basit bir doğrulama (VB) gerçekleştirme | Microsoft Docs
 author: StephenWalther
-description: "Bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmeyi öğrenin. Bu öğreticide, model durumu ve doğrulama HTML Yardımcısı Stephen Walther tanıtır..."
+description: Bir ASP.NET MVC uygulamasındaki doğrulama gerçekleştirmeyi öğrenin. Bu öğreticide, model durumu ve doğrulama HTML Yardımcısı Stephen Walther tanıtır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc4cdbcd267bcdd3e71abc4c52664ae62c5c02e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: efb98d87106e332fffb158e5f382d57fea778957
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-vb"></a>Basit bir doğrulama (VB) gerçekleştirme
 ====================
@@ -71,7 +71,7 @@ Bir görünüm eklemeden önce uygulamanızın oluşturduğunuzdan emin olun. S�
 
 Bu adımları tamamladıktan sonra listeleme 2'de Oluştur görünümünün alın.
 
-**2 - Views\Product\Create.aspx listeleme**
+**Listing 2 - Views\Product\Create.aspx**
 
 [!code-aspx[Main](performing-simple-validation-vb/samples/sample2.aspx)]
 
@@ -130,6 +130,6 @@ Hata iletileri prebinding bunlar görünümünü özelleştirmek istiyorsanız, 
 
 ASP.NET MVC çerçevesi doğrulama temel mekanikleri tanımlamak için bu öğreticinin amacı oluştu. Model durumu ve doğrulama HTML Yardımcıları nasıl kullanılacağı hakkında bilgi edindiniz. Biz de prebinding ve doğrulama postbinding arasında ayrım açıklanmıştır. Diğer öğreticiler, biz doğrulama kodunuzu denetleyicilerinizi dışında ve model sınıflarınızı halinde taşıma için çeşitli stratejiler ele alacağız.
 
->[!div class="step-by-step"]
-[Önceki](displaying-a-table-of-database-data-vb.md)
-[sonraki](validating-with-the-idataerrorinfo-interface-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](displaying-a-table-of-database-data-vb.md)
+> [sonraki](validating-with-the-idataerrorinfo-interface-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek yönlendirme"
+title: ASP.NET çekirdek yönlendirme
 author: ardalis
-description: "ASP.NET Core yönlendirme işlevini nasıl gelen istek yönlendirme işleyicisine eşlemek için sorumlu olduğu bulur."
+description: ASP.NET Core yönlendirme işlevini nasıl gelen istek yönlendirme işleyicisine eşlemek için sorumlu olduğu bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 1ff08ee6389ce7b12d74b162b990ddaaadc05ea8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 51f667352f7d92ab8c73d958c821c6acf5eb7529
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -22,7 +22,7 @@ Tarafından [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://arda
 Gelen istek yönlendirme işleyicisine eşlemek için yönlendirme işlevi sorumludur. Yollar ASP.NET uygulamasında tanımlanır ve uygulama başladığında yapılandırılmış. Bir rota, istekte bulunan URL'den değerleri isteğe bağlı olarak ayıklayabilirsiniz ve bu değerleri daha sonra isteği işleme için kullanılabilir. ASP.NET Uygulama yolu bilgileri kullanarak, yönlendirme işlevi de rota işleyicilere eşleme URL'leri oluşturabilir. Bu nedenle, yönlendirme bir URL veya yol işleyicisi bilgilere göre belirli bir rota işleyicisi karşılık gelen URL göre bir rota işleyiciye bulabilirsiniz.
 
 >[!IMPORTANT]
-> Bu belge yönlendirme düşük düzey ASP.NET Core kapsar. ASP.NET Core MVC yönlendirme için bkz: [denetleyici eylemleri için yönlendirme](../mvc/controllers/routing.md)
+> Bu belge yönlendirme düşük düzey ASP.NET Core kapsar. ASP.NET Core MVC yönlendirme için bkz: [rota denetleyici eylemleri için](../mvc/controllers/routing.md)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -88,7 +88,7 @@ Yönlendirme sağlar `Route` sınıf standart uygulaması olarak `IRouter`. `Rou
 
 Çoğu uygulama çağırarak yollar oluşturacak `MapRoute` veya tanımlanan benzer genişletme yöntemleri `IRouteBuilder`. Bu yöntemlerin örneğini oluşturacak `Route` ve rota koleksiyonuna ekleyin.
 
-Not: `MapRoute` bir rota işleyicisi parametresini - almaz yalnızca tarafından işlenen rotalar ekler `DefaultHandler`. Varsayılan işleyici olduğundan bir `IRouter`, istek işleme değil karar verebilirsiniz. Örneğin, yalnızca işleme bir varsayılan işleyici eşleşen bir kullanılabilir denetleyici ve eylem istekleri gibi ASP.NET MVC genellikle yapılandırılır. MVC için yönlendirme hakkında daha fazla bilgi için bkz: [denetleyici eylemleri için yönlendirme](../mvc/controllers/routing.md).
+Not: `MapRoute` bir rota işleyicisi parametresini - almaz yalnızca tarafından işlenen rotalar ekler `DefaultHandler`. Varsayılan işleyici olduğundan bir `IRouter`, istek işleme değil karar verebilirsiniz. Örneğin, yalnızca işleme bir varsayılan işleyici eşleşen bir kullanılabilir denetleyici ve eylem istekleri gibi ASP.NET MVC genellikle yapılandırılır. MVC için yönlendirme hakkında daha fazla bilgi için bkz: [denetleyici eylemleri için rota](../mvc/controllers/routing.md).
 
 Bu bir örnektir bir `MapRoute` tipik bir ASP.NET MVC rota tanımı tarafından kullanılan çağrısı:
 

@@ -1,7 +1,7 @@
 ---
-title: "Alt anahtar türetme ve kimliği doğrulanmış şifreleme"
+title: Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
 author: rick-anderson
-description: "Bu belge, ASP.NET Core veri koruma uygulama ayrıntılarını türetme alt anahtar ve şifreleme kimliği doğrulanmış açıklar."
+description: ASP.NET Core veri koruma uygulama ayrıntılarını türetme alt anahtar ve şifreleme kimliği doğrulanmış öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 4b905bbc7bb064b6ba1741557bd694c8c67ccfa8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="subkey-derivation-and-authenticated-encryption"></a>Alt anahtar türetme ve kimliği doğrulanmış şifreleme
+# <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
 
 <a name="data-protection-implementation-subkey-derivation"></a>
 
@@ -63,7 +63,7 @@ Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele başlatma vekt
 *output:= keyModifier || iv || E_cbc (K_E,iv,data) || HMAC(K_H, iv || E_cbc (K_E,iv,data))*
 
 > [!NOTE]
-> `IDataProtector.Protect` Uygulaması olacak [Sihirli üstbilgi ve anahtarı kimliği başına](authenticated-encryption-details.md) çağırana dönmeden önce çıktı. Sihirli üstbilgi ve anahtarı kimliği örtük olarak olduğundan parçası [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), ve anahtar değiştiricisi KDF giriş olarak gönderilir, bu Mac tarafından döndürülen yük tek her bir bitini doğrulanır anlamına gelir
+> `IDataProtector.Protect` Uygulaması olacak [Sihirli üstbilgi ve anahtarı kimliği başına](xref:security/data-protection/implementation/authenticated-encryption-details) çağırana dönmeden önce çıktı. Sihirli üstbilgi ve anahtarı kimliği örtük olarak olduğundan parçası [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), ve anahtar değiştiricisi KDF giriş olarak gönderilir, bu Mac tarafından döndürülen yük tek her bir bitini doğrulanır anlamına gelir
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>Galois/sayaç modu şifreleme + doğrulama
 
@@ -74,4 +74,4 @@ Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele 96 bit nonce o
 *Çıkış: keyModifier = || nonce || E_gcm (K_E, nonce, veri) || authTag*
 
 > [!NOTE]
-> GCM yerel AAD kavramı desteklemesine rağmen biz yine AAD yalnızca özgün KDF GCM kendi AAD parametresi için boş bir dizeyi geçirmek için kullanmama besleme. Bunun nedeni iki Katlama ' dir. İlk olarak, [çeviklik desteklemek için](context-headers.md#data-protection-implementation-context-headers) hiçbir zaman K_M doğrudan şifreleme anahtarı olarak kullanmak istiyoruz. Ayrıca, GCM girdilerinden çok sıkı benzersizlik gereksinimlerine uygular. GCM şifreleme yordamı iki üzerinde çağrılan şimdiye kadar veya daha fazla ayrı olma olasılığını aynı (anahtar, nonce) giriş verisi kümelerini çifti 2 aşmamalıdır ^ 32. Biz K_E düzeltin, 2'den fazla gerçekleştiremiyoruz ^ biz çalıştırmak afoul 2 ve önce 32 şifreleme işlemlerini ^ -32 sınırlayın. Bu çok sayıda işlemleri gibi görünebilir, ancak bir yüksek trafik web sunucusu da bu anahtarları normal etkin kalma süresi içinde yalnızca gün 4 milyar istekleri üzerinden gidebilirsiniz. 2 uyumlu kalmak için ^-32 olasılık sınırı, biz 128-bit anahtar değiştirici ve tüketicisinin herhangi verilen K_M kullanılabilir işlem sayısını genişletir 96 bit nonce kullanmaya devam eder. Tasarım kolaylık için biz KDF kod yolu CBC ve GCM işlemleri arasında paylaşın ve AAD KDF zaten kabul beri GCM yordamına iletmek için gerek yoktur.
+> GCM yerel AAD kavramı desteklemesine rağmen biz yine AAD yalnızca özgün KDF GCM kendi AAD parametresi için boş bir dizeyi geçirmek için kullanmama besleme. Bunun nedeni iki Katlama ' dir. İlk olarak, [çeviklik desteklemek için](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) hiçbir zaman K_M doğrudan şifreleme anahtarı olarak kullanmak istiyoruz. Ayrıca, GCM girdilerinden çok sıkı benzersizlik gereksinimlerine uygular. GCM şifreleme yordamı iki üzerinde çağrılan şimdiye kadar veya daha fazla ayrı olma olasılığını aynı (anahtar, nonce) giriş verisi kümelerini çifti 2 aşmamalıdır ^ 32. Biz K_E düzeltin, 2'den fazla gerçekleştiremiyoruz ^ biz çalıştırmak afoul 2 ve önce 32 şifreleme işlemlerini ^ -32 sınırlayın. Bu çok sayıda işlemleri gibi görünebilir, ancak bir yüksek trafik web sunucusu da bu anahtarları normal etkin kalma süresi içinde yalnızca gün 4 milyar istekleri üzerinden gidebilirsiniz. 2 uyumlu kalmak için ^-32 olasılık sınırı, biz 128-bit anahtar değiştirici ve tüketicisinin herhangi verilen K_M kullanılabilir işlem sayısını genişletir 96 bit nonce kullanmaya devam eder. Tasarım kolaylık için biz KDF kod yolu CBC ve GCM işlemleri arasında paylaşın ve AAD KDF zaten kabul beri GCM yordamına iletmek için gerek yoktur.

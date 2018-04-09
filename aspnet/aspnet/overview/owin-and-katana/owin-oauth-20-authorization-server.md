@@ -2,21 +2,21 @@
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 title: OWIN OAuth 2.0 yetkilendirme sunucusu | Microsoft Docs
 author: hongyes
-description: "Bu öğretici OWIN OAuth ara yazılımı kullanarak bir OAuth 2.0 yetkilendirme sunucusu uygulama konusunda size yol gösterecektir. Bu, yalnızca Gr Gelişmiş bir öğreticidir..."
+description: Bu öğretici OWIN OAuth ara yazılımı kullanarak bir OAuth 2.0 yetkilendirme sunucusu uygulama konusunda size yol gösterecektir. Bu, yalnızca Gr Gelişmiş bir öğreticidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 yetkilendirme sunucusu
 ====================
@@ -104,7 +104,7 @@ OAuth nereye veya nasıl kullanıcı hesap bilgilerini yönetmek önemli değild
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`kayıtlı yeniden yönlendirme URL'sini istemcisiyle doğrulamak için kullanılır. `ValidateClientAuthentication`temel düzeni üstbilgi ve istemcinin kimlik bilgilerini almak için form gövdesini denetler.
+`ValidateClientRedirectUri` kayıtlı yeniden yönlendirme URL'sini istemcisiyle doğrulamak için kullanılır. `ValidateClientAuthentication` temel düzeni üstbilgi ve istemcinin kimlik bilgilerini almak için form gövdesini denetler.
 
 Oturum açma sayfasına aşağıda gösterilmiştir:
 
@@ -241,10 +241,10 @@ Bkz: *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.cs* örnek in
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`yöntemi, tüm etki alanları için CORS sağlar.
-- `UseOAuthBearerAuthentication`yöntemi, alır ve talep yetkilendirme başlığından taşıyıcı belirtecini doğrula OAuth taşıyıcı belirteci kimlik doğrulaması ara yazılımı sağlar.
-- `Config.SuppressDefaultHostAuthenticaiton`Varsayılan bastırır ana bilgisayar kimliği doğrulanmış sorumlu uygulamasından, tüm istekler bu çağrısından sonra bu nedenle anonim olacaktır.
-- `HostAuthenticationFilter`yalnızca belirtilen kimlik doğrulama türü için kimlik doğrulamasını etkinleştirir. Bu durumda, taşıyıcı kimlik doğrulaması türü değil.
+- `UseCors` yöntemi, tüm etki alanları için CORS sağlar.
+- `UseOAuthBearerAuthentication` yöntemi, alır ve talep yetkilendirme başlığından taşıyıcı belirtecini doğrula OAuth taşıyıcı belirteci kimlik doğrulaması ara yazılımı sağlar.
+- `Config.SuppressDefaultHostAuthenticaiton` Varsayılan bastırır ana bilgisayar kimliği doğrulanmış sorumlu uygulamasından, tüm istekler bu çağrısından sonra bu nedenle anonim olacaktır.
+- `HostAuthenticationFilter` yalnızca belirtilen kimlik doğrulama türü için kimlik doğrulamasını etkinleştirir. Bu durumda, taşıyıcı kimlik doğrulaması türü değil.
 
 Kimlik doğrulaması göstermek için geçerli kullanıcının talepleri çıktısını almak için bir ApiController oluşturuyoruz.
 
@@ -272,7 +272,7 @@ Yetkilendirme sunucusu ve kaynak sunucuda aynı bilgisayarda değilse, OAuth Ara
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`Varsayılan olarak SSL gerektirir. Kendi Tanıtımı HTTP kullandığından, eklemek istediğiniz ayar yapılandırma dosyasında aşağıdaki:
+`DotNetOpenAuth` Varsayılan olarak SSL gerektirir. Kendi Tanıtımı HTTP kullandığından, eklemek istediğiniz ayar yapılandırma dosyasında aşağıdaki:
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

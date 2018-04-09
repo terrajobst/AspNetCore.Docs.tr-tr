@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: "Kullanım ViewData ve uygulama ViewModel sınıfları | Microsoft Docs"
+title: Kullanım ViewData ve uygulama ViewModel sınıfları | Microsoft Docs
 author: microsoft
-description: "Adım 6 gösterir nasıl daha zengin form senaryolarını düzenleme için desteği etkinleştir ve veri görünümleri denetleyicilerinden iletmek için kullanılan iki yaklaşım da açıklanır:..."
+description: Adım 6 gösterir nasıl daha zengin form senaryolarını düzenleme için desteği etkinleştir ve veri görünümleri denetleyicilerinden iletmek için kullanılan iki yaklaşım da açıklanır:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 36b9e87cc24f74f7f2cc592afb5102709b598f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-viewdata-and-implement-viewmodel-classes"></a>Kullanım ViewData ve uygulama ViewModel sınıfları
 ====================
@@ -127,6 +127,6 @@ Burada bu değildir senaryoları için kullanabileceğiniz bir seçenek olan nes
 
 Şimdi biz kısmi ve nasıl ana sayfalar yeniden kullanmak ve kullanıcı Arabirimi uygulamamız arasında paylaşmak için kullanabileceğinizi bakalım.
 
->[!div class="step-by-step"]
-[Önceki](provide-crud-create-read-update-delete-data-form-entry-support.md)
-[sonraki](re-use-ui-using-master-pages-and-partials.md)
+> [!div class="step-by-step"]
+> [Önceki](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [sonraki](re-use-ui-using-master-pages-and-partials.md)

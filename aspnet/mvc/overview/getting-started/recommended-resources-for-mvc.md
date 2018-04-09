@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/recommended-resources-for-mvc
-title: "MVC kaynakları önerilen | Microsoft Docs"
+title: MVC kaynakları önerilen | Microsoft Docs
 author: Rick-Anderson
-description: "Bu konu, ASP.NET MVC 5 ilgili belgeleri kaynaklara bağlantılar sağlar. Harika blog gönderisi, stackoverflow iş parçacığı veya olacak herhangi bir bağlantıyı biliyorsanız..."
+description: Bu konu, ASP.NET MVC 5 ilgili belgeleri kaynaklara bağlantılar sağlar. Harika blog gönderisi, stackoverflow iş parçacığı veya olacak herhangi bir bağlantıyı biliyorsanız...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/10/2014
@@ -12,20 +12,20 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: d08ee5c2bf56611caa483337af0ec1bd7cf982c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC kaynakları önerilir
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu konu, ASP.NET MVC 5 ilgili belgeleri kaynaklara bağlantılar sağlar. Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com/) iş parçacığı ya da yararlı, Gönder diğer bağlantıyı [bana](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) bağlantıyı içeren bir e-posta. Burada sağlanan bağlantıları düzenli olarak güncelleştirilir. Eski bulabilirsiniz (ancak hala ilgili çoğunda durumlarda) ASP.NET MVC bağlantılar [MSDN içerik haritası](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
 > 
 > Sorularınızın veya sorunlara çözüm bulmak için de uygundur [ASP.NET MVC Forumu](https://forums.asp.net/1146.aspx/1?MVC) veya [stackoverflow](http://stackoverflow.com/questions/tagged/mvc+asp.net-mvc).
-<a id="gettingstarted"></a>
+> <a id="gettingstarted"></a>
 
 ## <a name="getting-started-with-aspnet-mvc"></a>ASP.NET MVC ile çalışmaya başlama
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/authentication/use-custom-principal-objects
-title: "Kullanım özel asıl nesneleri | Microsoft Docs"
+title: Kullanım özel asıl nesneleri | Microsoft Docs
 author: JoeStagner
-description: "Joe Stagner, kullanıcı kimlik doğrulama verilerini depolamak için özel kimlik asıl nesneleri uygulanabilecek gösterilmiştir. Bu demo hakkında daha fazla bilgi için..."
+description: Joe Stagner, kullanıcı kimlik doğrulama verilerini depolamak için özel kimlik asıl nesneleri uygulanabilecek gösterilmiştir. Bu demo hakkında daha fazla bilgi için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/use-custom-principal-objects
 msc.type: video
-ms.openlocfilehash: a00fe32b503731724763ac3153e8df3a32fca6e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 55cf9a07e08ee535d70dc6c9c2ebf976e5aa1f24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-custom-principal-objects"></a>Kullanım özel asıl nesneleri
 ====================
@@ -24,8 +24,8 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 
 Joe Stagner, kullanıcı kimlik doğrulama verilerini depolamak için özel kimlik asıl nesneleri uygulanabilecek gösterilmiştir. Bu demo hakkında daha fazla bilgi için bir öğretici bulunduğu [burada.](../../overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb.md)
 
-[&#9654; (22 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-custom-principal-objects)
+[&#9654;(22 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/use-custom-principal-objects)
 
->[!div class="step-by-step"]
-[Önceki](add-custom-data-to-the-authentication-method.md)
-[sonraki](understanding-aspnet-memberships.md)
+> [!div class="step-by-step"]
+> [Önceki](add-custom-data-to-the-authentication-method.md)
+> [sonraki](understanding-aspnet-memberships.md)

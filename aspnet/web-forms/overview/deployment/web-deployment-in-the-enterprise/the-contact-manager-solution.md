@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: "İlgili Kişi Yöneticisi çözüm | Microsoft Docs"
+title: İlgili Kişi Yöneticisi çözüm | Microsoft Docs
 author: jrjlee
-description: "Bu öğreticiler dizi bir örnek çözümü #x 2014; Contact Manager çözüm & #x 2014; Kurumsal ölçekte uygulamayla gerçekçi leve temsil etmek için kullandığı..."
+description: Bu öğreticiler dizi örnek bir çözüm kullanır&#x2014;Contact Manager çözüm&#x2014;Kurumsal ölçekte uygulamayla gerçekçi leve temsil etmek için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>Contact Manager çözümü
 ====================
@@ -24,7 +24,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 [PDF indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu [eğitim serileri](web-deployment-in-the-enterprise.md) bir örnek çözümü #x 2014; Contact Manager çözüm & #x 2014; Kurumsal ölçekte uygulamayla gerçekçi bir karmaşıklık düzeyi temsil etmek için kullanır. Bu konu, kişinin Yöneticisi çözüm sunar, çözümün anahtar bileşenlerinin açıklar ve bu tür bir uygulama bir kuruluş ortamında çeşitli hedef platformlara dağıtmanın zorluklar tanımlar.
+> Bu [eğitim serileri](web-deployment-in-the-enterprise.md) kullanan örnek bir çözüm&#x2014;Contact Manager çözüm&#x2014;Kurumsal ölçekte uygulamayla gerçekçi bir karmaşıklık düzeyi temsil edecek. Bu konu, kişinin Yöneticisi çözüm sunar, çözümün anahtar bileşenlerinin açıklar ve bu tür bir uygulama bir kuruluş ortamında çeşitli hedef platformlara dağıtmanın zorluklar tanımlar.
 > 
 > Bu öğreticileri konulara çalışırken, kurumsal dağıtım senaryolarında belirli zorluklar nasıl karşılayabileceğini gösteren bir başvuru uygulaması olarak Contact Manager çözümü kullanabilirsiniz. Sonraki konuyu [ayarı yukarı Contact Manager çözüm](setting-up-the-contact-manager-solution.md), indirin ve geliştirici iş istasyonunuza çözümü çalıştırın açıklar.
 
@@ -67,6 +67,6 @@ Bu konuda Contact Manager çözüm üst düzey bir genel bakış sağlanmış ve
 
 Sonraki konuyu [ayarı yukarı Contact Manager çözüm](setting-up-the-contact-manager-solution.md), indirin ve geliştirici iş istasyonunuza çözümü çalıştırın açıklar.
 
->[!div class="step-by-step"]
-[Önceki](web-deployment-in-the-enterprise.md)
-[sonraki](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Önceki](web-deployment-in-the-enterprise.md)
+> [sonraki](setting-up-the-contact-manager-solution.md)

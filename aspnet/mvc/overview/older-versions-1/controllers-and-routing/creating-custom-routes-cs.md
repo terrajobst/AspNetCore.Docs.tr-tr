@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
-title: "Özel yollar (C#) oluşturma | Microsoft Docs"
+title: Özel yollar (C#) oluşturma | Microsoft Docs
 author: microsoft
-description: "Bir ASP.NET MVC uygulaması için özel yollar eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme öğrenin."
+description: Bir ASP.NET MVC uygulaması için özel yollar eklemeyi öğrenin. Bu öğreticide, Global.asax dosyasında varsayılan rota tablosu değiştirme öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1542103298f2fa09dc71706284afb18d8381403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 573b6a3360124feea92788ff7a3de363840fa1ef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-c"></a>Özel yollar oluşturma (C#)
 ====================
@@ -73,6 +73,6 @@ Listeleme 2 Entry() yönteminde DateTime türünde bir parametre kabul eden dikk
 
 Özel rota nasıl oluşturabileceğinizi göstermek için bu öğreticinin amacı oluştu. Yol tablosu blog girdileri temsil eder Global.asax dosyasında özel bir rota eklemek öğrendiniz. Biz ArchiveController adlı bir denetleyici ve Entry() adlı bir denetleyici eylemi için blog girdileri isteklerinde eşlemek açıklanır.
 
->[!div class="step-by-step"]
-[Önceki](aspnet-mvc-controllers-overview-cs.md)
-[sonraki](creating-a-route-constraint-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](aspnet-mvc-controllers-overview-cs.md)
+> [sonraki](creating-a-route-constraint-cs.md)

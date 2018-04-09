@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-vb
-title: "Kullanıcı etkileşimi (VB) yanıt animasyon | Microsoft Docs"
+title: Kullanıcı etkileşimi (VB) yanıt animasyon | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon yıldız..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Animasyon yıldız...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3219e9d126b3225bfc78d08fb3ac7ef4cc3dca75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e12467bfeb88c2ab9d1cfb866506e9e8e7f9ae25
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-in-response-to-user-interaction-vb"></a>Kullanıcı etkileşimi (VB) yanıt animasyon ekleme
 ====================
@@ -51,11 +51,11 @@ Ardından, ekleyin `AnimationExtender` sayfasına sağlayan bir `ID`, `TargetCon
 
 İçinde `<Animations>` düğümü, kullanıcı etkileşimi aracılığıyla animasyonu başlatmak için beş yolu vardır (eksik öğesi `<OnLoad>` tüm sayfa tam yüklenmeden silindikten sonra yürütülen):
 
-- `<OnClick>`(fare denetimi tıklayın)
-- `<OnHoverOut>`(fare denetimi terk)
-- `<OnHoverOver>`(fare gezinen durdurma üzerinde bir denetim `<OnHoverOut>` animasyon)
-- `<OnMouseOut>`(fare denetim bırakır)
-- `<OnMouseOver>`(fare gezinen değil durdurma üzerinde bir denetim `<OnMouseOut>` animasyon)
+- `<OnClick>` (fare denetimi tıklayın)
+- `<OnHoverOut>` (fare denetimi terk)
+- `<OnHoverOver>` (fare gezinen durdurma üzerinde bir denetim `<OnHoverOut>` animasyon)
+- `<OnMouseOut>` (fare denetim bırakır)
+- `<OnMouseOver>` (fare gezinen değil durdurma üzerinde bir denetim `<OnMouseOut>` animasyon)
 
 Bu senaryoda, `<OnClick>` kullanılır. Kullanıcı panelde tıklattığında boyutlandırılır ve aynı anda silinerek çıkar.
 
@@ -66,6 +66,6 @@ Bu senaryoda, `<OnClick>` kullanılır. Kullanıcı panelde tıklattığında bo
 
 Animasyonun bir fare tıklatma başlatır ([tam boyutlu görüntüyü görüntülemek için tıklatın](animating-in-response-to-user-interaction-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](picking-one-animation-out-of-a-list-vb.md)
-[sonraki](disabling-actions-during-animation-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](picking-one-animation-out-of-a-list-vb.md)
+> [sonraki](disabling-actions-during-animation-vb.md)

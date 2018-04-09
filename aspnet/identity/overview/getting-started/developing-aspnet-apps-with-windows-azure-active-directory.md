@@ -1,30 +1,30 @@
 ---
 uid: identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
-title: "Azure Active Directory ile ASP.NET uygulama geliştirme | Microsoft Docs"
+title: Azure Active Directory ile ASP.NET uygulama geliştirme | Microsoft Docs
 author: Rick-Anderson
-description: "Azure Active Directory için Microsoft ASP.NET araçları, kolaylaştırır Azure üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirin. Azure Authenti kullanabilirsiniz..."
+description: Azure Active Directory için Microsoft ASP.NET araçları, kolaylaştırır Azure üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirin. Azure Authenti kullanabilirsiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2014
 ms.topic: article
 ms.assetid: 457d7eaf-ee76-4ceb-9082-c7c1721435ad
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 1ef0468d5f5c17480b23ac88983f30fe6f4979c0
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory ile ASP.NET uygulama geliştirme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Microsoft ASP.NET araçları Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için [Azure](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
 > 
->  Bu öğretici Rick Anderson tarafından yazıldı[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+>  Bu öğretici Rick Anderson tarafından yazıldı [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 
 
 Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamasının nasıl oluşturulacağını gösterir [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Ayrıca, şu anda oturum açmış kullanıcı hakkında bilgi almak için grafik API'sini çağırmak nasıl ve uygulamayı Azure'a dağıtmayı öğreneceksiniz.
@@ -52,7 +52,7 @@ Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamas�
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image4.png)  
   
- Parola kaydetmeye ilk oturum açtığında sonra parolayı değiştirmesi gerekir. Aşağıdaki resimde, yeni yönetici hesabı gösterilmiştir. Ayrıca bu sayfada gösterilen Microsoft hesabı değil uygulamanıza oturum için Azure Active Directory kullanmanız gerekir.  
+   Parola kaydetmeye ilk oturum açtığında sonra parolayı değiştirmesi gerekir. Aşağıdaki resimde, yeni yönetici hesabı gösterilmiştir. Ayrıca bu sayfada gösterilen Microsoft hesabı değil uygulamanıza oturum için Azure Active Directory kullanmanız gerekir.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image5.png)
 
@@ -65,11 +65,11 @@ Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https:/
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image6.png)
 3. Üzerinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **Kurumsal hesaplar**. Bu seçeneklerin yanı sıra otomatik olarak Azure AD ile uygulamanızı kaydetme Azure AD ile tümleştirmek için uygulamanızı otomatik olarak yapılandırmak için kullanılabilir. Kullanmak zorunda değilsiniz **kimlik doğrulamayı Değiştir** kaydetmek ve uygulamanız, ancak yapılandırmak için iletişim kılar çok daha kolay. Visual Studio 2012 örneğin kullanıyorsanız, yine de el ile Azure Yönetim Portalı'nda uygulama kaydeder ve Azure AD ile tümleştirme yapılandırmasını güncelleştirin.  
- Aşağı açılan menüler seçin **bulut - tek bir kurumun** ve **çoklu oturum açma, dizin verilerini okuma**. Örneğin (görüntülerinde aşağıdaki) Azure AD dizininiz için etki alanını girin *aricka0yahoo.onmicrosoft.com*ve ardından **Tamam**. Azure portalındaki varsayılan dizin için etki alanları sekmesinden etki alanı adı alabilirsiniz (sonraki resim aşağıya bakın).   
+   Aşağı açılan menüler seçin **bulut - tek bir kurumun** ve **çoklu oturum açma, dizin verilerini okuma**. Örneğin (görüntülerinde aşağıdaki) Azure AD dizininiz için etki alanını girin *aricka0yahoo.onmicrosoft.com*ve ardından **Tamam**. Azure portalındaki varsayılan dizin için etki alanları sekmesinden etki alanı adı alabilirsiniz (sonraki resim aşağıya bakın).   
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image7.png)  
   
- Aşağıdaki resim Azure portalından etki alanı adını gösterir.  
+   Aşağıdaki resim Azure portalından etki alanı adını gösterir.  
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image8.png)  
 
@@ -94,11 +94,11 @@ Aşağıdaki adımları kullanın [için Visual Studio Express 2013 Web](https:/
   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image13.png)  
   
- Hatayı alırsanız:  
- Değer null veya boş olamaz. Parametre adı: linkText   
+   Hatayı alırsanız:  
+   Değer null veya boş olamaz. Parametre adı: linkText   
     ![](developing-aspnet-apps-with-windows-azure-active-directory/_static/image14.png)  
   
- bkz: [hata ayıklama](#dbg) öğreticinin sonunda bölüm.
+   bkz: [hata ayıklama](#dbg) öğreticinin sonunda bölüm.
 
 ## <a name="basics-of-the-graph-api"></a>Grafik API'si temelleri
 

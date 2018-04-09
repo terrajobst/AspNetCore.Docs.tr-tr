@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
-title: "MVC 3 oluşturma Razor ve örtük JavaScript ile uygulaması | Microsoft Docs"
+title: MVC 3 oluşturma Razor ve örtük JavaScript ile uygulaması | Microsoft Docs
 author: microsoft
-description: "Kullanıcı listesi örnek web uygulaması Razor görünüm altyapısını kullanarak ASP.NET MVC 3 uygulamaları oluşturmak için nasıl basit gerçekleştiğini gösterir. Örnek uygulama s..."
+description: Kullanıcı listesi örnek web uygulaması Razor görünüm altyapısını kullanarak ASP.NET MVC 3 uygulamaları oluşturmak için nasıl basit gerçekleştiğini gösterir. Örnek uygulama s...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/01/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>MVC 3 oluşturma Razor ve örtük JavaScript ile uygulama
 ====================
@@ -54,7 +54,7 @@ Oturum açma ve üyelik ile ilişkili tüm dosyaları silmek için Bu öğretici
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Düzen  *\_Layout.cshtml* dosya ve biçimlendirmesi içinde Değiştir `<div>` adlı öğe `logindisplay` iletiyle  *&quot;* oturum açma devre dışı&quot;. Aşağıdaki örnek, yeni markup gösterir:
+Düzen  <em>\_Layout.cshtml</em> dosya ve biçimlendirmesi içinde Değiştir `<div>` adlı öğe `logindisplay` iletiyle <em>&quot;</em>oturum açma devre dışı&quot;. Aşağıdaki örnek, yeni markup gösterir:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -122,7 +122,7 @@ Aşağıdakileri ekleyin `Details` ev denetleyicisine yöntemi:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-İçinde sağ `Details` yöntemi ve ardından **Görünüm Ekle**. Doğrulayın **görüntülemek veri sınıfı** kutusu içeren **Mvc3Razor.Models.UserModel***.* Ayarlama **görüntülemek içerik** için **ayrıntıları** ve ardından **Ekle**.
+İçinde sağ `Details` yöntemi ve ardından <strong>Görünüm Ekle</strong>. Doğrulayın <strong>görüntülemek veri sınıfı</strong> kutusu içeren <strong>Mvc3Razor.Models.UserModel</strong><em>.</em> Ayarlama <strong>görüntülemek içerik</strong> için <strong>ayrıntıları</strong> ve ardından <strong>Ekle</strong>.
 
 ![Ayrıntılar görünümü ekleme](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 

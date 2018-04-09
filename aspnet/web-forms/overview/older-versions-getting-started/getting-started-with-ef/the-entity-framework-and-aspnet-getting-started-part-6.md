@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
-title: "Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 6 | Microsoft Docs"
+title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 6 | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır..."
+description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 164c2002a119420555d2c7065c5a79a5f433a725
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b76be25501275ba676c9a9acca8e73333439ee70
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 6
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -57,7 +57,7 @@ Birleştirilmiş TPT desenleri karmaşık JOIN sorguları sağladığından TPH 
 
 ## <a name="adding-instructor-and-student-entities"></a>Eğitmen ve Öğrenci varlıklar ekleme
 
-Açık *SchoolModel.edmx* dosya, select Tasarımcısı'nda boş bir alanı sağ **Ekle**seçeneğini belirleyip **varlık***.*
+Açık <em>SchoolModel.edmx</em> dosya, select Tasarımcısı'nda boş bir alanı sağ <strong>Ekle</strong>seçeneğini belirleyip <strong>varlık</strong><em>.</em>
 
 [![image01](the-entity-framework-and-aspnet-getting-started-part-6/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image5.png)
 
@@ -161,6 +161,6 @@ Bu değişikliklerin sonucu olarak çeşitli şekillerde Contoso University uygu
 
 Şimdi Entity Framework bir devralma desen uygulamak için bir yol da gördünüz. Aşağıdaki öğreticide Entity Framework veritabanı nasıl eriştiğini üzerinde daha fazla denetim olması için saklı yordamlar kullanmayı öğreneceksiniz.
 
->[!div class="step-by-step"]
-[Önceki](the-entity-framework-and-aspnet-getting-started-part-5.md)
-[sonraki](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Önceki](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [sonraki](the-entity-framework-and-aspnet-getting-started-part-7.md)

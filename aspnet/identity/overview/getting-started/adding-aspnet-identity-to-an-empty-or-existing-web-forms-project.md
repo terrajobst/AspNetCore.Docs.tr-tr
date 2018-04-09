@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
-title: "ASP.NET kimliği boş veya var olan bir Web Forms proje ekleme | Microsoft Docs"
+title: ASP.NET kimliği boş veya var olan bir Web Forms proje ekleme | Microsoft Docs
 author: raquelsa
-description: "Bu öğretici, bir ASP.NET uygulaması için ASP.NET kimliğini (ASP.NET yeni üyelik sistemi) ekleme gösterir. Yeni bir Web Forms veya MVC oluşturduğunuzda..."
+description: Bu öğretici, bir ASP.NET uygulaması için ASP.NET kimliğini (ASP.NET yeni üyelik sistemi) ekleme gösterir. Yeni bir Web Forms veya MVC oluşturduğunuzda...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2013
 ms.topic: article
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 3ab67b93a32106c0b79f9e8d739d47835391edb5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8961e596f0d6cc4810e2439be1ec2915bddb8c78
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>Proje ekleme ASP.NET kimliği boş veya var olan bir Web Forms
 ====================
@@ -40,7 +40,7 @@ by [Raquel Soares De Almeida](https://github.com/raquelsa)
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image2.png)  
   
- Bildirim **kimlik doğrulamayı Değiştir** düğmesi devre dışıdır ve bu şablonda hiçbir kimlik doğrulama desteği sağlanır. Web Forms, MVC ve Web API şablonları için kimlik doğrulama yaklaşımını seçmenize olanak tanır. Daha fazla bilgi için bkz: [genel bakış kimlik doğrulamasının](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
+   Bildirim **kimlik doğrulamayı Değiştir** düğmesi devre dışıdır ve bu şablonda hiçbir kimlik doğrulama desteği sağlanır. Web Forms, MVC ve Web API şablonları için kimlik doğrulama yaklaşımını seçmenize olanak tanır. Daha fazla bilgi için bkz: [genel bakış kimlik doğrulamasının](../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#auth) .
 
 ## <a name="adding-identity-packages-to-your-app"></a>Uygulamanıza Kimlik paketleri ekleme
 
@@ -152,20 +152,20 @@ Bu noktada yalnızca kullanıcılar oluşturmak için destek ekledik. Şimdi, si
     > - `Page_Load` Artık geçerli kullanıcının durumunu denetler ve temel eylemde kendi `Context.User.Identity.IsAuthenticated` durumu.  
     >     **Günlüğe kaydedilen kullanıcı adını görüntülemek** : Microsoft ASP.NET Identity Framework üzerinde genişletme yöntemleri ekledi [System.Security.Principal.IIdentity](https://msdn.microsoft.com/library/system.security.principal.iidentity.aspx) almanızı sağlayan `UserName` ve `UserId` için oturum açmış olan kullanıcının. Bu uzantı yöntemleri tanımlanan `Microsoft.AspNet.Identity.Core` derleme. Bu uzantı yöntemleri yerini olan [HttpContext.User.Identity.Name](https://msdn.microsoft.com/library/system.web.httpcontext.user.aspx) .
     > - Oturum açma yöntemi:   
-    >     `This`yöntemi önceki değiştirir `CreateUser_Click` artık kullanıcı başarıyla oluşturduktan sonra kullanıcı açar ve bu örnek yöntemi.   
+    >     `This` yöntemi önceki değiştirir `CreateUser_Click` artık kullanıcı başarıyla oluşturduktan sonra kullanıcı açar ve bu örnek yöntemi.   
     >  Microsoft OWIN Framework üzerinde genişletme yöntemleri ekledi `System.Web.HttpContext` başvuru almanızı sağlayan bir `IOwinContext`. Bu uzantı yöntemleri tanımlanan `Microsoft.Owin.Host.SystemWeb` derleme. `OwinContext` Sınıf düzenlemenizi sağlayan bir `IAuthenticationManager` geçerli istekte mevcut olan kimlik doğrulaması ara yazılım işlevselliğini temsil eden özellik.  
     >  Kullanarak kullanıcı oturum `AuthenticationManager` OWIN ve arama `SignIn` ve içinde geçen `ClaimsIdentity` yukarıda gösterildiği gibi.   
     >  ASP.NET kimliği ve OWIN tanımlama bilgisi kimlik doğrulaması talep tabanlı sistem olduğundan, oluşturmak için uygulama çerçevesi gerektirir bir `ClaimsIdentity` kullanıcı için.   
     >  `ClaimsIdentity` Kullanıcının ait olduğu için hangi rolleri gibi bir kullanıcı için tüm talepler hakkında bilgi yer almaktadır. Daha fazla kullanıcı talebini bu aşamada de ekleyebilirsiniz.  
     >  Bu kod kullanıcı oturum ve de bir tanımlama bilgisi oluşturur. Bu çağrı için paraleldir [FormAuthentication.SetAuthCookie](https://msdn.microsoft.com/library/system.web.security.formsauthentication.setauthcookie.aspx) tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
-    > - `SignOut`yöntem:   
+    > - `SignOut` yöntem:   
     >  Bir başvuru edinir `AuthenticationManager` OWIN ve çağrıları `SignOut`. Bunun için paraleldir [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) yöntemi tarafından kullanılan [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) modülü.
 5. Tuşuna **Ctrl + F5** oluşturmak ve web uygulamasını çalıştırmak için. Yeni bir kullanıcı adı ve parola girin ve ardından tıklatın **kaydetmek**.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image13.png)  
- Not: Bu noktada, yeni kullanıcı oluşturulur ve oturum açılmış.
+   Not: Bu noktada, yeni kullanıcı oluşturulur ve oturum açılmış.
 6. Tıklayın **oturumunuzu** düğmesi. Form oturum yönlendirilir.
 7. Bir geçersiz kullanıcı adı ve parola tıklatın girin **oturum** düğmesi.   
- `UserManager.Find` Yöntemi null ve hata iletisini döndürür: " *geçersiz kullanıcı adı veya parola* " görüntülenir.  
+   `UserManager.Find` Yöntemi null ve hata iletisini döndürür: " *geçersiz kullanıcı adı veya parola* " görüntülenir.  
   
     ![](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project/_static/image14.png)

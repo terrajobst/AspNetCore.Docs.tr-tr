@@ -1,7 +1,7 @@
 ---
-title: "Platforma özgü yapılandırma ASP.NET Core kullanarak uygulama özellik ekleme"
+title: ASP.NET Core platforma özgü yapılandırma ile uygulama özelliklerini Ekle
 author: guardrex
-description: "Özellikleri için bir ASP.NET Core uygulama IHostingStartup uygulamasını kullanarak bir dış derlemeden ekleme bulur."
+description: Özellikleri için bir ASP.NET Core uygulama IHostingStartup uygulamasını kullanarak bir dış derlemeden ekleme bulur.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/platform-specific-configuration
-ms.openlocfilehash: c36b8acd6f7fcb4e4d11e43013ccaf5ca6d1b0ab
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 9dd7774a1885a9c6c702b5b46fa1f88c86f7f7ac
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="add-app-features-using-a-platform-specific-configuration-in-aspnet-core"></a>Platforma özgü yapılandırma ASP.NET Core kullanarak uygulama özellik ekleme
+# <a name="add-app-features-with-a-platform-specific-configuration-in-aspnet-core"></a>ASP.NET Core platforma özgü yapılandırma ile uygulama özelliklerini Ekle
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
@@ -143,7 +143,7 @@ Dosya bir kullanıcı profilin yerleştirilir *.dotnet* kullanıcı başına kul
 %UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
 ```
 
-Çeşitli işletim sistemleri için ortam değişkenlerini ayarlama örnekleri için bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments).
+Çeşitli işletim sistemleri için ortam değişkenlerini ayarlama örnekleri için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
 
 ## <a name="sample-app"></a>Örnek uygulaması
 

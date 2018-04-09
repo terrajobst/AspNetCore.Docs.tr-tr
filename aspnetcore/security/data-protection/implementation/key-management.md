@@ -1,7 +1,7 @@
 ---
-title: "Anahtar Yönetimi"
+title: ASP.NET Core anahtar yönetimi
 author: rick-anderson
-description: "Bu belge ASP.NET Core veri koruma anahtar yönetimi API'leri uygulama ayrıntılarını özetlemektedir."
+description: ASP.NET Core veri koruması anahtar yönetimi API'leri uygulama ayrıntılarını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>Anahtar Yönetimi
+# <a name="key-management-in-aspnet-core"></a>ASP.NET Core anahtar yönetimi
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ Veri koruma sistemi otomatik olarak korumak ve yükü korumasını kaldırmak i�
 
 * İptal - anahtar güvenliği aşıldığında ve yeni koruma işlemleri için kullanılmamalıdır.
 
-Oluşturulan, etkin ve süresi dolan anahtarlar tüm gelen yükü korumasını kaldırmak için kullanılabilir. Varsayılan iptal edilen anahtarları yükü korumasını kaldırmak için kullanılamaz, ancak uygulama geliştiricisi için [bu davranışı geçersiz kılma](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect) gerekiyorsa.
+Oluşturulan, etkin ve süresi dolan anahtarlar tüm gelen yükü korumasını kaldırmak için kullanılabilir. Varsayılan iptal edilen anahtarları yükü korumasını kaldırmak için kullanılamaz, ancak uygulama geliştiricisi için [bu davranışı geçersiz kılma](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) gerekiyorsa.
 
 >[!WARNING]
 > Geliştirici (örn., karşılık gelen dosyasını dosya sisteminden silerek) anahtarı halka dışında bir anahtarı silmek için gerekebilir. Bu noktada, anahtar tarafından korunan tüm verileri kalıcı olarak undecipherable ve iptal edilen anahtarlarla gibi Acil geçersiz kılma yok. Bir anahtarı silme gerçekten bozucu davranıştır ve sonuç olarak bu işlemi gerçekleştirmek için veri koruma sisteminde birinci sınıf bir API sunar.
@@ -83,6 +83,6 @@ Aşağıdaki örneği kullanarak gösteren `IKeyManager` inceleyin ve iptal etme
 
 Veri koruma sisteminde alınabildiği bir rest mekanizması şifreleme ve uygun anahtar depolama konumu otomatik olarak türetme için çalışır buluşsal yöntem vardır. Bu ayrıca uygulama geliştiricisi tarafından yapılandırılabilir. Aşağıdaki belgeler Bu mekanizmaların yerleşik uygulamaları ele alınmıştır:
 
-* [Yerleşik anahtar depolama sağlayıcıları](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [Yerleşik anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [Yerleşik rest sağlayıcıları anahtar şifreleme](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [Yerleşik rest sağlayıcıları anahtar şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

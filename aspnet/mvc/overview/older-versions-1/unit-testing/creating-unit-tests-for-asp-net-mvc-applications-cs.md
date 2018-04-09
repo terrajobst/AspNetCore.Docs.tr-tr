@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
-title: "Birim testleri oluşturmak için ASP.NET MVC uygulamaları (C#) | Microsoft Docs"
+title: Birim testleri oluşturmak için ASP.NET MVC uygulamaları (C#) | Microsoft Docs
 author: StephenWalther
-description: "Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, bir denetleyici eylemi bir parti döndürüp döndürmediğini test etme Stephen Walther gösteren..."
+description: Denetleyici eylemleri için birim testleri oluşturmayı öğrenin. Bu öğreticide, bir denetleyici eylemi bir parti döndürüp döndürmediğini test etme Stephen Walther gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 56c981363f1905c1c9869dbaf2adb6b5ac1c28a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccd9a1b3aee8379c23c01c5eb7f756a786f6359d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Birim testleri oluşturmak için ASP.NET MVC uygulamaları (C#)
 ====================
@@ -33,7 +33,7 @@ Bu öğreticinin amacı nasıl, denetleyicileri için birim testleri, ASP.NET MV
 
 Test düşündüğünüz denetleyicisi oluşturarak başlayalım. Adlı denetleyicisi `ProductController`, listeleme 1'de yer alır.
 
-**Kod 1 –`ProductController.cs`**
+**Kod 1 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample1.cs)]
 
@@ -43,7 +43,7 @@ Test düşündüğünüz denetleyicisi oluşturarak başlayalım. Adlı denetley
 
 Test etmek istiyoruz düşünün desteklemediğini `ProductController` sağ görünümdeki döndürür. Emin olmak istiyoruz olduğunda `ProductController.Details()` eylem çağrıldığında, ayrıntı görünümü döndürülür. 2. listeleme test sınıfı tarafından döndürülen görünümü test etme için birim testi içerir `ProductController.Details()` eylem.
 
-**Kod 2 –`ProductControllerTest.cs`**
+**Kod 2 – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample2.cs)]
 
@@ -74,11 +74,11 @@ Her iki tuş bileşimini girerek birim testi listeleme 2'de çalıştırabilirsi
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>Bir denetleyici tarafından döndürülen görünüm verileri test etme
 
-MVC denetleyicisi veri olarak adlandırılan bir şey kullanarak bir görünümüne geçirir  *`View Data`* . Örneğin, çağırdığınızda, belirli bir ürünü ayrıntılarını görüntülemek istediğiniz düşünün `ProductController Details()` eylem. Bu durumda, bir örneğini oluşturabilirsiniz bir `Product` sınıfı (modelinizde tanımlı) ve örneğine geçirin `Details` yararlanarak Görünüm `View Data`.
+MVC denetleyicisi veri olarak adlandırılan bir şey kullanarak bir görünümüne geçirir *`View Data`*. Örneğin, çağırdığınızda, belirli bir ürünü ayrıntılarını görüntülemek istediğiniz düşünün `ProductController Details()` eylem. Bu durumda, bir örneğini oluşturabilirsiniz bir `Product` sınıfı (modelinizde tanımlı) ve örneğine geçirin `Details` yararlanarak Görünüm `View Data`.
 
 Değiştirilen `ProductController` listeleme 3'te güncelleştirilmiş içeren `Details()` bir ürün döndüren eylem.
 
-**Kod 3 –`ProductController.cs`**
+**Kod 3 – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample5.cs)]
 
@@ -86,7 +86,7 @@ Değiştirilen `ProductController` listeleme 3'te güncelleştirilmiş içeren `
 
 Birim testleri yazma beklenen verileri olup olmadığını sınamak için Görünüm veri içeriyor. Dizüstü bilgisayar temsil eden bir ürün çağırdığınızda döndürülen olup olmadığına bakılmaksızın Birim listeleme 4 testlerindeki test `ProductController Details()` eylem yöntemi.
 
-**4 listeleme –`ProductControllerTest.cs`**
+**4 listeleme – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample6.cs)]
 
@@ -98,13 +98,13 @@ Daha karmaşık bir denetleyici eylemi denetleyicisi eyleme geçirilen parametre
 
 Örneğin, değiştirilmiş `Details()` listeleme 5 eylemde döndürür `Details` geçerli bir ürün kimliği için eylem geçirdiğinizde görüntüleyin. Bir geçersiz ürün kimliği--değeri olan bir kimliği 1--sonra yönlendirilirsiniz daha az geçirirseniz `Index()` eylem.
 
-**5 listeleme –`ProductController.cs`**
+**5 listeleme – `ProductController.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample7.cs)]
 
 Davranışını sınayabilirsiniz `Details()` listeleme 6'daki birim testi eylemiyle. Listeleme 6'daki birim testi için yönlendirilir doğrular `Index` görüntülemek için bir kimlik değeri -1 ile geçirildiğinde `Details()` yöntemi.
 
-**6 listeleme –`ProductControllerTest.cs`**
+**6 listeleme – `ProductControllerTest.cs`**
 
 [!code-csharp[Main](creating-unit-tests-for-asp-net-mvc-applications-cs/samples/sample8.cs)]
 
@@ -118,5 +118,5 @@ Ardından, içeriği test nasıl incelenmesi `View Data`. Doğru ürün içinde 
 
 Son olarak, eylem sonuçlarını farklı türde bir denetleyici eylemin getirdiği olup olmadığını nasıl sınayabilirsiniz açıklanmıştır. Bir denetleyici döndürüp döndürmediğini test etme hakkında bilgi edindiniz bir `ViewResult` veya `RedirectToRouteResult`.
 
->[!div class="step-by-step"]
-[Sonraki](creating-unit-tests-for-asp-net-mvc-applications-vb.md)
+> [!div class="step-by-step"]
+> [Next](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

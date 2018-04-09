@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 title: ASP.NET MVC 4 temelleri | Microsoft Docs
 author: rick-anderson
-description: "Bu uygulamalı Laboratuvar MVC (Model View Controller) müzik deposu tanıtır ve ASP.NET MV kullanmak adım adım açıklanmaktadır öğretici bir uygulama tabanlı..."
+description: Bu uygulamalı Laboratuvar MVC (Model View Controller) müzik deposu tanıtır ve ASP.NET MV kullanmak adım adım açıklanmaktadır öğretici bir uygulama tabanlı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: f93f51219403cd5aeca2dd3648444a84690c3d25
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a0dd32280321938aba84a2aed5273d80750ed774
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 temelleri
 
@@ -156,15 +156,15 @@ Bu görevde, ilgili olan öğeler anlamak için çözüm yapısını ve ilişkil
 
     *Çözüm Gezgini'nde ASP.NET MVC klasör yapısı*
 
-    1. **Denetleyicileri**. Bu klasör denetleyicisi sınıfları içerir. Bir temel MVC uygulamasındaki denetleyicileri son kullanıcı etkileşimi işleme, model düzenleme ve sonuçta UI görünümü seçerek sorumludur.
+   1. **Denetleyicileri**. Bu klasör denetleyicisi sınıfları içerir. Bir temel MVC uygulamasındaki denetleyicileri son kullanıcı etkileşimi işleme, model düzenleme ve sonuçta UI görünümü seçerek sorumludur.
 
-        > [!NOTE]
-        > MVC çerçevesi ile sona erdirmek için tüm denetleyicilerinin adlarını gerektirir &quot;denetleyicisi&quot;-Örneğin, HomeController, LoginController veya ProductController.
-    2. **Modelleri**. Bu klasör, MVC Web uygulaması için uygulama modeli temsil eden sınıflar için sağlanır. Bu genellikle, nesneleri ve veri deposu ile etkileşim için mantığı tanımlayan kodu içerir. Tipik olarak gerçek model nesneleri ayrı sınıf kitaplıkları olacaktır. Ancak, yeni bir uygulama oluşturduğunuzda, sınıfları içerir ve ardından bunları ayrı sınıf kitaplıkları sonraki bir zamanda geliştirme döngüsü taşınıp.
-    3. **Görünümleri**. Görünümler, uygulamanın kullanıcı arabirimini görüntülemeden sorumlu bileşenler için önerilen konum klasörüdür. Görünümleri .aspx, .ascx, .cshtml ve .master dosyaları işleme görünümlerine ilgili diğer dosyaların yanı sıra kullanın. Görünümler klasöründe her denetleyici için bir klasör içerir; Bu klasör Denetleyici adı önekiyle adlandırılır. Örneğin, adlandırılmış bir denetleyiciniz varsa **HomeController**, görünümler klasör giriş adlı bir klasör içerir. ASP.NET MVC çerçevesi bir görünüm yüklendiğinde varsayılan olarak, .aspx dosyası Views\controllerName klasöründe istenen görünüm adıyla arar (**görünümler [controllername öğesi] [eylem] .aspx**) veya (**görünümler [controllername öğesi] [Action] .cshtml**) Razor görünümleri için.
+       > [!NOTE]
+       > MVC çerçevesi ile sona erdirmek için tüm denetleyicilerinin adlarını gerektirir &quot;denetleyicisi&quot;-Örneğin, HomeController, LoginController veya ProductController.
+   2. **Modelleri**. Bu klasör, MVC Web uygulaması için uygulama modeli temsil eden sınıflar için sağlanır. Bu genellikle, nesneleri ve veri deposu ile etkileşim için mantığı tanımlayan kodu içerir. Tipik olarak gerçek model nesneleri ayrı sınıf kitaplıkları olacaktır. Ancak, yeni bir uygulama oluşturduğunuzda, sınıfları içerir ve ardından bunları ayrı sınıf kitaplıkları sonraki bir zamanda geliştirme döngüsü taşınıp.
+   3. **Görünümleri**. Görünümler, uygulamanın kullanıcı arabirimini görüntülemeden sorumlu bileşenler için önerilen konum klasörüdür. Görünümleri .aspx, .ascx, .cshtml ve .master dosyaları işleme görünümlerine ilgili diğer dosyaların yanı sıra kullanın. Görünümler klasöründe her denetleyici için bir klasör içerir; Bu klasör Denetleyici adı önekiyle adlandırılır. Örneğin, adlandırılmış bir denetleyiciniz varsa **HomeController**, görünümler klasör giriş adlı bir klasör içerir. ASP.NET MVC çerçevesi bir görünüm yüklendiğinde varsayılan olarak, .aspx dosyası Views\controllerName klasöründe istenen görünüm adıyla arar (**görünümler [controllername öğesi] [eylem] .aspx**) veya (**görünümler [controllername öğesi] [Action] .cshtml**) Razor görünümleri için.
 
-    > [!NOTE]
-    > Daha önce listelenen klasörler ek olarak, bir MVC Web uygulamasını kullanan **Global.asax** Genel Yönlendirme URL'sini ayarlamak için dosya Varsayılanları ve kullandığı **Web.config** uygulamayı yapılandırmak için bir dosya.
+      > [!NOTE]
+      > Daha önce listelenen klasörler ek olarak, bir MVC Web uygulamasını kullanan **Global.asax** Genel Yönlendirme URL'sini ayarlamak için dosya Varsayılanları ve kullandığı **Web.config** uygulamayı yapılandırmak için bir dosya.
 
 <a id="Ex1Task3"></a>
 
@@ -192,7 +192,9 @@ Bu görevde URL'leri müzik deposu site giriş sayfasına işleyecek denetleyici
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex1 HomeController dizin*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
+~~~
 
 <a id="Ex1Task4"></a>
 
@@ -234,12 +236,12 @@ Bu görevde, yeni bir denetleyicisi ekleyeceksiniz.
 1. Zaten açık değilse, başlangıç **VS Express Web 2012**.
 2. İçinde **dosya** menüsünde seçin **Proje Aç**. Proje Aç iletişim kutusunda, Gözat **Source\Ex02 CreatingAController\Begin**seçin **Begin.sln** tıklatıp **açık**. Alternatif olarak, önceki alıştırmada tamamladıktan sonra aldığınız çözümüyle devam edebilir.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Yeni denetleyici ekleyin. Bunu yapmak için sağ **denetleyicileri** Klasör Seç Çözüm Gezgini içinde **Ekle** ve ardından **denetleyicisi** komutu. Değişiklik **Denetleyici adı** için *StoreController*, tıklatıp **Ekle**.
 
     ![Denetleyici Ekle iletişim kutusu](aspnet-mvc-4-fundamentals/_static/image8.png "denetleyici Ekle iletişim kutusu")
@@ -258,13 +260,17 @@ Bu görevde denir denetleyici yöntemlerine değiştirecek **Eylemler**. Eylemle
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex2 StoreController dizin*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
+~~~
 2. Ekleme **Gözat** ve **ayrıntıları** yöntemleri. Bunu yapmak için aşağıdaki kodu ekleyin **StoreController**:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex2 StoreController BrowseAndDetails*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
+~~~
 
 <a id="Ex2Task3"></a>
 
@@ -302,24 +308,26 @@ Bu görevde, kullanacağınız **querystring** parametreleri göndermek için **
 1. Zaten açık değilse, başlangıç **VS Express Web**.
 2. İçinde **dosya** menüsünde seçin **Proje Aç**. Proje Aç iletişim kutusunda, Gözat **Source\Ex03 PassingParametersToAController\Begin**seçin **Begin.sln** tıklatıp **açık**. Alternatif olarak, önceki alıştırmada tamamladıktan sonra aldığınız çözümüyle devam edebilir.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Açık **StoreController** sınıfı. Bunu yapmak için **Çözüm Gezgini**, genişletin **denetleyicileri** klasörü ve çift **StoreController.cs**.
 4. Değişiklik **Gözat** için belirli bir tarzını istemek için bir dize parametresi ekleme yöntemi. ASP.NET MVC otomatik olarak herhangi bir sorgu dizesi geçti veya adlandırılmış parametreleri form gönderme **Tarz** çağrıldığında Bu eylem yöntemine. Bunu yapmak için yerini **Gözat** aşağıdaki kod ile yöntemi:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex3 StoreController BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
-    > [!NOTE]
-    > Kullanmakta olduğunuz **HttpUtility.HtmlEncode** yardımcı yöntemi, Javascript gibi bir bağlantıyla görünüme injecting gelen kullanıcılar önler   **/deposu/Gözat? Tarz =&lt;betik&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
-    > 
-    > Daha fazla açıklama için lütfen şu adresi ziyaret [bu msdn makalesine](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
+> [!NOTE]
+> You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
+> 
+> For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
+~~~
 
 <a id="Ex3Task2"></a>
 
@@ -348,7 +356,9 @@ Bu görevde, kullanacağınız **URL** geçirmek için bir **kimliği** parametr
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex3 StoreController DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
+~~~
 
 <a id="Ex3Task4"></a>
 
@@ -383,26 +393,26 @@ Dosya **~/Views/Shared/\_layout.cshtml** tüm Web sitesi kullanmak üzere ortak 
 1. Zaten açık değilse, başlangıç **VS Express Web**.
 2. İçinde **dosya** menüsünde seçin **Proje Aç**. Proje Aç iletişim kutusunda, Gözat **Source\Ex04 CreatingAView\Begin**seçin **Begin.sln** tıklatıp **açık**. Alternatif olarak, önceki alıştırmada tamamladıktan sonra aldığınız çözümüyle devam edebilir.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-3. Dosya  **\_layout.cshtml** sitesindeki tüm sayfalara HTML kapsayıcı düzeni içeriyor. İçerdiği  **&lt;html&gt;**  öğe için HTML yanıtını yanı sıra  **&lt;head&gt;**  ve  **&lt;gövde&gt;**  öğeleri. **@RenderBody()** HTML içindeki gövde tanımlamak bölgeler şablonları kurulamayacak oturum dinamik içerik doldurmak bu görünümü.
-(C#)
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+3. Dosya  <strong>\_layout.cshtml</strong> sitesindeki tüm sayfalara HTML kapsayıcı düzeni içeriyor. İçerdiği <strong>&lt;html&gt;</strong> öğe için HTML yanıtını yanı sıra <strong>&lt;head&gt;</strong> ve <strong>&lt;gövde&gt;</strong> öğeleri. <strong>@RenderBody()</strong> HTML içindeki gövde tanımlamak bölgeler şablonları kurulamayacak oturum dinamik içerik doldurmak bu görünümü.
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample6.cshtml)]
 4. Giriş sayfası ve depolama alanı sitesindeki tüm sayfalara bağlantılar sahip ortak bir üstbilgi ekleyin. Bunu yapmak için aşağıdaki aşağıdaki kodu ekleyin &lt;gövde&gt; deyimi.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample7.cshtml)]
-5. Her sayfanın gövde bölümü oluşturmak için bir sayı içerir. Değiştir  **@RenderBody()** aşağıdaki higlighted kodla: (C#)
+5. Her sayfanın gövde bölümü oluşturmak için bir sayı içerir. Değiştir  <strong>@RenderBody()</strong> aşağıdaki higlighted kodla: (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample8.cshtml)]
 
     > [!NOTE]
-    > Biliyor muydunuz? Visual Studio 2012 yaygın olarak kullanılan kod HTML, kod dosyaları ve daha fazlasını eklemek kolaylaştıran parçacıkları var! Out yazarak deneyin  **&lt;div&gt;**  tuşuna basarak **sekmesini** iki kez bir tam eklemek için **div** etiketi.
+    > Biliyor muydunuz? Visual Studio 2012 yaygın olarak kullanılan kod HTML, kod dosyaları ve daha fazlasını eklemek kolaylaştıran parçacıkları var! Out yazarak deneyin **&lt;div&gt;** tuşuna basarak **sekmesini** iki kez bir tam eklemek için **div** etiketi.
 
 <a id="Ex4Task2"></a>
 
@@ -432,7 +442,9 @@ Bu görevde, Düzen ana sayfa kullanacağınız HTML yanıtı oluşturmak için 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex4 HomeController dizin*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
+~~~
 2. Şimdi, uygun bir görünüm şablon eklemeniz gerekir. Bunu yapmak için **sağ** içinde **dizin** eylem yöntemi ve select **Görünüm Ekle**. Bu getirir **Görünüm Ekle** iletişim.
 
     ![Dizin yöntemi içinden bir görünümle ekleme](aspnet-mvc-4-fundamentals/_static/image13.png "dizin yöntemi içinden bir görünümle ekleme")
@@ -458,7 +470,9 @@ Bu görevde, Düzen ana sayfa kullanacağınız HTML yanıtı oluşturmak için 
 5. Oluşturulan görünüm şablonu dayanır  **\_layout.cshtml** daha önce tanımlanan şablon. ViewBag.Title özelliğine güncelleştirme **giriş**, ana içeriği değiştirip **bu giriş sayfasıdır**, aşağıdaki kodda gösterildiği gibi:
 
 
-    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
+~~~
+[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
+~~~
 6. Seçin **MvcMusicStore** basın ve Çözüm Gezgini proje **F5** uygulamayı çalıştırın.
 
 <a id="Ex4Task4"></a>
@@ -497,12 +511,12 @@ Bu görevde deposu Tarz listeleme senaryo gerçekleştireceksiniz ViewModel sın
 1. Zaten açık değilse, başlangıç **VS Express Web**.
 2. İçinde **dosya** menüsünde seçin **Proje Aç**. Proje Aç iletişim kutusunda, Gözat **Source\Ex05 CreatingAViewModel\Begin**seçin **Begin.sln** tıklatıp **açık**. Alternatif olarak, önceki alıştırmada tamamladıktan sonra aldığınız çözümüyle devam edebilir.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Oluşturma bir **ViewModels** ViewModel tutmak için klasör. Bunu yapmak için üst düzey sağ **MvcMusicStore** proje, select **Ekle** ve ardından **yeni klasör**.
 
     ![Yeni bir klasör ekleme](aspnet-mvc-4-fundamentals/_static/image17.png "yeni bir klasör ekleme")
@@ -537,10 +551,12 @@ Bu görevde, 2 Bu özellikler ekleyeceksiniz **StoreIndexViewModel** sınıfı: 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 StoreIndexViewModel özellikleri*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
-    > [!NOTE]
-    > **{Alın; ayarlayın;}**  gösterimi yapar C#, kullanıcının kullanan otomatik uygulanan özellikler özelliği. Bir özelliğin avantajlarından bize yedekleme alanı bildirmek gerek kalmadan sağlar.
+> [!NOTE]
+> The **{ get; set; }** notation makes use of C#'s auto-implemented properties feature. It provides the benefits of a property without requiring us to declare a backing field.
+~~~
 
 <a id="Ex5Task3"></a>
 
@@ -561,7 +577,9 @@ Bu görevde, güncelleştirecektir **StoreController** kullanmak için **StoreIn
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 ViewModels kullanarak StoreIndexViewModel*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
+~~~
 3. Değişiklik **StoreController**'s **dizin** şekilde oluşturur ve doldurur eylem yöntemi bir **StoreIndexViewModel** nesnesi ve ardından bunu bir görünüm şablonu geçirir devre dışı bir HTML yanıtını onunla oluşturur.
 
     > [!NOTE]
@@ -573,10 +591,12 @@ Bu görevde, güncelleştirecektir **StoreController** kullanmak için **StoreIn
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 StoreController dizin yöntemi*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
-    > [!NOTE]
-    > C# ile tanınmayan, kullanmanın varsayabilir **var** anlamına **viewModel** değişkenidir geç bağlama. C# Derleyici kullanarak tür çıkarımı değişkene atayın göre belirlemek için doğru değil - **viewModel** türü **StoreIndexViewModel**. Ayrıca, yerel derleme tarafından **viewModel** değişken olarak bir **StoreIndexViewModel** derleme zamanı get denetimi ve Visual Studio kod düzenleyicisini desteği yazın.
+> [!NOTE]
+> If you're unfamiliar with C#, you may assume that using **var** means that the **viewModel** variable is late-bound. That's not correct - the C# compiler is using type-inference based on what you assign to the variable to determine that **viewModel** is of type **StoreIndexViewModel**. Also, by compiling the local **viewModel** variable as a **StoreIndexViewModel** type you get compile-time checking and Visual Studio code-editor support.
+~~~
 
 <a id="Ex5Task4"></a>
 
@@ -617,20 +637,22 @@ Bu görevde, türler ve sayfa içinde adları sayısını almak üzere son göre
 1. İçinde **Index.cshtml** içinde dosya **deposu** klasör, kendisine kodu şununla değiştirin:
 
 
-    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
+~~~
+[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
-    > [!NOTE]
-    > Word süre yazarak biter bitmez **modeli**, Visual Studio'nun IntelliSense, olası özellikleri ve yöntemleri arasından seçim listesi gösterilir.
-    > 
-    > ![](aspnet-mvc-4-fundamentals/_static/image25.png)
-    > 
-    > *Model özellikleri ve yöntemleri Visual Studio'nun IntelliSense ile Başlarken*
-    > 
-    > **Modeli** özelliği başvuruları **StoreIndexViewModel** denetleyici görünüm şablona geçirilen nesne. Bu görünüm şablon denetleyicisinden geçirilen verilerin tümünü erişemeyeceği anlamına gelir. **modeli** özelliği ve görünüm şablonu içindeki uygun bir HTML yanıt içine biçimlendirin.
-    > 
-    > Yalnızca seçebilirsiniz **NumberOfGenres** IntelliSense özelliğinden liste içinde ve ardından yazarak otomatik tamamlama olacak yerine onu basarak **SEKME tuşuna**.
-2. Döngü Tarz listesinde üzerinden **StoreIndexViewModel** ve bir HTML oluşturmak  **&lt;ul&gt;**  kullanarak listesinde bir **foreach** döngü.
-(C#)
+> [!NOTE]
+> As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
+> 
+> ![](aspnet-mvc-4-fundamentals/_static/image25.png)
+> 
+> *Getting Model properties and methods with Visual Studio's IntelliSense*
+> 
+> The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
+> 
+> You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
+~~~
+2. Döngü Tarz listesinde üzerinden **StoreIndexViewModel** ve bir HTML oluşturmak **&lt;ul&gt;** kullanarak listesinde bir **foreach** döngü.
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample15.cshtml)]
 3. Tuşuna **F5** uygulamayı çalıştırın ve gözatmak için **/deposu**. Geçirilen türler listesini görürsünüz **StoreIndexViewModel** nesnesinin **StoreController** görünüm şablon.
@@ -657,12 +679,12 @@ Yalnızca bilgi denetleyicisinden görünüme iletmek için oluşturulan ViewMod
 1. Zaten açık değilse, başlangıç **VS Express Web**
 2. İçinde **dosya** menüsünde seçin **Proje Aç**. Proje Aç iletişim kutusunda, Gözat **Source\Ex06 UsingParametersInView\Begin**seçin **Begin.sln** tıklatıp **açık**. Alternatif olarak, önceki alıştırmada tamamladıktan sonra aldığınız çözümüyle devam edebilir.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 3. Ekleme bir **Tarz** Model sınıfı. Bunu yapmak için sağ **modelleri** klasöründe **Çözüm Gezgini**seçin **Ekle** ve ardından **yeni öğe** seçeneği. Altında **kod**, seçin **sınıfı** öğe ve dosya adı *Genre.cs*, ardından **Ekle**.
 
     ![Sınıf ekleme](aspnet-mvc-4-fundamentals/_static/image27.png "sınıf ekleme")
@@ -677,14 +699,18 @@ Yalnızca bilgi denetleyicisinden görünüme iletmek için oluşturulan ViewMod
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 Tarz*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
+~~~
 5. Yordamın aynısını önce aşağıdaki eklemek bir **albüm** sınıfı. Bunu yapmak için sağ **modelleri** klasöründe **Çözüm Gezgini**seçin **Ekle** ve ardından **yeni öğe** seçeneği. Altında **kod**, seçin **sınıfı** öğe ve dosya adı *Album.cs*, ardından **Ekle**.
 6. İki özellik albüm sınıfına ekleyin: **Tarz** ve **başlık**. Bunu yapmak için aşağıdaki kodu ekleyin:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 albüm*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
+~~~
 
 <a id="Ex6Task2"></a>
 
@@ -699,20 +725,24 @@ A **StoreBrowseViewModel** bu görevin seçilen bir tarzını eşleşen albümle
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 UsingModel*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
+~~~
 3. İki özellikleri **StoreBrowseViewModel** sınıfı: **Tarz** ve **albümleri**. Bunu yapmak için aşağıdaki kodu ekleyin:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 ModelProperties*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
-    > [!NOTE]
-    > Nedir **listesi&lt;albüm&gt;**  ?: Bu tanımı kullanarak **listesi&lt;T&gt;**  yazın, burada **T** kısıtlar hangi öğelerin bu türe **listesi** , bu durumda ait **albüm** (veya alt öğelerinden birini).
-    > 
-    > Sınıflar ve sınıf veya yöntemin bildirilir ve istemci kodu tarafından örneği C# dili özelliğidir kadar bir veya daha fazla türü belirtimini erteleneceği yöntemler tasarlamak için bu özelliği adlı **genel türler**.
-    > 
-    > **Liste&lt;T&gt;**  genel eşdeğerdir **ArrayList** yazın ve kullanılabilir **System.Collections.Generic** ad alanı. Kullanmanın avantajlarından biri **genel türler** türü belirtilmiş olduğundan, ilgilenebilmek denetimi elemanlara atama gibi işlemleri türü gerek olmayan **albüm** bir ileyaptığınızgibi**ArrayList**.
+> [!NOTE]
+> What is **List&lt;Album&gt;** ?: This definition is using the **List&lt;T&gt;** type, where **T** constrains the type to which elements of this **List** belong to, in this case **Album** (or any of its descendants).
+> 
+> This ability to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code is a feature of the C# language called **Generics**.
+> 
+> **List&lt;T&gt;** is the generic equivalent of the **ArrayList** type and is available in the **System.Collections.Generic** namespace. One of the benefits of using **generics** is that since the type is specified, you do not need to take care of type checking operations such as casting the elements into **Album** as you would do with an **ArrayList**.
+~~~
 
 <a id="Ex6Task3"></a>
 
@@ -726,19 +756,25 @@ Bu görevde değiştirecek **StoreController**'s **Gözat** ve **ayrıntıları*
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 UsingModelInController*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
+~~~
 2. Değiştir **Gözat** eylem yönteminin kullanılacağını **StoreViewBrowseController** sınıfı. Sahte verilerle bir tarzını ve iki yeni Albümler nesneler oluşturur (sonraki uygulamalı laboratuar ortamında, bir veritabanından gerçek veri kullanır). Bunu yapmak için yerini **Gözat** aşağıdaki kod ile yöntemi:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
+~~~
 3. Değiştir **ayrıntıları** eylem yönteminin kullanılacağını **StoreViewBrowseController** sınıfı. Yeni oluşturduğunuz **albüm** için döndürülecek nesne **Görünüm**. Bunu yapmak için yerini **ayrıntıları** aşağıdaki kod ile yöntemi:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
+~~~
 
 <a id="Ex6Task4"></a>
 
@@ -811,22 +847,22 @@ Bu görevde, test **ayrıntıları** görünümü alır albüm bilgilerinden **a
 Bu görevde her Tarz adı uygun bir bağlantı sağlamak için depolama görünümünde bir bağlantı ekleyeceksiniz **/deposu/Gözat** URL. Bu şekilde, bir tarzını üzerinde örneği için tıklattığınızda **DISCO**, gider **/deposu/Gözat? Tarz DISCO =** URL.
 
 1. Gerekirse Visual Studio penceresine geri dönmek için tarayıcıyı kapatın. Güncelleştirme **dizin** bağlantısı eklemek için sayfa **Gözat** sayfası. Bunu yapmak için **Çözüm Gezgini** genişletin **görünümleri** klasörü, sonra **deposu** klasörü ve çift **Index.cshtml** sayfası.
-2. Bir bağlantı seçili Tarz belirten Gözat görünümüne ekleyin. Bunu yapmak için aşağıdaki vurgulanmış kodu içinde yerini  **&lt;li&gt;**  etiketler: (C#)
+2. Bir bağlantı seçili Tarz belirten Gözat görünümüne ekleyin. Bunu yapmak için aşağıdaki vurgulanmış kodu içinde yerini **&lt;li&gt;** etiketler: (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample25.cshtml)]
 
-    > [!NOTE]
-    > başka bir yaklaşım, aşağıdaki gibi bir kodla, doğrudan sayfasına bağlantılandırma:
-    > 
-    > &lt;bir href =&quot;/deposu/Gözat? Tarz =@genreName&quot;&gt;@genreName&lt;/a&gt;
-    > 
-    > Bu yaklaşım kullanılabilse de, bir sabit kodlanmış dize bağlıdır. Daha sonra denetleyicisi yeniden adlandırırsanız, bu yönerge el ile değiştirmeniz gerekecektir. Daha iyi bir alternatif kullanmaktır bir **HTML Yardımcısı** yöntemi. ASP.NET MVC gibi görevler için kullanılabilir olan bir HTML yardımcı yöntemi içerir. **Html.ActionLink()** yardımcı yöntem HTML oluşturmanızı kolaylaştırır  **&lt;bir&gt;**  bağlantılar, URL yollarını URL kodlanmış düzgünce emin olun.
-    > 
-    > Htlm.ActionLink birçok aşırı yüklemeye sahip. Bu alıştırmada üç parametre alır birini kullanır:
-    > 
-    > 1. Bağlantı metnini, tarz adını görüntüler
-    > 2. Denetleyici eylem adı (**Gözat**)
-    > 3. Rota parametre değerleri, hem adı belirtme (**Tarz**) ve değeri (**Tarz adı**)
+   > [!NOTE]
+   > başka bir yaklaşım, aşağıdaki gibi bir kodla, doğrudan sayfasına bağlantılandırma:
+   > 
+   > &lt;bir href =&quot;/deposu/Gözat? Tarz =@genreName&quot;&gt;@genreName&lt;/a&gt;
+   > 
+   > Bu yaklaşım kullanılabilse de, bir sabit kodlanmış dize bağlıdır. Daha sonra denetleyicisi yeniden adlandırırsanız, bu yönerge el ile değiştirmeniz gerekecektir. Daha iyi bir alternatif kullanmaktır bir **HTML Yardımcısı** yöntemi. ASP.NET MVC gibi görevler için kullanılabilir olan bir HTML yardımcı yöntemi içerir. **Html.ActionLink()** yardımcı yöntem HTML oluşturmanızı kolaylaştırır **&lt;bir&gt;** bağlantılar, URL yollarını URL kodlanmış düzgünce emin olun.
+   > 
+   > Htlm.ActionLink birçok aşırı yüklemeye sahip. Bu alıştırmada üç parametre alır birini kullanır:
+   > 
+   > 1. Bağlantı metnini, tarz adını görüntüler
+   > 2. Denetleyici eylem adı (**Gözat**)
+   > 3. Rota parametre değerleri, hem adı belirtme (**Tarz**) ve değeri (**Tarz adı**)
 
 <a id="Ex6Task9"></a>
 
@@ -854,17 +890,19 @@ Bu görevde, modelde değişiklik yapmadan değerleri denetleyici ve görünüm 
 1. Gerekirse Visual Studio penceresine geri dönmek için tarayıcıyı kapatın. Açık **StoreController.cs** ve değiştirme **dizin** ViewModel koleksiyona listesini oluşturmak için yöntem starred türler:
 
 
-    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
-    > [!NOTE]
-    > Sözdizimi da kullanabilirsiniz **ViewBag [&quot;Starred&quot;]** özelliklerine erişmek için.
-2. Yıldız simgesine  **&quot;starred.png&quot;**  dahil **Source\Assets\Images** bu laboratuvarı klasör. Uygulama eklemek için bunların içerikten sürükleyin bir **Windows Explorer** penceresine **Çözüm Gezgini** Express'te Visual Web Developer aşağıda gösterildiği gibi:
+> [!NOTE]
+> You could also use the syntax **ViewBag[&quot;Starred&quot;]** to access the properties.
+~~~
+2. Yıldız simgesine **&quot;starred.png&quot;** dahil **Source\Assets\Images** bu laboratuvarı klasör. Uygulama eklemek için bunların içerikten sürükleyin bir **Windows Explorer** penceresine **Çözüm Gezgini** Express'te Visual Web Developer aşağıda gösterildiği gibi:
 
     ![Çözüme yıldız görüntü ekleme](aspnet-mvc-4-fundamentals/_static/image34.png "çözüme yıldız görüntü ekleme")
 
     *Çözüme yıldız görüntü ekleme*
 3. Görünümü açma **Store/Index.cshtml** ve içeriği değiştirebilirsiniz. Okuma yapacak &quot;starred&quot; özelliğinde **ViewBag** koleksiyonu ve geçerli bir tarzını adı listede olup olmadığını isteyin. Bu durumda Tarz bağlantısına sağ yıldız simgesiyle gösterilir.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample27.cshtml)]
 
@@ -931,40 +969,40 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri göz en ilgi
 
     *ASP.NET MVC 4 Internet uygulaması proje şablonu*
 
-    1. **HTML5 markup**
+   1. **HTML5 markup**
 
-        Şablon görünümleri yeni temayı işaretleme, örneğin açık bulmak için Gözat **About.cshtml** görünümü **giriş** klasör.
+       Şablon görünümleri yeni temayı işaretleme, örneğin açık bulmak için Gözat **About.cshtml** görünümü **giriş** klasör.
 
-        ![Razor ve HTML5 biçimlendirme kullanarak yeni şablonu](aspnet-mvc-4-fundamentals/_static/image41.png "Razor ve HTML5 biçimlendirme kullanarak yeni şablonu")
+       ![Razor ve HTML5 biçimlendirme kullanarak yeni şablonu](aspnet-mvc-4-fundamentals/_static/image41.png "Razor ve HTML5 biçimlendirme kullanarak yeni şablonu")
 
-        *Razor ve HTML5 biçimlendirme kullanarak yeni şablonu*
-    2. **JavaScript kitaplıklarını dahil**
+       *Razor ve HTML5 biçimlendirme kullanarak yeni şablonu*
+   2. **JavaScript kitaplıklarını dahil**
 
-        1. **jQuery**: jQuery HTML belge çapraz geçiş yapma, olay işleme, animasyon ve Ajax etkileşimleri basitleştirir.
-        2. **jQuery UI**: Bu kitaplık için alt düzey etkileşim ve etkileri Gelişmiş animasyon ve bölümlerinin tema eklenebilir widgets, jQuery JavaScript kitaplığı üzerine inşa soyutlamalar sağlar.
+      1. **jQuery**: jQuery HTML belge çapraz geçiş yapma, olay işleme, animasyon ve Ajax etkileşimleri basitleştirir.
+      2. **jQuery UI**: Bu kitaplık için alt düzey etkileşim ve etkileri Gelişmiş animasyon ve bölümlerinin tema eklenebilir widgets, jQuery JavaScript kitaplığı üzerine inşa soyutlamalar sağlar.
 
-            > [!NOTE]
-            > JQuery ve jQuery UI hakkında bilgi edinin içinde [ [http://docs.jquery.com/](http://docs.jquery.com/)](http://docs.jquery.com/).
-        3. **Çakıştırmaları**: ASP.NET MVC 4 varsayılan şablonu artık içerir **Çakıştırmaları**, JavaScript ve HTML kullanarak zengin ve hızlı yanıt veren web uygulamaları oluşturmanıza olanak sağlayan bir JavaScript MVVM çerçevesi. Gibi ASP.NET MVC 3'te, jQuery ve jQuery UI kitaplıkları da ASP.NET MVC 4'te bulunur.
+         > [!NOTE]
+         > JQuery ve jQuery UI hakkında bilgi edinin içinde [ [ http://docs.jquery.com/ ](http://docs.jquery.com/) ](http://docs.jquery.com/).
+      3. **Çakıştırmaları**: ASP.NET MVC 4 varsayılan şablonu artık içerir **Çakıştırmaları**, JavaScript ve HTML kullanarak zengin ve hızlı yanıt veren web uygulamaları oluşturmanıza olanak sağlayan bir JavaScript MVVM çerçevesi. Gibi ASP.NET MVC 3'te, jQuery ve jQuery UI kitaplıkları da ASP.NET MVC 4'te bulunur.
 
-            > [!NOTE]
-            > Bu bağlantıyı Çakıştırmaları kitaplıkta hakkında daha fazla bilgi edinebilirsiniz: [http://learn.knockoutjs.com/](http://learn.knockoutjs.com/).
-        4. **Modernizr**: sitenizi HTML5 ve CSS3 teknolojiler kullanılırken eski tarayıcılarla uyumlu hale getirme bu kitaplığı otomatik olarak çalıştırır.
+          > [!NOTE]
+          > Bu bağlantıyı Çakıştırmaları kitaplıkta hakkında daha fazla bilgi edinebilirsiniz: [ http://learn.knockoutjs.com/ ](http://learn.knockoutjs.com/).
+      4. **Modernizr**: sitenizi HTML5 ve CSS3 teknolojiler kullanılırken eski tarayıcılarla uyumlu hale getirme bu kitaplığı otomatik olarak çalıştırır.
 
-            > [!NOTE]
-            > Bu bağlantıyı Modernizr kitaplıkta hakkında daha fazla bilgi edinebilirsiniz: [http://www.modernizr.com/](http://www.modernizr.com/).
-    3. **Çözümdeki SimpleMembership**
+          > [!NOTE]
+          > Bu bağlantıyı Modernizr kitaplıkta hakkında daha fazla bilgi edinebilirsiniz: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
+   3. **Çözümdeki SimpleMembership**
 
-        SimpleMembership, önceki ASP.NET rol ve üyelik sağlayıcısı sistem için bir yedek olarak tasarlanmıştır. Güvenli web sayfalarına geliştirici için daha esnek bir şekilde kolaylaştıran birçok yeni özellik vardır.
+       SimpleMembership, önceki ASP.NET rol ve üyelik sağlayıcısı sistem için bir yedek olarak tasarlanmıştır. Güvenli web sayfalarına geliştirici için daha esnek bir şekilde kolaylaştıran birçok yeni özellik vardır.
 
-        Internet şablonu SimpleMembership tümleştirmek için birkaç şey zaten ayarlanmış, örneğin, AccountController OAuthWebSecurity (için OAuth hesap kaydı, oturum açma, yönetim, vb.) ve Web güvenlik kullanmak için hazırlanır.
+       Internet şablonu SimpleMembership tümleştirmek için birkaç şey zaten ayarlanmış, örneğin, AccountController OAuthWebSecurity (için OAuth hesap kaydı, oturum açma, yönetim, vb.) ve Web güvenlik kullanmak için hazırlanır.
 
-        ![Çözüm SimpleMembership dahil](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership dahil çözümü")
+       ![Çözüm SimpleMembership dahil](aspnet-mvc-4-fundamentals/_static/image42.png "SimpleMembership dahil çözümü")
 
-        *Çözüm SimpleMembership dahil*
+       *Çözüm SimpleMembership dahil*
 
-        > [!NOTE]
-        > Hakkında daha fazla bilgi bulmak [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) MSDN'de.
+       > [!NOTE]
+       > Hakkında daha fazla bilgi bulmak [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) MSDN'de.
 
 > [!NOTE]
 > Ayrıca, Windows Azure Web siteleri aşağıdaki bu uygulamayı dağıtabilmek için [ek B: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixB).
@@ -994,9 +1032,9 @@ Bu uygulamalı Laboratuvar tamamlayarak ASP.NET MVC ile ilgili temel bilgileri �
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -1140,14 +1178,14 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-    - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-    - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-    - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
-    - Yeni bir veritabanı adı girin: *MVC4SampleDB*.
+   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
+   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
+   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - Yeni bir veritabanı adı girin: *MVC4SampleDB*.
 
-    ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-fundamentals/_static/image64.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-fundamentals/_static/image64.png "hedef bağlantı dizesi yapılandırma")
 
-    *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesi yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](aspnet-mvc-4-fundamentals/_static/image65.png "veritabanı dizesi oluşturma")

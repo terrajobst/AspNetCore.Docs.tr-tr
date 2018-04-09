@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: "Entity Framework 6 kod MVC 5 kullanarak ilk ile çalışmaya başlama | Microsoft Docs"
+title: Entity Framework 6 kod MVC 5 kullanarak ilk ile çalışmaya başlama | Microsoft Docs
 author: tdykstra
-description: "Bu öğretici dizisinin yeni bir sürümü: ASP.NET Core ve Entity Framework Visual Studio 2015 kullanarak çekirdek ile başlayın. Contoso Universi..."
+description: 'Bu öğretici dizisinin yeni bir sürümü: ASP.NET Core ve Entity Framework Visual Studio 2015 kullanarak çekirdek ile başlayın. Contoso Universi...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/22/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 46f53279e2e6daa4266c06feb4ba544e14b68a03
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2417a872bb57b18f4a61ef70f5dd35cb3d94ff73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>MVC 5 Kullanarak Entity Framework 6 Code First ile Çalışmaya Başlama
 ====================
@@ -175,7 +175,7 @@ Bir gezinti özelliği (çok- veya -çok ilişkileri) olduğu gibi birden çok v
 
 `CourseID` Özelliği bir yabancı anahtar ve karşılık gelen gezinme özelliğini `Course`. Bir `Enrollment` varlıktır biriyle ilişkili `Course` varlık.
 
-Entity Framework onu ise bu özellik bir yabancı anahtar özellik olarak yorumlar  *&lt;gezinti özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;*  (örneğin, `StudentID`için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarının `ID`). Yabancı anahtar özellikleri de adlı aynı yalnızca  *&lt;birincil anahtar özelliği adı&gt;*  (örneğin, `CourseID` beri `Course` varlığın birincil anahtarının `CourseID`).
+Entity Framework onu ise bu özellik bir yabancı anahtar özellik olarak yorumlar *&lt;gezinti özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;* (örneğin, `StudentID`için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarının `ID`). Yabancı anahtar özellikleri de adlı aynı yalnızca *&lt;birincil anahtar özelliği adı&gt;* (örneğin, `CourseID` beri `Course` varlığın birincil anahtarının `CourseID`).
 
 ### <a name="the-course-entity"></a>İndirmelere varlık
 
@@ -274,37 +274,37 @@ Verileri görüntülemek için bir web sayfası artık oluşturacaksınız ve ve
 veritabanı oluşturma. Yeni bir denetleyicisi oluşturarak başlarsınız. Ancak bunu yapmadan önce modeli ve bağlam sınıfları MVC denetleyicisi iskele kullanılabilir hale getirmek için projeyi oluşturun.
 
 1. Sağ **denetleyicileri** klasöründe **Çözüm Gezgini**seçin **Ekle**ve ardından **yeni iskele kurulmuş öğe**.
-- İçinde **İskele Ekle** iletişim kutusunda **Entity Framework kullanarak MVC 5 denetleyici, görünümleri olan**.
+2. İçinde **İskele Ekle** iletişim kutusunda **Entity Framework kullanarak MVC 5 denetleyici, görünümleri olan**.
 
-    ![İskele Ekle](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
-- Denetleyici Ekle iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **Ekle**:
+     ![İskele Ekle](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+3. Denetleyici Ekle iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **Ekle**:
 
-    - Model sınıfı: **Öğrenci (ContosoUniversity.Models)**. (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
-    - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.DAL)**.
-    - Denetleyici adı: **StudentController** (StudentsController değil).
-    - Diğer alanları varsayılan değerleri bırakın.
+   - Model sınıfı: **Öğrenci (ContosoUniversity.Models)**. (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
+   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.DAL)**.
+   - Denetleyici adı: **StudentController** (StudentsController değil).
+   - Diğer alanları varsayılan değerleri bırakın.
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
-    Tıkladığınızda **Ekle**, iskele kurucu StudentController.cs dosya ve Denetleyici ile çalışma (.cshtml dosyaları) görünümleri kümesi oluşturur. Gelecekte Entity Framework kullanan projeleri oluşturduğunuzda, ayrıca bazı ek iskele kurucu işlevselliğini yararlanabilirsiniz: yalnızca ilk model sınıfı oluşturmak, bir bağlantı dizesi oluşturma ve ardından **denetleyiciEkle** kutusunda yeni bağlam sınıfını belirtin. İskele kurucu oluşturacak, `DbContext` sınıfı ve bağlantınızı dize denetleyici ve görünüm yanı sıra.
-- Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir sınıf değişkeni, bir veritabanı bağlam nesnesi başlatır oluşturuldu bakın:
+     Tıkladığınızda **Ekle**, iskele kurucu StudentController.cs dosya ve Denetleyici ile çalışma (.cshtml dosyaları) görünümleri kümesi oluşturur. Gelecekte Entity Framework kullanan projeleri oluşturduğunuzda, ayrıca bazı ek iskele kurucu işlevselliğini yararlanabilirsiniz: yalnızca ilk model sınıfı oluşturmak, bir bağlantı dizesi oluşturma ve ardından **denetleyiciEkle** kutusunda yeni bağlam sınıfını belirtin. İskele kurucu oluşturacak, `DbContext` sınıfı ve bağlantınızı dize denetleyici ve görünüm yanı sıra.
+4. Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir sınıf değişkeni, bir veritabanı bağlam nesnesi başlatır oluşturuldu bakın:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample11.cs)]
 
-    `Index` Eylem yöntemi Öğrenciler listesini alır *Öğrenciler* varlık okuyarak kümesi `Students` veritabanı bağlam örneğinin özelliği:
+     `Index` Eylem yöntemi Öğrenciler listesini alır *Öğrenciler* varlık okuyarak kümesi `Students` veritabanı bağlam örneğinin özelliği:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample12.cs)]
 
-    *Student\Index.cshtml* görünüm bu listesi bir tabloda görüntülenir:
+     *Student\Index.cshtml* görünüm bu listesi bir tabloda görüntülenir:
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
-- Projeyi çalıştırmak için CTRL + F5 tuşuna basın. (Bir "Gölge kopya oluşturulamıyor" hata alırsanız, tarayıcıyı kapatın ve yeniden deneyin.)
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample13.cshtml)]
+5. Projeyi çalıştırmak için CTRL + F5 tuşuna basın. (Bir "Gölge kopya oluşturulamıyor" hata alırsanız, tarayıcıyı kapatın ve yeniden deneyin.)
 
-    Tıklatın **Öğrenciler** test verileri görmek için sekmesi, `Seed` eklenen yöntemi. Nasıl bağlı olarak, bir tarayıcı penceresi darsa, üst adres çubuğundaki Öğrenci sekmesini bağlantı göreceksiniz veya bağlantıyı görmek için sağ üst köşesinde tıklatmanız gerekir.
+     Tıklatın **Öğrenciler** test verileri görmek için sekmesi, `Seed` eklenen yöntemi. Nasıl bağlı olarak, bir tarayıcı penceresi darsa, üst adres çubuğundaki Öğrenci sekmesini bağlantı göreceksiniz veya bağlantıyı görmek için sağ üst köşesinde tıklatmanız gerekir.
 
-    ![Menü düğmesi](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+     ![Menü düğmesi](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
-    ![Öğrenci dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
+     ![Öğrenci dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image15.png)
 
 ## <a name="view-the-database"></a>Veritabanı görüntüleyin
 
@@ -332,7 +332,7 @@ Sizin için tam bir veritabanı oluşturabilmek için Entity Framework sırayla 
 - Varlık sınıfı adları pluralized biçimlerinin tablo adları olarak kullanılır.
 - Varlık özellik adlarını sütun adları için kullanılır.
 - Adlandırılmış varlık özellikleri `ID` veya *classname* `ID` birincil anahtar özelliği tanınır.
-- Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır  *&lt;gezinti özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;*  (örneğin, `StudentID` için`Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarının `ID`). Yabancı anahtar özellikleri de adlı aynı yalnızca &lt;birincil anahtar özelliği adı&gt; (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
+- Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır *&lt;gezinti özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;* (örneğin, `StudentID` için`Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarının `ID`). Yabancı anahtar özellikleri de adlı aynı yalnızca &lt;birincil anahtar özelliği adı&gt; (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
 
 Kuralları geçersiz kılınabilir gördünüz. Örneğin, tablo adları döndürmemelidir pluralized ve daha sonra göreceksiniz belirtilen açıkça özelliği yabancı anahtar özelliği olarak işaretlemek nasıl. Kuralları ve bunları geçersiz kılma hakkında daha fazla bilgi edineceksiniz [daha fazla karmaşık bir veri modeli oluşturulurken](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md) bu serideki sonraki öğretici. Kuralları hakkında daha fazla bilgi için bkz: [kod ilk kuralları](https://msdn.microsoft.com/data/jj679962).
 
@@ -344,5 +344,5 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

@@ -12,7 +12,7 @@ Hatayı alırsanız:
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Proje dizini için bir komut kabuğunu açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
+Yanlış dizinindedir önce gelen hata olur. Proje dizini için bir komut kabuğunu açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları), ve ardından önceki komutu çalıştırın.
 
 Hatayı alırsanız:
   ```

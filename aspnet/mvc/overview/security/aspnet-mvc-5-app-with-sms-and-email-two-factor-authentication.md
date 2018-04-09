@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
-title: "SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması | Microsoft Docs"
+title: SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici bir ASP.NET MVC 5 web uygulaması iki faktörlü kimlik doğrulamasıyla nasıl oluşturulacağını gösterir. Create güvenli bir ASP.NET MVC 5 web uygulaması ile tamamlanacaksa..."
+description: Bu öğretici bir ASP.NET MVC 5 web uygulaması iki faktörlü kimlik doğrulamasıyla nasıl oluşturulacağını gösterir. Create güvenli bir ASP.NET MVC 5 web uygulaması ile tamamlanacaksa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d6bc92f3cbe6b61332e33e8a507b4516bf5c15a5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5e1c54b3901f2c8c85134445c1fa91ee9f2e0d59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici bir ASP.NET MVC 5 web uygulaması iki faktörlü kimlik doğrulamasıyla nasıl oluşturulacağını gösterir. Tamamlanmış olmalıdır [günlüğünde, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) devam etmeden önce. Tamamlanan uygulama indirebilirsiniz [burada](https://code.msdn.microsoft.com/MVC-5-with-2FA-email-8f26d952). Yükleme, bir e-posta veya SMS Sağlayıcısı ayarlamadan test e-posta onayı ve SMS izin hata ayıklama Yardımcıları içerir.
 > 
@@ -53,44 +53,44 @@ Bu öğretici Twilio veya ASPSMS kullanma yönergeleri sağlar ancak herhangi bi
 
 1. **Bir SMS Sağlayıcısı ile bir kullanıcı hesabı oluşturma**  
   
- Oluşturma bir [Twilio](https://www.twilio.com/try-twilio) veya bir [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı.
+   Oluşturma bir [Twilio](https://www.twilio.com/try-twilio) veya bir [ASPSMS](https://www.aspsms.com/asp.net/identity/testcredits/) hesabı.
 2. **Ek paketler yükleme veya hizmet başvuruları ekleme**  
   
- Twilio:  
- Paket Yöneticisi konsolunda aşağıdaki komutu girin:  
+   Twilio:  
+   Paket Yöneticisi konsolunda aşağıdaki komutu girin:  
     `Install-Package Twilio`  
   
- ASPSMS:  
- Aşağıdaki hizmet başvurusu eklenmesi gerekir:  
+   ASPSMS:  
+   Aşağıdaki hizmet başvurusu eklenmesi gerekir:  
   
     ![](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/_static/image2.png)  
   
- Adresi:  
+   Adresi:  
     `https://webservice.aspsms.com/aspsmsx2.asmx?WSDL`  
   
- Ad alanı:  
+   Ad alanı:  
     `ASPSMSX2`
 3. **SMS Sağlayıcısı kullanıcı kimlik bilgilerini açık**  
   
- Twilio:  
- Gelen **Pano** Twilio hesabınızı kopyalama sekmesinde **hesabının SID** ve **kimlik doğrulama belirteci**.  
+   Twilio:  
+   Gelen **Pano** Twilio hesabınızı kopyalama sekmesinde **hesabının SID** ve **kimlik doğrulama belirteci**.  
   
- ASPSMS:  
- Hesap ayarlarınızı, gitmek **Userkey** ve, kendi kendine tanımlı birlikte kopyalayın **parola**.  
+   ASPSMS:  
+   Hesap ayarlarınızı, gitmek **Userkey** ve, kendi kendine tanımlı birlikte kopyalayın **parola**.  
   
- Biz daha sonra bu değerleri depolar *web.config* anahtarları dosyasında `"SMSAccountIdentification"` ve `"SMSAccountPassword"` .
+   Biz daha sonra bu değerleri depolar *web.config* anahtarları dosyasında `"SMSAccountIdentification"` ve `"SMSAccountPassword"` .
 4. **Senderıd belirtme / gönderen**  
   
- Twilio:  
- Gelen **numaraları** sekmesinde, Twilio telefon numaranızı kopyalayın.  
+   Twilio:  
+   Gelen **numaraları** sekmesinde, Twilio telefon numaranızı kopyalayın.  
   
- ASPSMS:  
- İçinde **kilidini başlatıcılarını** menüsünde, bir veya daha fazla başlatıcılarını kilidini veya bir alfasayısal başlatanın (tüm ağları tarafından desteklenmez) seçin.  
+   ASPSMS:  
+   İçinde **kilidini başlatıcılarını** menüsünde, bir veya daha fazla başlatıcılarını kilidini veya bir alfasayısal başlatanın (tüm ağları tarafından desteklenmez) seçin.  
   
- Biz bu değeri daha sonra depolayacaktır *web.config* anahtar içindeki dosya `"SMSAccountFrom"` .
+   Biz bu değeri daha sonra depolayacaktır *web.config* anahtar içindeki dosya `"SMSAccountFrom"` .
 5. **SMS Sağlayıcısı kimlik bilgileri bir uygulamaya aktarma**  
   
- Kimlik bilgileri ve gönderen telefon numarasını uygulama için kullanılabilir hale getirir. Örneği basit tutmak için bu değerleri depolarız *web.config* dosya. Biz Azure'a dağıtırken, güvenli bir şekilde giriş değerleri depolayabilir miyim **uygulama ayarları** bölüm web sitesinde yapılandırma sekmesi. 
+   Kimlik bilgileri ve gönderen telefon numarasını uygulama için kullanılabilir hale getirir. Örneği basit tutmak için bu değerleri depolarız *web.config* dosya. Biz Azure'a dağıtırken, güvenli bir şekilde giriş değerleri depolayabilir miyim **uygulama ayarları** bölüm web sitesinde yapılandırma sekmesi. 
 
     [!code-xml[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample1.xml?highlight=8-10)]
 
@@ -98,9 +98,9 @@ Bu öğretici Twilio veya ASPSMS kullanma yönergeleri sağlar ancak herhangi bi
     > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Hesabı ve kimlik bilgileri örneği basit tutmak için yukarıdaki kod eklenir. Bkz: [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 6. **Veri aktarımı için SMS sağlayıcı uygulaması**  
   
- Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* dosya.  
+   Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* dosya.  
   
- Ya da bağlı olarak kullanılan SMS sağlayıcı etkinleştirme **Twilio** veya **ASPSMS** bölümü: 
+   Ya da bağlı olarak kullanılan SMS sağlayıcı etkinleştirme **Twilio** veya **ASPSMS** bölümü: 
 
     [!code-csharp[Main](aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication/samples/sample2.cs)]
 7. Güncelleştirme *Views\Manage\Index.cshtml* Razor Görünüm: (Not: değil yalnızca yorumları mevcut kodda kaldırmak için aşağıdaki kodu kullanın.)  

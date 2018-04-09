@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
-title: "Güvenlik Kılavuzu ASP.NET Web API 2 OData | Microsoft Docs"
+title: Güvenlik Kılavuzu ASP.NET Web API 2 OData | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/06/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 799e2a0c742b545acf3b5cd27531d734aa7def80
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 41b05f2a2f8247853d8358e6cc1246c8b438a6db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
 ====================
@@ -70,8 +70,8 @@ Tüm istemciler (örneğin, bir kuruluş ortamında) güvenilir olduğunu biliyo
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
 - Veritabanınız için özelleştirilmiş bir doğrulayıcı yazarak $filter sorguları kısıtlamayı göz önünde bulundurun. Örneğin, bu iki sorgular göz önünde bulundurun: 
 
-    - Tüm filmler son adı 'A' ile başlayan aktörler ile.
-    - 1994'te yayımlanan tüm filmler.
+  - Tüm filmler son adı 'A' ile başlayan aktörler ile.
+  - 1994'te yayımlanan tüm filmler.
 
     Film aktörler tarafından dizinlenen sürece, ilk sorguyu filmler tam listesini taramak için veritabanı altyapısı gerektirebilir. İkinci sorguyu kabul edilebilir gelirken, olduğunu varsayarak filmler yayım yılına göre dizinlenir.
 

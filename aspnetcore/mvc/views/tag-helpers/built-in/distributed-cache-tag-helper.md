@@ -1,7 +1,7 @@
 ---
-title: "Dağıtılmış önbellek etiketi yardımcı ASP.NET Çekirdeği"
+title: Dağıtılmış önbellek etiketi yardımcı ASP.NET Çekirdeği
 author: pkellner
-description: "Önbellek etiket Yardımcısı ile çalışmaya nasıl gösterir"
+description: Önbellek etiket Yardımcısı ile çalışmaya nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 710477732b865e2e3821102d34545bbd4e0a5919
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 929156633048b8ee68a66290f44b12026a08c8c9
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="distributed-cache-tag-helper"></a>Dağıtılmış önbellek etiket Yardımcısı
+# <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Dağıtılmış önbellek etiketi yardımcı ASP.NET Çekirdeği
 
 Tarafından [Peter Kellner](http://peterkellner.net) 
 
@@ -43,7 +43,7 @@ Dağıtılmış önbellek etiket Yardımcısı izleyen **açık bağımlılıkla
 |----------------   |----------------   |
 | dize    | "my-distributed-cache-unique-key-101"     |
 
-Gerekli `name` özniteliği dağıtılmış önbellek etiket Yardımcısı her örneği için depolanan bu önbelleğine anahtarı olarak kullanılır.  Temel önbellek etiketi Razor sayfa adı ve razor sayfasını etiketi yardımcı konumunu temel alarak her önbellek etiket Yardımcısı örneği için bir anahtar atayan yardımcıyı farklı olarak, dağıtılmış önbellek etiket Yardımcısı yalnızca, anahtar özniteliği taban`name`
+Gerekli `name` özniteliği dağıtılmış önbellek etiket Yardımcısı her örneği için depolanan bu önbelleğine anahtarı olarak kullanılır.  Temel önbellek etiketi Razor sayfa adı ve razor sayfasını etiketi yardımcı konumunu temel alarak her önbellek etiket Yardımcısı örneği için bir anahtar atayan yardımcıyı farklı olarak, dağıtılmış önbellek etiket Yardımcısı yalnızca, anahtar özniteliği taban `name`
 
 Kullanım örneği:
 

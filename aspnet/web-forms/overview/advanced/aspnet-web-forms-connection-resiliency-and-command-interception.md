@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
-title: "ASP.NET Web Forms bağlantı dayanıklılığı ve komut kişiler tarafından ele | Microsoft Docs"
+title: ASP.NET Web Forms bağlantı dayanıklılığı ve komut kişiler tarafından ele | Microsoft Docs
 author: Erikre
-description: "Bu öğretici, bağlantı dayanıklılığı ve komut kişiler tarafından ele desteklemek için örnek bir uygulamayı değiştirmeyi açıklar."
+description: Bu öğretici, bağlantı dayanıklılığı ve komut kişiler tarafından ele desteklemek için örnek bir uygulamayı değiştirmeyi açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/advanced/aspnet-web-forms-connection-resiliency-and-command-interception
 msc.type: authoredcontent
-ms.openlocfilehash: e3347657fb5c7bf8c7bb4e51a2e810a1edde826a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d5c4e46209e1b21a303fdf1fb16c6c868b3ca923
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-forms-connection-resiliency-and-command-interception"></a>ASP.NET Web Forms bağlantı dayanıklılığı ve komut kişiler tarafından ele
 ====================
@@ -102,9 +102,9 @@ Yukarıdaki yordam bağlı olarak, yüklediğiniz açılır ve **WingtipToys** �
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample4.cs)]
 
- Günlükleri göreceli önemini belirtmek için üç izleme düzeyleri ve veritabanı sorguları gibi dış hizmeti çağrıları için gecikme bilgileri sağlamak üzere tasarlanmış bir arabirim sağlar. Günlüğe kaydetme yöntemi bir özel durum geçirmenize olanak tanıyan aşırı vardır. Bu, böylelikle yığın izleme ve iç özel durumlar dahil olmak üzere özel durum bilgileri güvenilir bir şekilde, her günlük yöntem çağrısı uygulama boyunca gerçekleştirilen güvenmek yerine arabirimini uygulayan sınıf tarafından kaydedilir.  
+   Günlükleri göreceli önemini belirtmek için üç izleme düzeyleri ve veritabanı sorguları gibi dış hizmeti çağrıları için gecikme bilgileri sağlamak üzere tasarlanmış bir arabirim sağlar. Günlüğe kaydetme yöntemi bir özel durum geçirmenize olanak tanıyan aşırı vardır. Bu, böylelikle yığın izleme ve iç özel durumlar dahil olmak üzere özel durum bilgileri güvenilir bir şekilde, her günlük yöntem çağrısı uygulama boyunca gerçekleştirilen güvenmek yerine arabirimini uygulayan sınıf tarafından kaydedilir.  
   
- `TraceApi` Yöntemleri, SQL veritabanı gibi dış bir hizmetine yapılan her çağrı gecikme izlemenize olanak sağlar.
+   `TraceApi` Yöntemleri, SQL veritabanı gibi dış bir hizmetine yapılan her çağrı gecikme izlemenize olanak sağlar.
 3. İçinde *günlüğü* klasörünü adlı bir sınıf dosyası oluşturma *Logger.cs* ve varsayılan kodu aşağıdaki kodla değiştirin:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample5.cs)]
@@ -121,20 +121,20 @@ Ardından, veritabanı, geçici hataları benzetimini yapmak için bir ve günl�
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample6.cs)]
 
- Başarılı sorgular veya komutlar için bu kodu bir bilgi günlüğü gecikme bilgilerle yazar. Özel durumlar için bir hata günlüğü oluşturur.
+   Başarılı sorgular veya komutlar için bu kodu bir bilgi günlüğü gecikme bilgilerle yazar. Özel durumlar için bir hata günlüğü oluşturur.
 2. Girdiğiniz yükleyen kukla geçici hataları oluşturacak dinleyiciyi sınıfı oluşturmak için &quot;Throw&quot; içinde **adı** adlı sayfasında textbox *AdminPage.aspx*, bir sınıf oluşturun adlı dosya *InterceptorTransientErrors.cs* içinde *mantığı* klasörü ve varsayılan Değiştir kodu aşağıdaki kodla:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample7.cs)]
 
     Bu kod yalnızca geçersiz kılma `ReaderExecuting` verilerin birden çok satır döndürebilir sorgular için çağrılan yöntemi. Diğer sorgu türleri için bağlantı dayanıklılığı denetlemek istiyorsanız, ayrıca geçersiz kılmanız `NonQueryExecuting` ve `ScalarExecuting` yöntemleri günlük dinleyiciyi yapar.  
   
- Daha sonra siz "Yönetici" oturum açın ve seçin **yönetici** üst gezinti çubuğundaki bağlantı. Ardından *AdminPage.aspx* adlı bir ürün ekleyecek sayfa &quot;Throw&quot;. Bu kod hata numarası 20, genellikle geçici olarak bilinen bir türü için sahte SQL veritabanı özel durumu oluşturur. Şu anda geçici kabul edilen diğer hata numaraları 64, 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 ve 40613, ancak bu SQL veritabanının yeni sürümlerde değiştirilebilir. Ürün kodunda takip edebilir "TransientErrorExample" yeniden adlandırılacak *InterceptorTransientErrors.cs* dosya.  
+   Daha sonra siz "Yönetici" oturum açın ve seçin **yönetici** üst gezinti çubuğundaki bağlantı. Ardından *AdminPage.aspx* adlı bir ürün ekleyecek sayfa &quot;Throw&quot;. Bu kod hata numarası 20, genellikle geçici olarak bilinen bir türü için sahte SQL veritabanı özel durumu oluşturur. Şu anda geçici kabul edilen diğer hata numaraları 64, 233, 10053, 10054, 10060, 10928, 10929, 40197, 40501 ve 40613, ancak bu SQL veritabanının yeni sürümlerde değiştirilebilir. Ürün kodunda takip edebilir "TransientErrorExample" yeniden adlandırılacak *InterceptorTransientErrors.cs* dosya.  
   
- Sorguyu çalıştırmak ve geri sonuçları geçirme yerine Entity Framework için özel durum kodu döndürür. Geçici özel durum döndürdü *dört* kez ve sorgu veritabanına geçirme normal yordama kod döner.
+   Sorguyu çalıştırmak ve geri sonuçları geçirme yerine Entity Framework için özel durum kodu döndürür. Geçici özel durum döndürdü *dört* kez ve sorgu veritabanına geçirme normal yordama kod döner.
 
     Her şeyi açmış olduğu için son başarılı önce dört kez sorguyu yürütmek Entity Framework çalışır ve yalnızca uygulamadaki sorgu sonuçlarını içeren bir sayfa işlemek için daha uzun sürer farktır görmeye devam.  
   
- Entity Framework deneyecek sayısı yapılandırılabilir; SQL veritabanı yürütme ilkesi için varsayılan değeri olduğu için kod dört kez belirtir. Yürütme İlkesi değiştirirseniz, geçici hataları oluşturulan kaç kez belirten geçen kod de değişiklik gerekmektedir. Entity Framework atar böylece daha fazla özel durum oluşturmak için kodu aynı zamanda değişebilir `RetryLimitExceededException` özel durum.
+   Entity Framework deneyecek sayısı yapılandırılabilir; SQL veritabanı yürütme ilkesi için varsayılan değeri olduğu için kod dört kez belirtir. Yürütme İlkesi değiştirirseniz, geçici hataları oluşturulan kaç kez belirten geçen kod de değişiklik gerekmektedir. Entity Framework atar böylece daha fazla özel durum oluşturmak için kodu aynı zamanda değişebilir `RetryLimitExceededException` özel durum.
 3. İçinde *Global.asax*, aşağıdaki using deyimlerini:  
 
     [!code-csharp[Main](aspnet-web-forms-connection-resiliency-and-command-interception/samples/sample8.cs)]
@@ -158,16 +158,16 @@ Kullanıcı Arabiriminde farklı bir değer girerek geçici hataları neden olan
 2. Seçin **yönetici** üst gezinti çubuğunda.
 3. "Durum" adlı yeni bir ürün ile uygun açıklaması, fiyat ve görüntü dosyası girin.
 4. Tuşuna **Ürün Ekle** düğmesi.  
- Tarayıcı Entity Framework birkaç kez sorgu deniyor sırasında birkaç saniye askıda görünüyor fark edeceksiniz. İlk yeniden deneme çok hızlı olur ve ardından önce ek her yeniden deneme bekleme artırır. Bu işlemi artık bekleyen denemeler çağrılmadan önce *üstel geri alma* .
+   Tarayıcı Entity Framework birkaç kez sorgu deniyor sırasında birkaç saniye askıda görünüyor fark edeceksiniz. İlk yeniden deneme çok hızlı olur ve ardından önce ek her yeniden deneme bekleme artırır. Bu işlemi artık bekleyen denemeler çağrılmadan önce *üstel geri alma* .
 5. Sayfayı yüklemek için atttempting artık olana kadar bekleyin.
 6. Proje durdurun ve Visual Studio'ya Ara **çıkış** İzleme çıktısı penceresini. Bulabileceğiniz **çıkış** seçerek penceresi **hata ayıklama**  - &gt; **Windows**  - &gt;  **Çıktı**. Günlükçü tarafından yazılan birkaç diğer günlükler kaydırarak gerekebilir.  
   
- Veritabanına gönderilen gerçek SQL sorguları görebilirsiniz dikkat edin. Bazı ilk sorgular ve başlamak için Entity Framework mu komutlar veritabanı sürümü ve geçiş geçmiş tablosunu denetimi görürsünüz.   
+   Veritabanına gönderilen gerçek SQL sorguları görebilirsiniz dikkat edin. Bazı ilk sorgular ve başlamak için Entity Framework mu komutlar veritabanı sürümü ve geçiş geçmiş tablosunu denetimi görürsünüz.   
     ![Çıktı Penceresi](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image1.png)   
- Uygulamayı durdurun ve yeniden sürece bu test yinelenemez unutmayın. Bağlantı dayanıklılığı birden çok kez uygulamanın bir tek çalıştırmada test edebilmek istediyseniz, hata sayacı sıfırlamak için kod yazabilirsiniz `InterceptorTransientErrors` .
+   Uygulamayı durdurun ve yeniden sürece bu test yinelenemez unutmayın. Bağlantı dayanıklılığı birden çok kez uygulamanın bir tek çalıştırmada test edebilmek istediyseniz, hata sayacı sıfırlamak için kod yazabilirsiniz `InterceptorTransientErrors` .
 7. Farkı görmek için yürütme stratejisi (yeniden deneme ilkesi) yapar, yorum `SetExecutionStrategy` satırından *WingtipToysConfiguration.cs* dosyasını *mantığı* klasöründe şunu çalıştırın **yönetici**  sayfasında hata ayıklama modunda yeniden ve adlı ürün ekleme &quot;Throw&quot; yeniden.  
   
- Hemen ilk kez sorguyu yürütmek çalıştığında, bu süre ilk oluşturulan özel durum hata ayıklayıcı durdurur.  
+   Hemen ilk kez sorguyu yürütmek çalıştığında, bu süre ilk oluşturulan özel durum hata ayıklayıcı durdurur.  
     ![Hata ayıklama - ayrıntısı](aspnet-web-forms-connection-resiliency-and-command-interception/_static/image2.png)
 8. Açıklamadan çıkarın `SetExecutionStrategy` satırından *WingtipToysConfiguration.cs* dosya.
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma | Microsoft Docs"
+title: Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma | Microsoft Docs
 author: tdykstra
-description: "Visual Studio 2013, Entity Framework 6 ve MVC 5 için Bu öğretici seri daha yeni bir sürümü kullanılabilir. Contoso University örnek web uygulaması de..."
+description: Visual Studio 2013, Entity Framework 6 ve MVC 5 için Bu öğretici seri daha yeni bir sürümü kullanılabilir. Contoso University örnek web uygulaması de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: a963f26b408f2a54bd9cd3e852bc1e368f86c41f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Bir ASP.NET MVC uygulaması (1 / 10) için bir Entity Framework veri modeli oluşturma
 ====================
@@ -311,29 +311,29 @@ Sonraki adım bir ASP.NET MVC denetleyicisi ve görünümler bu tablolar biri il
 
 1. Oluşturmak için bir `Student` denetleyicisi sağ **denetleyicileri** klasöründe **Çözüm Gezgini**seçin **Ekle**ve ardından **denetleyicisi** . İçinde **denetleyici Ekle** iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **Ekle**: 
 
-    - Denetleyici adı: **StudentController**.
-    - Şablonu: **okuma/yazma eylemleri ve Entity Framework kullanarak görünümleri ile MVC denetleyicisi**.
-    - Model sınıfı: **Öğrenci (ContosoUniversity.Models)**. (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
-    - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.Models)**.
-    - Görünümleri: **Razor (CSHTML)**. (Varsayılan)
+   - Denetleyici adı: **StudentController**.
+   - Şablonu: **okuma/yazma eylemleri ve Entity Framework kullanarak görünümleri ile MVC denetleyicisi**.
+   - Model sınıfı: **Öğrenci (ContosoUniversity.Models)**. (Aşağı açılan listede bu seçeneği görmüyorsanız, projeyi oluşturun ve yeniden deneyin.)
+   - Veri bağlamı sınıfı: **SchoolContext (ContosoUniversity.Models)**.
+   - Görünümleri: **Razor (CSHTML)**. (Varsayılan)
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
-- Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir sınıf değişkeni, bir veritabanı bağlam nesnesi başlatır oluşturuldu bakın:
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
+2. Visual Studio açılır *Controllers\StudentController.cs* dosya. Bir sınıf değişkeni, bir veritabanı bağlam nesnesi başlatır oluşturuldu bakın:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-    `Index` Eylem yöntemi Öğrenciler listesini alır *Öğrenciler* varlık okuyarak kümesi `Students` veritabanı bağlam örneğinin özelliği:
+     `Index` Eylem yöntemi Öğrenciler listesini alır *Öğrenciler* varlık okuyarak kümesi `Students` veritabanı bağlam örneğinin özelliği:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
 
-    *Student\Index.cshtml* görünüm bu listesi bir tabloda görüntülenir:
+     *Student\Index.cshtml* görünüm bu listesi bir tabloda görüntülenir:
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
-- Projeyi çalıştırmak için CTRL + F5 tuşuna basın.
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
+3. Projeyi çalıştırmak için CTRL + F5 tuşuna basın.
 
-    Tıklatın **Öğrenciler** test verileri görmek için sekmesi, `Seed` eklenen yöntemi.
+     Tıklatın **Öğrenciler** test verileri görmek için sekmesi, `Seed` eklenen yöntemi.
 
-    ![Öğrenci dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
+     ![Öğrenci dizin sayfası](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
 ## <a name="conventions"></a>Kurallar
 
@@ -351,5 +351,5 @@ Kuralları geçersiz kılınabilir gördünüz (örneğin, tablo adları plurali
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Next](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

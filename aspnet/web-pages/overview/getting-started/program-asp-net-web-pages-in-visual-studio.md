@@ -1,8 +1,8 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
-title: "Programlama ASP.NET Web sayfaları (Razor) kullanarak Visual Studio | Microsoft Docs"
+title: Programlama ASP.NET Web sayfaları (Razor) kullanarak Visual Studio | Microsoft Docs
 author: tfitzmac
-description: "Bu ekte, Razor sözdizimi ile ASP.NET Web sayfaları programa Visual Studio 2010 veya Visual Web Developer 2010 Express nasıl kullanabileceğinizi açıklar."
+description: Bu ekte, Razor sözdizimi ile ASP.NET Web sayfaları programa Visual Studio 2010 veya Visual Web Developer 2010 Express nasıl kullanabileceğinizi açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5cfeda206eda8fb3fd769d34fb40bae2c3b65093
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama
 ====================
@@ -97,7 +97,7 @@ Bir site oluşturduğunuza göre IntelliSense Visual Studio'da nasıl işlediği
 
     ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
 3. Seçin `GetHtml` yönteminden listesi ve ENTER tuşuna basın. IntelliSense yönteminde otomatik olarak doldurur. (C# herhangi bir yöntem ile eklemelisiniz gibi `()` yöntemi sonra karakterleri.)  
- Tamamlanan kodu `GetHtml` yöntemi aşağıdaki gibi görünür:  
+   Tamamlanan kodu `GetHtml` yöntemi aşağıdaki gibi görünür:  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
 4. Sayfayı çalıştırmak için CTRL + F5 tuşuna basın. Bu sayfa bir tarayıcıda görüntülenen zaman nasıl göründüğünü oluşur: 
@@ -138,7 +138,7 @@ Bu bölümde Visual Web Developer Express 2010 ve ASP.NET Web sayfaları araçla
 
 1. Web Platformu yükleyicisi zaten yoksa, aşağıdaki URL'yi yükleyin:
 
-    [https://www.microsoft.com/Web/downloads/Platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
+    [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Web Platformu Yükleyicisi'ni çalıştırın.
 3. Tıklatın **ürünleri** sekmesi.
 

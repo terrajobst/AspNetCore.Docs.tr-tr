@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
-title: "DataList ve yineleyici denetimleri (VB) ile verileri görüntüleme | Microsoft Docs"
+title: DataList ve yineleyici denetimleri (VB) ile verileri görüntüleme | Microsoft Docs
 author: rick-anderson
-description: "Önceki eğitimlerine GridView denetiminin verileri görüntülemek için kullandık. Bu öğretici ile başlayarak, biz ortak raporlama desenlerle derlemeye Ara..."
+description: Önceki eğitimlerine GridView denetiminin verileri görüntülemek için kullandık. Bu öğretici ile başlayarak, biz ortak raporlama desenlerle derlemeye Ara...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 20a092ee2886932664705c22c3aa88d8a2f7f0ef
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6aa7cb76295d18711d88dd9855b43b259b558060
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-vb"></a>DataList ve yineleyici denetimleri (VB) ile verileri görüntüleme
 ====================
@@ -161,12 +161,12 @@ Bu görünüm dosyası eklenmesiyle DataList s görünüm (yeni görünüm dosya
 
 Ek olarak `ItemTemplate`, DataList altı isteğe bağlı şablonları destekler:
 
-- `HeaderTemplate`sağlanırsa, çıkış için bir başlık satırı ekler ve bu satır işlemek için kullanılır
-- `AlternatingItemTemplate`değişen öğeleri işlemek için kullanılan
-- `SelectedItemTemplate`Seçili öğeyi işlemek için kullanılan; Seçili öğenin dizinini karşılık gelen s DataList öğesi olan [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
-- `EditItemTemplate`düzenlenen öğesi oluşturmak için kullanılan
-- `SeparatorTemplate`sağlanırsa, her bir öğe arasındaki ayırıcı ekler ve bu ayırıcı işlemek için kullanılır
-- `FooterTemplate`-verdiyse, çıkışı bir altbilgi satır ekler ve bu satırı işlemek için kullanılır
+- `HeaderTemplate` sağlanırsa, çıkış için bir başlık satırı ekler ve bu satır işlemek için kullanılır
+- `AlternatingItemTemplate` değişen öğeleri işlemek için kullanılan
+- `SelectedItemTemplate` Seçili öğeyi işlemek için kullanılan; Seçili öğenin dizinini karşılık gelen s DataList öğesi olan [ `SelectedIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `EditItemTemplate` düzenlenen öğesi oluşturmak için kullanılan
+- `SeparatorTemplate` sağlanırsa, her bir öğe arasındaki ayırıcı ekler ve bu ayırıcı işlemek için kullanılır
+- `FooterTemplate` -verdiyse, çıkışı bir altbilgi satır ekler ve bu satırı işlemek için kullanılır
 
 Belirtirken `HeaderTemplate` veya `FooterTemplate`, DataList işlenmiş çıkış ek bir üstbilgisi veya altbilgisi satır ekler. Gibi GridView s üstbilgi ve altbilgi satırları, üstbilgi ve altbilgi DataList içinde veriye bağlı değil. Bu nedenle, hiçbir veri bağlamasını sözdiziminde `HeaderTemplate` veya `FooterTemplate` bağlı veri erişmeye çalışır boş bir dize döndürür.
 
@@ -210,11 +210,11 @@ Görünüm/kaynak tarayıcınızdan Şekil 12 DataList örnekten ziyaret eden bu
 
 Bir HTML yaymak üzere t istediğiniz güncelleştireceğinizi ne `<table>`ancak? Bir veri Web denetimi tarafından oluşturulan biçimlendirme üzerinde toplam ve tam denetim için biz yineleyici denetim kullanmanız gerekir. DataList gibi yineleyici şablonları alarak oluşturulur. Yineleyici ancak, yalnızca aşağıdaki beş şablonları sunar:
 
-- `HeaderTemplate`sağlanan, öğelerden önce belirtilen biçimlendirme ekler.
-- `ItemTemplate`öğeleri işlemek için kullanılan
-- `AlternatingItemTemplate`sağlanırsa, değişen öğeleri işlemek için kullanılan
-- `SeparatorTemplate`sağlanan, her bir öğe arasındaki belirtilen biçimlendirme ekler.
-- `FooterTemplate`-verdiyse, belirtilen biçimlendirme öğelerinden sonra ekler.
+- `HeaderTemplate` sağlanan, öğelerden önce belirtilen biçimlendirme ekler.
+- `ItemTemplate` öğeleri işlemek için kullanılan
+- `AlternatingItemTemplate` sağlanırsa, değişen öğeleri işlemek için kullanılan
+- `SeparatorTemplate` sağlanan, her bir öğe arasındaki belirtilen biçimlendirme ekler.
+- `FooterTemplate` -verdiyse, belirtilen biçimlendirme öğelerinden sonra ekler.
 
 ASP.NET 1.x, denetim verisini bazı veri kaynağından gelen madde işaretli bir listesini görüntülemek için kullanılan yaygın olarak yineleyici. Böyle bir durumda `HeaderTemplate` ve `FooterTemplates` açma ve kapatma içerecektir `<ul>` etiketleri, sırasıyla while `ItemTemplate` içerecektir `<li>` öğeleri databinding sözdizimine sahip. İki örnekte de gördüğümüz bu yaklaşım hala ASP.NET 2.0 ile kullanılabilir [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-vb.md) Öğreticisi:
 
@@ -312,12 +312,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Yaakov Ellis, Liz Shulok, Randy Etikan ve Stacy Park yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](nested-data-web-controls-cs.md)
-[sonraki](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](nested-data-web-controls-cs.md)
+> [sonraki](formatting-the-datalist-and-repeater-based-upon-data-vb.md)

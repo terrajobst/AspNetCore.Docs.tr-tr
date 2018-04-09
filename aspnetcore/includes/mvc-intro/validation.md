@@ -118,4 +118,4 @@ Serinin sonraki bölümünde, biz uygulama gözden geçirin ve bazı geliştirme
 * [Formlarla Çalışma](xref:mvc/views/working-with-forms)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
-* [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
+* [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring)

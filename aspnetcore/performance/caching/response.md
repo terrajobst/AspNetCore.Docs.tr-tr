@@ -1,18 +1,18 @@
 ---
-title: "ASP.NET Core yanıt önbelleğe alma"
+title: ASP.NET Core yanıt önbelleğe alma
 author: rick-anderson
-description: "Düşük bant genişliği gereksinimlerini önbelleğe alma yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansı arttırır."
+description: Düşük bant genişliği gereksinimlerini önbelleğe alma yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansı arttırır.
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -64,13 +64,13 @@ Kullanırken bu önbelleğe alma davranışını geçerli Geliştirici denetleye
 
 Bellek içi önbelleğe alma, önbelleğe alınmış verileri depolamak için sunucu belleği kullanır. Bu tür önbelleğe alma tek bir sunucu veya kullanarak birden çok sunucu için uygun olan *Yapışkan oturumları*. Yapışkan oturumları anlamına gelir istemciden gelen istekleri işlemek için aynı sunucuya her zaman yönlendirilir.
 
-Daha fazla bilgi için bkz: [ASP.NET çekirdek bellek içi önbelleğe alma giriş](xref:performance/caching/memory).
+Daha fazla bilgi için bkz: [bellek içi önbellek](xref:performance/caching/memory).
 
 ### <a name="distributed-cache"></a>Dağıtılmış önbellek
 
 Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri depolamak için Dağıtılmış önbellek kullanın. Önbellek istekleri işleyen sunucular arasında paylaşılır. Bir istemci, istemci için önbelleğe alınan verileri kullanılabilir ise grubundaki herhangi bir sunucu tarafından işlenen bir istek gönderebilir. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
 
-Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmaya](xref:performance/caching/distributed).
+Daha fazla bilgi için bkz: [iş dağıtılmış önbellek ile](xref:performance/caching/distributed).
 
 ### <a name="cache-tag-helper"></a>Cache Tag Helper
 
@@ -180,10 +180,10 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP belirtiminden önbelleğe alma](https://tools.ietf.org/html/rfc7234#section-3)
+* [Önbellekleri depolanmasını yanıtları](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
-* [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
+* [Önbellek-](xref:performance/caching/memory)
+* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
 * [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core kısmi etiketi yok"
+title: ASP.NET Core kısmi etiketi yok
 author: scottaddie
-description: "ASP.NET Core kısmi etiket Yardımcısı ve her özniteliklerini yürütmek kısmi bir görünümü işlemeye rol bulur."
+description: ASP.NET Core kısmi etiket Yardımcısı ve her özniteliklerini yürütmek kısmi bir görünümü işlemeye rol bulur.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a9848539206892579501a39a9fce3044c6753948
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4573409720ccba524c0d5d05696e0fb3468ff338
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core kısmi etiketi yok
 
@@ -28,8 +28,9 @@ Kısmi etiket Yardımcısı işleme için kullanılan bir [kısmi Görünüm](xr
 
 * ASP.NET Core 2.1 veya sonrası gerektirir.
 * İçin bir alternatif [HTML Yardımcısı sözdizimi](xref:mvc/views/partial#referencing-a-partial-view).
+* Kısmi görünümü zaman uyumsuz olarak işler.
 
-Olduðunu için kısmi bir görünümü işlemeye yönelik HTML Yardımcısı seçenekleri şunlardır:
+Kısmi bir görünümü işlemeye yönelik HTML Yardımcısı seçenekleri şunlardır:
 
 * [@await Html.PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync)
 * [@await Html.RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync)
@@ -60,7 +61,7 @@ Aşağıdaki biçimlendirmede yükler *_ProductPartial.cshtml*:
 
 Kısmi görünüm ilişkili sayfa modelinin için bağlı `Product` özelliği:
 
-[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
+[!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
 
 ## <a name="view-data"></a>view-data
 

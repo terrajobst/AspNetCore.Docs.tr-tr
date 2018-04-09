@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core test denetleyicisi mantığı"
+title: ASP.NET Core denetleyici mantığında test
 author: ardalis
-description: "Denetleyici mantığında ASP.NET Core Moq ve xUnit test öğrenin."
+description: Denetleyici mantığında ASP.NET Core Moq ve xUnit test öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: c72a5adc848cad62c7c20ff7e17469476aefaf53
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: b80f92b815439796693528b314b521c1484ba661
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>ASP.NET Core test denetleyicisi mantığı
+# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyici mantığında test
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
@@ -40,7 +40,7 @@ Tipik denetleyicisi sorumlulukları:
 
 ## <a name="unit-testing"></a>Birim testi
 
-[Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme sınaması](xref:mvc/controllers/testing#integration-testing).
+[Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme testleri](xref:mvc/controllers/testing#integration-testing).
 
 Özel Filtreler, yollar, vb., yazıyorsanız, birim testi gereken bunları, ancak belirli denetleyici eylemi sınamalarınızı parçası olarak değil. Bunlar test yalıtım modunda.
 
@@ -100,7 +100,7 @@ Son test doğrular deponun `Update` yöntemi çağrılır. Daha önce yaptığı
 
 ## <a name="integration-testing"></a>Tümleştirme sınaması
 
-[Tümleştirme sınaması](../../testing/integration-testing.md) uygulama iş içindeki ayrı modülleri doğru birlikte emin olmak için gerçekleştirilir. Genellikle, herhangi bir şey birim testi ile test ile tümleştirme test ayrıca test edebilirsiniz, ancak tersi doğru değil. Ancak, tümleştirme testleri birim testleri çok daha yavaş olma eğilimindedir. Bu nedenle, ne olursa olsun da ile birim testleri ve birden çok ortak çalışanlar gerektiren senaryolar için tümleştirme testleri kullanın test etmek en iyisidir.
+[Tümleştirme testleri](../../testing/integration-testing.md) uygulama iş içindeki ayrı modülleri doğru birlikte emin olmak için gerçekleştirilir. Genellikle, herhangi bir şey birim testi ile test ile tümleştirme test ayrıca test edebilirsiniz, ancak tersi doğru değil. Ancak, tümleştirme testleri birim testleri çok daha yavaş olma eğilimindedir. Bu nedenle, ne olursa olsun da ile birim testleri ve birden çok ortak çalışanlar gerektiren senaryolar için tümleştirme testleri kullanın test etmek en iyisidir.
 
 Bunlar hala yararlı olabilir ancak sahte nesneler tümleştirme testlerinde nadiren kullanılır. Birim testi sınanan birim dışında ortak test amaçları doğrultusunda nasıl hareket etmesi gerektiğini denetlemek için etkili bir yol sahte nesneleridir. Bir tümleştirme testinde gerçek ortak çalışanlar, tüm alt sistemi birlikte düzgün çalıştığını doğrulamak için kullanılır.
 

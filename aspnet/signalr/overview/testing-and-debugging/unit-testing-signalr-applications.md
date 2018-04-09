@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
-title: "SignalR uygulamalarında birim testi | Microsoft Docs"
+title: SignalR uygulamalarında birim testi | Microsoft Docs
 author: pfletcher
-description: "Bu makalede, SignalR 2.0 birim testi özelliklerini kullanmayı açıklar."
+description: Bu makalede, SignalR 2.0 birim testi özelliklerini kullanmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Birim testi SignalR uygulamalarını
 ====================
@@ -72,11 +72,11 @@ Bu bölümde, oluşturduğunuz uygulama için bir birim testi ekleyeceksiniz [Ba
     ![Proje Başvurusu Ekle](unit-testing-signalr-applications/_static/image3.png)
 6. SignalR, Moq ve XUnit paketlere Ekle **TestLibrary** projesi. İçinde **Paket Yöneticisi Konsolu**ayarlayın **varsayılan proje** açılır **TestLibrary**. Konsol penceresinde aşağıdaki komutları çalıştırın:
 
-    - `Install-Package Microsoft.AspNet.SignalR`
-    - `Install-Package Moq`
-    - `Install-Package XUnit`
+   - `Install-Package Microsoft.AspNet.SignalR`
+   - `Install-Package Moq`
+   - `Install-Package XUnit`
 
-    ![Paket yüklemek için](unit-testing-signalr-applications/_static/image4.png)
+     ![Paket yüklemek için](unit-testing-signalr-applications/_static/image4.png)
 7. Test dosyası oluşturun. Sağ **TestLibrary** proje ve tıklatın **Ekle...** , **Sınıfı**. Yeni sınıf **Tests.cs**.
 8. Tests.cs içeriğini aşağıdaki kodla değiştirin.
 

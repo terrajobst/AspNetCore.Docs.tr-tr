@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
-title: "AJAX Denetim araç (VB) ile çalışmaya başlama | Microsoft Docs"
+title: AJAX Denetim araç (VB) ile çalışmaya başlama | Microsoft Docs
 author: microsoft
-description: "AJAX Denetim Araç Seti ile çalışmaya başlamak için bilmeniz gereken her şeyi öğrenin."
+description: AJAX Denetim Araç Seti ile çalışmaya başlamak için bilmeniz gereken her şeyi öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0bbf6dc0be8a96ecd47b8620a6ba3220b50f10d4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 30653a147bd3bf581af27220e11cdecc2f89fc4a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="get-started-with-the-ajax-control-toolkit-vb"></a>AJAX Denetim araç (VB) ile çalışmaya başlama
 ====================
@@ -89,6 +89,6 @@ Araç Seti eski bir sürümünü kullanan ve taşımak artık ihtiyacınız vars
 - İkili dosyalar - AjaxControlToolkit.dll derleme eski sürümü, Web sitesi Bin klasöründen silin.
 - Araç kutusu öğelerini - AJAX Denetim Araç Seti sekmesini silin ve sekme AjaxControlToolkit.dll derleme yeni sürümü ile yeniden oluşturmak için yukarıdaki adımları izleyin.
 
->[!div class="step-by-step"]
-[Önceki](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
-[sonraki](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
+> [sonraki](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

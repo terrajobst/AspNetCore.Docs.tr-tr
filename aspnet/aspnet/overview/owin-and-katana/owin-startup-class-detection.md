@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-startup-class-detection
-title: "OWIN başlangıç sınıfı algılama | Microsoft Docs"
+title: OWIN başlangıç sınıfı algılama | Microsoft Docs
 author: Praburaj
-description: "Bu öğretici, hangi OWIN başlangıç sınıfı yüklenen yapılandırma gösterilmektedir. OWIN hakkında daha fazla bilgi için bir genel bakış, proje Katana bakın. Bu öğretici oluştu..."
+description: Bu öğretici, hangi OWIN başlangıç sınıfı yüklenen yapılandırma gösterilmektedir. OWIN hakkında daha fazla bilgi için bir genel bakış, proje Katana bakın. Bu öğretici oluştu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33d2745b24387419e5614c62c2d46948427b242a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-startup-class-detection"></a>OWIN başlangıç sınıfı algılama
 ====================
@@ -38,20 +38,20 @@ tarafından [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
- `OwinStartup` Özniteliği adlandırma kuralı geçersiz kılar. Bu öznitelik ile kolay bir ad da belirtebilirsiniz, ancak, kolay bir ad kullanarak da kullanmanızı gerektirir `appSetting` yapılandırma dosyası öğesi.
+   `OwinStartup` Özniteliği adlandırma kuralı geçersiz kılar. Bu öznitelik ile kolay bir ad da belirtebilirsiniz, ancak, kolay bir ad kullanarak da kullanmanızı gerektirir `appSetting` yapılandırma dosyası öğesi.
 3. **Yapılandırma dosyanızda appSetting öğesi**: `appSetting` öğesi geçersiz kılmaları `OwinStartup` özniteliği ve adlandırma kuralı. Birden çok başlangıç sınıfı olabilir (her kullanan bir `OwinStartup` özniteliği) ve hangi başlangıç sınıfı biçimlendirme aşağıdakine benzer kullanarak bir yapılandırma dosyasına yüklenen yapılandırın:  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
- Derleme ve başlangıç sınıfı açıkça belirtir aşağıdaki anahtarı da kullanılabilir: 
+   Derleme ve başlangıç sınıfı açıkça belirtir aşağıdaki anahtarı da kullanılabilir: 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample3.xml)]
 
- Aşağıdaki XML yapılandırma dosyasında bir kolay başlangıç sınıfı adını belirtir `ProductionConfiguration`.  
+   Aşağıdaki XML yapılandırma dosyasında bir kolay başlangıç sınıfı adını belirtir `ProductionConfiguration`.  
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample4.xml)]
 
- Yukarıdaki biçimlendirme şununla kullanılmalıdır `OwinStartup` neden olur ve kolay bir ad belirtir özniteliği `ProductionStartup2` çalıştırmak için sınıf.
+   Yukarıdaki biçimlendirme şununla kullanılmalıdır `OwinStartup` neden olur ve kolay bir ad belirtir özniteliği `ProductionStartup2` çalıştırmak için sınıf.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample5.cs?highlight=1,16)]
 4. OWIN başlangıç bulmayı devre dışı bırakmak için ekleme `appSetting owin:AutomaticAppStartup` değerini `"false"` web.config dosyasında.
@@ -63,29 +63,29 @@ tarafından [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]
 1. Boş bir Asp.Net web uygulaması oluşturun ve adlandırın **StartupDemo**. -Yükleyin `Microsoft.Owin.Host.SystemWeb` NuGet Paket Yöneticisi'ni kullanarak. Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. Aşağıdaki komutu girin:  
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-- OWIN başlangıç sınıfı ekleyin. Visual Studio 2013'te projeyi sağ tıklatın ve seçin **sınıfı Ekle**. - **Yeni Öğe Ekle** iletişim kutusunda, girin *OWIN* arama alanı ve haline, adını değiştirin ve ardından **Ekle**.  
+2. OWIN başlangıç sınıfı ekleyin. Visual Studio 2013'te projeyi sağ tıklatın ve seçin **sınıfı Ekle**. - **Yeni Öğe Ekle** iletişim kutusunda, girin *OWIN* arama alanı ve haline, adını değiştirin ve ardından **Ekle**.  
   
-    ![](owin-startup-class-detection/_static/image1.png)   
+     ![](owin-startup-class-detection/_static/image1.png)   
   
- Eklemek istediğiniz bir sonraki seferde bir *Owın başlangıç sınıfı*, içinde olacak kullanılabilir **Ekle** menüsü.  
+   Eklemek istediğiniz bir sonraki seferde bir *Owın başlangıç sınıfı*, içinde olacak kullanılabilir **Ekle** menüsü.  
    
-    ![](owin-startup-class-detection/_static/image2.png)  
+     ![](owin-startup-class-detection/_static/image2.png)  
   
- Alternatif olarak, projeyi sağ tıklatın ve seçin **Ekle**seçeneğini belirleyip **yeni öğe**ve ardından **Owın başlangıç sınıfı**.  
+   Alternatif olarak, projeyi sağ tıklatın ve seçin **Ekle**seçeneğini belirleyip **yeni öğe**ve ardından **Owın başlangıç sınıfı**.  
   
-    ![](owin-startup-class-detection/_static/image3.png)  
+     ![](owin-startup-class-detection/_static/image3.png)  
   
 - Oluşturulan kod Değiştir *haline* aşağıdaki dosyasıyla:  
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- `app.Use` Lambda ifadesi, belirtilen ara yazılım bileşeni OWIN ardışık düzenine kaydetmek için kullanılır. Bu durumda biz gelen isteğini yanıtlamadan önce gelen isteklerin günlüğe yazılmasını ayarlıyorsanız. `next` Parametredir temsilci ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [görev](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) ardışık düzende sonraki bileşene. `app.Run` Lambda ifadesi ardışık düzene gelen istekleri kancalarını ve yanıt mekanizmasını sağlar.
+  `app.Use` Lambda ifadesi, belirtilen ara yazılım bileşeni OWIN ardışık düzenine kaydetmek için kullanılır. Bu durumda biz gelen isteğini yanıtlamadan önce gelen isteklerin günlüğe yazılmasını ayarlıyorsanız. `next` Parametredir temsilci ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [görev](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) ardışık düzende sonraki bileşene. `app.Run` Lambda ifadesi ardışık düzene gelen istekleri kancalarını ve yanıt mekanizmasını sağlar.
      > [!NOTE]
      > Yukarıdaki kod biz kılınmıştır `OwinStartup` özniteliği ve biz adlı sınıf çalışan kuralına bağlı `Startup` .-tuşuna ***F5*** uygulamayı çalıştırın. Yenileme birkaç kez ulaştı.  
   
     ![](owin-startup-class-detection/_static/image4.png)  
-Not: Bu öğreticide görüntüleri gösterilen sayıyı gördüğünüz sayı eşleşmez. Milisaniye dize sayfayı yenileyin, yeni bir yanıtı göstermek için kullanılır.  
- İzleme bilgilerini görebilirsiniz **çıkış** penceresi.  
+  Not: Bu öğreticide görüntüleri gösterilen sayıyı gördüğünüz sayı eşleşmez. Milisaniye dize sayfayı yenileyin, yeni bir yanıtı göstermek için kullanılır.  
+  İzleme bilgilerini görebilirsiniz **çıkış** penceresi.  
   
     ![](owin-startup-class-detection/_static/image5.png)
 
@@ -105,7 +105,7 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample10.cs?highlight=6,14-18)]
 
- `OwinStartup` Özniteliği aşırı yukarıdaki belirtir `TestingConfiguration` olarak *kolay* başlangıç sınıfı adı.
+   `OwinStartup` Özniteliği aşırı yukarıdaki belirtir `TestingConfiguration` olarak *kolay* başlangıç sınıfı adı.
 6. Açık *web.config* dosya ve başlangıç sınıfı kolay adını belirten OWIN uygulaması başlangıç anahtarını ekleyin:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample11.xml?highlight=3-5)]
@@ -122,11 +122,11 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample14.cs)]
 
- Aşağıdaki OWIN uygulaması başlangıç anahtarlarının her birini çalıştırmak üretim sınıfı neden olur. 
+    Aşağıdaki OWIN uygulaması başlangıç anahtarlarının her birini çalıştırmak üretim sınıfı neden olur. 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample15.xml)]
 
- Son başlangıç anahtarı başlangıç yapılandırması yöntemini belirtir. Aşağıdaki OWIN uygulaması başlangıç anahtarı için yapılandırma sınıf adını değiştirmenize izin verir `MyConfiguration` .
+    Son başlangıç anahtarı başlangıç yapılandırması yöntemini belirtir. Aşağıdaki OWIN uygulaması başlangıç anahtarı için yapılandırma sınıf adını değiştirmenize izin verir `MyConfiguration` .
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample16.xml)]
 
@@ -136,7 +136,7 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample17.xml?highlight=3-6)]
 
- Son anahtarı WINS, bunu bu durumda `TestStartup` belirtilir.
+   Son anahtarı WINS, bunu bu durumda `TestStartup` belirtilir.
 2. Owinhost PMC yükleyin: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample18.cmd)]
@@ -144,14 +144,14 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample19.cmd)]
 
- Komut penceresinde gösterecektir: 
+   Komut penceresinde gösterecektir: 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample20.cmd)]
 4. URL ile bir tarayıcıyı başlatacak `http://localhost:5000/`.  
   
     ![](owin-startup-class-detection/_static/image8.png)  
   
- OwinHost yukarıda listelenen başlangıç kuralları dikkate alınır.
+   OwinHost yukarıda listelenen başlangıç kuralları dikkate alınır.
 5. Komut penceresinde OwinHost çıkmak için Enter tuşuna basın.
 6. İçinde `ProductionStartup` sınıfı, kolay adını belirten şu OwinStartup özniteliği eklemek *ProductionConfiguration*.
 
@@ -160,9 +160,9 @@ Bu bölümde başka bir başlangıç sınıfı ekleyeceğiz. Uygulamanız için 
 
     [!code-console[Main](owin-startup-class-detection/samples/sample22.cmd)]
 
- Üretim başlangıç sınıfı yüklenir.  
+   Üretim başlangıç sınıfı yüklenir.  
     ![](owin-startup-class-detection/_static/image9.png)  
- Birden çok başlangıç sınıf uygulamamız içeriyor ve bu örnekte, biz çalışma zamanına kadar yüklemek için hangi başlangıç sınıfı ertelenmiş.
+   Birden çok başlangıç sınıf uygulamamız içeriyor ve bu örnekte, biz çalışma zamanına kadar yüklemek için hangi başlangıç sınıfı ertelenmiş.
 8. Aşağıdaki çalışma zamanı başlangıç seçenekleri test edin:
 
     [!code-console[Main](owin-startup-class-detection/samples/sample23.cmd)]

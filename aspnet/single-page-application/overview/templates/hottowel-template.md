@@ -1,26 +1,26 @@
 ---
 uid: single-page-application/overview/templates/hottowel-template
-title: "Sık kullanılan havlu şablon | Microsoft Docs"
+title: Sık kullanılan havlu şablon | Microsoft Docs
 author: madskristensen
-description: "HotTowel şablonu"
+description: HotTowel şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>Sık kullanılan havlu şablonu
 ====================
-tarafından [Kristensen Mads](https://github.com/madskristensen)
+by [Mads Kristensen](https://github.com/madskristensen)
 
 > Sık kullanılan havlu MVC şablonu tarafından John Papa yazılır
 > 
@@ -29,8 +29,8 @@ tarafından [Kristensen Mads](https://github.com/madskristensen)
 > [Visual Studio 2012 için sık kullanılan havlu MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
 > [Visual Studio 2013 için sık kullanılan havlu MVC şablonu](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> 
+> 
 > Sık kullanılan havlu: biri olmadan SPA gitmek istemeyeceğiniz için!
 
 
@@ -95,7 +95,7 @@ Yalnızca kod eklemeye başlayın!
 2. Görünümlerine ekleme `App/views` klasörü
 3. Viewmodels için ekleme `App/viewmodels` klasörü
 4. HTML ve Boşaltılan veri bağlamaları yeni görünümlerinize ekleme
-5. Gezinti yollar güncelleştir`shell.js`
+5. Gezinti yollar güncelleştir `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>HTML/JavaScript gözden geçirme
 
@@ -117,7 +117,7 @@ Index.cshtml başlangıç rota ve görünüm MVC uygulaması için ' dir. Tüm s
 
 Görünümler içinde bulunan `App/views` klasör.
 
-### <a name="shellhtml"></a>Shell.HTML
+### <a name="shellhtml"></a>shell.html
 
 `shell.html` İçin HTML ana düzeni içerir. Tüm diğer görünümlerinizi tarafında içinde herhangi bir yerde oluşacaktır, `shell` görünümü. Sık kullanılan havlu sağlar bir `shell` üç tür bölgeleriyle: üst bilgi, içerik alanının ve altbilgi. Bu bölgeler her ile yüklenen içeriği istendiğinde diğer görünümlere form.
 
@@ -125,7 +125,7 @@ Görünümler içinde bulunan `App/views` klasör.
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
-### <a name="navhtml"></a>NAV.HTML
+### <a name="navhtml"></a>nav.html
 
 `nav.html` SPA Gezinti bağlantıları içeriyor. Bu, burada menü yapısı, örneğin yerleştirilebilir değildir. Bu veri bağlama (Boşaltılan kullanarak) için görülür `router` , tanımladığınız Gezinti görüntülemek için Modülü `shell.js`. Boşaltılan veri bağlama öznitelikleri ve onlara bağlar arar `shell` viewmodel Gezinti yolları görüntüler ve (Twitter Bootstrap kullanarak) progressbar göstermek için `router` modülüdür'ın başka bir (görmek bir görünümden gezinme ortasında `router.isNavigating`).
 
@@ -135,7 +135,7 @@ Görünümler içinde bulunan `App/views` klasör.
 
 Bu görünümler HTML için özel görünümleri içerir. Zaman `home` bağlamak `nav` görünümün menü tıklandığında, `home` görünümü içerik alanında yerleştirilecek `shell` görünümü. Bu görünümler, genişletilebilir veya kendi özel görünümlerinizi ile değiştirilir.
 
-### <a name="footerhtml"></a>Footer.HTML
+### <a name="footerhtml"></a>footer.html
 
 `footer.html` İçeren alt kısmındaki altbilgisindeki görüntülenen HTML `shell` görünümü.
 
@@ -143,7 +143,7 @@ Bu görünümler HTML için özel görünümleri içerir. Zaman `home` bağlamak
 
 İçinde bulunan ViewModels `App/viewmodels` klasör.
 
-### <a name="shelljs"></a>Shell.js
+### <a name="shelljs"></a>shell.js
 
 `shell` Viewmodel içermektedir özelliklerini ve bağlı olan işlevler `shell` görünümü. Bu menü Gezinti bağlamaları bulunduğu görülür (bkz `router.mapNav` mantığı).
 

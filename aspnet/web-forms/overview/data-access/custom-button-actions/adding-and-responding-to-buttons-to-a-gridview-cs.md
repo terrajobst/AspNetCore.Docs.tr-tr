@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
-title: "Ekleme ve (C#) GridView düğmelere yanıtlama | Microsoft Docs"
+title: Ekleme ve (C#) GridView düğmelere yanıtlama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide bir şablona hem GridView veya DetailsView denetiminin alanlara özel düğmeler ekleme inceleyeceğiz. Özellikle, bui gerekir..."
+description: Bu öğreticide bir şablona hem GridView veya DetailsView denetiminin alanlara özel düğmeler ekleme inceleyeceğiz. Özellikle, bui gerekir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90648e10d5d058ea2e4aa5b3d8c4ed7448ea7166
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Ekleme ve (C#) GridView düğmelere yanıtlama
 ====================
@@ -127,7 +127,7 @@ Bu yana `GetProductsBySupplierID(supplierID)` yöntemi giriş parametresi kabul 
 
 [![SupplierID Üreticiler FormView denetiminden parametre gelmesi gerektiğini belirtin](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image25.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image24.png)
 
-**Şekil 10**: belirtmek  *`supplierID`*  gereken parametre gelen `Suppliers` FormView denetimi ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
+**Şekil 10**: belirtmek *`supplierID`* gereken parametre gelen `Suppliers` FormView denetimi ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image26.png))
 
 
 ObjectDataSource Sihirbazı'nı tamamladıktan sonra GridView BoundField veya CheckBoxField her ürünün veri alanları içerir. Şimdi bu aşağı göstermek için kesim yalnızca `ProductName` ve `UnitPrice` ile birlikte BoundFields `Discontinued` CheckBoxField; Ayrıca, şirketinizdeki biçimlendirmek `UnitPrice` BoundField sağlayacak şekilde kendi metin para birimi olarak biçimlendirilir. GridView ve `SuppliersProductsDataSource` ObjectDataSource'nın bildirim temelli biçimlendirme aşağıdaki biçimlendirme benzer görünmelidir:
@@ -154,7 +154,7 @@ Biz önceki öğreticilerimizi yaptığınız gibi bir aşağıdan yukarıya yak
 **Şekil 12**: DAL yöntemini kullanarak bir geçici SQL deyimi oluşturmak ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image32.png))
 
 
-Ardından, sihirbaz bize ne tür oluşturmak için sorgu aldığını ister. Bu yana `DiscontinueAllProductsForSupplier(supplierID)` yöntemi güncellemeniz gerekir `Products` ayarı veritabanı tablosu `Discontinued` için belirtilen tarafından sağlanan tüm ürünleri 1 alan  *`supplierID`* , verileri güncelleştiren bir sorgu oluşturmak ihtiyacımız.
+Ardından, sihirbaz bize ne tür oluşturmak için sorgu aldığını ister. Bu yana `DiscontinueAllProductsForSupplier(supplierID)` yöntemi güncellemeniz gerekir `Products` ayarı veritabanı tablosu `Discontinued` için belirtilen tarafından sağlanan tüm ürünleri 1 alan *`supplierID`*, verileri güncelleştiren bir sorgu oluşturmak ihtiyacımız.
 
 
 [![Güncelleştirme sorgu türünü seçin](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image34.png)](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image33.png)
@@ -178,7 +178,7 @@ Bu sorgu girme ve İleri'yi tıklatmadan sonra yeni yöntemin adını kullanmak 
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample5.cs)]
 
-Bu yöntem yalnızca aşağı çağırır `DiscontinueAllProductsForSupplier(supplierID)` sağlanan geçirme DAL yönteminde  *`supplierID`*  parametre değeri. Yalnızca belirli koşullar altında kullanımdan kaldırılacak için bir tedarikçi ürünleri izin tüm iş kuralları olsaydı, bu kurallar burada BLL uygulanmalıdır.
+Bu yöntem yalnızca aşağı çağırır `DiscontinueAllProductsForSupplier(supplierID)` sağlanan geçirme DAL yönteminde *`supplierID`* parametre değeri. Yalnızca belirli koşullar altında kullanımdan kaldırılacak için bir tedarikçi ürünleri izin tüm iş kuralları olsaydı, bu kurallar burada BLL uygulanmalıdır.
 
 > [!NOTE]
 > Farklı `UpdateProduct` içinde overloads `ProductsBLL` sınıfı, `DiscontinueAllProductsForSupplier(supplierID)` yöntem imzası içermez `DataObjectMethodAttribute` özniteliği (`<System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, Boolean)>`). Bu önleyen `DiscontinueAllProductsForSupplier(supplierID)` güncelleştirme sekmesinde ObjectDataSource'nın veri kaynağını yapılandırma sihirbazın aşağı açılan listeden yöntemi. T ve biz çağırma çünkü bu öznitelik atlanmış `DiscontinueAllProductsForSupplier(supplierID)` ASP.NET sayfamızı olay işleyicisinde doğrudan yönteminden.
@@ -198,7 +198,7 @@ Ne zaman düğmesine tıklandığında sayfasında, bir geri gönderme ensues ku
 
 Bu yana `ItemCommand` olay işleyicisi ihtiyacımız tüm ürünleri Durdur düğmesini tıklandığını belirleme için bir yol veya başka bir düğme ise, hangi düğmeye tıklandığında bağımsız olarak etkinleşir. Bunu başarmak için biz düğmesi Web denetimin ayarlayabilirsiniz `CommandName` tanımlayan bir değer özelliği. Ne zaman düğmesine tıklandığında, bu `CommandName` değeri içine geçirilir `ItemCommand` tüm ürünleri Durdur düğmesine tıklandığında düğmesi olup olmadığını belirlemek için bize etkinleştirme olay işleyicisi. Durdur tüm ürünleri düğmenin ayarlamak `CommandName` DiscontinueProducts özelliğine.
 
-Son olarak, kullanıcının gerçekten seçili tedarikçi ürünleri durdurmaya istediği emin olmak için şimdi bir istemci-tarafı Onayla iletişim kutusunu kullanın. İçinde gördüğümüz gibi [ekleme istemci-tarafı onay olduğunda silme](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md) öğretici, bu gerçekleştirilebilir JavaScript bir bit. Özellikle, düğme Web denetimin OnClientClick özelliğini ayarlayın`return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
+Son olarak, kullanıcının gerçekten seçili tedarikçi ürünleri durdurmaya istediği emin olmak için şimdi bir istemci-tarafı Onayla iletişim kutusunu kullanın. İçinde gördüğümüz gibi [ekleme istemci-tarafı onay olduğunda silme](../editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs.md) öğretici, bu gerçekleştirilebilir JavaScript bir bit. Özellikle, düğme Web denetimin OnClientClick özelliğini ayarlayın `return confirm('This will mark _all_ of this supplier\'s products as discontinued. Are you certain you want to do this?');`
 
 Bu değişiklikleri yaptıktan sonra FormView'ın bildirim temelli söz dizimi aşağıdaki gibi görünmelidir:
 
@@ -304,7 +304,7 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Next](adding-and-responding-to-buttons-to-a-gridview-vb.md)
+> [!div class="step-by-step"]
+> [Next](adding-and-responding-to-buttons-to-a-gridview-vb.md)

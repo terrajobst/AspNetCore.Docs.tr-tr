@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
-title: "Modele bir sütun ekleme | Microsoft Docs"
+title: Modele bir sütun ekleme | Microsoft Docs
 author: shanselman
-description: "ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
+description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a0b64ce00fc5ee6d49990f1d4d93a154c467bf5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Modele bir sütun ekleme
 ====================
@@ -77,11 +77,11 @@ Oluştur'u sonra dizin sayfasına gönderilen ile film yeni listelenir burada ye
 
 Bu temel öğretici görünümlerle ilişkilendirme ve sabit kodlanmış verileri geçirmeden denetleyicileri yapmadan başlamanıza aldı. Biz oluşturulur ve bir veritabanı tasarlanmış ve bazı verileri yerleştirme sonra içinde. Biz veritabanından veri ve bir HTML tabloda görüntülenir. Ardından verileri veritabanına kendilerini Web uygulamasının içinden ekleme kullanıcı olanak tanıyan bir form oluştur eklendi. Biz doğrulama eklenen sonra istemci tarafında JavaScript kullanılması doğrulama yapılan. Son olarak, biz verilerin yeni bir sütun eklemek için veritabanı değiştirilmiş sonra oluşturmak ve bu yeni verileri görüntülemek için de iki sayfalarında güncelleştirildi.
 
-I şimdi orta düzey öğreticimizi taşımanızı öneririz "[MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" birçok videolar ve kaynakları yanı sıra [https://asp.net/mvc](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için!
+I şimdi orta düzey öğreticimizi taşımanızı öneririz "[MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)" birçok videolar ve kaynakları yanı sıra [ https://asp.net/mvc ](https://asp.net/mvc) ASP.NET MVC hakkında daha fazla bilgi edinmek için!
 
 Keyfini çıkarın!
 
-- Scott Hanselman - [http://hanselman.com](http://hanselman.com) ve [ @shanselman ](http://twitter.com/shanselman) Twitter'da.
+- Scott Hanselman - [ http://hanselman.com ](http://hanselman.com) ve [ @shanselman ](http://twitter.com/shanselman) Twitter'da.
 
->[!div class="step-by-step"]
-[Önceki](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started-with-mvc-part7.md)

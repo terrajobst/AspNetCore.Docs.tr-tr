@@ -2,7 +2,7 @@
 uid: mvc/mvc5
 title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 tanınmış tasarım desenleri ve AS. gücünü kullanarak ölçeklenebilir, standartlara dayalı web uygulamaları oluşturmaya yönelik bir çerçevedir..."
+description: ASP.NET MVC 5 ASP.NET MVC 5 tanınmış tasarım desenleri ve AS. gücünü kullanarak ölçeklenebilir, standartlara dayalı web uygulamaları oluşturmaya yönelik bir çerçevedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,23 +12,23 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
 ## <a name="whats-new-in-aspnet-mvc-5"></a>ASP.NET MVC 5 yenilikler nelerdir?
 
-### <a name="one-aspnet"></a>Bir ASP.NET
+### <a name="one-aspnet"></a>One ASP.NET
 
 Web MVC proje şablonları ile yeni bir ASP.NET deneyimi sorunsuz şekilde tümleşir. MVC projenizi özelleştirebilir ve bir ASP.NET proje oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırın. Bir tanıtım öğretici ASP.NET MVC 5 bulunabilir [ASP.NET MVC 5 ile çalışmaya başlama](overview/getting-started/introduction/getting-started.md).
 
 MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
-### <a name="aspnet-identity"></a>ASP.NET kimliği
+### <a name="aspnet-identity"></a>ASP.NET Kimlik
 
 MVC proje şablonları, ASP.NET Identity kimlik doğrulama ve kimlik yönetimi için kullanmak üzere güncelleştirilmiştir. Facebook ve Google kimlik doğrulama ve yeni üyelik API'si gösteren bir öğretici bulunabilir [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturmak](overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) ve [bir Güvenli ASP.NET MVC uygulaması ile dağıtma Üyelik, OAuth ve bir Windows Azure Web sitesi için SQL veritabanı](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
@@ -38,7 +38,7 @@ MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://get
 
 ### <a name="authentication-filters"></a>Kimlik doğrulaması filtreleri
 
-[Kimlik doğrulaması filtreleri](http://www.dotnetcurry.com/showarticle.aspx?ID=957) yeni bir ASP.NET MVC ardışık düzenine yetkilendirme filtreleri önce çalıştıran ve kimlik doğrulama mantığı başına-eylemi belirtmenize olanak veren ASP.NET MVC filtre tür başına denetleyicisi, veya genel olarak tüm denetleyicileri için. Kimlik doğrulaması filtreleri kimlik bilgileri isteği işlemek ve karşılık gelen asıl sağlayın. Kimlik doğrulaması filtreleri, kimlik doğrulama sınaması yetkisiz isteklerine yanıt olarak da ekleyebilirsiniz. Bkz: [ASP.NET MVC 5 kimlik doğrulaması filtreleri](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [ASP.NET MVC 5 kimlik doğrulama filtrelerini](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/) ve [son olarak yeni ASP.NET MVC 5 kimlik doğrulama filtrelerini!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/).
+[Kimlik doğrulaması filtreleri](http://www.dotnetcurry.com/showarticle.aspx?ID=957) yeni bir ASP.NET MVC ardışık düzenine yetkilendirme filtreleri önce çalıştıran ve kimlik doğrulama mantığı başına-eylemi belirtmenize olanak veren ASP.NET MVC filtre tür başına denetleyicisi, veya genel olarak tüm denetleyicileri için. Kimlik doğrulaması filtreleri kimlik bilgileri isteği işlemek ve karşılık gelen asıl sağlayın. Kimlik doğrulaması filtreleri, kimlik doğrulama sınaması yetkisiz isteklerine yanıt olarak da ekleyebilirsiniz. Bkz: [ASP.NET MVC 5 kimlik doğrulaması filtreleri](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [ASP.NET MVC 5 kimlik doğrulama filtrelerini](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/).
 
 ### <a name="filter-overrides"></a>Filtre geçersiz kılar
 
@@ -46,13 +46,13 @@ MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://get
 
 ### <a name="attribute-routing"></a>Öznitelik yönlendirme
 
-ASP.NET MVC destekler [özniteliği yönlendirme](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), Tim McCall, yazarı tarafından katkı sayesinde [http://attributerouting.net](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin yorumlama yollarınızı belirtebilirsiniz.
+ASP.NET MVC destekler [özniteliği yönlendirme](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), Tim McCall, yazarı tarafından katkı sayesinde [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin yorumlama yollarınızı belirtebilirsiniz.
 
 ## <a name="new-web-project-experience"></a>Yeni Web projesi deneyimi
 
 Biz, Visual Studio 2013'te yeni web projeleri oluşturma deneyimi Gelişmiş. İçinde **yeni ASP.NET Web projesi** iletişim, istediğiniz, herhangi bir bileşimini teknolojileri (Web Forms, MVC, Web API) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak ve birim testi projesi eklemek proje türü seçebilirsiniz.
 
-![Yeni ASP.NET projesi](mvc5/_static/image1.png)
+![New ASP.NET Project](mvc5/_static/image1.png)
 
 Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web Forms projesi oluşturduğunuzda, aşağıdaki seçeneklerden birini seçebilirsiniz:
 
@@ -66,7 +66,7 @@ Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama
 Web projeleri oluşturmak için yeni işlem hakkında daha fazla bilgi için bkz: [Visual Studio 2013'da ASP.NET Web projeleri oluşturma](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET Identity](../identity/overview/index.md).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
 
 ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
 

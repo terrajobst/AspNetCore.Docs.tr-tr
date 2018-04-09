@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
-title: "Yineleme #7 – Ekle Ajax işlevleri (C#) | Microsoft Docs"
+title: 'Yineleme #7 – Ekle Ajax işlevleri (C#) | Microsoft Docs'
 author: microsoft
-description: "Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin."
+description: Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: db313d12dfd6a146347f253dc3a1f4a889bee780
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d62383a571725749b2fc629bbb17954657b2f6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>Yineleme #7 – Ekle Ajax işlevleri (C#)
 ====================
@@ -111,7 +111,7 @@ Zaman uyumsuz olarak ayrı bir kısmi (Görünüm kullanıcı denetimi) güncell
 
 Güncelleştirilmiş dizin görünümünün listeleme 2'de yer alır.
 
-**2 - Views\Contact\Index.aspx listeleme**
+**Listing 2 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample3.aspx)]
 
@@ -147,7 +147,7 @@ Normalde, bir web sayfası bir bağlantıya tıkladığınızda, tarayıcı etki
 
 Animasyon efektlerini oluşturmak için Microsoft ASP.NET MVC çerçevesiyle içerdiği jQuery kitaplık kullanacağız. Güncelleştirilmiş dizin görünümünün listeleme 4'te yer alır.
 
-**4 - Views\Contact\Index.aspx listeleme**
+**Listing 4 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample6.aspx)]
 
@@ -175,7 +175,7 @@ ASP.NET AJAX tarayıcı geçmişi, üç şey yapmanız gerekir:
 
 Güncelleştirilmiş dizin görünümünün listeleme 5'te yer alır.
 
-**5 - Views\Contact\Index.aspx listeleme**
+**Listing 5 - Views\Contact\Index.aspx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample8.aspx)]
 
@@ -205,7 +205,7 @@ Silme onayı sayfası atlayıp doğrudan dizini görünümünden bir kişiyi sil
 
 Sil bağlantısını kısmi ContactList yer alır. Kısmi ContactList güncelleştirilmiş bir sürümünü listeleme 6'yer alır.
 
-**6 - Views\Contact\ContactList.ascx listeleme**
+**Listing 6 - Views\Contact\ContactList.ascx**
 
 [!code-aspx[Main](iteration-7-add-ajax-functionality-cs/samples/sample10.aspx)]
 
@@ -242,6 +242,6 @@ Biz de Ajax uygulamamız tarayıcı geçmişini desteği eklendi. Biz kullanıc�
 
 Son olarak, HTTP DELETE işlemlerini destekleyen bir delete bağlantı oluşturuldu. AJAX siler gerçekleştirerek, biz kullanıcıların bir ek silme onayı sayfası istemek kullanıcının gerek kalmadan veritabanı kayıtlarını sil olanak tanır.
 
->[!div class="step-by-step"]
-[Önceki](iteration-6-use-test-driven-development-cs.md)
-[sonraki](iteration-1-create-the-application-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](iteration-6-use-test-driven-development-cs.md)
+> [sonraki](iteration-1-create-the-application-vb.md)

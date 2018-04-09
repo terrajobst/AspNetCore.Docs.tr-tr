@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core 2. 0 ' yenilikler nelerdir?
 author: rick-anderson
-description: "ASP.NET Core 2.0 yeni özellikler hakkında bilgi edinin."
+description: ASP.NET Core 2.0 yeni özellikler hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: cfeff3abafb310c15d6623dcfbb9e1857640c79b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 711a96b17fd41847619ade21eb643af845705c79
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 
@@ -73,12 +73,12 @@ Bu yapı daha kolay güvenli yaptık ASP.NET Core 2. 0 ' kimliğini kullanarak A
 2.0 kimlik doğrulama değişiklikleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Hesap doğrulama ve ASP.NET Core parola kurtarma](xref:security/authentication/accconfirm)
-* [ASP.NET Core Doğrulayıcı uygulamalar için etkinleştirme QR kodu oluşturma](xref:security/authentication/identity-enable-qrcodes)
-* [Geçirme kimlik doğrulaması ve ASP.NET Core 2.0 için kimliği](xref:migration/1x-to-2x/identity-2x)
+* [ASP.NET Core Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir](xref:security/authentication/identity-enable-qrcodes)
+* [Kimlik doğrulama ve kimlik ASP.NET Core 2.0 geçirme](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="spa-templates"></a>SPA şablonları
 
-Angular, Aurelia, Knockout.js, React.js ve React.js Redux ile tek sayfa uygulama (SPA) proje şablonları kullanılabilir. Açısal şablon Açısal 4'e güncelleştirilmiştir. Angular ve tepki şablonları varsayılan olarak bulunur; diğer şablon alma hakkında daha fazla bilgi için bkz: [yeni SPA projesi oluşturma](xref:client-side/spa-services#creating-a-new-project). ASP.NET Core içinde SPA oluşturma hakkında daha fazla bilgi için bkz: [kullanarak JavaScriptServices tek sayfa uygulamaları oluşturma için](xref:client-side/spa-services).
+Angular, Aurelia, Knockout.js, React.js ve React.js Redux ile tek sayfa uygulama (SPA) proje şablonları kullanılabilir. Açısal şablon Açısal 4'e güncelleştirilmiştir. Angular ve tepki şablonları varsayılan olarak bulunur; diğer şablon alma hakkında daha fazla bilgi için bkz: [yeni SPA projesi oluşturma](xref:client-side/spa-services#creating-a-new-project). ASP.NET Core içinde SPA oluşturma hakkında daha fazla bilgi için bkz: [tek sayfa uygulamaları oluşturma için kullanım JavaScriptServices](xref:client-side/spa-services).
 
 ## <a name="kestrel-improvements"></a>Kestrel geliştirmeleri
 
@@ -153,8 +153,8 @@ C# 7.1 özellikleri durumu hakkında daha fazla bilgi için bkz: [Roslyn GitHub 
 
 ASP.NET Core 1.x uygulamaları ASP.NET Core 2.0 geçirme hakkında yönergeler için aşağıdaki kaynaklara bakın:
 
-* [ASP.NET çekirdek geçirme 1.x ASP.NET Core 2.0 için](xref:migration/1x-to-2x/index)
-* [Geçirme kimlik doğrulaması ve ASP.NET Core 2.0 için kimliği](xref:migration/1x-to-2x/identity-2x)
+* [ASP.NET çekirdek geçirmek 1.x ASP.NET Core 2.0 için](xref:migration/1x-to-2x/index)
+* [Kimlik doğrulama ve kimlik ASP.NET Core 2.0 geçirme](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="additional-information"></a>Ek Bilgiler
 

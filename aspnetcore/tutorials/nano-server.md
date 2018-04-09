@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Nano Server üzerinde"
+title: ASP.NET Core Nano Server üzerinde
 author: shirhatti
-description: "Mevcut bir ASP.NET Core uygulama ve IIS çalıştıran bir Nano Server örneğine dağıtma hakkında bilgi edinin."
+description: Mevcut bir ASP.NET Core uygulama ve IIS çalıştıran bir Nano Server örneğine dağıtma hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 11/04/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/nano-server
-ms.openlocfilehash: 3f234c84d2354a312ad6136b43d8c29aa346ae10
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a5ea323b6f5e141143529e69e83abcc081a2337e
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="aspnet-core-with-iis-on-nano-server"></a>Nano Server IIS ile ASP.NET Çekirdeği
+# <a name="aspnet-core-on-nano-server"></a>ASP.NET Core Nano Server üzerinde
 
 Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
@@ -104,7 +104,7 @@ IIS Kurulum doğru ise, ziyaret URL hızlı bir şekilde doğrulamak için `http
 
 ## <a name="install-the-aspnet-core-module"></a>ASP.NET Core modülünü yükleme
 
-Bir IIS 7.5 + ASP.NET Core modülüdür yönettiği işlemleri için sorumlu ASP.NET çekirdek HTTP dinleyicilerin ve proxy istekleri için işlem yönetimi modülü. Şu anda IIS için ASP.NET Core modülünü yüklemek için el ile işlemidir. Yükleme [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting) normal üzerinde (değil Nano) makine. Paket normal bir makineye yükledikten sonra aşağıdaki dosyaları daha önce oluşturduğumuz dosya paylaşımına kopyalayın.
+Bir IIS 7.5 + ASP.NET Core modülüdür yönettiği işlemleri için sorumlu ASP.NET çekirdek HTTP dinleyicilerin ve proxy istekleri için işlem yönetimi modülü. Şu anda IIS için ASP.NET Core modülünü yüklemek için el ile işlemidir. Yükleme [.NET Core Windows Server barındırma paket](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle) normal üzerinde (değil Nano) makine. Paket normal bir makineye yükledikten sonra aşağıdaki dosyaları daha önce oluşturduğumuz dosya paylaşımına kopyalayın.
 
 IIS ile normal (değil Nano) sunucusunda, aşağıdaki kopyalama komutları çalıştırın:
 

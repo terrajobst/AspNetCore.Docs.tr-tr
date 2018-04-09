@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Bir ASP.NET MVC uygulamasındaki (5 / 10) Entity Framework ile ilgili verileri okuma | Microsoft Docs"
+title: Bir ASP.NET MVC uygulamasındaki (5 / 10) Entity Framework ile ilgili verileri okuma | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 5 Code First ve Visual Studio kullanarak ASP.NET MVC 4 uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9093fb90a52b297f173c5cddb6f332d2d1a25135
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 831f5e0a8b57907ea012c10c1d1f8ff166f5e88b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-5-of-10"></a>Okuma ilgili verileri Entity Framework bir ASP.NET MVC uygulamasındaki (5 / 10)
 ====================
@@ -149,7 +149,7 @@ Değiştir `Index` yöntemi ek yüklemek için aşağıdaki kod ile ilgili veril
 
 Yöntem isteğe bağlı rota veri kabul eder (`id`) ve bir sorgu dizesi parametresi (`courseID`), seçilen Eğitmen ve seçili indirmelere kimliği değerlerini sağlayın ve tüm gerekli veri görünümüne geçirir. Parametreleri tarafından sağlanan **seçin** sayfasında bağlar.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Rota verileri**
 > 
@@ -186,7 +186,7 @@ Kod görünüm modeli örneği oluşturmayı ve bunu Eğitmen listesi koyma baş
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
-Daha önce belirtildiği gibi istekli yüklenmesi gerekli değildir ancak performansı artırmak için yapılır. Görünümü her zaman gerektirdiğinden `OfficeAssignment` varlık, onu aynı sorguda fetch daha verimli. `Course`web sayfasında bir eğitmen seçildiğinde istekli yükleme yalnızca sayfa daha sık olmadan daha seçili indirmelere ile görüntüleniyorsa, yavaş yüklemekten daha iyi şekilde varlıklar gereklidir.
+Daha önce belirtildiği gibi istekli yüklenmesi gerekli değildir ancak performansı artırmak için yapılır. Görünümü her zaman gerektirdiğinden `OfficeAssignment` varlık, onu aynı sorguda fetch daha verimli. `Course` web sayfasında bir eğitmen seçildiğinde istekli yükleme yalnızca sayfa daha sık olmadan daha seçili indirmelere ile görüntüleniyorsa, yavaş yüklemekten daha iyi şekilde varlıklar gereklidir.
 
 Eğitmen kimliği seçildiyse, seçili Eğitmen görünüm modeli Eğitmen listesi alınır. Görünüm modelinin `Courses` özelliği ile yüklenen sonra `Course` Bu eğitmen varlıklardan `Courses` gezinti özelliği.
 
@@ -282,6 +282,6 @@ Kullandığınız bildirimi `Collection` yöntemi bir koleksiyon özelliği yük
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Önceki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-[sonraki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+> [sonraki](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

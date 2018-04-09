@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: "SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 1 12 | Microsoft Docs"
+title: 'SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 1 12 | Microsoft Docs'
 author: tdykstra
-description: "Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi..."
+description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>SQL Server Visual Studio kullanarak Compact ile ASP.NET Web uygulaması dağıtma: Giriş - 12 1
 ====================
@@ -53,7 +53,7 @@ Sayı öğreticileri – 11 tüm artı sorun giderme sayfası – olun göz kork
 
 Kurumsal ortamlarda sürekli tümleştirme işlemleri uygulamak üzere daha normaldir ve üretim ortamında genellikle şirketin kendi sunucuları tarafından barındırılır. Farklı kişilerin de genellikle farklı roller gerçekleştirin. Kurumsal Dağıtım hakkında daha fazla bilgi için bkz: [Kuruluş senaryolarında Web uygulamalarını dağıtma](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Boyutlardaki kuruluşlar da Azure web uygulamaları dağıtabilirsiniz ve bu öğreticileri gösterilen yordamları çoğu Azure App Services Web uygulamaları için de geçerlidir. Azure giriş için bkz: [https://azure.microsoft.com](https://azure.microsoft.com).
+Boyutlardaki kuruluşlar da Azure web uygulamaları dağıtabilirsiniz ve bu öğreticileri gösterilen yordamları çoğu Azure App Services Web uygulamaları için de geçerlidir. Azure giriş için bkz: [ https://azure.microsoft.com ](https://azure.microsoft.com).
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>Eğitimlerine gösterilen barındırma sağlayıcısı
 
@@ -142,5 +142,5 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 
 Bu ilk öğreticide serideki örnek Visual Studio projesi indirdiğiniz ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde otomatik olarak işlenecek bunlardan bazıları ayarlayarak dağıtımı için hazırlayın. Başkalarının size, el ile dikkatli olun.
 
->[!div class="step-by-step"]
-[Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [Next](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

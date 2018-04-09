@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
-title: "LINQ-SQL (C#) ile modeli sınıfları oluşturma | Microsoft Docs"
+title: LINQ-SQL (C#) ile modeli sınıfları oluşturma | Microsoft Docs
 author: microsoft
-description: "Bu öğretici bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin..."
+description: Bu öğretici bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c640007a75f2421e0f6c1e86e525de4834bbc8e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>LINQ-SQL (C#) ile modeli sınıfları oluşturma
 ====================
@@ -109,7 +109,7 @@ Bizim LINQ'ten SQL'e sınıflarını sahibiz, biz bu sınıfların veritabanınd
 
 İlk olarak, biz HomeController sınıfı değiştirmeniz gerekir. Bu sınıf, uygulamanızın denetleyicileri klasöründe bulunabilir. Sınıfı, listeleme 1 sınıfında benzer şekilde değiştirin.
 
-**Kod 1 –`Controllers\HomeController.cs`**
+**Kod 1 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample1.cs)]
 
@@ -119,7 +119,7 @@ LINQ Sorgu tüm film almak için DataContext karşı yapılır `tblMovies` verit
 
 Film gösterebilmeniz biz sonraki dizin görünümünün değiştirmeniz gerekir. Dizin görünümünde bulabilirsiniz `Views\Home\` klasör. Dizin görünümünün listeleme 2 görünümünde benzer şekilde güncelleştirin.
 
-**Kod 2 –`Views\Home\Index.aspx`**
+**Kod 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample2.aspx)]
 
@@ -161,19 +161,19 @@ Depo sınıfını oluşturduğunuzda, tüm depo sınıfı tarafından kullanıla
 
 Listeleme 3 arabiriminde adlı `IMovieRepository` ve adlı tek bir yöntemi gösterir `ListAll()`.
 
-**Kod 3 –`Models\IMovieRepository.cs`**
+**Kod 3 – `Models\IMovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample3.cs)]
 
 Depo sınıfını listeleme 4 uygulayan `IMovieRepository` arabirimi. Adlı bir yöntem içerdiğine dikkat edin `ListAll()` karşılık gelen gerektirdiği yöntemini `IMovieRepository` arabirimi.
 
-**4 listeleme –`Models\MovieRepository.cs`**
+**4 listeleme – `Models\MovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample4.cs)]
 
 Son olarak, `MoviesController` listeleme 5 sınıfında havuz deseni kullanır. Artık LINQ SQL'e sınıflarını doğrudan kullanır.
 
-**5 listeleme –`Controllers\MoviesController.cs`**
+**5 listeleme – `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample5.cs)]
 
@@ -183,7 +183,7 @@ Dikkat `MoviesController` listeleme 5 sınıfında iki Oluşturucusu vardır. Uy
 
 `MoviesController` Sınıfı bağımlılık ekleme düzeni adlı bir yazılım tasarım modelinin avantajı, sürüyor. Özellikle, bir şey Oluşturucusu bağımlılık ekleme adlı kullanıyor. Daha fazla bilgiyi aşağıdaki makaleyi Martin Fowler tarafından okuyarak bu desen hakkında:
 
-[http://martinfowler.com/articles/injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Dikkat tüm kod `MoviesController` sınıfı (hariç ilk Oluşturucusu) etkileşime `IMovieRepository` arabirimi gerçek yerine `MovieRepository` sınıfı. Kod arabirimin somut bir uygulama yerine soyut bir arabirim ile etkileşim kurar.
 
@@ -197,6 +197,6 @@ Microsoft LINQ SQL yararlanarak MVC model sınıfları nasıl oluşturabileceği
 
 Ardından, veritabanı verilerini görüntülemek için biraz daha zor ancak kesinlikle daha virtuous bir yolu incelediniz. Biz depo modelinin avantajı, sürdü ve tüm veritabanı erişimi mantığımızı ayrı deposu sınıfında yerleştirilir. Bizim denetleyicisi tüm kodumuza arabirimin somut bir sınıf yerine karşı yazdığımız. Depo modelinin avantajı, bize kolayca veritabanı erişim teknolojileri gelecekte değiştirmek etkinleştirir ve bize kolayca bizim denetleyicisi sınıfları test etmek yararlanmanızı sağlamasıdır.
 
->[!div class="step-by-step"]
-[Önceki](creating-model-classes-with-the-entity-framework-cs.md)
-[sonraki](displaying-a-table-of-database-data-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-model-classes-with-the-entity-framework-cs.md)
+> [sonraki](displaying-a-table-of-database-data-cs.md)

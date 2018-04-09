@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
-title: "Eylemler (VB) animasyon sırasında devre dışı bırakma | Microsoft Docs"
+title: Eylemler (VB) animasyon sırasında devre dışı bırakma | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Ayrıca, eylem destekler..."
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Ayrıca, eylem destekler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f68d27f60e9b224a7cc0d598962553afeb3f28f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9e2a0517800e90788bb67c1d75482a3d9340674b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-vb"></a>Eylemler (VB) animasyon sırasında devre dışı bırakma
 ====================
@@ -62,6 +62,6 @@ Ancak verilen senaryoda bu düğmesi gereksiz olacaktır yavaşça ve animasyon 
 
 Animasyonun tamamlanır tamamlanmaz düğmesi devre dışı ([tam boyutlu görüntüyü görüntülemek için tıklatın](disabling-actions-during-animation-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](animating-in-response-to-user-interaction-vb.md)
-[sonraki](triggering-an-animation-in-another-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](animating-in-response-to-user-interaction-vb.md)
+> [sonraki](triggering-an-animation-in-another-control-vb.md)

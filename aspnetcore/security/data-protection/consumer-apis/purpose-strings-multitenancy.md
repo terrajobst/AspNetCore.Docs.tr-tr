@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core amacı dizeleri"
+title: Amaç hiyerarşi ve ASP.NET Core, çok kiracılı
 author: rick-anderson
-description: "ASP.NET Core veri koruma API'ları ilgili olarak bu belgenin amacı dize hiyerarşi ve çoklu kiracı özetlenmektedir."
+description: ASP.NET çekirdek veri koruma API ilgili olarak amacı dize hiyerarşi ve çoklu kiracı hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: 490896563db514aba3904b01e69a23b61659d830
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a1ca2c32f95a86b877cbbe94d106d23b86800443
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Amaç hiyerarşi ve ASP.NET Core, çok kiracılı
 
 Bu yana bir `IDataProtector` de örtülü olarak başvuruluyor bir `IDataProtectionProvider`, amacıyla zincirleme yapılabilir birlikte. Bu bağlamdaki `provider.CreateProtector([ "purpose1", "purpose2" ])` eşdeğerdir `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
 
-Bu veri koruma sistemi aracılığıyla ilginç bazı hiyerarşik ilişkiler sağlar. Önceki örnekte [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), SecureMessage bileşeni çağırabilirsiniz `provider.CreateProtector("Contoso.Messaging.SecureMessage")` kez eylemli ve sonucu bir özel önbelleğe `_myProvide` alan. Gelecekteki koruyucuları sonra oluşturulabilir çağrıları aracılığıyla `_myProvider.CreateProtector("User: username")`, ve bu koruyucuları tek bir ileti güvenliğini sağlamak için kullanılır.
+Bu veri koruma sistemi aracılığıyla ilginç bazı hiyerarşik ilişkiler sağlar. Önceki örnekte [Contoso.Messaging.SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), SecureMessage bileşeni çağırabilirsiniz `provider.CreateProtector("Contoso.Messaging.SecureMessage")` kez eylemli ve sonucu bir özel önbelleğe `_myProvide` alan. Gelecekteki koruyucuları sonra oluşturulabilir çağrıları aracılığıyla `_myProvider.CreateProtector("User: username")`, ve bu koruyucuları tek bir ileti güvenliğini sağlamak için kullanılır.
 
 Bu ayrıca çevrilebilir. Tek bir mantıksal uygulama (bir CMS makul görünüyor) birden çok kiracıya ve her bir kiracı kendi kimlik doğrulama ve durum yönetimi sistemi ile yapılandırılabilir hangi ana bilgisayarların göz önünde bulundurun. Tek bir ana sağlayıcısı şemsiyesi uygulaması yüklüyse ve çağırır `provider.CreateProtector("Tenant 1")` ve `provider.CreateProtector("Tenant 2")` her bir kiracı kendi yalıtılmış dilimin veri koruma sisteminde vermek için. Kiracılar kendi gereksinimlerine göre kendi bireysel koruyucuları sonra türetilen, ancak nasıl sabit bunlar deneyin olsun bunlar birbiriyle çakışır koruyucuları başka hiçbir kiracıyla sistemde oluşturamazsınız. Grafik, bu olarak aşağıda gösterilir.
 

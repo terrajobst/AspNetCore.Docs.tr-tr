@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core uygulama başlangıç"
+title: ASP.NET Core uygulama başlangıç
 author: ardalis
-description: "ASP.NET Core başlangıç sınıfında Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırır nasıl bulur."
+description: ASP.NET Core başlangıç sınıfında Hizmetleri ve uygulamanın istek ardışık düzenini yapılandırır nasıl bulur.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 6526fe8d00aace19d1225e5dcb1ed1dc3b73b0eb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bad1bc986be3e8681dacdf48fe7d20ab660ebcb0
+ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulama başlangıç
 
@@ -44,7 +44,7 @@ Belirtin `Startup` ile sınıf [WebHostBuilderExtensions](/dotnet/api/Microsoft.
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-İnjecting alternatif `IHostingEnvironment` kuralları tabanlı bir yaklaşım kullanmaktır. Uygulama ayrı tanımlayabilirsiniz `Startup` farklı ortamlar için sınıflar (örneğin, `StartupDevelopment`), ve uygun başlangıç sınıfı çalışma zamanında seçilir. Geçerli ortamda, bir ad soneki eşleşen sınıfı öncelik. Uygulama geliştirme ortamında çalıştırın ve her ikisi de içeriyorsa bir `Startup` sınıfı ve bir `StartupDevelopment` sınıfı, `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments#startup-conventions).
+İnjecting alternatif `IHostingEnvironment` kuralları tabanlı bir yaklaşım kullanmaktır. Uygulama ayrı tanımlayabilirsiniz `Startup` farklı ortamlar için sınıflar (örneğin, `StartupDevelopment`), ve uygun başlangıç sınıfı çalışma zamanında seçilir. Geçerli ortamda, bir ad soneki eşleşen sınıfı öncelik. Uygulama geliştirme ortamında çalıştırın ve her ikisi de içeriyorsa bir `Startup` sınıfı ve bir `StartupDevelopment` sınıfı, `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments#startup-conventions).
 
 Daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundamentals/hosting) konu. Başlatma sırasında hata işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -76,11 +76,13 @@ Web ana bilgisayarı tarafından kullanılabilen bazı hizmetler sağlar `Startu
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
-Her `Use` genişletme yöntemi, istek ardışık düzenine bir ara yazılım bileşeni ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme ara yazılımı](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleyici olarak.
+Her `Use` genişletme yöntemi, istek ardışık düzenine bir ara yazılım bileşeni ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme Ara](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleyici olarak. 
+
+Her ara yazılım bileşeni istek kanalında, ardışık düzende sonraki bileşene çağırma veya zincir uygunsa kısa devre sorumludur. Kısa devre ara yazılım zinciri gerçekleşmezse, her ara istemciye gönderilmeden önce isteğini işlemek için ikinci bir fırsat sahiptir.
 
 Gibi ek hizmetleri `IHostingEnvironment` ve `ILoggerFactory`, yöntem imzası da belirtilebilir. Kullanılabilir ise ek hizmetler belirtildiğinde, eklenmiş.
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder`, bkz: [Ara](xref:fundamentals/middleware/index).
+Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder` ve ara yazılım işleme sırasını [Ara](xref:fundamentals/middleware/index).
 
 ## <a name="convenience-methods"></a>Kullanışlı yöntemler
 
@@ -92,7 +94,7 @@ Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder`, 
 
 Kullanım [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) bir uygulamanın başında veya sonunda ara yazılımını yapılandırma [yapılandırma](#the-configure-method) ara yazılım ardışık düzenini. `IStartupFilter` bir ara yazılım önce veya sonra Başlat veya uygulamanın istek işleme ardışık düzen sonunda kitaplıkları tarafından eklenen Ara çalıştığından emin olmak kullanışlıdır.
 
-`IStartupFilter` tek bir yöntem uygulayan [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), alır ve döndüren bir `Action<IApplicationBuilder>`. Bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bir uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter` tek bir yöntem uygulayan [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), alır ve döndüren bir `Action<IApplicationBuilder>`. Bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bir uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için bkz: [IApplicationBuilder ile Ara yazılım ardışık düzenini oluşturmak](xref:fundamentals/middleware/index#creating-a-middleware-pipeline-with-iapplicationbuilder).
 
 Her `IStartupFilter` istek ardışık düzeninde bir veya daha fazla middlewares uygular. Filtreler, hizmet kapsayıcısı eklendikleri sırayla çağrılır. Filtreleri önce ara ekleyebilir veya sonraki filtre denetimini geçtikten sonra bu nedenle bunlar başına veya uygulama ardışık sonuna ekleyin.
 
@@ -120,7 +122,7 @@ Ara yazılım yürütme sırası olarak ayarlanmış tarafından sırasına gör
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Barındırma](xref:fundamentals/hosting)
-* [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
+* [Birden çok ortamla çalışma](xref:fundamentals/environments)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Günlüğe kaydetme](xref:fundamentals/logging/index)
 * [Yapılandırma](xref:fundamentals/configuration/index)

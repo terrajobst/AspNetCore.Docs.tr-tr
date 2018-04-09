@@ -1,7 +1,7 @@
 ---
-title: "Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma"
+title: Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 author: guardrex
-description: "Yapılandırma ve ASP.NET Core yanıt önbelleğe alma Ara kullanma öğrenin."
+description: Yapılandırma ve ASP.NET Core yanıt önbelleğe alma Ara kullanma öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 
@@ -88,7 +88,7 @@ Yanıt ara yazılım tarafından önbelleğe alma HTTP üstbilgileri kullanılar
 | Üstbilgi | Ayrıntılar |
 | ------ | ------- |
 | Yetkilendirme | Yanıt üstbilgisi mevcutsa önbelleğe değil. |
-| Cache-Control | İle işaretlenen yanıtlarını önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alınmasını denetleyen:<ul><li>Maksimum yaş</li><li>max-stale&#8224;</li><li>Min-yeni</li><li>gereken revalidate</li><li>Hayır-önbellek</li><li>Hayır deposu</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>& # için sınır belirtilmişse 8224; `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225; `proxy-revalidate` aynı etkiye sahip `must-revalidate`.<br><br>Daha fazla bilgi için bkz: [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | İle işaretlenen yanıtlarını önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alınmasını denetleyen:<ul><li>Maksimum yaş</li><li>max-stale&#8224;</li><li>Min-yeni</li><li>gereken revalidate</li><li>Hayır-önbellek</li><li>Hayır deposu</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Sınır için belirtilmişse, `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahip `must-revalidate`.<br><br>Daha fazla bilgi için bkz: [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | A `Pragma: no-cache` istek üstbilgisinde üreten aynı etkiye `Cache-Control: no-cache`. Bu üst ilgili yönergeleri tarafından geçersiz kılınır `Cache-Control` üstbilgisi, varsa. HTTP/1.0 ile geriye dönük uyumluluk için kabul. |
 | Set-Cookie | Yanıt üstbilgisi mevcutsa önbelleğe değil. |
 | değişir | `Vary` Üstbilgisi önbelleğe alınan yanıtın farklılık için kullanılan başka bir üstbilgisi tarafından. Örneğin, ekleyerek kodlayarak yanıtı önbelleğe `Vary: Accept-Encoding` üstbilgileri olan istekler için yanıtlar önbelleğe alır, üst `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak. Bir yanıt üstbilgisi değerini `*` hiçbir zaman depolanır. |
@@ -105,8 +105,8 @@ Ara yazılım kurallarına uyar [HTTP 1.1 önbelleğe alma belirtimi](https://to
 
 Önbelleğe alma davranışı üzerinde daha fazla denetim için ASP.NET Core diğer önbelleğe alma özelliklerini keşfedin. Aşağıdaki konulara bakın:
 
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
-* [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
+* [Önbellek-](xref:performance/caching/memory)
+* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [ASP.NET Core MVC etiketi yardımcı önbelleğe alma](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
@@ -142,8 +142,8 @@ Sınama ve önbelleğe alma davranışını sorun giderme, bir tarayıcı istenm
 
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
-* [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
+* [Önbellek-](xref:performance/caching/memory)
+* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

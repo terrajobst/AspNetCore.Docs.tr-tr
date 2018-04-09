@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
-title: "Profil ve Glimpse'in ile ASP.NET MVC uygulamanızın hatalarını ayıklama | Microsoft Docs"
+title: Profil ve Glimpse'in ile ASP.NET MVC uygulamanızın hatalarını ayıklama | Microsoft Docs
 author: Rick-Anderson
-description: "Glimpse'in olan bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET bir..."
+description: Glimpse'in olan bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profil ve Glimpse'in ile ASP.NET MVC uygulamanızın hatalarını ayıklama
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Glimpse'in bir başarısız ayrıntılı performans sağlayan açık kaynak NuGet paketlerini ailesi büyüyen, hata ayıklama ve tanılama bilgilerini ASP.NET uygulamaları için ' dir. Önemsiz yüklemek için basit, son derece hızlı ve temel performans ölçümlerini her sayfasının en altında görüntülenir. Sunucuda neler olduğunu öğrenmek gerektiğinde uygulamanıza detaya imkan tanır. Glimpse'in Azure test ortamınızı dahil olmak üzere, geliştirme döngüsü boyunca kullanmanızı öneririz çok değerli bilgiler sağlar. Sırada [Fiddler](http://www.telerik.com/fiddler) ve [F-12 geliştirme araçları](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) sağlayan bir istemci tarafı görünüm Glimpse'in sunucudan ayrıntılı bir görünüm sağlar. Bu öğretici Glimpse'in ASP.NET MVC ve EF paketleri kullanarak odaklanır, ancak diğer birçok paketleri kullanılabilir. Mümkün olduğunda ı uygun bağlayacaksınız [Glimpse'in belgeleri](http://getglimpse.com/Docs/) hangi korunmasına yardımcı. Glimpse'in açık kaynaklı proje, kaynak kodu ve belgeler için çok katkıda bulunabilir.
 
@@ -55,7 +55,7 @@ Aşağıdaki komutlar Paket Yöneticisi Konsolu'ndan Glimpse'in MVC5 ve EF6 mod�
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Localhost için Glimpse'in etkinleştir
 
-Http://localhost için gidin:&lt;bağlantı noktası #&gt;tıklayın ve /glimpse.axd **Glimpse'in Aç** düğmesi.
+Gidin http://localhost: &lt;bağlantı noktası #&gt;tıklayın ve /glimpse.axd <strong>Glimpse'in Aç</strong> düğmesi.
 
 ![Glimpse'in axd sayfası](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 

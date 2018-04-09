@@ -1,7 +1,7 @@
 ---
-title: "IIS ile Windows ana ASP.NET Çekirdeği"
+title: IIS ile Windows ana ASP.NET Çekirdeği
 author: guardrex
-description: "ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde konak öğrenin."
+description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde konak öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -85,6 +85,10 @@ services.Configure<IISOptions>(options =>
 | `AuthenticationDisplayName`    | `null`  | Oturum açma sayfalarındaki kullanıcılara gösterilen görünen adını ayarlar. |
 | `ForwardClientCertificate`     | `true`  | Varsa `true` ve `MS-ASPNETCORE-CLIENTCERT` istek üstbilgisi mevcutsa, `HttpContext.Connection.ClientCertificate` doldurulur. |
 
+### <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
+
+İletilen üstbilgileri ara yazılımı ve ASP.NET Core Modülü'nü yapılandırır IIS tümleştirme Ara şema (HTTP/HTTPS) ve isteğin geldiği uzak IP adresine iletmek için yapılandırılır. Ek proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+
 ### <a name="webconfig-file"></a>Web.config dosyası
 
 *Web.config* dosyası yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Oluşturma, dönüştürme ve yayımlama *web.config* .NET Core Web SDK tarafından yapılır (`Microsoft.NET.Sdk.Web`). SDK proje dosyasının üst kısmında ayarlanır:
@@ -97,7 +101,7 @@ Varsa bir *web.config* dosyası mevcut değil proje dosyası doğru ile oluştur
 
 Varsa bir *web.config* dosyası projede mevcut, dosyanın doğru ile dönüştürüldüğünde *processPath* ve *bağımsız değişkenleri* ASP.NET Core Modülü'nü yapılandırmak için ve taşınabilir yayımlanan çıktı. Dönüşüm dosyasında IIS yapılandırma ayarlarını değiştirme değil.
 
-*Web.config* dosya etkin IIS modüllerini denetleyen ek IIS yapılandırması ayarları sağlayabilir. ASP.NET Core uygulamaları istekleriyle işleyebilen IIS modülleri hakkında daha fazla bilgi için bkz: [kullanarak IIS modüllerini](xref:host-and-deploy/iis/modules) konu.
+*Web.config* dosya etkin IIS modüllerini denetleyen ek IIS yapılandırması ayarları sağlayabilir. ASP.NET Core uygulamaları istekleriyle işleyebilen IIS modülleri hakkında daha fazla bilgi için bkz: [IIS modüllerini](xref:host-and-deploy/iis/modules) konu.
 
 Dönüştürme gelen Web SDK'sı önlemek için *web.config* dosya, kullanın  **\<IsTransformWebConfigDisabled >** proje dosyasında özellik:
 
@@ -167,7 +171,11 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>.NET Core Windows Server barındırma paket yükleme
 
-1. Yükleme [.NET Core Windows Server barındırma paket](https://aka.ms/dotnetcore-2-windowshosting) barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core Windows Server barındırma paketini yüklemeden önce.
+1. Yükleme *.NET Core Windows Server barındırma paket* barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core Windows Server barındırma paketini yüklemeden önce.
+
+   1. Gidin [.NET tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
+   1. En son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**.NET Core** > **çalışma zamanı** > **.NET çekirdeği çalışma zamanı x.y.z**). Önizleme yazılımıyla çalışmak düşünmüyorsanız, "Önizleme" word kendi bağlantı metne sahip çalışma zamanları kaçının.
+   1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **Server barındırma yükleyicisi** indirmek için bağlantı *.NET Core Windows Server barındırma paket*.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılması gerekir. IIS yeniden yükledikten sonra barındırma paket yükleyiciyi çalıştırın.
    
@@ -278,7 +286,7 @@ Uygulama yeniden başlatıldığında anahtar halkası bellekte depolanıyorsa:
 
 * Tüm tanımlama bilgisi tabanlı kimlik doğrulama belirteçleri geçersiz kılınır. 
 * Kullanıcıların kendi bir sonraki istekte yeniden oturum açmanız gerekir. 
-* Anahtar halkası ile korunan tüm verileri artık şifresi çözülebilir. Bu içerebilir [CSRF belirteçleri](xref:security/anti-request-forgery#how-does-aspnet-core-mvc-address-csrf) ve [ASP.NET Core MVC tempdata tanımlama bilgilerini](xref:fundamentals/app-state#tempdata).
+* Anahtar halkası ile korunan tüm verileri artık şifresi çözülebilir. Bu içerebilir [CSRF belirteçleri](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) ve [ASP.NET Core MVC TempData tanımlama bilgilerini](xref:fundamentals/app-state#tempdata).
 
 Veri koruma anahtarı halkası kalıcı hale getirmek için IIS altında yapılandırmak için kullanın **bir** aşağıdaki yaklaşımlardan:
 
@@ -288,7 +296,7 @@ Veri koruma anahtarı halkası kalıcı hale getirmek için IIS altında yapıla
 
   Tek başına, webfarm olmayan IIS yüklemeleri için [veri koruması sağlama AutoGenKeys.ps1 PowerShell Betiği](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) bir ASP.NET Core uygulamayla kullanılan her bir uygulama havuzu için kullanılabilir. Bu komut dosyası, kayıt defterinde yalnızca çalışan işlem hesabına uygulamanın uygulama havuzunun erişilebilen HKLM bir kayıt defteri anahtarı oluşturur. Anahtarları bir makineye özel anahtarla DPAPI kullanarak REST şifrelenir.
 
-  Web grubu senaryolarda, bir uygulama, veri koruma anahtarı halkası depolamak için bir UNC yolu kullanmak üzere yapılandırılabilir. Varsayılan olarak, veri koruma anahtarlarını şifreli değil. Dosya izinleri ağ paylaşımı için uygulamanın çalıştığı Windows hesabı sınırlı olduğundan emin olun. Sertifika, REST anahtarlarınızı korumak için kullanılabilir bir X509. Sertifikaları karşıya yüklemesine izin vermek için bir mekanizma göz önünde bulundurun: kullanıcının güvenilen sertifika içine Yerleştir sertifikaları depolamak ve bunlar tüm makinelerde kullanılabilir kullanıcının uygulama çalıştığı emin olun. Bkz: [yapılandırma veri koruması](xref:security/data-protection/configuration/overview) Ayrıntılar için.
+  Web grubu senaryolarda, bir uygulama, veri koruma anahtarı halkası depolamak için bir UNC yolu kullanmak üzere yapılandırılabilir. Varsayılan olarak, veri koruma anahtarlarını şifreli değil. Dosya izinleri ağ paylaşımı için uygulamanın çalıştığı Windows hesabı sınırlı olduğundan emin olun. Sertifika, REST anahtarlarınızı korumak için kullanılabilir bir X509. Sertifikaları karşıya yüklemesine izin vermek için bir mekanizma göz önünde bulundurun: kullanıcının güvenilen sertifika içine Yerleştir sertifikaları depolamak ve bunlar tüm makinelerde kullanılabilir kullanıcının uygulama çalıştığı emin olun. Bkz: [ASP.NET Core veri koruması yapılandırma](xref:security/data-protection/configuration/overview) Ayrıntılar için.
 
 * **Kullanıcı profilini yüklemek için IIS uygulama havuzu yapılandırma**
 
@@ -348,7 +356,7 @@ ASP.NET Core Modülü'nü yapılandırma hakkında daha fazla bilgi için bkz: [
 
 IIS yapılandırmasını etkileyen tarafından  **\<system.webServer >** bölümünü *web.config* IIS özelliklerden bir ters proxy yapılandırmasını uygulamak için. IIS sunucu düzeyinde dinamik sıkıştırma kullanmak üzere yapılandırılmışsa,  **\<urlCompression >** uygulamanın öğesinde *web.config* dosya devre dışı bırakabilirsiniz.
 
-Daha fazla bilgi için bkz: [yapılandırma başvurusunu \<system.webServer >](/iis/configuration/system.webServer/), [ASP.NET temel modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module), ve [kullanarak IIS modüllerini ASP. NET çekirdek](xref:host-and-deploy/iis/modules). (Veya sonraki sürümler için IIS 10.0 desteklenir) yalıtılmış uygulama havuzlarında çalışan tek tek uygulamalar için ortam değişkenlerini ayarlama Bkz *AppCmd.exe komutunu* bölümünü [ortam değişkenleri \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) IIS konudaki başvuru belgelerini.
+Daha fazla bilgi için bkz: [yapılandırma başvurusunu \<system.webServer >](/iis/configuration/system.webServer/), [ASP.NET temel modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module), ve [ASP.NET ile IIS modülleri Çekirdek](xref:host-and-deploy/iis/modules). (Veya sonraki sürümler için IIS 10.0 desteklenir) yalıtılmış uygulama havuzlarında çalışan tek tek uygulamalar için ortam değişkenlerini ayarlama Bkz *AppCmd.exe komutunu* bölümünü [ortam değişkenleri \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) IIS konudaki başvuru belgelerini.
 
 ## <a name="configuration-sections-of-webconfig"></a>Web.config yapılandırma bölümlerini
 
@@ -407,7 +415,7 @@ Daha fazla bilgi için bkz: [icacls](/windows-server/administration/windows-comm
 * [Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 * [ASP.NET çekirdeği modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
 * [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
-* [ASP.NET çekirdeği ile IIS modüllerini kullanma](xref:host-and-deploy/iis/modules)
+* [ASP.NET Core içeren IIS modülleri](xref:host-and-deploy/iis/modules)
 * [ASP.NET Core giriş](../index.md)
 * [The Official Microsoft IIS Site](https://www.iis.net/)
 * [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)

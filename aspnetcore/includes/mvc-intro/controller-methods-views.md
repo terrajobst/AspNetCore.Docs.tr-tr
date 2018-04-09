@@ -87,7 +87,7 @@ Tüm `HttpGet` benzer bir desen film denetleyicisi yöntemleri uygulayın. Film 
 
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
-* [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
+* [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 * [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)
 * Denetleyicisinden korumak [aşırı gönderim](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
-title: "IDataErrorInfo arabirimi ile (C#) doğrulanıyor | Microsoft Docs"
+title: IDataErrorInfo arabirimi ile (C#) doğrulanıyor | Microsoft Docs
 author: StephenWalther
-description: "Stephen Walther bir model sınıfı IDataErrorInfo arabirimi uygulayarak özel doğrulama hata iletilerinin görüntülenip gösterilmiştir."
+description: Stephen Walther bir model sınıfı IDataErrorInfo arabirimi uygulayarak özel doğrulama hata iletilerinin görüntülenip gösterilmiştir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c04088c576481e4a91676d7e6962c03b56e7a8a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5028b2e07c4144efa59824885ce96cd8b037dff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-the-idataerrorinfo-interface-c"></a>IDataErrorInfo arabirimi ile (C#) doğrulanıyor
 ====================
@@ -161,6 +161,6 @@ DateReleased değer otomatik olarak doğrulanır dikkat edin. Bir değere sahip 
 
 Bu öğreticide, IDataErrorInfo arabirimi doğrulama hata iletileri oluşturmak için nasıl kullanılacağı hakkında bilgi edindiniz. İlk olarak, Entity Framework tarafından oluşturulan kısmi film sınıf işlevselliğini genişleten bir kısmi film sınıfı oluşturduk. Ardından, doğrulama mantığını film sınıfı OnTitleChanging() ve OnDirectorChanging() kısmi yöntemlerine eklediğimiz. Son olarak, biz bu doğrulama iletileri ASP.NET MVC çerçevesi için kullanıma sunmak için IDataErrorInfo arabirimi uygulanmadı.
 
->[!div class="step-by-step"]
-[Önceki](performing-simple-validation-cs.md)
-[sonraki](validating-with-a-service-layer-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](performing-simple-validation-cs.md)
+> [sonraki](validating-with-a-service-layer-cs.md)

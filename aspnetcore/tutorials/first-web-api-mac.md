@@ -1,7 +1,7 @@
 ---
-title: "Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma"
+title: Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma
 author: rick-anderson
-description: "Mac için ASP.NET Core MVC ve Visual Studio ile Web API oluşturma"
+description: Mac için ASP.NET Core MVC ve Visual Studio ile Web API oluşturma
 helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
 manager: wpickett
 ms.author: riande
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 9499a203f899fade5d2972ab4e913b594dd591d8
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: ce94091447452a51654f2cd4dad9043b63c737ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Mac için ASP.NET Core MVC ve Visual Studio ile Web API oluşturma
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
 
@@ -30,16 +30,13 @@ Bu öğretici 3 sürümü vardır:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[template files](../includes/webApi/intro.md)]
+[!INCLUDE [template files](../includes/webApi/intro.md)]
 
-* Bkz: [macOS ASP.NET Core MVC ya da Linux giriş](xref:tutorials/first-mvc-app-xplat/index) kalıcı bir veritabanı kullanan bir örnek.
+Bkz: [macOS ASP.NET Core MVC ya da Linux giriş](xref:tutorials/first-mvc-app-xplat/index) kalıcı bir veritabanı kullanan bir örnek.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki yükleyin:
-
-- [.NET core 2.0.0 SDK](https://www.microsoft.com/net/core) veya daha yenisi
-- [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
@@ -100,7 +97,7 @@ Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
@@ -108,7 +105,7 @@ Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
 
 Oluşturulan kod aşağıdakiyle değiştirin (ve kapanış köşeli parantez ekleyin):
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
@@ -195,7 +192,7 @@ Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Denetleyici eylemleri için yönlendirme](xref:mvc/controllers/routing)
+* [Denetleyici eylemlerine yönlendirme](xref:mvc/controllers/routing)
 * API'nizi dağıtma hakkında daha fazla bilgi için bkz: [konak dağıtıp](xref:host-and-deploy/index).
 * [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 * [Postman](https://www.getpostman.com/)

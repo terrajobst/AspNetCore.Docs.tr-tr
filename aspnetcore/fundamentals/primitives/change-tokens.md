@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla"
+title: ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
 author: guardrex
-description: "Değişiklik belirteçleri değişiklikleri izlemek için nasıl kullanılacağını öğrenin."
+description: Değişiklik belirteçleri değişiklikleri izlemek için nasıl kullanılacağını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 11/10/2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 4d3fa59d44dac5742e310cec117f41289ed6c5ab
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fd57683506e809fd68ba8c02ad184b5f8afe53a2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
 
@@ -139,7 +139,7 @@ Zaman `OnPostStartMonitoring` olan tetiklenen, izleme etkinleştirilmişse ve ge
 
 ## <a name="monitoring-cached-file-changes"></a>Önbelleğe alınmış dosya değişiklikleri izleme
 
-Dosya içeriği, önbelleğe alınan bellek içi kullanarak olabilir [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Bellek içi önbelleğe alma açıklanan [bellek içi önbelleğe alma](xref:performance/caching/memory) konu. Uygulama, aşağıda açıklandığı gibi ek adımlar alma olmadan *eski* kaynak veriler değişirse (güncel olmayan) verileri bir önbellekten döndürülür.
+Dosya içeriği, önbelleğe alınan bellek içi kullanarak olabilir [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Bellek içi önbelleğe alma açıklanan [bellek içi önbellek](xref:performance/caching/memory) konu. Uygulama, aşağıda açıklandığı gibi ek adımlar alma olmadan *eski* kaynak veriler değişirse (güncel olmayan) verileri bir önbellekten döndürülür.
 
 Hesaba bir önbelleğe alınan kaynak dosyası durumunu yenilenirken katarak olmayan bir [kayan bitiş tarihinin](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) önbellek verilerini eski dönemi müşteri adayları. Kayan sona erme süresi her istek için verileri yeniler, ancak dosyası hiçbir zaman önbelleğe yeniden. Dosyanın önbelleğe alınmış içeriği kullanan tüm uygulama büyük olasılıkla eski içerik alma tabi özellikleridir.
 
@@ -199,8 +199,8 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
-* [Dağıtılmış önbellek ile çalışma](xref:performance/caching/distributed)
+* [Önbellek-](xref:performance/caching/memory)
+* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)

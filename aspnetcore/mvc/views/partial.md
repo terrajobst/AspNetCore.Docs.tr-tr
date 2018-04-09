@@ -1,23 +1,23 @@
 ---
-title: "ASP.NET Core kısmi görünümleri"
+title: ASP.NET Core kısmi görünümleri
 author: ardalis
-description: "Kısmi görünüm nasıl olduğunu öğrenin başka bir görünüm içinde işlenir ve ne zaman bunlar kullanılmalıdır ASP.NET Core uygulamaları bir görünüm."
+description: Kısmi görünüm nasıl olduğunu öğrenin başka bir görünüm içinde işlenir ve ne zaman bunlar kullanılmalıdır ASP.NET Core uygulamaları bir görünüm.
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: abe970b02a62ef58deb259241d7451de0185575c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3deaaeb666e5443d0784f2ac6977e58e1b25d711
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core kısmi görünümleri
 
-Tarafından [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), ve [Scott Sauber](https://twitter.com/scottsauber)
 
 ASP.NET Core MVC web farklı görünümleri arasında paylaşmak istediğiniz sayfaları yeniden kullanılabilir parçalarını olduğunda faydalıdır kısmi görünümler destekler.
 
@@ -41,19 +41,17 @@ Kısmi görünümler gibi herhangi bir görünüm oluşturulur: oluşturduğunuz
 
 ## <a name="referencing-a-partial-view"></a>Kısmi görünüm başvurma
 
-Gelen bir görünüm sayfası içinde kısmi görünüm işlemek birkaç yolu vardır. Kullanılacak en kolayıdır `Html.Partial`, döndüren bir `IHtmlString` ve çağrısı ile ekleyerek başvurulabilir `@`:
-
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
-
-`PartialAsync` Yöntemi, (kod görünümlerde genellikle önerilmez rağmen) zaman uyumsuz kod içeren kısmi görünümleri için kullanılabilir:
+Gelen bir görünüm sayfası içinde kısmi görünüm işlemek birkaç yolu vardır. Kullanmak için en iyi uygulamadır `Html.PartialAsync`, döndüren bir `IHtmlString` ve çağrısı ile ekleyerek başvurulabilir `@`:
 
 [!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
-Kısmi bir görünümü ile işleyebilen `RenderPartial`. Bu yöntem, bir sonuç dönmez; doğrudan yanıta işlenen çıkış akışları. Bir sonuç döndürmediğinden, Razor kod bloğu içinde çağırılmalıdır (Ayrıca çağırabilirsiniz `RenderPartialAsync` gerekirse):
+Kısmi bir görünümü ile işleyebilen `RenderPartialAsync`. Bu yöntem, bir sonuç dönmez; doğrudan yanıta işlenen çıkış akışları. Bir sonuç döndürmediğinden bir Razor kod bloğunda çağrılması gerekir:
 
-[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=11-13)]
 
-Sonuç doğrudan akışları çünkü `RenderPartial` ve `RenderPartialAsync` bazı senaryolarda daha iyi gerçekleştirebilir. Ancak, önerilir, çoğu durumda kullanmanız `Partial` ve `PartialAsync`.
+Sonuç doğrudan akışları çünkü `RenderPartialAsync` bazı senaryolarda daha iyi gerçekleştirebilir. Ancak, kullandığınız önerilir `PartialAsync`.
+
+Zaman uyumlu eşdeğerlerini varken `Html.PartialAsync` (`Html.Partial`) ve `Html.RenderPartialAsync` (`Html.RenderPartial`), zaman uyumlu eşdeğerlerini kullanın, burada kilitlenme senaryolar olduğundan önerilmez. Zaman uyumlu yöntemleri gelecek sürümlerinde kullanılamaz.
 
 > [!NOTE]
 > Kendi görünümlerinizi kod yürütmek gerekiyorsa, önerilen desenini kullanmaktır bir [görünümü bileşen](view-components.md) yerine kısmi görünüm.
@@ -65,18 +63,18 @@ Kısmi görünüm başvururken çeşitli şekillerde konumuna başvurabilir:
 ```cshtml
 // Uses a view in current folder with this name
 // If none is found, searches the Shared folder
-@Html.Partial("ViewName")
+@await Html.PartialAsync("ViewName")
 
 // A view with this name must be in the same folder
-@Html.Partial("ViewName.cshtml")
+@await Html.PartialAsync("ViewName.cshtml")
 
 // Locate the view based on the application root
 // Paths that start with "/" or "~/" refer to the application root
-@Html.Partial("~/Views/Folder/ViewName.cshtml")
-@Html.Partial("/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("~/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("/Views/Folder/ViewName.cshtml")
 
 // Locate the view using relative paths
-@Html.Partial("../Account/LoginPartial.cshtml")
+@await Html.PartialAsync("../Account/LoginPartial.cshtml")
 ```
 
 Farklı bir görünüm klasörlerinde farklı kısmi görünümler aynı ada sahip olabilir. Görünümler (dosya uzantısı olmadan) adıyla başvururken her klasör görünümlerde bunları ile aynı klasörde kısmi görünüm kullanır. İçinde yerleştirme kullanmak için varsayılan kısmi görünüm belirtebilirsiniz *paylaşılan* klasör. Paylaşılan kısmi görünümü, kısmi görünümü kendi sürümüne sahip olmayan tüm görünümleri tarafından kullanılır. Varsayılan kısmi görünüm olabilir (içinde *paylaşılan*), üst görünüm olarak aynı klasörde aynı ada sahip bir kısmi görünüm tarafından geçersiz.
@@ -93,13 +91,13 @@ Kısmi görünümün örneği oluşturulduğunda, üst görünümün bir kopyas�
 Örneği geçirebilirsiniz `ViewDataDictionary` kısmi görünüm için:
 
 ```cshtml
-@Html.Partial("PartialName", customViewData)
+@await Html.PartialAsync("PartialName", customViewData)
 ```
 
-Ayrıca, bir model kısmi görünüme geçirebilirsiniz. Bu sayfanın görünüm modeli, veya bir bölümünün veya özel bir nesne olabilir. Bir model geçirebilirsiniz `Partial`,`PartialAsync`, `RenderPartial`, veya `RenderPartialAsync`:
+Ayrıca, bir model kısmi görünüme geçirebilirsiniz. Bu sayfanın görünüm modeli veya özel bir nesne olabilir. Bir model geçirebilirsiniz `PartialAsync` veya `RenderPartialAsync`:
 
 ```cshtml
-@Html.Partial("PartialName", viewModel)
+@await Html.PartialAsync("PartialName", viewModel)
 ```
 
 Örneği geçirebilirsiniz `ViewDataDictionary` ve kısmi görünüm için Görünüm modeli:

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
-title: "TableAdapter kullanımı için güncelleştirme birleşimler (VB) | Microsoft Docs"
+title: TableAdapter kullanımı için güncelleştirme birleşimler (VB) | Microsoft Docs
 author: rick-anderson
-description: "Bir veritabanı ile çalışırken, birden çok tablo arasında yayılır istek verileri için yaygındır. İki farklı tablolardan veri almak için şu ya da kullanabilirsiniz..."
+description: Bir veritabanı ile çalışırken, birden çok tablo arasında yayılır istek verileri için yaygındır. İki farklı tablolardan veri almak için şu ya da kullanabilirsiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0698269c0a29c234f03dc56f7b63e7bc83d032
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 91d700f3de02dc78692e933644e221e2ac8175a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>TableAdapter kullanımı için güncelleştirme (VB) birleştirir
 ====================
@@ -54,7 +54,7 @@ Alternatif olarak, bir `JOIN` her ürün s sağlayıcı ve kategori adını dön
 A `JOIN` bir tablodan kayıt bazı ölçütlere göre başka bir tablodan kayıt ile birleştirir. Yukarıdaki sorguda için `LEFT JOIN Categories ON Categories.CategoryID = Products.CategoryID` SQL Server'ın her birleştirme bildirir ürün kaydı kategorisiyle kayıt `CategoryID` değerle s ürün `CategoryID` değeri. Her ürün için karşılık gelen kategori alanlarını çalışmak için bize birleştirilmiş sonuç verir (gibi `CategoryName`).
 
 > [!NOTE]
-> `JOIN`İlişkisel veritabanlarından veri sorgulanırken s yaygın olarak kullanılan. Yeni olması durumunda `JOIN` sözdizimi veya kullanım üzerinde biraz tazelemek gerek, d ı öneririz [SQL JOIN öğretici](http://www.w3schools.com/sql/sql_join.asp) adresindeki [W3 okullar](http://www.w3schools.com/). Aynı zamanda okuma değer olan [ `JOIN` Temelleri](https://msdn.microsoft.com/library/ms191517.aspx) ve [alt sorgu Temelleri](https://msdn.microsoft.com/library/ms189575.aspx) bölümlerini [SQL Books Online](https://msdn.microsoft.com/library/ms130214.aspx).
+> `JOIN` İlişkisel veritabanlarından veri sorgulanırken s yaygın olarak kullanılan. Yeni olması durumunda `JOIN` sözdizimi veya kullanım üzerinde biraz tazelemek gerek, d ı öneririz [SQL JOIN öğretici](http://www.w3schools.com/sql/sql_join.asp) adresindeki [W3 okullar](http://www.w3schools.com/). Aynı zamanda okuma değer olan [ `JOIN` Temelleri](https://msdn.microsoft.com/library/ms191517.aspx) ve [alt sorgu Temelleri](https://msdn.microsoft.com/library/ms189575.aspx) bölümlerini [SQL Books Online](https://msdn.microsoft.com/library/ms130214.aspx).
 
 
 Bu yana `JOIN` s ve ilişkili alt sorgulara hem de diğer tablolardan ilgili verileri almak için kullanılabilir, geliştiricilerin çoğu sol kendi uyarı scratching ve kullanmak için hangi yaklaşımın merak ediyor. Tüm SQL uzmanları ı aynısını kabaca denirse açıklandı ve onun içermiyor t gerçekten önemli performance-wise SQL Server kabaca aynı yürütme planları oluşturacak şekilde. Ardından, kendi öneriler sizin ve ekibinizin en uygun olanını teknik kullanmaktır. Bu, bu önerileri imparting sonra bu uzmanlar hemen kendi tercih ifade ettiğini belirtmeye değeri `JOIN` bağıntılı alt sorgulara üzerinden s.
@@ -260,12 +260,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Hilton Geisenow, David Suru ve Teresa Murphy yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-[sonraki](adding-additional-datatable-columns-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+> [sonraki](adding-additional-datatable-columns-vb.md)

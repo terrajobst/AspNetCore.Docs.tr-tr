@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
-title: "Bağlantı dizeleri ve diğer yapılandırma bilgileri (C#) koruma | Microsoft Docs"
+title: Bağlantı dizeleri ve diğer yapılandırma bilgileri (C#) koruma | Microsoft Docs
 author: rick-anderson
-description: "Bir ASP.NET uygulaması genellikle Web.config dosyasındaki yapılandırma bilgilerini depolar. Bu bilgilerin bazıları duyarlıdır ve koruma garanti eder. Def tarafından..."
+description: Bir ASP.NET uygulaması genellikle Web.config dosyasındaki yapılandırma bilgilerini depolar. Bu bilgilerin bazıları duyarlıdır ve koruma garanti eder. Def tarafından...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3782e3d4acc2db0e744128dad64fdfae1e8766d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 20a18a36cb5d1621b0b718f87c05eb3175110143
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-c"></a>Koruma bağlantı dizeleri ve diğer yapılandırma bilgileri (C#)
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ASP.NET uygulamaları için yapılandırma bilgileri genellikle adlı bir XML dosyasında depolanan `Web.config`. Bu öğreticiler süresince biz güncelleştirdiniz `Web.config` birkaç kez. Oluştururken `Northwind` yazılan kümesinde [ilk öğreticide](../introduction/creating-a-data-access-layer-cs.md), örneğin, bağlantı dizesi bilgilerini otomatik olarak eklendi `Web.config` içinde `<connectionStrings>` bölümü. Daha sonra [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-cs.md) öğretici, biz el ile güncelleştirilmiş `Web.config`, ekleyerek bir `<pages>` öğesi Projemizin ASP.NET sayfaları tümünün kullanması gerektiğini belirten `DataWebControls` tema.
 
-Bu yana `Web.config` bağlantı dizeleri gibi hassas verileri içerebilir önemlidir, içeriğini `Web.config` güvenli ve yetkisiz görüntüleyiciler gelen gizli saklanması. Varsayılan olarak, tüm HTTP isteği bir dosyayla için `.config` uzantısı döndürür ASP.NET altyapısı tarafından işlenen *bu tür sayfası değil sunulan* Şekil 1'de gösterilen ileti. Bu ziyaretçileri görüntüleyemezsiniz anlamına gelir, `Web.config` dosya s içeriği yalnızca kendi s tarayıcınızın adres çubuğuna http://www.YourServer.com/Web.config girerek.
+Bu yana `Web.config` bağlantı dizeleri gibi hassas verileri içerebilir önemlidir, içeriğini `Web.config` güvenli ve yetkisiz görüntüleyiciler gelen gizli saklanması. Varsayılan olarak, tüm HTTP isteği bir dosyayla için `.config` uzantısı döndürür ASP.NET altyapısı tarafından işlenen *bu tür sayfası değil sunulan* Şekil 1'de gösterilen ileti. Bu ziyaretçileri görüntüleyemezsiniz anlamına gelir, `Web.config` dosya s içeriği yalnızca girerek http://www.YourServer.com/Web.config kendi s tarayıcınızın adres çubuğuna içine.
 
 
 [![Web.config aracılığıyla bir tarayıcı bir bu tür sayfasının döndürür ziyaret ileti sunulmuyor](protecting-connection-strings-and-other-configuration-information-cs/_static/image2.png)](protecting-connection-strings-and-other-configuration-information-cs/_static/image1.png)
@@ -60,8 +60,8 @@ ASP.NET 2.0, şifreleme ve yapılandırma bilgilerini şifresini çözmek için 
 
 .NET Framework iki korumalı yapılandırma sağlayıcıları ile birlikte gelir:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-Asimetrik kullanan [RSA algoritması](http://en.wikipedia.org/wiki/Rsa) şifreleme ve şifre çözme için.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-Windows kullanır [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) şifreleme ve şifre çözme için.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) -Asimetrik kullanan [RSA algoritması](http://en.wikipedia.org/wiki/Rsa) şifreleme ve şifre çözme için.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -Windows kullanır [Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) şifreleme ve şifre çözme için.
 
 Korumalı yapılandırma sistemi sağlayıcısı tasarım deseni uygular olduğundan, kendi korumalı yapılandırma sağlayıcısı oluşturun ve uygulamanıza takın mümkündür. Bkz: [korumalı bir yapılandırma sağlayıcısı uygulama](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) bu işlem hakkında daha fazla bilgi için.
 
@@ -228,12 +228,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve Randy Etikan yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
-[sonraki](debugging-stored-procedures-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [sonraki](debugging-stored-procedures-cs.md)

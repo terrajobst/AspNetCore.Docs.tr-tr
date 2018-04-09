@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-title: "Her şeyi (Azure ile gerçek bulut uygulamaları derleme) otomatikleştirmek | Microsoft Docs"
+title: Her şeyi (Azure ile gerçek bulut uygulamaları derleme) otomatikleştirmek | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Her şeyi (Azure ile gerçek bulut uygulamaları derleme) otomatikleştirme
 ====================
@@ -128,7 +128,7 @@ Komut dosyası yapacağı ilk şey web uygulaması çağırarak oluşturmaktır 
 
 ### <a name="create-the-storage-account"></a>Depolama hesabı oluşturma
 
-Ana komut dosyasını çalıştırır sonra *yeni AzureStorage.ps1* komut dosyası, belirtme "*&lt;websitename&gt;*depolama" depolama hesabı adı için ve aynı veri merkezi konumu olarak web uygulaması.
+Ana komut dosyasını çalıştırır sonra <em>yeni AzureStorage.ps1</em> komut dosyası, belirtme "<em>&lt;websitename&gt;</em>depolama" depolama hesabı adı için ve aynı veri merkezi konumu olarak web uygulaması.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
@@ -158,7 +158,7 @@ Veritabanı oluşturma komut dosyasında geliştirme makinenin IP adresini alır
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`çağıran komut dosyası işlevinde `ConvertTo-SecureString` döndürür ve parola şifrelemek için cmdlet bir `PSCredential` nesnesi, aynı tür `Get-Credential` cmdlet'i döndürür.
+    `New-PSCredentialFromPlainText` çağıran komut dosyası işlevinde `ConvertTo-SecureString` döndürür ve parola şifrelemek için cmdlet bir `PSCredential` nesnesi, aynı tür `Get-Credential` cmdlet'i döndürür.
 - Uygulama veritabanı ve üyelik veritabanı kullanarak oluşturur `New-AzureSqlDatabase` cmdlet'i.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -264,6 +264,6 @@ Benzer şekilde, REST API, Windows PowerShell komut dosyaları, bir .NET dili AP
 - [Geliştirme ve Test ortamları için yayımlamak için Windows PowerShell betiklerini kullanarak](https://msdn.microsoft.com/library/azure/dn642480.aspx). Visual Studio web projeleri için otomatik olarak oluşturan komut dosyaları nasıl kullanılacağı açıklanmaktadır MSDN belgelerine yayımlayın.
 - [Visual Studio 2013 için PowerShell Araçları](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Visual Studio'da Windows PowerShell için dil desteği ekler visual Studio uzantısı.
 
->[!div class="step-by-step"]
-[Önceki](introduction.md)
-[sonraki](source-control.md)
+> [!div class="step-by-step"]
+> [Önceki](introduction.md)
+> [sonraki](source-control.md)

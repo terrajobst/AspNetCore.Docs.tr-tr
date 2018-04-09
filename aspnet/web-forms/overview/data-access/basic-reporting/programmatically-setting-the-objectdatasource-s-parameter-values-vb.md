@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
-title: "ObjectDataSource'nın parametre değerlerini (VB) programlı olarak ayarlama | Microsoft Docs"
+title: ObjectDataSource'nın parametre değerlerini (VB) programlı olarak ayarlama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide bizim DAL ve tek bir giriş parametre kabul eder ve veri döndüren BLL yöntem ekleme adresindeki göreceğiz. Örneğin, bu parametreyi ayarlayın..."
+description: Bu öğreticide bizim DAL ve tek bir giriş parametre kabul eder ve veri döndüren BLL yöntem ekleme adresindeki göreceğiz. Örneğin, bu parametreyi ayarlayın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aa4afbf2200e1167c9f66aeaddb4273e710394b4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ac53d651601829b6e7d2ce312a084618a8afbb61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>ObjectDataSource'nın parametre değerlerini (VB) programlı olarak ayarlama
 ====================
@@ -124,7 +124,7 @@ Bu değer programlı olarak ayarlamak için bir olay işleyicisi ObjectDataSourc
 **Şekil 9**: bir Web denetimi olayları listelemek için Özellikler penceresini Şimşek Cıvata simgesine tıklayın
 
 
-Tüm üç yaklaşımlar ObjectDataSource için kullanıcının yeni bir olay işleyicisi ekleme `Selecting` sayfanın arka plandaki kod sınıfı için olay. Bu olay işleyicisi biz okuyup kullanarak parametre değerlerini yazma `e.InputParameters(parameterName)`, burada  *`parameterName`*  değeri `Name` özniteliğini `<asp:Parameter>` etiketi ( `InputParameters` koleksiyonu da olabilir Dizinli ordinally, de `e.InputParameters(index)`). Ayarlamak için `month` parametre geçerli ay için eklemek için aşağıdaki `Selecting` olay işleyicisi:
+Tüm üç yaklaşımlar ObjectDataSource için kullanıcının yeni bir olay işleyicisi ekleme `Selecting` sayfanın arka plandaki kod sınıfı için olay. Bu olay işleyicisi biz okuyup kullanarak parametre değerlerini yazma `e.InputParameters(parameterName)`, burada *`parameterName`* değeri `Name` özniteliğini `<asp:Parameter>` etiketi ( `InputParameters` koleksiyonu da olabilir Dizinli ordinally, de `e.InputParameters(index)`). Ayarlamak için `month` parametre geçerli ay için eklemek için aşağıdaki `Selecting` olay işleyicisi:
 
 
 [!code-vb[Main](programmatically-setting-the-objectdatasource-s-parameter-values-vb/samples/sample3.vb)]
@@ -147,11 +147,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Hilton Giesenow oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](declarative-parameters-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](declarative-parameters-vb.md)

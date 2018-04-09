@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
-title: "İstemci tarafı doğrulama (C#) silerken ekleme | Microsoft Docs"
+title: İstemci tarafı doğrulama (C#) silerken ekleme | Microsoft Docs
 author: rick-anderson
-description: "Şu ana kadar oluşturduk arabirimlerde bir kullanıcı yanlışlıkla veri Düzenle düğmesini tıklatın yapısındaki, Sil düğmesini tıklatarak silebilirsiniz. Bu t..."
+description: Şu ana kadar oluşturduk arabirimlerde bir kullanıcı yanlışlıkla veri Düzenle düğmesini tıklatın yapısındaki, Sil düğmesini tıklatarak silebilirsiniz. Bu t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c5e8ee76224a48d3132597016b81099bd70a1776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72b15d498e45cc519a14ecfe39111b224db88c30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>İstemci tarafı doğrulama (C#) silerken ekleme
 ====================
@@ -75,7 +75,7 @@ Bu değişikliklerle Sil düğmesini tıklatarak ürünü silme olanağı bir ke
 
 ## <a name="step-2-calling-the-confirmstring-function-from-the-delete-buttons-client-side-onclick-event"></a>2. adım: silme düğmeleri istemci-tarafı onclick olay confirm(string) işlevi çağırma
 
-Oluşturulan FormView ile son adım böyle de Sil düğmesini yapılandırmaktır olduğunda bu s tıklatıldığında JavaScript ziyaretçisi tarafından `confirm(string)` işlevi çağrılır. Bir düğme, LinkButton veya ImageButton s istemci tarafı için istemci tarafı komut dosyası ekleme `onclick` olay kullanım yoluyla gerçekleştirilebilir `OnClientClick property`, ASP.NET 2.0 için yeni olan. Değerine sahip olacak şekilde istediğinden `confirm(string)` işlevi döndürdü, yalnızca bu özelliği ayarlamak:`return confirm('Are you certain that you want to delete this product?');`
+Oluşturulan FormView ile son adım böyle de Sil düğmesini yapılandırmaktır olduğunda bu s tıklatıldığında JavaScript ziyaretçisi tarafından `confirm(string)` işlevi çağrılır. Bir düğme, LinkButton veya ImageButton s istemci tarafı için istemci tarafı komut dosyası ekleme `onclick` olay kullanım yoluyla gerçekleştirilebilir `OnClientClick property`, ASP.NET 2.0 için yeni olan. Değerine sahip olacak şekilde istediğinden `confirm(string)` işlevi döndürdü, yalnızca bu özelliği ayarlamak: `return confirm('Are you certain that you want to delete this product?');`
 
 Bu değişiklikten sonra Sil LinkButton s Tanımlayıcı Sözdizimi gibi görünmelidir:
 
@@ -156,8 +156,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](implementing-optimistic-concurrency-cs.md)
-[sonraki](limiting-data-modification-functionality-based-on-the-user-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](implementing-optimistic-concurrency-cs.md)
+> [sonraki](limiting-data-modification-functionality-based-on-the-user-cs.md)

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
-title: "Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -165,6 +165,6 @@ Ek web geliştirme en iyi yöntemler için aşağıdaki kaynaklara bakın:
 - [Düzeltme uygulama - en iyi uygulamaları örnek](the-fix-it-sample-application.md#bestpractices). Bu e-kitap eke Düzelt uygulamada uygulanan en iyi yöntemler sayısını listeler.
 - [Web geliştirici denetim listesi](http://webdevchecklist.com/asp.net)
 
->[!div class="step-by-step"]
-[Önceki](continuous-integration-and-continuous-delivery.md)
-[sonraki](single-sign-on.md)
+> [!div class="step-by-step"]
+> [Önceki](continuous-integration-and-continuous-delivery.md)
+> [sonraki](single-sign-on.md)

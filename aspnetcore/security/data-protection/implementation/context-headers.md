@@ -1,7 +1,7 @@
 ---
-title: "İçerik üstbilgileri"
+title: ASP.NET Core içerik üstbilgileri
 author: rick-anderson
-description: "Bu belge ASP.NET Core veri koruma içerik üstbilgileri uygulama ayrıntılarını özetlemektedir."
+description: ASP.NET Core veri koruması içerik üstbilgileri uygulama ayrıntılarını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>İçerik üstbilgileri
+# <a name="context-headers-in-aspnet-core"></a>ASP.NET Core içerik üstbilgileri
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ Veri koruma sisteminde şifreleme hizmetleri sağlayan bir nesne kimliği doğru
 
 Geri atlama, biz sorun yanlış yönünden yaklaşmakta olduğunu karar. OID, algoritma nedir bildirir, ancak biz aslında bu hakkında önemli değil. Biz tek bir entropic değer güvenli bir şekilde iki farklı algoritmalara kullanmanız gerekiyorsa, bize algoritmaları gerçekte ne olduğunu öğrenmek gerekli değildir. Ne biz gerçekte önem verdiğiniz nasıl davranırlar olur. Tüm makul simetrik blok şifre de güçlü geçici rastgele sıralamaya (PRP) algoritmasıdır: (modu, IV, düz metin zincirleme anahtarı) girişleri düzeltin ve ciphertext çıktı olasılık yayma ile diğer simetrik blok şifre farklı olacaktır aynı giriş verilen algoritması. Benzer şekilde, tüm makul anahtarlı karma işlevi de güçlü bir geçici rastgele işlevi (PRF) olduğunu ve sabit bir giriş kümesi çıktısını son derece diğer anahtarlı karma işlevinden farklı olacaktır.
 
-Bir bağlam başlığını oluşturmak için bu kavramı güçlü PRPs ve PRFs kullanırız. Bu içerik üstbilgisi kararlı bir parmak izi temelde herhangi belirtilen işlem için kullanılan algoritmalar üzerinden çalışır ve veri koruma sistemi tarafından gereken şifreleme çevikliği sağlar. Bu üst yeniden üretilebilir ve daha sonra bir parçası olarak kullanılan [alt anahtar türetme işlem](subkeyderivation.md#data-protection-implementation-subkey-derivation). İçerik Üstbilgisi işlemi temel algoritmalarının modlarını bağlı olarak oluşturmak için iki farklı yolu vardır.
+Bir bağlam başlığını oluşturmak için bu kavramı güçlü PRPs ve PRFs kullanırız. Bu içerik üstbilgisi kararlı bir parmak izi temelde herhangi belirtilen işlem için kullanılan algoritmalar üzerinden çalışır ve veri koruma sistemi tarafından gereken şifreleme çevikliği sağlar. Bu üst yeniden üretilebilir ve daha sonra bir parçası olarak kullanılan [alt anahtar türetme işlem](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). İçerik Üstbilgisi işlemi temel algoritmalarının modlarını bağlı olarak oluşturmak için iki farklı yolu vardır.
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>CBC modunda şifreleme + HMAC kimlik doğrulaması
 

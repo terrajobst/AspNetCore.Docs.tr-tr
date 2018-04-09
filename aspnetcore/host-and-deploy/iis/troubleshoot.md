@@ -1,7 +1,7 @@
 ---
-title: "IIS üzerinde ASP.NET Core sorun giderme"
+title: IIS üzerinde ASP.NET Core sorun giderme
 author: guardrex
-description: "Internet Information Services (IIS) ASP.NET Core uygulamaların dağıtımlarını sorunları tanılamak öğrenin."
+description: Internet Information Services (IIS) ASP.NET Core uygulamaların dağıtımlarını sorunları tanılamak öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorun giderme
 
@@ -96,7 +96,7 @@ Etkinleştirme ve stdout günlükleri görüntülemek için:
 
 1. Barındıran sistemde sitenin dağıtım klasöre gidin.
 1. Varsa *günlükleri* klasörü mevcut değilse, bir klasör oluşturun. Oluşturmaya ilişkin yönergeler için MSBuild etkinleştirme *günlükleri* dağıtım klasöründe otomatik olarak bkz [dizin yapısını](xref:host-and-deploy/directory-structure) konu.
-1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** işaret edecek şekilde yolu *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout`Günlük dosyası adı öneki yolunda bulunuyor. Günlük oluşturulduğunda, zaman damgası, işlem kimliği ve dosya uzantısını otomatik olarak eklenir. Kullanarak `stdout` dosya adı öneki tipik günlük dosyasının adı *stdout_20180205184032_5412.log*. 
+1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** işaret edecek şekilde yolu *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout` Günlük dosyası adı öneki yolunda bulunuyor. Günlük oluşturulduğunda, zaman damgası, işlem kimliği ve dosya uzantısını otomatik olarak eklenir. Kullanarak `stdout` dosya adı öneki tipik günlük dosyasının adı *stdout_20180205184032_5412.log*. 
 1. Güncelleştirilmiş Kaydet *web.config* dosya.
 1. Bir istek uygulamaya olun.
 1. Gidin *günlükleri* klasör. Bulma ve en son stdout günlüğü'nü açın.

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
-title: "Çoklu oturum açma (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: Çoklu oturum açma (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Çoklu oturum açma (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -130,7 +130,7 @@ Ve birkaç dakika içinde bitirdiniz.
 
 Yalnızca bu kuruluşunuzdaki Windows 2003 veya daha yüksek bir etki alanı denetleyicisinde çalıştırmanız gerekir. Ve yeniden başlatma gerekmez. İşiniz bittiğinde, kullanıcılarınızın bulutta tümü ve yapabileceğiniz herhangi bir web veya mobil uygulama, SAML, OAuth veya WS-Fed kullanarak çoklu oturum açma.
 
-Bazen biz budur ne kadar güvenli hakkında sorular – Microsoft için kendi duyarlı iş verilerinin kullanıyor mu? Ve yanıt Evet biz yapın. Örneğin iç Microsoft SharePoint sitesinde gidin, [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/), oturum açmak için girmem isteniyor.
+Bazen biz budur ne kadar güvenli hakkında sorular – Microsoft için kendi duyarlı iş verilerinin kullanıyor mu? Ve yanıt Evet biz yapın. Örneğin iç Microsoft SharePoint sitesinde gidin, [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), oturum açmak için girmem isteniyor.
 
 ![Office 365 oturum açma](single-sign-on/_static/image20.png)
 
@@ -193,6 +193,6 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 - [Azure Active Directory grafik API'si blogu](https://blogs.msdn.com/b/aadgraphteam/).
 - [Erişim denetimi KCG ve karma kimlik altyapınızı dizin tümleştirme](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Teknik Ed 2014 oturumunda video Gayana Bagdasaryan.
 
->[!div class="step-by-step"]
-[Önceki](web-development-best-practices.md)
-[sonraki](data-storage-options.md)
+> [!div class="step-by-step"]
+> [Önceki](web-development-best-practices.md)
+> [sonraki](data-storage-options.md)

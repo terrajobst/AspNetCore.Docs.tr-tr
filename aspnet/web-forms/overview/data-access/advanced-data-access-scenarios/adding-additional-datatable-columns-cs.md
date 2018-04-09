@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
-title: "Ek DataTable sütunlar (C#) ekleme | Microsoft Docs"
+title: Ek DataTable sütunlar (C#) ekleme | Microsoft Docs
 author: rick-anderson
-description: "Yazılan veri kümesi oluşturmak için TableAdapter Sihirbazı'nı kullanırken, karşılık gelen DataTable ana veritabanı sorgusunun döndürdüğü sütunları içerir. Ancak orada..."
+description: Yazılan veri kümesi oluşturmak için TableAdapter Sihirbazı'nı kullanırken, karşılık gelen DataTable ana veritabanı sorgusunun döndürdüğü sütunları içerir. Ancak orada...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2982af897b433706889cb4eda79dcb4e76baea62
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c2232c9867fc605a5b5d3973d4dbe31895841ca
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-additional-datatable-columns-c"></a>Ek DataTable sütunlar (C#) ekleme
 ====================
@@ -41,9 +41,9 @@ Bu öğreticide biz ek sütunlar eklenecek DataTable s şemayı genişletmek ne 
 
 İçinde *oluşturma yeni saklı yordamlar için yazılan veri kümesi s TableAdapters* yazılan adlı bir veri oluşturduğumuz Öğreticisi `NorthwindWithSprocs`. Bu veri kümesi şu anda iki DataTables içeriyor: `ProductsDataTable` ve `EmployeesDataTable`. `ProductsTableAdapter` Aşağıdaki üç yöntemi vardır:
 
-- `GetProducts`-tüm kayıtları döndürür ana sorgu `Products` tablosu
-- `GetProductsByCategoryID(categoryID)`-Belirtilen tüm ürünleri verir *adlı kullanıcı, Categoryıd'si*.
-- `GetProductByProductID(productID)`-Belirtilen belirli ürünle döndürür *ProductID*.
+- `GetProducts` -tüm kayıtları döndürür ana sorgu `Products` tablosu
+- `GetProductsByCategoryID(categoryID)` -Belirtilen tüm ürünleri verir *adlı kullanıcı, Categoryıd'si*.
+- `GetProductByProductID(productID)` -Belirtilen belirli ürünle döndürür *ProductID*.
 
 Tüm ana sorgu ve iki ek yöntemleri veri alanları, yani tüm sütunları aynı kümesini döndürür `Products` tablo. Hiçbir ilişkili alt sorgulara vardır veya `JOIN` ilgili verileri çekme s `Categories` veya `Suppliers` tabloları. Bu nedenle, `ProductsDataTable` her alan için karşılık gelen bir sütuna sahip `Products` tablo.
 
@@ -209,12 +209,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Randy Etikan, Mersin Goor, Bernadette Leigh ve Hilton Giesenow yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](updating-the-tableadapter-to-use-joins-cs.md)
-[sonraki](working-with-computed-columns-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](updating-the-tableadapter-to-use-joins-cs.md)
+> [sonraki](working-with-computed-columns-cs.md)

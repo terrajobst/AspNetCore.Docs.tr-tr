@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: "(Azure ile gerçek bulut uygulamaları derleme) hatalarına karşı korur tasarım | Microsoft Docs"
+title: (Azure ile gerçek bulut uygulamaları derleme) hatalarına karşı korur tasarım | Microsoft Docs
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure ile gerçek bulut uygulamaları derleme) hatalarına karşı korur tasarlama
 ====================
@@ -131,6 +131,6 @@ Videolar:
 - [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Dokuz parçalı seriyi Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin. Üst düzey kavramlarını ve mimari ilkeler çok erişilebilir ve ilginç yolla, Microsoft Müşteri danışma ekibi (CAT) deneyiminde gerçek müşterilerle çizilmiş hikayeleri sunar. Bölüm 1 ile 8 derinlemesine hatalarına karşı korur bulut uygulamaları tasarlama nedenleri gidin. Ayrıca 49:57, hata noktaları ve bölüm 2 56:05 başlatırken hata modları tartışması ve hattı bölüm 3 40:55 başlatırken ayırıcıları tartışma bölüm 2'de başlayarak hızlandırma izleme tartışma bakın.
 - [Yapı büyük: Azure müşterilerden - bölümü II dersleri öğrenilen](https://channel9.msdn.com/Events/Build/2012/3-030). İşareti SIMM'lerinin için hatası tasarlama ve her şeyi düzenleme hakkında alınmaktadır. Hatasız serisi ancak yapılır Ayrıntılar gerçekleştirip gerçekleştirmeyeceğini benzer.
 
->[!div class="step-by-step"]
-[Önceki](unstructured-blob-storage.md)
-[sonraki](monitoring-and-telemetry.md)
+> [!div class="step-by-step"]
+> [Önceki](unstructured-blob-storage.md)
+> [sonraki](monitoring-and-telemetry.md)
