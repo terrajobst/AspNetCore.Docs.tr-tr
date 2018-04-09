@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking
-title: "ASP.NET MVC Storefront bölümü 12: Mocking | Microsoft Docs"
+title: 'ASP.NET MVC Storefront bölümü 12: Mocking | Microsoft Docs'
 author: robconery
-description: "Bu bölüm dolayısıyla my kimlik doğrulama eylemi my UserController için test edebilirsiniz mocking uygulayın."
+description: Bu bölüm dolayısıyla my kimlik doğrulama eylemi my UserController için test edebilirsiniz mocking uygulayın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -12,21 +12,21 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking
 msc.type: video
-ms.openlocfilehash: 404d59a75c5910ed72902c6b92de3816a84c7a00
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f8f80eaf39aaa76f00d75f8bd45d9c6cb5ef4afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="aspnet-mvc-storefront-part-12-mocking"></a><span data-ttu-id="e7653-103">ASP.NET MVC Storefront bölümü 12: Mocking</span><span class="sxs-lookup"><span data-stu-id="e7653-103">ASP.NET MVC Storefront Part 12: Mocking</span></span>
+<a name="aspnet-mvc-storefront-part-12-mocking"></a><span data-ttu-id="ede88-103">ASP.NET MVC Storefront bölümü 12: Mocking</span><span class="sxs-lookup"><span data-stu-id="ede88-103">ASP.NET MVC Storefront Part 12: Mocking</span></span>
 ====================
-<span data-ttu-id="e7653-104">tarafından [kitap Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="e7653-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="ede88-104">tarafından [kitap Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="ede88-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="e7653-105">Bu bölüm dolayısıyla my kimlik doğrulama eylemi my UserController için test edebilirsiniz mocking uygulayın.</span><span class="sxs-lookup"><span data-stu-id="e7653-105">In this episode I implement mocking so I can test my Authentication action for my UserController.</span></span>
+<span data-ttu-id="ede88-105">Bu bölüm dolayısıyla my kimlik doğrulama eylemi my UserController için test edebilirsiniz mocking uygulayın.</span><span class="sxs-lookup"><span data-stu-id="ede88-105">In this episode I implement mocking so I can test my Authentication action for my UserController.</span></span>
 
-[<span data-ttu-id="e7653-106">&#9654; (18 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="e7653-106">&#9654; Watch video (18 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-12-mocking)
+[<span data-ttu-id="ede88-106">&#9654;(18 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="ede88-106">&#9654; Watch video (18 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-12-mocking)
 
->[!div class="step-by-step"]
-<span data-ttu-id="e7653-107">[Önceki](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
-[sonraki](aspnet-mvc-storefront-part-13-dependency-injection.md)</span><span class="sxs-lookup"><span data-stu-id="e7653-107">[Previous](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="ede88-107">[Önceki](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
+> [sonraki](aspnet-mvc-storefront-part-13-dependency-injection.md)</span><span class="sxs-lookup"><span data-stu-id="ede88-107">[Previous](aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md)
 [Next](aspnet-mvc-storefront-part-13-dependency-injection.md)</span></span>

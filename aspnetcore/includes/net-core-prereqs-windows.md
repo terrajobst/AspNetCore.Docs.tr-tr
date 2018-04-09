@@ -1,0 +1,3 @@
+[<span data-ttu-id="38bcc-101">Windows için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="38bcc-101">Visual Studio for Windows</span></span>](https://www.microsoft.com/net/download/windows)
+* <span data-ttu-id="38bcc-102">**ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="38bcc-102">**ASP.NET and web development** workload</span></span>
+* <span data-ttu-id="38bcc-103">**.NET core platformlar arası geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="38bcc-103">**.NET Core cross-platform development** workload</span></span>

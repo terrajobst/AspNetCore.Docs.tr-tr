@@ -1,7 +1,7 @@
 ---
-title: "Tüketici API'leri"
+title: ASP.NET Core tüketici API'ler
 author: rick-anderson
-description: "Bu belge, çeşitli ASP.NET Core tüketici API veri koruma konular için içindekiler tablosu olarak görev yapar."
+description: Çeşitli ASP.NET Core tüketici API veri koruma konuları hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,22 +9,22 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: a36dbaa7c34ed0cd99bfb2b27a9d59b81ffccbcf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d7ca1104b0a14a330df8d13be58425b3371bff73
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis"></a><span data-ttu-id="e59fb-103">Tüketici API'leri</span><span class="sxs-lookup"><span data-stu-id="e59fb-103">Consumer APIs</span></span>
+# <a name="consumer-apis-for-aspnet-core"></a><span data-ttu-id="cdc7a-103">ASP.NET Core tüketici API'ler</span><span class="sxs-lookup"><span data-stu-id="cdc7a-103">Consumer APIs for ASP.NET Core</span></span>
 
-* [<span data-ttu-id="e59fb-104">Tüketici API'lerine Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="e59fb-104">Consumer APIs Overview</span></span>](overview.md)
+* [<span data-ttu-id="cdc7a-104">Tüketici API'lerine Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="cdc7a-104">Consumer APIs Overview</span></span>](xref:security/data-protection/consumer-apis/overview)
 
-* [<span data-ttu-id="e59fb-105">Amaç Dizeleri</span><span class="sxs-lookup"><span data-stu-id="e59fb-105">Purpose Strings</span></span>](purpose-strings.md)
+* [<span data-ttu-id="cdc7a-105">Amaç Dizeleri</span><span class="sxs-lookup"><span data-stu-id="cdc7a-105">Purpose Strings</span></span>](xref:security/data-protection/consumer-apis/purpose-strings)
 
-* [<span data-ttu-id="e59fb-106">Amaç hiyerarşisi ve çok kiracılılık</span><span class="sxs-lookup"><span data-stu-id="e59fb-106">Purpose hierarchy and multi-tenancy</span></span>](purpose-strings-multitenancy.md)
+* [<span data-ttu-id="cdc7a-106">Amaç hiyerarşisi ve çok kiracılılık</span><span class="sxs-lookup"><span data-stu-id="cdc7a-106">Purpose hierarchy and multi-tenancy</span></span>](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-* [<span data-ttu-id="e59fb-107">Parola Karması</span><span class="sxs-lookup"><span data-stu-id="e59fb-107">Password Hashing</span></span>](password-hashing.md)
+* [<span data-ttu-id="cdc7a-107">Karma parolalar</span><span class="sxs-lookup"><span data-stu-id="cdc7a-107">Hash passwords</span></span>](xref:security/data-protection/consumer-apis/password-hashing)
 
-* [<span data-ttu-id="e59fb-108">Korumalı yüklerin ömrünü sınırlama</span><span class="sxs-lookup"><span data-stu-id="e59fb-108">Limiting the lifetime of protected payloads</span></span>](limited-lifetime-payloads.md)
+* [<span data-ttu-id="cdc7a-108">Korumalı yüklerin ömrünü sınırlama</span><span class="sxs-lookup"><span data-stu-id="cdc7a-108">Limit the lifetime of protected payloads</span></span>](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-* [<span data-ttu-id="e59fb-109">Anahtarları iptal edilen yüklerin korumasını kaldırma</span><span class="sxs-lookup"><span data-stu-id="e59fb-109">Unprotecting payloads whose keys have been revoked</span></span>](dangerous-unprotect.md)
+* [<span data-ttu-id="cdc7a-109">Anahtarları iptal edilen yüklerin korumasını kaldırma</span><span class="sxs-lookup"><span data-stu-id="cdc7a-109">Unprotect payloads whose keys have been revoked</span></span>](xref:security/data-protection/consumer-apis/dangerous-unprotect)

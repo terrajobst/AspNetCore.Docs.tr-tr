@@ -1,316 +1,189 @@
 ---
-title: "ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını"
+title: ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 author: steve-smith
-description: "Web uygulamaları burada kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşimi etkileyebilir saldırıları önlemek nasıl bulur."
+description: Web uygulamaları burada kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşimi etkileyebilir saldırıları önlemek nasıl bulur.
 manager: wpickett
 ms.author: riande
-ms.date: 7/14/2017
+ms.custom: mvc
+ms.date: 03/19/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 80651a3c3e4c722e0cb96d7cc07de366819f8d1d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a><span data-ttu-id="f52b7-103">ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını</span><span class="sxs-lookup"><span data-stu-id="f52b7-103">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</span></span>
+# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a><span data-ttu-id="fd4ec-103">ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını</span><span class="sxs-lookup"><span data-stu-id="fd4ec-103">Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core</span></span>
 
-<span data-ttu-id="f52b7-104">[Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="f52b7-104">[Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="fd4ec-104">Tarafından [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="fd4ec-104">By [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-## <a name="what-attack-does-anti-forgery-prevent"></a><span data-ttu-id="f52b7-105">Hangi saldırı sahteciliğe karşı koruma engellemez?</span><span class="sxs-lookup"><span data-stu-id="f52b7-105">What attack does anti-forgery prevent?</span></span>
+<span data-ttu-id="fd4ec-105">Siteler arası istek sahtekarlığı (olarak da bilinen XSRF veya CSRF, belirgin *bakın surf*) web barındırılan uygulamalar alınabildiği bir kötü amaçlı web uygulaması etkilemek istemci tarayıcısına ve, güvendiği bir web uygulaması arasındaki etkileşimi karşı bir saldırı Tarayıcı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-105">Cross-site request forgery (also known as XSRF or CSRF, pronounced *see-surf*) is an attack against web-hosted apps whereby a malicious web app can influence the interaction between a client browser and a web app that trusts that browser.</span></span> <span data-ttu-id="fd4ec-106">Web tarayıcıları bazı kimlik doğrulama belirteçleri türleri her istek ile otomatik olarak bir Web sitesine göndermek için bu tür saldırıları mümkündür.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-106">These attacks are possible because web browsers send some types of authentication tokens automatically with every request to a website.</span></span> <span data-ttu-id="fd4ec-107">Bu yararlanma olarak da bilinen biçimidir bir *tek tıklatmayla saldırı* veya *arabası oturum* saldırı yararlandığı için kullanıcı daha önce oturum kimliği doğrulanmış.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-107">This form of exploit is also known as a *one-click attack* or *session riding* because the attack takes advantage of the user's previously authenticated session.</span></span>
 
-<span data-ttu-id="f52b7-106">Siteler arası istek sahtekarlığı (olarak da bilinen XSRF veya CSRF, belirgin *bakın surf*) web barındırılan uygulamalar yapabildiği kötü amaçlı bir web sitesi etkilemek istemci tarayıcısına ve güvendiği bir web sitesi arasındaki etkileşim karşı bir saldırı Bu tarayıcı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-106">Cross-site request forgery (also known as XSRF or CSRF, pronounced *see-surf*) is an attack against web-hosted applications whereby a malicious web site can influence the interaction between a client browser and a web site that trusts that browser.</span></span> <span data-ttu-id="f52b7-107">Web tarayıcıları bir web sitesi için kimlik doğrulama belirteçleri bazı türleri her istek ile otomatik olarak göndermek için bu saldırıların olası yapılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-107">These attacks are made possible because web browsers send some types of authentication tokens automatically with every request to a web site.</span></span> <span data-ttu-id="f52b7-108">Bu biçimi yararlanma, kullanıcının olarak da bilinen bir *tek tıklatmayla saldırı* veya as *arabası oturum*, saldırı yararlanır kullanıcı daha önce oturum kimliği doğrulanmış.</span><span class="sxs-lookup"><span data-stu-id="f52b7-108">This form of exploit's also known as a *one-click attack* or as *session riding*, because the attack takes advantage of the user's previously authenticated session.</span></span>
+<span data-ttu-id="fd4ec-108">CSRF saldırı örneği:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-108">An example of a CSRF attack:</span></span>
 
-<span data-ttu-id="f52b7-109">CSRF saldırı örneği:</span><span class="sxs-lookup"><span data-stu-id="f52b7-109">An example of a CSRF attack:</span></span>
+1. <span data-ttu-id="fd4ec-109">İçine bir kullanıcı oturum açtığında `www.good-banking-site.com` forms kimlik doğrulaması kullanma.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-109">A user signs into `www.good-banking-site.com` using forms authentication.</span></span> <span data-ttu-id="fd4ec-110">Sunucu kullanıcının kimliğini doğrular ve bir kimlik doğrulama tanımlama bilgisini içeren bir yanıt verir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-110">The server authenticates the user and issues a response that includes an authentication cookie.</span></span> <span data-ttu-id="fd4ec-111">Site için geçerli bir kimlik doğrulama tanımlama bilgisi ile aldığı herhangi bir istek güvendiği için saldırılara karşı savunmasızdır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-111">The site is vulnerable to attack because it trusts any request that it receives with a valid authentication cookie.</span></span>
+1. <span data-ttu-id="fd4ec-112">Kullanıcı kötü amaçlı bir sitesini ziyaret `www.bad-crook-site.com`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-112">The user visits a malicious site, `www.bad-crook-site.com`.</span></span>
 
-1. <span data-ttu-id="f52b7-110">İçine bir kullanıcı oturum `www.example.com`, forms kimlik doğrulaması kullanma.</span><span class="sxs-lookup"><span data-stu-id="f52b7-110">A user logs into `www.example.com`, using forms authentication.</span></span>
-2. <span data-ttu-id="f52b7-111">Sunucu kullanıcının kimliğini doğrular ve bir kimlik doğrulama tanımlama bilgisini içeren bir yanıt verir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-111">The server authenticates the user and issues a response that includes an authentication cookie.</span></span>
-3. <span data-ttu-id="f52b7-112">Kullanıcı kötü amaçlı bir siteyi ziyaret eder.</span><span class="sxs-lookup"><span data-stu-id="f52b7-112">The user visits a malicious site.</span></span>
-
-   <span data-ttu-id="f52b7-113">Kötü amaçlı site aşağıdakine benzer bir HTML formuna içerir:</span><span class="sxs-lookup"><span data-stu-id="f52b7-113">The malicious site contains an HTML form similar to the following:</span></span>
+   <span data-ttu-id="fd4ec-113">Kötü amaçlı site `www.bad-crook-site.com`, aşağıdakine benzer bir HTML formuna içerir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-113">The malicious site, `www.bad-crook-site.com`, contains an HTML form similar to the following:</span></span>
 
    ```html
-   <h1>You Are a Winner!</h1>
-   <form action="http://example.com/api/account" method="post">
+   <h1>Congratulations! You're a Winner!</h1>
+   <form action="http://good-banking-site.com/api/account" method="post">
        <input type="hidden" name="Transaction" value="withdraw">
        <input type="hidden" name="Amount" value="1000000">
-       <input type="submit" value="Click Me">
+       <input type="submit" value="Click to collect your prize!">
    </form>
    ```
 
-<span data-ttu-id="f52b7-114">Form eylemi kötü amaçlı siteye değil savunmasız siteye yazılarını dikkat edin.</span><span class="sxs-lookup"><span data-stu-id="f52b7-114">Notice that the form action posts to the vulnerable site, not to the malicious site.</span></span> <span data-ttu-id="f52b7-115">CSRF "siteler arası" parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-115">This is the “cross-site” part of CSRF.</span></span>
+   <span data-ttu-id="fd4ec-114">Şunlara dikkat edin formun `action` gönderileri savunmasız siteye değil, zararlı site.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-114">Notice that the form's `action` posts to the vulnerable site, not to the malicious site.</span></span> <span data-ttu-id="fd4ec-115">CSRF "siteler arası" parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-115">This is the "cross-site" part of CSRF.</span></span>
 
-4. <span data-ttu-id="f52b7-116">Kullanıcı gönder düğmesine tıklar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-116">The user clicks the submit button.</span></span> <span data-ttu-id="f52b7-117">Tarayıcı, kimlik doğrulama tanımlama bilgisi istekle istenen etki alanı (Bu durumda savunmasız site) için otomatik olarak ekler.</span><span class="sxs-lookup"><span data-stu-id="f52b7-117">The browser automatically includes the authentication cookie for the requested domain (the vulnerable site in this case) with the request.</span></span>
-5. <span data-ttu-id="f52b7-118">İstek, kullanıcının kimlik doğrulaması bağlamı ile sunucuya çalışır ve kimliği doğrulanmış bir kullanıcı yapmak için izin verilen herhangi bir eylem gerçekleştirebilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-118">The request runs on the server with the user's authentication context and can perform any action that an authenticated user is allowed to do.</span></span>
+1. <span data-ttu-id="fd4ec-116">Kullanıcı düğmesi seçer.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-116">The user selects the submit button.</span></span> <span data-ttu-id="fd4ec-117">Tarayıcı isteği yapar ve otomatik olarak istenen etki alanı için kimlik doğrulama tanımlama bilgisi içeren `www.good-banking-site.com`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-117">The browser makes the request and automatically includes the authentication cookie for the requested domain, `www.good-banking-site.com`.</span></span>
+1. <span data-ttu-id="fd4ec-118">İstek çalıştığı `www.good-banking-site.com` kullanıcının kimlik doğrulaması bağlamı sunucuyla ve kimliği doğrulanmış bir kullanıcı gerçekleştirmek için izin verilen herhangi bir eylem gerçekleştirebilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-118">The request runs on the `www.good-banking-site.com` server with the user's authentication context and can perform any action that an authenticated user is allowed to perform.</span></span>
 
-<span data-ttu-id="f52b7-119">Bu örnekte form düğmesini kullanıcıya gerektirir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-119">This example requires the user to click the form button.</span></span> <span data-ttu-id="f52b7-120">Kötü amaçlı sayfası olabilir:</span><span class="sxs-lookup"><span data-stu-id="f52b7-120">The malicious page could:</span></span>
+<span data-ttu-id="fd4ec-119">Kullanıcı form gönderme düğmesini seçtiğinde, zararlı site olabilir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-119">When the user selects the button to submit the form, the malicious site could:</span></span>
 
-* <span data-ttu-id="f52b7-121">Otomatik olarak form gönderen bir komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="f52b7-121">Run a script that automatically submits the form.</span></span>
-* <span data-ttu-id="f52b7-122">Form gönderme AJAX isteği gönderir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-122">Sends a form submission as an AJAX request.</span></span> 
-* <span data-ttu-id="f52b7-123">Gizli bir form CSS ile kullanın.</span><span class="sxs-lookup"><span data-stu-id="f52b7-123">Use a hidden form with CSS.</span></span> 
+* <span data-ttu-id="fd4ec-120">Otomatik olarak form gönderen bir komut dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-120">Run a script that automatically submits the form.</span></span>
+* <span data-ttu-id="fd4ec-121">Form gönderme AJAX isteği gönderir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-121">Sends a form submission as an AJAX request.</span></span> 
+* <span data-ttu-id="fd4ec-122">Gizli bir form CSS ile kullanın.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-122">Use a hidden form with CSS.</span></span> 
 
-<span data-ttu-id="f52b7-124">SSL olmayan engel CSRF saldırı, zararlı site gönderebilirsiniz bir `https://` isteği.</span><span class="sxs-lookup"><span data-stu-id="f52b7-124">Using SSL doesn't prevent a CSRF attack, the malicious site can send an `https://` request.</span></span> 
+<span data-ttu-id="fd4ec-123">HTTPS kullanarak CSRF saldırı engellemez.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-123">Using HTTPS doesn't prevent a CSRF attack.</span></span> <span data-ttu-id="fd4ec-124">Kötü amaçlı site gönderebilirsiniz bir `https://www.good-banking-site.com/` kolayca güvenli olmayan bir istek gönderebilir gibi isteyin.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-124">The malicious site can send an `https://www.good-banking-site.com/` request just as easily as it can send an insecure request.</span></span>
 
-<span data-ttu-id="f52b7-125">Bazı saldırılar yanıt site uç noktaları hedef `GET` istekleri, hangi durumda resim etiketi (Bu saldırı biçimidir ortak görüntüleri izin ancak JavaScript engelleme Forumu sitelerinde) eylemi gerçekleştirmek için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-125">Some attacks target site endpoints that respond to `GET` requests, in which case an image tag can be used to perform the action (this form of attack is common on forum sites that permit images but block JavaScript).</span></span> <span data-ttu-id="f52b7-126">İle durum değişikliği uygulamaları `GET` istekleri kötü amaçlı saldırılara karşı savunmasız.</span><span class="sxs-lookup"><span data-stu-id="f52b7-126">Applications that change state with `GET` requests are vulnerable from malicious attacks.</span></span>
+<span data-ttu-id="fd4ec-125">Bazı saldırılar, eylemi gerçekleştirmek için bir resim etiketi, bu durumda kullanılabilir GET isteklerine yanıt uç noktaları hedefleyin.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-125">Some attacks target endpoints that respond to GET requests, in which case an image tag can be used to perform the action.</span></span> <span data-ttu-id="fd4ec-126">Bu saldırı, görüntüleri izin ancak JavaScript engelleme Forumu sitelerinde ortak biçimidir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-126">This form of attack is common on forum sites that permit images but block JavaScript.</span></span> <span data-ttu-id="fd4ec-127">GET isteklerinde burada değişkenleri veya kaynakları değiştirilir, durum değişikliği kötü amaçlı saldırılara açık uygulamalardır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-127">Apps that change state on GET requests, where variables or resources are altered, are vulnerable to malicious attacks.</span></span> <span data-ttu-id="fd4ec-128">**Durum değişikliği GET istekleri güvenli değil. Hiçbir zaman bir GET isteği durumu değiştirmek en iyi bir uygulamadır.**</span><span class="sxs-lookup"><span data-stu-id="fd4ec-128">**GET requests that change state are insecure. A best practice is to never change state on a GET request.**</span></span>
 
-<span data-ttu-id="f52b7-127">Tarayıcıların tüm ilgili tanımlama bilgilerini hedef web sitesine gönderdiği çünkü CSRF saldırılarına karşı kimlik doğrulaması için tanımlama bilgileri kullanan web siteleri mümkündür.</span><span class="sxs-lookup"><span data-stu-id="f52b7-127">CSRF attacks are possible against web sites that use cookies for authentication, because browsers send all relevant cookies to the destination web site.</span></span> <span data-ttu-id="f52b7-128">Ancak, CSRF saldırıları tanımlama bilgisinden faydalanmakta için sınırlı değildir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-128">However, CSRF attacks are not limited to exploiting cookies.</span></span> <span data-ttu-id="f52b7-129">Örneğin, temel ve Özet kimlik doğrulaması da savunmasız.</span><span class="sxs-lookup"><span data-stu-id="f52b7-129">For example, Basic and Digest authentication are also vulnerable.</span></span> <span data-ttu-id="f52b7-130">Bir kullanıcının temel veya Özet kimlik doğrulaması ile oturum açtığı sonra oturumu sona kadar tarayıcı otomatik olarak kimlik bilgilerini gönderir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-130">After a user logs in with Basic or Digest authentication, the browser automatically sends the credentials until the session ends.</span></span>
+<span data-ttu-id="fd4ec-129">CSRF saldırıları, çünkü kimlik doğrulaması için tanımlama bilgileri kullanan web uygulamaları karşı desteklenir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-129">CSRF attacks are possible against web apps that use cookies for authentication because:</span></span>
 
-<span data-ttu-id="f52b7-131">Not: Bu bağlamda *oturum* sırasında kullanıcının kimliğinin istemci-tarafı oturumuna başvuruyor.</span><span class="sxs-lookup"><span data-stu-id="f52b7-131">Note: In this context, *session* refers to the client-side session during which the user is authenticated.</span></span> <span data-ttu-id="f52b7-132">Bu sunucu tarafı oturumlarını ilgisiz veya [oturum Ara](xref:fundamentals/app-state).</span><span class="sxs-lookup"><span data-stu-id="f52b7-132">It's unrelated to server-side sessions or [session middleware](xref:fundamentals/app-state).</span></span>
+* <span data-ttu-id="fd4ec-130">Tarayıcıları bir web uygulaması tarafından verilen tanımlama bilgilerini depolar.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-130">Browsers store cookies issued by a web app.</span></span>
+* <span data-ttu-id="fd4ec-131">Saklı tanımlama bilgileri, kimliği doğrulanmış kullanıcılar için oturum tanımlama bilgileri içerir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-131">Stored cookies include session cookies for authenticated users.</span></span>
+* <span data-ttu-id="fd4ec-132">Tanımlama bilgileri web uygulaması için bir etki alanı ile uygulama isteği tarayıcı içinde nasıl oluşturulan bağımsız olarak her istek ilişkili tüm tarayıcılar gönderin.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-132">Browsers send all of the cookies associated with a domain to the web app every request regardless of how the request to app was generated within the browser.</span></span>
 
-<span data-ttu-id="f52b7-133">Kullanıcılar tarafından CSRF güvenlik açıklarına karşı önleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="f52b7-133">Users can guard against CSRF vulnerabilities by:</span></span>
-* <span data-ttu-id="f52b7-134">Bunları kullanmayı bitirdikten sonra web sitelerinde oturum.</span><span class="sxs-lookup"><span data-stu-id="f52b7-134">Logging off of web sites when they have finished using them.</span></span>
-* <span data-ttu-id="f52b7-135">Kendi tarayıcının tanımlama bilgilerini düzenli olarak temizleme.</span><span class="sxs-lookup"><span data-stu-id="f52b7-135">Clearing their browser's cookies periodically.</span></span>
+<span data-ttu-id="fd4ec-133">Ancak, CSRF saldırıları için sınırlı olmayan tanımlama bilgisinden faydalanmakta.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-133">However, CSRF attacks aren't limited to exploiting cookies.</span></span> <span data-ttu-id="fd4ec-134">Örneğin, temel ve Özet kimlik doğrulaması da savunmasız.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-134">For example, Basic and Digest authentication are also vulnerable.</span></span> <span data-ttu-id="fd4ec-135">Temel veya Özet kimlik doğrulaması ile oturum kullanıcının oturum açtığı sonra tarayıcı kadar oturum kimlik bilgileri otomatik olarak gönderir.&dagger; sona erer.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-135">After a user signs in with Basic or Digest authentication, the browser automatically sends the credentials until the session&dagger; ends.</span></span>
 
-<span data-ttu-id="f52b7-136">Ancak, CSRF güvenlik açıkları temelde web uygulaması, son kullanıcı ile ilgili bir sorun değildir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-136">However, CSRF vulnerabilities are fundamentally a problem with the web app, not the end user.</span></span>
+<span data-ttu-id="fd4ec-136">&dagger;Bu bağlamda *oturum* sırasında kullanıcının kimliğinin istemci-tarafı oturumuna başvuruyor.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-136">&dagger;In this context, *session* refers to the client-side session during which the user is authenticated.</span></span> <span data-ttu-id="fd4ec-137">Bu sunucu tarafı oturumlarını ilgisiz veya [ASP.NET Core oturum Ara](xref:fundamentals/app-state).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-137">It's unrelated to server-side sessions or [ASP.NET Core Session Middleware](xref:fundamentals/app-state).</span></span>
 
-## <a name="how-does-aspnet-core-mvc-address-csrf"></a><span data-ttu-id="f52b7-137">ASP.NET Core MVC CSRF nasıl ele?</span><span class="sxs-lookup"><span data-stu-id="f52b7-137">How does ASP.NET Core MVC address CSRF?</span></span>
+<span data-ttu-id="fd4ec-138">Kullanıcılar CSRF güvenlik açıklarına karşı önlem alarak önleyebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-138">Users can guard against CSRF vulnerabilities by taking precautions:</span></span>
+
+* <span data-ttu-id="fd4ec-139">Dışına kullanmadan bittiğinde, web uygulamalarını imzalayın.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-139">Sign off of web apps when finished using them.</span></span>
+* <span data-ttu-id="fd4ec-140">Düzenli aralıklarla Temizle tarayıcı tanımlama.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-140">Clear browser cookies periodically.</span></span>
+
+<span data-ttu-id="fd4ec-141">Ancak, CSRF güvenlik açıkları temelde web uygulaması, son kullanıcı ile ilgili bir sorun değildir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-141">However, CSRF vulnerabilities are fundamentally a problem with the web app, not the end user.</span></span>
+
+## <a name="authentication-fundamentals"></a><span data-ttu-id="fd4ec-142">Kimlik doğrulaması temelleri</span><span class="sxs-lookup"><span data-stu-id="fd4ec-142">Authentication fundamentals</span></span>
+
+<span data-ttu-id="fd4ec-143">Tanımlama bilgisi tabanlı kimlik doğrulaması, kimlik doğrulama popüler şeklidir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-143">Cookie-based authentication is a popular form of authentication.</span></span> <span data-ttu-id="fd4ec-144">Belirteç tabanlı kimlik doğrulama sistemleriyle popülerliği içinde özellikle tek sayfa uygulamaları için (SPAs) büyüyor.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-144">Token-based authentication systems are growing in popularity, especially for Single Page Applications (SPAs).</span></span>
+
+### <a name="cookie-based-authentication"></a><span data-ttu-id="fd4ec-145">Tanımlama bilgisi tabanlı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="fd4ec-145">Cookie-based authentication</span></span>
+
+<span data-ttu-id="fd4ec-146">Bir kullanıcının kullanıcı adı ve parola kullanarak kimlik doğrulaması, kimlik doğrulama ve yetkilendirme için kullanılan kimlik doğrulama biletini içeren bir belirteç alacakları.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-146">When a user authenticates using their username and password, they're issued a token, containing an authentication ticket that can be used for authentication and authorization.</span></span> <span data-ttu-id="fd4ec-147">Her istek istemci eşlik bir tanımlama bilgisi getirir belirteç depolanır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-147">The token is stored as a cookie that accompanies every request the client makes.</span></span> <span data-ttu-id="fd4ec-148">Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılım tarafından gerçekleştirilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-148">Generating and validating this cookie is performed by the Cookie Authentication Middleware.</span></span> <span data-ttu-id="fd4ec-149">[Ara yazılım](xref:fundamentals/middleware/index) kullanıcı asıl şifrelenmiş bir tanımlama bilgisine serileştirir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-149">The [middleware](xref:fundamentals/middleware/index) serializes a user principal into an encrypted cookie.</span></span> <span data-ttu-id="fd4ec-150">Sonraki isteklerde ara yazılım tanımlama bilgisini doğrular, asıl yeniden oluşturur ve asıl atar [kullanıcı](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) özelliği [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-150">On subsequent requests, the middleware validates the cookie, recreates the principal, and assigns the principal to the [User](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) property of [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).</span></span>
+
+### <a name="token-based-authentication"></a><span data-ttu-id="fd4ec-151">Belirteç tabanlı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="fd4ec-151">Token-based authentication</span></span>
+
+<span data-ttu-id="fd4ec-152">Bir kullanıcının kimliği doğrulandığında, bir belirteç (antiforgery bir belirteç değil) alacakları.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-152">When a user is authenticated, they're issued a token (not an antiforgery token).</span></span> <span data-ttu-id="fd4ec-153">Belirteç biçiminde kullanıcı bilgilerini içeren [talep](/dotnet/framework/security/claims-based-identity-model) veya uygulama kullanıcı durumu uygulamada tutulan işaret eden bir başvuru belirteci.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-153">The token contains user information in the form of [claims](/dotnet/framework/security/claims-based-identity-model) or a reference token that points the app to user state maintained in the app.</span></span> <span data-ttu-id="fd4ec-154">Bir kullanıcı kimlik doğrulaması gerektiren bir kaynağa erişmeyi denediğinde, belirteç taşıyıcı belirteci biçiminde bir ek authorization üstbilgisi uygulamayla gönderilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-154">When a user attempts to access a resource requiring authentication, the token is sent to the app with an additional authorization header in form of Bearer token.</span></span> <span data-ttu-id="fd4ec-155">Bu uygulamayı durum bilgisiz hale getirir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-155">This makes the app stateless.</span></span> <span data-ttu-id="fd4ec-156">Sonraki her istek belirteci istek için sunucu tarafı doğrulama geçirilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-156">In each subsequent request, the token is passed in the request for server-side validation.</span></span> <span data-ttu-id="fd4ec-157">Bu belirteç değil *şifrelenmiş*; bunun *kodlanmış*.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-157">This token isn't *encrypted*; it's *encoded*.</span></span> <span data-ttu-id="fd4ec-158">Sunucu üzerinde kendi bilgilerine erişmek için belirteç kodu.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-158">On the server, the token is decoded to access its information.</span></span> <span data-ttu-id="fd4ec-159">Belirtecin sonraki isteklerde göndermek için tarayıcının yerel depolama alanına belirteç depolar.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-159">To send the token on subsequent requests, store the token in the browser's local storage.</span></span> <span data-ttu-id="fd4ec-160">Belirteç tarayıcının yerel depolama alanında depolanıyorsa, CSRF güvenlik açığı hakkında endişelenmeyin.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-160">Don't be concerned about CSRF vulnerability if the token is stored in the browser's local storage.</span></span> <span data-ttu-id="fd4ec-161">Belirtecin bir tanımlama bilgisinde depolandığında CSRF bir konudur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-161">CSRF is a concern when the token is stored in a cookie.</span></span>
+
+### <a name="multiple-apps-hosted-at-one-domain"></a><span data-ttu-id="fd4ec-162">Bir etki alanında barındırılan birden fazla uygulama</span><span class="sxs-lookup"><span data-stu-id="fd4ec-162">Multiple apps hosted at one domain</span></span>
+
+<span data-ttu-id="fd4ec-163">Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara karşı savunmasız.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-163">Shared hosting environments are vulnerable to session hijacking, login CSRF, and other attacks.</span></span>
+
+<span data-ttu-id="fd4ec-164">Ancak `example1.contoso.net` ve `example2.contoso.net` farklı ana altında ana bilgisayarlar arasında örtük güven ilişkisi yoktur `*.contoso.net` etki alanı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-164">Although `example1.contoso.net` and `example2.contoso.net` are different hosts, there's an implicit trust relationship between hosts under the `*.contoso.net` domain.</span></span> <span data-ttu-id="fd4ec-165">Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-165">This implicit trust relationship allows potentially untrusted hosts to affect each other's cookies (the same-origin policies that govern AJAX requests don't necessarily apply to HTTP cookies).</span></span>
+
+<span data-ttu-id="fd4ec-166">Aynı etki alanında barındırılan uygulamalar arasında güvenilir tanımlama bilgilerini yararlanma saldırıları, etki alanları paylaşmıyor engellenebilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-166">Attacks that exploit trusted cookies between apps hosted on the same domain can be prevented by not sharing domains.</span></span> <span data-ttu-id="fd4ec-167">Her uygulamanın kendi etki alanı üzerinde barındırıldığında yararlanmak için örtük tanımlama bilgisi güven ilişkisi yoktur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-167">When each app is hosted on its own domain, there is no implicit cookie trust relationship to exploit.</span></span>
+
+## <a name="aspnet-core-antiforgery-configuration"></a><span data-ttu-id="fd4ec-168">ASP.NET Core antiforgery yapılandırma</span><span class="sxs-lookup"><span data-stu-id="fd4ec-168">ASP.NET Core antiforgery configuration</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="f52b7-138">ASP.NET Core uygulayan anti-request-sahte kullanarak [ASP.NET Core veri koruma yığını](xref:security/data-protection/introduction).</span><span class="sxs-lookup"><span data-stu-id="f52b7-138">ASP.NET Core implements anti-request-forgery using the [ASP.NET Core data protection stack](xref:security/data-protection/introduction).</span></span> <span data-ttu-id="f52b7-139">ASP.NET Core veri koruma, bir sunucu grubunda çalışmak için yapılandırılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-139">ASP.NET Core data protection must be configured to work in a server farm.</span></span> <span data-ttu-id="f52b7-140">Bkz: [veri korumasını yapılandırma](xref:security/data-protection/configuration/overview) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f52b7-140">See [Configuring data protection](xref:security/data-protection/configuration/overview) for more information.</span></span>
+> <span data-ttu-id="fd4ec-169">ASP.NET Core uygulayan antiforgery kullanarak [ASP.NET Core veri koruması](xref:security/data-protection/introduction).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-169">ASP.NET Core implements antiforgery using [ASP.NET Core Data Protection](xref:security/data-protection/introduction).</span></span> <span data-ttu-id="fd4ec-170">Veri koruma yığını bir sunucu grubunda çalışmak için yapılandırılmış olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-170">The data protection stack must be configured to work in a server farm.</span></span> <span data-ttu-id="fd4ec-171">Bkz: [veri korumasını yapılandırma](xref:security/data-protection/configuration/overview) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-171">See [Configuring data protection](xref:security/data-protection/configuration/overview) for more information.</span></span>
 
-<span data-ttu-id="f52b7-141">ASP.NET Core anti-request-sahte varsayılan veri koruma yapılandırması</span><span class="sxs-lookup"><span data-stu-id="f52b7-141">ASP.NET Core anti-request-forgery default data protection configuration</span></span> 
+<span data-ttu-id="fd4ec-172">ASP.NET Core 2.0 veya sonraki sürümlerde, [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) antiforgery belirteçleri HTML form öğelerini yerleştirir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-172">In ASP.NET Core 2.0 or later, the [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) injects antiforgery tokens into HTML form elements.</span></span> <span data-ttu-id="fd4ec-173">Razor dosyasının aşağıdaki biçimlendirmede otomatik olarak antiforgery belirteçleri oluşturur:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-173">The following markup in a Razor file automatically generates antiforgery tokens:</span></span>
 
-<span data-ttu-id="f52b7-142">ASP.NET Core MVC 2.0 [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) sahteciliğe karşı koruma belirteçleri için HTML form öğelerini yerleştirir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-142">In ASP.NET Core MVC 2.0 the [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) injects anti-forgery tokens for HTML form elements.</span></span> <span data-ttu-id="f52b7-143">Örneğin, bir Razor dosyasının aşağıdaki biçimlendirmede sahteciliğe karşı koruma belirteçlerini otomatik olarak oluşturur:</span><span class="sxs-lookup"><span data-stu-id="f52b7-143">For example, the following markup in a Razor file will automatically generate anti-forgery tokens:</span></span>
-
-```html
+```cshtml
 <form method="post">
-  <!-- form markup -->
+    ...
 </form>
 ```
 
-<span data-ttu-id="f52b7-144">Otomatik olarak oluşturulmasını sahteciliğe karşı koruma belirteçleri için HTML form öğelerini olur zaman:</span><span class="sxs-lookup"><span data-stu-id="f52b7-144">The automatic generation of anti-forgery tokens for HTML form elements happens when:</span></span>
+<span data-ttu-id="fd4ec-174">Similarily, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) formun yöntemi GET değilse varsayılan olarak antiforgery belirteçleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-174">Similarily, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) generates antiforgery tokens by default if the form's method isn't GET.</span></span>
 
-* <span data-ttu-id="f52b7-145">`form` Etiketinde `method="post"` özniteliği ve</span><span class="sxs-lookup"><span data-stu-id="f52b7-145">The `form` tag contains the `method="post"` attribute AND</span></span>
+<span data-ttu-id="fd4ec-175">Otomatik olarak oluşturulmasını antiforgery belirteçleri HTML form öğelerini için olur zaman `<form>` etiketinde `method="post"` özniteliği ve aşağıdakilerden birini geçerliyse:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-175">The automatic generation of antiforgery tokens for HTML form elements happens when the `<form>` tag contains the `method="post"` attribute and either of the following are true:</span></span>
 
-  * <span data-ttu-id="f52b7-146">Boş eylem özniteliğidir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-146">The action attribute is empty.</span></span> <span data-ttu-id="f52b7-147">( `action=""`) OR</span><span class="sxs-lookup"><span data-stu-id="f52b7-147">( `action=""`) OR</span></span>
-  * <span data-ttu-id="f52b7-148">Eylem öznitelik sağlanan değil.</span><span class="sxs-lookup"><span data-stu-id="f52b7-148">The action attribute isn't supplied.</span></span> <span data-ttu-id="f52b7-149">(`<form method="post">`)</span><span class="sxs-lookup"><span data-stu-id="f52b7-149">(`<form method="post">`)</span></span>
+  * <span data-ttu-id="fd4ec-176">Eylem öznitelik boştur (`action=""`).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-176">The action attribute is empty (`action=""`).</span></span>
+  * <span data-ttu-id="fd4ec-177">Eylem öznitelik sağlanan değil (`<form method="post">`).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-177">The action attribute isn't supplied (`<form method="post">`).</span></span>
 
-<span data-ttu-id="f52b7-150">Sahteciliğe karşı koruma belirteçlerini otomatik olarak oluşturulmasını HTML form öğelerini tarafından için devre dışı bırakabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="f52b7-150">You can disable automatic generation of anti-forgery tokens for HTML form elements by:</span></span>
+<span data-ttu-id="fd4ec-178">Otomatik antiforgery belirteçleri oluşturulmasında HTML form öğelerini devre dışı bırakılabilir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-178">Automatic generation of antiforgery tokens for HTML form elements can be disabled:</span></span>
 
-* <span data-ttu-id="f52b7-151">Açıkça devre dışı bırakma `asp-antiforgery`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-151">Explicitly disabling `asp-antiforgery`.</span></span> <span data-ttu-id="f52b7-152">Örneğin</span><span class="sxs-lookup"><span data-stu-id="f52b7-152">For example</span></span>
+* <span data-ttu-id="fd4ec-179">Açıkça antiforgery belirteçleri ile devre dışı `asp-antiforgery` özniteliği:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-179">Explicitly disable antiforgery tokens with the `asp-antiforgery` attribute:</span></span>
 
-  ```html
+  ```cshtml
   <form method="post" asp-antiforgery="false">
+      ...
   </form>
   ```
 
-* <span data-ttu-id="f52b7-153">Etiket Yardımcısını kullanarak form öğesi etiket Yardımcıları dışında opt [! çevirin simgesi](xref:mvc/views/tag-helpers/intro#opt-out).</span><span class="sxs-lookup"><span data-stu-id="f52b7-153">Opt the form element out of Tag Helpers by using the Tag Helper [! opt-out symbol](xref:mvc/views/tag-helpers/intro#opt-out).</span></span>
+* <span data-ttu-id="fd4ec-180">Form öğesi seçti etiket Yardımcıları etiket Yardımcısını kullanarak genişletme [! çevirin simgesi](xref:mvc/views/tag-helpers/intro#opt-out):</span><span class="sxs-lookup"><span data-stu-id="fd4ec-180">The form element is opted-out of Tag Helpers by using the Tag Helper [! opt-out symbol](xref:mvc/views/tag-helpers/intro#opt-out):</span></span>
 
-  ```html
+  ```cshtml
   <!form method="post">
+      ...
   </!form>
   ```
 
-* <span data-ttu-id="f52b7-154">Kaldırma `FormTagHelper` görünümünden.</span><span class="sxs-lookup"><span data-stu-id="f52b7-154">Remove the `FormTagHelper` from the view.</span></span> <span data-ttu-id="f52b7-155">Kaldırabileceğiniz `FormTagHelper` Razor görünümüne aşağıdaki yönergesi ekleyerek görünümden:</span><span class="sxs-lookup"><span data-stu-id="f52b7-155">You can remove the `FormTagHelper` from a view by adding the following directive to the Razor view:</span></span>
+* <span data-ttu-id="fd4ec-181">Kaldırma `FormTagHelper` görünümünden.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-181">Remove the `FormTagHelper` from the view.</span></span> <span data-ttu-id="fd4ec-182">`FormTagHelper` Razor görünümüne aşağıdaki yönergesi ekleyerek bir görünümden kaldırılabilir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-182">The `FormTagHelper` can be removed from a view by adding the following directive to the Razor view:</span></span>
 
-  ```html
+  ```cshtml
   @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
   ```
 
 > [!NOTE]
-> <span data-ttu-id="f52b7-156">[Razor sayfalarının](xref:mvc/razor-pages/index) XSRF/CSRF otomatik olarak korunur.</span><span class="sxs-lookup"><span data-stu-id="f52b7-156">[Razor Pages](xref:mvc/razor-pages/index) are automatically protected from XSRF/CSRF.</span></span> <span data-ttu-id="f52b7-157">Herhangi bir ek kod yazmak zorunda değilsiniz.</span><span class="sxs-lookup"><span data-stu-id="f52b7-157">You don't have to write any additional code.</span></span> <span data-ttu-id="f52b7-158">Bkz: [XSRF/CSRF ve Razor sayfalarının](xref:mvc/razor-pages/index#xsrf) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f52b7-158">See [XSRF/CSRF and Razor Pages](xref:mvc/razor-pages/index#xsrf) for more information.</span></span>
+> <span data-ttu-id="fd4ec-183">[Razor sayfalarının](xref:mvc/razor-pages/index) XSRF/CSRF otomatik olarak korunur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-183">[Razor Pages](xref:mvc/razor-pages/index) are automatically protected from XSRF/CSRF.</span></span> <span data-ttu-id="fd4ec-184">Daha fazla bilgi için bkz: [XSRF/CSRF ve Razor sayfalarının](xref:mvc/razor-pages/index#xsrf).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-184">For more information, see [XSRF/CSRF and Razor Pages](xref:mvc/razor-pages/index#xsrf).</span></span>
 
-<span data-ttu-id="f52b7-159">CSRF saldırılarına karşı savunma en yaygın Eşitleyici belirteci deseni (STP) yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-159">The most common approach to defending against CSRF attacks is the synchronizer token pattern (STP).</span></span> <span data-ttu-id="f52b7-160">STP kullanıcı form verilerini içeren bir sayfa istediğinde kullanılan bir tekniktir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-160">STP is a technique used when the user requests a page with form data.</span></span> <span data-ttu-id="f52b7-161">Sunucu, istemci için geçerli kullanıcının kimliği ile ilişkili bir belirteç gönderir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-161">The server sends a token associated with the current user's identity to the client.</span></span> <span data-ttu-id="f52b7-162">İstemci belirteci doğrulama için sunucuya geri gönderir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-162">The client sends back the token to the server for verification.</span></span> <span data-ttu-id="f52b7-163">Sunucunun kimliği doğrulanmış kullanıcının kimliğini eşleşmeyen bir belirteç alırsa, isteği reddedilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-163">If the server receives a token that doesn't match the authenticated user's identity, the request is rejected.</span></span> <span data-ttu-id="f52b7-164">Belirteç, benzersiz ve tahmin edilemez.</span><span class="sxs-lookup"><span data-stu-id="f52b7-164">The token is unique and unpredictable.</span></span> <span data-ttu-id="f52b7-165">Belirteç, bir dizi (sayfa 1 sağlama sayfası 3 önündeki sayfa 2 önündeki) istekleri uygun sıralama emin olmak için de kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-165">The token can also be used to ensure proper sequencing of a series of requests (ensuring page 1 precedes page 2 which precedes page 3).</span></span> <span data-ttu-id="f52b7-166">ASP.NET Core MVC şablonları tüm formlarında antiforgery belirteçleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="f52b7-166">All the forms in ASP.NET Core MVC templates generate antiforgery tokens.</span></span> <span data-ttu-id="f52b7-167">Aşağıdaki iki örnek görünümü mantığı antiforgery belirteçleri oluşturur:</span><span class="sxs-lookup"><span data-stu-id="f52b7-167">The following two examples of view logic generate antiforgery tokens:</span></span>
+<span data-ttu-id="fd4ec-185">CSRF saldırılarına karşı savunma en yaygın yaklaşım kullanmaktır *Eşitleyici belirteci düzeni* (STP).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-185">The most common approach to defending against CSRF attacks is to use the *Synchronizer Token Pattern* (STP).</span></span> <span data-ttu-id="fd4ec-186">Kullanıcı form verilerini içeren bir sayfa istediğinde STP kullanılır:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-186">STP is used when the user requests a page with form data:</span></span>
 
-```html
+1. <span data-ttu-id="fd4ec-187">Sunucu, istemci için geçerli kullanıcının kimliği ile ilişkili bir belirteç gönderir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-187">The server sends a token associated with the current user's identity to the client.</span></span>
+1. <span data-ttu-id="fd4ec-188">İstemci belirteci doğrulama için sunucuya geri gönderir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-188">The client sends back the token to the server for verification.</span></span>
+1. <span data-ttu-id="fd4ec-189">Sunucunun kimliği doğrulanmış kullanıcının kimliğini eşleşmeyen bir belirteç alırsa, isteği reddedilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-189">If the server receives a token that doesn't match the authenticated user's identity, the request is rejected.</span></span>
+
+<span data-ttu-id="fd4ec-190">Belirteç, benzersiz ve tahmin edilemez.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-190">The token is unique and unpredictable.</span></span> <span data-ttu-id="fd4ec-191">Belirteç isteklerini bir dizi uygun sıralama emin olmak için de kullanılabilir (örneğin, istek sırası sağlama: sayfa 1 &ndash; sayfa 2 &ndash; sayfa 3).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-191">The token can also be used to ensure proper sequencing of a series of requests (for example, ensuring the request sequence of: page 1 &ndash; page 2 &ndash; page 3).</span></span> <span data-ttu-id="fd4ec-192">Tüm ASP.NET Core MVC ve Razor sayfalarının şablonları formlarında antiforgery belirteçleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-192">All of the forms in ASP.NET Core MVC and Razor Pages templates generate antiforgery tokens.</span></span> <span data-ttu-id="fd4ec-193">Görünüm örnekleri aşağıdaki çiftinin antiforgery belirteçleri oluşturur:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-193">The following pair of view examples generate antiforgery tokens:</span></span>
+
+```cshtml
 <form asp-controller="Manage" asp-action="ChangePassword" method="post">
-
+    ...
 </form>
 
 @using (Html.BeginForm("ChangePassword", "Manage"))
 {
-    
+    ...
 }
 ```
 
-<span data-ttu-id="f52b7-168">Bir antiforgery belirteci açıkça ekleyebileceğiniz bir `<form>` etiket Yardımcıları ile HTML Yardımcısı kullanmadan öğesi `@Html.AntiForgeryToken`:</span><span class="sxs-lookup"><span data-stu-id="f52b7-168">You can explicitly add an antiforgery token to a `<form>` element without using tag helpers with the HTML helper `@Html.AntiForgeryToken`:</span></span>
+<span data-ttu-id="fd4ec-194">Açık bir antiforgery belirteci eklemek bir `<form>` etiket Yardımcıları ile HTML Yardımcısı kullanmadan öğesi [ @Html.AntiForgeryToken ](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):</span><span class="sxs-lookup"><span data-stu-id="fd4ec-194">Explicitly add an antiforgery token to a `<form>` element without using Tag Helpers with the HTML helper [@Html.AntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):</span></span>
 
-
-```html
+```cshtml
 <form action="/" method="post">
     @Html.AntiForgeryToken()
 </form>
 ```
 
-<span data-ttu-id="f52b7-169">Her önceki durumlarda, ASP.NET Core aşağıdakine benzer bir gizli bir form alanı ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f52b7-169">In each of the preceding cases, ASP.NET Core will add a hidden form field similar to the following:</span></span>
-```html
-<input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkSldwD9CpLRyOtm6FiJB1Jr_F3FQJQDvhlHoLNJJrLA6zaMUmhjMsisu2D2tFkAiYgyWQawJk9vNm36sYP1esHOtamBEPvSk1_x--Sg8Ey2a-d9CV2zHVWIN9MVhvKHOSyKqdZFlYDVd69XYx-rOWPw3ilHGLN6K0Km-1p83jZzF0E4WU5OGg5ns2-m9Yw">
+<span data-ttu-id="fd4ec-195">Her önceki durumlarda, ASP.NET Core aşağıdakine benzer bir gizli bir form alanı ekler:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-195">In each of the preceding cases, ASP.NET Core adds a hidden form field similar to the following:</span></span>
+
+```cshtml
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkS ... s2-m9Yw">
 ```
 
-<span data-ttu-id="f52b7-170">ASP.NET Core içeren üç [filtreleri](xref:mvc/controllers/filters) antiforgery belirteçleri ile çalışmak için: `ValidateAntiForgeryToken`, `AutoValidateAntiforgeryToken`, ve `IgnoreAntiforgeryToken`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-170">ASP.NET Core includes three [filters](xref:mvc/controllers/filters) for working with antiforgery tokens: `ValidateAntiForgeryToken`, `AutoValidateAntiforgeryToken`, and `IgnoreAntiforgeryToken`.</span></span>
+<span data-ttu-id="fd4ec-196">ASP.NET Core içeren üç [filtreleri](xref:mvc/controllers/filters) antiforgery belirteçleri ile çalışmak için:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-196">ASP.NET Core includes three [filters](xref:mvc/controllers/filters) for working with antiforgery tokens:</span></span>
 
-### <a name="validateantiforgerytoken"></a><span data-ttu-id="f52b7-171">ValidateAntiForgeryToken</span><span class="sxs-lookup"><span data-stu-id="f52b7-171">ValidateAntiForgeryToken</span></span>
+* [<span data-ttu-id="fd4ec-197">ValidateAntiForgeryToken</span><span class="sxs-lookup"><span data-stu-id="fd4ec-197">ValidateAntiForgeryToken</span></span>](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute)
+* [<span data-ttu-id="fd4ec-198">AutoValidateAntiforgeryToken</span><span class="sxs-lookup"><span data-stu-id="fd4ec-198">AutoValidateAntiforgeryToken</span></span>](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute)
+* [<span data-ttu-id="fd4ec-199">IgnoreAntiforgeryToken</span><span class="sxs-lookup"><span data-stu-id="fd4ec-199">IgnoreAntiforgeryToken</span></span>](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute)
 
-<span data-ttu-id="f52b7-172">`ValidateAntiForgeryToken` Tek tek bir eylem, bir denetleyici uygulanabilir bir eylem filtresi veya genel olarak.</span><span class="sxs-lookup"><span data-stu-id="f52b7-172">The `ValidateAntiForgeryToken` is an action filter that can be applied to an individual action, a controller, or globally.</span></span> <span data-ttu-id="f52b7-173">İsteğin geçerli bir antiforgery belirteci içermedikçe Bu filtre uygulanmış olan eylemler için yapılan istekleri engellenir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-173">Requests made to actions that have this filter applied will be blocked unless the request includes a valid antiforgery token.</span></span>
+## <a name="antiforgery-options"></a><span data-ttu-id="fd4ec-200">Antiforgery seçenekleri</span><span class="sxs-lookup"><span data-stu-id="fd4ec-200">Antiforgery options</span></span>
 
-```csharp
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
-{
-    ManageMessageId? message = ManageMessageId.Error;
-    var user = await GetCurrentUserAsync();
-    if (user != null)
-    {
-        var result = await _userManager.RemoveLoginAsync(user, account.LoginProvider, account.ProviderKey);
-        if (result.Succeeded)
-        {
-            await _signInManager.SignInAsync(user, isPersistent: false);
-            message = ManageMessageId.RemoveLoginSuccess;
-        }
-    }
-    return RedirectToAction(nameof(ManageLogins), new { Message = message });
-}
-```
-
-<span data-ttu-id="f52b7-174">`ValidateAntiForgeryToken` Özniteliği eylem yöntemlerine onu süsler, dahil olmak üzere istekleri için bir belirteç gerektirir `HTTP GET` istekleri.</span><span class="sxs-lookup"><span data-stu-id="f52b7-174">The `ValidateAntiForgeryToken` attribute requires a token for requests to action methods it decorates, including `HTTP GET` requests.</span></span> <span data-ttu-id="f52b7-175">Geniş çapta uygularsanız, kendisiyle kılabilirsiniz `IgnoreAntiforgeryToken` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="f52b7-175">If you apply it broadly, you can override it with the `IgnoreAntiforgeryToken` attribute.</span></span>
-
-### <a name="autovalidateantiforgerytoken"></a><span data-ttu-id="f52b7-176">AutoValidateAntiforgeryToken</span><span class="sxs-lookup"><span data-stu-id="f52b7-176">AutoValidateAntiforgeryToken</span></span>
-
-<span data-ttu-id="f52b7-177">ASP.NET Core uygulamaları genellikle HTTP güvenli yöntemleri (GET, HEAD, seçenekleri ve izleme) için antiforgery belirteçleri oluşturmak yok.</span><span class="sxs-lookup"><span data-stu-id="f52b7-177">ASP.NET Core apps generally don't generate antiforgery tokens for HTTP safe methods (GET, HEAD, OPTIONS, and TRACE).</span></span> <span data-ttu-id="f52b7-178">Kapsamlı uygulama yerine `ValidateAntiForgeryToken` özniteliği ve ile geçersiz kılma `IgnoreAntiforgeryToken` kullanabileceğiniz öznitelikleri ``AutoValidateAntiforgeryToken`` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="f52b7-178">Instead of broadly applying the `ValidateAntiForgeryToken` attribute and then overriding it with `IgnoreAntiforgeryToken` attributes, you can use the ``AutoValidateAntiforgeryToken`` attribute.</span></span> <span data-ttu-id="f52b7-179">Bu öznitelik için aynı şekilde çalışır `ValidateAntiForgeryToken` için aşağıdaki HTTP yöntemleri kullanılarak yapılan istekleri belirteçleri gerektirmeyen dışında öznitelik:</span><span class="sxs-lookup"><span data-stu-id="f52b7-179">This attribute works identically to the `ValidateAntiForgeryToken` attribute, except that it doesn't require tokens for requests made using the following HTTP methods:</span></span>
-
-* <span data-ttu-id="f52b7-180">AL</span><span class="sxs-lookup"><span data-stu-id="f52b7-180">GET</span></span>
-* <span data-ttu-id="f52b7-181">HEAD</span><span class="sxs-lookup"><span data-stu-id="f52b7-181">HEAD</span></span>
-* <span data-ttu-id="f52b7-182">SEÇENEKLER</span><span class="sxs-lookup"><span data-stu-id="f52b7-182">OPTIONS</span></span>
-* <span data-ttu-id="f52b7-183">TRACE</span><span class="sxs-lookup"><span data-stu-id="f52b7-183">TRACE</span></span>
-
-<span data-ttu-id="f52b7-184">Şunu kullanmanızı öneririz `AutoValidateAntiforgeryToken` API olmayan senaryolar için kapsamlı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-184">We recommend you use `AutoValidateAntiforgeryToken` broadly for non-API scenarios.</span></span> <span data-ttu-id="f52b7-185">Bu işlem sonrası eylemler varsayılan olarak korunan sağlar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-185">This ensures your POST actions are protected by default.</span></span> <span data-ttu-id="f52b7-186">Varsayılan olarak, antiforgery belirteçleri yoksaymayı sürece alternatiftir `ValidateAntiForgeryToken` tek tek eylem yöntemine uygulanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-186">The alternative is to ignore antiforgery tokens by default, unless `ValidateAntiForgeryToken` is applied to the individual action method.</span></span> <span data-ttu-id="f52b7-187">Bu senaryoda olmasını POST eylem yöntemi için büyük olasılıkla korumasız, sol uygulamanızı CSRF saldırılara karşı savunmasız bırakır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-187">It's more likely in this scenario for a POST action method to be left unprotected, leaving your app vulnerable to CSRF attacks.</span></span> <span data-ttu-id="f52b7-188">Hatta anonim GÖNDERİLERİ antiforgery belirteci göndermesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-188">Even anonymous POSTS should send the antiforgery token.</span></span>
-
-<span data-ttu-id="f52b7-189">Not: API'leri tanımlama bilgisi olmayan belirtecinin bir parçası göndermek için bir otomatik mekanizması gerekmez; Uygulamanız, büyük olasılıkla, istemci kodu uygulamanızı bağlı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-189">Note: APIs don't have an automatic mechanism for sending the non-cookie part of the token; your implementation will likely depend on your client code implementation.</span></span> <span data-ttu-id="f52b7-190">Aşağıda bazı örnekler gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-190">Some examples are shown below.</span></span>
-
-<span data-ttu-id="f52b7-191">Örnek (sınıf düzeyinde):</span><span class="sxs-lookup"><span data-stu-id="f52b7-191">Example (class level):</span></span>
-
-```csharp
-[Authorize]
-[AutoValidateAntiforgeryToken]
-public class ManageController : Controller
-{
-```
-
-<span data-ttu-id="f52b7-192">Örnek (Genel):</span><span class="sxs-lookup"><span data-stu-id="f52b7-192">Example (global):</span></span>
-
-```csharp
-services.AddMvc(options => 
-    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
-```
-
-<a name="iaft"></a>
-
-### <a name="ignoreantiforgerytoken"></a><span data-ttu-id="f52b7-193">IgnoreAntiforgeryToken</span><span class="sxs-lookup"><span data-stu-id="f52b7-193">IgnoreAntiforgeryToken</span></span>
-
-<span data-ttu-id="f52b7-194">`IgnoreAntiforgeryToken` Filtre, belirli bir eylem (veya denetleyicisi) olması için bir antiforgery belirteci gereksinimini ortadan kaldırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-194">The `IgnoreAntiforgeryToken` filter is used to eliminate the need for an antiforgery token to be present for a given action (or controller).</span></span> <span data-ttu-id="f52b7-195">Uygulandığında, bu filtre geçersiz kılar `ValidateAntiForgeryToken` ve/veya `AutoValidateAntiforgeryToken` daha yüksek bir düzeyde (genel olarak veya bir denetleyicisinde) belirtilen filtreler.</span><span class="sxs-lookup"><span data-stu-id="f52b7-195">When applied, this filter will override `ValidateAntiForgeryToken` and/or `AutoValidateAntiforgeryToken` filters specified at a higher level (globally or on a controller).</span></span>
-
-```csharp
-[Authorize]
-[AutoValidateAntiforgeryToken]
-public class ManageController : Controller
-{
-  [HttpPost]
-  [IgnoreAntiforgeryToken]
-  public async Task<IActionResult> DoSomethingSafe(SomeViewModel model)
-  {
-    // no antiforgery token required
-  }
-}
-```
-
-## <a name="javascript-ajax-and-spas"></a><span data-ttu-id="f52b7-196">JavaScript, AJAX ve SPAs</span><span class="sxs-lookup"><span data-stu-id="f52b7-196">JavaScript, AJAX, and SPAs</span></span>
-
-<span data-ttu-id="f52b7-197">Geleneksel HTML tabanlı uygulamalarda antiforgery belirteçleri gizli form alanlarını kullanarak sunucuya geçirilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-197">In traditional HTML-based applications, antiforgery tokens are passed to the server using hidden form fields.</span></span> <span data-ttu-id="f52b7-198">Modern JavaScript tabanlı uygulamalar ve tek sayfa uygulamaları (SPAs), birçok istek program aracılığıyla yapılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-198">In modern JavaScript-based apps and single page applications (SPAs), many requests are made programmatically.</span></span> <span data-ttu-id="f52b7-199">AJAX istekleri belirteç göndermek için başka teknikler (örneğin, istek üstbilgileri veya tanımlama bilgileri) kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-199">These AJAX requests may use other techniques (such as request headers or cookies) to send the token.</span></span> <span data-ttu-id="f52b7-200">Tanımlama bilgileri kimlik doğrulama belirteçleri depolamak ve API isteklerinin sunucusunda kimlik doğrulaması için kullanılıyorsa, CSRF olası bir sorun olacaktır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-200">If cookies are used to store authentication tokens and to authenticate API requests on the server, then CSRF will be a potential problem.</span></span> <span data-ttu-id="f52b7-201">Belirteç depolamak için yerel depolama alanı kullandıysanız, yerel depolama değerlerinden her yeni isteği sunucusuyla otomatik olarak gönderilmez beri ancak CSRF güvenlik açığı, azaltılması gereken.</span><span class="sxs-lookup"><span data-stu-id="f52b7-201">However, if local storage is used to store the token, CSRF vulnerability may be mitigated, since values from local storage are not sent automatically to the server with every new request.</span></span> <span data-ttu-id="f52b7-202">Bu nedenle, istemci ve bir istek üstbilgisini önerilen yaklaşımdır olarak belirtecin gönderme antiforgery belirteci depolamak için yerel depolama kullanma.</span><span class="sxs-lookup"><span data-stu-id="f52b7-202">Thus, using local storage to store the antiforgery token on the client and sending the token as a request header is a recommended approach.</span></span>
-
-### <a name="angularjs"></a><span data-ttu-id="f52b7-203">AngularJS</span><span class="sxs-lookup"><span data-stu-id="f52b7-203">AngularJS</span></span>
-
-<span data-ttu-id="f52b7-204">AngularJS CSRF adresine bir kuralı kullanılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-204">AngularJS uses a convention to address CSRF.</span></span> <span data-ttu-id="f52b7-205">Sunucu tanımlama bilgisi adı ile gönderirse `XSRF-TOKEN`, Angular `$http` hizmet ekleyecek değeri bu tanımlama bilgisinden bir üst bilginin bu sunucu için bir istek gönderdiğinde.</span><span class="sxs-lookup"><span data-stu-id="f52b7-205">If the server sends a cookie with the name `XSRF-TOKEN`, the Angular `$http` service will add the value from this cookie to a header when it sends a request to this server.</span></span> <span data-ttu-id="f52b7-206">Bu işlemi otomatiktir; Üstbilgi açıkça ayarlamanız gerekmez.</span><span class="sxs-lookup"><span data-stu-id="f52b7-206">This process is automatic; you don't need to set the header explicitly.</span></span> <span data-ttu-id="f52b7-207">Üstbilgi adı `X-XSRF-TOKEN`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-207">The header name is `X-XSRF-TOKEN`.</span></span> <span data-ttu-id="f52b7-208">Sunucu, bu başlığı algılamak ve içeriğini doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="f52b7-208">The server should detect this header and validate its contents.</span></span>
-
-<span data-ttu-id="f52b7-209">ASP.NET Core API çalışmak için bu kural:</span><span class="sxs-lookup"><span data-stu-id="f52b7-209">For ASP.NET Core API work with this convention:</span></span>
-
-* <span data-ttu-id="f52b7-210">Adlı bir tanımlama bilgisine bir belirteç sağlamak için uygulamanızı yapılandırma `XSRF-TOKEN`</span><span class="sxs-lookup"><span data-stu-id="f52b7-210">Configure your app to provide a token in a cookie called `XSRF-TOKEN`</span></span>
-* <span data-ttu-id="f52b7-211">Adında bir başlık aramak için antiforgery hizmetini yapılandırma `X-XSRF-TOKEN`</span><span class="sxs-lookup"><span data-stu-id="f52b7-211">Configure the antiforgery service to look for a header named `X-XSRF-TOKEN`</span></span>
-
-```csharp
-services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
-```
-
-<span data-ttu-id="f52b7-212">[Görünüm örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample).</span><span class="sxs-lookup"><span data-stu-id="f52b7-212">[View sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample).</span></span>
-
-### <a name="javascript"></a><span data-ttu-id="f52b7-213">JavaScript</span><span class="sxs-lookup"><span data-stu-id="f52b7-213">JavaScript</span></span>
-
-<span data-ttu-id="f52b7-214">JavaScript görünümlerle kullanarak, görünümü içinde hizmetinden kullanarak belirteci oluşturabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f52b7-214">Using JavaScript with views, you can create the token using a service from within your view.</span></span> <span data-ttu-id="f52b7-215">Bunu yapmak için ekleme `Microsoft.AspNetCore.Antiforgery.IAntiforgery` görüntüleyebileceği ve çağırabileceği içine hizmet `GetAndStoreTokens`gösterildiği gibi:</span><span class="sxs-lookup"><span data-stu-id="f52b7-215">To do so, you inject the `Microsoft.AspNetCore.Antiforgery.IAntiforgery` service into the view and call `GetAndStoreTokens`, as shown:</span></span>
-
-[!code-csharp[](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,12-13,28)]
-
-<span data-ttu-id="f52b7-216">Bu yaklaşım doğrudan sunucudan tanımlama bilgilerini ayarlama veya istemciden okuma uğraşmanız gereğini ortadan kaldırır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-216">This approach eliminates the need to deal directly with setting cookies from the server or reading them from the client.</span></span>
-
-<span data-ttu-id="f52b7-217">Önceki örnekte AJAX POST başlığı için gizli alan değeri okumak için jQuery kullanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-217">The preceding example uses jQuery to read the hidden field value for the AJAX POST header.</span></span> <span data-ttu-id="f52b7-218">Belirtecin değeri elde etmek için JavaScript kullanmak için `document.getElementById('RequestVerificationToken').value`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-218">To use JavaScript to obtain the token's value, use `document.getElementById('RequestVerificationToken').value`.</span></span>
-
-<span data-ttu-id="f52b7-219">JavaScript ayrıca tanımlama bilgilerini sağlanan belirteçleri erişmek ve ardından tanımlama bilgisinin içeriği üstbilgi belirtecin değeri ile oluşturmak için aşağıda gösterildiği gibi kullanın.</span><span class="sxs-lookup"><span data-stu-id="f52b7-219">JavaScript can also access tokens provided in cookies, and then use the cookie's contents to create a header with the token's value, as shown below.</span></span>
-
-```csharp
-context.Response.Cookies.Append("CSRF-TOKEN", tokens.RequestToken, 
-  new Microsoft.AspNetCore.Http.CookieOptions { HttpOnly = false });
-```
-
-<span data-ttu-id="f52b7-220">Ardından, belirteci olarak adlandırılan bir üstbilgisinde göndermek için komut dosyanızı oluşturmaya varsayılarak istekleri `X-CSRF-TOKEN`, aranacak antiforgery hizmetini yapılandırma `X-CSRF-TOKEN` üstbilgisi:</span><span class="sxs-lookup"><span data-stu-id="f52b7-220">Then, assuming you construct your script requests to send the token in a header called `X-CSRF-TOKEN`, configure the antiforgery service to look for the `X-CSRF-TOKEN` header:</span></span>
-
-```csharp
-services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
-```
-
-<span data-ttu-id="f52b7-221">Aşağıdaki örnek, uygun üstbilgiyle AJAX isteği yapmak için jQuery kullanır:</span><span class="sxs-lookup"><span data-stu-id="f52b7-221">The following example uses jQuery to make an AJAX request with the appropriate header:</span></span>
-
-```javascript
-var csrfToken = $.cookie("CSRF-TOKEN");
-
-$.ajax({
-    url: "/api/password/changepassword",
-    contentType: "application/json",
-    data: JSON.stringify({ "newPassword": "ReallySecurePassword999$$$" }),
-    type: "POST",
-    headers: {
-        "X-CSRF-TOKEN": csrfToken
-    }
-});
-```
-
-## <a name="configuring-antiforgery"></a><span data-ttu-id="f52b7-222">Antiforgery yapılandırma</span><span class="sxs-lookup"><span data-stu-id="f52b7-222">Configuring Antiforgery</span></span>
-
-<span data-ttu-id="f52b7-223">`IAntiforgery` antiforgery sistemi yapılandırmak için API sağlar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-223">`IAntiforgery` provides the API to configure the antiforgery system.</span></span> <span data-ttu-id="f52b7-224">İçinde istenebilir `Configure` yöntemi `Startup` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-224">It can be requested in the `Configure` method of the `Startup` class.</span></span> <span data-ttu-id="f52b7-225">Aşağıdaki örnek, antiforgery bir belirteç oluşturmak ve yanıtta (yukarıda açıklanan varsayılan Açısal adlandırma kuralını kullanarak) bir tanımlama bilgisi olarak göndermek için uygulamanın giriş sayfasından ara yazılımını kullanır:</span><span class="sxs-lookup"><span data-stu-id="f52b7-225">The following example uses middleware from the app's home page to generate an antiforgery token and send it in the response as a cookie (using the default Angular naming convention described above):</span></span>
-
-
-```csharp
-public void Configure(IApplicationBuilder app, 
-    IAntiforgery antiforgery)
-{
-    app.Use(next => context =>
-    {
-        string path = context.Request.Path.Value;
-        if (
-            string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(path, "/index.html", StringComparison.OrdinalIgnoreCase))
-        {
-            // We can send the request token as a JavaScript-readable cookie, 
-            // and Angular will use it by default.
-            var tokens = antiforgery.GetAndStoreTokens(context);
-            context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken, 
-                new CookieOptions() { HttpOnly = false });
-        }
-
-        return next(context);
-    });
-    //
-}
-```
-
-### <a name="options"></a><span data-ttu-id="f52b7-226">Seçenekler</span><span class="sxs-lookup"><span data-stu-id="f52b7-226">Options</span></span>
-
-<span data-ttu-id="f52b7-227">Özelleştirebileceğiniz [antiforgery seçenekleri](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions#fields_summary) içinde `ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="f52b7-227">You can customize [antiforgery options](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions#fields_summary) in `ConfigureServices`:</span></span>
+<span data-ttu-id="fd4ec-201">Özelleştirme [antiforgery seçenekleri](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) içinde `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-201">Customize [antiforgery options](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) in `Startup.ConfigureServices`:</span></span>
 
 ```csharp
 services.AddAntiforgery(options => 
 {
-    options.CookieDomain = "mydomain.com";
+    options.CookieDomain = "contoso.com";
     options.CookieName = "X-CSRF-TOKEN-COOKIENAME";
     options.CookiePath = "Path";
     options.FormFieldName = "AntiforgeryFieldname";
@@ -320,44 +193,216 @@ services.AddAntiforgery(options =>
 });
 ```
 
-<!-- QAfix fix table -->
+| <span data-ttu-id="fd4ec-202">Seçenek</span><span class="sxs-lookup"><span data-stu-id="fd4ec-202">Option</span></span> | <span data-ttu-id="fd4ec-203">Açıklama</span><span class="sxs-lookup"><span data-stu-id="fd4ec-203">Description</span></span> |
+| ------ | ----------- |
+| [<span data-ttu-id="fd4ec-204">Cookie</span><span class="sxs-lookup"><span data-stu-id="fd4ec-204">Cookie</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | <span data-ttu-id="fd4ec-205">Antiforgery tanımlama bilgisi oluşturmak için kullanılan ayarları belirler.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-205">Determines the settings used to create the antiforgery cookies.</span></span> |
+| [<span data-ttu-id="fd4ec-206">CookieDomain</span><span class="sxs-lookup"><span data-stu-id="fd4ec-206">CookieDomain</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | <span data-ttu-id="fd4ec-207">Tanımlama bilgisinin etki alanı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-207">The domain of the cookie.</span></span> <span data-ttu-id="fd4ec-208">Varsayılan olarak `null`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-208">Defaults to `null`.</span></span> <span data-ttu-id="fd4ec-209">Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-209">This property is obsolete and will be removed in a future version.</span></span> <span data-ttu-id="fd4ec-210">Önerilen Cookie.Domain alternatiftir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-210">The recommended alternative is Cookie.Domain.</span></span> |
+| [<span data-ttu-id="fd4ec-211">CookieName</span><span class="sxs-lookup"><span data-stu-id="fd4ec-211">CookieName</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | <span data-ttu-id="fd4ec-212">Tanımlama bilgisinin adı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-212">The name of the cookie.</span></span> <span data-ttu-id="fd4ec-213">Ayarlanmadı, sistem ile başlayan bir benzersiz ad oluşturursa [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery.").</span><span class="sxs-lookup"><span data-stu-id="fd4ec-213">If not set, the system generates a unique name beginning with the [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (".AspNetCore.Antiforgery.").</span></span> <span data-ttu-id="fd4ec-214">Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-214">This property is obsolete and will be removed in a future version.</span></span> <span data-ttu-id="fd4ec-215">Önerilen Cookie.Name alternatiftir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-215">The recommended alternative is Cookie.Name.</span></span> |
+| [<span data-ttu-id="fd4ec-216">CookiePath</span><span class="sxs-lookup"><span data-stu-id="fd4ec-216">CookiePath</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | <span data-ttu-id="fd4ec-217">Yolu tanımlama bilgisinde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-217">The path set on the cookie.</span></span> <span data-ttu-id="fd4ec-218">Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-218">This property is obsolete and will be removed in a future version.</span></span> <span data-ttu-id="fd4ec-219">Önerilen Cookie.Path alternatiftir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-219">The recommended alternative is Cookie.Path.</span></span> |
+| [<span data-ttu-id="fd4ec-220">FormFieldName</span><span class="sxs-lookup"><span data-stu-id="fd4ec-220">FormFieldName</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | <span data-ttu-id="fd4ec-221">Görünümlerde antiforgery belirteçleri oluşturmak için antiforgery sistem tarafından kullanılan gizli form alanının adı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-221">The name of the hidden form field used by the antiforgery system to render antiforgery tokens in views.</span></span> |
+| [<span data-ttu-id="fd4ec-222">HeaderName</span><span class="sxs-lookup"><span data-stu-id="fd4ec-222">HeaderName</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | <span data-ttu-id="fd4ec-223">Antiforgery sistem tarafından kullanılan üstbilginin adı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-223">The name of the header used by the antiforgery system.</span></span> <span data-ttu-id="fd4ec-224">Varsa `null`, yalnızca form verilerini sistem göz önünde bulundurur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-224">If `null`, the system considers only form data.</span></span> |
+| [<span data-ttu-id="fd4ec-225">requireSsl</span><span class="sxs-lookup"><span data-stu-id="fd4ec-225">RequireSsl</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | <span data-ttu-id="fd4ec-226">SSL antiforgery sistem tarafından gerekip gerekmediğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-226">Specifies whether SSL is required by the antiforgery system.</span></span> <span data-ttu-id="fd4ec-227">Varsa `true`, SSL olmayan istekleri başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-227">If `true`, non-SSL requests fail.</span></span> <span data-ttu-id="fd4ec-228">Varsayılan olarak `false`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-228">Defaults to `false`.</span></span> <span data-ttu-id="fd4ec-229">Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-229">This property is obsolete and will be removed in a future version.</span></span> <span data-ttu-id="fd4ec-230">Önerilen alternatif Cookie.SecurePolicy ayarlamaktır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-230">The recommended alternative is to set Cookie.SecurePolicy.</span></span> |
+| [<span data-ttu-id="fd4ec-231">SuppressXFrameOptionsHeader</span><span class="sxs-lookup"><span data-stu-id="fd4ec-231">SuppressXFrameOptionsHeader</span></span>](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | <span data-ttu-id="fd4ec-232">Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` üstbilgi.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-232">Specifies whether to suppress generation of the `X-Frame-Options` header.</span></span> <span data-ttu-id="fd4ec-233">Varsayılan olarak, "SAMEORIGIN" değerine sahip üstbilgi oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-233">By default, the header is generated with a value of "SAMEORIGIN".</span></span> <span data-ttu-id="fd4ec-234">Varsayılan olarak `false`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-234">Defaults to `false`.</span></span> |
 
-|<span data-ttu-id="f52b7-228">Seçenek</span><span class="sxs-lookup"><span data-stu-id="f52b7-228">Option</span></span>        | <span data-ttu-id="f52b7-229">Açıklama</span><span class="sxs-lookup"><span data-stu-id="f52b7-229">Description</span></span> |
-|------------- | ----------- |
-|<span data-ttu-id="f52b7-230">CookieDomain</span><span class="sxs-lookup"><span data-stu-id="f52b7-230">CookieDomain</span></span>  | <span data-ttu-id="f52b7-231">Tanımlama bilgisinin etki alanı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-231">The domain of the cookie.</span></span> <span data-ttu-id="f52b7-232">Varsayılan olarak `null`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-232">Defaults to `null`.</span></span> |
-|<span data-ttu-id="f52b7-233">CookieName</span><span class="sxs-lookup"><span data-stu-id="f52b7-233">CookieName</span></span>    | <span data-ttu-id="f52b7-234">Tanımlama bilgisinin adı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-234">The name of the cookie.</span></span> <span data-ttu-id="f52b7-235">Ayarlanmadı, sistem ile başlayan bir benzersiz bir ad oluşturur `DefaultCookiePrefix` (". AspNetCore.Antiforgery.").</span><span class="sxs-lookup"><span data-stu-id="f52b7-235">If not set, the system will generate a unique name beginning with the `DefaultCookiePrefix` (".AspNetCore.Antiforgery.").</span></span> |
-|<span data-ttu-id="f52b7-236">CookiePath</span><span class="sxs-lookup"><span data-stu-id="f52b7-236">CookiePath</span></span>    | <span data-ttu-id="f52b7-237">Yolu tanımlama bilgisinde ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-237">The path set on the cookie.</span></span> |
-|<span data-ttu-id="f52b7-238">FormFieldName</span><span class="sxs-lookup"><span data-stu-id="f52b7-238">FormFieldName</span></span> | <span data-ttu-id="f52b7-239">Görünümlerde antiforgery belirteçleri oluşturmak için antiforgery sistem tarafından kullanılan gizli form alanının adı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-239">The name of the hidden form field used by the antiforgery system to render antiforgery tokens in views.</span></span> |
-|<span data-ttu-id="f52b7-240">HeaderName</span><span class="sxs-lookup"><span data-stu-id="f52b7-240">HeaderName</span></span>    | <span data-ttu-id="f52b7-241">Antiforgery sistem tarafından kullanılan üstbilginin adı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-241">The name of the header used by the antiforgery system.</span></span> <span data-ttu-id="f52b7-242">Varsa `null`, sistem yalnızca form verilerini değerlendirir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-242">If `null`, the system will consider only form data.</span></span> |
-|<span data-ttu-id="f52b7-243">requireSsl</span><span class="sxs-lookup"><span data-stu-id="f52b7-243">RequireSsl</span></span>    | <span data-ttu-id="f52b7-244">SSL antiforgery sistem tarafından gerekip gerekmediğini belirtir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-244">Specifies whether SSL is required by the antiforgery system.</span></span> <span data-ttu-id="f52b7-245">Varsayılan olarak `false`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-245">Defaults to `false`.</span></span> <span data-ttu-id="f52b7-246">Varsa `true`, SSL olmayan istekleri başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="f52b7-246">If `true`, non-SSL requests will fail.</span></span> |
-|<span data-ttu-id="f52b7-247">SuppressXFrameOptionsHeader</span><span class="sxs-lookup"><span data-stu-id="f52b7-247">SuppressXFrameOptionsHeader</span></span> | <span data-ttu-id="f52b7-248">Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` üstbilgi.</span><span class="sxs-lookup"><span data-stu-id="f52b7-248">Specifies whether to suppress generation of the `X-Frame-Options` header.</span></span> <span data-ttu-id="f52b7-249">Varsayılan olarak, "SAMEORIGIN" değerine sahip üstbilgi oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="f52b7-249">By default, the header is generated with a value of "SAMEORIGIN".</span></span> <span data-ttu-id="f52b7-250">Varsayılan olarak `false`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-250">Defaults to `false`.</span></span> |
+<span data-ttu-id="fd4ec-235">Daha fazla bilgi için bkz: [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-235">For more information, see [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).</span></span>
 
-<span data-ttu-id="f52b7-251">https://docs.microsoft.com/ASPNET/Core/api/Microsoft.aspnetcore.Builder.cookieauthenticationoptions daha fazla bilgi için bkz.</span><span class="sxs-lookup"><span data-stu-id="f52b7-251">See https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.cookieauthenticationoptions for more info.</span></span>
+## <a name="configure-antiforgery-features-with-iantiforgery"></a><span data-ttu-id="fd4ec-236">IAntiforgery ile antiforgery özellikleri yapılandırma</span><span class="sxs-lookup"><span data-stu-id="fd4ec-236">Configure antiforgery features with IAntiforgery</span></span>
 
-### <a name="extending-antiforgery"></a><span data-ttu-id="f52b7-252">Antiforgery genişletme</span><span class="sxs-lookup"><span data-stu-id="f52b7-252">Extending Antiforgery</span></span>
+<span data-ttu-id="fd4ec-237">[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) antiforgery özelliklerini yapılandırmak için API sağlar.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-237">[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) provides the API to configure antiforgery features.</span></span> <span data-ttu-id="fd4ec-238">`IAntiforgery` içinde istenen `Configure` yöntemi `Startup` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-238">`IAntiforgery` can be requested in the `Configure` method of the `Startup` class.</span></span> <span data-ttu-id="fd4ec-239">Aşağıdaki örnek, antiforgery bir belirteç oluşturmak ve yanıtta (Bu konuda açıklanan varsayılan Açısal adlandırma kuralını kullanarak) bir tanımlama bilgisi olarak göndermek için uygulamanın giriş sayfasından ara yazılımını kullanır:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-239">The following example uses middleware from the app's home page to generate an antiforgery token and send it in the response as a cookie (using the default Angular naming convention described later in this topic):</span></span>
 
-<span data-ttu-id="f52b7-253">[IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü her belirteci ek veriler gidiş tarafından anti-XSRF sistem davranışını genişletmek geliştiricilere sağlar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-253">The [IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) type allows developers to extend the behavior of the anti-XSRF system by round-tripping additional data in each token.</span></span> <span data-ttu-id="f52b7-254">[GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-254">The [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) method is called each time a field token is generated, and the return value is embedded within the generated token.</span></span> <span data-ttu-id="f52b7-255">Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve ardından arama [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) belirteç doğrulandığında bu verileri doğrulamak için.</span><span class="sxs-lookup"><span data-stu-id="f52b7-255">An implementer could return a timestamp, a nonce, or any other value and then call [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) to validate this data when the token is validated.</span></span> <span data-ttu-id="f52b7-256">Bu yüzden bu bilgiyi içer gerek yoktur istemcinin kullanıcı adı zaten oluşturulan belirteçlere katıştırılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-256">The client's username is already embedded in the generated tokens, so there's no need to include this information.</span></span> <span data-ttu-id="f52b7-257">Bir belirteci ek veriler ancak hiçbir içeriyorsa `IAntiForgeryAdditionalDataProvider` bırakıldı yapılandırıldıysa, ek veriler doğrulanmış değil.</span><span class="sxs-lookup"><span data-stu-id="f52b7-257">If a token includes supplemental data but no `IAntiForgeryAdditionalDataProvider` has been configured, the supplemental data isn't validated.</span></span>
+```csharp
+public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
+{
+    app.Use(next => context =>
+    {
+        string path = context.Request.Path.Value;
 
-## <a name="fundamentals"></a><span data-ttu-id="f52b7-258">Temeller</span><span class="sxs-lookup"><span data-stu-id="f52b7-258">Fundamentals</span></span>
+        if (
+            string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(path, "/index.html", StringComparison.OrdinalIgnoreCase))
+        {
+            // The request token can be sent as a JavaScript-readable cookie, 
+            // and Angular uses it by default.
+            var tokens = antiforgery.GetAndStoreTokens(context);
+            context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken, 
+                new CookieOptions() { HttpOnly = false });
+        }
 
-<span data-ttu-id="f52b7-259">Bu etki alanına yapılan her isteği bir etki alanı ile ilişkili tanımlama bilgileri gönderme varsayılan tarayıcı davranışını CSRF saldırıları kullanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-259">CSRF attacks rely on the default browser behavior of sending cookies associated with a domain with every request made to that domain.</span></span> <span data-ttu-id="f52b7-260">Bu tanımlama bilgileri tarayıcı içinde depolanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-260">These cookies are stored within the browser.</span></span> <span data-ttu-id="f52b7-261">Kimliği doğrulanmış kullanıcılar için oturum tanımlama bilgileri sık içerirler.</span><span class="sxs-lookup"><span data-stu-id="f52b7-261">They frequently include session cookies for authenticated users.</span></span> <span data-ttu-id="f52b7-262">Tanımlama bilgisi tabanlı kimlik doğrulaması, kimlik doğrulama popüler şeklidir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-262">Cookie-based authentication is a popular form of authentication.</span></span> <span data-ttu-id="f52b7-263">Belirteç tabanlı kimlik doğrulama sistemleriyle popülerliği özellikle SPAs ve diğer "akıllı istemci" senaryoları için büyüyen.</span><span class="sxs-lookup"><span data-stu-id="f52b7-263">Token-based authentication systems have been growing in popularity, especially for SPAs and other "smart client" scenarios.</span></span>
+        return next(context);
+    });
+}
+```
 
-### <a name="cookie-based-authentication"></a><span data-ttu-id="f52b7-264">Tanımlama bilgisi tabanlı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="f52b7-264">Cookie-based authentication</span></span>
+### <a name="require-antiforgery-validation"></a><span data-ttu-id="fd4ec-240">Antiforgery doğrulaması iste</span><span class="sxs-lookup"><span data-stu-id="fd4ec-240">Require antiforgery validation</span></span>
 
-<span data-ttu-id="f52b7-265">Bir kullanıcı, kullanıcı adı ve parolasını kullanarak kimliğini doğrulamasından sonra bunları belirlemek ve bunlar doğrulanan olduğunu doğrulamak için kullanılan bir belirteç alacakları.</span><span class="sxs-lookup"><span data-stu-id="f52b7-265">Once a user has authenticated using their username and password, they're issued a token that can be used to identify them and validate that they have been authenticated.</span></span> <span data-ttu-id="f52b7-266">Her istek istemci eşlik bir tanımlama bilgisi getirir belirteç depolanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-266">The token is stored as a cookie that accompanies every request the client makes.</span></span> <span data-ttu-id="f52b7-267">Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılım tarafından gerçekleştirilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-267">Generating and validating this cookie is done by the cookie authentication middleware.</span></span> <span data-ttu-id="f52b7-268">ASP.NET Core sağlar tanımlama bilgisi [ara yazılımı](xref:fundamentals/middleware/index) , kullanıcı asıl şifrelenmiş bir tanımlama bilgisine serileştirir ve daha sonra sonraki isteklerde tanımlama bilgisini doğrular asıl yeniden oluşturur ve atar `User` özelliği `HttpContext`.</span><span class="sxs-lookup"><span data-stu-id="f52b7-268">ASP.NET Core provides cookie [middleware](xref:fundamentals/middleware/index) which serializes a user principal into an encrypted cookie and then, on subsequent requests, validates the cookie, recreates the principal and assigns it to the `User` property on `HttpContext`.</span></span>
+<span data-ttu-id="fd4ec-241">[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) tek tek bir eylem, bir denetleyici uygulanabilir bir eylem filtresi veya genel olarak.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-241">[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) is an action filter that can be applied to an individual action, a controller, or globally.</span></span> <span data-ttu-id="fd4ec-242">İsteğin geçerli bir antiforgery belirteci içermedikçe Bu filtre uygulanmış olan eylemler için yapılan istekleri engellenir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-242">Requests made to actions that have this filter applied are blocked unless the request includes a valid antiforgery token.</span></span>
 
-<span data-ttu-id="f52b7-269">Bir tanımlama bilgisi kullanıldığında, kimlik doğrulama tanımlama bilgisini bir form kimlik doğrulaması bileti için kapsayıcıdır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-269">When a cookie is used, The authentication cookie is just a container for the forms authentication ticket.</span></span> <span data-ttu-id="f52b7-270">Raporu her istek ile form kimlik doğrulaması tanımlama bilgisinin değeri olarak geçirilir ve sunucuda, form kimlik doğrulaması tarafından kimliği doğrulanmış bir kullanıcıyı tanımlamak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-270">The ticket is passed as the value of the forms authentication cookie with each request and is used by forms authentication, on the server, to identify an authenticated user.</span></span>
+```csharp
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
+{
+    ManageMessageId? message = ManageMessageId.Error;
+    var user = await GetCurrentUserAsync();
 
-<span data-ttu-id="f52b7-271">Bir kullanıcı bir sistemde oturum açtığında, kullanıcı oturumunu sunucu tarafında oluşturulur ve bir veritabanı veya başka bir kalıcı deposunda saklanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-271">When a user is logged in to a system, a user session is created on the server-side and is stored in a database or some other persistent store.</span></span> <span data-ttu-id="f52b7-272">Sistem, veri deposunda gerçek oturumuna işaret eden bir oturum anahtarı oluşturur ve istemci tarafı tanımlama bilgisi olarak gönderilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-272">The system generates a session key that points to the actual session in the data store and it's sent as a client side cookie.</span></span> <span data-ttu-id="f52b7-273">Web sunucusu bu oturum anahtarı bir kullanıcı yetkilendirme gerektiren kaynak istekleri her zaman kontrol eder.</span><span class="sxs-lookup"><span data-stu-id="f52b7-273">The web server will check this session key any time a user requests a resource that requires authorization.</span></span> <span data-ttu-id="f52b7-274">Sistem, ilişkili kullanıcı oturumunu istenen kaynağa erişme ayrıcalığına sahip olup olmadığını denetler.</span><span class="sxs-lookup"><span data-stu-id="f52b7-274">The system checks whether the associated user session has the privilege to access the requested resource.</span></span> <span data-ttu-id="f52b7-275">Bu durumda, istek devam eder.</span><span class="sxs-lookup"><span data-stu-id="f52b7-275">If so, the request continues.</span></span> <span data-ttu-id="f52b7-276">Aksi takdirde, istek yetkili değil olarak döndürür.</span><span class="sxs-lookup"><span data-stu-id="f52b7-276">Otherwise, the request returns as not authorized.</span></span> <span data-ttu-id="f52b7-277">Bu yaklaşım durum bilgisi olarak görünen uygulama yapmak için kullanılan tanımlama bilgileri, "unutmayın mümkün" olduğundan kullanıcı daha önce sunucuyla doğrulaması.</span><span class="sxs-lookup"><span data-stu-id="f52b7-277">In this approach, cookies are used to make the application appear to be stateful, since it's able to "remember" that the user has previously authenticated with the server.</span></span>
+    if (user != null)
+    {
+        var result = 
+            await _userManager.RemoveLoginAsync(
+                user, account.LoginProvider, account.ProviderKey);
 
-### <a name="user-tokens"></a><span data-ttu-id="f52b7-278">Kullanıcı belirteçleri</span><span class="sxs-lookup"><span data-stu-id="f52b7-278">User tokens</span></span>
+        if (result.Succeeded)
+        {
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            message = ManageMessageId.RemoveLoginSuccess;
+        }
+    }
 
-<span data-ttu-id="f52b7-279">Belirteç tabanlı kimlik doğrulaması oturum sunucuda depolamak değil.</span><span class="sxs-lookup"><span data-stu-id="f52b7-279">Token-based authentication doesn't store session on the server.</span></span> <span data-ttu-id="f52b7-280">Bir kullanıcı oturum açtığında (antiforgery bir belirteç değil) bir belirteç alacakları.</span><span class="sxs-lookup"><span data-stu-id="f52b7-280">When a user is logged in, they're issued a token (not an antiforgery token).</span></span> <span data-ttu-id="f52b7-281">Bu belirteç belirteci doğrulamak için gerekli verileri tutar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-281">This token holds the data that's required to validate the token.</span></span> <span data-ttu-id="f52b7-282">Ayrıca biçiminde kullanıcı bilgilerini içeren [talep](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model).</span><span class="sxs-lookup"><span data-stu-id="f52b7-282">It also contains user information in the form of [claims](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model).</span></span> <span data-ttu-id="f52b7-283">Bir kullanıcı kimlik doğrulaması gerektiren bir sunucu kaynağa erişmek istediğinde, belirteç taşıyıcı {belirteci} biçiminde bir ek authorization üstbilgisi sunucusuyla gönderilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-283">When a user wants to access a server resource requiring authentication, the token is sent to the server with an additional authorization header in form of Bearer {token}.</span></span> <span data-ttu-id="f52b7-284">Sonraki her istek için sunucu tarafı doğrulama istekte belirteç geçirilen beri bu uygulamayı durum bilgisiz hale getirir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-284">This makes the application stateless since in each subsequent request the token is passed in the request for server-side validation.</span></span> <span data-ttu-id="f52b7-285">Bu belirteç değil *şifrelenmiş*; bunun yerine olan *kodlanmış*.</span><span class="sxs-lookup"><span data-stu-id="f52b7-285">This token isn't *encrypted*; rather it's *encoded*.</span></span> <span data-ttu-id="f52b7-286">Sunucu tarafında belirteç, belirtecin içinde ham bilgilerine erişmek için çözülebilir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-286">On the server-side, the token can be decoded to access the raw information within the token.</span></span> <span data-ttu-id="f52b7-287">Belirteç sonraki istekleri göndermek için ya da onu tarayıcının yerel depolama veya bir tanımlama bilgisi saklayın.</span><span class="sxs-lookup"><span data-stu-id="f52b7-287">To send the token in subsequent requests, either store it in the browser's local storage or in a cookie.</span></span> <span data-ttu-id="f52b7-288">XSRF güvenlik açığı hakkında belirteç yerel depolama alanına depolanır, ancak belirteç bir tanımlama bilgisinde depolanıyorsa, bir sorun olduğundan endişelenmeyin.</span><span class="sxs-lookup"><span data-stu-id="f52b7-288">Don't worry about XSRF vulnerability if the token is stored in the local storage, but it's an issue if the token is stored in a cookie.</span></span>
+    return RedirectToAction(nameof(ManageLogins), new { Message = message });
+}
+```
 
-### <a name="multiple-applications-are-hosted-in-one-domain"></a><span data-ttu-id="f52b7-289">Bir etki alanında barındırılan birden çok uygulamalarını</span><span class="sxs-lookup"><span data-stu-id="f52b7-289">Multiple applications are hosted in one domain</span></span>
+<span data-ttu-id="fd4ec-243">`ValidateAntiForgeryToken` Özniteliği bu süsler, HTTP GET istekleri dahil olmak üzere istekleri eylem yöntemleri için bir belirteç gerektirir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-243">The `ValidateAntiForgeryToken` attribute requires a token for requests to the action methods it decorates, including HTTP GET requests.</span></span> <span data-ttu-id="fd4ec-244">Varsa `ValidateAntiForgeryToken` özniteliği, uygulamanın denetleyicilerinde uygulandığında, ile geçersiz kılınabilir `IgnoreAntiforgeryToken` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-244">If the `ValidateAntiForgeryToken` attribute is applied across the app's controllers, it can be overridden with the `IgnoreAntiforgeryToken` attribute.</span></span>
 
-<span data-ttu-id="f52b7-290">Ancak `example1.cloudapp.net` ve `example2.cloudapp.net` farklı ana altında ana bilgisayarlar arasında örtük güven ilişkisi yoktur `*.cloudapp.net` etki alanı.</span><span class="sxs-lookup"><span data-stu-id="f52b7-290">Although `example1.cloudapp.net` and `example2.cloudapp.net` are different hosts, there's an implicit trust relationship between hosts under the `*.cloudapp.net` domain.</span></span> <span data-ttu-id="f52b7-291">Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır.</span><span class="sxs-lookup"><span data-stu-id="f52b7-291">This implicit trust relationship allows potentially untrusted hosts to affect each other's cookies (the same-origin policies that govern AJAX requests don't necessarily apply to HTTP cookies).</span></span> <span data-ttu-id="f52b7-292">Kullanıcı adı alanı belirtece katıştırılır, ASP.NET çekirdeği çalışma zamanı bazı azaltma sağlar.</span><span class="sxs-lookup"><span data-stu-id="f52b7-292">The ASP.NET Core runtime provides some mitigation in that the username is embedded into the field token.</span></span> <span data-ttu-id="f52b7-293">Kötü amaçlı bir alt etki alanı oturum belirteci üzerine mümkün olsa bile, kullanıcı için geçerli bir alan belirteci üretilemiyor.</span><span class="sxs-lookup"><span data-stu-id="f52b7-293">Even if a malicious subdomain is able to overwrite a session token, it can't generate a valid field token for the user.</span></span> <span data-ttu-id="f52b7-294">Bu tür bir ortamda barındırıldığında, yerleşik anti-XSRF yordamlar hala oturumu ele geçirme veya oturum açma CSRF karşı saldırıları korumaya olamaz.</span><span class="sxs-lookup"><span data-stu-id="f52b7-294">When hosted in such an environment, the built-in anti-XSRF routines still can't defend against session hijacking or login CSRF attacks.</span></span> <span data-ttu-id="f52b7-295">Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara vunerable ' dir.</span><span class="sxs-lookup"><span data-stu-id="f52b7-295">Shared hosting environments are vunerable to session hijacking, login CSRF, and other attacks.</span></span>
+> [!NOTE]
+> <span data-ttu-id="fd4ec-245">ASP.NET Core antiforgery belirteçleri GET istekleri için otomatik olarak eklemeyi desteklemiyor.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-245">ASP.NET Core doesn't support adding antiforgery tokens to GET requests automatically.</span></span>
 
-### <a name="additional-resources"></a><span data-ttu-id="f52b7-296">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="f52b7-296">Additional resources</span></span>
+### <a name="automatically-validate-antiforgery-tokens-for-unsafe-http-methods-only"></a><span data-ttu-id="fd4ec-246">Otomatik olarak yalnızca güvenli olmayan HTTP yöntemleri için antiforgery belirteçleri doğrulamak</span><span class="sxs-lookup"><span data-stu-id="fd4ec-246">Automatically validate antiforgery tokens for unsafe HTTP methods only</span></span>
 
-* <span data-ttu-id="f52b7-297">[XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) üzerinde [Web uygulaması güvenlik projeyi açın](https://www.owasp.org/index.php/Main_Page) (OWASP).</span><span class="sxs-lookup"><span data-stu-id="f52b7-297">[XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) on [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP).</span></span>
+<span data-ttu-id="fd4ec-247">ASP.NET Core uygulamaları için Güvenli HTTP yöntemleri (GET, HEAD, seçenekleri ve izleme) antiforgery belirteçleri oluşturmak yok.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-247">ASP.NET Core apps don't generate antiforgery tokens for safe HTTP methods (GET, HEAD, OPTIONS, and TRACE).</span></span> <span data-ttu-id="fd4ec-248">Kapsamlı uygulama yerine `ValidateAntiForgeryToken` özniteliği ve ile geçersiz kılma `IgnoreAntiforgeryToken` öznitelikleri [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) özniteliği kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-248">Instead of broadly applying the `ValidateAntiForgeryToken` attribute and then overriding it with `IgnoreAntiforgeryToken` attributes, the [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) attribute can be used.</span></span> <span data-ttu-id="fd4ec-249">Bu öznitelik için aynı şekilde çalışır `ValidateAntiForgeryToken` için aşağıdaki HTTP yöntemleri kullanılarak yapılan istekleri belirteçleri gerektirmeyen dışında öznitelik:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-249">This attribute works identically to the `ValidateAntiForgeryToken` attribute, except that it doesn't require tokens for requests made using the following HTTP methods:</span></span>
+
+* <span data-ttu-id="fd4ec-250">AL</span><span class="sxs-lookup"><span data-stu-id="fd4ec-250">GET</span></span>
+* <span data-ttu-id="fd4ec-251">HEAD</span><span class="sxs-lookup"><span data-stu-id="fd4ec-251">HEAD</span></span>
+* <span data-ttu-id="fd4ec-252">SEÇENEKLER</span><span class="sxs-lookup"><span data-stu-id="fd4ec-252">OPTIONS</span></span>
+* <span data-ttu-id="fd4ec-253">TRACE</span><span class="sxs-lookup"><span data-stu-id="fd4ec-253">TRACE</span></span>
+
+<span data-ttu-id="fd4ec-254">Kullanılmasını öneririz `AutoValidateAntiforgeryToken` API olmayan senaryolar için kapsamlı.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-254">We recommend use of `AutoValidateAntiforgeryToken` broadly for non-API scenarios.</span></span> <span data-ttu-id="fd4ec-255">Bu işlem sonrası eylemler varsayılan olarak korunan sağlar.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-255">This ensures POST actions are protected by default.</span></span> <span data-ttu-id="fd4ec-256">Varsayılan olarak, antiforgery belirteçleri yoksaymayı sürece alternatiftir `ValidateAntiForgeryToken` tek tek eylem yöntemlerine uygulanır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-256">The alternative is to ignore antiforgery tokens by default, unless `ValidateAntiForgeryToken` is applied to individual action methods.</span></span> <span data-ttu-id="fd4ec-257">Bu büyük olasılıkla bırakılması POST eylem yöntemi için bu senaryoda yanlışlıkla, uygulama CSRF saldırılara karşı savunmasız bırakır korumasız.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-257">It's more likely in this scenario for a POST action method to be left unprotected by mistake, leaving the app vulnerable to CSRF attacks.</span></span> <span data-ttu-id="fd4ec-258">Tüm gönderileri antiforgery belirteci göndermesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-258">All POSTs should send the antiforgery token.</span></span>
+
+<span data-ttu-id="fd4ec-259">API tanımlama bilgisi olmayan belirtecinin bir parçası göndermek için bir otomatik mekanizması yok.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-259">APIs don't have an automatic mechanism for sending the non-cookie part of the token.</span></span> <span data-ttu-id="fd4ec-260">Uygulama, büyük olasılıkla istemci kod uygulamasına bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-260">The implementation probably depends on the client code implementation.</span></span> <span data-ttu-id="fd4ec-261">Bazı örnekleri aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-261">Some examples are shown below:</span></span>
+
+<span data-ttu-id="fd4ec-262">Sınıf düzeyi örnek:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-262">Class-level example:</span></span>
+
+```csharp
+[Authorize]
+[AutoValidateAntiforgeryToken]
+public class ManageController : Controller
+{
+```
+
+<span data-ttu-id="fd4ec-263">Genel örnek:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-263">Global example:</span></span>
+
+```csharp
+services.AddMvc(options => 
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
+```
+
+### <a name="override-global-or-controller-antiforgery-attributes"></a><span data-ttu-id="fd4ec-264">Geçersiz kılma genel veya denetleyicisi antiforgery öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="fd4ec-264">Override global or controller antiforgery attributes</span></span>
+
+<span data-ttu-id="fd4ec-265">[IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) filtre, belirli bir eylem (veya denetleyici) için bir antiforgery belirteci gereksinimini ortadan kaldırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-265">The [IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) filter is used to eliminate the need for an antiforgery token for a given action (or controller).</span></span> <span data-ttu-id="fd4ec-266">Uygulandığında, bu filtre geçersiz kılmaları `ValidateAntiForgeryToken` ve `AutoValidateAntiforgeryToken` daha yüksek bir düzeyde (genel olarak veya bir denetleyicisinde) belirtilen filtreler.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-266">When applied, this filter overrides `ValidateAntiForgeryToken` and `AutoValidateAntiforgeryToken` filters specified at a higher level (globally or on a controller).</span></span>
+
+```csharp
+[Authorize]
+[AutoValidateAntiforgeryToken]
+public class ManageController : Controller
+{
+    [HttpPost]
+    [IgnoreAntiforgeryToken]
+    public async Task<IActionResult> DoSomethingSafe(SomeViewModel model)
+    {
+        // no antiforgery token required
+    }
+}
+```
+
+## <a name="refresh-tokens-after-authentication"></a><span data-ttu-id="fd4ec-267">Belirteçlerin kimlik doğrulamasından sonra Yenile</span><span class="sxs-lookup"><span data-stu-id="fd4ec-267">Refresh tokens after authentication</span></span>
+
+<span data-ttu-id="fd4ec-268">Kullanıcı, kullanıcı bir görünüm veya Razor sayfalarının sayfasına yönlendirerek doğrulandıktan sonra belirteçleri yenilenecek.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-268">Tokens should be refreshed after the user is authenticated by redirecting the user to a view or Razor Pages page.</span></span>
+
+## <a name="javascript-ajax-and-spas"></a><span data-ttu-id="fd4ec-269">JavaScript, AJAX ve SPAs</span><span class="sxs-lookup"><span data-stu-id="fd4ec-269">JavaScript, AJAX, and SPAs</span></span>
+
+<span data-ttu-id="fd4ec-270">Geleneksel HTML tabanlı uygulamalarda antiforgery belirteçleri gizli form alanlarını kullanarak sunucuya geçirilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-270">In traditional HTML-based apps, antiforgery tokens are passed to the server using hidden form fields.</span></span> <span data-ttu-id="fd4ec-271">Modern JavaScript tabanlı uygulamalar ve SPAs, birçok istek program aracılığıyla yapılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-271">In modern JavaScript-based apps and SPAs, many requests are made programmatically.</span></span> <span data-ttu-id="fd4ec-272">AJAX istekleri belirteç göndermek için başka teknikler (örneğin, istek üstbilgileri veya tanımlama bilgileri) kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-272">These AJAX requests may use other techniques (such as request headers or cookies) to send the token.</span></span>
+
+<span data-ttu-id="fd4ec-273">Tanımlama bilgileri kimlik doğrulama belirteçleri depolamak ve API isteklerinin sunucusunda kimlik doğrulaması için kullanılıyorsa, CSRF olası bir sorundur.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-273">If cookies are used to store authentication tokens and to authenticate API requests on the server, CSRF is a potential problem.</span></span> <span data-ttu-id="fd4ec-274">Belirteç depolamak için yerel depolama alanı kullandıysanız, yerel depolama biriminden değerleri otomatik olarak her istek ile sunucuya gönderilen değil çünkü CSRF güvenlik açığı azaltıldığından.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-274">If local storage is used to store the token, CSRF vulnerability might be mitigated because values from local storage aren't sent automatically to the server with every request.</span></span> <span data-ttu-id="fd4ec-275">Bu nedenle, istemci ve bir istek üstbilgisini önerilen yaklaşımdır olarak belirtecin gönderme antiforgery belirteci depolamak için yerel depolama kullanma.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-275">Thus, using local storage to store the antiforgery token on the client and sending the token as a request header is a recommended approach.</span></span>
+
+### <a name="javascript"></a><span data-ttu-id="fd4ec-276">JavaScript</span><span class="sxs-lookup"><span data-stu-id="fd4ec-276">JavaScript</span></span>
+
+<span data-ttu-id="fd4ec-277">JavaScript görünümlerle kullanarak, belirteç görünümü içinde hizmetinden kullanılarak oluşturulabilir.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-277">Using JavaScript with views, the token can be created using a service from within the view.</span></span> <span data-ttu-id="fd4ec-278">Eklenmeye [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) görüntüleyebileceği ve çağırabileceği içine hizmet [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):</span><span class="sxs-lookup"><span data-stu-id="fd4ec-278">Inject the [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) service into the view and call [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):</span></span>
+
+[!code-csharp[](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,12-13,35-36)]
+
+<span data-ttu-id="fd4ec-279">Bu yaklaşım doğrudan sunucudan tanımlama bilgilerini ayarlama veya istemciden okuma uğraşmanız gereğini ortadan kaldırır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-279">This approach eliminates the need to deal directly with setting cookies from the server or reading them from the client.</span></span>
+
+<span data-ttu-id="fd4ec-280">Önceki örnekte AJAX POST başlığı için gizli alan değeri okumak için JavaScript kullanır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-280">The preceding example uses JavaScript to read the hidden field value for the AJAX POST header.</span></span>
+
+<span data-ttu-id="fd4ec-281">JavaScript ayrıca tanımlama bilgilerini belirteçleri erişebilir ve tanımlama bilgisinin içeriği belirtecin değeri ile bir üstbilgi oluşturmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-281">JavaScript can also access tokens in cookies and use the cookie's contents to create a header with the token's value.</span></span>
+
+```csharp
+context.Response.Cookies.Append("CSRF-TOKEN", tokens.RequestToken, 
+    new Microsoft.AspNetCore.Http.CookieOptions { HttpOnly = false });
+```
+
+<span data-ttu-id="fd4ec-282">Komut dosyası varsayılarak istekleri belirteç olarak adlandırılan bir üstbilgisinde göndermek için `X-CSRF-TOKEN`, aranacak antiforgery hizmetini yapılandırma `X-CSRF-TOKEN` üstbilgisi:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-282">Assuming the script requests to send the token in a header called `X-CSRF-TOKEN`, configure the antiforgery service to look for the `X-CSRF-TOKEN` header:</span></span>
+
+```csharp
+services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
+```
+
+<span data-ttu-id="fd4ec-283">Aşağıdaki örnek, uygun üstbilgiyle AJAX isteği yapmak için JavaScript kullanır:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-283">The following example uses JavaScript to make an AJAX request with the appropriate header:</span></span>
+
+```javascript
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+var csrfToken = getCookie("CSRF-TOKEN");
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == XMLHttpRequest.DONE) {
+        if (xhttp.status == 200) {
+            alert(xhttp.responseText);
+        } else {
+            alert('There was an error processing the AJAX request.');
+        }
+    }
+};
+xhttp.open('POST', '/api/password/changepassword', true);
+xhttp.setRequestHeader("Content-type", "application/json");
+xhttp.setRequestHeader("X-CSRF-TOKEN", csrfToken);
+xhttp.send(JSON.stringify({ "newPassword": "ReallySecurePassword999$$$" }));
+```
+
+### <a name="angularjs"></a><span data-ttu-id="fd4ec-284">AngularJS</span><span class="sxs-lookup"><span data-stu-id="fd4ec-284">AngularJS</span></span>
+
+<span data-ttu-id="fd4ec-285">AngularJS CSRF adresine bir kuralı kullanılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-285">AngularJS uses a convention to address CSRF.</span></span> <span data-ttu-id="fd4ec-286">Sunucu tanımlama bilgisi adı ile gönderirse `XSRF-TOKEN`, AngularJS `$http` hizmeti sunucusuna bir istek gönderdiğinde bu tanımlama bilgisi değeri için bir başlık ekler.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-286">If the server sends a cookie with the name `XSRF-TOKEN`, the AngularJS `$http` service adds the cookie value to a header when it sends a request to the server.</span></span> <span data-ttu-id="fd4ec-287">Bu işlem otomatik olarak yapılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-287">This process is automatic.</span></span> <span data-ttu-id="fd4ec-288">Üstbilgi açıkça ayarlanmış olması gerekmez.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-288">The header doesn't need to be set explicitly.</span></span> <span data-ttu-id="fd4ec-289">Üstbilgi adı `X-XSRF-TOKEN`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-289">The header name is `X-XSRF-TOKEN`.</span></span> <span data-ttu-id="fd4ec-290">Sunucu, bu başlığı algılamak ve içeriğini doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-290">The server should detect this header and validate its contents.</span></span>
+
+<span data-ttu-id="fd4ec-291">ASP.NET Core API çalışmak için bu kural:</span><span class="sxs-lookup"><span data-stu-id="fd4ec-291">For ASP.NET Core API work with this convention:</span></span>
+
+* <span data-ttu-id="fd4ec-292">Adlı bir tanımlama bilgisine bir belirteç sağlamak için uygulamanızın yapılandırma `XSRF-TOKEN`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-292">Configure your app to provide a token in a cookie called `XSRF-TOKEN`.</span></span>
+* <span data-ttu-id="fd4ec-293">Adında bir başlık aramak için antiforgery hizmetini yapılandırma `X-XSRF-TOKEN`.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-293">Configure the antiforgery service to look for a header named `X-XSRF-TOKEN`.</span></span>
+
+```csharp
+services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
+```
+
+<span data-ttu-id="fd4ec-294">[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="fd4ec-294">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+
+## <a name="extend-antiforgery"></a><span data-ttu-id="fd4ec-295">Antiforgery genişletme</span><span class="sxs-lookup"><span data-stu-id="fd4ec-295">Extend antiforgery</span></span>
+
+<span data-ttu-id="fd4ec-296">[IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü her belirteci ek veriler gidiş tarafından kötü CSRF sistem davranışını genişletmek geliştiricilere sağlar.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-296">The [IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) type allows developers to extend the behavior of the anti-CSRF system by round-tripping additional data in each token.</span></span> <span data-ttu-id="fd4ec-297">[GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-297">The [GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) method is called each time a field token is generated, and the return value is embedded within the generated token.</span></span> <span data-ttu-id="fd4ec-298">Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve ardından arama [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) belirteç doğrulandığında bu verileri doğrulamak için.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-298">An implementer could return a timestamp, a nonce, or any other value and then call [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) to validate this data when the token is validated.</span></span> <span data-ttu-id="fd4ec-299">Bu yüzden bu bilgiyi içer gerek yoktur istemcinin kullanıcı adı zaten oluşturulan belirteçlere katıştırılır.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-299">The client's username is already embedded in the generated tokens, so there's no need to include this information.</span></span> <span data-ttu-id="fd4ec-300">Bir belirteci ek veriler ancak hiçbir içeriyorsa `IAntiForgeryAdditionalDataProvider` olan yapılandırılmış, ek veriler doğrulanmış değil.</span><span class="sxs-lookup"><span data-stu-id="fd4ec-300">If a token includes supplemental data but no `IAntiForgeryAdditionalDataProvider` is configured, the supplemental data isn't validated.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="fd4ec-301">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="fd4ec-301">Additional resources</span></span>
+
+* <span data-ttu-id="fd4ec-302">[CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) üzerinde [Web uygulaması güvenlik projeyi açın](https://www.owasp.org/index.php/Main_Page) (OWASP).</span><span class="sxs-lookup"><span data-stu-id="fd4ec-302">[CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) on [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP).</span></span>
