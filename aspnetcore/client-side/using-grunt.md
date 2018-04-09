@@ -1,7 +1,7 @@
 ---
-title: Grunt ASP.NET Core kullanarak
+title: ASP.NET çekirdek Grunt kullanın
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: c23f170b36ac1b9623835337020f2b5ac9514971
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-grunt-in-aspnet-core"></a>Grunt ASP.NET Core kullanarak 
+# <a name="use-grunt-in-aspnet-core"></a>ASP.NET çekirdek Grunt kullanın
 
 Tarafından [Noel pirinç](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt betik küçültme, TypeScript derlemesini, kod kalitesi "tüy" araçları, CSS ön işlemci ve istemci geliştirme desteklemek için yapılması gereken neredeyse tüm yinelenen işi otomatikleştiren bir JavaScript görev Çalıştırıcı ' dir. ASP.NET proje şablonları varsayılan olarak Gulp kullanır ancak grunt Visual Studio'da tam olarak desteklenmektedir (bkz [kullanarak Gulp](using-gulp.md)).
+Grunt betik küçültme, TypeScript derlemesini, kod kalitesi "tüy" araçları, CSS ön işlemci ve istemci geliştirme desteklemek için yapılması gereken neredeyse tüm yinelenen işi otomatikleştiren bir JavaScript görev Çalıştırıcı ' dir. ASP.NET proje şablonları varsayılan olarak Gulp kullanır ancak grunt Visual Studio'da tam olarak desteklenmektedir (bkz [kullanmak Gulp](using-gulp.md)).
 
 Bu örnekte boş bir ASP.NET Core projeyi sıfırdan istemci derleme işlemini otomatikleştirmek nasıl göstermek için başlangıç noktası olarak kullanır.
 
@@ -129,16 +129,16 @@ Her paket için gerekli dosyalarla birlikte her devDependencies öğesi paketler
 
 Grunt adlı bir bildirimi kullanarak yapılandırılmış *Gruntfile.js* tanımlar, yükler ve el ile çalıştırın ya da Visual Studio olaylarına göre otomatik olarak çalışacak şekilde yapılandırılmış görevlerini kaydeder.
 
-1.  Projeye sağ tıklayın ve seçin **Ekle > Yeni öğe**. Seçin **Grunt yapılandırma dosyası** seçeneği, varsayılan adı bırakın *Gruntfile.js*, tıklatıp **Ekle** düğmesi.
+1. Projeye sağ tıklayın ve seçin **Ekle > Yeni öğe**. Seçin **Grunt yapılandırma dosyası** seçeneği, varsayılan adı bırakın *Gruntfile.js*, tıklatıp **Ekle** düğmesi.
 
-    Modül tanımı ilk kod içerir ve `grunt.initConfig()` yöntemi. `initConfig()` Her bir paket için seçenekleri ayarlamak için kullanılır ve modülü kalanı yüklemek ve görevleri kaydedin.
+   Modül tanımı ilk kod içerir ve `grunt.initConfig()` yöntemi. `initConfig()` Her bir paket için seçenekleri ayarlamak için kullanılır ve modülü kalanı yüklemek ve görevleri kaydedin.
     
-    ```javascript
-    module.exports = function (grunt) {
-      grunt.initConfig({
-      });
-    };
-    ```
+   ```javascript
+   module.exports = function (grunt) {
+     grunt.initConfig({
+     });
+   };
+   ```
 
 2. İçinde `initConfig()` yöntemi seçeneklerini eklemek `clean` görev örnekte gösterildiği gibi *Gruntfile.js* aşağıda. Temiz görev dizini bir dizeler dizisi kabul eder. Bu görev dosyaları wwwroot/lib ve tüm/temp dizini kaldırır.
 
@@ -207,16 +207,16 @@ Grunt adlı bir bildirimi kullanarak yapılandırılmış *Gruntfile.js* tanıml
     > [!NOTE]
     > Seçenek "-W069" noktalı gösterim yerine bir özellik yani atamak için sözdizimi JavaScript kullanan ayraç olduğunda hata jshint tarafından üretilen `Tastes["Sweet"]` yerine `Tastes.Sweet`. Seçeneği, devam etmek için işleminin geri kalanında izin vermek için uyarı devre dışı bırakır.
 
-10.  Ekleme `uglify` aşağıdaki kodu kullanarak görev.
+10. Ekleme `uglify` aşağıdaki kodu kullanarak görev.
 
     Görev küçültür *combined.js* dosya geçici dizinde bulunan ve wwwroot/standart adlandırma kuralı aşağıdaki lib içinde sonuç dosyası oluşturur  *\<dosya adı\>. min.js*.
     
     ```javascript
     uglify: {
-      all: {
-        src: ['temp/combined.js'],
-        dest: 'wwwroot/lib/combined.min.js'
-      }
+     all: {
+       src: ['temp/combined.js'],
+       dest: 'wwwroot/lib/combined.min.js'
+     }
     },
     ```
 
@@ -241,7 +241,7 @@ Grunt adlı bir bildirimi kullanarak yapılandırılmış *Gruntfile.js* tanıml
     ![Çözüm Gezgini tüm görevler](using-grunt/_static/solution-explorer-after-all-tasks.png)
     
     > [!NOTE]
-    > Her paket için seçenekleri hakkında daha fazla bilgi için ziyaret [https://www.npmjs.com/](https://www.npmjs.com/) ve arama ana sayfada arama kutusuna paket adı. Örneğin, tüm parametreleri açıklayan bir belge bağlantı almak için grunt contrib temiz paketi bakabilirsiniz.
+    > Her paket için seçenekleri hakkında daha fazla bilgi için ziyaret [ https://www.npmjs.com/ ](https://www.npmjs.com/) ve arama ana sayfada arama kutusuna paket adı. Örneğin, tüm parametreleri açıklayan bir belge bağlantı almak için grunt contrib temiz paketi bakabilirsiniz.
 
 ### <a name="all-together-now"></a>Artık tümü bir arada
 

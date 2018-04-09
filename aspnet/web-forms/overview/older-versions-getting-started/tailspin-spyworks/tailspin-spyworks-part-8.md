@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: "8. Kısım: Son sayfaları, özel durum işleme ve sonuç | Microsoft Docs"
+title: '8. Kısım: Son sayfaları, özel durum işleme ve sonuç | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 8 sayfa ve özel durum hakkında bir kişi sayfa ekler..."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 8 sayfa ve özel durum hakkında bir kişi sayfa ekler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>8. Kısım: Son sayfaları, özel durum işleme ve sonuç
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 8 sayfa ve özel durum işleme hakkında bir kişi sayfa ekler. Serinin sonuç budur.
 
 
-## <a id="_Toc260221680"></a>İlgili kişi sayfası (gönderilen e-posta adresinden ASP.NET)
+## <a id="_Toc260221680"></a>  İlgili kişi sayfası (gönderilen e-posta adresinden ASP.NET)
 
 ContactUs.aspx adlı yeni bir sayfa oluşturma
 
@@ -43,11 +43,11 @@ Bu kodu web.config dosyasına bir giriş posta göndermek için kullanılacak SM
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>Sayfa hakkında
+## <a id="_Toc260221681"></a>  Sayfa hakkında
 
 AboutUs.aspx adlı bir sayfaya oluşturun ve istediğiniz herhangi bir içeriği ekleyin.
 
-## <a id="_Toc260221682"></a>Genel özel durum işleyicisi
+## <a id="_Toc260221682"></a>  Genel özel durum işleyicisi
 
 Son olarak, uygulama genelinde şu özel durum ve vardır öngörülemeyen durumlarda bu soğuk Ayrıca web uygulamamız neden işlenmeyen özel durumları.
 
@@ -75,11 +75,11 @@ Ardından çözüme Error.aspx adlı bir sayfa ekleyin ve bu işaretleme parçac
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>Sonuç
+## <a id="_Toc260221683"></a>  Sonuç
 
 ASP.NET WebForms kolaylaştırır olmadığını gördük veritabanı erişimiyle, üyelik, AJAX, Gelişmiş bir Web sitesi oluşturmak için vb. oldukça hızlı bir şekilde.
 
 Umarız Bu öğreticiyi kendi ASP.NET WebForms uygulamalar oluşturmaya başlamak için ihtiyacınız olan araçları verdiği!
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-7.md)

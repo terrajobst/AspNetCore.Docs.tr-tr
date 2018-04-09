@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Google dış oturum açma Kurulumu"
+title: ASP.NET Core Google dış oturum açma Kurulumu
 author: rick-anderson
-description: "Bu öğretici, var olan bir ASP.NET Core uygulamaya Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir."
+description: Bu öğretici, var olan bir ASP.NET Core uygulamaya Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir.
 manager: wpickett
 ms.author: riande
 ms.date: 08/02/2017
@@ -9,21 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: 1ca63593a7cf2b0eff1e52c0beda7ef2b826d474
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ab49eb1c45d69ff918b25190d7b94a105ff13972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configuring-google-authentication-in-aspnet-core"></a>ASP.NET Core Google kimlik doğrulamasını yapılandırma
+# <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core Google dış oturum açma Kurulumu
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP.NET Core 2.0 projeyi kullanarak Google + hesaplarında oturum olanak tanımak nasıl gösterilir [önceki sayfaya](index.md). İzleyerek Başlangıç [resmi adımları](https://developers.google.com/identity/sign-in/web/devconsole-project) Google API Konsolu'nda yeni bir uygulama oluşturmak için.
+Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP.NET Core 2.0 projeyi kullanarak Google + hesaplarında oturum olanak tanımak nasıl gösterilir [önceki sayfaya](xref:security/authentication/social/index). İzleyerek Başlangıç [resmi adımları](https://developers.google.com/identity/sign-in/web/devconsole-project) Google API Konsolu'nda yeni bir uygulama oluşturmak için.
 
 ## <a name="create-the-app-in-google-api-console"></a>Google API Konsolu'nda uygulaması oluşturma
 
-* Gidin [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) ve oturum açın. Bir Google hesabınız zaten yoksa, kullanın **daha fazla seçenek** > **[hesabı oluşturma](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  bağlantı oluşturmak için:
+* Gidin [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) ve oturum açın. Bir Google hesabınız zaten yoksa, kullanın **daha fazla seçenek** > **[hesabı oluşturma](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  bağlantı oluşturmak için:
 
 ![Google API Console](index/_static/GoogleConsoleLogin.png)
 
@@ -80,14 +80,13 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
 ## <a name="store-google-clientid-and-clientsecret"></a>Mağaza Google ClientID ve ClientSecret
 
-Bağlantı Google gibi hassas ayarları `Client ID` ve `Client Secret` kullanarak uygulamanızı yapılandırma için [gizli Yöneticisi](../../app-secrets.md). Bu öğreticinin amaçları doğrultusunda belirteçleri ad `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`.
+Bağlantı Google gibi hassas ayarları `Client ID` ve `Client Secret` kullanarak uygulamanızı yapılandırma için [gizli Yöneticisi](xref:security/app-secrets). Bu öğreticinin amaçları doğrultusunda belirteçleri ad `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`.
 
 Bu belirteçler için değerleri altında önceki adımda indirdiğiniz JSON dosyasını bulunabilir `web.client_id` ve `web.client_secret`.
 
 ## <a name="configure-google-authentication"></a>Google kimlik doğrulamasını yapılandırma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Google hizmetinde eklemek `ConfigureServices` yönteminde *haline* dosyası:
 
 ```csharp
@@ -102,10 +101,9 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 });
 ```
 
-[!INCLUDE[default settings configuration](includes/default-settings.md)]
+[!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) paketi yüklenir.
 
  * Visual Studio 2017 ile bu paketi yüklemek için projeyi sağ tıklatın ve **NuGet paketlerini Yönet**.
@@ -123,8 +121,7 @@ app.UseGoogleAuthentication(new GoogleOptions()
 });
 ```
 
----
-
+* * *
 Bkz: [GoogleOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
 
 ## <a name="sign-in-with-google"></a>Oturum Google ile oturum aç
@@ -151,7 +148,7 @@ Google kimlik bilgilerinizi kullanarak şimdi kaydedilir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu makalede, Google ile nasıl doğrulayabilir gösterdi. Listelenen diğer sağlayıcıları, kimlik doğrulaması için benzer bir yaklaşım izleyebilirsiniz [önceki sayfaya](index.md).
+* Bu makalede, Google ile nasıl doğrulayabilir gösterdi. Listelenen diğer sağlayıcıları, kimlik doğrulaması için benzer bir yaklaşım izleyebilirsiniz [önceki sayfaya](xref:security/authentication/social/index).
 
 * Azure web uygulaması için web sitenizi yayımladıktan sonra sıfırlamalıdır `ClientSecret` Google API Konsolu'nda.
 

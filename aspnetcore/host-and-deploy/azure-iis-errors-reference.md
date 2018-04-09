@@ -1,7 +1,7 @@
 ---
-title: "Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu"
+title: Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
 author: guardrex
-description: "Sık karşılaşılan Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırdığında ayırt."
+description: Sık karşılaşılan Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırdığında ayırt.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: cd9f8fc310ba0258477db51aa416c03debadeffe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
 
@@ -30,19 +30,19 @@ Aşağıdaki bilgileri toplayın:
 
 Aşağıdaki sık karşılaşılan bilgileri karşılaştırın. Bir eşleşme olursa, sorun giderme önerileri izleyin.
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 ## <a name="installer-unable-to-obtain-vc-redistributable"></a>Yükleyici VC ++ Redistributable alınamıyor
 
 * **Yükleyici özel durum:** 0x80072efd veya 0x80072f76 - belirtilmeyen hata
 
-* **Yükleyici günlük özel durum &#8224;:** hata 0x80072efd veya 0x80072f76: EXE paketini yürütülemedi.
+* **Yükleyici günlük özel durum&#8224;:** hata 0x80072efd veya 0x80072f76: EXE paketini yürütülemedi.
 
-  &#8224; Günlük C:\Users bulunduğu\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
+  &#8224;Günlük C:\Users bulunduğu\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
 
 Sorun giderme:
 
-* Sistem, paket barındırma sunucusu yüklenirken Internet erişimi yoksa, bu özel durum oluştu yükleyici almasını engellendiğinde *Microsoft Visual C++ 2015 Redistributable*. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun framework bağımlı dağıtım (FDD) barındırmak için gerekli .NET çekirdeği çalışma zamanı almayabilir. Bir FDD barındırma, çalışma zamanı programlarında yüklendiğinden emin olmak &amp; özellikleri. Gerekirse, bir çalışma zamanı Yükleyicisi'nden elde [.NET indirmeleri](https://www.microsoft.com/net/download/core). Çalışma zamanı yüklendikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Sistem, paket barındırma sunucusu yüklenirken Internet erişimi yoksa, bu özel durum oluştu yükleyici almasını engellendiğinde *Microsoft Visual C++ 2015 Redistributable*. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun framework bağımlı dağıtım (FDD) barındırmak için gerekli .NET çekirdeği çalışma zamanı almayabilir. Bir FDD barındırma, çalışma zamanı programlarında yüklendiğinden emin olmak &amp; özellikleri. Gerekirse, bir çalışma zamanı Yükleyicisi'nden elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all). Çalışma zamanı yüklendikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>İşletim sistemi yükseltme 32-bit ASP.NET Core modül kaldırılır
 
@@ -138,7 +138,7 @@ Sorun giderme:
 
 * Bir FDD dağıtılan ve IIS'yi yeniden başlatmadan .NET Core yüklü. Sunucuyu yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
-* Bir FDD barındıran sistemde .NET çekirdeği çalışma zamanı yüklemeden dağıtılmış. .NET çekirdeği çalışma zamanı yüklenmemiştir çalıştırırsanız **.NET Core Windows Server barındırma Paket Yükleyici** sistemdeki. Bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Internet bağlantısı olmadan bir sistemde .NET çekirdeği çalışma zamanı yükleme girişimi varsa, çalışma alanından elde [.NET indirmeleri](https://www.microsoft.com/net/download/core) ve ASP.NET Core modülünü yüklemek için barındırma paket yükleyiciyi çalıştırın. Sistemi yeniden başlatmayı veya yürüterek IIS yeniden yüklemeyi tamamlamak **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Bir FDD barındıran sistemde .NET çekirdeği çalışma zamanı yüklemeden dağıtılmış. .NET çekirdeği çalışma zamanı yüklenmemiştir çalıştırırsanız **.NET Core Windows Server barındırma Paket Yükleyici** sistemdeki. Bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Internet bağlantısı olmadan bir sistemde .NET çekirdeği çalışma zamanı yükleme girişimi varsa, çalışma alanından elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all) ve ASP.NET Core modülünü yüklemek için barındırma paket yükleyiciyi çalıştırın. Sistemi yeniden başlatmayı veya yürüterek IIS yeniden yüklemeyi tamamlamak **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
 * Bir FDD dağıtılan ve *Microsoft Visual C++ 2015 Redistributable (x64)* sistemde yüklü değil. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
@@ -211,6 +211,18 @@ Sorun giderme
 Sorun giderme
 
 * Onaylayın alt uygulamanın *web.config* dosya içermez bir `<handlers>` bölümü.
+
+## <a name="stdout-log-path-incorrect"></a>STDOUT günlük yolu yanlış
+
+* **Tarayıcı:** uygulama normalde yanıt verir.
+
+* **Uygulama günlüğü:** Uyarı: stdoutLogFile oluşturulamadı \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, HataKodu = - 2147024893.
+
+* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+
+Sorun giderme
+
+* `stdoutLogFile` Belirtilen yola `<aspNetCore>` öğesinin *web.config* yok. Daha fazla bilgi için bkz: [günlük oluşturma ve yeniden yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) ASP.NET Core modülü yapılandırması başvuru konusu bölümü.
 
 ## <a name="application-configuration-general-issue"></a>Uygulama yapılandırma genel sorunu
 

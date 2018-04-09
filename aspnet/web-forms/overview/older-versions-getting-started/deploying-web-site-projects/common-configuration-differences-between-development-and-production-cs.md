@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
-title: "Geliştirme ve üretim (C#) ortak yapılandırma farklarını | Microsoft Docs"
+title: Geliştirme ve üretim (C#) ortak yapılandırma farklarını | Microsoft Docs
 author: rick-anderson
-description: "Önceki öğreticilerde, tüm ilgili dosyaları geliştirme ortamından üretim ortamına kopyalayarak biz bizim Web sitesi dağıtıldı. Ancak, ı..."
+description: Önceki öğreticilerde, tüm ilgili dosyaları geliştirme ortamından üretim ortamına kopyalayarak biz bizim Web sitesi dağıtıldı. Ancak, ı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 092362e3811213047820dab08efc16e1a1e75020
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2694e0dba774a5bca13b9acc6b14c3e47226a064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Geliştirme ve üretim (C#) ortak yapılandırma farklılıkları
 ====================
@@ -53,7 +53,7 @@ Bir ASP.NET sayfasını ziyaret ilk kez (veya onu değiştikten sonra ilk kez) i
 Hata ayıklama özniteliği en önemli öznitelikleri biri `<compilation>` öğesi. Varsa `debug` özniteliği ayarlanmış derlenmiş derlemeleri Visual Studio uygulamada hata ayıklama sırasında gerekli hata ayıklama simgeleri eklemek sonra "true". Ancak hata ayıklama simgeleri derleme boyutunu artırın ve kod çalıştırırken ek bellek gereksinimleri. Ayrıca, `debug` özniteliği ayarlanmış "tarafından döndürülen herhangi bir içerik true" `WebResource.axd` , her bir kullanıcı tarafından döndürülen statik içeriği yeniden yüklemek için gerekir, bir sayfasını ziyaret anlamı önbelleğe alınmaz `WebResource.axd`.
 
 > [!NOTE]
-> `WebResource.axd`Yerleşik bir HTTP işleyicisini ASP.NET 2.0 ile komut dosyaları, görüntüler, CSS dosyaları ve diğer içerik gibi katıştırılmış kaynakları almak için sunucu denetimleri kullanan sunulmuştur. Hakkında daha fazla bilgi için `WebResource.axd` çalışır ve özel sunucu denetimleri, katıştırılmış kaynaklara erişmek için nasıl kullanabileceğinizi görmek [erişme katıştırılmış kaynakları aracılığıyla bir URL'yi kullanarak `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
+> `WebResource.axd` Yerleşik bir HTTP işleyicisini ASP.NET 2.0 ile komut dosyaları, görüntüler, CSS dosyaları ve diğer içerik gibi katıştırılmış kaynakları almak için sunucu denetimleri kullanan sunulmuştur. Hakkında daha fazla bilgi için `WebResource.axd` çalışır ve özel sunucu denetimleri, katıştırılmış kaynaklara erişmek için nasıl kullanabileceğinizi görmek [erişme katıştırılmış kaynakları aracılığıyla bir URL'yi kullanarak `WebResource.axd` ](http://aspnet.4guysfromrolla.com/articles/080906-1.aspx).
 
 
 `<compilation>` Öğenin `debug` özniteliği ayarlanmış genellikle geliştirme ortamında "true". Aslında, bu öznitelik bir web uygulaması; hatalarının ayıklanabilmesi için "true" ayarlanmalıdır Visual Studio'dan ASP.NET uygulaması hata ayıklamak deneyin ve `debug` özniteliği, "false" olarak ayarlanmışsa, Visual Studio, uygulama kadar hata ayıklaması yapılabilir edilemez olduğunu belirten bir ileti görüntülenir `debug` özniteliği "true" ve ayarlanır Bu değişiklik yapmasını sağlar.
@@ -136,6 +136,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [VS 2008 Web dağıtım projeleri](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [yayımlanan VS 2008 Web dağıtım projesi desteği](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
 - [Web Dağıtımı Projeleri](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
->[!div class="step-by-step"]
-[Önceki](deploying-your-site-using-visual-studio-cs.md)
-[sonraki](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-your-site-using-visual-studio-cs.md)
+> [sonraki](core-differences-between-iis-and-the-asp-net-development-server-cs.md)

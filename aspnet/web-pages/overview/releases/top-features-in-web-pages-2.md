@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>ASP.NET Web Pages 2 üst özellikleri
 ====================
@@ -62,9 +62,9 @@ Web sayfalarını yüklemek için Microsoft Web Platformu yükleyicisi yükleme 
     Internet Explorer kullanıyorsanız, sonraki adıma gidin. Mozilla Firefox veya Google Chrome gibi farklı bir tarayıcı kullanıyorsanız kaydetmeniz istenir *Webmatrix.exe* bilgisayarınıza dosya. Dosyayı kaydedin ve yükleyici başlatmak için tıklatın.
 3. Yükleyiciyi çalıştırmak ve seçmek **yükleme** düğmesi. Bu, WebMatrix ve Web sayfalarını yükler.
 
-## <a id="New_and_Enhanced_Features"></a>Yeni ve Gelişmiş Özellikler
+## <a id="New_and_Enhanced_Features"></a>  Yeni ve Gelişmiş Özellikler
 
-### <a id="Changes_for_the_RC_Version"></a>RC sürüm (Haziran 2012) değişiklikleri
+### <a id="Changes_for_the_RC_Version"></a>  RC sürüm (Haziran 2012) değişiklikleri
 
 Haziran 2012 RC sürüm sürümde Mart 2012'de serbest Beta sürümü yenileme bazı değişiklikler vardır. Bu değişiklikler şunlardır:
 
@@ -94,8 +94,8 @@ Haziran 2012 RC sürüm sürümde Mart 2012'de serbest Beta sürümü yenileme b
     `<a href="~/Default.cshtml">Home</a>`
 - `Scripts` Varlıklar (kaynak) yönetim için Yardımcısı ile değiştirilmiştir `Assets` Yardımcısı, aşağıdaki gibi biraz farklı yöntemler vardır:
 
-    - İçin `Scripts.Add`, kullanın`Assets.AddScript`
-    - İçin `Scripts.GetScriptTags`, kullanın`Assets.GetScripts`
+  - İçin `Scripts.Add`, kullanın `Assets.AddScript`
+  - İçin `Scripts.GetScriptTags`, kullanın `Assets.GetScripts`
 
     Önemli bir değişiklik budur; `Scripts` sınıfı'nin Beta sürümünde kullanılamaz. Bu değişiklikle Varlık Yönetimi'ni kullanın, bu belgenin kod örneklerinde güncelleştirildi.
 
@@ -115,7 +115,7 @@ Yeni **Kişisel Site** şablon kişisel bir blog, bir fotoğraf sayfasına ve Tw
 
 Erişim için **Kişisel Site** şablonunu seçin **şablonları** WebMatrix üzerinde **Hızlı Başlangıç** ekran.
 
-[![topseven personalsite 1](top-features-in-web-pages-2/_static/image2.png)](top-features-in-web-pages-2/_static/image1.png)
+[![topseven-personalsite-1](top-features-in-web-pages-2/_static/image2.png)](top-features-in-web-pages-2/_static/image1.png)
 
 İçinde **şablonları** iletişim kutusunda, seçin **Kişisel Site** şablonu.
 
@@ -123,7 +123,7 @@ Erişim için **Kişisel Site** şablonunu seçin **şablonları** WebMatrix üz
 
 Giriş sayfasının **Kişisel Site** sayfa ve fotoğraf sayfasına Twitter şablon sağlar, blogunuz ayarlamak için bağlantıları izleyin.
 
-[![topseven personalsite 3](top-features-in-web-pages-2/_static/image6.png)](top-features-in-web-pages-2/_static/image5.png)
+[![topseven-personalsite-3](top-features-in-web-pages-2/_static/image6.png)](top-features-in-web-pages-2/_static/image5.png)
 
 <a id="validation"></a>
 ### <a name="validating-user-input"></a>Kullanıcı girişini doğrulama
@@ -149,13 +149,13 @@ Bir Özet görüntülemek için (`<ul>` listesi) sayfasında, tüm hataların `H
 
 Bu adım sunucu tarafında doğrulama uygulamak için yeterli değildir. İstemci tarafı doğrulama eklemek istiyorsanız, aşağıdakileri ayrıca yapın.
 
-İçinde aşağıdaki komut dosyası başvuruları ekleyin `<head>` bir web sayfasının bölümünde. İlk iki komut dosyası başvuruları bir içerik teslim ağı (CDN) sunucuda uzak dosyaları üzerine gelin. Üçüncü başvuru yerel komut dosyasına işaret eder.
+İçinde aşağıdaki komut dosyası başvuruları ekleyin `<head>` bir web sayfasının bölümünde. İlk iki komut dosyası başvuruları bir içerik teslim ağı (CDN) sunucuda uzak dosyaları üzerine gelin. Üçüncü başvuru yerel komut dosyasına işaret eder. CDN kullanılamaz duruma geldiğinde üretim uygulamaları bir geri dönüş uygulamanız gerekir. Geri dönüş sınayın.
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 Yerel bir kopyasını almak için en kolay yolu *jquery.validate.unobtrusive.min.js* kitaplığıdır (örneğin, başlangıç sitesi) site şablonları birini temel alarak yeni bir Web sayfaları site oluşturmak için. Şablon tarafından oluşturulan sitesi içeren *jquery.validate.unobtrusive.js* içinden kopyalayabilirsiniz, sitenize betikleri klasörü, dosyasında.
 
-Web sitenizi kullanıyorsa, bir*\_SiteLayout* sayfa düzeni denetlemek için sayfasında, doğrulama tüm içerik sayfalarına kullanılabilir olmasını sağlamak, bu komut dosyası başvuruları bu sayfadaki ekleyebilirsiniz. Yalnızca belirli sayfalarında doğrulama yapmak istiyorsanız, komut dosyaları yalnızca bu sayfalarda kaydetmek için varlıklar Yöneticisi'ni kullanabilirsiniz. Bunu yapmak için arama `Assets.AddScript(path)` doğrulamak ve her komut dosyalarını bir başvuru istediğiniz sayfasında. Ardından bir çağrı ekleyin `Assets.GetScripts` içinde  *\_SiteLayout* kayıtlı işlemek için sayfa `<script>` etiketler. Daha fazla bilgi için bkz [varlıklar Yöneticisi'ni kaydetme kodlarla](#resmanagement).
+Web sitenizi kullanıyorsa, bir<em>\_SiteLayout</em> sayfa düzeni denetlemek için sayfasında, doğrulama tüm içerik sayfalarına kullanılabilir olmasını sağlamak, bu komut dosyası başvuruları bu sayfadaki ekleyebilirsiniz. Yalnızca belirli sayfalarında doğrulama yapmak istiyorsanız, komut dosyaları yalnızca bu sayfalarda kaydetmek için varlıklar Yöneticisi'ni kullanabilirsiniz. Bunu yapmak için arama `Assets.AddScript(path)` doğrulamak ve her komut dosyalarını bir başvuru istediğiniz sayfasında. Ardından bir çağrı ekleyin `Assets.GetScripts` içinde  <em>\_SiteLayout</em> kayıtlı işlemek için sayfa `<script>` etiketler. Daha fazla bilgi için bkz [varlıklar Yöneticisi'ni kaydetme kodlarla](#resmanagement).
 
 Tek bir öğe için biçimlendirme çağrı `Validation.For` yöntemi. Bu yöntem öznitelikleri yayar, jQuery istemci tarafı doğrulama sağlamak için bağlayın. Örneğin:
 
@@ -172,15 +172,15 @@ Aşağıdaki örnekte bir form üzerinde kullanıcı girişini doğrulayan bir s
 
 Bir kullanıcı geçerli giriş gönderdiğinde sayfa şöyledir:
 
-[![topSeven geçerli-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 Bir kullanıcı bunu boş sol için gerekli bir alan gönderdiğinde sayfa şöyledir:
 
-[![topSeven geçerli-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 İşte sayfa bir kullanıcı, bir tam sayı dışında bir şey ile gönderdiğinde **krediler** alan:
 
-[![topSeven geçerli-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 Daha fazla bilgi için aşağıdaki blog gönderileri bakın:
 
@@ -207,7 +207,7 @@ Aşağıdaki örnek, varlıklar Yöneticisi'ni nasıl çalıştığını göster
 
 - Adlı özel bir yardımcı `MakeNote`. Bu yardımcı kaydırma tarafından kutu içinde bir dize oluşturur. bir `div` çevresinde öğesi, ekleyerek bir sınır ile biçimlendirilmiş &quot;Not:&quot; ona. Yardımcı ayrıca çalışma zamanı davranışı notu ekler bir JavaScript dosyası çağırır. Komut dosyası ile başvuru yerine bir `<script>` etiketi, yardımcı çağırarak betik kaydeder `Assets.AddScript` .
 - Bir JavaScript dosyası. Bu yardımcı tarafından çağrılan dosyasıdır ve geçici olarak sırasında Not öğelerinin yazı tipi boyutunu artırır bir `mouseover` olay.
-- Başvuruda bulunan bir içerik sayfasını*\_SiteLayout* sayfasında, bazı içerikler gövdesinde oluşturur ve ardından çağırır `MakeNote` Yardımcısı.
+- Başvuruda bulunan bir içerik sayfasını<em>\_SiteLayout</em> sayfasında, bazı içerikler gövdesinde oluşturur ve ardından çağırır `MakeNote` Yardımcısı.
 - A  *\_SiteLayout* sayfası. Bu sayfa, ortak bir üstbilgisi ve sayfa düzeni yapısını sağlar. Ayrıca bir çağrı içerir `Assets.GetScripts`, varlıklar Yöneticisi'ni komut dosyası nasıl işlediğini olduğu bir sayfasında çağırır.
 
 Örneği çalıştırmak için:
@@ -241,7 +241,7 @@ Aşağıdaki örnek, varlıklar Yöneticisi'ni nasıl çalıştığını göster
 
 Aşağıdaki ekran görüntüsü gösterildiği *ContentPage.cshtml* bir tarayıcıda Not fare işaretçisini tutun:
 
-[![topSeven resmgr 1](top-features-in-web-pages-2/_static/image14.png)](top-features-in-web-pages-2/_static/image13.png)
+[![topSeven-resmgr-1](top-features-in-web-pages-2/_static/image14.png)](top-features-in-web-pages-2/_static/image13.png)
 
 <a id="oauthsetup"></a>
 ### <a name="enabling-logins-from-facebook-and-other-sites-using-oauth-and-openid"></a>Facebook ve OAuth ve Openıd kullanarak diğer sitelere oturum açmayı etkinleştirme
@@ -250,7 +250,7 @@ Web Pages 2 üyelik ve kimlik doğrulama için Gelişmiş seçenekler sağlar. A
 
 Bu görüntü oturum açma sayfasından gösterir **başlangıç sitesi** şablonu, bir kullanıcı bir dış hesapla günlük kaydını etkinleştirmek için bir Facebook, Twitter veya Windows Live simgesi seçim burada:
 
-[![topSeven oauth 1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
+[![topSeven-oauth-1](top-features-in-web-pages-2/_static/image16.png)](top-features-in-web-pages-2/_static/image15.png)
 
 OAuth ve Openıd üyeliği birkaç satırlık bir kod kullanarak etkinleştirebilirsiniz. Özellikler ve yöntemler OAuth çalışmak için kullanın ve Openıd sağlayıcılarının olan `WebMatrix.Security.OAuthWebSecurity` sınıfı.
 
@@ -288,18 +288,18 @@ Artık Google ve Yahoo oturum açmayı test edebilirsiniz.
 
     Web sayfasının isteği Google oturum açma sayfasına yönlendirir.
 
-    [![topSeven oauth 6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
+    [![topSeven-oauth-6](top-features-in-web-pages-2/_static/image18.png)](top-features-in-web-pages-2/_static/image17.png)
 3. Varolan bir Google hesabı kimlik bilgilerini girin.
 4. Google hesabı bilgilerini kullanmak için ' ı tıklatın Localhost izin vermek istediğiniz isterse **izin**.
 
     Kod kullanıcının kimliğini doğrulamak için Google belirtecini kullanır ve ardından bu sayfaya, Web sitenizde döndürür. Bu sayfa, kullanıcıların kendi Google oturum açma Web sitenizde var olan bir hesapla ilişkilendirmek sağlar. veya yeni bir hesap ile dış oturum açma ilişkilendirmek için sitenizde kaydedebilirsiniz.
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image20.png)](top-features-in-web-pages-2/_static/image19.png)
 5. Seçin **ilişkilendirmek** düğmesi. Tarayıcı, uygulamanızın giriş sayfasına döndürür.
 
-    [![topSeven oauth 3](top-features-in-web-pages-2/_static/image22.png)](top-features-in-web-pages-2/_static/image21.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image22.png)](top-features-in-web-pages-2/_static/image21.png)
 
-    [![topSeven oauth 3](top-features-in-web-pages-2/_static/image24.png)](top-features-in-web-pages-2/_static/image23.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image24.png)](top-features-in-web-pages-2/_static/image23.png)
 
 **Facebook oturum açma bilgileri etkinleştirmek için**:
 
@@ -335,17 +335,17 @@ Artık Facebook oturum açma test edebilirsiniz.
 
     Web sayfasının isteği Facebook oturum açma sayfasına yönlendirir.
 
-    [![topSeven oauth 2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
+    [![topSeven-oauth-2](top-features-in-web-pages-2/_static/image26.png)](top-features-in-web-pages-2/_static/image25.png)
 3. Bir Facebook hesabıyla oturum açın. 
 
     Kod, kimlik doğrulaması için Facebook belirtecini kullanır ve ardından bir sayfaya nerede Facebook oturum açma, sitenizin oturum açma ile ilişkilendirebilirsiniz döndürür. Kullanıcı adınız veya e-posta adresiniz içine girilir **e-posta** form üzerinde alan.
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image28.png)](top-features-in-web-pages-2/_static/image27.png)
 4. Seçin **ilişkilendirmek** düğmesi. 
 
     Giriş sayfasına tarayıcı döndürür ve kaydedilir.
 
-    [![topSeven oauth 3](top-features-in-web-pages-2/_static/image30.png)](top-features-in-web-pages-2/_static/image29.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image30.png)](top-features-in-web-pages-2/_static/image29.png)
 
 **Twitter oturumları etkinleştirmek için:** 
 
@@ -383,16 +383,16 @@ Artık Twitter oturum açma test edebilirsiniz.
 
     Web sayfasının isteği için oluşturduğunuz uygulamayı bir Twitter oturum açma sayfasına yönlendirir.
 
-    [![topSeven oauth 4](top-features-in-web-pages-2/_static/image32.png)](top-features-in-web-pages-2/_static/image31.png)
+    [![topSeven-oauth-4](top-features-in-web-pages-2/_static/image32.png)](top-features-in-web-pages-2/_static/image31.png)
 3. Twitter hesabıyla oturum açın.
 4. Kod kullanıcının kimliğini doğrulamak için Twitter belirtecini kullanır ve ardından, bir sayfaya burada ilişkilendirebilirsiniz Web sitesi hesabınızla oturum açma döndürür. Ad veya e-posta adresinizi içine girilir **e-posta** form üzerinde alan.
 
-    [![topSeven oauth 5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
+    [![topSeven-oauth-5](top-features-in-web-pages-2/_static/image34.png)](top-features-in-web-pages-2/_static/image33.png)
 5. Seçin **ilişkilendirmek** düğmesi. 
 
     Giriş sayfasına tarayıcı döndürür ve kaydedilir.
 
-    [![topSeven oauth 3](top-features-in-web-pages-2/_static/image36.png)](top-features-in-web-pages-2/_static/image35.png)
+    [![topSeven-oauth-3](top-features-in-web-pages-2/_static/image36.png)](top-features-in-web-pages-2/_static/image35.png)
 
 <a id="maphelper"></a>
 ### <a name="adding-maps-using-the-maps-helper"></a>Maps Yardımcısını kullanarak eşlemeleri ekleme
@@ -430,11 +430,11 @@ Eşleme sayfalarınızı test etmek için:
 1. Sayfayı çalıştırmak *MapAddress.cshtml* dosya.
 2. Sokak adresi, eyalet veya il ve posta kodu gibi bir tam adresi dizesi girin ve ardından **Map It** düğmesi. Sayfası Google haritaları bir harita oluşturur: 
 
-    [![topseven maphelper 1](top-features-in-web-pages-2/_static/image38.png)](top-features-in-web-pages-2/_static/image37.png)
+    [![topseven-maphelper-1](top-features-in-web-pages-2/_static/image38.png)](top-features-in-web-pages-2/_static/image37.png)
 3. Enlem ve boylam koordinatları kümesi için belirli bir konum bulun.
 4. Sayfayı çalıştırmak *MapCoordinates.cshtml*. Koordinatları girin ve ardından **Map It** düğmesi. Sayfası Bing Haritalar'dan bir harita oluşturur: 
 
-    [![topseven maphelper 2](top-features-in-web-pages-2/_static/image40.png)](top-features-in-web-pages-2/_static/image39.png)
+    [![topseven-maphelper-2](top-features-in-web-pages-2/_static/image40.png)](top-features-in-web-pages-2/_static/image39.png)
 
 <a id="sidebyside"></a>
 ### <a name="running-web-pages-applications-side-by-side"></a>Web Pages uygulamaları yan yana çalıştırma
@@ -447,7 +447,7 @@ WebMatrix ile Web Pages 2 Beta yüklediğinizde unutmamanız gereken bazı nokta
 - Web sayfaları sürüm 1 (varsayılan yerine, önceki noktası olduğu gibi) kullanarak bir site çalıştırmak istiyorsanız, bunu yapmak için site yapılandırabilirsiniz. Sitenizi zaten yoksa bir *web.config* dosya sitesinin kök dizininde, yeni bir tane oluşturun ve aşağıdaki XML dosyasını buraya var olan içeriğin üzerine kopyalayın. Site zaten varsa bir *web.config* dosya, ekleme bir `<appSettings>` öğesi için aşağıdakine benzer `<configuration>` bölümü.
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-'-'Sürümünde belirtmezseniz *web.config* dosya, bir site bir sürüm 2 site olarak dağıtılır. (Sürüm 2 derlemeler kopyalanır *bin* sitesi dağıtıldı klasöründe.)
+  '-'Sürümünde belirtmezseniz *web.config* dosya, bir site bir sürüm 2 site olarak dağıtılır. (Sürüm 2 derlemeler kopyalanır *bin* sitesi dağıtıldı klasöründe.)
 - Web Matrix sürüm 2 Beta dahil Web sayfaları sürüm 2 derlemeler sitenin içinde site şablonları kullanarak oluşturduğunuz yeni uygulamalar *bin* klasör.
 
 Genel olarak, her zaman uygun derlemelerini sitenin yüklemek için NuGet kullanarak sitenizle kullanmak için Web sayfalarının hangi sürümü kontrol edebilirsiniz *bin* klasör. Paketler için ziyaret edin [NuGet.org](http://NuGet.org).
@@ -459,7 +459,7 @@ Web Pages 2, cep telefonu numarası veya diğer cihazları işleme içerik için
 
 `System.Web.WebPages` Ad alanı, görüntü modları ile çalışmanıza izin veren aşağıdaki sınıflar içerir: `DefaultDisplayMode`, `DisplayInfo`, ve `DisplayModes`. Bu sınıfları doğrudan kullanabilir ve belirli cihazlar için doğru çıktıyı işlemeden kod yazın.
 
-Böyle bir dosya adlandırma deseni kullanarak aygıta özgü sayfaları alternatif olarak, oluşturabilirsiniz: *FileName.* *Mobil**.cshtml*. Örneğin, bir sayfa, bir adlı iki sürümlerini oluşturabilirsiniz *MyFile.cshtml* ve adlı bir *MyFile.Mobile.cshtml*. Çalışma zamanında, bir mobil cihaz isteğinde bulunduğunda *MyFile.cshtml*, Web sayfalarını işleyen içerikten *MyFile.Mobile.cshtml*. Aksi takdirde, *MyFile.cshtml* işlenir.
+Böyle bir dosya adlandırma deseni kullanarak aygıta özgü sayfaları alternatif olarak, oluşturabilirsiniz: <em>FileName.</em> <em>Mobil</em><em>.cshtml</em>. Örneğin, bir sayfa, bir adlı iki sürümlerini oluşturabilirsiniz <em>MyFile.cshtml</em> ve adlı bir <em>MyFile.Mobile.cshtml</em>. Çalışma zamanında, bir mobil cihaz isteğinde bulunduğunda <em>MyFile.cshtml</em>, Web sayfalarını işleyen içerikten <em>MyFile.Mobile.cshtml</em>. Aksi takdirde, <em>MyFile.cshtml</em> işlenir.
 
 Aşağıdaki örnek, mobil cihazlar için bir içerik sayfasını ekleyerek mobil işleme etkinleştirmek gösterilmiştir. *Page1.cshtml* içerik ek olarak bir gezinti Kenar Çubuğu'nu içerir. *Page1.Mobile.cshtml* aynı içerik içeriyor, ancak kenar atlar.
 
@@ -483,11 +483,11 @@ Derleme ve kod örneği çalıştırmak için:
 
 *Page1.cshtml* bir masaüstü tarayıcısı çizilir:
 
-[![topseven displaymodes 1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
+[![topseven-displaymodes-1](top-features-in-web-pages-2/_static/image42.png)](top-features-in-web-pages-2/_static/image41.png)
 
 *Page1.Mobile.cshtml* Firefox tarayıcısı bir Apple iPhone benzeticisi görünümünde görüntülenir. İstek için olsa da *Page1.cshtml*, uygulama işler *Page1.Mobile.cshtml*.
 
-[![topseven displaymodes 2](top-features-in-web-pages-2/_static/image44.png)](top-features-in-web-pages-2/_static/image43.png)
+[![topseven-displaymodes-2](top-features-in-web-pages-2/_static/image44.png)](top-features-in-web-pages-2/_static/image43.png)
 
 <a id="resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

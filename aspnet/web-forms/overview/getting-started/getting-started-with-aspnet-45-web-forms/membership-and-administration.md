@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
-title: "Üyelik ve yönetim | Microsoft Docs"
+title: Üyelik ve yönetim | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>Üyelik ve yönetim
 ====================
@@ -45,9 +45,9 @@ Bu öğretici Wingtip Toys öğretici serisinde "Checkout ve ödeme ile PayPal" 
 
 ## <a name="these-features-are-included-in-the-tutorial"></a>Bu özellikleri öğreticide bulunmaktadır:
 
-- ASP.NET kimliği
+- ASP.NET Kimlik
 - Yapılandırma ve yetkilendirme
-- Model bağlama
+- Model Binding
 - Örtük doğrulama
 
 ASP.NET Web Forms üyelik özellikleri sağlar. Varsayılan şablonu kullanarak, uygulama çalıştığında hemen kullanabileceğiniz yerleşik üyelik işlevselliğe sahip. Bu öğreticide, ASP.NET Identity özel bir rol ekleyin ve bir kullanıcı o role atamak için nasıl kullanılacağını gösterir. Yönetim klasörüne erişimi kısıtlamak öğreneceksiniz. Bir sayfa ekleyin ve ürünleri kaldırmak için ve eklendikten sonra bir ürün önizlemek için özel bir rol sahip bir kullanıcı izin veren yönetim klasöre ekleyeceksiniz.
@@ -66,14 +66,14 @@ ASP.NET Kimliği'ni kullanarak özel bir rol ekleyin ve bir kullanıcı kodu kul
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. Dikkat `AddUserAndRole` kırmızıyla altı çizilir. AddUserAndRole kodu çift tıklayın.  
- Vurgulanan yöntemi başındaki harf "A" altı çizili olacaktır.
+   Vurgulanan yöntemi başındaki harf "A" altı çizili olacaktır.
 7. "A" harfi getirin ve için bir yöntem saplama oluşturmanızı sağlar UI'ı tıklatın `AddUserAndRole` yöntemi. 
 
     ![Üyelik ve Advministration - yöntemi saplama oluştur](membership-and-administration/_static/image1.png)
 8. Başlıklı seçeneği tıklatın:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Açık *RoleActions.cs* dosya *mantığı* klasör.  
- `AddUserAndRole` Yöntemi sınıf dosyasına eklendi.
+   `AddUserAndRole` Yöntemi sınıf dosyasına eklendi.
 10. Değiştirme *RoleActions.cs* kaldırarak dosya `NotImplementedeException` ve sarı ile vurgulanmış kodu ekleyerek şu şekilde görünür:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ Ardından, adında bir klasör oluşturur *yönetici* Wingtip Toys özel role ai
 1. Proje adına sağ tıklayın (**Wingtip Toys**) içinde **Çözüm Gezgini** seçip **Ekle**  - &gt; **yeni klasör**.
 2. Yeni bir klasör adı *yönetici*.
 3. Sağ *yönetici* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-4. Seçin **Visual C#** - &gt; **Web** soldaki templates grubu. Orta listesinden **ana sayfa ile Web Form**, adlandırın *AdminPage.aspx***,** ve ardından **Ekle**.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+4. Seçin <strong>Visual C#</strong> - &gt; <strong>Web</strong> soldaki templates grubu. Orta listesinden <strong>ana sayfa ile Web Form</strong>, adlandırın <em>AdminPage.aspx</em><strong>,</strong> ve ardından <strong>Ekle</strong>.
 5. Seçin *Site.Master* dosya ana sayfa ve ardından **Tamam**.
 
 #### <a name="add-a-webconfig-file"></a>Bir Web.config dosyası ekler
@@ -129,8 +129,8 @@ Ardından, adında bir klasör oluşturur *yönetici* Wingtip Toys özel role ai
 Ekleyerek bir *Web.config* dosya *yönetici* klasörü, klasördeki sayfasına erişimi kısıtlayabilir.
 
 1. Sağ *yönetici* klasörü ve select **Ekle**  - &gt; **yeni öğe**.  
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Visual C# web şablonları listesinden seçin **Web yapılandırma dosyası**Orta listeden varsayılan adı kabul *Web.config***,** seçip **Eklemek**.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+2. Visual C# web şablonları listesinden seçin <strong>Web yapılandırma dosyası</strong>Orta listeden varsayılan adı kabul <em>Web.config</em><strong>,</strong> seçip <strong>Eklemek</strong>.
 3. Varolan XML içeriği Değiştir *Web.config* aşağıdaki dosyasıyla:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Sayfa yüklendiğinde kodunu oturum açma kullanıcı "canEdit" rolüne sahip ol
 İçin girdiğiniz kod *AdminPage.aspx.cs* arka plan kod dosyası adlı bir sınıf `AddProducts` veritabanına ürünleri ekleme asıl işi yapar. Bu sınıf, şimdi oluşturacak şekilde henüz yok.
 
 1. İçinde **Çözüm Gezgini**, sağ *mantığı* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Seçin **Visual C#**  - &gt; **kod** soldaki templates grubu. Ardından, seçin **sınıfı**ortasından listelemek ve adlandırın *AddProducts.cs*.   
- Yeni sınıf dosyası görüntülenir.
+   Yeni sınıf dosyası görüntülenir.
 3. Var olan kodu aşağıdakilerle değiştirin:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -192,7 +192,7 @@ Kullanıcı sağlar ürün ayrıntıları *AdminPage.aspx* sayfa doğrulama dene
 
 Eklediğiniz giriş ve doğrulama denetimleri yanı sıra **dosya yükleme** denetimini *AdminPage.aspx* sayfası. Bu denetim dosyaları karşıya yükleme yeteneği sağlar. Bu durumda, yalnızca resim dosyaları karşıya yüklenecek sağlamaktadır. Arka plan kod dosyasına (*AdminPage.aspx.cs*), `AddProductButton` tıklandığında, kod denetimleri `HasFile` özelliği **dosya yükleme** denetim. Denetim bir dosya varsa ve dosya türünü (dosya uzantısına göre) izin veriliyorsa, görüntünün kaydedilir *görüntüleri* klasör ve *görüntüleri/başparmak* uygulamanın klasör.
 
-#### <a name="model-binding"></a>Model bağlama
+#### <a name="model-binding"></a>Model Binding
 
 Bu öğretici serisinde daha önce model bağlama doldurmak için kullanılan bir **ListView** denetimi, bir **FormsView** denetimi, bir **GridView** denetimi ve  **DetailView** denetim. Bu öğreticide, model bağlama doldurmak için kullandığınız bir **DropDownList** denetimi ile ürün kategorileri listesi.
 
@@ -235,15 +235,15 @@ Zaman *AdminPage.aspx* sayfa yeniden yükler, `Page_Load` olay çağrılır.
 Alışveriş sepeti içinde nasıl ekleyebileceğiniz görmek için uygulamayı şimdi, silme ve güncelleştirme öğeleri çalıştırabilirsiniz. Alışveriş sepeti toplam alışveriş sepeti tüm öğelerde toplam maliyeti yansıtır.
 
 1. Çözüm Gezgini'nde basın **F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
+   Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
 2. Tıklatın **oturum** sayfanın üst kısmındaki bağlantı. 
 
     ![Üyelik ve yönetim - oturum bağlantısı](membership-and-administration/_static/image2.png)
 
- *Login.aspx* sayfası görüntülenir.
+   *Login.aspx* sayfası görüntülenir.
 3. Aşağıdaki kullanıcı adını ve parolasını kullanın:  
- Kullanıcı adı:canEditUser@wingtiptoys.com  
- Parola: Pa$ $word1 
+   Kullanıcı adı: canEditUser@wingtiptoys.com  
+   Parola: Pa$ $word1 
 
     ![Üyelik ve yönetim - oturum açma sayfasının](membership-and-administration/_static/image3.png)
 4. Tıklatın **oturum** düğmesi sayfanın yakın.
@@ -254,7 +254,7 @@ Alışveriş sepeti içinde nasıl ekleyebileceğiniz görmek için uygulamayı 
 
     ![Üyelik ve yönetim - Yönetim sayfası](membership-and-administration/_static/image5.png)
 
- Gerekli alan iletileri görüntülenir dikkat edin.
+   Gerekli alan iletileri görüntülenir dikkat edin.
 7. Yeni bir ürün ayrıntılarını ekleyin ve ardından **Ürün Ekle** düğmesi. 
 
     ![Üyelik ve yönetim - ürün ekleme](membership-and-administration/_static/image6.png)
@@ -268,7 +268,7 @@ Alışveriş sepeti içinde nasıl ekleyebileceğiniz görmek için uygulamayı 
     ![Üyelik ve yönetim - Kaldır ürün](membership-and-administration/_static/image8.png)
 12. Seçin **ürünleri** Ürün kaldırıldı onaylamak için üst gezinti menüsünde.
 13. Tıklatın **oturumunu** yönetim modu bulunmasını.   
- Üst gezinti bölmesi artık gösterilmemektedir bildirimi **yönetici** menü öğesi.
+    Üst gezinti bölmesi artık gösterilmemektedir bildirimi **yönetici** menü öğesi.
 
 ## <a name="summary"></a>Özet
 
@@ -281,6 +281,6 @@ Bu öğreticide, özel bir rol ve özel rol, yönetim klasörü ve sayfa, kısı
 [Bir Azure Web sitesine Güvenli ASP.NET Web Forms uygulama üyeliği, OAuth ve SQL veritabanı ile dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Önceki](checkout-and-payment-with-paypal.md)
-[sonraki](url-routing.md)
+> [!div class="step-by-step"]
+> [Önceki](checkout-and-payment-with-paypal.md)
+> [sonraki](url-routing.md)

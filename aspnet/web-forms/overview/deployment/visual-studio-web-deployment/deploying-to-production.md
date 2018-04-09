@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: üretime dağıtma | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: üretime dağıtma | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f3b3898bd003ace100ba05619f2c45ca808462df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: üretime dağıtma
 ====================
@@ -144,10 +144,10 @@ Bir web uygulaması ve hazırlık ortamı için veritabanı oluşturduğunuza g�
 9. 1. Seçin **güncelleştirme veritabanı**.
 
         **Uzak bağlantı dizesi** kutuyu doğrudan **DefaultConnection** .publishsettings dosyasından bağlantı dizesini doldurulur. Düz metin halinde depolanır SQL Server kimlik bilgilerinin bağlantı dizesini içeren *.pubxml* dosya. Bunları kalıcı olarak var olmayan depolanacağı tercih ederseniz, veritabanı dağıtıldıktan sonra bunları kaldırmak için yayımlama profili ve bunun yerine Microsoft azure'da depoladığınız. Daha fazla bilgi için bkz: [ASP.NET veritabanı bağlantı dizeleri için Azure kaynağından dağıtırken güvenliğini nasıl](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) Scott Hanselman'ın blogunda.
-    2. Tıklatın **yapılandırma veritabanı güncelleştirmeleri**.
-    3. İçinde **yapılandırma veritabanı güncelleştirmeleri** iletişim kutusu, tıklatın **SQL komut dosyası Ekle**.
-    4. İçinde **SQL komut dosyası Ekle** kutusunda, gitmek *aspnet veri prod.sql* çözüm klasöründe daha önce kaydedilmiş ve ardından komut dosyası **açık**.
-    5. Kapat **yapılandırma veritabanı güncelleştirmeleri** iletişim kutusu.
+      2. Tıklatın **yapılandırma veritabanı güncelleştirmeleri**.
+      3. İçinde **yapılandırma veritabanı güncelleştirmeleri** iletişim kutusu, tıklatın **SQL komut dosyası Ekle**.
+      4. İçinde **SQL komut dosyası Ekle** kutusunda, gitmek *aspnet veri prod.sql* çözüm klasöründe daha önce kaydedilmiş ve ardından komut dosyası **açık**.
+      5. Kapat **yapılandırma veritabanı güncelleştirmeleri** iletişim kutusu.
 10. Altında **SchoolContext** içinde **veritabanları** bölümünde, select **yürütme önce kod uygulamalı geçişler (uygulama başlatılırken çalışır)**.
 
     Visual Studio görüntüler **Code First Migrations yürütme** yerine **güncelleştirme veritabanı** için `DbContext` sınıfları. DbDacFx sağlayıcısı kullanarak erişen bir veritabanını dağıtmak için geçişler yerine kullanmak istiyorsanız bir `DbContext` sınıfı için bkz: [geçişler olmaksızın Code First bir veritabanına nasıl dağıtırım?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) Visual Studio için Web dağıtımı SSS ve ASP.NET konusuna bakın.
@@ -296,11 +296,11 @@ Sonraki öğreticide uygulama kodunu güncelleştirin ve test, hazırlama ve ür
 
 > [!NOTE]
 > Uygulamanızı üretim ortamında kullanımdayken bir kurtarma planı uygulanması. Diğer bir deyişle, düzenli aralıklarla veritabanlarınızı üretim uygulamadan bir güvenli depolama konumuna yedekleme yapıyorsanız ve böyle yedekleri birkaç nesli tutulması. Veritabanını güncelleştirirken bir yedek kopyadan hemen önce olmanız gerekir. Bir hata yaparsanız ve üretim dağıttıktan sonra kadar Bul yok, daha sonra onu bozulmasından önceki durumla durum veritabanına kurtarabilmek için devam edersiniz. Daha fazla bilgi için bkz: [Azure SQL veritabanını yedekleme ve geri yükleme](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
-
-
+> 
+> 
 > [!NOTE]
 > Bu öğreticide SQL Server, dağıttığınız Azure SQL veritabanı sürümüdür. Dağıtım işlemi SQL Server'ın diğer sürümleri için benzer olmakla birlikte, gerçek üretimde uygulama, bazı senaryolarda Azure SQL veritabanı için özel kod'nı gerektirebilir. Daha fazla bilgi için bkz: [Azure SQL veritabanı ile çalışan](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) ve [SQL Server ve Azure SQL veritabanı arasında seçim yapma](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
-
->[!div class="step-by-step"]
-[Önceki](setting-folder-permissions.md)
-[sonraki](deploying-a-code-update.md)
+> 
+> [!div class="step-by-step"]
+> [Önceki](setting-folder-permissions.md)
+> [sonraki](deploying-a-code-update.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
-title: "GridView'ın altbilginin (VB) yeni bir kayıt ekleme | Microsoft Docs"
+title: GridView'ın altbilginin (VB) yeni bir kayıt ekleme | Microsoft Docs
 author: rick-anderson
-description: "GridView denetiminin verilerin yeni bir kayıt eklemek için yerleşik destek sağlamaz, ancak bu öğreticide içerecek şekilde GridView büyütmek gösterilmektedir bir..."
+description: GridView denetiminin verilerin yeni bir kayıt eklemek için yerleşik destek sağlamaz, ancak bu öğreticide içerecek şekilde GridView büyütmek gösterilmektedir bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4d452e15ced52fd9dcac8201598146cb9ef38d7b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 32f3cb23805813135bf463720e7479f5f819deb7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView'ın altbilginin (VB) yeni bir kayıt ekleme
 ====================
@@ -140,18 +140,18 @@ Düzenleme arabirimi oluşturmak üzere GridView s akıllı etiketten Şablonlar
 
 Aşağıdaki madde işaretli listede eklemek için ekleme arabirimi belirtme GridView alanları numaralandırır:
 
-- `ProductID`yok.
-- `ProductName`metin kutusu ekleyin ve ayarlayın, `ID` için `NewProductName`. Kullanıcı yeni ürün s adı için bir değer girdiğinden emin olmak için de bir RequiredFieldValidator ekleyin.
-- `SupplierID`yok.
-- `CategoryID`yok.
-- `QuantityPerUnit`ayarı, bir metin kutusu ekleyin, `ID` için `NewQuantityPerUnit`.
-- `UnitPrice`adlı bir TextBox ekleyin `NewUnitPrice` ve girilen değer sağlar CompareValidator değerinden büyük veya sıfıra eşit bir para birimi değeri.
-- `UnitsInStock`bir metin kutusu kullanın, `ID` ayarlanır `NewUnitsInStock`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
-- `UnitsOnOrder`bir metin kutusu kullanın, `ID` ayarlanır `NewUnitsOnOrder`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
-- `ReorderLevel`bir metin kutusu kullanın, `ID` ayarlanır `NewReorderLevel`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
-- `Discontinued`ayarı, bir onay kutusu ekleyin, `ID` için `NewDiscontinued`.
-- `CategoryName`bir DropDownList ekleyin ve ayarlayın, `ID` için `NewCategoryID`. Adlı yeni bir ObjectDataSource bağlamak `CategoriesDataSource` ve kullanacak şekilde yapılandırın `CategoriesBLL` s sınıfı `GetCategories()` yöntemi. DropDownList s sahip `ListItem` s görüntü `CategoryName` veri alanı, kullanarak `CategoryID` veri alan değerlerine olarak.
-- `SupplierName`bir DropDownList ekleyin ve ayarlayın, `ID` için `NewSupplierID`. Adlı yeni bir ObjectDataSource bağlamak `SuppliersDataSource` ve kullanacak şekilde yapılandırın `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi. DropDownList s sahip `ListItem` s görüntü `CompanyName` veri alanı, kullanarak `SupplierID` veri alan değerlerine olarak.
+- `ProductID` yok.
+- `ProductName` metin kutusu ekleyin ve ayarlayın, `ID` için `NewProductName`. Kullanıcı yeni ürün s adı için bir değer girdiğinden emin olmak için de bir RequiredFieldValidator ekleyin.
+- `SupplierID` yok.
+- `CategoryID` yok.
+- `QuantityPerUnit` ayarı, bir metin kutusu ekleyin, `ID` için `NewQuantityPerUnit`.
+- `UnitPrice` adlı bir TextBox ekleyin `NewUnitPrice` ve girilen değer sağlar CompareValidator değerinden büyük veya sıfıra eşit bir para birimi değeri.
+- `UnitsInStock` bir metin kutusu kullanın, `ID` ayarlanır `NewUnitsInStock`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
+- `UnitsOnOrder` bir metin kutusu kullanın, `ID` ayarlanır `NewUnitsOnOrder`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
+- `ReorderLevel` bir metin kutusu kullanın, `ID` ayarlanır `NewReorderLevel`. Girilen değer bir tamsayı değeri sıfırdan büyük veya sıfıra eşit olmasını sağlar CompareValidator içerir.
+- `Discontinued` ayarı, bir onay kutusu ekleyin, `ID` için `NewDiscontinued`.
+- `CategoryName` bir DropDownList ekleyin ve ayarlayın, `ID` için `NewCategoryID`. Adlı yeni bir ObjectDataSource bağlamak `CategoriesDataSource` ve kullanacak şekilde yapılandırın `CategoriesBLL` s sınıfı `GetCategories()` yöntemi. DropDownList s sahip `ListItem` s görüntü `CategoryName` veri alanı, kullanarak `CategoryID` veri alan değerlerine olarak.
+- `SupplierName` bir DropDownList ekleyin ve ayarlayın, `ID` için `NewSupplierID`. Adlı yeni bir ObjectDataSource bağlamak `SuppliersDataSource` ve kullanacak şekilde yapılandırın `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi. DropDownList s sahip `ListItem` s görüntü `CompanyName` veri alanı, kullanarak `SupplierID` veri alan değerlerine olarak.
 
 Her doğrulama denetimleri temizleyin `ForeColor` özelliği böylece `FooterStyle` CSS sınıfı s Beyaz ön plan rengini kırmızı varsayılan yerine kullanılır. Aynı zamanda `ErrorMessage` ancak özelliği ayrıntılı bir açıklaması için belirlenen `Text` bir yıldız işareti özelliğine. İki satır sarmalamak ekleme arabirimi neden doğrulama denetimi s metin engelleyecek şekilde ayarlanmışsa `FooterStyle` s `Wrap` özelliğini her biri için false `FooterTemplate` doğrulama denetimi kullanma s. Son olarak, GridView ve kümesi altında ValidationSummary denetim ekleme kendi `ShowMessageBox` özelliğine `True` ve kendi `ShowSummary` özelliğine `False`.
 
@@ -234,7 +234,7 @@ Bu öğreticide kullanılan GridView herhangi sıralama düzeni listelenen ürü
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample9.vb)]
 
-`SendUserToLastPage`başlangıçta bir sayfa düzeyinde Boolean değişken değerini atanan `False`. GridView s `DataBound` olay işleyicisi varsa `SendUserToLastPage` false, `PageIndex` özelliği, kullanıcı son sayfasına göndermek üzere güncelleştirilir.
+`SendUserToLastPage` başlangıçta bir sayfa düzeyinde Boolean değişken değerini atanan `False`. GridView s `DataBound` olay işleyicisi varsa `SendUserToLastPage` false, `PageIndex` özelliği, kullanıcı son sayfasına göndermek üzere güncelleştirilir.
 
 
 [!code-vb[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample10.vb)]
@@ -262,11 +262,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Bernadette Leigh oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](adding-a-gridview-column-of-checkboxes-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-a-gridview-column-of-checkboxes-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
-title: "Bir ASP.NET 4 Web uygulamasında Entity Framework 4.0 performansını en üst düzeye çıkarma | Microsoft Docs"
+title: Bir ASP.NET 4 Web uygulamasında Entity Framework 4.0 performansını en üst düzeye çıkarma | Microsoft Docs
 author: tdykstra
-description: "Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I..."
+description: Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b85645eebf2822b33df944692736ea9d9b69b9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Bir ASP.NET 4 Web uygulamasında Entity Framework 4.0 performansını en üst düzeye çıkarma
 ====================
@@ -76,7 +76,7 @@ Biliyorsanız veritabanına gönderilen tek bir sorgu genellikle daha verimlidir
 
 İlgili verileri gereksinimini etkileyen kullanıcı eylemler sayfa işlendiği nesne bağlamı bağlantı sahip tarayıcıda gerçekleşmesi için bir web uygulamasında yavaş yükleniyor görece küçük değerini yine de olabilir. Databind bir denetim, genellikle hangi verilerin gerekir ve genellikle nedenle istekli yükleme veya temel Ertelenen yükleme seçmek için en iyi bildiğiniz durumlarda diğer taraftan, ne her senaryoda uygun olur.
 
-Ayrıca, nesne bağlamı bırakıldıktan sonra bir denetim bir varlık nesnesini kullanabilirsiniz. Bu durumda, bir gezinti özelliği geç yükleme denemesi başarısız olur. Aldığınız hata iletisi Temizle şudur:&quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+Ayrıca, nesne bağlamı bırakıldıktan sonra bir denetim bir varlık nesnesini kullanabilirsiniz. Bu durumda, bir gezinti özelliği geç yükleme denemesi başarısız olur. Aldığınız hata iletisi Temizle şudur: &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
 `EntityDataSource` Denetimini devre dışı bırakır yavaş yükleniyor varsayılan olarak. İçin `ObjectDataSource` denetimi geçerli öğretici için kullandığınız (veya nesne bağlamı sayfa kodundan erişim varsa), yavaş yapabilir birkaç yolu vardır varsayılan olarak devre dışı yükleniyor. Bir nesne bağlamına örneği zaman devre dışı bırakabilirsiniz. Örneğin, aşağıdaki satırı öğesinin yapıcı yöntemi ekleyebilirsiniz `SchoolRepository` sınıfı:
 
@@ -266,6 +266,6 @@ Bu Entity Framework kullanan bir ASP.NET web uygulamasının performansını iyi
 
 Sonraki öğretici bazı Entity Framework sürüm 4'te yenidir önemli iyileştirmeler inceler.
 
->[!div class="step-by-step"]
-[Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
-[sonraki](what-s-new-in-the-entity-framework-4.md)
+> [!div class="step-by-step"]
+> [Önceki](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [sonraki](what-s-new-in-the-entity-framework-4.md)

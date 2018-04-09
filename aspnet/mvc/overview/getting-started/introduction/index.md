@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/index
-title: "ASP.NET MVC 5 ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET MVC 5 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 giriş"
+description: ASP.NET MVC 5 giriş
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2013
@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
-ms.openlocfilehash: 2f05594d7a15aac9b5ea3f2495f6dc76015f5be3
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: bef9a660f00452120fe1dfc5818cb9f94cfe08df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="getting-started-with-aspnet-mvc-5"></a>ASP.NET MVC 5 ile çalışmaya başlama
+<a name="getting-started-with-aspnet-mvc-5"></a>.NET MVC 5 ile Çalışmaya Başlama
 ====================
 > ASP.NET MVC 5 giriş
 
-[!INCLUDE[consider RP](../../../../includes/razor.md)]
+[!INCLUDE [consider RP](../../../../includes/razor.md)]
 
 ASP.NET MVC aşağıdaki Bu öğretici seri kapsar: kaynak bulunan [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
 
 - [Başlarken](getting-started.md)
-- [Bir denetleyici ekleme](adding-a-controller.md)
-- [Bir görünümü ekleme](adding-a-view.md)
-- [Model ekleme](adding-a-model.md)
-- [Bağlantı dizesi oluşturma ve SQL Server yerel veritabanı ile çalışma](creating-a-connection-string.md)
-- [Bir denetleyicisinden modelinizin verilerine erişme](accessing-your-models-data-from-a-controller.md)
-- [Düzenleme görünümü ve düzenleme yöntemler inceleniyor](examining-the-edit-methods-and-edit-view.md)
-- [Arama ekleme](adding-search.md)
-- [Yeni bir alan ekleme](adding-a-new-field.md)
-- [Doğrulama ekleme](adding-validation.md)
-- [Silme yöntemleri ve ayrıntıları İnceleme](examining-the-details-and-delete-methods.md)
+- [Denetleyici Ekleme](adding-a-controller.md)
+- [Görünüm Ekleme](adding-a-view.md)
+- [Model Ekleme](adding-a-model.md)
+- [Bağlantı Dizesi Oluşturma ve SQL Server LocalDB ile Çalışma](creating-a-connection-string.md)
+- [Bir Denetleyiciden Modelinizin Verilerine Erişme](accessing-your-models-data-from-a-controller.md)
+- [Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme](examining-the-edit-methods-and-edit-view.md)
+- [Arama Ekleme](adding-search.md)
+- [Yeni Alan Ekleme](adding-a-new-field.md)
+- [Doğrulama Ekleme](adding-validation.md)
+- [Details ve Delete Metotlarını inceleme](examining-the-details-and-delete-methods.md)

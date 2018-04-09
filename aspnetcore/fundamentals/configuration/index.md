@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek yapılandırması"
+title: ASP.NET çekirdek yapılandırması
 author: rick-anderson
-description: "Yapılandırma API'si tarafından birden çok yöntem ASP.NET Core uygulamayı yapılandırmak için kullanın."
+description: Yapılandırma API'si tarafından birden çok yöntem ASP.NET Core uygulamayı yapılandırmak için kullanın.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f272f9629ab1f9e7f7643cafd0d45f19340d5284
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configure-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamayı yapılandırma
+# <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [işareti Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27), ve [Luke Latham](https://github.com/guardrex)
 
@@ -48,7 +48,7 @@ Uygulama okur ve aşağıdaki yapılandırma ayarları görüntüler:
 
 [!code-json[](index/sample/ConfigJson/appsettings.json)]
 
-Hiyerarşik ad-değer çiftleri düğümleri bir virgülle ayrılmış listesini yapılandırması oluşur. Bir değer almak için erişim `Configuration` karşılık gelen öğenin anahtarı ile dizinleyici:
+Hiyerarşik düğümleri virgülle ayrılır ad-değer çiftlerinin listesini yapılandırma oluşur (`:`). Bir değer almak için erişim `Configuration` karşılık gelen öğenin anahtarı ile dizinleyici:
 
 [!code-csharp[](index/sample/ConfigJson/Program.cs?range=21-22)]
 
@@ -105,15 +105,15 @@ Ortam ayarlandığında `Staging`, aşağıdaki `Configure` yöntemi okur değer
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-
-Ortam genellikle ayarlamak `Development`, `Staging`, veya `Production`. Daha fazla bilgi için bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments).
+Ortam genellikle ayarlamak `Development`, `Staging`, veya `Production`. Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
 
 Yapılandırma dikkate alınacak noktalar:
 
-* `IOptionsSnapshot` değişiklik yapıldığında yapılandırma verileri yeniden yükleyebilirsiniz. Daha fazla bilgi için bkz: [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).,
+* [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) değişiklik yapıldığında yapılandırma verileri yeniden yükleyebilirsiniz.
 * Yapılandırma anahtarları **değil** büyük küçük harfe duyarlı.
-* **Hiçbir zaman** parolalar ve diğer hassas verileri yapılandırma sağlayıcısı kodu veya düz metin yapılandırma dosyalarını depolar. Verme geliştirme üretim gizlilikleri kullanın veya sınama ortamlarında. Böylece, bir kaynak kod deposuna yanlışlıkla uygulanamıyor gizli proje dışında belirtin. Daha fazla bilgi edinmek [birden çok ortamlarıyla çalışma](xref:fundamentals/environments) ve yönetme [geliştirme sırasında uygulama sırrı güvenli depolama](xref:security/app-secrets).
-* İki nokta varsa (`:`) olamaz bir sistem ortam değişkenlerini kullanıldığında, iki nokta üst üste değiştirin (`:`) ile bir çift alt çizgi (`__`).
+* **Hiçbir zaman** parolalar ve diğer hassas verileri yapılandırma sağlayıcısı kodu veya düz metin yapılandırma dosyalarını depolar. Verme geliştirme üretim gizlilikleri kullanın veya sınama ortamlarında. Böylece, bir kaynak kod deposuna yanlışlıkla uygulanamıyor gizli proje dışında belirtin. Daha fazla bilgi edinmek [birden çok ortamları ile çalışmaya nasıl](xref:fundamentals/environments) ve yönetme [uygulama sırrı geliştirme güvenli depolama](xref:security/app-secrets).
+* Ortam değişkenleri, iki nokta belirtilen hiyerarşik yapılandırma değerleri için (`:`) tüm platformlarda çalışmayabilir. Çift alt çizgi (`__`) tüm platformlar tarafından desteklenir.
+* Yapılandırma API'si, iki nokta kullanılırken (`:`) tüm platformlarda çalışır.
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>Bellek içi sağlayıcısı ve bağlama için bir POCO sınıfı
 
@@ -234,8 +234,7 @@ key3=value_from_json_3
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Kurulum ve komut satırı yapılandırma sağlayıcısı kullanın
 
-# <a name="basic-configurationtabbasicconfiguration"></a>[Temel yapılandırma](#tab/basicconfiguration)
-
+#### <a name="basic-configurationtabbasicconfiguration"></a>[Temel yapılandırma](#tab/basicconfiguration/)
 Komut satırı yapılandırmasını etkinleştirmek için arama `AddCommandLine` genişletme yöntemi örneği üzerinde [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
@@ -264,8 +263,7 @@ Komut satırı yapılandırması ile diğer yapılandırma sağlayıcıları tar
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?range=11-16&highlight=1,5)]
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Tipik ASP.NET Core 2.x uygulamaları kullanma statik kolaylık metodunun `CreateDefaultBuilder` konak oluşturmak için:
 
 [!code-csharp[](index/sample_snapshot//Program.cs?highlight=12)]
@@ -282,14 +280,12 @@ Tipik ASP.NET Core 2.x uygulamaları kullanma statik kolaylık metodunun `Create
 
 ASP.NET Core 2.x uygulama kullanabileceğiniz [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) yerine `CreateDefaultBuilder`. Kullanırken `WebHostBuilder`, el ile kümesi yapılandırması ile [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Daha fazla bilgi için ASP.NET Core 1.x sekmesine bakın.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Oluşturma bir [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder) ve arama `AddCommandLine` yöntemi CommandLine yapılandırma sağlayıcısı kullanın. Sağlayıcı son çağırma yapılandırması bir yapılandırma sağlayıcıları tarafından ayarlanmış geçersiz kılmak için çalışma zamanında geçirilen komut satırı bağımsız değişkenleri önceki adlı sağlar. Yapılandırmasını uygulamak [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ile `UseConfiguration` yöntemi:
 
 [!code-csharp[](index/sample_snapshot//CommandLine/Program2.cs?highlight=11,15,19)]
 
----
-
+* * *
 ### <a name="arguments"></a>Arguments
 
 Komut satırına geçirilen bağımsız değişkenler aşağıdaki tabloda gösterilen iki biçim birine uymalıdır:
@@ -413,9 +409,52 @@ Left: 1988
 
 A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında gereklidir. Ayarlarında *web.config* etkinleştirmek [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) uygulamayı başlatın ve diğer IIS ayarlarını ve modülleri yapılandırmak için. Varsa *web.config* dosyası mevcut değil ve proje dosyasını içeren `<Project Sdk="Microsoft.NET.Sdk.Web">`, projeyi yayımlama oluşturur bir *web.config* yayımlanan çıktı dosyasında ( *Yayımlama* klasörü). Daha fazla bilgi için bkz: [konak ASP.NET Core IIS ile Windows](xref:host-and-deploy/iis/index#webconfig-file).
 
-## <a name="accessing-configuration-during-startup"></a>Başlatma sırasında yapılandırma erişme
+## <a name="access-configuration-during-startup"></a>Başlatma sırasında erişim yapılandırması
 
 Erişim Yapılandırması içinde `ConfigureServices` veya `Configure` başlatma sırasında örneklere bakın [uygulama başlangıç](xref:fundamentals/startup) konu.
+
+## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Bir Razor sayfasını veya MVC görünümündeki erişim yapılandırması
+
+Bir Razor sayfalarının sayfası veya bir MVC görünümündeki yapılandırma ayarlarına erişmek için ekleme bir [using yönergesi](xref:mvc/views/razor#using) ([C# başvurusu: using yönergesi](/dotnet/csharp/language-reference/keywords/using-directive)) için [Microsoft.Extensions.Configuration ad alanı ](/dotnet/api/microsoft.extensions.configuration) ve ekleme [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) sayfa ya da görünüm.
+
+Bir Razor sayfalarının sayfasında:
+
+```cshtml
+@page
+@model IndexModel
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+    <h1>Access configuration in a Razor Pages page</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
+
+MVC görünümü içinde:
+
+```cshtml
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index View</title>
+</head>
+<body>
+    <h1>Access configuration in an MVC view</h1>
+    <p>Configuration[&quot;key&quot;]: @Configuration["key"]</p>
+</body>
+</html>
+```
 
 ## <a name="additional-notes"></a>Ek Notlar
 
@@ -430,7 +469,7 @@ Erişim Yapılandırması içinde `ConfigureServices` veya `Configure` başlatma
 
 * [Seçenekler](xref:fundamentals/configuration/options)
 * [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
-* [Geliştirme sırasında uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
+* [Güvenli Depolama Uygulama sırrı geliştirme](xref:security/app-secrets)
 * [ASP.NET çekirdek barındırma](xref:fundamentals/hosting)
 * [Bağımlılık Ekleme](xref:fundamentals/dependency-injection)
 * [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
-title: "Ekleme, güncelleştirme ve silme verileri (C#) bir genel bakış | Microsoft Docs"
+title: Ekleme, güncelleştirme ve silme verileri (C#) bir genel bakış | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide bir ObjectDataSource'nın INSERT(), Update(), eşleme göreceğiz ve configu nasıl yanı sıra BLL yöntemlerinin Delete() yöntemlere sınıfları..."
+description: Bu öğreticide bir ObjectDataSource'nın INSERT(), Update(), eşleme göreceğiz ve configu nasıl yanı sıra BLL yöntemlerinin Delete() yöntemlere sınıfları...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e483c37cc773a7255f18c26bc3609d68f71dff7d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dbd111f79eda6006cb9aed59d8fd0b0342415833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Ekleme, güncelleştirme ve silme verileri (C#) bir genel bakış
 ====================
@@ -238,7 +238,7 @@ Bizim öğretici için şimdi yalnızca tüm kayıtları silin `Order Details` t
 - Büyütmek `DeleteProduct` belirtilen ürünün sipariş ayrıntılarını silmek için mantığı içerecek şekilde yöntemi
 - Belirtilen ürünün sipariş ayrıntılarını silinmesini içerecek şekilde TableAdapter tarafından kullanılan SQL sorgusu değiştirme
 
-Şimdi yalnızca tüm kayıtları silin `Order Details` yabancı anahtar kısıtlaması aşmak için tablo. Visual Studio'da Sunucu Gezgini gidin, sağ tıklayın `NORTHWND.MDF` düğümü ve yeni bir sorgu seçin. Ardından, sorgu penceresinde, şu SQL ifadesini çalıştırın:`DELETE FROM [Order Details]`
+Şimdi yalnızca tüm kayıtları silin `Order Details` yabancı anahtar kısıtlaması aşmak için tablo. Visual Studio'da Sunucu Gezgini gidin, sağ tıklayın `NORTHWND.MDF` düğümü ve yeni bir sorgu seçin. Ardından, sorgu penceresinde, şu SQL ifadesini çalıştırın: `DELETE FROM [Order Details]`
 
 
 [![Sipariş ayrıntılarını tablodan tüm kayıtları silme](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image35.png)](an-overview-of-inserting-updating-and-deleting-data-cs/_static/image34.png)
@@ -440,7 +440,7 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Next](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Next](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)

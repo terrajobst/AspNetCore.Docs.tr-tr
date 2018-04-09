@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
-title: "Proje dosyası anlama | Microsoft Docs"
+title: Proje dosyası anlama | Microsoft Docs
 author: jrjlee
-description: "Microsoft Build Engine (MSBuild) proje dosyalarını derleme ve dağıtım işlemi Kalp yer. Bu konuda MSBuild kavramsal genel bakış ile başlar..."
+description: Microsoft Build Engine (MSBuild) proje dosyalarını derleme ve dağıtım işlemi Kalp yer. Bu konuda MSBuild kavramsal genel bakış ile başlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 msc.type: authoredcontent
-ms.openlocfilehash: 09c3793e9cdddb7c42cf966f2d079245f441540c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 49d1d4fbe48cd4f073e774d8a9c6c0c011bd3319
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-project-file"></a>Proje dosyası anlama
 ====================
@@ -36,9 +36,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 ## <a name="msbuild-and-the-project-file"></a>MSBuild ve proje dosyası
 
-Visual Studio MSBuild oluşturmak ve Visual Studio'da çözümleri derlediğinizde, çözümünüzdeki her projeyi derlemek için kullanır. Her Visual Studio projesi #x 2014 & Proje türü yansıtan bir dosya uzantısına sahip bir MSBuild proje dosyası; Örneğin, bir C# projesi (.csproj), bir Visual Basic.NET projesi (.vbproj) veya bir veritabanı projesi (.dbproj) içerir. Bir proje oluşturmak için MSBuild proje ile ilişkili proje dosyası işlemesi gerekir. Tüm bilgi ve MSBuild, platform gereksinimlerini, sürüm bilgisini, web sunucusu veya veritabanı sunucusu ayarlarını eklemek için içeriği gibi projenizi derleme için gereken yönergeler içeren bir XML belgesi proje dosyasıdır ve gerçekleştirilmesi gereken görevler.
+Visual Studio MSBuild oluşturmak ve Visual Studio'da çözümleri derlediğinizde, çözümünüzdeki her projeyi derlemek için kullanır. Proje türü yansıtan bir dosya uzantısına sahip bir MSBuild proje dosyası her Visual Studio projesi içeren&#x2014;, bir C# projesi (.csproj), bir Visual Basic.NET projesi (.vbproj) ya da bir veritabanı projesi (.dbproj). Bir proje oluşturmak için MSBuild proje ile ilişkili proje dosyası işlemesi gerekir. Tüm bilgi ve MSBuild, platform gereksinimlerini, sürüm bilgisini, web sunucusu veya veritabanı sunucusu ayarlarını eklemek için içeriği gibi projenizi derleme için gereken yönergeler içeren bir XML belgesi proje dosyasıdır ve gerçekleştirilmesi gereken görevler.
 
-MSBuild proje dosyalarını temel [MSBuild XML Şeması](https://msdn.microsoft.com/library/5dy88c2e.aspx), ve sonuç olarak yapı tamamen açık ve saydam bir işlemdir. Ayrıca, MSBuild altyapısı & #x 2014 kullanmak için Visual Studio yüklemeniz gerekmez; MSBuild.exe yürütülebilir bir .NET Framework'ün parçasıdır ve bir komut isteminden çalıştırın. Bir geliştirici olarak üzerinden projelerinizin nasıl oluşturulan ve dağıtılan karmaşık ve ayrıntılı denetim koymak için MSBuild XML Şeması'nı kullanarak kendi MSBuild proje dosyalarını hazırlayabilirsiniz. Bu özel proje dosyaları otomatik olarak Visual Studio'nun oluşturduğu proje dosyaları ile aynı şekilde çalışır.
+MSBuild proje dosyalarını temel [MSBuild XML Şeması](https://msdn.microsoft.com/library/5dy88c2e.aspx), ve sonuç olarak yapı tamamen açık ve saydam bir işlemdir. Ayrıca, MSBuild altyapısı kullanmak için Visual Studio yüklemeniz gerekmez&#x2014;MSBuild.exe yürütülebilir bir .NET Framework'ün parçasıdır ve bir komut isteminden çalıştırın. Bir geliştirici olarak üzerinden projelerinizin nasıl oluşturulan ve dağıtılan karmaşık ve ayrıntılı denetim koymak için MSBuild XML Şeması'nı kullanarak kendi MSBuild proje dosyalarını hazırlayabilirsiniz. Bu özel proje dosyaları otomatik olarak Visual Studio'nun oluşturduğu proje dosyaları ile aynı şekilde çalışır.
 
 > [!NOTE]
 > Team Foundation Server (TFS) takım yapısı hizmetiyle MSBuild proje dosyalarını da kullanabilirsiniz. Örneğin, bir test ortamı dağıtımına yeni kod işaretlendiğinde otomatik hale getirmek için sürekli tümleştirme (CI) senaryolarında proje dosyalarını kullanabilirsiniz. Daha fazla bilgi için bkz: [otomatik Web dağıtımı için Team Foundation Server yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md).
@@ -93,7 +93,7 @@ Proje dosyası genellikle çok sayıda farklı başarılı bir şekilde oluştur
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Bir özellik değeri almak için biçimini kullanın. **$(***PropertyName***) ***.* Örneğin, değerini almak için **ServerName** özelliği yazarsınız:
+Bir özellik değeri almak için biçimini kullanın. <strong>$(</strong><em>PropertyName</em><strong>)</strong><em>.</em> Örneğin, değerini almak için <strong>ServerName</strong> özelliği yazarsınız:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
@@ -113,7 +113,7 @@ Statik özellikler olarak bilgilerini proje dosyasında katıştırma her zaman 
 > Bağımsız değişkenleri ve anahtarları MSBuild.exe ile kullanma hakkında daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
-Ortam değişkenleri ve yerleşik proje özellikleri değerlerini almak için aynı özellik sözdizimini kullanabilirsiniz. Çok sayıda yaygın olarak kullanılan özellikler sizin için tanımlanır ve ilgili parametre adı ekleyerek bunları proje dosyalarınıza kullanabilirsiniz. Örneğin, geçerli proje platform & #x 2014; almak için örneğin, **x86** veya **AnyCpu**& #x 2014; dahil edebileceğiniz **$(Platform)** Özellik Başvurusu Proje dosyanızı. Daha fazla bilgi için bkz: [derleme komutları ve Özellikler makroları](https://msdn.microsoft.com/library/c02as0cs.aspx), [yaygın MSBuild proje özellikleri](https://msdn.microsoft.com/library/bb629394.aspx), ve [ayrılmış Özellikler](https://msdn.microsoft.com/library/ms164309.aspx).
+Ortam değişkenleri ve yerleşik proje özellikleri değerlerini almak için aynı özellik sözdizimini kullanabilirsiniz. Çok sayıda yaygın olarak kullanılan özellikler sizin için tanımlanır ve ilgili parametre adı ekleyerek bunları proje dosyalarınıza kullanabilirsiniz. Örneğin, geçerli proje platform almak için&#x2014;Örneğin, **x86** veya **AnyCpu**&#x2014;dahil edebileceğiniz **$(Platform)** Özellik Başvurusu Proje dosyanızı. Daha fazla bilgi için bkz: [derleme komutları ve Özellikler makroları](https://msdn.microsoft.com/library/c02as0cs.aspx), [yaygın MSBuild proje özellikleri](https://msdn.microsoft.com/library/bb629394.aspx), ve [ayrılmış Özellikler](https://msdn.microsoft.com/library/ms164309.aspx).
 
 Özellikleri ile birlikte kullanılan genellikle *koşullar*. MSBuild öğelerin çoğu Destek **koşulu** bağlı MSBuild değerlendirmek öğesi ölçütler belirtmenize olanak sağlar. öznitelik. Örneğin, bu özellik tanımını göz önünde bulundurun:
 
@@ -121,13 +121,13 @@ Ortam değişkenleri ve yerleşik proje özellikleri değerlerini almak için ay
 [!code-xml[Main](understanding-the-project-file/samples/sample5.xml)]
 
 
-MSBuild bu özellik tanımını işlediğinde, onu önce bakar olup bir **$(OutputRoot)** özellik değeri kullanılabilir. Özellik değeri boş & #x 2014; ise diğer bir deyişle, kullanıcı değeri #x 2014 & Bu özellik için sağlanan kurmadı; için koşulu değerlendirir **true** ve özellik değerini ayarlamak **... \Publish\Out**. Kullanıcının bu özellik için bir değer sağladıysa, için koşulu değerlendirir **false** ve statik özellik değeri kullanılmaz.
+MSBuild bu özellik tanımını işlediğinde, onu önce bakar olup bir **$(OutputRoot)** özellik değeri kullanılabilir. Özellik değeri boş ise&#x2014;diğer bir deyişle, kullanıcı değeri bu özellik için sağlanan kurmadı&#x2014;için koşulu değerlendirir **true** ve özellik değerini ayarlamak **... \Publish\Out**. Kullanıcının bu özellik için bir değer sağladıysa, için koşulu değerlendirir **false** ve statik özellik değeri kullanılmaz.
 
 İçinde belirtebilirsiniz koşullar çeşitli yollar hakkında daha fazla bilgi için bkz: [MSBuild koşulları](https://msdn.microsoft.com/library/7szfhaft.aspx).
 
 ### <a name="items-and-item-groups"></a>Öğeleri ve öğesi grupları
 
-Proje dosyası önemli rolleri oluşturma işlemi girişleri tanımlamaktır. Genellikle, bu girdi dosyaları & #x 2014; kod dosyaları, yapılandırma dosyaları, komut dosyaları ve işlem veya olarak kopyalamak için gereken diğer dosyalar Kısım yapı işlemi. MSBuild proje şemada bu girişleri tarafından temsil edilen [öğesi](https://msdn.microsoft.com/library/ms164283.aspx) öğeleri. İçindeki öğeleri tanımlanmalıdır proje dosyasında bir [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) öğesi. Olduğu gibi **özelliği** ad öğeleri bir **öğesi** öğesi ancak istediğiniz. Ancak, belirtmelisiniz bir **INCLUDE** dosya ya da öğeyi temsil eden joker tanımlamak için öznitelik.
+Proje dosyası önemli rolleri oluşturma işlemi girişleri tanımlamaktır. Genellikle, bu dosyaları girdileridir&#x2014;kod dosyaları, yapılandırma dosyaları, komut dosyaları ve işlem veya olarak kopyalamak için gereken diğer dosyalar oluşturma işleminin bir parçası. MSBuild proje şemada bu girişleri tarafından temsil edilen [öğesi](https://msdn.microsoft.com/library/ms164283.aspx) öğeleri. İçindeki öğeleri tanımlanmalıdır proje dosyasında bir [ItemGroup](https://msdn.microsoft.com/library/646dk05y.aspx) öğesi. Olduğu gibi **özelliği** ad öğeleri bir **öğesi** öğesi ancak istediğiniz. Ancak, belirtmelisiniz bir **INCLUDE** dosya ya da öğeyi temsil eden joker tanımlamak için öznitelik.
 
 
 [!code-xml[Main](understanding-the-project-file/samples/sample6.xml)]
@@ -139,7 +139,7 @@ Birden çok belirterek **öğesi** öğeleri aynı ada sahip, verimli oluşturdu
 [!code-xml[Main](understanding-the-project-file/samples/sample7.xml)]
 
 
-Bu şekilde, aynı şekilde & #x 2014; işlenmesi için gereken dosyalar listesini oluşturmak için MSBuild proje dosyası bilgilendirerek **başvuru** listesi içerir başarılıbiryapıiçinyerindeolmalıdırderlemeleri**Derleme** listesi derlenmelidir, kod dosyaları içerir ve **içerik** kopyalanmalıdır değiştirilmemiş kaynakların listesi içerir. Derleme işlemi nasıl başvuruyor ve bu konunun ilerleyen bölümlerinde aşağıdaki öğeleri kullanır inceleyeceğiz.
+Bu şekilde, aynı şekilde işlenmesi için gereken dosyalar listesini oluşturmak için MSBuild proje dosyası bilgilendirerek&#x2014; **başvuru** listesi içerir başarılı bir yapı için yerinde olmalıdır derlemeleri  **Derleme** listesi derlenmelidir, kod dosyaları içerir ve **içerik** kopyalanmalıdır değiştirilmemiş kaynakların listesi içerir. Derleme işlemi nasıl başvuruyor ve bu konunun ilerleyen bölümlerinde aşağıdaki öğeleri kullanır inceleyeceğiz.
 
 Öğesi öğeleri de bulunabilir [Itemmetadata](https://msdn.microsoft.com/library/ms164284.aspx) alt öğeleri. Bunlar kullanıcı tanımlı anahtar-değer çiftleri ve aslında bu öğe için özel özellikleri temsil eder. Örneğin, çok sayıda **derleme** proje dosyasında öğesi öğeleri dahil **DependentUpon** alt öğeleri.
 
@@ -195,11 +195,11 @@ Hedefleri ve görevleri içerebilir **koşulu** öznitelikleri. Bu nedenle, beli
 
 Genel olarak bakıldığında, yararlı görevler ve hedefleri oluşturduğunuzda, özellikleri ve proje dosyasında başka bir yerde tanımladığınız öğeleri başvurmak gerekir:
 
-- Bir özellik değerini kullanmak için **$(***PropertyName***)**, burada *PropertyName* adı **özelliği** öğesi veya adı parametre.
-- Bir öğeyi kullanmak için **@(***ItemName***)**, burada *ItemName* adı **öğesi** öğesi.
+- Bir özellik değerini kullanmak için <strong>$(</strong><em>PropertyName</em><strong>)</strong>, burada <em>PropertyName</em> adı <strong>özelliği</strong> öğesi veya parametresinin adı.
+- Bir öğeyi kullanmak için <strong>@(</strong><em>ItemName</em><strong>)</strong>, burada <em>ItemName</em> adı <strong>öğesi</strong> öğesi.
 
 > [!NOTE]
-> Aynı ada sahip birden çok öğe oluşturursanız, listesini oluşturmakta olduğunuz unutmayın. Buna karşılık, aynı ada sahip birden çok özellik oluşturursanız, sağladığınız son özellik değeri önceki herhangi bir özellik aynı ada & #x 2014 üzerine yazılır; bir özellik yalnızca tek bir değer içerebilir.
+> Aynı ada sahip birden çok öğe oluşturursanız, listesini oluşturmakta olduğunuz unutmayın. Aynı ada sahip birden çok özellik oluşturursanız, buna karşılık, sağladığınız son özellik değeri önceki herhangi bir özellik aynı ada sahip kılacak&#x2014;bir özelliği yalnızca tek bir değer içerebilir.
 
 
 Örneğin, *Publish.proj* dosya örnek çözümde, göz atın **BuildProjects** hedef.
@@ -227,7 +227,7 @@ Ayrıca, gördüğünüz **MSBuild** görev çağırır adlı bir hedef **yapı*
 
 ## <a name="splitting-project-files-to-support-multiple-environments"></a>Birden çok ortamlarını desteklemek için proje dosyalarını bölünmesini
 
-Çözüm test sunucuları, hazırlama platformları ve üretim ortamları gibi birden çok ortamlara dağıtabilmesi istediğinizi varsayalım. Yapılandırma bu ortamları & #x 2014 arasında önemli ölçüde değişebilir; değil yalnızca sunucu adları, bağlantı dizeleri vb. bakımından aynı zamanda kimlik bilgileri, güvenlik ayarlarını ve diğer etkenlere bağlı çok sayıda açısından büyük olasılıkla. Düzenli olarak bunu ihtiyacınız varsa, hedef ortam geçiş her zaman, proje dosyasında birden çok özelliklerini düzenlemek gerçekten expedient değil. Ya da derleme işlemi sağlanması için özellik değerlerini sonsuz bir listesini istemek için ideal bir çözümdür.
+Çözüm test sunucuları, hazırlama platformları ve üretim ortamları gibi birden çok ortamlara dağıtabilmesi istediğinizi varsayalım. Yapılandırma bu ortamlar arasında önemli ölçüde farklılık gösterebilir&#x2014;değil yalnızca sunucu adları, bağlantı dizeleri vb. bakımından aynı zamanda kimlik bilgileri, güvenlik ayarlarını ve diğer etkenlere bağlı çok sayıda açısından büyük olasılıkla. Düzenli olarak bunu ihtiyacınız varsa, hedef ortam geçiş her zaman, proje dosyasında birden çok özelliklerini düzenlemek gerçekten expedient değil. Ya da derleme işlemi sağlanması için özellik değerlerini sonsuz bir listesini istemek için ideal bir çözümdür.
 
 Neyse ki alternatif yoktur. MSBuild, birden çok proje dosyalarında yapı yapılandırmanızı bölme olanak tanır. Bu, örnek çözümü şeklini görmek için iki özel proje dosyalarını olduğuna dikkat edin:
 
@@ -266,6 +266,6 @@ Sonraki konuyu [oluşturma işlemini anlama](understanding-the-build-process.md)
 
 Proje dosyalarını ve WPP daha kapsamlı bir giriş için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Önceki](setting-up-the-contact-manager-solution.md)
-[sonraki](understanding-the-build-process.md)
+> [!div class="step-by-step"]
+> [Önceki](setting-up-the-contact-manager-solution.md)
+> [sonraki](understanding-the-build-process.md)

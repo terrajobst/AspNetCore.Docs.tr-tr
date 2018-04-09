@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
-title: "DataList denetimi (VB) ile satır başına birden çok kayıt gösteren | Microsoft Docs"
+title: DataList denetimi (VB) ile satır başına birden çok kayıt gösteren | Microsoft Docs
 author: rick-anderson
-description: "Bu kısa öğreticide biz DataList'ın düzeni RepeatColumns ve RepeatDirection özelliklerini aracılığıyla özelleştirmek nasıl ele alacağız."
+description: Bu kısa öğreticide biz DataList'ın düzeni RepeatColumns ve RepeatDirection özelliklerini aracılığıyla özelleştirmek nasıl ele alacağız.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c85e5a1d7b88a9ed53ed8392a300d5118363bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList denetimi (VB) ile satır başına birden çok kaydı gösteriliyor
 ====================
@@ -55,7 +55,7 @@ Visual Studio oluşturma ve yeni ObjectDataSource DataList bağlama sonra otomat
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-Bildirim girdiğim ve bir biçim belirticisi dahil `Eval` databinding söz diziminin `UnitPrice`, döndürülen değer bir para birimi - olarak biçimlendirme`Eval("UnitPrice", "{0:C}").`
+Bildirim girdiğim ve bir biçim belirticisi dahil `Eval` databinding söz diziminin `UnitPrice`, döndürülen değer bir para birimi - olarak biçimlendirme `Eval("UnitPrice", "{0:C}").`
 
 Bir tarayıcıda sayfanızı ziyaret etmek için bir dakikanızı ayırın. Şekil 2'de görüldüğü gibi DataList ürünlerin tek sütunlu, çok satırlı tablo olarak işler.
 
@@ -113,12 +113,12 @@ DataList varsayılan olarak, tek bir TemplateField ile GridView düzenini taklit
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme John Suru oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
-[sonraki](nested-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [sonraki](nested-data-web-controls-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
-title: "ASP.NET Web sayfaları sunarak - veritabanı verileri güncelleştirme | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - veritabanı verileri güncelleştirme | Microsoft Docs
 author: tfitzmac
-description: "Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek nasıl gösterir. Seri tamamladığınızdan varsayar th..."
+description: Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek nasıl gösterir. Seri tamamladığınızdan varsayar th...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: e889cd27e2267a08f7b6ea708c92e35edbdd7a1a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web sayfaları sunarak - veritabanı verileri güncelleştirme
 ====================
@@ -108,7 +108,7 @@ Bu yeni **Düzenle** bağlantı sütun farklıdır. Bir sütun adı belirtmek ye
 
 Sütun oluşur *yalnızca* bağlantıyı işleyen biçimlerini, bazı bilgiler (ID), ayıklanır satır için veritabanı kaydından.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Adlandırılmış parametreler ve bir yöntem için konumsal Parametreler**
 > 
@@ -173,7 +173,7 @@ Kod kullanan `Request.QueryString["id"]` sayfasına geçirilen kimliği alınama
 
 Bu kod bilgileri doğrulamak için farklı bir şekilde gösterir. Önceki öğreticide çalıştığınız `Validation` Yardımcısı. Doğrulanacak alanları kayıtlı ve ASP.NET otomatik olarak doğrulama vermedi ve hataları kullanarak görüntülenen `Html.ValidationMessage` ve `Html.ValidationSummary`. Bu durumda, ancak siz değil gerçekten kullanıcı girişini doğrulama. Bunun yerine, başka bir yerden sayfaya geçirilmedi bir değer doğrulama. `Validation` Yardımcı değil yapın, sizin için.
 
-Bu nedenle, değer kendiniz ile test ederek denetimi `if(!Request.QueryString["ID"].IsEmpty()`). Bir sorun varsa, kullanarak hata görüntüleyebilirsiniz `Html.ValidationSummary`ile yaptığınız gibi `Validation` Yardımcısı. Bunu yapmak için arama `Validation.AddFormError` ve görüntülenecek bir ileti geçirin. `Validation.AddFormError`zaten aşina doğrulama sistemi oturum tie özel iletileri tanımlamanıza izin verir yerleşik bir yöntemdir. (Daha sonra Bu öğreticide Biz bu doğrulama işlemi biraz daha sağlam hale hakkında konuşun.)
+Bu nedenle, değer kendiniz ile test ederek denetimi `if(!Request.QueryString["ID"].IsEmpty()`). Bir sorun varsa, kullanarak hata görüntüleyebilirsiniz `Html.ValidationSummary`ile yaptığınız gibi `Validation` Yardımcısı. Bunu yapmak için arama `Validation.AddFormError` ve görüntülenecek bir ileti geçirin. `Validation.AddFormError` zaten aşina doğrulama sistemi oturum tie özel iletileri tanımlamanıza izin verir yerleşik bir yöntemdir. (Daha sonra Bu öğreticide Biz bu doğrulama işlemi biraz daha sağlam hale hakkında konuşun.)
 
 Film kimliği olduğundan emin olduktan sonra kodu için yalnızca bir tek veritabanı öğesi arayan veritabanı okur. (Büyük olasılıkla genel düzeni veritabanı işlemleri için fark etmiş: veritabanını açmak, bir SQL deyimi tanımlamak ve deyimini çalıştırın.) Bu süre, SQL `Select` deyimi içeren `WHERE ID = @0`. Yalnızca bir kayıt kimliği benzersiz olduğundan döndürülebilir.
 
@@ -311,6 +311,6 @@ Sonraki öğreticide film kaydını silmek nasıl görürsünüz.
 - [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](../../getting-started/introducing-razor-syntax-c.md)
 - [SQL güncelleştirme deyimini](http://www.w3schools.com/sql/sql_update.asp) W3Schools sitesinde
 
->[!div class="step-by-step"]
-[Önceki](entering-data.md)
-[sonraki](deleting-data.md)
+> [!div class="step-by-step"]
+> [Önceki](entering-data.md)
+> [sonraki](deleting-data.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
 title: Ana sayfalar | Microsoft Docs
 author: microsoft
-description: "Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET 1.x, geliştiricilerin kullanıcı denetimleri genel sayfa elem. çoğaltmak için kullanılan..."
+description: Anahtar bileşenleri başarılı bir Web sitesi için tutarlı bir görünüm biridir. ASP.NET 1.x, geliştiricilerin kullanıcı denetimleri genel sayfa elem. çoğaltmak için kullanılan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: bd9effd4b73a014d4d7bb825b382b8db34d636f1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f45dd9704f665244d2a48ec000326f6e98984e4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages"></a>Ana sayfalar
 ====================
@@ -74,7 +74,7 @@ Yeni bir ana sayfa oluşturmak için:
 **Şekil 2**: yeni bir ana sayfa oluşturma
 
 
-Bir ana sayfa dosya uzantısı olduğuna dikkat edin *.master*. Bu, normal bir sayfadan bir ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönerge, ana sayfa içeren bir @Master yönergesi. Kaynak görünümüne asıl için az önce oluşturduğunuz ve kodu gözden sayfası geçin.
+Bir ana sayfa dosya uzantısı olduğuna dikkat edin <em>.master</em>. Bu, normal bir sayfadan bir ana sayfa farklı yollardan biridir. Diğer birincil fark yerine olan bir @Page yönerge, ana sayfa içeren bir @Master yönergesi. Kaynak görünümüne asıl için az önce oluşturduğunuz ve kodu gözden sayfası geçin.
 
 Yeni bir ana sayfa bir ContentPlaceHolder varsayılan olarak sahip olur. Çoğu durumda, ilk genel sayfa öğelerini oluşturmak ve ContentPlaceHolder denetimleri eklemek için daha fazla özel içerik nerede istenen mantıklıdır. Bu durumda, geliştiricilerin varsayılan ContentPlaceHolder denetimi silin ve sayfa geliştirilen gibi yenilerini ekleyin isteyeceksiniz. ContentPlaceHolder denetimleri boyutlandırma görüntülemek olgu rağmen yeniden boyutlandırılabilir değildir. Bir özel durumla içerdiği içeriği otomatik olarak temel ContentPlaceHolder denetimi boyutları; bir blok öğede içinde ContentPlaceHolder denetimi gibi bir tablo hücresi yerleştirirseniz öğe boyutunu göre boyutlanır.
 
@@ -142,10 +142,10 @@ Yeni içerik sayfası ana sayfasında her ContentPlaceHolder denetimi için bir 
 
 Bir ana sayfa ve bir içerik sayfasını arasında ilişki dört farklı şekilde yapılandırılabilir:
 
-- **MasterPageFile** özniteliği @Page yönergesi
+- <strong>MasterPageFile</strong> özniteliği @Page yönergesi
 - Ayarı **Page.MasterPageFile** kodda özelliği.
--  **&lt;Sayfaları&gt;**  uygulamaları yapılandırma dosyasında (web.config uygulamasının kök klasöründe) öğesi
--  **&lt;Sayfaları&gt;**  bir alt yapılandırma dosyasında (web.config bir alt) öğe
+- **&lt;Sayfaları&gt;** uygulamaları yapılandırma dosyasında (web.config uygulamasının kök klasöründe) öğesi
+- **&lt;Sayfaları&gt;** bir alt yapılandırma dosyasında (web.config bir alt) öğe
 
 ## <a name="masterpagefile-attribute"></a>MasterPageFile özniteliği
 
@@ -157,7 +157,7 @@ Kodda MasterPageFile özelliğini ayarlayarak, belirli bir ana sayfa içeriğini
 
 ## <a name="using-the-ltpagesgt-element"></a>Kullanarak &lt;sayfaları&gt; öğesi
 
-Bir ana sayfa sayfalarınız için masterPageFile özniteliği ayarlayarak yapılandırabileceğiniz &lt;sayfaları&gt; web.config dosyasının öğesi. Bu yöntemi kullanırken, web.config dosyalarını uygulama yapısında alt bu ayarı geçersiz kılabilirsiniz göz önünde bulundurun. Kümesindeki herhangi bir MasterPageFile öznitelik bir @Page yönergesi Ayrıca bu ayarı geçersiz. Kullanarak &lt;sayfaları&gt; öğesi, kolaylaştırır oluşturmak bir *ana* gerekirse belirli klasör veya dosya geçersiz kılınabilir ana sayfa.
+Bir ana sayfa sayfalarınız için masterPageFile özniteliği ayarlayarak yapılandırabileceğiniz &lt;sayfaları&gt; web.config dosyasının öğesi. Bu yöntemi kullanırken, web.config dosyalarını uygulama yapısında alt bu ayarı geçersiz kılabilirsiniz göz önünde bulundurun. Kümesindeki herhangi bir MasterPageFile öznitelik bir @Page yönergesi Ayrıca bu ayarı geçersiz. Kullanarak &lt;sayfaları&gt; öğesi, kolaylaştırır oluşturmak bir <em>ana</em> gerekirse belirli klasör veya dosya geçersiz kılınabilir ana sayfa.
 
 ## <a name="properties-in-master-pages"></a>Ana sayfa özellikleri
 

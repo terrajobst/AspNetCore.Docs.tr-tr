@@ -4,7 +4,7 @@
 * Uygulamayı çalıştırın ve append `/Movies` URL tarayıcıda (`http://localhost:port/movies`).
 * Test **oluşturma** bağlantı.
 
- ![Sayfa oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Sayfa oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Razor sayfalarında giriş"
+title: ASP.NET Core Razor sayfalarında giriş
 author: Rick-Anderson
-description: "Daha kolay ve MVC kullanmaktan daha üretken ASP.NET Core Razor sayfalarında kodlama sayfa odaklı senaryoları nasıl kolaylaştırdığını öğrenin."
+description: Daha kolay ve MVC kullanmaktan daha üretken ASP.NET Core Razor sayfalarında kodlama sayfa odaklı senaryoları nasıl kolaylaştırdığını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -25,16 +25,9 @@ Model-View-Controller yaklaşım kullanan bir öğretici için arıyorsanız bkz
 
 Bu belge Razor sayfalarının tanıtılmaktadır. Adım adım öğretici değil. Bazı çok Gelişmiş bölümleri bulamazsanız, bakın [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start). ASP.NET Core genel bakış için bkz: [ASP.NET Core giriş](xref:index).
 
-<a name="prerequisites"></a>
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="aspnet-core-20-prerequisites"></a>ASP.NET Core 2.0 önkoşulları
-
-Yükleme [.NET Core](https://www.microsoft.com/net/core) 2.0.0 veya sonraki bir sürümü.
-
-Visual Studio kullanıyorsanız, yükleme [Visual Studio](https://www.visualstudio.com/vs/) 2017 15.3 veya aşağıdaki iş yükleri ile sonraki bir sürümü:
-
-* **ASP.NET ve web geliştirme**
-* **.NET core platformlar arası geliştirme**
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 <a name="rpvs17"></a>
 
@@ -44,7 +37,7 @@ Visual Studio kullanıyorsanız, yükleme [Visual Studio](https://www.visualstud
 
 Bkz: [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start) Razor sayfalarının oluşturma konusunda ayrıntılı yönergeler için Proje Visual Studio kullanarak.
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 Çalıştırma `dotnet new razor` komut satırından.
 
@@ -54,7 +47,7 @@ Oluşturulan açmak *.csproj* Visual Studio dosyasından Mac için
 
 Çalıştırma `dotnet new razor` komut satırından.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
 Çalıştırma `dotnet new razor` komut satırından.
 
@@ -175,7 +168,11 @@ Arka plan kod *Index.cshtml.cs* dosyası:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-İlk satır içerir `@page "{id:int}"` yönergesi. Yönlendirme kısıtlaması`"{id:int}"` içeren sayfa isteklerini kabul etmek için sayfayı söyler `int` rota verileri. Sayfa için bir istek dönüştürülebilir rota verileri içermiyorsa, bir `int`, çalışma zamanı (bulunamadı) HTTP 404 hatası döndürür.
+İlk satır içerir `@page "{id:int}"` yönergesi. Yönlendirme kısıtlaması`"{id:int}"` içeren sayfa isteklerini kabul etmek için sayfayı söyler `int` rota verileri. Sayfa için bir istek dönüştürülebilir rota verileri içermiyorsa, bir `int`, çalışma zamanı (bulunamadı) HTTP 404 hatası döndürür. Kimliği isteğe bağlı yapmak için ekleme `?` rota kısıtlaması için:
+
+ ```cshtml
+@page "{id:int?}"
+```
 
 *Pages/Edit.cshtml.cs* dosyası:
 
@@ -317,7 +314,7 @@ Göreli adlar sayfaları için URL oluşturmayı destekler. Aşağıdaki tabloda
 | RedirectToPage(".. / Dizin") | *Sayfa/dizini* |
 | RedirectToPage("Index")  | *Müşteriler/sayfalar/dizini* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan *göreli adlar*. `RedirectToPage` Parametresi *birleştirilmiş* ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan <em>göreli adlar</em>. `RedirectToPage` Parametresi <em>birleştirilmiş</em> ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
 
 Göreli adı bağlama karmaşık bir yapıyı siteleriyle oluştururken yararlıdır. Bir klasördeki sayfaları arasında bağlamak için göreli adları kullanıyorsa, bu klasörü yeniden adlandırabilirsiniz. Tüm bağlantılar hala çalışır, (bunlar klasör adı eklemediniz çünkü).
 
@@ -423,4 +420,4 @@ services.AddMvc()
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
 * [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-convention-features)
-* [Razor sayfalarının birim ve tümleştirme sınaması](xref:testing/razor-pages-testing)
+* [Razor sayfalarının testleri birim ve tümleştirme](xref:testing/razor-pages-testing)

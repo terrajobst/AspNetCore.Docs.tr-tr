@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının Entity Framework Çekirdek ASP.NET Core - 8'in Öğreticisi 1 ile"
+title: Razor sayfalarının Entity Framework Çekirdek ASP.NET Core - 8'in Öğreticisi 1 ile
 author: rick-anderson
-description: "Entity Framework Çekirdek kullanarak Razor sayfalarının uygulamasının nasıl oluşturulacağını gösterir"
+description: Entity Framework Çekirdek kullanarak Razor sayfalarının uygulamasının nasıl oluşturulacağını gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: 1b0fdb9be83530323f2dc7e3bcb26df26c597c1b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: be8162de1c839ef619e2ccd32253c6c3e5330301
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor sayfalarının Entity Framework Çekirdek ASP.NET Core - 8'in Öğreticisi 1 ile
 
@@ -27,7 +27,7 @@ Contoso University örnek web uygulaması Entity Framework (EF) çekirdek 2.0 ve
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 Aşina [Razor sayfalarının](xref:mvc/razor-pages/index). Yeni programcıları tamamlamanız gereken [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start) bu seri başlatmadan önce.
 
@@ -100,7 +100,7 @@ Oluşturma bir *modelleri* klasör. İçinde *modelleri* klasörünü adlı bir 
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
-`ID` Özelliği bu sınıfa karşılık gelen veritabanı (DB) tablosunun birincil anahtar sütunu haline gelir. Varsayılan olarak, EF çekirdek adlı bir özellik yorumlar `ID` veya `classnameID` birincil anahtar olarak.
+`ID` Özelliği bu sınıfa karşılık gelen veritabanı (DB) tablosunun birincil anahtar sütunu haline gelir. Varsayılan olarak, EF çekirdek adlı bir özellik yorumlar `ID` veya `classnameID` birincil anahtar olarak. İçinde `classnameID`, `classname` sınıfın adı olduğu gibi `Student` önceki örnekte.
 
 `Enrollments` Özelliği bir gezinti özelliğidir. Bu varlığa ilgili diğer varlıklar için Gezinti özellikleri bağlayın. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutan `Enrollment` için ilişkili olan varlıkların `Student`. Örneğin, bir öğrenci satır varsa DB iki kayıt, ilişkili satırları sahip `Enrollments` gezinti özelliği içerdiğinden bu iki `Enrollment` varlıklar. İlgili `Enrollment` satırıdır bu öğrencinin birincil anahtar değerini içeren bir satır `StudentID` sütun. Örneğin, Öğrenci kimlikli varsayalım = 1 sahip iki satır `Enrollment` tablo. `Enrollment` Tablolu sahip iki satır `StudentID` = 1. `StudentID` bir yabancı anahtar `Enrollment` Öğrenci belirtir tablo `Student` tablo.
 
@@ -254,7 +254,7 @@ Projeyi oluşturun. Derleme hataları aşağıdaki gibi oluşturur:
 
  Genel olarak değiştirmek `_context.Student` için `_context.Students` ("s" eklemek diğer bir deyişle, `Student`). 7 oluşumu bulundu ve güncelleştirildi. Düzeltme umuyoruz [bu hatayı](https://github.com/aspnet/Scaffolding/issues/633) sonraki sürümdeki.
 
-[!INCLUDE[model4tbl](../../includes/RP/model4tbl.md)]
+[!INCLUDE [model4tbl](../../includes/RP/model4tbl.md)]
 
  <a name="test"></a>
 ### <a name="test-the-app"></a>Uygulamayı test etme
@@ -276,7 +276,7 @@ Genişletme **tabloları** düğümü.
 
 Sağ **Öğrenci** tablosu ve'ı tıklatın **görünüm verilerini** oluşturulan sütunlar ve tabloya eklenen satır görmek için.
 
-*.Mdf* ve *.ldf* DB dosyalarıdır içinde *C:\Users\\ <yourusername>*  klasör.
+<em>.Mdf</em> ve <em>.ldf</em> DB dosyalarıdır içinde <em>C:\Users\\ <yourusername> </em> klasör.
 
 `EnsureCreated` Aşağıdaki iş akışı sağlayan uygulama Başlat'çağrılır:
 
@@ -296,7 +296,7 @@ EF tam bir veritabanı oluşturmak çekirdek için sırayla yazılan kod miktar�
 
 * Kimliği veya classnameID adlı varlık özellikleri birincil anahtar özelliği kabul edilir.
 
-* Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır  *<navigation property name> <primary key property name>*  (örneğin, `StudentID` için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtar `ID`). Yabancı anahtar özellikleri adlı  *<primary key property name>*  (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
+* Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır *<navigation property name> <primary key property name>* (örneğin, `StudentID` için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtar `ID`). Yabancı anahtar özellikleri adlı *<primary key property name>* (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
 
 Geleneksel davranışı geçersiz kılınabilir. Örneğin, tablo adlarının açıkça, bu öğreticide daha önce gösterildiği gibi belirtilebilir. Sütun adlarını açıkça ayarlayabilirsiniz. Birincil anahtarları ve yabancı anahtarları açıkça ayarlanabilir.
 
@@ -335,5 +335,5 @@ EF çekirdek kullanan zaman uyumsuz kodu yazarken dikkat edilmesi gereken bazı 
 
 Sonraki öğreticide, temel CRUD (Oluştur, oku, Güncelleştir, Sil) işlemleri incelenmesini.
 
->[!div class="step-by-step"]
-[Next](xref:data/ef-rp/crud)
+> [!div class="step-by-step"]
+> [Next](xref:data/ef-rp/crud)

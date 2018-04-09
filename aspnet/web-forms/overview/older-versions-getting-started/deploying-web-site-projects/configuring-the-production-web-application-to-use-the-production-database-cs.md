@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
-title: "Üretim veritabanını (C#) kullanmak için üretim Web uygulaması için yapılandırma | Microsoft Docs"
+title: Üretim veritabanını (C#) kullanmak için üretim Web uygulaması için yapılandırma | Microsoft Docs
 author: rick-anderson
-description: "Önceki eğitimlerine açıklandığı gibi geliştirme ve üretim ortamlarını arasında farklılık yapılandırma bilgileri için seyrek değil. Es budur..."
+description: Önceki eğitimlerine açıklandığı gibi geliştirme ve üretim ortamlarını arasında farklılık yapılandırma bilgileri için seyrek değil. Es budur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7fef7ecab0e51790ff7737b16500f6c2bb5eecdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Üretim Web uygulamanızı üretim veritabanını (C#) kullanacak şekilde yapılandırma
 ====================
@@ -71,7 +71,7 @@ Ardından, çeşitli veritabanı bağlantı bilgilerini belirtin (bkz: Şekil 2)
 
 Üretim ortamında veritabanı sunucu Gezgini'nde listelenmiş olmalıdır. Server Explorer'dan veritabanını seçin ve Özellikler penceresine gidin. Veritabanı s bağlantı dizesini içeren bağlantı dizesini adlı bir özellik var. bulur. Üretim ve SqlClient sağlayıcısı bir Microsoft SQL Server veritabanı kullanılarak varsayarak, bağlantı dizenizi aşağıdakine benzer görünmelidir:
 
-**Veri kaynağı =*serverName*; Initial Catalog =*databaseName*; Kalıcı güvenlik bilgisi = True; Kullanıcı Kimliği =*kullanıcıadı*; Parola = * parola***
+<strong>Veri kaynağı =<em>serverName</em>; Initial Catalog =<em>databaseName</em>; Kalıcı güvenlik bilgisi = True; Kullanıcı Kimliği =<em>kullanıcıadı</em>; Parola =*parola</strong>*
 
 Burada *serverName*, *databaseName*, *kullanıcıadı*, ve *parola* veritabanı sunucusu adı, veritabanı için değerlerle olan adını, kullanıcı adı ve parola, web ana bilgisayar şirketiniz tarafından sağlanan.
 
@@ -152,6 +152,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Web.config dosyasının dışında taşıma ayarları](http://www.asp101.com/tips/index.asp?id=154)
 - [İçin teknik belgeler &lt;connectionStrings&gt; öğesi](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[Önceki](deploying-a-database-cs.md)
-[sonraki](configuring-a-website-that-uses-application-services-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-a-database-cs.md)
+> [sonraki](configuring-a-website-that-uses-application-services-cs.md)

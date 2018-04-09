@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
-title: "Veritabanı projeleri dağıtma | Microsoft Docs"
+title: Veritabanı projeleri dağıtma | Microsoft Docs
 author: jrjlee
-description: "Not: kurumsal dağıtım senaryoları çok sayıda içinde dağıtılmış bir veritabanı için artımlı güncelleştirmeler yayımlamak özelliği gerekir. Yeniden oluşturmak için kullanılan alternatiftir..."
+description: 'Not: kurumsal dağıtım senaryoları çok sayıda içinde dağıtılmış bir veritabanı için artımlı güncelleştirmeler yayımlamak özelliği gerekir. Yeniden oluşturmak için kullanılan alternatiftir...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>Veritabanı projeleri dağıtma
 ====================
@@ -92,8 +92,8 @@ Bu durumda:
 
 - **/A** (veya **/eylem**) anahtarı belirtir yapmak için VSDBCMD istiyor. Bu ayar **alma** veya **dağıtma**. **Alma** seçeneği, var olan bir veritabanından .dbschema dosyası oluşturmak için kullanılır ve **dağıtma** seçeneği .dbschema dosya hedef veritabanına dağıtmak için kullanılır.
 - **/Bildirimi** (veya **/ManifestFile**) anahtar dağıtmak istediğiniz .deploymanifest dosya tanımlar. .Dbschema dosyası kullanmayı istediyseniz, kullanacağınız **/model** (veya **/ModelFile**) geçin.
-- **/Cs** (veya **/ConnectionString**) anahtarı, hedef veritabanı sunucusu için bağlantı dizesini sağlar. Bu #x 2014 & veritabanı adını içermeyen unutmayın; VSDBCMD veritabanını oluşturmak için sunucuya bağlanmanız gerekiyor; tek bir veritabanına bağlanmak gerekmez. Bir bağlantı dizesi .deploymanifest dosyanızı içeriyorsa, bu anahtarı atlayabilirsiniz. Anahtarı yine de kullanırsanız, anahtar değer .deploymanifest değerini geçersiz kılar.
-- **/P:TargetDatabase** özelliği, oluşturma sırasında hedef veritabanına atamak istediğiniz adı sağlar. Bu değerini geçersiz kılar **TargetDatabase** .deploymanifest dosyasında özellik. Kullanabileceğiniz **p:** *[özellik adı]*sözdizimi çok çeşitli dağıtım özelliklerini ayarlamak ve herhangi bir SQLCMD değişkeni geçersiz kılmak için .sqlcmdvars dosyasında bildirildi.
+- **/Cs** (veya **/ConnectionString**) anahtarı, hedef veritabanı sunucusu için bağlantı dizesini sağlar. Bu veritabanının adı içermeyen Not&#x2014;VSDBCMD; veritabanı oluşturmak için sunucuya bağlanmanız gerekiyor tek bir veritabanına bağlanmak gerekmez. Bir bağlantı dizesi .deploymanifest dosyanızı içeriyorsa, bu anahtarı atlayabilirsiniz. Anahtarı yine de kullanırsanız, anahtar değer .deploymanifest değerini geçersiz kılar.
+- <strong>/P:TargetDatabase</strong> özelliği, oluşturma sırasında hedef veritabanına atamak istediğiniz adı sağlar. Bu değerini geçersiz kılar <strong>TargetDatabase</strong> .deploymanifest dosyasında özellik. Kullanabileceğiniz <strong>p:</strong> <em>[özellik adı]</em>sözdizimi çok çeşitli dağıtım özelliklerini ayarlamak ve herhangi bir SQLCMD değişkeni geçersiz kılmak için .sqlcmdvars dosyasında bildirildi.
 - **/Dd+** (veya **/DeployToDatabase+**) anahtar gösteren bir dağıtımını oluşturun ve hedef ortam dağıtmak istediğiniz. Belirtirseniz **/dd-**, veya anahtarını atlarsanız, VSDBCMD bir dağıtım komut dosyası oluşturur, ancak hedef ortam dağıtmaz. Bu anahtar, Karışıklığı önlemek için kaynak görülür ve sonraki bölümde daha ayrıntılı açıklanmıştır.
 - **/Script** (veya **/DeploymentScriptFile**) anahtar dağıtım betiği oluşturmak istediğiniz belirtir. Bu değer, dağıtım işlemi etkilemez.
 
@@ -150,6 +150,6 @@ Bu konular MSDN'de daha geniş yönerge ve Visual Studio veritabanı projelerini
 - [Nasıl yapılır: bir veritabanı VSDBCMD kullanarak dağıtım için bir komut isteminden hazırlayın. EXE](https://msdn.microsoft.com/library/dd193258.aspx)
 - [Veritabanı derleme ve dağıtım genel bakış](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[Önceki](deploying-web-packages.md)
-[sonraki](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-web-packages.md)
+> [sonraki](creating-and-running-a-deployment-command-file.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
-title: "Ekleme, güncelleştirme ve silme (C#) ile ilişkili olay incelenerek | Microsoft Docs"
+title: Ekleme, güncelleştirme ve silme (C#) ile ilişkili olay incelenerek | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide, biz önce sırasında ve sonrasında bir ekleme meydana gelen olayları kullanarak inceleyeceğiz güncelleştirmek ya da silme işlemi ASP.NET veri Web denetimi. W...."
+description: Bu öğreticide, biz önce sırasında ve sonrasında bir ekleme meydana gelen olayları kullanarak inceleyeceğiz güncelleştirmek ya da silme işlemi ASP.NET veri Web denetimi. W....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 93da23d58d1ba73c5b97f42631d036dd364de24d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61542f37c9fa3e6c5893aabb0a3116571bd6be5a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-c"></a>Ekleme, güncelleştirme ve silme (C#) ile ilişkili olaylar inceleniyor
 ====================
@@ -329,12 +329,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Jackie Goor ve Liz Shulok yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](an-overview-of-inserting-updating-and-deleting-data-cs.md)
-[sonraki](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](an-overview-of-inserting-updating-and-deleting-data-cs.md)
+> [sonraki](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs.md)

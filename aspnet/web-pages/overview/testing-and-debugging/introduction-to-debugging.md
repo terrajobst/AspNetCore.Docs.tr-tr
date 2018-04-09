@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: "Giriş hata ayıklama ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs"
+title: Giriş hata ayıklama ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
 author: tfitzmac
-description: "Hata ayıklama hataları bulma ve kod sayfalarınızda düzeltme işlemidir. Bu bölümde bazı araçları ve hata ayıklama için kullanabileceğiniz teknikleri gösterir ve analyz..."
+description: Hata ayıklama hataları bulma ve kod sayfalarınızda düzeltme işlemidir. Bu bölümde bazı araçları ve hata ayıklama için kullanabileceğiniz teknikleri gösterir ve analyz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>(Razor) giriş hata ayıklama ASP.NET Web sayfaları
 ====================
@@ -33,7 +33,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Bu makalede sunulan ASP.NET özellikleri şunlardır:
 > 
 > - `ServerInfo` Yardımcısı.
-> - `ObjectInfo`Yardımcısı.
+> - `ObjectInfo` Yardımcısı.
 >   
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
@@ -66,12 +66,12 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
     `ServerInfo` Yardımcısı sayfasında dört tablonun bilgileri görüntüler:
 
-    - Sunucu yapılandırması. Bu bölüm, bilgisayar adı, çalıştırmakta olduğunuz ASP.NET, etki alanı adı ve sunucu zaman sürümü de dahil olmak üzere barındıran web sunucusu hakkında bilgi sağlar.
-    - ASP.NET sunucu değişkenleri. Bu bölüm, birçok HTTP protokol ayrıntılarını (çağrılan HTTP değişkenler) hakkında ayrıntılı bilgi sağlar ve bu değerleri her web sayfası isteği bir parçasıdır.
-    - HTTP çalışma zamanı bilgileri. Bu bölümde, web sayfanızın altında çalışan Microsoft .NET Framework, yol, önbellek vb. ayrıntıları sürümü ayrıntıları. (İçinde öğrenilen [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), Razor sözdizimini kendisini kapsamlı bir yazılımı yerleşik olan Microsoft ASP.NET web sunucu teknolojisi üzerinde oluşturulan kullanarak ASP.NET Web sayfaları Geliştirme kitaplığı .NET Framework olarak adlandırılır.)
-    - Ortam değişkenleri. Bu bölümde, web sunucusundaki tüm yerel ortam değişkenlerini ve değerleri listesi sağlar.
+   - Sunucu yapılandırması. Bu bölüm, bilgisayar adı, çalıştırmakta olduğunuz ASP.NET, etki alanı adı ve sunucu zaman sürümü de dahil olmak üzere barındıran web sunucusu hakkında bilgi sağlar.
+   - ASP.NET sunucu değişkenleri. Bu bölüm, birçok HTTP protokol ayrıntılarını (çağrılan HTTP değişkenler) hakkında ayrıntılı bilgi sağlar ve bu değerleri her web sayfası isteği bir parçasıdır.
+   - HTTP çalışma zamanı bilgileri. Bu bölümde, web sayfanızın altında çalışan Microsoft .NET Framework, yol, önbellek vb. ayrıntıları sürümü ayrıntıları. (İçinde öğrenilen [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), Razor sözdizimini kendisini kapsamlı bir yazılımı yerleşik olan Microsoft ASP.NET web sunucu teknolojisi üzerinde oluşturulan kullanarak ASP.NET Web sayfaları Geliştirme kitaplığı .NET Framework olarak adlandırılır.)
+   - Ortam değişkenleri. Bu bölümde, web sunucusundaki tüm yerel ortam değişkenlerini ve değerleri listesi sağlar.
 
-    Tüm sunucu ve istek bilgilerinin tam bir açıklaması bu makalenin kapsamı dışındadır olmakla birlikte, gördüğünüz `ServerInfo` Yardımcısı çok miktarda bir tanı bilgilerini döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenleri](https://technet.microsoft.com/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
+     Tüm sunucu ve istek bilgilerinin tam bir açıklaması bu makalenin kapsamı dışındadır olmakla birlikte, gördüğünüz `ServerInfo` Yardımcısı çok miktarda bir tanı bilgilerini döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenleri](https://technet.microsoft.com/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Sayfa değerlerini görüntülemek için katıştırma çıktı ifadeleri
 
@@ -115,10 +115,10 @@ Kodunuzda neler olduğunu görmek için başka bir çıktı ifadeleri sayfasına
 
     Bu örnekte, `ObjectInfo` Yardımcısı iki öğe görüntüler:
 
-    - Tür. İlk değişken için türüdür `DayOfWeek`. İkinci değişken için türüdür `String`.
-    - Değer. Sayfasında zaten Tebrik değişkenin değerini görüntülemek için değişkeni geçirdiğinizde bu durumda, değer yeniden görüntülenir `ObjectInfo`.
+   - Tür. İlk değişken için türüdür `DayOfWeek`. İkinci değişken için türüdür `String`.
+   - Değer. Sayfasında zaten Tebrik değişkenin değerini görüntülemek için değişkeni geçirdiğinizde bu durumda, değer yeniden görüntülenir `ObjectInfo`.
 
-    Daha karmaşık nesneler için `ObjectInfo` Yardımcısı, daha fazla bilgi &#8212;görüntüleyebilir; temelde, onu türlerini ve değerlerini tüm nesnenin özelliklerini görüntüleyebilirsiniz.
+     Daha karmaşık nesneler için `ObjectInfo` Yardımcısı, daha fazla bilgi görüntüleyebilir &#8212; temelde, onu türlerini ve değerlerini tüm nesnenin özelliklerini görüntüleyebilirsiniz.
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio'da hata ayıklama araçlarını kullanarak
 

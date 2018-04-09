@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: klasör izinlerini ayarlama | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: klasör izinlerini ayarlama | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 19bef5ff97fd5b79135df8ca9bd6bd316594cc5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7efe267975835e889950983126088f1b637c28fb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: klasör izinlerini ayarlama
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -78,6 +78,6 @@ Bu örnekte, neden Elmah günlük dosyalarını kaydedemedi nedeni çok açıkt�
 
 Uygulama havuzu kimlikleri izinleri hakkında daha fazla bilgi için bkz: [uygulama havuzu kimlikleri](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) ve [içerik dosya sistemi ACL'lerini aracılığıyla IIS güvenli](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) IIS.NET sitesinde.
 
->[!div class="step-by-step"]
-[Önceki](deploying-to-iis.md)
-[sonraki](deploying-to-production.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-to-iis.md)
+> [sonraki](deploying-to-production.md)

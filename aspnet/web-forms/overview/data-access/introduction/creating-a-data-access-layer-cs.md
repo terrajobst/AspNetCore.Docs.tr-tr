@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
-title: "Veri erişim katmanı (C#) oluşturma | Microsoft Docs"
+title: Veri erişim katmanı (C#) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz çok baştan başlamanız ve veri erişim katmanı (bir veritabanı olarak bilgilere erişmek için yazılan veri kümeleri kullanarak DAL), oluşturmak."
+description: Bu öğreticide biz çok baştan başlamanız ve veri erişim katmanı (bir veritabanı olarak bilgilere erişmek için yazılan veri kümeleri kullanarak DAL), oluşturmak.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Veri erişim katmanı (C#) oluşturma
 ====================
@@ -84,7 +84,7 @@ Veritabanına bir bağlantı oluşturma gibi temel alınan veri kaynağına özg
 
 Bu yöntem çağrıldığında, veritabanına bağlanmak, uygun sorgu vermek ve sonuçlar döndürebilir. Bu sonuçları nasıl döndürürüz önemlidir. Bu yöntemleri yalnızca bir veri kümesi veya veritabanı sorgusunun doldurulmuş DataReader döndürebilir ancak kullanarak bu sonuçlar ideal olarak döndürülmelidir *türü kesin belirlenmiş nesnelerin*. Geniş yazılmış bir nesne karşıtı biri, şema çalışma zamanına kadar bilinmiyor iken kesin türü belirtilmiş bir nesne, şema aracılığı derleme zamanında tanımlanan biridir.
 
-Bunları doldurmak için kullanılan veritabanı sorgusunun döndürdüğü sütunlara göre kendi şema tanımlamış Örneğin, DataReader ve veri kümesi (varsayılan) geniş yazılmış nesneleridir. Belirli bir sütuna ihtiyacımız gibi sözdizimini kullanmak için geniş yazılmış bir DataTable erişmek için: ***DataTable*. Satırlar [*dizin*] ["*columnName *"]**. Bu örnekte DataTable nesnesinin gevşek yazarak bir dize veya sıra dizini kullanarak sütun adı erişmek için ihtiyacımız olgu tarafından sergilenen. Kesin türü belirtilmiş bir DataTable Öte yandan, her özellikleri olarak uygulanan sütunları benzer kodunda sonuçlanan olacaktır: ***DataTable*. Satırlar [*dizin*].* columnName***.
+Bunları doldurmak için kullanılan veritabanı sorgusunun döndürdüğü sütunlara göre kendi şema tanımlamış Örneğin, DataReader ve veri kümesi (varsayılan) geniş yazılmış nesneleridir. Belirli bir sütuna ihtiyacımız gibi sözdizimini kullanmak için geniş yazılmış bir DataTable erişmek için:  <strong><em>DataTable</em>. Satırlar [<em>dizin</em>] ["<em>columnName</em>"]</strong>. Bu örnekte DataTable nesnesinin gevşek yazarak bir dize veya sıra dizini kullanarak sütun adı erişmek için ihtiyacımız olgu tarafından sergilenen. Kesin türü belirtilmiş bir DataTable Öte yandan, her özellikleri olarak uygulanan sütunları benzer kodunda sonuçlanan olacaktır:  <strong><em>DataTable</em>. Satırlar [<em>dizin</em>]. *columnName</strong>*.
 
 Türü kesin belirlenmiş nesnelerin döndürmek için geliştiricilerin kendi özel iş nesneleri oluşturmak veya yazılan veri kümeleri kullanabilirsiniz. Özellikleri genellikle iş nesnesi temel alınan veritabanı tablosunun sütunları yansıtacak bir sınıfı temsil eder gibi bir iş nesnesi geliştirici tarafından uygulanır. Yazılan veri kümesi, sizin için bir veritabanı şeması ve kesin türü belirtilmiş-bu şemaya göre üyeleri göre Visual Studio tarafından oluşturulan bir sınıftır. Yazılan veri kümesi kendisini ADO.NET veri kümesi, DataTable ve DataRow sınıfları genişleten sınıflardan oluşur. Kesin türü belirtilmiş DataTables ek olarak yazılan veri kümeleri artık ayrıca veri kümesi'nin DataTables doldurma ve veritabanında yapılan değişikliklerin DataTables içinde geri yayılıyor yöntemleriyle sınıflardır TableAdapters içerir.
 
@@ -124,7 +124,7 @@ TableAdapter Yapılandırma Sihirbazı'nı çalışmak için hangi veritabanı s
 **Şekil 5**: Northwind veritabanı aşağı açılan listeden seçin ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-cs/_static/image13.png))
 
 
-Veritabanını seçtikten sonra İleri'yi tıklatmadan, bağlantı dizesinde kaydetmek isteyip istemediğiniz sorulur **Web.config** dosya. Bağlantı dizesi kaydederek, sabit bir bağlantı dizesi bilgisi gelecekte değişirse, şeyler basitleştirir TableAdapter sınıflarda kodlanmış sahip kaçının. Yapılandırma dosyasında bağlantı dizesini kaydetmeyi seçerseniz, yerleştirilir  **&lt;connectionStrings&gt;**  olabilir bölüm [isteğe bağlı olarak şifrelenmiş](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) geliştirilmiş için Güvenlik ya da yöneticiler için daha uygundur IIS GUI yönetim aracı içinde yeni ASP.NET 2.0 özellik sayfası aracılığıyla daha sonra değiştirilmiş.
+Veritabanını seçtikten sonra İleri'yi tıklatmadan, bağlantı dizesinde kaydetmek isteyip istemediğiniz sorulur **Web.config** dosya. Bağlantı dizesi kaydederek, sabit bir bağlantı dizesi bilgisi gelecekte değişirse, şeyler basitleştirir TableAdapter sınıflarda kodlanmış sahip kaçının. Yapılandırma dosyasında bağlantı dizesini kaydetmeyi seçerseniz, yerleştirilir **&lt;connectionStrings&gt;** olabilir bölüm [isteğe bağlı olarak şifrelenmiş](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx) geliştirilmiş için Güvenlik ya da yöneticiler için daha uygundur IIS GUI yönetim aracı içinde yeni ASP.NET 2.0 özellik sayfası aracılığıyla daha sonra değiştirilmiş.
 
 
 [![Bağlantı dizesi Web.config dosyasına kaydedin](creating-a-data-access-layer-cs/_static/image15.png)](creating-a-data-access-layer-cs/_static/image14.png)
@@ -233,7 +233,7 @@ Biz öncelikle olup olmadığını biz geçici SQL deyimi ya da yeni veya varola
 **Şekil 15**: Create seçin bir **seçin** deyimi döndürür satırlarını ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-Sonraki adım, verilere erişmek için kullanılan SQL sorgusu tanımlamaktır. Belirli bir kategoriye ait ürünleri döndürülecek istiyoruz olduğundan, aynı kullanmam **seçin** from deyimi **GetProducts()**, ancak aşağıdaki ekleyin **burada** yan tümcesi: **burada adlı kullanıcı, Categoryıd'si = @CategoryID** .  **@CategoryID**  Parametresi TableAdapter sihirbazın oluşturma yöntemi (yani, boş değer atanabilir bir tamsayı) karşılık gelen türünde bir giriş parametresi gerektiğini gösterir.
+Sonraki adım, verilere erişmek için kullanılan SQL sorgusu tanımlamaktır. Belirli bir kategoriye ait ürünleri döndürülecek istiyoruz olduğundan, aynı kullanmam <strong>seçin</strong> from deyimi <strong>GetProducts()</strong>, ancak aşağıdaki ekleyin <strong>burada</strong> yan tümcesi: <strong>burada adlı kullanıcı, Categoryıd'si = @CategoryID</strong> . <strong>@CategoryID</strong> Parametresi TableAdapter sihirbazın oluşturma yöntemi (yani, boş değer atanabilir bir tamsayı) karşılık gelen türünde bir giriş parametresi gerektiğini gösterir.
 
 
 [![Yalnızca belirtilen bir kategorideki ürünleri döndürmek için bir sorgu girin](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -241,7 +241,7 @@ Sonraki adım, verilere erişmek için kullanılan SQL sorgusu tanımlamaktır. 
 **Şekil 16**: yalnızca dönüş ürünlere belirtilen bir kategorideki bir sorgu girin ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-Hangi veri yanı sıra kullanmak için oluşturulan yöntemler adlarını özelleştirin desenleri erişim seçeneğini belirledik son adımı. Dolgu deseni için adına değiştirelim **FillByCategoryID** ve dönüş için bir DataTable dönmek deseni ( **alma * X*** yöntemleri), kullanalım **GetProductsByCategoryID**.
+Hangi veri yanı sıra kullanmak için oluşturulan yöntemler adlarını özelleştirin desenleri erişim seçeneğini belirledik son adımı. Dolgu deseni için adına değiştirelim <strong>FillByCategoryID</strong> ve dönüş için bir DataTable dönmek deseni ( <strong>almak*X</strong>*  yöntemleri), kullanalım  <strong>GetProductsByCategoryID</strong>.
 
 
 [![TableAdapter yöntemleri için adlar seçin](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -403,48 +403,48 @@ Aşağıdaki TableAdapters ve aşağıdaki sorguları kullanarak yöntemleri olu
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
 [![Dört TableAdapters ekledikten sonra veri kümesi Tasarımcısı](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
@@ -543,5 +543,5 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Cüneyt yeşil, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez ve Carlos Santos yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](creating-a-business-logic-layer-cs.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-business-logic-layer-cs.md)

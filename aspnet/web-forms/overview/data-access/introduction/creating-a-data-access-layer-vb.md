@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
-title: "Veri erişim katmanı (VB) oluşturma | Microsoft Docs"
+title: Veri erişim katmanı (VB) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz çok baştan başlamanız ve veri erişim katmanı (bir veritabanı olarak bilgilere erişmek için yazılan veri kümeleri kullanarak DAL), oluşturmak."
+description: Bu öğreticide biz çok baştan başlamanız ve veri erişim katmanı (bir veritabanı olarak bilgilere erişmek için yazılan veri kümeleri kullanarak DAL), oluşturmak.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5cf1a430d6fe94174a877beb04b930409bdbf084
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Veri erişim katmanı (VB) oluşturma
 ====================
@@ -77,7 +77,7 @@ Yüklenen veritabanı olduktan sonra Visual Studio Server Explorer'da için veri
 
 Veritabanına bir bağlantı oluşturma gibi temel alınan veri kaynağına özgü tüm kod veren `SELECT`, `INSERT`, `UPDATE`, ve `DELETE` komutları ve benzeri DAL bulunmalıdır. Sunu katmanı bu tür veri erişim kodu yönelik tüm başvuruları içermemesi gerekir, ancak bunun yerine tüm veri istekleri için DAL çağrılarını olmanız gerekir. Veri erişim katmanları genellikle temel alınan veritabanı veri erişmek için yöntemler içerir. Örneğin, Northwind veritabanı sahip `Products` ve `Categories` ürünler satış ve ait oldukları kategorileri için kayıt tabloları. Bizim DAL biz yöntemler gibi olacaktır:
 
-- `GetCategories(),`kategorilerin tümünü hakkında bilgi döndürür
+- `GetCategories(),` kategorilerin tümünü hakkında bilgi döndürür
 - `GetProducts()`, tüm ürünleri hakkında bilgi döndürecektir
 - `GetProductsByCategoryID(categoryID)`, belirli bir kategoriye ait tüm ürünleri döndürecektir
 - `GetProductByProductID(productID)`, belirli bir ürünü hakkında bilgi döndürecektir
@@ -403,48 +403,48 @@ Aşağıdaki TableAdapters ve aşağıdaki sorguları kullanarak yöntemleri olu
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-vb/samples/sample21.sql)]
 
 
 [![Dört TableAdapters ekledikten sonra veri kümesi Tasarımcısı](creating-a-data-access-layer-vb/_static/image84.png)](creating-a-data-access-layer-vb/_static/image83.png)
@@ -537,12 +537,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Cüneyt yeşil, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez ve Carlos Santos yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-pages-and-site-navigation-cs.md)
-[sonraki](creating-a-business-logic-layer-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](master-pages-and-site-navigation-cs.md)
+> [sonraki](creating-a-business-logic-layer-vb.md)

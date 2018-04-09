@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
-title: "Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (çevrimdışı dağıtımı) | Microsoft Docs"
+title: Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (çevrimdışı dağıtımı) | Microsoft Docs
 author: jrjlee
-description: "Bu konuda çevrimdışı web yayımlama ve dağıtım desteklemek için bir IIS web sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Internet Information Services ile çalışırken (t..."
+description: Bu konuda çevrimdışı web yayımlama ve dağıtım desteklemek için bir IIS web sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Internet Information Services ile çalışırken (t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dfd3ab41e44a3b000bf2c25a5a71db4344617bf2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e28bdea26847d4e660d6ee59b15eb38f749d2314
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Web dağıtımı için yayımlama (çevrimdışı dağıtımı) bir Web sunucusu yapılandırma
 ====================
@@ -160,7 +160,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image6.png)
 
     > [!NOTE]
-    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. İkinci site bağlaması makine adı (örneğin, http://proweb1:85) kullanarak etki alanındaki diğer bilgisayarlardan site erişmenize olanak tanır.
+    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. İkinci site bağlaması makine adı kullanarak etki alanında diğer bilgisayarlardan site erişmenize olanak sağlayan (örneğin, http://proweb1:85).
 13. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Kapat**.
 14. İçinde **bağlantıları** bölmesinde tıklatın **uygulama havuzları**.
 15. İçinde **uygulama havuzları** bölmesinde, uygulama havuzunun adını sağ tıklatın ve ardından **temel ayarları**. Varsayılan olarak, Web sitenizin adı, uygulama havuzu adı ile eşleşir (örneğin, **DemoSite**).
@@ -175,7 +175,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
 
 Bir uygulama havuzu kimliği bir dosya veya klasör izinleri vermek için iki seçeneğiniz vardır:
 
-- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. **IIS AppPool\***[uygulama havuzu adı]*(örneğin, **IIS AppPool\DemoSite**).
+- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. <strong>IIS AppPool\</ strong ><em>[uygulama havuzu adı]</em>(örneğin, <strong>IIS AppPool\DemoSite</strong>).
 - İzinleri atayın **IIS\_IUSRS** grubu.
 
 Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda olduğundan bu yaklaşım, dosya sistemi izinleri yapılandırmadan uygulama havuzları değiştirmenize olanak sağlar. Sonraki yordamda bu grup tabanlı yaklaşımı kullanır.
@@ -193,8 +193,8 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda old
 
     ![](configuring-a-web-server-for-web-deploy-publishing-offline-deployment/_static/image8.png)
 5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklatın **Adları Denetle**ve ardından **Tamam**.
-6. İçinde **izinlerini *** [klasör adı]* iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **klasör içeriğini listele**, ve **Okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
-7. Tıklatın **Tamam** kapatmak için *[klasör adı] *** özellikleri** iletişim kutusu.
+6. İçinde <strong>izinlerini</strong><em>[klasör adı]</em> iletişim kutusunda, yeni Grup atanan bildirim <strong>okuma &amp; yürütme</strong>, <strong>liste klasörü içeriği</strong>, ve <strong>okuma</strong> varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın <strong>Tamam</strong>.
+7. Tıklatın <strong>Tamam</strong> kapatmak için <em>[klasör adı]</em><strong>özellikleri</strong> iletişim kutusu.
 
 ## <a name="disable-the-remote-agent-service"></a>Uzak Aracı hizmetini devre dışı bırakma
 
@@ -226,6 +226,6 @@ Bu noktada, web sunucunuz çevrimdışı web paket dağıtımı için hazırdır
 - Uygulama havuzu kimliğini Web siteniz için kaynak klasöre okuma erişimi var mı?
 - Web Dağıtım Aracı hizmeti durdu mu?
 
->[!div class="step-by-step"]
-[Önceki](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
-[sonraki](configuring-a-database-server-for-web-deploy-publishing.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [sonraki](configuring-a-database-server-for-web-deploy-publishing.md)

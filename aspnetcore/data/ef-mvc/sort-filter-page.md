@@ -1,20 +1,20 @@
 ---
-title: "ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile"
+title: ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile
 author: tdykstra
-description: "Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz."
+description: Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz.
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: d5a9ac83b30a8173f9229e512bf843d93c11baea
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Sıralama, filtreleme, disk belleği ve gruplandırma - EF çekirdek ASP.NET Core MVC Öğreticisi (3 / 10)
+# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -247,6 +247,6 @@ Uygulamayı çalıştırın ve hakkında sayfasına gidin. Öğrenciler için he
 
 Bu öğreticide, sıralama, filtreleme, disk belleği ve gruplandırma gerçekleştirmeyi öğrendiniz. Sonraki öğreticide geçişler kullanarak veri modeli değişikliklerini işlemek öğreneceksiniz.
 
->[!div class="step-by-step"]
-[Önceki](crud.md)
-[sonraki](migrations.md)  
+> [!div class="step-by-step"]
+> [Önceki](crud.md)
+> [sonraki](migrations.md)  

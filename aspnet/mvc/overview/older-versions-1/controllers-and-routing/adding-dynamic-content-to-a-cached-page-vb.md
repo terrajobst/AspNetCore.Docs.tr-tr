@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
-title: "Dinamik içerik önbelleğe alınmış bir sayfa için (VB) ekleme | Microsoft Docs"
+title: Dinamik içerik önbelleğe alınmış bir sayfa için (VB) ekleme | Microsoft Docs
 author: microsoft
-description: "Dinamik ve önbelleğe alınmış içeriği aynı sayfada karışık öğrenin. Sonrası önbellek değiştirme başlık reklamları o gibi dinamik içerik görüntülemenize olanak sağlar..."
+description: Dinamik ve önbelleğe alınmış içeriği aynı sayfada karışık öğrenin. Sonrası önbellek değiştirme başlık reklamları o gibi dinamik içerik görüntülemenize olanak sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f07f4ecec36e71679dbc471b65f26d260349a07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89421b4bec2170e408ded87ccc918a7a16844a98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>Dinamik içerik önbelleğe alınmış bir sayfa için (VB) ekleme
 ====================
@@ -47,7 +47,7 @@ Sonrası önbellek değiştirme kullanarak iki adımı gerektirir. İlk olarak, 
 
 Sonrası önbellek değiştirme yararlanmak için HttpResponse.WriteSubstitution() yöntemini çağırın. Önbelleğe alınan sayfasının bir bölge ile dinamik içerik değiştirmek için kodu WriteSubstitution() yöntemini ayarlar. WriteSubstitution() yöntemi listeleme 2 görünümünde rastgele haber öğesini görüntülemek için kullanılır.
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample2.aspx)]
 
@@ -55,7 +55,7 @@ RenderNews yöntemi WriteSubstitution() yöntemine iletilir. RenderNews yöntemi
 
 Dizin görünümünün önbelleğe alınır. Görünüm listeleme 3'te denetleyicisi tarafından döndürülür. İNDİS() eylem ile donatılmış bildirimi bir &lt;OutputCache&gt; dizin görünümünün 60 saniye boyunca önbelleğe alınmasına neden olan özniteliği.
 
-**3 – Controllers\HomeController.vb listeleme**
+**Listing 3 – Controllers\HomeController.vb**
 
 [!code-vb[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample3.vb)]
 
@@ -81,7 +81,7 @@ RenderBannerInternal() yöntemi özel bir yöntemdir. Bu yöntem, bir yardımcı
 
 Listeleme 5 değiştirilmiş dizin görünümünde RenderBanner() yardımcı yönteminin nasıl kullanabileceğinizi gösterir. Dikkat ek bir &lt;% @ alma %&gt; yönergesi MvcApplication1.Helpers ad alanını almak için görünümü üstünde bulunur. Bu ad alanı içe atamazsanız RenderBanner() yöntemi Html özelliği bir yöntem olarak görünmez.
 
-**5 – Views\Home\Index.aspx (RenderBanner() yöntemiyle) listeleme**
+**Listing 5 – Views\Home\Index.aspx (with RenderBanner() method)**
 
 [!code-aspx[Main](adding-dynamic-content-to-a-cached-page-vb/samples/sample5.aspx)]
 
@@ -97,6 +97,6 @@ Bu öğretici, önbelleğe alınmış bir sayfa içeriği nasıl dinamik olarak 
 
 Mümkün olduğunda – web uygulamalarınızın performansını önemli bir etkisi olması önbelleğe alma yararlanabilir. Bu öğreticide açıklandığı gibi hatta sayfalarınızda dinamik içeriği görüntülemek gerektiğinde önbelleğe alma yararlanabilirsiniz.
 
->[!div class="step-by-step"]
-[Önceki](improving-performance-with-output-caching-vb.md)
-[sonraki](creating-a-controller-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](improving-performance-with-output-caching-vb.md)
+> [sonraki](creating-a-controller-vb.md)

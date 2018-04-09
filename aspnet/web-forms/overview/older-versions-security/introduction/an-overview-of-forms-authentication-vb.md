@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
-title: "Form kimlik doğrulaması (VB) genel bakış | Microsoft Docs"
+title: Form kimlik doğrulaması (VB) genel bakış | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz yalnızca tartışma uygulamasına açılır; Özellikle, form kimlik doğrulaması uygulanmasına arar. Web uygulaması w..."
+description: Bu öğreticide biz yalnızca tartışma uygulamasına açılır; Özellikle, form kimlik doğrulaması uygulanmasına arar. Web uygulaması w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 90bcff91d0642e6af66f43fd807b253cc516d277
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6482b10a470b50a1fc6f163ee2d59682e83f5a2b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-vb"></a>Form kimlik doğrulaması (VB) genel bakış
 ====================
@@ -103,7 +103,7 @@ Ardından, yeni bir ana sayfa Site.master adlı kök dizininde site ekleyin. [An
 **Şekil 03**: Web sitesine bir ana sayfa adlı Site.master ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklatın](an-overview-of-forms-authentication-vb/_static/image9.png))
 
 
-Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve ihtiyacınız ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. My ana sayfanın düzenini kullanılan düzeni taklit etmek üzere yapılandırılmış my  *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)*  öğretici serisi (bkz. Şekil 4). Ana sayfayı kullanan [geçişli stil sayfası](http://www.w3schools.com/css/default.asp) konumlandırma ve stilleri (hangi Bu öğreticinin ilişkili indirme işlemine dahildir) Style.css dosyasında tanımlanan CSS ayarlarla için. Aşağıda gösterilen biçimlendirmeden bildiremez olsa da, CSS kuralları tanımlanan şekilde gezinti &lt;div&gt;ait içerik soldaki bölmede görünür ve sabit genişlik 200 piksel sahip olmasını mutlak olarak konumlandırılmış.
+Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve ihtiyacınız ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. My ana sayfanın düzenini kullanılan düzeni taklit etmek üzere yapılandırılmış my *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi (bkz. Şekil 4). Ana sayfayı kullanan [geçişli stil sayfası](http://www.w3schools.com/css/default.asp) konumlandırma ve stilleri (hangi Bu öğreticinin ilişkili indirme işlemine dahildir) Style.css dosyasında tanımlanan CSS ayarlarla için. Aşağıda gösterilen biçimlendirmeden bildiremez olsa da, CSS kuralları tanımlanan şekilde gezinti &lt;div&gt;ait içerik soldaki bölmede görünür ve sabit genişlik 200 piksel sahip olmasını mutlak olarak konumlandırılmış.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-vb/samples/sample1.aspx)]
 
@@ -221,7 +221,7 @@ Artık görev 2 düğmenin Click uygulamak ihtiyacımız olay işleyicisi: sağl
 
 ASP.NET 2.0 önce geliştiricilerin kendi her iki kullanıcı depoları uygulanması ve depolama karşı sağlanan kimlik bilgilerini doğrulamak için kod yazma sorumlu. Çoğu geliştirici kullanıcı deposunda kullanıcı adı, parola, e-posta, LastLoginDate ve diğerleri gibi sütunlarla kullanıcılar adlı bir tablo oluşturma bir veritabanında, uygulamanız. Bu tablo daha sonra kullanıcı hesabı her bir kayıt gerekir. Kullanıcının sağlanan kimlik bilgileri doğrulanıyor eşleşen bir kullanıcı adı için veritabanını sorgulama ve veritabanında Parola Sağlanan parola corresponded sağlama içerir.
 
-ASP.NET 2.0 ile geliştiriciler üyelik sağlayıcılardan biri kullanıcı deposunda yönetmek için kullanmanız gerekir. Bu öğretici serisinde biz kullanıcı deposu için bir SQL Server veritabanı kullanan SqlMembershipProvider kullanacak. SqlMembershipProvider kullanırken tabloları, görünümleri ve saklı yordamlar sağlayıcı tarafından beklenen içeren bir belirli veritabanı şeması uygulamanız gerekir. Bu şemada uygulamak nasıl inceleyeceğiz  *[SQL Server üyelik şema oluşturma](../membership/creating-the-membership-schema-in-sql-server-vb.md)*  Öğreticisi. Kullanıcının kimlik bilgileri doğrulanıyor yerinde üyelik sağlayıcısı ile çağırmak kadar kolaydır [üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx)'s [ValidateUser (*kullanıcıadı*, *parola*) yöntem](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), gösteren bir Boole değeri döndürür olup olmadığını geçerliliğini *kullanıcıadı* ve *parola* birleşimi. Biz henüz SqlMembershipProvider'ın kullanıcı deposu uygulanmadı olarak görmekten üyelik sınıfının ValidateUser yöntemi şu anda kullanamazsınız.
+ASP.NET 2.0 ile geliştiriciler üyelik sağlayıcılardan biri kullanıcı deposunda yönetmek için kullanmanız gerekir. Bu öğretici serisinde biz kullanıcı deposu için bir SQL Server veritabanı kullanan SqlMembershipProvider kullanacak. SqlMembershipProvider kullanırken tabloları, görünümleri ve saklı yordamlar sağlayıcı tarafından beklenen içeren bir belirli veritabanı şeması uygulamanız gerekir. Bu şemada uygulamak nasıl inceleyeceğiz *[SQL Server üyelik şema oluşturma](../membership/creating-the-membership-schema-in-sql-server-vb.md)* Öğreticisi. Kullanıcının kimlik bilgileri doğrulanıyor yerinde üyelik sağlayıcısı ile çağırmak kadar kolaydır [üyelik sınıfı](https://msdn.microsoft.com/library/system.web.security.membership.aspx)'s [ValidateUser (*kullanıcıadı*, *parola*) yöntem](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx), gösteren bir Boole değeri döndürür olup olmadığını geçerliliğini *kullanıcıadı* ve *parola* birleşimi. Biz henüz SqlMembershipProvider'ın kullanıcı deposu uygulanmadı olarak görmekten üyelik sınıfının ValidateUser yöntemi şu anda kullanamazsınız.
 
 (Biz SqlMembershipProvider uygulandıktan sonra eski olur) kendi özel kullanıcı veritabanı tablosu oluşturmak için zaman yerine sabit kodlu atalım yerine geçerli kimlik bilgileri oturum açma içinde kendisi sayfa. Oturum Aç düğmesini 's olay işleyicisi'ı tıklatın ve aşağıdaki kodu ekleyin:
 
@@ -470,12 +470,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Alicja Maziarz, John Suru ve Teresa Murphy içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Önceki](security-basics-and-asp-net-support-vb.md)
-[sonraki](forms-authentication-configuration-and-advanced-topics-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](security-basics-and-asp-net-support-vb.md)
+> [sonraki](forms-authentication-configuration-and-advanced-topics-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
-title: "Kısmi Sayfa güncelleştirmelerini ASP.NET AJAX ile anlama | Microsoft Docs"
+title: Kısmi Sayfa güncelleştirmelerini ASP.NET AJAX ile anlama | Microsoft Docs
 author: scottcate
-description: "Belki de en görünür, ASP.NET AJAX uzantıları kısmi veya artımlı sayfası güncelleştirmeleri t tam geri gönderimin yapmadan yeteneği özelliğidir..."
+description: Belki de en görünür, ASP.NET AJAX uzantıları kısmi veya artımlı sayfası güncelleştirmeleri t tam geri gönderimin yapmadan yeteneği özelliğidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 1d8d3009df0a264e466d3f7decfb65978d8ae7a4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 91a98bf1c9a71ae84c569f7ae40930422cb652e0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile anlama kısmi sayfa güncelleştirir
 ====================
@@ -52,7 +52,7 @@ Kısmi sayfa işleme tümleştirme özelliği ASP projenize küçük değişikli
 ## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: Kısmi işleme varolan bir projeye tümleştirme
 
 
-1. Microsoft Visual Studio 2008'de giderek yeni bir ASP.NET Web sitesi projesi oluşturma *dosya*  *- &gt; yeni*  *- &gt; Web sitesi* ve ASP.NET Web sitesi iletişim kutusundan seçerek. İstediğiniz gibi adlandırabilirsiniz ve dosya sistemi veya Internet Information Services (IIS) içine yükleyebilir.
+1. Microsoft Visual Studio 2008'de giderek yeni bir ASP.NET Web sitesi projesi oluşturma <em>dosya</em>  <em>- &gt; yeni</em>  <em>- &gt; Web sitesi</em> ve ASP.NET Web sitesi iletişim kutusundan seçerek. İstediğiniz gibi adlandırabilirsiniz ve dosya sistemi veya Internet Information Services (IIS) içine yükleyebilir.
 2. Boş varsayılan sayfanın temel ASP.NET biçimlendirme ile birlikte sunulur (sunucu tarafı form ve bir `@Page` yönergesi). Adlı bir etiket bırakma `Label1` ve bir düğme adlı `Button1` form öğesi içinde sayfaya. Metin özellikleri ne olursa olsun ister ayarlayabilir.
 3. Tasarım görünümünde çift `Button1` bir arka plan kodu olay işleyicisi oluşturmak için. Bu olay işleyicisi içinde ayarlamak `Label1.Text` için düğmesine tıklanana! biçimindeki telefon numarasıdır.
 
@@ -73,11 +73,11 @@ Kısmi sayfa işleme tümleştirme özelliği ASP projenize küçük değişikli
 ([Tam boyutlu görüntüyü görüntülemek için tıklatın](understanding-partial-page-updates-with-asp-net-ajax/_static/image3.png))
 
 
-1. *Bilinen bir sorun:*Visual Studio 2008 ASP.NET 2.0 AJAX uzantılarıyla yüklü Visual Studio 2005 zaten olan bir bilgisayara yüklerseniz, Visual Studio 2008 AJAX uzantıları araç kutusu öğelerini içeri aktaracak. Araç İpucu bileşenlerini inceleyerek bu durum geçerli olup olmadığını belirlemek; Bunlar, sürüm 3.5.0.0 yazması gerekir. Bunlar 2.0.0.0 veya söylediğinizde sonra eski araç kutusu öğelerini içe aktardıktan ve el ile Visual Studio içinde araç kutusu öğelerini Seç iletişim kutusunu kullanarak içe aktarmanız gerekir. Tasarımcı aracılığıyla sürüm 2 denetimleri ekleme yükleyemez.
+1. <em>Bilinen bir sorun:</em>Visual Studio 2008 ASP.NET 2.0 AJAX uzantılarıyla yüklü Visual Studio 2005 zaten olan bir bilgisayara yüklerseniz, Visual Studio 2008 AJAX uzantıları araç kutusu öğelerini içeri aktaracak. Araç İpucu bileşenlerini inceleyerek bu durum geçerli olup olmadığını belirlemek; Bunlar, sürüm 3.5.0.0 yazması gerekir. Bunlar 2.0.0.0 veya söylediğinizde sonra eski araç kutusu öğelerini içe aktardıktan ve el ile Visual Studio içinde araç kutusu öğelerini Seç iletişim kutusunu kullanarak içe aktarmanız gerekir. Tasarımcı aracılığıyla sürüm 2 denetimleri ekleme yükleyemez.
 
-1. Önce `<asp:Label>` etiketi başlar, boşluk, bir satır oluşturmak ve araç UpdatePanel denetiminde çift tıklayın. Unutmayın yeni `@Register` yönergesi System.Web.UI ad alanı içinde denetimleri kullanarak içeri gerektiğini belirten sayfanın en üstünde bulunur `asp:` öneki.
-2. Kapatma sürükleyin `</asp:UpdatePanel>` öğesi Sarmalanan düğmeyi ve etiket denetimleri ile iyi biçimlendirilmiş böylece Button öğesi sonunun etiketi.
-3. Açtıktan sonra `<asp:UpdatePanel>` etiketi, yeni bir etiket açarak başlar. IntelliSense, iki seçenek ister unutmayın. Bu durumda, oluşturma bir `<ContentTemplate>` etiketi. Bu etiketin etiket ve düğmesi çevresine işaretleme doğru biçimlendirildiğinden emin sarmalamak emin olun.
+2. Önce `<asp:Label>` etiketi başlar, boşluk, bir satır oluşturmak ve araç UpdatePanel denetiminde çift tıklayın. Unutmayın yeni `@Register` yönergesi System.Web.UI ad alanı içinde denetimleri kullanarak içeri gerektiğini belirten sayfanın en üstünde bulunur `asp:` öneki.
+3. Kapatma sürükleyin `</asp:UpdatePanel>` öğesi Sarmalanan düğmeyi ve etiket denetimleri ile iyi biçimlendirilmiş böylece Button öğesi sonunun etiketi.
+4. Açtıktan sonra `<asp:UpdatePanel>` etiketi, yeni bir etiket açarak başlar. IntelliSense, iki seçenek ister unutmayın. Bu durumda, oluşturma bir `<ContentTemplate>` etiketi. Bu etiketin etiket ve düğmesi çevresine işaretleme doğru biçimlendirildiğinden emin sarmalamak emin olun.
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image5.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image4.png)
@@ -116,14 +116,14 @@ Biçimlendirme etkin özellikleri:
 
 | **Özellik adı** | **Türü** | **Açıklama** |
 | --- | --- | --- |
-| AllowCustomErrors yeniden yönlendirme | bool | Web.config dosyasının özel hata bölümü hataları işlemek için kullanılıp kullanılmayacağını belirtir. |
+| AllowCustomErrors-Redirect | bool | Web.config dosyasının özel hata bölümü hataları işlemek için kullanılıp kullanılmayacağını belirtir. |
 | AsyncPostBackError iletisi | Dize | Alır veya bir hata oluşursa istemciye gönderilen hata iletisini ayarlar. |
 | AsyncPostBack zaman aşımı | Int32 | Alır veya varsayılan bir istemci zaman uyumsuz istek için beklemesi gereken süreyi ayarlar. |
 | ENABLESCRIPT Genelleştirme | bool | Alır veya komut dosyası Genelleştirme etkinleştirilip etkinleştirilmediğini ayarlar. |
-| ENABLESCRIPT yerelleştirme | bool | Alır veya komut dosyası yerelleştirme etkinleştirilip etkinleştirilmediğini ayarlar. |
+| EnableScript-Localization | bool | Alır veya komut dosyası yerelleştirme etkinleştirilip etkinleştirilmediğini ayarlar. |
 | ScriptLoadTimeout | Int32 | Komut istemcisini yüklemek için izin verilen saniye sayısını belirler |
 | ScriptMode | Enum (otomatik olarak, hata ayıklama, yayın, devralma) | Alır veya yayın sürümleri komut dosyaları oluşturmak ayarlar |
-| scriptPath | Dize | Alır veya kök yolu istemciye gönderilecek komut dosyalarının konumunu ayarlar. |
+| ScriptPath | Dize | Alır veya kök yolu istemciye gönderilecek komut dosyalarının konumunu ayarlar. |
 
 Yalnızca kod özellikleri:
 
@@ -132,7 +132,7 @@ Yalnızca kod özellikleri:
 | AuthenticationService | AuthenticationService Yöneticisi | İstemciye gönderilen ASP.NET kimlik doğrulama hizmeti proxy ayrıntılarını alır. |
 | IsDebuggingEnabled | bool | Alır mı komut dosyası ve kodda hata ayıklama etkin. |
 | IsInAsyncPostback | bool | Sayfa içinde zaman uyumsuz bir post geri İstek şu anda olup olmadığını alır. |
-| ProfileService | ProfileService Yöneticisi | İstemciye gönderilen ASP.NET Profil Hizmeti proxy ayrıntılarını alır. |
+| ProfileService | ProfileService-Manager | İstemciye gönderilen ASP.NET Profil Hizmeti proxy ayrıntılarını alır. |
 | Komut dosyaları | Koleksiyon&lt;komut başvurusu&gt; | İstemciye gönderilen komut dosyası başvuruları koleksiyonunu alır. |
 | Hizmetler | Koleksiyon&lt;hizmet başvurusu&gt; | İstemciye gönderilen Web hizmeti proxy başvuruları koleksiyonunu alır. |
 | SupportsPartialRendering | bool | Geçerli istemci kısmi işleme destekleyip desteklemediğini alır. Bu özellik döndürürse **yanlış**, sonra da tüm sayfa istekleri standart Geri göndermeler olacaktır. |
@@ -150,9 +150,9 @@ Biçimlendirme alt öğeleri:
 | &lt;AuthenticationService&gt; | ASP.NET kimlik doğrulama hizmeti için proxy hakkında ayrıntılar sağlar. |
 | &lt;ProfileService&gt; | Hizmet profili oluşturma ASP.NET proxy hakkında ayrıntılar sağlar. |
 | &lt;Komut dosyaları&gt; | Ek komut dosyası başvuru sağlar. |
-| &lt;ASP: ScriptReference&gt; | Bir özel komut dosyası referansının gösterir. |
-| &lt;Hizmeti&gt; | Oluşturulan proxy sınıflar olan ek Web hizmeti başvuru sağlar. |
-| &lt;ASP: ServiceReference&gt; | Belirli bir Web Hizmeti başvurusunu gösterir. |
+| &lt;asp:ScriptReference&gt; | Bir özel komut dosyası referansının gösterir. |
+| &lt;Hizmet&gt; | Oluşturulan proxy sınıflar olan ek Web hizmeti başvuru sağlar. |
+| &lt;asp:ServiceReference&gt; | Belirli bir Web Hizmeti başvurusunu gösterir. |
 
 ASP.NET AJAX uzantıları için temel çekirdek ScriptManager denetimdir. Kod kitaplığı (kapsamlı istemci tarafı komut dosyası türü sistem dahil) erişim sağlayan, kısmi işleme destekler ve ek ASP.NET Hizmetleri (örneğin, kimlik doğrulama ve profil oluşturma, aynı zamanda diğer Web Hizmetleri) için kapsamlı destek sağlar. ScriptManager denetimi de Genelleştirme ve yerelleştirme için istemci komut dosyalarını desteği sağlar.
 
@@ -214,9 +214,9 @@ Biçimlendirme alt öğeleri:
 | **Etiket** | **Açıklama** |
 | --- | --- |
 | &lt;ContentTemplate&gt; | Kısmi işleme sonuç işlemek için kullanılacak biçimlendirmeyi belirtir. Alt &lt;asp: UpdatePanel&gt;. |
-| &lt;Tetikleyicileri&gt; | Bir koleksiyonunu belirtir  *n*  bu UpdatePanel güncelleştirme ile ilişkili denetimleri. Alt &lt;asp: UpdatePanel&gt;. |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Kısmi sayfa işleme için belirli UpdatePanel çağıran bir tetikleyici belirtir. Bu olabilir veya bir denetim söz konusu UpdatePanel alt öğesi olmayabilir. Ayrıntılı olay adı. Alt &lt;Tetikleyicileri&gt;. |
-| &lt;ASP: PostBackTrigger&gt; | Tüm sayfayı yenilemek neden olan bir denetim belirtir. Bu olabilir veya bir denetim söz konusu UpdatePanel alt öğesi olmayabilir. Nesne için ayrıntılı. Alt &lt;Tetikleyicileri&gt;. |
+| &lt;Tetikleyiciler&gt; | Bir koleksiyonunu belirtir *n* bu UpdatePanel güncelleştirme ile ilişkili denetimleri. Alt &lt;asp: UpdatePanel&gt;. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Kısmi sayfa işleme için belirli UpdatePanel çağıran bir tetikleyici belirtir. Bu olabilir veya bir denetim söz konusu UpdatePanel alt öğesi olmayabilir. Ayrıntılı olay adı. Alt &lt;Tetikleyicileri&gt;. |
+| &lt;asp:PostBackTrigger&gt; | Tüm sayfayı yenilemek neden olan bir denetim belirtir. Bu olabilir veya bir denetim söz konusu UpdatePanel alt öğesi olmayabilir. Nesne için ayrıntılı. Alt &lt;Tetikleyicileri&gt;. |
 
 `UpdatePanel` Denetimidir bölümü AJAX uzantıları kısmi işleme işlevselliğini sürer sunucu tarafı içerik sınırlandıran denetimi. Bir sayfada olabilir UpdatePanel denetimleri sayısına bir sınır yoktur ve bunlar iç içe. Her bağımsız olarak çalışabilmeniz için her UpdatePanel yalıtılır (sayfanın farklı bölümlerini sayfanın geri gönderme bağımsız işleme aynı anda çalışan iki UpdatePanels olabilir).
 
@@ -285,7 +285,7 @@ Biçimlendirme etkin özellikleri:
 
 | **Özellik adı** | **Türü** | **Açıklama** |
 | --- | --- | --- |
-| AssociatedUpdate PanelID | Dize | Bu UpdateProgress üzerinde bildirmelisiniz UpdatePanel Kimliğini belirtir. |
+| AssociatedUpdate-PanelID | Dize | Bu UpdateProgress üzerinde bildirmelisiniz UpdatePanel Kimliğini belirtir. |
 | DisplayAfter | int | Zaman uyumsuz istek başladıktan sonra bu denetim görüntülenmeden önce zaman aşımı milisaniye cinsinden belirtir. |
 | DynamicLayout | bool | İlerleme dinamik olarak işlenip işlenmeyeceğini belirtir. |
 
@@ -317,5 +317,5 @@ Birlikte, bu araçları zengin ve sorunsuz bir kullanıcı deneyimi server iş k
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Sonraki](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [!div class="step-by-step"]
+> [Next](understanding-asp-net-ajax-updatepanel-triggers.md)

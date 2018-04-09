@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
-title: "Senaryo: bir Test ortamı için Web dağıtımı yapılandırma | Microsoft Docs"
+title: 'Senaryo: bir Test ortamı için Web dağıtımı yapılandırma | Microsoft Docs'
 author: jrjlee
-description: "Bu konu, geliştirici için tipik web dağıtım senaryosu açıklanmaktadır veya sınama ortamlarında ve si ayarlamak için tamamlanması gereken görevler açıklanmaktadır..."
+description: Bu konu, geliştirici için tipik web dağıtım senaryosu açıklanmaktadır veya sınama ortamlarında ve si ayarlamak için tamamlanması gereken görevler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2976be642815e715ac19bd9db34485cf5474cb32
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Senaryo: bir Test ortamı için Web dağıtımı yapılandırma
 ====================
@@ -63,6 +63,6 @@ Bu konular bu görevleri tamamlamak için gereken tüm bilgileri sağlar:
 
 Tipik bir hazırlama ortamını yapılandırma ile ilgili yönergeler için bkz: [senaryo: Web dağıtımı için bir hazırlama ortamını yapılandırma](scenario-configuring-a-staging-environment-for-web-deployment.md). Tipik bir üretim ortamını yapılandırma ile ilgili yönergeler için bkz: [senaryo: bir üretim ortamında Web dağıtım için yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Önceki](choosing-the-right-approach-to-web-deployment.md)
-[sonraki](scenario-configuring-a-staging-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](choosing-the-right-approach-to-web-deployment.md)
+> [sonraki](scenario-configuring-a-staging-environment-for-web-deployment.md)

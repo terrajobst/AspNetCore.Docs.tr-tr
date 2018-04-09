@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
-title: "Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 7 | Microsoft Docs"
+title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 7 | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır..."
+description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb84f4f3e130fedb3e2f1a17d630767ff65bfa05
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - Bölüm 7
 ====================
@@ -51,7 +51,7 @@ Aşağıdaki SQL deyimlerini kopyalayın ve bunları iskelet saklı yordam deği
 
 [![image14](the-entity-framework-and-aspnet-getting-started-part-7/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image3.png)
 
-`Student`varlıkları dört özellikleri vardır: `PersonID`, `LastName`, `FirstName`, ve `EnrollmentDate`. Veritabanı kimliği değeri otomatik olarak oluşturur ve saklı yordam için diğer üç parametre kabul eder. Böylece Entity Framework, bellekte tutar varlık sürümünde izlemek saklı yordamı yeni sıranın kayıt anahtarının değerini döndürür.
+`Student` varlıkları dört özellikleri vardır: `PersonID`, `LastName`, `FirstName`, ve `EnrollmentDate`. Veritabanı kimliği değeri otomatik olarak oluşturur ve saklı yordam için diğer üç parametre kabul eder. Böylece Entity Framework, bellekte tutar varlık sürümünde izlemek saklı yordamı yeni sıranın kayıt anahtarının değerini döndürür.
 
 Kaydet ve saklı yordam penceresini kapatın.
 
@@ -139,6 +139,6 @@ Sayfa şimdi kullanıyorsa `GetCourses` saklı yordamı tüm kursları listesi a
 
 Sonraki öğreticide, program ve test veri biçimlendirmeyi ve doğrulama kurallarını kolaylaştırmak için dinamik veri işlevini kullanmayı öğreneceksiniz. Veri biçimi dizeleri gibi her web sayfası kuralları ve bir alan olup olmadığına gereklidir belirtme, yerine her sayfada otomatik olarak uygulanan ve veri modelinin meta verilerde bu tür bir kurallar belirtebilirsiniz.
 
->[!div class="step-by-step"]
-[Önceki](the-entity-framework-and-aspnet-getting-started-part-6.md)
-[sonraki](the-entity-framework-and-aspnet-getting-started-part-8.md)
+> [!div class="step-by-step"]
+> [Önceki](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [sonraki](the-entity-framework-and-aspnet-getting-started-part-8.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
-title: "Bölüm 6: ASP.NET üyelik | Microsoft Docs"
+title: 'Bölüm 6: ASP.NET üyelik | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 6 ASP.NET üyelik ekler."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 6 ASP.NET üyelik ekler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: efb0e2bed1172f42c7f1539f016fba305c47e3eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83e9bc780ea8face3e0f55fdf8c00e13b60f80a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-6-aspnet-membership"></a>Bölüm 6: ASP.NET üyelik
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 6 ASP.NET üyelik ekler.
 
 
-## <a id="_Toc260221672"></a>ASP.NET üyelik ile çalışma
+## <a id="_Toc260221672"></a>  ASP.NET üyelik ile çalışma
 
 ![](tailspin-spyworks-part-6/_static/image1.png)
 
@@ -112,6 +112,6 @@ Bu örnek uygulama amaçları doğrultusunda basitçe geçerli tarihe kadar iki 
 
 Uygulamayı şimdi çalıştıran başlangıçtan bitişe kadar alışveriş işlemini test etmek için bize izin verir.
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-5.md)
-[sonraki](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-5.md)
+> [sonraki](tailspin-spyworks-part-7.md)

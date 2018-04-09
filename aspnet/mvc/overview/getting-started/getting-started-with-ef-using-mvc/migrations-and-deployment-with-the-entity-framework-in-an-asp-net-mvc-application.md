@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "İlk kod geçişler ve ASP.NET MVC uygulamasındaki Entity Framework dağıtım | Microsoft Docs"
+title: İlk kod geçişler ve ASP.NET MVC uygulamasındaki Entity Framework dağıtım | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir..."
+description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2294f2aba3f765d7849d1f407e85f424dc8b2518
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04d393edca0469df140f06a7d083a48aa8f84b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>İlk kod geçişler ve ASP.NET MVC uygulamasındaki Entity Framework ile dağıtımı
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
@@ -125,7 +125,7 @@ Veritabanı zaten mevcut olduğunda ilk geçiş oluşturduysanız, veritabanı o
     ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
     `update-database` Komutu çalıştırır `Up` çalışan veritabanını ve ardından oluşturmak için yöntemini `Seed` veritabanını doldurmak için yöntem. Uygulamanızı dağıttıktan sonra aşağıdaki bölümde göreceğiniz gibi aynı işlem üretim otomatik olarak çalıştırın.
-- Kullanım **Sunucu Gezgini** ilk öğreticide yaptığınız gibi veritabanı inceleyin ve her şeyi hala aynı önceki gibi çalıştığını doğrulamak için uygulamayı çalıştırın.
+2. Kullanım **Sunucu Gezgini** ilk öğreticide yaptığınız gibi veritabanı inceleyin ve her şeyi hala aynı önceki gibi çalıştığını doğrulamak için uygulamayı çalıştırın.
 
 ## <a name="deploy-to-azure"></a>Azure'a dağıtma
 
@@ -153,7 +153,7 @@ Azure SQL veritabanı için veritabanı dağıtacaksınız. SQL veritabanı, SQL
 
     ![Yönetim Portalı'nda yeni düğmesi](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/CreateWeb-Sql.png)
 
- **Yeni Web uygulaması & Create SQL -** Sihirbazı açılır.
+   **Yeni Web uygulaması & Create SQL -** Sihirbazı açılır.
 
 2. Dikey penceresinde bir dize girin **uygulama adı** kutusunu uygulamanız için benzersiz bir URL olarak kullanın. Tam URL ne burada Azure App Services varsayılan etki alanı girdiğiniz oluşur (. azurewebsites.net). Varsa **uygulama adı** zaten, sihirbazın bu kırmızı uyarır alınmış *uygulama adı kullanılamıyor* ileti. Varsa **uygulama adı** olan yeşil bir onay işareti alırsınız kullanılabilir.
 
@@ -175,9 +175,9 @@ Azure SQL veritabanı için veritabanı dağıtacaksınız. SQL veritabanı, SQL
 10. Değiştirme [harmanlama](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support) gerektiğinde.
 11. Bir yönetici girin **SQL yönetici kullanıcı adı** ve **SQL yönetici parolası**. Seçtiyseniz **yeni SQL veritabanı sunucusu**, mevcut bir ad ve burada parola girmezsiniz, yeni bir ad ve daha sonra veritabanına eriştiğinizde kullanmak üzere şimdi tanımlayacağınız parolayı girersiniz. Daha önce oluşturduğunuz bir sunucuyu seçtiyseniz, bu sunucu için kimlik bilgilerini girin.
 12. Telemetri koleksiyonunu uygulama Application Insights kullanarak hizmet için etkinleştirilebilir. Application Insights az yapılandırmayla değerli olay, özel durum, bağımlılık, istek ve izleme bilgilerini toplar. Application Insights hakkında daha fazla bilgi için başlama [Azure belgeleri](https://azure.microsoft.com/services/application-insights/).
-12. Tıklatın **oluşturma** tamamlanmış belirtmek için dikey pencerenin altındaki.
+13. Tıklatın **oluşturma** tamamlanmış belirtmek için dikey pencerenin altındaki.
   
- Yönetim Portalı Panoları sayfasına döndürür ve **bildirimleri** dikey penceresinde sayfanın üst kısmındaki gösterir site oluşturulmaktadır. (Genellikle bir dakikadan az), bir süre sonra dağıtım başarılı olduğunu belirten bir bildirim olacaktır. Sol gezinti çubuğunda yeni **uygulama hizmeti** görünür *uygulama hizmetleri* bölüm ve yeni **SQL veritabanı** görünür *SQL veritabanları*  bölümü.
+    Yönetim Portalı Panoları sayfasına döndürür ve **bildirimleri** dikey penceresinde sayfanın üst kısmındaki gösterir site oluşturulmaktadır. (Genellikle bir dakikadan az), bir süre sonra dağıtım başarılı olduğunu belirten bir bildirim olacaktır. Sol gezinti çubuğunda yeni **uygulama hizmeti** görünür *uygulama hizmetleri* bölüm ve yeni **SQL veritabanı** görünür *SQL veritabanları*  bölümü.
 
 ### <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure'a dağıtma
 
@@ -195,32 +195,30 @@ Azure SQL veritabanı için veritabanı dağıtacaksınız. SQL veritabanı, SQL
 5. Profili yapılandırıldıktan sonra **bağlantı** sekmesinde gösterilecek. Tıklatın **bağlantıyı doğrula** ayarlarının doğru olduğundan emin olmak için
 
     ![Bağlantı doğrula](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-7. Bağlantı doğrulandığında yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi. 
-              **İleri**'ye tıklayın.
+6. Bağlantı doğrulandığında yeşil bir onay işareti yanında gösterilen **bağlantıyı doğrula** düğmesi. **İleri**'ye tıklayın.
   
     ![Başarıyla doğrulanan bağlantı](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
-8. Açık **uzak bağlantı dizesi** açılır listesi altında **SchoolContext** ve oluşturduğunuz veritabanı için bağlantı dizesi seçin.
-9. Seçin **güncelleştirme veritabanı**.
+7. Açık **uzak bağlantı dizesi** açılır listesi altında **SchoolContext** ve oluşturduğunuz veritabanı için bağlantı dizesi seçin.
+8. Seçin **güncelleştirme veritabanı**.
 
     ![Ayarlar sekmesi](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     Bu ayar uygulamayı otomatik olarak yapılandırmak dağıtım işlemi neden *Web.config* Code First kullanmayacağından hedef sunucuda dosya `MigrateDatabaseToLatestVersion` Başlatıcı sınıfı.
-10. 
-              **İleri**'ye tıklayın.
-11. İçinde **Önizleme** sekmesini tıklatın, **önizlemeyi Başlat**.
+9. **İleri**'ye tıklayın.
+10. İçinde **Önizleme** sekmesini tıklatın, **önizlemeyi Başlat**.
   
     ![Önizleme sekmesinde StartPreview düğmesi](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
   
- Sekme sunucuya kopyalanacak dosyaların bir listesini görüntüler. Önizleme görüntüleme uygulamayı yayımlamak için gerekli değildir ancak farkında olması için kullanışlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesi ile herhangi bir şey yapmanız gerekmez. Bu uygulamayı dağıtabilmek sonraki açışınızda değişen dosyaları bu listede yer alacaktır.
+    Sekme sunucuya kopyalanacak dosyaların bir listesini görüntüler. Önizleme görüntüleme uygulamayı yayımlamak için gerekli değildir ancak farkında olması için kullanışlı bir işlevdir. Bu durumda, görüntülenen dosyaların listesi ile herhangi bir şey yapmanız gerekmez. Bu uygulamayı dağıtabilmek sonraki açışınızda değişen dosyaları bu listede yer alacaktır.
     ![StartPreview dosya çıktısı](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-12. Tıklatın **yayımlama**.
- Visual Studio dosyaların Azure sunucusuna kopyalama işlemi başlar.
-13. **Çıkış** penceresinde hangi dağıtım eylemlerinin gerçekleştirilen gösterir ve dağıtımın başarılı şekilde tamamlandığını bildirir.
+11. Tıklatın **yayımlama**.
+    Visual Studio dosyaların Azure sunucusuna kopyalama işlemi başlar.
+12. **Çıkış** penceresinde hangi dağıtım eylemlerinin gerçekleştirilen gösterir ve dağıtımın başarılı şekilde tamamlandığını bildirir.
   
     ![Çıktı penceresi başarılı dağıtım raporlama](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-BuildOutput.png)
-14. Başarılı dağıtım sırasında varsayılan tarayıcı otomatik olarak dağıtılan web sitesinin URL'sini açar.
- Oluşturduğunuz uygulama bulutta şu anda çalışıyor. 
+13. Başarılı dağıtım sırasında varsayılan tarayıcı otomatik olarak dağıtılan web sitesinin URL'sini açar.
+    Oluşturduğunuz uygulama bulutta şu anda çalışıyor. 
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
@@ -260,6 +258,6 @@ Lütfen geri bildirim, Bu öğretici beğendiğinizi nasıl ve ne biz artabilece
 
 Diğer Entity Framework kaynaklarına bağlantılar bulunabilir [ASP.NET Data Access - kaynakları önerilen](xref:whitepapers/aspnet-data-access-content-map).
 
->[!div class="step-by-step"]
-[Önceki](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-[sonraki](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+> [!div class="step-by-step"]
+> [Önceki](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
+> [sonraki](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)

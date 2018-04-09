@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
-title: "Form kimlik doğrulaması (C#) genel bakış | Microsoft Docs"
+title: Form kimlik doğrulaması (C#) genel bakış | Microsoft Docs
 author: rick-anderson
-description: "Özel yollar oluşturma"
+description: Özel yollar oluşturma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d386a3b6328675fe21f989f8fd36bfc91fc08b32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f64384d403f3cf81ffa3327a81b635bc71e2b44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Form kimlik doğrulaması (C#) genel bakış
 ====================
@@ -43,8 +43,8 @@ ASP.NET çalışma zamanı bir ASP.NET sayfasının veya ASP.NET Web hizmeti gib
 
 *HTTP modülleri* kodu isteği yaşam döngüsü belirli bir olaya yanıt yürütüldüğünde yönetilen sınıflarıdır. ASP.NET birkaç önemli görevleri arka planda gerçekleştirmek HTTP Modülleri ile birlikte gelir. Bizim tartışmaya yakından ilgili olan iki yerleşik HTTP modülleri şunlardır:
 
-- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)**– genellikle kullanıcının tanımlama bilgilerini koleksiyona dahil forms kimlik doğrulaması bileti inceleyerek kullanıcının kimliğini doğrular. Bir form kimlik doğrulama anahtarı varsa, anonim bir kullanıcıdır.
-- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)**– Geçerli kullanıcı istenen URL erişmek için yetkili olup olmadığını belirler. Bu modül, uygulamanın yapılandırma dosyalarında belirtilen yetkilendirme kuralları danışmanlık tarafından yetkilisi belirler. ASP.NET de içeren [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) istenen dosyaları ACL'ler danışmanlık tarafından yetkilisi belirleyen.
+- **[`FormsAuthenticationModule`](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx)** – genellikle kullanıcının tanımlama bilgilerini koleksiyona dahil forms kimlik doğrulaması bileti inceleyerek kullanıcının kimliğini doğrular. Bir form kimlik doğrulama anahtarı varsa, anonim bir kullanıcıdır.
+- **[`UrlAuthorizationModule`](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)** – Geçerli kullanıcı istenen URL erişmek için yetkili olup olmadığını belirler. Bu modül, uygulamanın yapılandırma dosyalarında belirtilen yetkilendirme kuralları danışmanlık tarafından yetkilisi belirler. ASP.NET de içeren [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx) istenen dosyaları ACL'ler danışmanlık tarafından yetkilisi belirleyen.
 
 `FormsAuthenticationModule` Öncesinde kullanıcı kimlik doğrulama girişiminde `UrlAuthorizationModule` (ve `FileAuthorizationModule`) yürütme. İstekte bulunan kullanıcının istenen kaynağa erişme yetkisi yok, yetkilendirme modülü istek sonlandırır ve döndüren bir [HTTP 401 Yetkisiz](http://www.checkupdown.com/status/E401.html) durumu. Windows kimlik doğrulaması senaryolarda HTTP 401 durum tarayıcıya döndürülür. Bu durum kodu tarayıcının kullanıcıdan kimlik bilgilerini kalıcı bir iletişim kutusu üzerinden neden olur. FormsAuthenticationModule bu durum algılar ve bunun yerine kullanıcının oturum açma sayfasına yeniden yönlendirmek için değiştirdiği için form kimlik doğrulaması ile ancak, HTTP 401 yetkilendirilmedi durum hiçbir zaman tarayıcıya gönderilen (aracılığıyla bir [HTTP 302 yeniden yönlendirme](http://www.checkupdown.com/status/E302.html) durum).
 
@@ -103,7 +103,7 @@ Ardından, yeni bir ana sayfa Site.master adlı kök dizininde site ekleyin. [An
 **Şekil 3**: Web sitesine bir ana sayfa adlı Site.master ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklatın](an-overview-of-forms-authentication-cs/_static/image7.png))
 
 
-Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve ihtiyacınız ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. My ana sayfanın düzenini kullanılan düzeni taklit etmek üzere yapılandırılmış my  *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)*  öğretici serisi (bkz. Şekil 4). Ana sayfayı kullanan [geçişli stil sayfası](http://www.w3schools.com/css/default.asp) konumlandırma ve stilleri (hangi Bu öğreticinin ilişkili indirme işlemine dahildir) Style.css dosyasında tanımlanan CSS ayarlarla için. Aşağıda gösterilen biçimlendirmeden bildiremez olsa da, CSS kuralları tanımlanan şekilde gezinti &lt;div&gt;ait içerik soldaki bölmede görünür ve sabit genişlik 200 piksel sahip olmasını mutlak olarak konumlandırılmış.
+Site genelinde sayfa düzeni burada ana sayfasında tanımlayın. Tasarım görünümünü kullanın ve ihtiyacınız ne olursa olsun düzeni veya Web denetimleri ekleme ya da el ile kaynak görünümü biçimlendirme el ile ekleyebilirsiniz. My ana sayfanın düzenini kullanılan düzeni taklit etmek üzere yapılandırılmış my *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi (bkz. Şekil 4). Ana sayfayı kullanan [geçişli stil sayfası](http://www.w3schools.com/css/default.asp) konumlandırma ve stilleri (hangi Bu öğreticinin ilişkili indirme işlemine dahildir) Style.css dosyasında tanımlanan CSS ayarlarla için. Aşağıda gösterilen biçimlendirmeden bildiremez olsa da, CSS kuralları tanımlanan şekilde gezinti &lt;div&gt;ait içerik soldaki bölmede görünür ve sabit genişlik 200 piksel sahip olmasını mutlak olarak konumlandırılmış.
 
 [!code-aspx[Main](an-overview-of-forms-authentication-cs/samples/sample1.aspx)]
 
@@ -459,7 +459,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Oturum açma ASP.NET denetimleri](https://msdn.microsoft.com/library/d51ttbhx.aspx)
 - [Profesyonel ASP.NET 2.0 güvenlik, üyelik ve rol yönetimi](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
 - [`<authentication>` Öğesi](https://msdn.microsoft.com/library/532aee0e.aspx)
-- [`<forms>` Öğesi için`<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
+- [`<forms>` Öğesi için `<authentication>`](https://msdn.microsoft.com/library/1d3t3c61.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Bu öğreticide yer alan konularda video eğitim
 
@@ -467,12 +467,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler...
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme serisi pek çok yararlı gözden geçirenler tarafından gözden Bu öğretici oluştu. Bu öğretici için sağlama gözden geçirenler Alicja Maziarz, John Suru ve Teresa Murphy içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](security-basics-and-asp-net-support-cs.md)
-[sonraki](forms-authentication-configuration-and-advanced-topics-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](security-basics-and-asp-net-support-cs.md)
+> [sonraki](forms-authentication-configuration-and-advanced-topics-cs.md)

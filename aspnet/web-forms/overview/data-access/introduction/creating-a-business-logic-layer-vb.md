@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
-title: "Bir iş mantığı katmanı (VB) oluşturma | Microsoft Docs"
+title: Bir iş mantığı katmanı (VB) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide, iş kurallarını içine bir iş mantığı katmanı (t arasında veri alışverişi için bir aracı görevi gören BLL) merkezileştirmek nasıl göreceğiz..."
+description: Bu öğreticide, iş kurallarını içine bir iş mantığı katmanı (t arasında veri alışverişi için bir aracı görevi gören BLL) merkezileştirmek nasıl göreceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 858383203ddbaa9cb895c3368705f90546c8c974
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 150862decbbb69747f3e957a941b71b118b7231c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-business-logic-layer-vb"></a>Bir iş mantığı katmanı (VB) oluşturma
 ====================
@@ -63,13 +63,13 @@ Ardından, yalnızca ilk öğreticiden TableAdapters için tanımlanan yöntemle
 
 İçin `ProductsBLL` sınıfı ihtiyacımız yedi yöntemleri toplam eklemek için:
 
-- `GetProducts()`tüm ürünleri verir
-- `GetProductByProductID(productID)`Belirtilen ürün kimlikli ürün döndürür
-- `GetProductsByCategoryID(categoryID)`Belirtilen kategorideki tüm ürünleri verir
-- `GetProductsBySupplier(supplierID)`tüm ürünleri listesinden belirtilen tedarikçi döndürür
-- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)`Yeni bir ürün değerleri kullanarak veritabanına ekler geçilen; döndürür `ProductID` yeni eklenen kaydın değeri
-- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)`geçirilen değerlerini kullanarak veritabanında varolan bir ürün güncelleştirmeleri; döndürür `True` tam olarak bir satır güncelleştirildiyse, `False` Aksi takdirde
-- `DeleteProduct(productID)`Belirtilen ürün veritabanından siler
+- `GetProducts()` tüm ürünleri verir
+- `GetProductByProductID(productID)` Belirtilen ürün kimlikli ürün döndürür
+- `GetProductsByCategoryID(categoryID)` Belirtilen kategorideki tüm ürünleri verir
+- `GetProductsBySupplier(supplierID)` tüm ürünleri listesinden belirtilen tedarikçi döndürür
+- `AddProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued)` Yeni bir ürün değerleri kullanarak veritabanına ekler geçilen; döndürür `ProductID` yeni eklenen kaydın değeri
+- `UpdateProduct(productName, supplierID, categoryID, quantityPerUnit, unitPrice, unitsInStock, unitsOnOrder, reorderLevel, discontinued, productID)` geçirilen değerlerini kullanarak veritabanında varolan bir ürün güncelleştirmeleri; döndürür `True` tam olarak bir satır güncelleştirildiyse, `False` Aksi takdirde
+- `DeleteProduct(productID)` Belirtilen ürün veritabanından siler
 
 ProductsBLL.vb
 
@@ -207,12 +207,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Liz Shulok, Dennis Patterson, Carlos Santos ve Hilton Giesenow yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](creating-a-data-access-layer-vb.md)
-[sonraki](master-pages-and-site-navigation-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-data-access-layer-vb.md)
+> [sonraki](master-pages-and-site-navigation-vb.md)

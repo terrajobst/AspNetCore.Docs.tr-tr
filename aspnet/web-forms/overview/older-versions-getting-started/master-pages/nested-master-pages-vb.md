@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
-title: "İç içe geçmiş ana sayfalar (VB) | Microsoft Docs"
+title: İç içe geçmiş ana sayfalar (VB) | Microsoft Docs
 author: rick-anderson
-description: "İçinde başka bir ana sayfa iç içe gösterilmektedir."
+description: İçinde başka bir ana sayfa iç içe gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9059e358311cc80b6a64aa3ee1168f4ffcd4e94c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c0123c12bb653a7f680154e2155eae0eb129428
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-vb"></a>İç içe geçmiş ana sayfalar (VB)
 ====================
@@ -94,7 +94,7 @@ Bu biçimlendirme, sayfanın üst kısmındaki Lacivert arka plan üzerinde büy
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>2. adım: basit bir iç içe geçmiş ana sayfa oluşturma
 
-`Simple.master`iki ContentPlaceHolder denetimleri içerir: `MainContent` eklediğimiz boyunca ile Web Form içinde ContentPlaceHolder `head` ContentPlaceHolder ' `<head>` öğesi. Bir içerik sayfası oluşturun ve ona bağlamak için olsaydı `Simple.master` içerik sayfasını iki ContentPlaceHolders için başvuran iki içerik denetimlerine sahip. Benzer şekilde, biz iç içe geçmiş bir ana sayfa oluşturun ve onu bağladıktan `Simple.master` iç içe geçmiş ana sayfa iki içerik denetimlerine sahip olacaktır.
+`Simple.master` iki ContentPlaceHolder denetimleri içerir: `MainContent` eklediğimiz boyunca ile Web Form içinde ContentPlaceHolder `head` ContentPlaceHolder ' `<head>` öğesi. Bir içerik sayfası oluşturun ve ona bağlamak için olsaydı `Simple.master` içerik sayfasını iki ContentPlaceHolders için başvuran iki içerik denetimlerine sahip. Benzer şekilde, biz iç içe geçmiş bir ana sayfa oluşturun ve onu bağladıktan `Simple.master` iç içe geçmiş ana sayfa iki içerik denetimlerine sahip olacaktır.
 
 Yeni bir iç içe geçmiş ana sayfasına ekleyelim `NestedMasterPages` adlı klasörü `SimpleNested.master`. Sağ `NestedMasterPages` klasörü ve Yeni Öğe Ekle'i seçin. Bu Şekil 2'deki yeni öğe Ekle iletişim kutusunu açar. Yeni ana sayfa adını yazın ve ana sayfa şablon türünü seçin. Yeni ana sayfa iç içe geçmiş ana sayfa olması gerektiğini belirtmek için "Select ana sayfa" onay kutusunu işaretleyin.
 
@@ -126,7 +126,7 @@ Bu iç içe geçmiş ana sayfa "Hello, SimpleNested gelen!" metnini görüntüle
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Bu ek yaptıktan sonra iç içe geçmiş ana sayfa kaydedin ve ardından yeni bir içerik sayfasına ekleyin `NestedMasterPages` adlı klasörü `Default.aspx`ve onu bağladıktan `SimpleNested.master` ana sayfa. Bu sayfa ekleme bağlı, (bkz: Şekil 4) hiçbir içerik denetimleri içerip içermediğini şaşırabilirsiniz! Bir içerik sayfasını yalnızca erişebilir, *üst* sayfanın ContentPlaceHolders için ana. `SimpleNested.master`Tüm ContentPlaceHolder denetimlerinin içermez. Bu nedenle, bu ana sayfaya bağlı herhangi bir içerik sayfasında tüm içerik denetimlerinin içeremez.
+Bu ek yaptıktan sonra iç içe geçmiş ana sayfa kaydedin ve ardından yeni bir içerik sayfasına ekleyin `NestedMasterPages` adlı klasörü `Default.aspx`ve onu bağladıktan `SimpleNested.master` ana sayfa. Bu sayfa ekleme bağlı, (bkz: Şekil 4) hiçbir içerik denetimleri içerip içermediğini şaşırabilirsiniz! Bir içerik sayfasını yalnızca erişebilir, *üst* sayfanın ContentPlaceHolders için ana. `SimpleNested.master` Tüm ContentPlaceHolder denetimlerinin içermez. Bu nedenle, bu ana sayfaya bağlı herhangi bir içerik sayfasında tüm içerik denetimlerinin içeremez.
 
 
 [![Yeni içerik sayfası hiçbir içerik denetimleri içerir](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
@@ -258,7 +258,7 @@ Her içerik denetimi ContentPlaceHolder denetimi ve, sahip olduğuna dikkat edin
 
 Yeni bir içerik sayfasını ihtiyacımız bağlamak için yönetim bölümüne eklediğimiz zaman `AdminNested.master` yeni oluşturduğumuz ana sayfa. Ancak ne var olan sayfaları içerik? Sitedeki tüm içerik sayfalarının türetin şu anda `BasePage` program aracılığıyla çalışma zamanında içerik sayfasının ana sayfa ayarlar sınıfı. Bu Yönetim bölümünde içerik sayfaları için istiyoruz davranış değildir. Bunun yerine, her zaman kullanmak için bu içerik sayfaları istiyoruz `AdminNested.master` sayfası. Çalışma zamanında sağ üst düzey içerik sayfasını seçmek için iç içe geçmiş ana sayfa sorumluluğunda olacaktır.
 
-Elde etmek için en iyi şekilde bu davranışı adlı yeni bir özel ana sayfa sınıfı oluşturmak için istenen `AdminBasePage` genişleten `BasePage` sınıfı. `AdminBasePage`ardından kılabilirsiniz `SetMasterPageFile` ve `Page` nesnenin `MasterPageFile` sabit kodlanmış değerine "~ / Admin/AdminNested.master". Bu şekilde, herhangi bir sayfayı, türer `AdminBasePage` kullanacağı `AdminNested.master`, herhangi bir sayfayı, türetilen ancak `BasePage` olacaktır kendi `MasterPageFile` özelliğini ayarlamak için dinamik olarak ya da "~ / Site.master" veya "~ / Alternate.master" değerine göre `MyMasterPage` Oturum değişkeni.
+Elde etmek için en iyi şekilde bu davranışı adlı yeni bir özel ana sayfa sınıfı oluşturmak için istenen `AdminBasePage` genişleten `BasePage` sınıfı. `AdminBasePage` ardından kılabilirsiniz `SetMasterPageFile` ve `Page` nesnenin `MasterPageFile` sabit kodlanmış değerine "~ / Admin/AdminNested.master". Bu şekilde, herhangi bir sayfayı, türer `AdminBasePage` kullanacağı `AdminNested.master`, herhangi bir sayfayı, türetilen ancak `BasePage` olacaktır kendi `MasterPageFile` özelliğini ayarlamak için dinamik olarak ya da "~ / Site.master" veya "~ / Alternate.master" değerine göre `MyMasterPage` Oturum değişkeni.
 
 Yeni bir sınıf dosyasına eklemeye başlayın `App_Code` adlı klasörü `AdminBasePage.vb`. Sahip `AdminBasePage` genişletmek `BasePage` ve daha sonra geçersiz `SetMasterPageFile` yöntemi. Bu yönteme atamak `MasterPageFile` değer "~ / Admin/AdminNested.master". Sınıfınızda bu değişiklikleri yaptıktan sonra dosya aşağıdakine benzer görünmelidir:
 
@@ -358,11 +358,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](specifying-the-master-page-programmatically-vb.md)

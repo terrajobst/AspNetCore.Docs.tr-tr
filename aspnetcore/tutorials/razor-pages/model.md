@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme"
+title: ASP.NET Core bir Razor sayfalarının uygulama için model ekleme
 author: rick-anderson
-description: "Entity Framework Çekirdek (EF çekirdek) kullanarak bir veritabanındaki filmler yönetmek için sınıfları ekleme bulur."
+description: Entity Framework Çekirdek (EF çekirdek) kullanarak bir veritabanındaki filmler yönetmek için sınıfları ekleme bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 07/27/2017
@@ -9,15 +9,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: e2014ec20d5bed742c7e3398bd3a9255146ab4eb
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8542f4f3e516a62c19308d0c03e1ba4b155ed1ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core Razor sayfalarının uygulamada bir modeli ekleme
+# <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core bir Razor sayfalarının uygulama için model ekleme
 
-[!INCLUDE[model1](../../includes/RP/model1.md)]
+[!INCLUDE [model1](../../includes/RP/model1.md)]
 
 ## <a name="add-a-data-model"></a>Bir veri modeli ekleme
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/15/2018
 
 Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adını **film** ve aşağıdaki özellikleri ekleyin:
 
-[!INCLUDE[model 2](../../includes/RP/model2.md)]
+[!INCLUDE [model 2](../../includes/RP/model2.md)]
 
 <a name="cs"></a>
 ### <a name="add-a-database-connection-string"></a>Bir veritabanı bağlantı dizesi Ekle
@@ -64,15 +64,23 @@ Add-Migration Initial
 Update-Database
 ```
 
+Alternatif olarak, aşağıdaki .NET Core CLI komutları kullanılabilir:
+
+```console
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet ef migrations add Initial
+dotnet ef database update
+```
+
 `Install-Package` Komutu yapı iskelesi altyapısı çalıştırmak için gerekli araçları yükler.
 
 `Add-Migration` Komutu ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayalı `DbContext` (içinde *Models/MovieContext.cs* dosyası). `Initial` Bağımsız değişkeni geçişler adlandırmak için kullanılır. Herhangi bir ad kullanabilirsiniz, ancak kurala göre geçiş açıklayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
 
 `Update-Database` Komutu çalıştırır `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosyası bir veritabanı oluşturur.
 
-[!INCLUDE[model 4windows](../../includes/RP/model4Win.md)]
+[!INCLUDE [model 4windows](../../includes/RP/model4Win.md)]
 
-[!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
+[!INCLUDE [model 4](../../includes/RP/model4tbl.md)]
 
 <a name="test"></a>
 ### <a name="test-the-app"></a>Uygulamayı test etme
@@ -80,7 +88,7 @@ Update-Database
 * Uygulamayı çalıştırın ve append `/Movies` URL tarayıcıda (`http://localhost:port/movies`).
 * Test **oluşturma** bağlantı.
 
- ![Sayfa oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Sayfa oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 
@@ -90,6 +98,6 @@ Bir SQL özel durumu alırsanız, geçişler çalıştırın ve veritabanı gün
 
 Sonraki öğretici yapı iskelesi tarafından oluşturulan dosyalar açıklanmaktadır.
 
->[!div class="step-by-step"]
-[Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
-[sonraki: iskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)    
+> [!div class="step-by-step"]
+> [Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
+> [sonraki: iskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)    

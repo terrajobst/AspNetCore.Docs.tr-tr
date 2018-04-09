@@ -1,7 +1,7 @@
 ---
-title: "Arama ASP.NET Core Razor sayfalarına ekleme"
+title: Arama ASP.NET Core Razor sayfalara ekleme
 author: rick-anderson
-description: "Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir"
+description: Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: f66d83a94505a74f7e0f6b7ae74ff2d408e36478
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4bc1ccaae15bddb9bc62716f1e81b97ad78f577a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-search-to-a-razor-pages-app"></a>Arama bir Razor sayfalarının uygulamasına ekleme
+# <a name="add-search-to-aspnet-core-razor-pages"></a>Arama ASP.NET Core Razor sayfalara ekleme
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -106,6 +106,6 @@ Güncelleştirme *Index.cshtml* gibi:
 
 Genre, filmi ve her ikisi tarafından arayarak uygulamayı test edin.
 
->[!div class="step-by-step"]
-[Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
-[sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+> [!div class="step-by-step"]
+> [Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
+> [sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)

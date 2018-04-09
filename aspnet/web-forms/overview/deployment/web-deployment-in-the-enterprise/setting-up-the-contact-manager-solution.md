@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
-title: "İlgili Kişi Yöneticisi çözümü ayarladıktan | Microsoft Docs"
+title: İlgili Kişi Yöneticisi çözümü ayarladıktan | Microsoft Docs
 author: jrjlee
-description: "Bu konu, indirin ve bir geliştirici iş istasyonuna yerel olarak çalıştırmak için Kişi Yöneticisi çözümünüzü yapılandırma açıklar."
+description: Bu konu, indirin ve bir geliştirici iş istasyonuna yerel olarak çalıştırmak için Kişi Yöneticisi çözümünüzü yapılandırma açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/setting-up-the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b8176b3b8622e21187a91647323322e55582373c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e8fb24f5b2d96d864d1aa6bc0f78644773de00ab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="setting-up-the-contact-manager-solution"></a>İlgili Kişi Yöneticisi çözüm ayarlama
 ====================
@@ -125,6 +125,6 @@ Bu noktada, kişinin Yöneticisi çözümü tam olarak yerel makinenizde çalı�
 
 Sonraki konuyu [proje dosyası anlama](understanding-the-project-file.md), dağıtım işlemi denetlemek için kişinin Yöneticisi çözüm içinde özel Microsoft Build Engine (MSBuild) proje dosyalarını nasıl kullanabileceğiniz açıklanır.
 
->[!div class="step-by-step"]
-[Önceki](the-contact-manager-solution.md)
-[sonraki](understanding-the-project-file.md)
+> [!div class="step-by-step"]
+> [Önceki](the-contact-manager-solution.md)
+> [sonraki](understanding-the-project-file.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: "ASP.NET Web sayfaları sunarak - WebMatrix kullanarak bir Site yayımlama | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - WebMatrix kullanarak bir Site yayımlama | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici ASP.NET Web sayfaları ve Microsoft WebMatrix tanıtır öğretici kümesi son yüklemede ' dir. Sitenizi t yayımlamak nasıl ele..."
+description: Bu öğretici ASP.NET Web sayfaları ve Microsoft WebMatrix tanıtır öğretici kümesi son yüklemede ' dir. Sitenizi t yayımlamak nasıl ele...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>ASP.NET Web sayfaları sunarak - WebMatrix kullanarak bir Site yayımlama
 ====================
@@ -32,7 +32,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Sitenizi yayımlama hakkında
 
-Şimdiye kadar sayfalarınızı test de dahil olmak üzere yerel bir bilgisayardaki tüm iş yaptık. Çalıştırmak için*.cshtml* sayfaları, WebMatrix, yani IIS Express yerleşik web sunucusu kullandığınız. Ancak hiç kimsenin dışında oluşturduğunuz site Elbette görebilirsiniz. Başkalarının sitenizle çalışmak için Internet'e yayımlamanız gerekir.
+Şimdiye kadar sayfalarınızı test de dahil olmak üzere yerel bir bilgisayardaki tüm iş yaptık. Çalıştırmak için<em>.cshtml</em> sayfaları, WebMatrix, yani IIS Express yerleşik web sunucusu kullandığınız. Ancak hiç kimsenin dışında oluşturduğunuz site Elbette görebilirsiniz. Başkalarının sitenizle çalışmak için Internet'e yayımlamanız gerekir.
 
 Bir ortak web sunucusuna erişim zaten yoksa, hesabınız zorunda yayımlama anlamına gelir bir *bulut platformu* veya *barındırma sağlayıcısına*. Microsoft Azure gibi bir bulut platformu uygulamalarınız için isteğe bağlı altyapı sağlar. Bir barındırma sağlayıcısı, genel olarak erişilebilir web sunucuları sahibi ve, kira şirket siteniz için boşluk ' dir. Barındırma planları ay birkaç dolar çalıştırılabilen (veya hatta ücretsiz) yüzlerce yüksek hacimli ticari Web siteleri için ayda bir ABD doları için küçük siteler için.
 
@@ -53,7 +53,7 @@ Bu öğretici dört bölüm içerir:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Varsayılan sayfa ayarlama
 
-Bir kullanıcı web siteniz için temel adres gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Default.htm www.contoso.com sırasında site için varsayılan sayfa olarak ayarlandığında, örneğin, ardından giderek **www.contoso.com** giderek aynı **www.contoso.com/Default.htm**.
+Bir kullanıcı web siteniz için temel adres gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Default.htm www.contoso.com sırasında site için varsayılan sayfa olarak ayarlandığında, örneğin, ardından giderek <strong>www.contoso.com</strong> giderek aynı <strong>www.contoso.com/Default.htm</strong>.
 
 Siteniz şu anda kullandığı **Default.cshtml** varsayılan sayfa olarak. Bu sayfa için varsayılan sayfanızı sorun yoktur, ancak boş bir sayfa görüntüleyecektir şekilde Bu öğreticide, herhangi bir içerik için bu sayfayı eklemediniz. Default.cshtml açın ve içeriğini aşağıdaki kodla değiştirin.
 
@@ -221,5 +221,5 @@ Tıklatın **Yayımla** düğmesini. WebMatrix, hangi değiştirilir ve bu yayı
 
 - [ASP.NET WebMatrix ASP.NET Web sayfaları Forumu](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), post için uygun bir yerdir sorular ve yanıtlar alın.
 
->[!div class="step-by-step"]
-[Önceki](layouts.md)
+> [!div class="step-by-step"]
+> [Önceki](layouts.md)

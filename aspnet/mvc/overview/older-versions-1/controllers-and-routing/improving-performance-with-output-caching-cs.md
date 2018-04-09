@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
-title: "İle performansı iyileştirme çıkış önbelleğe alma (C#) | Microsoft Docs"
+title: İle performansı iyileştirme çıkış önbelleğe alma (C#) | Microsoft Docs
 author: microsoft
-description: "Bu öğreticide, nasıl, önemli ölçüde ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma yararlanarak artırabilir öğrenin. ..."
+description: Bu öğreticide, nasıl, önemli ölçüde ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma yararlanarak artırabilir öğrenin. ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 47f0aa976c5876991ccc2406fb8f7402e59ec556
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8958caa5a0ccad669ca861bed261102625be5cb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-c"></a>Çıktı önbelleği (C#) ile performansı iyileştirme
 ====================
@@ -39,7 +39,7 @@ Tek tek denetleyici eylem ya da bir tüm denetleyicinin sınıf için bir [Outpu
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample1.cs)]
 
-ASP.NET MVC Beta sürümlerinde, çıktı önbelleği için bir URL gibi çalışmaz [http://www.MySite.com/](http://www.mysite.com/). Bunun yerine, gibi bir URL girmelisiniz [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index). 
+ASP.NET MVC Beta sürümlerinde, çıktı önbelleği için bir URL gibi çalışmaz [ http://www.MySite.com/ ](http://www.mysite.com/). Bunun yerine, gibi bir URL girmelisiniz [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index). 
 
 Listeleme 1'de İNDİS() eylem çıktısını 10 saniye için önbelleğe alınır. İsterseniz, daha uzun bir önbellek süresi belirtebilirsiniz. Bir denetleyici eylemi bir gün çıkışını önbelleğe almak istiyorsanız, örneğin, ardından 86400 saniye cinsinden önbellek süresi belirleyebilirsiniz (60 saniye \* 60 dakika \* 24 saat).
 
@@ -47,7 +47,7 @@ Var olan içeriğin garanti, belirttiğiniz süre miktarı için önbelleğe al�
 
 Listeleme 1 giriş denetleyicisi listeleme 2'de dizin görünümünün döndürür. Bu görünüm hakkında özel bir şey yoktur. Dizin görünümünün yalnızca geçerli saati görüntüler (bkz: Şekil 1).
 
-**2 – Views\Home\Index.aspx listeleme**
+**Listing 2 – Views\Home\Index.aspx**
 
 [!code-aspx[Main](improving-performance-with-output-caching-cs/samples/sample2.aspx)]
 
@@ -132,7 +132,7 @@ Daha fazla önbelleğe alma işleminde VaryByParam özelliği sonuçları kullan
 
 Aşağıdaki değerlere VaryByParam özelliği de ayarlayabilirsiniz:
 
-> \*= Bir form veya sorgu dizesi parametresi değişir her farklı bir önbelleğe alınan sürüm oluşturun.
+> \* = Bir form veya sorgu dizesi parametresi değişir her farklı bir önbelleğe alınan sürüm oluşturun.
 > 
 > Hiçbiri = hiçbir zaman farklı önbelleğe alınmış sürümlerini oluşturun
 > 
@@ -165,6 +165,6 @@ Listeleme 7 denetleyicisi tarafından sunulan İNDİS() eylemi çağırmak olurs
 
 Çıktı önbelleği, ASP.NET MVC uygulamalarınızın performansını önemli ölçüde artırmak çok kolay bir yöntem sağlar. Bu öğreticide, denetleyici eylemleri çıkışını önbelleğe almak için [OutputCache] özniteliğini kullanın öğrendiniz. Ayrıca nasıl içeriği önbelleğe değiştirmek için süre ve VaryByParam özellikler gibi [OutputCache] öznitelik özelliklerini değiştirmek öğrendiniz. Son olarak, web yapılandırma dosyasında önbellek profilleri tanımlamak nasıl öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](understanding-action-filters-cs.md)
-[sonraki](adding-dynamic-content-to-a-cached-page-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-action-filters-cs.md)
+> [sonraki](adding-dynamic-content-to-a-cached-page-cs.md)

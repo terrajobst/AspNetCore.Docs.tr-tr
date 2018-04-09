@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: "ASP.NET Web sayfaları sunarak - temel programlama | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - temel programlama | Microsoft Docs
 author: tfitzmac
 description: "Bu öğretici, Razor sözdizimi ile ASP.NET Web sayfalarını program hakkında genel bakış sağlar. Öğrenecekleriniz: pr için kullandığınız temel 'Razor' sözdizimi..."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfalarını - Programlama temelleri tanıtma
 ====================
@@ -103,7 +103,7 @@ Ancak değişkenleri için sınırlı değildir. Burada, bazı durumlarda bir if
 
 - @(bir\*b) değişkenlerde ne olursa olsun, ürün işleyen bir ve b. ( \* İşleci çarpma anlamına gelir.)
 - @(teknoloji + "" + Ürün) arasında bir boşluk ekleyerek ve bunları birleştirme sonra değişkenleri teknoloji ve ürün değerleri işler. Dizeleri birleştirme işleci (+) işleci numaraları eklemek için aynıdır. ASP.NET dize veya sayı ile çalışıyorsanız ve ile doğru şeyi yapar olup olmadığını genellikle öğrenebilirsiniz + işleci.
-- @Request.Urlİstek nesnesi Url özelliğinin işler. Request nesnesi tarayıcıdan geçerli istek hakkındaki bilgiler içerir ve Elbette URL'si özelliği, geçerli istek URL'sini içerir.
+- @Request.Url İstek nesnesi Url özelliğinin işler. Request nesnesi tarayıcıdan geçerli istek hakkındaki bilgiler içerir ve Elbette URL'si özelliği, geçerli istek URL'sini içerir.
 
 Örnek ayrıca şunları yapabilirsiniz, farklı şekilde çalıştığını göstermek için tasarlanmıştır. Üst kod bloğundaki hesaplamalar yapmak, sonuçları bir değişkene koyabilir ve biçimlendirme değişkeninde işleme. Veya bir ifade sağ biçimlendirmede hesaplamalar yapabilirsiniz. Kullandığınız yaklaşım gerçekleştirmekte olduğunuz ve, kendi tercih üzerinde bazı ölçüde bağlıdır.
 
@@ -165,7 +165,7 @@ Test etmek için parantez içinde bir durumdur. Bu, bir değer veya true veya fa
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Kullanarak değişkenleri değerlerle veya ifadeleri karşı sınayabilirsiniz bir *mantıksal işleç* veya *karşılaştırma işleci*: eşittir (==), büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) ve küçük veya eşit (&lt;=). ! = Eşit değil işleci anlamına — Örneğin, varsa (bir! = 0) anlamına gelir *varsa* *bir**0'a eşit değil*.
+Kullanarak değişkenleri değerlerle veya ifadeleri karşı sınayabilirsiniz bir <em>mantıksal işleç</em> veya <em>karşılaştırma işleci</em>: eşittir (==), büyüktür (&gt;), küçüktür (&lt;), büyüktür veya eşittir (&gt;=) ve küçük veya eşit (&lt;=). ! = Eşit değil işleci anlamına — Örneğin, varsa (bir! = 0) anlamına gelir <em>varsa</em> <em>bir</em><em>0'a eşit değil</em>.
 
 > [!NOTE]
 > (==) Eşit karşılaştırma işleci = aynı olmadığına dikkat edin emin olun. = İşleci yalnızca değerleri atamak için kullanılır (var bir = 2). Bu işleçlere karışımı varsa, bir hata iletisi alırsınız veya bazı garip sonuçları elde edersiniz.
@@ -207,7 +207,7 @@ Sayfayı çalıştırın ve tıklatın **gönderme**. Bu süre, yalnızca farkl�
 
 ### <a name="testing-the-value-of-a-query-string"></a>Bir sorgu dizesi değerini test etme
 
-Daha fazla test. Bu süre, eğer ekleyeceksiniz bir değeri test blok adlandırılmış sorgu dizesinde geçirilen göster. (Şöyle: '' http://localhost:43097/TestRazorPart2.cshtml`?show=true`), görüntüleme ileti böylece sayfa değiştireceğiz ("Bu ilk kez...", vb.) göster değeri true ise yalnızca görüntülenir.
+Daha fazla test. Bu süre, eğer ekleyeceksiniz bir değeri test blok adlandırılmış sorgu dizesinde geçirilen göster. (Şöyle: ''http://localhost:43097/TestRazorPart2.cshtml`?show=true`), görüntüleme ileti böylece sayfa değiştireceğiz ("Bu ilk kez...", vb.) göster değeri true ise yalnızca görüntülenir.
 
 Alt (ancak iç) sayfanın üstündeki kod bloğu aşağıdakileri ekleyin:
 
@@ -223,7 +223,7 @@ Yeni kod bloğundaki false showMessage adlı bir değişken başlatır. Ardında
 
 Kod URL sorgu dizesinde URL bu sürümü gibi show adlı bir değişken içerip içermediğini belirler:
 
-`http://localhost:43097/TestRazorPart2.cshtml`? Göster = true
+`http://localhost:43097/TestRazorPart2.cshtml`?show=true
 
 Test isteği nesnesinin QueryString özellik arar. Sorgu dizesi adlı bir öğe Göster içeriyorsa ve bu öğe true olarak if ayarlanmışsa bloğu çalıştırır ve showMessage değişkeni true olarak ayarlanır.
 
@@ -281,7 +281,7 @@ ASP.NET Web sayfaları birkaç Yardımcıları yerleşik olarak sahiptir. Bununl
 
 Öğreticinin bu bölümünde, bir Gravatar ("Genel tanınan avatar") görüntüsü görüntülemenize olanak sağlayan bir yardımcı yükleyeceksiniz. İki şey öğreneceksiniz. Bulma ve bir yardımcı yükleme biridir. Ayrıca, nasıl bir yardımcı, aksi takdirde kodu kendiniz yazmak zorunda çok kullanarak bunu gerekir işlemlerinizi kolaylaştırır öğreneceksiniz.
 
-Kendi Gravatar Gravatar Web sitesindeki kaydedebilirsiniz [http://www.gravatar.com/](http://www.gravatar.com/), ancak öğreticinin bu bölümü gerçekleştirmek için bir Gravatar hesabı oluşturmak için gerekli değildir.
+Kendi Gravatar Gravatar Web sitesindeki kaydedebilirsiniz [ http://www.gravatar.com/ ](http://www.gravatar.com/), ancak öğreticinin bu bölümü gerçekleştirmek için bir Gravatar hesabı oluşturmak için gerekli değildir.
 
 Webmatrix'te tıklatın **NuGet** düğmesi.
 
@@ -360,6 +360,6 @@ Sonraki öğretici bir veritabanı ile çalışmaya tanıtır. Bu öğreticide, 
 - [Razor sözdizimini kullanan ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Twitter Yardımcısı](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[Önceki](getting-started.md)
-[sonraki](displaying-data.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started.md)
+> [sonraki](displaying-data.md)

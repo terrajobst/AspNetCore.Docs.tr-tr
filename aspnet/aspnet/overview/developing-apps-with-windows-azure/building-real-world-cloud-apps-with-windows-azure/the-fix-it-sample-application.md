@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: "Ek: Düzeltme bu örnek uygulama (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs"
+title: 'Ek: Düzeltme bu örnek uygulama (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs'
 author: MikeWasson
-description: "Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır..."
+description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzeltme bu örnek uygulama (Azure ile gerçek bulut uygulamaları derleme)
 ====================
@@ -245,18 +245,18 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 
     Visual Studio 2013 kullanarak:
 
-    1. Düzelt projeyi çalıştırmak için F5 tuşuna basın.
-    2. İçinde **Çözüm Gezgini**MyFixItCloudService projesine sağ tıklayın ve ardından **hata ayıklama** -- **Başlat yeni örnek**.
+   1. Düzelt projeyi çalıştırmak için F5 tuşuna basın.
+   2. İçinde **Çözüm Gezgini**MyFixItCloudService projesine sağ tıklayın ve ardından **hata ayıklama** -- **Başlat yeni örnek**.
 
-    Web için Visual Studio 2013 Express kullanarak:
+      Web için Visual Studio 2013 Express kullanarak:
 
-    1. Çözüm Gezgini'nde Düzelt çözüme sağ tıklayın ve seçin **özellikleri**.
-    2. Seçin **birden fazla başlangıç projesi**...
-    3. İçinde **eylem** MyFixIt ve MyFixItCloudService, altındaki açılır listede seçin **Başlat**.
-    4. **Tamam**'ı tıklatın.
-    5. Her iki projelerini çalıştırmak için F5 tuşuna basın.
+   3. Çözüm Gezgini'nde Düzelt çözüme sağ tıklayın ve seçin **özellikleri**.
+   4. Seçin **birden fazla başlangıç projesi**...
+   5. İçinde **eylem** MyFixIt ve MyFixItCloudService, altındaki açılır listede seçin **Başlat**.
+   6. **Tamam**'ı tıklatın.
+   7. Her iki projelerini çalıştırmak için F5 tuşuna basın.
 
-    MyFixItCloudService proje çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü başlatır. Güvenlik Duvarı yapılandırmanıza bağlı olarak, güvenlik duvarı aracılığıyla öykünücüsü izin gerekebilir.
+      MyFixItCloudService proje çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü başlatır. Güvenlik Duvarı yapılandırmanıza bağlı olarak, güvenlik duvarı aracılığıyla öykünücüsü izin gerekebilir.
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Windows PowerShell komut dosyalarını kullanarak Azure App Service Web Apps için temel uygulama dağıtma
@@ -285,7 +285,7 @@ Bu yönergeleri zaten indirmiş ve Düzelt çözümü yerel olarak çalıştır�
     Bu kimlik bilgileri bir süre sonra süresi dolacak ve yeniden çalıştırmak zorunda `Add-AzureAccount` cmdlet'i. Bu e-kitap yazılmış olarak 12 saat zaman kimlik bilgilerinin süresi sona ermeden önce sınırı yoktur.
 5. Birden çok aboneliğiniz varsa, test ortamında oluşturmak istediğiniz aboneliği belirtmek için Select-AzureSubscription cmdlet'ini kullanın.
 6. Kullanarak aynı Azure aboneliği için yönetim sertifikası içeri `Get-AzurePublishSettingsFile` ve `Import-AzurePublishSettingsFile` cmdlet'leri. Bu cmdlet'ler ilk bir sertifika dosyası indirir ve ikinci bir almak için bu dosyanın konumunu belirtin. > [!IMPORTANT]
- > İndirilen Dosya güvenli bir yerde saklayın veya onunla tamamladığınızda Azure hizmetlerinizi yönetmek için kullanılan bir sertifika içerdiğinden silin.
+   > İndirilen Dosya güvenli bir yerde saklayın veya onunla tamamladığınızda Azure hizmetlerinizi yönetmek için kullanılan bir sertifika içerdiğinden silin.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -399,5 +399,5 @@ In MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, replace the same two pl
 
 Şimdi bulut hizmeti dağıtmak hazırsınız. Çözüm keşfetmek, MyFixItCloudService projesine sağ tıklayın ve seçin **Yayımla**. Daha fazla bilgi için "[uygulamayı Azure'a dağıtmak](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", parçası 2 olduğu [Bu öğretici](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
->[!div class="step-by-step"]
-[Önceki](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Önceki](more-patterns-and-guidance.md)

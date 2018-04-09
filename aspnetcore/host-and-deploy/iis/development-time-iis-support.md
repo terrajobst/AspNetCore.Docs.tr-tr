@@ -1,7 +1,7 @@
 ---
-title: "Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği"
+title: Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği
 author: shirhatti
-description: "ASP.NET Core uygulamaları IIS Windows Server üzerinde çalışırken hata ayıklama desteği bulur."
+description: ASP.NET Core uygulamaları IIS Windows Server üzerinde çalışırken hata ayıklama desteği bulur.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,22 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği
 
-Göre: [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Bu makalede [Visual Studio](https://www.visualstudio.com/vs/) hata ayıklama IIS Windows Server'da çalışan ASP.NET Core uygulamaları için destek. Bu konu, bu özelliği etkinleştirmek ve bir projeyi ayarını size yol göstermektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Visual Studio (2017/15.3 veya sonraki bir sürümü)
-* ASP.NET ve web geliştirme iş yükü *veya* .NET Core platformlar arası geliştirme iş yükü
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>IIS etkinleştir
 
@@ -45,7 +44,7 @@ Visual Studio yükleyicisi başlatın. Seçin **IIS desteği geliştirme zamanı
 
 Geliştirme zamanı IIS desteği eklemek için yeni bir başlatma profili oluşturun. Visual Studio'nun içinde **Çözüm Gezgini**, projeye sağ tıklayın ve seçin **özellikleri**. Seçin **hata ayıklama** sekmesi. Seçin **IIS** gelen **başlatma** açılır. Onaylayın **başlatma tarayıcı** özelliği doğru URL'nin etkin.
 
-![Hata ayıklama sekmesi seçili proje Özellikler penceresi. Profil ve başlatma ayarlarını IIS ayarlanır. Başlatma tarayıcı özelliği bir http://localhost/WebApplication2 adresiyle etkindir. Aynı adresi, etkinleştirme anonim kimlik doğrulaması etkin Web sunucusu ayarları alanının uygulama URL'si alanına de sağlanır.](development-time-iis-support/_static/project_properties.png)
+![Hata ayıklama sekmesi seçili proje Özellikler penceresi. Profil ve başlatma ayarlarını IIS ayarlanır. Bir adresi ile başlatma tarayıcı özelliği etkinleştirilmişse http://localhost/WebApplication2. Aynı adresi, etkinleştirme anonim kimlik doğrulaması etkin Web sunucusu ayarları alanının uygulama URL'si alanına de sağlanır.](development-time-iis-support/_static/project_properties.png)
 
 Alternatif olarak, bir başlatma profili el ile eklemeniz [launchSettings.json](http://json.schemastore.org/launchsettings) uygulama dosyasında:
 

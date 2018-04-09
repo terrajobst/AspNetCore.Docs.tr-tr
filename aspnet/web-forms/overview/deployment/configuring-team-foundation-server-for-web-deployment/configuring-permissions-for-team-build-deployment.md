@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: "Takım yapılandırma izinlerini yapı dağıtımı | Microsoft Docs"
+title: Takım yapılandırma izinlerini yapı dağıtımı | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, web sunucuları ve veritabanı sunucuları için bir otomatik b bir parçası olarak içerik dağıtmak üzere derleme sunucunuz etkinleştirmek için izinlerin nasıl yapılandırılacağını açıklar..."
+description: Bu konuda, web sunucuları ve veritabanı sunucuları için bir otomatik b bir parçası olarak içerik dağıtmak üzere derleme sunucunuz etkinleştirmek için izinlerin nasıl yapılandırılacağını açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Takım yapılandırma izinlerini derleme dağıtımı
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, web sunucuları ve veritabanı sunucuları için bir otomatik yapılandırma işleminin bir parçası içerik dağıtmak üzere derleme sunucunuz etkinleştirmek için izinlerin nasıl yapılandırılacağını açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -38,7 +38,7 @@ Team Foundation Server (TFS) 2010 yapı hizmeti yüklediğinizde hizmetinin çal
 Windows kimlik doğrulaması ve ekip, kullanarak otomatikleştirmeyi planladığınız gerektiren herhangi bir dağıtım görevini yapı hizmet kimliği kullanarak çalışacaktır. Bu nedenle, yapı hizmet kimliği tüm gerekli, web sunucuları ve veritabanı sunucularınız izinleri gerekir.
 
 > [!NOTE]
-> Ağ hizmeti hesabı diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları alın formun * [etki alanı adı]\[makine adı] ***$**& #x 2014; Örneğin, **FABRIKAM\TFSBUILD$**. Bu nedenle, yapı hizmetiniz Network SERVICE kimliği kullanılarak çalıştırılıyorsa, yapı sunucunuz için makine hesabı kimliği için gerekli tüm izinleri vermeniz gerekir.
+> Ağ hizmeti hesabı diğer bilgisayarlara kimlik doğrulaması için makine hesabını kullanır. Makine hesapları alın formun * [etki alanı adı]\[makine adı] ***$**&#x2014;Örneğin, **FABRIKAM\TFSBUILD$**. Bu nedenle, yapı hizmetiniz Network SERVICE kimliği kullanılarak çalıştırılıyorsa, yapı sunucunuz için makine hesabı kimliği için gerekli tüm izinleri vermeniz gerekir.
 
 
 ## <a name="configuring-web-server-permissions"></a>Web sunucusu izinlerini yapılandırma
@@ -50,7 +50,7 @@ Bölümünde açıklandığı gibi [Web dağıtımı sağ yaklaşımı seçme](.
 
 Uzak Aracı bu durumda iki anahtar sınırlamalara sahiptir:
 
-- Uzak Aracı yalnızca NTLM kimlik doğrulamasını destekler. Diğer bir deyişle, dağıtım yapı hizmeti Identity & #x 2014 kullanmanız gerekir; başka bir hesap alınamıyor.
+- Uzak Aracı yalnızca NTLM kimlik doğrulamasını destekler. Diğer bir deyişle, dağıtım yapı hizmet kimliği kullanmalısınız&#x2014;başka bir hesap alınamıyor.
 - Uzak aracı kullanmak için dağıtım gerçekleştirir hesabı hedef sunucuda bir yönetici olması gerekir.
 
 Birlikte, iki sınırlamalara uzak aracı yaklaşım ekip otomatik bir dağıtım için istenmeyen olun. Bu yaklaşımı kullanmak için herhangi bir hedef web sunucusunda bir yönetici hesabı oluşturma hizmeti yapmanız gerekir.
@@ -93,5 +93,5 @@ Bu noktada, web uygulaması ve veritabanı dağıtımlarından ekip Otomasyon ge
 
 Uzak dağıtımını desteklemek için Windows server ortamları yapılandırma hakkında daha fazla bilgi için bkz: [Web dağıtımı için sunucu ortamları yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Önceki](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-a-specific-build.md)

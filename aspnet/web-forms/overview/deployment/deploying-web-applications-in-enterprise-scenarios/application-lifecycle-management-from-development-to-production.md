@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
-title: "Uygulama Yaşam Döngüsü Yönetimi: Üretim geliştirme | Microsoft Docs"
+title: 'Uygulama Yaşam Döngüsü Yönetimi: Üretim geliştirme | Microsoft Docs'
 author: jrjlee
-description: "Bu konu, kurgusal bir şirket nominal olarak test, hazırlama ve üretim ortamları aracılığıyla ASP.NET web uygulaması dağıtımını nasıl yönettiğini gösterir..."
+description: Bu konu, kurgusal bir şirket nominal olarak test, hazırlama ve üretim ortamları aracılığıyla ASP.NET web uygulaması dağıtımını nasıl yönettiğini gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: f7ffff1c3434ce98c70265e4bf64047fd44252d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8beeffb374df09c6695a1845199d30006ddcc1b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Uygulama Yaşam Döngüsü Yönetimi: Üretim için geliştirme
 ====================
@@ -26,7 +26,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > Bu konu, kurgusal bir şirket sürekli geliştirme sürecinin bir parçası olarak test, hazırlama ve üretim ortamları aracılığıyla ASP.NET web uygulaması dağıtımını nasıl yönettiğini gösterir. Konu boyunca, daha fazla bilgi ve belirli görevlerin nasıl gerçekleştirileceği hakkında yönergeler için bağlantılar sağlanmaktadır.
 > 
-> Konu için üst düzey bir genel bakış sağlamak üzere tasarlanmış bir [eğitim serileri](deploying-web-applications-in-enterprise-scenarios.md) Kurumsal web dağıtımı üzerinde. Bazı burada açıklanan kavramları & #x 2014 bilmiyorsanız endişelenmeyin; izleyin öğreticileri tüm bu görevlerin ve teknikleri ayrıntılı bilgi sağlar.
+> Konu için üst düzey bir genel bakış sağlamak üzere tasarlanmış bir [eğitim serileri](deploying-web-applications-in-enterprise-scenarios.md) Kurumsal web dağıtımı üzerinde. Bazı burada açıklanan kavramları bilmiyorsanız endişelenmeyin&#x2014;izleyin öğreticileri tüm bu görevlerin ve teknikleri ayrıntılı bilgi sağlar.
 > 
 > > [!NOTE]
 > > Basitlik, Forthe artırmak amacıyla, bu konuda güncelleştirme veritabanları dağıtım işleminin bir parçası ele alınmamaktadır. Ancak, veritabanları özellikleri artımlı güncelleştirmeler yapmak birçok kuruluş dağıtım senaryosu gereksinimi olan ve bunu daha sonra Bu öğretici serisinde gerçekleştirmek konusunda yönergeler bulabilirsiniz. Daha fazla bilgi için bkz: [dağıtma veritabanı projeleri](../web-deployment-in-the-enterprise/deploying-database-projects.md).
@@ -95,7 +95,7 @@ Dağıtımını çalıştırmak için bir kullanıcı yürütür *Publish.proj* 
 
 > [!NOTE]
 > Bu özel proje dosyalarını işleyişini MSBuild çağırmak için kullandığınız mekanizması bağımsızdır. Örneğin, MSBuild komut satırında, doğrudan açıklandığı gibi kullanabileceğiniz [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Proje dosyaları açıklandığı gibi bir komut dosyasından çalıştırabilirsiniz [oluşturma ve bir dağıtım komut dosyası çalıştırma](../web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file.md). Alternatif olarak, proje dosyalarını, tfs'deki bir yapı tanımından açıklandığı şekilde çalıştırabilirsiniz [bu destekleyen dağıtım yapı tanımı oluşturma](../configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment.md).  
-> Her durumda, aynı & #x 2014 nihai sonucu olan; MSBuild birleştirilmiş proje dosyası yürütür ve hedef ortam çözümünüzü dağıtır. Bu, büyük bir bölümünü, yayımlama işlemi tetiklemek nasıl esneklik sağlar.
+> Her durumda sonuç aynıdır&#x2014;MSBuild birleştirilmiş proje dosyası yürütür ve hedef ortam çözümünüzü dağıtır. Bu, büyük bir bölümünü, yayımlama işlemi tetiklemek nasıl esneklik sağlar.
 
 
 Kendisine özel proje dosyalarını oluşturdu sonra Matt bir çözüm klasörüne ekler ve kaynak denetimine iade eder.
@@ -106,7 +106,7 @@ Bir son hazırlık görevi olarak Matt ve Ramiz yeni takım projesi için üç y
 
 - **DeployToTest**. Bu kişi yöneticisi çözüm oluşturur ve bir iade her gerçekleştiğinde test ortamına dağıtır.
 - **DeployToStaging**. Bir geliştirici yapı sıra bu hazırlama ortamında belirtilen bir önceki yapıdan kaynaklarına dağıtır.
-- **DeployToStaging-whatIf**. Bir geliştirici yapı sıra bu bir "," dağıtıma hazırlık ortamı gerçekleştirir.
+- **DeployToStaging-WhatIf**. Bir geliştirici yapı sıra bu bir "," dağıtıma hazırlık ortamı gerçekleştirir.
 
 Aşağıdaki bölümlerde daha fazla ayrıntı her birinde sağlamak tanımları oluşturun.
 
@@ -185,7 +185,7 @@ Bu bir dağıtım için hazırlama ortamına üst düzey bir işlem.
 [!code-console[Main](application-lifecycle-management-from-development-to-production/samples/sample3.cmd)]
 
 
-İçinde *Publish.proj* dosyası **whatIf** özelliği, tüm dağıtım kaynakları "," modunda yayımlanan olduğunu gösterir. Diğer bir deyişle, günlük dosyalarını dağıtım devam gitti, ancak hiçbir şey gerçekte hedef ortamda değiştirilir sanki üretilir. Bu, önerilen dağıtım & #x 2014 etkisini değerlendirmeye sağlar; özellikle, ne eklenen, ne güncelleştirilecektir ve ne silinecek & #x gerçekte herhangi bir değişiklik yapmadan önce 2014;.
+İçinde *Publish.proj* dosyası **whatIf** özelliği, tüm dağıtım kaynakları "," modunda yayımlanan olduğunu gösterir. Diğer bir deyişle, günlük dosyalarını dağıtım devam gitti, ancak hiçbir şey gerçekte hedef ortamda değiştirilir sanki üretilir. Bu, önerilen dağıtım etkisini değerlendirmeye sağlar&#x2014;belirli, ne eklenir, ne güncelleştirilecektir ve ne silinecek&#x2014;gerçekte herhangi bir değişiklik yapmadan önce.
 
 > [!NOTE]
 > "," Dağıtımları yapılandırma hakkında daha fazla bilgi için bkz: ["," dağıtımı gerçekleştiren](../advanced-enterprise-web-deployment/performing-a-what-if-deployment.md).
@@ -227,5 +227,5 @@ Bu konuda, web uygulamalarının dağıtımını çeşitli yönlerini kılavuzlu
 - [Team Foundation Server için otomatik olarak yapılandırırken Web dağıtımı](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğretici kılavuzu dağıtım mantığı TFS yapı süreçlerini tümleştirmenize olanak sağlar.
 - [Kurumsal Web dağıtımı Gelişmiş](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici kılavuzu, kuruluşların yüz daha karmaşık dağıtım zorluklarından bazıları karşılamak nasıl sağlanır.
 
->[!div class="step-by-step"]
-[Önceki](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Önceki](enterprise-web-deployment-scenario-overview.md)

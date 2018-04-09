@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: "Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5 | Microsoft Docs"
+title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5 | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır..."
+description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5
 ====================
@@ -123,10 +123,10 @@ Sayfayı çalıştırın.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Bir eğitmen seçin. **Bir indirmelere atamak** aşağı açılan liste Eğitmen öğretmek değildir, kurslar görüntüler ve **bir indirmelere kaldırmak** aşağı açılan liste Eğitmen zaten atandığı kurslar görüntüler. İçinde **bir indirmelere atamak** bölümünde, bir indirmelere seçin ve ardından **atamak**. İndirmelere taşır **bir indirmelere kaldırmak** aşağı açılan liste. Bir indirmelere seçin **bir indirmelere kaldırmak** 'ye tıklayın **Kaldır ***.* İndirmelere taşır **bir indirmelere atamak** aşağı açılan liste.
+Bir eğitmen seçin. <strong>Bir indirmelere atamak</strong> aşağı açılan liste Eğitmen öğretmek değildir, kurslar görüntüler ve <strong>bir indirmelere kaldırmak</strong> aşağı açılan liste Eğitmen zaten atandığı kurslar görüntüler. İçinde <strong>bir indirmelere atamak</strong> bölümünde, bir indirmelere seçin ve ardından <strong>atamak</strong>. İndirmelere taşır <strong>bir indirmelere kaldırmak</strong> aşağı açılan liste. Bir indirmelere seçin <strong>bir indirmelere kaldırmak</strong> 'ye tıklayın <strong>kaldırmak</strong><em>.</em> İndirmelere taşır <strong>bir indirmelere atamak</strong> aşağı açılan liste.
 
 Şimdi ilgili verilerle çalışmak için bazı yöntemlerle gördünüz. Aşağıdaki öğreticide devralma veri modelinde uygulamanızın devamlılığını iyileştirmek için nasıl kullanılacağını öğreneceksiniz.
 
->[!div class="step-by-step"]
-[Önceki](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[sonraki](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [Önceki](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [sonraki](the-entity-framework-and-aspnet-getting-started-part-6.md)

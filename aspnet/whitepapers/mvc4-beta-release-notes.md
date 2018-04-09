@@ -2,21 +2,21 @@
 uid: whitepapers/mvc4-beta-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: "Bu belgede bu sürüm Visual Studio 2010 için ASP.NET MVC 4 Beta açıklanmaktadır."
+description: Bu belgede bu sürüm Visual Studio 2010 için ASP.NET MVC 4 Beta açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -139,7 +139,7 @@ ASP.NET Web API aşağıdaki özellikleri destekler:
 - **Kod tabanlı yapılandırma:** , config bırakarak dosyaları temizleme, Web API yapılandırmasını yalnızca kod üzerinden gerçekleştirilir.
 - **Kendini barındırma:** Web API'leri barındırılması IIS yanı sıra kendi işleminde hala gücünden yolların ve diğer Web API özelliklerini kullanırken.
 
-ASP.NET Web API hakkında daha fazla ayrıntı için lütfen adresi ziyaret edin [https://www.asp.net/web-api](../web-api/index.md).
+ASP.NET Web API hakkında daha fazla ayrıntı için lütfen adresi ziyaret edin [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
 ### <a name="aspnet-single-page-application"></a>ASP.NET tek sayfa uygulaması
@@ -150,7 +150,7 @@ ASP.NET MVC 4 artık JavaScript ve Web API'leri kullanarak önemli istemci taraf
 - İş ve DAL destek birimi için ek Web API bileşenleri
 - Hızlıca başlamak için yapı iskelesi ile bir MVC proje şablonu
 
-ASP.NET MVC 4'te tek sayfa uygulaması hakkında daha fazla ayrıntı desteği için lütfen şu adresi ziyaret [https://www.asp.net/single-page-application](../single-page-application/index.md).
+ASP.NET MVC 4'te tek sayfa uygulaması hakkında daha fazla ayrıntı desteği için lütfen şu adresi ziyaret [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Varsayılan proje şablonları geliştirmeler
@@ -219,7 +219,7 @@ Bir mobil iyileştirilmiş web sayfaları için metni bir şey Masaüstü görü
 
 Ziyaretçilerin bağlantıya tıklarsanız, aynı sayfa Masaüstü sürümüne geçiş.
 
-Masaüstü düzeninizi görünüm değiştirici varsayılan olarak dahil edilmez çünkü ziyaretçileri mobil moduna almanın bir yolu olmaz. Bunu etkinleştirmek için aşağıdaki başvurusunu ekleyin  *\_ViewSwitcher* Masaüstü düzeninizi yalnızca içinde  *&lt;gövde&gt;*  öğe:
+Masaüstü düzeninizi görünüm değiştirici varsayılan olarak dahil edilmez çünkü ziyaretçileri mobil moduna almanın bir yolu olmaz. Bunu etkinleştirmek için aşağıdaki başvurusunu ekleyin  *\_ViewSwitcher* Masaüstü düzeninizi yalnızca içinde *&lt;gövde&gt;* öğe:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
@@ -280,9 +280,9 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekl
     Derleme bağlama öğesi değiştirilmiş web.config dosyasında aşağıdaki gibi görünmelidir:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **Visual Basic projeleri "Denetleyici Ekle" öğesini şablonunda çağrıldığında yanlış bir ad alanı oluşturur****gelen bir alanı içinde.** Visual Basic kullanan ASP.NET MVC projesindeki bir alan için bir denetleyici eklediğinizde öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde sonuç "dosya bulunamadı" hatası verilir.  
+- <strong>Visual Basic projeleri "Denetleyici Ekle" öğesini şablonunda çağrıldığında yanlış bir ad alanı oluşturur</strong><strong>gelen bir alanı içinde.</strong> Visual Basic kullanan ASP.NET MVC projesindeki bir alan için bir denetleyici eklediğinizde öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde sonuç "dosya bulunamadı" hatası verilir.  
   
- Oluşturulan ad alanı her şeyi kök ad alanı sonra atlar. Örneğin, oluşturulan ad alanıdır *RootNamespace* olmalıdır, ancak *RootNamespace.Areas.AreaName.Controllers* .
+  Oluşturulan ad alanı her şeyi kök ad alanı sonra atlar. Örneğin, oluşturulan ad alanıdır *RootNamespace* olmalıdır, ancak *RootNamespace.Areas.AreaName.Controllers* .
 - **Razor görüntüleme Altyapısı'deki son değişiklikler.** Yeniden yazımı Razor ayrıştırıcısı, bir parçası olarak, aşağıdaki türlerden sıradan kaldırıldığını *System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
@@ -290,7 +290,7 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekl
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Aşağıdaki yöntemlerden ayrıca kaldırıldı: 
+  Aşağıdaki yöntemlerden ayrıca kaldırıldı: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -305,15 +305,15 @@ ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekl
 
     **Gerekli güncelleştirmeleri**
 
-    1. Kök Web.config dosyasında yeni Ekle  *&lt;appSettings&gt;*  anahtar girişle *webPages:Version* ve değeri *1.0.0.0*.
+  1. Kök Web.config dosyasında yeni Ekle *&lt;appSettings&gt;* anahtar girişle *webPages:Version* ve değeri *1.0.0.0*.
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-    2. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
-    3. Aşağıdaki derleme başvurularını bulun: 
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
+  2. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
+  3. Aşağıdaki derleme başvurularını bulun: 
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-        Bunları aşağıdakiyle değiştirin:
+      Bunları aşağıdakiyle değiştirin:
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-    4. Değişiklikleri kaydetmek, düzenlemekte olduğunuz ve projeye sağ tıklayın ve yeniden yükle seçeneğini belirleyin (.csproj) proje dosyasını kapatın.
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
+  4. Değişiklikleri kaydetmek, düzenlemekte olduğunuz ve projeye sağ tıklayın ve yeniden yükle seçeneğini belirleyin (.csproj) proje dosyasını kapatın.

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
-title: "Hata ayrıntılarını ELMAH ile (C#) günlüğü | Microsoft Docs"
+title: Hata ayrıntılarını ELMAH ile (C#) günlüğü | Microsoft Docs
 author: rick-anderson
-description: "Hata günlüğü modülleri ve işleyicileri (ELMAH), bir üretim ortamında çalışma zamanı hataları günlüğü başka bir yaklaşım sunmaktadır. ELMAH ücretsiz, açık kaynaklı bir hatadır..."
+description: Hata günlüğü modülleri ve işleyicileri (ELMAH), bir üretim ortamında çalışma zamanı hataları günlüğü başka bir yaklaşım sunmaktadır. ELMAH ücretsiz, açık kaynaklı bir hatadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 26d40d17447b3b03d17265f291b8ac246a449966
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cd91c745624f09d01a326a445bea2bb756576688
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-elmah-c"></a>Günlük hata ayrıntılarla ELMAH (C#)
 ====================
@@ -70,9 +70,9 @@ Ardından, Visual Studio'yu açın ve Web sitesi adı Çözüm Gezgini'nde ve ba
 
 - **HTTP modülleri** -bir HTTP modülü için olay işleyicileri tanımlayan bir sınıftır `HttpApplication` olayları gibi `Error` olay. ELMAH içeren birden fazla HTTP modülü, üç en başlığıyla ilgili olanları oluşturuluyor: 
 
-    - `ErrorLogModule`-İşlenmeyen özel durumlar için günlük kaynağına günlüğe kaydeder.
-    - `ErrorMailModule`-e-posta iletisinde işlenmeyen bir özel durum ayrıntıları gönderir.
-    - `ErrorFilterModule`-hangi özel durumları günlüğe belirlemek için filtreleri Geliştirici belirtilen ve ne yöneliktir olanları yok sayılır.
+    - `ErrorLogModule` -İşlenmeyen özel durumlar için günlük kaynağına günlüğe kaydeder.
+    - `ErrorMailModule` -e-posta iletisinde işlenmeyen bir özel durum ayrıntıları gönderir.
+    - `ErrorFilterModule` -hangi özel durumları günlüğe belirlemek için filtreleri Geliştirici belirtilen ve ne yöneliktir olanları yok sayılır.
 - **HTTP işleyicileri** -bir HTTP işleyicisini isteği belirli bir tür için biçimlendirme oluşturmaktan sorumlu bir sınıftır. Hata ayrıntılarını bir web sayfası olarak, bir RSS olarak veya bir virgülle ayrılmış değerler dosyası (CSV) olarak işlemek HTTP işleyicileri ELMAH içerir.
 - **Hata günlüğü kaynakları** - ELMAH oturum belleği, bir Microsoft SQL Server veritabanına bir Oracle veritabanına bir Microsoft Access veritabanı hataları için kutunun dışında bir SQLite veritabanı veya Vista DB veritabanı için bir XML dosyası. Durumunu sistem izleme gibi ELMAH'in Mimarisi oluşturmak ve gerekirse, kendi özel günlük kaynak sağlayıcıları sorunsuz şekilde tümleşir anlamına sağlayıcı modeli kullanılarak oluşturuldu.
 
@@ -257,6 +257,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Önceki](logging-error-details-with-asp-net-health-monitoring-cs.md)
-[sonraki](precompiling-your-website-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](logging-error-details-with-asp-net-health-monitoring-cs.md)
+> [sonraki](precompiling-your-website-cs.md)

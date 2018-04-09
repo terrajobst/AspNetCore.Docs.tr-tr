@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile"
+title: Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 author: rick-anderson
-description: "Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz."
+description: Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz.
 manager: wpickett
 ms.author: riande
 ms.date: 10/25/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 12c863c6eb4b4774853a94cf3001870b0d22e936
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: bf643cab3b82a9e2138403c6c61d1c15c85abfbd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Önceki öğreticileri üç varlıklarının oluşan bir temel veri modeli ile çalışmıştır. Bu öğreticide:
 
@@ -572,12 +572,12 @@ Güncelleştirilmiş kod `DbInitializer` yeni varlıklar için çekirdek veri ek
 
 * Alternatif olarak, DB kullanarak silin:
 
-    * **SQL Server Object Explorer** (SSOX).
-    * `database drop` CLI komutu:
+  * **SQL Server Object Explorer** (SSOX).
+  * `database drop` CLI komutu:
 
-   ```console
-   dotnet ef database drop
-   ```
+    ```console
+    dotnet ef database drop
+    ```
 
 Çalıştırma `database update` komut penceresinde:
 
@@ -642,6 +642,6 @@ Bir üretim uygulaması gerekir:
 
 Sonraki öğretici ilgili veriler içerir.
 
->[!div class="step-by-step"]
-[Önceki](xref:data/ef-rp/migrations)
-[sonraki](xref:data/ef-rp/read-related-data)
+> [!div class="step-by-step"]
+> [Önceki](xref:data/ef-rp/migrations)
+> [sonraki](xref:data/ef-rp/read-related-data)

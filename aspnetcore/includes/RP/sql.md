@@ -20,7 +20,7 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
 
-[!code-csharp[](code\Models\SeedData.cs)]
+[!code-csharp[](code/Models/SeedData.cs)]
 
 Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür.
 
@@ -36,7 +36,7 @@ if (context.Movie.Any())
 
 Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
 
-[!code-csharp[](../../tutorials/razor-pages\razor-pages-start\sample\RazorPagesMovie\Program.cs)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
-title: "5. Kısım: İş mantığı | Microsoft Docs"
+title: '5. Kısım: İş mantığı | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 5 bazı iş mantığı ekler."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 5 bazı iş mantığı ekler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e205788e05a2ad94d86d4847c11c40898b1c3113
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4342e634ef8c4bcf4e0085650a28f414ab23736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-business-logic"></a>5. Kısım: İş mantığı
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 5 bazı iş mantığı ekler.
 
 
-## <a id="_Toc260221671"></a>Bazı iş mantığı ekleme
+## <a id="_Toc260221671"></a>  Bazı iş mantığı ekleme
 
 Birisi web sitemizi ziyaret her kullanılabilmesini alışveriş deneyimi bizim istiyoruz. Ziyaretçilerin göz atın ve bunlar olmayan kaydedilmiş veya oturum açmış olsa bile öğeleri alışveriş sepetine eklemek mümkün olacaktır. Kullanıma hazır olduğunuzda kimliğini doğrulamak için seçeneği sunulur ve değillerse henüz üye bir hesap oluşturmak seçebilecekler.
 
@@ -85,7 +85,7 @@ Hiçbir hata varsayılarak karşılaştı denetim tam olarak biz sonraki gerçek
 
 Şu anda biz henüz genel hata işleyicisine bu özel durumun uygulamamız tarafından işlenmeyen geçecek ancak Biz bu kısa süre içinde çözebilir uygulanan değil.
 
-Ayrıca Debug.Fail() (aracılığıyla kullanılabilen deyimi kullanımına dikkat edin`using System.Diagnostics;)`
+Ayrıca Debug.Fail() (aracılığıyla kullanılabilen deyimi kullanımına dikkat edin `using System.Diagnostics;)`
 
 Uygulama içinde hata ayıklayıcı çalışıyor, bu yöntem belirttiğimiz hata iletisi ile birlikte uygulamalarının durumu hakkında bilgi içeren ayrıntılı bir iletişim kutusu görüntüler olur.
 
@@ -187,6 +187,6 @@ Bu aşamada, projenizin geliştirme şu anda kullanıma alma işlemini uygulamak
 
 Bunu şimdi yaptıktan önce üyelik veritabanı oluşturun ve üyelik depoya bir kullanıcı eklemek için Visual Studio'yu kullanın.
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-4.md)
-[sonraki](tailspin-spyworks-part-6.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-4.md)
+> [sonraki](tailspin-spyworks-part-6.md)

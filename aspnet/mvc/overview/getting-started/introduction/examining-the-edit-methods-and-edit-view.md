@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
-title: "Düzenleme görünümü ve düzenleme yöntemler inceleniyor | Microsoft Docs"
+title: Düzenleme görünümü ve düzenleme yöntemler inceleniyor | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d7e1ba503b8aa815cebf431d2f5ffc9436b3575b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme görünümü ve düzenleme yöntemler inceleniyor
 ====================
 tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 Bu bölümde, oluşturulan inceleyeceğiz `Edit` eylem yöntemleri ve görünümler film denetleyicisi. Ancak daha iyi Ara yayın tarihi yapmak için kısa bir değişiklik ilk alacaktır. Açık *Models\Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları ekleyin:
 
@@ -106,12 +106,12 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölüm atlayın ve sonraki ö
 1. Gelen **Araçları** menüsünü tıklatın **NuGetLibrary Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. Sol bölmede seçin **Gözat*. *** (aşağıdaki görüntü bakın.)
+2. Sol bölmede seçin <strong>Gözat*.</strong>* (Aşağıdaki görüntü bakın.)
 3. Giriş kutusuna * Globalize **.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Seçin `jQuery.Validation.Globalize`, seçin `MvcMovie` tıklatıp **yükleme**. *Scripts\jquery.globalize\globalize.js* dosyayı projenize eklenir. *Scripts\jquery.globalize\cultures\* klasörü birçok kültür JavaScript dosyaları içerir. Not: Bu paket yüklemek için beş dakika sürebilir.
 
- Aşağıdaki kod Views\Movies\Edit.cshtml dosya için yapılan değişiklikleri gösterir: 
+   Aşağıdaki kod Views\Movies\Edit.cshtml dosya için yapılan değişiklikleri gösterir: 
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 
@@ -125,6 +125,6 @@ Geçici bir düzeltme olarak yerel çalışma doğrulama alınamıyor, bilgisaya
 
 <a id="gettingstarted"></a><a id="jQueryAjaxJSON"></a> Sonraki öğreticide biz arama işlevini uygulamanız.
 
->[!div class="step-by-step"]
-[Önceki](accessing-your-models-data-from-a-controller.md)
-[sonraki](adding-search.md)
+> [!div class="step-by-step"]
+> [Önceki](accessing-your-models-data-from-a-controller.md)
+> [sonraki](adding-search.md)

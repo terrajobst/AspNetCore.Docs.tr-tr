@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama"
+title: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 author: rick-anderson
-description: "ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama hakkında bilgi edinin."
+description: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 609cd25a3e249bb6e2498325ef286c937c64a206
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5302cd5e8eebb3601aa64ac946c356b54521b198
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Bu öğretici 3 sürümü vardır:
 
@@ -29,12 +29,10 @@ Bu öğretici 3 sürümü vardır:
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Visual Studio Community 2017 yükleyin. Topluluk indirme seçin. Visual Studio yüklü 2017 varsa bu adımı atlayın.
 
 * [Visual Studio 2017 giriş sayfası yükleyicisi](https://www.visualstudio.com/)
@@ -48,8 +46,7 @@ Yükleyiciyi çalıştırın ve aşağıdaki iş yüklerini seçin:
 
 ![* *.NET çekirdek arası arası platfrom geliştirme ** (altında ** diğer Toolsets **)](start-mvc/_static/x_plat_wl.png)
 
----
-
+* * *
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
 Visual Studio'dan seçin **Dosya > Yeni > Proje**.
@@ -113,5 +110,5 @@ Hata ayıklama modunda çalışıyormuş dokunun **Shift + F5** hata ayıklamas�
 
 Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz kod yazmaya başlamadan.
 
->[!div class="step-by-step"]
-[Next](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Next](adding-controller.md)  

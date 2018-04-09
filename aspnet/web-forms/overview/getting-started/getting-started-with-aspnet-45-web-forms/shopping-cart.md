@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
-title: "Alışveriş sepeti | Microsoft Docs"
+title: Alışveriş sepeti | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>Alışveriş sepeti
 ====================
@@ -66,7 +66,7 @@ Daha önce Bu öğretici serisinde, kategori ve ürün verilerini için şemaya 
     ![Alışveriş sepeti - yeni öğe iletişim ekleyin](shopping-cart/_static/image2.png)
 3. Bu yeni sınıf adını *CartItem.cs*.
 4. **Ekle**'yi tıklatın.  
- Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
+   Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
 5. Varsayılan kodu aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ Daha önce belirtildiği gibi adlandırılmış bir işleme sayfa oluşturacak *
 #### <a name="to-create-the-add-to-cart-functionality"></a>Ekle Sepeti oluşturmak için işlevselliği:
 
 1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**proje, tıklatın **Ekle**  - &gt; **yeni öğe**.  
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Standart yeni bir sayfa (Web formu) adlı uygulamaya eklemek *AddToCart.aspx*. 
 
     ![Alışveriş sepeti - Web formu ekleyin](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ Daha önce belirtildiği gibi bir kullanıcı `ID` belirli bir kullanıcı ile i
 *ShoppingCart.aspx* sayfası kullanıcı kendi alışveriş sepetine eklenen ürünleri görüntüler. De eklemek, kaldırmak ve alışveriş sepeti öğelerde güncelleştirme olanağı sağlanır.
 
 1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**, tıklatın **Ekle**  - &gt; **yeni öğe**.  
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Ana sayfayı seçerek içeren yeni bir sayfa (Web formu) ekleyin **Web ana sayfa kullanarak Form**. Yeni sayfa adı *ShoppingCart.aspx*.
 3. Seçin **Site.Master** ana sayfa yeni oluşturulan eklemek için *.aspx* sayfası.
 4. İçinde *ShoppingCart.aspx* sayfasında, varolan biçimlendirme aşağıdaki biçimlendirme ile değiştirin:   
@@ -323,6 +323,6 @@ Alışveriş sepeti ekleme, silme ve kullanıcı için satın seçilmiş öğele
 
 [ASP.NET oturum durumuna genel bakış](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[Önceki](display_data_items_and_details.md)
-[sonraki](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [Önceki](display_data_items_and_details.md)
+> [sonraki](checkout-and-payment-with-paypal.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
-title: "Test ortamları için veritabanı rolü üyeliği dağıtma | Microsoft Docs"
+title: Test ortamları için veritabanı rolü üyeliği dağıtma | Microsoft Docs
 author: jrjlee
-description: "Bu konu, veritabanı rolleri bir test ortamı için çözüm dağıtımının bir parçası olarak kullanıcı hesaplarını eklemek açıklar. İçeren bir çözümü dağıttığınızda..."
+description: Bu konu, veritabanı rolleri bir test ortamı için çözüm dağıtımının bir parçası olarak kullanıcı hesaplarını eklemek açıklar. İçeren bir çözümü dağıttığınızda...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 226c28622f76e866fba1fc33cf9b9b7a01e5295b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4f635153213b0695d7d4b64d09adefaf8ee8e892
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a>Test ortamları için veritabanı rolü üyeliği dağıtma
 ====================
@@ -37,9 +37,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu işlem koşullu hedef ortamına bağlı gerektiğini anahtar faktördür. Bir hazırlık veya üretim ortamı dağıtıyorsanız, işlemi atlamak istiyor. Bir geliştirici dağıtıyorsunuz veya sınama ortamında, rol üyeliklerini daha fazla müdahalesi olmadan dağıtmak istediğiniz. Bu konuda, bu sorunu gidermek için kullanabileceğiniz bir yaklaşım açıklanmaktadır.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -94,7 +94,7 @@ Bu komut bir MSBuild hedef katıştırmak önce komut dosyasının çalışması
 
 - Rol üyeliklerini değiştirmeden önce hedef veritabanının mevcut olması gerekir. Bu nedenle, bu komut dosyasını çalıştırmak gereken *sonra* veritabanı dağıtımı.
 - Komut yalnızca test ortamları için yürütülebilir bir koşul içermesi gerekir.
-- Diğer bir deyişle, bir "," dağıtım & #x 2014; çalıştırıyorsanız dağıtım betikleri oluşturma ancak aslında bunları & #x 2014; çalışan SQL betiği çalıştırma döndürmemelidir.
+- "," Dağıtım çalıştırdığınız&#x2014;diğer bir deyişle, dağıtım betikleri oluşturma ancak aslında bunları çalıştırmaya varsa&#x2014;SQL betiğini çalıştırmanız gerekir.
 
 Açıklanan bölünmüş proje dosyası yaklaşım kullanıyorsanız [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), kişinin Yöneticisi örnek çözümü tarafından gösterildiği gibi bu gibi SQL betiği için yapı yönergeleri bölebilirsiniz:
 
@@ -132,6 +132,6 @@ Bu konuda bir yolu, bir veritabanı projesi dağıttığınızda, veritabanı ku
 
 Veritabanı projeleri dağıtmak için VSDBCMD kullanma hakkında daha fazla bilgi için bkz: [dağıtma veritabanı projeleri](../web-deployment-in-the-enterprise/deploying-database-projects.md). Farklı bir hedef ortamlar için veritabanı dağıtımlarını özelleştirme ile ilgili yönergeler için bkz: [veritabanı dağıtımlarını özelleştirme birden çok ortamları](customizing-database-deployments-for-multiple-environments.md). Dağıtım işlemi denetlemek için özel MSBuild proje dosyalarını kullanma hakkında daha fazla bilgi için bkz: [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md) ve [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Sqlcmd komut satırı seçenekleri hakkında daha fazla bilgi için bkz: [sqlcmd yardımcı programını](https://msdn.microsoft.com/library/ms162773.aspx).
 
->[!div class="step-by-step"]
-[Önceki](customizing-database-deployments-for-multiple-environments.md)
-[sonraki](deploying-membership-databases-to-enterprise-environments.md)
+> [!div class="step-by-step"]
+> [Önceki](customizing-database-deployments-for-multiple-environments.md)
+> [sonraki](deploying-membership-databases-to-enterprise-environments.md)

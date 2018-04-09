@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
-title: "Parametreler Web paketi dağıtım için yapılandırma | Microsoft Docs"
+title: Parametreler Web paketi dağıtım için yapılandırma | Microsoft Docs
 author: jrjlee
-description: "Bu konuda Internet Information Services (IIS) web uygulama adları, bağlantı dizeleri ve hizmet uç noktaları gibi parametre değerlerini nasıl ayarlanacağını açıklar..."
+description: Bu konuda Internet Information Services (IIS) web uygulama adları, bağlantı dizeleri ve hizmet uç noktaları gibi parametre değerlerini nasıl ayarlanacağını açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7be08f1a1fb7232911a44cf64e2e784dbb95ff48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Parametreler Web paketi dağıtım için yapılandırma
 ====================
@@ -92,7 +92,7 @@ Nasıl oluşturulacağı hakkında ayrıntılar için bir *parameters.xml* dosya
 
 ## <a name="modifying-the-setparametersxml-file"></a>SetParameters.xml dosyasını değiştirme
 
-Varsa web uygulama paketini el ile dağıtmak için plan & #x 2014; çalıştırarak ya da *. deploy.cmd* dosya veya komut satırı & #x 2014; MSDeploy.exe çalıştırarak bir şey yok, el ile düzenlemedurdurmakiçin*SetParameters.xml* dağıtımından önce dosya. Ancak, bir kurumsal ölçekte çözüm üzerinde çalışıyorsanız, daha büyük ve otomatik derleme ve dağıtım işleminin bir parçası bir web uygulaması paketi dağıtmak gerekebilir. Bu senaryoda, Microsoft Build Engine (MSBuild) değiştirmek için gereksinim duyduğunuz *SetParameters.xml* dosyayı. MSBuild kullanarak bunu yapabilirsiniz **XmlPoke** görev.
+Web uygulaması paketi el ile dağıtmak planlama&#x2014;çalıştırarak ya da *. deploy.cmd* dosya veya komut satırından MSDeploy.exe çalıştırarak&#x2014;, el ile düzenleme durdurmak için hiçbir şey  *SetParameters.xml* dağıtımından önce dosya. Ancak, bir kurumsal ölçekte çözüm üzerinde çalışıyorsanız, daha büyük ve otomatik derleme ve dağıtım işleminin bir parçası bir web uygulaması paketi dağıtmak gerekebilir. Bu senaryoda, Microsoft Build Engine (MSBuild) değiştirmek için gereksinim duyduğunuz *SetParameters.xml* dosyayı. MSBuild kullanarak bunu yapabilirsiniz **XmlPoke** görev.
 
 [Contact Manager örnek çözümü](the-contact-manager-solution.md) bu işlemi gösterilmektedir. Aşağıdaki kod örnekleri, bu örnek için ilgili ayrıntıları göstermek için düzenlendi.
 
@@ -148,6 +148,6 @@ Web paketleri oluşturma hakkında daha fazla bilgi için bkz: [bina ve paketlem
 
 Web dağıtımı içinde parametrelemeyi hakkında daha fazla genel bilgi için bkz: [Web dağıtımı parametrelemeyi eylem](https://go.microsoft.com/?linkid=9805119) (blog yayını).
 
->[!div class="step-by-step"]
-[Önceki](building-and-packaging-web-application-projects.md)
-[sonraki](deploying-web-packages.md)
+> [!div class="step-by-step"]
+> [Önceki](building-and-packaging-web-application-projects.md)
+> [sonraki](deploying-web-packages.md)

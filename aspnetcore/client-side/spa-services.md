@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanın"
+title: ASP.NET çekirdek tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanın
 author: scottaddie
-description: "Bir tek sayfa uygulaması (ASP.NET Core tarafından yedeklenen SPA) oluşturmak için JavaScriptServices kullanmanın avantajları hakkında bilgi edinin."
+description: Bir tek sayfa uygulaması (ASP.NET Core tarafından yedeklenen SPA) oluşturmak için JavaScriptServices kullanmanın avantajları hakkında bilgi edinin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET çekirdek tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanın
 
@@ -62,7 +62,7 @@ Toplu olarak, bu altyapı bileşenlerini geliştirme iş akışı ve çalışma 
 
 SpaServices ile çalışmak için aşağıdaki yükleyin:
 * [Node.js](https://nodejs.org/) (sürüm 6 veya sonrası) npm ile
-    * Bu bileşenlerin yüklü olduğundan ve bulunabilir doğrulamak için aşağıdaki komut satırından çalıştırın:
+  * Bu bileşenlerin yüklü olduğundan ve bulunabilir doğrulamak için aşağıdaki komut satırından çalıştırın:
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ SpaServices ile çalışmak için aşağıdaki yükleyin:
 
 Not: bir Azure web sitesine dağıtıyorsanız, burada bir şey yapmanız gerekmez &mdash; Node.js yüklü olduğundan ve sunucu ortamlarında kullanılabilir.
 
-* [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (veya üstü)
-    * Windows üzerinde değilseniz, bu Visual Studio 2017'ın seçerek yüklenebilir **.NET Core platformlar arası geliştirme** iş yükü.
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * Visual Studio 2017 kullanarak Windows üzerinde değilseniz, SDK'yı seçerek yüklü **.NET Core platformlar arası geliştirme** iş yükü.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) NuGet paketi
 
@@ -262,7 +263,7 @@ dotnet new angular
     * Kaynak eşlemeleri dışlar.
     * İstemci tarafı kodu paketleme ve küçültme aracılığıyla en iyi duruma getirir.
 
-ASP.NET Core adlı bir ortam değişkeni kullanır `ASPNETCORE_ENVIRONMENT` yapılandırma modu depolamak için. Bkz:  **[ortamını](xref:fundamentals/environments#setting-the-environment)**  daha fazla bilgi için.
+ASP.NET Core adlı bir ortam değişkeni kullanır `ASPNETCORE_ENVIRONMENT` yapılandırma modu depolamak için. Bkz: **[ortamını](xref:fundamentals/environments#setting-the-environment)** daha fazla bilgi için.
 
 ### <a name="running-with-net-core-cli"></a>.NET Core CLI ile çalıştırma
 

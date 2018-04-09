@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
-title: "ASP.NET MVC 4 modelleri ve veri erişimi | Microsoft Docs"
+title: ASP.NET MVC 4 modelleri ve veri erişimi | Microsoft Docs
 author: rick-anderson
-description: "Not: Bu uygulamalı Laboratuvar ASP.NET MVC temel bilgiye sahip olduğunu varsayar. ASP.NET MVC önce kullanmadıysanız, ASP.NET MVC 4 gitmenizi öneririz..."
+description: 'Not: Bu uygulamalı Laboratuvar ASP.NET MVC temel bilgiye sahip olduğunu varsayar. ASP.NET MVC önce kullanmadıysanız, ASP.NET MVC 4 gitmenizi öneririz...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
 
@@ -112,12 +112,12 @@ Bu görevde, çözüme MusicStore uygulamasının ana tablolarla önceden oluşt
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-AddingADatabaseDBFirst/başlangıç/** klasörü.
 
-    1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Ekleme **MvcMusicStore** veritabanı dosyası. Bu uygulamalı laboratuar ortamında adlı bir veritabanı zaten oluşturuldu kullanacağı **MvcMusicStore.mdf**. Bunu yapmak için sağ **uygulama\_veri** klasörünü **Ekle** ve ardından **varolan öğeyi**. Gözat **\Source\Assets** seçip **MvcMusicStore.mdf** dosya.
 
     ![Var olan bir öğe ekleme](aspnet-mvc-4-models-and-data-access/_static/image2.png "var olan bir öğe ekleme")
@@ -186,8 +186,8 @@ Bu görevde, önceki görevde eklenen veritabanıyla etkileşim kurmak için bir
 
     *Varlık diyagramı*
 
-> [!NOTE]
-> T4 şablonları (.tt) varlıklar sınıfları oluşturmak için kodu çalıştırın ve aynı ada sahip mevcut sınıflarını üzerine yazar. Bu örnekte, sınıfları &quot;albüm&quot;, &quot;Tarz&quot; ve &quot;sanatçı&quot; ile oluşturulan kodun verilerinin üzerine yazıldı.
+    > [!NOTE]
+    > T4 şablonları (.tt) varlıklar sınıfları oluşturmak için kodu çalıştırın ve aynı ada sahip mevcut sınıflarını üzerine yazar. Bu örnekte, sınıfları &quot;albüm&quot;, &quot;Tarz&quot; ve &quot;sanatçı&quot; ile oluşturulan kodun verilerinin üzerine yazıldı.
 
 
 <a id="Ex1Task3"></a>
@@ -225,30 +225,38 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, bu bilgileri almak iç
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
+~~~
 2. **MusicStoreEntities** sınıfı veritabanındaki her tablo için bir koleksiyon özelliği sunar. Güncelleştirme **Gözat** bir tarzını tüm almak için eylem yöntemini **albümleri**.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu Gözat*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
 
-    > [!NOTE]
-    > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
-    > 
-    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+~~~
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu dizini*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
+~~~
 4. Güncelleştirme **dizin** tüm türler almak ve bir liste koleksiyona dönüştürmek için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu GenreMenu*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
+~~~
 
 <a id="Ex1Task5"></a>
 
@@ -291,12 +299,12 @@ Kod ilk kullanılarak başlangışta oluşturulduğunda bu görevde, veritabanı
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-CreatingADatabaseCodeFirst/başlangıç/** klasörü. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Ekleme **SampleData.cs** dosya **modelleri** klasör. Bunu yapmak için sağ **modelleri** klasörünü **Ekle** ve ardından **varolan öğeyi**. Gözat **\Source\Assets** seçip **SampleData.cs** dosya.
 
     ![Örnek verileri doldurmak kod](aspnet-mvc-4-models-and-data-access/_static/image18.png "örnek verileri doldurmak kodu")
@@ -307,13 +315,17 @@ Kod ilk kullanılarak başlangışta oluşturulduğunda bu görevde, veritabanı
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 genel Asax kullanımları*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
+~~~
 4. İçinde **uygulama\_Start()** yöntemi veritabanı Başlatıcısı ayarlamak için aşağıdaki satırı ekleyin.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 genel Asax SetInitializer*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
+~~~
 
 <a id="Ex2Task2"></a>
 
@@ -322,14 +334,16 @@ Kod ilk kullanılarak başlangışta oluşturulduğunda bu görevde, veritabanı
 
 Projemizin için bir veritabanı zaten eklenmiş, yazacağınız **Web.config** bağlantı dizesi dosya.
 
-1. Konumunda bir bağlantı dizesi eklemek **Web.config**. Bunu yapmak için açık **Web.config** proje kök ve bağlantı dizesi bu satırda ile DefaultConnection adlı Değiştir  **&lt;connectionStrings&gt;**  bölümü:
+1. Konumunda bir bağlantı dizesi eklemek **Web.config**. Bunu yapmak için açık **Web.config** proje kök ve bağlantı dizesi bu satırda ile DefaultConnection adlı Değiştir **&lt;connectionStrings&gt;** bölümü:
 
     ![Web.config dosyası konumu](aspnet-mvc-4-models-and-data-access/_static/image19.png "Web.config dosyası konumu")
 
     *Web.config dosyası konumu*
 
 
-    [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
+[!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
+~~~
 
 <a id="Ex2Task3"></a>
 
@@ -338,7 +352,7 @@ Projemizin için bir veritabanı zaten eklenmiş, yazacağınız **Web.config** 
 
 Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablolarını modeliyle bağlayacaksınız. Bu görevde, Code First olan veritabanına bağlı bir sınıf oluşturur. Değiştirilmesi gereken mevcut bir POCO model sınıfı olduğunu unutmayın.
 
-> [!NOTE]
+   > [!NOTE]
 > Alıştırma 1 tamamladıysa, bu adım sihirbaz tarafından gerçekleştirildi Not. Code First yaparak, veri varlıklarına bağlı sınıfları el ile oluşturur.
 
 
@@ -347,24 +361,30 @@ Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablo
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk Tarz*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
 
-    > [!NOTE]
-    > Code First kuralları ile çalışmak için Tarz sınıfı otomatik olarak algılanır bir birincil anahtar özelliği olması gerekir.
-    > 
-    > Daha fazla bilgiyi bu kod ilk kuralları hakkında [msdn makalesine](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+> [!NOTE]
+> To work with Code First conventions, the class Genre must have a primary key property that will be automatically detected.
+> 
+> You can read more about Code First Conventions in this [msdn article](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
+~~~
 2. Şimdi, POCO model sınıfı açmak **albüm** gelen **modelleri** proje klasörünü ve yabancı anahtarlar dahil, adlarıyla özellikleri oluşturma **GenreId** ve  **ArtistId**. Bu sınıf zaten **GenreId** birincil anahtar.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk albüm*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
+~~~
 3. POCO model sınıfı açmak **sanatçı** ve dahil **ArtistId** özelliği.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk sanatçı*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
+~~~
 4. Sağ **modelleri** proje klasörünü ve select **Ekle | Sınıf**. Dosya adı **MusicStoreEntities.cs**. Ardından **Ekle.**
 
     ![Sınıf ekleme](aspnet-mvc-4-models-and-data-access/_static/image20.png "sınıf ekleme")
@@ -377,16 +397,20 @@ Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablo
 5. Az önce oluşturduğunuz, sınıfın açık **MusicStoreEntities.cs**ve ad alanlarını dahil **System.Data.Entity** ve **System.Data.Entity.Infrastructure**.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
+~~~
 6. Genişletmek için sınıf bildirimi Değiştir **DbContext** sınıfı: Genel bildirme **DBSet** ve geçersiz kılma **OnModelCreating** yöntemi. Bu adımdan sonra modelinizi Entity Framework bağlayacak bir etki alanı sınıf alırsınız. Bunu yapmak için sınıf kodu aşağıdakilerle değiştirin:
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk MusicStoreEntities*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
-    > [!NOTE]
-    > Entity Framework **DbContext** ve **DBSet** POCO sınıfı Tarz sorgu kuramaz. Genişletme tarafından **OnModelCreating** yöntemi, belirtmenin **kod** tarzı bir veritabanı tablosuna nasıl eşleşecektir. Bu msdn makalesinde DBContext ve DBSet hakkında daha fazla bilgi bulabilirsiniz: [bağlantı](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+> [!NOTE]
+> With Entity Framework **DbContext** and **DBSet** you will be able to query the POCO class Genre. By extending **OnModelCreating** method, you are specifying in the **code** how Genre will be mapped to a database table. You can find more information about DBContext and DBSet in this msdn article: [link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
+~~~
 
 <a id="Ex2Task4"></a>
 
@@ -406,30 +430,38 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, onu veritabanından al
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 storeDB*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
+~~~
 2. **MusicStoreEntities** sınıfı veritabanındaki her tablo için bir koleksiyon özelliği sunar. Güncelleştirme **Gözat** bir tarzını tüm almak için eylem yöntemini **albümleri**.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu Gözat*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
 
-    > [!NOTE]
-    > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
-    > 
-    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+> [!NOTE]
+> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> 
+> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
+~~~
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu dizini*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
+~~~
 4. Güncelleştirme **dizin** tüm türler almak ve bir liste koleksiyona dönüştürmek için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu GenreMenu*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
+~~~
 
 <a id="Ex2Task5"></a>
 
@@ -470,26 +502,28 @@ Bu görevde, değişiklik yapacağınız **StoreController** belirli bir tarzın
 
 1. Açık **başlamak** çözüm bulunan **Source\Ex3 QueryingTheDatabaseWithParametersCodeFirst\Begin** ilk kod yaklaşımı kullanmak istiyorsanız, klasör veya **Source\ Ex3 QueryingTheDatabaseWithParametersDBFirst\Begin** veritabanı ilk yaklaşımı kullanmak istiyorsanız, klasör. Aksi takdirde kullanarak devam edebilir **son** çözüm elde önceki alıştırmada tamamlayarak.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **StoreController** değiştirmek için sınıf **Gözat** eylem yöntemi. Bunu yapmak için **Çözüm Gezgini**, genişletin **denetleyicileri** klasörü ve çift **StoreController.cs**.
 3. Değişiklik **Gözat** belirli bir tarzını albümleri almak için eylem yöntemi. Bunu yapmak için aşağıdaki kodu değiştirin:
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex3 StoreController BrowseMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
 
-    > [!NOTE]
-    > Varlık koleksiyonu doldurmak için kullanmanız gerekir **INCLUDE** yöntemi albümleri çok almak istediğiniz belirtin. Kullanabilirsiniz. **Single()** uzantısı LINQ bu durumda bir albüm için yalnızca bir tarzını beklendiğinden. **Single()** yöntemi bir Lambda ifadesi tanımlanan değer adıyla eşleşen şekilde, bu durumda tek bir tarzını nesne belirten bir parametre olarak alır.
-    > 
-    > Tarz nesnesi alınırken de yüklenen istediğiniz diğer ilgili varlıklar belirtmenize olanak sağlayan bir özelliği avantajlarından yararlanmak. Bu özellik adında **sorgu sonucu şekillendirme**ve bilgi almak için veritabanına erişmek için gerekli sayısını azaltmanızı sağlar. Bu senaryoda, Albümler aldığınız Tarz için önceden getirme isteyeceksiniz.
-    > 
-    > Sorgu içeren **Genres.Include (&quot;albümleri&quot;)** ilgili Albümler istediğinizi belirtmek için. Tek veritabanı isteği tarz ve albüm verilerde alacak beri bu daha verimli bir uygulamayla sonuçlanır.
+> [!NOTE]
+> To populate a collection of the entity, you need to use the **Include** method to specify you want to retrieve the albums too. You can use the .**Single()** extension in LINQ because in this case only one genre is expected for an album. The **Single()** method takes a Lambda expression as a parameter, which in this case specifies a single Genre object such that its name matches the value defined.
+> 
+> You will take advantage of a feature that allows you to indicate other related entities you want loaded as well when the Genre object is retrieved. This feature is called **Query Result Shaping**, and enables you to reduce the number of times needed to access the database to retrieve information. In this scenario, you will want to pre-fetch the Albums for the Genre you retrieve.
+> 
+> The query includes **Genres.Include(&quot;Albums&quot;)** to indicate that you want related albums as well. This will result in a more efficient application, since it will retrieve both Genre and Album data in a single database request.
+~~~
 
 <a id="Ex3Task2"></a>
 
@@ -518,7 +552,9 @@ Bu görevde, Albümler kimliklerine göre almak için önceki yordamı tekrar ed
     (Kod parçacığını - *modelleri ve veri erişimi - Ex3 StoreController DetailsMethod*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
+~~~
 
 <a id="Ex3Task4"></a>
 
@@ -558,9 +594,9 @@ ASP.NET MVC modelleri ve veri erişimi temelleri öğrenilen Bu uygulamalı Labo
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -704,14 +740,14 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-    - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-    - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-    - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
-    - Yeni bir veritabanı adı yazın.
+   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
+   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
+   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - Yeni bir veritabanı adı yazın.
 
-    ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-models-and-data-access/_static/image47.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](aspnet-mvc-4-models-and-data-access/_static/image47.png "hedef bağlantı dizesi yapılandırma")
 
-    *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesi yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](aspnet-mvc-4-models-and-data-access/_static/image48.png "veritabanı dizesi oluşturma")

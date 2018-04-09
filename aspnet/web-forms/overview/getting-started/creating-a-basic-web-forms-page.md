@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: "4.5 Web sayfası Visual Studio 2013'te Forms temel ASP.NET oluşturma | Microsoft Docs"
+title: 4.5 Web sayfası Visual Studio 2013'te Forms temel ASP.NET oluşturma | Microsoft Docs
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0dbd3063c9be3564637fad34e60f62c1662dcc07
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>4.5 Web sayfası Visual Studio 2013'te Forms temel ASP.NET oluşturma
 ====================
@@ -201,8 +201,8 @@ Visual Studio sayfadaki denetimlerin özelliklerini ayarlamak için çeşitli yo
 
     > [!NOTE] 
     > 
-    > Tüm denetimler içinde olduğunda bir **form** de özniteliğine sahip öğe **runat =&quot;server&quot;**. **Runat =&quot;server&quot;**  özniteliği ve **asp:** sayfa çalıştığında ASP.NET tarafından sunucuda işlenene denetimleri denetimi etiketleri işaretlemek için önek. Dışında kod  **&lt;runat form =&quot;server&quot; &gt;**  ve  **&lt;runat komut =&quot;server&quot; &gt;**  öğeleri yüzden ASP.NET kodu, açılış etiketinde bir öğesiyle iç olmalıdır tarayıcısına değişmeden gönderilir **runat =&quot;server&quot;**  özniteliği.
-4. Sonra ek bir özellik için ekleyeceksiniz [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetim. Ekleme noktasını sonra doğrudan put **asp: Label** içinde  **&lt;asp: Label&gt;**  etiketi ve tuşuna basarak **boşluk**.
+    > Tüm denetimler içinde olduğunda bir **form** de özniteliğine sahip öğe **runat =&quot;server&quot;**. **Runat =&quot;server&quot;**  özniteliği ve **asp:** sayfa çalıştığında ASP.NET tarafından sunucuda işlenene denetimleri denetimi etiketleri işaretlemek için önek. Dışında kod **&lt;runat form =&quot;server&quot; &gt;** ve **&lt;runat komut =&quot;server&quot; &gt;** öğeleri yüzden ASP.NET kodu, açılış etiketinde bir öğesiyle iç olmalıdır tarayıcısına değişmeden gönderilir **runat =&quot;server&quot;**  özniteliği.
+4. Sonra ek bir özellik için ekleyeceksiniz [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetim. Ekleme noktasını sonra doğrudan put **asp: Label** içinde **&lt;asp: Label&gt;** etiketi ve tuşuna basarak **boşluk**.
 
     Aşağı açılan liste için ayarlayabileceğiniz kullanılabilir özelliklerin listesi görüntüleyen görünür bir [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetim. Bu özellik denir **IntelliSense**, size yardımcı **kaynak** sayfasında sunucu denetimleri, HTML öğeleri ve diğer öğeleri sözdizimiyle görünümü. Aşağıdaki çizimde gösterildiği **IntelliSense** için aşağı açılan listesi [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetim.
 
@@ -214,7 +214,7 @@ Visual Studio sayfadaki denetimlerin özelliklerini ayarlamak için çeşitli yo
     > [!NOTE] 
     > 
     > Görüntüleyebileceğiniz bir **IntelliSense** aşağı açılan liste basarak istediğiniz zaman **CTRL + J** kod görüntülerken.
-6. İçin renk seçme  **[etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)**  denetimin metin. Beyaz bir arka plan karşı okumak için koyu bir renk seçtiğinizden emin olun.
+6. İçin renk seçme **[etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx)** denetimin metin. Beyaz bir arka plan karşı okumak için koyu bir renk seçtiğinizden emin olun.
 
     **ForeColor** özniteliği, kapanış tırnak işareti de dahil olmak üzere, seçtiğiniz renkle tamamlandı.
 
@@ -231,7 +231,7 @@ Bu kılavuz için kullanıcı metin kutusuna girer ve adını görüntüler adı
 2. Çift [düğmesini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetim.
 
     Varsayılan olarak, Visual Studio bir arka plan kod dosyasına geçer ve bir iskelet olay işleyicisi oluşturur [düğmesini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimin varsayılan olayı [tıklatın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay. Arka plan kod dosyası, kullanıcı Arabirimi biçimlendirmeyi (HTML) (örneğin, C# ' ta) sunucu kodunuzdan ayırır.   
-İmleç eklenen için bu olay işleyicisi için kod konumlandırıldı.
+   İmleç eklenen için bu olay işleyicisi için kod konumlandırıldı.
 
     > [!NOTE] 
     > 
@@ -247,7 +247,7 @@ Bu kılavuz için kullanıcı metin kutusuna girer ve adını görüntüler adı
 
     [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample2.vb?highlight=2)]
 5. Geçiş geri görüntülemeye **kaynak** sağ tıklanarak, HTML biçimlendirmesi görünümünü *FirstWebPage.aspx* içinde **Çözüm Gezgini** ve seçerek **görünümü Biçimlendirme**.
-6. Kaydırma  **&lt;asp: düğme&gt;**  öğesi. Unutmayın  **&lt;asp: düğme&gt;**  öğesi öznitelik şimdi sahip **onclick =&quot;Button1\_tıklatın&quot;**.
+6. Kaydırma **&lt;asp: düğme&gt;** öğesi. Unutmayın **&lt;asp: düğme&gt;** öğesi öznitelik şimdi sahip **onclick =&quot;Button1\_tıklatın&quot;**.
 
     Bu öznitelik düğmenin bağlar [tıklatın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) önceki adımda kodlanmış işleyici yöntemine olay.
 
@@ -268,7 +268,7 @@ Sunucu denetimleri sayfasında artık test edebilirsiniz.
     Girdiğiniz ad [etiket](https://msdn.microsoft.com/library/system.web.ui.webcontrols.label.aspx) denetim. Düğmeye tıkladığınızda, sayfa Web sunucusuna gönderilen unutmayın. Ardından ASP.NET sayfası yeniden oluşturur, kodunuzun çalıştığı (Bu durumda, [düğmesini](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) denetimin [tıklatın](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) olay işleyicisi çalışır) ve ardından yeni sayfa tarayıcıya gönderir. Durum çubuğu tarayıcıda izlemek, sayfasının düğmesini her zaman Web sunucusuna gidiş dönüş yapıyor görebilirsiniz.
 3. Sayfada sağ tıklayıp seçerek çalışırken sayfa kaynağını tarayıcıda görüntülemek **kaynağı görüntüle**.
 
-    Sayfa kaynak kodu, hiçbir sunucu kodu olmadan HTML görürsünüz. Özellikle, görmezseniz  **&lt;asp:&gt;**  ile çalışmakta olan öğeleri **kaynak** görünümü. Sayfa çalıştığında, ASP.NET sunucu denetimleri işler ve denetimi temsil eden işlevleri gerçekleştirmek HTML öğeleri sayfaya işler. Örneğin,  **&lt;asp: düğme&gt;**  denetim HTML olarak işlenen  **&lt;giriş türü =&quot;gönderme&quot; &gt;**  öğesi.
+    Sayfa kaynak kodu, hiçbir sunucu kodu olmadan HTML görürsünüz. Özellikle, görmezseniz **&lt;asp:&gt;** ile çalışmakta olan öğeleri **kaynak** görünümü. Sayfa çalıştığında, ASP.NET sunucu denetimleri işler ve denetimi temsil eden işlevleri gerçekleştirmek HTML öğeleri sayfaya işler. Örneğin, **&lt;asp: düğme&gt;** denetim HTML olarak işlenen **&lt;giriş türü =&quot;gönderme&quot; &gt;** öğesi.
 4. Tarayıcıyı kapatın.
 
 
@@ -297,7 +297,7 @@ Bu bölümde, ekleyeceksiniz bir [System.Web.UI.WebControls.Calendar](https://ms
 4. Gelen **bir düzen seçin** listesinde, seçin **basit** ve ardından **Tamam**.
 5. Geçiş **kaynak** görünümü.
 
-    Gördüğünüz  **&lt;asp: Takvim&gt;**  öğesi. Bu öğe daha önce oluşturduğunuz basit denetimler için öğeleri daha çok uzun. Ayrıca, alt öğeleri gibi içerir  **&lt;WeekEndDayStyle&gt;**, çeşitli biçimlendirme ayarları temsil eder. Aşağıdaki çizimde gösterildiği [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetim **kaynak** görünümü. (Gördüğünüz tam biçimlendirme **kaynak** görünüm farklı biraz gösterimden.)
+    Gördüğünüz **&lt;asp: Takvim&gt;** öğesi. Bu öğe daha önce oluşturduğunuz basit denetimler için öğeleri daha çok uzun. Ayrıca, alt öğeleri gibi içerir  **&lt;WeekEndDayStyle&gt;**, çeşitli biçimlendirme ayarları temsil eder. Aşağıdaki çizimde gösterildiği [Takvim](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.aspx) denetim **kaynak** görünümü. (Gördüğünüz tam biçimlendirme **kaynak** görünüm farklı biraz gösterimden.)
 
     ![Takvim denetimi kaynak görünümünde](creating-a-basic-web-forms-page/_static/image15.png "Takvim denetimi kaynak görünümünde")
 
@@ -316,10 +316,12 @@ Bu bölümde, programlayacaksınız [Takvim](https://msdn.microsoft.com/library/
 2. Son [SelectionChanged](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selectionchanged.aspx) aşağıdaki kod ile olay işleyicisi.
 
 
-    [!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
+~~~
+[!code-csharp[Main](creating-a-basic-web-forms-page/samples/sample3.cs?highlight=3)]
 
 
-    [!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+[!code-vb[Main](creating-a-basic-web-forms-page/samples/sample4.vb?highlight=2)]
+~~~
 
  Yukarıdaki kod etiket denetimi metin Takvim denetimi seçili tarihini ayarlar.
 

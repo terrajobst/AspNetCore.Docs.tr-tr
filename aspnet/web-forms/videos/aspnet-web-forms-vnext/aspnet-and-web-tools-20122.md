@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
-title: "ASP.NET ve Web Araçları 2012.2 | Microsoft Docs"
+title: ASP.NET ve Web Araçları 2012.2 | Microsoft Docs
 author: jongalloway
-description: "Yeni ASP.NET ve Web Araçları 2012.2 sürümünü karşılayan! Bu sürüm yığını proje şablonları, web araçları ve daha fazlası da dahil olmak üzere müthiş yeni özellikler içerir. Jo..."
+description: Yeni ASP.NET ve Web Araçları 2012.2 sürümünü karşılayan! Bu sürüm yığını proje şablonları, web araçları ve daha fazlası da dahil olmak üzere müthiş yeni özellikler içerir. Jo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
 msc.type: video
-ms.openlocfilehash: f4959a2c18480b17ff245334569fef8752e98088
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 572b948ac869b4391d7c486d603146bf1f1812c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-20122"></a>ASP.NET ve Web Araçları 2012.2
 ====================
@@ -24,7 +24,7 @@ tarafından [Jon Galloway](https://github.com/jongalloway)
 
 Yeni ASP.NET ve Web Araçları 2012.2 sürümünü karşılayan! Bu sürüm yığını proje şablonları, web araçları ve daha fazlası da dahil olmak üzere müthiş yeni özellikler içerir. Müşterinizle tüm üst yeni özelliklerden bir yarım saat altında kapalı gösterildiği gibi Jon Galloway katılın!
 
-[&#9654; (26 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-web-tools-20122)
+[&#9654;(26 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-web-tools-20122)
 
->[!div class="step-by-step"]
-[Önceki](getting-started-with-the-next-version-of-aspnet.md)
+> [!div class="step-by-step"]
+> [Önceki](getting-started-with-the-next-version-of-aspnet.md)

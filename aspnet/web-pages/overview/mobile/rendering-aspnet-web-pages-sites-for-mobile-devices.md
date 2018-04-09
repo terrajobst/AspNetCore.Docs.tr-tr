@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
-title: "Mobil cihazlar için sayfaları (Razor) siteleri ASP.NET Web işleme | Microsoft Docs"
+title: Mobil cihazlar için sayfaları (Razor) siteleri ASP.NET Web işleme | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, mobil cihazlarda uygun şekilde kılacak bir ASP.NET Web sayfaları (Razor) sitesinde sayfaları oluşturmayı açıklar. Öğrenecekleriniz: size nasıl..."
+description: 'Bu makalede, mobil cihazlarda uygun şekilde kılacak bir ASP.NET Web sayfaları (Razor) sitesinde sayfaları oluşturmayı açıklar. Öğrenecekleriniz: size nasıl...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: 899bbdef82d689be81cd77ea6805e0484fb614aa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 641798c5b835be959d02dd0d854b61ca21d83016
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Mobil cihazlar için ASP.NET Web sayfaları (Razor) siteleri oluşturma
 ====================
@@ -40,7 +40,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 ASP.NET Web sayfaları, cep telefonu numarası veya diğer cihazları işleme içerik için özel görüntüler oluşturmanıza olanak sağlar.
 
-Böyle bir dosya adlandırma deseni kullanarak bir ASP.NET Web Pages sitesinde aygıta özgü sayfası oluşturmak için en basit yolu olan: *FileName. **Mobil**.cshtml*. Sayfanın iki farklı sürümlerini oluşturabilirsiniz (örneğin, bir adlı *MyFile.cshtml* ve adlı bir *MyFile.Mobile.cshtml*). Çalışma zamanında, bir mobil cihaz isteğinde bulunduğunda *MyFile.cshtml*, ASP.NET işler içerikten *MyFile.Mobile.cshtml*. Aksi takdirde, *MyFile.cshtml* işlenir.
+Böyle bir dosya adlandırma deseni kullanarak bir ASP.NET Web Pages sitesinde aygıta özgü sayfası oluşturmak için en basit yolu olan: <em>FileName.</em> <em>Mobil</em><em>.cshtml</em>. Sayfanın iki farklı sürümlerini oluşturabilirsiniz (örneğin, bir adlı <em>MyFile.cshtml</em> ve adlı bir <em>MyFile.Mobile.cshtml</em>). Çalışma zamanında, bir mobil cihaz isteğinde bulunduğunda <em>MyFile.cshtml</em>, ASP.NET işler içerikten <em>MyFile.Mobile.cshtml</em>. Aksi takdirde, <em>MyFile.cshtml</em> işlenir.
 
 Aşağıdaki örnek, mobil cihazlar için bir içerik sayfasını ekleyerek mobil işleme etkinleştirmek gösterilmiştir. *Page1.cshtml* içerik ek olarak bir gezinti Kenar Çubuğu'nu içerir. *Page1.Mobile.cshtml* aynı içerik içeriyor, ancak kenar atlar.
 

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/readme/beta3
-title: "Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku | Microsoft Docs"
+title: Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku | Microsoft Docs
 author: rick-anderson
-description: "Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku dosyası"
+description: Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku dosyası
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/10/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme/beta3
 msc.type: content
-ms.openlocfilehash: def2f4b3e54c8de539e10c1b526a1dababeca8fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5ef7a6f44758cf94fc19d6fbab3cc4b7bce8e8e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-matrix-and-aspnet-web-pages-razor-beta-3-release-readme"></a>Web Matrix ve ASP.NET Web sayfaları (Razor) Beta 3 Sürüm Benioku dosyası
 ====================
@@ -283,9 +283,9 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 > .NET Framework sürüm 4 kaldırın ve yeniden yükleyin, Razor sözdizimi ile ASP.NET Web sayfaları devre dışı bırakılır. İle sayfaları *.cshtml* uzantısı düzgün çalışmaz. ASP.NET Web sayfaları kaydeder bütünleştirilmiş makine kök dizininde *Web.config* dosyasını ve .NET Framework kaldırma bu dosyayı kaldırır. .NET Framework yeniden yapılandırma dosyasını yeni bir sürümünü yükler, ancak başvuru için ASP.NET Web sayfaları derlemesi eklemez.
 > 
 > **Geçici çözüm** .NET Framework yeniden yükledikten sonra Razor sözdizimi ile ASP.NET Web sayfaları yeniden yükleyin. Bu şu öğeye ekler *Web.config* genellikle şu konumdadır makine kök dosyasında:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
 > [!code-xml[Main](beta3/samples/sample6.xml)]
@@ -302,9 +302,9 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: IIS 7 veya IIS 7.5.cshtml/.vbhtml dosyaları uzantısız URL'leri bulamazsanız
 
 > IIS 7 veya IIS 7.5, aşağıdaki gibi bir URL ile istekleri sahip sayfalar bulamıyor olmayan *.cshtml* veya *.vbhtml* uzantısı:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > URL yeniden yazma işlemi varsayılan olarak IIS 7 veya IIS 7.5 için etkinleştirilmediğinden sorun ortaya çıkar. Denetçilerinde IIS Express kullanarak yerel olarak test ederken sorun görmezsiniz, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi senaryodur.
 > 
 > **Geçici çözüm**
@@ -344,7 +344,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 >     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\** **için** *\Bin\x86*
 >     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **için** *\Bin\amd64*
 > 2. Web sitesinin kök klasöründe oluşturun veya açın bir *Web.config* dosya. (WebMatrix Beta 3'te, bu dosya türü tıklatırsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
-> 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin  **&lt;yapılandırma&gt;**  öğesi (içinde değil  **&lt;system.web&gt;**  öğesi):
+> 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin **&lt;yapılandırma&gt;** öğesi (içinde değil **&lt;system.web&gt;** öğesi):
 > 
 > 
 > [!code-xml[Main](beta3/samples/sample10.xml)]
@@ -366,21 +366,21 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 > 
 > **Geçici çözüm**  
 > Kullanım `Encryption Mode` özelliği `SqlCeConnection` SQL Server Compact 4.0 veritabanı dosyaları şifrelemek için sınıf. Aşağıdaki örnek şifrelenmiş bir SQL Server Compact 4.0 veritabanı kullanarak oluşturulacağını gösterir `Encryption Mode` özelliği:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample11.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample12.vb)]
 > 
 > Var olan bir SQL Server Compact 4.0 veritabanı şifreleme modunu değiştirmek için aşağıdakileri yapın:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample13.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample14.vb)]
 > 
 > Şifrelenmemiş bir SQL Server Compact 4.0 veritabanı şifrelemek için aşağıdakileri yapın:
->  
+> 
 > [!code-csharp[Main](beta3/samples/sample15.cs)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample16.vb)]
 
 
@@ -537,7 +537,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi olan
 > Parametre veri türü gibi açık olarak ayarlanıp `SqlDbType` veya `DbType`. Bu BLOB veri türleri söz konusu olduğunda önemlidir (`image` ve `ntext`). Aşağıdaki gibi bir kod kullanın:
 > 
 > [!code-sql[Main](beta3/samples/sample20.sql)]
->  
+> 
 > [!code-vb[Main](beta3/samples/sample21.vb)]
 
 

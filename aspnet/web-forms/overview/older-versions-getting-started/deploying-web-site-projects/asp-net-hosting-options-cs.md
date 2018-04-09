@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
-title: "ASP.NET seçenekleri (C#) barındırma | Microsoft Docs"
+title: ASP.NET seçenekleri (C#) barındırma | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor..."
+description: ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34e1f9c7ee1ae22bceb614eeeaa1ebe286c1ccad
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f8bb0e5a34d84d448af56285e8761c447229f7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-c"></a>ASP.NET barındırma seçenekleri (C#)
 ====================
@@ -95,5 +95,5 @@ Mutluluk programlama!
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Teresa Murphy oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Next](determining-what-files-need-to-be-deployed-cs.md)
+> [!div class="step-by-step"]
+> [Next](determining-what-files-need-to-be-deployed-cs.md)

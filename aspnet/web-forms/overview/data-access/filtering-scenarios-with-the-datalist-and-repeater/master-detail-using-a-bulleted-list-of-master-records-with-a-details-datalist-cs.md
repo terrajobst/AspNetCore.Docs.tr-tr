@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
-title: "Madde işaretli ana kayıtların listesini ayrıntıları DataList ile (C#) kullanarak ana/ayrıntı | Microsoft Docs"
+title: Madde işaretli ana kayıtların listesini ayrıntıları DataList ile (C#) kullanarak ana/ayrıntı | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide şu iki sayfalık ana/ayrıntı raporu önceki öğreticinin tek bir sayfada, t madde işaretli kategori adları listesini gösteren Sıkıştır..."
+description: Bu öğreticide şu iki sayfalık ana/ayrıntı raporu önceki öğreticinin tek bir sayfada, t madde işaretli kategori adları listesini gösteren Sıkıştır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cb943941ea4dbfbdc9230df4598ad406d4dee0b6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c041c352c379dc1d3c0f13013e7e323faa500912
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>Madde işaretli ana kayıtların listesini ayrıntıları DataList ile (C#) kullanarak ana/ayrıntı
 ====================
@@ -74,7 +74,7 @@ CSS sınıfı ekleme ve biçimlendirme yapılandırma sonra `CategoriesAndProduc
 
 İşaretleme tam çevreleyen Yineleyici ve DataList s ile biz yineleyici kategori veri bağlamak için hazır re kontrol eder. Madde işaretli kategori listesi, Şekil 1'de gösterildiği gibi ancak, her kategori s adı yanı sıra biz de kategoriyle ilişkili ürünlerin sayısını görüntülemek gerekir. Bu bilgilere erişmek için şu şunlardan birini yapabilirsiniz:
 
-- **ASP.NET sayfası s arka plandaki kod sınıfı bu bilgiyi belirler.** Belirli bir verilen  *`categoryID`*  çağırarak biz ilişkili ürünlerin sayısını belirleyebilirsiniz `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Bu yöntem bir `ProductsDataTable` nesnesindeki `Count` özelliği gösterir kaç `ProductsRow` s olduğunu, hangi ürünler için belirtilen sayısıdır  *`categoryID`* . Oluşturabiliriz bir `ItemDataBound` , yineleyici için bağlı her kategori için çağıran yineleyici için olay işleyicisini `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ve çıktıda sayımına içerir.
+- **ASP.NET sayfası s arka plandaki kod sınıfı bu bilgiyi belirler.** Belirli bir verilen *`categoryID`* çağırarak biz ilişkili ürünlerin sayısını belirleyebilirsiniz `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi. Bu yöntem bir `ProductsDataTable` nesnesindeki `Count` özelliği gösterir kaç `ProductsRow` s olduğunu, hangi ürünler için belirtilen sayısıdır *`categoryID`*. Oluşturabiliriz bir `ItemDataBound` , yineleyici için bağlı her kategori için çağıran yineleyici için olay işleyicisini `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yöntemi ve çıktıda sayımına içerir.
 - **Güncelleştirme `CategoriesDataTable` dahil etmek için yazılan kümesindeki bir `NumberOfProducts` sütun.** Biz sonra güncelleştirebilirsiniz `GetCategories()` yönteminde `CategoriesDataTable` bu bilgiyi içer veya alternatif olarak, bırakın için `GetCategories()` olarak-ise ve yeni bir `CategoriesDataTable` adlı bir yöntem `GetCategoriesAndNumberOfProducts()`.
 
 Bu teknikler her ikisi de keşfedin s olanak tanır. İlk yaklaşım, biz t veri erişim katmanı güncelleştirme gerek güncelleştireceğinizi bu yana uygulama kolaydır; Ancak, veritabanı ile daha fazla iletişim gerektirir. Çağrı `ProductsBLL` s sınıfı `GetProductsByCategoryID(categoryID)` yönteminde `ItemDataBound` ek veritabanı çağrısı Yineleyicideki görüntülenen her kategori için olay işleyicisini ekler. Bu teknik ile vardır *N* + 1 veritabanı çağrısı, burada *N* Yineleyicideki görüntülenen kategorileri sayısıdır. İkinci yaklaşımda, ürün sayısı her kategoriden hakkındaki bilgilerle döndürülen `CategoriesBLL` s sınıfı `GetCategories()` (veya `GetCategoriesAndNumberOfProducts()`) içinde yalnızca bir seyahat veritabanına böylece kaynaklanan yöntemi.
@@ -210,7 +210,7 @@ Eklenecek DAL güncelleştirerek çizilir çıktı bir `NumberOfProducts` sütun
 
 Bu noktada sahibiz `Categories` yineleyici ürünleri ile birlikte kategori listesi, her kategoride görüntüleme. Yineleyici bir LinkButton tıklatıldığında nedenler kesiştiği geri gönderme bir işaret etmesini, biz her kategori için kullanır. Bu ürünler için seçilen kategorideki görüntülemeniz `CategoryProducts` DataList.
 
-Bize bakan bir yalnızca seçilen kategori için ürünleri görüntüler DataList nasıl iştir. İçinde [ana/Ayrıntılar DetailsView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) GridView, satırları nasıl oluşturulacağını gördüğümüz öğretici seçilmesi, seçilen satırı DetailsView aynı sayfada görüntülenen s ayrıntıları. GridView s kullanarak tüm ürünlerle ilgili bilgileri ObjectDataSource döndürülen `ProductsBLL` s `GetProducts()` yöntemi DetailsView s ObjectDataSource çalışırken alınan seçili ürün kullanma hakkında bilgi `GetProductsByProductID(productID)` yöntemi. *`productID`*  Parametre değeri sağlanmadığından bildirimli olarak GridView s değeriyle ilişkilendirerek `SelectedValue` özelliği. Ne yazık ki, yineleyici sahip olmayan bir `SelectedValue` özelliği ve parametre kaynağı olarak sunulamıyor.
+Bize bakan bir yalnızca seçilen kategori için ürünleri görüntüler DataList nasıl iştir. İçinde [ana/Ayrıntılar DetailsView ile seçilebilir ana GridView kullanarak ayrıntı](../masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md) GridView, satırları nasıl oluşturulacağını gördüğümüz öğretici seçilmesi, seçilen satırı DetailsView aynı sayfada görüntülenen s ayrıntıları. GridView s kullanarak tüm ürünlerle ilgili bilgileri ObjectDataSource döndürülen `ProductsBLL` s `GetProducts()` yöntemi DetailsView s ObjectDataSource çalışırken alınan seçili ürün kullanma hakkında bilgi `GetProductsByProductID(productID)` yöntemi. *`productID`* Parametre değeri sağlanmadığından bildirimli olarak GridView s değeriyle ilişkilendirerek `SelectedValue` özelliği. Ne yazık ki, yineleyici sahip olmayan bir `SelectedValue` özelliği ve parametre kaynağı olarak sunulamıyor.
 
 > [!NOTE]
 > Bu, LinkButton bir yineleyici kullanılırken görünür bu zorluklar biridir. Köprü olarak geçirmek için kullandık vardı `CategoryID` querystring bunun yerine, biz QueryString alan kaynak olarak için parametre s değeri kullanabilirsiniz.
@@ -233,7 +233,7 @@ Bu yana `GetProductsByCategoryID(categoryID)` yöntemi giriş parametresi bekliy
 
 [![Adlı kullanıcı, Categoryıd'si parametresi için bir parametre kaynağı yapmak belirtme](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image36.png)](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image35.png)
 
-**Şekil 13**: için bir parametre kaynak belirtmeyin  *`categoryID`*  parametre ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))
+**Şekil 13**: için bir parametre kaynak belirtmeyin *`categoryID`* parametre ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/_static/image37.png))
 
 
 Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio otomatik-s DataList oluşturur `ItemTemplate`. Bu varsayılanı değiştirmek `ItemTemplate` şablonuyla biz önceki öğreticide kullanılan; ayrıca s DataList ayarlayın `RepeatColumns` özelliğini 2. Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme DataList ve onun ilişkili ObjectDataSource için aşağıdaki gibi görünmelidir:
@@ -241,7 +241,7 @@ Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra Visual Studio 
 
 [!code-aspx[Main](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs/samples/sample10.aspx)]
 
-Şu anda `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  parametresi hiçbir zaman ayarlanırsa, hiç ürün sayfasını görüntülerken görüntülenecek şekilde. Bu parametre değer temel alınarak ayarlanmış yapmak ihtiyacımız olan `CategoryID` yineleyicideki tıklatılan kategorisi. Bu iki zorluklar getirir: ilk olarak, nasıl belirleriz bir LinkButton zaman s yineleyicideki `ItemTemplate` tıklatılan; ve ikinci, nasıl biz belirleyebilir `CategoryID` , LinkButton tıklattınız karşılık gelen kategorisinin?
+Şu anda `CategoryProductsDataSource` ObjectDataSource s *`categoryID`* parametresi hiçbir zaman ayarlanırsa, hiç ürün sayfasını görüntülerken görüntülenecek şekilde. Bu parametre değer temel alınarak ayarlanmış yapmak ihtiyacımız olan `CategoryID` yineleyicideki tıklatılan kategorisi. Bu iki zorluklar getirir: ilk olarak, nasıl belirleriz bir LinkButton zaman s yineleyicideki `ItemTemplate` tıklatılan; ve ikinci, nasıl biz belirleyebilir `CategoryID` , LinkButton tıklattınız karşılık gelen kategorisinin?
 
 Düğmesini ve ImageButton denetimleri gibi LinkButton sahip bir `Click` olay ve [ `Command` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). `Click` Olay yalnızca LinkButton tıklatıldıktan not etmek için tasarlanmıştır. Bazen, ancak LinkButton tıklatıldıktan belirtmeye ek olarak biz de bazı ek bilgi için olay işleyicisini geçirmek gerekir. Bu durumda, LinkButton s ise [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) ve [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) özellikler bu ek bilgiler atanabilir. Ardından LinkButton tıklandığında, kendi `Command` olay ateşlenir (yerine kendi `Click` olay) ve olay işleyicisi değerlerini geçirilen `CommandName` ve `CommandArgument` özellikleri.
 
@@ -296,12 +296,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Zack CAN oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-detail-filtering-acess-two-pages-datalist-cs.md)
-[sonraki](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](master-detail-filtering-acess-two-pages-datalist-cs.md)
+> [sonraki](master-detail-filtering-with-a-dropdownlist-datalist-vb.md)

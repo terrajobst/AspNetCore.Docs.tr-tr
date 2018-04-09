@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio kullanarak Azure ASP.NET Core uygulama yayımlama"
+title: Visual Studio ile Azure ASP.NET Core uygulama yayımlama
 author: rick-anderson
-description: "Visual Studio kullanarak Azure App Service için ASP.NET Core uygulama yayımlama öğrenin."
+description: Visual Studio kullanarak Azure App Service için ASP.NET Core uygulama yayımlama öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 12/16/2017
@@ -9,19 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7291a67af77b959965652ad385e193680df840c0
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: e5c213a682c9bf7c64c40fad630cacfff24e23bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama yayımlama
+# <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure ASP.NET Core uygulama yayımlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs), ve [Rachel Appel](https://twitter.com/rachelappel)
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Bkz: [Mac için Visual Studio'dan Azure Yayımla](https://blog.xamarin.com/publish-azure-visual-studio-mac/) macOS üzerinde çalışıyorsanız.
+
+Bir uygulama hizmeti dağıtım sorunu gidermek için bkz: [Azure App Service'te ASP.NET Core sorun giderme](xref:host-and-deploy/azure-apps/troubleshoot).
 
 ## <a name="set-up"></a>Ayarlama
 
@@ -102,7 +104,7 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 
 * Seçin **Hizmetleri** sekmesinde yeni bir veritabanı oluşturun.
 
-* Yeşil seçin  **+**  yeni bir SQL veritabanı oluşturmak için simgesi
+* Yeşil seçin **+** yeni bir SQL veritabanı oluşturmak için simgesi
 
 ![Yeni SQL veritabanı](publish-to-azure-webapp-using-vs/_static/sql.png)
 
@@ -187,3 +189,4 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portal](https:/
 * [Azure uygulama hizmeti](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 * [Azure kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/)
+* [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
-title: "Toplu güncelleştirme (C#) | Microsoft Docs"
+title: Toplu güncelleştirme (C#) | Microsoft Docs
 author: rick-anderson
-description: "Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek üzere öğrenin. Kullanıcı arabirimi katmanda her satır düzenlenebilir olduğu GridView oluşturun. Veri..."
+description: Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek üzere öğrenin. Kullanıcı arabirimi katmanda her satır düzenlenebilir olduğu GridView oluşturun. Veri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9f1bad4f0b58175a8437ebfedf161db057bb2bd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-updating-c"></a>Toplu güncelleştirme (C#)
 ====================
@@ -185,7 +185,7 @@ Bir son sorun kalır: Ürün içermiyor t varsa bir `CategoryID` değeri belirti
 Not nasıl `<asp:ListItem Value="">` --seçin bir--sahip kendi `Value` özniteliğini açıkça boş bir dize olarak ayarlayın. Geri başvurmak [veri değişikliği arabirimi özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) işlemek için bu ek DropDownList madde neden gerekli üzerinde daha kapsamlı bir tartışma için öğretici `NULL` çalışması ve neden atamasının `Value` boş bir dize özelliği gereklidir.
 
 > [!NOTE]
-> Tümleştirilmediği olan bir olası performans ve ölçeklenebilirlik sorunu burada yoktur. Her satır kullanan bir DropDownList olduğundan `CategoriesDataSource` kendi veri kaynağı olarak `CategoriesBLL` s sınıfı `GetCategories` yöntemi çağrılabilir  *n*  sayfa başına kez ziyaret edin, burada  *n*  GridView satır sayısı. Bunlar  *n*  çağrılar `GetCategories` neden  *n*  veritabanına sorgular. İstek başına önbelleğinde veya bağımlılık veya çok kısa bir süre tabanlı bir sona erme önbelleğe alma SQL kullanarak önbelleğe alma katmanı ile döndürülen kategorilerde önbelleğe alarak Bu etkiyi veritabanında kısılmış. İstek başına hakkında daha fazla bilgi için bkz, önbelleğe [ `HttpContext.Items` başına istek önbelleği deposu](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
+> Tümleştirilmediği olan bir olası performans ve ölçeklenebilirlik sorunu burada yoktur. Her satır kullanan bir DropDownList olduğundan `CategoriesDataSource` kendi veri kaynağı olarak `CategoriesBLL` s sınıfı `GetCategories` yöntemi çağrılabilir *n* sayfa başına kez ziyaret edin, burada *n* sayısı GridView satır. Bunlar *n* çağrılar `GetCategories` neden *n* veritabanına sorgular. İstek başına önbelleğinde veya bağımlılık veya çok kısa bir süre tabanlı bir sona erme önbelleğe alma SQL kullanarak önbelleğe alma katmanı ile döndürülen kategorilerde önbelleğe alarak Bu etkiyi veritabanında kısılmış. İstek başına hakkında daha fazla bilgi için bkz, önbelleğe [ `HttpContext.Items` başına istek önbelleği deposu](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>4. adım: düzenleme arabirimi Tamamlanıyor
@@ -270,7 +270,7 @@ Bu durumlarda türleri için aşağıdaki kullanmayı `BatchUpdateAlternate` yö
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`Yeni ve boş bir oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlara `Rows` koleksiyonu ve her satırın BLL s kullanarak belirli bir ürün bilgilerini alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneği sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak alınan içine satır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` Yeni ve boş bir oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlara `Rows` koleksiyonu ve her satırın BLL s kullanarak belirli bir ürün bilgilerini alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneği sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak alınan içine satır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Sonra `foreach` döngüsü tamamlandıktan, `products` içeriyor `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), sizi doğrudan kendisine başarılı olursa `UpdateWithTransaction` yöntemi `ProductsTableAdatper` her kayıtlar veritabanına eklemek çalışacaktır. Bunun yerine, biz bu satırların her biri (eklenmedi) değiştirilmiş olduğunu belirtmeniz gerekir.
 
@@ -289,12 +289,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve David Suru yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](wrapping-database-modifications-within-a-transaction-cs.md)
-[sonraki](batch-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](wrapping-database-modifications-within-a-transaction-cs.md)
+> [sonraki](batch-deleting-cs.md)

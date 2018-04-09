@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
-title: "Düzenleme ve silme (C#) DataList verilerde bir genel bakış | Microsoft Docs"
+title: Düzenleme ve silme (C#) DataList verilerde bir genel bakış | Microsoft Docs
 author: rick-anderson
-description: "Yerleşik düzenleme ve yetenekleri silme DataList eksik, ancak bu öğreticide, düzenleme ve o silme destekleyen DataList oluşturma göreceğiz..."
+description: Yerleşik düzenleme ve yetenekleri silme DataList eksik, ancak bu öğreticide, düzenleme ve o silme destekleyen DataList oluşturma göreceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b3067c5a6bcf81a35f66d43886c9b116a0ef7d8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: be86707980b11453ef78fdbddead73ab9808b54d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>Düzenleme ve silme (C#) DataList verilerde bir genel bakış
 ====================
@@ -249,7 +249,7 @@ Düzenlenen ürün s güncelleştirme veya İptal düğmeleri tıklamak hiçbir 
 
 Tüm salt okunur modda alt öğelerini işlemek DataList olmasını için ihtiyacımız var:
 
-1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
+1. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1` güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
 2. DataList verileri yeniden bağlayın. Hayır itibaren `DataListItem` `ItemIndex` es karşılık DataList s `EditItemIndex`, tüm DataList bir salt okunur modda işlenir.
 
 Bu adımları aşağıdaki olay işleyicisi kodla gerçekleştirilebilir:
@@ -263,7 +263,7 @@ Bu eklenmesiyle öğesini tıklatarak önceden düzenleme durumuna DataList ipta
 
 1. Düzenlenen ürün s yanı sıra kullanıcı tarafından girilen ürün adı ve fiyat programlı olarak erişmek `ProductID`.
 2. Uygun çağırarak güncelleştirme işlemini başlatmak `UpdateProduct` içinde aşırı `ProductsBLL` sınıfı.
-3. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1`güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
+3. S DataList ayarlamak [ `EditItemIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) mevcut olmayan bir dizine `DataListItem` dizini. `-1` güvenli bir seçenek beri olan `DataListItem` dizinleri Başlat `0`.
 4. DataList verileri yeniden bağlayın. Hayır itibaren `DataListItem` `ItemIndex` es karşılık DataList s `EditItemIndex`, tüm DataList bir salt okunur modda işlenir.
 
 Adım 1 ve 2 kullanıcı s değişiklikleri kaydetmek için sorumlu; Adım 3 ve 4 değişiklikleri kaydedildi ve başlığında gerçekleştirilen adımlar aynıdır sonra bu DataList önceden düzenleme durumuna geri döndürmek `CancelCommand` olay işleyicisi.
@@ -339,11 +339,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can, Ken Pespisa ve Randy Etikan yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](performing-batch-updates-cs.md)
+> [!div class="step-by-step"]
+> [Next](performing-batch-updates-cs.md)

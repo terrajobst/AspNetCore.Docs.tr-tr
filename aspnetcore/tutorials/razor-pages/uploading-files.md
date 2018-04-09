@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme"
+title: ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 author: guardrex
-description: "Bir Razor sayfasına dosyaları karşıya yükleme hakkında bilgi edinin."
+description: Bir Razor sayfasına dosyaları karşıya yükleme hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 184a42b3b6a458a6fbe23c4d54e03abc228b6efa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 6f229ef625b1c7ddaffb9cb3bc7945cc31e5263c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
+# <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
@@ -186,5 +186,5 @@ Bu giriş Razor sayfalarının tamamlamak için teşekkür ederiz. Geri bildirim
 * [ASP.NET Core dosya yüklemeleri](xref:mvc/models/file-uploads)
 * [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile)
 
->[!div class="step-by-step"]
-[Önceki: doğrulama](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Önceki: doğrulama](xref:tutorials/razor-pages/validation)

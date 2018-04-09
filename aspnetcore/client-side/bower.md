@@ -1,7 +1,7 @@
 ---
-title: ASP.NET Core Bower kullanarak
+title: İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 author: rick-anderson
-description: "İstemci tarafı paketleri Bower ile yönetme."
+description: İstemci tarafı paketleri Bower ile yönetme.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
@@ -39,7 +39,7 @@ Bu öğreticide desteği ekleyeceğiz [yazı tipi harika](http://fontawesome.io)
 
 * İçinde **Bower: \<proje adı\>**  penceresinde "Gözat" sekmesini tıklatın ve ardından girerek paketlerin listesini filtrelemek `font-awesome` arama kutusuna:
 
- ![bower paketlerini yönetme](bower/_static/manage-bower-packages.png)
+  ![bower paketlerini yönetme](bower/_static/manage-bower-packages.png)
 
 * Onaylayın "değişiklikleri kaydedilsin *bower.json*" onay kutusu işaretli. Aşağı açılan listeden bir sürüm seçin ve'ı tıklatın **yükleme** düğmesi. **Çıkış** penceresi ilgili yükleme ayrıntılarını gösterir.
 
@@ -100,9 +100,9 @@ Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. A�
 
 * Kaydet *bower.json* dosya.
 
- Proje içeriyor doğrulayın *önyükleme* ve *jQuery* dizinlerde *wwwroot/lib*. Bower kullandığı *.bowerrc* varlıkları yüklemek için dosya *wwwroot/lib*.
+  Proje içeriyor doğrulayın *önyükleme* ve *jQuery* dizinlerde *wwwroot/lib*. Bower kullandığı *.bowerrc* varlıkları yüklemek için dosya *wwwroot/lib*.
 
- Not: El ile Dosya düzenlemeye alternatif "Bower paketlerini Yönet" kullanıcı Arabirimi sağlar.
+  Not: El ile Dosya düzenlemeye alternatif "Bower paketlerini Yönet" kullanıcı Arabirimi sağlar.
 
 ### <a name="enable-static-files"></a>Statik dosyaları etkinleştir
 
@@ -117,10 +117,10 @@ Bu bölümde, dağıtılan paketler erişebildiğinizi doğrulamak için bir HTM
 
 * Adlı yeni bir HTML sayfası Ekle *Index.html* için *wwwroot* klasör. Not: HTML dosyasına eklemelisiniz *wwwroot* klasör. Varsayılan olarak, statik içerik dışında sunulamıyor *wwwroot*. Bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files) daha fazla bilgi için.
 
- Değiştir *Index.html* aşağıdaki biçimlendirme ile:
+  Değiştir *Index.html* aşağıdaki biçimlendirme ile:
 
 [!code-html[](bower/sample/Index.html)]
 
 * Uygulamayı çalıştırın ve gidin `http://localhost:<port>/Index.html`. Alternatif olarak, ile *Index.html* açıldı, basın `Ctrl+Shift+W`. Jumbotron stil uygulanır, düğme tıklatıldığında jQuery kodu yanıt verir ve önyükleme düğmesi durumu değiştiğinde doğrulayın.
 
- ![jumbotron stili](bower/_static/jumbotron.png)
+  ![jumbotron stili](bower/_static/jumbotron.png)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
-title: "Kullanıcı Arabirimi ve gezinme | Microsoft Docs"
+title: Kullanıcı Arabirimi ve gezinme | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: 7f1d8a1a473820a7c8da4c8086904cc41c86fd2a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d2d4101455a85c53e016e567c0cf1337642f1863
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ui-and-navigation"></a>Kullanıcı Arabirimi ve gezinme
 ====================
@@ -54,7 +54,7 @@ Bu öğretici seri değiştirerek devam edeceğiz *Default.aspx* sayfası. Uygul
     [!code-aspx[Main](ui_and_navigation/samples/sample2.aspx)]
 5. Kaydet *Default.aspx* seçerek sayfa **Kaydet Default.aspx** gelen **dosya** menüsü.
 
- Elde edilen *Default.aspx* sayfa şu şekilde görünür: 
+   Elde edilen *Default.aspx* sayfa şu şekilde görünür: 
 
 [!code-aspx[Main](ui_and_navigation/samples/sample3.aspx)]
 
@@ -62,7 +62,7 @@ Bu öğretici seri değiştirerek devam edeceğiz *Default.aspx* sayfası. Uygul
 
 Örnek sayfası bir ASP.NET Web sayfası oluşturan temel öğelerini içerir. ASP.NET için belirli öğeleri birlikte bir HTML sayfasında olabilir gibi sayfa statik metin içeriyor. İçinde yer alan içeriği *Default.aspx* sayfa Tümleşik Bu öğreticinin ilerleyen bölümlerinde açıklanan ana sayfa içeriğe sahip.
 
-### <a name="page-directive"></a>@PageYönergesi
+### <a name="page-directive"></a>@Page Yönergesi
 
 ASP.NET Web Forms genellikle sayfa sayfa özelliklerini ve yapılandırma bilgilerini belirtmek izin yönergeleri içerir. Yönergeleri, işlem sayfa için nasıl, yönergeleri ASP.NET tarafından kullanılır, ancak tarayıcıya gönderilen biçimlendirme bir parçası olarak işlenmez.
 
@@ -166,8 +166,8 @@ Bu öğreticide, önyükleme CSS dosyaları değiştirerek Wingtip Toys uygulama
 2. Sağ *bootstrap.css* dosya ve ona yeniden adlandırın *önyükleme original.css*.
 3. Yeniden Adlandır *bootstrap.min.css* için *önyükleme original.min.css*.
 4. İçinde **Çözüm Gezgini**, sağ tıklatın *içerik* klasörü ve select **dosya Gezgini'nde klasör Aç**.  
- Dosya Gezgini görüntülenir. Karşıdan yüklenen bir önyükleme CSS dosyaları bu konuma kaydeder.
-5. Tarayıcınızda, Git [http://Bootswatch.com](http://bootswatch.com/).
+   Dosya Gezgini görüntülenir. Karşıdan yüklenen bir önyükleme CSS dosyaları bu konuma kaydeder.
+5. Tarayıcınızda, Git [ http://Bootswatch.com ](http://bootswatch.com/).
 6. Tarayıcı penceresini Cerulean tema görene kadar kaydırın. 
 
     ![Kullanıcı Arabirimi ve gezinti - Cerulean tema](ui_and_navigation/_static/image5.png)
@@ -176,9 +176,9 @@ Bu öğreticide, önyükleme CSS dosyaları değiştirerek Wingtip Toys uygulama
 
     ![Kullanıcı Arabirimi ve gezinti - Çözüm Gezgini](ui_and_navigation/_static/image6.png)
 
- İki yeni CSS dosyasında görürsünüz **içerik** klasör, ancak her dosya adının yanındaki simge gri dikkat edin. Bu dosyayı henüz projeye eklenmemiş anlamına gelir.
+   İki yeni CSS dosyasında görürsünüz **içerik** klasör, ancak her dosya adının yanındaki simge gri dikkat edin. Bu dosyayı henüz projeye eklenmemiş anlamına gelir.
 9. Sağ *bootstrap.css* ve *bootstrap.min.css* dosyaları ve select **projeye dahil et**.   
- Daha sonra Bu öğreticide Wingtip Toys uygulamayı çalıştırdığınızda, yeni kullanıcı Arabirimi görüntülenir.
+   Daha sonra Bu öğreticide Wingtip Toys uygulamayı çalıştırdığınızda, yeni kullanıcı Arabirimi görüntülenir.
 
 > [!NOTE] 
 > 
@@ -292,6 +292,6 @@ Serinin Bu öğreticide bazı temel kullanıcı Arabirimi, grafik, sayfalar ve g
 [Genel Bakış ASP.NET Web sunucusu denetimleri](https://msdn.microsoft.com/library/zsyt68f1.aspx)   
 [CSS Öğreticisi](http://www.w3schools.com/css/default.asp)
 
->[!div class="step-by-step"]
-[Önceki](create_the_data_access_layer.md)
-[sonraki](display_data_items_and_details.md)
+> [!div class="step-by-step"]
+> [Önceki](create_the_data_access_layer.md)
+> [sonraki](display_data_items_and_details.md)

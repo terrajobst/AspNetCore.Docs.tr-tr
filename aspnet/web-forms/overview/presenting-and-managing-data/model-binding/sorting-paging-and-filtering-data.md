@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: "Sıralama, disk belleği ve model bağlama ve web forms ile veri filtreleme | Microsoft Docs"
+title: Sıralama, disk belleği ve model bağlama ve web forms ile veri filtreleme | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar..."
+description: Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sıralama, disk belleği ve model bağlama ve web forms ile verileri filtreleme
 ====================
@@ -48,7 +48,7 @@ Web uygulamasını çalıştırın ve sıralama Öğrenci kayıtlarını farklı
 
 ![Sıralama öğrenciler](sorting-paging-and-filtering-data/_static/image2.png)
 
-## <a name="add-paging"></a>Disk belleği ekleme
+## <a name="add-paging"></a>disk belleği ekleme
 
 Disk belleği etkinleştirme ayrıca çok kolaydır. GridView, ayarlamak **AllowPaging** özelliğine **true** ve **PageSize** istediğiniz her bir sayfasında görüntülenecek kayıt sayısını özelliğine. Bu öğreticide, 4'e ayarlayabilirsiniz.
 
@@ -71,7 +71,7 @@ Model bağlama bir model bağlama yönteminde bir parametre için değer ayarlam
 - QueryString
 - Routedata öğesi
 - Oturum
-- Kullanıcı profili
+- UserProfile
 - Görünüm durumu
 
 Bu öğretici kapsamında, hangi kayıtların GridView görüntüleneceğini filtrelemek için bir denetimin değeri kullanır. Ekleyeceksiniz **denetim** özniteliğine daha önce oluşturduğunuz sorgu yöntemi. İçinde bir [daha sonra](using-query-string-values-to-retrieve-data.md) öğretici, uygulanacaktır **QueryString** öznitelik parametre değeri bir sorgu dizesi değerinden geldiğini belirtmek için bir parametre.
@@ -100,6 +100,6 @@ Bu öğreticide, sıralama ve verilerin sayfalama etkinleştirilir. Ayrıca veri
 
 Sonraki [öğretici](integrating-jquery-ui.md) dinamik veri şablonuna JQuery UI pencere öğesi tümleştirerek UI ekleyeceksiniz.
 
->[!div class="step-by-step"]
-[Önceki](updating-deleting-and-creating-data.md)
-[sonraki](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Önceki](updating-deleting-and-creating-data.md)
+> [sonraki](integrating-jquery-ui.md)

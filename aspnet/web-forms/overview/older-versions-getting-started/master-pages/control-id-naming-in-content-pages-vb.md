@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
-title: "Denetim Kimliği içerik sayfaları (VB) adlandırma | Microsoft Docs"
+title: Denetim Kimliği içerik sayfaları (VB) adlandırma | Microsoft Docs
 author: rick-anderson
-description: "Nasıl ContentPlaceHolder denetimleri adlandırma kapsayıcı olarak hizmet ve bu nedenle program aracılığıyla (FindConrol) zor bir denetimiyle çalıştığını gösterir..."
+description: Nasıl ContentPlaceHolder denetimleri adlandırma kapsayıcı olarak hizmet ve bu nedenle program aracılığıyla (FindConrol) zor bir denetimiyle çalıştığını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9523fe5b241b6ff45927f142eb844a716822336b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 288afbb6851e23de4725f9e6351ae12ccecefaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>İçerik sayfaları (VB) adlandırma denetim kimliği
 ====================
@@ -121,7 +121,7 @@ Unutmayın `id` özniteliğini içeren her iki ana sayfa `ID` değeri (`ctl00`) 
 
 Her ASP.NET sunucu denetimi içeren bir `FindControl("controlID")` adlı bir denetim için denetimin alt arayan yöntemi *ControlId*. Böyle bir denetim bulunursa, döndürülür; eşleşen hiçbir denetim bulunursa, `FindControl` döndürür `Nothing`.
 
-`FindControl`Burada bir denetim erişmesi gerekiyor ancak doğrudan referansı bulunmuyor senaryolarda kullanışlıdır. GridView'ın alanları içindeki denetimler Web denetimleri bu gibi bir durumda GridView gibi verilerle çalışırken, bir kez bildirim temelli sözdiziminde tanımlanır, ancak çalışma zamanında her GridView satır için denetim örneği oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimler mevcut, ancak arka plan kodu sınıfından kullanılabilir doğrudan bir başvuru yok. Sonuç olarak kullanmak ihtiyacımız `FindControl` GridView'ın alanları içinde belirli bir denetim programlı olarak çalışmak için. (Kullanma hakkında daha fazla bilgi için `FindControl` veri Web denetiminin şablonları içindeki denetimler erişmek için bkz: [özel biçimlendirme göre bağlı verileri](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Dinamik olarak Web denetimleri için Web formu eklerken aynı bu senaryo ortaya, bir konu ele [dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` Burada bir denetim erişmesi gerekiyor ancak doğrudan referansı bulunmuyor senaryolarda kullanışlıdır. GridView'ın alanları içindeki denetimler Web denetimleri bu gibi bir durumda GridView gibi verilerle çalışırken, bir kez bildirim temelli sözdiziminde tanımlanır, ancak çalışma zamanında her GridView satır için denetim örneği oluşturulur. Sonuç olarak, çalışma zamanında oluşturulan denetimler mevcut, ancak arka plan kodu sınıfından kullanılabilir doğrudan bir başvuru yok. Sonuç olarak kullanmak ihtiyacımız `FindControl` GridView'ın alanları içinde belirli bir denetim programlı olarak çalışmak için. (Kullanma hakkında daha fazla bilgi için `FindControl` veri Web denetiminin şablonları içindeki denetimler erişmek için bkz: [özel biçimlendirme göre bağlı verileri](../../data-access/custom-formatting/custom-formatting-based-upon-data-vb.md).) Dinamik olarak Web denetimleri için Web formu eklerken aynı bu senaryo ortaya, bir konu ele [dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Kullanarak göstermeye `FindControl` bir içerik sayfasını içinde denetimleri aranacak yöntemi oluşturmak için bir olay işleyicisi `SubmitButton`'s `Click` olay. Olay işleyicisi programlı olarak başvuran aşağıdaki kodu ekleyin `Age` TextBox ve `Results` kullanarak etiket `FindControl` yöntemi ve bir ileti görüntüler `Results` kullanıcının girişinize göre.
 
@@ -256,7 +256,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET ana sayfalar ve`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [ASP.NET ana sayfalar ve `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
 - [Dinamik veri girişi kullanıcı arabirimleri oluşturma](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Temel tür işlevselliği genişletme yöntemleri ile genişletme](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [Nasıl yapılır: ASP.NET ana sayfa içeriği başvurusu](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
@@ -265,12 +265,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Suchi Barnerjee yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Önceki](urls-in-master-pages-vb.md)
-[sonraki](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](urls-in-master-pages-vb.md)
+> [sonraki](interacting-with-the-master-page-from-the-content-page-vb.md)

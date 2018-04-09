@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax
-title: "ASP.NET AJAX: ASP.NET AJAX gösterimini | Microsoft Docs"
+title: 'ASP.NET AJAX: ASP.NET AJAX gösterimini | Microsoft Docs'
 author: JoeStagner
-description: "ASP.NET 2.0 kullanarak bir 'Yapılacaklar listesi' yönetim uygulaması sıfırdan oluşturma ne kadar kolay olduğunu görün ve ASP.NET AJAX kullanılarak kullanıcı deneyimini geliştirmek..."
+description: ASP.NET 2.0 kullanarak bir 'Yapılacaklar listesi' yönetim uygulaması sıfırdan oluşturma ne kadar kolay olduğunu görün ve ASP.NET AJAX kullanılarak kullanıcı deneyimini geliştirmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/aspnet-ajax-a-demonstration-of-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: f65e96a89c427d1965455388fd54525b7677e3e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5e274fd029e6f0e4fac0e65b929a9a0185e61ff3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-ajax-a-demonstration-of-aspnet-ajax"></a>ASP.NET AJAX: ASP.NET AJAX gösterimini
 ====================
@@ -24,8 +24,8 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 
 ASP.NET 2.0 kullanarak bir "Yapılacaklar listesi" yönetim uygulaması sıfırdan oluşturma ne kadar kolay olduğunu görün ve ASP.NET AJAX uzantıları kullanarak kullanıcı deneyimini geliştirmek.
 
-[&#9654; (20 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-ajax-a-demonstration-of-aspnet-ajax)
+[&#9654;(20 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-ajax-a-demonstration-of-aspnet-ajax)
 
->[!div class="step-by-step"]
-[Önceki](creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
-[sonraki](adonet-data-services-with-aspnet-ajax-support.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-and-using-an-ajax-enabled-web-service-in-a-web-site.md)
+> [sonraki](adonet-data-services-with-aspnet-ajax-support.md)

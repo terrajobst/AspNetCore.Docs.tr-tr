@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: "Bir ne olursa gerçekleştirme dağıtım | Microsoft Docs"
+title: Bir ne olursa gerçekleştirme dağıtım | Microsoft Docs
 author: jrjlee
-description: "Bu konuda 'ise' gerçekleştirmeyi açıklar (veya benzetimli) Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) ve V kullanarak dağıtımları..."
+description: Bu konuda 'ise' gerçekleştirmeyi açıklar (veya benzetimli) Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) ve V kullanarak dağıtımları...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>"," Dağıtım gerçekleştirme
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, "," gerçekleştirmeyi açıklar (veya benzetimli) VSDBCMD ve Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanarak dağıtımları. Bu gerçekten Uygulamanızı dağıtmadan önce dağıtım mantığınızı etkilerini belirli hedef ortamda belirlemenize olanak tanır.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi iki proje dosyalarını & #x 2014 tarafından kontrol edilir; o Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren ne. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Web paketleri için bir "," dağıtım gerçekleştirme
 
@@ -41,7 +41,7 @@ Web dağıtımı içeren dağıtımlarda "," gerçekleştirmenize olanak sağlay
 
 "," Dağıtımı gerçekte ne zaman yapamayacağı hedef sunucuda herhangi bir şeyi değiştirmez olduğu için bir dağıtım başarılı olup olmadığını tahmin.
 
-Bölümünde açıklandığı gibi [dağıtma Web paketleri](../web-deployment-in-the-enterprise/deploying-web-packages.md), iki yolu & #x 2014; MSDeploy.exe komut satırı yardımcı programını doğrudan veya çalıştırarak Web dağıtımı kullanarak web paketleri dağıtabilirsiniz *. deploy.cmd* derleme işlemi oluşturur dosyası.
+Bölümünde açıklandığı gibi [dağıtma Web paketleri](../web-deployment-in-the-enterprise/deploying-web-packages.md), Web dağıtımı kullanarak iki yolla web paketleri dağıtabilirsiniz&#x2014;doğrudan veya çalıştırarak MSDeploy.exe komut satırı yardımcı programını kullanarak *. deploy.cmd* dosyası derleme işlem oluşturur.
 
 MSDeploy.exe doğrudan kullanıyorsanız, ekleyerek bir "," dağıtım çalıştırabilirsiniz **– whatIf** komutunuzu bayrak. Örneğin, bir hazırlama ortamına ContactManager.Mvc.zip paketi dağıtılmışsa, ne olacağını değerlendirmek için MSDeploy komutu şuna benzemelidir:
 
@@ -122,7 +122,7 @@ Web dağıtımı Parametreleştirme için sonraki aşamasıdır ve VSDBCMD komut
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-Benzer şekilde, sonraki hedefi VSDBCMD yardımcı programı bir veritabanını dağıtmak için kullanır. Varsayılan olarak, bir **/dd** anahtar dahil değildir. Bu VSDBCMD bir dağıtım komut dosyası oluşturur, ancak veritabanı & #x 2014; dağıtmaz anlamına gelir diğer bir deyişle, bir "," senaryo. Varsa **whatIf** özelliği ayarlı değil **true**, **/dd** anahtar eklenir ve VSDBCMD veritabanı dağıtmak.
+Benzer şekilde, sonraki hedefi VSDBCMD yardımcı programı bir veritabanını dağıtmak için kullanır. Varsayılan olarak, bir **/dd** anahtar dahil değildir. Bu VSDBCMD bir dağıtım komut dosyası oluşturur, ancak veritabanı dağıtmaz anlamına gelir&#x2014;diğer bir deyişle, bir "," senaryo. Varsa **whatIf** özelliği ayarlı değil **true**, **/dd** anahtar eklenir ve VSDBCMD veritabanı dağıtmak.
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ Bu konuda, "," Web dağıtımı, VSDBCMD ve MSBuild kullanarak dağıtımları a
 
 Komut satırı sözdizimi Web dağıtımı hakkında daha fazla bilgi için bkz: [Web dağıtma işlemi ayarları](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Kullandığınızda komut satırı seçenekleri hakkında yönergeler için *. deploy.cmd* dosya için bkz: [nasıl yapılır: dağıtım paketi kullanarak bir dosya deploy.cmd Yükleme](https://msdn.microsoft.com/library/ff356104.aspx). VSDBCMD komut satırı sözdizimi hakkında yönergeler için bkz [VSDBCMD için komut satırı başvurusu. EXE (dağıtım ve şema Al)](https://msdn.microsoft.com/library/dd193283.aspx).
 
->[!div class="step-by-step"]
-[Önceki](advanced-enterprise-web-deployment.md)
-[sonraki](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [Önceki](advanced-enterprise-web-deployment.md)
+> [sonraki](customizing-database-deployments-for-multiple-environments.md)

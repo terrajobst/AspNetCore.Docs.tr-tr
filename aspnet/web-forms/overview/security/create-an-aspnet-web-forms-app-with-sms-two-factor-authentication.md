@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
-title: "Bir ASP.NET Web oluşturmak Forms uygulama SMS iki faktörlü kimlik doğrulaması (C#) ile | Microsoft Docs"
+title: Bir ASP.NET Web oluşturmak Forms uygulama SMS iki faktörlü kimlik doğrulaması (C#) ile | Microsoft Docs
 author: Erikre
-description: "Bu öğretici, iki öğeli kimlik doğrulama ile ASP.NET Web Forms uygulamasının nasıl oluşturulacağını gösterir. Bu öğretici Cr başlıklı öğreticiyi tamamlamak üzere tasarlanmıştır..."
+description: Bu öğretici, iki öğeli kimlik doğrulama ile ASP.NET Web Forms uygulamasının nasıl oluşturulacağını gösterir. Bu öğretici Cr başlıklı öğreticiyi tamamlamak üzere tasarlanmıştır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: b1f0ec0fdefa12eb7f7b2714dbc224fef735f4bb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c040fd3e0592b8cfd230dcd85ed3293f0a22ba7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Bir ASP.NET Web oluşturmak Forms uygulamayla SMS iki faktörlü kimlik doğrulaması (C#)
 ====================
@@ -63,12 +63,12 @@ Bu öğretici Twilio kullanır, ancak herhangi bir SMS sağlayıcıyı kullanabi
 2. Gelen **Pano** Twilio hesabınızı kopyalama sekmesinde **hesabının SID** ve **kimlik doğrulama belirteci.** Bunları uygulamanıza daha sonra ekleyeceksiniz.
 3. Gelen **numaraları** sekmesinde, sizin Twilio Kopyala **telefon numarası** de.
 4. Twilio olun **hesabının SID**, **kimlik doğrulama belirteci** ve **telefon numarası** uygulama için kullanılabilir. Örneği basit tutmak için bu değerleri depolayacak *web.config* dosya. Azure'a dağıtırken değerlerin güvenli bir şekilde içinde saklayabilir **appSettings** bölüm web sitesinde yapılandırma sekmesi. Ayrıca, telefon numarası eklerken, yalnızca numaralarını kullanın.   
- SendGrid kimlik bilgileri de ekleyebilirsiniz dikkat edin. SendGrid bir e-posta bildirim hizmetidir. SendGrid, etkinleştirme hakkında ayrıntıları görmek için başlıklı öğreticinin 'Kanca yukarı SendGrid' bölümünde [kullanıcı kaydı Güvenli ASP.NET Web Forms uygulaması oluşturma, onay ve parola sıfırlama e-posta.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+   SendGrid kimlik bilgileri de ekleyebilirsiniz dikkat edin. SendGrid bir e-posta bildirim hizmetidir. SendGrid, etkinleştirme hakkında ayrıntıları görmek için başlıklı öğreticinin 'Kanca yukarı SendGrid' bölümünde [kullanıcı kaydı Güvenli ASP.NET Web Forms uygulaması oluşturma, onay ve parola sıfırlama e-posta.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
     > [!WARNING]
-    > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Bu örnekte, hesabı ve kimlik bilgileri depolanmış **appSettings** bölümünü *Web.config* dosya. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz  **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Azure portalında sekmesi. İlgili bilgi için başlıklı Rick Anderson'un konusuna [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Bu örnekte, hesabı ve kimlik bilgileri depolanmış **appSettings** bölümünü *Web.config* dosya. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. İlgili bilgi için başlıklı Rick Anderson'un konusuna [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](https://go.microsoft.com/fwlink/?LinkId=513141).
 5. Yapılandırma `SmsService` sınıfını *uygulama\_Start\IdentityConfig.cs* aşağıdakileri yaparak dosyası vurgulanmış sarı değiştirir: 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample2.cs?highlight=5-17)]
@@ -85,7 +85,7 @@ Bu öğretici Twilio kullanır, ancak herhangi bir SMS sağlayıcıyı kullanabi
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
- Yukarıdaki kodunu değiştir yaparak, kimlik doğrulama seçeneklerini içeren "Sağlayıcı" DropDownList ilk değerine sıfırlanır değil. Bu, kullanıcının kimlik doğrulamasını yaparken, yalnızca ilk kullanmak için tüm seçenekleri başarıyla seçmesine izin verir.
+   Yukarıdaki kodunu değiştir yaparak, kimlik doğrulama seçeneklerini içeren "Sağlayıcı" DropDownList ilk değerine sıfırlanır değil. Bu, kullanıcının kimlik doğrulamasını yaparken, yalnızca ilk kullanmak için tüm seçenekleri başarıyla seçmesine izin verir.
 10. İçinde **Çözüm Gezgini**, sağ *Default.aspx* seçip **başlangıç sayfası olarak ayarla**.
 11. Uygulamanızı test ederek ilk uygulaması oluşturma (**Ctrl**+**Shift**+**B**) ve ardından uygulamayı çalıştırın (**F5**) ve Her iki select **kaydetmek** yeni bir kullanıcı hesabı oluşturun veya seçin **oturum** kullanıcı hesabı zaten kayıtlı.
 12. (Kullanıcı) olarak oturum açtıktan sonra kullanıcı kimliği (e-posta adresi) görüntülemek için Gezinti Çubuğu'nu tıklatın **hesabı Yönet** sayfa (Manage.aspx).  
@@ -94,7 +94,7 @@ Bu öğretici Twilio kullanır, ancak herhangi bir SMS sağlayıcıyı kullanabi
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
 14. Burada (kullanıcı) olarak istediğiniz SMS iletileri (metin iletileri) almak ve tıklayın telefon numarası eklemek **gönderme** düğmesi.   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
- Bu noktada, uygulama kimlik bilgilerini kullanır *Web.config* Twilio başvurma. Kullanıcı hesabı ile ilişkili telefon SMS iletisi (SMS) gönderilir. Twilio panoyu görüntüleyerek Twilio iletinin gönderildiği doğrulayabilirsiniz.
+    Bu noktada, uygulama kimlik bilgilerini kullanır *Web.config* Twilio başvurma. Kullanıcı hesabı ile ilişkili telefon SMS iletisi (SMS) gönderilir. Twilio panoyu görüntüleyerek Twilio iletinin gönderildiği doğrulayabilirsiniz.
 15. Birkaç saniye içinde kullanıcı hesabı ile ilişkili telefon doğrulama kodunu içeren bir kısa mesaj alırsınız. Tuşuna basın ve doğrulama kodu girin **gönderme**.  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 

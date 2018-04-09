@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
-title: "Geri göndermeler ReorderList (VB) ile kullanma | Microsoft Docs"
+title: Geri göndermeler ReorderList (VB) ile kullanma | Microsoft Docs
 author: wenz
-description: "AJAX Denetim Araç Seti, ReorderList denetimi sürükle ve bırak aracılığıyla kullanıcı tarafından sıralanabilir bir liste sağlar. Listenin kaldırılmasında her bir SAS..."
+description: AJAX Denetim Araç Seti, ReorderList denetimi sürükle ve bırak aracılığıyla kullanıcı tarafından sıralanabilir bir liste sağlar. Listenin kaldırılmasında her bir SAS...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 971d060f2ee69e82ec574392a308754e015b0fd0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef43471f7d8cc94c1a82a368e27acef05f474f81
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-postbacks-with-reorderlist-vb"></a>Geri göndermeler ReorderList (VB) ile kullanma
 ====================
@@ -69,6 +69,6 @@ Son olarak, ASP.NET AJAX ve Denetim Araç Seti işlevselliğini etkinleştirmek 
 
 Her yeniden sıralama geri gönderimin tetikler ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-postbacks-with-reorderlist-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](drag-and-drop-via-reorderlist-cs.md)
-[sonraki](drag-and-drop-via-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](drag-and-drop-via-reorderlist-cs.md)
+> [sonraki](drag-and-drop-via-reorderlist-vb.md)

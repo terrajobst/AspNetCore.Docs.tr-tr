@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
-title: "Disk belleği ve sıralama raporu verilerini (C#) | Microsoft Docs"
+title: Disk belleği ve sıralama raporu verilerini (C#) | Microsoft Docs
 author: rick-anderson
-description: "Disk belleği ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Bu öğreticide biz sıralama ekleme bir ilk göz atalım ve..."
+description: Disk belleği ve sıralama iki yaygın veri çevrimiçi uygulamada görüntülenirken özellikleridir. Bu öğreticide biz sıralama ekleme bir ilk göz atalım ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d5cf45e391a2b32e1d22e160fd2757b754753875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 06a907f2af0adb2eb8aef5a814c2d767b62db69a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-and-sorting-report-data-c"></a>Disk belleği ve rapor verilerini (C#) sıralama
 ====================
@@ -115,13 +115,13 @@ DetailsView ve FormView denetimlerini yalnızca sayfa başına tek bir kaydını
 
 Bu GridView, DetailsView ve FormView s disk belleği arabirimi aşağıdaki özellikleri kullanarak özelleştirilebilir:
 
-- `PagerStyle`disk belleği arabirimi için stil bilgilerini gösterir; gibi ayarları belirtebilirsiniz `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`ve benzeri.
-- `PagerSettings`disk belleği arabirimi işlevselliğini özelleştirebilirsiniz özelliklerinin bevy içerir; `PageButtonCount` (varsayılan değer 10) disk belleği arabiriminde görüntülenen sayısal sayfa numarası en fazla sayısını gösterir; [ `Mode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) nasıl disk belleği arabirimi çalışır ve ayarlanabilir gösterir: 
+- `PagerStyle` disk belleği arabirimi için stil bilgilerini gösterir; gibi ayarları belirtebilirsiniz `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`ve benzeri.
+- `PagerSettings` disk belleği arabirimi işlevselliğini özelleştirebilirsiniz özelliklerinin bevy içerir; `PageButtonCount` (varsayılan değer 10) disk belleği arabiriminde görüntülenen sayısal sayfa numarası en fazla sayısını gösterir; [ `Mode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) nasıl disk belleği arabirimi çalışır ve ayarlanabilir gösterir: 
 
-    - `NextPrevious`İleri ya da geri aynı anda bir sayfa adım arkasından bir sonraki ve önceki düğmelerini gösterir
-    - `NextPreviousFirstLast`İleri ve geri düğmelerini ek olarak, ilk ve son düğmeleri, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının kapsanmaktadır
-    - `Numeric`bir dizi kullanıcının herhangi bir sayfayı hemen atlamasına izin vererek, sayfa numarası gösterir
-    - `NumericFirstLast`Sayfa numaraları yanı sıra, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının ilk ve son düğmeleri içerir; İlk/Son düğme, yalnızca sayısal sayfa numaralarını sığamıyorsa durumunda gösterilir
+    - `NextPrevious` İleri ya da geri aynı anda bir sayfa adım arkasından bir sonraki ve önceki düğmelerini gösterir
+    - `NextPreviousFirstLast` İleri ve geri düğmelerini ek olarak, ilk ve son düğmeleri, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının kapsanmaktadır
+    - `Numeric` bir dizi kullanıcının herhangi bir sayfayı hemen atlamasına izin vererek, sayfa numarası gösterir
+    - `NumericFirstLast` Sayfa numaraları yanı sıra, hızlı bir şekilde veri ilk veya son sayfasına gitmek kullanıcının ilk ve son düğmeleri içerir; İlk/Son düğme, yalnızca sayısal sayfa numaralarını sığamıyorsa durumunda gösterilir
 
 Ayrıca, GridView, DetailsView ve tüm teklif FormView `PageIndex` ve `PageCount` görüntülenmesini geçerli sayfayı ve verileri sayfaların toplam sayısı sırasıyla belirten özellikleri. `PageIndex` Özelliği dizine veri'nın ilk sayfasında görüntülerken, yani 0'da, başlangıç `PageIndex` 0'a eşit. `PageCount`, diğer yandan başlatır 1 konumunda sayım, yani `PageIndex` 0 arasındaki değerleri sınırlıdır ve `PageCount - 1`.
 
@@ -245,7 +245,7 @@ Tüm GridView alanları BoundField, CheckBoxField TemplateField ve benzeri sahip
 
 1. GridView s [olayını](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) etkinleşir
 2. GridView s [ `SortExpression` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) ayarlanır `SortExpression` alanının LinkButton tıklattınız sıralama üstbilgisi
-3. ObjectDataSource tüm BLL verileri yeniden alır ve GridView s kullanarak verileri sıralar`SortExpression`
+3. ObjectDataSource tüm BLL verileri yeniden alır ve GridView s kullanarak verileri sıralar `SortExpression`
 4. GridView s `PageIndex` özelliği 0 olarak sıfırlanır, kullanıcı sıralarken anlamına gelir (sayfalama desteğini uygulanan varsayılarak) verileri ilk sayfasına döndürülür
 5. GridView s [ `Sorted` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) etkinleşir
 
@@ -306,7 +306,7 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Next](efficiently-paging-through-large-amounts-of-data-cs.md)
+> [!div class="step-by-step"]
+> [Next](efficiently-paging-through-large-amounts-of-data-cs.md)

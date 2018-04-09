@@ -1,7 +1,7 @@
 ---
-title: "Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti"
+title: Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti
 author: guardrex
-description: "Yararlı kaynaklara bağlantılarla Azure App Service'te ASP.NET Core uygulamaları barındırmak nasıl bulur."
+description: Yararlı kaynaklara bağlantılarla Azure App Service'te ASP.NET Core uygulamaları barındırmak nasıl bulur.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti
 
 [Azure uygulama hizmeti](https://azure.microsoft.com/services/app-service/) olan bir [Microsoft bulut platformu hizmet](https://azure.microsoft.com/) web uygulamalarını barındırmak için ASP.NET Core de dahil olmak üzere.
-
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>Kullanışlı kaynaklar
 
@@ -57,6 +55,10 @@ ASP.NET Core 2.0 ve daha sonra içindeki üç paketleri [Microsoft.AspNetCore.Al
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) executes [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) to add Azure App Service diagnostics logging providers in the `Microsoft.Extensions.Logging.AzureAppServices` package.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) provides logger implementations to support Azure App Service diagnostics logs and log streaming features.
 
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
+
+İletilen üstbilgileri ara yazılımı ve ASP.NET Core Modülü'nü yapılandırır IIS tümleştirme Ara şema (HTTP/HTTPS) ve isteğin geldiği uzak IP adresine iletmek için yapılandırılır. Ek proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
 İzleme, günlüğe kaydetme ve sorun giderme bilgileri için aşağıdaki makalelere bakın:
@@ -89,6 +91,62 @@ Dağıtım yuvaları arasında takası zaman veri koruması kullanan tüm sistem
 
 Daha fazla bilgi için bkz: [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
 
+## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>ASP.NET Core Önizleme sürümü Azure App Service'e dağıtma
+
+ASP.NET Core Önizleme uygulamaları için Azure App Service ile aşağıdaki yaklaşımlardan dağıtılabilir:
+
+* [Önizleme sitesi uzantı yükleme](#site-x)
+* [Uygulamayı dağıtma kendi içinde](#self)
+* [Docker Web Apps ile kapsayıcıları için kullanın.](#docker)
+
+Önizleme sitesi uzantısını kullanarak bir sorun varsa, bir sorun açmak [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+
+<a name="site-x"></a>
+### <a name="install-the-preview-site-extention"></a>Önizleme sitesi uzantı yükleme
+
+* Azure portalından, uygulama hizmeti dikey penceresine gidin.
+* "Örneğin" arama kutusuna girin.
+* Seçin **uzantıları**.
+* "Ekle"'yi seçin.
+
+![Önceki adımları ile azure uygulaması dikey](index/_static/x1.png)
+
+* Seçin **ASP.NET çekirdeği çalışma zamanı uzantıları**.
+* Seçin **Tamam** > **Tamam**.
+
+Ekleme işlemleri tamamlandıktan sonra en son .NET Core 2.1 önizleme yüklenir. Yükleme çalıştırarak doğrulayabilirsiniz `dotnet --info` konsolunda. Uygulama hizmeti dikey penceresinden:
+
+* "Arama kutusuna con" girin.
+* Seçin **konsol**.
+* Girin `dotnet --info` konsolunda.
+
+![Önceki adımları ile azure uygulaması dikey](index/_static/cons.png)
+
+Önceki görüntünün bu yazıldığı sırada geçerli. Farklı bir sürümünü görebilirsiniz.
+
+`dotnet --info` Görüntüler Önizleme yüklendiği site uzantısı yolu. Uygulama site uzantısı varsayılan çalıştırılmasının gösterir *ProgramFiles* konumu. Görürseniz *ProgramFiles*, siteyi yeniden başlatmak ve Çalıştır `dotnet --info`.
+
+#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Önizleme sitesi uzantı ile bir ARM şablonu kullanın
+
+Kullanabileceğiniz uygulamalar oluşturmak ve dağıtmak için ARM şablonunu kullanıyorsanız `siteextensions` bir Web uygulaması için site uzantısı eklemek için kaynak türü. Örneğin:
+
+[!code-json[Main](index/sample/arm.json?highlight=2)]
+
+<a name="self"></a>
+### <a name="deploy-the-app-self-contained"></a>Uygulamayı dağıtma kendi içinde
+
+Dağıtabilmeniz için bir [kendi içinde bulunan uygulama](/dotnet/core/deploying/#self-contained-deployments-scd) , taşıyan Önizleme çalışma zamanı onunla dağıtılan olduğunda. Kendi kendine bulunan Uygulama dağıtırken:
+
+* Sitenizi hazırlama gerek yoktur.
+* SDK sunucusunda yüklendikten sonra bir uygulama dağıtırken yaptığınız daha uygulamanız farklı şekilde yayımlamak gerektirir.
+
+Tüm .NET Core uygulamaları için bir seçenek müstakil uygulamalardır.
+
+<a name="docker"></a>
+### <a name="use-docker-with-web-apps-for-containers"></a>Docker Web Apps ile kapsayıcıları için kullanın.
+
+[Docker hub'a](https://hub.docker.com/r/microsoft/aspnetcore/) son 2.1 önizleme Docker görüntülerini içerir. Temel görüntüsü olarak kullanın ve Web uygulamaları kapsayıcıları için normal olarak dağıtın.
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Web Apps'e genel bakış (5 dakikalık genel bakış videosu)](/azure/app-service/app-service-web-overview)
@@ -101,5 +159,5 @@ Windows Server'da Azure uygulama hizmeti kullanan [Internet Information Services
 * [IIS ile Windows ana ASP.NET Çekirdeği](xref:host-and-deploy/iis/index)
 * [ASP.NET çekirdeği modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
 * [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
-* [ASP.NET çekirdeği ile IIS modüllerini kullanma](xref:host-and-deploy/iis/modules)
+* [ASP.NET Core içeren IIS modülleri](xref:host-and-deploy/iis/modules)
 * [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)

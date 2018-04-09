@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
-title: "Web kurumsal dağıtım | Microsoft Docs"
+title: Web kurumsal dağıtım | Microsoft Docs
 author: jrjlee
-description: "Bu öğretici, çok sayıda devel için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar..."
+description: Bu öğretici, çok sayıda devel için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: fc463cb689f4f63a12788b80958c9fc8fe20119d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Kurumsal Web dağıtımı
 ====================
@@ -66,7 +66,7 @@ Bu serideki diğer öğreticileri birlikte Bu öğretici, yukarıda açıklanan 
 
 Bu öğretici, dört ana alanlarına kalan konuları içerir.
 
-Bu konularda başvuru çözüm #x 2014; Contact Manager çözüm & #x 2014; getirir ve indirir ve yerel makinenizde yapılandırma anlatmaktadır:
+Bu konular başvuru çözüm tanıtmaktadır&#x2014;Contact Manager çözüm&#x2014;ve indirir ve yerel makinenizde yapılandırma anlatmaktadır:
 
 - [Kişi Yöneticisi Çözümü](the-contact-manager-solution.md)
 - [Kişi Yöneticisi Çözümünü Ayarlama](setting-up-the-contact-manager-solution.md)
@@ -104,5 +104,5 @@ Bu beş eğitim serileri parçası Kurumsal ölçekte web dağıtımı oluşturu
 - [Team Foundation Server için Web dağıtımı yapılandırma](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Bu öğretici nasıl el ile belirli derlemeleri dağıtımları tetiklenen ve otomatik dağıtım bir CI işleminin bir parçası olarak dahil olmak üzere çeşitli dağıtım senaryoları desteklemek için TFS'ye yapılandırılacağını açıklar.
 - [Kurumsal Web dağıtımı Gelişmiş](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, birden çok ortamlar için veritabanı dağıtımları özelleştirme, dağıtımdan dosya ve klasörleri dışarıda ve dağıtım işlemi sırasında çevrimdışı web uygulamaları alma gibi çeşitli daha gelişmiş dağıtım görevlerinin açıklar .
 
->[!div class="step-by-step"]
-[Next](the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Next](the-contact-manager-solution.md)

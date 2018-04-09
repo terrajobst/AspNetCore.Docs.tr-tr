@@ -2,21 +2,21 @@
 uid: whitepapers/mvc4-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: "Bu belgede, ASP.NET MVC 4 sürümü açıklanmaktadır."
+description: Bu belgede, ASP.NET MVC 4 sürümü açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: dbcea6090a0376b8732e02c0891721672bfe50f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -103,7 +103,7 @@ ASP.NET Web API aşağıdaki özellikleri destekler:
 - **Web API projesi şablonunu:** yeni Web API projesi formu hızlı bir şekilde hazır ve çalışır ASP.NET Web API ile almak için yeni MVC 4 Proje Sihirbazı'nı seçin.
 - **Yapı iskelesi:** kullanım **denetleyici Ekle** hızlı bir şekilde bir Entity Framework'ü temel bir web API denetleyicisi iskele iletişim tabanlı model türü.
 
-ASP.NET Web API hakkında daha fazla ayrıntı için lütfen adresi ziyaret edin [https://www.asp.net/web-api](../web-api/index.md).
+ASP.NET Web API hakkında daha fazla ayrıntı için lütfen adresi ziyaret edin [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Varsayılan proje şablonları geliştirmeler
@@ -230,7 +230,7 @@ ASP.NET MVC 4 Sürüm Adayı önemli değişikliklerden bu sürümde, aşağıda
 - **Rota ileti işleyicileri başına:** belirli bir rota için istek zincirindeki son ileti işleyicisi artık belirtebilirsiniz. Bu, kendi için gönderilmesi için yönlendirmeyi kullanmak kılma boyunca çerçeveler için destek sağlar (olmayan*IHttpController*) uç noktaları.
 - **İlerleme bildirimleri:** *ProgressMessageHandler* yüklenen istek varlıkları ve indirilen yanıt varlıkları için ilerleme bildirimi oluşturur. Bu işleyici kullanarak ne kadar bir istek gövdesi karşıya yükleme veya indirme yanıt gövdesi izlemek mümkündür.
 - **İçerik itme:** *PushStreamContent* sınıfı burada bir veri üreticisinin istediği doğrudan istek veya yanıtın (zaman uyumlu veya zaman uyumsuz olarak) kullanarak bir akış yazmak için senaryoları etkinleştirir. Zaman *PushStreamContent* bu çağrılar bir eylem temsilcisi çıkış akışı ile verileri kabul etmeye hazır. Yazarken akış sürece gerekli ve Kapat tamamlandı için geliştirici sonra akışa yazabilirsiniz. *PushStreamContent* akış kapanmasını algılar ve zaman uyumsuz arka plandaki tamamlandığında *görev* içeriği teslim yazma.
-- **Hata yanıtları oluşturma:** kullanım *HTTP hatası* tutarlı bir şekilde hala uygularken çalışırken hata bilgileri doğrulama hataları ve özel durumlar gibi göstermek için türü *IncludeErrorDetailPolicy* . Yeni *CreateErrorResponse* kolayca hata yanıtları oluşturmak için genişletme yöntemleri *HTTP hatası* içerik olarak. *HTTP hatası* içeriktir tam içerik anlaşması.
+- **Hata yanıtları oluşturma:** kullanım *HTTP hatası* tutarlı bir şekilde hala uygularken çalışırken hata bilgileri doğrulama hataları ve özel durumlar gibi göstermek için türü *IncludeErrorDetailPolicy*. Yeni *CreateErrorResponse* kolayca hata yanıtları oluşturmak için genişletme yöntemleri *HTTP hatası* içerik olarak. *HTTP hatası* içeriktir tam içerik anlaşması.
 - **Kaldırılan MediaRangeMapping:** medya türü aralıkları şimdi varsayılan içerik uzlaştırıcı tarafından işlenir.
 - **Basit tür parametreleri için varsayılan parametre bağlaması olan şimdi [FromUri]:** önceki sürümlerinde ASP.NET Web API basit tür parametreleri kullanılan model bağlama için varsayılan parametre bağlaması. Basit tür parametreleri için varsayılan parametre bağlaması sunulmuştur *[FromUri]*.
 - **Eylem Seçimi gerekli parametreleri geliştirir:** eylem ASP.NET Web API artık yalnızca seçer bir eylem URI'den gelen tüm gerekli parametreleri sağladıysanız. Bir parametre isteğe bağlı eylem yöntemi imzası bağımsız değişkeni için varsayılan bir değer sağlayarak belirtilebilir.
@@ -245,7 +245,7 @@ ASP.NET MVC 4 Sürüm Adayı önemli değişikliklerden bu sürümde, aşağıda
 - **Bağlantı nesil geliştirmeleri:** *UrlHelper* artık bağımlı *HttpControllerContext*. Artık erişebilirsiniz *UrlHelper* herhangi bağlamından nerede *HttpRequestMessage* kullanılabilir.
 - **İleti işleyici yürütme sırası değiştirme:** ileti işleyicileri şimdi bunların yerine ters sırada yapılandırıldığından sırada yürütülür.
 - **İleti işleyicileri yukarı kablolama Yardımcısı:** yeni *HttpClientFactory* , wire yukarı *DelegatingHandlers* ve oluşturma bir *HttpClient* ile İstenen işlem hattı başlamaya hazır olursunuz. Alternatif iç işleyicileri ile yukarı kablolama işlevselliği de sağlar (varsayılan *HttpClientHandler*) yanı sıra kullanırken kablolama yapmak *HttpMessageInvoker* veya başka bir  *DelegatingHandler* yerine *HttpClient* olarak üst çağırıcı.
-- **ASP.NET Web iyileştirme CDN'ler destek:** ASP.NET Web iyileştirme şimdi desteği sağlar. her biri için belirtmenizi etkinleştirme CDN diğer yollar bir içerik teslim ağı aynı, bu kaynağa işaret eden ek bir URL paket. CDN'ler destekleyen Web uygulamalarınızın son tüketicilere, komut dosyası ve stil paketleri coğrafi olarak yakın almanızı sağlar.
+- **ASP.NET Web iyileştirme CDN'ler destek:** ASP.NET Web iyileştirme şimdi desteği sağlar. her biri için belirtmenizi etkinleştirme CDN diğer yollar bir içerik teslim ağı aynı, bu kaynağa işaret eden ek bir URL paket. CDN'ler destekleyen Web uygulamalarınızın son tüketicilere, komut dosyası ve stil paketleri coğrafi olarak yakın almanızı sağlar. CDN kullanılamaz duruma geldiğinde üretim uygulamaları bir geri dönüş uygulamanız gerekir. Geri dönüş sınayın.
 - **ASP.NET Web API yönlendirir ve yapılandırma taşınabilir *WebApiConfig.Register* resused test kodu olabilir statik yöntemi.** ASP.NET Web API yolları daha önce de eklenmiştir *RouteConfig.RegisterRoutes* birlikte standart MVC yönlendirir. Varsayılan ASP.NET Web API yönlendirir ve yapılandırma ayrı bir şimdi işlenen *WebApiConfig.Register* sınama kolaylaştırmak için yöntem.
 
 <a id="_Toc303253815"></a>
@@ -261,7 +261,7 @@ ASP.NET MVC 4 Sürüm Adayı önemli değişikliklerden bu sürümde, aşağıda
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- Aşağıdaki yöntemlerden ayrıca kaldırıldı: 
+  Aşağıdaki yöntemlerden ayrıca kaldırıldı: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -275,22 +275,23 @@ ASP.NET MVC 4 Sürüm Adayı önemli değişikliklerden bu sürümde, aşağıda
 
     **Gerekli güncelleştirmeleri**
 
-    1. Kök Web.config dosyasında yeni Ekle  *&lt;appSettings&gt;*  anahtar girişle *webPages:Version* ve değeri *1.0.0.0*. 
+  1. Kök Web.config dosyasında yeni Ekle *&lt;appSettings&gt;* anahtar girişle *webPages:Version* ve değeri *1.0.0.0*. 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-    2. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
-    3. Aşağıdaki derleme başvurularını bulun: 
+      [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
+  2. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
+  3. Aşağıdaki derleme başvurularını bulun: 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
+      [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-        Bunları aşağıdakiyle değiştirin:
+      Bunları aşağıdakiyle değiştirin:
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-    4. Değişiklikleri kaydetmek, düzenlemekte olduğunuz ve projeye sağ tıklayın ve yeniden yükle seçeneğini belirleyin (.csproj) proje dosyasını kapatın.
+      [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
+  4. Değişiklikleri kaydetmek, düzenlemekte olduğunuz ve projeye sağ tıklayın ve yeniden yükle seçeneğini belirleyin (.csproj) proje dosyasını kapatın.
+
 - **Bir ASP.NET MVC 4 Proje hedef 4.0 4.5'ten değiştirme EntityFramework derleme başvurusu güncelleştirmez:** , bir ASP.NET MVC 4 Proje hedef 4.0 atamak için hala EntityFramework derlemesine başvuru üzerine 4.5 sonra değiştirirseniz 4.5 sürümü. Bu sorunu kaldırma düzeltin ve EntityFramework NuGet paketini yeniden yüklemek için.
-- **Bir ASP.NET MVC 4 uygulama hedef 4.0, 4.5'ten değiştirdikten sonra Azure üzerinde çalışırken 403 Yasak:** bir ASP.NET MVC 4 Proje hedef 4.0 4.5 atamak sonra değiştirmek ve Azure'a dağıtma çalışma zamanında 403 Yasak hatası görebilirsiniz. Bu sorun için geçici çözüm web.config aşağıdaki ekleyin:`<modules runAllManagedModulesForAllRequests="true" />`
+- **Bir ASP.NET MVC 4 uygulama hedef 4.0, 4.5'ten değiştirdikten sonra Azure üzerinde çalışırken 403 Yasak:** bir ASP.NET MVC 4 Proje hedef 4.0 4.5 atamak sonra değiştirmek ve Azure'a dağıtma çalışma zamanında 403 Yasak hatası görebilirsiniz. Bu sorun için geçici çözüm web.config aşağıdaki ekleyin: `<modules runAllManagedModulesForAllRequests="true" />`
 - **Visual Studio 2012 çöküyor yazarken bir '\' Razor dosyasında değişmez değer dize.** Çalışmak için kapama çift tırnağı dize sabit değeri, sorunu çözmek ilk girin.
-- **İçin dizin taramayı &quot;hesap/Yönet&quot; CHS, TRK ve CHT dil için bir çalışma zamanı hatası Internet şablon sonucu.** Sorunu düzeltmek için ayırmak için sayfayı değiştirme  *@User.Identity.Name*  içinde yalnızca içerik olarak koyarak kullanılabilir  *&lt;güçlü&gt;*  etiketi.
+- <strong>İçin dizin taramayı &quot;hesap/Yönet&quot; CHS, TRK ve CHT dil için bir çalışma zamanı hatası Internet şablon sonucu.</strong> Sorunu düzeltmek için ayırmak için sayfayı değiştirme <em>@User.Identity.Name</em> içinde yalnızca içerik olarak koyarak kullanılabilir <em>&lt;güçlü&gt;</em> etiketi.
 - **Google ve LinkedIn sağlayıcıları Azure Web siteleri içinde desteklenmez.** Alternatif kimlik doğrulama sağlayıcıları için Azure Web siteleri dağıtırken kullanın.
 - **Uzantı kullanmaya çalıştığınızda UriPathExtensionMapping IIS 8 Express/IIS ile kullanırken, 404 bulunamadı hataları alırsınız.** Statik dosya işleyici Web kullanmak API'leri isteklerle müdahale *UriPathExtensionMappings*. Ayarlama *runAllManagedModulesForAllRequests = true* sorunu çözmek için web.config dosyasında.
 - **Controller.Execute yöntemi artık çağrılır.** Tüm MVC denetleyicileri şimdi her zaman zaman uyumsuz olarak çalıştırılır.

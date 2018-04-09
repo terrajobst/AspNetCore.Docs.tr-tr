@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
-title: "Ana sayfa programlı olarak belirtme (C#) | Microsoft Docs"
+title: Ana sayfa programlı olarak belirtme (C#) | Microsoft Docs
 author: rick-anderson
-description: "İçerik sayfasının ana sayfa PreInit olay işleyicisi aracılığıyla programlı olarak ayarlama arar."
+description: İçerik sayfasının ana sayfa PreInit olay işleyicisi aracılığıyla programlı olarak ayarlama arar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2294ee2e58e55901d77958e7cf45dd74fc2a1187
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Ana sayfa programlı olarak belirtme (C#)
 ====================
@@ -139,7 +139,7 @@ Ardından, aşağıdaki bildirim temelli biçimlendirme eklemek `Alternate.maste
 
 ### <a name="testing-the-new-master-page"></a>Yeni ana sayfa test etme
 
-Bu yeni ana sayfa güncelleştirme test etmek için `BasePage` sınıfının `OnPreInit` yöntemi böylece `MasterPageFile` özellik değeri atanmış "~ / Alternate.maser" ve Web sitesini ziyaret edin. Her sayfada iki dışında hatasız çalışması: `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx`. Bir ürün DetailsView'da ekleme `~/Admin/AddProduct.aspx` sonuçlanan bir `NullReferenceException` ana sayfanın ayarlamaya çalışır kod satırından `GridMessageText` özelliği. Ziyaret eden `~/Admin/Products.aspx` bir `InvalidCastException` sayfa yükü iletiyle oluşturulur: "nesne türünün ' ASP.alternate\_ana ' türü için ' ASP.site\_ana '."
+Bu yeni ana sayfa güncelleştirme test etmek için `BasePage` sınıfının `OnPreInit` yöntemi böylece `MasterPageFile` özellik değeri atanmış "~ / Alternate.master" ve Web sitesini ziyaret edin. Her sayfada iki dışında hatasız çalışması: `~/Admin/AddProduct.aspx` ve `~/Admin/Products.aspx`. Bir ürün DetailsView'da ekleme `~/Admin/AddProduct.aspx` sonuçlanan bir `NullReferenceException` ana sayfanın ayarlamaya çalışır kod satırından `GridMessageText` özelliği. Ziyaret eden `~/Admin/Products.aspx` bir `InvalidCastException` sayfa yükü iletiyle oluşturulur: "nesne türünün ' ASP.alternate\_ana ' türü için ' ASP.site\_ana '."
 
 Bu hatalar nedeniyle oluşur `Site.master` arka plandaki kod sınıfı içeren ortak olaylar, özellikleri ve içinde tanımlı değil yöntemleri `Alternate.master`. Bu iki sayfaları biçimlendirme kısmı sahip bir `@MasterType` başvuruyor yönergesi `Site.master` ana sayfa.
 
@@ -282,12 +282,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Suchi Banerjee oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Suchi Banerjee oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-pages-and-asp-net-ajax-cs.md)
-[sonraki](nested-master-pages-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](master-pages-and-asp-net-ajax-cs.md)
+> [sonraki](nested-master-pages-cs.md)

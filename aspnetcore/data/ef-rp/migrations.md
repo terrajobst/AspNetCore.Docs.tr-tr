@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile"
+title: Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 author: rick-anderson
-description: "Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın."
+description: Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın.
 manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4aafb52be611d4088e47f64f83d25cf85dc5ca08
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4e9b747a3369bbb608c3b3832c865745a2322142
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Bu öğreticide, veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanılır.
 
@@ -115,15 +115,13 @@ Uygulama için yeni bir ortam dağıtıldığında DB oluşturma kod DB oluştur
 
 Daha önce bağlantı dizesi DB için yeni bir ad kullanmak üzere değiştirilmiştir. Belirtilen veritabanı yok, bu geçişler oluşturur şekilde DB.
 
-### <a name="examine-the-data-model-snapshot"></a>Veri modeli anlık görüntü inceleyin
+### <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntü
 
-Geçişler oluşturur bir *anlık görüntü* geçerli DB şemasının *Migrations/SchoolContextModelSnapshot.cs*:
+Geçişler oluşturur bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler.
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Bir geçiş silerken kullanmak [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu. `dotnet ef migrations remove` geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
 
-Geçerli DB şeması kodda gösterilir çünkü EF çekirdek geçişler oluşturmak için DB ile etkileşim kurmak sahip değil. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF çekirdek belirler. Yalnızca DB güncelleştirmek sahip olduğu EF çekirdek DB ile etkileşime girer.
-
-Anlık görüntü dosyasının oluşturulduğu geçişler ile eşitlenmiş olması gerekir. Bir geçiş adlı dosyayı silerek kaldırılamaz  *\<zaman damgası > _\<migrationname > .cs*. Bu dosya silinirse, kalan geçişler DB anlık görüntü dosyası ile eşitlenmemiş. Eklenen son geçiş silmek için kullanın [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu.
+Bkz: [EF çekirdek geçişler takım ortamlarda](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için.
 
 ## <a name="remove-ensurecreated"></a>Remove EnsureCreated
 
@@ -187,7 +185,7 @@ Kullanım **SQL Server Nesne Gezgini** DB incelemek için. Eklenmesi fark bir `_
 
 Uygulamayı çalıştırın ve her şeyi çalıştığını doğrulayın.
 
-## <a name="appling-migrations-in-production"></a>Üretim appling geçişleri
+## <a name="applying-migrations-in-production"></a>Üretim geçişleri uygulama
 
 Üretim uygulamaları gereken öneririz **değil** çağrısı [Database.Migrate](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında. `Migrate` sunucu grubundaki bir uygulamadan çağrılması gerekir. Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) genişleme ile dağıtılan bulut olması durumunda.
 
@@ -236,6 +234,6 @@ Varsa `update` komut, "oluşturma başarısız oldu." hatasını döndürür:
 * Komutu yeniden çalıştırın.
 * Sayfanın altındaki bir ileti bırakın.
 
->[!div class="step-by-step"]
-[Önceki](xref:data/ef-rp/sort-filter-page)
-[sonraki](xref:data/ef-rp/complex-data-model)
+> [!div class="step-by-step"]
+> [Önceki](xref:data/ef-rp/sort-filter-page)
+> [sonraki](xref:data/ef-rp/complex-data-model)

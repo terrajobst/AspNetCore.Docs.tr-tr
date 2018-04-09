@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: "ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu | Microsoft Docs"
+title: ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümlerle çalışırken sahip olabileceği sorunlar anlatılmaktadır. Yazılım sürümleri ASP.NET Web sayfa..."
+description: Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümlerle çalışırken sahip olabileceği sorunlar anlatılmaktadır. Yazılım sürümleri ASP.NET Web sayfa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu
 ====================
@@ -144,12 +144,12 @@ De kullanarak e-posta gönderme sorunlarını ayıklayabilirsiniz bir `try-catch
     *Bağlı taraf düzgün zaman ya da kurulan bağlantı bağlanılan ana makine yanıt başarısız olduğundan başarısız oldu, bir süre sonra yanıt vermediği için bir bağlantı girişimi başarısız oldu*
 
     Bu hata genellikle uygulama SMTP sunucusuna bağlanamadı anlamına gelir. Sunucu adını denetleyin ve bağlantı noktası numarası.
-- *Posta kutusu kullanılamıyor. Sunucu yanıt: 5.1.0 &lt; someuser@invaliddomain &gt; gönderen reddedilen: Geçersiz gönderen etki alanı*
+- <em>Posta kutusu kullanılamıyor. Sunucu yanıt: 5.1.0 &lt; someuser@invaliddomain &gt; gönderen reddedilen: Geçersiz gönderen etki alanı</em>
 
     Bu iletiyi bildiren `From` adresi doğru değil veya eksik.
 - *Belirtilen dize için bir e-posta adresi gereken biçimde değil.*
 
-    Bu hata, gösterebilir değerini `To` veya `From` özellikleri e-posta adresleri olarak tanınmadı. (ASP.NET, e-posta adresi doğru biçimde gibi kullanıcının yalnızca geçerli olduğunu denetleyemez  *name@domain.com* .)
+    Bu hata, gösterebilir değerini `To` veya `From` özellikleri e-posta adresleri olarak tanınmadı. (ASP.NET, e-posta adresi doğru biçimde gibi kullanıcının yalnızca geçerli olduğunu denetleyemez *name@domain.com*.)
 
 > [!NOTE]
 > Hatayı görüntüler biçimlendirme Kaldır (`@errorMessage`) canlı bir siteye sayfa yayımlamadan önce. Kullanıcıların bir sunucudan alma hata iletilerine izin vermek için iyi bir fikir değil.

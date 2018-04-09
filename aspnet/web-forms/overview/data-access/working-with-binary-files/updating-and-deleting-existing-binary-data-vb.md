@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
-title: "Güncelleştirme ve silme Varolan ikili veriler (VB) | Microsoft Docs"
+title: Güncelleştirme ve silme Varolan ikili veriler (VB) | Microsoft Docs
 author: rick-anderson
-description: "Önceki eğitimlerine nasıl GridView denetiminin düzenlemek ve metin verilerini silmek basit kolaylaştırır gördük. Bu öğreticide nasıl GridView denetimi de hale bakın …"
+description: Önceki eğitimlerine nasıl GridView denetiminin düzenlemek ve metin verilerini silmek basit kolaylaştırır gördük. Bu öğreticide nasıl GridView denetimi de hale bakın …
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 37e32167cccd1b9a98b629179cdaeb9e193f88b7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Güncelleştirme ve silme Varolan ikili veriler (VB)
 ====================
@@ -264,8 +264,8 @@ GridView s güncelleştirme düğmesine tıklandığında, kendi `RowUpdating` o
 
 Ne zaman tamamlanması için gerekli olan adımları RadioButtonList s `SelectedValue` olan 3 DetailsView s tarafından kullanılanlarla aynı neredeyse `ItemInserting` olay işleyicisi. Yeni bir kategori kayıt eklediğimiz içinde DetailsView denetiminden eklendiğinde bu olay işleyicisi yürütülür [önceki Öğreticisi](including-a-file-upload-option-when-adding-a-new-record-vb.md). Bu nedenle, onu işlevselliklere ayrı yöntemlerde yeniden düzenlemeniz için bize behooves. Özellikle, ı ortak işlevsellik iki yöntemlerin içine taşındı:
 
-- `ProcessBrochureUpload(FileUpload, out bool)`Giriş olarak bir dosya yükleme denetim örneği ve olup silme veya düzenleme işlemi devam etmemelisiniz veya bazı doğrulama hatası nedeniyle iptal olması gerektiğini olmadığını belirten bir çıkış Boole değeri kabul eder. Bu yöntem kaydedilmiş dosyanın yolunu döndürür veya `null` hiçbir dosyasını kaydettiyseniz.
-- `DeleteRememberedBrochurePath`Sayfa değişkenini yolda tarafından belirtilen dosyayı siler `deletedCategorysPdfPath` varsa `deletedCategorysPdfPath` değil `null`.
+- `ProcessBrochureUpload(FileUpload, out bool)` Giriş olarak bir dosya yükleme denetim örneği ve olup silme veya düzenleme işlemi devam etmemelisiniz veya bazı doğrulama hatası nedeniyle iptal olması gerektiğini olmadığını belirten bir çıkış Boole değeri kabul eder. Bu yöntem kaydedilmiş dosyanın yolunu döndürür veya `null` hiçbir dosyasını kaydettiyseniz.
+- `DeleteRememberedBrochurePath` Sayfa değişkenini yolda tarafından belirtilen dosyayı siler `deletedCategorysPdfPath` varsa `deletedCategorysPdfPath` değil `null`.
 
 Bu iki yöntem için kod izler. Arasında benzerlik Not `ProcessBrochureUpload` ve DetailsView s `ItemInserting` önceki öğreticiden olay işleyicisi. Bu öğreticide t bu yeni yöntemlerini kullanmayı DetailsView s olay işleyicileri güncelleştirdiniz. DetailsView s olay işleyicileri için yapılan değişiklikleri görmek için Bu öğretici ile ilişkili kodu indirin.
 
@@ -362,11 +362,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Teresa Murphy oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](including-a-file-upload-option-when-adding-a-new-record-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](including-a-file-upload-option-when-adding-a-new-record-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "Arama ASP.NET Core Razor sayfalarına ekleme"
+title: Arama ASP.NET Core Razor sayfalarına ekleme
 author: rick-anderson
-description: "Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir"
+description: Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,14 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/search
-ms.openlocfilehash: 0072cc2b683ded46f707df285e3d779d11d3aac5
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d922481f3c208621fc21dd5168471797c760f204
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[Search](../../includes/RP/search.md)]
+[!INCLUDE [Search](../../includes/RP/search.md)]
 
->[!div class="step-by-step"]
-[Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages-mac/da1)
-[sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)
+> [!div class="step-by-step"]
+> [Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages-mac/da1)
+> [sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 title: ASP.NET AJAX Web hizmetlerini anlama | Microsoft Docs
 author: scottcate
-description: "Web Hizmetleri, dağıtılmış sistemleri arasında veri değişimi için platformlar arası çözümü sağlamak .NET framework'ün ayrılmaz bir parçasıdır. Ancak Web..."
+description: Web Hizmetleri, dağıtılmış sistemleri arasında veri değişimi için platformlar arası çözümü sağlamak .NET framework'ün ayrılmaz bir parçasıdır. Ancak Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services
 msc.type: authoredcontent
-ms.openlocfilehash: 8eb3486c9b3f4ddb6a8bc2c1cdcac774a6852574
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b9f61f895fea1960ebd25780454b86d5c3ba1bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-web-services"></a>ASP.NET AJAX Web hizmetlerini anlama
 ====================
@@ -51,7 +51,7 @@ Bu HttpHandler değiştirme, bir JavaScript Web hizmeti proxy'si kullanarak .NET
 
 [!code-json[Main](understanding-asp-net-ajax-web-services/samples/sample2.json)]
 
-> *>[!NOTE] işlem adı web hizmetinin URL'sini bir parçası olarak tanımlanan; Ayrıca, istek iletilerini her zaman aracılığıyla gönderilen değil. Web hizmetleri kullanan ScriptMethod özniteliği UseHttpGet parametresi aracılığıyla geçirilecek parametreler neden true olarak ayarlanmış bir sorgu dizesi parametreleri.*
+> *> [!NOTE] işlem adı web hizmetinin URL'sini bir parçası olarak tanımlanan; Ayrıca, istek iletilerini her zaman aracılığıyla gönderilen değil. Web hizmetleri kullanan ScriptMethod özniteliği UseHttpGet parametresi aracılığıyla geçirilecek parametreler neden true olarak ayarlanmış bir sorgu dizesi parametreleri.*
 
 
 **3 listesi. JSON olarak serileştirilmiş web hizmeti yanıtı iletisi**
@@ -68,7 +68,7 @@ ASP.NET Web Hizmetleri için yeni olsun veya olmasın, onu oluşturmak basit ve 
 
 4 listeleme WebMethod özniteliği GetCustomersByCountry() adlı bir yöntem uygulamanın bir örneği gösterir.
 
-**4 listesi. Bir Web hizmeti WebMethod özniteliğini kullanma**
+**Listing 4. Bir Web hizmeti WebMethod özniteliğini kullanma**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample4.cs)]
 
@@ -104,7 +104,7 @@ Bir hizmet JSON yerine döndürülecek XML yanıtlarını ihtiyacınız olduğun
 
 7 listeleme XML verilerini bir Web yönteminden döndürülen olduğunu belirtmek için ResponseFormat özelliğini kullanarak bir örnek gösterilmektedir.
 
-**7 listesi. ScriptMethod özniteliği ResponseFormat özelliğiyle kullanma.**
+**Listing 7. ScriptMethod özniteliği ResponseFormat özelliğiyle kullanma.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample7.cs)]
 
@@ -128,7 +128,7 @@ Varsayılan JSON biçimi istek ve yanıt iletileri toplam boyutunu en aza indiri
 
 Burada bir Web hizmeti tarafından kullanılan iç içe geçmiş bir karmaşık tür ayrıca bir istemci sayfasında kullanılmalıdır durumlarda, ASP.NET AJAX GenerateScriptType özniteliği Web hizmetine eklenebilir. Örneğin, adresi ve cinsiyetiniz özelliklerini listeleme 9'da gösterilen CustomerDetails sınıfı içerir, ***iç içe geçmiş karmaşık türler temsil eder.***
 
-**9 listesi. Burada gösterilen CustomerDetails sınıfı iki iç içe geçmiş karmaşık türler içerir.**
+**Listing 9. Burada gösterilen CustomerDetails sınıfı iki iç içe geçmiş karmaşık türler içerir.**
 
 [!code-csharp[Main](understanding-asp-net-ajax-web-services/samples/sample10.cs)]
 
@@ -160,7 +160,7 @@ ScriptManager denetimi ile CustomersService.asmx bir başvuru ekleyerek, dinamik
 
 [!code-html[Main](understanding-asp-net-ajax-web-services/samples/sample14.html)]
 
-> *>[!NOTE] Oluşturulan gerçek JavaScript proxy kodu görmek isterseniz, Internet Explorer'ın adres kutusuna istenen .NET Web hizmetinin URL'sini yazın ve /js bunu sona ekleyin.*
+> *> [!NOTE] Oluşturulan gerçek JavaScript proxy kodu görmek isterseniz, Internet Explorer'ın adres kutusuna istenen .NET Web hizmetinin URL'sini yazın ve /js bunu sona ekleyin.*
 
 
 Hata ayıklama sürümü JavaScript proxy'si sayfasındaki katıştırılmış web.config dosyasında hata ayıklama etkinse, sonraki gösterilmektedir:
@@ -263,7 +263,7 @@ PageMethods nesnesini kullanarak, bir JavaScript proxy nesnesi kullanarak çok b
 
 ## <a name="the-autocompleteextender-and-the-aspnet-ajax-toolkit"></a>AutoCompleteExtender ve ASP.NET AJAX Araç Seti
 
-ASP.NET AJAX Araç Seti (kullanılabilir [http://ajax.asp.net](http://ajax.asp.net)) Web hizmetlerine erişmek için kullanılan birkaç denetim sunar. Özellikle, araç seti adlı faydalı bir denetim içerir `AutoCompleteExtender` Web hizmetlerini çağırır ve herhangi bir JavaScript kod yazmadan sayfalarında verileri göstermek için kullanılabilir.
+ASP.NET AJAX Araç Seti (kullanılabilir [ http://ajax.asp.net ](http://ajax.asp.net)) Web hizmetlerine erişmek için kullanılan birkaç denetim sunar. Özellikle, araç seti adlı faydalı bir denetim içerir `AutoCompleteExtender` Web hizmetlerini çağırır ve herhangi bir JavaScript kod yazmadan sayfalarında verileri göstermek için kullanılabilir.
 
 AutoCompleteExtender denetim textbox mevcut işlevselliğini genişletmek ve kolayca olarak veri bulmalarına daha fazla yardım için kullanılabilir. Bir metin kutusuna yazarken denetim bir Web hizmeti sorgulamak için kullanılır ve sonuçları metin kutusu altında dinamik olarak gösterir. Şekil 4 müşteri kimlikleri için destek uygulamayı görüntülemek için AutoCompleteExtender denetimini kullanarak bir örnek gösterilmektedir. Kullanıcı, metin kutusuna farklı karakter türleri gibi farklı öğeler üzerinde kendi giriş göre aşağıda gösterilir. Kullanıcılar daha sonra istenen müşteri kimliği seçebilirsiniz.
 
@@ -309,6 +309,6 @@ Dan Wahlin (Microsoft en değerli profesyonel ASP.NET ve XML Web Hizmetleri içi
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Önceki](understanding-asp-net-ajax-localization.md)
-[sonraki](understanding-asp-net-ajax-debugging-capabilities.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-asp-net-ajax-localization.md)
+> [sonraki](understanding-asp-net-ajax-debugging-capabilities.md)

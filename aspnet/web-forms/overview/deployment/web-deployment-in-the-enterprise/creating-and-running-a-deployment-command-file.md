@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: "Oluşturma ve çalıştırma bir dağıtım komut dosyası | Microsoft Docs"
+title: Oluşturma ve çalıştırma bir dağıtım komut dosyası | Microsoft Docs
 author: jrjlee
-description: "Bu konuda re bir tek adım olarak Microsoft Build Engine (MSBuild) proje dosyalarını kullanarak bir dağıtımını çalıştırmak olanak tanıyan bir komut dosyasının nasıl oluşturulacağı açıklanmaktadır..."
+description: Bu konuda re bir tek adım olarak Microsoft Build Engine (MSBuild) proje dosyalarını kullanarak bir dağıtımını çalıştırmak olanak tanıyan bir komut dosyasının nasıl oluşturulacağı açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Oluşturma ve bir dağıtım komut dosyası çalıştırma
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda adım tek, tekrarlanabilir bir işlem olarak Microsoft Build Engine (MSBuild) proje dosyalarını kullanarak bir dağıtım çalıştırmadan sağlayacak bir komut dosyasının nasıl oluşturulacağı açıklanmaktadır.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanan [Contact Manager](the-contact-manager-solution.md) çözüm & #x 2014; Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager](the-contact-manager-solution.md) çözüm&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [oluşturma işlemini anlama](understanding-the-build-process.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [oluşturma işlemini anlama](understanding-the-build-process.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="process-overview"></a>İşlemine genel bakış
 
@@ -40,7 +40,7 @@ Bu konuda, oluşturma ve bu proje dosyalarını hedef ortamınızı tekrarlanabi
 
 ## <a name="create-an-msbuild-command"></a>MSBuild komut oluşturma
 
-Bölümünde açıklandığı gibi [oluşturma işlemini anlama](understanding-the-build-process.md), ortama özgü proje dosyası & #x 2014; Örneğin, *Env Dev.proj*& #x 2014; içe için tasarlanmıştır ortam belirsiz *Publish.proj* derleme zamanında dosya. Birlikte, bu iki dosyayı nasıl oluşturulacağı ve çözümünüzü dağıtmak MSBuild söyleyen yönergeler eksiksiz bir kümesini sağlar.
+Bölümünde açıklandığı gibi [oluşturma işlemini anlama](understanding-the-build-process.md), ortama özgü proje dosyası&#x2014;Örneğin, *Env Dev.proj*&#x2014;ortamı belirsiz alınmak üzere tasarlanmıştır *Publish.proj* derleme zamanında dosya. Birlikte, bu iki dosyayı nasıl oluşturulacağı ve çözümünüzü dağıtmak MSBuild söyleyen yönergeler eksiksiz bir kümesini sağlar.
 
 *Publish.proj* dosya kullanan bir **alma** ortama özgü proje dosyasını içeri aktarmak için öğesi.
 
@@ -92,7 +92,7 @@ Hedef ortamınız için bir komut dosyasını oluşturduğunuz zaman, tüm dağ�
 5. Bu ortam için çözüm dağıtmış ilk kez kullanıyorsanız, test web sunucusunun makine hesabı eklemeniz gerekir **db\_datawriter** ve **db\_datareader**rollerinde **ContactManager** veritabanı. Bu yordamda açıklanan [bir veritabanı sunucusu için Web dağıtımı yayımlama yapılandırma](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > Yalnızca veritabanı oluşturduğunuzda, bu izinleri atamanız gerekir. Varsayılan olarak, yapı işlemi her dağıtım & #x 2014 veritabanını yeniden değil; bunun yerine, en son şema varolan bir veritabanına karşılaştırın ve yalnızca gerekli değişiklikleri yapın. Sonuç olarak, bu veritabanı rolleri çözümü dağıtmak ilk kez eşlemek yalnızca gerekir.
+    > Yalnızca veritabanı oluşturduğunuzda, bu izinleri atamanız gerekir. Varsayılan olarak, yapı işlemi her dağıtım veritabanını yeniden oluşturacak değil&#x2014;bunun yerine, onu en son şema varolan bir veritabanına karşılaştırır ve yalnızca gerekli değişiklikleri yapın. Sonuç olarak, bu veritabanı rolleri çözümü dağıtmak ilk kez eşlemek yalnızca gerekir.
 6. Internet Explorer'ı açın ve ilgili kişi Yöneticisi uygulamasının URL'sine gidin (örneğin, `http://testweb1:85/ContactManager/`).
 7. Uygulamanın beklendiği gibi çalıştığını doğrulayın ve kişiler ekleyebilecek.
 
@@ -118,6 +118,6 @@ Hazırlama ortamına yayımlamak için bir komut dosyası bu MSBuild komut içer
 
 Her ortam için yapı işlemi özelliklerini geçersiz kılma veya diğer çeşitli anahtarları MSBuild komutunuzu ayarlayarak özelleştirebilirsiniz. Daha fazla bilgi için bkz: [MSBuild komut satırı başvurusu](https://msdn.microsoft.com/library/ms164311.aspx).
 
->[!div class="step-by-step"]
-[Önceki](deploying-database-projects.md)
-[sonraki](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-database-projects.md)
+> [sonraki](manually-installing-web-packages.md)

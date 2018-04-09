@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
-title: "SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: - 7 / 12 üretim ortamına dağıtma | Microsoft Docs"
+title: 'SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: - 7 / 12 üretim ortamına dağıtma | Microsoft Docs'
 author: tdykstra
-description: "Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi..."
+description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: - 7 / 12 üretim ortamına dağıtma
 ====================
@@ -125,7 +125,7 @@ Seçin **profil** sekmesini ve sonra **alma**.
 
 ![Web Sihirbazı bağlantı sekmesi yayımlama](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-.Publishsettings dosyasını site için planlanan kalıcı URL hedef URL kutusunda geçirir, ancak henüz bu etki alanı satın almadığınız, değer geçici URL'niz ile değiştirin. Bu örnekte URL'nin,  *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com).* Bu kutu yalnızca amacı, tarayıcı otomatik olarak sonra başarıyla dağıtımdan sonra açılacak hangi URL belirtmektir. Boş bırakırsanız, yalnızca sonucu tarayıcı dağıtım sonrasında otomatik olarak başlatılmaz ' dir.
+.Publishsettings dosyasını site için planlanan kalıcı URL hedef URL kutusunda geçirir, ancak henüz bu etki alanı satın almadığınız, değer geçici URL'niz ile değiştirin. Bu örnekte URL'nin,  *[ http://contosouniversity.com.vserver01.cytanium.com ](http://contosouniversity.com.vserver01.cytanium.com).* Bu kutu yalnızca amacı, tarayıcı otomatik olarak sonra başarıyla dağıtımdan sonra açılacak hangi URL belirtmektir. Boş bırakırsanız, yalnızca sonucu tarayıcı dağıtım sonrasında otomatik olarak başlatılmaz ' dir.
 
 Tıklatın **bağlantıyı doğrula** ayarlarının doğru olduğundan ve sunucuya bağlanabilirsiniz doğrulanamadı. Daha önce gördüğünüz gibi yeşil bir onay işareti bağlantının başarılı olduğunu doğrular.
 
@@ -137,9 +137,9 @@ Doğrulama bağlantısını tıklattığınızda görebileceğiniz bir **sertifi
 
 İçinde **veritabanları** bölümünü **ayarları** sekmesinde, aynı girin, Test için girdiğiniz değerleri yayımlama profili. Gereksinim duyduğunuz bağlantı dizeleri açılan listelerde bulabilirsiniz.
 
-- Bağlantı dizesi kutusunda **SchoolContext,** seçin`Data Source=|DataDirectory|School-Prod.sdf`
+- Bağlantı dizesi kutusunda **SchoolContext,** seçin `Data Source=|DataDirectory|School-Prod.sdf`
 - Altında **SchoolContext**seçin **geçerli Code First Migrations**.
-- Bağlantı dizesi kutusunda **DefaultConnection**seçin`Data Source=|DataDirectory|aspnet-Prod.sdf`
+- Bağlantı dizesi kutusunda **DefaultConnection**seçin `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - Altında **DefaultConnection**, bırakın **güncelleştirme veritabanı** temizlendi.
 
 ![Web Sihirbazı ayarları sekmesi yayımlama](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
@@ -252,6 +252,6 @@ Böylece bu dosyayı üretim dağıtımdan hariç gerek üretim sitenizi katalog
 
 Sonraki öğreticide uygulama kodunu güncelleştirin ve değişikliğinizi test ve üretim ortamlarını dağıtın.
 
->[!div class="step-by-step"]
-[Önceki](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-[sonraki](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [!div class="step-by-step"]
+> [Önceki](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [sonraki](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

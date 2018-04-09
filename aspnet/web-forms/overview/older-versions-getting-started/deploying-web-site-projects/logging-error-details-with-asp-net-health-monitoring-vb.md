@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
-title: "Hata ayrıntılarını ASP.NET durumunu (VB) izleme günlüğü | Microsoft Docs"
+title: Hata ayrıntılarını ASP.NET durumunu (VB) izleme günlüğü | Microsoft Docs
 author: rick-anderson
-description: "Microsoft'un sistem durumu izleme sistemi işlenmeyen özel durumlar dahil olmak üzere çeşitli web olayların günlüğe kaydedilmesi için kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide k açıklanmaktadır..."
+description: Microsoft'un sistem durumu izleme sistemi işlenmeyen özel durumlar dahil olmak üzere çeşitli web olayların günlüğe kaydedilmesi için kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide k açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83f7504e3aeb02ed222712e7e51f612f7ffd5744
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Hata ayrıntılarını ASP.NET durumunu (VB) izleme günlüğü
 ====================
@@ -154,6 +154,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Nasıl yapılır: ASP.NET sistem durumu izleme kullanma](https://msdn.microsoft.com/library/ms998306.aspx)
 - [ASP.NET izleme sistem durumu](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
->[!div class="step-by-step"]
-[Önceki](processing-unhandled-exceptions-vb.md)
-[sonraki](logging-error-details-with-elmah-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](processing-unhandled-exceptions-vb.md)
+> [sonraki](logging-error-details-with-elmah-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/16-adding-security-and-membership
-title: "Güvenlik ve üyelik ekleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: Güvenlik ve üyelik ekleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde bazı sayfalarda oturum açan kişi için kullanılabilir olacak şekilde, Web sitenizin güvenli gösterilmiştir. (Ayrıca sayfaları tha oluşturma görürsünüz"
+description: Bu bölümde bazı sayfalarda oturum açan kişi için kullanılabilir olacak şekilde, Web sitenizin güvenli gösterilmiştir. (Ayrıca sayfaları tha oluşturma görürsünüz
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>ASP.NET Web sayfaları (Razor) sitesi için güvenlik ve üyelik ekleme
 ====================
@@ -47,7 +47,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web Yardımcıları kitaplığı
 
 
-Sitenizi ayarlayabilirsiniz, böylece kullanıcılar &#8212;oturum açabilir; diğer bir deyişle, böylece sitenin desteklediği *üyelik*. Bu nedenlerle yararlı olabilir. Örneğin, siteniz yalnızca üyelerine kullanılabilir olması gerektiğini sayfaları olabilir. Bazı durumlarda, kullanıcıların bir yorum yazın ya da geri bildirim göndermek için oturum gerektirebilir.
+Böylece kullanıcılar içine oturum açabilir, sitenizi ayarlayabilirsiniz &#8212; diğer bir deyişle, böylece sitenin desteklediği *üyelik*. Bu nedenlerle yararlı olabilir. Örneğin, siteniz yalnızca üyelerine kullanılabilir olması gerektiğini sayfaları olabilir. Bazı durumlarda, kullanıcıların bir yorum yazın ya da geri bildirim göndermek için oturum gerektirebilir.
 
 Web sitenizi üyelik destekliyorsa bile, kullanıcılar bazı sayfalarda sitesinde kullanmadan önce oturum açmak için mutlaka gerekli değildir. Oturum olmayan kullanıcılar olarak bilinen *anonim kullanıcılar*.
 
@@ -88,26 +88,26 @@ Aşağıdaki yordam, siteyi oluşturmak ve yapılandırmak açıklar.
     E-posta onayı ayarlama istemiyorsanız, bu adımı ve sonraki adıma atlayabilirsiniz. SMTP değerleri ayarlanmamışsa, yeni hesabı bir onay e-postayı hemen kullanılabilir.
 6. Kod aşağıdaki e-posta ile ilgili ayarları değiştirin:
 
-    - Ayarlama `WebMail.SmtpServer` erişiminiz SMTP sunucusunun adı.
-    - Bırakın `WebMail.EnableSsl` kümesine `true`. Bu ayar şifreleyerek SMTP sunucusuna gönderilen kimlik bilgilerinin güvenliğini sağlar.
-    - Ayarlama `WebMail.UserName` SMTP sunucusu hesabının kullanıcı adı.
-    - Ayarlama `WebMail.Password` SMTP sunucusu hesabının parolasına.
-    - Ayarlama `WebMail.From` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir.
+   - Ayarlama `WebMail.SmtpServer` erişiminiz SMTP sunucusunun adı.
+   - Bırakın `WebMail.EnableSsl` kümesine `true`. Bu ayar şifreleyerek SMTP sunucusuna gönderilen kimlik bilgilerinin güvenliğini sağlar.
+   - Ayarlama `WebMail.UserName` SMTP sunucusu hesabının kullanıcı adı.
+   - Ayarlama `WebMail.Password` SMTP sunucusu hesabının parolasına.
+   - Ayarlama `WebMail.From` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir.
 
-    > [!NOTE] 
-    > 
-    > **İpucu** bu özelliklerin değerlerini hakkında ek bilgi için bkz: [e-posta ayarlarını yapılandırma](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) içinde [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkID=202906).
+     > [!NOTE] 
+     > 
+     > **İpucu** bu özelliklerin değerlerini hakkında ek bilgi için bkz: [e-posta ayarlarını yapılandırma](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) içinde [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkID=202906).
 7. Kaydet ve Kapat  *\_AppStart.cshtml*.
 8. Çalıştırma *Default.cshtml* sayfasını bir tarayıcıda.
 
     ![Güvenlik üyelik 2](16-adding-security-and-membership/_static/image1.png)
 
-    > [!NOTE]
-    > Bir özelliğin bir örneği olmalıdır bildiren bir hata görürseniz `ExtendedMembershipProvider`, site ASP.NET Web Pages üyelik sistemini (SimpleMembership) kullanmak üzere yapılandırılmamış olabilir. Bir barındırma sağlayıcısının sunucusu yerel sunucunuz farklı bir biçimde yapılandırılmışsa bu bazen ortaya çıkabilir. Bu sorunu gidermek için aşağıdaki öğeyi sitenin ekleyin *Web.config* dosyası:
-    > 
-    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
-    > 
-    > Bu öğenin alt öğesi olarak ekleme `<configuration>` öğesi ve eşi olarak `<system.web>` öğesi.
+   > [!NOTE]
+   > Bir özelliğin bir örneği olmalıdır bildiren bir hata görürseniz `ExtendedMembershipProvider`, site ASP.NET Web Pages üyelik sistemini (SimpleMembership) kullanmak üzere yapılandırılmamış olabilir. Bir barındırma sağlayıcısının sunucusu yerel sunucunuz farklı bir biçimde yapılandırılmışsa bu bazen ortaya çıkabilir. Bu sorunu gidermek için aşağıdaki öğeyi sitenin ekleyin *Web.config* dosyası:
+   > 
+   > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
+   > 
+   > Bu öğenin alt öğesi olarak ekleme `<configuration>` öğesi ve eşi olarak `<system.web>` öğesi.
 9. Sayfanın sağ üst köşesinde tıklatın **kaydetmek** bağlantı. *Register.cshtml* sayfası görüntülenir.
 10. Bir kullanıcı adı ve parola girin ve ardından **kaydetmek**.
 
@@ -120,14 +120,14 @@ Aşağıdaki yordam, siteyi oluşturmak ve yapılandırmak açıklar.
 12. Hesabınızı etkinleştirmek için köprüye tıklayın. Onay köprü bir kayıt onayı sayfası açılır.
 
     ![Güvenlik üyelik 5](16-adding-security-and-membership/_static/image4.png)
-- Tıklatın **oturum açma** bağlamak ve ardından kaydettiğiniz hesap kullanarak oturum açın.
+13. Tıklatın **oturum açma** bağlamak ve ardından kaydettiğiniz hesap kullanarak oturum açın.
 
-    ' De oturum sonra **oturum açma** ve **kaydetmek** bağlantılar almıştır bir **oturum kapatma** bağlantı. Oturum açma adınız bir bağlantı görüntülenir. (Bağlantı parolanızı değiştirebileceğiniz bir sayfaya gitmek olanak tanır.)
+      ' De oturum sonra **oturum açma** ve **kaydetmek** bağlantılar almıştır bir **oturum kapatma** bağlantı. Oturum açma adınız bir bağlantı görüntülenir. (Bağlantı parolanızı değiştirebileceğiniz bir sayfaya gitmek olanak tanır.)
 
-    ![Güvenlik üyelik 6](16-adding-security-and-membership/_static/image5.png)
+      ![Güvenlik üyelik 6](16-adding-security-and-membership/_static/image5.png)
 
-    > [!NOTE]
-    > Varsayılan olarak, ASP.NET web sayfaları kimlik bilgilerini sunucuya düz metin olarak (okunabilir metin olarak) gönderir. Üretim sitesinin Güvenli HTTP kullanması gereken (https:// olarak da bilinen, *Güvenli Yuva Katmanı* veya SSL) sunucuyla paylaşılan hassas bilgileri şifrelemek için. Gerekli e-posta için gönderilecek iletilerin ayarlayarak SSL kullanarak `WebMail.EnableSsl=true` önceki örnekte olduğu gibi. SSL hakkında daha fazla bilgi için bkz: [Web iletişimi güvenli hale getirme: sertifikaları, SSL ve https://](https://go.microsoft.com/fwlink/?LinkId=208660).
+      > [!NOTE]
+      > Varsayılan olarak, ASP.NET web sayfaları kimlik bilgilerini sunucuya düz metin olarak (okunabilir metin olarak) gönderir. Üretim sitesinin Güvenli HTTP kullanması gereken (https:// olarak da bilinen, *Güvenli Yuva Katmanı* veya SSL) sunucuyla paylaşılan hassas bilgileri şifrelemek için. Gerekli e-posta için gönderilecek iletilerin ayarlayarak SSL kullanarak `WebMail.EnableSsl=true` önceki örnekte olduğu gibi. SSL hakkında daha fazla bilgi için bkz: [Web iletişimi güvenli hale getirme: sertifikaları, SSL ve https://](https://go.microsoft.com/fwlink/?LinkId=208660).
 
 ## <a name="additional-membership-functionality-in-the-site"></a>Sitedeki ek üyelik işlevselliğini
 
@@ -165,12 +165,12 @@ Bu yordamda, yalnızca oturum açan kullanıcılar için kullanılabilir olan sa
     (Bağlantı noktası numarası (38366) büyük olasılıkla, URL'de farklı olacaktır.)
 
     İçin yönlendirilirsiniz *Login.cshtml* sayfasında, oturum olmayan gerektiğinden.
-- Daha önce oluşturduğunuz hesabı kullanarak oturum açın. Geri yönlendirilirsiniz *MembersInformation* sayfası. Oturum açtınız olduğundan, bu süre, sayfa içeriğini görürsünüz.
+7. Daha önce oluşturduğunuz hesabı kullanarak oturum açın. Geri yönlendirilirsiniz *MembersInformation* sayfası. Oturum açtınız olduğundan, bu süre, sayfa içeriğini görürsünüz.
 
 Birden çok sayfa güvenli şekilde bunu yapabilirsiniz:
 
 - Güvenlik denetimi her sayfasına ekleyin.
-- Oluşturma bir  *\_PageStart.cshtml* Burada, korumalı sayfaları tutun ve güvenlik denetimi var. ekleme klasörde sayfa. *\_PageStart.cshtml* sayfa genel sayfa klasördeki tüm sayfalar için bir tür olarak davranır. Bu teknik daha ayrıntılı olarak anlatılmıştır [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
+- Oluşturma bir  *\_PageStart.cshtml* Burada, korumalı sayfaları tutun ve güvenlik denetimi var. ekleme klasörde sayfa.  *\_PageStart.cshtml* sayfa genel sayfa klasördeki tüm sayfalar için bir tür olarak davranır. Bu teknik daha ayrıntılı olarak anlatılmıştır [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906#Using__PageStart.cshtml_to_Restrict_Folder_Access).
 
 ## <a name="creating-security-for-groups-of-users-roles"></a>Güvenlik grupları (roller) için oluşturma
 
@@ -227,10 +227,10 @@ Oturum açma sayfasına otomatik programları durdurmaz (bazen denir *web robots
 7. Değiştir `PUBLIC_KEY` anahtarınız ile.
 8. Zaten kaldırılmış yapmadıysanız, kaldırmanız `<div>` "CAPTCHA doğrulamasını etkinleştirmek için" ile başlayan metin içeren öğe. (Tamamını `<div>` öğesi ve içeriği.)
 
-1. Çalıştırma *Default.cshtml* bir tarayıcıda. Siteye oturum açtınız tıklatmak **oturum kapatma** bağlantı.
-2. Tıklatın **kaydetmek** kullanarak CAPTCHA test kayıt test ve bağlama.
+9. Çalıştırma *Default.cshtml* bir tarayıcıda. Siteye oturum açtınız tıklatmak **oturum kapatma** bağlantı.
+10. Tıklatın **kaydetmek** kullanarak CAPTCHA test kayıt test ve bağlama.
 
-    ![Güvenlik üyelik 10](16-adding-security-and-membership/_static/image9.png)
+     ![Güvenlik üyelik 10](16-adding-security-and-membership/_static/image9.png)
 
 Hakkında daha fazla bilgi için `ReCaptcha` Yardımcısı, bkz: [bir CATPCHA önlemek otomatik programlar (aracılarını) kullanarak bilgisayarınızı ASP.NET Web sitesinden kullanarak](https://go.microsoft.com/fwlink/?LinkId=251967).
 

@@ -1,7 +1,7 @@
 ---
-title: "Veri - 10 7 ASP.NET Core MVC EF çekirdek - güncelleştirme ile ilgili"
+title: Veri - 10 7 ASP.NET Core MVC EF çekirdek - güncelleştirme ile ilgili
 author: tdykstra
-description: "Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin."
+description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac9dc6f08bbcd890c5848e7cc5cb4ee93713a559
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2501f4c4abdadd47b4910909205a5c798f1b938f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>İlgili verileri - EF çekirdek ASP.NET Core MVC Öğreticisi (10 7) ile güncelleştirme
+# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Veri - 10 7 ASP.NET Core MVC EF çekirdek - güncelleştirme ile ilgili
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -295,6 +295,6 @@ Uygulama çalışırken ve bir eğitmen oluşturma sınayın.
 
 İlgili verilerle çalışmaya giriş tamamladınız. Sonraki öğreticide eşzamanlılık çakışmaları nasıl ele alınacağını görürsünüz.
 
->[!div class="step-by-step"]
-[Önceki](read-related-data.md)
-[sonraki](concurrency.md)  
+> [!div class="step-by-step"]
+> [Önceki](read-related-data.md)
+> [sonraki](concurrency.md)  

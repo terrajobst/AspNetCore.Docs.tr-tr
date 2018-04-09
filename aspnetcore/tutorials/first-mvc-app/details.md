@@ -1,7 +1,7 @@
 ---
-title: "Ayrıntıları inceleme ve silme yöntemleri"
+title: Ayrıntıları inceleyin ve silme yöntemleri bir ASP.NET Core uygulama
 author: rick-anderson
-description: "Temel bir ASP.NET Core MVC uygulama görünümünde ve ayrıntıları denetleyici yöntemi."
+description: Ayrıntılar denetleyicisi yöntem hakkında bilgi edinin ve temel bir ASP.NET Core MVC uygulama görüntüleyin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: 4bb2489def9eb8fb3f0fd16814803877489899ed
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3691801c2d48b7f635bee844fdf2392f2f3445de
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="examining-the-details-and-delete-methods"></a>Ayrıntıları inceleme ve silme yöntemleri
+# <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Ayrıntıları inceleyin ve silme yöntemleri bir ASP.NET Core uygulama
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -60,5 +60,5 @@ Bkz: [Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama
 
 Bu giriş ASP.NET Core MVC tamamlamak için teşekkür ederiz. Çıkmadan açıklamaları veriyoruz. [MVC ve EF çekirdek kullanmaya başlama](xref:data/ef-mvc/intro) mükemmel bir izleme Bu öğretici kadar olan.
 
->[!div class="step-by-step"]
-[Önceki](validation.md)
+> [!div class="step-by-step"]
+> [Önceki](validation.md)

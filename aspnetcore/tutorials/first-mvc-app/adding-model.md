@@ -1,7 +1,7 @@
 ---
-title: "Bir ASP.NET Core MVC uygulamasına bir modeli ekleme"
+title: Model bir ASP.NET Core MVC uygulamasına ekleme
 author: rick-anderson
-description: "Bir model için basit bir ASP.NET Core uygulama ekleyin."
+description: Bir model için basit bir ASP.NET Core uygulama ekleyin.
 manager: wpickett
 ms.author: riande
 ms.date: 12/8/2017
@@ -9,13 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 171b2a03378c14e956ab4ee7395d481e0ff89236
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Model bir ASP.NET Core MVC uygulamasına ekleme
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Not: ASP.NET Core 2.0 şablonlarını içeren *modelleri* klasör.
 
@@ -45,7 +47,7 @@ Varsa **MVC bağımlılıkları ekleyin** iletişim kutusu görüntülenir:
 Tamamlamak **denetleyici Ekle** iletişim:
 
 * **Model sınıfı:** *film (MvcMovie.Models)*
-* **Veri bağlamı sınıfı:** seçin  **+**  simgesini ve varsayılan ekleyin **MvcMovie.Models.MvcMovieContext**
+* **Veri bağlamı sınıfı:** seçin **+** simgesini ve varsayılan ekleyin **MvcMovie.Models.MvcMovieContext**
 
 ![Veri bağlamı Ekle](adding-model/_static/dc.png)
 
@@ -59,7 +61,7 @@ Visual Studio oluşturur:
 
 * Bir Entity Framework Çekirdek [veritabanı bağlamı sınıfının](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)
 * Film denetleyicisi (*Controllers/MoviesController.cs*)
-* Razor Görünüm Oluştur, Sil, ayrıntıları, düzenleme ve dizin sayfalar için dosyaları (*görünümler/filmler/&ast;.cshtml*)
+* Razor Görünüm Oluştur, Sil, ayrıntıları, düzenleme ve dizin sayfalar için dosyaları (<em>görünümler/filmler/&ast;.cshtml</em>)
 
 Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemleri ve görünümler olarak bilinir *iskele*. En kısa sürede bir filmi veritabanı yönetmenizi sağlayan bir tam olarak işlevsel bir web uygulaması gerekir.
 
@@ -116,18 +118,18 @@ Update-Database
   Uygulamayı çalıştırın ve alma hatası ise:
   
   ```text
-SqlException: Cannot open database "Movie" requested by the login.
-The login failed.
-Login failed for user 'user name'.
-```
+  SqlException: Cannot open database "Movie" requested by the login.
+  The login failed.
+  Login failed for user 'user name'.
+  ```
 
 Büyük olasılıkla değil çalıştırdığınız ` dotnet ef database update`.
   
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model4.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
 
 ![Kimliği, fiyat, yayın tarihi ve başlık için kullanılabilir özellikleri listeleyen bir Model öğesi bağlam menüsünde IntelliSense](adding-model/_static/ints.png)
 
@@ -136,6 +138,6 @@ Büyük olasılıkla değil çalıştırdığınız ` dotnet ef database update`
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Önceki bir görünümü ekleme](adding-view.md)
-[sonraki SQL ile çalışma](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Önceki bir görünümü ekleme](adding-view.md)
+> [sonraki SQL ile çalışma](working-with-sql.md)  

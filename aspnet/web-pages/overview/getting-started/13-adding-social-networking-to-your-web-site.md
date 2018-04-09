@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: "Sosyal ağ eklemek için ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs"
+title: Sosyal ağ eklemek için ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, sitenizi Sosyal Ağ Hizmetleri ile tümleştirmek açıklanmaktadır. Bu bölümde, Web sitenizin yer işareti/bağlantı kişilere öğreneceksiniz..."
+description: Bu bölümde, sitenizi Sosyal Ağ Hizmetleri ile tümleştirmek açıklanmaktadır. Bu bölümde, Web sitenizin yer işareti/bağlantı kişilere öğreneceksiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2c43fa7d286e43f3a4581662ce421c7435e1871f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) siteleri sosyal ağ ekleme
 ====================
@@ -57,10 +57,10 @@ Bu karakterlerin görüntülemek için add `LinkSharecode` bir sayfaya Yardımc�
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
     Bu örnekte, zaman `LinkShare` Yardımcısı çalıştığında, sayfa başlığı, sosyal ağ sitesine sayfa başlığı sırayla geçirmeden bir parametre olarak geçirilir. Ancak, istediğiniz herhangi bir dize geçirebilirdiniz. Bu örnek ayrıca hangi sosyal ağ sitelerine listeye dahil belirtir. Siteniz için uygun olan sosyal ağ sitelerine belirtebilirsiniz.
-- Çalıştırma *ListLinkShare.cshtml* sayfasını bir tarayıcıda. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.)
-- Oturum açtıysanız sitelerden biri karaktere'ı tıklatın. Bağlantıyı sayfaya bir bağlantı burada paylaşabilirsiniz seçili sosyal ağ sitesinde alır. Reddit bağlantısını tıklatırsanız, örneğin, gittiğiniz `submit to reddit` Reddit Web sayfasında.
+2. Çalıştırma *ListLinkShare.cshtml* sayfasını bir tarayıcıda. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.)
+3. Oturum açtıysanız sitelerden biri karaktere'ı tıklatın. Bağlantıyı sayfaya bir bağlantı burada paylaşabilirsiniz seçili sosyal ağ sitesinde alır. Reddit bağlantısını tıklatırsanız, örneğin, gittiğiniz `submit to reddit` Reddit Web sayfasında.
 
-    ![Resim 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
+     ![Resim 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>Bir Twitter ekleme akışı
@@ -81,7 +81,7 @@ Aşağıdaki vurgulanmış kodu developers.facebook.com sitesinde gibi düğmesi
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Gravatar görüntü işleme
 
-A *Gravatar* (bir &quot;genel tanınan avatar&quot;) görüntüyü kullanılabilecek birden çok Web sitelerinde, avatar &#8212;olarak; bu ise, temsil eden bir görüntü. Örneğin, bir Gravatar kişisel bir blog açıklamasında bir forum gönderisi olarak belirleyin ve benzeri. (Kendi Gravatar Gravatar Web sitesindeki kaydedebilirsiniz [http://www.gravatar.com/](http://www.gravatar.com/).) Kişilerin adlarını veya e-posta adreslerini yanındaki resimleri, Web sitenizde görüntülemek istiyorsanız, Gravatar yardımcıyı kullanabilirsiniz.
+A *Gravatar* (bir &quot;genel tanınan avatar&quot;) birden çok Web sitelerinde, avatar kullanılabilecek bir görüntü &#8212; diğer bir deyişle, temsil eden bir görüntü. Örneğin, bir Gravatar kişisel bir blog açıklamasında bir forum gönderisi olarak belirleyin ve benzeri. (Kendi Gravatar Gravatar Web sitesindeki kaydedebilirsiniz [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Kişilerin adlarını veya e-posta adreslerini yanındaki resimleri, Web sitenizde görüntülemek istiyorsanız, Gravatar yardımcıyı kullanabilirsiniz.
 
 Bu örnekte, kendiniz temsil eden tek bir Gravatar kullanıyorsunuz. Bir Gravatar kullanmak için başka bir sitenizde kaydettiğinizde, Gravatar adreslerini belirtin kişilere yoludur. (Kaydetmek kişilere öğrenebilirsiniz [güvenlik ekleme ve bir ASP.NET Web sayfaları Site üyeliği](https://go.microsoft.com/fwlink/?LinkId=202904).) Bu kullanıcı bilgilerini görüntüleme olduğunda, daha sonra yalnızca Gravatar kullanıcının adını burada görüntülemek için ekleyebilirsiniz.
 

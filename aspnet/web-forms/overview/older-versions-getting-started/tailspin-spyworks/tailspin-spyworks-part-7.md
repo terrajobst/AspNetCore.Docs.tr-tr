@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
-title: "7. Kısım: Özellik ekleme | Microsoft Docs"
+title: '7. Kısım: Özellik ekleme | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 7 hesabı geçirme gibi ek özellikler ekler..."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 7 hesabı geçirme gibi ek özellikler ekler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5280de44b3e75f9d1ae85e0248bc3ef6d5444f6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17f068155f6726047901e2f7d580d375a4e07c87
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-adding-features"></a>7. Kısım: Özellikler ekleme
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 7 hesabı gözden geçirme, ürün incelemeleri ve "popüler öğeler" ve "da satın alınan" kullanıcı denetimleri gibi ek özellikler ekler.
 
 
-## <a id="_Toc260221673"></a>Özellik ekleme
+## <a id="_Toc260221673"></a>  Özellik ekleme
 
 Kullanıcıların bizim katalog göz atabilirsiniz ancak kendi alışveriş sepeti içinde öğeleri yerleştirin ve kullanıma alma işlemini tamamlamak, biz sitemizi geliştirmek için içerecektir destekleme sayısı özellikleri vardır.
 
@@ -40,7 +40,7 @@ Kullanıcıların bizim katalog göz atabilirsiniz ancak kendi alışveriş sepe
 7. Ekleme bir sayfa hakkında.
 8. Genel hata
 
-## <a id="_Toc260221674"></a>Hesap gözden geçirme
+## <a id="_Toc260221674"></a>  Hesap gözden geçirme
 
 "Hesap" klasöründe iki .aspx sayfaları bir adlandırılmış OrderList.aspx ve adlandırılmış bir OrderDetails.aspx oluşturun
 
@@ -56,7 +56,7 @@ Ayrıca bu GridView HyperlinkField parametrelerinde unutmayın:
 
 Bu bağlantıyı OrderDetails.aspx sayfa bir sorgu dizesi parametresi olarak OrderID alan belirtme her ürün için sipariş ayrıntılarını görüntülemek için belirtin.
 
-## <a id="_Toc260221675"></a>OrderDetails.aspx
+## <a id="_Toc260221675"></a>  OrderDetails.aspx
 
 Siparişler bir FormView sipariş verilerini ve başka bir EntityDataSource GridView ile görüntülenecek ve siparişin tüm satır öğeleri görüntülemek için erişmek için bir EntityDataSource denetimini kullanacağız.
 
@@ -72,7 +72,7 @@ Biz de hesaplamak ve görüntüleme satır öğelerden toplam sırası gerekir.
 
 [!code-csharp[Main](tailspin-spyworks-part-7/samples/sample5.cs)]
 
-## <a id="_Toc260221676"></a>Giriş sayfası
+## <a id="_Toc260221676"></a>  Giriş sayfası
 
 Bazı statik içerik için Default.aspx sayfasında ekleyelim.
 
@@ -82,7 +82,7 @@ Aşağıdaki biçimlendirmede Default.aspx sayfasında alt tutucuyu ekleyin.
 
 [!code-aspx[Main](tailspin-spyworks-part-7/samples/sample6.aspx)]
 
-## <a id="_Toc260221677"></a>Ürün incelemeleri
+## <a id="_Toc260221677"></a>  Ürün incelemeleri
 
 Ürün Değerlendirmesi girmek için kullanabileceğiniz bir forma bir bağlantı içeren bir düğme ilk ekleyeceğiz.
 
@@ -94,7 +94,7 @@ Biz sorgu dizesinde ProductID geçtiğiniz unutmayın
 
 Sonraki sayfa ReviewAdd.aspx adlı ekleyelim
 
-Bu sayfa, ASP.NET AJAX Denetim Araç Seti kullanır. Buradan indirebilirsiniz şekilde, zaten yapmadıysanız, [DevExpress](http://devexpress.com/act) ve burada Visual Studio ile kullanmak için araç seti ayarlama hakkında rehberlik ise [https://www.asp.net/learn/ajax-videos/video-76.aspx](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
+Bu sayfa, ASP.NET AJAX Denetim Araç Seti kullanır. Buradan indirebilirsiniz şekilde, zaten yapmadıysanız, [DevExpress](http://devexpress.com/act) ve burada Visual Studio ile kullanmak için araç seti ayarlama hakkında rehberlik ise [ https://www.asp.net/learn/ajax-videos/video-76.aspx ](../../../videos/ajax-control-toolkit/how-do-i-get-started-with-the-aspnet-ajax-control-toolkit.md).
 
 Tasarım modunda denetimleri ve doğrulayıcıları Araç Kutusu'ndan sürükleyin ve aşağıdaki gibi bir form oluşturun.
 
@@ -114,7 +114,7 @@ Bu biçimlendirme ProductDetails.aspx sayfasına ekleyin.
 
 ![](tailspin-spyworks-part-7/_static/image3.jpg)
 
-## <a id="_Toc260221678"></a>Popüler öğeler denetimi (kullanıcı denetimleri oluşturma)
+## <a id="_Toc260221678"></a>  Popüler öğeler denetimi (kullanıcı denetimleri oluşturma)
 
 Web sitenizde satışları artırmak için birkaç özellik "müstehcen satış" popüler ya da ilgili ürünler için ekleyeceğiz.
 
@@ -156,7 +156,7 @@ Kullanım sürükleyip varsayılan formumuzun açık sütununda denetim örneği
 
 ![](tailspin-spyworks-part-7/_static/image6.jpg)
 
-## <a id="_Toc260221679"></a>"Ayrıca satın" (kullanıcı denetimleri parametrelerle) denetleme
+## <a id="_Toc260221679"></a>  "Ayrıca satın" (kullanıcı denetimleri parametrelerle) denetleme
 
 Oluşturacağız ikinci kullanıcı denetimi müstehcen içerik belirginliğe ekleyerek bir sonraki düzeye satış olur.
 
@@ -236,6 +236,6 @@ Biz yapı ve şimdi çalıştırdığınızda ve bir ürün Gözat biz "Da satı
 
 ![](tailspin-spyworks-part-7/_static/image7.jpg)
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-6.md)
-[sonraki](tailspin-spyworks-part-8.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-6.md)
+> [sonraki](tailspin-spyworks-part-8.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
-title: "Kullanıma alma ve PayPal ödeme | Microsoft Docs"
+title: Kullanıma alma ve PayPal ödeme | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: dd975850a3ed3e7b1746d5123572065675a88656
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Kullanıma alma ve PayPal ödeme
 ====================
@@ -55,7 +55,7 @@ Bu öğreticide, bir kullanıcının oluşturduğu siparişte veri izlemek için
 Öğretici serisinde daha önce bu kategoriler, ürünler, şema tanımlanan ve alışveriş sepeti öğeleri oluşturarak `Category`, `Product`, ve `CartItem` sınıfları *modelleri* klasör. Artık ürün sırası ve Sipariş ayrıntılarını şemasını tanımlamak için iki yeni sınıflar ekleyeceksiniz.
 
 1. İçinde **modelleri** klasör adında yeni bir sınıf ekleyin *Order.cs*.   
- Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
+   Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
 2. Varsayılan kodu aşağıdakilerle değiştirin:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample1.cs)]
@@ -107,7 +107,7 @@ Wingtip Toys örnek uygulama gözden geçirin ve ürünleri alışveriş sepetin
 Yeni bir ekleyerek *Web.config* dosya *Checkout* klasörünü görebilirsiniz klasördeki tüm sayfalar için erişimi kısıtlamak.
 
 1. Sağ *Checkout* klasörü ve select **Ekle**  - &gt; **yeni öğe**.  
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Seçin **Visual C#**  - &gt; **Web** soldaki templates grubu. Orta bölmesinden seçip **Web yapılandırma dosyası**, varsayılan adı kabul *Web.config*ve ardından **Ekle**.
 3. Varolan XML içeriği Değiştir *Web.config* aşağıdaki dosyasıyla:  
 
@@ -162,32 +162,32 @@ Aşağıdaki adımlar, Google kimlik doğrulama sağlayıcısı eklemenize izin 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample5.cs)]
 3. Gidin [Google geliştiriciler konsol](https://console.developers.google.com/). Google developer e-posta hesabınızı (gmail.com) ile oturum açması gerekir. Bir Google hesabı yoksa seçin **bir hesap oluşturmanız** bağlantı.   
- Ardından, göreceğiniz **Google geliştiriciler konsol**.   
+   Ardından, göreceğiniz **Google geliştiriciler konsol**.   
     ![Google geliştiriciler konsol](checkout-and-payment-with-paypal/_static/image8.png)
 4. Tıklatın **proje oluştur** düğmesine tıklayın ve bir proje adı ve kimliği (varsayılan değerleri kullanabilirsiniz) girin. Ardından **sözleşmesi onay kutusunu** ve **oluşturma** düğmesi.  
 
     ![Google - yeni proje](checkout-and-payment-with-paypal/_static/image9.png)
 
- Yeni Proje birkaç saniye içinde oluşturulur ve yeni projeler sayfa, tarayıcınızın görüntülenir.
+   Yeni Proje birkaç saniye içinde oluşturulur ve yeni projeler sayfa, tarayıcınızın görüntülenir.
 5. Sol sekmede tıklatın **API'leri &amp; auth**ve ardından **kimlik bilgileri**.
 6. Tıklatın **yeni istemci kodu oluştur** altında **OAuth**.   
- **İstemci kimliği oluşturma** iletişim kutusu görüntülenir.   
+   **İstemci kimliği oluşturma** iletişim kutusu görüntülenir.   
     ![Google - istemci kodu oluştur](checkout-and-payment-with-paypal/_static/image10.png)
 7. İçinde **istemci kimliği oluşturma** iletişim kutusunda, varsayılan tutmak **Web uygulaması** uygulama türü için.
 8. Ayarlama **yetkili JavaScript çıkış** Bu öğreticide daha önce kullanılan SSL URL'ye (`https://localhost:44300/` diğer SSL projeleri oluşturmuş olduğunuz sürece).   
- Uygulamanız için kaynak URL'dir. Bu örnek için yalnızca localhost test URL'sini girer. Ancak, birden fazla hesap localhost ve üretim için URL'lerini girebilirsiniz.
+   Uygulamanız için kaynak URL'dir. Bu örnek için yalnızca localhost test URL'sini girer. Ancak, birden fazla hesap localhost ve üretim için URL'lerini girebilirsiniz.
 9. Ayarlama **yeniden yönlendirme URI'si yetkili** şu: 
 
     [!code-html[Main](checkout-and-payment-with-paypal/samples/sample6.html)]
 
- Bu değer, ASP.NET OAuth URI'dir kullanıcılar google OAuth sunucusuyla iletişim kurar. Yukarıda kullanılan SSL URL unutmayın ( `https://localhost:44300/` diğer SSL projeleri oluşturmuş olduğunuz sürece).
+   Bu değer, ASP.NET OAuth URI'dir kullanıcılar google OAuth sunucusuyla iletişim kurar. Yukarıda kullanılan SSL URL unutmayın ( `https://localhost:44300/` diğer SSL projeleri oluşturmuş olduğunuz sürece).
 10. Tıklatın **istemci kimliği oluşturma** düğmesi.
 11. Google geliştiriciler konsolunun sol menüsünde tıklatın **izin ekran** menü öğesi, ardından e-posta adresi ve ürün adı ayarlayın. Formu doldurduğunuzda tıklatın **kaydetmek**.
 12. Tıklatın **API'leri** menü öğesi, aşağı kaydırın ve tıklatın **kapalı** düğmesine **Google + API**.   
- Bu seçenek kabul Google + API olanak sağlar.
+    Bu seçenek kabul Google + API olanak sağlar.
 13. Aynı zamanda güncelleştirmelisiniz **Microsoft.Owin** 3.0.0 sürümüne NuGet paketi.   
- Gelen **Araçları** menüsünde, select **NuGet Paket Yöneticisi** ve ardından **çözüm için NuGet paketlerini Yönet**.  
- Gelen **NuGet paketlerini Yönet** penceresi, bulma ve güncelleştirme **Microsoft.Owin** 3.0.0 sürümüne paket.
+    Gelen **Araçları** menüsünde, select **NuGet Paket Yöneticisi** ve ardından **çözüm için NuGet paketlerini Yönet**.  
+    Gelen **NuGet paketlerini Yönet** penceresi, bulma ve güncelleştirme **Microsoft.Owin** 3.0.0 sürümüne paket.
 14. Visual Studio'da güncelleştirme `UseGoogleAuthentication` yöntemi *Startup.Auth.cs* sayfa kopyalama ve yapıştırma tarafından **istemci kimliği** ve **gizli** yöntemiyle. **İstemci kimliği** ve **gizli** aşağıda gösterilen değerleri örnekleri ve çalışmaz. 
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample7.cs?highlight=64-65)]
@@ -258,7 +258,7 @@ PayPal ödemelerini çevrimiçi satıcı tarafından kabul eden bir web tabanlı
 Sınama ortamı PayPal kullanmak için oluşturma ve bir geliştirici test hesabı doğrulamanız gerekir. Bir alıcı test hesabınız ve satıcı test hesabınız oluşturmak için geliştirici test hesabını kullanır. Geliştirici testi hesap kimlik bilgilerini de PayPal test ortamını erişmek Wingtip Toys örnek uygulama izin verir.
 
 1. Bir tarayıcıda, site test PayPal Geliştirici gidin:   
-    [https://Developer.PayPal.com](https://developer.paypal.com/)
+    [https://developer.paypal.com](https://developer.paypal.com/)
 2. PayPal Geliştirici hesabınız yoksa, yeni bir hesap oluşturun **kaydolun**kayıt adımları izleyerek. PayPal Geliştirici hesabınız varsa, tıklayarak oturum **oturum**. PayPal Geliştirici hesabınızda daha sonra Bu öğreticide Wingtip Toys örnek uygulamanızı test etmeniz gerekir.
 3. Yalnızca PayPal Geliştirici hesabınız için kaydolduysanız, PayPal, PayPal Geliştirici hesabınızla doğrulamak gerekebilir. E-posta hesabınızı PayPal gönderilen adımları izleyerek hesabınızı doğrulayabilirsiniz. PayPal Geliştirici hesabınızda doğruladıktan sonra site test geri PayPal Geliştirici oturum açın.
 4. PayPal Geliştirici siteye zaten yapmazsanız PayPal alıcı sınama hesabı oluşturmanız gerekir, PayPal Geliştirici hesabınızla oturum sonra vardır. Bir alıcı test hesabınız, PayPal site tıklatıldığında oluşturmak için **uygulamaları** sekmesini ve sonra **korumalı alan hesapları**.   
@@ -293,11 +293,11 @@ Sınama ortamı PayPal görüntülenen Klasik TEST API kimlik bilgilerinizi (kul
 PayPal kod çoğunluğu tek bir sınıf içine yerleştirir. Bu sınıf, PayPal ile iletişim kurmak için kullanılan yöntemler içerir. Ayrıca, bu sınıfa PayPal kimlik bilgilerinizi ekleyeceksiniz.
 
 1. Visual Studio içinde Wingtip Toys örnek uygulamayı sağ **mantığı** klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Altında **Visual C#** gelen **yüklü** seçin sol bölmede **kod**.
 3. Orta bölmesinden seçin **sınıfı**. Bu yeni sınıf adını **PayPalFunctions.cs**.
 4. **Ekle**'yi tıklatın.  
- Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
+   Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
 5. Varsayılan kodu aşağıdaki kodla değiştirin:  
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample12.cs)]
@@ -312,9 +312,9 @@ PayPal kod çoğunluğu tek bir sınıf içine yerleştirir. Bu sınıf, PayPal 
 
 NVPAPICaller sınıfı PayPal işlevselliğin çoğu içerir. Sınıfı kodda PayPal sınama ortamından satın test yapmak için gereken yöntemleri sağlar. Aşağıdaki üç PayPal işlevleri, satın alma işlemleri yapmak için kullanılır:
 
-- `SetExpressCheckout`işlevi
-- `GetExpressCheckoutDetails`işlevi
-- `DoExpressCheckoutPayment`işlevi
+- `SetExpressCheckout` İşlevi
+- `GetExpressCheckoutDetails` İşlevi
+- `DoExpressCheckoutPayment` İşlevi
 
 `ShortcutExpressCheckout` Yöntemi toplar test satın alma bilgileri ve ürün ayrıntıları alışveriş sepeti ve çağrıları `SetExpressCheckout` PayPal işlevi. `GetCheckoutDetails` Yöntemini onaylar satın alma ayrıntıları ve çağrıları `GetExpressCheckoutDetails` test satın alma yapmadan önce PayPal işlevi. `DoCheckoutPayment` Yöntemi çağrılarak sınama ortamından test satınalma tamamlayan `DoExpressCheckoutPayment` PayPal işlevi. Kalan kod PayPal yöntemleri ve işlemin dizeleri kodlama, dizeleri kod çözme, dizileri işleme ve kimlik bilgilerini belirleme gibi destekler.
 
@@ -359,14 +359,14 @@ Birincil PayPal işlevleri örnek uygulama için eklenene, biçimlendirme ve bu 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample18.cs?highlight=18)]
 6. Her ikisi de yaptığınız değişiklikleri kaydetmek *ShoppingCart.aspx* dosya ve *ShoppingCart.aspx.cs* dosya.
 7. Menüsünden seçin **hata ayıklama**-&gt;**yapı WingtipToys**.  
- Projeyi yeniden yeni eklenen ile **ImageButton** denetim.
+   Projeyi yeniden yeni eklenen ile **ImageButton** denetim.
 
 ### <a name="send-purchase-details-to-paypal"></a>Satın alma ayrıntıları PayPal için Gönder
 
 Kullanıcı tıkladığında **Checkout** alışveriş sepeti sayfasında düğmesini (*ShoppingCart.aspx*), satın alma işlemini başlarsınız. Aşağıdaki kod ürünleri satın almak için gereken ilk PayPal işlevi çağırır.
 
 1. Gelen *Checkout* arka plan kodu dosya adlı klasörü, açık *CheckoutStart.aspx.cs*.   
- Arka plan kodu dosyayı açmaya emin olun.
+   Arka plan kodu dosyayı açmaya emin olun.
 2. Var olan kodu aşağıdakilerle değiştirin:   
 
     [!code-csharp[Main](checkout-and-payment-with-paypal/samples/sample19.cs)]
@@ -439,20 +439,20 @@ Satın alma işlemi sırasında hatalar tarafından işleneceğini *CheckoutErro
 Ürün satın nasıl görmek için uygulamayı çalıştırın. PayPal sınama ortamında çalıştırırsınız olduğunu unutmayın. Hiçbir gerçek para alınıp verilir.
 
 1. Tüm dosyalarınızı Visual Studio'da kaydedilmiş olduğundan emin olun.
-2. Bir Web tarayıcısı açın ve gidin [https://developer.paypal.com](https://developer.paypal.com/).
+2. Bir Web tarayıcısı açın ve gidin [ https://developer.paypal.com ](https://developer.paypal.com/).
 3. Bu öğreticide daha önce oluşturduğunuz PayPal Geliştirici hesabınız ile oturum açın.  
- PayPal'ın Geliştirici korumalı alan için oturum açmanız gerekir. [https://developer.paypal.com](https://developer.paypal.com/) express checkout test etmek için. Bu yalnızca sınama, PayPal'ın dinamik ortamına değil PayPal'ın Korumalı alan için geçerlidir.
+   PayPal'ın Geliştirici korumalı alan için oturum açmanız gerekir. [ https://developer.paypal.com ](https://developer.paypal.com/) express checkout test etmek için. Bu yalnızca sınama, PayPal'ın dinamik ortamına değil PayPal'ın Korumalı alan için geçerlidir.
 4. Visual Studio'da basın **F5** Wingtip Toys örnek uygulamayı çalıştırın.  
- Veritabanını yeniden oluşturur sonra tarayıcıyı açın Göster ve *Default.aspx* sayfası.
+   Veritabanını yeniden oluşturur sonra tarayıcıyı açın Göster ve *Default.aspx* sayfası.
 5. "Araba" gibi ürün kategorisi seçerek ve ardından üç farklı ürünler alışveriş sepetine eklemek **Sepete Ekle** her ürünün yanındaki.  
- Alışveriş sepeti seçmiş olduğunuz ürün görüntüler.
+   Alışveriş sepeti seçmiş olduğunuz ürün görüntüler.
 6. Tıklatın **PayPal** checkout düğme. 
 
     ![Kullanıma alma ve PayPal - Sepeti ödemeyle](checkout-and-payment-with-paypal/_static/image20.png)
 
- Kullanıma Wingtip Toys örnek uygulama için bir kullanıcı hesabına sahip olması gerekir.
+   Kullanıma Wingtip Toys örnek uygulama için bir kullanıcı hesabına sahip olması gerekir.
 7. Tıklatın **Google** sağdaki varolan bir gmail.com e-posta hesabı ile oturum açmanız sayfasının bağlantısı.  
- Bir gmail.com hesabı yoksa, test etmek için bir tane oluşturabilirsiniz [www.gmail.com](https://www.gmail.com/). Standart bir yerel hesap "Register"'i tıklatarak de kullanabilirsiniz. 
+   Bir gmail.com hesabı yoksa, test etmek için bir tane oluşturabilirsiniz [www.gmail.com](https://www.gmail.com/). Standart bir yerel hesap "Register"'i tıklatarak de kullanabilirsiniz. 
 
     ![Kullanıma alma ve ödeme PayPal ile-oturum açın](checkout-and-payment-with-paypal/_static/image21.png)
 8. Gmail hesap ve parola ile oturum açın. 
@@ -465,7 +465,7 @@ Satın alma işlemi sırasında hatalar tarafından işleneceğini *CheckoutErro
 
     ![Kullanıma alma ve ödeme PayPal - PayPal oturum açma ile](checkout-and-payment-with-paypal/_static/image24.png)
 11. Kabul PayPal ilkeyi ve tıklatın **kabul et ve devam et** düğmesi.  
- Bu sayfa yalnızca olduğuna dikkat edin, bu PayPal hesabı kullanmak ilk kez görüntülenir. Bu bir test hesabıdır, gerçek bir para alınıp yeniden unutmayın. 
+    Bu sayfa yalnızca olduğuna dikkat edin, bu PayPal hesabı kullanmak ilk kez görüntülenir. Bu bir test hesabıdır, gerçek bir para alınıp yeniden unutmayın. 
 
     ![Kullanıma alma ve ödeme PayPal - PayPal İlkesi ile](checkout-and-payment-with-paypal/_static/image25.png)
 12. Ortam gözden geçirme sayfasını ve tıklatın sınama PayPal siparişi bilgileri gözden **devam**. 
@@ -518,6 +518,6 @@ Bu öğreticide sırası ve siparişi ayrıntı şemalarını ürünleri satın 
 
 Bu öğreticinin örnek kodunu içerir. Bu örnek kod, hiçbir garanti "olduğu gibi" sağlanmıştır. Buna göre Microsoft doğruluğu, bütünlük ve örnek kod kalitesini garanti etmez. Örnek kod, kendi risk kullanmayı kabul etmiş olursunuz. Hiçbir koşulda Microsoft herhangi bir şekilde size içerik dahil ancak bunlarla sınırlı olmamak üzere, herhangi bir hata veya eksikliklerden herhangi bir örnek kod, içerik veya herhangi kayıp veya hasar herhangi bir örnek kod kullanımı sonucunda sonucunda oluşan herhangi bir türde tüm örnek kod için sorumlu değildir. Burada REDDETMEKTEDİR bildirilir ve burada REDDETMEKTEDİR tazmin, kabul kaydetmek ve Microsoft gelen ve tüm kaybı, talep kaybı, yaralanma veya hasar tür, bunlarla sınırlı olmamak kaydıyla tarafından occasioned dahil olmak üzere veya deftere malzemesini doğan karşı zararsız tutun iletme, kullanın veya, ancak bunlarla sınırlı olmamak, okuduğunuzu ifade görünümleri dahil olmak üzere üzerinde kullanır.
 
->[!div class="step-by-step"]
-[Önceki](shopping-cart.md)
-[sonraki](membership-and-administration.md)
+> [!div class="step-by-step"]
+> [Önceki](shopping-cart.md)
+> [sonraki](membership-and-administration.md)

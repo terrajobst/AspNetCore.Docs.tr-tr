@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
-title: "Rolleri (C#) oluşturarak ve yöneterek | Microsoft Docs"
+title: Rolleri (C#) oluşturarak ve yöneterek | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarını oluşturmak ve rolleri silmek için oluşturacaksınız."
+description: Bu öğretici rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarını oluşturmak ve rolleri silmek için oluşturacaksınız.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b2b13a2a3b242877060aaec2257b2a742ac8d674
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a4ea7e76e023cd436d1d8ac52307a3ac17267fef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-managing-roles-c"></a>Oluşturma ve yönetme rolleri (C#)
 ====================
@@ -96,8 +96,8 @@ Sağlayıcının `connectionStringName` özniteliği kullanılır rol deposu bel
 
 Sonuç olarak, biz yalnızca rolleri framework bizim uygulamanın içinde herhangi bir sağlayıcı bilgi belirtmeden etkinleştirirseniz `Web.config` dosya, uygulamayı kullanan kayıtlı varsayılan rol sağlayıcı `AspNetSqlRoleProvider`. Varsa `~/App_Data/aspnet.mdf` veritabanı yok, ASP.NET çalışma zamanı otomatik olarak oluşturun ve uygulama hizmetleri şema ekleyin. Ancak, biz kullanmak istemiyorsanız `aspnet.mdf` ; bunun yerine, biz kullanmak istediğiniz veritabanı `SecurityTutorials.mdf` biz zaten oluşturulan ve uygulama hizmetleri eklenir veritabanı. Bu değişikliği iki yoldan biriyle gerçekleştirilebilir:
 
-- **İçin bir değer belirtin ***`LocalSqlServer`*** bağlantı dizesi adı ***`Web.config`***.** Üzerine tarafından `LocalSqlServer` bağlantı dizesi adı değerindeki `Web.config`, kayıtlı varsayılan rol sağlayıcı kullanıyoruz (`AspNetSqlRoleProvider`) ve düzgün çalışması `SecurityTutorials.mdf` veritabanı. Bu teknik hakkında daha fazla bilgi için bkz: [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s blog gönderisi [ASP.NET 2.0 uygulama hizmetlerini yapılandırma kullanım SQL Server 2000 veya SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Yeni kayıtlı sağlayıcısının türü *** eklemek`SqlRoleProvider`*** ve yapılandırma, ***`connectionStringName`*** işaret edecek şekilde ayarı ***`SecurityTutorials.mdf`*** veritabanı.** Bu önerilen ve kullanılan yaklaşımdır <a id="_msoanchor_7"> </a> [ *SQL Server üyelik şema oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) öğretici, bu ise t Bu öğreticide kullanacak yaklaşım.
+- <strong>İçin bir değer belirtin</strong><strong>`LocalSqlServer`</strong><strong>bağlantı dizesi adı</strong><strong>`Web.config`</strong><strong>.</strong> Üzerine tarafından `LocalSqlServer` bağlantı dizesi adı değerindeki `Web.config`, kayıtlı varsayılan rol sağlayıcı kullanıyoruz (`AspNetSqlRoleProvider`) ve düzgün çalışması `SecurityTutorials.mdf` veritabanı. Bu teknik hakkında daha fazla bilgi için bkz: [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s blog gönderisi [ASP.NET 2.0 uygulama hizmetlerini yapılandırma kullanım SQL Server 2000 veya SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Yeni bir kayıtlı sağlayıcısı türü eklemek</strong><strong>`SqlRoleProvider`</strong><strong>ve yapılandırma kendi</strong><strong>`connectionStringName`</strong><strong>işaretedecekşekildeayarlama</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>veritabanı.</strong> Bu önerilen ve kullanılan yaklaşımdır <a id="_msoanchor_7"> </a> [ *SQL Server üyelik şema oluşturma* ](../membership/creating-the-membership-schema-in-sql-server-cs.md) öğretici, bu ise t Bu öğreticide kullanacak yaklaşım.
 
 Aşağıdaki roller yapılandırma biçimlendirme eklemek `Web.config` dosya. Bu biçimlendirme adlı yeni bir sağlayıcı kaydeder `SecurityTutorialsSqlRoleProvider`.
 
@@ -215,8 +215,8 @@ Artık kullanıcı eklediğinde yeni bir rol `RoleList` rolü başarıyla oluşt
 
 Bu noktada bir kullanıcı yeni bir rol oluşturabilir ve varolan tüm rollerden görüntülemek `ManageRoles.aspx` sayfası. Şirketinizdeki kullanıcıların da rollerini silmesine izin verin. `Roles.DeleteRole` Yöntemi iki aşırı sahiptir:
 
-- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx)-rolü siler *roleName*. Rolü bir veya daha fazla üye içeriyorsa özel durum oluşur.
-- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx)-rolü siler *roleName*. Varsa *throwOnPopulateRole* olan `true`, rolü bir veya daha fazla üye içeriyorsa, bir özel durum oluşturulduktan sonra. Varsa *throwOnPopulateRole* olan `false`, rolü veya herhangi bir üye içerip içermediğini silinirse. Dahili olarak, `DeleteRole(roleName)` yöntem çağrılarını `DeleteRole(roleName, true)`.
+- [`DeleteRole(roleName)`](https://msdn.microsoft.com/library/ek4sywc0.aspx) -rolü siler *roleName*. Rolü bir veya daha fazla üye içeriyorsa özel durum oluşur.
+- [`DeleteRole(roleName, throwOnPopulatedRole)`](https://msdn.microsoft.com/library/38h6wf59.aspx) -rolü siler *roleName*. Varsa *throwOnPopulateRole* olan `true`, rolü bir veya daha fazla üye içeriyorsa, bir özel durum oluşturulduktan sonra. Varsa *throwOnPopulateRole* olan `false`, rolü veya herhangi bir üye içerip içermediğini silinirse. Dahili olarak, `DeleteRole(roleName)` yöntem çağrılarını `DeleteRole(roleName, true)`.
 
 `DeleteRole` , Yöntemi bir özel durum da oluşturur *roleName* olan `null` ya da boş bir dize veya *roleName* virgül içerir. Varsa *roleName* sistemde yok `DeleteRole` sessiz bir şekilde, bir özel durum yükseltme olmadan başarısız olur.
 
@@ -263,11 +263,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Alicja Maziarz, Suchi Banerjee ve Teresa Murphy içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Alicja Maziarz, Suchi Banerjee ve Teresa Murphy içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](assigning-roles-to-users-cs.md)
+> [!div class="step-by-step"]
+> [Next](assigning-roles-to-users-cs.md)

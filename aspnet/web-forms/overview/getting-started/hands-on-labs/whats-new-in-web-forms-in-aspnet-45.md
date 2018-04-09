@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 title: Forms ASP.NET 4.5 Web yenilikler | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Forms yeni sürümü bazı verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklanmış geliştirmeler sunar. Önceki sürümlerinde..."
+description: ASP.NET Web Forms yeni sürümü bazı verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklanmış geliştirmeler sunar. Önceki sürümlerinde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Web formları yenilikleri
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 > ASP.NET Web Forms yeni sürümü bazı verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklanmış geliştirmeler sunar.
 > 
@@ -42,7 +42,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Resmi ASP.NET Portalı'nda yeni özelliklerden daha fazla örnek ASP.NET WebForms 4.5 bulabilirsiniz: [ASP.NET 4.5 ve Visual Studio 2012'deki yenilikler](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ Bu görevde, yeni kesin türü belirtilmiş bağlamaları ASP.NET 4.5 içinde ku
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-ModelBinding/başlangıç/** klasörü.
 
-    1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **Customers.aspx** sayfası. Ana denetiminde bir numaralandırılmamış listesi yerleştirin ve her bir müşteri listeleme için içindeki yineleyici denetim içerir. Yineleyici adını ayarlayın **customersRepeater** aşağıdaki kodda gösterildiği gibi.
 
     Önceki sürümlerinde, Web Forms veri bağlama bir nesne üzerinde bir üyesinin değerini yaymak üzere kullanırken veri bağlama için Eval yöntemine bir çağrı birlikte bir veri bağlama ifadesi geçirme üye adına bir dize olarak kullanmanız.
@@ -341,12 +341,12 @@ Bu bölümde, her iki yapılandırmaları tarafından oluşturulan HTML kod kar�
 
 1. Açık **Visual Studio 2012** ve açın **başlamak** çözüm bulunan **Source\Ex2 Validation\Begin** bu laboratuvarı klasör. Alternatif olarak, önceki alıştırmada varolan çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Tuşuna **F5** web uygulamasını başlatmak için. Müşterilere sayfasında ve tıklayın Git **yeni bir müşteri eklemek** bağlantı.
 3. Tarayıcı sayfasında sağ tıklatın ve seçin **kaynağı görüntüle** uygulama tarafından oluşturulan HTML kod açmak için seçeneği.
 
@@ -535,12 +535,12 @@ Bu görevde, ürün için bir resim URL'si belirtin ve salt okunur görünümde 
 
 1. Açık **Visual Studio 2012** ve yük **başlamak** çözüm bulunan **Source\Ex3 Async\Begin** bu Laboratuvar 's klasöründen. Alternatif olarak, var olan bir önceki alıştırmada çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
 
-    1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje ve seçin **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje ve seçin **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Açık **ProductDetails.aspx** sayfasında kaynak ve ürün görüntü göstermek için FormView'ın ItemTemplate içinde bir alan ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ Bu görevde, ürün için bir resim URL'si belirtin ve salt okunur görünümde 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage çağrısı*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Uygulamayı çalıştırın ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, Office küçük Arts aşağıdaki görüntü URL'sini kullanabilirsiniz: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Uygulamayı çalıştırın ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, Office küçük Arts aşağıdaki görüntü URL'sini kullanabilirsiniz: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Bir ürün için görüntü ayarlama](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "bir ürün için görüntü ayarlama")
 
@@ -580,7 +580,9 @@ Web sitenizde uzun süren işlem bunlar atanan iş parçacığı uzun bir süred
 1. Açık **ProductDetails.aspx** sayfası. Ekleme **zaman uyumsuz** özniteliğini **sayfa** öğesi ve ayarlamak **doğru**. Bu öznitelik IHttpAsyncHandler arabirimini uygulaması için ASP.NET söyler.
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. Bir etiket sayfa çalışan iş parçacıklarının ayrıntılarını görüntülemek için sayfanın altındaki ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -636,9 +638,9 @@ Bu uygulamalı laboratuar ortamında aşağıdaki kavramlarını ele ve gösteri
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 
@@ -782,14 +784,14 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-    - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-    - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-    - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
-    - Yeni bir veritabanı adı yazın.
+   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
+   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
+   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - Yeni bir veritabanı adı yazın.
 
-    ![Hedef bağlantı dizesi yapılandırma](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "hedef bağlantı dizesi yapılandırma")
 
-    *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesi yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "veritabanı dizesi oluşturma")

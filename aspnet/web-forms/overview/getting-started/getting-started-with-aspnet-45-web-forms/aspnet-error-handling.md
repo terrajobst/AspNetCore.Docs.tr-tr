@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
-title: "ASP.NET hata işleme | Microsoft Docs"
+title: ASP.NET hata işleme | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3f732ae6f1b7845bcae88912b4a4fe26574c10de
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ac5508334bf6d471471a719b98618bdcd3214fb5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-error-handling"></a>ASP.NET hata işleme
 ====================
@@ -104,7 +104,7 @@ Yukarıdaki kodda try bloğunun olası özel karşı korumalı olacak gerekiyor 
 Hata Wingtip Toys örnek uygulamaya işleme eklemeden önce hata günlüğü destek ekleyerek ekleyecek bir `ExceptionUtility` sınıfının *mantığı* klasör. Bu, uygulama bir hata işleme her zaman yaparak, hata ayrıntıları için hata günlüğü dosyası eklenir.
 
 1. Sağ *mantığı* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Seçin **Visual C#**  - &gt; **kod** soldaki templates grubu. Ardından, seçin **sınıfı**ortasından listelemek ve adlandırın **ExceptionUtility.cs**.
 3. Seçin **eklemek**. Yeni sınıf dosyası görüntülenir.
 4. Var olan kodu aşağıdakilerle değiştirin:  
@@ -118,7 +118,7 @@ Hata Wingtip Toys örnek uygulamaya işleme eklemeden önce hata günlüğü des
 Wingtip Toys örnek uygulamasında bir sayfa hataları görüntülemek için kullanılır. Hata sayfası site kullanıcılara güvenli hata iletisi göstermek için tasarlanmıştır. Ancak, kullanıcı kodu nerede yaşıyor makinede yerel olarak sunulmasını bir HTTP isteği yapan bir geliştirici ise, ek hata ayrıntılarının hata sayfasında görüntülenir.
 
 1. Proje adına sağ tıklayın (**Wingtip Toys**) içinde **Çözüm Gezgini** seçip **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Seçin **Visual C#**  - &gt; **Web** soldaki templates grubu. Orta listesinden **ana sayfa ile Web Form**ve adlandırın **ErrorPage.aspx**.
 3. **Ekle**'yi tıklatın.
 4. Seçin *Site.Master* dosya ana sayfa ve ardından **Tamam**.
@@ -166,7 +166,7 @@ Güncelleştirilen yolları görmek için uygulamayı şimdi çalıştırabilirs
 Bir hata oluştuğunda, uygulamanızın nasıl işlev gösterdiğini doğrulayın oluşur, ASP.NET hata koşulları kasıtlı olarak oluşturabilirsiniz. Wingtip Toys örnek uygulama ne olacağını görmek için varsayılan sayfa yüklediğinde, bir test özel durum oluşturur.
 
 1. Arka plan kod, açık *Default.aspx* Visual Studio'da sayfası.   
- *Default.aspx.cs* arka plan kod sayfası görüntülenir.
+   *Default.aspx.cs* arka plan kod sayfası görüntülenir.
 2. İçinde `Page_Load` işleyici, böylece işleyici aşağıdaki gibi görünür kodu ekleyin:   
 
     [!code-csharp[Main](aspnet-error-handling/samples/sample9.cs?highlight=3-4)]
@@ -356,11 +356,11 @@ Bu öğretici dizisinin içeriğe önemli ölçüde katkıda yapılan aşağıda
 ## <a name="community-contributions"></a>Topluluk Katkıları
 
 - Graham Mendick ([@grahammendick](http://twitter.com/grahammendick))  
- Visual Studio 2012 ile ilgili MSDN kod örneği: [Gezinti Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
+  Visual Studio 2012 ile ilgili MSDN kod örneği: [Gezinti Wingtip Toys](https://code.msdn.microsoft.com/Navigation-Wingtip-Toys-5f0daba2)
 - Ahmet Chaney ([jchaney@agvance.net](mailto:jchaney@agvance.net))  
- Visual Studio 2012 ile ilgili MSDN kod örneği: [ASP.NET 4.5 Web formları öğretici serisinde Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
+  Visual Studio 2012 ile ilgili MSDN kod örneği: [ASP.NET 4.5 Web formları öğretici serisinde Visual Basic](https://code.msdn.microsoft.com/ASPNET-45-Web-Forms-f37f0f63)
 - Andrielle Azevedo - Microsoft Technical Audience Contributor (twitter: @driazevedo)  
- Visual Studio 2012 çeviri: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
+  Visual Studio 2012 çeviri: [Iniciando com ASP.NET Web Forms 4.5 - Parte 1 - Introdução e Visão Geral](https://andrielleazevedo.wordpress.com/2013/01/24/iniciando-com-asp-net-web-forms-4-5-introducao-e-visao-geral/)
 
->[!div class="step-by-step"]
-[Önceki](url-routing.md)
+> [!div class="step-by-step"]
+> [Önceki](url-routing.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: "Görüntü veri öğelerini ve ayrıntıları | Microsoft Docs"
+title: Görüntü veri öğelerini ve ayrıntıları | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>Görüntü veri öğelerini ve ayrıntıları
 ====================
@@ -38,7 +38,7 @@ Bu öğreticide, veri öğeleri ve ASP.NET Web Forms ve Entity Framework Code Fi
 
 ### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Bu öğreticide sunulan özellikler şunlardır:
 
-- Model bağlama
+- Model Binding
 - Değer sağlayıcıları
 
 ## <a name="adding-a-data-control-to-display-products"></a>Ürünleri görüntülemek için veri denetim ekleme
@@ -131,7 +131,7 @@ Bu kodu kullanan bir **FormView** ayrı bir ürün hakkındaki ayrıntıları g�
 Yukarıdaki biçimlendirme veritabanına bağlanmak için ek kod ekleme *ProductDetails.aspx* kodu.
 
 1. İçinde **Çözüm Gezgini**, sağ *ProductDetails.aspx* ve ardından **görünümü kodu**.  
- *ProductDetails.aspx.cs* dosya görüntülenir.
+   *ProductDetails.aspx.cs* dosya görüntülenir.
 2. Var olan kodu aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -160,6 +160,6 @@ Serinin Bu öğreticide sahip eklediğiniz biçimlendirme ve kodun ürün listes
 
 [Model bağlama ve web forms ile verilerini görüntüleme ve alma](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[Önceki](ui_and_navigation.md)
-[sonraki](shopping-cart.md)
+> [!div class="step-by-step"]
+> [Önceki](ui_and_navigation.md)
+> [sonraki](shopping-cart.md)

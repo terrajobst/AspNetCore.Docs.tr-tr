@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC EF temel - Gelişmiş - 10, 10"
+title: ASP.NET Core MVC EF temel - Gelişmiş - 10, 10
 author: tdykstra
-description: "Bu öğretici için Entity Framework Çekirdek kullanan ASP.NET Core web uygulamaları geliştirme temelleri ötesine geçmesini yararlı konularını tanıtır."
+description: Bu öğretici için Entity Framework Çekirdek kullanan ASP.NET Core web uygulamaları geliştirme temelleri ötesine geçmesini yararlı konularını tanıtır.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d4631765b3742a076f6d7f0dbf72770a9dbf5a09
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bc0f42cc387a51f9ae2cea6f5d63c50c4555c918
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Gelişmiş konular - EF çekirdek ASP.NET Core MVC Öğreticisi (10 / 10)
+# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC EF temel - Gelişmiş - 10, 10
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -149,7 +149,7 @@ Hata ayıklama modunu kullanın ve günlük çıktısı almak için bir kesme no
 
 Depo ve iş desenleri ölçü uygulama hakkında daha fazla bilgi için bkz: [Bu öğretici seri Entity Framework 5 sürümünü](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Çekirdek test etmek için kullanılan bir bellek içi veritabanı sağlayıcısı uygular. Daha fazla bilgi için bkz: [Inmemory ile test](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Çekirdek test etmek için kullanılan bir bellek içi veritabanı sağlayıcısı uygular. Daha fazla bilgi için bkz: [Inmemory ile Test](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
 
 ## <a name="automatic-change-detection"></a>Otomatik değiştirme algılama
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Çekirdek kaynak kodu ve Geliştirme planları
 
-Entity Framework Çekirdek kaynağı altındadır [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). EF çekirdek depo içerir gecelik derlemeleri, sorun izleme, özellik belirtimlerin, toplantı notları, tasarım ve [ileride geliştirme için yol haritası](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Dosya veya hataları bulma ve katkıda.
+Entity Framework Çekirdek kaynağı altındadır [ https://github.com/aspnet/EntityFrameworkCore ](https://github.com/aspnet/EntityFrameworkCore). EF çekirdek depo içerir gecelik derlemeleri, sorun izleme, özellik belirtimlerin, toplantı notları, tasarım ve [ileride geliştirme için yol haritası](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Dosya veya hataları bulma ve katkıda.
 
 Kaynak kodu açık olsa da, Entity Framework Çekirdek tam bir Microsoft ürünü desteklenir. Microsoft Entity Framework takım üzerinde Katkıları kabul edilen denetim tutar ve her sürümle kalitesini emin olmak için tüm kod değişiklikleri sınar.
 
@@ -244,5 +244,5 @@ Hata iletisi:
 
 Bağlantı dizesini kontrol edin. Veritabanı dosyasını el ile sildiyseniz, üzerinde yeni bir veritabanı ile başlatmak için yapım dizesinde veritabanı adını değiştirin.
 
->[!div class="step-by-step"]
-[Önceki](inheritance.md)
+> [!div class="step-by-step"]
+> [Önceki](inheritance.md)

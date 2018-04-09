@@ -1,7 +1,7 @@
 ---
-title: "SQL Server yerel veritabanı ile çalışma"
+title: ASP.NET Core içinde SQL Server yerel veritabanı ile çalışma
 author: rick-anderson
-description: "SQL Server yerel veritabanı basit bir MVC uygulaması ile kullanma"
+description: SQL Server yerel veritabanı basit bir ASP.NET Core MVC uygulamasında kullanma hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 7b4bb3a36326eca2a0eacaa1d0c9ea995e87f3c4
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 3f69657cb21e163bdf00fb1faea98889046e9b45
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb"></a>SQL Server yerel veritabanı ile çalışma
+# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core içinde SQL Server yerel veritabanı ile çalışma
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -69,20 +69,17 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>Çekirdek Başlatıcısı ekleme
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Çekirdek Başlatıcı sonuna ekleyin `Configure` yönteminde *haline* dosya.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
----
-
+* * *
 Uygulamayı test etme
 
 * DB tüm kayıtları silin. Tarayıcıda veya SSOX delete bağlantılar yapın.
@@ -94,13 +91,13 @@ Uygulamayı test etme
 
     ![Bağlam menüsü](working-with-sql/_static/stopIIS.png)
 
-   * VS olmayan hata ayıklama modunda çalışıyormuş hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
-   * Hata ayıklama modunda VS çalışıyormuş hata ayıklayıcıyı durdurduktan ve F5 tuşuna basın
-   
+    * VS olmayan hata ayıklama modunda çalışıyormuş hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
+    * Hata ayıklama modunda VS çalışıyormuş hata ayıklayıcıyı durdurduktan ve F5 tuşuna basın
+
 Uygulama hazırlığı yapmış veriler gösterir.
 
 ![MVC film uygulaması Microsoft Edge'de film verileri gösteren açın](working-with-sql/_static/m55.png)
 
->[!div class="step-by-step"]
-[Önceki](adding-model.md)
-[sonraki](controller-methods-views.md)  
+> [!div class="step-by-step"]
+> [Önceki](adding-model.md)
+> [sonraki](controller-methods-views.md)  

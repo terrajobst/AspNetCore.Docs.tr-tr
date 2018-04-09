@@ -1,7 +1,7 @@
 ---
-title: "Açısal proje şablonu kullanın"
+title: ASP.NET Core ile Açısal proje şablonu kullanın
 author: SteveSandersonMS
-description: "Angular ve Açısal CLI için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin."
+description: Angular ve Açısal CLI için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 07cfd20809acb67bdae6561b6ccd6edf1e70a3fe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-angular-project-template"></a>Açısal proje şablonu kullanın
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Açısal proje şablonu kullanın
 
 > [!NOTE]
 > Bu belge hakkında Açısal proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni Açısal hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.
@@ -39,14 +39,12 @@ cd my-new-app
 
 Uygulama, Visual Studio veya .NET Core CLI çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Oluşturulan açmak *.csproj* dosya ve uygulama buradan normal olarak çalıştırın.
 
 Oluşturma işlemi birkaç dakika sürebilir ilk çalıştırmada npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
+#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 Adlı bir ortam değişkeni olduğundan emin olun `ASPNETCORE_Environment` değerini `Development`. (İçinde olmayan PowerShell komut istemleri) Windows üzerinde çalışan `SET ASPNETCORE_Environment=Development`. Linux veya macOS, çalıştırılan `export ASPNETCORE_Environment=Development`.
 
 Çalıştırma [dotnet yapı](/dotnet/core/tools/dotnet-build) uygulama doğrulamak için derlemeler doğru. İlk çalıştırılmasında oluşturma işlemi birkaç dakika sürebilir npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
@@ -59,10 +57,9 @@ Now listening on: http://localhost:<port>
 
 Bu URL'yi bir tarayıcıda gidin.
 
-Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızdaki http://localhost açın:&lt;otherport&gt; /* . Bu iletiyi göz ardı edin&mdash;sahip **değil** birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
+Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: <em>NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost: &lt;otherport&gt; /</em> . Bu iletiyi göz ardı edin&mdash;sahip <strong>değil</strong> birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
 
----
-
+* * *
 Proje şablonu, bir ASP.NET Core uygulama ve Açısal bir uygulama oluşturur. ASP.NET Core uygulama veri erişimi, yetkilendirme ve diğer sunucu tarafı sorunları için kullanılmak üzere tasarlanmıştır. Bulunan Açısal uygulama *ClientApp* alt, tüm kullanıcı Arabirimi sorunları için kullanılmak üzere tasarlanmıştır.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Sayfaları, görüntüler, stil, modüller, vb. ekleyin.

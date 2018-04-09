@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: sorun giderme | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: sorun giderme | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/01/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: a7a66e7e67539e4b075da6fc054a7b53984b6ce1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 15bda09c59afaf9e5449c68c5206bb28de245541
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: sorun giderme
 ====================
@@ -292,8 +292,8 @@ Kod ilk veritabanı ancak uygulama oluşturmak çalışıyor\_veri klasörü yok
 
 Başarıyla silinmiş uygulamanızı dağıtmak için tek tıklamayla yayımlama ve sonra bu hatayı almaya başlayın:
 
-Web dağıtım görevi başarısız oldu. ('https://serverurl.com/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.)  
- 'https://url/msdeploy.axd?site=sitename' uzak aracı URL'sine yönelik istek tamamlanamadı.  
+Web dağıtım görevi başarısız oldu. (Uzak Aracı URL'sine yönelik istek tamamlanamadı '<https://serverurl.com/msdeploy.axd?site=sitename>'.)  
+ Uzak Aracı URL'sine yönelik istek tamamlanamadı '<https://url/msdeploy.axd?site=sitename>'.  
 İstek iptal edildi: istek iptal edildi.  
 Temel alınan kendi RCW ayrılmış COM nesnesi kullanılamaz.
 
@@ -309,7 +309,7 @@ Belirten bir hata ile yayımlama başarısız oluyor (kullanmakta olduğunuz kul
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -319,7 +319,7 @@ Bu klasörü için yazma yetkisi olmadığı için oluşturduğunuzda veya düze
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi dağıtma ve klasör izinlerini ayarlama bu serideki üretim ortamına öğreticileri için bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi dağıtma ve klasör izinlerini ayarlama bu serideki üretim ortamına öğreticileri için bu klasörün izinlerini ayarlayabilirsiniz. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx).
 
 <a id="aspnet45error"></a>
 
@@ -377,5 +377,5 @@ HTTP Hatası 404,17 - bulunamadı
 
 ASP.NET 4.5, bilgisayarda yüklü değil. Bu serideki nasıl ASP.NET 4.5 yükleneceğini açıklayan bir Test Ortamı öğretici olarak dağıtma adımları IIS bakın.
 
->[!div class="step-by-step"]
-[Önceki](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-extra-files.md)

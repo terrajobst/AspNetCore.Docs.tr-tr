@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 title: ASP.NET AJAX UpdatePanel Tetikleyicileri anlama | Microsoft Docs
 author: scottcate
-description: "Visual Studio'da biçimlendirme düzenleyicisinde çalışırken, bir UpdatePanel denetiminin iki alt öğe olan (IntelliSense) fark edebilirsiniz. Uyu birini..."
+description: Visual Studio'da biçimlendirme düzenleyicisinde çalışırken, bir UpdatePanel denetiminin iki alt öğe olan (IntelliSense) fark edebilirsiniz. Uyu birini...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>ASP.NET AJAX UpdatePanel Tetikleyicileri anlama
 ====================
@@ -35,7 +35,7 @@ Bu teknik ASP.NET AJAX XML Tetikleyicileri işlevselliğini inceler `UpdatePanel
 
 Bu teknik Beta 2 sürümü, .NET Framework 3.5 ve Visual Studio 2008 dayanır. ASP.NET AJAX uzantılar, daha önce ASP.NET 2.0 hedeflenen bir eklenti derlemesi .NET Framework temel sınıfı Kitaplığı'na artık tümleşiktir. Bu Teknik İnceleme de varsayar Visual Studio 2008 ile değil Visual Web Developer Express, çalışma ve Visual Studio kullanıcı arabirimi göre izlenecek yollar (kod listeleri bakılmaksızın tamamen uyumlu olsa da sağlar geliştirme ortamı).
 
-## <a name="triggers"></a>*Tetikleyicileri*
+## <a name="triggers"></a>*Tetikleyiciler*
 
 Varsayılan olarak, belirli bir UpdatePanel için Tetikleyicileri (örneğin) sahip TextBox denetimleri de dahil olmak üzere bir geri çağırma tüm alt denetimleri otomatik olarak dahil kendi `AutoPostBack` özelliğini **doğru**. Ancak, Tetikleyiciler ayrıca bildirimli olarak işaretleme kullanarak dahil olabilir; Bu içinde yapılır `<triggers>` UpdatePanel denetimi bildirim bölümü. Tetikleyicileri aracılığıyla erişilen rağmen `Triggers` koleksiyon özelliği (örneğin, bir denetim tasarım zamanında kullanılabilir değilse), çalışma zamanında hiçbir kısmi işleme tetikleyici kaydetmeniz önerilir kullanarak `RegisterAsyncPostBackControl(Control)` yöntemi ScriptManager sayfanız için içinde nesne `Page_Load` olay. Sayfaları durum bilgisiz ve oluşturulan her zaman bu nedenle bu denetimleri kaydetmenize unutmayın.
 
@@ -59,8 +59,8 @@ Benzer şekilde, `<asp:PostBackTrigger>` öğesi, kısmi bir sayfayı işlemek t
 
 | **Etiket** | **Açıklama** |
 | --- | --- |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Denetim ve kısmi sayfa güncelleştirmesi Bu tetikleyici başvuru içeren UpdatePanel için neden olacak olay belirtir. |
-| &lt;ASP: PostBackTrigger&gt; | Denetim ve tam sayfa Güncelleştirmesi (tam sayfa yenileme) neden olacak olay belirtir. Bu etiket bir denetim, aksi takdirde kısmi işleme tetikleyecek tam yenilemeye zorlamak için kullanılabilir. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Denetim ve kısmi sayfa güncelleştirmesi Bu tetikleyici başvuru içeren UpdatePanel için neden olacak olay belirtir. |
+| &lt;asp:PostBackTrigger&gt; | Denetim ve tam sayfa Güncelleştirmesi (tam sayfa yenileme) neden olacak olay belirtir. Bu etiket bir denetim, aksi takdirde kısmi işleme tetikleyecek tam yenilemeye zorlamak için kullanılabilir. |
 
 ## <a name="walkthrough-cross-updatepanel-triggers"></a>*İzlenecek yol: Arası UpdatePanel Tetikleyicileri*
 
@@ -151,10 +151,10 @@ Sunucu işleme yükünü olasılığını azaltmak için önerilir `ChildrenAsTr
 
 ## <a name="bio"></a>Biyografisi
 
-Ramiz Paveza Terralever en üst düzey bir .NET uygulama geliştiricisi olan ([www.terralever.com](http://www.terralever.com)), Tempe, AZ. içinde başında etkileşimli pazarlama kesin Kendisi üzerinde erişilebilir [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), ve kendi blog konumundadır [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
+Ramiz Paveza Terralever en üst düzey bir .NET uygulama geliştiricisi olan ([www.terralever.com](http://www.terralever.com)), Tempe, AZ. içinde başında etkileşimli pazarlama kesin Kendisi üzerinde erişilebilir [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), ve kendi blog konumundadır [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Önceki](understanding-partial-page-updates-with-asp-net-ajax.md)
-[sonraki](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [sonraki](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

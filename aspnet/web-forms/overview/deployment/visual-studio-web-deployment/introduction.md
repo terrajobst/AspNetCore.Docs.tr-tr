@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/introduction
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, uygulamaya göre web V kullanarak..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Azure App Service Web Apps veya üçüncü taraf bir barındırma sağlayıcısı, uygulamaya göre web V kullanarak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1ff4cc3b0fa6ce7e6cdc833a0c2f7fea2050c4e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Giriş
 ====================
@@ -202,5 +202,5 @@ Uygulama, aşağıdaki özellikleri dağıtma veya bunu dağıtmak için yapman�
 
 Bu ilk öğreticide serideki örnek Visual Studio projesi indirdiğiniz ve uygulama dağıtımı etkileyen site özellikleri gözden. Aşağıdaki öğreticilerde otomatik olarak işlenecek bunlardan bazıları ayarlayarak dağıtımı için hazırlayın. Başkalarının size, el ile dikkatli olun.
 
->[!div class="step-by-step"]
-[Next](preparing-databases.md)
+> [!div class="step-by-step"]
+> [Next](preparing-databases.md)

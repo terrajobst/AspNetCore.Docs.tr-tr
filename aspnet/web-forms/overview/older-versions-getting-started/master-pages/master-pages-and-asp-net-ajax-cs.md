@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 title: Ana sayfalar ve ASP.NET AJAX (C#) | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET AJAX ve ana sayfalar kullanmak için seçenekleri açıklar. ScriptManagerProxy sınıfı kullanarak arar; çeşitli JS dosyaları dependi nasıl yüklendiğini açıklar..."
+description: ASP.NET AJAX ve ana sayfalar kullanmak için seçenekleri açıklar. ScriptManagerProxy sınıfı kullanarak arar; çeşitli JS dosyaları dependi nasıl yüklendiğini açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87e5855354610723823da88ec961e7391c3f705f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Ana sayfalar ve ASP.NET AJAX (C#)
 ====================
@@ -184,9 +184,9 @@ Eklemek için ScriptManager ilgili özelleştirmeleri sayfa tarafından temelind
 
 Eylem ScriptManagerProxy denetiminde görmek için şirketinizdeki UpdatePanel büyütmek `ShowRandomProduct.aspx` duraklatmak veya devam ettirmek Zamanlayıcı denetimi için istemci tarafı komut dosyası kullanan bir düğme eklenecek. Zamanlayıcı denetim Biz bu istenen işlevselliği elde etmek için kullanabileceğiniz üç istemci-tarafı yöntemi vardır:
 
-- `_startTimer()`-Süreölçer denetim başlatır
-- `_raiseTick()`-"değer," Zamanlayıcı denetimine böylece arka nakil ve oluşturma neden olan kendi `Tick` sunucusunda olayı
-- `_stopTimer()`-Süreölçer denetim durdurur
+- `_startTimer()` -Süreölçer denetim başlatır
+- `_raiseTick()` -"değer," Zamanlayıcı denetimine böylece arka nakil ve oluşturma neden olan kendi `Tick` sunucusunda olayı
+- `_stopTimer()` -Süreölçer denetim durdurur
 
 Bir JavaScript dosyası adlı bir değişkene oluşturalım `timerEnabled` ve adlı bir işlev `ToggleTimer`. `timerEnabled` Değişkeni Zamanlayıcı denetimi şu anda etkin devre dışı mı olduğunu gösterir; true olarak varsayılan olarak. `ToggleTimer` İşlevi, iki giriş parametreleri kabul eder: Duraklat/Sürdür düğmesi ve istemci tarafı başvuru `id` Zamanlayıcı denetiminin değeri. Bu işlev değerini değiştirir `timerEnabled`, Zamanlayıcı denetlemek için bir başvuru alır, başlatıldığında veya durdurulduğunda Zamanlayıcı (değerine bağlı olarak `timerEnabled`) ve "Duraklat" veya "Sürdür" düğmenin görüntüleme metni güncelleştirir. Duraklat/Resume düğmesine tıklandığında olduğunda bu işlev çağrılmaz.
 
@@ -228,7 +228,7 @@ Biz şimdi çağırabilirsiniz `ToggleTimer` tanımlanan işlevi `TimerScript.js
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
-Bu metin "Duraklat" düğmesiyle görüntüler. Zaman onu tıklandığında, JavaScript işlevinin `ToggleTimer` olarak adlandırılan, düğme ve Zamanlayıcı denetiminin kimliği değeri bir başvuru olarak geçirme (`ProductTimer`). Alma sözdizimi Not `id` Zamanlayıcı denetiminin değeri. `<%=ProductTimer.ClientID%>`değerini yayar `ProductTimer` Zamanlayıcı denetimin `ClientID` özelliği. İçinde [ *denetim kimliği adlandırma içerik sayfalarında* ](control-id-naming-in-content-pages-cs.md) biz ele sunucu tarafı arasındaki farklar öğretici `ID` değeri ve sonuçta elde edilen istemci tarafı `id` değeri ve nasıl `ClientID` istemci-tarafı döndürür `id`.
+Bu metin "Duraklat" düğmesiyle görüntüler. Zaman onu tıklandığında, JavaScript işlevinin `ToggleTimer` olarak adlandırılan, düğme ve Zamanlayıcı denetiminin kimliği değeri bir başvuru olarak geçirme (`ProductTimer`). Alma sözdizimi Not `id` Zamanlayıcı denetiminin değeri. `<%=ProductTimer.ClientID%>` değerini yayar `ProductTimer` Zamanlayıcı denetimin `ClientID` özelliği. İçinde [ *denetim kimliği adlandırma içerik sayfalarında* ](control-id-naming-in-content-pages-cs.md) biz ele sunucu tarafı arasındaki farklar öğretici `ID` değeri ve sonuçta elde edilen istemci tarafı `id` değeri ve nasıl `ClientID` istemci-tarafı döndürür `id`.
 
 Şekil 11 bir tarayıcı üzerinden ilk sitesini ziyaret ettiğinizde bu sayfada görüntülenir. Zamanlayıcı şu anda çalışıyor ve 15 dakikada görüntülenen ürün bilgilerini güncelleştirir. Şekil 12 Duraklat düğmesini tıklatıldıktan sonra ekran gösterir. Duraklat düğmesini tıklatarak Zamanlayıcı durdurur ve "Sürdür" düğmenin metni güncelleştirir. Ürün bilgilerini yenileyin (ve 15 dakikada yenilemeye devam etmek) Sürdür kullanıcı sonra.
 
@@ -264,12 +264,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](interacting-with-the-content-page-from-the-master-page-cs.md)
-[sonraki](specifying-the-master-page-programmatically-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](interacting-with-the-content-page-from-the-master-page-cs.md)
+> [sonraki](specifying-the-master-page-programmatically-cs.md)

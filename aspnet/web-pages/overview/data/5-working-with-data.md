@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: "ASP.NET Web bir veritabanı ile çalışmaya giriş sayfaları (Razor) siteleri | Microsoft Docs"
+title: ASP.NET Web bir veritabanı ile çalışmaya giriş sayfaları (Razor) siteleri | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, bir veritabanından veri erişim ve ASP.NET Web sayfalarını kullanarak görüntülemek açıklar."
+description: Bu bölümde, bir veritabanından veri erişim ve ASP.NET Web sayfalarını kullanarak görüntülemek açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web bir veritabanı ile çalışmaya giriş (Razor) sayfaları
 ====================
@@ -361,7 +361,7 @@ Bu bölümde, kullanıcıların bir üründen silme izin vermek gösterilmiştir
 6. Tıklatın **silme** bir ürün için bağlantı. *DeleteProduct.cshtml* sayfası, bu kayıt silmek istediğinizi onaylamak için görüntülenir.
 7. Tıklatın **silmek** düğmesi. Ürün kaydı silinir ve sayfa güncelleştirilen ürün listeyle yenilenir.
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>Bir veritabanına bağlanma

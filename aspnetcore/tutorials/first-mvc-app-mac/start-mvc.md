@@ -1,7 +1,7 @@
 ---
-title: "Mac için ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama"
+title: Mac için ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 author: rick-anderson
-description: "ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama öğrenin"
+description: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama öğrenin
 manager: wpickett
 ms.author: riande
 ms.date: 8/23/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 7d2729969a65cf2050d0eac390169898a4102de1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Mac için ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
@@ -21,7 +21,7 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici bir ASP.NET Core MVC web app kullanarak oluşturma temelleri öğretilmektedir [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/). 
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Bu öğretici 3 sürümü vardır:
 
@@ -31,12 +31,7 @@ Bu öğretici 3 sürümü vardır:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici gerektirir [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) veya sonraki bir sürümü.
-
-Aşağıdaki yükleyin:
-
-- [.NET core 2.0.0 SDK](https://www.microsoft.com/net/core) veya daha yenisi
-- [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/)
+[!INCLUDE [](~/includes/net-core-prereqs-macos.md)]
 
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
@@ -67,5 +62,5 @@ Varsayılan şablonu verir **hakkında giriş** ve **kişi** bağlantılar. Yuka
 
 Bu öğreticinin sonraki bölümünde, MVC konusunda bilgi edinmek ve bazı kod yazmayı başlatır.
 
->[!div class="step-by-step"]
-[Next](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Next](adding-controller.md)  

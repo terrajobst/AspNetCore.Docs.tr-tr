@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
-title: "ASP.NET Web Forms Visual Studio 2013'te kod düzenleme | Microsoft Docs"
+title: ASP.NET Web Forms Visual Studio 2013'te kod düzenleme | Microsoft Docs
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013'te kod düzenleme ASP.NET Web formları
 ====================
@@ -46,7 +46,7 @@ Bu kılavuzu tamamlamak için gerekir:
     >   
     > Visual Studio kullanıyorsanız, bu kılavuzda, seçtiğiniz varsayar **Web geliştirme** ayarlar koleksiyonu, Visual Studio ilk başlattığınızda. Daha fazla bilgi için bkz: [nasıl yapılır: Web geliştirme ortamı ayarlarını seçin](https://msdn.microsoft.com/library/ff521558.aspx).
 
- Visual Studio ve ASP.NET bir giriş için bkz: [Visual Studio 2013'te temel ASP.NET 4.5 Web Forms sayfası oluşturma](creating-a-basic-web-forms-page.md).   
+  Visual Studio ve ASP.NET bir giriş için bkz: [Visual Studio 2013'te temel ASP.NET 4.5 Web Forms sayfası oluşturma](creating-a-basic-web-forms-page.md).   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Bir Web uygulaması projesi ve bir sayfa oluşturma
@@ -98,19 +98,19 @@ Visual Studio Kod düzenleyicisinde, kod yazmak ve bir hata yaptıysanız, Kod d
 
 
 1. İçinde **tasarım** görüntülemek için bir işleyici oluşturmak için boş sayfa çift **yük** sayfası için olay.   
-Bazı kodlar yazmak için yalnızca bir yer olarak olay işleyicisi kullanıyorsunuz.
+   Bazı kodlar yazmak için yalnızca bir yer olarak olay işleyicisi kullanıyorsunuz.
 2. İşleyicisinin içinden bir hata ve tuşuna içeren aşağıdaki satırdan **ENTER**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- Bastığınızda **ENTER**, Kod düzenleyicisinde yeşil ve kırmızı alt çizgileri yerleştirir (genellikle çağrısı &quot;dalgalı&quot; satırları) sorunları olan kodu alanlarını altında. Yeşil alt çizgi, bir uyarı gösterir. Kırmızı alt çizgi düzeltmeniz gerekir bir hata gösterir. 
+   Bastığınızda **ENTER**, Kod düzenleyicisinde yeşil ve kırmızı alt çizgileri yerleştirir (genellikle çağrısı &quot;dalgalı&quot; satırları) sorunları olan kodu alanlarını altında. Yeşil alt çizgi, bir uyarı gösterir. Kırmızı alt çizgi düzeltmeniz gerekir bir hata gösterir. 
 
     Fare işaretçisini tutun `myStr` hakkında uyarı bildiren bir araç ipucu görmek için. Ayrıca, fare işaretçisini hata iletisini görmek için kırmızı altı çizili basılı tutun.
 
     Aşağıdaki resimde, alt çizgileri koduyla gösterir.
 
     ![Hoş Geldiniz metin Tasarım görünümünde](code-editing-in-web-forms-pages/_static/image5.png "Tasarım görünümünde metin'na Hoş Geldiniz")  
- Noktalı virgül ekleyerek hatanın düzeltilmesi gerektiğini `;` satırın sonuna. Uyarı yalnızca size, kullanmadığınız bildirir `myStr` henüz değişkeni.  
+   Noktalı virgül ekleyerek hatanın düzeltilmesi gerektiğini `;` satırın sonuna. Uyarı yalnızca size, kullanmadığınız bildirir `myStr` henüz değişkeni.  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ Kılavuzun bu bölümünde, bazı basit kod yazın ve ardından bir yöntem onda
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- Kod oluşturur bir **ArrayList** nesnesi değerlerle yüklemek için bir döngü kullanır ve içeriğini görüntülemek için başka bir döngü kullanır **ArrayList** nesnesi.
+   Kod oluşturur bir **ArrayList** nesnesi değerlerle yüklemek için bir döngü kullanır ve içeriğini görüntülemek için başka bir döngü kullanır **ArrayList** nesnesi.
 4. Tuşuna **CTRL + F5** sayfayı çalıştırın ve ardından **düğmesini** aşağıdaki çıkış gördüğünüzden emin olmak için:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]

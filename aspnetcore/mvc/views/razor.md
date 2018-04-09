@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core için Razor söz dizimi başvurusu"
+title: ASP.NET Core için Razor söz dizimi başvurusu
 author: rick-anderson
-description: "Web sayfalarının sunucu tabanlı kod katıştırma Razor biçimlendirme söz dizimi hakkında bilgi edinin."
+description: Web sayfalarının sunucu tabanlı kod katıştırma Razor biçimlendirme söz dizimi hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 3528965cc65d2d5ec21df40cbeb71d1333839e1a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 168bd04585c5d7a2834cb97755dbf04b7b43767e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="razor-syntax-for-aspnet-core"></a>ASP.NET Core için Razor sözdizimi
+# <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core için Razor söz dizimi başvurusu
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen), ve [Dan Vicarel](https://github.com/Rabadash8820)
 
@@ -118,10 +118,10 @@ Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabili
 
 Önceki kod, aşağıdakilerden birini benzer bir derleyici hatası oluşturur:
 
- * "İnt" öğesi kapalı değildi. Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
- *  Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
+* "İnt" öğesi kapalı değildi. Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
+* Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
  
- Aşağıdaki biçimlendirmede doğru bir şekilde yazma bu kodu gösterir. Kod açık bir ifade olarak yazılır:
+  Aşağıdaki biçimlendirmede doğru bir şekilde yazma bu kodu gösterir. Kod açık bir ifade olarak yazılır:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -517,7 +517,7 @@ Varsa "rick@contoso.com" geçirilen modeldeki görünümünü aşağıdaki HTML 
 
 ### <a name="functions"></a>@functions
 
-`@functions` Yönergesi işlev düzeyi içerik için bir görünüm eklemek bir Razor sayfasını sağlar:
+`@functions` Yönergesi C# kod bloğu bir görünüme eklemek bir Razor sayfasını sağlar:
 
 ```cshtml
 @functions { // C# Code }

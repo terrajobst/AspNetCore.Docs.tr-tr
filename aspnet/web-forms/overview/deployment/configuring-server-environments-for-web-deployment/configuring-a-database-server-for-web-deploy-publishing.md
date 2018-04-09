@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: "Web için bir veritabanı sunucusunu yapılandırma dağıtımı yayımlamadan | Microsoft Docs"
+title: Web için bir veritabanı sunucusunu yapılandırma dağıtımı yayımlamadan | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Bu konuda açıklanan ortak görevlerdir..."
+description: Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır. Bu konuda açıklanan ortak görevlerdir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Web dağıtımı yayımlama için veritabanı sunucusunu yapılandırma
 ====================
@@ -26,7 +26,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 
 > Bu konuda, web dağıtımı ve yayımlama desteklemek için SQL Server 2008 R2 veritabanı sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
 > 
-> Bu konuda açıklanan görevleri her dağıtım senaryosu & #x 2014 ortak; web sunucularınızın IIS Web Dağıtım Aracı (Web dağıtımı) uzaktan Aracı hizmeti, Web dağıtımı işleyicisi veya çevrimdışı dağıtımı kullanmak üzere yapılandırılmış olup olmadığını önemli değildir veya Uygulamanızı bir tek bir web sunucusu veya sunucu grubunda çalışıyor. Veritabanı dağıtma şeklinizi güvenlik gereksinimleri ve diğer konular göre değişebilir. Örneğin, veritabanı veya örnek verileri kaydetmeden dağıtabileceğinizi ve kullanıcı rolü eşlemeleri dağıtma veya dağıtımdan sonra bunları el ile yapılandırmanız olabilir. Ancak, veritabanı sunucusu yapılandırma biçiminizi aynı kalır.
+> Bu konuda açıklanan görevleri her dağıtım senaryosu için ortak olan&#x2014;, web sunucuları, IIS Web Dağıtım Aracı (Web dağıtımı) uzaktan Aracı hizmeti, Web dağıtımı işleyicisi veya çevrimdışı dağıtımı kullanmak üzere yapılandırılmış olup olmadığını önemli değildir veya Uygulama, tek bir web sunucusu veya sunucu grubunda çalışıyor. Veritabanı dağıtma şeklinizi güvenlik gereksinimleri ve diğer konular göre değişebilir. Örneğin, veritabanı veya örnek verileri kaydetmeden dağıtabileceğinizi ve kullanıcı rolü eşlemeleri dağıtma veya dağıtımdan sonra bunları el ile yapılandırmanız olabilir. Ancak, veritabanı sunucusu yapılandırma biçiminizi aynı kalır.
 
 
 Web dağıtımını desteklemek için bir veritabanı sunucusu yapılandırmak için ek ürün veya araçları yüklemeniz gerekmez. Veritabanı sunucunuz ve web sunucunuz farklı makinelerde çalıştırma varsayılarak, yalnızca yapmanız gerekir:
@@ -65,8 +65,8 @@ SQL Server'ın TCP/IP üzerinden iletişim kurmasını sağlamak için SQL Serve
 1. Üzerinde **Başlat** menüsündeki **tüm programlar**, tıklatın **Microsoft SQL Server 2008 R2**, tıklatın **yapılandırma araçları**ve ardından **SQL Server Configuration Manager**.
 2. Ağaç görünümü bölmesinde **SQL Server Ağ Yapılandırması**ve ardından **MSSQLSERVER protokolleri**.
 
-    > [!NOTE]
-    > SQL Server'ın birden çok örneği yüklüyse göreceğiniz bir **için protokolleri *** [örnek adı]* her örneği için öğesi. Bir örnek tarafından örneği bazında ağ ayarlarını yapılandırmanız gerekir.
+   > [!NOTE]
+   > SQL Server'ın birden çok örneği yüklüyse göreceğiniz bir <strong>için protokolleri</strong><em>[örnek adı]</em> her örneği için öğesi. Bir örnek tarafından örneği bazında ağ ayarlarını yapılandırmanız gerekir.
 3. Ayrıntılar bölmesinde, **TCP/IP'yi** satır ve ardından **etkinleştirmek**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ SQL Server'ın varsayılan örneğinin kullanmakta olduğunuz varsayılarak traf
 
 ## <a name="configure-logins-and-database-permissions"></a>Oturumu yapılandırmak ve veritabanı izinleri
 
-Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun * [etki alanı adı]***\*** [makine adı]***$** & #x 2014; Örneğin, **FABRIKAM\TESTWEB1$**. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
+Bir web uygulaması için Internet Information Services (IIS) dağıttığınızda, uygulamanın uygulama havuzunun kimliğini kullanarak çalışır. Uygulama havuzu kimliklerini bir etki alanı ortamında ağ kaynaklarına erişmek için çalıştırdıkları sunucusu makine hesabının kullanın. Makine hesapları alın formun <em>[etki alanı adı]</em><strong>\</ strong ><em>[makine adı]</em><strong>$</strong>&#x2014;Örneğin, <strong>FABRIKAM\TESTWEB1$</strong>. Ağ üzerinden bir veritabanına erişmek, web uygulamanızın izin vermek için gerekir:
 
 - Web sunucusunun makine hesabı için oturum açma SQL Server örneğine ekleyin.
 - Makine hesabı oturum açma için herhangi bir gereken veritabanı rol eşleme (genellikle **db\_datareader** ve **db\_datawriter**).
@@ -231,6 +231,6 @@ Veritabanı sunucunuz artık veritabanlarınızı erişmek Uzak IIS web sunucula
 
 Veritabanı projeleri dağıtma ile ilgili yönergeler için bkz: [dağıtma veritabanı projeleri](../web-deployment-in-the-enterprise/deploying-database-projects.md). Bir dağıtım sonrası komut dosyası çalıştırarak rol üyeliklerini veritabanı oluşturma ile ilgili yönergeler için bkz: [Test ortamları için veritabanı rol üyeliklerini dağıtma](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Üyelik veritabanları teşkil benzersiz bir dağıtım zorlayan konusunda yönergeler için bkz [üyelik veritabanına dağıtma kurumsal ortamlarda](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
->[!div class="step-by-step"]
-[Önceki](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[sonraki](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [sonraki](creating-a-server-farm-with-the-web-farm-framework.md)

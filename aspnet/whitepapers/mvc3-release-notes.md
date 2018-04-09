@@ -2,21 +2,21 @@
 uid: whitepapers/mvc3-release-notes
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -262,7 +262,7 @@ Tarayıcıların önceki sürümleri HTML5 özgü etiketler desteklemeyen unutma
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>Proje şablonları artık Modernizr 1.7 içerir
 
-Modernizr henüz bu özellikleri desteklemeyen tarayıcılarda CSS 3 ve HTML5 için destek sağlayan bir JavaScript kitaplıktır. Bu kitaplık şablonları ASP.NET MVC 3 projelerinin önceden yüklenmiş bir NuGet paketi olarak dahil edilir. Modernizr hakkında daha fazla bilgi için bkz: [http://www.modernizr.com/](http://www.modernizr.com/).
+Modernizr henüz bu özellikleri desteklemeyen tarayıcılarda CSS 3 ve HTML5 için destek sağlayan bir JavaScript kitaplıktır. Bu kitaplık şablonları ASP.NET MVC 3 projelerinin önceden yüklenmiş bir NuGet paketi olarak dahil edilir. Modernizr hakkında daha fazla bilgi için bkz: [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Proje şablonları içerir jQuery, jQuery UI ve jQuery güncelleştirilmiş sürümleri doğrulama
@@ -373,7 +373,7 @@ Bu bölümde ASP.NET MVC 3 RC2 sürümde RC sürümünden bu yana yapılan deği
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Proje şablonları jQuery 1.4.4, jQuery doğrulama 1.7 ve jQuery UI 1.8.6 içerecek şekilde değiştirildi.
 
-ASP.NET MVC 3 proje şablonları artık jQuery, jQuery doğrulama ve jQuery en son sürümleri dahil kullanıcı Arabirimi. jQuery UI yeni bir proje şablonları eklemeyi ve yararlı kullanıcı arabirimi pencere öğeleri sağlar. JQuery UI hakkında daha fazla bilgi için kendi giriş sayfasını ziyaret edin: [http://jqueryui.com/](http://jqueryui.com/).
+ASP.NET MVC 3 proje şablonları artık jQuery, jQuery doğrulama ve jQuery en son sürümleri dahil kullanıcı Arabirimi. jQuery UI yeni bir proje şablonları eklemeyi ve yararlı kullanıcı arabirimi pencere öğeleri sağlar. JQuery UI hakkında daha fazla bilgi için kendi giriş sayfasını ziyaret edin: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Eklenen "AdditionalMetadataAttribute" sınıfı
@@ -438,7 +438,7 @@ Zaman *Html.ValidationMessage* yöntemi bir doğrulama iletisi görüntüler, ç
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Sabit @model belgeye boşluk eklememeyi bildirimi
 
-Önceki sürümlerde  *@model*  bildiriminin en üstünde bir görünümün işlenmiş olan HTML çıktısı için boş bir satır eklenir. Böylece bildirimi boşluk sunmaz bu düzeltilmiştir.
+Önceki sürümlerde <em>@model</em> bildiriminin en üstünde bir görünümün işlenmiş olan HTML çıktısı için boş bir satır eklenir. Böylece bildirimi boşluk sunmaz bu düzeltilmiştir.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Görünüm altyapıları altyapısı özgü dosya adlarını desteklemek için eklenen "FileExtensions" özelliği
@@ -465,7 +465,7 @@ Bir hata where sabit *LabelFor* işlenen yöntemi bir *için* eşleşen öznitel
 - ASP.NET MVC önceki sürümleri, bazı durumlarda dışında istek başına eylem filtreleri oluşturuldu. Bu davranış hiçbir zaman garantili davranışı ancak yalnızca bir uygulama ayrıntılarını ve sözleşme filtreleri için durum bilgisiz dikkate alınması gereken olmuştur. ASP.NET MVC 3'te filtreleri daha agresif önbelleğe alınır. Bu nedenle, örnek durumu yanlış depolayan herhangi bir özel eylem filtre bozuk olabilir.
 - Özel durum filtreleri için yürütme sırasını aynı olan özel durum filtreleri değişti *sipariş* değeri. ASP.NET MVC 2 ve daha önceki sürümlerde, aynı olan denetleyicisine özel durum filtreleri *sipariş* değeri gibi bir eylem yönteminin üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü. Özel durum filtreleri uygulandığında bu durum genellikle olacaktır belirtilen olmadan *sipariş* değeri. Böylece en belirli özel durum işleyici ilk yürütür ASP.NET MVC 3'te bu sırasını tersine çevrildi. Önceki sürümlerinde olduğu gibi *sipariş* özelliği açıkça belirtilen, filtreler belirtilen sırada çalıştırılır.
 - Adlı yeni bir özellik *FileExtensions* eklendi *VirtualPathProviderViewEngine* temel sınıfı. ASP.NET (Ada göre değil) yoluyla bir görünüm göründüğünde, bu yeni özelliği tarafından belirtilen listesinde yer alan bir dosya uzantısı yalnızca görünümlerle olarak kabul edilir. Bir özel dosya uzantısı Web Form görünümleri için etkinleştirmek için bir özel derleme sağlayıcısı kayıtlı olduğu ve bir adı yerine bir tam yol kullanarak bu görünümler sağlayıcı başvuran uygulamalarında önemli bir değişiklik budur. Değerini değiştirmek için geçici bir çözüm değildir *FileExtensions* özel dosya uzantısını eklemeyi özelliği.
-- Doğrudan uygulayan özel denetleyici üreteci uygulamaları *IControllerFactory* arabirimi, yeni bir uygulama sağlamalıdır *GetControllerSessionBehavior ** eklendi yöntemi Bu sürümde arabirimi*. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir *DefaultControllerFactory*.
+- Doğrudan uygulayan özel denetleyici üreteci uygulamaları <em>IControllerFactory</em> arabirimi, yeni bir uygulama sağlamalıdır <em>GetControllerSessionBehavior</em>  <em>Bu sürümde arabirimi eklendi yöntemi</em>. Genel olarak, bu, değil doğrudan bu arabirimi uygulayan ve bunun yerine, sınıfından türetilen önerilir <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Bilinen Sorunlar
@@ -629,11 +629,11 @@ Modelin her özelliği için istek doğrulamayı devre dışı bırakmak için a
 
 ASP.NET MVC 3 Beta 6 Ekim 2010'da yayımlanmıştır. Aşağıdaki Notlar Beta sürümüne özeldir ve tüm güncelleştirmeleri veya ASP.NET MVC 3 Sürüm Adayı'bölümünde yukarıdaki değişiklikleri tabidir.
 
-## <a id="0.1__Toc274034215"></a>Yeni Featuresin ASP.NET MVC 3 Beta
+## <a id="0.1__Toc274034215"></a>  Yeni Featuresin ASP.NET MVC 3 Beta
 
 <a id="0.1__Default_validation_system"></a>Bu bölümde tanıtılmıştır özellikleri açıklanmıştır ASP.NET MVC 3 Beta sürümünde.
 
-### <a id="0.1__Toc274034216"></a>NuGet Paket Yöneticisi
+### <a id="0.1__Toc274034216"></a>  NuGet Paket Yöneticisi
 
 ASP.NET MVC 3 ekleme kitaplıklar için bir tümleşik paket yönetim aracı ve araçları Visual Studio projeleri için NuGet Paket Yöneticisi içerir. Çoğunlukla, geliştiriciler bugün kendi kaynak ağacına bir kitaplık almak için attığınız adımlar otomatikleştirir.
 
@@ -641,7 +641,7 @@ Bir komut satırı aracı olarak, Visual Studio 2010 içinde tümleşik konsol p
 
 NuGet hakkında daha fazla bilgi için okuma [NuGet belgelerine](https://docs.microsoft.com/nuget/).
 
-### <a id="0.1__Toc274034217"></a>Geliştirilmiş yeni proje iletişim kutusu
+### <a id="0.1__Toc274034217"></a>  Geliştirilmiş yeni proje iletişim kutusu
 
 Yeni bir proje oluşturduğunuzda, yeni proje iletişim kutusu artık görünüm altyapısının yanı sıra bir ASP.NET MVC proje türü belirtmenize olanak sağlar.
 
@@ -655,7 +655,7 @@ Boş. Varsayılan dizin yapısı ASP.NET MVC projeleri, ASP.NET MVC stilleri var
 
 Internet uygulaması. ASP.NET MVC içindeki üyelik sağlayıcısının nasıl kullanılacağını gösteren örnek işlevselliği içerir.
 
-### <a id="0.1__Toc274034218"></a>Kesinlikle belirtmek için basitleştirilmiş yol modelleri Razor görünümleri belirtilmiş.
+### <a id="0.1__Toc274034218"></a>  Kesinlikle belirtmek için basitleştirilmiş yol modelleri Razor görünümleri belirtilmiş.
 
 Kesin türü belirtilmiş Razor görünümleri için model türü belirtmek için yol yeni kullanarak basitleştirilmiştir @model CSHTML görünümler için yönerge ve @ModelType VBHTML görünümler için yönerge. ASP.NET MVC önceki sürümlerde Razor için kesin türü belirtilmiş bir modelin bu şekilde görünümleri belirtmeniz gerekir:
 
@@ -665,7 +665,7 @@ Bu sürümde, aşağıdaki söz dizimini kullanabilirsiniz:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>Yeni ASP.NET Web sayfaları için yardımcı yöntemler desteği
+### <a id="0.1__Toc274034219"></a>  Yeni ASP.NET Web sayfaları için yardımcı yöntemler desteği
 
 Yeni ASP.NET Web sayfaları teknolojinin yaygın olarak kullanılan işlevler görünümleri ve denetleyicilerini ekleme için yararlı yardımcı yöntemler kümesi içerir. ASP.NET MVC 3 denetleyicileri ve görünümler içinde bu yardımcı yöntemler (uygun olduğunda) kullanılmasını destekler. Bu yöntemler System.Web.Helpers bütünleştirilmiş kodunda yer alır. Aşağıdaki tabloda, ASP.NET Web sayfaları yardımcı yöntemler bazılarını listeler.
 
@@ -681,7 +681,7 @@ Yardımcıları ve temel sözdizimi listeleyen bir hızlı başvuru konu kullan�
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>Ek bağımlılık ekleme desteği
+### <a id="0.1__Toc274034220"></a>  Ek bağımlılık ekleme desteği
 
 ASP.NET MVC 3 Preview 1 sürüm oluşturma, şu anki sürümde iki yeni ve dört mevcut Hizmetleri için destek eklendi ve bağımlılık çözümlemesi ve genel hizmet bulucu için geliştirilmiş destek içerir.
 
@@ -732,7 +732,7 @@ Yeni sürüm bağımlılık çözünürlük desteği aşağıdaki hizmetleri iç
 - Değer sağlayıcıları. Bağımlılık çözümleyiciyi ValueProviderFactory uygulayan sınıflar kaydedilebilir ve sistem bunları denetleyicisi tarafından ve model bağlama sırasında tüketilen değer sağlayıcıları oluşturmak için kullanır.
 - Model bağlayıcıları. Bağımlılık çözümleyiciyi IModelBinderProvider uygulayan sınıflar kaydedilebilir ve sistem bunları model bağlama sistem tarafından tüketilen model bağlayıcıları oluşturmak için kullanır.
 
-### <a id="0.1__Toc274034221"></a>Örtük jQuery tabanlı Ajax yeni desteği
+### <a id="0.1__Toc274034221"></a>  Örtük jQuery tabanlı Ajax yeni desteği
 
 ASP.NET MVC Ajax yardımcı yöntemler aşağıdaki gibi içerir:
 
@@ -748,7 +748,7 @@ Bu yöntemler, tam geri gönderimin kullanmak yerine sunucu üzerinde bir eylem 
 
 Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkindir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz: [eklenen istemci doğrulama ve örtük JavaScript uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) belgesinde.
 
-### <a id="0.1__Toc274034222"></a>Örtük jQuery doğrulama için yeni destek
+### <a id="0.1__Toc274034222"></a>  Örtük jQuery doğrulama için yeni destek
 
 Varsayılan olarak, ASP.NET MVC 3 Beta istemci tarafı doğrulama gerçekleştirmek için örtük bir şekilde jQuery doğrulama kullanır. Örtük istemci doğrulamasını etkinleştirmek için bir görünüm içinde aşağıdaki gibi bir çağrı yapın:
 
@@ -768,7 +768,7 @@ Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsay
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>İstemci doğrulama ve örtük JavaScript için yeni uygulama çapında bayrakları
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  İstemci doğrulama ve örtük JavaScript için yeni uygulama çapında bayrakları
 
 Etkinleştirmek veya istemci doğrulama ve genel olarak aşağıdaki örnekteki gibi HtmlHelper sınıfının statik üyeleri kullanarak örtük JavaScript devre dışı bırakın:
 
@@ -784,7 +784,7 @@ Varsayılan olarak bu özellikleri etkinleştirmek için yeni aşırı varsayıl
 
 Geriye dönük uyumluluk için bu özelliklerin her ikisi de varsayılan olarak devre dışıdır.
 
-### <a id="0.1__Toc274034224"></a>Yeni görünümler çalıştırmadan önce çalışan bir kod desteği
+### <a id="0.1__Toc274034224"></a>  Yeni görünümler çalıştırmadan önce çalışan bir kod desteği
 
 Adlı bir dosya artık koyabilirsiniz \_viewstart.cshtml (veya \_viewstart.vbhtml) görünümleri dizininde ve o dizin ve alt dizinlerinde birden çok görünüm arasında paylaşılacak bu kodu ekleyin. Örneğin, aşağıdaki kodu bırakabilecek \_~/Views klasörde viewstart.cshtml sayfa:
 
@@ -794,7 +794,7 @@ Her görünüm görünümleri klasöründeki ve onun tüm alt klasörleri yinele
 
 Varsayılan olarak, kodda \_viewstart.cshtml dosya da uygulandığı herhangi bir alt görünümlerde. Ancak, ayrı ayrı alt klasörler kendi sürümüne sahip olabilir \_viewstart.cshtml dosya; içeren durumda, yerel sürümü önceliklidir. Örneğin, tüm görünümlere HomeController için ortak olan kodu çalıştırmak için put bir \_~/Views/Home klasöründe viewstart.cshtml dosyası.
 
-### <a id="0.1__Toc274034225"></a>Yeni destek VBHTML Razor sözdizimi için
+### <a id="0.1__Toc274034225"></a>  Yeni destek VBHTML Razor sözdizimi için
 
 Önceki ASP.NET MVC Önizleme C# üzerinde alan Razor sözdizimini kullanarak görünümleri için destek dahil. Bu görünümler .cshtml dosya uzantısını kullanabilirsiniz. Razor desteklemeye devam eden iş parçası olarak, ASP.NET MVC 3 Beta .vbhtml dosya uzantısını kullanır Visual Basic'te Razor sözdizimi için destek sunar.
 
@@ -802,7 +802,7 @@ Visual Basic söz dizimine VBHTML sayfalarında kullanmaya giriş bilgileri içi
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>ValidateInputAttribute üzerinde daha ayrıntılı denetim
+### <a id="0.1__Toc274034226"></a>  ValidateInputAttribute üzerinde daha ayrıntılı denetim
 
 ASP.NET MVC her zaman gelen istek zararlı Giriş içermediğinden emin olmak için çekirdek ASP.NET istek doğrulama altyapı çağırır ValidateInputAttribute sınıfı eklemiştir. Varsayılan olarak, giriş doğrulaması etkindir. Aşağıdaki örnekte olduğu gibi ValidateInputAttribute özniteliğini kullanarak istek doğrulamayı devre dışı bırakmak mümkündür:
 
@@ -814,7 +814,7 @@ Ancak, birçok web uygulamaları kalan alanları vermemelisiniz sırada HTML, iz
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>Yardımcıları alt çizgi için kısa çizgi anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür
+### <a id="0.1__Toc274034227"></a>  Yardımcıları alt çizgi için kısa çizgi anonim nesneleri kullanarak belirtilen HTML öznitelik adları için Dönüştür
 
 Yardımcı yöntemler aşağıdaki örnekteki gibi bir anonim nesnenin kullanarak öznitelik ad/değer çiftleri belirtmenizi sağlar:
 
@@ -830,7 +830,7 @@ Yardımcı çalıştığında, önceki örnekte aşağıdaki biçimlendirme olu�
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>Hata düzeltmeleri
+## <a id="0.1__Toc274034228"></a>  Hata düzeltmeleri
 
 Varsayılan nesne şablonu EditorFor ve DisplayFor şablonu Yardımcıları için artık DisplayAttribute.Order özelliğinde belirtilen sıralama destekler. (Önceki sürümlerde, sipariş ayarı kullanılmadı.)
 
@@ -838,11 +838,11 @@ Varsayılan nesne şablonu EditorFor ve DisplayFor şablonu Yardımcıları içi
 
 JsonValueProviderFactory artık varsayılan olarak kaydedilir.
 
-## <a id="0.1__Toc274034229"></a>Yeni değişiklikler
+## <a id="0.1__Toc274034229"></a>  Yeni değişiklikler
 
 Özel durum filtreleri için yürütme sırasını aynı sıra değeri olması için özel durum filtreleri değişti. Bir eylem yönteminin üzerindekiler eylem yöntemi özel durum filtreleri önce yürütüldü gibi aynı sıraya sahip denetleyicisinde özel durum ASP.NET MVC 2 ve daha önceki sürümlerde, filtreler. Özel durum filtreleri belirtilen bir sıra değeri uygulanan olduğunda bu durum genellikle olacaktır. Böylece en belirli özel durum işleyici ilk yürütür ASP.NET MVC 3'te bu sırasını tersine çevrildi. Order özelliğini açıkça belirtilmediği takdirde, önceki sürümlerinde olduğu gibi belirtilen sırada filtreleri çalıştırılır.
 
-## <a id="0.1__Toc274034230"></a>Bilinen sorunlar
+## <a id="0.1__Toc274034230"></a>  Bilinen sorunlar
 
 Yükleme sırasında EULA kabul iletişim kutusunda Lisans Koşulları'nı istenenden daha küçük bir pencerede görüntüler.
 
@@ -862,7 +862,7 @@ Kimliği doğrulanmamış kullanıcıların ~/Account/Web.config dosyasında kul
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>Sorumluluk reddi
+## <a id="0.1__Toc274034231"></a>  Sorumluluk reddi
 
 © 2011 Microsoft Corporation. Tüm hakları saklıdır. Bu belgede sağlanan "olarak-değil." URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Kullanım riski size aittir.
 

@@ -1,7 +1,7 @@
 ---
-title: "EF çekirdek - eşzamanlılık - 8, 10 ile ASP.NET Core MVC"
+title: EF çekirdek - eşzamanlılık - 8, 10 ile ASP.NET Core MVC
 author: tdykstra
-description: "Bu öğretici, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir."
+description: Bu öğretici, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 056d3ffe3f27c45f4da9504dd00afa5e450a86b5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Eşzamanlılık çakışmalarını - EF çekirdek ASP.NET Core MVC Öğreticisi (8, 10) ile işleme
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>EF çekirdek - eşzamanlılık - 8, 10 ile ASP.NET Core MVC
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -279,6 +279,6 @@ Kodla *Views/Departments/Create.cshtml* Seç seçeneği aşağı açılan listey
 
 Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. EF çekirdek eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz: [eşzamanlılık çakışması](https://docs.microsoft.com/ef/core/saving/concurrency). Sonraki öğretici nasıl Eğitmen ve Öğrenci varlıklar için tablo başına hiyerarşisi devralma uygulandığını gösterir.
 
->[!div class="step-by-step"]
-[Önceki](update-related-data.md)
-[sonraki](inheritance.md)  
+> [!div class="step-by-step"]
+> [Önceki](update-related-data.md)
+> [sonraki](inheritance.md)  

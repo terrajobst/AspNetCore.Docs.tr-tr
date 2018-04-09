@@ -33,11 +33,13 @@ using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
 ## <a name="secure-redirection-extensions"></a>Yeniden yönlendirme uzantıları güvenli
-Bu örnek içeren `WebHostBuilder` URL'leri kullanmak üzere uygulamayı yapılandırma (**https://localhost:5001**, **https://localhost**) ve bir test sertifikası (**testCert.pfx**) yardımcı olmak için size bu keşfetme yöntemlerini yeniden yönlendir. Herhangi birinin için ekleyin `RewriteOptions()` içinde **haline** davranışlarını incelemek için.
+Bu örnek içeren `WebHostBuilder` URL'leri kullanmak üzere uygulamayı yapılandırma (**https://localhost:5001**, **https://localhost**) ve bir test sertifikası (**testCert.pfx**) için size bu keşfetme yöntemlerini yeniden yönlendirme Yardımcısı. Herhangi birinin için ekleyin `RewriteOptions()` içinde **haline** davranışlarını incelemek için.
 
-Yöntem | Durum kodu | Bağlantı Noktası
---- | :---: | :---:
-`.AddRedirectToHttpsPermanent()` | 301 | null (465)
-`.AddRedirectToHttps()` | 302 | null (465)
-`.AddRedirectToHttps(301)` | 301 | null (465)
-`.AddRedirectToHttps(301, 5001)` | 301 | 5001
+
+|              Yöntem              | Durum kodu |    Bağlantı Noktası    |
+|----------------------------------|:-----------:|:----------:|
+| `.AddRedirectToHttpsPermanent()` |     301     | null (465) |
+|     `.AddRedirectToHttps()`      |     302     | null (465) |
+|    `.AddRedirectToHttps(301)`    |     301     | null (465) |
+| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
+

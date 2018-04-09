@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 title: "' De TFS takım projesi oluşturma | Microsoft Docs"
 author: jrjlee
-description: "Bu konu, Team Foundation Server (TFS) 2010 yeni bir takım projesi oluşturmayı açıklar."
+description: Bu konu, Team Foundation Server (TFS) 2010 yeni bir takım projesi oluşturmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>' De TFS takım projesi oluşturma
 ====================
@@ -27,7 +27,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konu, Team Foundation Server (TFS) 2010 yeni bir takım projesi oluşturmayı açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -107,11 +107,11 @@ Ardından, yeni ekip siteleri, TFS takım projesi koleksiyonuna karşılık gele
 
     ![](creating-a-team-project-in-tfs/_static/image9.png)
 
-    > [!NOTE]
-    > Alabileceğiniz bir **HTTP 404 Bulunamadı** çift HTTP kodlama hata nedeniyle hata. Bu gerçekleşirse, URL bu ile değiştirin:   
-    > [*site koleksiyonu URL'si*] /\_layouts/permsetup.aspx  
-    > Örneğin:  
-    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > [!NOTE]
+   > Alabileceğiniz bir <strong>HTTP 404 Bulunamadı</strong> çift HTTP kodlama hata nedeniyle hata. Bu gerçekleşirse, URL bu ile değiştirin:   
+   > [<em>site koleksiyonu URL'si</em>] /\_layouts/permsetup.aspx  
+   > Örneğin:  
+   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. Üzerinde **Gruplar Kur bu Site için** sayfasında, takım projelerine oluşturan kullanıcı ekleme **sahipleri** grup ve ardından **Tamam**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
@@ -202,6 +202,6 @@ Sonraki konuyu [ekleme içerik kaynak denetimine](adding-content-to-source-contr
 
 TFS'de takım projeleri oluşturma hakkında daha geniş yönergeler için bkz [takım projesi oluşturma](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Bir takım projesi koleksiyonu içinde yeni takım projeleri oluşturmak kullanıcıları etkinleştirme ile ilgili daha fazla bilgi için bkz: [takım projesi koleksiyonu için yönetici izinleri ayarlama](https://msdn.microsoft.com/library/dd547204.aspx). Takım projelerine kullanıcılar ekleme hakkında daha fazla bilgi için bkz: [takım projelerine kullanıcılar ekleme](https://msdn.microsoft.com/library/bb558971.aspx).
 
->[!div class="step-by-step"]
-[Önceki](configuring-team-foundation-server-for-web-deployment.md)
-[sonraki](adding-content-to-source-control.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-team-foundation-server-for-web-deployment.md)
+> [sonraki](adding-content-to-source-control.md)

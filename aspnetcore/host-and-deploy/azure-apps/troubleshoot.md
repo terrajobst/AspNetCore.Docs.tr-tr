@@ -1,7 +1,7 @@
 ---
 title: Azure uygulama Hizmeti'nde ASP.NET Core sorun giderme
 author: guardrex
-description: "ASP.NET Core Azure uygulama hizmeti dağıtım sorunlarını tanılamaya öğrenin."
+description: ASP.NET Core Azure uygulama hizmeti dağıtım sorunlarını tanılamaya öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure uygulama Hizmeti'nde ASP.NET Core sorun giderme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama başlatma sorunu ASP.NET Core Tanılama hakkında yönergeler sağlar. Ek sorun giderme öneriler için bkz: [Azure App Service tanılama genel bakış](/azure/app-service/app-service-diagnostics) ve [nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme](/azure/app-service/web-sites-monitor) Azure belgelerinde.
 
@@ -105,9 +105,9 @@ ASP.NET Core modül stdout günlük genellikle uygulama olay günlüğüne bulun
 1. Seçin **kaydetmek** dosyayı kaydetmek için.
 
 > [!WARNING]
-> Stdout günlüğünü devre dışı bırakmak için uygulama veya sunucu başarısızlığı açabilir. Günlük dosyası boyutu bir sınırlama yoktur veya oluşturulan günlük dosyalarını sayısı yoktur.
+> Stdout günlüğünü devre dışı bırakmak için uygulama veya sunucu başarısızlığı açabilir. Günlük dosyası boyutu bir sınırlama yoktur veya oluşturulan günlük dosyalarını sayısı yoktur. Yalnızca uygulama başlatma sorunlarını gidermek için günlüğü stdout kullanın.
 >
-> Bir ASP.NET Core uygulamada rutin günlüğü için günlük dosyası boyutu sınırlar ve günlükleri döndüğü bir günlük kitaplığını kullanın. Daha fazla bilgi için bkz: [üçüncü taraf günlüğü sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+> Genel bir ASP.NET Core uygulamada başlatma işleminden sonra için günlüğü, günlük dosyası boyutu sınırlar ve günlükleri döndüğü bir günlük kitaplığını kullanın. Daha fazla bilgi için bkz: [üçüncü taraf günlüğü sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ## <a name="common-startup-errors"></a>Ortak başlatma hataları 
 

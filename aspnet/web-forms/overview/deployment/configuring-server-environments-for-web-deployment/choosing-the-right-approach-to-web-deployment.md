@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
-title: "Web dağıtımı için doğru yaklaşım seçme | Microsoft Docs"
+title: Web dağıtımı için doğru yaklaşım seçme | Microsoft Docs
 author: jrjlee
-description: "Internet Information Services (IIS) Web dağıtım aracı ile (Web dağıtımı) 2.0 veya üstü çalışırken almak için kullanabileceğiniz üç ana yaklaşım vardır..."
+description: Internet Information Services (IIS) Web dağıtım aracı ile (Web dağıtımı) 2.0 veya üstü çalışırken almak için kullanabileceğiniz üç ana yaklaşım vardır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Web dağıtımı için doğru yaklaşım seçme
 ====================
@@ -118,7 +118,7 @@ Yönetici olmayan kullanıcılar söz konusu olduğunda, Web Yönetimi Hizmeti (
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-Örneğin, bir yapı işlemi otomatik olarak bir hazırlama ortamında her başarılı yapı sonra bir web uygulamasına dağıtmak için yapılandırıldığını varsayın. Uzak Aracı yaklaşım kullandıysanız, hedef sunucularda yönetici derleme işlem kimliği yapmanız gerekir. Buna karşılık, Web dağıtımı işleyicisi yaklaşımı kullanarak, bir yönetici olmayan kullanıcı & #x 2014 verebilirsiniz; **FABRIKAM\stagingdeployer** bu durumda & #x 2014; yalnızca belirli bir IIS Web ve yapı işlemi izni web paketini dağıtmak için bu kimlik bilgileri sağlayabilir.
+Örneğin, bir yapı işlemi otomatik olarak bir hazırlama ortamında her başarılı yapı sonra bir web uygulamasına dağıtmak için yapılandırıldığını varsayın. Uzak Aracı yaklaşım kullandıysanız, hedef sunucularda yönetici derleme işlem kimliği yapmanız gerekir. Buna karşılık, Web dağıtımı işleyicisi yaklaşımı kullanarak, yönetici olmayan bir kullanıcı verebilirsiniz&#x2014;**FABRIKAM\stagingdeployer** bu durumda&#x2014;yalnızca belirli bir IIS Web ve yapılandırma işlemi bu sağlayabilir web paketini dağıtmak için kimlik bilgileri.
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Komut satırı işlemleri Web dağıtımı ve sözdizimi hakkında daha fazla bi
 
 Web paketleri uzak bir bilgisayardan, dağıtabileceğiniz çeşitli yollar hakkında daha fazla genel yönergeler için bkz [kullanarak Web dağıtımı uzaktan](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Web dağıtımı isteğe bağlı kullanma hakkında daha fazla bilgi için bkz: [Web dağıtımı isteğe bağlı](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
->[!div class="step-by-step"]
-[Önceki](configuring-server-environments-for-web-deployment.md)
-[sonraki](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-server-environments-for-web-deployment.md)
+> [sonraki](scenario-configuring-a-test-environment-for-web-deployment.md)

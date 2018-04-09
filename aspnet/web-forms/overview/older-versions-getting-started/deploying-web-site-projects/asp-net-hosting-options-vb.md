@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
-title: "ASP.NET (VB) seçenekleri barındırma | Microsoft Docs"
+title: ASP.NET (VB) seçenekleri barındırma | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor..."
+description: ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>ASP.NET (VB) seçenekleri barındırma
 ====================
@@ -61,7 +61,7 @@ Bir web uygulaması için yapılandırma bilgilerini genellikle bulunan `Web.con
 Web uygulaması yapılandırma değişiklikleri ek olarak, 1. adım Ayrıca web sunucusu ve veritabanı için yapılandırma gerektirdiği. Bir ASP.NET sayfasının oluşturur veya web sunucusunda bir dizinin dosyaları siler, örneğin, ardından web sunucusu bu dosya sistemi değişikliklerine izin verecek şekilde yapılandırılması gerekir. Benzer şekilde, veritabanına yapılması gereken izni veya kimlik doğrulama ayarları olabilir.
 
 
-2. adım, temel ASP.NET sayfaları ve Destek dosyalarını geliştirme ve üretim ortamlarını arasında kümesini eşitleme içerir. ASP belirli kümesi. Visual Studio'da oluşturulur ve sonraki öğretici tartışmada olan proje türü bağımlı iki ortamlar arasında eşitlenmesi gereken NET ilgili dosyaları  *[belirleme dosyaları gerekenlerdağıtılacağınıiçin](determining-what-files-need-to-be-deployed-vb.md)*. Üçüncü ve dördüncü öğreticileri -  *[bilgisayarınızı Site kullanarak FTP dağıtımı](deploying-your-site-using-an-ftp-client-vb.md)*ve  *[dağıtma bilgisayarınızı Site kullanarak Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -inceleyin farklı araçlar ve bu dosyaları eşitlenmesi teknikler.
+2. adım, temel ASP.NET sayfaları ve Destek dosyalarını geliştirme ve üretim ortamlarını arasında kümesini eşitleme içerir. ASP belirli kümesi. Visual Studio'da oluşturulur ve sonraki öğretici tartışmada olan proje türü bağımlı iki ortamlar arasında eşitlenmesi gereken NET ilgili dosyaları  <em>[belirleme dosyaları gerekenlerdağıtılacağınıiçin](determining-what-files-need-to-be-deployed-vb.md)</em>. Üçüncü ve dördüncü öğreticileri -  <em>[bilgisayarınızı Site kullanarak FTP dağıtımı](deploying-your-site-using-an-ftp-client-vb.md)</em>ve <em>[dağıtma bilgisayarınızı Site kullanarak Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -inceleyin farklı araçlar ve bu dosyaları eşitlenmesi teknikler.
 
 Var olan veri tabanlı uygulamalar genellikle iki veritabanı kullanılan oluştururken: geliştirme, diğeri üretim için. Geliştirme sırasında geliştirme veritabanının şema yeni tablolar, sütunlar, saklı yordamları ve Tetikleyicileri eklemek için değiştirilebilir veya kaldırmak veya var olan veritabanı nesnelerini yeniden adlandırmak için değiştirilebilir. Bu değişiklikler yapıldıktan zaman ve uygulama üretime dağıtılır saat arasında geliştirme ve üretim veritabanları eşitlenmemiş. Bu asynchrony dağıtım işlemi sırasında düzeltilmesi gerekiyor. Bu zorluklar gelecekteki eğitimlerine denenecektir.
 
@@ -95,6 +95,6 @@ Mutluluk programlama!
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Teresa Murphy oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Önceki](users-and-roles-on-the-production-website-cs.md)
-[sonraki](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](users-and-roles-on-the-production-website-cs.md)
+> [sonraki](determining-what-files-need-to-be-deployed-vb.md)

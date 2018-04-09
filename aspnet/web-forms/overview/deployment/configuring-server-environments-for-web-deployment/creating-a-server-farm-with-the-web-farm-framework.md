@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
-title: "Web Farm Framework ile bir sunucu grubu oluşturma | Microsoft Docs"
+title: Web Farm Framework ile bir sunucu grubu oluşturma | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, Web grubu çerçevesi (WFF) 2.0 oluşturmak ve web sunucu grubundan sunucuları koleksiyonu yapılandırmak için nasıl kullanılacağını açıklar."
+description: Bu konuda, Web grubu çerçevesi (WFF) 2.0 oluşturmak ve web sunucu grubundan sunucuları koleksiyonu yapılandırmak için nasıl kullanılacağını açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Web Farm Framework ile bir sunucu grubu oluşturma
 ====================
@@ -27,7 +27,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, Web grubu çerçevesi (WFF) 2.0 oluşturmak ve web sunucu grubundan sunucuları koleksiyonu yapılandırmak için nasıl kullanılacağını açıklar.
 
 
-WFF web platformu ürünlerini ve bileşenleri, web uygulamaları, Web siteleri ve yapılandırma ayarlarını birden çok yük dengeli web sunucusu arasında eşitlemenize olanak tanır. Hazırlama ve üretim ortamları gibi birden fazla web sunucusu ihtiyaç duyacağınız senaryolarda bu çok, dağıtım ve yapılandırma işlemini kolaylaştırabilir. Bir web uygulamasına #x 2014; & tek sunucu dağıtabilirsiniz *birincil sunucu*& #x 2014; ve bu web uygulaması sunucu grubundaki tüm diğer web sunucularına otomatik olarak çoğaltmak WFF olacaktır.
+WFF web platformu ürünlerini ve bileşenleri, web uygulamaları, Web siteleri ve yapılandırma ayarlarını birden çok yük dengeli web sunucusu arasında eşitlemenize olanak tanır. Hazırlama ve üretim ortamları gibi birden fazla web sunucusu ihtiyaç duyacağınız senaryolarda bu çok, dağıtım ve yapılandırma işlemini kolaylaştırabilir. Tek bir sunucu için bir web uygulaması dağıtabilirsiniz&#x2014; *birincil sunucu*&#x2014;ve WFF otomatik olarak, web uygulaması sunucu grubundaki tüm diğer web sunucularındaki çoğaltır.
 
 ## <a name="understanding-the-web-farm-framework"></a>Web Farm Framework anlama
 
@@ -51,7 +51,7 @@ Hazırlama ve üretim ortamlarını yapılandırmak başlamadan önce bu makalel
 
 ## <a name="task-overview"></a>Görev genel bakış
 
-Görevleri ve bu konudaki yönergeler tamamlamak için en az üç sunucuları & #x 2014; gerekir bir WFF denetleyicisi, sunucu grubu için bir birincil web sunucusu ve sunucu grubu için bir veya daha fazla ikincil web sunucusu. Daha fazla ikincil sunucular herhangi bir zamanda WFF sunucu grubuna ekleyebilirsiniz. Oluşturmak ve yapılandırmak için gereken hazırlık veya üretim ortamınız için WFF sunucu grubu için bir yüksek düzeyde:
+Görevleri ve bu konudaki yönergeler tamamlamak için en az üç sunucuya ihtiyacınız olacak&#x2014;bir WFF denetleyicisi, sunucu grubu için tek bir birincil web sunucusunda ve sunucu grubu için bir veya daha fazla ikincil web sunucusu. Daha fazla ikincil sunucular herhangi bir zamanda WFF sunucu grubuna ekleyebilirsiniz. Oluşturmak ve yapılandırmak için gereken hazırlık veya üretim ortamınız için WFF sunucu grubu için bir yüksek düzeyde:
 
 - Bir denetleyici sunucusunun Internet Information Services (IIS) 7.5 ve WFF 2.0 yükleyerek oluşturun.
 - Birincil ve ikincil sunucular, bir ortak yönetici hesabı oluşturmayı ve güvenlik duvarı özel durumlarını yapılandırma hazırlayın.
@@ -78,7 +78,7 @@ WFF denetleyici sunucusu oluşturmak için IIS 7 veya üstü ve WFF 2.0 veya son
 2. Üstündeki **Web Platformu yükleyicisi 3.0** penceresinde tıklatın **ürünleri**.
 3. Gezinti bölmesinde, pencerenin sol tarafındaki tıklatın **Server**.
 4. İçinde **IIS 7 önerilen Yapılandırması** satır, tıklatın **Ekle**.
-5. İçinde **Web grubu Framework 2. *** x* satır, tıklatın **Ekle**.
+5. İçinde <strong>Web Farm Framework 2.</strong> <em>x</em> satır, tıklatın <strong>Ekle</strong>.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. **Yükle**'ye tıklatın. Web Platformu yükleyicisi yükleme listesine Web dağıtım aracı, diğer çeşitli bağımlılıkları birlikte ekledi dikkat edin.
@@ -96,7 +96,7 @@ WFF sunucu grubu oluşturma önce çiftliğinin yapacak web sunucularındaki baz
 
 Windows Güvenlik Duvarı'nda bu güvenlik duvarı özel durumlarını yapılandırma hakkında daha fazla bilgi için bkz: [sistem ve IIS 7 için Web grubu Framework 2.0 Platform gereksinimlerini](https://go.microsoft.com/?linkid=9805128). Diğer güvenlik duvarı sistemleri için ürün belgelerinize başvurun.
 
-Windows Server 2008 R2'deki yerel administrators grubunun bir etki alanı hesabı eklemek için bir sonraki yordamı kullanabilirsiniz. Sunucu grubu & #x 2014; eklemek istediğiniz her sunucuda bu yordamı gerçekleştirmek diğer bir deyişle, birincil sunucuda ve her ikincil sunucuda yerel Yöneticiler grubuna aynı etki alanı hesabını ekleyin.
+Windows Server 2008 R2'deki yerel administrators grubunun bir etki alanı hesabı eklemek için bir sonraki yordamı kullanabilirsiniz. Sunucu grubuna eklemek istediğiniz her sunucuda bu yordamı gerçekleştirmeniz gerekir&#x2014;diğer bir deyişle, birincil sunucuda ve her ikincil sunucuda yerel Yöneticiler grubuna aynı etki alanı hesabını ekleyin.
 
 **Bir etki alanı hesabı yerel Yöneticiler grubuna eklemek için**
 
@@ -111,7 +111,7 @@ Windows Server 2008 R2'deki yerel administrators grubunun bir etki alanı hesab�
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. İçinde **Yöneticiler özellikleri** iletişim kutusu, tıklatın **Tamam**.
 
-Sunucularınız için bir sunucu grubuna eklemek artık hazırsınız. Birincil sunucu söz konusu olduğunda, önce veya sunucu grubu & #x 2014 oluşturduktan sonra uygulama gereksinimlerinizi karşılamak üzere sunucuyu yapılandırabilirsiniz; her iki durumda da WFF sunucuları aynı ürünleri, bileşenleri, dağıtarak eşitler veya ikincil sunucular için yapılandırma. Basitleştirmek amacıyla, Bu öğretici, sunucu grubu oluşturmayı bitirdiğinizde birincil sunucunun yapılandıracaksınız varsayar.
+Sunucularınız için bir sunucu grubuna eklemek artık hazırsınız. Birincil sunucu söz konusu olduğunda, önce veya sunucu grubu oluşturduktan sonra uygulama gereksinimlerinizi karşılamak üzere sunucuyu yapılandırabilirsiniz&#x2014;her iki durumda da WFF sunucuları aynı ürünleri, bileşenleri veya yapılandırma dağıtarak eşitler İkincil sunucularınıza. Basitleştirmek amacıyla, Bu öğretici, sunucu grubu oluşturmayı bitirdiğinizde birincil sunucunun yapılandıracaksınız varsayar.
 
 ## <a name="create-the-wff-server-farm"></a>WFF sunucu grubu oluşturma
 
@@ -225,12 +225,12 @@ Herhangi bir zamanda IIS Yöneticisi'ni denetleyici sunucusundaki sunucusu grubu
 
 ## <a name="conclusion"></a>Sonuç
 
-WFF sunucu grubunuzu artık açık ve çalışıyor olması. Hangi dağıtım yaklaşımının tercih ettiğiniz & #x 2014 desteklemek için birincil sunucu yapılandırabilirsiniz; Ayrıntılar & #x 2014; ve yapılandırmanız için daha fazla bilgi bölümüne bakın, sunucu grubundaki her ikincil sunucudaki çoğaltılır.
+WFF sunucu grubunuzu artık açık ve çalışıyor olması. Tercih ettiğiniz dağıtım yaklaşımı desteklemek için birincil sunucunun yapılandırabilirsiniz&#x2014;Ayrıntılar için daha fazla bilgi bölümüne bakın&#x2014;ve sunucu grubundaki her ikincil sunucudaki yapılandırmanızı çoğaltılır.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
 Tüm yönlerini yapılandırma ve WFF kullanma hakkında daha fazla yönergeler için bkz [IIS 7 için Microsoft Web grubu Framework 2.0](https://go.microsoft.com/?linkid=9805129) Web sitesi.
 
->[!div class="step-by-step"]
-[Önceki](configuring-a-database-server-for-web-deploy-publishing.md)
-[sonraki](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-a-database-server-for-web-deploy-publishing.md)
+> [sonraki](configuring-deployment-properties-for-a-target-environment.md)

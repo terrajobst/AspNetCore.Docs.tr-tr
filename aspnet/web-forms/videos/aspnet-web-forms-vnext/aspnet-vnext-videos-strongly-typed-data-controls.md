@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-strongly-typed-data-controls
-title: "ASP.NET vNext videolar: kesin türü belirtilmiş veri denetimleri | Microsoft Docs"
+title: 'ASP.NET vNext videolar: kesin türü belirtilmiş veri denetimleri | Microsoft Docs'
 author: DamianEdwards
-description: "Bu videoda, IntelliSense sağlar ve saat denetleniyor derleme kesin türü belirtilmiş veri denetimlerinde Visual Studio vNext Damian Edirneli gösterir."
+description: Bu videoda, IntelliSense sağlar ve saat denetleniyor derleme kesin türü belirtilmiş veri denetimlerinde Visual Studio vNext Damian Edirneli gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-strongly-typed-data-controls
 msc.type: video
-ms.openlocfilehash: 2ff40fb903766bd484827a505c59b7126cb8d854
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8ad4554c6c3247fc07e2c4a35405d29f8dede12b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-vnext-videos-strongly-typed-data-controls"></a>ASP.NET vNext videolar: kesin türü belirtilmiş veri denetimleri
 ====================
@@ -24,7 +24,7 @@ tarafından [Damian Edirneli](https://github.com/DamianEdwards)
 
 Bu videoda, IntelliSense sağlar ve saat denetleniyor derleme kesin türü belirtilmiş veri denetimlerinde Visual Studio vNext Damian Edirneli gösterir.
 
-[&#9654; (1 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-strongly-typed-data-controls)
+[&#9654;(1 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-strongly-typed-data-controls)
 
->[!div class="step-by-step"]
-[Sonraki](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)
+> [!div class="step-by-step"]
+> [Next](aspnet-vnext-videos-model-binding-part-1-selecting-data.md)

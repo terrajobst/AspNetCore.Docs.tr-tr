@@ -1,7 +1,7 @@
 ---
-title: "EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC"
+title: EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC
 author: tdykstra
-description: "Bu öğretici ASP.NET Core uygulamada Entity Framework Çekirdek kullanarak veri modelindeki devralma uygulamak nasıl yapacağınızı gösterir."
+description: Bu öğretici ASP.NET Core uygulamada Entity Framework Çekirdek kullanarak veri modelindeki devralma uygulamak nasıl yapacağınızı gösterir.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 55221846422def25452bc148b68573a02299bbfe
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 25d4292e325e208ee08f4a7bb8d06580809f9e40
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Devralma - EF çekirdek ASP.NET Core MVC Öğreticisi (9, 10)
+# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -143,6 +143,6 @@ Kişi tabloyu sağ tıklatın ve ardından **Show Table Data** ayrıştırıcı 
 
 Tablo başına hiyerarşisi devralma uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Entity Framework Çekirdek devralma hakkında daha fazla bilgi için bkz: [devralma](https://docs.microsoft.com/ef/core/modeling/inheritance). Sonraki öğreticide çeşitli göreceli olarak Gelişmiş Entity Framework senaryolarda nasıl ele alınacağını görürsünüz.
 
->[!div class="step-by-step"]
-[Önceki](concurrency.md)
-[sonraki](advanced.md)  
+> [!div class="step-by-step"]
+> [Önceki](concurrency.md)
+> [sonraki](advanced.md)  

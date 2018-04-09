@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
-title: "Veritabanı geliştirme ve dağıtım (VB) stratejileri | Microsoft Docs"
+title: Veritabanı geliştirme ve dağıtım (VB) stratejileri | Microsoft Docs
 author: rick-anderson
-description: "Veri temelli bir uygulamayı ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına doğrudan kopyalayabilirsiniz. B..."
+description: Veri temelli bir uygulamayı ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına doğrudan kopyalayabilirsiniz. B...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 877056dc74e0b5a64d6e0f11d63ed9f642b0a2cd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 26e6537b7cba704d3513a2e4ae32f9266834e6d3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı geliştirme ve dağıtım (VB) stratejileri
 ====================
@@ -160,6 +160,6 @@ Bu öğreticide, veri güdümlü bir uygulama dağıtımı bizim odaklanmasına 
 
 Mutluluk programlama!
 
->[!div class="step-by-step"]
-[Önceki](configuring-a-website-that-uses-application-services-vb.md)
-[sonraki](displaying-a-custom-error-page-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](configuring-a-website-that-uses-application-services-vb.md)
+> [sonraki](displaying-a-custom-error-page-vb.md)

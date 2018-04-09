@@ -1,24 +1,24 @@
 ---
-title: "Razor sayfalarıyla EF çekirdek ASP.NET Core - sıralama, filtre, disk belleği - 8'in 3"
+title: Razor sayfalarıyla EF çekirdek ASP.NET Core - sıralama, filtre, disk belleği - 8'in 3
 author: rick-anderson
-description: "Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz."
+description: Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz.
 ms.author: riande
 ms.date: 10/22/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 851391c5d00f9204ee4237d4869859cfeee5a9b4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor sayfalarıyla EF çekirdek ASP.NET Core - sıralama, filtre, disk belleği - 8'in 3
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT), ve [Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Bu öğretici, sıralama, filtreleme, gruplama ve disk belleği, işlevselliği eklenir.
 
@@ -283,6 +283,6 @@ Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamaml
 
 Sonraki öğreticide uygulama, veri modeli güncelleştirmek için geçişleri kullanır.
 
->[!div class="step-by-step"]
-[Önceki](xref:data/ef-rp/crud)
-[sonraki](xref:data/ef-rp/migrations)
+> [!div class="step-by-step"]
+> [Önceki](xref:data/ef-rp/crud)
+> [sonraki](xref:data/ef-rp/migrations)

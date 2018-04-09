@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 title: Derleme ve Web Uygulama projeleri paketleme | Microsoft Docs
 author: jrjlee
-description: "Bir web uygulaması projesi bir uzak sunucu ortamı dağıtmak istediğinizde, projeyi oluşturun ve web dağıtımı paketiDesteklenen üretmek için ilk göreviniz olup..."
+description: Bir web uygulaması projesi bir uzak sunucu ortamı dağıtmak istediğinizde, projeyi oluşturun ve web dağıtımı paketiDesteklenen üretmek için ilk göreviniz olup...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: c05f725c9e6b493a6af8f5b5d20dbc9ff73a1ef8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d630e1776607bd0bd7c61e1f0f7234ef58c7533b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-and-packaging-web-application-projects"></a>Derleme ve Web Uygulama projeleri paketleme
 ====================
@@ -59,8 +59,8 @@ Bu hedef kullanan **MSBuild** çeşitli projeleri oluşturmak üzere görev. Bil
 **Paket** hedef tanımlanmış *Microsoft.Web.Publishing.targets* dosya. Esas olarak, bu hedef, web uygulama projesi derleme çıktısını alır ve bir IIS web sunucusuna yayımlanmış bir web dağıtım paketi dönüştürür.
 
 > [!NOTE]
-> Proje dosyası görüntülemek için (örneğin, *ContactManager.Mvc.csproj*) Visual Studio 2010'da önce çözümünüzü projeden kaldırmak gerekir. İçinde **Çözüm Gezgini** penceresinde, proje düğümüne sağ tıklayın ve ardından **projeyi**. Proje düğümüne sağ tıklayın ve ardından **Düzenle***[proje dosyası]*). Proje dosyası ham XML biçiminde açılır. İşiniz bittiğinde projeyi yeniden yüklemek unutmayın.  
-> MSBuild hedefleri, görevleri hakkında daha fazla bilgi ve **alma** deyimleri bkz [proje dosyası anlama](understanding-the-project-file.md). Proje dosyalarını ve WPP daha kapsamlı bir giriş için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
+> Proje dosyası görüntülemek için (örneğin, <em>ContactManager.Mvc.csproj</em>) Visual Studio 2010'da önce çözümünüzü projeden kaldırmak gerekir. İçinde <strong>Çözüm Gezgini</strong> penceresinde, proje düğümüne sağ tıklayın ve ardından <strong>projeyi</strong>. Proje düğümüne sağ tıklayın ve ardından <strong>Düzenle</strong><em>[proje dosyası]</em>). Proje dosyası ham XML biçiminde açılır. İşiniz bittiğinde projeyi yeniden yüklemek unutmayın.  
+> MSBuild hedefleri, görevleri hakkında daha fazla bilgi ve <strong>alma</strong> deyimleri bkz [proje dosyası anlama](understanding-the-project-file.md). Proje dosyalarını ve WPP daha kapsamlı bir giriş için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
 
 
 ## <a name="what-is-a-web-deployment-package"></a>Web dağıtım paketi nedir?
@@ -104,6 +104,6 @@ Bu öğreticide sonraki konuları [Web paketi dağıtımı için yapılandırma 
 
 Proje dosyalarını ve WPP daha kapsamlı bir giriş için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Önceki](understanding-the-build-process.md)
-[sonraki](configuring-parameters-for-web-package-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-the-build-process.md)
+> [sonraki](configuring-parameters-for-web-package-deployment.md)

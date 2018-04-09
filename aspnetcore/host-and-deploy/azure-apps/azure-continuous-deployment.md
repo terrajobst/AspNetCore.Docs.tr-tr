@@ -1,7 +1,7 @@
 ---
-title: "Visual Studio ile Azure ve Git ASP.NET Core ile sürekli dağıtım"
+title: Visual Studio ile Azure ve Git ASP.NET Core ile sürekli dağıtım
 author: rick-anderson
-description: "Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtımı için Azure App Service'e dağıtın."
+description: Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtımı için Azure App Service'e dağıtın.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4de1893e8c1f7f2f4d9af7278a110067ea777c61
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Visual Studio ile Azure ve Git ASP.NET Core ile sürekli dağıtım
 
 Tarafından [Erik Reitan](https://github.com/Erikre)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Bu öğretici, sürekli dağıtımı kullanarak Visual Studio kullanarak bir ASP.NET Core web uygulaması oluşturma ve Visual Studio'dan Azure App Service'e dağıtma gösterir.
 
@@ -34,7 +34,7 @@ Ayrıca bkz. [oluşturma ve sürekli dağıtımı olan bir Azure Web uygulaması
 Bu öğretici aşağıdaki yazılımın yüklü olduğu varsayılır:
 
 * [Visual Studio](https://www.visualstudio.com)
-* [.NET core SDK](https://www.microsoft.com/net/download/core) (çalışma zamanı ve araçları)
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://git-scm.com/downloads) Windows için
 
 ## <a name="create-an-aspnet-core-web-app"></a>Bir ASP.NET Core web uygulaması oluşturma

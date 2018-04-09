@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
-title: "E-posta gönderirken bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: E-posta gönderirken bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde bir Web sitesinden bir otomatik e-posta iletisi göndermek nasıl açıklanmaktadır."
+description: Bu bölümde bir Web sitesinden bir otomatik e-posta iletisi göndermek nasıl açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9be242d238c627a9557fe7ff7e596974e5b7d1c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinden e-posta gönderme
 ====================
@@ -48,7 +48,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 Her türlü neden Web sitesinden e-posta göndermeniz gerekebilir nedenleri vardır. Kullanıcılara doğrulama ileti gönderme ya da bildirimler (yeni bir kullanıcı kaydettiği Örneğin,.) kendinize gönderebilir `WebMail` Yardımcısı, e-posta göndermek kolaylaştırır.
 
-Kullanılacak `WebMail` Yardımcısı, elinizde bir SMTP sunucusuna erişim izni. (SMTP anlamına gelir *Basit Posta Aktarım Protokolü*.) Bir SMTP sunucusu iletileri alıcının sunucusuna &#8212;yalnızca ileten bir e-posta sunucusudur; Bu e-posta giden tarafında bulunur. Web siteniz için bir barındırma sağlayıcısı kullanıyorsanız, bunlar büyük olasılıkla e-posta ile ayarladığınız ve bunlar, SMTP sunucunuzun adını nedir anlayabilirsiniz. Genellikle bir şirket ağı içinde çalışıyorsanız, bir yönetici veya BT departmanınız kullanabileceğiniz bir SMTP sunucusu hakkında bilgi verebilir. Evde çalışıyorsanız, hatta kendi SMTP sunucusunun adını anlayabilirsiniz, normal e-posta sağlayıcısı kullanarak test mümkün olabilir. Genelde gerekir:
+Kullanılacak `WebMail` Yardımcısı, elinizde bir SMTP sunucusuna erişim izni. (SMTP anlamına gelir *Basit Posta Aktarım Protokolü*.) Bir SMTP sunucusu iletileri alıcının sunucusuna yalnızca ileten bir e-posta sunucusudur &#8212; e-posta giden tarafında bulunur. Web siteniz için bir barındırma sağlayıcısı kullanıyorsanız, bunlar büyük olasılıkla e-posta ile ayarladığınız ve bunlar, SMTP sunucunuzun adını nedir anlayabilirsiniz. Genellikle bir şirket ağı içinde çalışıyorsanız, bir yönetici veya BT departmanınız kullanabileceğiniz bir SMTP sunucusu hakkında bilgi verebilir. Evde çalışıyorsanız, hatta kendi SMTP sunucusunun adını anlayabilirsiniz, normal e-posta sağlayıcısı kullanarak test mümkün olabilir. Genelde gerekir:
 
 - SMTP sunucusunun adı.
 - Bağlantı noktası numarası. Bu neredeyse her zaman 25'tir. Ancak, ISS 587 numaralı bağlantı noktalarını kullanmanızı gerektirebilir. E-posta için Güvenli Yuva Katmanı (SSL) kullanıyorsanız, farklı bir bağlantı noktası gerekebilir. E-posta sağlayıcınıza başvurun.
@@ -86,23 +86,23 @@ Bu yordamda, iki sayfa oluşturun. İlk sayfasının bir teknik destek formda do
 
     Değiştirme aşağıdaki e-posta kodu ilgili ayarları:
 
-    - Ayarlama `your-SMTP-host` erişiminiz SMTP sunucusunun adı.
-    - Ayarlama `your-user-name-here` SMTP sunucusu hesabının kullanıcı adı.
-    - Ayarlama `your-account-password` SMTP sunucusu hesabının parolasına.
-    - Ayarlama `your-email-address-here` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir. (Bazı e-posta sağlayıcısı farklı bir belirtmenize izin vermeyin `From` adres ve kullanıcı adı olarak kullanacağı `From` adresi.)
+   - Ayarlama `your-SMTP-host` erişiminiz SMTP sunucusunun adı.
+   - Ayarlama `your-user-name-here` SMTP sunucusu hesabının kullanıcı adı.
+   - Ayarlama `your-account-password` SMTP sunucusu hesabının parolasına.
+   - Ayarlama `your-email-address-here` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir. (Bazı e-posta sağlayıcısı farklı bir belirtmenize izin vermeyin `From` adres ve kullanıcı adı olarak kullanacağı `From` adresi.)
 
-    > [!TIP] 
-    > 
-    > <a id="configuring_email_settings"></a>
-    > ### <a name="configuring-email-settings"></a>E-posta ayarlarını yapılandırma
-    > 
-    > Bazen SMTP sunucusu, bağlantı noktası numarası ve benzeri için doğru ayarlara sahip olduğundan emin olmak zor olabilir. Aşağıda, birkaç ipucu verilmiştir:
-    > 
-    > - SMTP sunucusu adı şöyle görülür `smtp.provider.com` veya `smtp.provider.net`. Ancak, bir barındırma sağlayıcısına sitenizi yayımlarsanız, SMTP sunucu adı bu noktada olabilir `localhost`. Bu durum, yayımladıktan sonra sitenizi sağlayıcının sunucusunda çalıştığından, e-posta sunucusu uygulamanız açısından bakıldığında yerel olabilir çünkü. Bu değişikliği sunucu adları, yayımlama işleminin bir parçası SMTP sunucu adını değiştirmek zorunda anlamına gelebilir.
-    > - Bağlantı noktası numarası genellikle 25'tir. Ancak, bazı sağlayıcılar bağlantı noktasını kullanacak biçimde 587 veya bazı başka bir bağlantı gerektirir.
-    > - Doğru kimlik bilgilerini kullandığınızdan emin olun. Bir barındırma sağlayıcısına sitenizi yayımladıysanız, sağlayıcı özellikle e-posta için belirtilir kimlik bilgileri kullanın. Bu, yayımlama için kullandığınız kimlik bilgilerinden farklı olabilir.
-    > - Bazen kimlik bilgilerini hiç gerekmez. Kişisel ISS kullanarak e-posta gönderiyorsanız, e-posta sağlayıcınız kimlik bilgilerinizi zaten biliyor olabilirsiniz. Yayımladığınızda, yerel bilgisayarınızda test ne zaman farklı kimlik bilgileri kullanmanız gerekebilir.
-    > - E-posta sağlayıcınız şifreleme kullanıyorsa, ayarlamanız gerekir `WebMail.EnableSsl` için `true`.
+     > [!TIP] 
+     > 
+     > <a id="configuring_email_settings"></a>
+     > ### <a name="configuring-email-settings"></a>E-posta ayarlarını yapılandırma
+     > 
+     > Bazen SMTP sunucusu, bağlantı noktası numarası ve benzeri için doğru ayarlara sahip olduğundan emin olmak zor olabilir. Aşağıda, birkaç ipucu verilmiştir:
+     > 
+     > - SMTP sunucusu adı şöyle görülür `smtp.provider.com` veya `smtp.provider.net`. Ancak, bir barındırma sağlayıcısına sitenizi yayımlarsanız, SMTP sunucu adı bu noktada olabilir `localhost`. Bu durum, yayımladıktan sonra sitenizi sağlayıcının sunucusunda çalıştığından, e-posta sunucusu uygulamanız açısından bakıldığında yerel olabilir çünkü. Bu değişikliği sunucu adları, yayımlama işleminin bir parçası SMTP sunucu adını değiştirmek zorunda anlamına gelebilir.
+     > - Bağlantı noktası numarası genellikle 25'tir. Ancak, bazı sağlayıcılar bağlantı noktasını kullanacak biçimde 587 veya bazı başka bir bağlantı gerektirir.
+     > - Doğru kimlik bilgilerini kullandığınızdan emin olun. Bir barındırma sağlayıcısına sitenizi yayımladıysanız, sağlayıcı özellikle e-posta için belirtilir kimlik bilgileri kullanın. Bu, yayımlama için kullandığınız kimlik bilgilerinden farklı olabilir.
+     > - Bazen kimlik bilgilerini hiç gerekmez. Kişisel ISS kullanarak e-posta gönderiyorsanız, e-posta sağlayıcınız kimlik bilgilerinizi zaten biliyor olabilirsiniz. Yayımladığınızda, yerel bilgisayarınızda test ne zaman farklı kimlik bilgileri kullanmanız gerekebilir.
+     > - E-posta sağlayıcınız şifreleme kullanıyorsa, ayarlamanız gerekir `WebMail.EnableSsl` için `true`.
 4. Çalıştırma *EmailRequest.cshtml* sayfasını bir tarayıcıda. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.)
 5. Adınızı ve sorun açıklamasını girin ve ardından **gönderme** düğmesi. İçin yönlendirilirsiniz *ProcessRequest.cshtml* sayfasında, iletinizi onaylar ve hangi, bir e-posta iletisi gönderiyor. 
 

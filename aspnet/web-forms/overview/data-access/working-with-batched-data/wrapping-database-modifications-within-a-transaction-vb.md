@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
-title: "Veritabanı değişiklikleri (VB) bir işlem içinde sarmalama | Microsoft Docs"
+title: Veritabanı değişiklikleri (VB) bir işlem içinde sarmalama | Microsoft Docs
 author: rick-anderson
-description: "Bu güncelleştirme, silme ve toplu veri ekleme görünen dört ilk öğreticidir. Bu öğreticide nasıl veritabanı işlemleri izin bilgi edinin..."
+description: Bu güncelleştirme, silme ve toplu veri ekleme görünen dört ilk öğreticidir. Bu öğreticide nasıl veritabanı işlemleri izin bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/wrapping-database-modifications-within-a-transaction-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f054445091edbc27263127fb3b7b851776ec617f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2005561755b22f5811d011bd3146853f6cd184af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="wrapping-database-modifications-within-a-transaction-vb"></a>Bir işlem (VB) içinde kaydırma veritabanı değişiklikleri
 ====================
@@ -117,7 +117,7 @@ Yazılan veri kümesi `Northwind.xsd` bulunan `App_Code` s klasörü `DAL` alt k
 
 ![TransactionSupport adlı bir klasör ve ProductsTableAdapter.TransactionSupport.vb adlı bir sınıf dosyası ekleme](wrapping-database-modifications-within-a-transaction-vb/_static/image4.gif)
 
-**Şekil 4**: adlı bir klasör ekleme `TransactionSupport` ve adlı bir sınıf dosyası`ProductsTableAdapter.TransactionSupport.vb`
+**Şekil 4**: adlı bir klasör ekleme `TransactionSupport` ve adlı bir sınıf dosyası `ProductsTableAdapter.TransactionSupport.vb`
 
 
 Aşağıdaki kodu girin `ProductsTableAdapter.TransactionSupport.vb` dosyası:
@@ -127,7 +127,7 @@ Aşağıdaki kodu girin `ProductsTableAdapter.TransactionSupport.vb` dosyası:
 
 `Partial` Burada sınıf bildirimindeki anahtar sözcüğü gösterir eklenecek içinde eklenen üye olan derleyici `ProductsTableAdapter` sınıfını `NorthwindTableAdapters` ad alanı. Not `Imports System.Data.SqlClient` deyimini dosyanın üst. TableAdapter SqlClient sağlayıcısı kullanacak şekilde yapılandırıldıktan sonra dahili olarak kullandığı bir [ `SqlDataAdapter` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqldataadapter.aspx) kendi komutları veritabanına vermek için nesne. Sonuç olarak, kullanılacak ihtiyacımız `SqlTransaction` işlem başlamak için sınıf ve ardından onu yürütme veya geri alma için. Microsoft SQL Server dışındaki bir veri deposu kullanıyorsanız, uygun sağlayıcıyı kullanmanız gerekir.
 
-Bu yöntemler, geri alma, başlatmak için gereken yapı taşlarını sağlar ve bir işlem uygulayın. Bunlar işaretlenmiş `Public`, bunları içinden kullanılacak etkinleştirme `ProductsTableAdapter`, DAL başka bir sınıf ya da mimarisinde BLL gibi başka bir katmandan. `BeginTransaction`İç TableAdapter s açılır `SqlConnection` (gerekirse), işlem başlar ve atar `Transaction` özelliği, hareket iç ağa bağlayan `SqlDataAdapter` s `SqlCommand` nesneleri. `CommitTransaction`ve `RollbackTransaction` çağrısı `Transaction` s nesnesi `Commit` ve `Rollback` yöntemleri, sırasıyla iç kapatmadan önce `Connection` nesnesi.
+Bu yöntemler, geri alma, başlatmak için gereken yapı taşlarını sağlar ve bir işlem uygulayın. Bunlar işaretlenmiş `Public`, bunları içinden kullanılacak etkinleştirme `ProductsTableAdapter`, DAL başka bir sınıf ya da mimarisinde BLL gibi başka bir katmandan. `BeginTransaction` İç TableAdapter s açılır `SqlConnection` (gerekirse), işlem başlar ve atar `Transaction` özelliği, hareket iç ağa bağlayan `SqlDataAdapter` s `SqlCommand` nesneleri. `CommitTransaction` ve `RollbackTransaction` çağrısı `Transaction` s nesnesi `Commit` ve `Rollback` yöntemleri, sırasıyla iç kapatmadan önce `Connection` nesnesi.
 
 ## <a name="step-3-adding-methods-to-update-and-delete-data-under-the-umbrella-of-a-transaction"></a>3. adım: Güncelleştirme ve bir işlem Şemsiyesi altındaki verilerini silmek için yöntemler ekleme
 
@@ -247,18 +247,18 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 - [Veritabanı tutarlılığını işlemleri ile koruma](http://aspnet.4guysfromrolla.com/articles/072705-1.aspx)
 - [Saklı yordamlar SQL Server'daki işlemleri yönetme](http://www.4guysfromrolla.com/webtech/080305-1.shtml)
-- [Kolaylaştırılmış işlemler:`System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
+- [Kolaylaştırılmış işlemler: `System.Transactions`](https://blogs.msdn.com/florinlazar/archive/2004/07/23/192239.aspx)
 - [TransactionScope ve DataAdapters](http://andyclymer.blogspot.com/2007/01/transactionscope-and-dataadapters.html)
 - [Oracle veritabanı işlemleri .NET ile kullanma](http://www.oracle.com/technology/pub/articles/price_dbtrans_dotnet.html)
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Dave Gardner, Hilton Giesenow ve Teresa Murphy yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](batch-inserting-cs.md)
-[sonraki](batch-updating-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](batch-inserting-cs.md)
+> [sonraki](batch-updating-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
-title: "MAPS görüntüleyen bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: MAPS görüntüleyen bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, Bing, Google, Ma tarafından sağlanan hizmetlerin eşleme dayalı bir ASP.NET Web sayfaları (Razor) Web sayfalarında etkileşimli eşlemeleri görüntülemek açıklanmaktadır..."
+description: Bu makalede, Bing, Google, Ma tarafından sağlanan hizmetlerin eşleme dayalı bir ASP.NET Web sayfaları (Razor) Web sayfalarında etkileşimli eşlemeleri görüntülemek açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde eşlemeleri görüntüleme
 ====================
@@ -89,9 +89,9 @@ Aşağıdaki örnekte bir adresini temel alan bir harita işleyen bir sayfa olu�
         > [!NOTE]
         > JQuery kitaplığı farklı bir sürümünü kullanıyorsanız, yalnızca, bu sürüme doğru işaret ettiğinden olduğundan emin olun.
     - Çağrı `@Maps.GetGoogleHtml` sayfasının gövdesindeki. Bir adresi eşlemek için bir adres dizesinin geçmesi gerekir. Bir harita altyapıları için yöntemler benzer şekilde çalışır (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
-- Sayfayı çalıştırın ve bir adres girin. Sayfasında, belirttiğiniz konuma gösterir Google haritalar üzerinde temel bir harita görüntüler.
+3. Sayfayı çalıştırın ve bir adres girin. Sayfasında, belirttiğiniz konuma gösterir Google haritalar üzerinde temel bir harita görüntüler.
 
-    ![eşleme-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![eşleme-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Enlem ve boylam dayalı bir harita oluşturmak (Bing kullanarak) koordine eder
 
@@ -103,12 +103,12 @@ Bu örnek bir harita koordinatlarına göre oluşturulacağını gösterir. Bu �
 2. Değiştir `your-key-here` daha önce oluşturulan Bing Haritalar anahtara sahip.
 3. Çalıştırma *MapCoordinates.cshtml* sayfasında, enlem ve boylam koordinatları girin ve ardından **Map It!** düğme. (Tüm koordinatları bilmiyorsanız, aşağıdaki deneyin. Microsoft Redmond kampüs konumunda budur.)
 
-    - Latitude: 47.6781005859375
-    - Boylam:-122.158317565918
+   - Latitude: 47.6781005859375
+   - Boylam:-122.158317565918
 
-    Belirttiğiniz koordinatları kullanarak sayfası görüntülenir.
+     Belirttiğiniz koordinatları kullanarak sayfası görüntülenir.
 
-    ![eşleme-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![eşleme-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

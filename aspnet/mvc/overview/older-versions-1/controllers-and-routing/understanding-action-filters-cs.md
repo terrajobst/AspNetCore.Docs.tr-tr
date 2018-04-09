@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 title: Eylem filtreleri (C#) Anlama | Microsoft Docs
 author: microsoft
-description: "Bu öğretici eylem filtrelerini açıklamak için hedefidir. Bir eylem filtresi bir denetleyici eylemi--ya da tüm bir denetleyiciye uygulanan bir özniteliktir..."
+description: Bu öğretici eylem filtrelerini açıklamak için hedefidir. Bir eylem filtresi bir denetleyici eylemi--ya da tüm bir denetleyiciye uygulanan bir özniteliktir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86d5d429d9900d4c04391804598626705e6c88b4
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d68933297329370e227f524c4b96ed7e259ef833
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-c"></a>Eylem filtreleri (C#) Anlama
 ====================
@@ -45,7 +45,7 @@ Bir eylem filtresi bir özniteliktir. Tek tek denetleyici eylem veya tüm denetl
 
 Örneğin, veri denetleyici listeleme 1 adlı bir eylem sunan `Index()` geçerli saati döndürür. Bu eylem ile donatılmış `OutputCache` eylem filtresi. Bu filtre 10 saniye için önbelleğe alınacak eylemi tarafından döndürülen değer neden olur.
 
-**Kod 1 –`Controllers\DataController.cs`**
+**Kod 1 – `Controllers\DataController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample1.cs)]
 
@@ -103,7 +103,7 @@ Sonraki bölümde, farklı bu yöntemlerin her biri uygulamak nasıl göreceğiz
 
 Özel eylem filtresinin nasıl oluşturulacağına göstermek için bir denetleyici eylemi Visual Studio çıkış penceresi için işlem aşamaları günlüklerini bir özel eylem filtresi oluşturacağız. Bizim `LogActionFilter` listeleme 2'de yer alır.
 
-**Kod 2 –`ActionFilters\LogActionFilter.cs`**
+**Kod 2 – `ActionFilters\LogActionFilter.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample2.cs)]
 
@@ -117,7 +117,7 @@ Listeleme 2'de, `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecuting(
 
 Giriş denetleyicisi listeleme 3'te, nasıl bir tüm denetleyicinin sınıf günlük eylem filtresi uygulayabilirsiniz gösterilmektedir. Her giriş denetleyici tarafından kullanıma sunulan eylemlerden herhangi birini çağrılır – ya da `Index()` yöntemi veya `About()` yöntemi – eylem için Visual Studio çıkış penceresi günlüğe kaydedilen işleme aşamalarını.
 
-**Kod 3 –`Controllers\HomeController.cs`**
+**Kod 3 – `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](understanding-action-filters-cs/samples/sample3.cs)]
 
@@ -127,6 +127,6 @@ Bu öğreticide, ASP.NET MVC eylem filtrelerini tanıtıldı. Dört farklı tür
 
 Son olarak, bir basit eylem filtresi uygulamak nasıl öğrendiniz. Visual Studio çıkış penceresi için bir denetleyici eylemi işleme aşamalarını günlüklerini günlük eylem filtresi oluşturduk.
 
->[!div class="step-by-step"]
-[Önceki](asp-net-mvc-routing-overview-cs.md)
-[sonraki](improving-performance-with-output-caching-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](asp-net-mvc-routing-overview-cs.md)
+> [sonraki](improving-performance-with-output-caching-cs.md)

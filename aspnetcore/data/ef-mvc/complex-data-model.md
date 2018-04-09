@@ -1,7 +1,7 @@
 ---
-title: "EF çekirdek - veri modeli - 5, 10 ile ASP.NET Core MVC"
+title: EF çekirdek - veri modeli - 5, 10 ile ASP.NET Core MVC
 author: tdykstra
-description: "Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz."
+description: Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 9f5354837672920158232b301cfe7be358dbc0f3
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ab3d4221b498bb2987105fb36f2c6803f8fe6125
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Karmaşık veri model - EF çekirdek ASP.NET Core MVC Öğreticisi (5 / 10) ile oluşturma
+# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>EF çekirdek - veri modeli - 5, 10 ile ASP.NET Core MVC
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -495,6 +495,6 @@ Sağ **CourseAssignment** tablo ve seçin **görünüm verilerini** veri içinde
 
 Artık daha karmaşık veri modeli ve karşılık gelen veritabanı vardır. Aşağıdaki öğreticide, ilgili veri erişimi hakkında daha fazla bilgi edineceksiniz.
 
->[!div class="step-by-step"]
-[Önceki](migrations.md)
-[sonraki](read-related-data.md)  
+> [!div class="step-by-step"]
+> [Önceki](migrations.md)
+> [sonraki](read-related-data.md)  

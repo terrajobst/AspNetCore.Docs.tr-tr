@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
-title: "İkili verileri veri Web görüntüleme denetimleri (C#) | Microsoft Docs"
+title: İkili verileri veri Web görüntüleme denetimleri (C#) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide Web bir görüntü dosyası görünümünü ve 'İndirme' bağlantısının f sağlanmasını dahil olmak üzere bir sayfada, ikili verileri sunmak için seçenekleri ele..."
+description: Bu öğreticide Web bir görüntü dosyası görünümünü ve 'İndirme' bağlantısının f sağlanmasını dahil olmak üzere bir sayfada, ikili verileri sunmak için seçenekleri ele...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d66079f784792a2514eefabf57f70826aab5dcf1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5b56fc45ea8fb5aee934530fc62e23b9d364242
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Veri Web denetimleri (C#) ikili verileri görüntüleme
 ====================
@@ -89,7 +89,7 @@ Metnin görüntüleme yerine `BrochurePath` sütun istiyoruz Broşürü bir bağ
 
 ![Bir HyperLinkField BrochurePath için ekleme](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.gif)
 
-**Şekil 6**: HyperLinkField için ekleme`BrochurePath`
+**Şekil 6**: HyperLinkField için ekleme `BrochurePath`
 
 
 Şekil 7'de gösterildiği gibi bu GridView için bağlantılar bir sütun ekler. Bir görünüm Broşürü bağlantıyı tıklatmak PDF doğrudan tarayıcıda görüntülemek veya bir PDF okuyucu yüklü olup olmadığını bağlı olarak dosyasını karşıdan yüklemek için kullanıcı ve tarayıcı s ayarlarını ister.
@@ -226,12 +226,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve Dave Gardner yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](uploading-files-cs.md)
-[sonraki](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](uploading-files-cs.md)
+> [sonraki](including-a-file-upload-option-when-adding-a-new-record-cs.md)

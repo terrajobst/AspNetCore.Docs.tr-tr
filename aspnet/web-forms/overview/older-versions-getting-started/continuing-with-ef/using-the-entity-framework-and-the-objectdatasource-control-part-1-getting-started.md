@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
-title: "Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 1: Başlarken | Microsoft Docs"
+title: 'Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 1: Başlarken | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri ile çalışmaya başlama Entity Framework öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. Yo varsa..."
+description: Bu öğretici seri ile çalışmaya başlama Entity Framework öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. Yo varsa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 83fe815af9030aee10a5204718b00c79925e9126
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6584767418c898913777b3b1549a816679c8430d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-1-getting-started"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 1: Başlarken
 ====================
@@ -311,7 +311,7 @@ Açık *Departments.aspx.cs* ve kısmi sınıf bildiriminden hemen sonra başvur
 Kullanım *DepartmentsAdd.aspx* yeni bir bölüm eklemek için sayfa, ardından Çalıştır *Departments.aspx* sayfasında ve tıklayın **Düzenle** eklediğiniz satırda.
 
 > [!NOTE]
-> Eklemediğiniz satırları düzenlemeniz mümkün olmaz (diğer bir deyişle, olduğunu zaten veritabanında), veritabanındaki; geçersiz veriler nedeniyle veritabanı ile oluşturulmuş satırların Öğrenciler yöneticilerdir. Bunlardan birini düzenlemeye çalışırsanız, benzer bir hata raporları bir hata sayfası alırsınız`'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
+> Eklemediğiniz satırları düzenlemeniz mümkün olmaz (diğer bir deyişle, olduğunu zaten veritabanında), veritabanındaki; geçersiz veriler nedeniyle veritabanı ile oluşturulmuş satırların Öğrenciler yöneticilerdir. Bunlardan birini düzenlemeye çalışırsanız, benzer bir hata raporları bir hata sayfası alırsınız `'InstructorsDropDownList' has a SelectedValue which is invalid because it does not exist in the list of items.`
 
 
 [![Image10](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image36.png)](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started/_static/image35.png)
@@ -324,5 +324,5 @@ Bir alanın değerini değiştirin veya farklı bir yönetici seçin ve tıklat�
 
 Bu kullanmaya giriş tamamlar `ObjectDataSource` denetimi için temel CRUD (Oluştur, oku, Güncelleştir, Sil) Entity Framework işlemleriyle. Basit bir n katmanlı uygulama oluşturduğunuza, ancak iş mantığı katmanı otomatik birim testi karmaşıklaştırır veri erişim katmanı için hala sıkı şekilde bağlı. Aşağıdaki öğreticide birim testi kolaylaştırmak için havuz deseni uygulamak nasıl görürsünüz.
 
->[!div class="step-by-step"]
-[Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+> [!div class="step-by-step"]
+> [Next](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)

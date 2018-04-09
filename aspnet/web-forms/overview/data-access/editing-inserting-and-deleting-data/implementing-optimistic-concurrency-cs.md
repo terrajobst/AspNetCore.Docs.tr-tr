@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
-title: "İyimser eşzamanlılık (C#) uygulama | Microsoft Docs"
+title: İyimser eşzamanlılık (C#) uygulama | Microsoft Docs
 author: rick-anderson
-description: "Verileri düzenlemek birden çok kullanıcı sağlayan bir web uygulaması için iki kullanıcı aynı verileri aynı anda düzenleme riski yoktur. Bu tutori içinde..."
+description: Verileri düzenlemek birden çok kullanıcı sağlayan bir web uygulaması için iki kullanıcı aynı verileri aynı anda düzenleme riski yoktur. Bu tutori içinde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a19e6c320838849e10d2aa397a23a0ee906bac22
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 27441ea9343055b3139468036fc6f201c77667e5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Uygulama iyimser eşzamanlılık (C#)
 ====================
@@ -259,8 +259,8 @@ Veri değişikliği söz konusu bu önceki öğreticiler için biz ObjectDataSou
 
 ObjectDataSource doğru özgün değerler BLL yöntemlere geçirmek için sırayla yapılmalıdır bir son özellik ayarı yoktur. ObjectDataSource sahip bir ['ınızı özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) için atanabilir [iki değerden birini](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
-- `OverwriteChanges`-Varsayılan değer; Özgün değerler BLL yöntemleri özgün giriş parametreleri göndermez
-- `CompareAllValues`-Özgün değerler BLL yöntemlere; Gönder İyimser eşzamanlılık kullanırken bu seçeneği seçin
+- `OverwriteChanges` -Varsayılan değer; Özgün değerler BLL yöntemleri özgün giriş parametreleri göndermez
+- `CompareAllValues` -Özgün değerler BLL yöntemlere; Gönder İyimser eşzamanlılık kullanırken bu seçeneği seçin
 
 Ayarlamak için bir dakikanızı ayırın `ConflictDetection` özelliğine `CompareAllValues`.
 
@@ -429,8 +429,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](customizing-the-data-modification-interface-cs.md)
-[sonraki](adding-client-side-confirmation-when-deleting-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](customizing-the-data-modification-interface-cs.md)
+> [sonraki](adding-client-side-confirmation-when-deleting-cs.md)

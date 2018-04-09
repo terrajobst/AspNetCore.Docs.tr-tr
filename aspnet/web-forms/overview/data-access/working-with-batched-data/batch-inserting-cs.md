@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 title: Toplu ekleme (C#) | Microsoft Docs
 author: rick-anderson
-description: "Tek bir işlemde birden çok veritabanı kayıtları eklemek öğrenin. Kullanıcı arabirimi katmanında birden çok n girmesini izin vermek için GridView genişletmek..."
+description: Tek bir işlemde birden çok veritabanı kayıtları eklemek öğrenin. Kullanıcı arabirimi katmanında birden çok n girmesini izin vermek için GridView genişletmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c8995592d9206fb17a7769414212369946304c54
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-c"></a>Toplu ekleme (C#)
 ====================
@@ -203,7 +203,7 @@ Ardından, olay işleyicileri ekleme arabiriminde sevkiyat ve iptal düğmesi de
 
 [!code-csharp[Main](batch-inserting-cs/samples/sample5.cs)]
 
-Her ikisi de `Click` olay işleyicileri yalnızca çağrısı `ReturnToDisplayInterface` yöntemi, ürün ekleme yapılan sevkiyat getireceğiz rağmen `Click` olay işleyicisini adım 4 ve ürünleri kaydetmek için kodu ekleyin. `ReturnToDisplayInterface`döndürerek başlatır `Suppliers` ve `Categories` DropDownLists kendi ilk seçenekleri. İki sabit `firstControlID` ve `lastControlID` işareti başlangıç ve bitiş ekleme içinde kutularındaki arayüzü ve sınırları içinde kullanılan ürün adı ve birim fiyat adlandırma kullanılan denetim dizin değerlerini `for` Ayarlardöngü`Text`TextBox denetimleri özelliklerini geri boş bir dize. Son olarak, paneller `Visible` Özellikler ekleme arabirimi gizlenmesi ve gösterilen görüntü arabirimi sıfırlanır.
+Her ikisi de `Click` olay işleyicileri yalnızca çağrısı `ReturnToDisplayInterface` yöntemi, ürün ekleme yapılan sevkiyat getireceğiz rağmen `Click` olay işleyicisini adım 4 ve ürünleri kaydetmek için kodu ekleyin. `ReturnToDisplayInterface` döndürerek başlatır `Suppliers` ve `Categories` DropDownLists kendi ilk seçenekleri. İki sabit `firstControlID` ve `lastControlID` işareti başlangıç ve bitiş ekleme içinde kutularındaki arayüzü ve sınırları içinde kullanılan ürün adı ve birim fiyat adlandırma kullanılan denetim dizin değerlerini `for` Ayarlardöngü`Text`TextBox denetimleri özelliklerini geri boş bir dize. Son olarak, paneller `Visible` Özellikler ekleme arabirimi gizlenmesi ve gösterilen görüntü arabirimi sıfırlanır.
 
 Bu sayfayı bir tarayıcıda çıkışı test etmek için bir dakikanızı ayırın. İlk sitesini ziyaret ettiğinde görüntü arabirimi Şekil 5'te gösterildiği gibi görmeniz gerekir. İşlem ürün sevkiyat düğmesini tıklatın. Sayfaya geri gönderilir ve şimdi ekleme arabirimi Şekil 12'de gösterildiği gibi görmeniz gerekir. Her iki eklemek ürünlerinden sevkiyat veya İptal düğmeleri tıklatarak görüntü arabirimine döndürür.
 
@@ -269,12 +269,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Gözden geçirenler Hilton Giesenow ve S ren Jacob Lauritsen olan Bu öğretici için yol açar. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](batch-deleting-cs.md)
-[sonraki](wrapping-database-modifications-within-a-transaction-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](batch-deleting-cs.md)
+> [sonraki](wrapping-database-modifications-within-a-transaction-vb.md)

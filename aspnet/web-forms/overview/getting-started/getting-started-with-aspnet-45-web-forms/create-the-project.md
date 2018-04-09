@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
-title: "Proje oluşturma | Microsoft Docs"
+title: Proje oluşturma | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-project"></a>Proje oluşturma
 ====================
@@ -150,7 +150,7 @@ Bir Web sunucusu bir sayfa için bir istek aldığında, bu sayfanın bulur, iş
 > 
 > HTML5 desteklemeyen tarayıcılar için kullandığınız [Modernizr](http://www.modernizr.com/). Modernizr bir tarayıcı HTML5 özelliklerini destekler ve mevcut değilse bunları etkinleştirmek olup olmadığını algılayan bir açık kaynak JavaScript kitaplığıdır. ASP.NET Web Forms uygulaması şablonunda Modernizr bir NuGet paketi olarak yüklenir.
 > 
-> **Önyükleme**
+> **önyükleme**
 > 
 > Visual Studio 2013 proje şablonlarını kullanın [önyükleme](http://getbootstrap.com/), Twitter tarafından oluşturulan bir düzen ve tema altyapısı. Önyükleme CSS3 düzenleri dinamik olarak farklı bir tarayıcı penceresi boyutlarına uyarlayabilirsiniz anlamına gelir esnek tasarım sağlamak için kullanır. Uygulamanın görünüm değişikliği kolayca etkilemek için önyükleme'nın Tema oluşturma özelliğini de kullanabilirsiniz. Varsayılan olarak, ASP.NET Web uygulaması şablonu Visual Studio 2013'te bir NuGet paketi olarak önyükleme içerir.
 > 
@@ -195,6 +195,6 @@ Bu öğreticide oluşturduğunuz, gözden ve varsayılan Web Forms uygulamayı �
 [Web uygulaması projelerine Web sitesi projeleri karşılaştırması](https://msdn.microsoft.com/library/dd547590.aspx)   
 [ASP.NET Web formları sayfaları genel bakış](https://msdn.microsoft.com/library/428509ah.aspx)
 
->[!div class="step-by-step"]
-[Önceki](introduction-and-overview.md)
-[sonraki](create_the_data_access_layer.md)
+> [!div class="step-by-step"]
+> [Önceki](introduction-and-overview.md)
+> [sonraki](create_the_data_access_layer.md)

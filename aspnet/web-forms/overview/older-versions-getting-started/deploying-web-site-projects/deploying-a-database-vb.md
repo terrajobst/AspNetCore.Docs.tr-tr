@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
-title: "Veritabanı (VB) dağıtma | Microsoft Docs"
+title: Veritabanı (VB) dağıtma | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET web uygulaması dağıtma gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Da için..."
+description: ASP.NET web uygulaması dağıtma gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Da için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b0890d50f21eb790d81d54261a67fcf487b1c95e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 024a34c1b2e37e60e6777dd54dcbd9aa845ec749
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-vb"></a>Veritabanı (VB) dağıtma
 ====================
@@ -41,10 +41,10 @@ Güncelleştirilmiş Kitap incelemeleri web uygulamasının kullandığı bir [S
 
 `Reviews.mdf` Veritabanı dört tablonun içerir:
 
-- `Genres`-Teknoloji, kurgu ve iş gibi her bir tarzını için bir kayıt içerir.
-- `Books`-gibi sütunlarla her gözden geçirme için bir kayıt içerir `Title`, `GenreId`, `ReviewDate`, ve `Review`, diğerlerinin yanı sıra.
-- `Authors`-geçirilmiş defterine katıldığını her yazar hakkında bilgi içerir.
-- `BooksAuthors`-hangi yazarların hangi books yazmıştır belirtir bir çok-çok birleştirme tablo.
+- `Genres` -Teknoloji, kurgu ve iş gibi her bir tarzını için bir kayıt içerir.
+- `Books` -gibi sütunlarla her gözden geçirme için bir kayıt içerir `Title`, `GenreId`, `ReviewDate`, ve `Review`, diğerlerinin yanı sıra.
+- `Authors` -geçirilmiş defterine katıldığını her yazar hakkında bilgi içerir.
+- `BooksAuthors` -hangi yazarların hangi books yazmıştır belirtir bir çok-çok birleştirme tablo.
   
 
 Şekil 1 dört bu tablolar bir ER diyagramını gösterir.
@@ -195,6 +195,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Yayımlama Sihirbazı'nı 1.1 Microsoft SQL Server veritabanı indirin](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Microsoft SQL Server Management Studio Express Edition'ı karşıdan yükle](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[Önceki](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
-[sonraki](configuring-the-production-web-application-to-use-the-production-database-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](core-differences-between-iis-and-the-asp-net-development-server-vb.md)
+> [sonraki](configuring-the-production-web-application-to-use-the-production-database-vb.md)

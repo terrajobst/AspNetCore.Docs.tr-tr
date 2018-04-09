@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/authentication/understanding-aspnet-memberships
-title: "ASP.NET üyeliği anlama | Microsoft Docs"
+title: ASP.NET üyeliği anlama | Microsoft Docs
 author: JoeStagner
-description: "Bu videoda, üyelik için ASP.NET geliştiricilerinin kullanabileceği yerleşik sağlayıcılar ile çalışma sırasında Joe Stagner arar. Düzeltmeyi hakkında ek bilgi için..."
+description: Bu videoda, üyelik için ASP.NET geliştiricilerinin kullanabileceği yerleşik sağlayıcılar ile çalışma sırasında Joe Stagner arar. Düzeltmeyi hakkında ek bilgi için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/04/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/understanding-aspnet-memberships
 msc.type: video
-ms.openlocfilehash: 3c5a7c9cb7e99231ccc2237d4f62305fc6df962b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b01a997ef6f8e8e5e52d6de85a505d25f152bdad
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-memberships"></a>ASP.NET üyeliği anlama
 ====================
@@ -24,8 +24,8 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 
 Bu videoda, üyelik için ASP.NET geliştiricilerinin kullanabileceği yerleşik sağlayıcılar ile çalışma sırasında Joe Stagner arar. Bu videoyu hakkında ek bilgi için okuma [SQL Server üyelik şema oluşturma](../../overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md) güvenlik öğretici.
 
-[&#9654; (22 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-aspnet-memberships)
+[&#9654;(22 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/understanding-aspnet-memberships)
 
->[!div class="step-by-step"]
-[Önceki](use-custom-principal-objects.md)
-[sonraki](configuring-sql-to-work-with-membership-schemas.md)
+> [!div class="step-by-step"]
+> [Önceki](use-custom-principal-objects.md)
+> [sonraki](configuring-sql-to-work-with-membership-schemas.md)

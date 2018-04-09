@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
-title: "Web dağıtımı için derleme sunucu bir TFS Yapılandırma | Microsoft Docs"
+title: Web dağıtımı için derleme sunucu bir TFS Yapılandırma | Microsoft Docs
 author: jrjlee
-description: "Bu konu, yapı ve çözümlerinizi ekip ve Internet Informat kullanarak dağıtmak için bir Team Foundation Server (TFS) yapı sunucuyu hazırlamak üzere açıklar..."
+description: Bu konu, yapı ve çözümlerinizi ekip ve Internet Informat kullanarak dağıtmak için bir Team Foundation Server (TFS) yapı sunucuyu hazırlamak üzere açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>TFS yapı sunucu için Web dağıtımı yapılandırma
 ====================
@@ -27,9 +27,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konu, yapı ve çözümlerinizi ekip ve Internet Information Services (IIS) Web Dağıtım Aracı (Web dağıtımı) kullanarak dağıtmak için bir Team Foundation Server (TFS) yapı sunucuyu hazırlamak üzere açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -116,6 +116,6 @@ Bu noktada, yapı sunucunuzu oluşturma ve web uygulama projeleri dağıtma baş
 
 Ekip ile çalışma hakkında daha fazla genel yönergeler için bkz [yönetme Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
->[!div class="step-by-step"]
-[Önceki](adding-content-to-source-control.md)
-[sonraki](creating-a-build-definition-that-supports-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-content-to-source-control.md)
+> [sonraki](creating-a-build-definition-that-supports-deployment.md)

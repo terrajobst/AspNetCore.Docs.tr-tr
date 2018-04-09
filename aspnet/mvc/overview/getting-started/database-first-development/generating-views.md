@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
-title: "EF veritabanıyla ilk ASP.NET MVC: görünümleri oluşturma | Microsoft Docs"
+title: 'EF veritabanıyla ilk ASP.NET MVC: görünümleri oluşturma | Microsoft Docs'
 author: tfitzmac
-description: "ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri..."
+description: ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 5fccb3c56af0945ec448becff777a3e92dc160d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60e89a187a879255eb051dc87241714cef6fa63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>EF veritabanıyla ilk ASP.NET MVC: görünümler oluşturma
 ====================
@@ -27,7 +27,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Bu serinin parçası görünümleri ve denetleyicilerini oluşturmak için ASP.NET yapı İskelesi kullanma üzerine odaklanmıştır.
 
 
-## <a name="add-scaffold"></a>İskele Ekle
+## <a name="add-scaffold"></a>iskele Ekle
 
 Standart veri işlemleri modeli sınıfları için sağlayacak kodu oluşturmak hazır olursunuz. İskele öğesini ekleyerek kodu ekleyin. Ekleyebilirsiniz yapı iskelesi türü için birçok seçeneğiniz vardır; Bu öğreticide, iskele bir denetleyici ve önceki bölümde oluşturduğunuz Öğrenci ve kayıt modelleri karşılık görünümleri içerir.
 
@@ -109,6 +109,6 @@ Ayrıca, sağlanan değerlerin doğrulama otomatik olarak tabanlı alanın veri 
 
 Otomatik olarak oluşturulan görünümleri veritabanındaki verilerle çalışmak kullanıcıları etkinleştirme doğrulanmıştır. Bu serideki sonraki öğretici veritabanını güncelleştirmek ve web uygulamasında karşılık gelen değişiklikleri yapın.
 
->[!div class="step-by-step"]
-[Önceki](creating-the-web-application.md)
-[sonraki](changing-the-database.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-the-web-application.md)
+> [sonraki](changing-the-database.md)

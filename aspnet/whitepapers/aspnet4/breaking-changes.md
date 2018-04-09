@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/breaking-changes
-title: "ASP.NET 4 önemli değişiklikler | Microsoft Docs"
+title: ASP.NET 4 önemli değişiklikler | Microsoft Docs
 author: rick-anderson
-description: "Bu belge için .NET Framework sürümü kullanılarak oluşturulan uygulamaların olası etkileyebilir 4 yayın yapılan değişiklikleri açıklar..."
+description: Bu belge için .NET Framework sürümü kullanılarak oluşturulan uygulamaların olası etkileyebilir 4 yayın yapılan değişiklikleri açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d601c540-f86b-4feb-890c-20c806b3da6c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: d68723b52ae1ee80142fb1aca3b0b10de34332d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7eea51add6b05684357314e3d6aa5087383c6408
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>ASP.NET 4 önemli değişiklikler
 ====================
@@ -180,7 +180,7 @@ Ancak, uygulama düzeyinde el ile değişiklik `Web.config` Visual Studio 2008 i
 
 Uygulama düzeyi ilk senaryo için geçici çözüm güncelleştirmektir `Web.config` Demirbaş yapılandırma metinden ekleyerek dosya bir `Web.config` Visual Studio 2008 tarafından otomatik olarak oluşturulan dosya.
 
-İlk senaryo için alternatif bir geçici çözüm Vista veya Windows Server 2008 için Service Pack 2 bilgisayarınıza yüklemek için düzeltme KB958854 yüklemek için mi ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) yanlış düzeltmek için IIS yapılandırma sistemini davranışını yapılandırma birleştirme. Ancak, bu eylemlerden gerçekleştirdikten sonra uygulamanızı büyük olasılıkla bir yapılandırma hatası ikinci senaryo için açıklanan sorunu nedeniyle karşılaşır.
+İlk senaryo için alternatif bir geçici çözüm Vista veya Windows Server 2008 için Service Pack 2 bilgisayarınıza yüklemek için düzeltme KB958854 yüklemek için mi ([https://support.microsoft.com/kb/958854](https://support.microsoft.com/kb/958854)) yanlış yapılandırma birleştirme davranışını düzeltmek için IIS yapılandırma sistemi. Ancak, bu eylemlerden gerçekleştirdikten sonra uygulamanızı büyük olasılıkla bir yapılandırma hatası ikinci senaryo için açıklanan sorunu nedeniyle karşılaşır.
 
 İkinci senaryo için geçici çözüm silin veya tüm açıklama kullanmaktır **system.web.extensions** grup yapılandırma bölümü tanımları ve yapılandırma bölümü, uygulama düzeyinde tanımları `Web.config` dosya. Bu tanımları genellikle uygulama düzeyi en üstünde olacak `Web.config` dosya ve tanımlanabilir **configSections** öğeyi ve alt öğelerini.
 
@@ -192,8 +192,8 @@ Her iki senaryo için de el ile silmeniz önerilir **system.codedom** bu gerekli
 
 ASP.NET 4 ASP.NET önceki sürümlerini çalıştıran uygulamalar, alt yapılandırma veya derleme hataları nedeniyle başlatmak başarısız olabilir olarak yapılandırılmış olan uygulamaların. Aşağıdaki örnek, etkilenen bir uygulama için bir dizin yapısına gösterir.
 
-`/parentwebapp`(ASP.NET 2.0 veya ASP.NET 3.5 kullanmak üzere yapılandırılmış)  
-`/childwebapp`(ASP.NET 4 kullanmak üzere yapılandırılmış)
+`/parentwebapp` (ASP.NET 2.0 veya ASP.NET 3.5 kullanmak üzere yapılandırılmış)  
+`/childwebapp` (ASP.NET 4 kullanmak üzere yapılandırılmış)
 
 Uygulamada `childwebapp` klasörü IIS 7 veya IIS 7.5 başlatın ve rapor bir yapılandırma hatasıyla başarısız olur. Hata metni aşağıdakine benzer bir ileti içerir:
 
@@ -280,7 +280,7 @@ ASP.NET 4'te **HttpRequest** özellikleri, bunun yerine aşağıdaki değerlere 
 
 **HttpRequest.FilePath**: `/testapp/Action.mvc`
 
-**HttpRequest.PathInfo**:`SomeAction`
+**HttpRequest.PathInfo**: `SomeAction`
 
 <a id="0.1__Toc252995493"></a><a id="0.1__Toc255587642"></a><a id="0.1__Toc256770153"></a><a id="0.1__Toc245724861"></a>
 
@@ -323,13 +323,13 @@ ASP.NET 2.0 Web sitesine yeniden eşlemek için veya bir sanal dizin konumunu de
 
 ## <a name="event-handlers-might-not-be-not-raised-in-a-default-document-in-iis-7-or-iis-75-integrated-mode"></a>Olay işleyicileri değil oluşmayabilir IIS 7 veya IIS 7.5 varsayılan belgedeki tümleşik modu
 
-ASP.NET 4 içerir değiştirmek değişiklikleri nasıl **eylem** HTML öznitelik **form** öğesi uzantısız URL için varsayılan bir belge çözdüğünde işlenir. Bir varsayılan belge çözme uzantısız URL bir örneği olacaktır [http://contoso.com/](http://contoso.com/), sonuçta ortaya çıkan bir istekte [http://contoso.com/Default.aspx](http://contoso.com/Default.aspx).
+ASP.NET 4 içerir değiştirmek değişiklikleri nasıl **eylem** HTML öznitelik **form** öğesi uzantısız URL için varsayılan bir belge çözdüğünde işlenir. Bir varsayılan belge çözme uzantısız URL bir örneği olacaktır [ http://contoso.com/ ](http://contoso.com/), sonuçta ortaya çıkan bir istekte [ http://contoso.com/Default.aspx ](http://contoso.com/Default.aspx).
 
-ASP.NET 4 şimdi HTML işler **form** öğenin **eylem** eşlenmiş bir varsayılan belge sahip uzantısız bir URL'ye bir istekte bulunulduğunda olarak boş bir dize öznitelik değeri. Örneğin, ASP.NET, bir istek önceki sürümlerinde de [http://contoso.com](http://contoso.com) bir isteği ile sonuçlandı `Default.aspx`. Bu belgede, açılış **form** etiketi aşağıdaki örnekte olduğu gibi çizilir:
+ASP.NET 4 şimdi HTML işler **form** öğenin **eylem** eşlenmiş bir varsayılan belge sahip uzantısız bir URL'ye bir istekte bulunulduğunda olarak boş bir dize öznitelik değeri. Örneğin, ASP.NET, bir istek önceki sürümlerinde de [ http://contoso.com ](http://contoso.com) bir isteği ile sonuçlandı `Default.aspx`. Bu belgede, açılış **form** etiketi aşağıdaki örnekte olduğu gibi çizilir:
 
 `<form action="Default.aspx" />`
 
-ASP.NET 4, bir istek [http://contoso.com](http://contoso.com) ayrıca sonuçları bir istekte `Default.aspx`. Ancak, ASP.NET HTML açılış şimdi işler **form** aşağıdaki örnekteki gibi etiketi:
+ASP.NET 4, bir istek [ http://contoso.com ](http://contoso.com) ayrıca sonuçları bir istekte `Default.aspx`. Ancak, ASP.NET HTML açılış şimdi işler **form** aşağıdaki örnekteki gibi etiketi:
 
 `<form action="" />`
 
@@ -370,7 +370,7 @@ Eski CA modele geri döndürdüğünüzde, aşağıdaki eski CA davranışları 
 - Tek bir uygulama etki alanında birden çok farklı izin kümeleri izin verilir.
 - Açık izne onaylar yalnızca ASP.NET veya başka bir .NET Framework kod yığında olduğunda çağrılan derlemeleri GAC'de için gerekli değildir.
 
-.NET Framework 4'te bir senaryo döndürülemiyor: Web olmayan kısmi güven uygulamaları artık System.Web.dll ve System.Web.Extensions.dll belirli API'larını çağırma. .NET Framework önceki sürümlerde açıkça verilebilmesi, Web olmayan kısmi güven uygulamaları için olası **AspNetHostingPermission** izinleri. Bu uygulamalar sonra kullanabilir **System.Web.HttpUtility**, türlerini **System.Web.ClientServices.\***  ad alanları ve türler ilgili üyelik, roller ve profilleri. Bu tür Web olmayan kısmi güven uygulamalardan çağrılırken, .NET Framework 4'te artık desteklenmiyor.
+.NET Framework 4'te bir senaryo döndürülemiyor: Web olmayan kısmi güven uygulamaları artık System.Web.dll ve System.Web.Extensions.dll belirli API'larını çağırma. .NET Framework önceki sürümlerde açıkça verilebilmesi, Web olmayan kısmi güven uygulamaları için olası <strong>AspNetHostingPermission</strong> izinleri. Bu uygulamalar sonra kullanabilir <strong>System.Web.HttpUtility</strong>, türlerini <strong>System.Web.ClientServices.\< / strong > * ad alanları ve türler ilgili üyelik, roller ve profilleri. Bu tür Web olmayan kısmi güven uygulamalardan çağrılırken, .NET Framework 4'te artık desteklenmiyor.
 
 > [!NOTE]
 > **HtmlEncode** ve **HtmlDecode** işlevselliğini **System.Web.HttpUtility** sınıfı, yeni .NET Framework 4'e taşındı  **System.Net.WebUtility** sınıfı. Kullanılan yalnızca ASP.NET işlevselliği olduysa, uygulamanın kodunu yeni değiştirme **WebUtility** yerine sınıfı.

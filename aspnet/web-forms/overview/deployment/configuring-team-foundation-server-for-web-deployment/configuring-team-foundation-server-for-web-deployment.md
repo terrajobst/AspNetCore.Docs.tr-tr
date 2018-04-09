@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
-title: "Team Foundation Server için Web dağıtımı yapılandırma | Microsoft Docs"
+title: Team Foundation Server için Web dağıtımı yapılandırma | Microsoft Docs
 author: jrjlee
-description: "Bu öğretici Team Foundation Server (çözümleri oluşturmak ve web içeriği ortamlarla hedef dağıtmak için TFS) 2010 yapılandırmak nasıl yapacağınızı gösterir. Bu..."
+description: Bu öğretici Team Foundation Server (çözümleri oluşturmak ve web içeriği ortamlarla hedef dağıtmak için TFS) 2010 yapılandırmak nasıl yapacağınızı gösterir. Bu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c4cfac333c9400d9ee613ba88520b0b0439873f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Team Foundation Server için Web dağıtımı yapılandırma
 ====================
@@ -39,9 +39,9 @@ Bu öğretici, TFS 2010 yüklü ve bir takım projesi koleksiyonu ilk yapıland�
 
 ## <a name="context"></a>Bağlam
 
-Bu öğreticiler Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimlerine bağlı olarak bir dizi parçası oluşturur Bu öğretici serisi örnek çözümü & #x 2014; kullanan [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) çözüm & #x 2014; Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu öğreticiler Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimlerine bağlı olarak bir dizi parçası oluşturur Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) çözüm&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [oluşturma işlemini anlama](../web-deployment-in-the-enterprise/understanding-the-build-process.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
@@ -77,5 +77,5 @@ Bu beş eğitim serileri parçası Kurumsal ölçekte web dağıtımı oluşturu
 - [Web dağıtımı için sunucu ortamları yapılandırma](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Bu öğreticide (Uzak Aracısı) Web Dağıtım Aracı hizmeti veya Web dağıtımı işleyicisi ve Uzak veritabanı dağıtım kullanarak uzak web paketi dağıtımı dahil olmak üzere çeşitli dağıtım senaryoları desteklemek için Windows sunucularının nasıl yapılandırılacağı açıklanmaktadır. Kendi ortamınız için uygun dağıtım yöntemi seçme hakkında yönergeler sağlar ve Web grubu çerçevesi (WFF) bir sunucu grubundaki tüm web sunucuları arasında dağıtılan web uygulamaları çoğaltmak için nasıl kullanılacağını açıklar.
 - [Kurumsal Web dağıtımı Gelişmiş](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Bu öğretici, birden çok ortamlar için veritabanı dağıtımları özelleştirme, dağıtımdan dosya ve klasörleri dışarıda ve dağıtım işlemi sırasında çevrimdışı web uygulamaları alma gibi çeşitli daha gelişmiş dağıtım görevlerinin açıklar .
 
->[!div class="step-by-step"]
-[Next](creating-a-team-project-in-tfs.md)
+> [!div class="step-by-step"]
+> [Next](creating-a-team-project-in-tfs.md)

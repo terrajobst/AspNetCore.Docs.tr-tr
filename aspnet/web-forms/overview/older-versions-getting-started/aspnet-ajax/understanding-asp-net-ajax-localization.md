@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
-title: "ASP.NET AJAX yerelleştirme anlama | Microsoft Docs"
+title: ASP.NET AJAX yerelleştirme anlama | Microsoft Docs
 author: scottcate
-description: "Yerelleştirme tasarlama ve uygulama ya da bir uygulama bileşeni belirli bir dil ve kültür için destek tümleştirme işlemidir. MIC..."
+description: Yerelleştirme tasarlama ve uygulama ya da bir uygulama bileşeni belirli bir dil ve kültür için destek tümleştirme işlemidir. MIC...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX yerelleştirme anlama
 ====================
@@ -64,9 +64,9 @@ Aşağıdaki tabloda adlandırma kuralları örnekleri içeren dosya özetlenmek
 | Dosya adı | Açıklama |
 | --- | --- |
 | Script.js | Bir yayın sürümü kültür Tarafsız komut dosyası. |
-| Script.Debug.js | Hata ayıklama sürümü kültür Tarafsız komut dosyası. |
-| Script.en US.js | Bir yayın sürümü İngilizce, Amerika Birleşik Devletleri komut dosyası. |
-| Script.Debug.es CO.js | Bir hata ayıklama sürümü İspanyolca, Columbia komut dosyası. |
+| Script.debug.js | Hata ayıklama sürümü kültür Tarafsız komut dosyası. |
+| Script.en-US.js | Bir yayın sürümü İngilizce, Amerika Birleşik Devletleri komut dosyası. |
+| Script.debug.es-CO.js | Bir hata ayıklama sürümü İspanyolca, Columbia komut dosyası. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>İzlenecek yol: bir yerelleştirilmiş, katıştırılmış komut dosyası oluşturma
 
@@ -149,10 +149,10 @@ Web uygulamaları, daha büyük bir izleyici ulaşması arttıkça, daha geniş 
 
 .NET Framework uydu derlemelerini ve XML kaynak (.resx) dosyaları bir Tekdüzen Kaynak dizeleri ve görüntüleri Ara şekilde sunmak için kullanan bir zengin yerelleştirme framework doğası gereği destekler. Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı gibi ASP.NET AJAX uzantıları bu programlama modeli için istemci tarafı koda kolay kaynak dize aramaları etkinleştirme desteği. Dosya adları belirli bir adlandırma şeması izlediğiniz sürece otomatik eklenmesi ScriptResource.axd aracılığıyla komut dosyası kaynakları (gerçek .js dosyaları), uydu derlemelerini destekler. Bu destek sayesinde, ASP.NET AJAX uzantıları betikleri yerelleştirme ve Genelleştirme uygulamaların basitleştirin.
 
-## <a name="bio"></a>*Biyografisi*
+## <a name="bio"></a>*Bio*
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Önceki](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[sonraki](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [sonraki](understanding-asp-net-ajax-web-services.md)

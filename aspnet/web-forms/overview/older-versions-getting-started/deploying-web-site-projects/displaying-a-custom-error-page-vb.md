@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
-title: "Bir özel hata sayfası (VB) görüntüleme | Microsoft Docs"
+title: Bir özel hata sayfası (VB) görüntüleme | Microsoft Docs
 author: rick-anderson
-description: "Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı neleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma..."
+description: Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı neleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8a2f88490de08f731f9737d15237ae445c5ec0d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: eda7ceeac174f0d1697cb95d2eab4127f124011e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Bir özel hata sayfası (VB) görüntüleme
 ====================
@@ -60,7 +60,7 @@ Hata sayfası geliştiricileri ile özel durum ayrıntıları YSOD en bilinen'd�
 
 YSOD başka türden çalışma zamanı hatası YSOD olduğu ve gösterilen **Şekil 2**. Çalışma zamanı hatası YSOD bir çalışma zamanı hatası oluştu ziyaretçi bilgilendirir, ancak oluşturulan özel durum hakkında hiçbir bilgi içermez. (Bunu ancak değiştirerek hata ayrıntılarını görünür yapmak nasıl yönergelerinizi `Web.config` profesyonel Ara YSOD kılan bir parçası olan dosya.)
 
-Varsayılan olarak, çalışma zamanı hatası YSOD kullanıcılara uzaktan (http://www.yoursite.com), ziyaret tarayıcının adres çubuğunda URL tarafından yi gösterilir **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Geliştiriciler hata ayrıntılarını bilmek ilgilenen ancak olası güvenlik açıkları ve diğer hassas bilgiler ziyaret herkes gösterebilir gibi bilgileri canlı sitede gösterilmiyor çünkü iki farklı YSOD ekranda var, Site.
+Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullanıcılara gösterilir (aracılığıyla http://www.yoursite.com)tarayıcının adres çubuğunda URL tarafından yi gibi **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Geliştiriciler hata ayrıntılarını bilmek ilgilenen ancak olası güvenlik açıkları ve diğer hassas bilgiler ziyaret herkes gösterebilir gibi bilgileri canlı sitede gösterilmiyor çünkü iki farklı YSOD ekranda var, Site.
 
 > [!NOTE]
 > Aşağıdaki ve DiscountASP.NET, web ana bilgisayarı olarak kullanıyorsanız, çalışma zamanı hatası YSOD Canlı sitesini ziyaret ederken görüntülemez fark edebilirsiniz. Özel durum ayrıntıları YSOD göstermek için varsayılan olarak yapılandırılan sunucularını DiscountASP.NET sahip olmasıdır. İyi haber ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz olan bir `<customErrors>` için bölüm, `Web.config` dosya. "Yapılandırma hata sayfası görüntülendiği" bölümü inceler `<customErrors>` ayrıntı bölümünde.
@@ -89,11 +89,11 @@ Tarayıcının adres çubuğunda incelemek için bir dakikanızı ayırın **Şe
 
 [ `<customErrors>` Bölüm](https://msdn.microsoft.com/library/h0hfz6fc.aspx) içinde `Web.config` hangi hata sayfası gösterilir etkileyen iki özniteliklere sahiptir: `defaultRedirect` ve `mode`. `defaultRedirect` Özniteliği isteğe bağlıdır. Sağlanırsa, özel hata sayfasının URL'sini belirtir ve özel hata sayfası yerine çalışma zamanı hatası YSOD gösterilen olduğunu gösterir. `mode` Özniteliği gereklidir ve üç değerden birini kabul eder: `On`, `Off`, veya `RemoteOnly`. Bu değerler, aşağıdaki davranış vardır:
 
-- `On`-özel hata sayfası veya çalışma zamanı hatası YSOD yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için gösterildiğini belirtir.
-- `Off`-Yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için özel durum ayrıntıları YSOD görüntüleneceğini belirtir.
-- `RemoteOnly`-özel durum ayrıntıları YSOD yerel ziyaretçileri gösterilmese özel hata sayfası veya çalışma zamanı hatası YSOD uzak ziyaretçileri göründüğünü gösterir.
+- `On` -özel hata sayfası veya çalışma zamanı hatası YSOD yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için gösterildiğini belirtir.
+- `Off` -Yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için özel durum ayrıntıları YSOD görüntüleneceğini belirtir.
+- `RemoteOnly` -özel durum ayrıntıları YSOD yerel ziyaretçileri gösterilmese özel hata sayfası veya çalışma zamanı hatası YSOD uzak ziyaretçileri göründüğünü gösterir.
 
-Aksi belirtilmedikçe, mod özniteliği kümesine gibi ASP.NET davranır `RemoteOnly` ve belirtilmemiş bir `defaultRedirect` değeri. Diğer bir deyişle, varsayılan çalışma zamanı hatası YSOD uzak ziyaretçileri gösterilmese özel durum ayrıntıları YSOD yerel ziyaretçilerine görüntülenir davranıştır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz bir `<customErrors>` web uygulamanızın bölümüne`Web.config file.`
+Aksi belirtilmedikçe, mod özniteliği kümesine gibi ASP.NET davranır `RemoteOnly` ve belirtilmemiş bir `defaultRedirect` değeri. Diğer bir deyişle, varsayılan çalışma zamanı hatası YSOD uzak ziyaretçileri gösterilmese özel durum ayrıntıları YSOD yerel ziyaretçilerine görüntülenir davranıştır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz bir `<customErrors>` web uygulamanızın bölümüne `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>Özel hata sayfası kullanma
 
@@ -143,7 +143,7 @@ Uzaktan ziyaret eden bir kullanıcının var olmayan bir ASP.NET kaynağı isted
 > Kullanıma [404 hata sayfaları, bir fazla kez](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) etkili 404 hata sayfaları oluşturma konusunda yönergeler için.
 
 
-[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası daha fazla hedeflenen bir ileti görüntüler`Oops.aspx`  
+[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası daha fazla hedeflenen bir ileti görüntüler `Oops.aspx`  
  ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
 Bildiğiniz için `404.aspx` sayfası kullanıcı bulunamadı bir sayfa için bir istek yaptığında, yalnızca ulaşıldığında, bu belirli tür hatalara yönelik kullanıcı yardımcı olmak için işlevsellik eklemek için bu özel hata sayfası geliştirebilirsiniz. Örneğin, hatalı URL'leri iyi URL'lere bilinen eşleşen bir veritabanı tablosu oluşturur ve ardından sahip `404.aspx` tablo ve kullanıcı çalışıyor olabilir ulaşması sayfaları önermek özel hata sayfası bir sorgu çalıştırın.
@@ -172,6 +172,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [İşleme ve özel durumları atma](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Özel hata sayfaları ASP.NET kullanılarak uygun şekilde](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[Önceki](strategies-for-database-development-and-deployment-vb.md)
-[sonraki](processing-unhandled-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](strategies-for-database-development-and-deployment-vb.md)
+> [sonraki](processing-unhandled-exceptions-vb.md)

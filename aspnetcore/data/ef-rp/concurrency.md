@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının ASP.NET Core - eşzamanlılık - 8 8'in EF çekirdek ile"
+title: Razor sayfalarının ASP.NET Core - eşzamanlılık - 8 8'in EF çekirdek ile
 author: rick-anderson
-description: "Bu öğretici, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir."
+description: Bu öğretici, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 3921abe0b3741e906ff09b3dfd969214933ff83c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1a5d1bdcb20da8270a0605c3937af2a8700a4e7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 en-us/
 
@@ -21,7 +21,7 @@ en-us/
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [zel Dykstra](https://github.com/tdykstra), ve [Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Bu öğretici, birden çok kullanıcı aynı anda (aynı anda) bir varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir. Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8).
 
@@ -57,19 +57,19 @@ John tıklar **kaydetmek** bir düzenleme sayfasında $350,000.00 bütçe görü
 
 * Bir kullanıcı değiştirdi hangi özelliğinin izlemek ve yalnızca karşılık gelen sütunlara DB'de güncelleştirin.
 
- Senaryoda, hiçbir veri kaybı olacaktır. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Birisi İngilizce departmanı gözatar sonraki açışınızda Jane'nın ve Can'ın değişiklikleri görürler. Güncelleştirme bu yöntem, veri kaybına sebep çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım: * aynı özelliğe rakip bir değişiklik yaptıysanız veri kaybını önlemek olamaz.
+  Senaryoda, hiçbir veri kaybı olacaktır. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Birisi İngilizce departmanı gözatar sonraki açışınızda Jane'nın ve Can'ın değişiklikleri görürler. Güncelleştirme bu yöntem, veri kaybına sebep çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım: * aynı özelliğe rakip bir değişiklik yaptıysanız veri kaybını önlemek olamaz.
         * Olan bir web uygulamasında pratik genellikle. Tüm getirilen ve yeni değerleri izlemek için önemli durum koruma gerektiriyor. Büyük miktarlarda durumu koruma uygulama performansını etkileyebilir.
         * Bir varlık eşzamanlılık algılamayı karşılaştırılan uygulama karmaşıklığını artırabilir.
 
 * Jane'nın değişiklik üzerine Can'ın değişiklik izin verebilirsiniz.
 
- Sonraki birisi İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım adlı bir *istemci WINS* veya *WINS'de son* senaryo. (İstemci tüm değerleri veri deposunda nedir üzerinden önceliklidir.) Hiçbir eşzamanlılık işleme için kodlama yapmazsanız, istemci WINS otomatik olarak gerçekleşir.
+  Sonraki birisi İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım adlı bir *istemci WINS* veya *WINS'de son* senaryo. (İstemci tüm değerleri veri deposunda nedir üzerinden önceliklidir.) Hiçbir eşzamanlılık işleme için kodlama yapmazsanız, istemci WINS otomatik olarak gerçekleşir.
 
 * DB güncelleştirilmiş Can'ın değişiklik engelleyebilir. Uygulama zamanki: * bir hata iletisi görüntülenir.
         * Verilerin geçerli durumunu gösterir.
         * Değişiklikleri uygulamak verin.
 
- Bu adlı bir *deposu WINS* senaryo. (Veri deposu değerlerini istemci tarafından gönderilen değerler önceliklidir.) Bu öğreticide deposu WINS senaryo uygulayın. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı üzerine yazılır sağlar.
+  Bu adlı bir *deposu WINS* senaryo. (Veri deposu değerlerini istemci tarafından gönderilen değerler önceliklidir.) Bu öğreticide deposu WINS senaryo uygulayın. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı üzerine yazılır sağlar.
 
 ## <a name="handling-concurrency"></a>Eşzamanlılık işleme 
 
@@ -158,9 +158,9 @@ Yukarıdaki komutlar:
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
 * Şu komutu çalıştırın:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
 
 Yukarıdaki komut iskelesini kurar `Department` modeli. Projesini Visual Studio'da açın.
 
@@ -308,5 +308,5 @@ Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
 * [EF çekirdek eşzamanlılık belirteçleri](https://docs.microsoft.com/ef/core/modeling/concurrency)
 * [EF çekirdek eşzamanlılık işleme](https://docs.microsoft.com/ef/core/saving/concurrency)
 
->[!div class="step-by-step"]
-[Önceki](xref:data/ef-rp/update-related-data)
+> [!div class="step-by-step"]
+> [Önceki](xref:data/ef-rp/update-related-data)

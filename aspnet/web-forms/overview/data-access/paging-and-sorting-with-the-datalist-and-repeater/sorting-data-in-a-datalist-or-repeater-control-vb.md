@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
-title: "Bir DataList veya yineleyici denetimi (VB) verileri sıralama | Microsoft Docs"
+title: Bir DataList veya yineleyici denetimi (VB) verileri sıralama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz bir DataList veya yineleyici verileri oluşturmak nasıl yanı sıra nasıl DataList ve yineleyici desteği sıralama dahil inceleyeceğiz..."
+description: Bu öğreticide biz bir DataList veya yineleyici verileri oluşturmak nasıl yanı sıra nasıl DataList ve yineleyici desteği sıralama dahil inceleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0133a74454a7754f4f7087e2121c7387a1aef8a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 66d6833e69a91aef39cc4a202ef662ecaeeee839
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a>Bir DataList veya yineleyici denetimi (VB) verileri sıralama
 ====================
@@ -231,9 +231,9 @@ Ardından, oluşturun bir `Click` her olay işleyicisi. Olay işleyicileri çağ
 
 DataList örnek adımda verimsiz varsayılan disk belleği tekniği kullanarak verileri 5 sayfalarıyla incelendi. Yeterince büyük miktarlarda verinin disk belleği, özel sayfalama kullanılması zorunludur. Geri [verimli bir şekilde disk belleği üzerinden büyük miktarlarda veri](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) ve [özel disk belleğine alınan verileri sıralama](../paging-and-sorting/sorting-custom-paged-data-vb.md) öğreticileri, biz incelenmesi BLL için varsayılan ve özel disk belleği ile oluşturulan yöntemleri arasındaki farklılıkları özel disk belleği ve özel disk belleğine alınan verileri sıralama kullanan. Özellikle, bu iki önceki öğreticileri için aşağıdaki üç yöntemi eklediğimiz `ProductsBLL` sınıfı:
 
-- `GetProductsPaged(startRowIndex, maximumRows)`belirli bir alt kümesini başlayarak kayıtları döndürür *startRowIndex* ve aşmadan *maximumRows*.
-- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)`belirli bir alt kümesini tarafından belirtilen sıralanmış kayıtları döndürür *sortExpression* giriş parametresi.
-- `TotalNumberOfProducts()`kayıtlarının toplam sayısını sağlar `Products` veritabanı tablosu.
+- `GetProductsPaged(startRowIndex, maximumRows)` belirli bir alt kümesini başlayarak kayıtları döndürür *startRowIndex* ve aşmadan *maximumRows*.
+- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` belirli bir alt kümesini tarafından belirtilen sıralanmış kayıtları döndürür *sortExpression* giriş parametresi.
+- `TotalNumberOfProducts()` kayıtlarının toplam sayısını sağlar `Products` veritabanı tablosu.
 
 Bu yöntemler, verimli bir şekilde sayfasında ve DataList veya yineleyici denetimini kullanarak verilerine sıralamak için kullanılabilir. Bunu göstermek için özel sayfalama desteği ile yineleyici denetim oluşturarak başlayın s sağlar; Sıralama yeteneklerini sonra ekleyeceğiz.
 
@@ -390,11 +390,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme David Suru oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](paging-report-data-in-a-datalist-or-repeater-control-vb.md)

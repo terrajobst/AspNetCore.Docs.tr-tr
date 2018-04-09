@@ -1,7 +1,7 @@
 ---
-title: "Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri"
+title: HTTP işleyicileri ve modülleri ASP.NET Core Ara geçirme
 author: rick-anderson
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 12/07/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: 7f08e155491b56933ae183818e9b9ee562ad8286
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Geçirme HTTP işleyicileri ve ASP.NET Core ara yazılım modülleri 
+# <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP işleyicileri ve modülleri ASP.NET Core Ara geçirme
 
 Tarafından [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
@@ -173,17 +173,17 @@ Yeni [yapılandırma sistemi](xref:fundamentals/configuration/index) bunu çözm
 
 * Kullanım [seçenekleri düzeni](xref:fundamentals/configuration/options):
 
-1.  Örneğin, ara yazılım seçenekleri tutmak için bir sınıf oluşturun:
+1. Örneğin, ara yazılım seçenekleri tutmak için bir sınıf oluşturun:
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Options)]
 
-2.  Seçenek değerleri depolama
+2. Seçenek değerleri depolama
 
-    Yapılandırma sistemi seçenek değerleri istediğiniz herhangi bir yere depolamanıza olanak sağlar. Ancak, en siteleri kullanım *appsettings.json*, biz bu yaklaşımı benimsemeye:
+   Yapılandırma sistemi seçenek değerleri istediğiniz herhangi bir yere depolamanıza olanak sağlar. Ancak, en siteleri kullanım *appsettings.json*, biz bu yaklaşımı benimsemeye:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,14-18)]
 
-    *MyMiddlewareOptionsSection* bir bölüm adı aşağıdadır. Seçenek sınıfı adı ile aynı olması gerekmez.
+   *MyMiddlewareOptionsSection* bir bölüm adı aşağıdadır. Seçenek sınıfı adı ile aynı olması gerekmez.
 
 3. Seçenek değerleri seçenekleri sınıfıyla ilişkilendirme
 
@@ -191,25 +191,25 @@ Yeni [yapılandırma sistemi](xref:fundamentals/configuration/index) bunu çözm
 
     Güncelleştirme, `Startup` sınıfı:
 
-    1.  Kullanıyorsanız, *appsettings.json*, yapılandırma Oluşturucusu'nda eklemek `Startup` Oluşturucusu:
+   1. Kullanıyorsanız, *appsettings.json*, yapılandırma Oluşturucusu'nda eklemek `Startup` Oluşturucusu:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Ctor&highlight=5-6)]
 
-    2.  Seçenekler hizmetini yapılandırın:
+   2. Seçenekler hizmetini yapılandırın:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-    3.  Seçeneklerinizi seçenekleri sınıfınız ile ilişkilendirin:
+   3. Seçeneklerinizi seçenekleri sınıfınız ile ilişkilendirin:
 
       [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_ConfigureServices&highlight=6-8)]
 
-4.  Ara yazılım Oluşturucu seçeneklere yerleştirir. Bu, bir denetleyici seçeneklere injecting için benzer.
+4. Ara yazılım Oluşturucu seçeneklere yerleştirir. Bu, bir denetleyici seçeneklere injecting için benzer.
 
-  [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_MiddlewareWithParams&highlight=4,7,10,15-16)]
 
-  [UseMiddleware](#http-modules-usemiddleware) , ara yazılımı ekler genişletme yöntemi `IApplicationBuilder` mvc'deki bağımlılık ekleme.
+   [UseMiddleware](#http-modules-usemiddleware) , ara yazılımı ekler genişletme yöntemi `IApplicationBuilder` mvc'deki bağımlılık ekleme.
 
-  Bu sınırlı değildir `IOptions` nesneleri. Ara yazılımınızı gerektiren herhangi bir nesne bu şekilde yerleştirilebilir.
+   Bu sınırlı değildir `IOptions` nesneleri. Ara yazılımınızı gerektiren herhangi bir nesne bu şekilde yerleştirilebilir.
 
 ## <a name="loading-middleware-options-through-direct-injection"></a>Ara yazılım seçenekleri doğrudan ekleme işlemi aracılığıyla yükleniyor
 
@@ -219,21 +219,21 @@ Farklı seçeneklerle aynı ara yazılım, iki kez kullanmak istiyorsanız, bunu
 
 Çözüm seçenekleri nesneleri gerçek seçenekleri değerleri elde etmektir, `Startup` sınıfı ve bu, Ara her örneği için doğrudan geçirin.
 
-1.  İkinci anahtar eklemek *appsettings.json*
+1. İkinci anahtar eklemek *appsettings.json*
 
-    İkinci bir set seçenekleri eklemek için *appsettings.json* dosya, yeni bir anahtar benzersiz şekilde tanımlamak için kullanın:
+   İkinci bir set seçenekleri eklemek için *appsettings.json* dosya, yeni bir anahtar benzersiz şekilde tanımlamak için kullanın:
 
-    [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
+   [!code-json[](http-modules/sample/Asp.Net.Core/appsettings.json?range=1,10-18&highlight=2-5)]
 
-2.  Seçenek değerleri almak ve bunları ara geçirin. `Use...` , Ara yazılım ardışık düzene ekler) genişletme yöntemi (yerdir seçeneği değerleri geçirmek için bir mantıksal: 
+2. Seçenek değerleri almak ve bunları ara geçirin. `Use...` , Ara yazılım ardışık düzene ekler) genişletme yöntemi (yerdir seçeneği değerleri geçirmek için bir mantıksal: 
 
-    [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
+   [!code-csharp[](http-modules/sample/Asp.Net.Core/Startup.cs?name=snippet_Configure&highlight=20-23)]
 
-4.  Seçenekler parametresi yapılacak Ara yazılımlarını etkinleştir. Bir aşırı yüklemesini sağlayan `Use...` genişletme yöntemi (Seçenekler parametresi alır ve buna ileten `UseMiddleware`). Zaman `UseMiddleware` çağrılır Ara nesne başlattığında parametrelerle, parametreleri, ara yazılım Oluşturucu geçirir.
+3. Seçenekler parametresi yapılacak Ara yazılımlarını etkinleştir. Bir aşırı yüklemesini sağlayan `Use...` genişletme yöntemi (Seçenekler parametresi alır ve buna ileten `UseMiddleware`). Zaman `UseMiddleware` çağrılır Ara nesne başlattığında parametrelerle, parametreleri, ara yazılım Oluşturucu geçirir.
 
-    [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
+   [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddlewareWithParams.cs?name=snippet_Extensions&highlight=9-14)]
 
-    Bu seçenekler nesnesinde nasıl sarmalar Not bir `OptionsWrapper` nesnesi. Bu uygulayan `IOptions`, ara yazılım Oluşturucu tarafından beklendiği gibi.
+   Bu seçenekler nesnesinde nasıl sarmalar Not bir `OptionsWrapper` nesnesi. Bu uygulayan `IOptions`, ara yazılım Oluşturucu tarafından beklendiği gibi.
 
 ## <a name="migrating-to-the-new-httpcontext"></a>Yeni HttpContext geçirme
 

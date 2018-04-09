@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
-title: "Toplu güncelleştirmeleri (VB) gerçekleştirme | Microsoft Docs"
+title: Toplu güncelleştirmeleri (VB) gerçekleştirme | Microsoft Docs
 author: rick-anderson
-description: "Bir tam olarak düzenlenebilir oluşturmayı öğrenin burada öğelerinden tümü de DataList düzenleme modu ve değerleri 'Tümünü Güncelleştir' düğmesini tıklatarak kaydedilebilmesi için..."
+description: Bir tam olarak düzenlenebilir oluşturmayı öğrenin burada öğelerinden tümü de DataList düzenleme modu ve değerleri 'Tümünü Güncelleştir' düğmesini tıklatarak kaydedilebilmesi için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-vb"></a>Toplu güncelleştirmeleri (VB) gerçekleştirme
 ====================
@@ -43,8 +43,8 @@ Bu öğreticide biz kullanıcıların tam olarak düzenlenebilir DataList kullan
 
 Burada standart, öğe düzeyinde düzenlenebilir DataList oluşturma, şu iki şablonları kullandık önceki öğreticide:
 
-- `ItemTemplate`salt okunur kullanıcı arabirimi (her bir ürün adı ve fiyat görüntüleme için etiket Web denetimleri) içeriyor.
-- `EditItemTemplate`düzenleme modu kullanıcı arabirimi (iki metin kutusuna Web denetimleri) içeriyor.
+- `ItemTemplate` salt okunur kullanıcı arabirimi (her bir ürün adı ve fiyat görüntüleme için etiket Web denetimleri) içeriyor.
+- `EditItemTemplate` düzenleme modu kullanıcı arabirimi (iki metin kutusuna Web denetimleri) içeriyor.
 
 S DataList `EditItemIndex` özelliği belirleyen ne `DataListItem` (varsa) kullanılarak oluşturulması `EditItemTemplate`. Özellikle, `DataListItem` , `ItemIndex` değerle s DataList `EditItemIndex` özelliği kullanılarak işlenir `EditItemTemplate`. Bu model, iyi yalnızca bir öğe bir zaman alır, ancak parçalayın düştüğünde tam olarak düzenlenebilir DataList oluştururken düzenlenebilir olduğunda çalışır.
 
@@ -163,12 +163,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Ken Pespisa yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-[sonraki](handling-bll-and-dal-level-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [sonraki](handling-bll-and-dal-level-exceptions-vb.md)

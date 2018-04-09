@@ -1,7 +1,7 @@
 ---
-title: "Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması"
+title: Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması
 author: camsoper
-description: "ASP.NET Core Web API ile Azure Active Directory B2C kimlik doğrulaması kurma bulur. Kimliği doğrulanmış web API'si Postman ile test edin."
+description: ASP.NET Core Web API ile Azure Active Directory B2C kimlik doğrulaması kurma bulur. Kimliği doğrulanmış web API'si Postman ile test edin.
 ms.author: casoper
 manager: wpickett
 ms.date: 01/25/2018
@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması
 
@@ -23,7 +23,7 @@ Tarafından [Cam Soper](https://twitter.com/camsoper)
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü web ve mobil uygulamaları için. Hizmet Bulut ve şirket içi barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri ve kurumsal hesaplar federe bireysel hesaplar, sosyal ağ hesaplarını içerir. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) Azure AD B2C ayrı ürün teklifleri şunlardır. Azure AD kiracısı Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı ürün teklifleri. Azure AD kiracısı Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Kullanıcı arabirimi olmadan Web API'leri sahip olduğundan, kullanıcı bir güvenli belirteç hizmeti Azure AD B2C gibi yeniden yönlendirmek oluşturulamıyor. Bunun yerine, API zaten Azure AD B2C ile kullanıcı kimliğini doğrulamasından arama uygulamasından bir taşıyıcı belirteci geçirilir. API, ardından doğrudan kullanıcı etkileşimi olmadan belirteci doğrular.
 
@@ -78,21 +78,21 @@ In Visual Studio:
 1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
 2. Seçin **Web API** şablonları listesinden.
 3. Seçin **kimlik doğrulamayı Değiştir** düğmesi.
-    
+
     ![Değişiklik kimlik doğrulama düğmesi](./azure-ad-b2c-webapi/change-auth-button.png)
 
 4. İçinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **tek tek kullanıcı hesaplarını**ve ardından **bulutta bir kullanıcı deposuna Bağlan** açılır. 
-    
+
     ![Değişiklik kimlik doğrulama iletişim](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
 5. Formu aşağıdaki değerlerle doldurun:
-    
+
     | Ayar                       | Değer                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Etki alanı adı**               | *&lt;B2C kiracınızın etki alanı adı&gt;*          |
     | **Uygulama Kimliği**            | *&lt;Uygulama Kimliği panodan yapıştırın&gt;* |
     | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                        |
-    
+
     Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 
 Visual Studio adlı bir denetleyicisi ile web API oluşturur *ValuesController.cs* GET istekleri için sabit kodlanmış değerler döndürür. Sınıf ile donatılmış [Authorize özniteliği](xref:security/authorization/simple), tüm istekleri kimlik doğrulaması gerektirir.
@@ -140,17 +140,17 @@ Postman başlatın. Varsayılan olarak, Postman görüntüler **Yeni Oluştur** 
 Gelen **Yeni Oluştur** iletişim:
 
 1. Seçin **isteği**.
-    
+
     ![İstek düğmesi](./azure-ad-b2c-webapi/postman-create-new.png)
 
 2. Girin *alma değerleri* içinde **isteği adı** kutusu.
 3. Seçin **+ Oluştur koleksiyonu** istek depolamak için yeni bir koleksiyon oluşturmak için. Koleksiyon adı *ASP.NET Core öğreticileri* ve ardından onay işaretini seçin.
-    
+
     ![Yeni bir koleksiyon oluşturma](./azure-ad-b2c-webapi/postman-create-collection.png)
 
 4. Seçin **ASP.NET Core öğreticileri için Kaydet** düğmesi.
 
-### <a name="test-the-web-api-withoutauthentication"></a>Web API withoutauthentication test
+### <a name="test-the-web-api-without-authentication"></a>Kimlik doğrulaması olmadan web API testi
 
 Web API kimlik doğrulaması gerektiren doğrulamak için ilk kimlik doğrulaması olmadan bir isteği oluşturun.
 
@@ -165,34 +165,36 @@ Web API kimlik doğrulaması gerektiren doğrulamak için ilk kimlik doğrulamas
 Web API kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı belirteci gereklidir. Postman Azure AD B2C kiracısı için oturum açın ve bir belirteç elde daha kolay hale getirir.
 
 1. Üzerinde **yetkilendirme** sekmesinde **türü** açılan listesinde, select **OAuth 2.0**. İçinde **yetkilendirme verileri eklediğinizde** açılan listesinde, select **istek üstbilgileri**. Seçin **yeni erişim belirteci almak getirin**.
-    
+
     ![Yetkilendirme Ayarları sekmesi](./azure-ad-b2c-webapi/postman-auth-tab.png)
 
 2. Tamamlamak **alma yeni erişim BELİRTECİ** aşağıdaki gibi iletişim:
-    
-    | Ayar                   | Değer                                                                                         | Notlar                                                                                      |
-    |---------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-    | **Belirteç adı**            | *&lt;belirteç adı&gt;*                                                                          | Belirteç için açıklayıcı bir ad girin.                                                    |
-    | **Sağlama türü**            | Örtük                                                                                      |                                                                                            |
-    | **Geri çağırma URL'si**          | `https://getpostman.com/postman`                                                              |                                                                                            |
-    | **Kimlik doğrulama URL'si**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Değiştir  *&lt;Kiracı etki alanı adı&gt;*  köşeli parantez olmadan kiracının etki alanı adına sahip. |
-    | **İstemci kimliği**             | *&lt;Postman uygulamanın girin <b>uygulama kimliği</b>&gt;*                                       |                                                                                            |
-    | **İstemci parolası**         | *&lt;Boş bırakın&gt;*                                                                         |                                                                                            |
-    | **Kapsam**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Değiştir  *&lt;Kiracı etki alanı adı&gt;*  köşeli parantez olmadan kiracının etki alanı adına sahip. |
-    | **İstemci kimlik doğrulaması** | İstemci kimlik bilgileri gövdesinde Gönder                                                               |                                                                                            |
-    
+
+
+   |                Ayar                 |                                             Değer                                             |                                                                                                                                    Notlar                                                                                                                                     |
+   |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      <strong>Belirteç adı</strong>       |                                  <em>&lt;belirteç adı&gt;</em>                                  |                                                                                                                   Belirteç için açıklayıcı bir ad girin.                                                                                                                    |
+   |      <strong>Sağlama türü</strong>       |                                           Örtük                                            |                                                                                                                                                                                                                                                                              |
+   |     <strong>Geri çağırma URL'si</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
+   |       <strong>Kimlik doğrulama URL'si</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Değiştir <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip.                                                                                                  |
+   |       <strong>İstemci kimliği</strong>       |                <em>&lt;Postman uygulamanın girin <b>uygulama kimliği</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
+   |     <strong>İstemci parolası</strong>     |                                 <em>&lt;Boş bırakın&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |         <strong>Kapsam</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Değiştir <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip. Değiştir <em>&lt;API&gt;</em> Web API projesi ada sahip. Uygulama kimliği de kullanabilirsiniz URL deseni: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope adı}</em>. |
+   | <strong>İstemci kimlik doğrulaması</strong> |                                İstemci kimlik bilgileri gövdesinde Gönder                                |                                                                                                                                                                                                                                                                              |
+
+
 3. Seçin **isteği belirteci** düğmesi.
 
 4. Postman Azure AD B2C kiracının oturum açma iletişim kutusu içeren yeni bir pencere açılır. (Bir ilkelerini sınama oluşturulduysa) var olan bir hesapla oturum oturum veya seçin **şimdi kaydolun** yeni bir hesap oluşturmak için. **Parolanızı mı unuttunuz?** bağlantı Unutulan parolayı sıfırlamak için kullanılır.
 
 5. Başarıyla oturum açtıktan sonra penceresi kapanır ve **yönetmek erişim BELİRTEÇLERİ** iletişim kutusu görüntülenir. Seçin ve alt kaydırın **kullanım belirteci** düğmesi.
-    
+
     !["Kullanım Token" düğmesi nerede bulacağını](./azure-ad-b2c-webapi/postman-access-token.png)
 
 ### <a name="test-the-web-api-with-authentication"></a>Kimlik doğrulaması ile web API testi
 
 Seçin **Gönder** düğmesi isteğini yeniden gönderin. Bu süre, yanıt durumu olan *200 Tamam* ve JSON yükü yanıtta görülebilir **gövde** sekmesi.
-    
+
 ![Yük ve başarı durumu](./azure-ad-b2c-webapi/postman-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar

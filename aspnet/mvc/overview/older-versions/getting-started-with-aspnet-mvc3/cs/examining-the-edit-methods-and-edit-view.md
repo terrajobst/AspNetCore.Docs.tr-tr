@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
-title: "Düzenleme görünümü (C#) ve düzenleme yöntemler inceleniyor | Microsoft Docs"
+title: Düzenleme görünümü (C#) ve düzenleme yöntemler inceleniyor | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici Microsoft Visual Web Developer 2010 Express Service Pack olan 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 137254be69344f31e65e1b4d1318a107ff9d6d47
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 581138bb25b95ef9002a2bd97d1fa28797d96bfa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>Düzenleme görünümü (C#) ve düzenleme yöntemler inceleniyor
 ====================
@@ -220,6 +220,6 @@ Uygulamayı çalıştırın ve Gözat */filmler/SearchIndex*. Bir arama Tarz, fi
 
 Bu bölümde çerçevesi tarafından oluşturulan görünümleri ve CRUD eylem yöntemleri incelendi. Bir arama eylem yöntemi ve filmi ve türe göre arama, kullanıcıların izin görünüm oluşturduğunuz. Sonraki bölümde, yeni özellik eklemek nasıl göreceğiz `Movie` modeli ve otomatik olarak bir test veritabanı oluşturacak bir başlatıcı ekleme.
 
->[!div class="step-by-step"]
-[Önceki](accessing-your-models-data-from-a-controller.md)
-[sonraki](adding-a-new-field.md)
+> [!div class="step-by-step"]
+> [Önceki](accessing-your-models-data-from-a-controller.md)
+> [sonraki](adding-a-new-field.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET ASP.NET Core 2.0 geçirme"
+title: ASP.NET ASP.NET Core 2.0 geçirme
 author: isaac2004
-description: "ASP.NET Core 2.0 geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yönergeler alırsınız."
+description: ASP.NET Core 2.0 geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yönergeler alırsınız.
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 877bcdbe5c5fb43e280800b2b843f2dfacb5bb45
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 86b4ee5f431d1e23ed3ad2be5740af34176de531
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
 Tarafından [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,7 @@ Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET uygulamaları için bir başvuru 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET core 2.0.0 SDK](https://dot.net/core) veya sonraki bir sürümü.
+[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
 ASP.NET Core 2.0 projeleri geliştiriciler .NET Core, .NET Framework veya her ikisini hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim yapma](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) hangi hedef Framework'ü en uygun olduğunu belirlemek için.
@@ -145,7 +145,7 @@ ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;
 
 Örneğin, bir görüntü varlığı *wwwroot/görüntüleri* klasördür erişilebilir bir konumda tarayıcıya gibi `http://<app>/images/<imageFileName>`.
 
-**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışmaya giriş](xref:fundamentals/static-files).
+**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışma](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

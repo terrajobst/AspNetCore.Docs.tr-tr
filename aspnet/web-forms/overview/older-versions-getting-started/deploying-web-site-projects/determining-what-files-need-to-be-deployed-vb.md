@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: "Dosyaları olması için gerekenler belirleniyor dağıtılan (VB) | Microsoft Docs"
+title: Dosyaları olması için gerekenler belirleniyor dağıtılan (VB) | Microsoft Docs
 author: rick-anderson
-description: "Dosyaları geliştirme ortamından üretim ortamına dağıtılması için gerekenler kısmen olup ASP.NET uygulaması bize oluşturulduğuna bağlı..."
+description: Dosyaları geliştirme ortamından üretim ortamına dağıtılması için gerekenler kısmen olup ASP.NET uygulaması bize oluşturulduğuna bağlı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Dağıtılan (VB) dosyaları olması için gerekenler belirleniyor
 ====================
@@ -41,7 +41,7 @@ Adlı bir ASP.NET sayfasının göz önünde bulundurun `Clock.aspx` geçerli ta
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-Bu sayfa, sayfanın kod bölümü için bir istek hizmet vermek ASP.NET altyapısı için sırayla (  *`WebPage`*  `.aspx.vb` dosyası) ilk derlenmiş gerekir. Bu derleme açıkça veya otomatik olarak ortaya çıkabilir.
+Bu sayfa, sayfanın kod bölümü için bir istek hizmet vermek ASP.NET altyapısı için sırayla ( *`WebPage`* `.aspx.vb` dosyası) ilk derlenmiş gerekir. Bu derleme açıkça veya otomatik olarak ortaya çıkabilir.
 
 Derleme açıkça olur sonra tüm uygulamanın kaynak kodu bir veya daha fazla derlemeye derlenmiş (`.dll` dosyaları) uygulama içinde bulunan `Bin` dizin. Elde edilen otomatik olarak oluşturulan daha sonra derleme otomatik olarak derlemedir, varsayılan olarak, olursa yerleştirilen `Temporary ASP.NET Files` bulunabilir klasörü `%WINDOWS%\Microsoft.NET\Framework\<version>`, bu konum aracılığıyla yapılandırılabilir olsa da [ &lt; derleme&gt; öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde `Web.config`. Açık derleme ile bir derlemeye ASP.NET uygulama kodu derlemek için bazı işlemler yapması gerekir ve bu adımı dağıtımdan önce gerçekleşir. Kaynak ilk erişildiğinde otomatik derleme ile web sunucusu üzerinde derleme işlemi gerçekleşir.
 
@@ -79,15 +79,15 @@ Bu öğretici için karşıdan yükleme rehberi incelemeler adlı bir ASP.NET uy
 - Bir ana sayfa (`Site.master`).
 - Yedi farklı ASP.NET sayfaları:
 
-    - ~/`Default.aspx`-sitenin giriş sayfası.
-    - ~/`About.aspx`-bir "İlgili Site" sayfası.
-    - ~/`Fiction/Default.aspx`-incelendi kurgu books listelendiği bir sayfa.
+    - ~/`Default.aspx` -sitenin giriş sayfası.
+    - ~/`About.aspx` -bir "İlgili Site" sayfası.
+    - ~/`Fiction/Default.aspx` -incelendi kurgu books listelendiği bir sayfa.
 
-        - ~/`Fiction/Blaze.aspx`-Richard Bachman Romanım gözden *Blaze*.
-    - ~/`Tech/Default.aspx`-incelendi teknolojisi books listelendiği bir sayfa.
+        - ~/`Fiction/Blaze.aspx` -Richard Bachman Romanım gözden *Blaze*.
+    - ~/`Tech/Default.aspx` -incelendi teknolojisi books listelendiği bir sayfa.
 
-        - ~/`Tech/CYOW.aspx`-gözden *oluşturma kendi Web sitenizi*.
-        - ~/`Tech/TYASP35.aspx`-gözden *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*.
+        - ~/`Tech/CYOW.aspx` -gözden *oluşturma kendi Web sitenizi*.
+        - ~/`Tech/TYASP35.aspx` -gözden *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*.
 - Farklı CSS dosyaları üç `Styles` klasör.
 - Dört bulunan - ASP.NET logo ve üç geçirilmiş books kapsar görüntülerini tarafından desteklenen - tüm resim dosyaları `Images` klasör.
 - A `Web.sitemap` site haritası tanımlar ve menülerde görüntülemek için kullanılan dosya `Default.aspx` kök dizininde sayfaları ve `Fiction` ve `Tech` klasörler.
@@ -189,6 +189,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Visual Studio 2005'ın Web sitesi proje sisteminin: nedir ve neden biz bunu?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [İzlenecek yol: bir Web sitesi projesini Visual Studio'da bir Web uygulaması projesi dönüştürme](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Önceki](asp-net-hosting-options-vb.md)
-[sonraki](deploying-your-site-using-an-ftp-client-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](asp-net-hosting-options-vb.md)
+> [sonraki](deploying-your-site-using-an-ftp-client-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/iis/developing-and-deploying-in-a-shared-hosting
-title: "Geliştirme ve bir paylaşılan barındırma dağıtma | Microsoft Docs"
+title: Geliştirme ve bir paylaşılan barındırma dağıtma | Microsoft Docs
 author: JoeStagner
-description: "Gösteren tarafından paylaşılan bir barındırma ortamında geliştirme ASP.NET uygulamalarında bu videoyu tanıtır &quot;canlı düzenleme&quot; ve &quot;uzak yayın &..."
+description: Gösteren tarafından paylaşılan bir barındırma ortamında geliştirme ASP.NET uygulamalarında bu videoyu tanıtır &quot;canlı düzenleme&quot; ve &quot;uzak yayın &...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/iis/developing-and-deploying-in-a-shared-hosting
 msc.type: video
-ms.openlocfilehash: f452dd7c2ff3b3c229a50d330f2aa3fb7fdd46d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 806e328472ee398c5641c899b41176a89fe37353
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="developing-and-deploying-in-a-shared-hosting"></a>Geliştirme ve bir paylaşılan barındırma dağıtma
 ====================
@@ -24,7 +24,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 
 Bu videoda, Visual Web Developer 2008 "Canlı Düzenleme" ve "Uzak yayını" özellikleri gösteren tarafından paylaşılan bir barındırma ortamında geliştirme ASP.NET uygulamalarında açıklanmaktadır.
 
-[&#9654; (46 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
+[&#9654;(46 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/developing-and-deploying-in-a-shared-hosting)
 
->[!div class="step-by-step"]
-[Sonraki](working-with-iis7-deligated-admin.md)
+> [!div class="step-by-step"]
+> [Next](working-with-iis7-deligated-admin.md)

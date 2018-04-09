@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
-title: "Ana/ayrıntı seçilebilir ana GridView ayrıntıları DetailView ile (C#) kullanarak | Microsoft Docs"
+title: Ana/ayrıntı seçilebilir ana GridView ayrıntıları DetailView ile (C#) kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici, satırları seçme düğmesi yanı sıra her ürünün fiyatı ve adını ekler GridView sahip olur. Bir particu için Seç düğmesini tıklatarak..."
+description: Bu öğretici, satırları seçme düğmesi yanı sıra her ürünün fiyatı ve adını ekler GridView sahip olur. Bir particu için Seç düğmesini tıklatarak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5f0d380ee411116844f42a542c12050513721eb1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9d39786cb17449b93e6f728a0a3c920e1be089be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Ana/ayrıntı seçilebilir ana GridView ayrıntıları DetailView ile (C#) kullanarak
 ====================
@@ -131,12 +131,12 @@ Bu eklenmesiyle seçili GridView satır şimdi sarı arka plan rengiyle vurgulan
 **Şekil 9**: çağırma `ProductsBLL` sınıfının `GetProductByProductID(productID)` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image27.png))
 
 
-Sahip  *`productID`*  GridView denetiminin elde edilen parametrenin değeri `SelectedValue` özelliği. Biz GridView'ın daha önce bahsedildiği gibi `SelectedValue` özelliği, ilk veri anahtar seçili olan satır için değerini döndürür. Bu nedenle, zorunludur, GridView's `DataKeyNames` özelliği ayarlanmış `ProductID`, böylece seçilen satırın `ProductID` tarafından döndürülen değer `SelectedValue`.
+Sahip *`productID`* GridView denetiminin elde edilen parametrenin değeri `SelectedValue` özelliği. Biz GridView'ın daha önce bahsedildiği gibi `SelectedValue` özelliği, ilk veri anahtar seçili olan satır için değerini döndürür. Bu nedenle, zorunludur, GridView's `DataKeyNames` özelliği ayarlanmış `ProductID`, böylece seçilen satırın `ProductID` tarafından döndürülen değer `SelectedValue`.
 
 
 [![GridView's SelectedValue özelliği parametre ProductID ayarlayın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image29.png)](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image28.png)
 
-**Şekil 10**: ayarlamak  *`productID`*  GridView'ın parametre `SelectedValue` özelliği ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
+**Şekil 10**: ayarlamak *`productID`* GridView'ın parametre `SelectedValue` özelliği ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/_static/image30.png))
 
 
 Bir kez `productDetailsDataSource` ObjectDataSource doğru şekilde yapılandırılmış ve DetailsView'a bağlı, Bu öğretici tamamlandıktan! Sayfa ilk sitesini ziyaret ettiğinizde herhangi bir sütun seçiliyse, böylece GridView'ın `SelectedValue` özelliği döndürür `null`. Hiçbir ürünleriyle olduğundan bir `NULL` `ProductID` değeri, hiçbir kayıt tarafından döndürülür `GetProductByProductID(productID)` DetailsView görüntülenmiyor anlamı yöntemi (bkz. Şekil 11). GridView satırın Seç düğmesini tıklatarak, üzerine geri gönderimin ensues ve DetailsView yenilenir. Bu sefer GridView's `SelectedValue` özelliği döndürür `ProductID` seçilen satırın `GetProductByProductID(productID)` yöntemi döndürür bir `ProductsDataTable` , belirli ürün ve DetailsView hakkında bilgi içeren bu Ayrıntılar gösterilir (bkz. Şekil 12).
@@ -162,12 +162,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Hilton Giesenow oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-detail-filtering-across-two-pages-cs.md)
-[sonraki](master-detail-filtering-with-a-dropdownlist-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](master-detail-filtering-across-two-pages-cs.md)
+> [sonraki](master-detail-filtering-with-a-dropdownlist-vb.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC etiketi yardımcı önbelleğe alma"
+title: ASP.NET Core MVC etiketi yardımcı önbelleğe alma
 author: pkellner
-description: "Önbellek etiket Yardımcısı ile çalışmaya nasıl gösterir"
+description: Önbellek etiket Yardımcısı ile çalışmaya nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>ASP.NET Core MVC etiketi yardımcı önbelleğe alma
 
@@ -60,10 +60,9 @@ Aşağıdaki özniteliklerle önbellek süresini ayarlayabilirsiniz:
 
 ### <a name="expires-on"></a>expires-on 
 
-| Öznitelik türü    | Örnek değer     |
-|----------------   |----------------   |
-| DateTimeOffset    | "@new DateTime(2025,1,29,17,02,0)"    |
-
+| Öznitelik türü |           Örnek değer            |
+|----------------|------------------------------------|
+| DateTimeOffset | "@new DateTime(2025,1,29,17,02,0)" |
 
 Bir mutlak sona erme tarihi ayarlar. Aşağıdaki örnek, 17:02:00 saatleri 29 Ocak 2025 üzerinde kadar önbellek etiket Yardımcısı içeriğini önbelleğe alır.
 
@@ -79,10 +78,9 @@ Bir mutlak sona erme tarihi ayarlar. Aşağıdaki örnek, 17:02:00 saatleri 29 O
 
 ### <a name="expires-after"></a>expires-after
 
-| Öznitelik türü    | Örnek değer     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
-
+| Öznitelik türü |        Örnek değer         |
+|----------------|------------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(120)" |
 
 Süre içeriği önbelleğe almak için ilk istek saati ayarlar. 
 
@@ -98,10 +96,9 @@ Süre içeriği önbelleğe almak için ilk istek saati ayarlar.
 
 ### <a name="expires-sliding"></a>expires-sliding
 
-| Öznitelik türü    | Örnek değer     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
-
+| Öznitelik türü |        Örnek değer        |
+|----------------|-----------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(60)" |
 
 Değil erişilen, önbellek girişi çıkarılacak süreyi ayarlar.
 
@@ -169,7 +166,7 @@ routes.MapRoute(
     name: "default",
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
-  
+
 *Index.cshtml*
 
 ```cshtml
@@ -224,10 +221,9 @@ Bu öznitelik kullanarak oturum açması ve günlük genişletme döngüsü boyu
 
 ### <a name="vary-by"></a>farklılık tarafından
 
-| Öznitelik türü    | Örnek değerler                |
-|----------------   |----------------               |
-| Dize             | "@Model"                 |
-
+| Öznitelik türü | Örnek değerler |
+|----------------|----------------|
+|     Dize     |    "@Model"    |
 
 Hangi verileri önbelleğe, özelleştirme için sağlar. Önbellek etiket Yardımcısı içeriğini özniteliğin dize değeri değişiklikleri tarafından başvurulan nesne güncelleştirildiğinde. Genellikle dize birleştirme modeli değerlerin bu özniteliğe atanır.  Etkili bir şekilde birleştirilmiş değerleri için bir güncelleştirme önbelleği geçersiz kılar anlamına gelir.
 
@@ -277,11 +273,11 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 </cache>
 ```
 
-`priority` Özniteliği önbellek bekletme belirli bir düzeyde garanti etmez. `CacheItemPriority`yalnızca bir öneridir. Bu öznitelik ayarını `NeverRemove` önbelleği her zaman korunması garanti etmez. Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için.
+`priority` Özniteliği önbellek bekletme belirli bir düzeyde garanti etmez. `CacheItemPriority` yalnızca bir öneridir. Bu öznitelik ayarını `NeverRemove` önbelleği her zaman korunması garanti etmez. Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için.
 
 Önbellek etiket Yardımcısı bağlı [bellek önbellek hizmeti](xref:performance/caching/memory). Değil eklenmişse önbellek etiket Yardımcısı hizmet ekler.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Bellek içi önbelleğe alma](xref:performance/caching/memory)
+* [Önbellek-](xref:performance/caching/memory)
 * [Kimliğe giriş](xref:security/authentication/identity)

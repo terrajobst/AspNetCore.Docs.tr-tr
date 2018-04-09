@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: testine dağıtma | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: testine dağıtma | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/23/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-iis
 msc.type: authoredcontent
-ms.openlocfilehash: 01f72e0240e84944f8ffece9a2dbc5802be4646b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: dc11072e053cbddd089e5df4bcea6d2a7af864fc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-test"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Test için dağıtma
 ====================
@@ -52,15 +52,15 @@ Geliştirme bilgisayarınızda IIS dağıtmak için IIS ve Web dağıtımı yük
 
     IIS ve Web dağıtımı yüklemek için Web Platformu yükleyicisi çalıştırmak için aşağıdaki bağlantıyı kullanın. IIS, Web dağıtımı veya herhangi birini gerekli bileşenleri zaten yüklediyseniz, Web Platformu yükleyicisi yalnızca neyin eksik olduğu yükler.
 
-    - [IIS ve Webpı kullanarak Web dağıtımı yükleme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
+   - [IIS ve Webpı kullanarak Web dağıtımı yükleme](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=IIS7;ASPNET;NETFramework4;WDeploy)
 
-    IIS 7 yüklü olduğunu belirten bir ileti görürsünüz. Bağlantı works Windows 8'de IIS 8, ancak Windows 8 için ASP.NET 4.5 aşağıdaki adımları gerçekleştirerek yüklendiğinden emin olun:
+     IIS 7 yüklü olduğunu belirten bir ileti görürsünüz. Bağlantı works Windows 8'de IIS 8, ancak Windows 8 için ASP.NET 4.5 aşağıdaki adımları gerçekleştirerek yüklendiğinden emin olun:
 
-    1. Açık **Denetim Masası**, **programlar ve Özellikler**, **kapatma Windows özelliklerini aç veya Kapat**.
-    2. Genişletme **Internet Information Services**, **World Wide Web Hizmetleri**, ve **uygulama geliştirme özellikleri**.
-    3. Olduğundan emin olun **ASP.NET 4.5** seçilir.
+   - Açık **Denetim Masası**, **programlar ve Özellikler**, **kapatma Windows özelliklerini aç veya Kapat**.
+   - Genişletme **Internet Information Services**, **World Wide Web Hizmetleri**, ve **uygulama geliştirme özellikleri**.
+   - Olduğundan emin olun **ASP.NET 4.5** seçilir.
 
-        ![ASP.NET 4.5 seçin](deploying-to-iis/_static/image1.png)
+      ![ASP.NET 4.5 seçin](deploying-to-iis/_static/image1.png)
 
 IIS'yi yükledikten sonra çalıştırmak **IIS Yöneticisi'ni** .NET Framework sürüm 4 varsayılan uygulama havuzuna atanmış olduğundan emin olmak için.
 
@@ -178,7 +178,7 @@ Yayımlanmadan önce Visual Studio'yu Yönetici modunda çalışır durumda oldu
     Sihirbaz için otomatik olarak ilerler **bağlantı** sekmesi.
 4. İçinde **hizmeti URL'si** kutusuna *localhost*.
 5. İçinde **Site/uygulama** kutusuna *varsayılan Web sitesi/ContosoUniversity*
-6. İçinde **hedef URL** kutusuna, girin`http://localhost/ContosoUniversity`
+6. İçinde **hedef URL** kutusuna, girin `http://localhost/ContosoUniversity`
 
     **Hedef URL** ayar gerekli değildir. Visual Studio uygulama dağıtma sona erdiğinde, bu URL için varsayılan tarayıcı otomatik olarak açılır. Dağıtım sonrasında otomatik olarak açmak için tarayıcı istemiyorsanız, bu kutuyu boş bırakın.
 7. Tıklatın **bağlantıyı doğrula** ayarlarının doğru olduğundan ve yerel bilgisayarda IIS bağlanabilir doğrulanamadı.
@@ -337,6 +337,6 @@ Visual Studio'da IIS veya IIS Express çalıştırma hakkında daha fazla bilgi 
 
 Uygulamanızı Orta güven çalıştığında hangi sorunlar hakkında bilgi doğabilecek için bkz: [ASP.NET uygulamalarında barındırma Orta güven](http://www.4guysfromrolla.com/articles/100307-1.aspx) Rolla sitesinden 4 yazarlar üzerinde.
 
->[!div class="step-by-step"]
-[Önceki](project-properties.md)
-[sonraki](setting-folder-permissions.md)
+> [!div class="step-by-step"]
+> [Önceki](project-properties.md)
+> [sonraki](setting-folder-permissions.md)

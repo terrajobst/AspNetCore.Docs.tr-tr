@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: komut satırı dağıtım | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: komut satırı dağıtım | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: komut satırı dağıtım
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -98,9 +98,9 @@ Yayımlama profili adı veya tam yolunu belirtebilirsiniz *.pubxml* , aşağıda
 
 Üç yöntem yayımlamak için komut satırı yayımlama desteklenir:
 
-- `MSDeploy`-Web dağıtımı kullanarak yayımlayın.
-- `Package`-Web dağıtım paketi oluşturarak yayımlayın. Paket oluşturduğu MSBuild komutu ayrı olarak yüklemeniz gerekir.
-- `FileSystem`-Dosyaları belirtilen klasöre kopyalayarak yayımlayın.
+- `MSDeploy` -Web dağıtımı kullanarak yayımlayın.
+- `Package` -Web dağıtım paketi oluşturarak yayımlayın. Paket oluşturduğu MSBuild komutu ayrı olarak yüklemeniz gerekir.
+- `FileSystem` -Dosyaları belirtilen klasöre kopyalayarak yayımlayın.
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>Yapı yapılandırması ve platformu belirtme
 
@@ -144,6 +144,6 @@ Komut satırını kullanarak bir uygulama güncelleştirmesi şimdi dağıtmış
 
 Sonraki öğreticide web genişletmek nasıl bir örnek görürsünüz yayımlama kanalı. Örnek projeye dahil edilmeyen dosyaları dağıtmak nasıl yapacağınızı gösterir.
 
->[!div class="step-by-step"]
-[Önceki](deploying-a-database-update.md)
-[sonraki](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-a-database-update.md)
+> [sonraki](deploying-extra-files.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-unit-testing-with-team-system
-title: "Birim testi Team System ile giriş | Microsoft Docs"
+title: Birim testi Team System ile giriş | Microsoft Docs
 author: rick-anderson
-description: "Bu videoda nasıl birim testi doğrudan Visual Studio IDE içinde Visual Studio Team System birim sınama özellikleri tümleştirmek bakın."
+description: Bu videoda nasıl birim testi doğrudan Visual Studio IDE içinde Visual Studio Team System birim sınama özellikleri tümleştirmek bakın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/09/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-unit-testing-with-team-system
 msc.type: video
-ms.openlocfilehash: 0199b2ae563a349d2471d98f78fe4f2e77c7e982
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 928f3cd08fc0e68003fa3b160953b997bd744f68
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-unit-testing-with-team-system"></a>Birim testi Team System ile giriş
 ====================
@@ -24,7 +24,7 @@ Eric Lee tarafından
 
 Bu videoda nasıl birim testi doğrudan Visual Studio IDE içinde Visual Studio Team System birim sınama özellikleri tümleştirmek bakın.
 
-[&#9654; (10 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-unit-testing-with-team-system)
+[&#9654;(10 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-unit-testing-with-team-system)
 
->[!div class="step-by-step"]
-[Sonraki](introduction-to-testing-web-applications-with-team-system.md)
+> [!div class="step-by-step"]
+> [Next](introduction-to-testing-web-applications-with-team-system.md)

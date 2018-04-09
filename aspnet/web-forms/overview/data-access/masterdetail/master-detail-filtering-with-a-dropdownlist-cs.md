@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
-title: "Ana/ayrıntı ile DropDownList (C#) filtreleme | Microsoft Docs"
+title: Ana/ayrıntı ile DropDownList (C#) filtreleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide master kayıtları DropDownList denetimi ve GridView içinde seçilen liste öğesinin ayrıntılarını görüntülemek nasıl göreceğiz."
+description: Bu öğreticide master kayıtları DropDownList denetimi ve GridView içinde seçilen liste öğesinin ayrıntılarını görüntülemek nasıl göreceğiz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 42a6a76b0b05045bed1ada227b7c32a51600b760
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Ana/ayrıntı filtreleme ile DropDownList (C#)
 ====================
@@ -87,12 +87,12 @@ Bu son bizim ana/ayrıntı raporu seçili kategoriyle ilişkili ürünleri liste
 **Şekil 7**: seçin `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-cs/_static/image21.png))
 
 
-Bu yöntem seçtikten sonra ObjectDataSource Sihirbazı bize değeri yöntemin için ister  *`categoryID`*  parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi kümesine parametre kaynak denetimi ve ControlId `Categories`.
+Bu yöntem seçtikten sonra ObjectDataSource Sihirbazı bize değeri yöntemin için ister *`categoryID`* parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi kümesine parametre kaynak denetimi ve ControlId `Categories`.
 
 
 [![Adlı kullanıcı, Categoryıd'si parametresi kategorileri DropDownList değerine ayarlayın](master-detail-filtering-with-a-dropdownlist-cs/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-cs/_static/image22.png)
 
-**Şekil 8**: ayarlamak  *`categoryID`*  parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
+**Şekil 8**: ayarlamak *`categoryID`* parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-cs/_static/image24.png))
 
 
 Bir tarayıcıda bizim ilerleme kullanıma için bir dakikanızı ayırın. İlk sitesini ziyaret ettiğinde bu ürünler seçilen kategoriye ait (Meşrubat) (Şekil 9'da gösterildiği gibi) görüntülenir, ancak DropDownList değiştirme veri güncelleştirilmiyor. Geri gönderimin GridView güncelleştirmek oluşması gereken olmasıdır. Bunu gerçekleştirmek için şu (kümelesini herhangi bir kod yazmadan gerektirir) iki seçeneğiniz vardır:
@@ -145,11 +145,11 @@ Bu değişiklikler sonra ilk sitesini ziyaret ettiğinde "--bir kategori seçin-
 **Şekil 13**: üzerinde ilk sayfa Hayır ürünleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-cs/_static/image37.png))
 
 
-Değeri olduğu için hiç ürün "--bir kategori seçin--" öğesini seçilmediğinden zaman görüntülenme nedeni `-1` ve veritabanında hiç ürün yok bir `CategoryID` , `-1`. Bu noktada bitirdikten sonra istediğiniz davranış varsa! Ancak görüntülemek istiyorsanız, *tüm* "--bir kategori seçin--" liste öğesi seçildiğinde kategorilerini dönmek `ProductsBLL` sınıfı ve özelleştirme `GetProductsByCategoryID(categoryID)` onun çağırır şekilde yöntemi `GetProducts()` yöntemi varsa geçirilen içinde  *`categoryID`*  parametresi sıfırdan küçük:
+Değeri olduğu için hiç ürün "--bir kategori seçin--" öğesini seçilmediğinden zaman görüntülenme nedeni `-1` ve veritabanında hiç ürün yok bir `CategoryID` , `-1`. Bu noktada bitirdikten sonra istediğiniz davranış varsa! Ancak görüntülemek istiyorsanız, *tüm* "--bir kategori seçin--" liste öğesi seçildiğinde kategorilerini dönmek `ProductsBLL` sınıfı ve özelleştirme `GetProductsByCategoryID(categoryID)` onun çağırır şekilde yöntemi `GetProducts()` yöntemi varsa geçirilen içinde *`categoryID`* parametresi sıfırdan küçük:
 
 [!code-csharp[Main](master-detail-filtering-with-a-dropdownlist-cs/samples/sample2.cs)]
 
-Burada kullanılan teknikleri kullandık tüm tedarikçileri görüntülenecek yaklaşım benzer geri [bildirim temelli parametreleri](../basic-reporting/declarative-parameters-cs.md) öğretici, bu örnek için biz değerini kullanmakta olduğunuz rağmen `-1` tüm kayıtları olması gerektiğini belirtmek için tersine alınan `null`. Bunun nedeni,  *`categoryID`*  parametresinin `GetProductsByCategoryID(categoryID)` yöntemi, tamsayı değeri geçirilen gibi bildirim temelli parametreleri öğreticide biz dize giriş parametresi geçirme ancak bekliyor.
+Burada kullanılan teknikleri kullandık tüm tedarikçileri görüntülenecek yaklaşım benzer geri [bildirim temelli parametreleri](../basic-reporting/declarative-parameters-cs.md) öğretici, bu örnek için biz değerini kullanmakta olduğunuz rağmen `-1` tüm kayıtları olması gerektiğini belirtmek için tersine alınan `null`. Bunun nedeni, *`categoryID`* parametresinin `GetProductsByCategoryID(categoryID)` yöntemi, tamsayı değeri geçirilen gibi bildirim temelli parametreleri öğreticide biz dize giriş parametresi geçirme ancak bekliyor.
 
 Şekil 14 gösteren ekran görüntüsü `FilterByDropDownList.aspx` "--bir kategori seçin--" seçeneği seçildiğinde. Burada, tüm ürünleri varsayılan olarak görüntülenir ve kullanıcı belirli bir kategorideki seçerek görüntü daraltabilirsiniz.
 
@@ -169,7 +169,7 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Next](master-detail-filtering-with-two-dropdownlists-cs.md)
+> [!div class="step-by-step"]
+> [Next](master-detail-filtering-with-two-dropdownlists-cs.md)

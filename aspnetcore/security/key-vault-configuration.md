@@ -1,18 +1,18 @@
 ---
-title: "ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı"
+title: ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 author: guardrex
-description: "Çalışma zamanında yüklenen ad-değer çiftleri kullanarak bir uygulamayı yapılandırmak için Azure anahtar kasası yapılandırma Sağlayıcısı'nı kullanmayı öğrenin."
+description: Çalışma zamanında yüklenen ad-değer çiftleri kullanarak bir uygulamayı yapılandırmak için Azure anahtar kasası yapılandırma Sağlayıcısı'nı kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -54,20 +54,21 @@ Sağlayıcı eklenen `ConfigurationBuilder` ile `AddAzureKeyVault` uzantısı. �
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Anahtar kasasına gizli anahtarları oluşturma ve yapılandırma değerlerini (basic örnek) yükleme
 1. Bir anahtar kasası oluşturun ve yer alan yönergeleri izleyerek uygulama için Azure Active Directory'yi (Azure AD) ayarlama ayarlayın [Azure anahtar kasası ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Gizli anahtar kasası kullanmaya eklemek [AzureRM anahtar kasası PowerShell Modülü](/powershell/module/azurerm.keyvault) kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [Azure anahtar kasası REST API](/rest/api/keyvault/), veya [Azure Portal](https://portal.azure.com/). Gizli ya da oluşturulan *el ile* veya *sertifika* gizli. *Sertifika* gizli uygulamalar ve hizmetler tarafından kullanılması için sertifikalar ancak yapılandırma sağlayıcısı tarafından desteklenmiyor. Kullanmanız gereken *el ile* yapılandırma sağlayıcısı ile kullanmak için ad-değer çifti parolaları oluşturmak için seçeneği.
-    * Basit gizli ad-değer çiftleri olarak oluşturulur. Azure anahtar kasası gizli adların, alfasayısal karakterler ve tire sınırlıdır.
-    * Hiyerarşik değerleri (yapılandırma bölümlerinin) kullanmak `--` (iki kısa çizgi) örnek ayırıcı olarak. Normalde bir alt anahtarda bölümünden sınırlandırmak için kullanılan iki nokta üst üste, [ASP.NET Core yapılandırma](xref:fundamentals/configuration/index), gizli adlarında izin verilmez. Bu nedenle, iki kısa çizgi kullanılan ve gizli anahtarları uygulamanın yapılandırma yüklendiğinde bir iki nokta üst üste takas.
-    * İki oluşturmak *el ile* aşağıdaki ad-değer çiftleri ile gizli. İlk gizli bir basit bir ad ve değer olmadığından ve ikinci gizli bir bölüm ve alt gizli adında gizli bir değer oluşturur:
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Örnek uygulamayı Azure Active Directory ile kaydedin.
-  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
+   * Gizli anahtar kasası kullanmaya eklemek [AzureRM anahtar kasası PowerShell Modülü](/powershell/module/azurerm.keyvault) kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [Azure anahtar kasası REST API](/rest/api/keyvault/), veya [Azure Portal](https://portal.azure.com/). Gizli ya da oluşturulan *el ile* veya *sertifika* gizli. *Sertifika* gizli uygulamalar ve hizmetler tarafından kullanılması için sertifikalar ancak yapılandırma sağlayıcısı tarafından desteklenmiyor. Kullanmanız gereken *el ile* yapılandırma sağlayıcısı ile kullanmak için ad-değer çifti parolaları oluşturmak için seçeneği.
+     * Basit gizli ad-değer çiftleri olarak oluşturulur. Azure anahtar kasası gizli adların, alfasayısal karakterler ve tire sınırlıdır.
+     * Hiyerarşik değerleri (yapılandırma bölümlerinin) kullanmak `--` (iki kısa çizgi) örnek ayırıcı olarak. Normalde bir alt anahtarda bölümünden sınırlandırmak için kullanılan iki nokta üst üste, [ASP.NET Core yapılandırma](xref:fundamentals/configuration/index), gizli adlarında izin verilmez. Bu nedenle, iki kısa çizgi kullanılan ve gizli anahtarları uygulamanın yapılandırma yüklendiğinde bir iki nokta üst üste takas.
+     * İki oluşturmak *el ile* aşağıdaki ad-değer çiftleri ile gizli. İlk gizli bir basit bir ad ve değer olmadığından ve ikinci gizli bir bölüm ve alt gizli adında gizli bir değer oluşturur:
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Örnek uygulamayı Azure Active Directory ile kaydedin.
+   * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
+
 2. Uygulamanın güncelleştirme *appsettings.json* değerlerini dosyasıyla `Vault`, `ClientId`, ve `ClientSecret`.
 3. Kendi yapılandırma değerlerini alır örnek uygulamayı çalıştırma `IConfigurationRoot` gizli adıyla aynı ada sahip.
-  * Hiyerarşik olmayan değerleri: değeri `SecretName` ile elde `config["SecretName"]`.
-  * Hiyerarşik değerleri (bölümler): kullanım `:` (iki nokta üst üste) gösterimi veya `GetSection` genişletme yöntemi. Yapılandırma değeri elde etmek için Bu yaklaşımlardan birini kullanın:
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * Hiyerarşik olmayan değerleri: değeri `SecretName` ile elde `config["SecretName"]`.
+   * Hiyerarşik değerleri (bölümler): kullanım `:` (iki nokta üst üste) gösterimi veya `GetSection` genişletme yöntemi. Yapılandırma değeri elde etmek için Bu yaklaşımlardan birini kullanın:
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerleri gösterir:
 
@@ -97,13 +98,14 @@ Ne zaman bu yaklaşımı uygulayın:
 > Ayrıca kendi sağlayabilirsiniz `KeyVaultClient` uygulamasına `AddAzureKeyVault`. Özel bir istemci sağladığını istemci yapılandırma sağlayıcısı ve uygulamanızdaki diğer bölümleri arasında tek bir örneğini paylaşmanıza olanak tanır.
 
 1. Bir anahtar kasası oluşturun ve yer alan yönergeleri izleyerek uygulama için Azure Active Directory'yi (Azure AD) ayarlama ayarlayın [Azure anahtar kasası ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Gizli anahtar kasası kullanmaya eklemek [AzureRM anahtar kasası PowerShell Modülü](/powershell/module/azurerm.keyvault) kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [Azure anahtar kasası REST API](/rest/api/keyvault/), veya [Azure Portal](https://portal.azure.com/). Gizli ya da oluşturulan *el ile* veya *sertifika* gizli. *Sertifika* gizli uygulamalar ve hizmetler tarafından kullanılması için sertifikalar ancak yapılandırma sağlayıcısı tarafından desteklenmiyor. Kullanmanız gereken *el ile* yapılandırma sağlayıcısı ile kullanmak için ad-değer çifti parolaları oluşturmak için seçeneği.
-    * Hiyerarşik değerleri (yapılandırma bölümlerinin) kullanmak `--` (iki kısa çizgi) ayırıcı olarak.
-    * İki oluşturmak *el ile* parolaları aşağıdaki ad-değer çiftleri ile:
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Örnek uygulamayı Azure Active Directory ile kaydedin.
-  * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
+   * Gizli anahtar kasası kullanmaya eklemek [AzureRM anahtar kasası PowerShell Modülü](/powershell/module/azurerm.keyvault) kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [Azure anahtar kasası REST API](/rest/api/keyvault/), veya [Azure Portal](https://portal.azure.com/). Gizli ya da oluşturulan *el ile* veya *sertifika* gizli. *Sertifika* gizli uygulamalar ve hizmetler tarafından kullanılması için sertifikalar ancak yapılandırma sağlayıcısı tarafından desteklenmiyor. Kullanmanız gereken *el ile* yapılandırma sağlayıcısı ile kullanmak için ad-değer çifti parolaları oluşturmak için seçeneği.
+     * Hiyerarşik değerleri (yapılandırma bölümlerinin) kullanmak `--` (iki kısa çizgi) ayırıcı olarak.
+     * İki oluşturmak *el ile* parolaları aşağıdaki ad-değer çiftleri ile:
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Örnek uygulamayı Azure Active Directory ile kaydedin.
+   * Anahtar kasası erişmek için uygulamasını yetkilendirin. Kullandığınızda `Set-AzureRmKeyVaultAccessPolicy` anahtar kasası erişmek için uygulamasını yetkilendirmek için PowerShell cmdlet sağlamak `List` ve `Get` gizli ile erişimi `-PermissionsToSecrets list,get`.
+
 2. Uygulamanın güncelleştirme *appsettings.json* değerlerini dosyasıyla `Vault`, `ClientId`, ve `ClientSecret`.
 3. Kendi yapılandırma değerlerini alır örnek uygulamayı çalıştırma `IConfigurationRoot` ile aynı adı taşıyan önekli gizli. Bu örnekte, için sağlanan uygulamanın sürüm önektir `PrefixKeyVaultSecretManager` Azure anahtar kasası yapılandırma sağlayıcısı eklediğiniz zaman. Değeri `AppSecret` ile elde `config["AppSecret"]`. Uygulama tarafından oluşturulan Web sayfası yüklenen değer gösterir:
 

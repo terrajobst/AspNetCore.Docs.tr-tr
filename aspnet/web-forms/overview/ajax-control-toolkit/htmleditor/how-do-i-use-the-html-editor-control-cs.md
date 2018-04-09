@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
-title: "HTML düzenleyicisi denetim nasıl kullanabilirim? (C#) | Microsoft Docs"
+title: HTML düzenleyicisi denetim nasıl kullanabilirim? (C#) | Microsoft Docs
 author: microsoft
-description: "HTMLEditor bir ASP.NET AJAX kolayca oluşturmak ve bir araç çubuğu düğmeleri aracılığıyla HTML içeriğini düzenlemek izin veren denetimdir."
+description: HTMLEditor bir ASP.NET AJAX kolayca oluşturmak ve bir araç çubuğu düğmeleri aracılığıyla HTML içeriğini düzenlemek izin veren denetimdir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17343660d7bf7aa6210fa9c6c9c0206598d34b18
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fca18948c0e4f1323f214dc0033f19fa44efad47
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-c"></a>HTML düzenleyicisi denetim nasıl kullanabilirim? (C#)
 ====================
@@ -93,7 +93,7 @@ Sınıfı, uygulamanızın listeleme 2'de eklemelisiniz\_böylece sınıfı otom
 
 Özel bir düzenleyici oluşturduktan sonra normal HTML düzenleyicisi (3 listeleme bakın) ekledikçe, onu bir ASP.NET sayfası aynı şekilde ekleyebilirsiniz.
 
-**3 - ShowCustomEditor.aspx listeleme**
+**Listing 3 - ShowCustomEditor.aspx**
 
 [!code-aspx[Main](how-do-i-use-the-html-editor-control-cs/samples/sample3.aspx)]
 
@@ -111,5 +111,5 @@ Ardından, kullanıcılarınızın--parolaları, kredi kartı numaraları ve sos
 
 Bu öğreticide, AJAX Denetim araç setindeki içerdiği HTML düzenleyicisi denetimi kısa bir genel bakış sağlanmıştır. Bir kullanıcıdan zengin içerik kabul etmek ve içeriği sunucuya göndermek için HTML Düzenleyicisi'ni kullanmak öğrendiniz. HTML düzenleyicisi tarafından görüntülenen araç çubuğu düğmelerini nasıl özelleştirebileceğiniz de açıklanmıştır. Son olarak, kötü amaçlı olabilecek giriş kabul edecek şekilde HTML Düzenleyicisi'ni kullanırken, siteler arası komut dosyası saldırıları önlemek nasıl öğrendiniz.
 
->[!div class="step-by-step"]
-[Sonraki](how-do-i-use-the-html-editor-control-vb.md)
+> [!div class="step-by-step"]
+> [Next](how-do-i-use-the-html-editor-control-vb.md)

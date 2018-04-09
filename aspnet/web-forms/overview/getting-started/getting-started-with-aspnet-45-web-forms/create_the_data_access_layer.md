@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
-title: "Veri erişim katmanı oluşturun | Microsoft Docs"
+title: Veri erişim katmanı oluşturun | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 671d1bbf661dfb3e56c6ccd67ce0d383990918d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-data-access-layer"></a>Veri erişim katmanı oluşturma
 ====================
@@ -68,13 +68,13 @@ Bu öğreticide, ürünler ve kategoriler şemaları temsil eden basit sınıfla
 
     ![Veri erişim katmanı - yeni öğe menü oluşturma](create_the_data_access_layer/_static/image1.png)
 
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Altında **Visual C#** gelen **yüklü** seçin sol bölmede **kod**. 
 
     ![Veri erişim katmanı - yeni öğe menü oluşturma](create_the_data_access_layer/_static/image2.png)
 3. Seçin **sınıfı** Orta bölmesinden ve bu yeni sınıf adını *Product.cs*.
 4. **Ekle**'yi tıklatın.  
- Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
+   Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
 5. Varsayılan kodu aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](create_the_data_access_layer/samples/sample1.cs)]
@@ -95,7 +95,7 @@ Veri erişimi için sınıfları kullanmaya başlamak için bir bağlam sınıf�
 Bu yordam, yeni bir C# bağlamı sınıf için ekler *modelleri* klasör.
 
 1. Sağ *modelleri* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.   
- **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
+   **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
 2. Seçin **sınıfı** Orta bölmesinden adlandırın *ProductContext.cs* tıklatıp **Ekle**.
 3. Aşağıdaki kod ile sınıfı içinde yer alan varsayılan kod değiştirin:   
 
@@ -188,6 +188,6 @@ Sonraki öğreticide UI güncelleştirmesi, gezinti ekleyin ve veritabanından v
 [Kod ilk veri ek açıklamaları](https://msdn.microsoft.com/data/gg193958)  
 [Entity Framework için üretkenlik iyileştirmeleri](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
->[!div class="step-by-step"]
-[Önceki](create-the-project.md)
-[sonraki](ui_and_navigation.md)
+> [!div class="step-by-step"]
+> [Önceki](create-the-project.md)
+> [sonraki](ui_and_navigation.md)

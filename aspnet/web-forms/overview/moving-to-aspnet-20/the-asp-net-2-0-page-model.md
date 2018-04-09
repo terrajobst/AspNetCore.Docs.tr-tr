@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 title: ASP.NET 2.0 sayfa modeli | Microsoft Docs
 author: microsoft
-description: "ASP.NET 1.x, geliştiricilerin sahip bir satır içi kod modeli ve arka plan kodu kod modeli arasında bir seçim. Arka plan kodu Src attr kullanarak uygulanabilir..."
+description: ASP.NET 1.x, geliştiricilerin sahip bir satır içi kod modeli ve arka plan kodu kod modeli arasında bir seçim. Arka plan kodu Src attr kullanarak uygulanabilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 sayfa modeli
 ====================
@@ -144,11 +144,11 @@ Aşağıdaki genel özellikleri ASP.NET 2. 0 ' yenidir.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Uygulama göreli yolu sayfasının veya denetiminin döndürür. Örneğin, http://app/folder/page.aspx bulunan bir sayfa için özelliğin döndürdüğü ~ / klasör /.
+Uygulama göreli yolu sayfasının veya denetiminin döndürür. Örneğin, konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / klasör /.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Göreli sanal dizin yolu sayfasının veya denetiminin döndürür. Örneğin özellik http://app/folder/page.aspx yer alan için bir sayfa döndürür ~ / folder/page.aspx.
+Göreli sanal dizin yolu sayfasının veya denetiminin döndürür. Örneğin konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
@@ -182,7 +182,7 @@ Bu özellik, bir nesneye başvuru sayfa üstbilgisi içeren HtmlHead döndürür
 
 Bu özelliği salt okunur bir sayfadaki denetimleri için benzersiz bir kimlik ASP.NET oluştururken denetim tanımlayıcıları ayırmak için kullanılan karakteri alır. Doğrudan kodunuzdan kullanılmaya yönelik değildir.
 
-## <a name="isasync"></a>Isasync
+## <a name="isasync"></a>IsAsync
 
 Bu özellik için zaman uyumsuz sayfaları sağlar. Zaman uyumsuz sayfaları daha sonra bu modülde ele alınmıştır.
 
@@ -222,7 +222,7 @@ Sayfa için istekte bulunan tarayıcıyı değiştirir PageAdapter nesnesine bir
 
 Önceki sayfaya başvuru bir Server.Transfer veya çapraz sayfa geri gönderimin durumlarda döndürür.
 
-## <a name="skinid"></a>SkinID değerine
+## <a name="skinid"></a>SkinID
 
 Sayfaya uygulamak için ASP.NET 2.0 kaplama belirtir.
 
@@ -381,7 +381,7 @@ Video Sayfalar arası geri gönderimin bir kılavuz ' dir.
 
 Kendiniz zaten viewstate Sayfalar arası geri gönderme senaryosunda ilk sayfadan olabilecekler sorulan. Tüm IPostBackDataHandler uygulamıyor herhangi bir denetimi viewstate, aracılığıyla durumu nedenle Sihirbazın ikinci sayfasında bir çapraz sayfa geri gönderme denetleyen özelliklerini erişimi için korunur, sayfanın görünüm durumu için erişimi olması gerekir. ASP.NET 2.0 adlı ikinci sayfasında yeni bir gizli alan kullanarak bu senaryoyu mvc'deki \_ \_PREVIOUSPAGE. \_ \_PREVIOUSPAGE form alanı, tüm denetimler özelliklerine erişimi ikinci sayfasında böylece ilk sayfa için Görünüm durumu içerir.
 
-### <a name="circumventing-findcontrol"></a>FindControl atlamak
+### <a name="circumventing-findcontrol"></a>Circumventing FindControl
 
 Çapraz sayfa geri gönderimin video kılavuzda ı FindControl TextBox denetimi ilk sayfasında bir başvuru almak için kullanılan yöntem. Bu yöntem, bu amaçla iyi çalışır, ancak FindControl pahalıdır ve ek kod yazma gerektirir. Neyse ki, ASP.NET 2.0, birçok senaryoda çalışır, bu amaç için alternatif FindControl sağlar. PreviousPageType yönergesi TypeName veya VirtualPath özniteliği kullanılarak kesin türü belirtilmiş bir başvuru önceki sayfaya sahip olmanızı sağlar. TypeName özniteliği VirtualPath özniteliği sanal yolu kullanarak önceki sayfaya bakın sağlar, ancak önceki sayfaya türünü belirtmenize olanak tanır. PreviousPageType yönergesi ayarladıktan sonra daha sonra ortaya gerekir denetimleri vb. ortak özellikleri kullanılarak erişimine izin vermek istiyor.
 
@@ -600,11 +600,13 @@ Bir komut dosyası zaten kayıtlı olup olmadığını belirlemek ve komut dosya
 
 Diğer kullanışlı yöntemler ClientScriptManager sınıfının bazıları aşağıda verilmiştir.
 
-| **GetCallbackEventReference** | Bu modüldeki betik geri aramalar bakın. |
-| --- | --- |
-| **GetPostBackClientHyperlink** | JavaScript başvurusu alır (javascript:&lt;çağrısı&gt;) bir istemci-tarafı olayından göndermek için kullanılabilir. |
-| **GetPostBackEventReference** | Bir posta istemcisinden geri başlatmak için kullanılan bir dize alır. |
-| **GetWebResourceUrl** | Bir derlemede katıştırılmış bir kaynağı bir URL döndürür. İle birlikte kullanılmalıdır **RegisterClientScriptResource**. |
-| **RegisterClientScriptResource** | Bir Web kaynağını sayfasıyla kaydeder. Bu derlemede katıştırılmış ve yeni WebResource.axd işleyicisi tarafından işlenen kaynaklardır. |
-| **RegisterHiddenField** | Gizli bir form alanı sayfasıyla kaydeder. |
-| **RegisterOnSubmitStatement** | HTML form gönderildiğinde yürütülen istemci-tarafı kodunun kaydeder. |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 Bu modüldeki betik geri aramalar bakın.                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                JavaScript başvurusu alır (javascript:&lt;çağrısı&gt;) bir istemci-tarafı olayından göndermek için kullanılabilir.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Bir posta istemcisinden geri başlatmak için kullanılan bir dize alır.                                    |
+|      <strong>GetWebResourceUrl</strong>       | Bir derlemede katıştırılmış bir kaynağı bir URL döndürür. İle birlikte kullanılmalıdır <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Bir Web kaynağını sayfasıyla kaydeder. Bu derlemede katıştırılmış ve yeni WebResource.axd işleyicisi tarafından işlenen kaynaklardır.      |
+|     <strong>RegisterHiddenField</strong>      |                                                 Gizli bir form alanı sayfasıyla kaydeder.                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML form gönderildiğinde yürütülen istemci-tarafı kodunun kaydeder.                                   |
+

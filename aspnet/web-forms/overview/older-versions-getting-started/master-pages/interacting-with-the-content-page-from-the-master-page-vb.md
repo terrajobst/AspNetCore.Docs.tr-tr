@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
-title: "Ana sayfa (VB) içerik sayfasından etkileşimde | Microsoft Docs"
+title: Ana sayfa (VB) içerik sayfasından etkileşimde | Microsoft Docs
 author: rick-anderson
-description: "Ana sayfa kodunda özellikleri içerik sayfasının vb. kümeden nasıl yöntemlerini çağıran inceler."
+description: Ana sayfa kodunda özellikleri içerik sayfasının vb. kümeden nasıl yöntemlerini çağıran inceler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9274924b441cb21e33eb57de06ff374428fa036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Ana sayfa (VB) içerik sayfasından ile etkileşim kurma
 ====================
@@ -153,7 +153,7 @@ Bu öğreticide daha önce bahsedildiği gibi kullanıcı tıkladığında ana s
 Bir sınıf oluşturarak, bir olaya abone olan bir *olay işleyicisi*, gerçekleştirilen olaya yanıt olarak yürütülen bir yöntemi. Yayımcı kendisinin başlatır tanımlayarak olayları tanımlayan bir *olay temsilci*. Olay temsilci olay işleyicisi kabul etmelisiniz hangi giriş parametreleri belirtir. .NET Framework olay temsilcileri olmayan herhangi bir değer döndürür ve iki giriş parametreleri kabul eder:
 
 - Bir `Object`, olay kaynağı tanımlar ve
-- Türetilen bir sınıfı`System.EventArgs`
+- Türetilen bir sınıfı `System.EventArgs`
 
 Bir olay işleyicisi geçen ikinci parametre olayla ilgili ek bilgiler içerebilir. While temel `EventArgs` sınıfı herhangi bir bilgi geçişi değil, .NET Framework genişleten sınıflar içerir `EventArgs` ve ek özellikleri kapsar. Örneğin, bir `CommandEventArgs` örnek yanıt olay işleyicileri iletilir `Command` olayı ve iki bilgi özellikleri içerir: `CommandArgument` ve `CommandName`.
 
@@ -257,12 +257,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Suchi Banerjee oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Suchi Banerjee oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](interacting-with-the-master-page-from-the-content-page-vb.md)
-[sonraki](master-pages-and-asp-net-ajax-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](interacting-with-the-master-page-from-the-content-page-vb.md)
+> [sonraki](master-pages-and-asp-net-ajax-vb.md)

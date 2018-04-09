@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
-title: "2. Kısım: Veri erişim katmanı | Microsoft Docs"
+title: '2. Kısım: Veri erişim katmanı | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. kısım, veri erişim katmanı ekleme kapsar."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. kısım, veri erişim katmanı ekleme kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 8b07b320640c1bb0074a4d3a04ca7c5b7e7bb6cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9f734b04a0f4cec3c33bc5b42ef283ea64cdb463
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-data-access-layer"></a>2. Kısım: Veri erişim katmanı
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. kısım, veri erişim katmanı ekleme kapsar.
 
 
-## <a id="_Toc260221668"></a>Veri erişim katmanı ekleme
+## <a id="_Toc260221668"></a>  Veri erişim katmanı ekleme
 
 E-ticaret uygulamamız iki veritabanlarında bağlıdır.
 
@@ -57,6 +57,6 @@ Oluşturma ve kaydedin.
 
 Şimdi biz ilk özelliğimizi – ürün kategorisi menüsünden eklemek hazır olursunuz.
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-1.md)
-[sonraki](tailspin-spyworks-part-3.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-1.md)
+> [sonraki](tailspin-spyworks-part-3.md)

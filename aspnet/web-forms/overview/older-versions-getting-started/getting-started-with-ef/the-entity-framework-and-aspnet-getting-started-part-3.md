@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
-title: "Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 3 | Microsoft Docs"
+title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 3 | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır..."
+description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ec8891c4ccf71494389ba562fdfb4b88055d12f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 654f3556af5d05ec186e1811421966bbaffd2e21
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 3
 ====================
-tarafından [zel Dykstra](https://github.com/tdykstra)
+by [Tom Dykstra](https://github.com/tdykstra)
 
 > Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -184,6 +184,6 @@ Harf "g" metin kutusuna girin ve tıklayın **arama**. Bir "g" ya da ilk veya so
 
 Şimdi görüntülenen, güncelleştirilmiş, filtre, sıralı ve tek tek tablolardaki verileri gruplandırılır. Sonraki öğreticide (ana-ayrıntı senaryolarında) ilgili verilerle çalışmak başlarsınız.
 
->[!div class="step-by-step"]
-[Önceki](the-entity-framework-and-aspnet-getting-started-part-2.md)
-[sonraki](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [!div class="step-by-step"]
+> [Önceki](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [sonraki](the-entity-framework-and-aspnet-getting-started-part-4.md)

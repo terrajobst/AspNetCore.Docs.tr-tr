@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: "ASP.NET Web sayfaları sunarak - verileri görüntüleme | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - verileri görüntüleme | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici Webmatrix'te bir veritabanı oluşturmak nasıl ve ASP.NET Web sayfaları (Razor) kullandığınızda veritabanı verilerinin bir sayfasında nasıl görüntüleneceğini gösterir. Y varsayar..."
+description: Bu öğretici Webmatrix'te bir veritabanı oluşturmak nasıl ve ASP.NET Web sayfaları (Razor) kullandığınızda veritabanı verilerinin bir sayfasında nasıl görüntüleneceğini gösterir. Y varsayar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: fdb9af0ba87c7802c63451ac7aa422e0020b5719
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c66e5fb0a1a49da411286e19c7954f83055c3fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfaları sunarak - verileri görüntüleme
 ====================
@@ -36,7 +36,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Özellikler/teknolojilerini ele alınan:
 > 
 > - WebMatrix veritabanı araçları.
-> - `WebGrid`Yardımcısı.
+> - `WebGrid` Yardımcısı.
 
 
 ## <a name="what-youll-build"></a>Ne oluşturacağınız
@@ -338,6 +338,6 @@ Sonraki öğreticide Razor ve C# kod içinde bir formun kullanıcı girişi alma
 
 - [Razor sözdizimini kullanan ASP.NET Web programlamaya giriş](https://go.microsoft.com/fwlink/?LinkID=202890)
 
->[!div class="step-by-step"]
-[Önceki](intro-to-web-pages-programming.md)
-[sonraki](form-basics.md)
+> [!div class="step-by-step"]
+> [Önceki](intro-to-web-pages-programming.md)
+> [sonraki](form-basics.md)

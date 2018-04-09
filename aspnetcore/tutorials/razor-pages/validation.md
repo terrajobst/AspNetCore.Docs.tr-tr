@@ -1,7 +1,7 @@
 ---
-title: "Bir ASP.NET Core Razor sayfasına doğrulama ekleme"
+title: Bir ASP.NET Core Razor sayfasına doğrulama ekleme
 author: rick-anderson
-description: "ASP.NET Core bir Razor sayfasına doğrulama ekleme bulur."
+description: ASP.NET Core bir Razor sayfasına doğrulama ekleme bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: b07aa55d37b2d8ae65ec60f52142a8491dc46b59
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 271a5ce517ae550845d96e3969b39b1eda6ae51b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Bir ASP.NET Core Razor sayfasına doğrulama ekleme
 
@@ -143,8 +143,8 @@ Bkz: [Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama
 * [Formlarla Çalışma](xref:mvc/views/working-with-forms)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
-* [Etiket Yardımcıları yazma](xref:mvc/views/tag-helpers/authoring)
+* [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 
->[!div class="step-by-step"]
-[Önceki: yeni bir alan ekleyerek](xref:tutorials/razor-pages/new-field)
-[sonraki: dosyaları karşıya yükleme](xref:tutorials/razor-pages/uploading-files)
+> [!div class="step-by-step"]
+> [Önceki: yeni bir alan ekleyerek](xref:tutorials/razor-pages/new-field)
+> [sonraki: dosyaları karşıya yükleme](xref:tutorials/razor-pages/uploading-files)

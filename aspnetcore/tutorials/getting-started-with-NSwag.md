@@ -1,7 +1,7 @@
 ---
-title: "NSwag ile çalışmaya başlama"
+title: NSwag ve ASP.NET Core kullanmaya başlama
 author: zuckerthoben
-description: "Bu öğretici belgeleri oluşturmak ve bir Web API uygulaması için sayfa yardımcı olmak için NSwag ekleme bir kılavuz sağlar."
+description: Belgeleri oluşturmak ve ASP.NET Core Web API uygulaması için sayfa yardımcı olmak için NSwag kullanmayı öğrenin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 62b729feabf12e3428e58ed3cb6ed1864bd6171c
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 80e6a9e1702d8f68d139d2ff9c3a01a27c40cecb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="get-started-with-nswag"></a>NSwag ile çalışmaya başlama
+# <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core kullanmaya başlama
 
 Tarafından [Christoph Nienaber](https://twitter.com/zuckerthoben) ve [Riko Suter](https://rsuter.com)
 
@@ -88,7 +88,7 @@ using NJsonSchema;
 
 İçinde `Startup.Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini hizmet veren ara yazılımı etkinleştir:
 
-[!code-cs[](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=4,7-10)]
+[!code-cs[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=4,7-10)]
 
 Uygulamasını başlatın. Gidin `/swagger` Swagger kullanıcı arabirimini görüntülemek için. Gidin `/swagger/v1/swagger.json` Swagger belirtimi görüntülemek için.
 
@@ -146,28 +146,24 @@ API'nizi istemci projelere kolayca uygulama şimdi başlayabilirsiniz.
 
 XML açıklamaları aşağıdaki yaklaşımlardan ile etkinleştirilir:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml)
-
+#### <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
 * ' Nde projeye sağ **Çözüm Gezgini** seçip **özellikleri**
 * Denetleyin **XML belge dosyası** altında kutusunda **çıkış** bölümünü **yapı** sekmesi:
 
 ![Proje Özellikleri'nin sekmesi oluştur](web-api-help-pages-using-swagger/_static/swagger-xml-comments.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Mac için Visual Studio](#tab/visual-studio-mac-xml)
-
+#### <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Mac için Visual Studio](#tab/visual-studio-mac-xml/)
 * Açık **proje seçenekleri** iletişim > **yapı** > **derleyici**
 * Denetleme **xml belgeleri oluşturmak** altında kutusunda **Genel Seçenekler** bölümü:
 
 ![Proje seçenekleri Genel Seçenekler bölümünde](web-api-help-pages-using-swagger/_static/swagger-xml-comments-mac.png)
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml)
-
+#### <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 El ile eklemek için aşağıdaki kod parçacığını *.csproj* dosyası:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/sample/TodoApi.NSwag/TodoApiNSwag.csproj?range=7-9)]
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.NSwag/TodoApiNSwag.csproj?range=7-9)]
 
----
-
+* * *
 ## <a name="data-annotations"></a>Veri açıklamaları
 
 NSwag kullanan [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve Web API eylemler için en iyi deneyim getirmektir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Sonuç olarak, NSwag eyleminizi ne yaptığını ve ne döndürür gösterilemiyor. Aşağıdaki örnek göz önünde bulundurun:

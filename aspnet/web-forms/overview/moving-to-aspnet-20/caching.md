@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: "Önbelleğe alma | Microsoft Docs"
+title: Önbelleğe alma | Microsoft Docs
 author: microsoft
-description: "İyi gerçekleştiren bir ASP.NET uygulaması için önbelleğe alma anlaşılması önemlidir. ASP.NET 1.x sunulan önbelleğe alma için; üç farklı seçenekler önbelleğe alma çıkışını..."
+description: İyi gerçekleştiren bir ASP.NET uygulaması için önbelleğe alma anlaşılması önemlidir. ASP.NET 1.x sunulan önbelleğe alma için; üç farklı seçenekler önbelleğe alma çıkışını...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>Önbelleğe alma
 ====================
@@ -59,7 +59,7 @@ Yukarıdaki eklenmiş öğesi geçersiz kılmak için basitçe önbellek anahtar
 
 Önbellek anahtarı olarak davranan öğenin anahtarı önbelleği anahtarları diziye eklenen değer ile aynı olması gerektiğini unutmayın.
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>Yoklama tabanlı SQL önbellek bağımlılıkları*(tablo tabanlı bağımlılıklar olarak da bilinir)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Yoklama tabanlı SQL önbellek bağımlılıkları<em>(tablo tabanlı bağımlılıklar olarak da bilinir)</em>
 
 SQL Server 7 ve 2000 yoklama tabanlı modelini SQL önbellek bağımlılıkları için kullanın. Yoklama tabanlı modeli tetikleyici tablodaki verileri değiştirdiğinizde tetikleyen bir veritabanı tablosu kullanır. Güncelleştirmeleri tetikleyen bir **changeId** bildirim tablosundaki ASP.NET düzenli olarak denetler. Varsa **changeId** alan güncelleştirildi, ASP.NET bilir veri değişmiş ve önbelleğe alınan veri geçersiz kılar.
 
@@ -237,12 +237,13 @@ Aşağıdaki öznitelikler kullanılabilir &lt;önbellek&gt; öğe:
 
 Aşağıdaki öznitelikler kullanılabilir &lt;outputCache&gt; öğesi.
 
-| **Özniteliği** | **Açıklama** |
-| --- | --- |
-| **enableOutputCache** | İsteğe bağlı **Boolean** özniteliği. Sayfa çıktısı önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa Program erişimini ya da bildirim temelli ayarlarından bağımsız olarak önbelleğe alınır. Varsayılan değer **doğru**. |
-| **enableFragmentCache** | İsteğe bağlı **Boolean** özniteliği. Uygulama parçası önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa bağımsız olarak, önbelleğe alınan [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) yönergesi veya kullanılan profili önbelleğe alma. Tarayıcı istemcilerinin yanı sıra Yukarı Akış proxy sunucuları sayfa çıktısını önbelleğe almaya çalışmamalısınız belirten bir önbellek-control üstbilgisi içerir. Varsayılan değer **false**. |
-| **sendCacheControlHeader** | İsteğe bağlı **Boolean** özniteliği. Belirten değeri alır veya ayarlar olup olmadığını **önbellek-denetimi: özel** üstbilgisi varsayılan olarak çıktı önbelleği modülü tarafından gönderilir. Varsayılan değer **false**. |
-| **omitVaryStar** | İsteğe bağlı **Boolean** özniteliği. Bir Http gönderme etkinleştirir/devre dışı bırakır "**ayırmayı: \*** " yanıt üstbilgisi. False, varsayılan ayarı olan bir "**ayırmayı: \*** " üstbilgisi çıktı önbelleği sayfaları için gönderilir. Ayırmayı üstbilgi gönderildiğinde için farklı verir önbelleğe alınacak sürümleri temel ayırmayı üstbilgisinde belirtilen bağlıdır. Örneğin, *ayırmayı: kullanıcı-aracıları* isteği vermeden kullanıcı aracısı temel bir sayfanın farklı sürümlerini depolar. Varsayılan değer **false**. |
+
+|       <strong>Özniteliği</strong>        |                                                                                                                                                                                                                                                       <strong>Açıklama</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          İsteğe bağlı <strong>Boolean</strong> özniteliği. Sayfa çıktısı önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa Program erişimini ya da bildirim temelli ayarlarından bağımsız olarak önbelleğe alınır. Varsayılan değer <strong>doğru</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                İsteğe bağlı <strong>Boolean</strong> özniteliği. Uygulama parçası önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa bağımsız olarak, önbelleğe alınan [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) yönergesi veya kullanılan profili önbelleğe alma. Tarayıcı istemcilerinin yanı sıra Yukarı Akış proxy sunucuları sayfa çıktısını önbelleğe almaya çalışmamalısınız belirten bir önbellek-control üstbilgisi içerir. Varsayılan değer <strong>false</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      İsteğe bağlı <strong>Boolean</strong> özniteliği. Belirten değeri alır veya ayarlar olup olmadığını <strong>önbellek-denetimi: özel</strong> üstbilgisi varsayılan olarak çıktı önbelleği modülü tarafından gönderilir. Varsayılan değer <strong>false</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | İsteğe bağlı <strong>Boolean</strong> özniteliği. Bir Http gönderme etkinleştirir/devre dışı bırakır "<strong>ayırmayı: \</ strong ><em>" yanıt üstbilgisi. False, varsayılan ayarı olan bir "</em>* ayırmayı: \* <strong>" üstbilgisi çıktı önbelleği sayfaları için gönderilir. Ayırmayı üstbilgi gönderildiğinde için farklı verir önbelleğe alınacak sürümleri temel ayırmayı üstbilgisinde belirtilen bağlıdır. Örneğin, <em>ayırmayı: kullanıcı-aracıları</em> isteği vermeden kullanıcı aracısı temel bir sayfanın farklı sürümlerini depolar. Varsayılan değer ** false</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>&lt;OutputCacheSettings&gt; öğesi
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
-title: "Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (C#) | Microsoft Docs"
+title: Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (C#) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz çeşitli forms kimlik doğrulaması ayarlarını incelemek ve form öğesi aracılığıyla değiştirme konusuna bakın. Bu bir ayrıntılı oluşturulmasını gerektirir..."
+description: Bu öğreticide biz çeşitli forms kimlik doğrulaması ayarlarını incelemek ve form öğesi aracılığıyla değiştirme konusuna bakın. Bu bir ayrıntılı oluşturulmasını gerektirir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (C#)
 ====================
@@ -41,19 +41,20 @@ ASP.NET formları kimlik doğrulama sisteminde bir uygulama tarafından uygulama
 
 Tablo 1 aracılığıyla özelleştirilmiş özellikleri özetler &lt;forms&gt; öğesi. Web.config bir XML dosyası olduğundan, sol sütunda öznitelik adları büyük küçük harfe duyarlıdır.
 
-| **Özniteliği** | **Açıklama** |
-| --- | --- |
-| cookieless | Bu öznitelik, hangi koşullarda URL'de katıştırılmış karşı bir tanımlama bilgisi kimlik doğrulaması bileti depolanır belirtir. İzin verilen değerler: UseCookies; UseUri; Otomatik Algıla; ve UseDeviceProfile (varsayılan). 2. adım, bu ayar daha ayrıntılı inceler. |
-| defaultUrl | Kullanıcılar sorgu dizesinde belirtilen Redirecturl'yi değer yoksa oturum açma sayfasından oturum açtıktan sonra yeniden yönlendirileceği URL'yi belirtir. Default.aspx varsayılan değerdir. |
-| etki alanı | Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini kullanırken, bu ayar tanımlama bilgisinin etki alanı değeri belirtir. Varsayılan değer tarayıcının içinden (www.yourdomain.com gibi) verilmiş etki alanını kullanmak boş bir dizedir. Bu durumda, tanımlama bilgisi olur **değil** yapma admin.yourdomain.com gibi alt etki alanları için istediğinde gönderilmeyecek. Tüm alt etki alanları için geçirilecek tanımlama bilgisi istiyorsanız justanotherxiodec11.BLOB.Core.Windows.NET ayarı etki alanı özniteliği özelleştirmek gerekir. |
-| enableCrossAppRedirects | Kimliği doğrulanmış kullanıcılar aynı sunucuda diğer web uygulamalarında URL'lere yeniden yönlendirilen zaman hatırlanan gösteren bir Boole değeri. Varsayılan olarak yanlıştır. |
-| loginUrl | Oturum açma sayfası URL'si. Varsayılan değer, Login.aspx'tir. |
-| name | Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini, tanımlama bilgisinin adını kullanırken. Varsayılandır. ASPXAUTH. |
-| yol | Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini kullanırken, bu ayar tanımlama bilgisinin yolu özniteliği belirtir. Yol özniteliği bir tanımlama bilgisi belirli dizin hiyerarşiye kapsamını sınırlandırmak bir geliştirici sağlar. Varsayılan değer / hangi kimlik doğrulama bileti tanımlama etki alanında yapılan herhangi bir istek göndermek için tarayıcı bildirir. |
-| koruma | Forms kimlik doğrulaması bileti korumak için hangi teknikleri kullanıldığını belirtir. İzin verilen değerler: tüm (varsayılan); Şifreleme; Yok; ve doğrulama. Bu ayarlar, adım 3'te ayrıntılı ele alınmıştır. |
-| requireSSL | Kimlik doğrulama tanımlama bilgisini iletmek için bir SSL bağlantısının gerekli olup olmadığını gösteren bir Boole değeri. Varsayılan değer false'tur. |
-| SlidingExpiration değeri | Kullanıcı kimlik doğrulama tanımlama bilgisinin zaman aşımı her erişimde sıfırlanacağını olup olmadığını tek bir oturum sırasındaki site ziyaret gösteren bir Boole değeri. Varsayılan değer true olur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü. |
-| Zaman aşımı | Saat geçtikten sonra kimlik doğrulama bileti tanımlama bilgisinin süresinin dakika cinsinden belirtir. Varsayılan değer 30'dur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü. |
+
+| <strong>Özniteliği</strong> |                                                                                                                                                                                                                                     <strong>Açıklama</strong>                                                                                                                                                                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         cookieless         |                                                                                                                Bu öznitelik, hangi koşullarda URL'de katıştırılmış karşı bir tanımlama bilgisi kimlik doğrulaması bileti depolanır belirtir. İzin verilen değerler: UseCookies; UseUri; Otomatik Algıla; ve UseDeviceProfile (varsayılan). 2. adım, bu ayar daha ayrıntılı inceler.                                                                                                                |
+|         defaultUrl         |                                                                                                                                                         Kullanıcılar sorgu dizesinde belirtilen Redirecturl'yi değer yoksa oturum açma sayfasından oturum açtıktan sonra yeniden yönlendirileceği URL'yi belirtir. Default.aspx varsayılan değerdir.                                                                                                                                                         |
+|           etki alanı           | Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini kullanırken, bu ayar tanımlama bilgisinin etki alanı değeri belirtir. Varsayılan değer tarayıcının içinden (www.yourdomain.com gibi) verilmiş etki alanını kullanmak boş bir dizedir. Bu durumda, tanımlama bilgisi olur <strong>değil</strong> yapma admin.yourdomain.com gibi alt etki alanları için istediğinde gönderilmeyecek. Tüm alt etki alanları için geçirilecek tanımlama bilgisi istiyorsanız justanotherxiodec11.BLOB.Core.Windows.NET ayarı etki alanı özniteliği özelleştirmek gerekir. |
+|  enableCrossAppRedirects   |                                                                                                                                                                   Kimliği doğrulanmış kullanıcılar aynı sunucuda diğer web uygulamalarında URL'lere yeniden yönlendirilen zaman hatırlanan gösteren bir Boole değeri. Varsayılan olarak yanlıştır.                                                                                                                                                                   |
+|          loginUrl          |                                                                                                                                                                                                                      Oturum açma sayfası URL'si. Varsayılan değer, Login.aspx'tir.                                                                                                                                                                                                                      |
+|            name            |                                                                                                                                                                                                   Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini, tanımlama bilgisinin adını kullanırken. Varsayılandır. ASPXAUTH.                                                                                                                                                                                                   |
+|            yol            |                                                                             Tanımlama bilgisi tabanlı kimlik doğrulama biletlerini kullanırken, bu ayar tanımlama bilgisinin yolu özniteliği belirtir. Yol özniteliği bir tanımlama bilgisi belirli dizin hiyerarşiye kapsamını sınırlandırmak bir geliştirici sağlar. Varsayılan değer / hangi kimlik doğrulama bileti tanımlama etki alanında yapılan herhangi bir istek göndermek için tarayıcı bildirir.                                                                              |
+|         koruma         |                                                                                                                                            Forms kimlik doğrulaması bileti korumak için hangi teknikleri kullanıldığını belirtir. İzin verilen değerler: tüm (varsayılan); Şifreleme; Yok; ve doğrulama. Bu ayarlar, adım 3'te ayrıntılı ele alınmıştır.                                                                                                                                            |
+|         requireSSL         |                                                                                                                                                                                Kimlik doğrulama tanımlama bilgisini iletmek için bir SSL bağlantısının gerekli olup olmadığını gösteren bir Boole değeri. Varsayılan değer false'tur.                                                                                                                                                                                |
+|     SlidingExpiration değeri      |                                                                                                 Kullanıcı kimlik doğrulama tanımlama bilgisinin zaman aşımı her erişimde sıfırlanacağını olup olmadığını tek bir oturum sırasındaki site ziyaret gösteren bir Boole değeri. Varsayılan değer true olur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü.                                                                                                 |
+|          Zaman aşımı           |                                                                                                                               Saat geçtikten sonra kimlik doğrulama bileti tanımlama bilgisinin süresinin dakika cinsinden belirtir. Varsayılan değer 30'dur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü.                                                                                                                               |
 
 **Tablo 1**: bir özetini &lt;forms&gt; öğenin öznitelikleri
 
@@ -166,7 +167,7 @@ Değişiklikleri kaydetmek için Default.aspx ve bir tarayıcı ziyaret edin. B�
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-Bağlantıda URL SomePage.aspx otomatik olarak kimlik doğrulaması bileti - dahil bir URL'ye dönüştürüldü biz lick kod yazmak zorunda oldu! Form kimlik doğrulaması bileti http:// ile başlayan değil köprüler URL'sini otomatik olarak katıştırılır veya /. Köprü Response.Redirect yapılan bir çağrı, bir köprü denetim veya bağlı HTML bağlayıcı öğesi görünürse önemli değildir (yani, &lt;bir href = "..."&gt;... &lt;/a&gt;). URL bir şey http://www.someserver.com/SomePage.aspx /SomePage.aspx gibi değil veya sürece, forms kimlik doğrulaması bileti için bize katıştırılır.
+Bağlantıda URL SomePage.aspx otomatik olarak kimlik doğrulaması bileti - dahil bir URL'ye dönüştürüldü biz lick kod yazmak zorunda oldu! Form kimlik doğrulaması bileti http:// ile başlayan değil köprüler URL'sini otomatik olarak katıştırılır veya /. Köprü Response.Redirect yapılan bir çağrı, bir köprü denetim veya bağlı HTML bağlayıcı öğesi görünürse önemli değildir (yani, &lt;bir href = "..."&gt;... &lt;/a&gt;). URL şöyle olmadığı sürece http://www.someserver.com/SomePage.aspx veya /SomePage.aspx, forms kimlik doğrulaması bileti katıştırılmış bize.
 
 > [!NOTE]
 > Cookieless form kimlik doğrulama biletlerini tanımlama bilgisi tabanlı kimlik doğrulama biletlerini olarak aynı zaman aşımı ilkelerine uyması. Ancak, tanımlama bilgisi olmayan kimlik doğrulama biletlerini doğrudan URL'de kimlik doğrulaması bileti ekli olduğundan yeniden yürütme saldırılarını daha fazladır. Bir Web sitesini ziyaret eder, oturum açtığında ve bir iş arkadaşınıza e-posta içinde URL gönderebilir bir kullanıcı düşünün. Süre sonu ulaşılmadan önce iş arkadaşı bu bağlantıyı tıklattığında, bunlar e-posta gönderen bir kullanıcı olarak kaydedilir!
@@ -432,12 +433,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Alicja Maziarz oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Önceki](an-overview-of-forms-authentication-cs.md)
-[sonraki](security-basics-and-asp-net-support-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](an-overview-of-forms-authentication-cs.md)
+> [sonraki](security-basics-and-asp-net-support-vb.md)

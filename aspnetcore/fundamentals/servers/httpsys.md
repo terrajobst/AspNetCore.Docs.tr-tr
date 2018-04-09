@@ -1,7 +1,7 @@
 ---
-title: "HTTP.sys web server ASP.NET Core uygulamasında"
+title: HTTP.sys web server ASP.NET Core uygulamasında
 author: tdykstra
-description: "HTTP.sys, ASP.NET Core Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys bir IIS olmadan Internet'e doğrudan bağlantı için kullanılan Kestrel alternatifidir."
+description: HTTP.sys, ASP.NET Core Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys bir IIS olmadan Internet'e doğrudan bağlantı için kullanılan Kestrel alternatifidir.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d7ae6c070c7eecfd714086e15f32eff96c0943d9
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1ec309a00b6cb156b0d11ad085eda3b7a772ac94
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -65,7 +65,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
 
 1. Proje dosyasında paket başvuru kullanırken gerekli değil [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (ASP.NET Core 2.0 veya üstü). Değil kullanırken `Microsoft.AspNetCore.All` metapackage, paket için bir başvuru ekleyin [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-1. Çağrı [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) gerekli belirtme web ana bilgisayarı oluştururken genişletme yöntemi [HTTP.sys seçenekleri](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions):
+2. Çağrı [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) gerekli belirtme web ana bilgisayarı oluştururken genişletme yöntemi [HTTP.sys seçenekleri](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions):
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -93,7 +93,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
    Bayt cinsinden izin verilen en fazla istek gövdesi boyutu. Ayarlandığında `null`, en büyük istek gövdesi sınırsız boyutudur. Bu sınır her zaman sınırsız yükseltilmiş bağlantıları üzerinde etkisi yoktur.
 
    Tek bir ASP.NET Core MVC uygulamasında sınırı geçersiz kılmak için önerilen yöntem `IActionResult` kullanmaktır [RequestSizeLimitAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requestsizelimitattribute) bir eylem yönteminin özniteliği:
-   
+
    ```csharp
    [RequestSizeLimit(100000000)]
    public IActionResult MyActionMethod()
@@ -105,7 +105,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
 
    [!code-csharp[](httpsys/sample/Startup.cs?name=snippet1&highlight=6-7)]
 
-1. Visual Studio kullanarak, uygulama IIS veya IIS Express çalışmak üzere yapılandırılmamış emin olun.
+3. Visual Studio kullanarak, uygulama IIS veya IIS Express çalışmak üzere yapılandırılmamış emin olun.
 
    Visual Studio'da varsayılan başlatma için IIS Express profilidir. Projeyi bir konsol uygulaması çalıştırmak için el ile seçilen profil aşağıdaki ekran görüntüsünde gösterildiği gibi değiştirin:
 
@@ -115,10 +115,10 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
 
 1. Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), .NET Core, .NET Framework veya her ikisi de (uygulama .NET Framework'ü hedefleme .NET Core uygulama ise) yükleyin.
 
-   * **.NET core** &ndash; uygulamayı .NET Core gerektiriyorsa, edinin ve .NET Core Yükleyicisi'nden çalıştırın [.NET indirmeleri](https://www.microsoft.com/net/download/windows).
-   * **.NET framework** &ndash; uygulama .NET Framework gerektiriyorsa, bkz: [.NET Framework: Yükleme Kılavuzu](/dotnet/framework/install/) yükleme yönergeleri bulmak için. Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyici bulunabilir [.NET indirmeleri](https://www.microsoft.com/net/download/windows).
+   * **.NET core** &ndash; uygulamayı .NET Core gerektiriyorsa, edinin ve .NET Core Yükleyicisi'nden çalıştırın [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all).
+   * **.NET framework** &ndash; uygulama .NET Framework gerektiriyorsa, bkz: [.NET Framework: Yükleme Kılavuzu](/dotnet/framework/install/) yükleme yönergeleri bulmak için. Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyici bulunabilir [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all).
 
-1. URL'ler ve uygulama için bağlantı noktalarını yapılandırın.
+2. URL'ler ve uygulama için bağlantı noktalarını yapılandırın.
 
    Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini ve bağlantı noktalarını yapılandırmak için kullanarak Seçenekler şunlardır:
 
@@ -140,7 +140,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
    > [!WARNING]
    > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılabilir. Üst düzey joker bağlamaları uygulamanızı güvenlik açıkları için yedekleme açabilirsiniz. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık ana bilgisayar adları kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanı denetlemek, bu güvenlik riskinin yok (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
-1. HTTP.sys'ye bağlayın ve x.509 sertifikalar ayarlamak için URL öneklerini preregister.
+3. HTTP.sys'ye bağlayın ve x.509 sertifikalar ayarlamak için URL öneklerini preregister.
 
    URL öneklerini Windows preregistered değil, uygulama yönetici ayrıcalıklarıyla çalıştırın. 1024'ten büyük bir bağlantı noktası numarası ile HTTP (HTTPS değil) kullanarak Localhost'a bağlama sırasında tek özel durumdur. Bu durumda, yönetici ayrıcalıkları gerekli değildir.
 
@@ -164,11 +164,16 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
       * [Köprü metni için Netsh komutları Aktarım Protokolü (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
       * [UrlPrefix dizeleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-   1. X.509 sertifikaları otomatik olarak imzalanan, gerekirse oluşturun.
+   2. X.509 sertifikaları otomatik olarak imzalanan, gerekirse oluşturun.
 
-     [!INCLUDE[How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
 
-1. HTTP.sys ulaşması trafiğine izin veren güvenlik duvarı bağlantı noktalarını açın. Kullanım *netsh.exe* veya [PowerShell cmdlet'leri](https://technet.microsoft.com/library/jj554906).
+
+4. HTTP.sys ulaşması trafiğine izin veren güvenlik duvarı bağlantı noktalarını açın. Kullanım *netsh.exe* veya [PowerShell cmdlet'leri](https://technet.microsoft.com/library/jj554906).
+
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
+
+Internet'ten veya bir şirket ağı isteklerle etkileşim HTTP.sys tarafından barındırılan uygulamalar için ek yapılandırma proxy sunucuları ve yük dengeleyici arkasında barındırdığında gerekli olabilir. Daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

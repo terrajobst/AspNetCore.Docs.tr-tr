@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
-title: "İçerik kaynak denetimine ekleme | Microsoft Docs"
+title: İçerik kaynak denetimine ekleme | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, kaynak denetimine Team Foundation Server (TFS) 2010 içeriği eklemek açıklanmaktadır. Çözümler ve projeler için bir takım proje ekleneceğini açıklar..."
+description: Bu konuda, kaynak denetimine Team Foundation Server (TFS) 2010 içeriği eklemek açıklanmaktadır. Çözümler ve projeler için bir takım proje ekleneceğini açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c9c3a506d2745a6793661453a293732429d3e46e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-content-to-source-control"></a>İçerik kaynak denetimine ekleme
 ====================
@@ -27,7 +27,7 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bu konuda, kaynak denetimine Team Foundation Server (TFS) 2010 içeriği eklemek açıklanmaktadır. Çözümler ve projeler TFS takım projesinde nasıl ekleneceğini açıklar ve çerçeveleri veya derlemeler gibi dış bağımlılıklar kaynak denetimine ekleme konusunda açıklanmaktadır.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -157,6 +157,6 @@ Sonraki konuyu [TFS yapı bir sunucu için Web dağıtımı yapılandırma](conf
 
 Kaynak denetimi TFS ile çalışma hakkında daha kapsamlı bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
 
->[!div class="step-by-step"]
-[Önceki](creating-a-team-project-in-tfs.md)
-[sonraki](configuring-a-tfs-build-server-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-a-team-project-in-tfs.md)
+> [sonraki](configuring-a-tfs-build-server-for-web-deployment.md)

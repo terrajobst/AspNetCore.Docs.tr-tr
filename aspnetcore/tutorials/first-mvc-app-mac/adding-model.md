@@ -1,7 +1,7 @@
 ---
-title: "Model bir ASP.NET Core MVC uygulamasına ekleme"
+title: Mac için Visual Studio ile ASP.NET Core MVC uygulama için model ekleme
 author: rick-anderson
-description: "Bir model için basit bir ASP.NET Core uygulama ekleyin."
+description: Bir model için basit bir ASP.NET Core uygulama ekleyin.
 manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
@@ -10,13 +10,15 @@ ms.prod: .net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 7f99f611c1554dfae72564905227c3fc25d96a01
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6792dbc7c9ab063d85c0c4145481b8fd6b40da63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app-with-visual-studio-for-mac"></a>Mac için Visual Studio ile ASP.NET Core MVC uygulama için model ekleme
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 * Sağ *modelleri* klasörünü ve ardından **Ekle** > **yeni dosya**. 
 * İçinde **yeni dosya** iletişim:
@@ -96,9 +98,9 @@ Otomatik olarak oluşturulmasını [CRUD](https://wikipedia.org/wiki/Create,_rea
   * Gidin *görünümleri* klasöründe seçin *Views\Movies*ve ardından **açık**.
   * İçinde **film eklenecek dosyaları seçin** iletişim kutusunda **dahil tüm**ve ardından **Tamam**.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 Bir veritabanı ve görüntüleme, düzenleme, güncelleştirme ve verileri silmek için sayfaları artık sahipsiniz. Sonraki öğreticide biz veritabanı ile çalışması.
 
@@ -107,6 +109,6 @@ Bir veritabanı ve görüntüleme, düzenleme, güncelleştirme ve verileri silm
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Önceki bir görünümü ekleme](adding-view.md)
-[sonraki SQL ile çalışma](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Önceki bir görünümü ekleme](adding-view.md)
+> [sonraki SQL ile çalışma](working-with-sql.md)  

@@ -1,21 +1,21 @@
 ---
 title: ASP.NET Core MVC EF temel - Migrations - 4 10
 author: tdykstra
-description: "Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın."
+description: Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 0959ebc0f566540ea8a43d4889bb0e4fa041bfd6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Geçişler - ASP.NET Core MVC Öğreticisi (4, 10) ile EF çekirdek
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC EF temel - Migrations - 4 10
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -99,15 +99,13 @@ Girdiğiniz zaman, oluşturulan ilk geçiş için bu kodu `migrations add Initia
 
 Veritabanı zaten mevcut olduğunda ilk geçiş oluşturduysanız, veritabanı oluşturma kod oluşturulur ancak veritabanı veri modeli eşleştiğinden çalıştırmak sahip değil. Burada veritabanı yok henüz, veritabanınızı oluşturmak için bu kodu çalıştıracak başka bir ortama uygulamayı dağıttığınızda, dolayısıyla ilk test etmek için iyi bir fikir taşır. İşte bu nedenle geçişler sıfırdan yeni bir tane oluşturabilmesi için daha önce--bağlantı dizesinde veritabanının adı değiştirildi.
 
-## <a name="examine-the-data-model-snapshot"></a>Veri modeli anlık görüntü inceleyin
+## <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntü
 
-Geçişler da oluşturur bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bu kodu nasıl göründüğünü aşağıda verilmiştir:
+Geçişler oluşturur bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler.
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Bir geçiş silerken kullanmak [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu. `dotnet ef migrations remove` geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
 
-Geçerli veritabanı şeması kodda gösterilir çünkü EF çekirdek geçişler oluşturmak için veritabanıyla etkileşim kurmak sahip değil. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler. Yalnızca veritabanını güncelleştirmek sahip olduğu EF veritabanıyla etkileşim kurar. 
-
-Adlı dosyayı silerek bir geçiş kaldırılamıyor şekilde oluşturduktan geçişler ile eşitlenmiş halde tutulması anlık görüntü dosyası olan  *\<zaman damgası > _\<migrationname > .cs*. Bu dosyayı silerseniz, kalan geçişler veritabanı anlık görüntü dosyası ile eşit olacaktır. Eklediğiniz son geçiş silmek için kullanın [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu.
+Bkz: [EF çekirdek geçişler takım ortamlarda](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için.
 
 ## <a name="apply-the-migration-to-the-database"></a>Veritabanına geçiş Uygula
 
@@ -167,6 +165,6 @@ PMC komutları hakkında daha fazla bilgi için bkz: [Paket Yöneticisi Konsolu 
 
 Bu öğreticide, oluşturma ve ilk geçişinizi uygulama öğrendiniz. Sonraki öğreticide, veri modelini genişleterek daha gelişmiş konuları arayan başlarsınız. Yol boyunca oluşturun ve ek geçişleri uygulayın.
 
->[!div class="step-by-step"]
-[Önceki](sort-filter-page.md)
-[sonraki](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [Önceki](sort-filter-page.md)
+> [sonraki](complex-data-model.md)  

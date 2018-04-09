@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
-title: "Kullanıcılar ve roller üretim Web sitesinde (VB) | Microsoft Docs"
+title: Kullanıcılar ve roller üretim Web sitesinde (VB) | Microsoft Docs
 author: rick-anderson
-description: "Üyelik ve roller ayarlarını yapılandırma ve oluşturmak, ASP.NET Web Sitesi Yönetim Aracı (WSAT) bir web tabanlı kullanıcı arabirimi sağlar, düzenleme bir..."
+description: Üyelik ve roller ayarlarını yapılandırma ve oluşturmak, ASP.NET Web Sitesi Yönetim Aracı (WSAT) bir web tabanlı kullanıcı arabirimi sağlar, düzenleme bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f3bfaa0e14e3e04a7faae1a78b566d7c2067785a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 611a54b9dd5f188fd64c7020bfbf8171fea27a71
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Kullanıcılar ve roller üretim Web sitesinde (VB)
 ====================
@@ -37,7 +37,7 @@ ASP. NET uygulama hizmetleri için belirli bir uygulama bağlı değil. Bunun ye
 
 ## <a name="using-the-aspnet-web-site-administration-tool"></a>ASP.NET Web Sitesi Yönetim Aracı'nı kullanma
 
-ASP.NET içeren bir [Web sitesi yönetim aracı](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) kolaylaştıran kullanıcı hesapları ve rolleri oluşturmak ve yönetmek için ve kullanıcı ve rol tabanlı yetkilendirme kurallarını belirtmek için. WSAT kullanmak için Çözüm Gezgini'nde, ASP.NET yapılandırması simgesine tıklayın veya Web sitesi veya proje menüsüne gidin ve ASP.NET yapılandırma seçeneğini seçin. Her iki yaklaşım bir web tarayıcısını başlatır ve gibi bir adresindeki WSAT işaret:`http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
+ASP.NET içeren bir [Web sitesi yönetim aracı](https://msdn.microsoft.com/library/yy40ytx0.aspx) (WSAT) kolaylaştıran kullanıcı hesapları ve rolleri oluşturmak ve yönetmek için ve kullanıcı ve rol tabanlı yetkilendirme kurallarını belirtmek için. WSAT kullanmak için Çözüm Gezgini'nde, ASP.NET yapılandırması simgesine tıklayın veya Web sitesi veya proje menüsüne gidin ve ASP.NET yapılandırma seçeneğini seçin. Her iki yaklaşım bir web tarayıcısını başlatır ve gibi bir adresindeki WSAT işaret: `http://localhost:portNumber/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=pathToApplication`
 
 WSAT üç bölümlere ayrılmıştır:
 
@@ -119,5 +119,5 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Web sitesi yönetim aracına genel bakış](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 - [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Önceki](precompiling-your-website-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](precompiling-your-website-vb.md)

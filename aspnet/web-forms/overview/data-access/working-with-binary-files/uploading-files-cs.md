@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 title: Dosyalar (C#) | Microsoft Docs
 author: rick-anderson
-description: "İkili dosyaları (örneğin, Word veya PDF belgesini) yüklemek kullanıcıların Web sitenize sunucusunun dosya sisteminde bunlar burada depolanabilir öğrenin..."
+description: İkili dosyaları (örneğin, Word veya PDF belgesini) yüklemek kullanıcıların Web sitenize sunucusunun dosya sisteminde bunlar burada depolanabilir öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/uploading-files-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 629c1154683a0370e3e650873edf29dc9f22b4bc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="uploading-files-c"></a>Dosyalar (C#)
 ====================
@@ -124,9 +124,9 @@ Yeni bir ekleme `varchar(200)` sütuna `Categories` adlı tablo `BrochurePath` v
 
 ' Da anlatıldığı gibi *veri erişim katmanı oluşturma*, iş nesneleri yazılan veri kümesinde DataTables olun. TableAdapters ile iletişim kurmak ve sorgu sonuçlarının iş nesnelerle doldurmak için sorumludur. `CategoriesDataTable` Tarafından doldurulur `CategoriesTableAdapter`, üç veri alma yöntemleri vardır:
 
-- `GetCategories()`TableAdapter s ana sorgu yürütür ve döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtları alanlarının `Categories` tablo. Ana sorgu ne otomatik olarak oluşturulan tarafından kullanılır `Insert` ve `Update` yöntemleri.
-- `GetCategoryByCategoryID(categoryID)`döndürür `CategoryID`, `CategoryName`, ve `Description` kategori alanlarını, `CategoryID` eşittir *adlı kullanıcı, Categoryıd'si*.
-- `GetCategoriesAndNumberOfProducts()`-döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtlar için alanları `Categories` tablo. Ayrıca her kategoriyle ilişkili ürünleri sayısını döndürmek için bir alt sorgu kullanır.
+- `GetCategories()` TableAdapter s ana sorgu yürütür ve döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtları alanlarının `Categories` tablo. Ana sorgu ne otomatik olarak oluşturulan tarafından kullanılır `Insert` ve `Update` yöntemleri.
+- `GetCategoryByCategoryID(categoryID)` döndürür `CategoryID`, `CategoryName`, ve `Description` kategori alanlarını, `CategoryID` eşittir *adlı kullanıcı, Categoryıd'si*.
+- `GetCategoriesAndNumberOfProducts()` -döndürür `CategoryID`, `CategoryName`, ve `Description` tüm kayıtlar için alanları `Categories` tablo. Ayrıca her kategoriyle ilişkili ürünleri sayısını döndürmek için bir alt sorgu kullanır.
 
 Hiçbiri return sorgular bildirimi `Categories` s tablosu `Picture` veya `BrochurePath` sütunların; ya da mu `CategoriesDataTable` sağlamak `DataColumn` bu alanlar için s. Resimle çalışması için ve `BrochurePath` özelliklerini ihtiyacımız ilk için düzenli olarak eklemek `CategoriesDataTable` ve ardından güncelleştirme `CategoriesTableAdapter` bu sütunları döndürülecek sınıfı.
 
@@ -287,11 +287,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve Bernadette Leigh yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Next](displaying-binary-data-in-the-data-web-controls-cs.md)
+> [!div class="step-by-step"]
+> [Next](displaying-binary-data-in-the-data-web-controls-cs.md)

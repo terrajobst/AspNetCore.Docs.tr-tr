@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
-title: "Web Forms Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 | Microsoft Docs"
+title: Web Forms Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 | Microsoft Docs
 author: tdykstra
-description: "Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamaları oluşturmak nasıl gösteren..."
+description: Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamaları oluşturmak nasıl gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Web Forms Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4
 ====================
@@ -161,7 +161,7 @@ Varlık diyagramı birkaç farklılıkla ile veritabanı diyagramı çok benzer 
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    Bu durumda, bir `Person` varlık olabilir veya ilişkilendirilmemiş `StudentGrade` varlıklar. A `StudentGrade` varlık biriyle ilişkili olmalıdır `Person` varlık. `StudentGrade`Varlık, aslında bu veritabanında kayıtlı kurslar temsil eder; öğrencinin bir indirmelere kaydedilir ve hiçbir düzeyde henüz yoksa `Grade` özelliği null. Diğer bir deyişle, öğrencinin herhangi kurslar kayıtlı olmayan henüz, içinde bir indirmelere kaydedilebilir veya içinde birden çok kurslar kaydedilebilir. Kayıtlı bir seyrinde her düzeyde yalnızca bir öğrenci için geçerlidir.
+    Bu durumda, bir `Person` varlık olabilir veya ilişkilendirilmemiş `StudentGrade` varlıklar. A `StudentGrade` varlık biriyle ilişkili olmalıdır `Person` varlık. `StudentGrade` Varlık, aslında bu veritabanında kayıtlı kurslar temsil eder; öğrencinin bir indirmelere kaydedilir ve hiçbir düzeyde henüz yoksa `Grade` özelliği null. Diğer bir deyişle, öğrencinin herhangi kurslar kayıtlı olmayan henüz, içinde bir indirmelere kaydedilebilir veya içinde birden çok kurslar kaydedilebilir. Kayıtlı bir seyrinde her düzeyde yalnızca bir öğrenci için geçerlidir.
 - Bir çok-çok ilişkisi tarafından temsil edilen "\*"ve"\*".
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
@@ -214,5 +214,5 @@ Entity Framework XML veritabanı, veri modeli ve bunları arasındaki eşlemeler
 
 Bir Web sitesi, bir veritabanı ve veri modeli şimdi oluşturduğunuzu düşünün. Veri modeli ve ASP.NET kullanarak verileri çalışmaya başlamak sonraki kılavuzda `EntityDataSource` denetim.
 
->[!div class="step-by-step"]
-[Next](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [Next](the-entity-framework-and-aspnet-getting-started-part-2.md)

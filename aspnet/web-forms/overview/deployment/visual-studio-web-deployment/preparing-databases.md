@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlama | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlama | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61392af322de454687da522055005a670b34f510
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlama
 ====================
@@ -171,7 +171,7 @@ Burada çok, genellikle aynı veri geliştirme sahip üretim istemediğiniz. Bir
 Test ortamı ve hazırlama ve üretim üretim kullanıcılara geliştirme kullanıcılara dağıtacaksınız. Bunu yapmak için Bu öğretici, bir geliştirme ve üretim için iki SQL komut dosyası oluşturacaksınız ve sonraki öğreticileri, bunları çalıştırmak için yayımlama işlemi yapılandıracaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  Web.config dosyasında öğesi.
+> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** Web.config dosyasında öğesi.
 
 
 SQL Server Management Studio (SSMS) kullanarak veya bir üçüncü taraf aracı kullanarak, veri dağıtım betikleri el ile oluşturabilirsiniz. Bu öğreticinin bu kalan SSMS yapmak nasıl yapacağınızı gösterir, ancak yükleyip SSMS kullanmak istemiyorsanız, proje tamamlanmış sürümünden komut dosyalarını almak ve çözüm klasöründe depoladığınız bölümüne atlayın.
@@ -215,11 +215,11 @@ Proje üretim veritabanıyla çalıştırdığınız henüz olduğundan, yerel v
 1. SSMS içinde **Nesne Gezgini**, sağ **veritabanları** tıklatıp **Attach**.
 
     ![SSMS ekleme](preparing-databases/_static/image15.png)
-- İçinde **Attach veritabanları** iletişim kutusu, tıklatın **Ekle** ve ardından gidin *aspnet ContosoUniversity Prod.mdf* dosyasını *uygulama\_ Veri* klasör.
+2. İçinde **Attach veritabanları** iletişim kutusu, tıklatın **Ekle** ve ardından gidin *aspnet ContosoUniversity Prod.mdf* dosyasını *uygulama\_ Veri* klasör.
 
-    ![.Mdf dosyasını SSMS ekleme eklemek için](preparing-databases/_static/image16.png)
-- **Tamam**'ı tıklatın.
-- Daha önce üretim dosya için bir komut dosyası oluşturmak için kullanılan yordamın aynısını izleyin. Komut dosyası adı *aspnet veri prod.sql*.
+     ![.Mdf dosyasını SSMS ekleme eklemek için](preparing-databases/_static/image16.png)
+3. **Tamam**'ı tıklatın.
+4. Daha önce üretim dosya için bir komut dosyası oluşturmak için kullanılan yordamın aynısını izleyin. Komut dosyası adı *aspnet veri prod.sql*.
 
 ## <a name="summary"></a>Özet
 
@@ -233,6 +233,6 @@ Aşağıdaki öğreticide dağıtım etkileyen proje ayarlarını yapılandırma
 
 NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için bkz: [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Önceki](introduction.md)
-[sonraki](web-config-transformations.md)
+> [!div class="step-by-step"]
+> [Önceki](introduction.md)
+> [sonraki](web-config-transformations.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: "Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme | Microsoft Docs"
+title: 'Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I..."
+description: Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme
 ====================
@@ -225,6 +225,6 @@ Bu depo düzenini kullanarak için uygulama giriş tamamlar `ObjectDataSource` d
 
 Aşağıdaki öğreticide sıralama ve filtreleme uygulamaya işlevselliği ekleme görürsünüz.
 
->[!div class="step-by-step"]
-[Önceki](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-[sonraki](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [!div class="step-by-step"]
+> [Önceki](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+> [sonraki](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

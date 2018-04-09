@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 title: Page Inspector Visual Studio 2012 kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Bu uygulamalı laboratuar ortamında bulmak ve Visual Studio - Page Inspector web sayfası sorunlarını düzeltmek için yeni bir aracı keşfeder. Page Inspector, yeni aracı bu b ediyor..."
+description: Bu uygulamalı laboratuar ortamında bulmak ve Visual Studio - Page Inspector web sayfası sorunlarını düzeltmek için yeni bir aracı keşfeder. Page Inspector, yeni aracı bu b ediyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1a9e093faae2cea1c27c582e22aebc908f78addb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Visual Studio 2012'de sayfa denetçisi kullanma
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 > Bu uygulamalı laboratuar ortamında bulmak ve Visual Studio - Page Inspector web sayfası sorunlarını düzeltmek için yeni bir aracı keşfeder.
 > 
@@ -38,7 +38,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Bu Laboratuvar, kaynak klasöre sağlanan örnek bir Web uygulamasına küçük değişiklikler uygulayarak daha önce açıklanan yeni özellikleri ve geliştirmeleri açıklanmaktadır.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -96,12 +96,12 @@ Bu görevde, Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamında s
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-MVC4/başlangıç/** klasörü.
 
-    1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Çözüm Gezgini'nde bulun **Index.cshtml** altında görüntülemek **/görünümler/giriş** proje klasörünü sağ tıklatın ve seçin **sayfa denetçisi görünümünde**.
 
     ![Sayfa Denetçisi'nde önizlemek için bir dosya seçmek](using-page-inspector-in-visual-studio-2012/_static/image1.png "sayfa Denetçisi'nde Önizleme için bir dosya seçme")
@@ -221,7 +221,7 @@ Bu görevde, sayfa denetçisi kullanabilir ve Fotoğraf Galerisi uygulama bazı 
 2. İki durumlu denetleme moduyla seçili için Kapat ancak kendi kod açmak için değil kayıt bağlantı üzerindeki'ı tıklatın.
 
     Kaynak kodu bağlantılar bulunur bildirimi  **\_LoginPartial.cshtml** dosya, Index.cshtml veya \_ilk yerinde görünebilir yerlerdir Layout.cshtml. Doğrudan doğru kaynak dosyasında yerleştirildi.
-3. İçinde **stilleri** sekmesinde, bulun ve tıklatın  **<section> #login</section>**  bu bağlantıları için HTML kapsayıcı öğesi.
+3. İçinde **stilleri** sekmesinde, bulun ve tıklatın **<section> #login</section>** bu bağlantıları için HTML kapsayıcı öğesi.
 
     Dikkat **#login** stili bulunan otomatik olarak **Site.css** tıklattıktan sonra. Ayrıca, kod artık vurgulanır.
 
@@ -242,7 +242,7 @@ Bu görevde, sayfa denetçisi kullanabilir ve Fotoğraf Galerisi uygulama bazı 
     ![Güncelleştirilmiş sayfası](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *Güncelleştirilmiş sayfası*
-6. Denetleme modu kullanarak, seçin herhangi birini  **&lt;li&gt;**  içeren öğelerini &quot;kaydetmek&quot; ve &quot;oturum&quot; bağlantılar. Ardından  **&lt;bölüm&gt; #login** öğesi erişimi **Styles.css** kodu.
+6. Denetleme modu kullanarak, seçin herhangi birini **&lt;li&gt;** içeren öğelerini &quot;kaydetmek&quot; ve &quot;oturum&quot; bağlantılar. Ardından  **&lt;bölüm&gt; #login** öğesi erişimi **Styles.css** kodu.
 
     ![Stil bulma](using-page-inspector-in-visual-studio-2012/_static/image19.png "stili bulma")
 
@@ -287,12 +287,12 @@ Bu görevde, sayfa denetçisi özelliklerinin bir Fotoğraf Galerisi gösterir W
 
 1. Açık **başlamak** çözüm bulunan **kaynak/Ex2-WebForms/başlangıç/** klasörü.
 
-    1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-    2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-    3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
+   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
 
-    > [!NOTE]
-    > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > [!NOTE]
+      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Çözüm Gezgini'nde bulun **Default.aspx** sayfasında, sağ tıklatın ve seçin **sayfa denetçisi görünümünde**.
 
     ![Sayfa denetçisi ile default.aspx açma](using-page-inspector-in-visual-studio-2012/_static/image24.png "Default.aspx sayfa denetçisi ile açma")
@@ -433,7 +433,7 @@ Bu görevde, Fotoğraf Galerisi uygulama ile ilgili bazı sorunları düzeltmek 
     ![Güncelleştirilmiş sayfası](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *Güncelleştirilmiş sayfası*
-6. Denetleme modu kullanarak, seçin herhangi birini  **&lt;li&gt;**  içeren öğelerini &quot;kaydetmek&quot; ve &quot;oturum&quot; bağlantılar. Ardından  **&lt;bölüm&gt; #login** öğesi erişimi **Styles.css** kodu.
+6. Denetleme modu kullanarak, seçin herhangi birini **&lt;li&gt;** içeren öğelerini &quot;kaydetmek&quot; ve &quot;oturum&quot; bağlantılar. Ardından  **&lt;bölüm&gt; #login** öğesi erişimi **Styles.css** kodu.
 
     ![Stil bulma](using-page-inspector-in-visual-studio-2012/_static/image42.png "stili bulma")
 
@@ -474,9 +474,9 @@ Bu uygulamalı Laboratuvar tamamlayarak sayfa denetçisi, Web uygulamanızı yen
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak  **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)** . Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; *Visual Studio Express 2012 için Windows Azure SDK'sı Web*&quot;.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Windows Azure SDK'sı Web</em>&quot;.
 2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
 3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
-title: "Ekleme, güncelleştirme ve silme (VB) SqlDataSource verilerle | Microsoft Docs"
+title: Ekleme, güncelleştirme ve silme (VB) SqlDataSource verilerle | Microsoft Docs
 author: rick-anderson
-description: "Önceki eğitimlerine nasıl ObjectDataSource denetimine ekleme, güncelleştirme ve verileri silme izin öğrendiniz. SqlDataSource denetimi t destekliyor..."
+description: Önceki eğitimlerine nasıl ObjectDataSource denetimine ekleme, güncelleştirme ve verileri silme izin öğrendiniz. SqlDataSource denetimi t destekliyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4664e15ca6afa14f072e0840354c7f5a48d97ddf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d195c3e1e349cd82e0625cf9a6c5a82644b5db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Ekleme, güncelleştirme ve SqlDataSource (VB) ile verileri silme
 ====================
@@ -213,8 +213,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](using-parameterized-queries-with-the-sqldatasource-vb.md)
-[sonraki](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-parameterized-queries-with-the-sqldatasource-vb.md)
+> [sonraki](implementing-optimistic-concurrency-with-the-sqldatasource-vb.md)

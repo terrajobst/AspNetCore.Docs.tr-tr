@@ -2,7 +2,7 @@
 uid: web-pages/readme/overview
 title: WebMatrix Benioku | Microsoft Docs
 author: rick-anderson
-description: "WebMatrix ve ASP.NET Web sayfaları (Razor) 1.0 sürümü Benioku dosyası"
+description: WebMatrix ve ASP.NET Web sayfaları (Razor) 1.0 sürümü Benioku dosyası
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
 ====================
@@ -126,7 +126,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 - [Değişiklikleri](#Changes)
 - [Sorunları](#Issues)
 
-#### <a id="NewFeatures"></a>Yeni Özellikler
+#### <a id="NewFeatures"></a>  Yeni Özellikler
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Yeni: Paket Yöneticisi devre dışı bırakmak için yapılandırma ayarı eklendi
 
@@ -135,14 +135,14 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>Değişiklikleri
+#### <a id="Changes"></a>  Değişiklikleri
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Change: "webPages:AdminFolderVirtualPath" key renamed to "asp:AdminFolderVirtualPath"
 
 > `webPages:AdminFolderVirtualPath` Eklenebilir anahtar *web.config* Paket Yöneticisi konumunu belirtmek için dosya kullanmak için adlandırılmıştır `asp:` ad alanı yerine `webPages` ad alanı. Bu öğe kullandıysanız, yapılandırma dosyasında yeniden adlandırmanız gerekir.
 
 
-#### <a id="Issues"></a>Bilinen sorunlar
+#### <a id="Issues"></a>  Bilinen sorunlar
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Sorun: Parolaları üyelik kullanıcılarının artık tanınmıyor
 
@@ -226,7 +226,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > .NET Framework sürüm 4 kaldırın ve yeniden yükleyin, Razor sözdizimi ile ASP.NET Web sayfaları devre dışı bırakılır. İle sayfaları *.cshtml* uzantısı düzgün çalışmaz. ASP.NET Web sayfaları kaydeder bütünleştirilmiş makine kök dizininde *web.config* dosyasını ve .NET Framework kaldırma bu dosyayı kaldırır. .NET Framework yeniden yapılandırma dosyasını yeni bir sürümünü yükler, ancak başvuru için ASP.NET Web sayfaları derlemesi eklemez.
 > 
 > **Geçici çözüm** .NET Framework yeniden yükledikten sonra Razor sözdizimi ile ASP.NET Web sayfaları yeniden yükleyin. Bu şu öğeye ekler *web.config* genellikle şu konumdadır makine kök dosyasında:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Sorun: IIS 7 veya IIS 7.5.cshtml/.vbhtml dosyaları uzantısız URL'leri bulamazsanız
 
 > IIS 7 veya IIS 7.5, aşağıdaki gibi bir URL ile istekleri sahip sayfalar bulamıyor olmayan *.cshtml* veya *.vbhtml* uzantısı:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > URL yeniden yazma işlemi varsayılan olarak IIS 7 veya IIS 7.5 için etkinleştirilmediğinden sorun ortaya çıkar. Denetçilerinde IIS Express kullanarak yerel olarak test ederken sorun görmezsiniz, ancak Web sitenizi barındıran bir Web sitesine dağıttığınızda deneyimi senaryodur.
 > 
 > **Geçici çözüm**
@@ -257,10 +257,11 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > 
 > 1. Veritabanı altyapısı derlemeler için kopyalama *Bin* uygulamanın hedef bilgisayardaki klasör (ve alt klasörler):  
 > 
->     - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **to** *\Bin*
->     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** için *** \Bin\x86*
->     - Kopya *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****için *** \Bin\amd64*
+>    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **to** *\Bin*
+>    - Kopya <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>için</em></strong>\Bin\x86*
+>    - Kopya <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>için</strong><em>\Bin\amd64</em>
+> 
 > 2. Web sitesinin kök klasöründe oluşturun veya açın bir *web.config* dosya. (WebMatrix 1. 0'da, bu dosya türü tıklatırsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
 > 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin `<configuration>` öğesi (içinde değil `<system.web>` öğesi):
 > 
@@ -412,7 +413,7 @@ SQL Server Compact, aşağıdaki URL'de kullanılabilir kendi Benioku dosyası v
 
 WebMatrix bir parçası olarak SQL Server Compact yükleme ile ilgili sorunlar hakkında daha fazla bilgi için bkz: [WebMatrix yükleme sorunları](#Known_Issues_Installation) bu belgede daha önce yer.
 
-### <a id="Known_Issues_Installing_Applications"></a>Uygulamaları yükleme
+### <a id="Known_Issues_Installing_Applications"></a>  Uygulamaları yükleme
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Sorun: kullanıcının Belgeler klasörünü bir ağ paylaşımına yönlendirilir, bir uygulamanın yüklenmesi bir uzun zaman alabilir
 
@@ -420,7 +421,7 @@ WebMatrix bir parçası olarak SQL Server Compact yükleme ile ilgili sorunlar h
 > Yok. Uygulama yüklemek için biraz zaman alabilir ancak düzgün yüklenecektir.
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>Uygulama yayımlama
+### <a id="Known_Issues_Publishing_Applications"></a>  Uygulama yayımlama
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Bir SQL Compact veritabanı yayımlarken sorun: "izinleri alınamıyor gerekli" hatası
 

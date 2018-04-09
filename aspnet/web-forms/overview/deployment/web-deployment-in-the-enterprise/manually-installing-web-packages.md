@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
-title: "Web paketleri el ile yükleme | Microsoft Docs"
+title: Web paketleri el ile yükleme | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, bir web dağıtım paketi Internet Information Services (IIS) içine el ile içe aktarmayı açıklar. Paketleme Web uygulama ve konu oluşturuluyor..."
+description: Bu konuda, bir web dağıtım paketi Internet Information Services (IIS) içine el ile içe aktarmayı açıklar. Paketleme Web uygulama ve konu oluşturuluyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4a28ea92b22e4928e41a39a8a91b62bfa4f08175
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manually-installing-web-packages"></a>Web paketleri el ile yükleme
 ====================
@@ -30,10 +30,10 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > 
 > Web dağıtım paketini oluşturduktan sonra bir IIS sunucusuna çeşitli şekillerde yayımlayabilirsiniz. İçinde çok sayıda senaryoları, MSBuild, WPP ve Web dağıtımı oluşturmak ve web paketleri uzaktan bir otomatik olarak veya tek adımlı derleme ve dağıtım işleminin parçası olarak yüklemek için arasında tümleştirme noktaları yararlanmak istersiniz. Bu işlem açıklanan [dağıtma Web paketleri](deploying-web-packages.md). Ancak, bu her zaman mümkün değildir. Bir web uygulaması Internet'e üretim ortamında dağıtmak istediğinizi varsayalım. Güvenlik nedeniyle, bu tür bir üretim ortamında çok az olası bir güvenlik duvarının arkasında bulunan yapı sunucusundan bir çevre ağında (DMZ, sivil bölge ve denetimli alt ağ olarak da bilinir) ayrı bir alt ağda olması altındadır. İçinde çok örneklerinin üretim ortamına ayrı bir etki alanı veya fiziksel olarak yalıtılmış ağda olacaktır.
 > 
-> Bu senaryolarda, hedef sunucuya web paketi bağlantı noktası ve IIS ile el ile içeri aktarmak için tek seçeneğiniz olabilir. Bu yaklaşım otomatik dağıtım önleyen, hala bir web uygulaması & #x 2014 yayımlamak için son derece verimli bir yöntem olsa da; yalnızca bir tek ZIP dosyası, web sunucunuza kopyalayın ve alma işleminde size kılavuzluk etmesi için bir Sihirbazı'nı kullanın.
+> Bu senaryolarda, hedef sunucuya web paketi bağlantı noktası ve IIS ile el ile içeri aktarmak için tek seçeneğiniz olabilir. Bu yaklaşım otomatik dağıtım önleyen, hala bir web uygulaması yayımlama için son derece verimli bir yöntem olsa da&#x2014;sadece tek ZIP dosyası, web sunucunuza kopyalayın ve alma işleminde size kılavuzluk etmesi için bir Sihirbazı'nı kullanın.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -133,5 +133,5 @@ Bu konu, IIS Yöneticisi'ni kullanarak bir IIS Web bir web dağıtım paketi iç
 
 El ile bir web paketi içe aktarma işlemlerini desteklemesi için bir IIS web sunucusu yapılandırma hakkında yönergeler için bkz [bir Web sunucusu Web dağıtımı yayımlama için (çevrimdışı dağıtımı) yapılandırmak](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Web paketleri dağıtma konusunda daha fazla genel yönergeler için bkz: [izlenecek yol: bir Web uygulaması projesi kullanarak bir Web dağıtım paketi (Kısım 1 / 4) dağıtma](https://msdn.microsoft.com/library/dd483479.aspx).
 
->[!div class="step-by-step"]
-[Önceki](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-and-running-a-deployment-command-file.md)

@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/aspnet4/overview
-title: "ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış | Microsoft Docs"
+title: ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış | Microsoft Docs
 author: rick-anderson
-description: "Bu belgede, Visual Studio 2010 ve.NET Framework 4'te yer alan ASP.NET için yeni özelliklerin bir genel bakış sağlanır."
+description: Bu belgede, Visual Studio 2010 ve.NET Framework 4'te yer alan ASP.NET için yeni özelliklerin bir genel bakış sağlanır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 29d5b2f4c04b899b900427ac202c0a4f57f8076f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/30/2018
 
 **İçindekiler**
 
-**[Çekirdek Hizmetleri](#0.2__Toc253429238 "_Toc253429238")**  
+**[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
 [Web.config dosyasına düzenlemesi](#0.2__Toc253429239 "_Toc253429239")  
 [Genişletilebilir çıktı önbelleği](#0.2__Toc253429240 "_Toc253429240")  
 [Web uygulamaları otomatik olarak başlatma](#0.2__Toc253429241 "_Toc253429241")  
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/30/2018
 [Tek çalışan işlemindeki tek tek uygulamalar için performans izleme](#0.2__Toc253429248 "_Toc253429248")  
 [Çoklu sürüm desteği](#0.2__Toc253429249 "_Toc253429249")
 
-**[AJAX](#0.2__Toc253429250 "_Toc253429250")**  
+**[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [jQuery eklenen Web Forms ve MVC](#0.2__Toc253429251 "_Toc253429251")  
 [İçerik teslim ağı Destek](#0.2__Toc253429252 "_Toc253429252")  
 [ScriptManager açık betikleri](#0.2__Toc253429253 "_Toc253429253")
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/30/2018
 [Veri ek açıklamasını özniteliği doğrulama desteği](#0.2__Toc253429276 "_Toc253429276")  
 [Şablonlu Yardımcılar](#0.2__Toc253429277 "_Toc253429277")
 
-**[Dinamik veri](#0.2__Toc253429278 "_Toc253429278")**  
+**[Dynamic Data](#0.2__Toc253429278 "_Toc253429278")**  
 [Dinamik veri için mevcut projeleri etkinleştirme](#0.2__Toc253429279 "_Toc253429279")  
 [Bildirim temelli DynamicDataManager denetimi sözdizimi](#0.2__Toc253429280 "_Toc253429280")  
 [Varlık şablonları](#0.2__Toc253429281 "_Toc253429281")  
@@ -92,7 +92,7 @@ ms.lasthandoff: 01/30/2018
 [Tek tıklamayla yayımlama Web uygulamaları için](#0.2__Toc253429296 "_Toc253429296")  
 [Kaynakları](#0.2__Toc253429297 "_Toc253429297")
 
-**[Vazgeçme](#0.2__Toc253429298 "_Toc253429298")**
+**[Disclaimer](#0.2__Toc253429298 "_Toc253429298")**
 
 <a id="0.2__Toc224729018"></a><a id="0.2__Toc253429238"></a><a id="0.2__Toc243304612"></a>
 
@@ -199,13 +199,13 @@ ASP.NET 4 uygulama URL'leri boyutunu genişletmek için yeni seçenekler sunar. 
 
 [!code-xml[Main](overview/samples/sample10.xml)]
 
-Daha uzun veya kısaysa yollara (protokolü, sunucu adını ve sorgu dizesi dahil değildir URL bölümü) izin verecek şekilde değiştirmek  *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)*  özniteliği. Daha uzun veya kısaysa sorgu dizelerine izin vermek için değeri değiştirmek  *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)*  özniteliği.
+Daha uzun veya kısaysa yollara (protokolü, sunucu adını ve sorgu dizesi dahil değildir URL bölümü) izin verecek şekilde değiştirmek *[maxUrlLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxurllength.aspx)* özniteliği. Daha uzun veya kısaysa sorgu dizelerine izin vermek için değeri değiştirmek *[maxQueryStringLength](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.maxquerystringlength.aspx)* özniteliği.
 
 ASP.NET 4 URL karakter denetimi tarafından kullanılan karakter yapılandırmanızı sağlar. ASP.NET bir URL yolu bölümünde geçersiz bir karakter bulduğunda, isteği reddeder ve bir HTTP 400 hatası verir. ASP.NET önceki sürümlerinde, sabit bir karakter kümesi için sınırlı URL karakter denetler. ASP.NET 4'te yeni kullanarak geçerli karakter kümesi özelleştirebilirsiniz *requestPathInvalidChars* özniteliği *httpRuntime* yapılandırma öğesi, aşağıdaki örnekte gösterildiği gibi:
 
 [!code-xml[Main](overview/samples/sample11.xml)]
 
-Varsayılan olarak, *requestPathInvalidChars* özniteliği geçersiz olarak sekiz karakter tanımlar. (Atandığı dizesindeki *requestPathInvalidChars* varsayılan*,*değerinden (&lt;), büyüktür (&gt;) ve ve işareti (&amp;) karakterler çünkü kodlanmış `Web.config` dosyasını bir XML dosyasıdır.) Geçersiz karakter kümesi gerektiği gibi özelleştirebilirsiniz.
+Varsayılan olarak, <em>requestPathInvalidChars</em> özniteliği geçersiz olarak sekiz karakter tanımlar. (Atandığı dizesindeki <em>requestPathInvalidChars</em> varsayılan<em>,</em>değerinden (&lt;), büyüktür (&gt;) ve ve işareti (&amp;) karakterler çünkü kodlanmış `Web.config` dosyasını bir XML dosyasıdır.) Geçersiz karakter kümesi gerektiği gibi özelleştirebilirsiniz.
 
 > [!NOTE]
 > ASP.NET 4 olanlar IETF RFC 2396 tanımlanan geçersiz URL karakterler olduğundan için 0x00 0x1F, ASCII aralığında karakterden URL yolu her zaman reddeder Not ([http://www.ietf.org/rfc/rfc2396.txt](http://www.ietf.org/rfc/rfc2396.txt)). IIS 6 çalıştıran Windows Server sürümlerinde veya üzeri, http.sys Protokolü aygıt sürücüsü otomatik olarak URL'ler bu karakterlerle reddeder.
@@ -250,7 +250,7 @@ Yeni kapsamlı bir açıklama *MemoryCache* sınıf ve taban API'lerini destekle
 
 ASP.NET 4'te, metin kodlama aşağıdaki ortak görevler için özel kodlama yordamları oluşturabilirsiniz:
 
-- HTML kodlaması.
+- HTML encoding.
 - URL kodlaması.
 - HTML öznitelik kodlaması.
 - Giden HTTP üstbilgileri kodlama.
@@ -296,7 +296,7 @@ Belirli bir .NET Framework sürümünü hedefleme hakkında aşağıdakileri unu
 
 <a id="0.2__Toc224729023"></a><a id="0.2__Toc253429250"></a><a id="0.2__Toc243304624"></a>
 
-## <a name="ajax"></a>AJAX
+## <a name="ajax"></a>Ajax
 
 <a id="0.2__Toc253429251"></a><a id="0.2__Toc243304625"></a>
 
@@ -326,9 +326,11 @@ Microsoft Ajax CDN yararlanarak, Ajax uygulamalarınızın performansını önem
 
 Güvenli Yuva Katmanı'ni kullanarak bir web sayfası hizmet gerekebileceği Microsoft Ajax içerik teslim ağı SSL (HTTPS) destekler.
 
+CDN kullanılamıyorsa bir geri dönüş uygulayın. Geri dönüş sınayın.
+
 Microsoft Ajax CDN hakkında daha fazla bilgi için aşağıdaki Web sitesini ziyaret edin:
 
-[https://www.ASP.NET/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
+[https://www.asp.net/ajaxlibrary/CDN.ashx](../../ajax/cdn/overview.md)
 
 ASP.NET ScriptManager Microsoft Ajax CDN destekler. Yalnızca ayarı bir özelliği tarafından EnableCdn, CDN tüm ASP.NET framework JavaScript dosyaları alabilirsiniz:
 
@@ -412,13 +414,13 @@ Gördüğünüz gibi PlaceHolder1 denetimi için görünüm durumuna kod devre d
 
 Bu ayarları etkisini sayfa ilk kez yüklendiğinde, aşağıdaki çıkış tarayıcıda görüntülenen şöyledir:
 
-Devre dışı`: [DynamicValue]`
+devre dışı `: [DynamicValue]`
 
 Etkin:`[DynamicValue]`
 
 Bir geri gönderme sonra ancak, aşağıdaki çıkış görüntülenir:
 
-Devre dışı`: [DeclaredValue]`
+devre dışı `: [DeclaredValue]`
 
 Etkin:`[DynamicValue]`
 
@@ -444,17 +446,17 @@ ASP.NET belirleyen bir kullanıcı olarak adlandırılan bir özellik kullanarak
 
 Aşağıdaki liste, yeni tarayıcı tanım dosyalarını gösterir:
 
-- *BlackBerry.browser*
-- *Chrome.browser*
+- *blackberry.browser*
+- *chrome.browser*
 - *Default.browser*
-- *Firefox.browser*
-- *Gateway.browser*
-- *Generic.browser*
-- *IE.browser*
+- *firefox.browser*
+- *gateway.browser*
+- *generic.browser*
+- *ie.browser*
 - *iemobile.browser*
-- *iPhone.browser*
-- *Opera.browser*
-- *Safari.browser*
+- *iphone.browser*
+- *opera.browser*
+- *safari.browser*
 
 #### <a name="using-browser-capabilities-providers"></a>Tarayıcı yetenekleri sağlayıcıları kullanma
 
@@ -629,7 +631,7 @@ Bu denetim içerir sayfa çalıştığında değeri "tan" etiketi görüntüleni
 
 [!code-aspx[Main](overview/samples/sample46.aspx)]
 
-Bu durumda, rota parametresi searchterm değeri için kullanılacak olan @companyname parametresinde *seçin* deyimi.
+Bu durumda, rota parametresi searchterm değeri için kullanılacak olan @companyname parametresinde <em>seçin</em> deyimi.
 
 <a id="0.2__Toc224729037"></a><a id="0.2__Toc253429261"></a><a id="0.2__Toc243304635"></a>
 
@@ -983,9 +985,9 @@ Daha sonra yalnızca için geçerli bir CSS sınıfı tanımlayabilirsiniz *gizl
 Varsayılan olarak, şablonları destekleyen aşağıdaki ASP.NET Web sunucusu denetimleri otomatik olarak satır içi stiller uygulamak için kullanılan bir dış tablo Sarmalanan:
 
 - *FormView*
-- *Oturum açma*
+- *oturum açma*
 - *PasswordRecovery*
-- *Parola değiştirme*
+- *ChangePassword*
 - *Sihirbazı*
 - *CreateUserWizard*
 
@@ -1362,10 +1364,10 @@ Daha fazla bilgi için bkz: [nasıl yapılır: bir Web uygulaması projesi kulla
 Aşağıdaki Web sitelerini ASP.NET 4 ve Visual Studio 2010 hakkında ek bilgi sağlar.
 
 - [ASP.NET 4](https://msdn.microsoft.com/library/ee532866%28VS.100%29.aspx) — MSDN Web sitesinde ASP.NET 4 için resmi belge.
-- [https://www.ASP.NET/](https://www.asp.net/) — ASP.NET ekibin kendi Web sitesi.
-- [https://www.ASP.NET/DynamicData/](https://msdn.microsoft.com/library/cc488545.aspx) ve [ASP.NET dinamik veri içerik haritası](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — çevrimiçi kaynaklar ASP.NET ekip sitesi ve ASP.NET dinamik veri için resmi belge.
-- [https://www.ASP.NET/AJAX/](../../ajax/index.md) — ASP.NET Ajax geliştirme için ana Web kaynağı.
-- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Studio 2010'da özellikleri hakkında bilgi içeren Visual Web Developer ekip blogu.
+- [https://www.asp.net/](https://www.asp.net/) — ASP.NET ekibin kendi Web sitesi.
+- [https://www.asp.net/dynamicdata/](https://msdn.microsoft.com/library/cc488545.aspx) ve [ASP.NET dinamik veri içerik haritası](https://msdn.microsoft.com/library/cc488545%28VS.100%29.aspx) — çevrimiçi kaynaklar ASP.NET ekip sitesi ve ASP.NET dinamik veri için resmi belge.
+- [https://www.asp.net/ajax/](../../ajax/index.md) — ASP.NET Ajax geliştirme için ana Web kaynağı.
+- [https://blogs.msdn.com/webdevtools/](https://blogs.msdn.com/webdevtools/) — Visual Studio 2010'da özellikleri hakkında bilgi içerir Visual Web Developer ekibi blogu.
 - [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack) — ASP.NET Önizleme sürümleri için ana Web kaynağı.
 
 <a id="0.2__Toc224729061"></a><a id="0.2__Toc253429298"></a><a id="0.2__Toc243304669"></a>

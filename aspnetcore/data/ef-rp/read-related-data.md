@@ -1,7 +1,7 @@
 ---
-title: "Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma"
+title: Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 author: rick-anderson
-description: "Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüleyin."
+description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüleyin.
 manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 44db7b49aef6bff1e57d10d569ffa9c73930b774
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Bu öğreticide, ilgili veri okumak ve görüntülenir. İlgili verileri EF çekirdek Gezinti özelliklerini yükleyen verilerdir.
 
@@ -37,22 +37,22 @@ EF çekirdek ilgili verileri bir varlık Gezinti özellikleri yükleyebilirsiniz
 
 * [İstekli yükleme](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Bir varlık türü için bir sorgu aynı zamanda ilgili varlıklar yüklediğinde istekli Yükleme ' dir. Varlık okurken ilgili verileri alınır. Bu, genellikle tüm gerekli olan verileri alan bir tek birleştirme sorgusunda sonuçlanır. EF çekirdek istekli yükleme bazı türleri için birden çok sorgu gönderirsiniz. Birden çok sorgu verme EF6 bazı sorgularda söz konusu olandan daha etkili olabilir oluştu burada tek bir sorgu. İstekli yükleme ile belirtilen `Include` ve `ThenInclude` yöntemleri.
 
- ![İstekli yükleme örneği](read-related-data/_static/eager-loading.png)
+  ![İstekli yükleme örneği](read-related-data/_static/eager-loading.png)
  
- Bir koleksiyon Gezinti dahil edildiğinde istekli yükleme birden çok sorgu gönderir:
+  Bir koleksiyon Gezinti dahil edildiğinde istekli yükleme birden çok sorgu gönderir:
 
- * Ana sorgu için bir sorgu 
- * Her bir koleksiyon yük ağacında "kenar" için bir sorgu.
+  * Ana sorgu için bir sorgu 
+  * Her bir koleksiyon yük ağacında "kenar" için bir sorgu.
 
 * Ayrı sorgularıyla `Load`: verileri ayrı sorgularda alınabilir ve EF çekirdek "düzeltmelerini" Gezinti özellikleri. "düzeltmeler yukarı" anlamına gelir EF çekirdek Gezinti özellikleri otomatik olarak doldurur. Ayrı sorgularıyla `Load` daha çok istekli yüklemekten yüklenirken explict gibi.
 
- ![Ayrı sorgulara örneği](read-related-data/_static/separate-queries.png)
+  ![Ayrı sorgulara örneği](read-related-data/_static/separate-queries.png)
 
- Not: EF çekirdek Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulmuş ya da tüm ilgili varlıklar önceden yüklendi.
+  Not: EF çekirdek Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulmuş ya da tüm ilgili varlıklar önceden yüklendi.
 
 * [Açık yükleme](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Varlık ilk okunduğunda ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilen ayrı sorgularla açık yükleme sonuçlanır. Açık yükleme ile kod yüklenecek Gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntem. Örneğin:
 
- ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
+  ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
 * [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF çekirdek geç yükleme şu anda desteklemiyor](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlık ilk okunduğunda ilgili verileri alınan değil. Bir gezinme özelliği ilk erişildiğinde bu gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliği erişilir DB gönderilir.
 
@@ -76,9 +76,9 @@ Atanan departmanı adını kurslar listesini görüntülemek için:
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
 * Şu komutu çalıştırın:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
+  ```
 
 Yukarıdaki komut iskelesini kurar `Course` modeli. Projesini Visual Studio'da açın.
 
@@ -165,9 +165,9 @@ Eğitmen sayfanın üç farklı tablolardan verileri gösterir. Bir görünüm m
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
 * Şu komutu çalıştırın:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
+  ```
 
 Yukarıdaki komut iskelesini kurar `Instructor` modeli. Projesini Visual Studio'da açın.
 

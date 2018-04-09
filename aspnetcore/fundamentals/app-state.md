@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core oturum ve uygulama durumu
 author: rick-anderson
-description: "Koruma uygulama ve kullanıcı (oturum) durumunu yaklaşımları istekler arasında."
+description: Koruma uygulama ve kullanıcı (oturum) durumunu yaklaşımları istekler arasında.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 6b81cadf39c0db373f82b8de7d8d3901d51ea088
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ca77db7bd498289b448475fc6cadeea622b4a606
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumunda giriş
+# <a name="session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumu
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), ve [Diana LaRose](https://github.com/DianaLaRose)
 
@@ -33,7 +33,7 @@ Sunucunun son istekten sonra sınırlı bir süre için bir oturum korur. Oturum
 > [!WARNING]
 > Hassas verileri oturumunda depolamayın. İstemci değil Tarayıcıyı kapatın ve oturum tanımlama bilgisi temizleyin (ve bazı tarayıcılar oturum tanımlama bilgileri windows Canlı). Ayrıca, bir oturum için tek bir kullanıcı kısıtlı olmayabilir; sonraki kullanıcı ile aynı oturumu devam edebilir.
 
-Bellek içi oturum sağlayıcısı, yerel sunucuda oturum verilerini depolar. Bir sunucu grubunda web uygulamanızı çalıştırmak planlıyorsanız, belirli bir sunucuya her oturum bağlamanın Yapışkan oturumları kullanmanız gerekir. Windows Azure Web siteleri platform varsayılan Yapışkan oturumlarına (uygulama isteği yönlendirme veya ARR). Ancak, Yapışkan oturumları ölçeklenebilirliği etkileyen ve web uygulama güncelleştirmeleri zorlaştırabilir. Daha iyi bir seçenek Redis kullanmaktır veya SQL Server dağıtılmış, hangi Yapışkan oturumları gerektirmeyen önbelleğe alır. Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmaya](xref:performance/caching/distributed). Hizmet sağlayıcıları ayarlama hakkında daha fazla bilgi için bkz: [yapılandırma oturum](#configuring-session) bu makalenin ilerisinde yer.
+Bellek içi oturum sağlayıcısı, yerel sunucuda oturum verilerini depolar. Bir sunucu grubunda web uygulamanızı çalıştırmak planlıyorsanız, belirli bir sunucuya her oturum bağlamanın Yapışkan oturumları kullanmanız gerekir. Windows Azure Web siteleri platform varsayılan Yapışkan oturumlarına (uygulama isteği yönlendirme veya ARR). Ancak, Yapışkan oturumları ölçeklenebilirliği etkileyen ve web uygulama güncelleştirmeleri zorlaştırabilir. Daha iyi bir seçenek Redis kullanmaktır veya SQL Server dağıtılmış, hangi Yapışkan oturumları gerektirmeyen önbelleğe alır. Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmak](xref:performance/caching/distributed). Hizmet sağlayıcıları ayarlama hakkında daha fazla bilgi için bkz: [yapılandırma oturum](#configuring-session) bu makalenin ilerisinde yer.
 
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
@@ -70,20 +70,17 @@ TempData sağlayıcısı seçme bazı noktalar gibi içerir:
 <a name="config-temp"></a>
 ### <a name="configure-the-tempdata-provider"></a>TempData sağlayıcısı yapılandırma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Tanımlama bilgisi tabanlı TempData sağlayıcısı varsayılan olarak etkindir. Aşağıdaki `Startup` sınıf kodu oturum tabanlı TempData sağlayıcı yapılandırır:
 
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,6,11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Aşağıdaki `Startup` sınıf kodu oturum tabanlı TempData sağlayıcı yapılandırır:
 
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupTempDataSession.cs?name=snippet_TempDataSession&highlight=4,9)]
 
----
-
+* * *
 Sıralama ara yazılımı bileşenleri için kritik öneme sahiptir. Önceki örnekte, türünde bir özel durum `InvalidOperationException` oluşur, `UseSession` sonra çağrılan `UseMvcWithDefaultRoute`. Bkz: [ara yazılım sıralama](xref:fundamentals/middleware/index#ordering) daha fazla ayrıntı için.
 
 > [!IMPORTANT]
@@ -107,11 +104,11 @@ Tanımlama bilgileri, genellikle içeriği bilinen bir kullanıcı için burada 
 
 ## <a name="httpcontextitems"></a>HttpContext.Items
 
-`Items` Koleksiyonudur gerekli olan verileri depolamak için iyi bir konum belirli bir isteği işlerken yalnızca. Koleksiyonun içeriğini sonra her istek atılır. `Items` Koleksiyonu en iyi bileşenler veya ara yazılım için bir yol olarak farklı noktalarda isteği sırasında zaman çalışır ve parametreleri geçirmek için hiçbir doğrudan şekilde iletişim kurmak için kullanılır. Daha fazla bilgi için bkz: [HttpContext.Items ile çalışma](#working-with-httpcontextitems), bu makalenin ilerisinde yer.
+`Items` Koleksiyonudur gerekli olan verileri depolamak için iyi bir konum belirli bir isteği işlerken yalnızca. Koleksiyonun içeriğini sonra her istek atılır. `Items` Koleksiyonu en iyi bileşenler veya ara yazılım için bir yol olarak farklı noktalarda isteği sırasında zaman çalışır ve parametreleri geçirmek için hiçbir doğrudan şekilde iletişim kurmak için kullanılır. Daha fazla bilgi için bkz: [iş HttpContext.Items ile](#working-with-httpcontextitems), bu makalenin ilerisinde yer.
 
 ## <a name="cache"></a>Önbellek
 
-Önbelleğe alma, depolamak ve veri almak için etkili bir yoldur. Yaşam süresi ve diğer noktalar göre önbelleğe alınmış öğelerin kontrol edebilirsiniz. Daha fazla bilgi edinmek [önbelleğe alma](../performance/caching/index.md).
+Önbelleğe alma, depolamak ve veri almak için etkili bir yoldur. Yaşam süresi ve diğer noktalar göre önbelleğe alınmış öğelerin kontrol edebilirsiniz. Daha fazla bilgi edinmek [önbellek nasıl](../performance/caching/index.md).
 
 <a name="session"></a>
 ## <a name="working-with-session-state"></a>Oturum durumu ile çalışma
@@ -126,16 +123,13 @@ Tanımlama bilgileri, genellikle içeriği bilinen bir kullanıcı için burada 
 
 Aşağıdaki kod, bellek içi oturum Sağlayıcısı'nı ayarlama gösterilmektedir.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/Startup.cs?highlight=11-19,24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](app-state/sample/src/WebAppSession/Startup.cs?highlight=11-19,24)]
 
----
-
+* * *
 Oturumdan başvurabilir `HttpContext` yüklenmiş ve yapılandırılmış sonra.
 
 Erişmeye çalıştığınızda `Session` önce `UseSession` çağrılıp çağrılmadığını, özel durum `InvalidOperationException: Session has not been configured for this application or request` atılır.
@@ -154,16 +148,13 @@ Oturum tanımlama bilgisi izlemek ve tek bir tarayıcıdan istekleri belirlemek 
 
 Oturum Varsayılanları geçersiz kılmak için kullanın `SessionOptions`:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](app-state/sample/src/WebAppSessionDotNetCore2.0App/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](app-state/sample/src/WebAppSession/StartupCopy.cs?name=snippet1&highlight=8-12)]
 
----
-
+* * *
 Sunucunun kullandığı `IdleTimeout` içeriğinin terk önce ne kadar oturum boşta kalabileceği belirlemek için özellik. Bu özellik tanımlama bilgisinin süre sonu bağımsızdır. (Okuma veya yazma) oturum Ara geçtiği her istek zaman aşımını sıfırlar.
 
 Çünkü `Session` olan *kilitleme*, her ikisi de denemesi oturum, son içeriğini değiştirmek iki istek ilk kılıyorsa. `Session` olarak uygulanan bir *tutarlı oturum*, yani tüm içeriği birlikte depolanır. (Farklı anahtarlar) oturum farklı bölümlerini değiştirmek iki isteği hala etkisi birbirine.
@@ -271,7 +262,7 @@ public class MyController : Controller
 
 * "Çözümlenemiyor hizmet türü 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' için 'Microsoft.AspNetCore.Session.DistributedSessionStore' etkinleştirmeye çalışırken."
 
-  En az bir yapılandırmak devrederek nedeni genellikle `IDistributedCache` uygulaması. Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmaya](xref:performance/caching/distributed) ve [bellek önbelleğe alma işleminde](xref:performance/caching/memory).
+  En az bir yapılandırmak devrederek nedeni genellikle `IDistributedCache` uygulaması. Daha fazla bilgi için bkz: [dağıtılmış bir önbellekle çalışmak](xref:performance/caching/distributed) ve [bellek önbelleğe alma işleminde](xref:performance/caching/memory).
 
 * Ara yazılım başarısız için oturum oturumu kalıcı olması durumunda (örneğin: veritabanı kullanılabilir durumda değilse), özel durumu günlüğe kaydeder ve onu yuttuğu. İstek daha sonra normal olarak, hangi çok beklenmeyen davranışlara müşteri adayları devam eder.
 

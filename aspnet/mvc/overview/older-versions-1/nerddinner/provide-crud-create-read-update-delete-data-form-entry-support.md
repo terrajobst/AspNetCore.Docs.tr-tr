@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
-title: "CRUD sağlayın (oluşturma, okuma, güncelleştirme, silme) veri Form girişi destek | Microsoft Docs"
+title: CRUD sağlayın (oluşturma, okuma, güncelleştirme, silme) veri Form girişi destek | Microsoft Docs
 author: microsoft
-description: "5. adım, düzenleme, oluşturma ve azalma ile de silmek için etkinleştirme desteği tarafından daha fazla bizim DinnersController sınıfı yapılacak gösterilmiştir."
+description: 5. adım, düzenleme, oluşturma ve azalma ile de silmek için etkinleştirme desteği tarafından daha fazla bizim DinnersController sınıfı yapılacak gösterilmiştir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 5a314a1761527d8a2273166a743e3deac012a557
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd906282db5c620476966ffbe09cecb5ade66ee4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>CRUD sağlayın (oluşturma, okuma, güncelleştirme, silme) veri Form girişi desteği
 ====================
@@ -44,15 +44,15 @@ Daha önce eylem yöntemleri için iki URL'ler için destek uygulanmadı Dinners
 | */Dinners/* | AL | Yaklaşan azalma HTML listesini görüntüler. |
 | */Dinners/Ayrıntılar / [kimlik]* | AL | Belirli bir Yemeği hakkındaki ayrıntıları görüntüler. |
 
-Üç ek URL'ler uygulamak için eylem yöntemleri şimdi ekleyeceğiz: */Dinners/düzenleme / [kimlik], / azalma/oluşturun,*ve*/Dinners/silme / [kimlik]*. Bu URL'leri yeni azalma oluşturma ve azalma silme düzenleme varolan azalma desteğini etkinleştirir.
+Üç ek URL'ler uygulamak için eylem yöntemleri şimdi ekleyeceğiz: <em>/Dinners/düzenleme / [kimlik], / azalma/oluşturun,</em>ve<em>/Dinners/silme / [kimlik]</em>. Bu URL'leri yeni azalma oluşturma ve azalma silme düzenleme varolan azalma desteğini etkinleştirir.
 
 Bu yeni URL'ler ile HTTP GET ve HTTP POST fiil etkileşimleri destekliyoruz. Bu URL'leri HTTP GET isteklerine ("Düzenle" durumunda Yemeği verilerle doldurulur form, "oluşturma" durumunda boş bir form ve bir delete onay ekranı "Sil" söz konusu olduğunda) verilerinin ilk HTML görünümü görüntüler. Bu URL'leri HTTP POST isteklerini kaydetme/güncelleştirme/silme Yemeği verileri bizim DinnerRepository (ve veritabanına buradan) olur.
 
 | **URL** | **FİİL** | **Amaç** |
 | --- | --- | --- |
-| */Dinners/düzenleme / [kimlik]* | AL | Yemeği verilerle doldurmuş düzenlenebilir bir HTML formuna görüntüler. |
+| */Dinners/Edit/[id]* | AL | Yemeği verilerle doldurmuş düzenlenebilir bir HTML formuna görüntüler. |
 | YAYINLA | Belirli bir Yemeği veritabanı için form değişiklikleri kaydedin. |
-| */ Azalma/oluşturma* | AL | Yeni azalma tanımlamak kullanıcılara boş bir HTML formuna görüntüler. |
+| */Dinners/Create* | AL | Yeni azalma tanımlamak kullanıcılara boş bir HTML formuna görüntüler. |
 | YAYINLA | Yeni Yemeği oluşturma ve veritabanındaki kaydedin. |
 | */Dinners/silme / [kimlik]* | AL | Görüntü onay ekranı silin. |
 | YAYINLA | Belirtilen Yemeği veritabanından siler. |
@@ -107,7 +107,7 @@ Alternatif olarak, "kullanarak" deyimi bulursanız, böyle bir senaryo için do�
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample4.aspx)]
 
-Hiçbir parametre olmadan Html.BeginForm() çağırma geçerli isteğin URL'sine bir HTTP POST yapar bir form öğesi çıktısını neden olur. Diğer bir deyişle neden bizim düzenleme görünümü oluşturan bir  *&lt;form eylemi = "/ düzenleme/azalma/1" yöntemi "post" =&gt;*  öğesi. Farklı bir URL'ye gönderme istediyseniz biz alternatif olarak açık parametreleri Html.BeginForm() için geçmiş.
+Hiçbir parametre olmadan Html.BeginForm() çağırma geçerli isteğin URL'sine bir HTTP POST yapar bir form öğesi çıktısını neden olur. Diğer bir deyişle neden bizim düzenleme görünümü oluşturan bir *&lt;form eylemi = "/ düzenleme/azalma/1" yöntemi "post" =&gt;* öğesi. Farklı bir URL'ye gönderme istediyseniz biz alternatif olarak açık parametreleri Html.BeginForm() için geçmiş.
 
 ##### <a name="htmltextbox-helper-method"></a>Html.TextBox() yardımcı yöntemi
 
@@ -115,7 +115,7 @@ Bizim Edit.aspx görünümü Html.TextBox() yardımcı yöntem çıktısını al
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample5.aspx)]
 
-Her iki kimliği/ad özniteliklerini belirtmek için kullanılan tek bir parametre – yukarıdaki Html.TextBox() yöntemi alır &lt;giriş türü = "text" /&gt; metin değerinden doldurmak için model özelliğinin yanı sıra, çıktı öğesi. Örneğin, "Title" özelliğinin değeri ".NET vadeli" biz geçirilen düzenleme görünümü Yemeği nesne sahipse ve bu nedenle bizim Html.TextBox("Title") yöntemini çağırın çıktı:  *&lt;girdi kimliği = "Title" name = "Title" type = "metin" value = ".NET vadeli" = /&gt;* .
+Her iki kimliği/ad özniteliklerini belirtmek için kullanılan tek bir parametre – yukarıdaki Html.TextBox() yöntemi alır &lt;giriş türü = "text" /&gt; metin değerinden doldurmak için model özelliğinin yanı sıra, çıktı öğesi. Örneğin, "Title" özelliğinin değeri ".NET vadeli" biz geçirilen düzenleme görünümü Yemeği nesne sahipse ve bu nedenle bizim Html.TextBox("Title") yöntemini çağırın çıktı: *&lt;girdi kimliği = "Title" name = "Title" type = "metin" value = ".NET vadeli" = /&gt;*.
 
 Alternatif olarak, biz öğesinin kimliği/adı belirtin ve ikinci parametre olarak kullanılacak değer içinde açıkça geçirmek için ilk Html.TextBox() parametresini kullanabilirsiniz:
 
@@ -141,7 +141,7 @@ Aşırı yüklenmiş bir "Düzenle" eylem yöntemini HTTP POST senaryoları işl
 
 [!code-csharp[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample9.cs)]
 
-[AcceptVerbs] özniteliği için aşırı yüklenmiş eylem yöntemleri uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun bir eylem yönteminin dağıtırken istekleri otomatik olarak yönetir. HTTP POST isteklerini */Dinners/düzenleme / [kimlik]* URL'leri yukarıdaki düzenleme yöntemine diğer tüm HTTP fiili isteklerine sırasında yazılacak */Dinners/düzenleme / [kimlik]*URL'leri yazılacak ilk düzenleme için biz (hangi vermedi uygulanan yöntemi [AcceptVerbs] özniteliğine sahip değil).
+[AcceptVerbs] özniteliği için aşırı yüklenmiş eylem yöntemleri uygulandığında, ASP.NET MVC gelen HTTP fiiline bağlı olarak uygun bir eylem yönteminin dağıtırken istekleri otomatik olarak yönetir. HTTP POST isteklerini <em>/Dinners/düzenleme / [kimlik]</em> URL'leri yukarıdaki düzenleme yöntemine diğer tüm HTTP fiili isteklerine sırasında yazılacak <em>/Dinners/düzenleme / [kimlik]</em>URL'leri yazılacak ilk düzenleme için biz (hangi vermedi uygulanan yöntemi [AcceptVerbs] özniteliğine sahip değil).
 
 | **Yan konu: Neden HTTP fiilleri ayırt?** |
 | --- |
@@ -231,7 +231,7 @@ Html.ValidationMessage() yardımcı yöntemi, geliştiricilerin görüntülenen 
 
 [!code-aspx[Main](provide-crud-create-read-update-delete-data-form-entry-support/samples/sample18.aspx)]
 
-Yukarıdaki kod çıkarır:  *&lt;span class = "alan doğrulama hata"&gt;\*&lt;/span&gt;*yerine bir hata için mevcut olduğunda varsayılan hata metni EventDate özelliği.
+Yukarıdaki kod çıkarır:  <em>&lt;span class = "alan doğrulama hata"&gt;\*&lt;/span&gt;</em>yerine bir hata için mevcut olduğunda varsayılan hata metni EventDate özelliği.
 
 ##### <a name="htmlvalidationsummary-helper-method"></a>Html.ValidationSummary() yardımcı yöntemi
 
@@ -427,6 +427,6 @@ Bizim DinnersController sınıf içinde uygulama temel CRUD (Oluştur, okuma, g�
 
 Şimdi nasıl biz ViewData ve ViewModel sınıfları daha zengin UI bizim formlarında etkinleştirmek için kullanabilirsiniz bakalım.
 
->[!div class="step-by-step"]
-[Önceki](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-[sonraki](use-viewdata-and-implement-viewmodel-classes.md)
+> [!div class="step-by-step"]
+> [Önceki](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [sonraki](use-viewdata-and-implement-viewmodel-classes.md)

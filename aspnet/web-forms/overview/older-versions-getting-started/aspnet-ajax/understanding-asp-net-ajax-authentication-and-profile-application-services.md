@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
-title: "ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama | Microsoft Docs"
+title: ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama | Microsoft Docs
 author: scottcate
-description: "Kimlik doğrulama hizmeti, bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamak kullanıcıların sağlar ve özel kullanıcı izin vermek için ağ geçidi hizmeti..."
+description: Kimlik doğrulama hizmeti, bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlamak kullanıcıların sağlar ve özel kullanıcı izin vermek için ağ geçidi hizmeti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0bf6538d0c4ae9488e6ac29ccba6d4b243cf070e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama
 ====================
@@ -43,7 +43,7 @@ Bir kimlik doğrulama tanımlama bilgisi almak için kimlik bilgilerini sağlama
 
 Profil hizmeti kimlik doğrulama hizmeti tarafından sağlanan üyeliğine göre kullanıcı verilerinin depolanması ve otomatik tümleştirme sağlar. Web.config dosyasında depolanan verilerin belirtilen ve çeşitli profil hizmet sağlayıcıları veri yönetimini işlemesine. Böylece şu anda ASP.NET Profil Hizmeti özelliklerini uygulayıp sayfaları AJAX destek ekleyerek bozuk değil hizmetiyle kimlik doğrulaması gibi AJAX profil hizmeti standart ASP.NET Profil Hizmeti ile uyumludur.
 
-ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik kapsamı dışında değil. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET üyelik varsayılan kimlik doğrulama hizmet sağlayıcısı ASP.NET üyelik için bir SQL Server ile otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
+ASP.NET kimlik doğrulaması ve profil oluşturma hizmetleri kendilerini bir uygulamaya ekleme, bu teknik kapsamı dışında değil. Konu hakkında daha fazla bilgi için bkz. MSDN Kitaplığı Başvurusu üyeliği kullanarak kullanıcıları yönetme makale [ https://msdn.microsoft.com/library/tw292whz.aspx ](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET üyelik varsayılan kimlik doğrulama hizmet sağlayıcısı ASP.NET üyelik için bir SQL Server ile otomatik olarak ayarlamak için bir yardımcı programı da içerir. Daha fazla bilgi için ASP.NET SQL Server kayıt aracı makalesine bakın (Aspnet\_regsql.exe) adresindeki [ https://msdn.microsoft.com/library/ms229862(vs.80).aspx ](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*ASP.NET AJAX kimlik doğrulama Hizmeti'ni kullanma*
 
@@ -131,7 +131,7 @@ Bu özelliği tarafından belirtilen işlev başvurusu aşağıdaki imzası olma
 
 | **Parametre adı** | **Anlamı** |
 | --- | --- |
-| validCredentials | Kullanıcı geçerli kimlik bilgileri sağlanan olup olmadığını belirtir. `true`Kullanıcı başarıyla oturum Aksi takdirde `false`. |
+| validCredentials | Kullanıcı geçerli kimlik bilgileri sağlanan olup olmadığını belirtir. `true` Kullanıcı başarıyla oturum Aksi takdirde `false`. |
 | userContext | Oturum açma işlevi çağrıldığında sağlanan kullanıcı bağlam bilgilerini belirtir. |
 | methodName | Arama yöntemin adı. |
 
@@ -345,6 +345,6 @@ Ayrıca, eşdeğer yöntemi imzalarla Basitleştirilmiş web hizmeti uygulamalar
 
 Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Önceki](understanding-asp-net-ajax-updatepanel-triggers.md)
-[sonraki](understanding-asp-net-ajax-localization.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-asp-net-ajax-updatepanel-triggers.md)
+> [sonraki](understanding-asp-net-ajax-localization.md)

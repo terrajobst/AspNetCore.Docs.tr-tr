@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/7-displaying-data-in-a-chart
-title: "ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme | Microsoft Docs"
+title: ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme | Microsoft Docs
 author: microsoft
-description: "Bu bölümde, grafik verileri görüntülemek açıklanmaktadır. Önceki bölümlerde, el ile ve kılavuz verileri görüntülemeyi öğrendiniz. Bu bölümde anlatılmıştır..."
+description: Bu bölümde, grafik verileri görüntülemek açıklanmaktadır. Önceki bölümlerde, el ile ve kılavuz verileri görüntülemeyi öğrendiniz. Bu bölümde anlatılmıştır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5cf17e54408d585e9a375b302b61b4e28d9b022a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme
 ====================
@@ -129,7 +129,7 @@ Grafik üçüncü seçenek, grafik için veri olarak bir XML dosyası kullanmakt
 
     ![](7-displaying-data-in-a-chart/_static/image10.jpg)
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_UsingStatements"></a>
 > ### <a name="using-statements-and-fully-qualified-names"></a>"Deyimleri ve tam olarak nitelenmiş adlar kullanarak"

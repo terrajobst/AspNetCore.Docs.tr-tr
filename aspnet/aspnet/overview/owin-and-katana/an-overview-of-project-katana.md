@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
-title: "Proje Katana genel bakış | Microsoft Docs"
+title: Proje Katana genel bakış | Microsoft Docs
 author: howarddierking
-description: "ASP.NET Framework on yıldan için geçici olmuştur ve platform geliştirme sayısız Web siteleri ve Hizmetleri etkinleştirdi. Web Outlook'ta olarak..."
+description: ASP.NET Framework on yıldan için geçici olmuştur ve platform geliştirme sayısız Web siteleri ve Hizmetleri etkinleştirdi. Web Outlook'ta olarak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>Proje Katana genel bakış
 ====================
@@ -144,7 +144,7 @@ Komut satırından biz proje kök klasöre gidin ve çalıştırmanız yeterlidi
 - Temel alınan işlem yönetme.
 - Sunucu seçimi ve hangi istekleri aracılığıyla bir OWIN ardışık yapımı sonuçlanır iş akışı yönetme işleneceğini.
 
- Şu anda Katana tabanlı uygulamalar için 3 birincil barındırma seçenekleri vardır:  
+  Şu anda Katana tabanlı uygulamalar için 3 birincil barındırma seçenekleri vardır:  
   
 **IIS/ASP.NET**: Standart HTTP ve HttpHandler türlerini kullanarak, bir ASP.NET istek akışının bir parçası olarak OWIN ardışık düzen IIS'de çalıştırabilirsiniz. Destek barındırma ASP.NET Web uygulaması projesine Microsoft.AspNet.Host.SystemWeb NuGet paketini yükleyerek etkinleştirilir. Ayrıca, IIS hem bir ana bilgisayar hem de bir sunucu olarak davrandığından OWIN sunucu/ana ayrım SystemWeb ana bilgisayar kullanıyorsanız, bir geliştirici başka sunucu uygulaması yerine, yani bu NuGet paketi conflated.  
   
@@ -221,7 +221,7 @@ Katana 2.0 için ara yazılımı bileşenleri öncelikle kimlik doğrulama farkl
 
 ## <a name="for-more-information-about-katana"></a>Katana hakkında daha fazla bilgi için
 
-- GitHub Katana projede: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/).
+- GitHub Katana projede: [ https://github.com/aspnet/AspNetKatana/ ](https://github.com/aspnet/AspNetKatana/).
 - Video: [Katana proje - ASP.NET OWIN](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET), Howard Dierking tarafından.
 
 ## <a name="acknowledgements"></a>Katkıda Bulunanlar

@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
 title: Modelleri ve denetleyicileri ekleyin | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="add-models-and-controllers"></a>Modelleri ve denetleyicileri ekleyin
 ====================
@@ -84,8 +84,8 @@ Ardından, projeyi oluşturun. Web API yapı iskelesi yansıma derlenmiş derlem
 
 Tıklatın **Ekle** tamamlamak için **denetleyici Ekle** iletişim. İletişim kutusu iki sınıf projenize ekler:
 
-- `AuthorsController`Web API denetleyicisi tanımlar. İstemcilerin yazarlar listesinde CRUD işlemleri gerçekleştirmek için kullandığı REST API denetleyicisi uygular.
-- `BookServiceContext`Veritabanı, değişiklik izleme ve kalıcı veri verilerini veritabanına nesnelerle doldurmak içeren çalışma zamanı sırasında varlık nesneleri yönetir. Öğesinden devralınan `DbContext`.
+- `AuthorsController` Web API denetleyicisi tanımlar. İstemcilerin yazarlar listesinde CRUD işlemleri gerçekleştirmek için kullandığı REST API denetleyicisi uygular.
+- `BookServiceContext` Veritabanı, değişiklik izleme ve kalıcı veri verilerini veritabanına nesnelerle doldurmak içeren çalışma zamanı sırasında varlık nesneleri yönetir. Öğesinden devralınan `DbContext`.
 
 ![](part-2/_static/image7.png)
 
@@ -93,6 +93,6 @@ Bu noktada, projeyi yeniden oluşturun. Şimdi bir API denetleyicisi için eklem
 
 ![](part-2/_static/image8.png)
 
->[!div class="step-by-step"]
-[Önceki](part-1.md)
-[sonraki](part-3.md)
+> [!div class="step-by-step"]
+> [Önceki](part-1.md)
+> [sonraki](part-3.md)

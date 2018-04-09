@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: "Dinamik güncelleştirmeleri göndermek için AJAX kullanma | Microsoft Docs"
+title: Dinamik güncelleştirmeleri göndermek için AJAX kullanma | Microsoft Docs
 author: microsoft
-description: "Adım 10 Implements oturum açan kullanıcılar için RSVP içinde Yemeği ayrıntı tümleşik bir Ajax tabanlı yaklaşımı kullanarak, bir Yemeği katılan içinde kendi ilgi destek..."
+description: Adım 10 Implements oturum açan kullanıcılar için RSVP içinde Yemeği ayrıntı tümleşik bir Ajax tabanlı yaklaşımı kullanarak, bir Yemeği katılan içinde kendi ilgi destek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Dinamik güncelleştirmeleri göndermek için AJAX kullanma
 ====================
@@ -117,7 +117,7 @@ JQuery kullanmak için öncelikle bir komut dosyası başvuru ekleyeceğiz. JQue
 
 *İpucu: VS 2008 SP1'de, JavaScript dosyaları (jQuery dahil) için daha zengin IntelliSense desteği sağlayan JavaScript IntelliSense düzeltmesinin yüklü olup olmadığını denetleyin. Buradan indirebilirsiniz: http://tinyurl.com/vs2008javascripthotfix*
 
-JQuery genellikle kullanılarak yazılan kodu kullanan bir genel "$ ()" bir CSS seçicisini kullanarak bir veya daha fazla HTML öğeleri alır JavaScript yöntemi. Örneğin, *$("#rsvpmsg")* rsvpmsg, kimliği herhangi bir HTML öğesi seçer sırada *$(".something")* şeyle "" CSS tüm öğeleri seçeceğiniz sınıf adı. "Tüm checked radyo düğmeleri return"gibi daha gelişmiş sorgular da yazabilirsiniz gibi bir seçici sorgu kullanarak: *$("Giriş [@typeradyo =] [@checked]")*.
+JQuery genellikle kullanılarak yazılan kodu kullanan bir genel "$ ()" bir CSS seçicisini kullanarak bir veya daha fazla HTML öğeleri alır JavaScript yöntemi. Örneğin, <em>$("#rsvpmsg")</em> rsvpmsg, kimliği herhangi bir HTML öğesi seçer sırada <em>$(".something")</em> şeyle "" CSS tüm öğeleri seçeceğiniz sınıf adı. "Tüm checked radyo düğmeleri return"gibi daha gelişmiş sorgular da yazabilirsiniz gibi bir seçici sorgu kullanarak: <em>$("Giriş [@typeradyo =] [@checked]")</em>.
 
 Öğeleri seçtikten sonra kendilerine gizleyip gibi eyleme geçmek için yöntemleri çağırabilirsiniz: *$("#rsvpmsg").hide();*
 
@@ -153,6 +153,6 @@ Bu kod okuyun ve korumak için Temizleyici hale getirir.
 
 Şimdi nasıl biz AJAX daha kullanın ve uygulamamız için etkileşimli eşleme desteği eklemek bakalım.
 
->[!div class="step-by-step"]
-[Önceki](secure-applications-using-authentication-and-authorization.md)
-[sonraki](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [Önceki](secure-applications-using-authentication-and-authorization.md)
+> [sonraki](use-ajax-to-implement-mapping-scenarios.md)

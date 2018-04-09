@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: "Model bağlama ve web forms kullanan projesine ekleniyor iş mantığı katmanı | Microsoft Docs"
+title: Model bağlama ve web forms kullanan projesine ekleniyor iş mantığı katmanı | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar..."
+description: Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: ca50690052cca73a718342a9725c8096a72f1187
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 25e887bdc316abf65c780bb6c8d075e938e85064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Model bağlama ve web forms kullanan projesine ekleniyor iş mantığı katmanı
 ====================
@@ -98,5 +98,5 @@ Uygulamayı çalıştırın ve daha önce sahip oldukları gibi tüm sayfaları 
 
 Bu öğreticide, bir veri erişim katmanı ve iş mantığı katmanı kullanmak için uygulamanızı yeniden yapılandırılmış. Veri denetimleri veri işlemleri için geçerli sayfa değil bir nesne kullanmak belirttiniz.
 
->[!div class="step-by-step"]
-[Önceki](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [Önceki](using-query-string-values-to-retrieve-data.md)

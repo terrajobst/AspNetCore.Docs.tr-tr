@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama"
+title: Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 author: rick-anderson
-description: "Gizli geliştirme sırasında güvenli bir şekilde depolamak nasıl gösterir"
+description: Gizli geliştirme sırasında güvenli bir şekilde depolamak nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 09/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>ASP.NET Core geliştirme sırasında uygulama sırrı güvenli depolama
+# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), ve [Scott Addie](https://scottaddie.com) 
 
@@ -34,15 +34,14 @@ Uygulama gizli kod veya yerel yapılandırma dosyalarını depolamak önlemek i�
 
 ## <a name="secret-manager"></a>Parola Yöneticisi
 
-Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması için hassas verileri depolar. Parola Yöneticisi Aracı için parolaları depolamak için kullanılan bir proje araçtır bir [.NET Core](https://www.microsoft.com/net/core) proje geliştirme sırasında. Gizli Yöneticisi aracıyla uygulama sırrı belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşın.
+Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması için hassas verileri depolar. Gizli Yöneticisi Aracı geliştirme sırasında bir .NET Core projesi için parolaları depolamak için kullanılan bir proje araçtır. Gizli Yöneticisi aracıyla uygulama sırrı belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşın.
 
 >[!WARNING]
 > Gizli Yöneticisi aracını depolanan parolaları şifrelemek değil ve bir güvenilen deposu olarak değerlendirilmesi gerekir. Yalnızca geliştirme amacıyla kullanılır. Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.
 
 ## <a name="installing-the-secret-manager-tool"></a>Parola Yöneticisi aracını yükleme
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Düzenle \<project_name\>.csproj** ve bağlam menüsünden. Vurgulanan satırı ekleyin *.csproj* dosya ve ilişkili NuGet paket geri yüklemek için kaydedin:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -59,8 +58,7 @@ Değiştirilen kaydetme *.csproj* dosya de açılır bir `secrets.json` dosyası
 }
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 Ekleme `Microsoft.Extensions.SecretManager.Tools` için *.csproj* dosya ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore). Parola Yöneticisi için komut satırını kullanarak aracı yüklemek için aynı adımları kullanabilirsiniz.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -89,15 +87,14 @@ dotnet user-secrets set MySecret ValueOfMySecret
 ```
 
 Diğer dizinlerden gizli Yöneticisi aracını çalıştırabilirsiniz ancak kullanmalısınız `--project` yolunu geçirmek için seçeneği *.csproj* dosyası:
- 
+
 ```console
 dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
 ```
 
 Gizli Yöneticisi aracını, listesinde, kaldırmak ve uygulama temizlemek için de kullanabilirsiniz.
 
------
-
+* * *
 ## <a name="accessing-user-secrets-via-configuration"></a>Kullanıcı parolaları yapılandırması aracılığıyla erişme
 
 Gizli Yöneticisi gizli yapılandırma sistemi aracılığıyla erişebilir. Ekleme `Microsoft.Extensions.Configuration.UserSecrets` paketini ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).

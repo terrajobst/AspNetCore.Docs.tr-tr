@@ -1,7 +1,7 @@
 ---
-title: "EF çekirdek - CRUD - 2, 10 ile ASP.NET Core MVC"
+title: EF çekirdek - CRUD - 2, 10 ile ASP.NET Core MVC
 author: tdykstra
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/crud
-ms.openlocfilehash: a586fdde07ecf349d7523d43a623501af62257a2
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 54f25733126c6de5a3704664bda7c7942a3643a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Oluşturma, okuma, güncelleştirme ve silme - EF çekirdek ASP.NET Core MVC Öğreticisi (2 / 10)
+# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>EF çekirdek - CRUD - 2, 10 ile ASP.NET Core MVC
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -44,7 +44,7 @@ Bu öğreticide, aşağıdaki web sayfalarının çalışması:
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Details&highlight=8-12)]
 
-`Include` Ve `ThenInclude` yöntemleri neden yüklemek bağlam `Student.Enrollments` gezinti özelliği ve her kayıt içinde `Enrollment.Course` gezinti özelliği.  Bu yöntemleri hakkında daha fazla bilgi edineceksiniz [ilgili verileri okuma](read-related-data.md) Öğreticisi.
+`Include` Ve `ThenInclude` yöntemleri neden yüklemek bağlam `Student.Enrollments` gezinti özelliği ve her kayıt içinde `Enrollment.Course` gezinti özelliği.  Bu yöntemleri hakkında daha fazla bilgi edineceksiniz [ilgili veri okuma](read-related-data.md) Öğreticisi.
 
 `AsNoTracking` Yöntemi burada döndürülen varlıklar olmaz güncelleştirilmesi geçerli bağlamın yaşam süresi senaryolarda performansı artırır. Daha fazla hakkında bilgi edineceksiniz `AsNoTracking` Bu öğreticinin sonunda.
 
@@ -296,6 +296,6 @@ Daha fazla bilgi için bkz: [vs izleme. Hayır-izleme](https://docs.microsoft.co
 
 Artık Öğrenci varlıklar için basit CRUD işlemleri gerçekleştiren sayfaları eksiksiz bir kümesini var. İşlevlerini genişletmek sonraki öğreticide **dizin** sıralama, filtreleme ve disk belleği ekleyerek sayfası.
 
->[!div class="step-by-step"]
-[Önceki](intro.md)
-[sonraki](sort-filter-page.md)  
+> [!div class="step-by-step"]
+> [Önceki](intro.md)
+> [sonraki](sort-filter-page.md)  

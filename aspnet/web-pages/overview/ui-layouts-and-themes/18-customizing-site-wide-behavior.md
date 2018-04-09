@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
-title: "Site genelinde davranış (Razor) ASP.NET Web sayfaları için özelleştirme | Microsoft Docs"
+title: Site genelinde davranış (Razor) ASP.NET Web sayfaları için özelleştirme | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, Web sitenizin tamamını veya bir klasörün tamamına yerine yalnızca bir sayfa ayarları yapmak açıklanmaktadır."
+description: Bu bölümde, Web sitenizin tamamını veya bir klasörün tamamına yerine yalnızca bir sayfa ayarları yapmak açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: b1caa26a23517bd976addfefac89375ae965eb91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4457318bcf1d2886eb8ed68fdd795eea7905368b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesi için site genelinde davranışını özelleştirme
 ====================
@@ -93,20 +93,20 @@ Bu yordam nasıl ayarlanacağını gösterir `WebMail` ayarları genel. (Kullanm
 
     Değiştirme aşağıdaki e-posta kodu ilgili ayarları:
 
-    - Ayarlama `your-SMTP-host` erişiminiz SMTP sunucusunun adı.
-    - Ayarlama `your-user-name-here` SMTP sunucusu hesabının kullanıcı adı.
-    - Ayarlama `your-account-password` SMTP sunucusu hesabının parolasına.
-    - Ayarlama `your-email-address-here` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir. (Bazı e-posta sağlayıcısı farklı bir belirtmenize izin vermeyin `From` adres ve kullanıcı adı olarak kullanacağı `From` adresi.)
+   - Ayarlama `your-SMTP-host` erişiminiz SMTP sunucusunun adı.
+   - Ayarlama `your-user-name-here` SMTP sunucusu hesabının kullanıcı adı.
+   - Ayarlama `your-account-password` SMTP sunucusu hesabının parolasına.
+   - Ayarlama `your-email-address-here` kendi e-posta adresi. Bu, ileti gönderilen e-posta adresidir. (Bazı e-posta sağlayıcısı farklı bir belirtmenize izin vermeyin `From` adres ve kullanıcı adı olarak kullanacağı `From` adresi.)
 
-    SMTP ayarları hakkında daha fazla bilgi için bkz: [e-posta ayarlarını yapılandırma](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) makalede [bir ASP.NET Web sayfaları (Razor) sitesinden e-posta gönderme](https://go.microsoft.com/fwlink/?LinkID=202899) ve [gönderme epostaileilgilisorunları](https://go.microsoft.com/fwlink/?LinkId=253001#email)içinde [ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001).
-- Kaydet  *\_AppStart.cshtml* dosya ve kapatın.
-- Adlı yeni bir sayfa bir Web sitesinin kök klasörü oluşturmak *TestEmail.cshtml*.
-- Varolan içeriği aşağıdakiyle değiştirin: 
+     SMTP ayarları hakkında daha fazla bilgi için bkz: [e-posta ayarlarını yapılandırma](https://go.microsoft.com/fwlink/?LinkID=202899#configuring_email_settings) makalede [bir ASP.NET Web sayfaları (Razor) sitesinden e-posta gönderme](https://go.microsoft.com/fwlink/?LinkID=202899) ve [gönderme epostaileilgilisorunları](https://go.microsoft.com/fwlink/?LinkId=253001#email)içinde [ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001).
+4. Kaydet  *\_AppStart.cshtml* dosya ve kapatın.
+5. Adlı yeni bir sayfa bir Web sitesinin kök klasörü oluşturmak *TestEmail.cshtml*.
+6. Varolan içeriği aşağıdakiyle değiştirin: 
 
-    [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
-- Çalıştırma *TestEmail.cshtml* sayfasını bir tarayıcıda.
-- Kendinize bir e-posta iletisi gönderin ve ardından alanları doldurun **Gönder**.
-- İleti kabulünüzü emin olmak için e-postanızı kontrol edin.
+     [!code-cshtml[Main](18-customizing-site-wide-behavior/samples/sample4.cshtml)]
+7. Çalıştırma *TestEmail.cshtml* sayfasını bir tarayıcıda.
+8. Kendinize bir e-posta iletisi gönderin ve ardından alanları doldurun **Gönder**.
+9. İleti kabulünüzü emin olmak için e-postanızı kontrol edin.
 
 Bu örnek önemli bir parçası, genellikle değişmez ayarları olan — adını, SMTP sunucunuza ve e-posta kimlik bilgilerinizi ister — ayarlanır  *\_AppStart.cshtml* dosya. Böylece bunları burada size e-posta göndermek yeniden her sayfasında ayarlamanız gerekmez. (Bazı nedenlerden dolayı bu ayarları değiştirmeniz gerekiyorsa, bunları tek tek bir sayfada ayarlayabilirsiniz rağmen.) Sayfasında, yalnızca genellikle alıcı ve e-posta iletisinin gövdesi gibi her zaman değiştirme değerlerini ayarlayın.
 

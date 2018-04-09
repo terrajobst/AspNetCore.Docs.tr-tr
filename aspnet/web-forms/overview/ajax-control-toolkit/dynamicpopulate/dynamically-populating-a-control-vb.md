@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 title: Dinamik olarak denetimini (VB) doldurma | Microsoft Docs
 author: wenz
-description: "ASP.NET AJAX Denetim Araç Seti DynamicPopulate denetiminde bir web hizmeti (veya sayfa yöntemi) çağırır ve sonuçta elde edilen değerin t hedef denetime doldurur..."
+description: ASP.NET AJAX Denetim Araç Seti DynamicPopulate denetiminde bir web hizmeti (veya sayfa yöntemi) çağırır ve sonuçta elde edilen değerin t hedef denetime doldurur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ec0b6d429f3eb4a7243201c2a91adde462cf6345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2031a80be71a406e632955583d83920dd0f3ef7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-vb"></a>Bir denetim (VB) dinamik olarak doldurma
 ====================
@@ -55,12 +55,12 @@ Bir HTML düğmesi (olarak sunucuya geri gönderimin gerektirmeyen bu yana bir H
 
 Son olarak, ihtiyacımız `DynamicPopulateExtender` kablo işlemleri için denetim. Aşağıdaki öznitelikler ayarlayın (belirgin olanlar dışında `ID` ve `runat` = `"server"`):
 
-- `TargetControlID`web hizmeti çağrısından sonucu bulunacağı yer
-- `ServicePath`web hizmeti yoluna (sayfa yöntemi kullanmak istiyorsanız, atla)
-- `ServiceMethod`web yöntemi veya sayfa yöntemi adı
-- `ContextKey`web hizmetine gönderilmesini bağlam bilgileri
-- `PopulateTriggerControlID`web hizmeti çağrısı tetikler öğesi
-- `ClearContentsDuringUpdate`web hizmeti çağrısı sırasında hedef öğe boş verilip
+- `TargetControlID` web hizmeti çağrısından sonucu bulunacağı yer
+- `ServicePath` web hizmeti yoluna (sayfa yöntemi kullanmak istiyorsanız, atla)
+- `ServiceMethod` web yöntemi veya sayfa yöntemi adı
+- `ContextKey` web hizmetine gönderilmesini bağlam bilgileri
+- `PopulateTriggerControlID` web hizmeti çağrısı tetikler öğesi
+- `ClearContentsDuringUpdate` web hizmeti çağrısı sırasında hedef öğe boş verilip
 
 Gördüğünüz gibi bazı bilgiler denetimi gerektiriyor, ancak her şeyi yerine koyma oldukça düz ilet. İşaretleme için işte `DynamicPopulateExtender` Geçerli senaryoda denetimi:
 
@@ -73,6 +73,6 @@ ASP.NET sayfasını tarayıcıda çalışmasına ve düğmeyi tıklatın; ay gü
 
 Düğme tıklama sunucudan tarihi alır ([tam boyutlu görüntüyü görüntülemek için tıklatın](dynamically-populating-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Önceki](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
-[sonraki](dynamically-populating-a-control-using-javascript-code-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-dynamicpopulate-with-a-user-control-and-javascript-cs.md)
+> [sonraki](dynamically-populating-a-control-using-javascript-code-vb.md)

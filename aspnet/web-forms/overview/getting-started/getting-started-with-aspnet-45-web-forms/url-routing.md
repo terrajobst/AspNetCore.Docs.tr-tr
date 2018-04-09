@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
-title: "URL yönlendirme | Microsoft Docs"
+title: URL yönlendirme | Microsoft Docs
 author: Erikre
-description: "Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 279617e4ebb475d935c0d1e01e08a3a2def0f9e9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a195b36517bcae4bbeaf43fe7386e7787fd00212
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="url-routing"></a>URL yönlendirme
 ====================
@@ -82,7 +82,7 @@ Uygulama başladığında Wingtip Toys örnek, çağıran `Application_Start` ol
 
 > [!NOTE] 
 > 
-> **İsteğe bağlı**
+> **Optional**
 > 
 > Kodunuzu taşıyarak yönetilmesi daha kolay bulabilirsiniz `RegisterCustomRoutes` yöntemi için ayrı bir sınıf. İçinde *mantığı* klasörü, ayrı bir oluşturma `RouteActions` sınıfı. Yukarıdaki taşıma `RegisterCustomRoutes` yönteminden *Global.asax.cs* yeni dosyasına `RoutesActions` sınıfı. Kullanım `RoleActions` sınıfı ve `createAdmin` yöntemi çağırmak nasıl bir örnek olarak `RegisterCustomRoutes` yönteminden *Global.asax.cs* dosya.
 
@@ -153,6 +153,6 @@ Bu öğreticide, kategoriler ve ürünler için rota eklediniz. Model bağlama k
 [Güvenli ASP.NET Web Forms uygulama üyeliği, OAuth ve SQL veritabanı ile Azure App Service'e dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Önceki](membership-and-administration.md)
-[sonraki](aspnet-error-handling.md)
+> [!div class="step-by-step"]
+> [Önceki](membership-and-administration.md)
+> [sonraki](aspnet-error-handling.md)

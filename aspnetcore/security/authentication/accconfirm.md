@@ -1,7 +1,7 @@
 ---
-title: "Hesap doğrulama ve ASP.NET Core parola kurtarma"
+title: Hesap doğrulama ve ASP.NET Core parola kurtarma
 author: rick-anderson
-description: "E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulama oluşturmayı öğrenin."
+description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulama oluşturmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 2/11/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b236b4e5d3a4fa7212453f2aec209d145f5f5e32
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8ad2a63ce007a68eac3b607db454c6b4fc834444
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -30,7 +30,7 @@ Bkz: [bu PDF dosyası](https://github.com/aspnet/Docs/tree/master/aspnetcore/sec
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[.NET core 2.1.4 SDK](https://www.microsoft.com/net/core) veya sonraki bir sürümü.
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="create-a-new-aspnet-core-project-with-the-net-core-cli"></a>.NET Core CLI ile yeni bir ASP.NET Core projesi oluşturma
 
@@ -74,7 +74,7 @@ Uygulama, belirleyin **kaydetmek** bağlantı ve bir kullanıcı kaydı. Entity 
 
 ## <a name="view-the-identity-database"></a>Görünüm kimliği veritabanı
 
-Bkz: [SQLite ile ASP.NET Core MVC projesinde çalışma](xref:tutorials/first-mvc-app-xplat/working-with-sql) SQLite veritabanı görüntülemek yönergeler için.
+Bkz: [SQLite ile ASP.NET Core MVC projesinde iş](xref:tutorials/first-mvc-app-xplat/working-with-sql) SQLite veritabanı görüntülemek yönergeler için.
 
 Visual Studio için:
 
@@ -138,16 +138,13 @@ Windows, gizli Yöneticisi anahtarları/değer çiftleri olarak depolar. bir *se
 
 Ekleme `AuthMessageSenderOptions` sonunda hizmet kapsayıcısı `ConfigureServices` yönteminde *haline* dosyası:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
----
-
+* * *
 ### <a name="configure-the-authmessagesender-class"></a>AuthMessageSender sınıfını Yapılandır
 
 Bu öğretici aracılığıyla e-posta bildirimleri eklemeyi gösterir [SendGrid](https://sendgrid.com/), ancak SMTP ve diğer mekanizmalarını kullanarak e-posta gönderebilir.
@@ -160,31 +157,28 @@ Yükleme `SendGrid` NuGet paketi:
 
 * Paket Yöneticisi konsolundan aşağıdaki komutu girin:
 
- `Install-Package SendGrid`
+  `Install-Package SendGrid`
 
 Bkz: [SendGrid ücretsiz olarak başlayın](https://sendgrid.com/free/) ücretsiz SendGrid hesap için kaydedilecek.
 
 #### <a name="configure-sendgrid"></a>SendGrid yapılandırın
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 SendGrid yapılandırmak için aşağıdakine benzer bir kod ekleyin *Services/EmailSender.cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 * Kod ekleme *Services/MessageServices.cs* SendGrid yapılandırmak için aşağıdakine benzer:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
----
-
+* * *
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Hesap onayı ve parola kurtarmayı etkinleştir
 
 Hesap onaylama ve parolayı kurtarma için kod şablonu yok. Bul `OnPostAsync` yönteminde *Pages/Account/Register.cshtml.cs*.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırını yorum oluşturma oturum açmış engellemek:
 
 ```csharp
@@ -195,8 +189,7 @@ Tam yöntem vurgulanmış değiştirilen satırıyla gösterilir:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Hesap doğrulama etkinleştirmek için aşağıdaki kodu açıklamadan çıkarın:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
@@ -215,15 +208,14 @@ Form öğesinde açıklamadan çıkarın *Views/Account/ForgotPassword.cshtml*. 
 
 [!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
----
-
+* * *
 ## <a name="register-confirm-email-and-reset-password"></a>Kayıt, e-posta onaylayın ve parola sıfırlama
 
 Web uygulaması çalıştırın ve hesap ve parola kurtarma akışı sınayın.
 
 * Uygulamayı çalıştırın ve yeni bir kullanıcı kaydı
 
- ![Web uygulaması hesabını kaydetmek görünümü](accconfirm/_static/loginaccconfirm1.png)
+  ![Web uygulaması hesabını kaydetmek görünümü](accconfirm/_static/loginaccconfirm1.png)
 
 * Hesap onay bağlantısı için e-postanızı kontrol edin. Bkz: [Debug e-posta](#debug) e-posta alamazsanız.
 * E-postanızı onaylamak için bağlantıyı tıklatın.

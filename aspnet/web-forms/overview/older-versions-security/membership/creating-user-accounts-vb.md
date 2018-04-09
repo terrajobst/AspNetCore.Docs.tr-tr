@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
-title: "Kullanıcı hesapları (VB) oluşturma | Microsoft Docs"
+title: Kullanıcı hesapları (VB) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide yeni kullanıcı hesapları oluşturmak için üyelik framework (aracılığıyla SqlMembershipProvider) kullanılarak inceleyeceksiniz. Yeni bize nasıl oluşturulacağını göreceğiz..."
+description: Bu öğreticide yeni kullanıcı hesapları oluşturmak için üyelik framework (aracılığıyla SqlMembershipProvider) kullanılarak inceleyeceksiniz. Yeni bize nasıl oluşturulacağını göreceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 61621ffaae98ac74c16b2ff014ba9d85c2c10b3a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d665e7ba43401da76a88a904c10a587aa4576d4b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-user-accounts-vb"></a>Kullanıcı hesapları (VB) oluşturma
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 İçinde <a id="_msoanchor_1"> </a> [önceki öğretici](creating-the-membership-schema-in-sql-server-vb.md) biz tabloları, görünümleri, eklenen ve saklı yordamlar için gerekli bir veritabanında uygulama hizmetleri şemanın yüklü `SqlMembershipProvider` ve `SqlRoleProvider`. Bu serideki öğreticileri kalanı için ihtiyacımız altyapı oluşturulur. Bu öğreticide biz üyelik framework kullanarak inceleyeceksiniz (aracılığıyla `SqlMembershipProvider`) yeni kullanıcı hesapları oluşturmak için. Program aracılığıyla ve ASP aracılığıyla yeni kullanıcılar oluşturmak nasıl göreceğiz. NET'in yerleşik CreateUserWizard denetim.
 
-Yeni kullanıcı hesapları oluşturmak öğrenme ek olarak, biz de oluşturduğumuz ilk demo Web sitesi güncelleştirmeniz gerekecektir  *<a id="_msoanchor_2"> </a> [form kimlik doğrulaması bir genel bakış](../introduction/an-overview-of-forms-authentication-vb.md)*  öğretici, Gelişmiş ve  *<a id="_msoanchor_3"> </a> [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  Öğreticisi. Tanıtım web uygulamamız sabit kodlanmış kullanıcı adı/parola çiftleri karşı kullanıcıların kimlik bilgilerini doğrulayan bir oturum açma sayfası vardır. Ayrıca, `Global.asax` özel oluşturan kod içerir `IPrincipal` ve `IIdentity` nesneleri kimliği doğrulanmış kullanıcılar için. Üyelik framework karşı kullanıcıların kimlik bilgilerini doğrulamak ve özel asıl ve kimlik mantığını kaldırmak için oturum açma sayfasına güncelleştireceğiz.
+Yeni kullanıcı hesapları oluşturmak öğrenme ek olarak, biz de oluşturduğumuz ilk demo Web sitesi güncelleştirmeniz gerekecektir *<a id="_msoanchor_2"> </a> [form kimlik doğrulaması bir genel bakış](../introduction/an-overview-of-forms-authentication-vb.md)* öğretici, Gelişmiş ve *<a id="_msoanchor_3"> </a> [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* Öğreticisi. Tanıtım web uygulamamız sabit kodlanmış kullanıcı adı/parola çiftleri karşı kullanıcıların kimlik bilgilerini doğrulayan bir oturum açma sayfası vardır. Ayrıca, `Global.asax` özel oluşturan kod içerir `IPrincipal` ve `IIdentity` nesneleri kimliği doğrulanmış kullanıcılar için. Üyelik framework karşı kullanıcıların kimlik bilgilerini doğrulamak ve özel asıl ve kimlik mantığını kaldırmak için oturum açma sayfasına güncelleştireceğiz.
 
 Haydi başlayalım!
 
@@ -40,7 +40,7 @@ Haydi başlayalım!
 Üyelik framework ile çalışmaya başlamadan önce şimdi Biz bu noktaya ulaşmak için yapılan önemli adımlar gözden geçirmek için bir dakikanızı ayırın. Üyelik framework ile kullanırken `SqlMembershipProvider` bir form tabanlı kimlik doğrulama senaryosunda, aşağıdaki adımları web uygulamanızda üyelik işlevselliğini uygulamadan önce gerçekleştirilmesi gerekir:
 
 1. **Form tabanlı kimlik doğrulamasını etkinleştirin.** Biz anlatıldığı gibi  *<a id="_msoanchor_4"> </a> [form kimlik doğrulaması bir genel bakış](../introduction/an-overview-of-forms-authentication-vb.md)*, form kimlik doğrulaması etkin düzenleyerek `Web.config` ve ayarı `<authentication>` öğenin `mode` özniteliğini `Forms`. Etkin formlar kimlik doğrulaması ile her gelen istek için incelenir bir *forms kimlik doğrulaması bileti*, varsa, belirten istek sahibi.
-2. **Uygulama Hizmetleri şeması uygun veritabanına ekleyin.** Kullanırken `SqlMembershipProvider` biz uygulama hizmetleri şeması veritabanına yüklemeniz gerekir. Genellikle bu şema uygulamanın veri modeli tutan aynı veritabanına eklenir. *<a id="_msoanchor_5"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)*  öğretici Aranan kullanarak `aspnet_regsql.exe` bunu gerçekleştirmek için aracı.
+2. **Uygulama Hizmetleri şeması uygun veritabanına ekleyin.** Kullanırken `SqlMembershipProvider` biz uygulama hizmetleri şeması veritabanına yüklemeniz gerekir. Genellikle bu şema uygulamanın veri modeli tutan aynı veritabanına eklenir. *<a id="_msoanchor_5"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)* öğretici Aranan kullanarak `aspnet_regsql.exe` bunu gerçekleştirmek için aracı.
 3. **Adım 2 ' veritabanı başvurmak için Web uygulamasının ayarlarını özelleştirin.** *SQL Server üyelik şema oluşturma* öğretici gösterdi web uygulaması yapılandırmanın iki yolu böylece `SqlMembershipProvider` 2. adımda seçilen veritabanı kullanırsınız: değiştirerek `LocalSqlServer` bağlantı dizesi adı; veya yeni bir kayıtlı sağlayıcı üyelik framework sağlayıcılar listesine ekleyerek ve veritabanından kullanmak için yeni sağlayıcıyı özelleştirme 2. adım.
 
 Bir web uygulaması oluşturma kullandığında `SqlMembershipProvider` ve form tabanlı kimlik doğrulama, kullanmadan önce bu üç adımı gerçekleştirmek gerekecek `Membership` sınıf veya ASP.NET oturum açma Web denetimleri. Biz zaten adımları önceki eğitimlerine gerçekleştirilen olduğundan, biz üyelik framework kullanmaya başlamak hazırsınız!
@@ -69,7 +69,7 @@ Her sayfada bu noktada, iki içerik, her ana sayfanın ContentPlaceHolders için
 
 [!code-aspx[Main](creating-user-accounts-vb/samples/sample1.aspx)]
 
-Sözcüğünün `LoginContent` ContentPlaceHolder'ın varsayılan biçimlendirme oturum açarken veya devre dışı olup olmadığını kullanıcının kimliği doğrulanır bağlı olarak site için bir bağlantı görüntülenir. Varlığını `Content2` içerik denetimi, ancak ana sayfanın varsayılan biçimlendirme geçersiz kılar. Biz anlatıldığı gibi  *<a id="_msoanchor_6"> </a> [form kimlik doğrulaması bir genel bakış](../introduction/an-overview-of-forms-authentication-vb.md)*  öğretici, bu sayfaları burada değil istiyoruz sol sütunda oturum açmayla ilgili seçenekleri görüntülemek için yararlıdır.
+Sözcüğünün `LoginContent` ContentPlaceHolder'ın varsayılan biçimlendirme oturum açarken veya devre dışı olup olmadığını kullanıcının kimliği doğrulanır bağlı olarak site için bir bağlantı görüntülenir. Varlığını `Content2` içerik denetimi, ancak ana sayfanın varsayılan biçimlendirme geçersiz kılar. Biz anlatıldığı gibi *<a id="_msoanchor_6"> </a> [form kimlik doğrulaması bir genel bakış](../introduction/an-overview-of-forms-authentication-vb.md)* öğretici, bu sayfaları burada değil istiyoruz sol sütunda oturum açmayla ilgili seçenekleri görüntülemek için yararlıdır.
 
 Bu beş sayfaları için ancak için ana sayfa varsayılan biçimlendirmesini göstermek istiyoruz `LoginContent` ContentPlaceHolder. Bu nedenle, kaldırmak için bildirim temelli biçimlendirme `Content2` içerik denetimi. Bunu yaptıktan sonra her beş sayfanın biçimlendirme yalnızca bir içerik denetimi içermelidir.
 
@@ -107,7 +107,7 @@ Yukarıdaki site haritası biçimlendirme Şekil 3'te gösterilen hiyerarşi tan
 
 ASP.NET Web denetimleri Gezinti ile ilgili bir kullanıcı arabirimi tasarlamak için bir dizi içerir. Bunlar, menü, TreeView ve SiteMapPath denetimlerini içerir. Alt öğelerinden yanı sıra ziyaret geçerli düğüm gösteren bir içerik haritası SiteMapPath görüntüler ancak Menu ve TreeView denetimleri site haritası yapısında bir menüsü veya bir ağaç sırasıyla işleyebilir. Site haritası verileri Web denetimleri SiteMapDataSource kullanarak diğer veri bağlanabilir ve aracılığıyla programlı olarak erişilebilir `SiteMap` sınıfı.
 
-Gezinti denetimlerinin ve Site Haritası framework kapsamlı bir tartışma Bu öğretici seri kapsamında olduğundan, bunun yerine kendi gezinme kullanıcı arabirimi şimdi hazırlayın süre beklemesini daha yerine kullanılanla ödünç my  *[ ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)*  öğretici serisi, Şekil 4'te gösterildiği gibi Gezinti bağlantıları iki derin madde işaretli bir listesini görüntülemek için bir yineleyici denetimi kullanır.
+Gezinti denetimlerinin ve Site Haritası framework kapsamlı bir tartışma Bu öğretici seri kapsamında olduğundan, bunun yerine kendi gezinme kullanıcı arabirimi şimdi hazırlayın süre beklemesini daha yerine kullanılanla ödünç my *[ ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi, Şekil 4'te gösterildiği gibi Gezinti bağlantıları iki derin madde işaretli bir listesini görüntülemek için bir yineleyici denetimi kullanır.
 
 ### <a name="adding-a-two-level-list-of-links-in-the-left-column"></a>Sol sütunda bağlantılar iki düzeyli listesi ekleme
 
@@ -143,7 +143,7 @@ Sol sütunda bağlantılar listesine ek olarak, şimdi her sayfa görüntüsü d
 
 ## <a name="step-4-removing-the-custom-principal-and-identity-logic"></a>4. adım: özel asıl ve kimlik mantığını kaldırma
 
-İçinde  *<a id="_msoanchor_7"> </a> [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)*  kimliği doğrulanmış kullanıcı için özel asıl ve kimlik nesneleri ilişkilendirmek nasıl gördüğümüz öğretici. Biz bir olay işleyicisi oluşturarak elde `Global.asax` uygulamanın için `PostAuthenticateRequest` sonra ateşlenir olay `FormsAuthenticationModule` kullanıcı kimliğini doğrulamasından. Bu olay işleyicisi biz yerini `GenericPrincipal` ve `FormsIdentity` tarafından eklenen nesneler `FormsAuthenticationModule` ile `CustomPrincipal` ve `CustomIdentity` Bu öğreticide oluşturduğumuz nesneleri.
+İçinde *<a id="_msoanchor_7"> </a> [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular](../introduction/forms-authentication-configuration-and-advanced-topics-vb.md)* kimliği doğrulanmış kullanıcı için özel asıl ve kimlik nesneleri ilişkilendirmek nasıl gördüğümüz öğretici. Biz bir olay işleyicisi oluşturarak elde `Global.asax` uygulamanın için `PostAuthenticateRequest` sonra ateşlenir olay `FormsAuthenticationModule` kullanıcı kimliğini doğrulamasından. Bu olay işleyicisi biz yerini `GenericPrincipal` ve `FormsIdentity` tarafından eklenen nesneler `FormsAuthenticationModule` ile `CustomPrincipal` ve `CustomIdentity` Bu öğreticide oluşturduğumuz nesneleri.
 
 Özel asıl ve kimlik nesneleri çoğu durumda belirli senaryolarda yararlı durumdayken `GenericPrincipal` ve `FormsIdentity` nesneleri yeterli. Sonuç olarak, varsayılan davranışa geri dönmek için faydalı düşünüyorum. Bu değişiklik kaldırarak veya çıkışı yorum `PostAuthenticateRequest` olay işleyicisi veya silerek `Global.asax` tamamen dosya.
 
@@ -164,17 +164,17 @@ Sol sütunda bağlantılar listesine ek olarak, şimdi her sayfa görüntüsü d
 
 Bu dört aşırı toplanan bilgilerin miktarı farklılık gösterir. İkinci bir kullanıcının e-posta adresini de gerektirir ancak ilk aşırı Örneğin, yalnızca kullanıcı adı ve parola yeni kullanıcı hesabı için gerektirir.
 
-Üyelik sağlayıcısının yapılandırma ayarlarıyla yeni bir kullanıcı hesabı oluşturmak için gereken bilgileri bağımlı olduğundan, bu aşırı mevcut. İçinde  *<a id="_msoanchor_8"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)*  biz incelenmesi belirten üyelik sağlayıcısı yapılandırma ayarlarında Öğreticisi `Web.config`. Tablo 2 yapılandırma ayarlarının tam listesi dahil.
+Üyelik sağlayıcısının yapılandırma ayarlarıyla yeni bir kullanıcı hesabı oluşturmak için gereken bilgileri bağımlı olduğundan, bu aşırı mevcut. İçinde *<a id="_msoanchor_8"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)* biz incelenmesi belirten üyelik sağlayıcısı yapılandırma ayarlarında Öğreticisi `Web.config`. Tablo 2 yapılandırma ayarlarının tam listesi dahil.
 
 Bir tür üyelik sağlayıcısı yapılandırma ayarı ne etkiler `CreateUser` aşırı kullanılabilir olduğu `requiresQuestionAndAnswer` ayarı. Varsa `requiresQuestionAndAnswer` ayarlanır `true` (varsayılan), sonra da yeni bir kullanıcı hesabı oluştururken size bir güvenlik sorusu ve yanıtı belirtmeniz gerekir. Kullanıcının sıfırlama veya parolasını değiştirmek gerekirse bu bilgiler daha sonra kullanılır. Özellikle, o anda Güvenlik sorusu gösterilen ve sıfırlama veya parolasını değiştirmek için doğru yanıt girmeniz gerekir. Sonuç olarak, varsa `requiresQuestionAndAnswer` ayarlanır `true` ya da ilk iki çağırma sonra `CreateUser` Güvenlik sorusu ve yanıtı eksik olduğu için bir özel durum sonuçlarında overloads. Uygulamamız şu anda bir güvenlik sorusu ve yanıtı gerektirecek şekilde yapılandırılmış olduğundan, biz ikinci iki aşırı birini kullanıcının program aracılığıyla oluştururken kullanmanız gerekecektir.
 
 Kullanarak göstermeye `CreateUser` yöntemi, bir kullanıcı arabirimi burada biz kullanıcıdan kendi adı, parola, e-posta ve önceden tanımlanmış güvenlik yanıtını oluşturalım. Açık `CreatingUserAccounts.aspx` sayfasındaki `Membership` klasörü ve aşağıdaki Web denetimlerini içerik denetimine ekleyin:
 
-- Adlı bir metin kutusu`Username`
-- Adlı bir metin kutusu `Password`, `TextMode` özelliği ayarlanmış`Password`
-- Adlı bir metin kutusu`Email`
+- Adlı bir metin kutusu `Username`
+- Adlı bir metin kutusu `Password`, `TextMode` özelliği ayarlanmış `Password`
+- Adlı bir metin kutusu `Email`
 - Adlı bir etiket `SecurityQuestion` ile kendi `Text` özelliği temizlenmiş
-- Adlı bir metin kutusu`SecurityAnswer`
+- Adlı bir metin kutusu `SecurityAnswer`
 - Adlı bir düğme `CreateAccountButton` , `Text` özelliği, kullanıcı hesabı oluşturma için ayarlanır
 - Adlı bir etiket denetimi `CreateAccountResults` ile kendi `Text` özelliği temizlenmiş
 
@@ -196,7 +196,7 @@ Ardından, bir olay işleyicisi oluşturun `CreateAccountButton'` s `Click` olay
 
 [!code-vb[Main](creating-user-accounts-vb/samples/sample6.vb)]
 
-`Click` Olay işleyicisini başlatır adlı bir değişkende tanımlayarak `createStatus` türü [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus`durumunu gösteren bir numaralandırma `CreateUser` işlemi. Örneğin, kullanıcı hesabının başarıyla, elde edilen oluşturulursa `MembershipCreateStatus` örneği değerine ayarlanacak `Success;` aynı kullanıcı adına sahip bir kullanıcı zaten mevcut olduğundan işlem başarısız olursa, diğer yandan, bu değerineayarlanır`DuplicateUserName`. İçinde `CreateUser` kullanırız aşırı ihtiyacımız geçirmek bir `MembershipCreateStatus` yöntemi örneğine. Bu parametre içinde uygun değere ayarlanır `CreateUser` yöntemi ve biz inceleyin değerini kullanıcı hesabının başarıyla oluşturulup oluşturulmadığını belirlemek için yöntem çağrısı sonra.
+`Click` Olay işleyicisini başlatır adlı bir değişkende tanımlayarak `createStatus` türü [ `MembershipCreateStatus` ](https://msdn.microsoft.com/library/system.web.security.membershipcreatestatus.aspx). `MembershipCreateStatus` durumunu gösteren bir numaralandırma `CreateUser` işlemi. Örneğin, kullanıcı hesabının başarıyla, elde edilen oluşturulursa `MembershipCreateStatus` örneği değerine ayarlanacak `Success;` aynı kullanıcı adına sahip bir kullanıcı zaten mevcut olduğundan işlem başarısız olursa, diğer yandan, bu değerineayarlanır`DuplicateUserName`. İçinde `CreateUser` kullanırız aşırı ihtiyacımız geçirmek bir `MembershipCreateStatus` yöntemi örneğine. Bu parametre içinde uygun değere ayarlanır `CreateUser` yöntemi ve biz inceleyin değerini kullanıcı hesabının başarıyla oluşturulup oluşturulmadığını belirlemek için yöntem çağrısı sonra.
 
 Çağırdıktan sonra `CreateUser`, içinde geçen `createStatus`, `Select Case` deyimi atanan değerine bağlı olarak uygun bir mesaj çıktısını almak için kullanılan `createStatus`. Şekil 7, yeni bir kullanıcı başarıyla oluşturulduğunda çıkış gösterir. Kullanıcı hesabı oluşturulmaz, Şekil 8 ve 9 çıktıyı göster. Şekil 8'de ziyaretçi üyelik sağlayıcısının yapılandırma ayarlarında yazıyla parola gücü gereksinimlerini karşılamıyor beş harfli parola girdiniz. Şekil 9'da, var olan bir kullanıcı adı (Şekil 7'de oluşturulan bir) olan bir kullanıcı hesabı oluşturmak ziyaretçi deniyor.
 
@@ -231,7 +231,7 @@ Birkaç kullanıcı hesabı oluşturduktan sonra hesapları içeriğini listeley
 Üyelik kullanıcı deposunda artık Bruce'a ve Tito'nın hesap bilgilerini içerir, ancak Bruce'a veya Tito sitesinde oturum açmaya olanak tanır işlevselliği uygulamak henüz. Şu anda `Login.aspx` kullanıcının kimlik bilgilerini doğrular bir sabit kodlanmış kullanıcı adı/parola çiftleri kümesini - karşı mevcut *değil* üyelik framework karşı sağlanan kimlik bilgilerini doğrulayın. Yeni kullanıcı hesapları artık görmek için `aspnet_Users` ve `aspnet_Membership` tabloları yeterli olacaktır. Sonraki öğreticide  *<a id="_msoanchor_9"> </a> [doğrulama kullanıcı kimlik bilgilerini karşı üyeliği kullanıcı depolamak](validating-user-credentials-against-the-membership-user-store-vb.md)*, üyelik depo doğrulamak için oturum açma sayfasına güncelleştireceğiz.
 
 > [!NOTE]
-> Tüm kullanıcılar görmüyorsanız, `SecurityTutorials.mdf` veritabanı, web uygulamanızın varsayılan üyelik sağlayıcısı kullandığından olabilir `AspNetSqlMembershipProvider`, kullanan `ASPNETDB.mdf` veritabanı kendi kullanıcı deposu olarak. Sorunun bu olup olmadığını belirlemek için Çözüm Gezgini'nde Yenile düğmesini tıklatın. Adlı bir veritabanı varsa `ASPNETDB.mdf` eklendi `App_Data` klasörü, sorunun bu olup. Döndürmek için adım 4  *<a id="_msoanchor_10"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)*  üyelik sağlayıcısı düzgün şekilde yapılandırma hakkında yönergeler için Öğreticisi.
+> Tüm kullanıcılar görmüyorsanız, `SecurityTutorials.mdf` veritabanı, web uygulamanızın varsayılan üyelik sağlayıcısı kullandığından olabilir `AspNetSqlMembershipProvider`, kullanan `ASPNETDB.mdf` veritabanı kendi kullanıcı deposu olarak. Sorunun bu olup olmadığını belirlemek için Çözüm Gezgini'nde Yenile düğmesini tıklatın. Adlı bir veritabanı varsa `ASPNETDB.mdf` eklendi `App_Data` klasörü, sorunun bu olup. Döndürmek için adım 4 *<a id="_msoanchor_10"> </a> [SQL Server üyelik şema oluşturma](creating-the-membership-schema-in-sql-server-vb.md)* üyelik sağlayıcısı düzgün şekilde yapılandırma hakkında yönergeler için Öğreticisi.
 
 
 Çoğu kullanıcı hesabı senaryoları oluşturmanıza, ziyaretçi kullanıcı adı, parola, e-posta ve bu noktada yeni bir hesap oluşturulan diğer önemli bilgiler girmek için bazı arabirimiyle sunulur. Bu adımda biz böyle bir arabirim el ile oluşturmayı arama ve nasıl kullanılacağını gördünüz `Membership.CreateUser` program aracılığıyla yeni kullanıcı hesabı eklemek için yöntemine kullanıcının girişler için temel. Yeni kullanıcı hesabı oluşturduğunuz kodumuza, ancak. Kullanıcıyı siteye yeni oluşturulan kullanıcı hesabı altında oturum veya kullanıcıya bir onay e-posta gönderme gibi eylemler, tüm izleme gerçekleştirmedi. Aşağıdaki ek adımları düğmenin ek kodda gerektirecek `Click` olay işleyicisi.
@@ -350,7 +350,7 @@ Kullanıcı adı ve parola CreateUserWizard denetime girilen aracılığıyla ku
 
 
 > [!NOTE]
-> CreateUserWizard denetimin kullanma örneği göreceğiz `CreatedUser` olayında  *<a id="_msoanchor_11"> </a> [ek kullanıcı bilgilerini depolamak](storing-additional-user-information-vb.md)*  Öğreticisi.
+> CreateUserWizard denetimin kullanma örneği göreceğiz `CreatedUser` olayında *<a id="_msoanchor_11"> </a> [ek kullanıcı bilgilerini depolamak](storing-additional-user-information-vb.md)* Öğreticisi.
 
 
 ## <a name="summary"></a>Özet
@@ -367,7 +367,7 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [`CreateUser`Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
+- [`CreateUser` Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.membershipprovider.createuser.aspx)
 - [CreateUserWizard denetimine genel bakış](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/createuserwizard.aspx)
 - [Bir dosya sistemi tabanlı Site haritası sağlayıcısı oluşturma](http://aspnet.4guysfromrolla.com/articles/020106-1.aspx)
 - [ASP.NET 2.0 Sihirbazı denetimi ile bir adım adım kullanıcı arabirimi oluşturma](http://aspnet.4guysfromrolla.com/articles/061406-1.aspx)
@@ -377,12 +377,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Teresa Murphy oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Önceki](creating-the-membership-schema-in-sql-server-vb.md)
-[sonraki](validating-user-credentials-against-the-membership-user-store-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-the-membership-schema-in-sql-server-vb.md)
+> [sonraki](validating-user-credentials-against-the-membership-user-store-vb.md)

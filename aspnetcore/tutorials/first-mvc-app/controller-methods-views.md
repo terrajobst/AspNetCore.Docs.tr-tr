@@ -1,7 +1,7 @@
 ---
-title: "Denetleyici yöntemlerine ve görünümler"
+title: Denetleyici yöntemlerine ve ASP.NET Core görünümler
 author: rick-anderson
-description: "Denetleyici yöntemlerine, görünümleri ve DataAnnotations ile çalışma"
+description: Denetleyici yöntemlerine, görünümler ve ASP.NET Core DataAnnotations ile çalışmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 69f7bfa0f1e203c860abce06f6f2daffcaf47a59
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="controller-methods-and-views"></a>Denetleyici yöntemlerine ve görünümler
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici yöntemlerine ve ASP.NET Core görünümler
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -48,8 +48,8 @@ Güncelleştirilmiş kod:
 
 <!-- include start -->
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
 
->[!div class="step-by-step"]
-[Önceki](working-with-sql.md)
-[sonraki](search.md)  
+> [!div class="step-by-step"]
+> [Önceki](working-with-sql.md)
+> [sonraki](search.md)  

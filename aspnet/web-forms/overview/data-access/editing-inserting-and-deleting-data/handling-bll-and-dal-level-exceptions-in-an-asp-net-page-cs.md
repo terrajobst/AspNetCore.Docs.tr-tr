@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
-title: "Bir ASP.NET sayfası (C#) BLL ve DAL düzeyi özel durumları işleme | Microsoft Docs"
+title: Bir ASP.NET sayfası (C#) BLL ve DAL düzeyi özel durumları işleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide bir özel durum ekleme, güncelleştirme veya silme işlemi, sırasında gerçekleşmesi gereken kolay, bilgilendirici hata iletisini görüntülemek nasıl göreceğiz..."
+description: Bu öğreticide bir özel durum ekleme, güncelleştirme veya silme işlemi, sırasında gerçekleşmesi gereken kolay, bilgilendirici hata iletisini görüntülemek nasıl göreceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0ffde90aa85383d87bd48e16a1c16433465cbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e7589584f3b0773a739b785c433ec45eeac3607e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Bir ASP.NET sayfası (C#) BLL ve DAL düzeyi özel durumları işleme
 ====================
@@ -155,9 +155,9 @@ Bu olay işleyicisi oluşturma aşağıdaki kod ASP.NET sayfa arka plan kodu sı
 
 Bu olay işleyicinin ikinci giriş parametresi türünde bir nesnedir [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), özel durumları işlemek için ilgi üç özellik vardır:
 
-- `Exception`oluşturulan özel durum referansı; hiçbir özel durum, bu özellik bir değeri olur`null`
-- `ExceptionHandled`özel durum olarak yürütüldü olup olmadığını gösteren bir Boole değeri `RowUpdated` olay işleyicisi if `false` (varsayılan), özel durumu ASP.NET çalışma zamanı kadar percolating yeniden oluşturulur.
-- `KeepInEditMode`varsa kümesine `true` düzenlenen GridView satır düzenleme modunda; kalır `false` (varsayılan), GridView satır, salt okunur moduna geri döner.
+- `Exception` oluşturulan özel durum referansı; hiçbir özel durum, bu özellik bir değeri olur `null`
+- `ExceptionHandled` özel durum olarak yürütüldü olup olmadığını gösteren bir Boole değeri `RowUpdated` olay işleyicisi if `false` (varsayılan), özel durumu ASP.NET çalışma zamanı kadar percolating yeniden oluşturulur.
+- `KeepInEditMode` varsa kümesine `true` düzenlenen GridView satır düzenleme modunda; kalır `false` (varsayılan), GridView satır, salt okunur moduna geri döner.
 
 Bizim kodu daha sonra denetlemeli `Exception` değil `null`, işlem gerçekleştirilirken bir özel durumu gerçekleşti anlamına gelir. Bu durumda, istiyoruz:
 
@@ -224,12 +224,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Liz Shulok oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
-[sonraki](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](examining-the-events-associated-with-inserting-updating-and-deleting-cs.md)
+> [sonraki](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)

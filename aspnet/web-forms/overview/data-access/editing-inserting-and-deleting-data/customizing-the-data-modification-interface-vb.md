@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
-title: "Veri değişikliği arabirimi (VB) özelleştirme | Microsoft Docs"
+title: Veri değişikliği arabirimi (VB) özelleştirme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide standart TextBox değiştirerek düzenlenebilir bir GridView arabirimini özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati..."
+description: Bu öğreticide standart TextBox değiştirerek düzenlenebilir bir GridView arabirimini özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4f8023efd4d0b32e81dd3aab70e6e7521066fc84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d334a86fcf2fbd1069628527c6e89f3ab655dd5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-vb"></a>Veri değişikliği arabirimi (VB) özelleştirme
 ====================
@@ -276,8 +276,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
-[sonraki](implementing-optimistic-concurrency-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+> [sonraki](implementing-optimistic-concurrency-vb.md)

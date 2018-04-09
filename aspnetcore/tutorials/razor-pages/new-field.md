@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core Razor sayfasında yeni bir alan ekleme"
+title: ASP.NET Core Razor sayfasında yeni bir alan ekleyin
 author: rick-anderson
-description: "Razor sayfasını Entity Framework Çekirdek ile yeni bir alan eklemek nasıl gösterir"
+description: Razor sayfasını Entity Framework Çekirdek ile yeni bir alan eklemek nasıl gösterir
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: c9494fe4b07590f76095d58b37290a9dc9e6e009
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2652aea2bc587074da5101e3de2bdf55d032214a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasında yeni bir alan ekleme
+# <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasında yeni bir alan ekleyin
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -102,6 +102,6 @@ Adı "Derecelendirme" rastgeledir ve geçiş dosya adı için kullanılır. Geç
 
 Uygulamayı çalıştırın ve oluşturma/düzenleme/görüntüleme filmler ile yapabilecekleriniz doğrulayın bir `Rating` alan. Veritabanı dağıtılan değil, IIS Express durdurun ve ardından uygulamayı çalıştırın.
 
->[!div class="step-by-step"]
-[Önceki: Arama ekleme](xref:tutorials/razor-pages/search)
-[sonraki: doğrulama ekleme](xref:tutorials/razor-pages/validation)
+> [!div class="step-by-step"]
+> [Önceki: Arama ekleme](xref:tutorials/razor-pages/search)
+> [sonraki: doğrulama ekleme](xref:tutorials/razor-pages/validation)

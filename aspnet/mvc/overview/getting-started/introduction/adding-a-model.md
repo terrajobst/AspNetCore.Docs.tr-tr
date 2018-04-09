@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-model
 title: Model ekleme | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>Model ekleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 Bu bölümde bir veritabanında filmler yönetmek için bazı sınıfları ekleyeceksiniz. Bu sınıfların olacaktır &quot;modeli&quot; ASP.NET MVC uygulaması parçası.
 
@@ -54,7 +54,7 @@ Başvuru için `DbContext` ve `DbSet`, aşağıdaki eklemeniz `using` deyimini d
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-Bunu kullanarak el ile ekleyerek yapabilirsiniz deyimi veya kırmızı dalgalı çizgiler getirin, tıklatın `Show potential fixes` ve'ı tıklatın`using System.Data.Entity;`
+Bunu kullanarak el ile ekleyerek yapabilirsiniz deyimi veya kırmızı dalgalı çizgiler getirin, tıklatın `Show potential fixes` ve'ı tıklatın `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
@@ -64,6 +64,6 @@ Not: Birkaç kullanılmayan `using` deyimleri kaldırıldı. Visual Studio kulla
 
 Son olarak bir modeli (MVC M) ekledik. Sonraki bölümde veritabanı bağlantı dizesi ile çalışması.
 
->[!div class="step-by-step"]
-[Önceki](adding-a-view.md)
-[sonraki](creating-a-connection-string.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-a-view.md)
+> [sonraki](creating-a-connection-string.md)

@@ -1,7 +1,7 @@
 ---
-title: "Entity Framework Çekirdek - 10 Öğreticisi 1 ile ASP.NET Core MVC"
+title: Entity Framework Çekirdek - 10 Öğreticisi 1 ile ASP.NET Core MVC
 author: tdykstra
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 68b38df790689acefce983e65ad2adb64f67d62d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: eaa3070e182b161087185bbb9007e8067052d95c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="get-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>ASP.NET Core MVC ve Entity Framework Visual Studio (1 / 10) kullanarak çekirdek kullanmaya başlama
+# <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Entity Framework Çekirdek - 10 Öğreticisi 1 ile ASP.NET Core MVC
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
+[!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
 Contoso University örnek web uygulaması Entity Framework (EF) çekirdek 2.0 ve Visual Studio 2017 kullanarak ASP.NET Core 2.0 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
 
@@ -35,7 +35,7 @@ EF çekirdek 2.0 EF en son sürümü ancak henüz EF tüm özelliklerini yok 6.x
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -311,7 +311,7 @@ Sağ **Öğrenci** tablosu ve'ı tıklatın **görünüm verilerini** oluşturul
 
 ![SSOX Öğrenci tabloda](intro/_static/ssox-student-table.png)
 
-*.Mdf* ve *.ldf* veritabanı dosyaları olan *C:\Users\\ <yourusername>*  klasör.
+<em>.Mdf</em> ve <em>.ldf</em> veritabanı dosyaları olan <em>C:\Users\\ <yourusername> </em> klasör.
 
 Aradığınız çünkü `EnsureCreated` uygulama başlangıç çalıştıran Başlatıcı yönteminde artık bir değişiklik yapabilir `Student` sınıfı, veritabanını silin, uygulamayı yeniden çalıştırın ve veritabanı otomatik olarak değişikliğinizin eşleşecek şekilde yeniden oluşturulmuş olabilir. Örneğin, eklerseniz bir `EmailAddress` özelliğine `Student` sınıfı, göreceksiniz yeni bir `EmailAddress` yeniden oluşturulan tablonun sütun.
 
@@ -325,7 +325,7 @@ Sizin için tam bir veritabanı oluşturabilmek için Entity Framework sırayla 
 
 * Kimliği veya classnameID adlı varlık özellikleri birincil anahtar özelliği kabul edilir.
 
-* Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır  *<navigation property name> <primary key property name>*  (örneğin, `StudentID` için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtar `ID`). Yabancı anahtar özellikleri de adlı yalnızca  *<primary key property name>*  (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
+* Bu adlı bir özelliği bir yabancı anahtar özellik olarak yorumlanır *<navigation property name> <primary key property name>* (örneğin, `StudentID` için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtar `ID`). Yabancı anahtar özellikleri de adlı yalnızca *<primary key property name>* (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarının `EnrollmentID`).
 
 Geleneksel davranışı geçersiz kılınabilir. Örneğin, bu öğreticide daha önce anlatıldığı gibi tablo adları açıkça belirtebilirsiniz. Sütun adları Ayarla ve içinde anlatıldığı gibi herhangi bir özelliği birincil anahtarı veya yabancı anahtar olarak ayarlayın ve bir [sonraki öğretici](complex-data-model.md) bu serideki.
 
@@ -363,5 +363,5 @@ Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek
 
 Şimdi, depolamak ve verileri görüntülemek için Entity Framework Çekirdek ve SQL Server Express LocalDB kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD gerçekleştirme öğreneceksiniz (Oluştur, oku, Güncelleştir, Sil) işlemleri.
 
->[!div class="step-by-step"]
-[Next](crud.md)
+> [!div class="step-by-step"]
+> [Next](crud.md)

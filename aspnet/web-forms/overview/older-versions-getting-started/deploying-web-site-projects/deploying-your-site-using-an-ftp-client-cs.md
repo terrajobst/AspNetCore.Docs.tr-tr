@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
-title: "Bir FTP istemcisi (C#) kullanarak sitenizi dağıtma | Microsoft Docs"
+title: Bir FTP istemcisi (C#) kullanarak sitenizi dağıtma | Microsoft Docs
 author: rick-anderson
-description: "Bir ASP.NET uygulamasını dağıtmak için en basit yolu el ile gerekli dosyaları geliştirme ortamından üretim ortamına kopyalamaktır. Düzeltmeyi..."
+description: Bir ASP.NET uygulamasını dağıtmak için en basit yolu el ile gerekli dosyaları geliştirme ortamından üretim ortamına kopyalamaktır. Düzeltmeyi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3b7add6765374fc3e5dba2c90239102354da3922
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Bir FTP istemcisi (C#) kullanarak sitenizi dağıtma
 ====================
@@ -161,6 +161,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Uygulama\_Offline.htm ve "IE kolay hatalar" özelliği geçici çalışma](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [Oturum durumu modu](https://msdn.microsoft.com/library/ms178586.aspx)
 
->[!div class="step-by-step"]
-[Önceki](determining-what-files-need-to-be-deployed-cs.md)
-[sonraki](deploying-your-site-using-visual-studio-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](determining-what-files-need-to-be-deployed-cs.md)
+> [sonraki](deploying-your-site-using-visual-studio-cs.md)

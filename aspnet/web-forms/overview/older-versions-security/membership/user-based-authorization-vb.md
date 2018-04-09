@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-vb
-title: "Kullanıcı tabanlı bir yetkilendirme (VB) | Microsoft Docs"
+title: Kullanıcı tabanlı bir yetkilendirme (VB) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işlevselliği teknikleri çeşitli kısıtlayarak ele alacağız."
+description: Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işlevselliği teknikleri çeşitli kısıtlayarak ele alacağız.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5579292930da97b142ff6db5d34d33be77aeea4b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4073f349c7965a89b39a4b1b672f0e84fc96f287
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="user-based-authorization-vb"></a>Kullanıcı tabanlı bir yetkilendirme (VB)
 ====================
@@ -168,7 +168,7 @@ Bu yetkilendirme değişiklik sınamak için anonim kullanıcı olarak Web sites
 
 ### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Göz nasıl`UrlAuthorizationModule`erişim vermek veya reddetmek için yetkilendirme kuralları kullanır
 
-`UrlAuthorizationModule` URL yetkilendirmesi çözümleyerek belirli bir URL için belirli bir kimliğe yetkilendirmek için birer birer ilk makineden başlatma ve aşağı kendi şekilde çalışan, kuralları olup olmadığını belirler. Bir eşleşme olarak kullanıcı verilen veya erişimi reddedilen, açıksa bağlı olarak eşleşmenin bir `<allow>` veya `<deny>` öğesi. **Eşleşme bulunamazsa, kullanıcıya erişim verilir.** Erişimi kısıtlamak istiyorsanız, bu nedenle, onu kullanmanız zorunludur bir `<deny>` öğesi URL yetkilendirme yapılandırma son öğesi olarak. **Atlarsanız bir ***`<deny>`*** öğesi, tüm kullanıcılara erişim verilecektir.**
+`UrlAuthorizationModule` URL yetkilendirmesi çözümleyerek belirli bir URL için belirli bir kimliğe yetkilendirmek için birer birer ilk makineden başlatma ve aşağı kendi şekilde çalışan, kuralları olup olmadığını belirler. Bir eşleşme olarak kullanıcı verilen veya erişimi reddedilen, açıksa bağlı olarak eşleşmenin bir `<allow>` veya `<deny>` öğesi. <strong>Eşleşme bulunamazsa, kullanıcıya erişim verilir.</strong> Erişimi kısıtlamak istiyorsanız, bu nedenle, onu kullanmanız zorunludur bir `<deny>` öğesi URL yetkilendirme yapılandırma son öğesi olarak. <strong>Atlarsanız bir</strong><strong>`<deny>`</strong><strong>öğesi, tüm kullanıcılara erişim verilecektir.</strong>
 
 Tarafından kullanılan işlem daha iyi anlamak için `UrlAuthorizationModule` yetkilisi belirlemek için şu arama sırasında bu adımda URL yetkilendirme kuralları örneği göz önünde bulundurun. İlk kural bir `<allow>` öğesi Tito ve Scott erişim sağlar. İkinci kuralları bir `<deny>` herkese erişimini engellediği öğesi. Anonim kullanıcı ziyaret, `UrlAuthorizationModule` isteyen tarafından başlatır anonim Scott veya Tito? Belli ki, yanıt yok, olduğundan, ikinci kural devam eder. Herkes kümesinde anonim mi? Bu yana yanıt Evet, işte `<deny>` kural yürürlükte koyun ve ziyaretçi oturum açma sayfasına yeniden yönlendirilir. Benzer şekilde, Jisun ziyaret, `UrlAuthorizationModule` istemekle olan Jisun başlatır Scott veya Tito? Aynen, olmadığından `UrlAuthorizationModule` olan Jisun kümesi herkes, ikinci soruyu devam eder? Aynen, çok, erişim reddedildi depoladığından, olduğundan. Son olarak, Tito ziyaret eder, ilk sorusu sorulmuş `UrlAuthorizationModule` İleticiden olumlu bir yanıt olduğundan, Tito erişimi verilir.
 
@@ -217,7 +217,7 @@ Bu tür ince çizgisi yetkilendirme kuralları, bildirimli olarak veya program a
 GridView içinde belirli bir dizindeki dosyaları listeleyen bir sayfa oluşturalım. Her dosyanın adı, boyutu ve diğer bilgileri listeleyen yanı sıra, GridView LinkButtons iki sütunları içerir: biri başlıklı görünümü ve bir başlıklı silme. Görünüm LinkButton tıkladıysanız, seçilen dosya içeriğini görüntülenir; Dosya Sil LinkButton tıkladıysanız silinir. Görünüm ve delete işlevselliğini tüm kullanıcılar için kullanılabilir olacak şekilde, başlangıçta bu sayfayı oluşturalım. Kullanarak, biz nasıl etkinleştirileceği veya sayfasını ziyaret kullanıcıyı temel alarak bu özellikleri devre dışı bırakılacağı görürsünüz LoginView denetimi ve program aracılığıyla sınırlama işlevselliği bölümler.
 
 > [!NOTE]
-> Yaklaşık yapı duyuyoruz ASP.NET sayfası GridView denetimi dosyaların bir listesini görüntülemek için kullanır. Form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri serisi odaklanan Bu öğretici itibaren çalışmalar GridView denetimini ele çok fazla süre beklemesini istemiyorum. Bu öğretici bu sayfası ayarlama belirli adım adım yönergeler sağlar, ancak bunu neden belirli seçimler yapılan veya ne işlenmiş çıktı etkisi belirli özelliklere sahip ayrıntılarını içine inceleyin değil. GridView denetiminin kapsamlı incelenmesi için başvurun my  *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)*  öğretici serisi.
+> Yaklaşık yapı duyuyoruz ASP.NET sayfası GridView denetimi dosyaların bir listesini görüntülemek için kullanır. Form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri serisi odaklanan Bu öğretici itibaren çalışmalar GridView denetimini ele çok fazla süre beklemesini istemiyorum. Bu öğretici bu sayfası ayarlama belirli adım adım yönergeler sağlar, ancak bunu neden belirli seçimler yapılan veya ne işlenmiş çıktı etkisi belirli özelliklere sahip ayrıntılarını içine inceleyin değil. GridView denetiminin kapsamlı incelenmesi için başvurun my *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi.
 
 
 Başlangıç açarak `UserBasedAuthorization.aspx` dosyasını `Membership` klasörü ve GridView denetim adlı sayfası ekleme `FilesGrid`. GridView kullanıcının akıllı etiketten alanları iletişim kutusunu başlatmak için sütunları Düzenle bağlantısına tıklayın. Buradan, sol alt köşedeki otomatik oluşturma alanları onay kutusunun işaretini kaldırın. Ardından, üst sol Köşeden (seçin ve Sil düğmeleri CommandField türü'nün altında bulunabilir) seçme düğmesi, bir Delete düğmesi ve iki BoundFields ekleyin. Select düğmenin ayarlamak `SelectText` özelliğini görünümü ve ilk BoundField'ın `HeaderText` ve `DataField` özellikleri adı. İkinci BoundField's ayarlamak `HeaderText` bayt cinsinden boyutu özelliğine kendi `DataField` uzunluğu özelliğine kendi `DataFormatString` {0: N0} özelliğine ve onun `HtmlEncode` özelliğini false olarak ayarlayın.
@@ -400,24 +400,24 @@ Mutluluk programlama!
 
 Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [İş ve veri katmanlarını kullanmak için yetkilendirme kuralları ekleme`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
+- [İş ve veri katmanlarını kullanmak için yetkilendirme kuralları ekleme `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [IIS6 ve IIS7 güvenlik arasındaki değişiklikleri](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
 - [Belirli dosya ve alt dizinleri yapılandırma](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Kullanıcıyı temel alarak bir sınırlama veri değişikliği işlevi](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb.md)
 - [LoginView denetimi QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [IIS7 URL yetkilendirmesi anlama](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule` Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Önceki](validating-user-credentials-against-the-membership-user-store-vb.md)
-[sonraki](storing-additional-user-information-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](validating-user-credentials-against-the-membership-user-store-vb.md)
+> [sonraki](storing-additional-user-information-vb.md)

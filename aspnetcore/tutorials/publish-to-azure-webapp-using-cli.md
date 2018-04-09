@@ -1,7 +1,7 @@
 ---
-title: "Komut satırı araçlarını kullanarak Azure ASP.NET Core uygulama yayımlama"
+title: ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
 author: camsoper
-description: "Azure App Service'e Git komut satırı İstemcisi'ni kullanarak bir ASP.NET Core uygulamayı yayımlamak öğrenin."
+description: Azure App Service'e Git komut satırı İstemcisi'ni kullanarak bir ASP.NET Core uygulamayı yayımlamak öğrenin.
 manager: wpickett
 ms.author: casoper
 ms.custom: mvc
@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0e87fbc7f5b5489f20e095be3180d87284e79c4e
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Azure uygulama hizmeti komut satırından bir ASP.NET Core uygulamayı dağıtma
+# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
-[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 Bu öğretici komut satırı araçlarını kullanarak oluşturmak ve Microsoft Azure App Service ASP.NET Core uygulama dağıtmak nasıl yapacağınızı gösterir.  Tamamlandığında, ASP.NET MVC Azure App Service Web uygulaması barındırılan çekirdek yerleşik bir web uygulamasına sahip olacaksınız.  Bu öğretici Windows komut satırı araçları kullanılarak yazılmış ancak macOS hem de Linux ortamlarında uygulanabilir.  
 
@@ -37,7 +37,7 @@ Bu öğreticide, bilgi nasıl yapılır:
 Bu öğreticiyi tamamlamak için ihtiyacınız vardır:
 
 * A [Microsoft Azure aboneliği](https://azure.microsoft.com/free/)
-* [.NET Core](https://www.microsoft.com/net/download/core)
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://www.git-scm.com/) komut satırı istemcisi
 
 ## <a name="create-a-web-application"></a>Bir web uygulaması oluşturma
@@ -71,7 +71,7 @@ dotnet run
 
 ![Komut satırı çıkışı](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-Http://localhost: 5000 için göz atarak uygulamayı test etme.
+Göz atarak uygulamayı test http://localhost:5000.
 
 ![Yerel olarak çalışan Web sitesi](publish-to-azure-webapp-using-cli/_static/app_test.png)
 

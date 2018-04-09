@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
-title: "SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: (12 / 12) sorunlarını giderme | Microsoft Docs"
+title: 'SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: (12 / 12) sorunlarını giderme | Microsoft Docs'
 author: tdykstra
-description: "Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi..."
+description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2a8342f026498a7cf3ff4a3c158ed177c15b7111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: (12 / 12) sorunlarını giderme
 ====================
@@ -290,7 +290,7 @@ Belirten bir hata ile yayımlama başarısız oluyor (kullanmakta olduğunuz kul
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). 
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Site klasörlerine varsayılan izinlerini doğru olduğundan ve ayarlanması gerekmez biliyorsanız, bu davranışı ekleyerek devre dışı **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Bir uygulama klasörüne yazmak uygulama çalıştığında, erişim reddedildi hataları
 
@@ -300,7 +300,7 @@ Bu klasörü için yazma yetkisi olmadığı için oluşturduğunuzda veya düze
 
 ### <a name="possible-cause-and-solution"></a>Olası nedeni ve çözümü
 
-Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi bu klasör izinlerini ayarlayabilirsiniz [klasör izinlerini ayarlama](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) ve [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticileri. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması  **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
+Varsayılan olarak, Visual Studio kümeleri sitesinin kök klasörü üzerindeki izinleri okuma ve yazma izinleri uygulamasını\_veri klasörü. Uygulamanızı bir alt klasöre yazma erişimi gerekiyorsa, gösterildiği gibi bu klasör izinlerini ayarlayabilirsiniz [klasör izinlerini ayarlama](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) ve [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğreticileri. Uygulamanızı sitenin kök klasöre yazma erişimi gerekiyorsa, salt okunur erişim kök klasöründe ayarlamaktan ekleyerek engellemek için olması **&lt;IncludeSetACLProviderOn hedef&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** yayımlama profili dosyasını (tek bir profil etkilemek için) veya wpp.targets dosyasına (tüm profiller etkilemek için). Bu dosyaları düzenleme hakkında daha fazla bilgi için bkz: [nasıl yapılır: dağıtım ayarlarını düzenle profil (.pubxml) dosyaları](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Yapılandırma hatası - targetFramework özniteliği .NET Framework'ün yüklü sürümden daha sonraki bir sürümüne başvuruyor.
 
@@ -320,5 +320,5 @@ Sunucu, ASP.NET 4.5 desteklemiyor. Ne zaman ve ASP.NET 4.5 için destek eklenebi
 
 Proje **özellikleri** windows bir hedef framework aşağı açılan listesi içerir, ancak yalnızca değerinden değiştirerek bu sorunu çözümlenemiyor **.NET Framework 4.5** için **.NET Framework 4**. Bir önceki framework sürümü için hedef Framework'ü değiştirirseniz, proje sonraki framework sürümün derlemelerine başvurular hala sahip olur ve çalışmaz. El ile bu başvuruları değiştirmek veya .NET Framework 4 veya önceki hedefleyen yeni bir proje oluşturmak sahip. Daha fazla bilgi için bkz: [.NET Framework'ü hedefleme Web siteleri için](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Önceki](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Önceki](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

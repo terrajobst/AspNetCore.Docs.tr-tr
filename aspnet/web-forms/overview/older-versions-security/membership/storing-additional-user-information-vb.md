@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
-title: "Ek kullanıcı bilgilerini (VB) depolamak | Microsoft Docs"
+title: Ek kullanıcı bilgilerini (VB) depolamak | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide çok ilkel Konuk uygulama oluşturarak Biz bu soruyu yanıtlayın. Bunu yaparken, modeli için farklı seçenekleri ele alacağız..."
+description: Bu öğreticide çok ilkel Konuk uygulama oluşturarak Biz bu soruyu yanıtlayın. Bunu yaparken, modeli için farklı seçenekleri ele alacağız...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Ek kullanıcı bilgileri depolayan (VB)
 ====================
@@ -107,13 +107,13 @@ Yabancı anahtar kısıtlaması kaydetmek için yabancı anahtar ilişkilerini d
 
 Biz artık üç sütun kullanıcının ev Şehir, giriş sayfası ve kendi konuk açıklamaları görünür imza depolamak için her kullanıcı hesabı ile ilişkilendirmeniz gerekir. Vardır bunu gerçekleştirmek için farklı yollar sayısı:
 
-- **Yeni sütun eklemek ***`aspnet_Users`*** veya ***`aspnet_Membership`*** tablolar.** Tarafından kullanılan şemasını değiştirdiğinden t bu yaklaşım önerilir değil `SqlMembershipProvider`. Bu karara yol haunt için geri gelin. Örneğin, ASP.NET gelecek bir sürümünde farklı bir kullanır ne `SqlMembershipProvider` şema. Microsoft ASP.NET 2.0 geçirmek için bir araç içerebilir `SqlMembershipProvider` ASP.NET 2.0 değiştirilmiş, ancak yeni şemaya veri `SqlMembershipProvider` şema, bu tür dönüştürme olmayabilir mümkün.
+- <strong>Yeni sütun eklemek</strong><strong>`aspnet_Users`</strong><strong>veya</strong><strong>`aspnet_Membership`</strong><strong>tablo.</strong> Tarafından kullanılan şemasını değiştirdiğinden t bu yaklaşım önerilir değil `SqlMembershipProvider`. Bu karara yol haunt için geri gelin. Örneğin, ASP.NET gelecek bir sürümünde farklı bir kullanır ne `SqlMembershipProvider` şema. Microsoft ASP.NET 2.0 geçirmek için bir araç içerebilir `SqlMembershipProvider` ASP.NET 2.0 değiştirilmiş, ancak yeni şemaya veri `SqlMembershipProvider` şema, bu tür dönüştürme olmayabilir mümkün.
 
 - **ASP kullanın. Ev Şehir, giriş sayfası ve imza için bir profil özelliği tanımlama NET'in profili çerçevesi.** ASP.NET ek kullanıcıya özgü verileri depolamak için tasarlanmış bir profil framework içerir. Üyelik framework gibi profili framework sağlayıcı modeli üzerinde oluşturulmuştur. .NET Framework ile birlikte bir `SqlProfileProvider` profil verilerini bir SQL Server veritabanında depolar. Aslında, bizim veritabanında tarafından kullanılan tablo zaten var. `SqlProfileProvider` (`aspnet_Profile`), uygulama hizmetlerini yeniden eklediğimiz zaman eklendiği gibi [ *SQL Server üyelik şema oluşturma* ](creating-the-membership-schema-in-sql-server-vb.md)Öğreticisi.   
- Profil framework'ün ana avantajı, profil özelliklerini tanımlamak geliştiricilere vermesidir `Web.config` – kod için ve temel alınan veri deposundan profil verileri seri hale getirmek için yazılması gerekir. Kısacası, profil özellikler kümesini tanımlar ve bunlarla kodunda çalışmak için son derece kolaydır. Ancak, profil sistemi sürüm oluşturma için geldiğinde istenen için çok bırakır, bunu burada, daha sonra veya var olanları kaldırılamaz veya değiştirilemez için eklenecek yeni kullanıcıya özgü özellikleri beklediğiniz sonra profili framework olmayabilir bir uygulamanız varsa  en iyi seçeneği. Ayrıca, `SqlProfileProvider` profil özelliklerini sonraki imkansız için (örneğin, bir ev Şehir, New York kaç kullanıcınız) doğrudan profil verileri karşı sorguları çalıştırmak yapma, yüksek oranda Normalleştirilmemiş bir şekilde depolar.   
- Profil framework hakkında daha fazla bilgi için bu öğreticinin sonunda "Başka okumalar" bölümüne bakın.
+  Profil framework'ün ana avantajı, profil özelliklerini tanımlamak geliştiricilere vermesidir `Web.config` – kod için ve temel alınan veri deposundan profil verileri seri hale getirmek için yazılması gerekir. Kısacası, profil özellikler kümesini tanımlar ve bunlarla kodunda çalışmak için son derece kolaydır. Ancak, profil sistemi sürüm oluşturma için geldiğinde istenen için çok bırakır, bunu burada, daha sonra veya var olanları kaldırılamaz veya değiştirilemez için eklenecek yeni kullanıcıya özgü özellikleri beklediğiniz sonra profili framework olmayabilir bir uygulamanız varsa  en iyi seçeneği. Ayrıca, `SqlProfileProvider` profil özelliklerini sonraki imkansız için (örneğin, bir ev Şehir, New York kaç kullanıcınız) doğrudan profil verileri karşı sorguları çalıştırmak yapma, yüksek oranda Normalleştirilmemiş bir şekilde depolar.   
+  Profil framework hakkında daha fazla bilgi için bu öğreticinin sonunda "Başka okumalar" bölümüne bakın.
 
-- **Veritabanında yeni bir tablo için bu üç sütun ekleyin ve bu tablo arasında bire bir ilişki kurmak ve ***`aspnet_Users`***.** Bu yaklaşım değerinden biraz daha fazla iş profili framework ile ilgilidir, ancak ek kullanıcı özelliklerini veritabanında nasıl modellenir en büyük esneklik sağlar. Bu öğreticide kullanacağız seçenek budur.
+- <strong>Veritabanında yeni bir tablo için bu üç sütun ekleyin ve bu tablo arasında bire bir ilişki kurmak ve</strong><strong>`aspnet_Users`</strong><strong>.</strong> Bu yaklaşım değerinden biraz daha fazla iş profili framework ile ilgilidir, ancak ek kullanıcı özelliklerini veritabanında nasıl modellenir en büyük esneklik sağlar. Bu öğreticide kullanacağız seçenek budur.
 
 Adlı yeni bir tablo oluşturacağız `UserProfiles` ev Şehir, giriş sayfası ve her kullanıcı için imza kaydetmek için. Veritabanı Gezgini penceresinde tabloları klasörü sağ tıklatın ve yeni bir tablo oluşturmak seçin. İlk sütun adı `UserId` ve türünü ayarlamak `uniqueidentifier`. İzin verme `NULL` değerleri ve sütun birincil anahtar olarak işaretleyin. Ardından, adlandırılmış sütunlar ekleyin: `HomeTown` türü `nvarchar(50)`; `HomepageUrl` türü `nvarchar(100)`; ve imza türü `nvarchar(500)`. Bu üç sütunların her biri kabul edebileceği bir `NULL` değeri.
 
@@ -131,7 +131,7 @@ Oluşturulan veri modeli sahibiz, biz kullanmaya hazır olursunuz. Adım 2 ve 3'
 
 Çeşitli şekillerde kendi giriş Şehir, giriş sayfası ve imza bilgilerini görüntülemek ve düzenlemek şu anda oturum açmış kullanıcı izni vardır. El ile kullanıcı arabirimi kutusuyla oluşturuyoruz ve etiket denetimleri veya biz DetailsView denetimi gibi Web denetimleri veri birini kullanabilirsiniz. Veritabanı gerçekleştirmek için `SELECT` ve `UPDATE` biz ADO.NET yazabilirsiniz deyimleri kod sayfamızı ait arka plandaki kod sınıfı veya alternatif olarak, bildirim temelli bir yaklaşım SqlDataSource ile uygulamadığınız. İdeal olarak uygulamamız biz ya da program aracılığıyla sayfanın arka plandaki kod sınıfı veya bildirimli olarak ObjectDataSource Denetimi aracılığıyla çağıramadı bir katmanlı mimarisi içerecektir.
 
-Bu öğretici seri form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri odaklanan beri olmayacaktır kapsamlı bir tartışma bu farklı veri erişim seçenekleri veya neden bir katmanlı mimarisi SQL deyimlerini doğrudan Yürütülüyor üzerinden tercih edilir ASP.NET sayfasından. Size yol DetailsView ve SqlDataSource – hızlı ve kolay seçeneği – kullanarak kullanacağım ancak açıklanan kavramları kesinlikle alternatif Web denetimleri ve veri erişim mantığı için uygulanabilir. ASP.NET verilerle çalışma hakkında daha fazla bilgi için başvurmak my  *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)*  öğretici serisi.
+Bu öğretici seri form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri odaklanan beri olmayacaktır kapsamlı bir tartışma bu farklı veri erişim seçenekleri veya neden bir katmanlı mimarisi SQL deyimlerini doğrudan Yürütülüyor üzerinden tercih edilir ASP.NET sayfasından. Size yol DetailsView ve SqlDataSource – hızlı ve kolay seçeneği – kullanarak kullanacağım ancak açıklanan kavramları kesinlikle alternatif Web denetimleri ve veri erişim mantığı için uygulanabilir. ASP.NET verilerle çalışma hakkında daha fazla bilgi için başvurmak my *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi.
 
 Açık `AdditionalUserInfo.aspx` sayfasındaki `Membership` klasörü ve ID özelliğini ayarlamak bu sayfaya DetailsView denetimini ekleme `UserProfile` ve temizleme kendi `Width` ve `Height` özellikleri. DetailsView'un akıllı etiket genişletin ve yeni bir veri kaynağı denetime bağlamak seçin. Bu veri kaynağı Yapılandırma Sihirbazı'nı başlatır (bkz. Şekil 7). İlk adım, veri kaynağı türünü belirtmenizi ister. Biz doğrudan bağlanın kalacaklarını beri `SecurityTutorials` veritabanı, veritabanı simgesini seçin belirtme `ID` olarak `UserProfileDataSource`.
 
@@ -428,9 +428,9 @@ CreateUserWizard denetimin varsayılan biçimlendirme iki tanımlar `WizardSteps
 
 Ek form alanları içerecek şekilde CreateUserWizard denetimin arabirimini özelleştirmek için şu olabilir:
 
-- **Bir veya daha yeni Oluştur ***`WizardStep`*** ek kullanıcı arabirimi öğeleri içerecek şekilde s**. Yeni bir eklemek için `WizardStep` CreateUserWizard için tıklatın "Ekle/Kaldır `WizardStep` s" Akıllı başlatmak için etiketini bağlantısından `WizardStep` Koleksiyonu Düzenleyicisi. Buradan eklemek, kaldırmak veya yeniden sıralamak ve sihirbazdaki adımları. Bu, Bu öğretici için kullanacağız yaklaşımdır.
+- <strong>Bir veya daha yeni Oluştur</strong><strong>`WizardStep`</strong><strong>ek kullanıcı arabirimi öğeleri içerecek şekilde s</strong>. Yeni bir eklemek için `WizardStep` CreateUserWizard için tıklatın "Ekle/Kaldır `WizardStep` s" Akıllı başlatmak için etiketini bağlantısından `WizardStep` Koleksiyonu Düzenleyicisi. Buradan eklemek, kaldırmak veya yeniden sıralamak ve sihirbazdaki adımları. Bu, Bu öğretici için kullanacağız yaklaşımdır.
 
-- **Dönüştürme ***`CreateUserWizardStep`*** bir düzenlenebilir içine ***`WizardStep`***.** Bu değiştirir `CreateUserWizardStep` eşdeğer bir ile `WizardStep` , biçimlendirme eşleşen bir kullanıcı arabirimi tanımlar `CreateUserWizardStep`' s. Dönüştürerek `CreateUserWizardStep` içine bir `WizardStep` biz denetimleri yeniden konumlandırmak veya ek kullanıcı arabirimi öğeleri için bu adımı ekleyin. Dönüştürülecek `CreateUserWizardStep` veya `CompleteWizardStep` bir düzenlenebilir içine `WizardStep`, "kullanıcı Özelleştir oluşturma adım"'yi tıklatın veya "Tamamlandı adımında özelleştirme" denetimin akıllı etiketten bağlantı.
+- <strong>Dönüştürme</strong><strong>`CreateUserWizardStep`</strong><strong>bir düzenlenebilir içine</strong><strong>`WizardStep`</strong><strong>.</strong> Bu değiştirir `CreateUserWizardStep` eşdeğer bir ile `WizardStep` , biçimlendirme eşleşen bir kullanıcı arabirimi tanımlar `CreateUserWizardStep`' s. Dönüştürerek `CreateUserWizardStep` içine bir `WizardStep` biz denetimleri yeniden konumlandırmak veya ek kullanıcı arabirimi öğeleri için bu adımı ekleyin. Dönüştürülecek `CreateUserWizardStep` veya `CompleteWizardStep` bir düzenlenebilir içine `WizardStep`, "kullanıcı Özelleştir oluşturma adım"'yi tıklatın veya "Tamamlandı adımında özelleştirme" denetimin akıllı etiketten bağlantı.
 
 - **Yukarıdaki iki seçeneklerin bir bileşimi kullanın.**
 
@@ -527,11 +527,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler...
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Önceki](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](user-based-authorization-vb.md)

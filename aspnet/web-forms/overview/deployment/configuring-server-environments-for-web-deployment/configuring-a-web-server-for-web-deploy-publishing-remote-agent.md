@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
-title: "Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (Uzak Aracı) | Microsoft Docs"
+title: Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (Uzak Aracı) | Microsoft Docs
 author: jrjlee
-description: "Bu konuda Web'de yayımlama ve IIS Web dağıtımı kullanarak dağıtımını desteklemek için Internet Information Services (IIS) web sunucusunun nasıl yapılandırılacağı açıklanmaktadır..."
+description: Bu konuda Web'de yayımlama ve IIS Web dağıtımı kullanarak dağıtımını desteklemek için Internet Information Services (IIS) web sunucusunun nasıl yapılandırılacağı açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web dağıtımı için yayımlama (Uzak Aracı) bir Web sunucusu yapılandırma
 ====================
@@ -165,7 +165,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image6.png)
 
     > [!NOTE]
-    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. İkinci site bağlaması makine adı (örneğin, http://testweb1:85) kullanarak etki alanındaki diğer bilgisayarlardan site erişmenize olanak tanır.
+    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. İkinci site bağlaması makine adı kullanarak etki alanında diğer bilgisayarlardan site erişmenize olanak sağlayan (örneğin, http://testweb1:85).
 13. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Kapat**.
 14. İçinde **bağlantıları** bölmesinde tıklatın **uygulama havuzları**.
 15. İçinde **uygulama havuzları** bölmesinde, uygulama havuzunun adını sağ tıklatın ve ardından **temel ayarları**. Varsayılan olarak, Web sitenizin adı, uygulama havuzu adı ile eşleşir (örneğin, **DemoSite**).
@@ -180,7 +180,7 @@ Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtm
 
 Bir uygulama havuzu kimliği bir dosya veya klasör izinleri vermek için iki seçeneğiniz vardır:
 
-- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. **IIS AppPool\***[uygulama havuzu adı]*(örneğin, **IIS AppPool\DemoSite**).
+- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. <strong>IIS AppPool\</ strong ><em>[uygulama havuzu adı]</em>(örneğin, <strong>IIS AppPool\DemoSite</strong>).
 - İzinleri atayın **IIS\_IUSRS** grubu.
 
 Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** bu yaklaşım, dosya sistemi izinleri yapılandırmadan uygulama havuzları değiştirmenize izin verdiğinden grubu. Sonraki yordamda bu grup tabanlı yaklaşımı kullanır.
@@ -198,8 +198,8 @@ Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** bu yaklaşı
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklatın **Adları Denetle**ve ardından **Tamam**.
-6. İçinde **izinlerini *** [klasör adı]*iletişim kutusunda, yeni Grup atanan bildirim **okuma &amp; yürütme**, **klasör içeriğini listele**, ve **Okuma** varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın **Tamam**.
-7. Tıklatın **Tamam** kapatmak için *[klasör adı] *** özellikleri** iletişim kutusu.
+6. İçinde <strong>izinlerini</strong><em>[klasör adı]</em>iletişim kutusunda, yeni Grup atanan bildirim <strong>okuma &amp; yürütme</strong>, <strong>liste klasörü içeriği</strong>, ve <strong>okuma</strong> varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın <strong>Tamam</strong>.
+7. Tıklatın <strong>Tamam</strong> kapatmak için <em>[klasör adı]</em><strong>özellikleri</strong> iletişim kutusu.
 
 Sunucunuza, herhangi bir web paket dağıtmayı denemeden önce son bir görev olarak Web dağıtım aracı hizmetinin çalıştığından emin olmalısınız. Uzak bir bilgisayardan bir paket dağıttığınızda, Web Dağıtım Aracı hizmeti ayıklanıyor ve paket içeriğini yükleme sorumludur. Hizmet Web dağıtım aracı yüklediğinizde varsayılan olarak başlatılır ve Network SERVICE kimliği altında çalışır.
 
@@ -217,7 +217,7 @@ Sunucunuza, herhangi bir web paket dağıtmayı denemeden önce son bir görev o
 
 Varsayılan olarak, uzaktan Aracı hizmeti bu URL'de TCP bağlantı noktası 80 üzerinde dinler:
 
-http:// [*sunucu adı*] / MSDEPLOYAGENTSERVICE
+http:// [<em>sunucu adı</em>] / MSDEPLOYAGENTSERVICE
 
 Çoğu durumda, web sunucuları genellikle bağlantı noktası 80 üzerinde HTTP isteklerini dinlemek için uzaktan Aracı hizmeti için herhangi bir ek güvenlik duvarı kuralı yapılandırmanız gerekmez. Standart olmayan bir bağlantı noktasında dinleyecek şekilde yüklemenizi özelleştirdiyseniz, güvenlik duvarı özel durumlarını gerektiği şekilde yapılandırmanız gerekir.
 
@@ -233,6 +233,6 @@ Bu noktada, web sunucunuz kabul etmek ve uzak bir bilgisayardan web paketleri y�
 
 Uzak Aracı hizmetini web paketleri dağıtmak için özel Microsoft Build Engine (MSBuild) proje dosyalarını yapılandırma hakkında yönergeler için bkz [hedef ortam için dağıtım özellikleri yapılandırma](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Önceki](scenario-configuring-a-production-environment-for-web-deployment.md)
-[sonraki](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [Önceki](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [sonraki](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

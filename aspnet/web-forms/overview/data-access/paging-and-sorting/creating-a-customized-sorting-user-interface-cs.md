@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
-title: "Özelleştirilmiş sıralama kullanıcı arabirimi (C#) oluşturma | Microsoft Docs"
+title: Özelleştirilmiş sıralama kullanıcı arabirimi (C#) oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Uzun listesini görüntüleyen veri sıralandığında için çok yararlı olabilir grup ilgili verileri ayırıcı satırları sunarak. Bu öğreticide göreceğiz proxy nasıl..."
+description: Uzun listesini görüntüleyen veri sıralandığında için çok yararlı olabilir grup ilgili verileri ayırıcı satırları sunarak. Bu öğreticide göreceğiz proxy nasıl...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c2680f5e47883c9d5fa874a36eb666270c5e406a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Özelleştirilmiş sıralama kullanıcı arabirimi (C#) oluşturma
 ====================
@@ -141,7 +141,7 @@ Tarafından verileri sıralama sütunu dizinde GridView satırlarını listeleme
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample4.cs)]
 
-Bu kod, program aracılığıyla başvurarak başlatır `Table` GridView s denetim hiyerarşisi kök dizininde bulunan nesne ve adlı bir dize değişkeni oluşturma `lastValue`. `lastValue`Geçerli satır sıralanmış s sütun değeri önceki satır s değerle karşılaştırmak için kullanılır. İleri, GridView s `Rows` koleksiyon numaralandırılan ve sıralanmış sütunun değeri depolanır her satır için `currentValue` değişkeni.
+Bu kod, program aracılığıyla başvurarak başlatır `Table` GridView s denetim hiyerarşisi kök dizininde bulunan nesne ve adlı bir dize değişkeni oluşturma `lastValue`. `lastValue` Geçerli satır sıralanmış s sütun değeri önceki satır s değerle karşılaştırmak için kullanılır. İleri, GridView s `Rows` koleksiyon numaralandırılan ve sıralanmış sütunun değeri depolanır her satır için `currentValue` değişkeni.
 
 > [!NOTE]
 > S hücre kullanmam belirli bir satır sıralanmış s sütunun değeri belirlemek için `Text` özelliği. Bu da BoundFields için çalışır ancak değil TemplateFields, CheckBoxFields, istendiği gibi çalışması ve benzeri. Alternatif GridView alanlar için kısa bir süre sonra hesap nasıl tümleştirildiği incelenmektedir.
@@ -198,8 +198,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](sorting-custom-paged-data-cs.md)
-[sonraki](paging-and-sorting-report-data-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](sorting-custom-paged-data-cs.md)
+> [sonraki](paging-and-sorting-report-data-vb.md)

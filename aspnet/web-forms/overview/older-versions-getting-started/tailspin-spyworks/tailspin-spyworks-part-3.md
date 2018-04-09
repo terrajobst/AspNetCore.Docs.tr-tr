@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: "3. Kısım: Düzeni ve kategorisi menüsünden | Microsoft Docs"
+title: '3. Kısım: Düzeni ve kategorisi menüsünden | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 3 ekleme düzeni ve kategorisi menüsünden kapsar."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 3 ekleme düzeni ve kategorisi menüsünden kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>3. Kısım: Düzeni ve kategori menüsü
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 3 ekleme düzeni ve kategorisi menüsünden kapsar.
 
 
-## <a id="_Toc260221669"></a>Bazı düzeni ve bir kategori menüsü ekleme
+## <a id="_Toc260221669"></a>  Bazı düzeni ve bir kategori menüsü ekleme
 
 Div bizim ürün kategorisi menüsünden içerecek soluna sütun için bizim site ana sayfasında ekleyeceğiz.
 
@@ -77,6 +77,6 @@ Uygulamayı Şimdi Çalıştır olanak sağlar.
 
 Bizim ürün kategorisi menüsünden şimdi görüntülenir ve ProductsList.aspx adlı zaman biz biz menü öğesi bağlantı noktalarına henüz uygulamak için sahip olduğumuz bir sayfa görebilirsiniz kategori menü öğeleri birinin üzerine getirin ve içeren bir dinamik sorgu dizesi bağımsız değişkeni, oluşturduğumuz olduğunu unutmayın  Kategori Kimliği.
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-2.md)
-[sonraki](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-2.md)
+> [sonraki](tailspin-spyworks-part-4.md)

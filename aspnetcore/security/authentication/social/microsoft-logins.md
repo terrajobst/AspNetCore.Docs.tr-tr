@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Account dış oturum açma Kurulumu"
+title: ASP.NET Core Microsoft Account dış oturum açma ayarı
 author: rick-anderson
-description: "Bu öğretici, var olan bir ASP.NET Core uygulamaya Microsoft hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir."
+description: Bu öğretici, var olan bir ASP.NET Core uygulamaya Microsoft hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir.
 manager: wpickett
 ms.author: riande
 ms.date: 08/24/2017
@@ -9,21 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: d57647da978f7edaaddedba7c9f4c1de8dc07405
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configuring-microsoft-account-authentication"></a>Microsoft Account kimlik doğrulamasını yapılandırma
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core Microsoft Account dış oturum açma ayarı
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP.NET Core 2.0 projeyi kullanarak kendi Microsoft hesabıyla oturum olanak tanımak nasıl gösterilir [önceki sayfaya](index.md).
+Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP.NET Core 2.0 projeyi kullanarak kendi Microsoft hesabıyla oturum olanak tanımak nasıl gösterilir [önceki sayfaya](xref:security/authentication/social/index).
 
 ## <a name="create-the-app-in-microsoft-developer-portal"></a>Microsoft Geliştirici Portalı'nda uygulama oluşturma
 
-* Gidin [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) ve oluşturun veya bir Microsoft hesabı oturum açın:
+* Gidin [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com) ve oluşturun veya bir Microsoft hesabı oturum açın:
 
 ![İletişim kutusunda oturum](index/_static/MicrosoftDevLogin.png)
 
@@ -63,7 +63,7 @@ Zaten bir Microsoft hesabınız yoksa, dokunun  **[oluşturun!](https://signup.l
 
 ![Yeni oluşturulan parola iletişim kutusu](index/_static/MicrosoftDevPassword.png)
 
-Bağlantı Microsoft gibi hassas ayarları `Application ID` ve `Password` kullanarak uygulamanızı yapılandırma için [gizli Yöneticisi](../../app-secrets.md). Bu öğreticinin amaçları doğrultusunda belirteçleri ad `Authentication:Microsoft:ApplicationId` ve `Authentication:Microsoft:Password`.
+Bağlantı Microsoft gibi hassas ayarları `Application ID` ve `Password` kullanarak uygulamanızı yapılandırma için [gizli Yöneticisi](xref:security/app-secrets). Bu öğreticinin amaçları doğrultusunda belirteçleri ad `Authentication:Microsoft:ApplicationId` ve `Authentication:Microsoft:Password`.
 
 ## <a name="configure-microsoft-account-authentication"></a>Microsoft hesabı kimlik doğrulamasını yapılandırma
 
@@ -74,8 +74,7 @@ Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authent
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Microsoft Account hizmetini eklemek `ConfigureServices` yönteminde *haline* dosyası:
 
 ```csharp
@@ -90,10 +89,9 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 });
 ```
 
-[!INCLUDE[default settings configuration](includes/default-settings.md)]
+[!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Microsoft Account Ara eklemek `Configure` yönteminde *haline* dosyası:
 
 ```csharp
@@ -104,8 +102,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
-
+* * *
 Bu belirteçler Microsoft Geliştirici Portalı'ndaki kullanılan terminolojiyi adları olsa da `ApplicationId` ve `Password`, olarak sunulan `ClientId` ve `ClientSecret` yapılandırma API'si için.
 
 Bkz: [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft Account kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
@@ -136,7 +133,7 @@ Microsoft kimlik bilgilerinizi kullanarak şimdi kaydedilir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bu makalede, Microsoft ile nasıl doğrulayabilir gösterdi. Listelenen diğer sağlayıcıları, kimlik doğrulaması için benzer bir yaklaşım izleyebilirsiniz [önceki sayfaya](index.md).
+* Bu makalede, Microsoft ile nasıl doğrulayabilir gösterdi. Listelenen diğer sağlayıcıları, kimlik doğrulaması için benzer bir yaklaşım izleyebilirsiniz [önceki sayfaya](xref:security/authentication/social/index).
 
 * Azure web uygulaması için web sitenizi yayımladıktan sonra yeni bir oluşturmalısınız `Password` Microsoft Geliştirici Portalı'nda.
 

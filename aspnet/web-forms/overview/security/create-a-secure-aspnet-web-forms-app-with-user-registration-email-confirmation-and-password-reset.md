@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: "Onay ve parola sıfırlama (C#) e-posta ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma | Microsoft Docs"
+title: Onay ve parola sıfırlama (C#) e-posta ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma | Microsoft Docs
 author: Erikre
-description: "Bu öğretici, kullanıcı kaydı, e-posta onayı ve parola sıfırlama ASP.NET Identity üye kullanarak bir ASP.NET Web Forms uygulamasının nasıl oluşturulacağını gösterir..."
+description: Bu öğretici, kullanıcı kaydı, e-posta onayı ve parola sıfırlama ASP.NET Identity üye kullanarak bir ASP.NET Web Forms uygulamasının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Onay ve parola sıfırlama (C#) e-posta ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma
 ====================
@@ -90,7 +90,7 @@ Bu öğretici yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, anc
     [!code-xml[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample3.xml?highlight=2-5)]
 
     > [!WARNING]
-    > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Bu örnekte, hesabı ve kimlik bilgileri depolanmış **appSetting** bölümünü *Web.config* dosya. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz  **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Azure portalında sekmesi. İlgili bilgi için başlıklı Rick Anderson'un konusuna [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Bu örnekte, hesabı ve kimlik bilgileri depolanmış **appSetting** bölümünü *Web.config* dosya. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. İlgili bilgi için başlıklı Rick Anderson'un konusuna [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](https://go.microsoft.com/fwlink/?LinkId=513141).
 6. Başarılı olan (kullanıcı adı ve parola) SendGrid kimlik doğrulama değerlerini uygulamanızdan e-posta Gönder yansıtmak üzere e-posta hizmeti değerleri ekleyin. SendGrid sağlanan e-posta adresi yerine SendGrid hesap adınızı kullandığınızdan emin olun.
 
 ### <a name="enable-email-confirmation"></a>E-posta onayı etkinleştir
@@ -104,9 +104,9 @@ Bu öğretici yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, anc
 2. İçinde **Çözüm Gezgini**, sağ *Default.aspx* seçip **başlangıç sayfası olarak ayarla**.
 3. Uygulama tuşlarına basarak çalıştırma **F5.** Sayfası görüntülendikten sonra tıklatın **kaydetmek** kayıt sayfasını görüntülemek için bağlantı.
 4. E-postanızı ve parolanızı girin ve ardından **kaydetmek** SendGrid aracılığıyla bir e-posta iletisi göndermek için düğmesi.  
- Proje ve kod geçerli durumunu kayıt formunu tamamladıktan sonra bunların hesabının onaylanıp henüz olsa bile oturum açmak kullanıcının izin verir.
+   Proje ve kod geçerli durumunu kayıt formunu tamamladıktan sonra bunların hesabının onaylanıp henüz olsa bile oturum açmak kullanıcının izin verir.
 5. E-posta hesabınızı denetleyin ve e-postanızı onaylamak için bağlantıyı tıklatın.  
- Kayıt form gönderme sonra oturum açmanız.  
+   Kayıt form gönderme sonra oturum açmanız.  
     ![Örnek açtığınız Web sitesi-](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -146,9 +146,9 @@ E-posta hesabı onayladıktan karşın, bu noktada, tam olarak açmış olması 
 4. Uygulama tuşlarına basarak çalıştırma **F5.** Sayfası görüntülendikten sonra tıklatın **oturum** bağlantı.
 5. Tıklatın **parolanızı mı unuttunuz?** görüntülemek için bağlantıyı **parolamı unuttum** sayfası.
 6. E-posta adresinizi girin ve tıklayın **gönderme** parolanızı sıfırlamak üzere olanak tanıyan, adresine bir e-posta göndermek için düğmesi.   
- E-posta hesabınızı kontrol edin ve görüntülemek için bağlantıyı tıklatın **parola sıfırlama** sayfası.
+   E-posta hesabınızı kontrol edin ve görüntülemek için bağlantıyı tıklatın **parola sıfırlama** sayfası.
 7. Üzerinde **parola sıfırlama** sayfasında, e-posta, parola ve onay parolası girin. Ardından, basın **sıfırlama** düğmesi.  
- Parolanızı başarıyla sıfırladığınızda **parolanın değiştirilmesi** sayfası görüntülenir. Artık yeni parolanızla oturum açabilirsiniz.
+   Parolanızı başarıyla sıfırladığınızda **parolanın değiştirilmesi** sayfası görüntülenir. Artık yeni parolanızla oturum açabilirsiniz.
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>E-posta onayı bağlantısını yeniden gönder
@@ -167,7 +167,7 @@ Kullanıcı yeni bir yerel hesabı oluşturduktan sonra bunların kullanıcılar
 4. Herhangi bir hesabı silmek **AspNetUsers** test etmek istediğiniz e-posta diğer adını içeren tablo.
 5. Uygulamayı çalıştırın (**F5**) ve e-posta adresinizi kaydedin.
 6. Yeni hesabınız yalnızca gönderildiği e-posta yoluyla onaylamadan önce yeni bir hesapla oturum açmanız girişimi.  
- Oturum açma sorunu yaşıyor ve onaylanan e-posta hesabı olmalıdır görürsünüz. Ayrıca, e-posta hesabınız artık bir onay iletisi yeniden gönderebilirsiniz.
+   Oturum açma sorunu yaşıyor ve onaylanan e-posta hesabı olmalıdır görürsünüz. Ayrıca, e-posta hesabınız artık bir onay iletisi yeniden gönderebilirsiniz.
 7. E-posta adresinizi ve parolanızı girin tuşuna basarak **yeniden onay** düğmesi.
 8. E-posta adresinizi yeni gönderilen e-posta iletisini temel alarak onaylandıktan sonra uygulamaya oturum açın.
 

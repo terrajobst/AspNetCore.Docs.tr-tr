@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: "SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: dağıtma SQL Server Compact veritabanları - 12 2 | Microsoft Docs"
+title: 'SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: dağıtma SQL Server Compact veritabanları - 12 2 | Microsoft Docs'
 author: tdykstra
-description: "Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi..."
+description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e2d430bd8e07ed7d97d11a00c61d90beeac005f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: dağıtma SQL Server Compact veritabanları - 12 2
 ====================
@@ -190,7 +190,7 @@ Contoso University uygulama kimliğini doğrulamak ve kullanıcılara yetki verm
 Bir siteye ilk kez dağıttığınızda, çoğu veya test etmek için oluşturduğunuz tüm kullanıcı hesaplarını dışlamak için yaygın bir sorundur. Bu durumda, bir yönetici hesabı ve kullanıcı hesaplarını dağıtacaksınız. El ile test hesapları silme yerine üretimde gereken tek bir yönetici kullanıcı hesabı sahip yeni bir üyelik veritabanı oluşturacaksınız.
 
 > [!NOTE]
-> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  Web.config dosyasında öğesi.
+> Üyelik veritabanı hesabı parolaları karmasını depolar. Bir makineden hesaplarına dağıtmak için kaynak bilgisayarda göründüklerinden karma yordamları hedef sunucuda farklı karmaları üretme emin olmanız gerekir. ASP.NET Evrensel Sağlayıcılar kullandığınızda varsayılan algoritma değişmez sürece bunlar aynı karmalarını oluşturur. Varsayılan algoritma HMACSHA256 olduğundan ve belirtilen **doğrulama** özniteliği **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** Web.config dosyasında öğesi.
 
 
 Üyelik veritabanının Code First Migrations tarafından korunmaz ve Okul veritabanı için (olduğu gibi), test hesapları veritabanıyla çekirdeğini oluşturur hiçbir otomatik başlatıcı yok. Bu nedenle, kullanılabilir test verileri tutmak için yeni bir tane oluşturmadan önce test veritabanının bir kopyasını hale getireceğiz.
@@ -245,6 +245,6 @@ SQL Server Compact veritabanı motoru ve her iki veritabanı artık dağıtılma
 
 NuGet hakkında daha fazla bilgi için bkz: [proje kitaplıklarıyla yönetmek NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) ve [NuGet belgelerine](http://docs.nuget.org/docs/start-here/overview). NuGet kullanmak istemiyorsanız, yüklü olduğunda ne yaptığını belirlemek için bir NuGet paketi çözümlemeyi öğrenin gerekir. (Örneğin, yapılandırabileceğiniz *Web.config* dönüşümleri, derleme zamanı vb. çalıştırmak için PowerShell komut dosyalarını yapılandırın.) NuGet nasıl çalıştığı hakkında daha fazla bilgi için özellikle bkz [oluşturma ve yayımlama bir paketi](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) ve [yapılandırma dosyasını ve kaynak kodu dönüştürmeleri](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Önceki](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-[sonraki](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [!div class="step-by-step"]
+> [Önceki](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+> [sonraki](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)

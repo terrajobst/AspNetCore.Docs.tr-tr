@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/project-properties
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje özelliklerini | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje özelliklerini | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
-ms.openlocfilehash: 85b6dbcc8d40c168a49513ef6b549f9ec7fa5097
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
 ====================
@@ -68,6 +68,6 @@ Bu öğreticide daha önce gördüğünüz gibi **dağıtmak için öğeleri** s
 
 Tüm dağıtım kurulum görevlerini tamamladınız. Sonraki öğreticide Contoso University site test ortamını dağıtmak ve var. sınayın.
 
->[!div class="step-by-step"]
-[Önceki](web-config-transformations.md)
-[sonraki](deploying-to-iis.md)
+> [!div class="step-by-step"]
+> [Önceki](web-config-transformations.md)
+> [sonraki](deploying-to-iis.md)

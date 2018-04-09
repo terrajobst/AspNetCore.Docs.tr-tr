@@ -1,7 +1,7 @@
 ---
-title: "Çekirdek şifreleme genişletilebilirliği"
+title: ASP.NET Core çekirdek şifreleme genişletilebilirliği
 author: rick-anderson
-description: "IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve en üst düzey Fabrika açıklanmaktadır."
+description: IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve en üst düzey Fabrika hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: ead4012236244d88cff0b0520d000d89f93f3355
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="core-cryptography-extensibility"></a>Çekirdek şifreleme genişletilebilirliği
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core çekirdek şifreleme genişletilebilirliği
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
@@ -123,7 +123,7 @@ IAuthenticatedEncryptor IAuthenticatedEncryptorDescriptor arasındaki birincil f
 
 Tanımlayıcı kendi ExportToXml yordamı seri hale getirilebilir. Bu yordam iki özellikler içeren bir XmlSerializedDescriptorInfo döndürür: tanımlayıcısı ve temsil eden tür XElement temsili bir [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) olabilen karşılık gelen XElement verilen bu tanımlayıcısı resurrect için kullanılır.
 
-Serileştirilmiş tanımlayıcısı şifreleme anahtar malzemesi gibi hassas bilgiler içerebilir. Veri koruma sisteminde depolama alanına kalıcı önce bilgilerini şifrelemek için yerleşik desteğe sahiptir. Bu yararlanmak için tanımlayıcı (xmlns "http://schemas.asp.net/2015/03/dataProtection"), değer "true" öznitelik adı "boşluğu requiresEncryption" ile hassas bilgiler içeren öğe işaretlemeniz gerekir.
+Serileştirilmiş tanımlayıcısı şifreleme anahtar malzemesi gibi hassas bilgiler içerebilir. Veri koruma sisteminde depolama alanına kalıcı önce bilgilerini şifrelemek için yerleşik desteğe sahiptir. Bu yararlanmak için tanımlayıcı öznitelik adı "boşluğu requiresEncryption" ile hassas bilgiler içeren öğe işaretlemeniz gerekir (xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), değer "true".
 
 >[!TIP]
 > Bu öznitelik ayarlamak için bir yardımcı API yoktur. XElement.MarkAsRequiresEncryption() Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel ad alanında bulunan uzantısı yöntemini çağırın.
@@ -161,7 +161,7 @@ IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri aşağıdaki ik
 
 CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 
-Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](../implementation/key-management.md#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için KeyManagementOptions AuthenticatedEncryptorConfiguration özelliğini ayarlayın.
+Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için KeyManagementOptions AuthenticatedEncryptorConfiguration özelliğini ayarlayın.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -173,6 +173,6 @@ Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş n
 
 CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 
-Gibi IAuthenticatedEncryptorConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](../implementation/key-management.md#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için hizmet kapsayıcısında IAuthenticatedEncryptorConfiguration tek kaydedin.
+Gibi IAuthenticatedEncryptorConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için hizmet kapsayıcısında IAuthenticatedEncryptorConfiguration tek kaydedin.
 
 ---

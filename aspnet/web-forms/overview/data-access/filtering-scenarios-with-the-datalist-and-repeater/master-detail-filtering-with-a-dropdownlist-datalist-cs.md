@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
-title: "Ana/ayrıntı ile DropDownList (C#) filtreleme | Microsoft Docs"
+title: Ana/ayrıntı ile DropDownList (C#) filtreleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide, tek bir web sayfasındaki 'ana' kaydeder ve bir DataList arak Göster için görüntülenecek DropDownLists kullanarak ana/ayrıntı raporları görüntülemek nasıl bakın …"
+description: Bu öğreticide, tek bir web sayfasındaki 'ana' kaydeder ve bir DataList arak Göster için görüntülenecek DropDownLists kullanarak ana/ayrıntı raporları görüntülemek nasıl bakın …
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c2199f0957f4cbe1d35dd971744087da9af1abce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c84902ccf028c976246380abfaebb6a76c573603
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Ana/ayrıntı filtreleme ile DropDownList (C#)
 ====================
@@ -103,12 +103,12 @@ Bizim ana/ayrıntı raporu son adımda seçilen kategori ile ilişkili ürün li
 **Şekil 7**: seçin `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))
 
 
-İleri'yi tıklatmadan sonra ObjectDataSource Sihirbazı bize kaynağı değeri ile ister `GetProductsByCategoryID(categoryID)` yöntemin  *`categoryID`*  parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi kümesine parametre kaynak denetimi ve ControlId `Categories`.
+İleri'yi tıklatmadan sonra ObjectDataSource Sihirbazı bize kaynağı değeri ile ister `GetProductsByCategoryID(categoryID)` yöntemin *`categoryID`* parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi kümesine parametre kaynak denetimi ve ControlId `Categories`.
 
 
 [![Adlı kullanıcı, Categoryıd'si parametresi kategorileri DropDownList değerine ayarlayın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
 
-**Şekil 8**: ayarlamak  *`categoryID`*  parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png))
+**Şekil 8**: ayarlamak *`categoryID`* parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png))
 
 
 Veri Kaynağı Yapılandırma Sihirbazı tamamlandıktan sonra Visual Studio otomatik olarak oluşturacak bir `ItemTemplate` adını ve her veri alanı değerini görüntüler DataList için. Şimdi kullanmayı DataList geliştirmek bir `ItemTemplate` yalnızca ürün adı, kategori, tedarikçi, birim ve fiyat ile birlikte başına miktar görüntüleyen bir `SeparatorTemplate` , yerleştirir bir `<hr>` her bir öğe arasındaki öğesi. I kullanacağım `ItemTemplate` gelen bir örnekte [DataList ve yineleyici denetimleri ile veri görüntüleme](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md) öğretici ancak kullanımında en görsel olarak çekici Bul ne olursa olsun şablon biçimlendirme kullanmak boş.
@@ -164,7 +164,7 @@ Değer seçtik nedeni `0` değerini sistemiyle kategori yok olduğundan "--bir k
 **Şekil 13**: "--bir kategori seçin--" liste öğesi seçildiğinde, yok ürünleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image31.png))
 
 
-Bunun yerine görüntüleyecektir varsa *tüm* "--bir kategori seçin--" seçeneği seçildiğinde, ürünlerin değeri kullanın `-1` yerine. Akıllı duruma okuyucu o arka planda geri çağırma *ana/ayrıntı filtreleme ile bir DropDownList* biz güncelleştirilmiş öğretici `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi böylece, bir  *`categoryID`*  değeri `-1` dönen kayıt tüm ürün, geçirildi.
+Bunun yerine görüntüleyecektir varsa *tüm* "--bir kategori seçin--" seçeneği seçildiğinde, ürünlerin değeri kullanın `-1` yerine. Akıllı duruma okuyucu o arka planda geri çağırma *ana/ayrıntı filtreleme ile bir DropDownList* biz güncelleştirilmiş öğretici `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi böylece, bir *`categoryID`* değeri `-1` dönen kayıt tüm ürün, geçirildi.
 
 ## <a name="summary"></a>Özet
 
@@ -176,11 +176,11 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler...
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Randy Etikan oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Sonraki](master-detail-filtering-acess-two-pages-datalist-cs.md)
+> [!div class="step-by-step"]
+> [Next](master-detail-filtering-acess-two-pages-datalist-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: "SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server - 12 10 geçirme | Microsoft Docs"
+title: 'SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server - 12 10 geçirme | Microsoft Docs'
 author: tdykstra
-description: "Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi..."
+description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25a829f1d3c730c7bb3b174f075ce8163999e482
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: SQL Server - 12 10 geçirme
 ====================
@@ -242,7 +242,7 @@ Ardından, yeni bir Test profili oluşturun ve projeyi yayımlamak için kullan�
 
 Seçin **profil** sekmesi.
 
-Seçin  **&lt;yeni... &gt;**  açılan dan listesinde ve "Test" Profil adı girin.
+Seçin **&lt;yeni... &gt;** açılan dan listesinde ve "Test" Profil adı girin.
 
 İçinde **hizmeti URL'si** kutusuna *localhost*.
 
@@ -268,7 +268,7 @@ Visual Studio uygulama dağıtır ve test ortamında sitenin giriş sayfasını 
 
 Test ortamına dağıttıktan sonra üretim dağıtımına ayarlamak hazırsınız. Dağıtmak için bir veritabanı oluşturarak test ortamı için yaptığınız gibi başlayın. Genel Bakış'tan Hatırlayacağınız, yalnızca bir veritabanı, iki değil ayarlamak şekilde Cytanium Lite barındırma planı yalnızca tek bir SQL Server veritabanı sağlar. Tüm tablolar ve Okul SQL Server Compact veritabanları ve üyelik verileri üretimde bir SQL Server veritabanına dağıtılır.
 
-Cytanium denetim masasında gidin [http://panel.cytanium.com](http://panel.cytanium.com). Fareyi tutun **veritabanları** ve ardından **SQL Server 2008**.
+Cytanium denetim masasında gidin [ http://panel.cytanium.com ](http://panel.cytanium.com). Fareyi tutun **veritabanları** ve ardından **SQL Server 2008**.
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
@@ -380,7 +380,7 @@ Yayımlamadan önce veritabanı üretimde güncelleştirildiğini gerçek bir uy
 
 İçinde **Web tek tık Yayımla** araç olduğundan emin olun **üretim** profil seçilir ve ardından **Yayımla**.
 
-Karşıya yüklediğiniz varsa *uygulama\_offline.htm* kullanmak zorunda yayımlanmadan önce **Dosya Yöneticisi** yardımcı programı silmek için Cytanium Denetim Masası'nda *uygulama\_çevrimdışı.* test önce htm. Aynı anda silebilirsiniz *.sdf* dosyaları buradan *uygulama\_veri* klasör.
+Karşıya yüklediğiniz varsa <em>uygulama\_offline.htm</em> kullanmak zorunda yayımlanmadan önce <strong>Dosya Yöneticisi</strong> yardımcı programı silmek için Cytanium Denetim Masası'nda <em>uygulama\_çevrimdışı.</em> test önce htm. Aynı anda silebilirsiniz <em>.sdf</em> dosyaları buradan <em>uygulama\_veri</em> klasör.
 
 Şimdi, bir tarayıcı açın ve test ortamı dağıttıktan sonra yaptığınız gibi uygulamayı test etmek için genel sitenizin URL'sini gidin.
 
@@ -450,6 +450,6 @@ Kaldırmak için aynı yordamı izleyin **SqlServerCompact** paket. (Çünkü bu
 
 Şimdi başarıyla SQL Server Express ve tam SQL Server için geçirdiğinizden. Sonraki öğretici başka bir veritabanı değişikliği ve hale getireceğiz test ve üretim veritabanlarınızı SQL Server Express ve tam SQL Server kullandığınızda veritabanı değişikliklerini dağıtma görürsünüz.
 
->[!div class="step-by-step"]
-[Önceki](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-[sonraki](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Önceki](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [sonraki](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

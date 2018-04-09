@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: "ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama | Microsoft Docs
 author: Erikre
-description: "Bu adım adım öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek..."
+description: Bu adım adım öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama
 ====================
@@ -177,9 +177,9 @@ Yüklü Visual Studio sürümü zaten varsa, yükleme işlemi yanındaki mevcut 
 
 [ASP.NET 4.5 Web formları ve Visual Studio 2013 - Wingtip Toys Başlarken](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
 
-Karşıdan yüklemenin bir *.zip* dosyası. Bu öğretici seri oluşturur projeyi bulun ve seçin, görmek için *C#*klasöründe *.zip* dosyası. Kaydet *C#* Folder Visual Studio 2013 projelerle çalışmak için kullandığınız klasör. Varsayılan olarak, Visual Studio 2013 projeleri klasör aşağıda verilmiştir:
+Karşıdan yüklemenin bir <em>.zip</em> dosyası. Bu öğretici seri oluşturur projeyi bulun ve seçin, görmek için <em>C#</em>klasöründe <em>.zip</em> dosyası. Kaydet <em>C#</em> Folder Visual Studio 2013 projelerle çalışmak için kullandığınız klasör. Varsayılan olarak, Visual Studio 2013 projeleri klasör aşağıda verilmiştir:
 
-**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
+<strong>C:\Users\</ strong ><strong><em>&lt;kullanıcıadı&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 Yeniden Adlandır ***C#*** klasörüne ***WingtipToys***.
 
@@ -197,5 +197,5 @@ Bu öğretici serilerinde açıklamaları Hoş Geldiniz ve hesap düzeltmeleri v
 
 Geliştirme sırasında bir hata olduğunda ya da Web sitesinin düzgün çalışmıyorsa, hata iletileri karmaşık ipuçları sorun kaynağına verebilir veya bu sorunun nasıl açıklayabilir değil. Bazı yaygın sorun senaryolar ile yardımcı olmak için de kullanabilirsiniz [ASP.NET forumları](https://forums.asp.net/) veya birlikte Q ve bir bölüm [ASP.NET 4.5 Web formları ve Visual Studio 2013 - Wingtip Toys ile çalışmaya başlama](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) () C#) örnek. Bir hata iletisi alırsınız veya öğreticileri devam ederken bir sorun oluşması, yukarıdaki konumları denetlediğinizden emin olun.
 
->[!div class="step-by-step"]
-[Next](create-the-project.md)
+> [!div class="step-by-step"]
+> [Next](create-the-project.md)

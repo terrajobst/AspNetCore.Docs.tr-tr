@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
-title: "Veri değişikliği işlevlerini sınırlama tabanlı kullanıcı (C#) | Microsoft Docs"
+title: Veri değişikliği işlevlerini sınırlama tabanlı kullanıcı (C#) | Microsoft Docs
 author: rick-anderson
-description: "Verileri düzenleme olanağı sağlayan bir web uygulamasında farklı kullanıcı hesapları farklı veri düzenleme ayrıcalıklara sahip olmayabilir. Bu öğreticide biz inceleyeceğiz nasıl t..."
+description: Verileri düzenleme olanağı sağlayan bir web uygulamasında farklı kullanıcı hesapları farklı veri düzenleme ayrıcalıklara sahip olmayabilir. Bu öğreticide biz inceleyeceğiz nasıl t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 44d0c192e082a7ad123096acb57fd053f6dcaeb1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b056536eeaa86ef2c73debe23dd38861f41b2a69
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>Kullanıcı (C#) dayalı bir sınırlama veri değişikliği işlevi
 ====================
@@ -246,8 +246,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](adding-client-side-confirmation-when-deleting-cs.md)
-[sonraki](an-overview-of-inserting-updating-and-deleting-data-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-client-side-confirmation-when-deleting-cs.md)
+> [sonraki](an-overview-of-inserting-updating-and-deleting-data-vb.md)

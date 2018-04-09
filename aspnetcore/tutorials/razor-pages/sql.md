@@ -1,7 +1,7 @@
 ---
-title: "SQL Server yerel veritabanı ve ASP.NET Core ile çalışma"
+title: SQL Server yerel veritabanı ve ASP.NET Core ile çalışma
 author: rick-anderson
-description: "SQL Server yerel veritabanı ve ASP.NET Core ile çalışmayı açıklar."
+description: SQL Server yerel veritabanı ve ASP.NET Core ile çalışmayı açıklar.
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 408072fbe83eadb0ae3c35c2789bda8ecaac58c0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e5fa552f80f7ee0876fe31dd87a1ddbd5fe567dd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="working-with-sql-server-localdb-and-aspnet-core"></a>SQL Server yerel veritabanı ve ASP.NET Core ile çalışma
+# <a name="work-with-sql-server-localdb-and-aspnet-core"></a>SQL Server yerel veritabanı ve ASP.NET Core ile çalışma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Audette](https://twitter.com/joeaudette) 
 
@@ -82,8 +82,8 @@ Uygulamayı test etme
 
     ![Bağlam menüsü](sql/_static/stopIIS.png)
 
-   * VS olmayan hata ayıklama modunda çalışıyormuş hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
-   * Hata ayıklama modunda VS çalışıyormuş hata ayıklayıcıyı durdurduktan ve F5 tuşuna basın.
+    * VS olmayan hata ayıklama modunda çalışıyormuş hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
+    * Hata ayıklama modunda VS çalışıyormuş hata ayıklayıcıyı durdurduktan ve F5 tuşuna basın.
    
 Uygulama hazırlığı yapmış veriler gösterir:
 
@@ -91,6 +91,6 @@ Uygulama hazırlığı yapmış veriler gösterir:
 
 Sonraki öğretici verilerin sunuyu temizler.
 
->[!div class="step-by-step"]
-[Önceki: İskele kurulmuş Razor sayfalarının](xref:tutorials/razor-pages/page)
-[sonraki: sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)
+> [!div class="step-by-step"]
+> [Önceki: İskele kurulmuş Razor sayfalarının](xref:tutorials/razor-pages/page)
+> [sonraki: sayfalarını güncelleştirme](xref:tutorials/razor-pages/da1)

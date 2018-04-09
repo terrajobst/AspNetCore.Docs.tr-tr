@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
-title: "Ana/ayrıntı iki DropDownLists (VB) ile filtreleme | Microsoft Docs"
+title: Ana/ayrıntı iki DropDownLists (VB) ile filtreleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici, istenen üst ve iki üst recor seçmek için iki DropDownList denetimlerini kullanarak üçüncü bir katman eklemek için ana/ayrıntı ilişkisi genişletir..."
+description: Bu öğretici, istenen üst ve iki üst recor seçmek için iki DropDownList denetimlerini kullanarak üçüncü bir katman eklemek için ana/ayrıntı ilişkisi genişletir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c345fbfe5df4d8ce06695c4dd4b88cc099ad7836
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee0232cf8f7c0533703a51a4629522fd887f216f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>Ana/ayrıntı iki DropDownLists (VB) ile filtreleme
 ====================
@@ -102,12 +102,12 @@ Bu yana `ProductsByCategory` seçili kategorisine ait yalnızca bu ürünleri g�
 **Şekil 9**: ObjectDataSource kullanılacak yapılandırma `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-two-dropdownlists-vb/_static/image27.png))
 
 
-Değerini belirtmek ihtiyacımız sihirbazının son adımı  *`categoryID`*  parametresi. Bu parametre, seçili öğesini atamak `Categories` DropDownList.
+Değerini belirtmek ihtiyacımız sihirbazının son adımı *`categoryID`* parametresi. Bu parametre, seçili öğesini atamak `Categories` DropDownList.
 
 
 [![Adlı kullanıcı, Categoryıd'si parametre değeri kategorileri DropDownList isteme](master-detail-filtering-with-two-dropdownlists-vb/_static/image29.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image28.png)
 
-**Şekil 10**: çekme  *`categoryID`*  parametre değerinin `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
+**Şekil 10**: çekme *`categoryID`* parametre değerinin `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-two-dropdownlists-vb/_static/image30.png))
 
 
 Yapılandırılmış ObjectDataSource ile kalan tek şey hangi veri kaynağı alanlarını değeri DropDownList'ın öğeleri ve görüntü için kullanılan belirtmek için. Görüntü `ProductName` kullanın ve alan `ProductID` alan değeri olarak.
@@ -141,7 +141,7 @@ ObjectDataSource ile ve `ProductsByCategory` DropDownList sayfamızı yapıland�
 
 ## <a name="step-3-using-a-detailsview-to-display-details-for-the-selected-product"></a>3. adım: Seçili ürün için ayrıntıları görüntülemek için bir DetailsView kullanma
 
-Son adım, seçilen ürün ayrıntılarını bir DetailsView'da görüntülemektir. Bunu başarmak eklemek için bir DetailsView sayfasına ayarlayın, `ID` özelliğine `ProductDetails`ve yeni ObjectDataSource oluşturun. Kendi verisinden çıkarmak için bu ObjectDataSource yapılandırma `ProductsBLL` sınıfının `GetProductByProductID(productID)` seçili değeri kullanılarak yöntemi `ProductsByCategory` değerini DropDownList  *`productID`*  parametresi.
+Son adım, seçilen ürün ayrıntılarını bir DetailsView'da görüntülemektir. Bunu başarmak eklemek için bir DetailsView sayfasına ayarlayın, `ID` özelliğine `ProductDetails`ve yeni ObjectDataSource oluşturun. Kendi verisinden çıkarmak için bu ObjectDataSource yapılandırma `ProductsBLL` sınıfının `GetProductByProductID(productID)` seçili değeri kullanılarak yöntemi `ProductsByCategory` değerini DropDownList *`productID`* parametresi.
 
 
 [![ProductsBLL sınıfını kullanmak seçin](master-detail-filtering-with-two-dropdownlists-vb/_static/image44.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image43.png)
@@ -156,7 +156,7 @@ Son adım, seçilen ürün ayrıntılarını bir DetailsView'da görüntülemekt
 
 [![Parametre değeri ProductID ProductsByCategory DropDownList isteme](master-detail-filtering-with-two-dropdownlists-vb/_static/image50.png)](master-detail-filtering-with-two-dropdownlists-vb/_static/image49.png)
 
-**Şekil 17**: çekme  *`productID`*  parametre değerinin `ProductsByCategory` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
+**Şekil 17**: çekme *`productID`* parametre değerinin `ProductsByCategory` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-two-dropdownlists-vb/_static/image51.png))
 
 
 Kullanılabilir alanlar görüntülemeyi seçebilirsiniz `ProductDetails` DetailsView. Kaldırmak için tercih `ProductID`, `SupplierID`, ve `CategoryID` alanları ve kaldırılmasında ve geri kalan alanları biçimlendirilmiş. Ayrıca, t DetailsView'un temizlenmiş `Height` ve `Width` özellikleri, belirtilen boyutu kısıtlı sahip olmak yerine verileri için en iyi görüntü gerekli genişliği genişletmek DetailsView izin verme. Tam biçimlendirme aşağıda yer almaktadır:
@@ -215,12 +215,12 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Hilton Giesenow oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-detail-filtering-with-a-dropdownlist-vb.md)
-[sonraki](master-detail-filtering-across-two-pages-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](master-detail-filtering-with-a-dropdownlist-vb.md)
+> [sonraki](master-detail-filtering-across-two-pages-vb.md)

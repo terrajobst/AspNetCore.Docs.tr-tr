@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
-title: "ASP.NET Web sayfaları (Razor) yan yana farklı sürümlerini çalıştıran | Microsoft Docs"
+title: ASP.NET Web sayfaları (Razor) yan yana farklı sürümlerini çalıştıran | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, Web siteleri farklı sürümlerini kullanmak üzere yapılandırıldığında ASP.NET Web sayfaları (Razor) Web sitelerine aynı bilgisayara veya sunucuya nasıl çalıştırılacağı açıklanmaktadır..."
+description: Bu makalede, Web siteleri farklı sürümlerini kullanmak üzere yapılandırıldığında ASP.NET Web sayfaları (Razor) Web sitelerine aynı bilgisayara veya sunucuya nasıl çalıştırılacağı açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: c11399b0bde59d18fa378ed48c15844454c1f956
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1729f3201013926b221afc92d23416b0081d8efb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>ASP.NET Web sayfaları (Razor) farklı sürümlerini yan yana çalıştırma
 ====================
@@ -52,7 +52,7 @@ WebMatrix ile Web sayfaları yüklediğinizde unutmamanız gereken bazı noktala
 - ASP.NET Web sayfaları, farklı bir sürümünü kullanarak bir site çalıştırmak istiyorsanız, bunu yapmak için site yapılandırabilirsiniz. Sitenizi zaten yoksa bir *web.config* dosya sitesinin kök dizininde, yeni bir tane oluşturun ve aşağıdaki XML dosyasını buraya var olan içeriğin üzerine kopyalayın. Site zaten varsa bir *web.config* dosya, ekleme bir `<appSettings>` öğesi için aşağıdakine benzer `<configuration>` bölümü.
 
     [!code-xml[Main](running-v1-and-v2-sites-side-by-side/samples/sample1.xml)]
-'-'Sürümünde belirtmezseniz *web.config* dosya, bir site en son sürümü olarak dağıtılır. (Derlemeler kopyalanır *bin* sitesi dağıtıldı klasöründe.)
+  '-'Sürümünde belirtmezseniz *web.config* dosya, bir site en son sürümü olarak dağıtılır. (Derlemeler kopyalanır *bin* sitesi dağıtıldı klasöründe.)
 - Web Matrix site şablonları kullanarak oluşturduğunuz yeni uygulamalar dahil Web sayfaları sürüm derlemeleri sitenin içinde *bin* klasör.
 
 Genel olarak, her zaman uygun derlemelerini sitenin yüklemek için NuGet kullanarak sitenizle kullanmak için Web sayfalarının hangi sürümü kontrol edebilirsiniz *bin* klasör. Paketler için ziyaret edin [NuGet.org](http://NuGet.org).

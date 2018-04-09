@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/getting-started-with-the-next-version-of-aspnet
-title: "ASP.NET ileri sürümü ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET ileri sürümü ile çalışmaya başlama | Microsoft Docs
 author: shanselman
-description: "Scott Hanselman ASP.NET sonraki sürümünde yaklaşan özellikleri sunar."
+description: Scott Hanselman ASP.NET sonraki sürümünde yaklaşan özellikleri sunar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/18/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/getting-started-with-the-next-version-of-aspnet
 msc.type: video
-ms.openlocfilehash: b26dde5ac5c4b5612f3697cd40a299e0f8ef6717
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8a5b972741a0e524fff4d2d8ecf908cffc894c58
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-the-next-version-of-aspnet"></a>ASP.NET ileri sürümü ile çalışmaya başlama
 ====================
@@ -24,8 +24,8 @@ tarafından [Scott Hanselman](https://github.com/shanselman)
 
 Scott Hanselman ASP.NET sonraki sürümünde yaklaşan özellikleri sunar.
 
-[&#9654; (3 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-the-next-version-of-aspnet)
+[&#9654;(3 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/getting-started-with-the-next-version-of-aspnet)
 
->[!div class="step-by-step"]
-[Önceki](aspnet-vnext-videos-bundling-and-minification.md)
-[sonraki](aspnet-and-web-tools-20122.md)
+> [!div class="step-by-step"]
+> [Önceki](aspnet-vnext-videos-bundling-and-minification.md)
+> [sonraki](aspnet-and-web-tools-20122.md)

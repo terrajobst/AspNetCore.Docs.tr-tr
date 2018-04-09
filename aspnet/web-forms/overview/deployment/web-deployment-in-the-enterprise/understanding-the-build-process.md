@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
-title: "Derleme işlemi anlama | Microsoft Docs"
+title: Derleme işlemi anlama | Microsoft Docs
 author: jrjlee
-description: "Bu konu, bir kurumsal ölçekte derleme ve dağıtım işlemi bir kılavuz sağlar. Bu konuda açıklanan yaklaşım özel Microsoft yapı Engin kullanır..."
+description: Bu konu, bir kurumsal ölçekte derleme ve dağıtım işlemi bir kılavuz sağlar. Bu konuda açıklanan yaklaşım özel Microsoft yapı Engin kullanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4544a5e6212ea9b1247062dc35edc135ff7ca354
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-build-process"></a>Derleme işlemi anlama
 ====================
@@ -30,9 +30,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > > Önceki konu [proje dosyası anlama](understanding-the-project-file.md)birden çok hedef ortamlara dağıtımını desteklemek için bölünmüş proje dosyalarını kavramı sunulan ve bir MSBuild proje dosyası anahtar bileşenlerinin açıklanan. Zaten bu kavramlarına alışık değilseniz, gözden geçirmeniz gereken [proje dosyası anlama](understanding-the-project-file.md) Bu konuyu çalışmadan önce.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="build-and-deployment-overview"></a>Derleme ve dağıtım genel bakış
 
@@ -50,16 +50,16 @@ Bu dosyalar daha ayrıntılı bakmak önce bu yöntemi kullandığınızda, gene
 
 ![](understanding-the-build-process/_static/image2.png)
 
-Gerçekleşen ilk iki proje dosyalarını & #x 2014; şeydir bir evrensel derleme ve dağıtım yönergeleri ve bir ortama özgü ayarlar & #x 2014; içeren içeren bir tek proje dosyasına birleştirilir. MSBuild proje dosyası'ndaki yönergeleri üzerinden sonra çalışır. Her proje için proje dosyası kullanarak çözümdeki projelerin her biri oluşturur. Daha sonra Web dağıtımı (MSDeploy.exe) gibi diğer araçları ve web içeriği ve veritabanları için hedef ortam dağıtmak için VSDBCMD yardımcı programını çağırır.
+Gerçekleşen ilk iki dosyaları proje şeydir&#x2014;Evrensel derleme ve dağıtım yönergelerini içeren ve ortama özgü ayarları içeren bir&#x2014;tek proje dosyasına birleştirilir. MSBuild proje dosyası'ndaki yönergeleri üzerinden sonra çalışır. Her proje için proje dosyası kullanarak çözümdeki projelerin her biri oluşturur. Daha sonra Web dağıtımı (MSDeploy.exe) gibi diğer araçları ve web içeriği ve veritabanları için hedef ortam dağıtmak için VSDBCMD yardımcı programını çağırır.
 
 Baştan, derleme ve dağıtım işlemi, şu görevleri gerçekleştirir:
 
 1. Yeni bir yapı için hazırlık çıktı dizini içeriğini siler.
 2. Çözümdeki her projeye oluşturur:
 
-    1. Web projeleri & #x 2014; bu durumda, bir ASP.NET MVC web uygulaması ve bir WCF web hizmeti & #x 2014; her proje için bir web dağıtım paketi oluşturma işlemi oluşturur.
+    1. Web projeleri için&#x2014;bu durumda, bir ASP.NET MVC web uygulaması ve bir WCF web hizmeti&#x2014;derleme işlemi her proje için bir web dağıtım paketi oluşturur.
     2. Veritabanı projeleri için yapı işlemi her proje için dağıtım bildirimi (.deploymanifest dosyası) oluşturur.
-3. Çeşitli özellikleri proje dosyalarını #x 2014; bir hedef bağlantı dizesi ve bir veritabanı adı & #x 2014; .deploymanifest dosyası ile birlikte kullanarak çözümdeki her veritabanı projesi dağıtmak için VSDBCMD.exe yardımcı programı kullanır.
+3. Her veritabanı projesi çözümdeki proje dosyalarından çeşitli özelliklerini kullanarak dağıtmak için VSDBCMD.exe yardımcı programı kullandığı&#x2014;bir hedef bağlantı dizesi ve bir veritabanı adı&#x2014;.deploymanifest dosyası ile birlikte.
 4. Dağıtım işlemi denetlemek için proje dosyalarını çeşitli özellikleri kullanarak çözümdeki her web projesi dağıtma MSDeploy.exe yardımcı programı kullanır.
 
 Bu işlem daha ayrıntılı izleme için örnek çözümü kullanabilirsiniz.
@@ -102,9 +102,9 @@ MSBuild karşılaştığı sonraki adlı bir öğe içeren bir tek öğe grubu �
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
 
-MSBuild adlı bir öğe listesi oluşturarak bu yönergeyi işler **ProjectsToBuild**. Bu durumda, öğe listesinden bir tek değer & #x 2014; yolu ve dosya adı çözüm dosyasını içerir.
+MSBuild adlı bir öğe listesi oluşturarak bu yönergeyi işler **ProjectsToBuild**. Bu durumda, tek bir değer madde listesini içeren&#x2014;yol ve çözüm dosyasının dosya adı.
 
-Bu noktada, kalan hedefleri öğelerdir. Hedefleri farklı özellikleri ve öğeleri & #x 2014 işlenir; bunlar açıkça kullanıcı tarafından belirtilen ya da başka bir yapı içinde proje dosyası tarafından çağrılan sürece hedefleri temelde işlenmez. Sözcüğünün açılış **proje** etiketi de içeren bir **DefaultTargets** özniteliği.
+Bu noktada, kalan hedefleri öğelerdir. Hedefleri özellikleri ve öğeleri farklı şekilde işlenir&#x2014;bunlar açıkça kullanıcı tarafından belirtilen ya da başka bir yapı içinde proje dosyası tarafından çağrılan sürece hedefleri temelde işlenmez. Sözcüğünün açılış **proje** etiketi de içeren bir **DefaultTargets** özniteliği.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
@@ -173,7 +173,7 @@ Bu hedef önceki konusunda biraz ayrıntılı açıklandığı [proje dosyası a
 
 Bu öğeler ne zaman oluşturulduğunu dağıtım paketleri başvuruda **BuildProjects** hedef yürütüldü. Öğeleri başvurduğu dosyaları kadar mevcut değil çünkü bu öğeler statik olarak proje dosyasında tanımladığınız uygulanamadı **BuildProjects** hedef gerçekleştirilir. Bunun yerine, öğeleri dinamik olarak içinde kadar çağrılan olmayan bir hedef tanımlanmalıdır sonra **BuildProjects** hedef gerçekleştirilir.
 
-Öğeleri bu hedef & #x 2014 içinde kullanılmaz; bu hedef yalnızca öğeleri ve her öğe değeri ile ilişkili meta veri oluşturur. Bu öğe işlendi sonra **PublishPackages** öğe yolu şu iki değerden içerecek *ContactManager.Mvc.deploy.cmd* dosya ve yol  *ContactManager.Service.deploy.cmd* dosya. Web dağıtımı her proje için web paketinin bir parçası olarak bu dosyaları oluşturur ve çağırmanız gerekir dosyaları bunlar paketleri dağıtmak için hedef sunucuda. Bu dosyalardan birini açarsanız, çeşitli yapı özgü parametre değerlerini içeren bir MSDeploy.exe komutu temelde görürsünüz.
+Öğeleri bu hedef içinde kullanılmaz&#x2014;bu hedef yalnızca öğeleri ve her öğe değeri ile ilişkili meta veri oluşturur. Bu öğe işlendi sonra **PublishPackages** öğe yolu şu iki değerden içerecek *ContactManager.Mvc.deploy.cmd* dosya ve yol  *ContactManager.Service.deploy.cmd* dosya. Web dağıtımı her proje için web paketinin bir parçası olarak bu dosyaları oluşturur ve çağırmanız gerekir dosyaları bunlar paketleri dağıtmak için hedef sunucuda. Bu dosyalardan birini açarsanız, çeşitli yapı özgü parametre değerlerini içeren bir MSDeploy.exe komutu temelde görürsünüz.
 
 **DbPublishPackages** öğesini yolu tek bir değer içermesi *ContactManager.Database.deploymanifest* dosya.
 
@@ -199,7 +199,7 @@ Bu bir örnektir *toplu hedef işlemede*. MSBuild proje dosyalarında toplu işl
 - Toplu iş başına bir kez hedef yürütün.
 
 > [!NOTE]
-> **Kimlik** biri [yerleşik meta veri değerlerinin](https://msdn.microsoft.com/library/ms164313.aspx) oluşturulurken her öğeye atanmış. Değerine başvuruyor **INCLUDE** özniteliğini **öğesi** öğesi & #x 2014; diğer bir deyişle, yol ve dosya adı öğenin.
+> **Kimlik** biri [yerleşik meta veri değerlerinin](https://msdn.microsoft.com/library/ms164313.aspx) oluşturulurken her öğeye atanmış. Değerine başvuruyor **Ekle** özniteliğini **öğesi** öğesi&#x2014;diğer bir deyişle, yol ve dosya öğenin adı.
 
 
 Aynı yol ve dosya adı ile birden fazla öğe hiçbir zaman olması gerekir çünkü bu durumda, aslında bir toplu boyutlarıyla çalışıyoruz. Hedef, her veritabanı paketi için bir kez çalıştırılır.
@@ -251,6 +251,6 @@ Bu konu için Contact Manager örnek çözümü başından derleme ve dağıtım
 
 Proje dosyalarını ve WPP daha kapsamlı bir giriş için bkz: [içinde Microsoft Build Engine: MSBuild kullanma ve Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi ve William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Önceki](understanding-the-project-file.md)
-[sonraki](building-and-packaging-web-application-projects.md)
+> [!div class="step-by-step"]
+> [Önceki](understanding-the-project-file.md)
+> [sonraki](building-and-packaging-web-application-projects.md)

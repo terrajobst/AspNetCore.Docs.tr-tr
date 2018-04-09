@@ -1,7 +1,7 @@
 ---
-title: "Bir model, bir ASP.NET Core MVC uygulamasına ekleniyor."
+title: Model bir ASP.NET Core MVC uygulamasına ekleme
 author: rick-anderson
-description: "Bir model için basit bir ASP.NET Core uygulama ekleyin."
+description: Bir model için basit bir ASP.NET Core uygulama ekleyin.
 manager: wpickett
 ms.author: riande
 ms.date: 09/18/2017
@@ -9,13 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: 180258444c3cca169470fd5f13d0d0fcec539f5f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 77750ba0df7775d6a0e4744811848bfe9782d995
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model1](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Model bir ASP.NET Core MVC uygulamasına ekleme
+
+[!INCLUDE [adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
 * Bir sınıfa eklemek *modelleri* adlı klasörü *Movie.cs*.
 * Aşağıdaki kodu ekleyin *Models/Movie.cs* dosyası:
@@ -64,9 +66,9 @@ Yapı iskelesi altyapısı aşağıdaki oluşturur:
 
 Otomatik olarak oluşturulmasını [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem yöntemleri ve görünümler olarak bilinir *iskele*. En kısa sürede bir filmi veritabanı yönetmenizi sağlayan bir tam olarak işlevsel bir web uygulaması gerekir.
 
-[!INCLUDE[adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
+[!INCLUDE [adding-model 2x](../../includes/mvc-intro/adding-model2xp.md)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
 Bir veritabanı ve görüntüleme, düzenleme, güncelleştirme ve verileri silmek için sayfaları artık sahipsiniz. Sonraki öğreticide biz veritabanı ile çalışması.
 
@@ -75,6 +77,6 @@ Bir veritabanı ve görüntüleme, düzenleme, güncelleştirme ve verileri silm
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
 * [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Önceki - Görünüm ekleme](adding-view.md)
-[sonraki - SQLite ile çalışma](working-with-sql.md)
+> [!div class="step-by-step"]
+> [Önceki - Görünüm ekleme](adding-view.md)
+> [sonraki - SQLite ile çalışma](working-with-sql.md)

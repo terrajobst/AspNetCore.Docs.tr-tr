@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
-title: "Veri bağlama denetimleri | Microsoft Docs"
+title: Veri bağlama denetimleri | Microsoft Docs
 author: microsoft
-description: "Çoğu ASP.NET uygulamaları bir arka uç veri kaynağından veri sunumu bazı derecesini kullanır. Verilere bağlı denetimler etkileşen w bileşendirler bir parçası olmuştur..."
+description: Çoğu ASP.NET uygulamaları bir arka uç veri kaynağından veri sunumu bazı derecesini kullanır. Verilere bağlı denetimler etkileşen w bileşendirler bir parçası olmuştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ebb0f9a7a2f071b7bf7aa3855920f1a5784a61f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-bound-controls"></a>Veri bağlama denetimleri
 ====================
@@ -112,15 +112,15 @@ Liste denetimleri ListBox, DropDownList, CheckBoxList, RadioButtonList ve Bullet
 
 Veri için bir liste denetimini bağlama, bir veri kaynağı denetimi sayfasına ekleyin. Veri kaynağı denetimi için SELECT komutu belirtmek ve liste denetimi DataSourceID özelliği veri kaynağı denetiminin Kimliğini ayarlayın. Kullanım **DataTextField** ve **DataValueField** görüntüleme metni ve denetim değeri tanımlamak için özellikleri. Ayrıca, kullanabileceğiniz **DataTextFormatString** özelliğini aşağıdaki gibi görünen metin görünümünü denetlemek için:
 
-| **İfade** | **Açıklama** |
+| **Expression** | **Açıklama** |
 | --- | --- |
 | Fiyat: {0: c} | Sayısal/ondalık verileri. Sabit görüntüler "Fiyat:" sayılar para biçiminde arkasından. Para birimi biçimi kültür öznitelikte belirtilen kültür ayarı bağlıdır **sayfa** yönergesi veya Web.config dosyasında. |
 | {0:D4} | Tamsayı veri. Ondalık sayılar ile kullanılamaz. Tamsayıları dört karakter geniş sıfır doldurulan bir alanında görüntülenir. |
-| {0:N2} % | Sayısal veriler için. 2 ondalık basamak numarasıyla görüntüler duyarlık ardından değişmez değeri "%". |
+| {0:N2}% | Sayısal veriler için. 2 ondalık basamak numarasıyla görüntüler duyarlık ardından değişmez değeri "%". |
 | {0:000.0} | Sayısal/ondalık verileri. Sayılar bir ondalık basamak yuvarlanır. Sıfır doldurulan üç basamak daha az numaralandırır. |
-| {0: D} | Tarih/Saat verileri. Uzun tarih biçimi ("Perşembe 06 Ağustos 1996") görüntüler. Tarih biçimi sayfası veya Web.config dosyasının kültür ayarına bağlıdır. |
-| {0: d} | Tarih/Saat verileri. Görüntüler kısa tarih biçiminde ("12/31/99"). |
-| {0:yy-aa-gg} | Tarih/Saat verileri. Sayısal yıl ay gün biçimine (96-08-06) tarihi görüntüler |
+| {0:D} | Tarih/Saat verileri. Uzun tarih biçimi ("Perşembe 06 Ağustos 1996") görüntüler. Tarih biçimi sayfası veya Web.config dosyasının kültür ayarına bağlıdır. |
+| {0:d} | Tarih/Saat verileri. Görüntüler kısa tarih biçiminde ("12/31/99"). |
+| {0:yy-MM-dd} | Tarih/Saat verileri. Sayısal yıl ay gün biçimine (96-08-06) tarihi görüntüler |
 
 ## <a name="gridview"></a>GridView
 
@@ -152,7 +152,7 @@ Aşağıdaki tabloda kullanılabilir farklı bir sütun alan türleri listelenme
 | ImageField | Her öğe için görüntü GridView denetiminde görüntüler. |
 | TemplateField | Görüntüler kullanıcı tanımlı içerik belirtilen bir şablonu göre GridView denetiminde her öğe için. Bu sütun alan türü, bir özel sütun alanı oluşturmanıza olanak sağlar. |
 
-Bir sütun alanı koleksiyonu bildirimli olarak tanımlamak için ilk kez açma ve kapama ekleyin  **&lt;sütunları&gt;**  açma ve kapatma etiketleri GridView denetiminin arasındaki etiketler. Ardından, açma ve kapatma arasında dahil etmek istediğiniz sütun alanları listesinde  **&lt;sütunları&gt;**  etiketler. Belirtilen sütun, listelenen sırayla sütun koleksiyonuna eklenir. **Sütunları** koleksiyonu depolar tüm sütun alanları denetiminde ve GridView denetiminde sütun alanları programlamayla yönetmenizi sağlar.
+Bir sütun alanı koleksiyonu bildirimli olarak tanımlamak için ilk kez açma ve kapama ekleyin **&lt;sütunları&gt;** açma ve kapatma etiketleri GridView denetiminin arasındaki etiketler. Ardından, açma ve kapatma arasında dahil etmek istediğiniz sütun alanları listesinde **&lt;sütunları&gt;** etiketler. Belirtilen sütun, listelenen sırayla sütun koleksiyonuna eklenir. **Sütunları** koleksiyonu depolar tüm sütun alanları denetiminde ve GridView denetiminde sütun alanları programlamayla yönetmenizi sağlar.
 
 Açıkça bildirilen sütun alanlarını otomatik olarak oluşturulan sütun alanları ile birlikte görüntülenebilir. Her ikisi de kullanıldığında, açıkça bildirilen sütun alanları tarafından otomatik olarak oluşturulan sütun alanlarını ve ardından ilk olarak işlenir.
 
@@ -265,11 +265,11 @@ FormView denetimi Güncelleştir, Sil, Ekle ve denetimindeki öğeleri aracılı
 
 FormView denetim şablonları kullandığından, güncelleştirme, silme veya ekleme işlemleri gerçekleştirmek için komut düğmeleri otomatik olarak oluşturmak için bir yol sağlamaz. Bu komut düğmeleri uygun şablonunda el ile eklemeniz gerekir. FormView denetimini olan belirli düğmeler kendi **CommandName** özellikleri belirli değerlere ayarlayın. Aşağıdaki tabloda FormView denetimini tanıdığı komut düğmeleri listeler.
 
-| **Düğmesi** | **CommandName değeri** | **Açıklama** |
+| **Düğme** | **CommandName değeri** | **Açıklama** |
 | --- | --- | --- |
 | İptal | "İptal" | Güncelleştirme veya işlemleri ekleme işlemi iptal etmek ve kullanıcı tarafından girilen değerler atmak için kullanılır. FormView denetim sonra DefaultMode özelliği tarafından belirtilen moduna döner. |
 | Sil | "Sil" | Operations silinmesi veri kaynağından görüntülenen kaydını silmek için kullanılır. ItemDeleting ve ItemDeleted olayları başlatır. |
-| Düzenle | "Düzenle" | FormView denetimini düzenleme moduna için işlemleri güncelleştirilirken kullanılır. Belirtilen içerik **EditItemTemplate** özelliği için veri satırı görüntülenir. |
+| Düzenle | "Edit" | FormView denetimini düzenleme moduna için işlemleri güncelleştirilirken kullanılır. Belirtilen içerik **EditItemTemplate** özelliği için veri satırı görüntülenir. |
 | Ekleme | "Ekle" | İşlem ekleme, kullanıcı tarafından sağlanan değerleri kullanarak veri kaynağının yeni bir kayıt eklemeye çalışırsanız için kullanılır. ItemInserting ve ItemInserted olayları başlatır. |
 | Yeni | "Yeni" | İşlem ekleme FormView denetim ekleme modunda yerleştirmek için kullanılır. Belirtilen içerik **InsertItemTemplate** özelliği için veri satırı görüntülenir. |
 | Sayfa | "Sayfa" | Disk belleği gerçekleştirir çağrı cihazı satırda bir düğmeyi temsil etmesi için sayfalandırma işlemleri kullanılır. Disk belleği işlemi belirtmek için ayarlayın **CommandArgument** "İleri", "Önceki", "İlk", "Son" veya hangi gitmek sayfanın dizini düğmesinin özelliği. PageIndexChanging ve PageIndexChanged olayları başlatır. |
@@ -341,7 +341,7 @@ Her veri satırı DetailsView denetimindeki bir alan denetimi bildirerek oluştu
 
 Varsayılan olarak, AutoGenerateRows özelliğini ayarlamak **doğru**, hangi otomatik olarak oluşturur bağlanabilirse türünün her alanı için bir ilişkili satır alanı nesnesi veri kaynağında. Geçerli bağlanabilirse String, DateTime, ondalık, GUID ve ilkel türler kümesi türleridir. Her bir alan her bir alan veri kaynağında görüntülendiği sırada metin olarak bir satır sonra görüntülenir.
 
-Satırları otomatik olarak üretmek kayıttaki her alan görüntülemek için hızlı ve kolay bir yol sağlar. Ancak DetailsView kullanmak için denetimin DetailsView denetiminde eklenecek satır alanları açıkça bildirmelidir Gelişmiş özellikleri. Satır alanları bildirmek için önce ayarlayın **AutoGenerateRows** özelliğine **false**. Ardından, açma ve kapama eklemek  **&lt;alanları&gt;**  açma ve kapatma etiketleri DetailsView denetiminin arasındaki etiketler. Son olarak, açma ve kapatma arasında dahil etmek istediğiniz satır alanları listesinde  **&lt;alanları&gt;**  etiketler. Belirtilen satır alanları alanlar koleksiyonu listelenen sırayla eklenir. **Alanları** koleksiyonu DetailsView denetimi satır alanlarında programlı olarak yönetmenizi sağlar.
+Satırları otomatik olarak üretmek kayıttaki her alan görüntülemek için hızlı ve kolay bir yol sağlar. Ancak DetailsView kullanmak için denetimin DetailsView denetiminde eklenecek satır alanları açıkça bildirmelidir Gelişmiş özellikleri. Satır alanları bildirmek için önce ayarlayın **AutoGenerateRows** özelliğine **false**. Ardından, açma ve kapama eklemek **&lt;alanları&gt;** açma ve kapatma etiketleri DetailsView denetiminin arasındaki etiketler. Son olarak, açma ve kapatma arasında dahil etmek istediğiniz satır alanları listesinde **&lt;alanları&gt;** etiketler. Belirtilen satır alanları alanlar koleksiyonu listelenen sırayla eklenir. **Alanları** koleksiyonu DetailsView denetimi satır alanlarında programlı olarak yönetmenizi sağlar.
 
 > [!NOTE]
 > Alanlar alanlar koleksiyonu eklenmez satır otomatik olarak oluşturulur.
@@ -557,7 +557,7 @@ TreeView denetimi aşağıdaki benzersiz olaylar vardır:
 
 TreeView denetimi stilleri denetiminin görünümünü kontrol etmek için birçok özellik sağlar. Aşağıdaki özellikler kullanılabilir.
 
-| **Özellik adı** | **Denetimleri** |
+| **Özellik adı** | **Denetimler** |
 | --- | --- |
 | HoverNodeStyle | Fare üzerlerine vurgulanan zaman düğümleri stilini denetler. |
 | LeafNodeStyle | Yaprak düğümlerin stilini denetler. |
@@ -618,7 +618,7 @@ ASP denetim sınıfından türetilmemiş iki olay; yine de sahip istiyor musunuz
 
 Aşağıdaki stiller, ASP biçimlendirme için kullanılabilir.
 
-| **Özellik adı** | **Denetimleri** |
+| **Özellik adı** | **Denetimler** |
 | --- | --- |
 | CurrentNodeStyle | Geçerli düğüm için metin stilini denetler. |
 | RootNodeStyle | Kök düğüm için metin stilini denetler. |
@@ -688,8 +688,7 @@ Bu alıştırmada, yerel olarak çalışan SQL Server olması ve Northwind verit
 ![](data-bound-controls/_static/image3.jpg)
 
     **Figure 3**
-10. 
-              **İleri**'ye tıklayın.
+10. **İleri**'ye tıklayın.
 11. **Son**'a tıklayın.
 12. Kaynak görünümüne geçin ve oluşturulan kodu inceleyin. Bildirim **SelectCommand**, **DeleteCommand**, **InsertCommand**, ve **UpdateCommand** SqlDataSource eklendi Denetim. Ayrıca, eklenen parametreleri dikkat edin.
 13. Tasarım görünümüne geçin ve yeni bir GridView denetim sayfasına ekleyin.
@@ -702,16 +701,16 @@ Bu alıştırmada, yerel olarak çalışan SQL Server olması ve Northwind verit
 16. Tıklatın **Edit Columns** emin olun ve bağlama **otomatik oluşturma alanları** denetlenir.
 17. **Tamam**'ı tıklatın.
 18. GridView denetimi seçili yanındaki düğmesini **DataKeyNames** özelliği Özellikler bölmesinde.
-19. Seçin **ProductID** gelen **kullanılabilir veri alanları** listesinde ve tıklatın  **&gt;**  eklemek için düğmesi.
+19. Seçin **ProductID** gelen **kullanılabilir veri alanları** listesinde ve tıklatın **&gt;** eklemek için düğmesi.
 20. Tamam'ı tıklatın.
 21. Yeni bir SqlDataSource denetim sayfasına ekleyin.
 22. SqlDataSource denetiminin Kimliğini değiştirmek **ayrıntıları**.
 23. SqlDataSource Görevler menüsünden **Configure Data Source**.
 24. Seçin **Northwind** tıklayın ve açılan **sonraki**.
-25. Seçin **ürünleri** gelen **adı** açılır ve denetleme  **\***  onay kutusu **sütunları** listbox.
+25. Seçin <strong>ürünleri</strong> gelen <strong>adı</strong> açılır ve denetleme <strong> \</ strong > * onay kutusu <strong>sütunları</strong> listbox.
 26. Tıklatın **burada** düğmesi.
 27. Seçin **ProductID** gelen **sütun** açılır.
-28. Seçin  **=**  işleci açılır.
+28. Seçin **=** işleci açılır.
 29. Seçin **denetim** gelen **kaynak** açılır.
 30. Seçin **GridView1'i** gelen **denetim kimliği** açılır.
 31. Tıklatın **Ekle** düğmesi WHERE yan tümcesi ekleyin.

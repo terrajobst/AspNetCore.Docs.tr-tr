@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
-title: "Veritabanı dağıtımları birden çok ortamlar için özelleştirme | Microsoft Docs"
+title: Veritabanı dağıtımları birden çok ortamlar için özelleştirme | Microsoft Docs
 author: jrjlee
-description: "Bu konuda, belirli hedef ortamları için bir veritabanı özelliklerini dağıtım işleminin bir parçası uyarlamak açıklar. Not: Konu th varsayar..."
+description: 'Bu konuda, belirli hedef ortamları için bir veritabanı özelliklerini dağıtım işleminin bir parçası uyarlamak açıklar. Not: Konu th varsayar...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Birden çok ortamlar için veritabanı dağıtımları özelleştirme
 ====================
@@ -35,9 +35,9 @@ tarafından [Jason Lee](https://github.com/jrjlee)
 > Bir Visual Studio 2010 veritabanı projesi dağıtım ayarları bir dağıtım yapılandırma (.sqldeployment) dosyası içinde bulunur. Bu konuda ortama özgü dağıtım yapılandırma dosyaları oluşturup VSDBCMD parametre olarak kullanmak istediğinizi belirtmek nasıl yapacağınızı gösterir.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici serisi örnek çözümü & #x 2014; kullanır [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& Windows bir ASP.NET MVC 3 uygulama da dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulamasını temsil eden #x 2014; Communication Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları & #x 2014; proje bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir içeren Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir için geçerli olan yönergeleri oluşturun. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
@@ -146,6 +146,6 @@ Bu makaleler MSDN'de veritabanı dağıtımı hakkında daha fazla genel rehberl
 - [Derleme ve veritabanları bir yalıtılmış geliştirme ortamına dağıtma](https://msdn.microsoft.com/library/dd193409.aspx)
 - [Derleme ve veritabanları bir hazırlık veya üretim ortamına dağıtma](https://msdn.microsoft.com/library/dd193413.aspx)
 
->[!div class="step-by-step"]
-[Önceki](performing-a-what-if-deployment.md)
-[sonraki](deploying-database-role-memberships-to-test-environments.md)
+> [!div class="step-by-step"]
+> [Önceki](performing-a-what-if-deployment.md)
+> [sonraki](deploying-database-role-memberships-to-test-environments.md)

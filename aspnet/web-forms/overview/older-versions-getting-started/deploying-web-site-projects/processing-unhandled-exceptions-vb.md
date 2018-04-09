@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
-title: "İşlenmeyen özel durumlar (VB) işleme | Microsoft Docs"
+title: İşlenmeyen özel durumlar (VB) işleme | Microsoft Docs
 author: rick-anderson
-description: "Üretim web uygulaması üzerinde bir çalışma zamanı hatası meydana geldiğinde önemli bir geliştiricisine bildirin ve böylece bu konumundaki bir la koydu için hata günlüğüne..."
+description: Üretim web uygulaması üzerinde bir çalışma zamanı hatası meydana geldiğinde önemli bir geliştiricisine bildirin ve böylece bu konumundaki bir la koydu için hata günlüğüne...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f5bf39bc2433a2fb277cb56554ddf39bea7a9c79
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: cb42cf6c457cf20da7f65352bb7eed1230b59588
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>İşlenmeyen özel durumlar (VB) işleme
 ====================
@@ -167,6 +167,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [ASP.NET ile çalışma `Global.asax` dosyası](http://articles.techrepublic.com.com/5100-10878_11-5771721.html)
 - [İle çalışma `HttpApplication` örnekleri](https://msdn.microsoft.com/library/a0xez8f2.aspx)
 
->[!div class="step-by-step"]
-[Önceki](displaying-a-custom-error-page-vb.md)
-[sonraki](logging-error-details-with-asp-net-health-monitoring-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](displaying-a-custom-error-page-vb.md)
+> [sonraki](logging-error-details-with-asp-net-health-monitoring-vb.md)

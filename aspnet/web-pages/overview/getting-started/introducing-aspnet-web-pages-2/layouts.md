@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: "ASP.NET Web sayfaları sunarak - tutarlı bir düzen oluşturma | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - tutarlı bir düzen oluşturma | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici düzenleri ASP.NET Web sayfaları kullanan bir site sayfalar için tutarlı bir görünüm oluşturmak için nasıl kullanılacağını gösterir. Tamamladığınızdan varsayar..."
+description: Bu öğretici düzenleri ASP.NET Web sayfaları kullanan bir site sayfalar için tutarlı bir görünüm oluşturmak için nasıl kullanılacağını gösterir. Tamamladığınızdan varsayar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web sayfaları sunarak - tutarlı bir düzen oluşturma
 ====================
@@ -149,7 +149,7 @@ Açık *Movies.cshtml* yeniden sayfa. Üst kod içinde aşağıdaki satırı ekl
 
 `Page` Nesnenin kullanılabilir tüm *.cshtml* sayfaları ve bu amaçla, yani olan bir sayfanın düzenini arasında bilgi paylaşmak için.
 
-Açık*\_Layout.cshtml* sayfası. Değişiklik `<title>` öğesi, BT'nin bu biçimlendirme gibi görünür:
+Açık<em>\_Layout.cshtml</em> sayfası. Değişiklik `<title>` öğesi, BT'nin bu biçimlendirme gibi görünür:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -163,7 +163,7 @@ Bu kod içinde ne olursa olsun işler `Page.Title` özellik sayfası bu konumda 
 
 > [!TIP] 
 > 
-> **Sayfa nesnesi**
+> **The Page Object**
 > 
 > Kullanışlı bir özelliği `Page` bir dinamik Nesne olmasıdır — `Title` özelliği bir sabit ya da ayrılmış adı değil. Kullanabileceğiniz *herhangi* değerini adı `Page` nesnesi. Örneğin, kolayca başlığı adlı bir özellik kullanarak geçtiğiniz `Page.CurrentName` veya `Page.MyPage`. Yalnızca kısıtlama adı hangi özelliklerin adlı normal kuralları izlemek sahip olur. (Örneğin, ad boşluk içeremez.)
 > 
@@ -237,6 +237,6 @@ Sonraki öğreticide herkes görebilmeniz için Internet'e sitenizi yayımlayın
 - [Tutarlı görünecek oluşturma](https://go.microsoft.com/fwlink/?LinkID=202891) — bir makale düzenleri ile çalışma hakkında bazı daha fazla ayrıntı sağlar. Ayrıca, gösterir veya gizler içeriğin bir kısmı bir düzen sayfası için bir değer geçirmek nasıl açıklanır.
 - [İç içe, Düzen sayfaları Razor ile](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) — CAN Brind bloglar Düzen sayfaları yerleştirmek nasıl bir örneği. (Sayfaları yüklenmesini kapsar.)
 
->[!div class="step-by-step"]
-[Önceki](deleting-data.md)
-[sonraki](publishing.md)
+> [!div class="step-by-step"]
+> [Önceki](deleting-data.md)
+> [sonraki](publishing.md)

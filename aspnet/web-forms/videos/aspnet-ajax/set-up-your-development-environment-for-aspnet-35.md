@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
-title: "ASP.NET 3.5 için geliştirme ortamınızı ayarlama | Microsoft Docs"
+title: ASP.NET 3.5 için geliştirme ortamınızı ayarlama | Microsoft Docs
 author: JoeStagner
-description: "Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlamak üzere öğreneceksiniz."
+description: Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlamak üzere öğreneceksiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/13/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-35
 msc.type: video
-ms.openlocfilehash: ae11e493541c57003c6675d72c76d78c7ebeacf1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b5b90890bafe507107180be8ef05189ce7ae7a77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="set-up-your-development-environment-for-aspnet-35"></a>ASP.NET 3.5 için geliştirme ortamınızı ayarlayın
 ====================
@@ -24,8 +24,8 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 
 Bu videoda ASP.NET 3.5 hedefliyorsanız, ASP.NET AJAX uygulamaları geliştirmek için geliştirme ortamınızı ayarlamak üzere öğreneceksiniz.
 
-[&#9654; (8 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/set-up-your-development-environment-for-aspnet-35)
+[&#9654;(8 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/set-up-your-development-environment-for-aspnet-35)
 
->[!div class="step-by-step"]
-[Önceki](how-to-dynamically-add-controls-to-a-web-page.md)
-[sonraki](set-up-your-development-environment-for-aspnet-20.md)
+> [!div class="step-by-step"]
+> [Önceki](how-to-dynamically-add-controls-to-a-web-page.md)
+> [sonraki](set-up-your-development-environment-for-aspnet-20.md)

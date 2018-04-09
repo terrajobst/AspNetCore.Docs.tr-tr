@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
-title: "Kurtarma ve parolaları (VB) değiştirme | Microsoft Docs"
+title: Kurtarma ve parolaları (VB) değiştirme | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET kurtarma ve parolaları değiştirme yardımcı için iki Web denetimleri içerir. PasswordRecovery denetimi kendi kayıp pa kurtarmak bir ziyaretçi sağlar..."
+description: ASP.NET kurtarma ve parolaları değiştirme yardımcı için iki Web denetimleri içerir. PasswordRecovery denetimi kendi kayıp pa kurtarmak bir ziyaretçi sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b78469858483a9501a0f73d1c894e29ae0a99122
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cffe07eaea5144df82e56c989b0cde7cfd3d194a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Kurtarma ve parolaları (VB) değiştirme
 ====================
@@ -86,7 +86,7 @@ Bu sayfayı test etmeden önce bir son parçası eğilimindedir yapılandırmas�
 Posta teslim yapılandırması aracılığıyla belirtilen [ `<system.net>` öğesi](https://msdn.microsoft.com/library/6484zdc1.aspx)'s [ `<mailSettings>` öğesi](https://msdn.microsoft.com/library/w355a94k.aspx). Kullanım [ `<smtp>` öğesi](https://msdn.microsoft.com/library/ms164240.aspx) teslimat yöntemini ve varsayılan adresinden belirtmek için. Aşağıdaki biçimlendirmede adlı bir ağ SMTP sunucusunu kullanmak için posta ayarlarını yapılandırır `smtp.example.com` bağlantı noktası 25 ve kullanıcı adı/parola kimlik bilgileri kullanıcı adı ve parola.
 
 > [!NOTE]
-> `<system.net>`bir alt öğe kökün `<configuration>` öğesi ve bir eşdüzeyi `<system.web>`. Bu nedenle, değil put `<system.net>` öğesi içinde `<system.web>` öğesi; bunun yerine, aynı düzeyde yerleştirin.
+> `<system.net>` bir alt öğe kökün `<configuration>` öğesi ve bir eşdüzeyi `<system.web>`. Bu nedenle, değil put `<system.net>` öğesi içinde `<system.web>` öğesi; bunun yerine, aynı düzeyde yerleştirin.
 
 
 [!code-xml[Main](recovering-and-changing-passwords-vb/samples/sample1.xml)]
@@ -165,8 +165,8 @@ Bir HTML biçimli e-posta göndermek için [ `IsBodyHtml` ](https://msdn.microso
 
 Çağrıları PasswordRecovery bir kullanıcının parolasını sıfırlama denetlemek `MembershipUser` nesnenin [ `ResetPassword` yöntemi](https://msdn.microsoft.com/library/system.web.security.membershipuser.resetpassword.aspx). Bu yöntem iki aşırı yüklemeye sahip:
 
-- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)**-bir kullanıcının parolasını sıfırlar. Bu aşırı kullanırsanız `RequiresQuestionAndAnswer` yanlış.
-- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)**-bir kullanıcının parola eksikse sağlanan sıfırlar *securityAnswer* doğrudur. Bu aşırı kullanırsanız `RequiresQuestionAndAnswer` true'dur.
+- **[`ResetPassword`](https://msdn.microsoft.com/library/d94bdzz2.aspx)** -bir kullanıcının parolasını sıfırlar. Bu aşırı kullanırsanız `RequiresQuestionAndAnswer` yanlış.
+- **[`ResetPassword(securityAnswer)`](https://msdn.microsoft.com/library/d90zte4w.aspx)** -bir kullanıcının parola eksikse sağlanan sıfırlar *securityAnswer* doğrudur. Bu aşırı kullanırsanız `RequiresQuestionAndAnswer` true'dur.
 
 Her iki aşırı yeni, rastgele oluşturulan parola döndür.
 
@@ -300,16 +300,16 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Bu denetim QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/changepassword.aspx)
 - [PasswordRecovery denetimi QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/passwordrecovery.aspx)
 - [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
-- [`System.Net.Mail`Sık sorulan sorular](http://www.systemnetmail.com/)
+- [`System.Net.Mail` Sık sorulan sorular](http://www.systemnetmail.com/)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Michael Emmings ve Suchi Banerjee içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Michael Emmings ve Suchi Banerjee içerir. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](building-an-interface-to-select-one-user-account-from-many-vb.md)
-[sonraki](unlocking-and-approving-user-accounts-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [sonraki](unlocking-and-approving-user-accounts-vb.md)

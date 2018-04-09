@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config dosyası dönüşümleri | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config dosyası dönüşümleri | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Web.config dosyası dönüşümleri
 ====================
@@ -152,6 +152,6 @@ Aşağıdaki öğreticide, proje özelliklerini ayarlama gerektiren dağıtım k
 
 Bu öğretici kapsamında konular hakkında daha fazla bilgi için bkz: [dağıtımı sırasında hedef Web.config veya app.config dosyasını ayarları değiştirmek için Web.config kullanarak dönüşümleri](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) için Web dağıtımı içerik haritası içindeki Visual Studio ve ASP.NET.
 
->[!div class="step-by-step"]
-[Önceki](preparing-databases.md)
-[sonraki](project-properties.md)
+> [!div class="step-by-step"]
+> [Önceki](preparing-databases.md)
+> [sonraki](project-properties.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
-title: "Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma | Microsoft Docs"
+title: 'Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma | Microsoft Docs'
 author: jrjlee
-description: "Bu konu, hazırlama ortamına yönelik normal web dağıtım senaryosunu açıklar ve benzer env ayarlamak için tamamlanması gereken görevler açıklanmaktadır..."
+description: Bu konu, hazırlama ortamına yönelik normal web dağıtım senaryosunu açıklar ve benzer env ayarlamak için tamamlanması gereken görevler açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864559b0599091beeacb87e90e80a51285039df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma
 ====================
@@ -62,6 +62,6 @@ Bu konular bu görevleri tamamlamak için gereken tüm bilgileri sağlar:
 
 Tipik Geliştirici test ortamını yapılandırma ile ilgili yönergeler için bkz: [senaryo: bir Test ortamı için Web dağıtımı yapılandırma](scenario-configuring-a-test-environment-for-web-deployment.md). Tipik bir üretim ortamını yapılandırma ile ilgili yönergeler için bkz: [senaryo: bir üretim ortamında Web dağıtım için yapılandırma](scenario-configuring-a-production-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Önceki](scenario-configuring-a-test-environment-for-web-deployment.md)
-[sonraki](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [sonraki](scenario-configuring-a-production-environment-for-web-deployment.md)

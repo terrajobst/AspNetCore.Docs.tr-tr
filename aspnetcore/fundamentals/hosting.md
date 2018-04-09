@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdek barındırma"
+title: ASP.NET çekirdek barındırma
 author: guardrex
-description: "Uygulama başlatma ve ömür boyu yönetimi için sorumlu ASP.NET Core web ana bilgisayar hakkında bilgi edinin."
+description: Uygulama başlatma ve ömür boyu yönetimi için sorumlu ASP.NET Core web ana bilgisayar hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 09/21/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: fe9935eaa3529c513dfb2d111a38a4452012b364
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 9d9b35153e8d771086e3171a224cb62d5d9cc14e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET çekirdek barındırma
 
@@ -23,8 +23,7 @@ ASP.NET Core uygulamaları yapılandırmak ve başlatma bir *konak*. Ana bilgisa
 
 ## <a name="setting-up-a-host"></a>Bir konak ayarlıyor
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Bir örneği kullanılarak bir ana bilgisayar oluşturma [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Bu genellikle uygulamanın giriş noktası gerçekleştirilen `Main` yöntemi. Proje şablonları içinde `Main` bulunan *Program.cs*. Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir ana bilgisayar ayarı başlatmak için:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main)]
@@ -50,8 +49,7 @@ Uygulama yapılandırması hakkında daha fazla bilgi için bkz: [ASP.NET Core y
 > [!NOTE]
 > Statik kullanmaya alternatif olarak `CreateDefaultBuilder` yöntemi, bir ana bilgisayardan oluşturma [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) ASP.NET Core ile desteklenen bir yaklaşımdır 2.x. Daha fazla bilgi için ASP.NET Core 1.x sekmesine bakın.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Bir örneği kullanılarak bir ana bilgisayar oluşturma [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Bir ana bilgisayar oluşturma uygulamanın giriş noktası genellikle gerçekleştirilir `Main` yöntemi. Proje şablonları içinde `Main` bulunan *Program.cs*:
 
 [!code-csharp[](../common/samples/WebApplication1/Program.cs)]
@@ -76,8 +74,7 @@ var host = new WebHostBuilder()
 host.Run();
 ```
 
----
-
+* * *
 Bir konak ayarlıyor zaman [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure?view=aspnetcore-1.1) ve [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices?view=aspnetcore-1.1) yöntemleri sağlanabilir. Varsa bir `Startup` sınıfı belirtilmediyse, tanımlamanız gerekir bir `Configure` yöntemi. Daha fazla bilgi için bkz: [ASP.NET Core uygulama başlangıç](startup.md). Birden çok çağrılar `ConfigureServices` birbirine ekleyin. Birden çok çağrılar `Configure` veya `UseStartup` üzerinde `WebHostBuilder` önceki ayarlarını değiştirin.
 
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
@@ -190,7 +187,7 @@ Uygulamanın ortamını ayarlar.
 **Kullanılarak ayarlanan**: `UseEnvironment`  
 **Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
 
-Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments).
+Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -296,7 +293,7 @@ IP adresi veya ana bilgisayar adresleriyle bağlantı noktalarını ve sunucu ü
 
 **Anahtar**: URL'leri  
 **Tür**: *dize*  
-**Default**: http://localhost:5000  
+**Varsayılan**: http://localhost:5000  
 **Kullanılarak ayarlanan**: `UseUrls`  
 **Ortam değişkeni**: `ASPNETCORE_URLS`
 
@@ -789,7 +786,7 @@ public class Startup
 ```
 
 > [!NOTE]
-> Ek olarak `IsDevelopment` genişletme yöntemi, `IHostingEnvironment` sunar `IsStaging`, `IsProduction`, ve `IsEnvironment(string environmentName)` yöntemleri. Bkz: [birden çok ortamlarıyla çalışma](xref:fundamentals/environments) Ayrıntılar için.
+> Ek olarak `IsDevelopment` genişletme yöntemi, `IHostingEnvironment` sunar `IsStaging`, `IsProduction`, ve `IsEnvironment(string environmentName)` yöntemleri. Bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments) Ayrıntılar için.
 
 `IHostingEnvironment` Hizmet aynı zamanda eklenen doğrudan `Configure` yöntemi işleme ardışık ayarlamak için:
 
@@ -833,7 +830,7 @@ public async Task Invoke(HttpContext context, IHostingEnvironment env)
 
 [IApplicationLifetime](/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) sonrası başlatma ve kapatma etkinlikler için sağlar. Üç arabirimde özelliklerdir kaydetmek için kullanılan iptal belirteçlerini `Action` başlatma ve kapatma olayları tanımlayan yöntemleri.
 
-| İptal belirteci    | &#8230;tetiklenen; |
+| İptal belirteci    | Ne zaman tetiklendi&#8230; |
 | --------------------- | --------------------- |
 | `ApplicationStarted`  | Ana bilgisayar tam olarak başlatıldı. |
 | `ApplicationStopping` | Konak bir kapama gerçekleştiriyor. İstekleri hala işliyor olabilir. Bu olay tamamlanana kadar kapatma engeller. |

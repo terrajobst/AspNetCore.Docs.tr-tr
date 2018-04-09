@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
-title: "Ana sayfalar (C#) kullanarak bir Site genelinde düzen oluşturma | Microsoft Docs"
+title: Ana sayfalar (C#) kullanarak bir Site genelinde düzen oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici, ana sayfa temel bilgileri gösterir. Yani, ana sayfalar nelerdir nasıl mu bir ana sayfa oluşturma, içerik yer tutucu nelerdir nasıl bir cr mu..."
+description: Bu öğretici, ana sayfa temel bilgileri gösterir. Yani, ana sayfalar nelerdir nasıl mu bir ana sayfa oluşturma, içerik yer tutucu nelerdir nasıl bir cr mu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8061a2aff318d397116cbc0bc0a8ce24ef35c7fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 72f870e07a4f7754e352dc3478d9c86d4cb43994
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Ana sayfalar (C#) kullanarak bir Site genelinde düzeni oluşturma
 ====================
@@ -34,7 +34,7 @@ Bir iyi tasarlanmış bir Web sitesinin tutarlı site genelinde sayfa düzeni ö
 
 [![Tüm sayfalar arasında tutarlı bir görünüm www.asp.net Web sitesi uygular](creating-a-site-wide-layout-using-master-pages-cs/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image1.png)
 
-**Şekil 01**: Web sitesi www.asp.net tutarlı aramak ve tüm sayfaları arasında eşitleyerek kullanır ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
+<strong>Şekil 01</strong>: Web sitesi www.asp.net tutarlı aramak ve tüm sayfaları arasında eşitleyerek kullanır ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-a-site-wide-layout-using-master-pages-cs/_static/image3.png))
 
 
 Başka bir iyi tasarlanmış bir sitenin site görünümünü değiştirilebilmesi için kolay bir özniteliktir. Şekil 1 Mart 2008 itibariyle www.asp.net giriş sayfası gösterir, ancak şimdi ve bu öğreticinin yayın arasında görünüm değişmiş olabilir. Belki de üstünde menü öğeleri, MVC çerçevesi için yeni bir bölüm eklemek için genişletilir. Veya belki farklı renkleri, yazı tipleri ve düzeni tüketicisinin yeni tasarımla unveiled olacaktır. Tüm site gibi değişiklikler uygulanırken sitesini oluşturan web sayfaları binlerce değiştirme gerektirmez hızlı ve basit bir süreç olmalıdır.
@@ -281,11 +281,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Next](multiple-contentplaceholders-and-default-content-cs.md)
+> [!div class="step-by-step"]
+> [Next](multiple-contentplaceholders-and-default-content-cs.md)

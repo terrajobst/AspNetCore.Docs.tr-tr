@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
-title: "Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme | Microsoft Docs"
+title: Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme | Microsoft Docs
 author: rick-anderson
-description: "Getirilebilir tanımlamak için farklı teknikleri bakan &lt;head&gt; içerik sayfasından ana sayfa öğelerinde."
+description: Getirilebilir tanımlamak için farklı teknikleri bakan &lt;head&gt; içerik sayfasından ana sayfa öğelerinde.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d004a0ee0b46e2984aec8d0a99835dbf414ed9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b8bf9d32eee3e35ffc84521f7f82f7beecc99a0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme
 ====================
@@ -130,7 +130,7 @@ Bizim ilk genişleten bir sınıf bir taban sayfası sınıfı oluşturmak üzer
 
 ![App_Code klasörünü ve BasePage adlı bir sınıf ekleyin](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
 
-**Şekil 04**: ekleme bir `App_Code` klasörü ve adlı bir sınıf`BasePage`
+**Şekil 04**: ekleme bir `App_Code` klasörü ve adlı bir sınıf `BasePage`
 
 
 > [!NOTE]
@@ -279,7 +279,7 @@ Güncelleştirme `BasePage` sınıfının `OnLoadComplete` yöntemine aşağıda
 
 Önceki gibi `OnLoadComplete` yöntemi başlatır sayfanın başlığı açıkça ayarlanmış olup olmadığını belirleme. Varsa `Page.Title` olan `Nothing`, boş bir dize veya bir değere kodu otomatik olarak atar sonra "Adsız Sayfa" değeri atanır `Page.Title`.
 
-Kullanılacak başlık belirlemek için kod başvurarak başlatır [ `SiteMap` sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx)'s [ `CurrentNode` özelliği](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode`döndürür [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) şu anda istenen sayfaya karşılık gelen site haritası örneği. Şu anda istenen sayfa varsayılarak site haritası içinde bulundu `SiteMapNode`'s `Title` özelliği, sayfanın başlığı atanır. Şu anda istenen sayfa site eşlemesinde değilse `CurrentNode` döndürür `Nothing` ve (2. adımda yapıldığı gibi) istenen sayfanın dosya adı'nın başlığı olarak kullanılır.
+Kullanılacak başlık belirlemek için kod başvurarak başlatır [ `SiteMap` sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx)'s [ `CurrentNode` özelliği](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` döndürür [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) şu anda istenen sayfaya karşılık gelen site haritası örneği. Şu anda istenen sayfa varsayılarak site haritası içinde bulundu `SiteMapNode`'s `Title` özelliği, sayfanın başlığı atanır. Şu anda istenen sayfa site eşlemesinde değilse `CurrentNode` döndürür `Nothing` ve (2. adımda yapıldığı gibi) istenen sayfanın dosya adı'nın başlığı olarak kullanılır.
 
 Şekil 12 gösterir `MultipleContentPlaceHolders.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Bu sayfanın başlığı açıkça ayarlanmadığından, karşılık gelen site haritası düğümün başlık yerine kullanılır.
 
@@ -345,12 +345,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Suchi Banerjee yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Önceki](multiple-contentplaceholders-and-default-content-vb.md)
-[sonraki](urls-in-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](multiple-contentplaceholders-and-default-content-vb.md)
+> [sonraki](urls-in-master-pages-vb.md)

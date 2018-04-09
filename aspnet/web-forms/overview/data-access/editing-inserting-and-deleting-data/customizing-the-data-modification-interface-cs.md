@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
-title: "Veri değişikliği arabirimi (C#) özelleştirme | Microsoft Docs"
+title: Veri değişikliği arabirimi (C#) özelleştirme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide standart TextBox değiştirerek düzenlenebilir bir GridView arabirimini özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati..."
+description: Bu öğreticide standart TextBox değiştirerek düzenlenebilir bir GridView arabirimini özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fb0b20ab25d87eddc0b2f9da786db469b16f861a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f25b265c50870d59721a94c01d78f589a5d5f1c3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-c"></a>Veri değişikliği arabirimi (C#) özelleştirme
 ====================
@@ -236,7 +236,7 @@ Başlangıç dönüştürerek `Discontinued` CheckBoxField TemplateField ile olu
 Her iki onay kutusunun Değiştir `ItemTemplate` ve `EditItemTemplate` RadioButtonList denetimi ile hem RadioButtonLists ayarı `ID` özelliklerine `DiscontinuedChoice`. Ardından, RadioButtonLists her iki radyo düğmeleri, tek etiketli "Active" içermesi gerekir "False" ve "Dönüştürülmesine" etiketli bir değeri olan'true bir değer belirtin. Bunu ya da girebilirsiniz gerçekleştirmek için `<asp:ListItem>` öğelerinde kullanmak ve bildirim temelli söz dizimi aracılığıyla doğrudan `ListItem` Koleksiyonu Düzenleyicisi Tasarımcısından. Şekil 13 göstermektedir `ListItem` koleksiyon Düzenleyicisi'ni iki radyo düğmesi seçeneklerini sonra belirtilen.
 
 
-[![Ekleme](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
+[![Add](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
 
 **Şekil 13**: "Active" ve "Üretimi Durdurulmuş" seçenekleri RadioButtonList ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklatın](customizing-the-data-modification-interface-cs/_static/image39.png))
 
@@ -276,8 +276,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
-[sonraki](implementing-optimistic-concurrency-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [sonraki](implementing-optimistic-concurrency-cs.md)

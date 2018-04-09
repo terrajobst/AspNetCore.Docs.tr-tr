@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: "ASP.NET Web sayfaları Başlarken - giriş | Microsoft Docs"
+title: ASP.NET Web sayfaları Başlarken - giriş | Microsoft Docs
 author: tfitzmac
-description: "WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Visual Studio veya Visual Studio kodunu kullanın. Bu kılavuz bir..."
+description: WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Visual Studio veya Visual Studio kodunu kullanın. Bu kılavuz bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5fd67a230f76774e102094f42426b8bb126c0cc6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web sayfalarını - Başlarken tanıtma
 ====================
@@ -289,5 +289,5 @@ Bu serideki sonraki öğretici ASP.NET Web sayfaları biraz daha programlama ke�
 
 [ASP.NET Web sitesi sıfırdan oluşturma](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Bu, özellikle bir öğreticidir WebMatrix (ASP.NET Web sayfaları değil) kullanma hakkında. Bu biraz bazı ek özelliklerini Bu öğretici kümesinde kapak olmaz WebMatrix hakkında daha fazla ayrıntı girmeyeceğini.
 
->[!div class="step-by-step"]
-[Next](intro-to-web-pages-programming.md)
+> [!div class="step-by-step"]
+> [Next](intro-to-web-pages-programming.md)
