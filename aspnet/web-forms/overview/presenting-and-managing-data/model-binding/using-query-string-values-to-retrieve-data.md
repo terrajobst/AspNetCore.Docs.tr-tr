@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
-title: "Model bağlama ile verileri filtrelemek ve web formları için sorgu dizesi değerlerini kullanarak | Microsoft Docs"
+title: Model bağlama ile verileri filtrelemek ve web formları için sorgu dizesi değerlerini kullanarak | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar..."
+description: Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 2e5328ccda019462163b984da3661f7322b738df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03d20decf0eeff6062fbc6f8dd66f644b405c7cc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Filtre veri için sorgu dizesi değerlerini model bağlama ve web forms ile kullanma
 ====================
@@ -85,6 +85,6 @@ Bu öğreticide, bir sorgu dizesi değerini içeren bir bağlantı eklendi. Sele
 
 Sonraki [öğretici](adding-business-logic-layer.md), kodu bir iş mantığı katmanı ve veri erişim katmanı olarak arka plan kodu dosyalarından taşır.
 
->[!div class="step-by-step"]
-[Önceki](integrating-jquery-ui.md)
-[sonraki](adding-business-logic-layer.md)
+> [!div class="step-by-step"]
+> [Önceki](integrating-jquery-ui.md)
+> [sonraki](adding-business-logic-layer.md)

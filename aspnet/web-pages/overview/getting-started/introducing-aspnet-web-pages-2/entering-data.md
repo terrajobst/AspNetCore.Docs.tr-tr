@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: "ASP.NET Web sayfaları sunarak - formları kullanarak veritabanı veri girme | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - formları kullanarak veritabanı veri girme | Microsoft Docs
 author: tfitzmac
-description: "Bu öğreticide, bir giriş formu oluşturma ve ASP.NET Web sayfaları (... kullandığınızda formundan bir veritabanı tablosuna alma verileri enter gösterilir"
+description: Bu öğreticide, bir giriş formu oluşturma ve ASP.NET Web sayfaları (... kullandığınızda formundan bir veritabanı tablosuna alma verileri enter gösterilir
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>ASP.NET Web sayfaları sunarak - formları kullanarak veritabanı veri girme
 ====================
@@ -121,7 +121,7 @@ WebMatrix dosyalarında ağaç görünümünde, sağ *AddMovie.cshtml* sayfasın
 
 !['Film Ekle' sayfasını tarayıcıda](entering-data/_static/image2.png)
 
-(, Farklı sayfasını tarayıcıda şunun, URL olduğundan emin olun `http://localhost:nnnnn/AddMovie`), burada  *nnnnn*  kullandığınız bağlantı noktası numarasıdır.)
+(, Farklı sayfasını tarayıcıda şunun, URL olduğundan emin olun `http://localhost:nnnnn/AddMovie`), burada *nnnnn* kullandığınız bağlantı noktası numarasıdır.)
 
 Bir hata sayfası mı aldınız? Öyleyse, dikkatlice okuyun ve ne daha önce listelenen kodu tam olarak göründüğünden emin olun.
 
@@ -145,7 +145,7 @@ Bu durumda, veritabanını gerçekten yükseltmek siz (veya *throw*) bir hata ol
 
 Belli ki, yarı boş film bilgileri veritabanına girme kullanıcılar izin vermek istemezsiniz. Kullanıcının giriş doğrulamak için kullanılan çözümüdür. Başlangıçta, doğrulama yalnızca kullanıcının bir değer tüm alanlar için girdiğini emin olur (yani, bunların hiçbiri boş bir dize içerir).
 
-> [!TIP] 
+> [!TIP]
 > 
 > **NULL ve boş dizeler**
 > 
@@ -157,7 +157,7 @@ Belli ki, yarı boş film bilgileri veritabanına girme kullanıcılar izin verm
 > 
 > Şimdi yapıp değeri null olduğunda ve yalnızca boş bir dize olduğunda tam olarak anlamak önemlidir. Kodunda *AddMovie* sayfası, metin kutuları değerlerini kullanarak elde `Request.Form["title"]` ve benzeri. (Düğmesini tıklatmadan önce) sayfa ilk kez çalıştığında, değeri `Request.Form["title"]` null. Ancak formu gönderdiğinde `Request.Form["title"]` değerini alır `title` metin kutusu. Açık değildir, ancak boş bir metin kutusu boş değil; Bunu yalnızca boş bir dize içeriyor. Bu nedenle kod düğmesine yanıtında çalıştığında tıklayın, `Request.Form["title"]` , içinde boş bir dize içeriyor.
 > 
-> Bu ayrım neden önemlidir? Oluşturduğunuzda *filmler* tablosu, açıkça denirse alanlarının hiçbiri boş olması. Ancak burada yeni filmler için giriş formu sahip ve alanları boş bırakarak. Tarz veya yıl değerlerini olmadığına yeni filmler kaydetmeye çalışırken şikayetçi veritabanına makul beklenir. Ancak, noktasıdır &mdash; bu metin kutularını boş bırakın olsa bile değerleri null değil; boş dizeler oldukları. Sonuç olarak, bu sütun boş olan veritabanına yeni filmler kaydedemediğini &mdash; ancak null! &mdash;değerler. Bu nedenle, kullanıcıların kullanıcı girişini doğrulama yapmak için boş bir dize gönderme yok emin olmak zorunda.
+> Bu ayrım neden önemlidir? Oluşturduğunuzda *filmler* tablosu, açıkça denirse alanlarının hiçbiri boş olması. Ancak burada yeni filmler için giriş formu sahip ve alanları boş bırakarak. Tarz veya yıl değerlerini olmadığına yeni filmler kaydetmeye çalışırken şikayetçi veritabanına makul beklenir. Ancak, noktasıdır &mdash; bu metin kutularını boş bırakın olsa bile değerleri null değil; boş dizeler oldukları. Sonuç olarak, bu sütun boş olan veritabanına yeni filmler kaydedemediğini &mdash; ancak null! &mdash; değerler. Bu nedenle, kullanıcıların kullanıcı girişini doğrulama yapmak için boş bir dize gönderme yok emin olmak zorunda.
 
 
 ### <a name="the-validation-helper"></a>Doğrulama Yardımcısı
@@ -260,6 +260,6 @@ Sonraki öğreticide zaten veritabanında mevcut verileri düzenleme kullanıcı
 - [SQL INSERT INTO deyimi](http://www.w3schools.com/sql/sql_insert.asp) W3Schools sitesinde
 - [ASP.NET Web uygulamasında kullanıcı girdisi doğrulama sayfaları siteleri](https://go.microsoft.com/fwlink/?LinkId=253002). İle çalışma hakkında daha fazla bilgi `Validation` Yardımcısı.
 
->[!div class="step-by-step"]
-[Önceki](form-basics.md)
-[sonraki](updating-data.md)
+> [!div class="step-by-step"]
+> [Önceki](form-basics.md)
+> [sonraki](updating-data.md)

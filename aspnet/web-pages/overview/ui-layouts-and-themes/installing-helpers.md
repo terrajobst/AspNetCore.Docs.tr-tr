@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: "Bir yardımcı yükleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: Bir yardımcı yükleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, bir yardımcı bir ASP.NET Web sayfaları (Razor) Web sitesi yüklemeyi açıklar. Bir yardımcı kod ve başına biçimlendirme içeren yeniden kullanılabilir bir bileşenidir..."
+description: Bu makalede, bir yardımcı bir ASP.NET Web sayfaları (Razor) Web sitesi yüklemeyi açıklar. Bir yardımcı kod ve başına biçimlendirme içeren yeniden kullanılabilir bir bileşenidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 842c5a56d14314217c1e6ad6d48ded28d3cc5b4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde bir yardımcı yükleme
 ====================
@@ -49,10 +49,10 @@ ASP.NET Web sayfaları birkaç Yardımcıları yerleşik olarak sahiptir. Bununl
 2. Bu, NuGet Paket Yöneticisi'ni başlatır ve kullanılabilir paketler görüntüler. Arama kutusuna, yüklemek istediğiniz Yardımcısı için bir anahtar sözcüğü girin.
 
     ![WebMatrix, NuGet Galerisi'nin iletişim kutusu](installing-helpers/_static/image2.png)
-- Paketi seçin ve ardından **yükleme**. Tıklatın **Evet** paket yüklemek ve koşullarını kabul ettiğinizi belirtmek isteyip istemediğiniz sorulduğunda.
+3. Paketi seçin ve ardından **yükleme**. Tıklatın **Evet** paket yüklemek ve koşullarını kabul ettiğinizi belirtmek isteyip istemediğiniz sorulduğunda.
 
-    Yardımcıyı yüklediğiniz ilk kez kullanıyorsanız, NuGet klasörleri Web siteniz için Yardımcısı yapar kodu oluşturur.
-- Yardımcıyı kaldırmak için tıklatın **galeri** düğmesini tıklatın, **yüklü** sekmesini tıklatın ve kaldırmak istediğiniz paketi seçin.
+     Yardımcıyı yüklediğiniz ilk kez kullanıyorsanız, NuGet klasörleri Web siteniz için Yardımcısı yapar kodu oluşturur.
+4. Yardımcıyı kaldırmak için tıklatın **galeri** düğmesini tıklatın, **yüklü** sekmesini tıklatın ve kaldırmak istediğiniz paketi seçin.
 
 ## <a name="installing-the-twitter-helper"></a>Twitter Yardımcısı yükleniyor
 

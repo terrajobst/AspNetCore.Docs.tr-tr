@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
-title: "Çekirdek IIS ve ASP.NET Geliştirme Sunucusu (C#) arasındaki farklar | Microsoft Docs"
+title: Çekirdek IIS ve ASP.NET Geliştirme Sunucusu (C#) arasındaki farklar | Microsoft Docs
 author: rick-anderson
-description: "Bir ASP.NET uygulamasını yerel olarak test edilirken ASP.NET Geliştirme Web sunucusu kullanıyorsanız yüksektir. Ancak, büyük olasılıkla pow üretim Web sitesidir..."
+description: Bir ASP.NET uygulamasını yerel olarak test edilirken ASP.NET Geliştirme Web sunucusu kullanıyorsanız yüksektir. Ancak, büyük olasılıkla pow üretim Web sitesidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 79f06707cadf027baa03652dc722cab31f494b09
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e343a6eac39d7959718cb791012cfa3b931ae33f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>IIS ve ASP.NET Geliştirme Sunucusu (C#) arasındaki temel farklar
 ====================
@@ -94,7 +94,7 @@ Son olarak, ı güncelleştirerek form tabanlı kimlik doğrulaması kullanmak i
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample4.xml)]
 
-ASP.NET geliştirme sunucusu kullanarak sitesini ziyaret edin ve PDF dosyalarını tarayıcınızın adres çubuğuna birine doğrudan URL'yi girin. URL gibi görünmelidir Bu öğretici ile ilişkili Web sitesi yüklediyseniz:`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+ASP.NET geliştirme sunucusu kullanarak sitesini ziyaret edin ve PDF dosyalarını tarayıcınızın adres çubuğuna birine doğrudan URL'yi girin. URL gibi görünmelidir Bu öğretici ile ilişkili Web sitesi yüklediyseniz: `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 Bu URL adres çubuğuna girerek ASP.NET Geliştirme Sunucusu dosyası için bir istek göndermek tarayıcı neden olur. İstek işleme için ASP.NET çalışma zamanı için ASP.NET Geliştirme Sunucusu ellerini. Biz henüz oturum açmamış olan olduğundan ve çünkü `Web.config` içinde `PrivateDocs` klasör anonim erişimi reddetmek üzere yapılandırıldı, ASP.NET çalışma zamanı otomatik olarak bize oturum açma sayfasına yeniden yönlendirir `Login.aspx` (bkz: Şekil 3). Kullanıcı oturum açma sayfasında için yönlendirirken ASP.NET içeren bir `ReturnUrl` olan kullanıcı sayfasını gösteren sorgu dizesi parametresi çalışırken görüntülemek. Kullanıcı başarıyla oturum sonra bu sayfaya geri döndürülebilir.
 
@@ -140,6 +140,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Tüm IIS 7 üzerinde içerik türlerini ASP.NET forumları kimlik doğrulaması kullanarak](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (Video)
 - [Visual Web Developer Web sunucuları](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[Önceki](common-configuration-differences-between-development-and-production-cs.md)
-[sonraki](deploying-a-database-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](common-configuration-differences-between-development-and-production-cs.md)
+> [sonraki](deploying-a-database-cs.md)

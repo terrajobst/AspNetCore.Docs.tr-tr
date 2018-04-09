@@ -1,7 +1,7 @@
 ---
-title: "Paketleme ve ASP.NET Core küçültme"
+title: ASP.NET Core paket ve minifiy statik varlıkları
 author: scottaddie
-description: "Paketleme ve küçültme teknikleri uygulayarak bir ASP.NET Core web uygulamasında statik kaynakları en iyi duruma getirme hakkında bilgi edinin."
+description: Paketleme ve küçültme teknikleri uygulayarak bir ASP.NET Core web uygulamasında statik kaynakları en iyi duruma getirme hakkında bilgi edinin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>Paketleme ve küçültme
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core paket ve minifiy statik varlıkları
 
 Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ Yapılandırma seçenekleri şunlardır:
 
 * `outputFileName`: Çıkış için paket dosyasının adı. Bir göreli yolu içerebilir *bundleconfig.json* dosya. **Gerekli**
 * `inputFiles`: Birlikte paketlemektir dosyaları dizisi. Bu yapılandırma dosyasının göreli yollardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş bir değer sonuçlanır. [genelleme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenleri desteklenir.
-* `minify`: Çıkış türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan -`minify: { enabled: true }`*
+* `minify`: Çıkış türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
   * Çıkış dosya türü yapılandırma seçenekleri kullanılabilir.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ Sayfalarınızda kullanarak eklemek için hangi dosyaların belirtin [ortam etik
 
 Aşağıdaki `environment` etiketi çalıştırırken işlenmemiş CSS dosyaları işler `Development` ortamı:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 Aşağıdaki `environment` etiketi bir ortamda dışında çalıştırırken ile birlikte gelen ve küçültülmüş CSS dosyaları işler `Development`. Örneğin, çalışan `Production` veya `Staging` tetikler bu stil sayfaları oluşturma:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp gelen bundleconfig.JSON kullanma
 
 Bir uygulamanın paketleme ve küçültme iş akışı ek işlem gerektiren durumlar vardır. Görüntüyü iyileştirme, önbellek busting ve CDN varlık işleme örnekleri içerir. Bu gereksinimleri karşılamak için Gulp kullanmak için paketleme ve küçültme iş akışı dönüştürebilirsiniz.

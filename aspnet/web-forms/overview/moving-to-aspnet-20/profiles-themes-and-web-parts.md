@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
-title: "Profilleri, temalar ve Web Bölümleri | Microsoft Docs"
+title: Profilleri, temalar ve Web Bölümleri | Microsoft Docs
 author: microsoft
-description: "Yapılandırmasındaki önemli değişiklikler ve ASP.NET 2.0 de araçları vardır. Yeni ASP.NET yapılandırma API'si pr yapılması için yapılandırma değişiklikleri sağlar..."
+description: Yapılandırmasındaki önemli değişiklikler ve ASP.NET 2.0 de araçları vardır. Yeni ASP.NET yapılandırma API'si pr yapılması için yapılandırma değişiklikleri sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b749ed093fbaacf45b60f2826a2c20bac219a5c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Profilleri, temalar ve Web Bölümleri
 ====================
@@ -341,19 +341,19 @@ Kılavuzun bu bölümünde, statik içerik göstermek için Web Bölümleri dene
 4. Ekleme noktasını önüne yerleştirin `<div>` etiketleri tasarım yüzeyi ile yeni bir satır eklemek için ENTER tuşuna basın. Ekleme noktasını yeni satır karakteri önüne getirin, tıklatın **blok biçimi** aşağı açılan liste denetim menüsünde ve seçin **Başlık 1** seçeneği. Başlıkta, metin eklemek **Web Bölümleri tanıtım sayfası**.
 5. Gelen **Web Bölümleri** sürükleme araç kutusu sekmesinde bir **WebPartManager** yeni satır karakteri hemen sonra ve önce konumlandırma sayfaya denetim `<div>`etiketler.   
   
- **WebPartManager** denetimi değil oluşturmak herhangi bir çıktı nedenle Tasarımcı yüzeyinde gri bir kutu olarak görünür.
+   **WebPartManager** denetimi değil oluşturmak herhangi bir çıktı nedenle Tasarımcı yüzeyinde gri bir kutu olarak görünür.
 6. İçinde ekleme noktasını konumlandırın `<div>` etiketler.
 7. İçinde **düzeni** menüsünde tıklatın **Tablo Ekle**ve bir satır ve üç sütun sahip yeni bir tablo oluşturun. Tıklatın **hücre özellikleri** düğmesini seçin **üst** gelen **dikey hizalama** aşağı açılan listesinde, tıklatın **Tamam**, tıklatıp**Tamam** yeniden tablo oluşturmak için.
 8. Bir WebPartZone denetimi sol tablodaki sütuna sürükleyin. Sağ **WebPartZone** denetlemek, seçin **özellikleri**ve aşağıdaki özellikleri ayarlayın:   
   
- Kimliği: SidebarZone   
+   Kimliği: SidebarZone   
   
- HeaderText: kenar çubuğu
+   HeaderText: kenar çubuğu
 9. İkinci bir sürükleyin **WebPartZone** kontrol Orta tablo sütuna ve aşağıdaki özellikleri ayarlayın:   
   
- Kimliği: MainZone   
+   Kimliği: MainZone   
   
- HeaderText: ana
+   HeaderText: ana
 10. Dosyayı kaydedin.
 
 Sayfanız artık ayrı ayrı kontrol edebilirsiniz iki ayrı bölge sahiptir. Ancak, hiçbir bölge herhangi bir içerik sahiptir, böylece içerik oluşturma sonraki adımdır. Bu kılavuz için yalnızca statik içeriği görüntüle Web Bölümleri denetimleri ile çalışır.
@@ -462,10 +462,10 @@ Sayfaları düzenlemek ve düzenini değiştirme yeteneği artık test edebilirs
 2. Kişiselleştirme çalıştığını göstermek için tarayıcıyı kapatın ve sayfayı yeniden yükleyin. Yaptığınız değişiklikler, gelecekteki tarayıcı oturumları için kaydedilir.
 3. Gelen **görüntü modu** menüsünde, select **Düzenle**.   
   
- Her denetim sayfasında, şimdi Fiiller açılır menüyü içeren başlık çubuğunu aşağıya bir ok ile görüntülenir.
+   Her denetim sayfasında, şimdi Fiiller açılır menüyü içeren başlık çubuğunu aşağıya bir ok ile görüntülenir.
 4. Fiiller menüsündeki görüntülemek için oka tıklayın **Bağlantılarım** denetim. Tıklatın **Düzenle** fiil.   
   
- **EditorZone** denetim görünür, EditorPart görüntüleme eklenen denetler.
+   **EditorZone** denetim görünür, EditorPart görüntüleme eklenen denetler.
 5. İçinde **Görünüm** düzenleme denetimi, değişiklik bölümünü **başlık** Sık Kullanılanlarım'a, kullanmak **Chrome türü** seçmek için aşağı açılan liste **yalnızca başlık**ve ardından **Uygula**. Aşağıdaki ekran görüntüsünde sayfa düzenleme modunda gösterir.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Web Bölümleri tanıtım sayfası düzenleme modunda
@@ -496,7 +496,7 @@ Ayrıca, kullanıcıların Web Bölümleri denetimlerini çalışma zamanında k
 1. WebPartsDemo.aspx sayfasını açın ve geçiş **tasarım** görünümü.
 2. Gelen **Web Bölümleri** sekmesini sağ tablo sütununa CatalogZone denetimi araç, beneath sürükleyin **EditorZone** denetim.   
   
- Aynı anda görüntülenmeyecek çünkü her iki denetimleri aynı tablo hücresinde olabilir.
+   Aynı anda görüntülenmeyecek çünkü her iki denetimleri aynı tablo hücresinde olabilir.
 3. Özellikler bölmesinde atar **Web Bölümleri Ekle** HeaderText özelliğine **CatalogZone** denetim.
 4. Gelen **Web Bölümleri** bölümü araç, bir DeclarativeCatalogPart denetimi içerik alanına sürükleyin **CatalogZone** denetim.
 5. Sağ üst köşesindeki oku tıklatın **DeclarativeCatalogPart** Görevler menüsü kullanıma sunmak için denetlemek ve ardından **Şablonları Düzenle**.
@@ -504,7 +504,7 @@ Ayrıca, kullanıcıların Web Bölümleri denetimlerini çalışma zamanında k
 7. Geçiş **kaynak** görünümü. Kaynak kodunu incelemek &lt;asp: catalogzone&gt; öğesi. Dikkat **DeclarativeCatalogPart** denetimi içeren bir &lt;webpartstemplate&gt; Kataloğu'ndan sayfanıza eklemek kuramaz iki kapalı sunucu denetimleri ile öğesi.
 8. Ekleme bir **başlık** özelliği her bir kataloğa'ı eklenen her başlık aşağıdaki kod örneğinde gösterildiği dize değeri kullanılarak denetimler. Başlık bir özelliği olmasa bile normalde bu iki sunucu denetimleri, bir kullanıcı bu denetimlerin eklediğinde tasarım zamanında ayarlayabileceğiniz bir **WebPartZone** bölge çalışma zamanında katalogdan bunlar her ile sarılır bir  **GenericWebPart** denetim. Bu, bunları başlıkları görüntüleyemeyecek olacak Web Bölümleri denetimleri davranacak şekilde sağlar.   
   
- Kod içinde yer alan iki denetimleri için **DeclarativeCatalogPart** denetimi aşağıdaki gibi görünmelidir. 
+   Kod içinde yer alan iki denetimleri için **DeclarativeCatalogPart** denetimi aşağıdaki gibi görünmelidir. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Sayfayı kaydedin.
@@ -516,12 +516,12 @@ Katalog artık test edebilirsiniz.
 1. Sayfasını bir tarayıcıda yükleyin.
 2. Tıklatın **görüntü modu** açılır menü ve select **katalog**.   
   
- Başlıklı katalog **Web Bölümleri Ekle** görüntülenir.
+   Başlıklı katalog **Web Bölümleri Ekle** görüntülenir.
 3. Sürükleme **Kullanılanlarım** dön kenar bölgenin ana Bölgesi'nden denetlemek ve sürükleyip bırakın.
 4. İçinde **Web Bölümleri Ekle** katalog, her iki onay kutularını seçin ve ardından **ana** aşağı açılan listeden kullanılabilir bölgeleri içerir.
 5. Tıklatın **Ekle** Kataloğu. Denetimler ana bölgesine eklenir. İsterseniz, sayfanıza Kataloğu'ndan denetimleri birden çok örneğini ekleyebilirsiniz.   
   
- Aşağıdaki ekran görüntüsünde ana bölgesinde karşıya dosya yükleme denetimi ve Takvim sayfasıyla gösterir. 
+   Aşağıdaki ekran görüntüsünde ana bölgesinde karşıya dosya yükleme denetimi ve Takvim sayfasıyla gösterir. 
 
 ![Katalogdan ana bölgesine eklenen denetimler](profiles-themes-and-web-parts/_static/image7.gif)
 

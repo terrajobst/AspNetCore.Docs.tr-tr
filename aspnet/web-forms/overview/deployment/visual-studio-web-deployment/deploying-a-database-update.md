@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
-title: "Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı güncelleştirme dağıtma | Microsoft Docs"
+title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı güncelleştirme dağıtma | Microsoft Docs'
 author: tdykstra
-description: "Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin..."
+description: Bu öğretici seri nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcısı tarafından usin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3020cfa19bf12f21c6d42a77ed257595431b4e86
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı güncelleştirme dağıtma
 ====================
@@ -170,6 +170,6 @@ Artık Code First geçişleri ve dbDacFx sağlayıcısı kullanarak veritabanı 
 
 Sonraki öğretici nasıl komut satırını kullanarak dağıtımları yürütüleceği gösterilmektedir.
 
->[!div class="step-by-step"]
-[Önceki](deploying-a-code-update.md)
-[sonraki](command-line-deployment.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-a-code-update.md)
+> [sonraki](command-line-deployment.md)

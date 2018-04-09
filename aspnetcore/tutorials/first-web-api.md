@@ -1,7 +1,7 @@
 ---
-title: "Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma"
+title: Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma
 author: rick-anderson
-description: "ASP.NET Core MVC ve Windows için Visual Studio ile web API'si oluşturma"
+description: ASP.NET Core MVC ve Windows için Visual Studio ile web API'si oluşturma
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6ce18cfd488d89a633bca6c02f9391c1dcca9c08
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: c264ae6a04e46d029f8c710af9cbce4f8437ba7c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-#<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>ASP.NET Core ve Windows için Visual Studio ile web API oluşturma
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
 
@@ -29,19 +29,17 @@ Bu öğretici 3 sürümü vardır:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[intro to web API](../includes/webApi/intro.md)]
+[!INCLUDE [intro to web API](../includes/webApi/intro.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE[install 2.0](../includes/install2.0.md)]
-
-Bkz: [bu PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) ASP.NET Core 1.1 sürümünün.
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
 Visual Studio'dan seçin **dosya** menüsünde > **yeni** > **proje**.
 
-Seçin **.NET Core** >  **ASP.NET çekirdek Web uygulaması** proje şablonu. Proje adı `TodoApi` seçip **Tamam**.
+Seçin **.NET Core** > **ASP.NET çekirdek Web uygulaması** proje şablonu. Proje adı `TodoApi` seçip **Tamam**.
 
 ![Yeni Proje iletişim kutusu](first-web-api/_static/new-project.png)
 
@@ -83,7 +81,7 @@ Sınıfı aşağıdaki kodla değiştirin:
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ### <a name="add-a-controller"></a>Denetleyici ekleme
 
@@ -93,13 +91,13 @@ Sınıfı aşağıdaki kodla değiştirin:
 
 Sınıfı aşağıdaki kodla değiştirin:
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
 Visual Studio'da uygulamayı başlatmak için CTRL + F5 tuşuna basın. Visual Studio bir tarayıcı ile başlatarak `http://localhost:port/api/values`, burada *bağlantı noktası* rastgele seçilen bağlantı noktası numarasıdır. Gidin `Todo` denetleyicisinde `http://localhost:port/api/todo`.
 
-[!INCLUDE[last part of web API](../includes/webApi/end.md)]
+[!INCLUDE [last part of web API](../includes/webApi/end.md)]
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
+[!INCLUDE [next steps](../includes/webApi/next.md)]
 

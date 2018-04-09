@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
-title: "4. Kısım: Ürünleri listeleme | Microsoft Docs"
+title: '4. Kısım: Ürünleri listeleme | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 4 GridView Sözl listeleme ürünleriyle kapsayan..."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 4 GridView Sözl listeleme ürünleriyle kapsayan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>4. Kısım: Listeleme ürünleri
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 4 GridView denetimi ile listeleme ürünleri kapsar.
 
 
-## <a id="_Toc260221670"></a>GridView denetiminin ürünleriyle listeleme
+## <a id="_Toc260221670"></a>  GridView denetiminin ürünleriyle listeleme
 
 "Sağ tıklayarak" ProductsList.aspx sayfamızı uygulama çözümümüzdür ve "Ekle" ve "Yeni öğesi" seçme başlayalım.
 
@@ -100,6 +100,6 @@ Veritabanımıza "Alışveriş sepeti" adlı bir tablo içeriyor. Biz bir varlı
 
 Ayrıca biz basit alışveriş sepeti oluşturacağınız belirtmeye ve alışveriş sepeti mantığı ile alışveriş sepeti görüntüle katıştırma değer değildir. Biz alışveriş sepetimizi tamamen ayrı bir iş Katmanı'nı uygulamak seçebilirsiniz.
 
->[!div class="step-by-step"]
-[Önceki](tailspin-spyworks-part-3.md)
-[sonraki](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [Önceki](tailspin-spyworks-part-3.md)
+> [sonraki](tailspin-spyworks-part-5.md)

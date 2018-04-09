@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
-title: "Bölüm 1: Dosya -> Yeni Proje | Microsoft Docs"
+title: 'Bölüm 1: Dosya -> Yeni Proje | Microsoft Docs'
 author: JoeStagner
-description: "Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 1 genel bakış ve dosya/yeni proje kapsar."
+description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 1 genel bakış ve dosya/yeni proje kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: bd840f9f3f5d723e6bc1bb35955a7770634e9483
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a1b9681516e626b6a0eec420b168a74e05d88afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-file--new-project"></a>Bölüm 1: Dosya -> Yeni Proje
 ====================
@@ -27,7 +27,7 @@ tarafından [CAN Stagner](https://github.com/JoeStagner)
 > Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 1 genel bakış ve dosya/yeni proje kapsar.
 
 
-## <a id="_Toc260221666"></a>Genel bakış
+## <a id="_Toc260221666"></a>  Genel bakış
 
 Bu öğretici ASP.NET WebForms giriş ' dir. Biz yavaş başlatma, başlangıç düzeyi web geliştirme deneyimi için uygundur.
 
@@ -63,9 +63,9 @@ Visual Studio 2010'da yeni bir ASP.NET WebForms projesi oluşturarak başlamadan
 
 Adım adım izleyebilirsiniz veya tamamlanmış uygulamadan indirebilirsiniz [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-Visual Studio 2010 veya ücretsiz Visual Web Developer 2010'dan kullanabileceğiniz [https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/). Uygulama oluşturmak için SQL Server veya ücretsiz SQL Server Express ana veritabanı için kullanabilirsiniz.
+Visual Studio 2010 veya ücretsiz Visual Web Developer 2010'dan kullanabileceğiniz [ https://www.microsoft.com/express/Web/ ](https://www.microsoft.com/express/Web/). Uygulama oluşturmak için SQL Server veya ücretsiz SQL Server Express ana veritabanı için kullanabilirsiniz.
 
-## <a id="_Toc260221667"></a>Dosya / yeni proje
+## <a id="_Toc260221667"></a>  Dosya / yeni proje
 
 Dosya menüsünde Visual Studio'da yeni proje seçerek başlayacağız. Yeni Proje iletişim kutusunu açar.
 
@@ -105,5 +105,5 @@ Ayrıca ana sayfa stilleri dizinine taşıyabilir yapacağız. Bu yalnızca bir 
 
 Ana sayfa değiştirmek için gerekir yaptıktan sonra tüm .aspx dosyalarını başvurularında ASP.NET WebForms sayfaları varsayılan olarak oluşturulur.
 
->[!div class="step-by-step"]
-[Sonraki](tailspin-spyworks-part-2.md)
+> [!div class="step-by-step"]
+> [Next](tailspin-spyworks-part-2.md)

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core ile IIS modüllerini kullanma"
+title: ASP.NET Core IIS modülleri
 author: guardrex
-description: "ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri bulur."
+description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri bulur.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-iis-modules-with-aspnet-core"></a>ASP.NET çekirdeği ile IIS modüllerini kullanma
+# <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core IIS modülleri
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
@@ -58,7 +58,7 @@ ASP.NET Core uygulamaları IIS tarafından bir ters proxy yapılandırması bar�
 | **URL Yetkilendirmesi**<br>`UrlAuthorizationModule` | Evet | [ASP.NET Core kimliği](xref:security/authentication/identity) |
 | **Windows kimlik doğrulaması**<br>`WindowsAuthenticationModule` | Evet | |
 
-&#8224; URL yeniden yazma modülün `isFile` ve `isDirectory` türlerle değişiklikleri nedeniyle ASP.NET Core uygulamaları ile çalışmıyor [dizin yapısını](xref:host-and-deploy/directory-structure).
+&#8224;URL yeniden yazma modülün `isFile` ve `isDirectory` türlerle değişiklikleri nedeniyle ASP.NET Core uygulamaları ile çalışmıyor [dizin yapısını](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Yönetilen modüller
 
@@ -106,21 +106,21 @@ Bir ayar modülü kaldırmak için kullanmama varsa *web.config*, modülün kili
 
 1. Sunucu düzeyinde modülü kilidini açın. IIS Yöneticisi'nde IIS sunucusunu seçin **bağlantıları** kenar. Açık **modülleri** içinde **IIS** alanı. Modül listesinde seçin. İçinde **Eylemler** sağ kenar seçin **Unlock**. Kaldırmak planlama yaparken gibi birçok modül kilidini *web.config* daha sonra.
 
-1. Uygulama olmadan dağıtmak bir  **\<modülleri >** bölümüne *web.config*. Bir uygulama ile dağıtılırsa bir *web.config* içeren  **\<modülleri >** bölüm önce Configuration Manager IIS Yöneticisi'nde kilidi olmadan bölüm bir özel durum oluşturur bölümün kilidini açma girişiminde bulunulduğunda. Bu nedenle, uygulamayı olmadan dağıtmak istediğiniz bir  **\<modülleri >** bölümü.
+2. Uygulama olmadan dağıtmak bir  **\<modülleri >** bölümüne *web.config*. Bir uygulama ile dağıtılırsa bir *web.config* içeren  **\<modülleri >** bölüm önce Configuration Manager IIS Yöneticisi'nde kilidi olmadan bölüm bir özel durum oluşturur bölümün kilidini açma girişiminde bulunulduğunda. Bu nedenle, uygulamayı olmadan dağıtmak istediğiniz bir  **\<modülleri >** bölümü.
 
-1. Kilidini  **\<modülleri >** bölümünü *web.config*. İçinde **bağlantıları** kenar, Web sitesi seçin **siteleri**. İçinde **Yönetim** alanında, açık **yapılandırma Düzenleyicisi**. Gezinti denetimlerinin seçmek için kullanın `system.webServer/modules` bölümü. İçinde **Eylemler** sağ kenar Seç **Unlock** bölümü.
+3. Kilidini  **\<modülleri >** bölümünü *web.config*. İçinde **bağlantıları** kenar, Web sitesi seçin **siteleri**. İçinde **Yönetim** alanında, açık **yapılandırma Düzenleyicisi**. Gezinti denetimlerinin seçmek için kullanın `system.webServer/modules` bölümü. İçinde **Eylemler** sağ kenar Seç **Unlock** bölümü.
 
-1. Bu noktada, bir  **\<modülleri >** bölüm eklenebilir *web.config* ile dosya bir  **\<kaldırma >** öğesi modülünü kaldırmak için uygulama. Birden çok  **\<kaldırma >** öğeleri, birden fazla modülü kaldırmak için eklenebilir. Varsa *web.config* sunucu üzerinde değişiklik yapıldıysa, hemen aynı projenin değişiklik *web.config* yerel olarak dosya. Bu şekilde bir modül kaldırma, sunucudaki diğer uygulamalarla modülü kullanımını etkilemez.
+4. Bu noktada, bir  **\<modülleri >** bölüm eklenebilir *web.config* ile dosya bir  **\<kaldırma >** öğesi modülünü kaldırmak için uygulama. Birden çok  **\<kaldırma >** öğeleri, birden fazla modülü kaldırmak için eklenebilir. Varsa *web.config* sunucu üzerinde değişiklik yapıldıysa, hemen aynı projenin değişiklik *web.config* yerel olarak dosya. Bu şekilde bir modül kaldırma, sunucudaki diğer uygulamalarla modülü kullanımını etkilemez.
 
-  ```xml
-  <configuration> 
+   ```xml
+   <configuration> 
     <system.webServer> 
       <modules> 
         <remove name="MODULE_NAME" /> 
       </modules> 
     </system.webServer> 
-  </configuration>
-  ```
+   </configuration>
+   ```
 
 Yüklü varsayılan modüllerle bir IIS yüklemesi için aşağıdakileri kullanın  **\<modülü >** varsayılan modülleri kaldırmak için bölümü.
 

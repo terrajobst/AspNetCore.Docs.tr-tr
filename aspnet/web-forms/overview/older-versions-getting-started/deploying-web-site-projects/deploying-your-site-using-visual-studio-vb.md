@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
-title: "Visual Studio (VB) kullanarak, sitenizi dağıtma | Microsoft Docs"
+title: Visual Studio (VB) kullanarak, sitenizi dağıtma | Microsoft Docs
 author: rick-anderson
-description: "Visual Studio, bir Web sitesi dağıtmak için Araçlar içerir. Bu araçları hakkında daha fazla Bu öğreticide öğrenin."
+description: Visual Studio, bir Web sitesi dağıtmak için Araçlar içerir. Bu araçları hakkında daha fazla Bu öğreticide öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 362f8391f3352b3abf00045bca0c212cd850b17f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0e094761a92b10555d2cfcef586ad8c2fb8d27
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-visual-studio-vb"></a>Visual Studio (VB) kullanarak, sitenizi dağıtma
 ====================
@@ -156,6 +156,6 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [Nasıl yapılır: Web siteleri yayımlama](https://msdn.microsoft.com/library/20yh9f1b.aspx)
 - [Kurulum ve dağıtım projeleri Visual Studio'da](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
->[!div class="step-by-step"]
-[Önceki](deploying-your-site-using-an-ftp-client-vb.md)
-[sonraki](common-configuration-differences-between-development-and-production-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](deploying-your-site-using-an-ftp-client-vb.md)
+> [sonraki](common-configuration-differences-between-development-and-production-vb.md)

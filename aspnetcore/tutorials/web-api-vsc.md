@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Çekirdeği ve VS Code'u Web API'si oluşturma"
+title: ASP.NET Çekirdeği ve Visual Studio Code ile Web API oluşturma
 author: rick-anderson
-description: "MacOS, Linux veya Windows ASP.NET Core MVC ve Visual Studio Code ile web API'si oluşturma"
+description: MacOS, Linux veya Windows ASP.NET Core MVC ve Visual Studio Code ile web API'si oluşturma
 manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 12b1c3cea5101b4da673a1ad82cc1ad461f2a38d
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 705524a62018b9f0fbd8c40fa1b70d4c62ee236e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>ASP.NET Core MVC ve Linux, macOS ve Windows Visual Studio Code ile Web API oluşturun
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Çekirdeği ve Visual Studio Code ile Web API oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
 
@@ -29,14 +29,11 @@ Bu öğretici 3 sürümü vardır:
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
-[!INCLUDE[template files](../includes/webApi/intro.md)]
+[!INCLUDE [template files](../includes/webApi/intro.md)]
 
-## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı ayarlama
+## <a name="prerequisites"></a>Önkoşullar
 
-İndirin ve yükleyin:
-- [.NET core 2.0.0 SDK](https://www.microsoft.com/net/core) veya sonraki bir sürümü.
-- [Visual Studio Code](https://code.visualstudio.com)
-- Visual Studio Code [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
@@ -57,7 +54,7 @@ Açık *TodoApi* Visual Studio Code (VS Code) ve select klasöründe *haline* do
 
 ![Derleme ve hata ayıklama VS koduyla gerekli uyar varlıklar 'TodoApi' eksik. Bunları eklensin mi? Şimdi değil Evet sorma](web-api-vsc/_static/vsc_restore.png)
 
-Tuşuna **hata ayıklama** derlemek ve programı çalıştırmak için (F5). Bir tarayıcıda http://localhost: 5000/api/değerleri gidin. Aşağıdaki görüntülenir:
+Tuşuna **hata ayıklama** derlemek ve programı çalıştırmak için (F5). Bir tarayıcıda gidin http://localhost:5000/api/values . Aşağıdaki görüntülenir:
 
 `["value1","value2"]`
 
@@ -89,19 +86,19 @@ Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
 [!code-csharp[](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 
-[!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
+[!INCLUDE [Register the database context](../includes/webApi/register_dbContext.md)]
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
 İçinde *denetleyicileri* klasörünü adlı bir sınıf oluşturun `TodoController`. Aşağıdaki kodu ekleyin:
 
-[!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
+[!INCLUDE [code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
-VS Code'da uygulamayı başlatmak için F5 tuşuna basın. API/http://localhost: 5000/todo gidin ( `Todo` yeni oluşturduğumuz denetleyicisi).
+VS Code'da uygulamayı başlatmak için F5 tuşuna basın. Gidin http://localhost:5000/api/todo ( `Todo` yeni oluşturduğumuz denetleyicisi).
 
-[!INCLUDE[last part of web API](../includes/webApi/end.md)]
+[!INCLUDE [last part of web API](../includes/webApi/end.md)]
 
 ## <a name="visual-studio-code-help"></a>Visual Studio Code help
 
@@ -114,6 +111,5 @@ VS Code'da uygulamayı başlatmak için F5 tuşuna basın. API/http://localhost:
   - [Linux klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   - [Windows klavye kısayolları](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
-[!INCLUDE[next steps](../includes/webApi/next.md)]
-
+[!INCLUDE [next steps](../includes/webApi/next.md)]
 

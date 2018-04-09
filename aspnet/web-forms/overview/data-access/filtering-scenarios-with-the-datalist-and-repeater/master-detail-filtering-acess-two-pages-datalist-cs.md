@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
-title: "Ana/ayrıntı iki sayfalara (C#) filtreleme | Microsoft Docs"
+title: Ana/ayrıntı iki sayfalara (C#) filtreleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide bir ana öğe/ayrıntı raporu iki sayfalara ayırmak nasıl ele. 'Ana' sayfasında categ listesini oluşturmak için bir yineleyici denetimi kullan..."
+description: Bu öğreticide bir ana öğe/ayrıntı raporu iki sayfalara ayırmak nasıl ele. 'Ana' sayfasında categ listesini oluşturmak için bir yineleyici denetimi kullan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb86db509ca26dde0c24341dee402e7af4355507
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a3783175218438f2a9f735c3861c56e039a248e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Ana/ayrıntı filtreleme iki sayfalara (C#)
 ====================
@@ -59,7 +59,7 @@ Bu biçimlendirme tam, bir tarayıcı aracılığıyla bizim ilerleme durumunu g
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>2. adım: ayrıntıları sayfasına bir bağlantı içine kategori adı kapatma
 
-Belirtilen kategori "Ayrıntılar" bilgilerini görüntülemek bir kullanıcının izin vermek için her madde işaretli liste öğesini, tıklandığında, sihirbazın ikinci sayfasında kullanıcıya sürer bağlantı eklemek ihtiyacımız (`ProductsForCategoryDetails.aspx`). Bu ikinci sayfasında sonra DataList kullanılarak seçilen kategori ürünleri görüntüler. Bağlantısını tıklattınız kategori belirlemek için tıklatılan kategorinin geçirmek ihtiyacımız `CategoryID` bazı mekanizması aracılığıyla ikinci sayfasına. Bu öğreticide kullanacağız seçeneği olduğu querystring bir sayfadan diğerine skaler veri aktarmak için basit ve en kolay yolu var. Özellikle, `ProductsForCategoryDetails.aspx` sayfa beklediğiniz seçili  *`categoryID`*  adlı bir sorgu dizesi alanı iletilecek değeri `CategoryID`. Örneğin, İçecekler kategorisini ürünleri görüntülemek için sahip olduğu bir `CategoryID` 1, bir kullanıcının ziyaret `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Belirtilen kategori "Ayrıntılar" bilgilerini görüntülemek bir kullanıcının izin vermek için her madde işaretli liste öğesini, tıklandığında, sihirbazın ikinci sayfasında kullanıcıya sürer bağlantı eklemek ihtiyacımız (`ProductsForCategoryDetails.aspx`). Bu ikinci sayfasında sonra DataList kullanılarak seçilen kategori ürünleri görüntüler. Bağlantısını tıklattınız kategori belirlemek için tıklatılan kategorinin geçirmek ihtiyacımız `CategoryID` bazı mekanizması aracılığıyla ikinci sayfasına. Bu öğreticide kullanacağız seçeneği olduğu querystring bir sayfadan diğerine skaler veri aktarmak için basit ve en kolay yolu var. Özellikle, `ProductsForCategoryDetails.aspx` sayfa beklediğiniz seçili *`categoryID`* adlı bir sorgu dizesi alanı iletilecek değeri `CategoryID`. Örneğin, İçecekler kategorisini ürünleri görüntülemek için sahip olduğu bir `CategoryID` 1, bir kullanıcının ziyaret `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
 Ya da bir köprü Web denetimi veya bağlı HTML bağlayıcı öğesi eklemek için ihtiyacımız Yineleyicideki her madde işaretli liste öğesi için köprü oluşturma (`<a>`) için `ItemTemplate`. İçinde köprü olduğu senaryolar görüntülenen her satır için aynı, her iki yaklaşım yeterli olacaktır. Yineleyiciler için bağlayıcı bir öğe kullanarak tercih ediyorum. Bağlayıcı öğenin kullanmak için yineleyici'nın ItemTemplate güncelleştirin:
 
@@ -170,18 +170,18 @@ Veritabanı uygun şekilde güncelleştirdikten sonra geri dönüp `CategoryList
 
 Ana/ayrıntı raporları tek bir sayfada hem ana hem de ayrıntı kayıtlarını görüntüleyebilirsiniz, ancak birçok Web sitelerinde bunlar arasında iki web sayfaları ayrılır. Bu öğreticide nasıl "ana" web sayfasında bir yineleyici kullanarak madde işaretli listede listelenen kategoriler ve "Ayrıntılar" sayfasında listelenen ilişkili ürünler sağlayarak böyle bir ana öğe/ayrıntı raporu uygulanacağı inceledik. Sıranın geçirilen ayrıntıları sayfasına bir bağlantı her liste öğesi ana web sayfasında bulunan `CategoryID` değeri.
 
-Ayrıntılar sayfasında bu ürünler için belirtilen tedarikçi alma yoluyla gerçekleştirilmiştir `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi.  *`categoryID`*  Parametre değeri bildirimli olarak kullanarak belirtilen `CategoryID` parametresi kaynağı olarak sorgu dizesi değeri. Ayrıca bir FormView kullanarak Ayrıntılar sayfasında kategori ayrıntıları görüntülemek nasıl ve seçili kategorisine ait hiç ürün olsaydı bir ileti görüntülemek nasıl inceledik.
+Ayrıntılar sayfasında bu ürünler için belirtilen tedarikçi alma yoluyla gerçekleştirilmiştir `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi. *`categoryID`* Parametre değeri bildirimli olarak kullanarak belirtilen `CategoryID` parametresi kaynağı olarak sorgu dizesi değeri. Ayrıca bir FormView kullanarak Ayrıntılar sayfasında kategori ayrıntıları görüntülemek nasıl ve seçili kategorisine ait hiç ürün olsaydı bir ileti görüntülemek nasıl inceledik.
 
 Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler...
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Liz Shulok yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
-[sonraki](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
+> [sonraki](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
