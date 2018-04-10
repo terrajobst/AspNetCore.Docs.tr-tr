@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
-title: "SQL Server (C#) üyelik şema oluşturma | Microsoft Docs"
+title: SQL Server (C#) üyelik şema oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide gerekli şema SqlMembershipProvider kullanmak için veritabanına eklemek için teknikleri inceleyerek başlar. Aşağıdaki biz wi..."
+description: Bu öğreticide gerekli şema SqlMembershipProvider kullanmak için veritabanına eklemek için teknikleri inceleyerek başlar. Aşağıdaki biz wi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>SQL Server (C#) üyelik şema oluşturma
 ====================
@@ -160,7 +160,7 @@ Sihirbazın ikinci adımda bize biz uygulama hizmetlerini eklemek veya bunları 
 
 - Server: `localhost\InstanceName`
 - Windows kimlik doğrulaması
-- Veritabanı:`SecurityTutorialsDatabase`
+- Veritabanı: `SecurityTutorialsDatabase`
 
 
 [![Veritabanı bilgilerini girin](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
@@ -204,7 +204,7 @@ Bu verildiğinde, 2. adımda oluşturulan veritabanı şeması incelediniz olmad
 **Şekil 11**: kullanıcı hesapları olabilir olması bölümlenmiş birden çok uygulamaları arasında ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-`aspnet_Applications` Tablodur ne bu bölümleri tanımlar. Kullanıcı hesabı bilgilerini depolamak için veritabanını kullanan her bir uygulama bu tablodaki satır ile temsil edilir. `aspnet_Applications` Tablo dört sütun vardır: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, ve `Description`. `ApplicationId`tür [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) ve tablonun birincil anahtarı; `ApplicationName` her uygulama için benzersiz bir insan kolay ad sağlar.
+`aspnet_Applications` Tablodur ne bu bölümleri tanımlar. Kullanıcı hesabı bilgilerini depolamak için veritabanını kullanan her bir uygulama bu tablodaki satır ile temsil edilir. `aspnet_Applications` Tablo dört sütun vardır: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, ve `Description`. `ApplicationId` tür [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) ve tablonun birincil anahtarı; `ApplicationName` her uygulama için benzersiz bir insan kolay ad sağlar.
 
 Üyelik ve rol ilgili diğer tablolarla bağlantı geri `ApplicationId` alanındaki `aspnet_Applications`. Örneğin, `aspnet_Users` her kullanıcı hesabı için bir kayıt içerir, tablosunda bir `ApplicationId` yabancı anahtar alanı; ditto için `aspnet_Roles` tablo. `ApplicationId` Rol ait veya bu tablolar alanında uygulama bölümü kullanıcı hesabı belirtir.
 
@@ -216,7 +216,7 @@ Kullanıcı hesabı bilgilerini iki tablo yerleştirilebilir: `aspnet_Users` ve 
 - `UserName`
 - `ApplicationId`
 
-`UserId`birincil anahtar (ve türü `uniqueidentifier`). `UserName`tür `nvarchar(256)` ve parola ile birlikte, kullanıcının kimlik bilgilerini sağlar. (Bir kullanıcının parolasını depolanan `aspnet_Membership` tablo.) `ApplicationId` kullanıcı hesabının belirli bir uygulamada bağlantılar `aspnet_Applications`. Bileşik yoktur [ `UNIQUE` kısıtlaması](https://msdn.microsoft.com/library/ms191166.aspx) üzerinde `UserName` ve `ApplicationId` sütun. Bu, belirli bir uygulamada her kullanıcı adı benzersiz olduğundan, ancak aynı sağlar sağlar `UserName` farklı uygulamalarda kullanılacak.
+`UserId` birincil anahtar (ve türü `uniqueidentifier`). `UserName` tür `nvarchar(256)` ve parola ile birlikte, kullanıcının kimlik bilgilerini sağlar. (Bir kullanıcının parolasını depolanan `aspnet_Membership` tablo.) `ApplicationId` kullanıcı hesabının belirli bir uygulamada bağlantılar `aspnet_Applications`. Bileşik yoktur [ `UNIQUE` kısıtlaması](https://msdn.microsoft.com/library/ms191166.aspx) üzerinde `UserName` ve `ApplicationId` sütun. Bu, belirli bir uygulamada her kullanıcı adı benzersiz olduğundan, ancak aynı sağlar sağlar `UserName` farklı uygulamalarda kullanılacak.
 
 `aspnet_Membership` Tablosu kullanıcının parolasını, e-posta adresi, son oturum açma tarihi ve saati ve diğerleri gibi ek kullanıcı hesabı bilgilerini içerir. Kayıtları arasında bire bir ilişkisi yok `aspnet_Users` ve `aspnet_Membership` tabloları. Bu ilişki tarafından güvence altına `UserId` alanındaki `aspnet_Membership`, tablonun birincil anahtarı olarak görev yapar. Gibi `aspnet_Users` tablo `aspnet_Membership` içeren bir `ApplicationId` bağlar, bu bilgileri belirli bir uygulama bölümünün alan.
 
@@ -230,7 +230,7 @@ Parola bilgilerini depolanır `aspnet_Membership` tablo. `SqlMembershipProvider`
 
 Kullanılan parola depolama teknik bağlıdır `SqlMembershipProvider` belirtilen ayarları `Web.config`. Biz özelleştirme adresindeki görüneceğini `SqlMembershipProvider` adım 4'te ayarlar. Parola karmasını depolamak için varsayılan davranıştır.
 
-Parola depolamak için sorumlu sütunlar `Password`, `PasswordFormat`, ve `PasswordSalt`. `PasswordFormat`türünde bir alan olduğundan `int` değeri parola depolamak için kullanılan yöntemi belirtir: Temizle için 0, 1 için Hashed; şifreli için 2. `PasswordSalt`kullanılan parola depolama teknik bağımsız olarak rastgele oluşturulmuş bir dize atanır; değeri `PasswordSalt` yalnızca parola karmasını hesaplanırken kullanılır. Son olarak, `Password` gerçek parola veri sütunu içeriyor, düz metin parola, parola veya şifrelenmiş parola karmasını olabilir.
+Parola depolamak için sorumlu sütunlar `Password`, `PasswordFormat`, ve `PasswordSalt`. `PasswordFormat` türünde bir alan olduğundan `int` değeri parola depolamak için kullanılan yöntemi belirtir: Temizle için 0, 1 için Hashed; şifreli için 2. `PasswordSalt` kullanılan parola depolama teknik bağımsız olarak rastgele oluşturulmuş bir dize atanır; değeri `PasswordSalt` yalnızca parola karmasını hesaplanırken kullanılır. Son olarak, `Password` gerçek parola veri sütunu içeriyor, düz metin parola, parola veya şifrelenmiş parola karmasını olabilir.
 
 Tablo 1 ne bu üç sütun gibi çeşitli depolama teknikler için parola ettiyseniz depolarken görünebileceği gösterilmiştir! biçimindeki telefon numarasıdır.
 
@@ -254,7 +254,7 @@ Rolleri framework roller kümesini tanımlamak ve hangi kullanıcıların hangi 
 - `RoleName`
 - `ApplicationId`
 
-`RoleId`birincil anahtar (ve türü `uniqueidentifier`). `RoleName`tür `nvarchar(256)`. Ve `ApplicationId` kullanıcı hesabının belirli bir uygulamada bağlantılar `aspnet_Applications`. Bileşik yoktur `UNIQUE` kısıtlaması `RoleName` ve `ApplicationId` sütunları, her bir rol adı verilen bir uygulamada benzersiz olduğundan emin olmanın.
+`RoleId` birincil anahtar (ve türü `uniqueidentifier`). `RoleName` tür `nvarchar(256)`. Ve `ApplicationId` kullanıcı hesabının belirli bir uygulamada bağlantılar `aspnet_Applications`. Bileşik yoktur `UNIQUE` kısıtlaması `RoleName` ve `ApplicationId` sütunları, her bir rol adı verilen bir uygulamada benzersiz olduğundan emin olmanın.
 
 `aspnet_UsersInRoles` Kullanıcıları ve rolleri arasında bir eşleme tablosu görür. Yalnızca iki sütun - `UserId` ve `RoleId` - ve birleşik birincil anahtar birlikte yaptıkları.
 
@@ -313,8 +313,8 @@ Gördüğünüz gibi bu bağlantı dizesi veritabanı bulunan bir SQL 2005 Expre
 
 Biz herhangi bir üyelik sağlayıcısı bilgisi bizim uygulamanın içinde belirtmedi varsa `Web.config` dosya, uygulamayı kullanan kayıtlı varsayılan üyelik sağlayıcısı `AspNetSqlMembershipProvider`. Varsa `~/App_Data/aspnet.mdf` veritabanı yok, ASP.NET çalışma zamanı otomatik olarak oluşturun ve uygulama hizmetleri şema ekleyin. Ancak, biz kullanmak istemiyorsanız `aspnet.mdf` ; bunun yerine, biz kullanmak istediğiniz veritabanı `SecurityTutorials.mdf` 2. adımda oluşturduğumuz veritabanı. Bu değişikliği iki yoldan biriyle gerçekleştirilebilir:
 
-- **İçin bir değer belirtin ***`LocalSqlServer`*** bağlantı dizesi adı ***`Web.config`***.** Üzerine tarafından `LocalSqlServer` bağlantı dizesi adı değerindeki `Web.config`, kayıtlı varsayılan üyelik sağlayıcısı kullanıyoruz (`AspNetSqlMembershipProvider`) ve düzgün çalışması `SecurityTutorials.mdf` veritabanı. Bu yaklaşım tarafından belirtilen yapılandırma ayarlarıyla memnunsanız uygundur `AspNetSqlMembershipProvider`. Bu teknik hakkında daha fazla bilgi için bkz: [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s blog gönderisi [ASP.NET 2.0 uygulama hizmetlerini yapılandırma kullanım SQL Server 2000 veya SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Yeni kayıtlı sağlayıcısının türü *** eklemek`SqlMembershipProvider`*** ve yapılandırma, ***`connectionStringName`*** işaret edecek şekilde ayarı ***`SecurityTutorials.mdf`*** veritabanı.** Bu yaklaşım, veritabanı bağlantı dizesi yanı sıra diğer yapılandırma özellikleri özelleştirmek istediğiniz senaryolarda kullanışlıdır. Kendi projelerinde ı her zaman bu yaklaşımı, esneklik ve okunabilirliği nedeniyle kullanın.
+- <strong>İçin bir değer belirtin</strong><strong>`LocalSqlServer`</strong><strong>bağlantı dizesi adı</strong><strong>`Web.config`</strong><strong>.</strong> Üzerine tarafından `LocalSqlServer` bağlantı dizesi adı değerindeki `Web.config`, kayıtlı varsayılan üyelik sağlayıcısı kullanıyoruz (`AspNetSqlMembershipProvider`) ve düzgün çalışması `SecurityTutorials.mdf` veritabanı. Bu yaklaşım tarafından belirtilen yapılandırma ayarlarıyla memnunsanız uygundur `AspNetSqlMembershipProvider`. Bu teknik hakkında daha fazla bilgi için bkz: [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s blog gönderisi [ASP.NET 2.0 uygulama hizmetlerini yapılandırma kullanım SQL Server 2000 veya SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Yeni bir kayıtlı sağlayıcısı türü eklemek</strong><strong>`SqlMembershipProvider`</strong><strong>ve yapılandırma kendi</strong><strong>`connectionStringName`</strong><strong>işaretedecekşekildeayarlama</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>veritabanı.</strong> Bu yaklaşım, veritabanı bağlantı dizesi yanı sıra diğer yapılandırma özellikleri özelleştirmek istediğiniz senaryolarda kullanışlıdır. Kendi projelerinde ı her zaman bu yaklaşımı, esneklik ve okunabilirliği nedeniyle kullanın.
 
 Başvuran yeni bir kayıtlı sağlayıcı ekleyebilmeniz için önce `SecurityTutorials.mdf` veritabanı, ilk ihtiyacımız bir uygun bir bağlantı dizesi değerindeki eklemek `<connectionStrings>` bölümüne `Web.config`. Aşağıdaki biçimlendirmede adlı yeni bir bağlantı dizesi ekler `SecurityTutorialsConnectionString` SQL Server 2005 Express Edition başvuran `SecurityTutorials.mdf` veritabanını `App_Data` klasör.
 
@@ -357,7 +357,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 - [`<membership>` Öğesi](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [`<providers>` Üyelik için öğesi](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Kullanarak `<clear />` sağlayıcıları'ne zaman ekleme](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
-- [Doğrudan ile çalışma`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
+- [Doğrudan ile çalışma `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Bu öğreticide yer alan konularda video eğitim
 
@@ -367,11 +367,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Alicja Maziarz oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Next](creating-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [Next](creating-user-accounts-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
-title: "ASP.NET MVC görünümleri genel bakış (VB) | Microsoft Docs"
+title: ASP.NET MVC görünümleri genel bakış (VB) | Microsoft Docs
 author: StephenWalther
-description: "ASP.NET MVC görünümü nedir ve nasıl HTML sayfasından farklıdır? Bu öğreticide Stephen Walther görünümlerine tanıtır ve t işlemine gösteren..."
+description: ASP.NET MVC görünümü nedir ve nasıl HTML sayfasından farklıdır? Bu öğreticide Stephen Walther görünümlerine tanıtır ve t işlemine gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c85b969aa4457d0326b4a16da218db9e11d01e10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a64c70851d13b923964dfd1cf3bad55612ae0d0f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-vb"></a>ASP.NET MVC genel bakış (VB) görünümleri
 ====================
@@ -35,7 +35,7 @@ Bir ASP.NET MVC uygulamasındaki gelen tarayıcı istekleri denetleyici eylemler
 
 Kod 1 HomeController adlı basit bir denetleyicisi içerir. HomeController İNDİS() ve Details() adlı iki denetleyici eylemleri gösterir.
 
-**1 - HomeController.vb listeleme**
+**Listing 1 - HomeController.vb**
 
 [!code-vb[Main](asp-net-mvc-views-overview-vb/samples/sample1.vb)]
 
@@ -78,7 +78,7 @@ Bir görünüm (X) komut dosyaları içerebilir HTML belgesi bir standarttır. D
 
 Örneğin, listeleme 2 görünümünde geçerli tarih ve saati görüntüler.
 
-**2 - listeleme \Views\Home\Index.aspx**
+**Listing 2 - \Views\Home\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample2.aspx)]
 
@@ -90,7 +90,7 @@ Komut dosyası sınırlayıcıları kullandığınız &lt;% ve %&gt; başlangıc
 
 Response.Write() kadar sık çağrısından Microsoft, bir kısayol ile Response.Write() yöntemini çağırmak için sağlar. Listeleme 3'te görünümünü sınırlayıcıları kullanır &lt;% = %&gt; Response.Write() çağırmak için bir kısayol olarak.
 
-**3 - Views\Home\Index2.aspx listeleme**
+**Listing 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample3.aspx)]
 
@@ -102,7 +102,7 @@ Dinamik içerik bir görünüm oluşturmak için herhangi bir .NET dil kullanabi
 
 Örneğin, listeleme 4 yararlanır-üç HTML Yardımcıları--görünümünde (bkz: Şekil 1) bir oturum açma oluşturmak için BeginForm(), TextBox() ve Password() Yardımcıları--oluşturur.
 
-**4--listeleme \Views\Home\Login.aspx**
+**Listing 4 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample4.aspx)]
 
@@ -118,7 +118,7 @@ Komut dosyası sınırlayıcıları kullandığınız bildirimi &lt;% = %&gt; Ht
 
 HTML yardımcı yöntemler kullanarak isteğe bağlıdır. Bunlar yaşamınızı HTML ve yazmanız gereken komut dosyası miktarını azaltarak kolaylaştırır. Listeleme 5 görünümünde HTML Yardımcıları kullanmadan tam aynı formun listeleme 4 görünüm olarak işler.
 
-**5--listeleme \Views\Home\Login.aspx**
+**Listing 5 -- \Views\Home\Login.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample5.aspx)]
 
@@ -136,7 +136,7 @@ ViewData özelliği denetleyicisi ad ve değer çiftlerinin koleksiyonunu temsil
 
 Listeleme 7 görünümünde ileti görünüm verilerini alır ve tarayıcıya ileti işler.
 
-**7--listeleme \Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-vb/samples/sample7.aspx)]
 
@@ -152,6 +152,6 @@ Ayrıca bir görünüme bir denetleyicisinden kesin türü belirtilmiş görün�
 
 Bu öğreticide ASP.NET MVC görünüm, görünüm verilerini ve HTML Yardımcıları kısa bir giriş sağlanır. İlk bölümünde projeniz için yeni görünümler ekleyebilir öğrendiniz. Bir görünüm doğru klasöre belirli bir denetleyicisinden çağırmak için eklemelisiniz olduğunu öğrendiniz. Ardından, HTML Yardımcıları konusunda açıklanmıştır. HTML Yardımcıları nasıl kolayca standart HTML içeriği oluşturmak etkinleştirme hakkında bilgi edindiniz. Son olarak, bir denetleyicisinden bir görünüme veri iletmek için Görünüm verileri yararlanmak nasıl öğrendiniz.
 
->[!div class="step-by-step"]
-[Önceki](passing-data-to-view-master-pages-cs.md)
-[sonraki](creating-custom-html-helpers-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](passing-data-to-view-master-pages-cs.md)
+> [sonraki](creating-custom-html-helpers-vb.md)

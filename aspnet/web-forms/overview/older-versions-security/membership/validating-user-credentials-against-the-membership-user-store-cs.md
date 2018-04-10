@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: "Üyelik kullanıcı deposu (C#) karşı kullanıcı kimlik bilgileri doğrulanıyor | Microsoft Docs"
+title: Üyelik kullanıcı deposu (C#) karşı kullanıcı kimlik bilgileri doğrulanıyor | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide programlı anlamına gelir ve oturum açma denetimi kullanarak üyelik kullanıcı deposunda karşı bir kullanıcının kimlik bilgilerini doğrulamak nasıl inceleyeceğiz..."
+description: Bu öğreticide programlı anlamına gelir ve oturum açma denetimi kullanarak üyelik kullanıcı deposunda karşı bir kullanıcının kimlik bilgilerini doğrulamak nasıl inceleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 484a0f16265ee2d887ee08f6ae7ada47047f1f04
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Üyelik kullanıcı deposu (C#) karşı kullanıcı kimlik bilgileri doğrulanıyor
 ====================
@@ -39,9 +39,9 @@ Bu öğreticide programlı anlamına gelir ve oturum açma denetimi kullanarak �
 
 Forms kimlik doğrulaması kullanan Web siteleri için bir kullanıcı Web sitesine bir oturum açma sayfasını ziyaret edip kimlik bilgilerini girme oturum açar. Bu kimlik bilgileri, sonra da kullanıcı deposunda karşı karşılaştırılır. Geçerliyse, kullanıcı kimliğini ve ziyaretçi güvenilirliğini gösteren bir güvenlik belirteci forms kimlik doğrulaması bileti verilir.
 
-Bir kullanıcı üyeliği framework karşı doğrulamak için kullanın `Membership` sınıfının [ `ValidateUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). `ValidateUser` Yöntemi alır iki giriş parametrelerinde -  *`username`*  ve  *`password`*  - ve kimlik bilgilerinin geçerli olup olmadığını gösteren bir Boole değeri döndürür. İle gibi `CreateUser` biz incelenmesi önceki öğreticide yöntemi `ValidateUser` yöntemi yapılandırılmış üyelik sağlayıcısı gerçek doğrulama atar.
+Bir kullanıcı üyeliği framework karşı doğrulamak için kullanın `Membership` sınıfının [ `ValidateUser` yöntemi](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). `ValidateUser` Yöntemi alır iki giriş parametrelerinde - *`username`* ve *`password`* - ve kimlik bilgilerinin geçerli olup olmadığını gösteren bir Boole değeri döndürür. İle gibi `CreateUser` biz incelenmesi önceki öğreticide yöntemi `ValidateUser` yöntemi yapılandırılmış üyelik sağlayıcısı gerçek doğrulama atar.
 
-`SqlMembershipProvider` Belirtilen kullanıcının parolasını aracılığıyla elde ederek sağlanan kimlik bilgilerini doğrular `aspnet_Membership_GetPasswordWithFormat` saklı yordamı. Sözcüğünün `SqlMembershipProvider` üç biçimlerden birini kullanarak kullanıcıların parolalarını depolar: şifreli ya da karma temizleyin. `aspnet_Membership_GetPasswordWithFormat` Saklı yordam ham biçimde parolayı döndürür. Şifrelenmiş veya karma parolalar için `SqlMembershipProvider` dönüştüren  *`password`*  içine geçirilen değeri `ValidateUser` karşılığını yönteme şifrelenmiş veya durumu karma ve ne döndürüldü ile karşılaştırır Veritabanı. Kullanıcı tarafından girilen biçimlendirilmiş parola veritabanında depolanan parola uyarsa, kimlik bilgileri geçerli değil.
+`SqlMembershipProvider` Belirtilen kullanıcının parolasını aracılığıyla elde ederek sağlanan kimlik bilgilerini doğrular `aspnet_Membership_GetPasswordWithFormat` saklı yordamı. Sözcüğünün `SqlMembershipProvider` üç biçimlerden birini kullanarak kullanıcıların parolalarını depolar: şifreli ya da karma temizleyin. `aspnet_Membership_GetPasswordWithFormat` Saklı yordam ham biçimde parolayı döndürür. Şifrelenmiş veya karma parolalar için `SqlMembershipProvider` dönüştüren *`password`* içine geçirilen değeri `ValidateUser` karşılığını yönteme şifrelenmiş veya durumu karma ve ne döndürüldü ile karşılaştırır Veritabanı. Kullanıcı tarafından girilen biçimlendirilmiş parola veritabanında depolanan parola uyarsa, kimlik bilgileri geçerli değil.
 
 Şimdi oturum açma sayfamızı güncelleştirme (~ /`Login.aspx`) böylece sağlanan kimlik bilgilerinin üyelik framework kullanıcı deposunda karşı doğrular. Bu oturum açma sayfasına oluşturduğumuz geri <a id="Tutorial02"> </a> [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) kullanıcı adı ve parola, iki metin kutuları ile bir arabirim oluşturma öğretici, bir Beni anımsa onay ve oturum açma düğmesi (bkz: Şekil 1). Kod girilen kimlik bilgilerine sabit kodlanmış kullanıcı adı ve parola çiftlerinin listesini (Scott/parola, Jisun/parola ve Sam/parola) karşı doğrular. İçinde <a id="Tutorial03"> </a> [ *Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) biz güncelleştirilmiş formlarında ek bilgileri depolamak için oturum açma sayfasının kod Öğreticisi kimlik doğrulama anahtarı'nın `UserData` özelliği.
 
@@ -71,8 +71,8 @@ Bir ziyaretçi oturum açma sayfasına ulaşana ve kimlik bilgilerini gönderdi�
 
 Bu tür deneme yanılma saldırıları önlemek için belirli bir sayıda belirli bir süre içinde başarısız oturum açma girişimi varsa bir kullanıcı üyeliği framework kilitler. Tam parametreleri aşağıdaki iki üyelik sağlayıcısı yapılandırma ayarları yapılandırılabilir:
 
-- `maxInvalidPasswordAttempts`-kaç geçersiz parola belirtir denemeleri, Hesap kilitlenmeden önce süre içinde kullanıcı için verilir. Varsayılan değer 5'tir.
-- `passwordAttemptWindow`-süre sırasında belirtilen sayıda geçersiz oturum açma denemesi neden olacak hesap kilitlenmesi dakika cinsinden belirtir. Varsayılan değer 10'dur.
+- `maxInvalidPasswordAttempts` -kaç geçersiz parola belirtir denemeleri, Hesap kilitlenmeden önce süre içinde kullanıcı için verilir. Varsayılan değer 5'tir.
+- `passwordAttemptWindow` -süre sırasında belirtilen sayıda geçersiz oturum açma denemesi neden olacak hesap kilitlenmesi dakika cinsinden belirtir. Varsayılan değer 10'dur.
 
 Bir kullanıcı kilitlendi, bir yönetici kendi hesabını açana kadar aynen oturum açılamaz. Bir kullanıcı, kilitlendiğinde `ValidateUser` yöntemi olacaktır *her zaman* dönmek `false`geçerli kimlik bilgileri sağlanan olsa bile. Bu davranış bir korsan sitenize yanılma yöntemlerle kesintiye uğrar olasılığını azaltır, ancak yalnızca kendi parolasını unutursa veya yanlışlıkla Caps Lock açmıştır ya da hatalı yazarak günde sahip bir geçerli kullanıcı kilitleme sona erdirebilirsiniz.
 
@@ -110,10 +110,10 @@ Ve bitmek! Oturum açma denetimin oturum aç düğmesine tıklandığında, geri
 
 Oturum açma denetimi dört etkene başarılı oturum açma sırasında kullanıcıya yönlendirmek için uygun sayfaya belirlemek için kullanır:
 
-- Oturum açma denetimi oturum açma sayfasında tarafından tanımlanan olup `loginUrl` forms kimlik doğrulaması yapılandırması; bu ayarın varsayılan değer:`Login.aspx`
+- Oturum açma denetimi oturum açma sayfasında tarafından tanımlanan olup `loginUrl` forms kimlik doğrulaması yapılandırması; bu ayarın varsayılan değer: `Login.aspx`
 - Varlığını bir `ReturnUrl` sorgu dizesi parametresi
 - Oturum açma denetimin değerini [ `DestinationUrl` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- `defaultUrl` Değeri belirtilen forms kimlik doğrulaması yapılandırma ayarları; bu ayarın varsayılan değeri`Default.aspx`
+- `defaultUrl` Değeri belirtilen forms kimlik doğrulaması yapılandırma ayarları; bu ayarın varsayılan değeri `Default.aspx`
 
 Şekil 4 nasıl gösterilmektedir, uygun sayfaya kararını ulaşması için bu dört parametre oturum açma denetimi kullanır.
 
@@ -230,7 +230,7 @@ Gördüğünüz gibi `Authenticate` olay işleyicisi türünde bir nesne geçiri
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Belirleme ve sağlanan kimlik bilgileri doğrulanıyor
 
-Oturum açma denetimin kullanmak [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) ve [ `Password` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) kullanıcı tarafından girilen kullanıcı adı ve parola kimlik bilgileri belirlemek için. Tüm ek Web denetimlere girilen değerleri belirlemek için (gibi `Email` metin kutusuna önceki adımda eklediğimiz), kullanın  *`LoginControlID`*  `.FindControl`(" *`controlID`* ") almak için bir programlama başvurusu şablondaki Web denetimi özelliği `ID` özelliği eşittir  *`controlID`* . Örneğin, bir başvuru almak için `Email` metin kutusuna, aşağıdaki kodu kullanın:
+Oturum açma denetimin kullanmak [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) ve [ `Password` özellikleri](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) kullanıcı tarafından girilen kullanıcı adı ve parola kimlik bilgileri belirlemek için. Tüm ek Web denetimlere girilen değerleri belirlemek için (gibi `Email` metin kutusuna önceki adımda eklediğimiz), kullanın *`LoginControlID`* `.FindControl`("*`controlID`*") almak için bir programlama başvurusu şablondaki Web denetimi özelliği `ID` özelliği eşittir *`controlID`*. Örneğin, bir başvuru almak için `Email` metin kutusuna, aşağıdaki kodu kullanın:
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,12 +310,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve Michael Olivero yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Önceki](creating-user-accounts-cs.md)
-[sonraki](user-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Önceki](creating-user-accounts-cs.md)
+> [sonraki](user-based-authorization-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
-title: "ComboBox denetimi nasıl kullanabilirim? (C#) | Microsoft Docs"
+title: ComboBox denetimi nasıl kullanabilirim? (C#) | Microsoft Docs
 author: microsoft
-description: "ComboBox kullanıcıların seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştiren bir ASP.NET AJAX denetimdir."
+description: ComboBox kullanıcıların seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştiren bir ASP.NET AJAX denetimdir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7913affb73c1c314944782ff80cf6c5558502ee9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20afd7334437a021f6f68216f84406eef5ea65c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-combobox-control-c"></a>ComboBox denetimi nasıl kullanabilirim? (C#)
 ====================
@@ -119,7 +119,7 @@ ComboBox içinde filmler listesini görüntülemek istediğinizi varsayalım. Fi
 
 Yukarıdaki adımları tamamladıktan sonra filmler filmler veritabanı tablosundan temsil eden bir SqlDataSource denetimi ComboBox bağlıdır. Sayfa için bir kaynak (t biraz biçimlendirme temizlendi) 2 listeleme gibi görünüyor.
 
-**2 - Movies.aspx listeleme**
+**Listing 2 - Movies.aspx**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-cs/samples/sample2.aspx)]
 
@@ -172,5 +172,5 @@ ComboBox AutoCompleteMode özelliği özelliğini birisi metin ComboBox yazdığ
 
 Bu öğreticide, ComboBox denetimi sabit bir öğe kümesini görüntülemek için nasıl kullanılacağı hakkında bilgi edindiniz. ComboBox denetimi hem öğelerinin ayarlamak statik ve bir veritabanı tablosu biz bağlı. Son olarak, DropDownStyle ve AutoCompleteMode özelliği özelliklerini ayarlayarak ComboBox davranışını değiştirmek nasıl öğrendiniz.
 
->[!div class="step-by-step"]
-[Sonraki](how-do-i-use-the-combobox-control-vb.md)
+> [!div class="step-by-step"]
+> [Next](how-do-i-use-the-combobox-control-vb.md)

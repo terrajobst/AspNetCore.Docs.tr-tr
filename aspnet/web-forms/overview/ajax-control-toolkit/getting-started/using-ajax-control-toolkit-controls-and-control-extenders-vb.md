@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
-title: "AJAX Denetim Araç Seti denetimleri ve denetim Extender'larının (VB) kullanarak | Microsoft Docs"
+title: AJAX Denetim Araç Seti denetimleri ve denetim Extender'larının (VB) kullanarak | Microsoft Docs
 author: microsoft
-description: "AJAX Denetim Araç Seti denetimleri ve Extender'larının, ASP.NET sayfaları eklemeyi öğrenin."
+description: AJAX Denetim Araç Seti denetimleri ve Extender'larının, ASP.NET sayfaları eklemeyi öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b248855a1b82f3e8f172b439ee36502f95a39ca
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 080dd65677d80fb75ab37a20f6c385a38af4e353
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a>AJAX Denetim Araç Seti denetimleri ve denetim Extender'larının (VB) kullanma
 ====================
@@ -106,6 +106,6 @@ Normalde bir denetim genişletici bir sayfaya sürüklediğiniz değil, dikkat e
 
 Tek bir ASP.NET denetim birden çok denetim Extender'larının tarafından genişletilebilir. Özellik sayfasını genişletilen denetimi için tüm denetim Extender'larının denetimle ilişkili listeler.
 
->[!div class="step-by-step"]
-[Önceki](get-started-with-the-ajax-control-toolkit-vb.md)
-[sonraki](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](get-started-with-the-ajax-control-toolkit-vb.md)
+> [sonraki](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)

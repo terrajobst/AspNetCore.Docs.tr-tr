@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
-title: "Bir kullanıcı hesabı birçok (VB) seçmek için bir arabirim oluşturma | Microsoft Docs"
+title: Bir kullanıcı hesabı birçok (VB) seçmek için bir arabirim oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide biz disk belleği, filtrelenebilir kılavuz sahip bir kullanıcı arabirimi oluşturacaksınız. Özellikle, kullanıcı arabirimimizi LinkButtons için bir dizi oluşur..."
+description: Bu öğreticide biz disk belleği, filtrelenebilir kılavuz sahip bir kullanıcı arabirimi oluşturacaksınız. Özellikle, kullanıcı arabirimimizi LinkButtons için bir dizi oluşur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f0339578291c536a474f1c7314b28668a6519c8c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 56f4d72993bfcb9629d6b4cd08efe0da6dea2486
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Bir kullanıcı hesabı birçok (VB) seçmek için bir arabirim oluşturma
 ====================
@@ -148,7 +148,7 @@ Ardından, güncelleştirme `BindUserAccounts` yöntemi çağırmak yerine bu ne
 
 Kullanıcı adı bir harfle başlayan yalnızca bu kullanıcılara görüntülenecek ayarlamak `UsernameToMatch` özelliğini A ve ardından arama `BindUserAccounts` bu çağrısı ile sonuçlandı `Membership.FindUsersByName("A%")`, A. dönmekiçinbenzerşekildeiletümkullanıcılarınkullanıcıadıgeridönmebaşlatır*tüm* kullanıcılar, atamak için boş bir dize `UsernameToMatch` özelliği böylece `BindUserAccounts` yöntemi çağırılır `Membership.FindUsersByName("%")`, böylece tüm kullanıcı hesapları döndürüyor.
 
-Yineleyici için kullanıcının bir olay işleyicisi oluşturun `ItemCommand` olay. Her bir filtrenin LinkButtons tıklatıldığında bu olay tetiklenir; Tıklatılan LinkButton ait geçirilen `CommandName` aracılığıyla değer `RepeaterCommandEventArgs` nesnesi. Uygun değere atamak ihtiyacımız `UsernameToMatch` özelliği ve ardından arama `BindUserAccounts` yöntemi. Varsa `CommandName` tüm, boş bir dize olarak atamak `UsernameToMatch` böylece tüm kullanıcı hesapları görüntülenir. Aksi takdirde, Ata `CommandName` değeri`UsernameToMatch`
+Yineleyici için kullanıcının bir olay işleyicisi oluşturun `ItemCommand` olay. Her bir filtrenin LinkButtons tıklatıldığında bu olay tetiklenir; Tıklatılan LinkButton ait geçirilen `CommandName` aracılığıyla değer `RepeaterCommandEventArgs` nesnesi. Uygun değere atamak ihtiyacımız `UsernameToMatch` özelliği ve ardından arama `BindUserAccounts` yöntemi. Varsa `CommandName` tüm, boş bir dize olarak atamak `UsernameToMatch` böylece tüm kullanıcı hesapları görüntülenir. Aksi takdirde, Ata `CommandName` değeri `UsernameToMatch`
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample10.vb)]
 
@@ -256,12 +256,12 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Alicja Maziarz oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bir satırında bana bırak
 
->[!div class="step-by-step"]
-[Önceki](unlocking-and-approving-user-accounts-cs.md)
-[sonraki](recovering-and-changing-passwords-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](unlocking-and-approving-user-accounts-cs.md)
+> [sonraki](recovering-and-changing-passwords-vb.md)

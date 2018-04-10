@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
-title: "Verimli bir şekilde büyük miktarlarda verinin (VB) disk belleği | Microsoft Docs"
+title: Verimli bir şekilde büyük miktarlarda verinin (VB) disk belleği | Microsoft Docs
 author: rick-anderson
-description: "Varsayılan disk belleği veri sunu denetiminin büyük miktarlarda verinin, temel alınan veri kaynağı denetimi retriev olarak çalışırken uygun seçenektir..."
+description: Varsayılan disk belleği veri sunu denetiminin büyük miktarlarda verinin, temel alınan veri kaynağı denetimi retriev olarak çalışırken uygun seçenektir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9a1b7fbb1e60c9f1bc6a26ccaeb7d14b4c95219d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00057f9bfd9b1c479e500ac591db694388a5d358
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Verimli bir şekilde büyük miktarlarda verinin (VB) disk belleği
 ====================
@@ -122,9 +122,9 @@ Böylece alınması kayıtların kesin alt etkinleştirme satır dizini aracıl�
 - **SQL Server 2005 s kullanarak `ROW_NUMBER()` anahtar sözcüğü** SQL Server 2005, yeni `ROW_NUMBER()` anahtar sözcüğü bir derecelendirme sırasını bazı temel her döndürülen kayıtla ilişkilendirir. Bu derecelendirme her satır için bir satır dizini kullanılabilir.
 - **Bir tablo değişkeni kullanarak ve `SET ROWCOUNT`**  SQL Server s [ `SET ROWCOUNT` deyimi](https://msdn.microsoft.com/library/ms188774.aspx) sorguda işlem sonlandırmadan önce; toplam kayıt sayısını belirtmek için kullanılır [Tablo değişkenleri](http://www.sqlteam.com/item.asp?ItemID=9454) akin için tablo veri tutabilen yerel T-SQL değişkenleri [geçici tablolar](http://www.sqlteam.com/item.asp?ItemID=2029). Bu yaklaşım eşit çalışır Microsoft SQL Server 2005 ve SQL Server 2000 ile (ancak `ROW_NUMBER()` yaklaşımı, yalnızca SQL Server 2005'te çalışır).  
   
- Buradaki sahip bir tablo değişkeni oluşturmaktır bir `IDENTITY` sütunu ve verileri disk belleği aracılığıyla tablosunun birincil anahtarlar için sütunları. Ardından, verileri disk belleği aracılığıyla tablosunun içeriğini yazılan, böylece bir sıralı satır dizini ilişkilendirme tablo değişkenine (aracılığıyla `IDENTITY` sütun) tablosundaki her kayıt için. Tablo değişkeni doldurulmuş sonra bir `SELECT` deyimi tablo değişkeni üzerinde temel alınan tabloda ile birleştirilmiş, belirli kayıtları çıkarmak için çalıştırılabilir. `SET ROWCOUNT` Deyimi akıllıca tablo değişkenine dökümünün gerek kayıt sayısını sınırlamak için kullanılır.  
+  Buradaki sahip bir tablo değişkeni oluşturmaktır bir `IDENTITY` sütunu ve verileri disk belleği aracılığıyla tablosunun birincil anahtarlar için sütunları. Ardından, verileri disk belleği aracılığıyla tablosunun içeriğini yazılan, böylece bir sıralı satır dizini ilişkilendirme tablo değişkenine (aracılığıyla `IDENTITY` sütun) tablosundaki her kayıt için. Tablo değişkeni doldurulmuş sonra bir `SELECT` deyimi tablo değişkeni üzerinde temel alınan tabloda ile birleştirilmiş, belirli kayıtları çıkarmak için çalıştırılabilir. `SET ROWCOUNT` Deyimi akıllıca tablo değişkenine dökümünün gerek kayıt sayısını sınırlamak için kullanılır.  
   
- Bu yaklaşım s verimliliği istenen, sayfa numarası dayalı olarak `SET ROWCOUNT` değeri Başlat satır dizini artı en fazla satır değeri atanır. İlk gibi düşük numaralı sayfaları aracılığıyla veri birkaç sayfa sayfalama bu çok verimli bir yaklaşımdır. Ancak, bir sayfa sonlarında alınırken varsayılan disk belleği benzeri performans sergiler.
+  Bu yaklaşım s verimliliği istenen, sayfa numarası dayalı olarak `SET ROWCOUNT` değeri Başlat satır dizini artı en fazla satır değeri atanır. İlk gibi düşük numaralı sayfaları aracılığıyla veri birkaç sayfa sayfalama bu çok verimli bir yaklaşımdır. Ancak, bir sayfa sonlarında alınırken varsayılan disk belleği benzeri performans sergiler.
 
 Disk belleği özel kullanarak bu öğreticinin uygulayan `ROW_NUMBER()` anahtar sözcüğü. Tablo değişkeni kullanma hakkında daha fazla bilgi için ve `SET ROWCOUNT` teknik bkz [bir disk belleği aracılığıyla büyük sonuç kümeleri için daha fazla verimli yöntemi](http://www.4guysfromrolla.com/webtech/042606-1.shtml).
 
@@ -133,7 +133,7 @@ Disk belleği özel kullanarak bu öğreticinin uygulayan `ROW_NUMBER()` anahtar
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample3.sql)]
 
-`ROW_NUMBER()`belirtilen sıralama göre her bir kayıt için derecesini belirtir sayısal bir değer döndürür. Örneğin, en iyi sıralı her ürün için derecesini görmek için en az pahalı biz aşağıdaki sorguyu kullanabilirsiniz:
+`ROW_NUMBER()` belirtilen sıralama göre her bir kayıt için derecesini belirtir sayısal bir değer döndürür. Örneğin, en iyi sıralı her ürün için derecesini görmek için en az pahalı biz aşağıdaki sorguyu kullanabilirsiniz:
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample4.sql)]
@@ -147,7 +147,7 @@ Disk belleği özel kullanarak bu öğreticinin uygulayan `ROW_NUMBER()` anahtar
 
 
 > [!NOTE]
-> `ROW_NUMBER()`birçok yeni derecelendirme işlevleri yalnızca biri, SQL Server 2005'te kullanılabilir. Daha kapsamlı bir irdelemesi `ROW_NUMBER()`, diğer derecelendirme işlevler yanı sıra, okuma [Microsoft SQL Server 2005'te derece sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
+> `ROW_NUMBER()` birçok yeni derecelendirme işlevleri yalnızca biri, SQL Server 2005'te kullanılabilir. Daha kapsamlı bir irdelemesi `ROW_NUMBER()`, diğer derecelendirme işlevler yanı sıra, okuma [Microsoft SQL Server 2005'te derece sonuçları döndüren](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
 
 
 Sonuçları tarafından belirtilen sıralama zaman `ORDER BY` sütununda `OVER` yan tümcesi (`UnitPrice`, yukarıdaki örnekte), SQL Server sonuçlarını sıralama gerekir. Bu sonuçları sipariş edilen tarafından sütunları üzerinden kümelenmiş bir dizin ise hızlı bir işlemdir veya bir kapsayıcı olup olmadığını dizin ancak Aksi halde daha pahalı olabilir. Yardımcı olmak için yeterince büyük sorgular performansını olarak sonuçları göre sıralanmış sütun için bir kümelenmemiş dizin eklemeyi düşünün. Bkz: [sıralaması işlevleri ve SQL Server 2005'te performans](http://www.sql-server-performance.com/ak_ranking_functions.asp) başarım düşünceleri daha ayrıntılı bir bakış için.
@@ -163,7 +163,7 @@ Bu kavram biraz daha fazla genişletme, belirli bir sayfayı istenen satır dizi
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Bu öğreticide daha sonra göreceğiz gibi  *`StartRowIndex`*  tarafından sağlanan ObjectDataSource sıfırda, başlangıç ancak dizinlenir `ROW_NUMBER()` SQL Server 2005 tarafından döndürülen değer dizini 1'den başlayarak. Bu nedenle, `WHERE` yan tümcesi döndürür kayıtların nerede `PriceRank` değerinden kesinlikle büyük olan  *`StartRowIndex`*  ve küçük veya eşit  *`StartRowIndex`*   +  *`MaximumRows`*.
+> Bu öğreticide daha sonra göreceğiz gibi *`StartRowIndex`* tarafından sağlanan ObjectDataSource sıfırda, başlangıç ancak dizinlenir `ROW_NUMBER()` SQL Server 2005 tarafından döndürülen değer dizini 1'den başlayarak. Bu nedenle, `WHERE` yan tümcesi döndürür kayıtların nerede `PriceRank` değerinden kesinlikle büyük olan *`StartRowIndex`* ve küçük veya eşit *`StartRowIndex`*  +  *`MaximumRows`*.
 
 
 Şimdi görüyoruz nasıl ele alınan ve `ROW_NUMBER()` olabilir satır dizini başlatmak ve en fazla satır değerleri verilen verileri belirli bir sayfa almak için kullanılan, artık bu mantık DAL ve BLL yöntemleri olarak uygulamak ihtiyacımız.
@@ -188,7 +188,7 @@ Saklı yordam oluşturduktan sonra onu test etmek için bir dakikanızı ayırı
 
 ![İçin bir değer girin @startRowIndex ve @maximumRows parametreleri](efficiently-paging-through-large-amounts-of-data-vb/_static/image7.png)
 
-**Şekil 7**: için bir değer girin @startRowIndex ve @maximumRows parametreleri
+<strong>Şekil 7</strong>: için bir değer girin @startRowIndex ve @maximumRows parametreleri
 
 
 Sonra bu seçme giriş parametreleri değerleri, çıktı penceresinde sonuçları gösterilir. Şekil 8, 10'da her ikisi için geçirilirken sonuçları gösterir `@startRowIndex` ve `@maximumRows` parametreleri.
@@ -276,9 +276,9 @@ ObjectDataSource şu anda 0 değerleri olarak her iki için kullandığından Gr
 Bu sorunu gidermek için şu ObjectDataSource özel disk belleği kullanacak şekilde yapılandırmanız gerekir. Bu aşağıdaki adımlarda gerçekleştirilebilir:
 
 1. **ObjectDataSource s ayarlamak `EnablePaging` özelliğine `true`**  bu geçmesi gereken ObjectDataSource gösterir `SelectMethod` iki ek parametreler: bir başlangıç satır dizini belirtmek için ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)), diğeri en fazla satır belirtmek için ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
-2. **ObjectDataSource s ayarlamak `StartRowIndexParameterName` ve `MaximumRowsParameterName` uygun şekilde özellikleri** `StartRowIndexParameterName` ve `MaximumRowsParameterName` özellikleri içine geçirilen giriş parametreleri adlarını gösterir `SelectMethod` özel disk belleği amacıyla . Varsayılan olarak, bu parametre adları olan `startIndexRow` ve `maximumRows`, neden, olduğu oluştururken `GetProductsPaged` yöntemi BLL bu değerleri giriş parametreleri için kullandım. Farklı parametre adları BLL s için kullanmayı tercih `GetProductsPaged` yöntemi gibi `startIndex` ve `maxRows`gerekir örnek ObjectDataSource s ayarlamak için `StartRowIndexParameterName` ve `MaximumRowsParameterName` özellikleri buna göre (örneğin, startIndex için `StartRowIndexParameterName` ve maxRows için `MaximumRowsParameterName`).
+2. **ObjectDataSource s ayarlamak `StartRowIndexParameterName` ve `MaximumRowsParameterName` uygun şekilde özellikleri** `StartRowIndexParameterName` ve `MaximumRowsParameterName` özellikleri içine geçirilen giriş parametreleri adlarını gösterir `SelectMethod` özel disk belleği amacıyla. Varsayılan olarak, bu parametre adları olan `startIndexRow` ve `maximumRows`, neden, olduğu oluştururken `GetProductsPaged` yöntemi BLL bu değerleri giriş parametreleri için kullandım. Farklı parametre adları BLL s için kullanmayı tercih `GetProductsPaged` yöntemi gibi `startIndex` ve `maxRows`gerekir örnek ObjectDataSource s ayarlamak için `StartRowIndexParameterName` ve `MaximumRowsParameterName` özellikleri buna göre (örneğin, startIndex için `StartRowIndexParameterName` ve maxRows için `MaximumRowsParameterName`).
 3. **ObjectDataSource s ayarlamak [ `SelectCountMethod` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) toplam sayı, kayıtları olan disk belleği aracılığıyla döndüren yöntemi adına (`TotalNumberOfProducts`)** sözcüğünün `ProductsBLL` s sınıfı`TotalNumberOfProducts`yöntemi döndürür yürüten bir DAL yöntemi kullanılarak üzerinden disk belleği kayıtlarının toplam sayısı bir `SELECT COUNT(*) FROM Products` sorgu. Bu bilgiler ObjectDataSource tarafından doğru disk belleği arabirimini oluşturmak için gereklidir.
-4. **Kaldırma `startRowIndex` ve `maximumRows` `<asp:Parameter>` ObjectDataSource s bildirim temelli biçimlendirme öğelerinden** Sihirbazı aracılığıyla ObjectDataSource yapılandırırken, Visual Studio otomatik olarak iki eklenen `<asp:Parameter>` öğeler için `GetProductsPaged` s yöntemi giriş parametreleri. Ayarlayarak `EnablePaging` için `true`, bu parametreleri otomatik olarak geçirilir; bunlar da bildirim temelli sözdiziminde görünüyorsa, ObjectDataSource geçirmek deneyecek *dört* parametreleri `GetProductsPaged` yöntemi ve iki parametre `TotalNumberOfProducts` yöntemi. Bunlar kaldırmak unutursanız `<asp:Parameter>` gibi bir hata iletisi alacaksınız bir tarayıcı aracılığıyla sitesini ziyaret ettiğinde öğeleri: *ObjectDataSource 'ObjectDataSource1' genel olmayan yöntemi 'sahip TotalNumberOfProducts' bulamadı Parametreler: startRowIndex, maximumRows*.
+4. **Kaldırma `startRowIndex` ve `maximumRows` `<asp:Parameter>` ObjectDataSource s bildirim temelli biçimlendirme öğelerinden** Sihirbazı aracılığıyla ObjectDataSource yapılandırırken, Visual Studio otomatik olarak iki eklenen `<asp:Parameter>` öğeleri için `GetProductsPaged` s yöntemi giriş parametreleri. Ayarlayarak `EnablePaging` için `true`, bu parametreleri otomatik olarak geçirilir; bunlar da bildirim temelli sözdiziminde görünüyorsa, ObjectDataSource geçirmek deneyecek *dört* parametreleri `GetProductsPaged` yöntemi ve iki parametre `TotalNumberOfProducts` yöntemi. Bunlar kaldırmak unutursanız `<asp:Parameter>` gibi bir hata iletisi alacaksınız bir tarayıcı aracılığıyla sitesini ziyaret ettiğinde öğeleri: *ObjectDataSource 'ObjectDataSource1' genel olmayan yöntemi 'sahip TotalNumberOfProducts' bulamadı Parametreler: startRowIndex, maximumRows*.
 
 Bu değişiklikleri yaptıktan sonra ObjectDataSource s tanımlayıcı sözdizimi aşağıdaki gibi görünmelidir:
 
@@ -326,7 +326,7 @@ Veri disk belleği bulacaksınız, son sayfasından son kaydı silinirken özel 
 GridView son ürün silme bağlı *gereken* otomatik olarak sekizinci sayfasına gidin ve bu tür işlevselliği varsayılan disk belleği ile sergilenen. Özel disk belleği ile ancak son sayfasında, son bu ürünü sildikten sonra GridView yalnızca ekranından tamamen kaybolur. Kesin neden *neden* bu biraz Bu öğretici kapsamında oluşur; bkz [GridView özel disk belleği ile son sayfasındaki son kayıt silmeye](http://scottonwriting.net/sowblog/posts/7326.aspx) kaynakla alt düzey ayrıntılar için Bu sorun. Özet olarak, aşağıdaki Sil düğmesine tıklandığında, GridView tarafından gerçekleştirilen adımlar dizisini nedeniyle s:
 
 1. Kaydını sil
-2. Belirtilen görüntülemek için uygun kayıtların tamamını `PageIndex` ve`PageSize`
+2. Belirtilen görüntülemek için uygun kayıtların tamamını `PageIndex` ve `PageSize`
 3. Emin olmak için onay `PageIndex` otomatik olarak GridView s azaltma varsa, veri kaynağındaki; sayfaların sayısını aşmadığından `PageIndex` özelliği
 4. 2. adımda elde edilen kayıtları kullanarak GridView veri uygun sayfaya bağlamak
 
@@ -377,8 +377,8 @@ Mutluluk programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Önceki](paging-and-sorting-report-data-vb.md)
-[sonraki](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](paging-and-sorting-report-data-vb.md)
+> [sonraki](sorting-custom-paged-data-vb.md)

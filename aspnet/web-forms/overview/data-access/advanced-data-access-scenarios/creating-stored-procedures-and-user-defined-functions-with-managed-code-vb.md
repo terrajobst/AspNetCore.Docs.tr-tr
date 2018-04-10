@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
-title: "Yönetilen kod (VB) saklı yordamları ve kullanıcı tanımlı işlevler ile oluşturma | Microsoft Docs"
+title: Yönetilen kod (VB) saklı yordamları ve kullanıcı tanımlı işlevler ile oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Microsoft SQL Server 2005 .NET ortak dil veritabanı nesnelerini aracılığıyla yönetilen kod geliştiricilerin izin vermek için çalışma zamanı ile tümleştirir. Bu öğretici..."
+description: Microsoft SQL Server 2005 .NET ortak dil veritabanı nesnelerini aracılığıyla yönetilen kod geliştiricilerin izin vermek için çalışma zamanı ile tümleştirir. Bu öğretici...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e30df9ddc094d0390d9e5985ec676713b57feaf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb676313b04fab9c7cf9c6d08d08d07852ee1fcb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Saklı yordamlar ve yönetilen kod (VB) ile kullanıcı tanımlı işlevler oluşturma
 ====================
@@ -31,7 +31,7 @@ tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Veritabanları Microsoft s SQL Server 2005 gibi kullanmak [Transact-Structured sorgu dili (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) ekleme, değiştirme ve veriler alınıyor. Çoğu veritabanı sistemi daha sonra yeniden kullanılabilir, tek bir birim olarak yürütülen SQL deyimlerini bir dizi gruplandırmak için yapılar içerir. Saklı yordamlar bir örnektir. Başka bir *kullanıcı tanımlı işlevler*(UDF'ler) daha ayrıntılı adım 9'daki inceleyeceğiz bir yapı.
 
-Özünde, SQL veri kümeleriyle çalışmak üzere tasarlanmıştır. `SELECT`, `UPDATE`, Ve `DELETE` deyimleri kendiliğinden karşılık gelen tablosundaki tüm kayıtlar için geçerlidir ve tarafından yalnızca sınırlı kendi `WHERE` yan tümceleri. Henüz bir kayıtla aynı anda çalışmak ve skaler verileri işlemek için tasarlanmış birçok dil özellikleri vardır. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) bir kayıt kümesi için birer birer aracılığıyla Döngüdeki olmasına izin vermektedir. Dize işleme işlevleri gibi `LEFT`, `CHARINDEX`, ve `PATINDEX` skaler verileri ile çalışabilir. SQL de içeren denetim akışı ifadeleri gibi `IF` ve `WHILE`.
+Özünde, SQL veri kümeleriyle çalışmak üzere tasarlanmıştır. `SELECT`, `UPDATE`, Ve `DELETE` deyimleri kendiliğinden karşılık gelen tablosundaki tüm kayıtlar için geçerlidir ve tarafından yalnızca sınırlı kendi `WHERE` yan tümceleri. Henüz bir kayıtla aynı anda çalışmak ve skaler verileri işlemek için tasarlanmış birçok dil özellikleri vardır. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) bir kayıt kümesi için birer birer aracılığıyla Döngüdeki olmasına izin vermektedir. Dize işleme işlevleri gibi `LEFT`, `CHARINDEX`, ve `PATINDEX` skaler verileri ile çalışabilir. SQL de içeren denetim akışı ifadeleri gibi `IF` ve `WHILE`.
 
 Microsoft SQL Server 2005 önce saklı yordamları ve UDF'leri yalnızca T-SQL deyimlerini koleksiyonu olarak tanımlanabilir. SQL Server 2005, ancak ile tümleştirme sağlamak üzere tasarlanmış [ortak dil çalışma zamanı (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), tüm .NET derlemelerini tarafından kullanılan çalışma zamanı olduğu. Sonuç olarak, bir SQL Server 2005 veritabanında UDF'ler ve saklı yordamlar, yönetilen kod kullanılarak oluşturulabilir. Diğer bir deyişle, bir Visual Basic sınıfında bir yöntem olarak bir saklı yordam veya UDF oluşturabilirsiniz. Bu, bu saklı yordamları ve .NET Framework ve kendi özel sınıflardan faydalanmak için UDF'ler sağlar.
 
@@ -424,8 +424,8 @@ Kod oluşturmaktır bir `SqlMoney` adlı örneği `inventoryValue` 0 değeri ata
 
 Proje dağıtıldığında, SQL Server Management Studio'ya geri dönün ve skaler değerli işlevler klasörünü yenileyin. Şimdi iki girdiler görmeniz gerekir:
 
-- `dbo.udf_ComputeInventoryValue`-T-SQL UDF adım 9'da oluşturulan ve
-- `dbo.udf ComputeInventoryValue_Managed`-Yönetilen UDF yalnızca dağıtılan adım 10 oluşturuldu.
+- `dbo.udf_ComputeInventoryValue` -T-SQL UDF adım 9'da oluşturulan ve
+- `dbo.udf ComputeInventoryValue_Managed` -Yönetilen UDF yalnızca dağıtılan adım 10 oluşturuldu.
 
 Bu yönetilen UDF sınamak için aşağıdaki sorgudan Management Studio içinde yürütün:
 
@@ -569,11 +569,11 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
 Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme S ren Jacob Lauritsen oluştu. Bu makale, S ren de gözden yanı sıra el ile yönetilen veritabanı nesnelerini derlemek için bu makalede s indirme dahil Visual C# Express Edition projesi oluşturulur. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Önceki](debugging-stored-procedures-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](debugging-stored-procedures-vb.md)

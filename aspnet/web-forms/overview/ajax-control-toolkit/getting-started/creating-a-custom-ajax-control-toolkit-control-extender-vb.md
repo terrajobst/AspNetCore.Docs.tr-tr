@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
-title: "Özel bir AJAX oluşturma Denetim Araç Seti denetim genişletici (VB) | Microsoft Docs"
+title: Özel bir AJAX oluşturma Denetim Araç Seti denetim genişletici (VB) | Microsoft Docs
 author: microsoft
-description: "Özel Extender'larının özelleştirebilir ve ASP.NET denetimleri yeni sınıflar oluşturmak zorunda kalmadan yeteneklerini olanak sağlar."
+description: Özel Extender'larının özelleştirebilir ve ASP.NET denetimleri yeni sınıflar oluşturmak zorunda kalmadan yeteneklerini olanak sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e8fceb3c7570aa1bf085c8e1037736254e74ef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06950770bf788fff4a03e9d41fd448ea675a8bce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Özel AJAX Denetim Araç Seti denetim genişletici (VB) oluşturma
 ====================
@@ -112,7 +112,7 @@ Tüm sağ başvuruları projenize sağ tıklatıp Özellikler'i seçerek ve baş
 
 Bizim sınıf kitaplığı sahibiz, biz bizim genişletici denetim oluşturmaya başlayabilirsiniz. Bir özel genişletici denetim sınıfın (1 listeleme bakın) ile bare kemikler Başlat s olanak tanır.
 
-**1 - MyCustomExtender.vb listeleme**
+**Listing 1 - MyCustomExtender.vb**
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample1.vb)]
 
@@ -135,7 +135,7 @@ Son olarak, özel genişletici MyProperty adlı bir özellik içerdiğine dikkat
 
 Bir tane bizim DisabledButton genişletici kodunu uygulamak s olanak tanır. Bu genişletici kodunu listeleme 2'de bulunabilir.
 
-**2 - DisabledButtonExtender.vb listeleme**
+**Listing 2 - DisabledButtonExtender.vb**
 
 [!code-vb[Main](creating-a-custom-ajax-control-toolkit-control-extender-vb/samples/sample2.vb)]
 
@@ -198,7 +198,7 @@ Ardından, size yeni bir ASP.NET sayfası oluşturmanız gerekir. Aşağıdaki a
 2. Bir ScriptManager sayfaya sürükleyin.
 3. TextBox denetimi sayfaya sürükleyin.
 4. Düğme denetimi sayfaya sürükleyin.
-5. Özellikler penceresinde düğmesi ID özelliği değere değiştirin *btnSave* ve değeri metin özelliğini *kaydetmek\**.
+5. Özellikler penceresinde düğmesi ID özelliği değere değiştirin <em>btnSave</em> ve değeri metin özelliğini *kaydetmek\**.
   
 
 Standart bir düğmeyi ve ASP.NET TextBox denetimi ile bir sayfa oluşturduk.
@@ -238,5 +238,5 @@ Sayfa (F5 tuşuna tarafından) çalıştırdığınızda, düğme denetim başla
 
 AJAX Denetim Araç Seti özel genişletici denetimleri ile nasıl genişletebileceğini açıklamak için bu öğreticinin amacı oluştu. Bu öğreticide, bir basit DisabledButton denetim genişletici oluşturduk. Biz bu genişletici DisabledButtonExtender sınıfı, bir DisabledButtonBehavior JavaScript davranışını ve DisabledButtonDesigner sınıfı oluşturarak uygulanmadı. Her bir özel denetim extender oluşturduğunuzda benzer birtakım adımları izleyin.
 
->[!div class="step-by-step"]
-[Önceki](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Önceki](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
