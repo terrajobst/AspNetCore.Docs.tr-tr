@@ -16,7 +16,7 @@ ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/06/2018
 
 **İçindekiler**
 
-**[Core Services](#0.2__Toc253429238 "_Toc253429238")**  
+**[Çekirdek Hizmetleri](#0.2__Toc253429238 "_Toc253429238")**  
 [Web.config dosyasına düzenlemesi](#0.2__Toc253429239 "_Toc253429239")  
 [Genişletilebilir çıktı önbelleği](#0.2__Toc253429240 "_Toc253429240")  
 [Web uygulamaları otomatik olarak başlatma](#0.2__Toc253429241 "_Toc253429241")  
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/06/2018
 [Önbelleğe alma nesne ve önbelleğe alma genişletilebilirlik nesne](#0.2__Toc253429246 "_Toc253429246")  
 [Genişletilebilir HTML, URL ve HTTP Kodlama üstbilgisi](#0.2__Toc253429247 "_Toc253429247")  
 [Tek çalışan işlemindeki tek tek uygulamalar için performans izleme](#0.2__Toc253429248 "_Toc253429248")  
-[Çoklu sürüm desteği](#0.2__Toc253429249 "_Toc253429249")
+[Multi-Targeting](#0.2__Toc253429249 "_Toc253429249")
 
 **[Ajax](#0.2__Toc253429250 "_Toc253429250")**  
 [jQuery eklenen Web Forms ve MVC](#0.2__Toc253429251 "_Toc253429251")  
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/06/2018
 [Veri ek açıklamasını özniteliği doğrulama desteği](#0.2__Toc253429276 "_Toc253429276")  
 [Şablonlu Yardımcılar](#0.2__Toc253429277 "_Toc253429277")
 
-**[Dynamic Data](#0.2__Toc253429278 "_Toc253429278")**  
+**[Dinamik veri](#0.2__Toc253429278 "_Toc253429278")**  
 [Dinamik veri için mevcut projeleri etkinleştirme](#0.2__Toc253429279 "_Toc253429279")  
 [Bildirim temelli DynamicDataManager denetimi sözdizimi](#0.2__Toc253429280 "_Toc253429280")  
 [Varlık şablonları](#0.2__Toc253429281 "_Toc253429281")  
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/06/2018
 
 **[Web uygulama dağıtımı Visual Studio 2010 ile](#0.2__Toc253429292 "_Toc253429292")**  
 [Web paketleme](#0.2__Toc253429293 "_Toc253429293")  
-[Web.config dönüştürmesini](#0.2__Toc253429294 "_Toc253429294")  
+[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
 [Veritabanı dağıtımı](#0.2__Toc253429295 "_Toc253429295")  
 [Tek tıklamayla yayımlama Web uygulamaları için](#0.2__Toc253429296 "_Toc253429296")  
 [Kaynakları](#0.2__Toc253429297 "_Toc253429297")
@@ -250,7 +250,7 @@ Yeni kapsamlı bir açıklama *MemoryCache* sınıf ve taban API'lerini destekle
 
 ASP.NET 4'te, metin kodlama aşağıdaki ortak görevler için özel kodlama yordamları oluşturabilirsiniz:
 
-- HTML encoding.
+- HTML kodlaması.
 - URL kodlaması.
 - HTML öznitelik kodlaması.
 - Giden HTTP üstbilgileri kodlama.
@@ -296,7 +296,7 @@ Belirli bir .NET Framework sürümünü hedefleme hakkında aşağıdakileri unu
 
 <a id="0.2__Toc224729023"></a><a id="0.2__Toc253429250"></a><a id="0.2__Toc243304624"></a>
 
-## <a name="ajax"></a>Ajax
+## <a name="ajax"></a>AJAX
 
 <a id="0.2__Toc253429251"></a><a id="0.2__Toc243304625"></a>
 
@@ -985,7 +985,7 @@ Daha sonra yalnızca için geçerli bir CSS sınıfı tanımlayabilirsiniz *gizl
 Varsayılan olarak, şablonları destekleyen aşağıdaki ASP.NET Web sunucusu denetimleri otomatik olarak satır içi stiller uygulamak için kullanılan bir dış tablo Sarmalanan:
 
 - *FormView*
-- *oturum açma*
+- *Login*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Sihirbazı*
@@ -1308,7 +1308,7 @@ Visual Studio 2010, bu sorunları gidermek ve sorunsuz bir şekilde Web uygulama
 Visual Studio 2010 Web dağıtım özellikleri aşağıdaki önemli alanlar şunlardır:
 
 - Web paketleme
-- Web.config dönüştürmesini
+- Web.config transformation
 - Veritabanı dağıtımı
 - Web uygulamaları için tek tıklamayla yayımlama
 
@@ -1331,7 +1331,7 @@ Visual Studio 2010 sağlayan yerleşik MSBuild görevleri ve Web paketleri oluş
 
 <a id="0.2__Toc224729057"></a><a id="0.2__Toc253429294"></a><a id="0.2__Toc243304665"></a>
 
-### <a name="webconfig-transformation"></a>Web.config dönüştürmesini
+### <a name="webconfig-transformation"></a>Web.config Transformation
 
 Web uygulama dağıtımı için Visual Studio 2010 tanıtır [XML belge dönüştürme (XDT)](http://vishaljoshi.blogspot.com/2009/03/web-deployment-webconfig-transformation_23.html), dönüştürme olanak sağlayan bir özellik olan bir `Web.config` geliştirme ayarları dosyasına üretim ayarlar. Dönüştürme ayarlarını adlı dönüştürme dosyaları içinde belirtilen `web.debug.config`, `web.release.config`ve benzeri. (Bu dosyaların adlarını MSBuild yapılandırmaları eşleşir.) Dönüşüm dosyası yalnızca dağıtılmış için yapmanız gereken değişiklikleri içerir `Web.config` dosya. Basit sözdizimi kullanılarak değişiklikleri belirtin.
 

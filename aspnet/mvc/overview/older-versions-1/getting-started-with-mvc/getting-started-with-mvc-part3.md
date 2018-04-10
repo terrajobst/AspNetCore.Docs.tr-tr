@@ -16,7 +16,7 @@ ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -83,7 +83,7 @@ Open /HelloWorld/Index.aspx. Değiştirmek için iki yerde yoktur. İlk olarak, 
 
 Uygulamanızı çalıştırın ve /Movies ziyaret edin. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. Büyük küçük değişikliklerle birlikte, uygulamanızda görünümünüze değişiklik kolaydır.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
 Bizim az bitlik (Bu durumda "Hello World!" "veri" ileti), ancak kodlanmış sabit. Biz V (görünümler) aldınız ve biz C (denetleyicileri), ancak henüz hiçbir M (modeli) olduğuna. Size kısa süre içinde nasıl adım geçireceğiz bir veritabanı oluşturun ve model verileri alabilirsiniz.
 
@@ -116,7 +116,7 @@ Ayrıca, biz bu görünümü WelcomeViewModel hakkında söylediyse olduğundan,
 
 Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` yeniden. Veri URL'den yönlendiriyoruz artık bizim Denetleyicisi'nde otomatik olarak geçirilir, Denetleyicimizin bir ViewModel verileri paketleri ve söz konusu nesne bizim görünüm üzerine geçirir. Verileri HTML olarak kullanıcıya görüntüler daha görüntüleyin.
 
-[![Welcome - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
+[![Hoş Geldiniz - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
 De, bir Model için bir "M" tür ancak veritabanı türü oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
 

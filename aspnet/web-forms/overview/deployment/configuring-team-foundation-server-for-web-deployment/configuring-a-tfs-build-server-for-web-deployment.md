@@ -16,7 +16,7 @@ ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>TFS yapı sunucu için Web dağıtımı yapılandırma
 ====================
@@ -72,7 +72,7 @@ Yapı sunucusunu yapılandırdığınızda, ilk TFS Yapı hizmetini yüklemek ve
 
 Ortak web platformu bileşenlerini yüklemek için en iyi yolu kullanmaktır [Web Platformu yükleyicisi](https://go.microsoft.com/?linkid=9805118). Bu, her ürünün en son sürümü yüklüyorsanız, ve ayrıca otomatik olarak algılar ve her ürün için herhangi bir önkoşulu yükler sağlar. Durumunda [Contact Manager](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) çözüm bu ürünleri ve bileşenlerini yüklemek için Web Platformu yükleyicisi kullanmalıdır:
 
-- **.NET framework 4.0**. Bu, .NET Framework'ün bu sürümünde oluşturulan uygulamaları çalıştırmak için gereklidir.
+- **.NET Framework 4.0**. Bu, .NET Framework'ün bu sürümünde oluşturulan uygulamaları çalıştırmak için gereklidir.
 - **Web dağıtım aracı 2.1 veya üzeri**. Bu, sunucunuzda Web dağıtımı (ve onun temel yürütülebilir MSDeploy.exe) yükler. Bu işlemin bir parçası olarak bu yükler ve Web dağıtım aracı hizmetini başlatır. Bu hizmetin web paketleri uzak bir bilgisayardan dağıtmanıza olanak tanır.
 - **ASP.NET MVC 3**. Bu, ASP.NET MVC 3 uygulamaları çalıştırmak için gereken derlemeler yükler.
 

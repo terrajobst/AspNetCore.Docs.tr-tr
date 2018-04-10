@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
-title: "Yapılandırma ve izleme | Microsoft Docs"
+title: Yapılandırma ve izleme | Microsoft Docs
 author: microsoft
-description: "Yapılandırmasındaki önemli değişiklikler ve ASP.NET 2.0 de araçları vardır. Yeni ASP.NET yapılandırma API'si pr yapılması için yapılandırma değişiklikleri sağlar..."
+description: Yapılandırmasındaki önemli değişiklikler ve ASP.NET 2.0 de araçları vardır. Yeni ASP.NET yapılandırma API'si pr yapılması için yapılandırma değişiklikleri sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
 ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuration-and-instrumentation"></a>Yapılandırma ve izleme
 ====================
@@ -79,7 +79,7 @@ Birçok yapılandırma sınıflar ve yöntemler birbirine benzer. Aşağıdaki t
 | **Yapılandırma sınıfı veya ad alanı** | **Açıklama** |
 | --- | --- |
 | [System.Configuration](https://msdn.microsoft.com/library/system.configuration.aspx) ad alanı | Tüm .NET Framework uygulamaları için ana yapılandırma sınıfları içerir. Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. Bu iki yöntem statik olmayan. |
-| System.Configuration.Configuration sınıfı | Yapılandırma verilerini bir bilgisayara, uygulama, Web dizini veya diğer kaynak kümesini temsil eder. Bu sınıf yapılandırma ayarları güncelleştirilirken ve bölümler ve bölüm grupları yapılan başvuruları elde etmek için kullanışlı yöntemler, GetSection ve GetSectionGroup, gibi içerir. Bu sınıf, dönüş türü olarak WebConfigurationManager ve ConfigurationManager sınıflarının yöntemleri gibi tasarım zamanı yapılandırma verilerini almak yöntemleri için kullanılır. |
+| System.Configuration.Configuration class | Yapılandırma verilerini bir bilgisayara, uygulama, Web dizini veya diğer kaynak kümesini temsil eder. Bu sınıf yapılandırma ayarları güncelleştirilirken ve bölümler ve bölüm grupları yapılan başvuruları elde etmek için kullanışlı yöntemler, GetSection ve GetSectionGroup, gibi içerir. Bu sınıf, dönüş türü olarak WebConfigurationManager ve ConfigurationManager sınıflarının yöntemleri gibi tasarım zamanı yapılandırma verilerini almak yöntemleri için kullanılır. |
 | System.Web.Configuration ad alanı | ASP.NET yapılandırma bölümlerinin tanımlanan bölümü işleyici sınıfları içerir [ASP.NET yapılandırma ayarlarını](https://msdn.microsoft.com/library/b5ysx397.aspx). Bölümü işleyici sınıfları, yöntemleri, GetSection ve GetSectionGroup gibi bir bölüm için yapılandırma verilerini almak için kullanılır. |
 | System.Web.Configuration.WebConfigurationManager class | Çalışma zamanı ve tasarım zamanı yapılandırma ayarlarına yapılan başvuruları alma için kullanışlı yöntemler sağlar. Bu yöntemler System.Configuration.Configuration sınıfı bir dönüş türü olarak kullanın. Bu sınıfın statik GetSection yöntemini veya System.Configuration.ConfigurationManager sınıfının statik olmayan GetSection yöntemi birbirinin yerine kullanabilirsiniz. Web uygulama yapılandırmaları için System.Web.Configuration.WebConfigurationManager sınıfı yerine System.Configuration.ConfigurationManager sınıfı önerilir. |
 | [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) ad alanı | Özelleştirme ve yapılandırma sağlayıcısı genişletmek için bir yol sağlar. Yapılandırma sistemi tüm sağlayıcı sınıflar için temel sınıf budur. |
@@ -126,7 +126,7 @@ System.Web.Management ad alanı, sınıflar ve arabirimler yönetmek ve ASP.NET 
 
 Günlük olayları bir sağlayıcı ile ilişkilendiren bir kural tanımlayarak gerçekleştirilir. Kural sağlayıcısına gönderilen olayların türünü tanımlar. Aşağıdaki temel olayları oturum için kullanılabilir:
 
-| **Değeri** | Tüm olaylar için temel olay sınıfı. Gerekli içermektedir özelliklerini olay kodu, Olay Ayrıntısı kodu, tarih ve saat olay yükseltildi gibi tüm olaylar için sıra numarası, olay iletisi ve Olay Ayrıntıları. |
+| **WebBaseEvent** | Tüm olaylar için temel olay sınıfı. Gerekli içermektedir özelliklerini olay kodu, Olay Ayrıntısı kodu, tarih ve saat olay yükseltildi gibi tüm olaylar için sıra numarası, olay iletisi ve Olay Ayrıntıları. |
 | --- | --- |
 | **WebManagementEvent** | Yönetimi olayları, uygulama yaşam süresi, istek, hata ve denetim olayları gibi temel olay sınıfı. |
 | **WebHeartbeatEvent** | Yararlı çalışma zamanı durumu bilgileri yakalamak için düzenli aralıklarla uygulama tarafından üretilen olay. |
@@ -151,8 +151,8 @@ Varsayılan sağlayıcıları ve olayları yapılandırma genel Web.config dosya
 | **sağlayıcıları** | Olay Görüntüleyicisi'ni, WMI ve SQL Server için ayarlanmış sağlayıcıları içerir. |
 | --- | --- |
 | **eventMappings** | Eşlemeleri için çeşitli WebBase sınıfları içerir. Kendi olay sınıfı oluşturursanız, bu listeyi genişletebilirsiniz. Kendi olay sınıfı oluşturmak daha hassas ayrıntı düzeyi için bilgi gönder sağlayıcıları üzerinden sağlar. Örneğin, SQL Server için kendi özel olaylar için e-posta gönderilirken gönderilmek üzere işlenmeyen özel durumlar yapılandırabilirsiniz. |
-| **kuralları** | EventMappings sağlayıcıya bağlar. |
-| **arabelleğe alma** | SQL Server ve e-posta sağlayıcıları ile genellikle sağlayıcıya olayları temizlemek nasıl belirlemek için kullanılır. |
+| **Kuralları** | EventMappings sağlayıcıya bağlar. |
+| **Arabelleğe alma** | SQL Server ve e-posta sağlayıcıları ile genellikle sağlayıcıya olayları temizlemek nasıl belirlemek için kullanılır. |
 
 Genel Web.config dosyasındaki bir kod örneği aşağıdadır.
 
@@ -330,7 +330,7 @@ Aşağıdaki tabloda nasıl ne zaman ASP.NET derleme aracı tanıtıcıları far
 
 | **Dosya türü** | **Derleyici eylemi** |
 | --- | --- |
-| .ascx, .aspx, .master | Bu dosyalar arka plan kod dosyaları ve sınırlanan herhangi bir kod içerir, biçimlendirme ve kaynak kodu olarak bölünür &lt;komut dosyası runat = "server"&gt; öğeleri. Kaynak kodu bir karma algoritması türetilen adlarıyla derlemeleri derlenir ve derlemeler Bin dizinindeki yerleştirilir. Tüm satır içi kod olduğundan, kod içine arasında  **&lt; %**  ve  **% &gt;**  köşeli ayraçlar, biçimlendirme ile birlikte verilir ve derlenmemiş. Kaynak dosyaları ile aynı ada sahip yeni dosyalar biçimlendirme içerecek şekilde oluşturulur ve karşılık gelen çıktı dizinlerde yerleştirilir. |
+| .ascx, .aspx, .master | Bu dosyalar arka plan kod dosyaları ve sınırlanan herhangi bir kod içerir, biçimlendirme ve kaynak kodu olarak bölünür &lt;komut dosyası runat = "server"&gt; öğeleri. Kaynak kodu bir karma algoritması türetilen adlarıyla derlemeleri derlenir ve derlemeler Bin dizinindeki yerleştirilir. Tüm satır içi kod olduğundan, kod içine arasında **&lt; %** ve **% &gt;** köşeli ayraçlar, biçimlendirme ile birlikte verilir ve derlenmemiş. Kaynak dosyaları ile aynı ada sahip yeni dosyalar biçimlendirme içerecek şekilde oluşturulur ve karşılık gelen çıktı dizinlerde yerleştirilir. |
 | .ashx, .asmx | Bu dosyalar değil derlenir ve çıktı dizinlere olduğu ve derlenmemiş taşınır. Derlenmiş işleyici kod istiyorsanız, kaynak kodu dosyaları için uygulama kodu yerleştirin\_kod dizini. |
 | .cs, .vb, .jsl, .cpp (daha önce listelenen dosya türleri için arka plan kod dosyaları dahil değil) | Bu dosyalar derlenmiş ve onları başvuru derlemeleri kaynak olarak dahil. Kaynak dosyalar çıkış dizinine kopyalanmaz. Bir kod dosyası başvurulmuyorsa derlenmiş değil. |
 | Özel dosya türleri | Bu dosyalar derlenmemiş. Bu dosyalar ilgili çıktı dizinleri kopyalanır. |
@@ -344,7 +344,7 @@ Aşağıdaki tabloda nasıl ne zaman ASP.NET derleme aracı tanıtıcıları far
 
 | **Dosya türü** | **Derleyici eylemi** |
 | --- | --- |
-| .aspx, .asmx, .ashx, .master | Bu dosyalar arka plan kod dosyaları ve sınırlanan herhangi bir kod içerir, biçimlendirme ve kaynak kodu olarak bölünür &lt;komut dosyası runat = "server"&gt; öğeleri. Kaynak kodu bir karma algoritması türetilen adlarıyla derlemeleri derlenir. Sonuçta elde edilen derlemeleri Bin dizinindeki yerleştirilir. Tüm satır içi kod olduğundan, kod içine arasında  **&lt; %**  ve  **% &gt;**  köşeli ayraçlar, biçimlendirme ile birlikte verilir ve derlenmemiş. Derleyici kaynak dosyaları ile aynı adda biçimlendirme içerecek şekilde yeni dosyaları oluşturur. Bu sonuç dosyaları Bin dizinindeki yerleştirilir. Derleyici de kaynak dosyaları ile aynı ada sahip ancak uzantılı dosyaları oluşturur. Eşleme bilgilerini içerir COMPILED. . DERLENMİŞ dosyalar kaynak dosyalarını özgün konumuna karşılık gelen çıktı dizinleri yerleştirilir. |
+| .aspx, .asmx, .ashx, .master | Bu dosyalar arka plan kod dosyaları ve sınırlanan herhangi bir kod içerir, biçimlendirme ve kaynak kodu olarak bölünür &lt;komut dosyası runat = "server"&gt; öğeleri. Kaynak kodu bir karma algoritması türetilen adlarıyla derlemeleri derlenir. Sonuçta elde edilen derlemeleri Bin dizinindeki yerleştirilir. Tüm satır içi kod olduğundan, kod içine arasında **&lt; %** ve **% &gt;** köşeli ayraçlar, biçimlendirme ile birlikte verilir ve derlenmemiş. Derleyici kaynak dosyaları ile aynı adda biçimlendirme içerecek şekilde yeni dosyaları oluşturur. Bu sonuç dosyaları Bin dizinindeki yerleştirilir. Derleyici de kaynak dosyaları ile aynı ada sahip ancak uzantılı dosyaları oluşturur. Eşleme bilgilerini içerir COMPILED. . DERLENMİŞ dosyalar kaynak dosyalarını özgün konumuna karşılık gelen çıktı dizinleri yerleştirilir. |
 | .ascx | Bu dosyalar, biçimlendirme ve kaynak koduna bölünür. Kaynak kodu derlemelerine derlenmiş ve karma algoritma türetilen adlarıyla Bin dizinine yerleştirilir. Hiçbir biçimlendirme dosya oluşturulur. |
 | .cs, .vb, .jsl, .cpp (daha önce listelenen dosya türleri için arka plan kod dosyaları dahil değil) | .Ascx, .ashx veya .aspx dosyaları oluşturulan derlemeleri tarafından başvurulan kaynak kodu derlemelerine derlenmiş ve Bin dizinindeki yerleştirilir. Kaynak dosyalar kopyalanır. |
 | Özel dosya türleri | Bu dosyalar gibi dinamik dosyaları derlenir. Esas alan dosya türüne bağlı olarak, derleyici çıktı dizinlerde eşleme dosyaları yerleştirebilirsiniz. |
@@ -429,7 +429,7 @@ Bu laboratuvarda, uygulama kapatmalar, başlatmalar ve Olay Görüntüleyicisi'n
 
 [!code-csharp[Main](configuration-and-instrumentation/samples/sample21.cs)]
 
-1. Browse default.aspx.
+1. Default.aspx göz atın.
 2. Aşağı açılır kümesine **False**.
 3. Olay Görüntüleyicisi'nde Uygulama günlüğünü temizleyin.
 4. Uygulama için hata ayıklama özniteliğini değiştirmek için düğmesini tıklatın.

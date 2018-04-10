@@ -16,7 +16,7 @@ ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>MVC 3 oluşturma Razor ve örtük JavaScript ile uygulama
 ====================
@@ -49,12 +49,12 @@ Oturum açma ve üyelik ile ilişkili tüm dosyaları silmek için Bu öğretici
 
 - *Controllers\AccountController*
 - *Models\AccountModels*
-- *Görünümler/paylaşılan\\_LogOnPartial*
+- *Views\Shared\\_LogOnPartial*
 - *Views\Account* (ve bu dizindeki tüm dosyaları)
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Düzen  <em>\_Layout.cshtml</em> dosya ve biçimlendirmesi içinde Değiştir `<div>` adlı öğe `logindisplay` iletiyle <em>&quot;</em>oturum açma devre dışı&quot;. Aşağıdaki örnek, yeni markup gösterir:
+Düzen <em> \_Layout.cshtml</em> dosya ve biçimlendirmesi içinde Değiştir `<div>` adlı öğe `logindisplay` iletiyle <em> &quot; </em>oturum açma devre dışı&quot;. Aşağıdaki örnek, yeni markup gösterir:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -166,7 +166,7 @@ Ayarı `ClientValidationEnabled` true etkinleştirir istemci tarafı doğrulama 
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample13.cs)]
 
-Ayrıca işlenmiş görünümde çeşitli JavaScript dosyaları eklemeniz gerekir. Bunlara eklemek için JavaScript tüm görünümlerde dahil etmek için kolay bir yoludur *görünümler/paylaşılan\\_Layout.cshtml* dosya. Değiştir `<head>` öğesinin  *\_Layout.cshtml* aşağıdaki kod ile dosya:
+Ayrıca işlenmiş görünümde çeşitli JavaScript dosyaları eklemeniz gerekir. Bunlara eklemek için JavaScript tüm görünümlerde dahil etmek için kolay bir yoludur *görünümler/paylaşılan\\_Layout.cshtml* dosya. Değiştir `<head>` öğesinin * \_Layout.cshtml* aşağıdaki kod ile dosya:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample14.cshtml)]
 

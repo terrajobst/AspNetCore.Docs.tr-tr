@@ -16,7 +16,7 @@ ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="bundling-and-minification"></a>Paketleme ve küçültme
 ====================
@@ -68,7 +68,7 @@ Aşağıdaki tablo arasındaki tüm varlıklarını ayrı ayrı listeleme paketl
 |  | **B/M kullanma** | **B/M** | **değiştirme** |
 | --- | --- | --- | --- |
 | **Dosya istekleri** | 9 | 34 | 256% |
-| **KB Sent** | 3.26 | 11.92 | 266% |
+| **Gönderilen KB** | 3.26 | 11.92 | 266% |
 | **Alınan KB** | 388.51 | 530 | 36% |
 | **Yükleme süresi** | 510 MS | 780 MS | 53% |
 
@@ -114,7 +114,7 @@ Açık *uygulama\_Start\BundleConfig.cs* dosya ve inceleyin `RegisterBundles` ol
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-Önceki kod adlı yeni bir JavaScript paket oluşturur *~/bundles/jquery* tüm uygun içerir (Hata Ayıkla'dır veya küçültülmüş değil. *vsdoc*) dosyalar *betikleri* "~/Scripts/jquery-{version} .js" joker dizeyi eşleştir klasör. ASP.NET MVC 4 için bu dosya bir hata ayıklama yapılandırması ile gelir *jquery 1.7.1.js* pakete eklenecek. Bir yayın yapılandırmasında *jquery 1.7.1.min.js* eklenir. Paket framework gibi birkaç genel kurallar aşağıdaki gibidir:
+Önceki kod adlı yeni bir JavaScript paket oluşturur *~/bundles/jquery* tüm uygun içerir (Hata Ayıkla'dır veya küçültülmüş değil.* vsdoc*) dosyalar *betikleri* "~/Scripts/jquery-{version} .js" joker dizeyi eşleştir klasör. ASP.NET MVC 4 için bu dosya bir hata ayıklama yapılandırması ile gelir *jquery 1.7.1.js* pakete eklenecek. Bir yayın yapılandırmasında *jquery 1.7.1.min.js* eklenir. Paket framework gibi birkaç genel kurallar aşağıdaki gibidir:
 
 - Yayın için ".min" dosyasını "FileX.min.js" ve "FileX.js" mevcut seçme.
 - Hata ayıklama için olmayan ".min" sürümü seçin.
@@ -170,12 +170,12 @@ Aşağıdaki tabloda gösterildiği gibi joker karakter kullanarak bir pakete ek
 
 | **Arama** | **Eklenen dosyalar veya özel durum oluştu** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
-| Include("~/Scripts/Common/T\*.js") | Geçersiz desen özel durum. Joker karakter yalnızca önek veya sonek izin verilir. |
+| İçerir ("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| İçerir ("~/Scripts/Common/T\*.js") | Geçersiz desen özel durum. Joker karakter yalnızca önek veya sonek izin verilir. |
 | İçerir ("~/Scripts/Common/\*og.\*") | Geçersiz desen özel durum. Yalnızca bir joker karakter izin verilir. |
 | "İçerir (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
 | "İçerir (" ~/Scripts/Common/\*") | Geçersiz desen özel durum. Saf joker kesimi geçerli değil. |
-| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
 | IncludeDirectory ("~/Scripts/Common", "T\*", doğru) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Açıkça bir pakete ait her bir dosya ekleme, genellikle tercih edilen dosyaları aşağıdaki nedenlerle joker yüklemeyi üzerinden:
@@ -202,7 +202,7 @@ Aşağıdaki resimde gösterildiği **önbelleğe alma** Fiddler yanıt bölmesi
 
 IE yanlış IE9 F12 geliştirici araçlarını çalıştırma ve daha önce yüklenen bir sayfasına gidin, her paket ve HTTP 304 döndürme sunucu yapılan koşullu GET istekleri gösterir. IE9 koşullu isteği blog girişi yaptıysanız belirleme sorunları neden olduğunu okuyabilirsiniz [kullanarak CDN'ler ve Web sitesinin performansını artırmak için Expires](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
-## <a name="less-coffeescript-scss-sass-bundling"></a>LESS, CoffeeScript, SCSS, Sass Bundling.
+## <a name="less-coffeescript-scss-sass-bundling"></a>Daha az, CoffeeScript, SCSS, Sass paketleme.
 
 Paketleme ve küçültme framework Ara diller gibi işlemek için bir mekanizma sağlar [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [daha az](http://www.dotlesscss.org/) veya [Coffeescript ](http://coffeescript.org/)ve sonuçta elde edilen paket için dönüşümler küçültme gibi uygulayın. Örneğin, eklemek için [.less](http://www.dotlesscss.org/) , MVC 4 proje dosyalarına:
 

@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
-title: "ASP.NET ve Web Araçları 2012.2 sürüm notları | Microsoft Docs"
+title: ASP.NET ve Web Araçları 2012.2 sürüm notları | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET ve Web Araçları 2012.2 için sürüm notları."
+description: ASP.NET ve Web Araçları 2012.2 için sürüm notları.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2013
 ms.topic: article
 ms.assetid: 9534e58b-1d15-4f1d-b04c-10c79b9d8227
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
 ms.openlocfilehash: ab1642f1a3de298919aa9c6c1ddbd6bbb0cb99b5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET ve Web Araçları 2012.2 sürüm notları
 ====================
@@ -53,12 +53,12 @@ Ayrıca ASP.NET ve Web Araçları 2012.2 el ile yükleyebilirsiniz. Visual Studi
 5. İstendiğinde tıklatın çalıştırdığınızda. Daha sonra çalıştırılacak dosya da kaydedebilirsiniz.
 
 > [!NOTE]
-> ASP.NET ve Web Araçları 2012.2 sürüm SQL Server veri araçları içermez. SQL Server ve Windows Azure SQL veritabanlarını, veritabanı çevrimdışı proje destekli geliştirme, Şema karşılaştırma ve geliştirilmiş veritabanı dağıtım yetenekleri de dahil olmak üzere tooling daha zengin bir dizi sağlar. Daha fazla bilgi için veya SQL Server veri araçları yüklemek için ziyaret [https://go.microsoft.com/fwlink/?LinkID=237127](https://go.microsoft.com/fwlink/?LinkID=237127).
+> ASP.NET ve Web Araçları 2012.2 sürüm SQL Server veri araçları içermez. SQL Server ve Windows Azure SQL veritabanlarını, veritabanı çevrimdışı proje destekli geliştirme, Şema karşılaştırma ve geliştirilmiş veritabanı dağıtım yetenekleri de dahil olmak üzere tooling daha zengin bir dizi sağlar. Daha fazla bilgi için veya SQL Server veri araçları yüklemek için ziyaret [ https://go.microsoft.com/fwlink/?LinkID=237127 ](https://go.microsoft.com/fwlink/?LinkID=237127).
 
 <a id="_Documentation"></a>
 ## <a name="documentation"></a>Belgeler
 
-Öğreticiler ve ASP.NET ve Web Araçları 2012.2 ilgili diğer bilgileri, ASP.NET web sitesinden (https://www.asp.net) kullanılabilir.
+Öğreticiler ve ASP.NET ve Web Araçları 2012.2 ilgili diğer bilgileri ASP.NET web sitesinden kullanılabilir ( https://www.asp.net).
 
 <a id="_Support"></a>
 ## <a name="support"></a>Destek
@@ -95,7 +95,7 @@ Bu bölümde, ASP.NET ve Web Araçları 2012.2 sürümünde tanıtılan özellik
 ### <a name="web-publishing"></a>Web'de Yayımlama
 
 - Web sitesi projeleri yayımlama için Windows Azure Web siteleri de dahil olmak üzere Web Uygulama projeleri olarak aynı yayımlama deneyimi artık sahiptir.
-- Seçici yayımlama &#8211; bir veya daha fazla dosyaları (sonra bir Web dağıtımı uç noktası yayımlamayı) aşağıdaki eylemleri gerçekleştirebilirsiniz: 
+- Seçici yayımlama &#8211; için bir veya daha fazla (sonra bir Web dağıtımı uç noktası yayımlamayı) aşağıdaki eylemleri gerçekleştirebilirsiniz: 
 
     - Seçili dosyaları yayımlayın.
     - Bir yerel dosya ve uzak bir dosya arasındaki farkı bakın.
@@ -104,8 +104,8 @@ Bu bölümde, ASP.NET ve Web Araçları 2012.2 sürümünde tanıtılan özellik
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>ASP.NET MVC şablonları
 
-- Yeni Facebook uygulama şablonu, Facebook Canvas uygulamalarını yazmayı kolaylaştırır. Birkaç basit adımda, oturum açmış bir kullanıcıdan veri alan ve arkadaşlarıyla entegre bir Facebook uygulaması oluşturabilirsiniz. Şablon tüm ayarlamaları kimlik doğrulaması, Facebook verilerine ve daha fazlasını erişme izinleri de dahil olmak üzere bir Facebook uygulaması oluşturmaya ilişkin halletmeniz için yeni bir kitaplık içerir. Facebook uygulama şablonu kullanma hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921).
-- Yeni bir tek sayfalı uygulama MVC şablonu geliştiricilerin HTML 5, CSS 3 ve popüler Knockout ve ASP.NET Web API üstünde jQuery JavaScript kitaplıklarını kullanarak etkileşimli istemci tarafı web uygulamaları oluşturmalarına olanak sağlar. Şablon, RESTful sunucu API'si kullanan bir JavaScript HTML5 uygulaması oluşturmaya yönelik yaygın yöntemleri gösteren bir "Yapılacaklar" listesi uygulaması içerir. Hakkında daha fazla bilgi edinebilirsiniz [https://www.asp.net/single-page-application](../../../single-page-application/index.md).
+- Yeni Facebook uygulama şablonu, Facebook Canvas uygulamalarını yazmayı kolaylaştırır. Birkaç basit adımda, oturum açmış bir kullanıcıdan veri alan ve arkadaşlarıyla entegre bir Facebook uygulaması oluşturabilirsiniz. Şablon tüm ayarlamaları kimlik doğrulaması, Facebook verilerine ve daha fazlasını erişme izinleri de dahil olmak üzere bir Facebook uygulaması oluşturmaya ilişkin halletmeniz için yeni bir kitaplık içerir. Facebook uygulama şablonu kullanma hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkID=269921 ](https://go.microsoft.com/fwlink/?LinkID=269921).
+- Yeni bir tek sayfalı uygulama MVC şablonu geliştiricilerin HTML 5, CSS 3 ve popüler Knockout ve ASP.NET Web API üstünde jQuery JavaScript kitaplıklarını kullanarak etkileşimli istemci tarafı web uygulamaları oluşturmalarına olanak sağlar. Şablon, RESTful sunucu API'si kullanan bir JavaScript HTML5 uygulaması oluşturmaya yönelik yaygın yöntemleri gösteren bir "Yapılacaklar" listesi uygulaması içerir. Hakkında daha fazla bilgi edinebilirsiniz [ https://www.asp.net/single-page-application ](../../../single-page-application/index.md).
 - ASP.NET MVC yeni proje iletişim kutusuna yeni şablonlar ekler VSIX artık oluşturabilirsiniz. Nasıl yapabileceğinizi öğrenin: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
 - FixedDisplayModes paket &#8211; MVC proje şablonları, geçici bir çözüm için MVC 4'te hata içeren yeni 'FixedDisplayModes' NuGet paketini içerecek şekilde güncelleştirildi. Pakette yer alan düzeltme hakkında daha fazla bilgi için bu blog gönderisine bakın ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) MVC ekibinden.
 
@@ -148,33 +148,33 @@ ASP.NET Web API OData şu anda aşağıdaki özellikleri destekler:
 - OData eylemler.
 - WCF Veri Hizmetleri, yani ODataLib olarak aynı temel üzerine kurulu ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
 
-ASP.NET Web API OData hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141).
+ASP.NET Web API OData hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkId=271141 ](https://go.microsoft.com/fwlink/?LinkId=271141).
 
 #### <a name="aspnet-web-api-tracing"></a>ASP.NET Web API izlemesi
 
 ASP.NET Web API izleme, web API izleme verileri .NET izleme ile tümleşir. Şimdi, Web API projesi şablonundaki varsayılan olarak etkindir. Web için veri izleme API'leri çıkış penceresine gönderilir ve IntelliTrace kullanılabilir hale getirilir. ASP.NET Web API Tracing sağlar, Web ile tümleştirme yoluyla Windows Azure üzerinde barındırılan API izleme bilgilerine [Windows Azure Diagnostics](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). Ayrıca yüklemek ve ASP.NET Web API izleme NuGet paketi kullanarak herhangi bir uygulamada ASP.NET Web API Tracing etkinleştirin ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
-Yapılandırma ve ASP.NET Web API Tracing kullanma hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
+Yapılandırma ve ASP.NET Web API Tracing kullanma hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkID=269874 ](https://go.microsoft.com/fwlink/?LinkID=269874).
 
 #### <a name="aspnet-web-api-help-page"></a>ASP.NET Web API Yardım sayfası
 
 ASP.NET Web API Yardım sayfası artık varsayılan olarak Web API projesi şablonunda dahil edilmiştir. ASP.NET Web API Yardım sayfasında web HTTP uç noktaları, desteklenen HTTP yöntemleri, parametreleri ve örnek istek ve yanıt iletisi yükü de dahil olmak üzere API belgelerine otomatik olarak oluşturur. Belge açıklamaları kodunuzda gelen otomatik olarak alınır. ASP.NET Web API Yardım sayfası NuGet paketi kullanarak herhangi bir uygulama için ASP.NET Web API Yardım sayfasında da ekleyebilirsiniz ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
 
-Ayarlama ve ASP.NET Web API Yardım sayfasında bakın özelleştirme hakkında daha fazla bilgi için [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
+Ayarlama ve ASP.NET Web API Yardım sayfasında bakın özelleştirme hakkında daha fazla bilgi için [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 ASP.NET SignalR WebSockets varsa kullanarak ve onu değilken, otomatik olarak geri başka teknikler denk gelen ASP.NET uygulamanız için gerçek zamanlı web yetenekleri eklemek basit kolaylaştırır.
 
-ASP.NET SignalR kullanma hakkında daha fazla bilgi için bkz: [https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271).
+ASP.NET SignalR kullanma hakkında daha fazla bilgi için bkz: [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET kolay URL'leri
 
 ASP.NET FriendlyURLs temizleyici URL'leri (.aspx uzantısı olmadan) arayan üretmek web forms geliştiricileri için çok kolay hale getirir. Pek çok hiçbir yapılandırma gerektirir ve mevcut ASP.NET v4.0 uygulamaları ile kullanılabilir. FriendlyURLs özellik ayrıca, geliştiricilerin Masaüstü ve mobil görünüm arasında geçiş destekleyerek kullandıkları uygulamalar için mobil desteği eklemek kolaylaştırır.
 
-Yükleme ve ASP.NET kolay URL'leri kullanma hakkında daha fazla bilgi için bkz: [http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
+Yükleme ve ASP.NET kolay URL'leri kullanma hakkında daha fazla bilgi için bkz: [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
@@ -247,7 +247,7 @@ Kullanıcıların farklı büyük/küçük harf javascript istemci tarafı ve su
 
 #### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Varsayılan OData yönlendirme kuralları POST/PUT gezinti özelliği desteklemiyor.
 
-Varsayılan OData yönlendirme kuralları POST/PUT gezinti özelliği desteklemiyor. İş öğesi bkz [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366). Bu varsayılan kuralları yaygın olarak kullanılan kural eksik.
+Varsayılan OData yönlendirme kuralları POST/PUT gezinti özelliği desteklemiyor. İş öğesi bkz [ http://aspnetwebstack.codeplex.com/workitem/366 ](http://aspnetwebstack.codeplex.com/workitem/366). Bu varsayılan kuralları yaygın olarak kullanılan kural eksik.
 
 Bunu çözmek için kullanıcılar desteklemek için yeni yönlendirme kuralı yayması gerekir.
 
@@ -275,11 +275,11 @@ Facebook uygulama hata ayıklama sırasında Visual Studio 2012'de sayfa denetç
 
 JQuery 1.9/Boşaltılan ile 2.2.1 güncelleştirmek, varsayılan MVC SPA proje çalıştırırken, yeni todo öğesini Düzenle girin artık odak geri yeni Yapılacaklar öğesi düzenleme kutusuna için yapılacaklar listesi ve yeni todo öğesini girdikten sonra.
 
-Geçici çözüm başvuru [http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)ve aşağıdaki örnek kod benzer düzeltme yapın:
+Geçici çözüm başvuru [ http://knockoutjs.com/documentation/hasfocus-binding.html ](http://knockoutjs.com/documentation/hasfocus-binding.html)ve aşağıdaki örnek kod benzer düzeltme yapın:
 
-File todo.model.js  
+Dosya todo.model.js  
  todolist(Data) işlev, ekleme aşağıdaki:  
- **self.isSelected = ko.observable(false);**
+ **self.isSelected ko.observable(false); =**
 
 todoList.prototype.addTodo işlev, aşağıdaki blacked metni ekleyin:  
  **self.isSelected(true);**  
@@ -287,5 +287,5 @@ todoList.prototype.addTodo işlev, aşağıdaki blacked metni ekleyin:
 
 Index.cshtml dosya, aşağıdaki blacked metni ekleyin:  
  &lt;Form data-bind =&quot;gönderin: addTodo&quot;&gt;  
- &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
- &lt;/ Form&gt;
+ &lt;Giriş sınıfı =&quot;addTodo&quot; türü =&quot;metin&quot; data-bind =&quot;değeri: newTodoTitle, yer tutucu: 'eklemek için buraya Type', blurOnEnter: true, **hasfocus: IsSelected**, olay: {ölçeklendirilmelidir: addTodo}&quot; /&gt;  
+ &lt;/form&gt;

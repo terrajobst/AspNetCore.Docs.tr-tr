@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core MVC görünümlerde"
+title: ASP.NET Core MVC görünümlerde
 author: ardalis
-description: "Görünümler, uygulamanın veri sunumu ve ASP.NET Core MVC kullanıcı etkileşimini nasıl işleneceğini öğrenin."
+description: Görünümler, uygulamanın veri sunumu ve ASP.NET Core MVC kullanıcı etkileşimini nasıl işleneceğini öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
 ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -243,7 +243,7 @@ Bir görünümdeki verilerle çalışma:
 </address>
 ```
 
-**ViewBag**
+**Görünüm Paketi**
 
 Not: `ViewBag` Razor sayfalarında kullanılamaz.
 

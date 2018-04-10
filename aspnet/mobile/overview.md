@@ -1,26 +1,26 @@
 ---
 uid: mobile/overview
-title: "Mobil uygulamaları & ASP.NET siteleriyle | Microsoft Docs"
+title: Mobil uygulamaları & ASP.NET siteleriyle | Microsoft Docs
 author: rick-anderson
-description: "Nasıl ASP.NET Mobil Web uygulamaları oluşturulmasını kolaylaştırır öğrenin"
+description: Nasıl ASP.NET Mobil Web uygulamaları oluşturulmasını kolaylaştırır öğrenin
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2011
 ms.topic: article
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /mobile
 msc.type: content
 ms.openlocfilehash: de05ede5b7b41f0c44c867b51faf2310ac9fc514
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="mobile-apps--sites-with-aspnet"></a>Mobil uygulamaları & siteleri ASP.NET ile
 ====================
-## <a name="develop-mobile-apps"></a>Mobil uygulamalar geliştirme
+## <a name="develop-mobile-apps"></a>Develop Mobile Apps
 
 
 ### <a name="cloud-connected-mobile-apps---create-a-web-service-with-azure-web-apps-and-webjobshttpsmsdnmicrosoftcommagazinemt185572part-1"></a>[Mobil uygulamaları - bulut bağlı Azure Web uygulamaları ve Web işleri ile bir Web hizmeti oluşturma](https://msdn.microsoft.com/magazine/mt185572)(Kısım 1)

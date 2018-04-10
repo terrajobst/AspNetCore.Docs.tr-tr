@@ -16,7 +16,7 @@ ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -63,7 +63,7 @@ ms.lasthandoff: 04/06/2018
 - [ASP.NET MVC 3 Sürüm Adayı (9 Kas 2010)](#TOC_ASP_NET_3_RC)
 
     - [ASP.NET MVC 3 RC yeni özellikler](#_Toc276711785)
-    - [NuGet Paket Yöneticisi](#_Toc276711786)
+    - [NuGet Package Manager](#_Toc276711786)
     - ["Yeni Proje" Gelişmiş iletişim kutusu](#_Toc276711787)
     - [Oturumsuz denetleyicileri](#_Toc276711788)
     - [Yeni doğrulama öznitelikleri](#_Toc276711789)
@@ -581,7 +581,7 @@ ClassName (ad alanı)
 
 Önceki sürümlerde, bunu aşağıdaki gibi görüntülendi:
 
-ADALANI.SınıfAdı
+Namespace.ClassName
 
 <a id="_Toc276711793"></a>
 ### <a name="granular-request-validation"></a>Ayrıntılı istek doğrulama
@@ -672,7 +672,7 @@ Yeni ASP.NET Web sayfaları teknolojinin yaygın olarak kullanılan işlevler g�
 | **Yardımcısı** | **Açıklama** |
 | --- | --- |
 | Grafik | Bir grafik görünümü içinde işler. Chart.ToWebImage, Chart.Save ve Chart.Write gibi yöntemler içerir. |
-| Şifreleme | Güvenlik ve parolaların karma algoritmaları düzgün bir şekilde oluşturmak için karma kullanır. |
+| Crypto | Güvenlik ve parolaların karma algoritmaları düzgün bir şekilde oluşturmak için karma kullanır. |
 | WebGrid | Nesneler (genellikle, bir veritabanından veri) koleksiyonunu bir kılavuz işler. Disk belleği ve sıralama destekler. |
 | WebImage | Bir görüntü oluşturur. |
 | WebMail | Bir e-posta iletisi gönderir. |
@@ -743,7 +743,7 @@ ASP.NET MVC Ajax yardımcı yöntemler aşağıdaki gibi içerir:
 
 Bu yöntemler, tam geri gönderimin kullanmak yerine sunucu üzerinde bir eylem yöntemini çağırmak için JavaScript kullanır. Bu işlevsellik, jQuery örtük bir şekilde yararlanmak için güncelleştirilmiştir. Satır içi istemci komut dosyalarını intrusively yayma yerine bu yardımcı yöntemler davranışı biçimlendirmeden kullanarak HTML5 özniteliklerini yayma tarafından ayrı *veri ajax* öneki. Davranış, uygun JavaScript dosyaları başvurarak biçimlendirme sonra uygulanır. Şu JavaScript dosyaları başvurulduğundan emin olun:
 
-- JQuery 1.4.1.js
+- jquery-1.4.1.js
 - jquery.unobtrusive.ajax.js
 
 Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkindir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz: [eklenen istemci doğrulama ve örtük JavaScript uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) belgesinde.
@@ -760,8 +760,8 @@ Bu, ViewContext.UnobtrusiveJavaScriptEnabled özelliği aşağıdaki çağrıyı
 
 Ayrıca aşağıdaki JavaScript dosyaları başvurulduğundan emin olun.
 
-- JQuery 1.4.1.js
-- JQuery.Validate.js
+- jquery-1.4.1.js
+- jquery.validate.js
 - jquery.validate.unobtrusive.js
 
 Bu özellik, ASP.NET MVC 3 yeni proje şablonları Web.config dosyasında varsayılan olarak etkinleştirilir, ancak mevcut projeleri için varsayılan olarak devre dışıdır. Daha fazla bilgi için bkz: [istemci doğrulama ve örtük JavaScript için yeni uygulama çapında bayrakları](#0.1_AddedApplicationWideFlagsForClientValida) belgesinde.

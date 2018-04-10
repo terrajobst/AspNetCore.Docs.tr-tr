@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
-title: "ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma | Microsoft Docs"
+title: ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma | Microsoft Docs
 author: tfitzmac
-description: "Metin kutuları, onay kutularını, radyo düğmeleri ve açılır listeleri gibi kullanıcı girişini denetimleri nerede yerleştirdiğiniz bir bölümü bir HTML belgesinin biçimidir. Formları kullanma uyu..."
+description: Metin kutuları, onay kutularını, radyo düğmeleri ve açılır listeleri gibi kullanıcı girişini denetimleri nerede yerleştirdiğiniz bir bölümü bir HTML belgesinin biçimidir. Formları kullanma uyu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma
 ====================
@@ -35,7 +35,7 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > 
 > - `Request` Nesnesi.
 > - Giriş doğrulaması.
-> - HTML encoding.
+> - HTML kodlaması.
 >   
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
@@ -73,7 +73,7 @@ Formu işlemeye gönderilen alan değerlerini okuyan ve bunlarla bir şey olmad�
 
     ![Sayfada görüntülenen girdiğiniz değerleri gösteren ekran görüntüsü.](4-working-with-forms/_static/image2.jpg)
 
-    Sayfa için kod bakabilirsiniz. İlk kullandığınız `IsPost` sayfa mi gönderiliyor &#8212; diğer bir deyişle, bir kullanıcı olup tıklattınız belirlemek amacıyla yöntemi **gönderme** düğmesi. Bu bir post ise `IsPost` true değerini döndürür. Bu bir ilk isteği (GET isteği) veya geri gönderme (bir POST isteği) ile çalışıyorsanız olup olmadığını belirlemek için standart ASP.NET Web Pages'de yoludur. (GET ve POST hakkında daha fazla bilgi için bkz: "HTTP GET ve POST ve IsPost Property" kenar [ASP.NET Web sayfalarını programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Sayfa için kod bakabilirsiniz. İlk kullandığınız `IsPost` sayfası gönderilmesini olup olmadığını belirlemek amacıyla yöntemi &#8212; mı yoksa bir kullanıcı başka bir deyişle, tıklattınız **gönderme** düğmesi. Bu bir post ise `IsPost` true değerini döndürür. Bu bir ilk isteği (GET isteği) veya geri gönderme (bir POST isteği) ile çalışıyorsanız olup olmadığını belirlemek için standart ASP.NET Web Pages'de yoludur. (GET ve POST hakkında daha fazla bilgi için bkz: "HTTP GET ve POST ve IsPost Property" kenar [ASP.NET Web sayfalarını programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
     Ardından, gelen kullanıcı doldurulan değerleri alma `Request.Form` nesne ve put bunları değişkenler için daha sonra. `Request.Form` Nesne sayfası, her bir anahtar tarafından tanımlanan gönderildikleri tüm değerleri içerir. Anahtar eşdeğerdir `name` okumak istediğiniz form alanının özniteliği. Örneğin, okumak için `companyname` alan (metin kutusu), kullandığınız `Request.Form["companyname"]`.
 
@@ -89,7 +89,7 @@ Formu işlemeye gönderilen alan değerlerini okuyan ve bunlarla bir şey olmad�
 > 
 > HTML kodlaması bu ayrılmış karakterleri tarayıcılar doğru simge olarak yorumlanan kod ile değiştirir. Örneğin, `<` karakter ile değiştirilir `&lt;` ve `>` karakter ile değiştirilir `&gt;`. Tarayıcı bu değiştirme dizelerini görmek istediğiniz karakter olarak işler.
 > 
-> Bu, HTML dizeleri görüntülemek istediğiniz zaman kodlama kullanmak için (bir kullanıcıdan aldığınız giriş) iyi bir fikirdir. Bunu yapmazsanız, bir kullanıcı web kötü amaçlı bir komut dosyası çalıştırma veya başka bir şey yapmak için site güvenliği tehlikeye atar veya değil ne düşündüğünüz sayfanızı almak deneyebilirsiniz. (Bu, izlerseniz kullanıcı girişi nedenini bildirmeden bir yerde saklayın ve daha sonra &#8212;görüntüler; örneğin, bir blog yorum kullanıcı gözden geçirin, özellikle önemlidir veya şuna benzer.)
+> Bu, HTML dizeleri görüntülemek istediğiniz zaman kodlama kullanmak için (bir kullanıcıdan aldığınız giriş) iyi bir fikirdir. Bunu yapmazsanız, bir kullanıcı web kötü amaçlı bir komut dosyası çalıştırma veya başka bir şey yapmak için site güvenliği tehlikeye atar veya değil ne düşündüğünüz sayfanızı almak deneyebilirsiniz. (Kullanıcı girişi alın, nedenini bildirmeden bir yerde depolamak ve daha sonra görüntülemek, bu özellikle önemlidir &#8212; Örneğin, bir blog yorum, kullanıcı gözden geçirme ya da benzer bir şey olarak.)
 > 
 > ASP.NET Web sayfaları bu sorunları otomatik olarak önlemeye yardımcı olmak için HTML olarak kodlar herhangi bir metin içeriği o kodunuzdan çıktı. Örneğin, bir değişken veya kod gibi kullanan bir ifade içeriğini görüntülediğinizde `@MyVar`, ASP.NET Web sayfaları, çıktı otomatik olarak kodlar.
 

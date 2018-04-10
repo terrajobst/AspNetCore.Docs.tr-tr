@@ -2,21 +2,21 @@
 uid: whitepapers/overview
 title: Teknik incelemeler | Microsoft Docs
 author: rick-anderson
-description: "Bu sayfada, yükleme ve ASP.NET yapılandırmanıza yardımcı olur ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmak için yardımcı olması için teknik incelemeler bulacaksınız."
+description: Bu sayfada, yükleme ve ASP.NET yapılandırmanıza yardımcı olur ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmak için yardımcı olması için teknik incelemeler bulacaksınız.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2011
 ms.topic: article
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers
 msc.type: content
 ms.openlocfilehash: ba9fda509605025754dc9753266f86585f38b089
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="whitepapers"></a>Teknik İncelemeler
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/24/2018
 > - [ASP.NET 4](#aspnet4)
 > - [ASP.NET güvenlik teknik incelemeler](#security)
 > - [Yükleme ve Kurulum teknik incelemeler](#setup)
-> - [SQL Server Whitepapers](#sql)
+> - [SQL Server teknik incelemeler](#sql)
 > - [Genel teknik incelemeler](#general)
 
 

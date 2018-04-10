@@ -16,7 +16,7 @@ ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC giriş
 ====================
@@ -64,7 +64,7 @@ Visual Web Developer bir IDE veya tümleşik geliştirme ortamı değil. Belgele
 
 Visual Basic veya Visual C# kullanarak uygulama oluşturabilirsiniz. Şu an seçin Visual C# solda, ardından "ASP.NET MVC 2 Web uygulaması." seçin "Filmler" projenizi adlandırın ve Tamam'ı tıklatın.
 
-[![New Project](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
+[![Yeni Proje](getting-started-with-mvc-part1/_static/image8.png)](getting-started-with-mvc-part1/_static/image7.png)
 
 Sağ tarafta tüm dosya ve klasörler, uygulamanızda gösteren Çözüm Gezgini ' dir. Büyük ortasında burada kodunuzu düzenleyin ve çoğu zaman, harcamanız penceredir. Visual Studio varsayılan bir şablon, yeni oluşturduğunuz, ASP.NET MVC proje için kullanılan çalışan bir uygulama şu anda herhangi bir şey yapmadan elinizde! Bu bir basit "Hello World! olur Proje ve uygulamamız için başlatmak için iyi bir yerdir.
 

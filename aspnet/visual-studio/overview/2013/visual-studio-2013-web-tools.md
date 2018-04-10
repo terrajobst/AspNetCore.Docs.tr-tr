@@ -1,26 +1,26 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-tools
-title: "Laboratuvar durum: Visual Studio 2013 Web Araçları | Microsoft Docs"
+title: 'Laboratuvar durum: Visual Studio 2013 Web Araçları | Microsoft Docs'
 author: rick-anderson
-description: "Visual Studio, için mükemmel bir geliştirme ortamıdır. NET tabanlı Windows ve web projeleri. Kolayca için kullanılabilecek bir güçlü metin düzenleyicisi içerir..."
+description: Visual Studio, için mükemmel bir geliştirme ortamıdır. NET tabanlı Windows ve web projeleri. Kolayca için kullanılabilecek bir güçlü metin düzenleyicisi içerir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
 ms.openlocfilehash: ef8ab82f9043ef9da3a3e6a146a97f083149534d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/10/2018
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Laboratuvar durum: Visual Studio 2013 Web Araçları
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 [Kit eğitim Web Camps indirin](http://aka.ms/webcamps-training-kit)
 
@@ -30,7 +30,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Bu güç tümünün ayrıca gereksinimlerinize uygun olarak düzenleyicileri güçlü yeni özelliklerle genişletmek basit hale getirme uzantılar, mevcut değil. Web Essentials (çoğunlukla) web ile ilgili geliştirmeler için Visual Studio koleksiyonudur. Çok sayıda yeni IntelliSense tamamlamalar (özellikle de CSS), yeni tarayıcı bağlantısı özellikleri, otomatik içeren JSHint JavaScript dosyaları, HTML, CSS ve modern web geliştirme için gerekli olan diğer birçok özellik için yeni uyarılar.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -144,7 +144,7 @@ Bu alıştırmada, soru seçenekleri temsil eden HTML düğmeleri oluşturmak i�
 
 1. Visual Studio'ya geri çevirin.
 2. Açık **Index.cshtml** bulunan dosya **görünümleri** | **giriş** klasör.
-3. Değiştir  **&lt;!--TODO: seçenekler burada--eklemek&gt;**  açıklama aşağıdaki kodu ve basın **sekmesini**.
+3. Değiştir **&lt;!--TODO: seçenekler burada--eklemek&gt;** açıklama aşağıdaki kodu ve basın **sekmesini**.
 
     [!code-css[Main](visual-studio-2013-web-tools/samples/sample1.css)]
 4. HTML kod genişletilmiş.
@@ -307,7 +307,7 @@ Bu görevde, tarayıcı bağlantının kullanacağı **Tasarım modunda** taray�
     ![Düzenlenen soru](visual-studio-2013-web-tools/_static/image29.png "düzenlenebilir soru")
 
     *Düzenlenen soru*
-4. Anahtar Visual Studio'ya geri dönün ve açık **Index.cshtml**, zaten açtıysanız. Dikkat iç metni  **&lt;p&gt;**  öğesi güncelleştirilmiştir.
+4. Anahtar Visual Studio'ya geri dönün ve açık **Index.cshtml**, zaten açtıysanız. Dikkat iç metni **&lt;p&gt;** öğesi güncelleştirilmiştir.
 
     ![HTML sayfasındaki güncelleştirilmiş soru](visual-studio-2013-web-tools/_static/image30.png "güncelleştirilmiş soru HTML sayfasındaki")
 
@@ -323,7 +323,7 @@ Bu görevde, tarayıcı bağlantının kullanacağı **Tasarım modunda** taray�
     ![Hata Listesi görünümünde menü](visual-studio-2013-web-tools/_static/image31.png "hata listesinde Görünüm menüsü")
 
     *Hata Listesi görünümünde menüsü*
-2. Bildiren bir SEO uyarı fark bir  **&lt;meta&gt;**  sayfası açıklaması eksik etiketi. Sorunu gidermek için SEO uyarı girişi çift tıklatın.
+2. Bildiren bir SEO uyarı fark bir **&lt;meta&gt;** sayfası açıklaması eksik etiketi. Sorunu gidermek için SEO uyarı girişi çift tıklatın.
 
     ![Hata Listesi penceresi](visual-studio-2013-web-tools/_static/image32.png "Hata Listesi penceresi")
 
@@ -333,7 +333,7 @@ Bu görevde, tarayıcı bağlantının kullanacağı **Tasarım modunda** taray�
     ![Web Essentials iletişim kutusu](visual-studio-2013-web-tools/_static/image33.png "Web Essentials iletişim kutusu")
 
     *Web Essentials iletişim kutusu*
-4. Düzenleyicisi  **\_Layout.cshtml** açar ve  **&lt;meta&gt;**  etiketi otomatik olarak eklenir **head** bölümü HTML dosyası.
+4. Düzenleyicisi  **\_Layout.cshtml** açar ve **&lt;meta&gt;** etiketi otomatik olarak eklenir **head** bölümü HTML dosyası.
 
     ![Otomatik olarak _Layout sayfasında eklenen Meta etiketi](visual-studio-2013-web-tools/_static/image34.png "_Layout sayfasında otomatik olarak eklenen Meta etiketi")
 
@@ -354,7 +354,7 @@ Bu görevde bir etiket ve giriş alanını içeren yeni bir HTML form öğesi ol
 
 1. Açık **için Visual Studio Express 2013 Web** ve **Begin.sln** çözüm bulunan **kaynak/Ex2-TakingAdvantageofCodeSnippetsandIntelliSense/başlangıç** klasör. Alternatif olarak, önceki alıştırmada elde çözümüyle devam edebilirsiniz.
 2. İçinde **Çözüm Gezgini**, açık **Index.cshtml** bulunan dosya **görünümleri** | **giriş** klasör.
-3. Aşağıdaki form içinde eklemek  **&lt;bölüm&gt;**  öğesi.
+3. Aşağıdaki form içinde eklemek **&lt;bölüm&gt;** öğesi.
 
     (Kod parçacığını - *VisualStudio2013WebTooling* - *Ex2* - *Form*)
 
@@ -362,19 +362,19 @@ Bu görevde bir etiket ve giriş alanını içeren yeni bir HTML form öğesi ol
 4. Giriş etiketi, alanın bazı açıklaması etiketle tarafından gelmelidir. Giriş etiketi önce aşağıdaki etiketi ekleyin.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample5.html)]
-5. **İçin** özniteliği bir  **&lt;etiket&gt;**  hangi form öğesi bir etiket bağlı belirtir. Özniteliğin değeri ilgili öğe kimliğine eşit olması gerekir. Ekleme **için** özniteliğini  **&lt;etiket&gt;**  öğesi. Aşağıdaki şekilde gösterildiği gibi &quot;adı&quot; değeri açılır IntelliSense kutusunda aynı kapsamdaki öğelerin kimliğini göre (kapsayan  **&lt;form&gt;**).
+5. **İçin** özniteliği bir **&lt;etiket&gt;** hangi form öğesi bir etiket bağlı belirtir. Özniteliğin değeri ilgili öğe kimliğine eşit olması gerekir. Ekleme **için** özniteliğini **&lt;etiket&gt;** öğesi. Aşağıdaki şekilde gösterildiği gibi &quot;adı&quot; değeri açılır IntelliSense kutusunda aynı kapsamdaki öğelerin kimliğini göre (kapsayan  **&lt;form&gt;**).
 
     ![IntelliSense içinde kimliği gösteren](visual-studio-2013-web-tools/_static/image35.png "IntelliSense içinde kimliği gösterme")
 
     *IntelliSense içinde kimliği gösterme*
-6. Son eklenen silme  **&lt;form&gt;**  öğesi ve içeriği.
+6. Son eklenen silme **&lt;form&gt;** öğesi ve içeriği.
 
 <a id="Ex2Task2"></a>
 #### <a name="task-2---using-html-code-snippets"></a>Görev 2 - kullanarak HTML kod parçacıkları
 
 HTML5 25'ten fazla yeni anlamsal etiketler sunmuştur. Visual Studio bu etiketler için IntelliSense desteği zaten, ancak daha hızlı ve kolay yeni kod parçacıkları ekleyerek biçimlendirme yazmak Visual Studio 2013 yapar. Bu etiketler karmaşık olmasa da, bunlar için doğru codec geri dönüşler ekleme gibi birkaç küçük subtleties gelir *ses* etiketi. Bu görevde, ses etiketi HTML kod parçacıkları görürsünüz.
 
-1. İçinde **Index.cshtml** dosya, yazın  **&lt;aud** içinde  **&lt;bölüm&gt;**  aşağıdaki resimde gösterildiği gibi öğesi.
+1. İçinde **Index.cshtml** dosya, yazın  **&lt;aud** içinde **&lt;bölüm&gt;** aşağıdaki resimde gösterildiği gibi öğesi.
 
     ![Bir audio öğesi ekleme](visual-studio-2013-web-tools/_static/image36.png "bir audio öğesi ekleniyor")
 
@@ -385,7 +385,7 @@ HTML5 25'ten fazla yeni anlamsal etiketler sunmuştur. Visual Studio bu etiketle
 
     > [!NOTE]
     > Basarak **sekmesini** anahtar iki kez, kod parçacığında eklenir. Ses parçacığı standart kullanımını gösterir *ses* etiketiyle iki kaynak dosyaları için geliştirilmiş destek.
-3. İkinci satır silme ve aşağıdaki bağlantı WebCampsTV Katana Göster ile ilk satırının kaynağı güncelleştirme: [http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Sonuçta elde edilen kod aşağıda verilmiştir.
+3. İkinci satır silme ve aşağıdaki bağlantı WebCampsTV Katana Göster ile ilk satırının kaynağı güncelleştirme: [ http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3 ](http://media.ch9.ms/ch9/11d8/604b8163-fad3-4f12-9607-b404201211d8/KatanaProject.mp3). Sonuçta elde edilen kod aşağıda verilmiştir.
 
     [!code-html[Main](visual-studio-2013-web-tools/samples/sample7.html)]
 
@@ -465,7 +465,7 @@ Web Essentials 2013 ile stil sayfaları ve HTML sayfaları kimlikleri ve sınıf
     ![GetElementByTagName yöntemi için IntelliSense gösteren](visual-studio-2013-web-tools/_static/image45.png "gösteren IntelliSense getElementByTagName yöntemi")
 
     *GetElementsByTagName yöntemini gösteren IntelliSense*
-13. Seçin  **&quot;ses&quot;**  basın ve liste **ENTER**. Sonuç aşağıdaki çizimde gösterilmiştir.
+13. Seçin **&quot;ses&quot;** basın ve liste **ENTER**. Sonuç aşağıdaki çizimde gösterilmiştir.
 
     ![Ses öğeleri alınıyor](visual-studio-2013-web-tools/_static/image46.png "ses öğeleri alınıyor")
 

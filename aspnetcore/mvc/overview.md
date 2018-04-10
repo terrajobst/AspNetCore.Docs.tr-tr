@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
 ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -27,7 +27,7 @@ Model-View-Controller (MVC) tasarım örüntüsü bir uygulama bileşenlerinin �
 
 Aşağıdaki diyagramda üç ana bileşeni gösterir ve hangilerinin diğer başvuru:
 
-![MVC Pattern](overview/_static/mvc.png)
+![MVC örüntüsü](overview/_static/mvc.png)
 
 Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve bir şey (model, görünüm veya denetleyicisi) tek bir işin test etmeyi daha kolay olduğundan ölçek yardımcı olur (ve izleyen [tek sorumluluk İlkesi ](http://deviq.com/single-responsibility-principle/)). Bu güncelleştirme, test ve iki veya daha fazla üç bu alanlar arasında yayılan bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kodu ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştiğinde iş mantığı içeren bir nesne değiştirilmesi gerekir. Bu genellikle hataları tanıtır ve iş mantığını her en az kullanıcı arabirimi değişiklikten sonra retesting gerektirir.
 

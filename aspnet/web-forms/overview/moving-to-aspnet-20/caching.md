@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>Önbelleğe alma
 ====================
@@ -77,7 +77,7 @@ Yukarıdaki komutta kullanılan komut satırı anahtarları bir açıklaması ve
 
 | **Komut satırı anahtarı** | **Amaç** |
 | --- | --- |
-| -S *sunucu* | Sunucu adını belirtir. |
+| -S *server* | Sunucu adını belirtir. |
 | -ed | Veritabanı için SQL önbellek bağımlılığı etkin olması gerektiğini belirtir. |
 | -d *veritabanı\_adı* | SQL önbellek bağımlılığı için etkinleştirilmelidir veritabanı adını belirtir. |
 | -E | Bu aspnet belirtir\_regsql veritabanına bağlanırken Windows kimlik doğrulaması kullanmanız. |
@@ -90,7 +90,7 @@ Yukarıdaki komutta kullanılan komut satırı anahtarları bir açıklaması ve
 
 Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server veritabanına yapılır:
 
-- An **AspNet\_SqlCacheTablesForChangeNotification** table is added. Bu tablo bir SQL önbellek bağımlılığı etkin veritabanındaki her tablo için bir satır içerir.
+- Bir **AspNet\_SqlCacheTablesForChangeNotification** tablo eklenir. Bu tablo bir SQL önbellek bağımlılığı etkin veritabanındaki her tablo için bir satır içerir.
 - Aşağıdaki saklı yordamlar veritabanı içinde oluşturulur:
 
 
@@ -214,9 +214,9 @@ Bir ControlCachePolicy örneği başarıyla yalnızca Init ve PreRender aşamala
 
 ASP.NET 2.0 önbelleğe alma yapılandırması için bazı değişiklikler vardır. &lt;Önbelleğe alma&gt; öğesi ASP.NET 2. 0 ' yenidir ve yapılandırma dosyasında önbelleğe alma yapılandırma değişiklikleri yapmasını sağlar. Aşağıdaki öznitelikler kullanılabilir.
 
-| **Öğesi** | **Açıklama** |
+| **Element** | **Açıklama** |
 | --- | --- |
-| **Önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
+| **cache** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
 | **outputCache** | İsteğe bağlı öğe. Uygulama çapında çıkış önbelleği ayarlarını belirtir. |
 | **outputCacheSettings** | İsteğe bağlı öğe. Uygulama sayfalarına uygulanan çıkış önbelleği ayarlarını belirtir. |
 | **sqlCacheDependency** | İsteğe bağlı öğe. Bir ASP.NET uygulaması için SQL önbellek bağımlılıkları yapılandırır. |
@@ -285,7 +285,7 @@ Aşağıdaki öznitelikler kullanılabilir &lt;sqlCacheDependency&gt; öğesi.
 4. Kaynak görünümünde default.aspx üstüne aşağıdakileri ekleyin: 
 
     [!code-aspx[Main](caching/samples/sample16.aspx)]
-5. Browse Default.aspx. Ne zaman dediği?
+5. Default.aspx göz atın. Ne zaman dediği?
 6. Tarayıcıyı yenileyin. Ne zaman dediği?
 7. Cache.XML açın ve aşağıdaki kodu ekleyin: 
 

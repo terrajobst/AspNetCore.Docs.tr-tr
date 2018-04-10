@@ -15,7 +15,7 @@ ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core paket ve minifiy statik varlıkları
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda tek tek varlıklar yükleme ve paketleme ve küçültme kul
 Eylem | B/M ile | B/M | Değiştir
 --- | :---: | :---: | :---:
 Dosya istekleri  | 7   | 18     | 157%
-KB Transferred | 156 | 264.68 | 70%
+Aktarılan KB | 156 | 264.68 | 70%
 Yükleme süresi (ms) | 885 | 2360   | 167%
 
 Tarayıcılar HTTP istek üstbilgilerinin açısından oldukça ayrıntılıdır. Toplam bayt sayısı, paketleme, önemli ölçüde azalma ölçüm gördüğünüz gönderdi. Bu örnek yerel olarak çalıştı ancak önemli bir iyileştirme yükleme zamanını gösterir. Paketleme ve küçültme varlıklarla kullanarak bir ağ üzerinden aktarıldığında büyük performans artışı alırlar.
@@ -83,7 +83,7 @@ Yapılandırma seçenekleri şunlardır:
   * Çıkış dosya türü yapılandırma seçenekleri kullanılabilir.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [HTML küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Proje dosyası için oluşturulan dosyalar eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMap`: İle birlikte gelen dosyası için kaynak eşlemesi oluşturulup oluşturulmayacağını belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMapRootPath`: Oluşturulan kaynak eşleme dosyasını depolayan kök yolu.

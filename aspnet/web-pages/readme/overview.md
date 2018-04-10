@@ -16,7 +16,7 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="webmatrix-readme"></a>WebMatrix Benioku dosyası
 ====================
@@ -137,7 +137,7 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 
 #### <a id="Changes"></a>  Değişiklikleri
 
-#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Change: "webPages:AdminFolderVirtualPath" key renamed to "asp:AdminFolderVirtualPath"
+#### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Değiştir: "asp: AdminFolderVirtualPath" yeniden adlandırılmış "webPages:AdminFolderVirtualPath" anahtarı
 
 > `webPages:AdminFolderVirtualPath` Eklenebilir anahtar *web.config* Paket Yöneticisi konumunu belirtmek için dosya kullanmak için adlandırılmıştır `asp:` ad alanı yerine `webPages` ad alanı. Bu öğe kullandıysanız, yapılandırma dosyasında yeniden adlandırmanız gerekir.
 
@@ -259,8 +259,8 @@ Bu bölümde belgenin yeni özellikler, değişiklikler ve Razor sözdizimi ile 
 > 
 >    - Copy *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
 >        **to** *\Bin*
->    - Kopya <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>için</em></strong>\Bin\x86*
->    - Kopya <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>için</strong><em>\Bin\amd64</em>
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>to</em></strong>\Bin\x86*
+>    - Copy <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>to</strong><em>\Bin\amd64</em>
 > 
 > 2. Web sitesinin kök klasöründe oluşturun veya açın bir *web.config* dosya. (WebMatrix 1. 0'da, bu dosya türü tıklatırsanız kullanılabilir **tüm** içinde **bir dosya türünü seçin** iletişim kutusu.)
 > 3. Bir alt öğesi olarak aşağıdaki öğeyi ekleyin `<configuration>` öğesi (içinde değil `<system.web>` öğesi):

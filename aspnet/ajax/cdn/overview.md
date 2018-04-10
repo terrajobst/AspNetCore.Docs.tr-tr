@@ -13,12 +13,12 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
 ms.openlocfilehash: bc5f40746ad6b1ed8a74bcb75def9ff8f08fb789
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
-<a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
+<a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax içerik teslim ağı
 ====================
 > [!WARNING]
 > Üretim uygulamaları sıkı bir bağımlılık CDN varlıklar almamalıdır. Uygulamaları başvurulan CDN varlık için test ve CDN kullanılabilir değilse, bir geri dönüş varlık kullanmanız gerekir. 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="table-of-contents"></a>İçindekiler tablosu
 
 **[ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
+**[Visual Studio .vsdoc desteği](#Visual_Studio_vsdoc_Support_19)**  
 **[ASP.NET Ajax CDN kullanma](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[CDN jQuery kullanma](#Using_jQuery_from_the_CDN_21)**  
 **[JQuery UI CDN kullanma](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -68,12 +68,12 @@ CDN yüklenmiş ve size bu kitaplıkları sahibi tarafından lisanslanır aşağ
 - jQuery UI (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
 - jQuery doğrulama (www.jquery.com)
-- jQuery döngüsü (www.malsup.com/jquery/cycle/)
+- jQuery Cycle (www.malsup.com/jquery/cycle/)
 - jQuery DataTables)http://datatables.net/)
 
 Microsoft Ajax CDN Ayrıca, Microsoft tarafından yüklenen aşağıdaki kitaplıkları içerir:
 
-- ASP.NET Ajax
+- ASP.NET Ajax'ı
 - ASP.NET MVC JavaScript dosyaları
 - ASP.NET SignalR JavaScript dosyaları
 
@@ -83,7 +83,7 @@ JavaScript kitaplığı göndermek istiyor ve kitaplığınızın üst JavaScrip
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
-## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a>ajax.microsoft.com renamed to ajax.aspnetcdn.com
+## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a>ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı
 
 CDN microsoft.com etki alanı adını kullanmak için kullanılan ve aspnetcdn.com etki alanı adını kullanmak üzere değiştirildi. Bu değişiklik, bir tarayıcı microsoft.com etki alanı başvurulduğunda tüm tanımlama bilgilerini bu etki alanından her istek ile kablo üzerinden göndermeden çünkü performansı artırmak için yapılmıştır. Microsoft.com dışında bir etki alanı adı için adlandırarak performans çok % 25 olarak artırılabilir. Not ajax.microsoft.com çalışmaya devam eder ancak ajax.aspnetcdn.com önerilir.
 
@@ -313,25 +313,25 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.map
 
-#### <a name="jquery-version-1123"></a>jQuery version 1.12.3
+#### <a name="jquery-version-1123"></a>jQuery sürüm 1.12.3
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.min.map
 
-#### <a name="jquery-version-1122"></a>jQuery version 1.12.2
+#### <a name="jquery-version-1122"></a>jQuery sürüm 1.12.2
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.map
 
-#### <a name="jquery-version-1121"></a>jQuery version 1.12.1
+#### <a name="jquery-version-1121"></a>jQuery sürüm 1.12.1
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.min.map
 
-#### <a name="jquery-version-1120"></a>jQuery version 1.12.0
+#### <a name="jquery-version-1120"></a>jQuery sürüm 1.12.0
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js
@@ -397,7 +397,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.min.map
 
-#### <a name="jquery-version-183"></a>jQuery version 1.8.3
+#### <a name="jquery-version-183"></a>jQuery sürüm 1.8.3
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js
@@ -444,7 +444,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4-vsdoc.js
 
-#### <a name="jquery-version-163"></a>jQuery version 1.6.3
+#### <a name="jquery-version-163"></a>jQuery sürüm 1.6.3
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js
@@ -607,22 +607,22 @@ JQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürümleri, bu CDN üzer
 JQuery doğrulama kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
 
 - [jQuery doğrulama 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery doğrulama 1.17.0")
-- [jQuery Validate 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery Validation 1.16.0")
+- [jQuery doğrulama 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery doğrulama 1.16.0")
 - [jQuery doğrulama 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery doğrulama 1.15.1")
 - [jQuery doğrulama 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery doğrulama 1.15.0")
 - [jQuery doğrulama 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery doğrulama 1.14.0")
-- [jQuery Validate 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery Validation 1.13.1")
-- [jQuery Validate 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery Validation 1.13.0")
+- [jQuery doğrulama 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery doğrulama 1.13.1")
+- [jQuery doğrulama 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery doğrulama 1.13.0")
 - [jQuery doğrulama 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery doğrulama 1.12.0")
 - [jQuery doğrulama 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery doğrulama 1.11.1")
 - [jQuery doğrulama 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery doğrulama 1.11.0")
 - [jQuery doğrulama 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery doğrulama 1.10.0")
 - [jQuery doğrulama 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate sürüm 1.9")
-- [jQuery Validate 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate version 1.8.1")
+- [jQuery doğrulama 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate sürüm 1.8.1")
 - [jQuery doğrulama 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate sürüm 1,8")
 - [jQuery doğrulama 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate sürüm 1.7")
 - [jQuery doğrulama 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery doğrulama 1.6")
-- [jQuery Validate 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery Validate 1.5.5")
+- [jQuery doğrulama 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery doğrulama 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
@@ -630,22 +630,22 @@ JQuery doğrulama kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barın
 
 JQuery Mobile kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
 
-- [jQuery Mobile 1.4.5](jquery-mobile/cdnjquerymobile145.md "jQuery Mobile 1.4.5 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.2](jquery-mobile/cdnjquerymobile142.md "jQuery Mobile 1.4.2 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.1](jquery-mobile/cdnjquerymobile141.md "jQuery Mobile 1.4.1 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.0](jquery-mobile/cdnjquerymobile140.md "jQuery Mobile 1.4.0 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.2](jquery-mobile/cdnjquerymobile132.md "jQuery Mobile 1.3.2 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.1](jquery-mobile/cdnjquerymobile131.md "jQuery Mobile 1.3.1 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.0](jquery-mobile/cdnjquerymobile130.md "jQuery Mobile 1.3.0 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.2.0](jquery-mobile/cdnjquerymobile120.md "jQuery Mobile 1.2.0 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.2](jquery-mobile/cdnjquerymobile112.md "jQuery Mobile 1.1.2 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.1](jquery-mobile/cdnjquerymobile111.md "jQuery Mobile 1.1.1 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.0](jquery-mobile/cdnjquerymobile110.md "jQuery Mobile 1.1.0 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "jQuery Mobile 1.1.0 RC2 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.0.1](jquery-mobile/cdnjquerymobile101.md "jQuery Mobile 1.0.1 on the Microsoft Ajax CDN")
+- [jQuery Mobile 1.4.5](jquery-mobile/cdnjquerymobile145.md "jQuery Mobile 1.4.5 Microsoft Ajax CDN")
+- [jQuery Mobile 1.4.2](jquery-mobile/cdnjquerymobile142.md "jQuery Mobile 1.4.2 Microsoft Ajax CDN")
+- [jQuery Mobile 1.4.1](jquery-mobile/cdnjquerymobile141.md "jQuery Mobile 1.4.1 Microsoft Ajax CDN")
+- [jQuery Mobile 1.4.0](jquery-mobile/cdnjquerymobile140.md "jQuery Mobile 1.4.0 Microsoft Ajax CDN")
+- [jQuery Mobile 1.3.2](jquery-mobile/cdnjquerymobile132.md "jQuery Mobile 1.3.2 Microsoft Ajax CDN")
+- [jQuery Mobile 1.3.1](jquery-mobile/cdnjquerymobile131.md "jQuery Mobile 1.3.1 Microsoft Ajax CDN")
+- [jQuery Mobile 1.3.0](jquery-mobile/cdnjquerymobile130.md "jQuery Mobile 1.3.0 Microsoft Ajax CDN")
+- [jQuery Mobile 1.2.0](jquery-mobile/cdnjquerymobile120.md "jQuery Mobile 1.2.0 Microsoft Ajax CDN")
+- [jQuery Mobile 1.1.2](jquery-mobile/cdnjquerymobile112.md "jQuery Mobile 1.1.2 Microsoft Ajax CDN")
+- [jQuery Mobile 1.1.1](jquery-mobile/cdnjquerymobile111.md "jQuery Mobile 1.1.1 Microsoft Ajax CDN")
+- [jQuery Mobile 1.1.0](jquery-mobile/cdnjquerymobile110.md "jQuery Mobile 1.1.0 Microsoft Ajax CDN")
+- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "jQuery Mobile 1.1.0 RC2 için Microsoft Ajax CDN")
+- [jQuery Mobile 1.0.1](jquery-mobile/cdnjquerymobile101.md "jQuery Mobile 1.0.1 Microsoft Ajax CDN")
 - [jQuery Mobile 1.0](jquery-mobile/cdnjquerymobile10.md "jQuery Mobile 1.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.0 RC 2](jquery-mobile/cdnjquerymobile10rc2.md "jQuery Mobile 1.0 RC2 on the Microsoft Ajax CDN")
-- [jQuery Mobile 1.0 RC 1](jquery-mobile/cdnjquerymobile10rc1.md "jQuery Mobile 1.0 RC1 on the Microsoft Ajax CDN")
+- [jQuery Mobile 1.0 RC 2](jquery-mobile/cdnjquerymobile10rc2.md "jQuery Mobile 1.0 RC2 için Microsoft Ajax CDN üzerinde")
+- [jQuery Mobile 1.0 RC 1](jquery-mobile/cdnjquerymobile10rc1.md "jQuery Mobile 1.0 RC1 için Microsoft Ajax CDN üzerinde")
 - [jQuery Mobile 1.0 beta 3](jquery-mobile/cdnjquerymobile10b3.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 Beta 3")
 
 <a id="jQuery_Templates_Releases_on_the_CDN_5"></a>

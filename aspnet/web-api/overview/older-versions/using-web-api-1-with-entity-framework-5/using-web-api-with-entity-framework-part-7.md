@@ -16,7 +16,7 @@ ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="part-7-creating-the-main-page"></a>7. Kısım: ana oluşturma sayfası
 ====================
@@ -86,7 +86,7 @@ Bu ürünler dizi tekrarlanan ve fiyat ve adını görüntüler. Yalnızca kulla
 
 "Sırada Ekle" düğmesi çağrıları `addItemToCart` üzerinde `ProductViewModel` ürün için örneği. Bu iyi bir özelliği olan Knockout.js gösterir: görünüm modeli diğer görünüm modelleri içerdiğinde, iç model bağlamaları uygulayabilirsiniz. Bu örnekte, içinde bağlamaları `foreach` her biri için uygulanan `ProductViewModel` örnekleri. Bu yaklaşım tüm işlevleri tek bir görünüm-modeline koyma daha çok temizleyici olur.
 
-**Sepeti**
+**Cart**
 
 Alışveriş için olan bağlamaları şunlardır:
 

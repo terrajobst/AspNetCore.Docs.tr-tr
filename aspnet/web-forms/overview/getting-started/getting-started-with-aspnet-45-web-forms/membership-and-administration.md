@@ -16,7 +16,7 @@ ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="membership-and-administration"></a>Üyelik ve yönetim
 ====================
@@ -47,7 +47,7 @@ Bu öğretici Wingtip Toys öğretici serisinde "Checkout ve ödeme ile PayPal" 
 
 - ASP.NET Kimlik
 - Yapılandırma ve yetkilendirme
-- Model Binding
+- Model bağlama
 - Örtük doğrulama
 
 ASP.NET Web Forms üyelik özellikleri sağlar. Varsayılan şablonu kullanarak, uygulama çalıştığında hemen kullanabileceğiniz yerleşik üyelik işlevselliğe sahip. Bu öğreticide, ASP.NET Identity özel bir rol ekleyin ve bir kullanıcı o role atamak için nasıl kullanılacağını gösterir. Yönetim klasörüne erişimi kısıtlamak öğreneceksiniz. Bir sayfa ekleyin ve ürünleri kaldırmak için ve eklendikten sonra bir ürün önizlemek için özel bir rol sahip bir kullanıcı izin veren yönetim klasöre ekleyeceksiniz.
@@ -192,7 +192,7 @@ Kullanıcı sağlar ürün ayrıntıları *AdminPage.aspx* sayfa doğrulama dene
 
 Eklediğiniz giriş ve doğrulama denetimleri yanı sıra **dosya yükleme** denetimini *AdminPage.aspx* sayfası. Bu denetim dosyaları karşıya yükleme yeteneği sağlar. Bu durumda, yalnızca resim dosyaları karşıya yüklenecek sağlamaktadır. Arka plan kod dosyasına (*AdminPage.aspx.cs*), `AddProductButton` tıklandığında, kod denetimleri `HasFile` özelliği **dosya yükleme** denetim. Denetim bir dosya varsa ve dosya türünü (dosya uzantısına göre) izin veriliyorsa, görüntünün kaydedilir *görüntüleri* klasör ve *görüntüleri/başparmak* uygulamanın klasör.
 
-#### <a name="model-binding"></a>Model Binding
+#### <a name="model-binding"></a>Model bağlama
 
 Bu öğretici serisinde daha önce model bağlama doldurmak için kullanılan bir **ListView** denetimi, bir **FormsView** denetimi, bir **GridView** denetimi ve  **DetailView** denetim. Bu öğreticide, model bağlama doldurmak için kullandığınız bir **DropDownList** denetimi ile ürün kategorileri listesi.
 
@@ -243,7 +243,7 @@ Alışveriş sepeti içinde nasıl ekleyebileceğiniz görmek için uygulamayı 
    *Login.aspx* sayfası görüntülenir.
 3. Aşağıdaki kullanıcı adını ve parolasını kullanın:  
    Kullanıcı adı: canEditUser@wingtiptoys.com  
-   Parola: Pa$ $word1 
+   Password: Pa$$word1 
 
     ![Üyelik ve yönetim - oturum açma sayfasının](membership-and-administration/_static/image3.png)
 4. Tıklatın **oturum** düğmesi sayfanın yakın.

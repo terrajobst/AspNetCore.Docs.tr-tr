@@ -16,7 +16,7 @@ ms.openlocfilehash: 2ba1b73f40a920e27e4a03d9f703e62054d3f25c
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Bir denetleyicisinden modelinizin verilerine erişme
 ====================
@@ -29,7 +29,7 @@ Bu bölümde size yeni bir MoviesController sınıf oluşturun ve bizim film ver
 
 Denetleyicileri klasörü sağ tıklatın ve yeni MoviesController olun.
 
-[![Add Controller](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
+[![Denetleyici ekleme](getting-started-with-mvc-part5/_static/image2.png)](getting-started-with-mvc-part5/_static/image1.png)
 
 Bu bizim \Controllers klasör Projemizin içinde altında yeni bir "MoviesController.cs" dosyası oluşturur. Şimdi yeni doldurulan bizim veritabanından filmler listesini almak için MovieController güncelleştirin.
 
@@ -49,7 +49,7 @@ Ekle'yi tıklatın ve sistem otomatik olarak kod için bir görünüm filmler li
 
 Uygulamanızı çalıştırın ve adres çubuğuna /Movies ziyaret edin. Şimdi artık denetleyicisi içinde temel bir sorgu kullanarak veritabanı veri alınır ve filmler hakkında bildiği bir görünüme veri döndürdü. Bu görünüm sonra filmler listesi boyunca döner ve veri tablosu bize oluşturur.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image7.png)](getting-started-with-mvc-part5/_static/image6.png)
 
 İskele şablon bize için oluşturulan varsayılan bağlantıları gerekmez böylece Biz bu uygulamayla - düzenleme, Ayrıntılar ve silme işlevleri uygulama olmaz. /Movies/Index.aspx dosyasını açın ve bunları kaldırın.
 
@@ -59,7 +59,7 @@ Biz bu değişiklikleri yaptıktan sonra güncelleştirilmiş şablonu görünt�
 
 Biz bu örnek için silersiniz böylece biz gerekmez, bağlantılar oluşturuyor. Sonraki olduğu gibi biz yine de bizim Yeni Oluştur bağlantı devam edilecek! İşte uygulamamıza nasıl kaldırılır bu sütunla göründüğünü.
 
-[![Movie List - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
+[![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part5/_static/image9.png)](getting-started-with-mvc-part5/_static/image8.png)
 
 Şimdi sahip olduğumuz film verilerimizi, basit bir listesidir. Biz "Yeni Oluştur" bağlantısını tıklatın, bu sayfaya değil olarak ancak biz bir hata iletisi alırsınız! Şimdi oluşturmak eylem yöntemi uygulayabilirsiniz ve yeni filmler bizim veritabanında girmesini etkinleştirin.
 

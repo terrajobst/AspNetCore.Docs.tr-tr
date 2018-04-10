@@ -16,7 +16,7 @@ ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te yenilikler nelerdir?
 
@@ -144,7 +144,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceks
 
     ![jQuery doğrulama](whats-new-in-aspnet-mvc-4/_static/image6.png)
 
-    *jQuery Validation*
+    *jQuery doğrulama*
 
     > [!NOTE]
     > Bildirim, bölümlerinde, ilk bölüm iki oturum sitesinden kayıtlı hesabı kullanarak ve google (varsayılan olarak devre dışı) gibi başka bir kimlik doğrulama hizmeti kullanarak altenativelly oturum yapabilecekleriniz ikinci kısmında oturum açabilir.
@@ -639,7 +639,7 @@ Now you have 3 layouts in your ASP.NET MVC 4 application:
 7. Tuşuna **F5** uygulamayı çalıştırın ve sitede gözatmak için **Windows Phone öykünücüsü**.
 8. Açık bir **iPhone benzeticisi** (bkz [ek C](#AppendixC) yükleme ve bir iPhone benzeticisi yapılandırma hakkında yönergeler için) ve siteye çok göz atın. Her telefon belirli bir şablon kullandığını dikkat edin.
 
-    ![Using-Different-Views-for-each-Mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Her mobil cihaz için farklı görünümleri kullanma*
 

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/working-with-files
-title: "Bir ASP.NET Web sayfaları (Razor) sitesindeki dosyaları ile çalışma | Microsoft Docs"
+title: Bir ASP.NET Web sayfaları (Razor) sitesindeki dosyaları ile çalışma | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, okuma, yazma, ekleme, silme ve dosyaları karşıya yükleme açıklanmaktadır."
+description: Bu bölümde, okuma, yazma, ekleme, silme ve dosyaları karşıya yükleme açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde dosyalarıyla çalışma
 ====================
@@ -133,9 +133,9 @@ Bu yordamda okuyun ve önceki örnekte oluşturulan veri görüntüler gösteril
 
     Bunu yapmak için kod içindedir bir `if` deyimi. Bir dosyayı okuma istediğinizde, bunu kullanmak için iyi bir fikirdir `File.Exists` önce dosyanın mevcut olup olmadığını belirlemek amacıyla yöntemi. Kod ayrıca dosya boş olup olmadığını denetler.
 
-    Sayfa gövdesi iki içeren `foreach` döngüsü, bir diğer içe geçmiş. Dış `foreach` döngü veri dosyasından bir defada bir satır alır. Bu durumda, satırları satır sonları dosya &#8212;tanımlanır; diğer bir deyişle, her bir veri öğesi kendi satırında ' dir. Yeni bir öğe dış döngü oluşturur (`<li>` öğesi) sıralı liste içinde (`<ol>` öğesi).
+    Sayfa gövdesi iki içeren `foreach` döngüsü, bir diğer içe geçmiş. Dış `foreach` döngü veri dosyasından bir defada bir satır alır. Bu durumda, satırları satır sonları dosyasında tanımlanır &#8212; diğer bir deyişle, her veri kendi satırında öğesidir. Yeni bir öğe dış döngü oluşturur (`<li>` öğesi) sıralı liste içinde (`<ol>` öğesi).
 
-    İç döngü ayırıcı olarak virgül kullanarak öğeleri (alanları) her veri satırı ayıran. (Önceki örneği temel alarak, bu üç alan &#8212;her satırında anlamına gelir; ilk adını, soyadını ve e-posta adresi, her bir virgülle ayrılmış) İç döngü da oluşturur bir `<ul>` veri satırına her bir alan için madde listesi ve bir listesini görüntüler.
+    İç döngü ayırıcı olarak virgül kullanarak öğeleri (alanları) her veri satırı ayıran. (Önceki örneği temel alarak, her satır üç alanları içerir yani &#8212; ilk adını, soyadını ve e-posta adresi, her bir virgülle ayrılmış.) İç döngü da oluşturur bir `<ul>` veri satırına her bir alan için madde listesi ve bir listesini görüntüler.
 
     Kod iki veri türü, bir dizi kullanmayı gösterir ve `char` veri türü. Dizi gereklidir çünkü `File.ReadAllLines` yöntemi veri dizisi olarak döndürür. `char` Veri türü, çünkü gereklidir `Split` yöntemi döndürür bir `array` her öğe türü olduğu `char`. (Dizileri hakkında daha fazla bilgi için bkz: [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
 3. Bir tarayıcıda. Sayfayı çalıştırın. Önceki örneklerde girdiğiniz veriler görüntülenir. 
@@ -194,7 +194,7 @@ Web sitesinden dosyaları silmek için kullanabileceğiniz `File.Delete` yöntem
 
     İçin ayarladığınız özellikleri `FileUpload` yardımcı karşıya yüklenecek dosyayı için tek bir kutu istediğiniz ve okuma için Gönder düğmesinin istediğinizi belirtin **karşıya**. (Daha fazla kutuları makalenin sonraki bölümlerinde eklenecektir.)
 
-    Kullanıcı tıkladığında **karşıya**, sayfanın üst kısmındaki kod dosyası alır ve kaydeder. `Request` Form alanlardan değerlerini almak için normalde kullandığınız nesnesi de sahip bir `Files` dosya (veya dosyaları) içeren bir dizi, yüklediğiniz. Dizi &#8212;belirli konumlara dışında tek tek dosyaları alabilirsiniz; Örneğin, ilk yüklenen dosya almak için size `Request.Files[0]`, ikinci dosya almak için size `Request.Files[1]`ve benzeri. (Programlamada genellikle sayım sıfırda başladığını unutmayın.)
+    Kullanıcı tıkladığında **karşıya**, sayfanın üst kısmındaki kod dosyası alır ve kaydeder. `Request` Form alanlardan değerlerini almak için normalde kullandığınız nesnesi de sahip bir `Files` dosya (veya dosyaları) içeren bir dizi, yüklediğiniz. Dizideki belirli konumlara dışında tek tek dosyaları alabilirsiniz &#8212; Örneğin, ilk yüklenen dosya almak için size `Request.Files[0]`, ikinci dosya almak için size `Request.Files[1]`ve benzeri. (Programlamada genellikle sayım sıfırda başladığını unutmayın.)
 
     Yüklenen dosya getirme, onu bir değişkende yerleştirdiğiniz (burada, `uploadedFile`) böylece üzerinde çalışabilirsiniz. Yüklenen dosya adını belirlemek için yalnızca size kendi `FileName` özelliği. Ancak, ne zaman kullanıcı karşıya yükleyen bir dosya `FileName` tam yolu içerir kullanıcının özgün adı içeriyor. Şuna benzeyebilir:
 
@@ -238,7 +238,7 @@ Web sitesinden dosyaları silmek için kullanabileceğiniz `File.Delete` yöntem
 
     ![[Görüntü]](working-with-files/_static/image11.jpg)
 
-    Kullanıcı karşıya yükleme dosyalarını işlemek için önceki örnekte &#8212;kullanılan aynı temel teknik kod kullanır; bir dosyadan al `Request.Files` ve kaydedin. (Çeşitli öğeler de dahil olmak üzere, doğru dosya adını ve yolunu almak için yapmanız gerekir.) Bu süre yenilik, kullanıcı birden çok dosya karşıya yükleme ve birçok tanımadığınız ' dir. Öğrenmek için alabilirsiniz `Request.Files.Count`.
+    Kullanıcı yüklemeleri dosyalarını işlemek için önceki örnekte kullanılan aynı temel teknik kod kullanır &#8212; bir dosyadan al `Request.Files` ve kaydedin. (Çeşitli öğeler de dahil olmak üzere, doğru dosya adını ve yolunu almak için yapmanız gerekir.) Bu süre yenilik, kullanıcı birden çok dosya karşıya yükleme ve birçok tanımadığınız ' dir. Öğrenmek için alabilirsiniz `Request.Files.Count`.
 
     Elle bu numara ile aracılığıyla döngüye girer `Request.Files`her dosyayı sırayla almak ve kaydedin. Bilinen kaç kez koleksiyonu üzerinden döngü istediğinizde, kullanabileceğiniz bir `for` döngü şuna benzer:
 
