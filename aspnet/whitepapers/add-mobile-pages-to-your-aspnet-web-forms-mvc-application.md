@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: "Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması | Microsoft Docs"
+title: 'Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması | Microsoft Docs'
 author: rick-anderson
-description: "Bu nasıl yapılır sayfaları, ASP.NET Web Forms mobil cihazlar için en iyi duruma getirilmiş için çeşitli yollar açıklanmaktadır / MVC uygulama ve mimari önerir ve..."
+description: Bu nasıl yapılır sayfaları, ASP.NET Web Forms mobil cihazlar için en iyi duruma getirilmiş için çeşitli yollar açıklanmaktadır / MVC uygulama ve mimari önerir ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması
 ====================
@@ -185,7 +185,7 @@ Form kimlik doğrulaması burada bunu ziyaretçileri sırasında ve kimlik doğr
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- Bu kod sayfanızı LoginUser, olduğu gibi varsayılan proje şablonu olarak adlandırılan bir oturum açma sunucusu denetimi sahip varsayar.
+  Bu kod sayfanızı LoginUser, olduğu gibi varsayılan proje şablonu olarak adlandırılan bir oturum açma sunucusu denetimi sahip varsayar.
 
 ### <a name="working-with-output-caching"></a>Çıktı önbelleği ile çalışma
 
@@ -243,7 +243,7 @@ Ardından, uygulamanıza (yani, mobil bir, varolan bir Masaüstü ek olarak) iki
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Hata koy ve URL http:// gidecek artık*yoursite*/ Masaüstü giriş sayfası ve http:// ulaşabileceği*yoursite*/mobile/ mobil giriş sayfası ulaşmak.
+Hata koy ve URL http:// gidecek artık<em>yoursite</em>/ Masaüstü giriş sayfası ve http:// ulaşabileceği<em>yoursite</em>/mobile/ mobil giriş sayfası ulaşmak.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Mobil alanınızı mobil ziyaretçileri yeniden yönlendirme
 
