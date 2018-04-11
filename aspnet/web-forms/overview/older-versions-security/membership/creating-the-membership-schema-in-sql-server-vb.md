@@ -16,7 +16,7 @@ ms.openlocfilehash: 44458e8022f1f0d52cf136ad7fbaa5dd1f546632
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>SQL Server (VB) üyelik şema oluşturma
 ====================
@@ -155,7 +155,7 @@ Sihirbazın ikinci adımda bize biz uygulama hizmetlerini eklemek veya bunları 
 
 Üçüncü adım veritabanı bilgileri ister: sunucu adını, kimlik doğrulama bilgilerini ve veritabanı adı. İle birlikte bu öğreticiyi izlemek ve eklemiş olduğunuz `SecurityTutorials.mdf` için veritabanı `App_Data`, ekli `localhost\InstanceName`ve ona yeniden adlandırılmış `SecurityTutorialsDatabase`, aşağıdaki değerleri kullanın:
 
-- Server: `localhost\InstanceName`
+- Sunucu: `localhost\InstanceName`
 - Windows kimlik doğrulaması
 - Veritabanı: `SecurityTutorialsDatabase`
 

@@ -16,7 +16,7 @@ ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması
 ====================
@@ -116,7 +116,7 @@ ASP.NET Web Forms ve MVC geliştiricileri hemen Bul ziyaret tarayıcının önem
 - Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
-- .. .ve diğer birçok
+- ...ve diğer birçok
 
 Arka planda, ASP.NET platformu gelen eşleşen *User-Agent* tarayıcı tanım XML dosyaları kümesini normal ifadelerde karşı (UA) HTTP üstbilgisi. Varsayılan olarak platform birçok yaygın mobil cihazlar için tanımları içerir ve başkaları tarafından tanımak için istediğiniz özel tarayıcı tanım dosyalarını ekleyebilirsiniz. Daha fazla bilgi için MSDN sayfasını görmek [ASP.NET Web sunucusu denetimleri ve tarayıcı yetenekleri](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 

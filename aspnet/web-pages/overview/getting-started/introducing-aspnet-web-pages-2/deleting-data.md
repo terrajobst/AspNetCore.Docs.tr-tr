@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: "ASP.NET Web sayfaları sunarak - veritabanı verilerini silme | Microsoft Docs"
+title: ASP.NET Web sayfaları sunarak - veritabanı verilerini silme | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Bu, veritabanı verilerde güncelleştirme ASP.NET Web Pa aracılığıyla serisini tamamladınız varsayar..."
+description: Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Bu, veritabanı verilerde güncelleştirme ASP.NET Web Pa aracılığıyla serisini tamamladınız varsayar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfaları sunarak - veritabanı verileri silme
 ====================
@@ -137,7 +137,7 @@ Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğün
   
  AND  
   
-*Düğmesi* `buttonDelete`*formun gönderilen düğmesi oluştu.*
+`buttonDelete`*Düğmesi formun gönderilen düğmesi oluştu.*
 
 Bu form (aslında, bu sayfayı) yalnızca bir düğme, bu nedenle içerir için ek sınama `buttonDelete` teknik gerekli değildir. Yine de, verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Böylece olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi yaptığınızdan emin olmak istiyor. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri kendisine eklenmiş olduğunu varsayalım. Yalnızca film siler kodu dahi sonra çalıştıracak `buttonDelete` düğmesine tıklanana.
 
@@ -172,6 +172,6 @@ Sonraki öğretici ortak bir görünüm ve düzeni sitenizdeki tüm sayfaları k
 - [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](../introducing-razor-syntax-c.md)
 - [SQL DELETE deyimi](http://www.w3schools.com/sql/sql_delete.asp) W3Schools sitesinde
 
->[!div class="step-by-step"]
-[Önceki](updating-data.md)
-[sonraki](layouts.md)
+> [!div class="step-by-step"]
+> [Önceki](updating-data.md)
+> [sonraki](layouts.md)
