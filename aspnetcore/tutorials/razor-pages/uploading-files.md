@@ -3,17 +3,18 @@ title: ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 author: guardrex
 description: Bir Razor sayfasına dosyaları karşıya yükleme hakkında bilgi edinin.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 6f229ef625b1c7ddaffb9cb3bc7945cc31e5263c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5f86164b3d227e55e11244da7600394809b6a4a7
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core bir Razor sayfasına dosyaları karşıya yükleme
 
@@ -59,16 +60,40 @@ Karşıya yüklenen zamanlama dosyalarını işlemek için kod yinelemesinden ka
 
 ### <a name="save-the-file-to-disk"></a>Dosyayı diske kaydedin
 
-Örnek uygulaması dosyanın içeriğini veritabanı alanına kaydeder. Dosyanın içeriğini diske kaydetmek için kullanın bir [FILESTREAM](/dotnet/api/system.io.filestream):
+Örnek uygulamayı karşıya yüklenen dosyaların veritabanı alanlarına kaydeder. Bir dosyayı diske kaydetmek için kullanın bir [FILESTREAM](/dotnet/api/system.io.filestream). Aşağıdaki örnek tutulan bir dosya kopyalar `FileUpload.UploadPublicSchedule` için bir `FileStream` içinde bir `OnPostAsync` yöntemi. `FileStream` Disk dosya Yazar `<PATH-AND-FILE-NAME>` sağlanan:
 
 ```csharp
-using (var fileStream = new FileStream(filePath, FileMode.Create))
+public async Task<IActionResult> OnPostAsync()
 {
-    await formFile.CopyToAsync(fileStream);
+    // Perform an initial check to catch FileUpload class attribute violations.
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    var filePath = "<PATH-AND-FILE-NAME>";
+
+    using (var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+        await FileUpload.UploadPublicSchedule.CopyToAsync(fileStream);
+    }
+
+    return RedirectToPage("./Index");
 }
 ```
 
 Çalışan işlemi tarafından belirtilen konuma yazma izinlerine sahip olmalıdır `filePath`.
+
+> [!NOTE]
+> `filePath` *Gerekir* dosya adını ekleyin. Dosya adı sağlanmadı, bir [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception) çalışma zamanında atılır.
+
+> [!WARNING]
+> Hiçbir zaman uygulama aynı dizin ağacında karşıya yüklenen dosyaların kalıcı olmasını sağlar.
+>
+> Kod örneği, kötü amaçlı dosya yüklemeleriyle karşı hiçbir sunucu tarafı koruma sağlar. Kullanıcıların dosyaları kabul ederken saldırı alanını azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+>
+> * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
+> * [Azure güvenlik: uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Dosyayı Azure Blob depolama alanına kaydedin
 

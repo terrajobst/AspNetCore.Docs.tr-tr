@@ -3,17 +3,18 @@ title: Arama ASP.NET Core Razor sayfalara ekleme
 author: rick-anderson
 description: Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 4bc1ccaae15bddb9bc62716f1e81b97ad78f577a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 38c564a489bac063e6977459207b721cb6e83321
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Arama ASP.NET Core Razor sayfalara ekleme
 

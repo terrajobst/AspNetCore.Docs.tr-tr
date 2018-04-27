@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core Middleware
+title: ASP.NET Core Ara
 author: rick-anderson
 description: ASP.NET Core ara yazılımı ve istek ardışık düzenini hakkında bilgi edinin.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a410d686b6140a487efb9962e94f64cfbec245f2
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="aspnet-core-middleware"></a>ASP.NET Core Middleware
+# <a name="aspnet-core-middleware"></a>ASP.NET Core Ara
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](https://ardalis.com/)
 
@@ -149,9 +149,9 @@ Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://l
 | İstek | Yanıt |
 | --- | --- |
 | localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234/map1 | Harita Test 1 |
-| localhost:1234/map2 | Harita Test 2 |
-| localhost:1234/map3 | Merhaba harita olmayan temsilci gelen.  |
+| localhost:1234 / map1 | Harita Test 1 |
+| localhost:1234 / map2 | Harita Test 2 |
+| localhost:1234 / map3 | Merhaba harita olmayan temsilci gelen.  |
 
 Zaman `Map` olan kullanıldığında, eşleşen yolu segment(s) çıkarılır `HttpRequest.Path` ve için eklenen `HttpRequest.PathBase` her istek için.
 
@@ -164,7 +164,7 @@ Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://l
 | İstek | Yanıt |
 | --- | --- |
 | localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234/?branch=master | Kullanılan şube Yöneticisi =|
+| localhost:1234 /? şube Yöneticisi = | Kullanılan şube Yöneticisi =|
 
 `Map` iç içe, örneğin destekler:
 
@@ -241,7 +241,7 @@ Ara yazılımı bileşenleri bağımlılıklarını bağımlılık ekleme Oluşt
 
 Ara yazılım değil istek başına, uygulama başlatma sırasında oluşturulur çünkü *kapsamlı* ara yazılım Oluşturucu tarafından kullanılan yaşam süresi olmayan paylaşılan hizmetler diğer bağımlılık tarafından eklenen türleriyle her isteği sırasında. Gereken paylaşıyorsanız bir *kapsamlı* , Ara ve diğer türleri arasında hizmet, bu hizmetlere ekleme `Invoke` yöntemin imzası. `Invoke` Yöntemi tarafından bağımlılık ekleme doldurulur ek parametreleri kabul edebilir. Örneğin:
 
-```c#
+```csharp
 public class MyMiddleware
 {
     private readonly RequestDelegate _next;

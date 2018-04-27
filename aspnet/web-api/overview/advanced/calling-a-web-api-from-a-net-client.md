@@ -11,17 +11,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: a243eeb982ba581e237263c4e31e130d634aff0e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fdb74b0eb74ce7f387f49a0b25ceebd3fc389da9
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Bir .NET İstemci'den (C#) Web API'si çağırma
 ====================
 tarafından [CAN Wasson](https://github.com/MikeWasson) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Tamamlanan projenizi indirin](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample)
+[Tamamlanan projenizi indirin](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample). [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). 
 
 Bu öğretici bir .NET uygulamasından web API'si çağırma gösterilmektedir kullanarak [System.Net.Http.HttpClient.](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
 
@@ -29,10 +29,10 @@ Bu öğreticide, bir istemci uygulaması, aşağıdaki web API tüketir yazılı
 
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
-| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
+| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
 | Yeni Ürün oluşturma | YAYINLA | / api/ürünleri |
-| Bir ürün güncelleştir | PUT | /api/products/*id* |
-| Ürünü silme | DELETE | /api/products/*id* |
+| Bir ürün güncelleştir | PUT | /api/ürünler/*kimliği* |
+| Ürünü silme | DELETE | /api/ürünler/*kimliği* |
 
 Bu API ile ASP.NET Web API uygulamak öğrenmek için bkz: [CRUD işlemleri destekler bir Web API oluşturma](xref:web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 ).
@@ -167,7 +167,7 @@ GET gibi bir istek gövdesi bir silme isteği yok. JSON veya XML biçiminde SİL
 
 İstemci uygulama test etmek için:
 
-1. [Karşıdan](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve server uygulamasını çalıştırın. [Yükleme yönergeleri](https://docs.microsoft.com/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Exaxmple için `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
+1. [Karşıdan](https://github.com/aspnet/Docs/tree/master/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client/sample/server) ve server uygulamasını çalıştırın. [Yükleme yönergeleri](/aspnet/core/tutorials/#how-to-download-a-sample). Sunucu uygulamasının çalıştığını doğrulayın. Exaxmple için `http://localhost:64195/api/products` ürünlerin listesini döndürmelidir.
 2. HTTP istekleri için ana URI ayarlayın. Sunucu uygulamasında kullanılan bağlantı noktası için bağlantı noktası numarasını değiştirin.
     [!code-csharp[Main](calling-a-web-api-from-a-net-client/sample/client/Program.cs?name=snippet5&highlight=2)]
 

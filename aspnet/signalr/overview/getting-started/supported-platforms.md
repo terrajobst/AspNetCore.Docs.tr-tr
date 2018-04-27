@@ -2,21 +2,21 @@
 uid: signalr/overview/getting-started/supported-platforms
 title: Desteklenen platformlar | Microsoft Docs
 author: pfletcher
-description: "Bu makalede, hangi istemcilerin ve sunucuların SignalR tarafından desteklenen açıklanmaktadır."
+description: Bu makalede, hangi istemcilerin ve sunucuların SignalR tarafından desteklenen açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 06/10/2014
+ms.date: 04/18/2018
 ms.topic: article
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4d3dc028ff67d0a9cfa03627b5f98f6541ecfff8
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 <a name="supported-platforms"></a>Desteklenen Platformlar
 ====================
@@ -37,8 +37,9 @@ SignalR sunucu bileşeni sunucu yapılandırmaları çeşitli barındırılabili
 
 ### <a name="supported-server-operating-systems"></a>Desteklenen sunucu işletim sistemleri
 
-SignalR sunucu bileşeni, aşağıdaki sunucu veya istemci işletim sistemlerinde barındırılabilir. Windows Server 2012 veya Windows 8 WebSockets kullanmak SignalR için gerekli olduğunu unutmayın (WebSocket kullanılabilir Windows Azure Web sitelerinde sitenin .NET framework sürüm 4.5 ayarlanır ve Web yuvalarını sitenin yapılandırma sayfasında etkin olduğu sürece).
+SignalR sunucu bileşeni, aşağıdaki sunucu veya istemci işletim sistemlerinde barındırılabilir. Windows Server 2012, Windows Server 2016 veya Windows 8 WebSockets kullanmak SignalR için gerekli olduğunu unutmayın (WebSocket kullanılabilir Windows Azure Web sitelerinde sitenin .NET framework sürüm 4.5 ayarlanır ve Web yuvalarını sitenin içinde etkin olduğu sürece Yapılandırma sayfası).
 
+- Windows Server 2016
 - Windows Server 2012
 - Windows Server 2008 r2
 - Windows 10
@@ -73,7 +74,7 @@ SignalR tarayıcılarda kullanan uygulamalar, jQuery sürüm 1.6.4 veya ana sonr
 
 SignalR aşağıdaki tarayıcılarda kullanılabilir:
 
-- Microsoft Internet Explorer versions 8, 9, 10, and 11. Modern, masaüstü ve mobil sürümleri desteklenir.
+- Microsoft Internet Explorer sürümleri 8, 9, 10 ve 11. Modern, masaüstü ve mobil sürümleri desteklenir.
 - Mozilla Firefox: geçerli sürümü - 1, hem Windows hem de Mac sürümleri.
 - Google Chrome: geçerli sürümü - 1, hem Windows hem de Mac sürümleri.
 - Safari: geçerli sürümü - 1, Mac ve iOS sürümleri.
@@ -114,8 +115,8 @@ Bir web tarayıcısında çalıştırmanın yanı sıra, tek başına Windows İ
 | --- | --- | --- |
 | Web yuvaları | Windows 8 + ve .NET 4.5 + | Yok |
 | Devamlı çerçeve | Yok | Yok |
-| Sunucu tarafından gönderilen olaylar | .NET 4+ | 5+ |
-| Uzun yoklama | .NET 4+ | 5+ |
+| Sunucu tarafından gönderilen olaylar | .NET 4 + | 5+ |
+| Uzun yoklama | .NET 4 + | 5+ |
 
 <a id="android"></a>
 
@@ -125,12 +126,12 @@ SignalR, Windows mağazası uygulamaları ve Windows Phone 8 uygulamalarında ku
 
 **Windows mağazası ve Windows Phone aktarım gereksinimleri**
 
-| Taşıma | Windows Store/ .NET | Windows Store/ JavaScript | Windows Phone/ IE | Windows Phone/ .NET |
+| Taşıma | Windows mağazası / .NET | Windows mağazası / JavaScript | Windows Phone / IE | Windows Phone / .NET |
 | --- | --- | --- | --- | --- |
-| WebSockets | Yok | Win8+ | 8+ | Yok |
-| Devamlı çerçeve | Yok | Win8+ | 7.5+ | Yok |
-| Sunucu tarafından gönderilen olaylar | Win8+ | Yok | Yok | 8+ |
-| Uzun yoklama | Win8+ | Win8+ | 7.5+ | 8+ |
+| WebSockets | Yok | Olduğu Win8 + | 8+ | Yok |
+| Devamlı çerçeve | Yok | Olduğu Win8 + | 7.5+ | Yok |
+| Sunucu tarafından gönderilen olaylar | Olduğu Win8 + | Yok | Yok | 8+ |
+| Uzun yoklama | Olduğu Win8 + | Olduğu Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

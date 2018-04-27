@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 9f164b6e1f3cc520b704cbb5ffdaadb99cebdc57
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -25,9 +25,7 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Rick Anderson](https:
 Aşağıdaki işletim sistemlerinde desteklenir:
 
 * Windows 7 veya üzeri
-* Windows Server 2008 R2 veya sonraki sürümü&#8224;
-
-&#8224;Kavramsal olarak, bu belgede açıklanan IIS yapılandırmasını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
+* Windows Server 2008 R2 veya sonraki sürümü
 
 [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)) bir ters proxy yapılandırması IIS ile çalışmaz. Kullanım [Kestrel server](xref:fundamentals/servers/kestrel).
 
@@ -45,7 +43,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://locahost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, yapılan çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
+ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://localhost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, yapılan çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -97,7 +95,7 @@ services.Configure<IISOptions>(options =>
 <Project Sdk="Microsoft.NET.Sdk.Web">
 ```
 
-Varsa bir *web.config* dosyası mevcut değil proje dosyası doğru ile oluşturulan *processPath* ve *bağımsız değişkenleri* yapılandırmak için [ASP.NET Core Modül](xref:fundamentals/servers/aspnet-core-module) ve taşınabilir [çıkış yayımlanan](xref:host-and-deploy/directory-structure).
+Varsa bir *web.config* dosyası projede mevcut değil, dosyanın doğru ile oluşturulan *processPath* ve *bağımsız değişkenleri* yapılandırmak için [ASP.NET Çekirdeği Modül](xref:fundamentals/servers/aspnet-core-module) ve taşınabilir [çıkış yayımlanan](xref:host-and-deploy/directory-structure).
 
 Varsa bir *web.config* dosyası projede mevcut, dosyanın doğru ile dönüştürüldüğünde *processPath* ve *bağımsız değişkenleri* ASP.NET Core Modülü'nü yapılandırmak için ve taşınabilir yayımlanan çıktı. Dönüşüm dosyasında IIS yapılandırma ayarlarını değiştirme değil.
 
@@ -169,13 +167,13 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 
 ---
 
-## <a name="install-the-net-core-windows-server-hosting-bundle"></a>.NET Core Windows Server barındırma paket yükleme
+## <a name="install-the-net-core-hosting-bundle"></a>Paket barındırma .NET Core yükleyin
 
-1. Yükleme *.NET Core Windows Server barındırma paket* barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core Windows Server barındırma paketini yüklemeden önce.
+1. Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
 
    1. Gidin [.NET tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
    1. En son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**.NET Core** > **çalışma zamanı** > **.NET çekirdeği çalışma zamanı x.y.z**). Önizleme yazılımıyla çalışmak düşünmüyorsanız, "Önizleme" word kendi bağlantı metne sahip çalışma zamanları kaçının.
-   1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **Server barındırma yükleyicisi** indirmek için bağlantı *.NET Core Windows Server barındırma paket*.
+   1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **barındırma Paket Yükleyici** indirmek için bağlantı *.NET Core barındırma paket*.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılması gerekir. IIS yeniden yükledikten sonra barındırma paket yükleyiciyi çalıştırın.
    
@@ -196,7 +194,8 @@ Uygulamaları sahip sunuculara dağıtırken [Web dağıtımı](/iis/publish/usi
 
 1. Yeni bir klasör içinde oluşturun bir *günlükleri* stdout günlük kaydı etkinleştirildiğinde ASP.NET Core modül stdout günlüklerini tutmak için klasör. Uygulama ile dağıtılırsa bir *günlükleri* yükü klasöründe bu adımı atlayın. Oluşturmaya ilişkin yönergeler için MSBuild etkinleştirme *günlükleri* otomatik olarak proje yerel olarak yapılandırıldığında klasörü [dizin yapısını](xref:host-and-deploy/directory-structure) konu.
 
-   **Önemli!** Yalnızca uygulama başlatma hataları gidermek için stdout günlük kullanın. Hiçbir zaman stdout günlük rutin uygulama günlüğü için kullanın. Günlük dosyası boyutu bir sınırlama yoktur veya oluşturulan günlük dosyalarını sayısı yoktur. Stdout günlüğü hakkında daha fazla bilgi için bkz: [günlük oluşturma ve yeniden yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Bir ASP.NET Core uygulamasında günlüğe kaydetme hakkında daha fazla bilgi için bkz: [günlüğü](xref:fundamentals/logging/index) konu.
+   > [!IMPORTANT]
+   > Yalnızca uygulama başlatma hataları gidermek için stdout günlük kullanın. Hiçbir zaman stdout günlük rutin uygulama günlüğü için kullanın. Günlük dosyası boyutu bir sınırlama yoktur veya oluşturulan günlük dosyalarını sayısı yoktur. Uygulama havuzu günlükleri yazılacağı konuma yazma erişimi olmalıdır. Tüm günlük konumunun yolu klasörlerde bulunması gerekir. Stdout günlüğü hakkında daha fazla bilgi için bkz: [günlük oluşturma ve yeniden yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Bir ASP.NET Core uygulamasında günlüğe kaydetme hakkında daha fazla bilgi için bkz: [günlüğü](xref:fundamentals/logging/index) konu.
 
 1. İçinde **IIS Yöneticisi'ni**, sunucunun düğümünde açmak **bağlantıları** paneli. Sağ **siteleri** klasör. Seçin **Web sitesi Ekle** bağlam menüsünde.
 
@@ -242,6 +241,8 @@ Bkz: [ASP.NET Core uygulama dağıtımı için Visual Studio yayımlama profille
 
 Uygulama barındırma sisteminin el ile kopyalama, Xcopy, Robocopy veya PowerShell gibi taşımak için birkaç yöntemden herhangi birini kullanın.
 
+IIS'de ASP.NET Core dağıtım hakkında daha fazla bilgi için bkz: [IIS Yöneticiler için dağıtım kaynaklar](#deployment-resources-for-iis-administrators) bölüm.
+
 ## <a name="browse-the-website"></a>Web sitesi Gözat
 
 ![Microsoft Edge tarayıcısının IIS başlangıç sayfası yükledi.](index/_static/browsewebsite.png)
@@ -250,7 +251,7 @@ Uygulama barındırma sisteminin el ile kopyalama, Xcopy, Robocopy veya PowerShe
 
 Uygulama çalışırken dağıtım klasöründeki dosyaları kilitlenir. Dağıtım sırasında kilitli dosyaları üzerine yazılamıyor. Uygulama havuzunu kullanan bir dağıtımda kilitli dosyaları serbest bırakmak için Durdur **bir** aşağıdaki yaklaşımlardan:
 
-* Web dağıtımı ve başvuru kullanmak `Microsoft.NET.Sdk.Web` proje dosyasında. Bir *app_offline.htm* dosyası, web uygulama dizini kökünde yerleştirilir. Dosyanın mevcut olduğunda, ASP.NET Core modülü düzgün biçimde uygulamasını kapatır ve hizmet *app_offline.htm* dağıtımı sırasında dosya. Daha fazla bilgi için bkz: [ASP.NET Core modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module#appofflinehtm).
+* Web dağıtımı ve başvuru kullanmak `Microsoft.NET.Sdk.Web` proje dosyasında. Bir *app_offline.htm* dosyası, web uygulama dizini kökünde yerleştirilir. Dosyanın mevcut olduğunda, ASP.NET Core modülü düzgün biçimde uygulamasını kapatır ve hizmet *app_offline.htm* dağıtımı sırasında dosya. Daha fazla bilgi için bkz: [ASP.NET Core modül yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module#app_offlinehtm).
 * El ile IIS Yöneticisi'nde uygulama havuzu sunucuda durdurun.
 * Durdurup (PowerShell 5 veya sonraki sürümünü gerektirir) uygulama havuzu yeniden başlatmak için PowerShell kullanın:
 
@@ -362,9 +363,9 @@ Daha fazla bilgi için bkz: [yapılandırma başvurusunu \<system.webServer >](/
 
 ASP.NET 4.x uygulamalarında yapılandırma bölümlerini *web.config* yapılandırma ASP.NET Core uygulamaları tarafından kullanılan değil:
 
-* **\<system.web>**
-* **\<appSettings>**
-* **\<connectionStrings>**
+* **\<System.Web >**
+* **\<appSettings >**
+* **\<connectionStrings >**
 * **\<Konum >**
 
 ASP.NET Core uygulamaları başka bir yapılandırma sağlayıcısı kullanılarak yapılandırılır. Daha fazla bilgi için bkz: [yapılandırma](xref:fundamentals/configuration/index).
@@ -409,13 +410,34 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 Daha fazla bilgi için bkz: [icacls](/windows-server/administration/windows-commands/icacls) konu.
 
+## <a name="deployment-resources-for-iis-administrators"></a>IIS Yöneticiler için dağıtım kaynaklar
+
+IIS IIS belgelerinde kapsamlı hakkında bilgi edinin.  
+[IIS belgeleri](/iis)
+
+.NET Core uygulama dağıtım modelleri hakkında bilgi edinin.  
+[.NET core uygulama dağıtımı](/dotnet/core/deploying/)
+
+ASP.NET çekirdeği modülü Kestrel web sunucusuna IIS veya IIS Express ters proxy sunucusu olarak kullanmak nasıl olanak tanıdığını öğrenin.  
+[ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module)
+
+ASP.NET Core uygulamaları barındırmak için ASP.NET Core modülü yapılandırmayı öğrenin.  
+[ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
+
+Yayımlanan ASP.NET Core uygulamaları dizin yapısı hakkında bilgi edinin.  
+[Dizin yapısı](xref:host-and-deploy/directory-structure)
+
+ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri bulur.  
+[IIS modülleri](xref:host-and-deploy/iis/troubleshoot)
+
+ASP.NET Core uygulamaların IIS dağıtımlarını sorunları tanılamak öğrenin.  
+[Sorun giderme](xref:host-and-deploy/iis/troubleshoot)
+
+Sık karşılaşılan IIS üzerinde ASP.NET Core uygulamaları barındırdığında ayırt.  
+[Azure App Service ve IIS için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [IIS üzerinde ASP.NET Core sorunlarını giderme](xref:host-and-deploy/iis/troubleshoot)
-* [Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
-* [ASP.NET çekirdeği modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
-* [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
-* [ASP.NET Core içeren IIS modülleri](xref:host-and-deploy/iis/modules)
-* [ASP.NET Core giriş](../index.md)
-* [The Official Microsoft IIS Site](https://www.iis.net/)
-* [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)
+* [ASP.NET Core giriş](xref:index)
+* [Resmi Microsoft IIS sitesi](https://www.iis.net/)
+* [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)

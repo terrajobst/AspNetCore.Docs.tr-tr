@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a11ed13c709830795ebfd0e658d3f2fd2fd5a458
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Önyükleme ve ASP.NET Core güzel, yanıt veren siteler derleme
 
@@ -81,7 +81,7 @@ Bir dizi varsayılan şablonu kullanan `<div>` üst gezinti çubuğu ve ana sayf
 </button>
 ```
 
-Ayrıca, sol üst görünen uygulama adını içerir. Ana Gezinti menüsünde tarafından işlenen `<ul>` ikinci div öğesinde ve hakkında ev ve kişi için bağlantılar içerir. Kayıt ve oturum açma için ek bağlantılar, 29 satırındaki _LoginPartial satırına eklenir. Gezinti her sayfasının ana gövdesi içinde başka bir işlenmeden `<div>`, "kapsayıcı" ve "İçerik gövdesi" sınıflarıyla işaretli. Burada gösterilen basit varsayılan _Layout dosyasında sayfasının içeriği sayfa ve basit bir sonra ilişkili belirli görünüm tarafından işlenen `<footer>` sonuna eklenen `<div>` öğesi. Sayfa hakkında yerleşik kullanarak nasıl göründüğünü görebilirsiniz bu şablonu:
+Ayrıca, sol üst görünen uygulama adını içerir. Ana Gezinti menüsünde tarafından işlenen `<ul>` ikinci div öğesinde ve hakkında ev ve kişi için bağlantılar içerir. Gezinti her sayfasının ana gövdesi içinde başka bir işlenmeden `<div>`, "kapsayıcı" ve "İçerik gövdesi" sınıflarıyla işaretli. Burada gösterilen basit varsayılan _Layout dosyasında sayfasının içeriği sayfa ve basit bir sonra ilişkili belirli görünüm tarafından işlenen `<footer>` sonuna eklenen `<div>` öğesi. Sayfa hakkında yerleşik kullanarak nasıl göründüğünü görebilirsiniz bu şablonu:
 
 ![Sayfa hakkında](bootstrap/_static/about-page-wide.png)
 
@@ -115,10 +115,10 @@ Sonra ek ekleyin `<div>` her sütun için öğeleri ve sütun sayısını belirt
 
 CSS sınıfı öneki | Cihaz katmanı | Genişlik
 :---: | :---: | :---:
-col-xs- | Telefonları | < 768px
-Sütun-sm - | Tabletler | >= 768px
-Sütun-md - | Masaüstü bilgisayarlar | >= 992px
-Sütun-lg - | Daha büyük Masaüstü görüntüler | >= 1200px
+Sütun-xs - | Telefonları | < 768px
+Sütun-sm - | Tabletler | > = 768px
+Sütun-md - | Masaüstü bilgisayarlar | > = 992px
+Sütun-lg - | Daha büyük Masaüstü görüntüler | > = 1200 piksel
 
 İki sütun hem "sütun-md-6" elde edilen düzeni Masaüstü çözünürlüklerde iki sütun olacaktır, ancak bu iki sütun küçük aygıtlar (veya bir masaüstü üzerinde daha dar bir tarayıcı penceresi), kullanıcıların kolayca görüntülemesine izin vererek işlendiğinde dikey yığın belirtirken Yatay kaydırma gerek olmadan içeriği.
 
@@ -146,7 +146,7 @@ Varsayılan düğme sınıflar ve onların renkleri aşağıdaki çizimde göste
 
 ### <a name="badges"></a>Rozetleri
 
-Gezinti öğesinin yanındaki küçük, genellikle sayısal çağrılar rozetleri bakın. Bunlar, iletileri veya bekleyen bildirimleri sayısı veya güncelleştirmeleri varlığını gösterebilir. Bu tür rozetleri belirtme ekleme olarak basit bir <span> "rozet" sınıfının ile metni içeren:
+Gezinti öğesinin yanındaki küçük, genellikle sayısal çağrılar rozetleri bakın. Bunlar, iletileri veya bekleyen bildirimleri sayısı veya güncelleştirmeleri varlığını gösterebilir. Bu tür rozetleri belirtme ekleme olarak basit bir `<span>` "rozet" sınıfının ile metni içeren:
 
 ![konulu rozetleri](bootstrap/_static/theme-badges.png)
 
@@ -158,7 +158,7 @@ Bazı tür bildirimi, uyarı veya hata iletisi, uygulamanızın kullanıcılara 
 
 ### <a name="navbars-and-menus"></a>Gezinti çubukları ve menüleri
 
-Bizim düzeni zaten standart navbar içerir, ancak önyükleme temasının ek stil seçeneklerini destekler. Biz de kolayca yerine, tercih edilen değilse, açılan menüler yatay olarak eklemeyi de alt gezinti öğelerini navbar dikey olarak görüntülenecek tercih edebilirsiniz. Sekme şeritler gibi basit Gezinti menüleri üstünde oluşturulur <ul> öğeleri. Bu, çok yalnızca yalnızca bunları CSS sınıfları "nav" ve "sekmeleri nav" sağlayarak oluşturulabilir:
+Bizim düzeni zaten standart navbar içerir, ancak önyükleme temasının ek stil seçeneklerini destekler. Biz de kolayca yerine, tercih edilen değilse, açılan menüler yatay olarak eklemeyi de alt gezinti öğelerini navbar dikey olarak görüntülenecek tercih edebilirsiniz. Sekme şeritler gibi basit Gezinti menüleri üstünde yerleşiktir `<ul>` öğeleri. Bu, çok yalnızca yalnızca bunları CSS sınıfları "nav" ve "sekmeleri nav" sağlayarak oluşturulabilir:
 
 ![konulu tabstrips](bootstrap/_static/theme-tabstrips.png)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/index
-ms.openlocfilehash: 73d239070726eda3f572d3e13ad2908c6d7b55c4
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 74ceef2637d68e38323415a82fd9fd3432c2db8f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="test-and-debug-in-aspnet-core"></a>Test ve ASP.NET Core içinde hata ayıklama
 
@@ -24,3 +24,4 @@ ms.lasthandoff: 03/22/2018
 * [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/Docs/issues/4155)
 * [Uzaktan hata ayıklama](/visualstudio/debugger/remote-debugging-azure)
 * [Anlık görüntü hatalarını ayıklama](/azure/application-insights/app-insights-snapshot-debugger)
+* [YouTube: ASP.NET Core uygulamaları sorunları tanılama](https://www.youtube.com/watch?v=RYI0DHoIVaA)

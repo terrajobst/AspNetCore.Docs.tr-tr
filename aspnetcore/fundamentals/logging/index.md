@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4cb2cf5b22ed9f5b84638b5f8c4b07d99a17ce1c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET çekirdeği günlüğü
 
@@ -325,7 +325,7 @@ Tür adı yapılandırmada bir sağlayıcısını belirtmek için kullanabilirsi
 
 - Konsol
 - Hata ayıklama
-- EventLog
+- Olay günlüğü
 - AzureAppServices
 - TraceSource
 - EventSource
@@ -487,37 +487,6 @@ Toplamak ve günlükleri görüntülemek için en iyi yolu kullanmaktır [PerfVi
 Bu sağlayıcı tarafından günlüğe kaydedilen olayları toplamak için PerfView yapılandırmak için dizesi eklemek `*Microsoft-Extensions-Logging` için **ek sağlayıcılar** listesi. (Dizenin başında yıldız kaçırmayın.)
 
 ![Perfview ek sağlayıcılar](index/_static/perfview-additional-providers.png)
-
-Nano Server olaylarına yakalama bazı ek kurulum gerektirir:
-
-* PowerShell uzaktan iletişimi Nano sunucuya bağlanın:
-
-  ```powershell
-  Enter-PSSession [name]
-  ```
-
-* ETW oturum oluşturun:
-
-  ```powershell
-  New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
-  ```
-
-* ETW sağlayıcılar için ekleme [CLR](/dotnet/framework/performance/clr-etw-providers), ASP.NET Core ve diğerleri gerektiğinde. GUID ASP.NET Core sağlayıcısı `3ac73b97-af73-50e9-0822-5da4367920d0`. 
-
-  ```powershell
-  Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
-  Add-EtwTraceProvider -Guid "{3ac73b97-af73-50e9-0822-5da4367920d0}" -SessionName MyAppTrace
-  ```
-
-* Siteyi çalıştırın ve hangi eylemleri için izleme bilgilerini istiyor musunuz.
-
-* Tamamlanmış olduğunuzda izleme oturumunu durdur:
-
-  ```powershell
-  Stop-EtwTraceSession -Name "MyAppTrace"
-  ```
-
-Elde edilen *C:\trace.etl* dosya analiz PerfView ile diğer sürümleri üzerinde Windows gibi.
 
 <a id="eventlog"></a>
 ### <a name="the-windows-eventlog-provider"></a>Windows olay günlüğü sağlayıcısı

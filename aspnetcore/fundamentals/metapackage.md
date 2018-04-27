@@ -3,17 +3,18 @@ title: ASP.NET Core Microsoft.AspNetCore.All metapackage 2.x ve sonraki sürüml
 author: Rick-Anderson
 description: Microsoft.AspNetCore.All metapackage bağımlılıklarını yanı sıra tüm desteklenen ASP.NET Core ve Entity Framework Çekirdek paketleri içerir.
 manager: wpickett
+monikerRange: = aspnetcore-2.0
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/metapackage
-ms.openlocfilehash: 69a1683feb66f9da5fe61378c4a4ed55e08d39ac
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4c11f15e659565325bfe8b8d91188b62177b251d
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>ASP.NET Core Microsoft.AspNetCore.All metapackage 2.x
 
@@ -25,7 +26,7 @@ Bu özellik, ASP.NET Core 2.x hedefleme .NET gerektirir 2.x çekirdek.
 * Tüm paketleri Entity Framework Çekirdek tarafından desteklenir. 
 * ASP.NET Core ve Entity Framework Çekirdek tarafından kullanılan iç ve 3. taraf bağımlılıkları. 
 
-ASP.NET Core tüm özelliklerini 2.x ve Entity Framework Çekirdek 2.x dahil edilmiştir `Microsoft.AspNetCore.All` paket. Bu paket varsayılan proje şablonları kullanın.
+ASP.NET Core tüm özelliklerini 2.x ve Entity Framework Çekirdek 2.x dahil edilmiştir `Microsoft.AspNetCore.All` paket. Bu paket ASP.NET Core 2.0 hedefleme varsayılan proje şablonları kullanın.
 
 Sürüm numarasını `Microsoft.AspNetCore.All` metapackage ASP.NET Core sürüm ve Entity Framework Çekirdek sürüm (.NET Core sürümüyle hizalı) temsil eder.
 

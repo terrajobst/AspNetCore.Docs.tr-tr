@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: d99a4b446b53c431b11bfe083b1bb6133f8e0078
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4e842544f861c3704ba7798fa693b36435d54731
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="aspnet-core-module"></a>ASP.NET çekirdeği Modülü
 
@@ -25,9 +25,7 @@ ASP.NET çekirdeği modülü ASP.NET Core uygulamaları IIS bir ters proxy yapı
 Desteklenen Windows sürümlerine:
 
 * Windows 7 veya üzeri
-* Windows Server 2008 R2 veya sonraki sürümü&#8224;
-
-&#8224;Kavramsal olarak, bu belgede açıklanan IIS ASP.NET Core modülüyle kullanımını da Nano Server IIS üzerinde ASP.NET Core uygulamaları barındırmak için geçerlidir. Nano Server için özel yönergeler için bkz: [Nano Server IIS ile ASP.NET Core](xref:tutorials/nano-server) Öğreticisi.
+* Windows Server 2008 R2 veya sonraki sürümü
 
 ASP.NET çekirdeği modülü yalnızca Kestrel ile çalışır. Modül uyumlu değil. [HTTP.sys](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -50,7 +48,7 @@ Modül isteğinden Kestrel seçer sonra isteği ASP.NET Core ara yazılım ardı
 ASP.NET çekirdeği modülü birkaç diğer işlevleri vardır. Modül yapabilirsiniz:
 
 * Çalışan işlemi için ortam değişkenleri ayarlayın.
-* Günlük `stdout` başlatma sorunlarını gidermek için dosya depolama alanına çıktı.
+* Stdout çıkış başlatma sorunlarını gidermek için dosya depolama için oturum açın.
 * Windows kimlik doğrulama belirteçleri iletin.
 
 ## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Yükleme ve ASP.NET Core modülü kullanın

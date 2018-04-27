@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 02a28425cc3b7b792e7275ebab37fa8eeafc74c1
-ms.sourcegitcommit: 211ef03cf13f631dd77076de0c55863fe0cee2c8
+ms.openlocfilehash: a81d307a944bb14e7431708ffcc70eb28b1aab0d
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API, denetleyici eylem dönüş türleri
 
@@ -22,11 +22,17 @@ Tarafından [Scott Addie](https://github.com/scottaddie)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-ASP.NET Core dönüş türleri Web API denetleyici eylemi için aşağıdaki üç seçeneği sunar:
+ASP.NET Core dönüş türleri Web API denetleyici eylemi için aşağıdaki seçenekleri sağlar:
 
+::: moniker range="<= aspnetcore-2.0"
+* [Belirli tür](#specific-type)
+* [IActionResult](#iactionresult-type)
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
 * [Belirli tür](#specific-type)
 * [IActionResult](#iactionresult-type)
 * [ActionResult\<T >](#actionresultt-type)
+::: moniker-end
 
 Bu belge her dönüş türünü kullanmak en uygun olduğunda açıklar.
 
@@ -66,6 +72,7 @@ Model doğrulama başarısız olduğunda önceki eyleminde 400 durum kodu dönd�
 
 Önceki eyleme ait diğer bilinen dönüş kodu bir 201 tarafından oluşturulan olan [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) yardımcı yöntemi. Bu yolunda `Product` nesne döndürülür.
 
+::: moniker range=">= aspnetcore-2.1"
 ## <a name="actionresultt-type"></a>ActionResult\<T > türü
 
 ASP.NET Core 2.1 tanıtır `ActionResult<T>` dönüş türü Web API denetleyici eylemleri. Dönüş türetme bir türü sağlar [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) veya döndüren bir [belirli tür](#specific-type). `ActionResult<T>` üzerinde aşağıdaki avantajları sunar [IActionResult türü](#iactionresult-type):
@@ -96,6 +103,7 @@ Model doğrulama başarısız olursa, [BadRequest](/dotnet/api/microsoft.aspnetc
 
 > [!TIP]
 > Denetleyici sınıfı ile donatılmış ASP.NET Core 2.1 itibariyle eylem parametresi bağlama kaynak çıkarım etkinleştirilir `[ApiController]` özniteliği. Karmaşık tür parametreleri, istek gövdesini kullanarak otomatik olarak bağlanır. Sonuç olarak, önceki eyleme ait `product` parametresine değil açıkça ile Açıklama [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği.
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

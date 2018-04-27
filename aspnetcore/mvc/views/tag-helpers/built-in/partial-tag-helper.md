@@ -3,22 +3,25 @@ title: ASP.NET Core kısmi etiketi yok
 author: scottaddie
 description: ASP.NET Core kısmi etiket Yardımcısı ve her özniteliklerini yürütmek kısmi bir görünümü işlemeye rol bulur.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/23/2018
+ms.date: 04/13/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 4573409720ccba524c0d5d05696e0fb3468ff338
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 670663b963f4207da793afff44d55b85ba58b7f8
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET Core kısmi etiketi yok
 
 Tarafından [Scott Addie](https://github.com/scottaddie)
+
+[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -47,23 +50,31 @@ Kısmi etiketi yardımcı öznitelik envanterini izler.
 
 `name` Özniteliği gereklidir. Adı veya yolu işlenecek kısmi görünümün gösterir. Kısmi görünümün adı sağlandığında [görünüm bulma](xref:mvc/views/overview#view-discovery) işlemi başlatıldı. Bu işlem, özel bir yol sağlandığında atlanır.
 
-Aşağıdaki biçimlendirmede olduğunu gösteren, açık bir yol kullanır *_ProductPartial.cshtml* gelen yükleneceği *paylaşılan* klasör. Kullanarak [asp-için](#asp-for) öznitelik, bir model geçirilir kısmi görünüm için bağlama.
+Aşağıdaki biçimlendirmede olduğunu gösteren, açık bir yol kullanır *_ProductPartial.cshtml* gelen yükleneceği *paylaşılan* klasör. Kullanarak [için](#for) öznitelik, bir model geçirilir kısmi görünüm için bağlama.
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Name)]
 
-## <a name="asp-for"></a>ASP-için
+## <a name="for"></a>for
 
-`asp-for` Özniteliği atar bir [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) geçerli modeline göre değerlendirilecek. A `ModelExpression` oluşturur `@Model.` sözdizimi. Örneğin, `asp-for="Product"` yerine kullanılan `asp-for="@Model.Product"`. Bu varsayılan çıkarım davranışı kullanarak kılınmadığı `@` bir satır içi ifade tanımlamak için simge.
+`for` Özniteliği atar bir [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) geçerli modeline göre değerlendirilecek. A `ModelExpression` oluşturur `@Model.` sözdizimi. Örneğin, `for="Product"` yerine kullanılan `for="@Model.Product"`. Bu varsayılan çıkarım davranışı kullanarak kılınmadığı `@` bir satır içi ifade tanımlamak için simge. `for` Özniteliği ile kullanılamaz [modeli](#model) özniteliği.
 
 Aşağıdaki biçimlendirmede yükler *_ProductPartial.cshtml*:
 
-[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_AspFor)]
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_For)]
 
 Kısmi görünüm ilişkili sayfa modelinin için bağlı `Product` özelliği:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
 
-## <a name="view-data"></a>view-data
+## <a name="model"></a>model
+
+`model` Özniteliği kısmi görünüme iletmek için bir model örneği atar. `model` Özniteliği ile kullanılamaz [için](#for) özniteliği.
+
+Aşağıdaki biçimlendirmede, yeni bir `Product` nesne örneği ve geçirilen `model` özniteliği için bağlama:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Model)]
+
+## <a name="view-data"></a>Görünüm veri
 
 `view-data` Özniteliği atar bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) kısmi görünüme iletmek için. Aşağıdaki biçimlendirmede tüm ViewData koleksiyon kısmi görünüm için erişilebilir hale getirir:
 

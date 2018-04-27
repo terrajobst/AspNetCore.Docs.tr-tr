@@ -3,17 +3,18 @@ title: ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 author: rick-anderson
 description: Visual Studio ve ASP.NET Core EF çekirdek ile Windows üzerinde bir Razor sayfalarının web uygulaması oluşturun.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 9325eafeedd3e78629d6ced29e0c4122c6b394ad
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d8baf482d689f899f166ac206fad55de03f3e432
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET çekirdek tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanın
 
@@ -166,7 +166,7 @@ Aşağıdaki kodda aracılığıyla HTTP istek ardışık düzenini içine Webpa
 
 ## <a name="hot-module-replacement"></a>Sık kullanılan modülü değiştirme
 
-Webpack'ın düşünün [etkin modülü değiştirme](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) (HMR) özelliği bir evrimi olarak [Webpack geliştirme Ara](#webpack-dev-middleware). HMR hepsi aynı avantajlar sunar, ancak otomatik olarak değişiklikleri derledikten sonra sayfa içeriği güncelleştirerek daha fazla geliştirme iş akışı kolaylaştırır. Bu geçerli bellek içi durumu ve hata ayıklama oturumu SPA engel tarayıcının bir yenileme ile karıştırmayın. Webpack geliştirme Ara hizmeti ve değişiklikleri tarayıcıya gönderilen anlamına gelir tarayıcı arasındaki bir canlı bağlantı yoktur.
+Webpack'ın düşünün [etkin modülü değiştirme](https://webpack.js.org/concepts/hot-module-replacement/) (HMR) özelliği bir evrimi olarak [Webpack geliştirme Ara](#webpack-dev-middleware). HMR hepsi aynı avantajlar sunar, ancak otomatik olarak değişiklikleri derledikten sonra sayfa içeriği güncelleştirerek daha fazla geliştirme iş akışı kolaylaştırır. Bu geçerli bellek içi durumu ve hata ayıklama oturumu SPA engel tarayıcının bir yenileme ile karıştırmayın. Webpack geliştirme Ara hizmeti ve değişiklikleri tarayıcıya gönderilen anlamına gelir tarayıcı arasındaki bir canlı bağlantı yoktur.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
@@ -226,7 +226,7 @@ Adlı bir genişletme yöntemi `MapSpaFallbackRoute` kullanılan `Configure` yö
 
 ## <a name="creating-a-new-project"></a>Yeni proje oluşturma
 
-JavaScriptServices önceden yapılandırılmış uygulama şablonları sağlar. SpaServices bu şablonları farklı çerçeveler ve kitaplıklar Angular, Aurelia, çakıştırma, tepki ve Vue gibi ile birlikte kullanılır.
+JavaScriptServices önceden yapılandırılmış uygulama şablonları sağlar. SpaServices bu şablonları farklı çerçeveler ve kitaplıklar Angular, tepki ve Redux gibi ile birlikte kullanılır.
 
 Bu şablonlar, aşağıdaki komutu çalıştırarak .NET Core CLI yüklenebilir:
 
@@ -238,12 +238,9 @@ Kullanılabilir SPA şablonların listesi görüntülenir:
 
 | Şablonlar                                 | Kısa Ad | Dil | Etiketler        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| MVC ASP.NET Core Açısal ile             | Açısal    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core Aurelia ile             | aurelia    | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core Knockout.js ile         | Boşaltılan   | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core React.js ile            | tepki      | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core React.js ve Redux  | reactredux | [C#]     | Web/MVC/SPA |
-| MVC ASP.NET Core Vue.js ile              | VUE        | [C#]     | Web/MVC/SPA | 
+| MVC ASP.NET Core Açısal ile             | Açısal    | [C#]     | MVC/Web/SPA |
+| MVC ASP.NET Core React.js ile            | tepki      | [C#]     | MVC/Web/SPA |
+| MVC ASP.NET Core React.js ve Redux  | reactredux | [C#]     | MVC/Web/SPA |
 
 SPA şablonlarından birini kullanarak yeni bir proje oluşturmak için içermesi **kısa ad** şablonunun [dotnet yeni](/dotnet/core/tools/dotnet-new) komutu. Aşağıdaki komutu Açısal uygulama ASP.NET Core için sunucu tarafı yapılandırılmış MVC ile oluşturur:
 
@@ -295,7 +292,7 @@ Açısal uygulama örnek olarak kullanarak, iki Jasmine test çalışmaları zat
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Proje kökündeki komut istemi açın ve aşağıdaki komutu çalıştırın:
+Bir komut istemi açın *ClientApp* dizini. Şu komutu çalıştırın:
 
 ```console
 npm test

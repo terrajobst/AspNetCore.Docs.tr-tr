@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdeği modülü yapılandırma başvurusu"
+title: ASP.NET çekirdeği modülü yapılandırma başvurusu
 author: guardrex
-description: "ASP.NET Core uygulamaları barındırmak için ASP.NET Core modülü yapılandırmayı öğrenin."
+description: ASP.NET Core uygulamaları barındırmak için ASP.NET Core modülü yapılandırmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET çekirdeği modülü yapılandırma başvurusu
 
@@ -65,6 +65,7 @@ Bkz: [alt uygulama yapılandırma](xref:host-and-deploy/iis/index#sub-applicatio
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>AspNetCore öğenin öznitelikleri
 
+::: moniker range="<= aspnetcore-2.0"
 | Öznitelik | Açıklama | Varsayılan |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>İsteğe bağlı dize özniteliği.</p><p>Belirtilen yürütülebilir dosya bağımsız değişkenleri **processPath**.</p>| |
@@ -72,11 +73,26 @@ Bkz: [alt uygulama yapılandırma](xref:host-and-deploy/iis/index#sub-applicatio
 | `forwardWindowsAuthToken` | doğru veya yanlış.</p><p>TRUE ise, belirteç istek başına bir üstbilgi 'MS-ASPNETCORE-WINAUTHTOKEN' % ASPNETCORE_PORT % üzerinde dinleme alt işlem iletilir. Bu belirteç istek başına CloseHandle çağırmak için işlem sorumluluğundadır.</p> | `true` |
 | `processPath` | <p>Gerekli dize özniteliği.</p><p>HTTP isteklerini dinlemeye bir işlem başlatır yürütülebilir dosya yolu. Göreli yollar desteklenir. Yol ile başlıyorsa `.`, yolun site köküne göre değerlendirilir.</p> | |
 | `rapidFailsPerMinute` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakikada kilitlenmesine izin verilir. Bu sınır aşılırsa dakikanın geri kalan işlem başlatma modül durdurur.</p> | `10` |
-| `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET çekirdeği Modülü ' % ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt bekleyeceği süreyi belirtir.</p><p>`requestTimeout` Yalnızca tam dakikalar içinde aksi 2 dakika olarak varsayılan olarak belirtilmelidir.</p> | `00:02:00` |
+| `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET çekirdeği Modülü ' % ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt bekleyeceği süreyi belirtir.</p><p>ASP.NET Core 2.0 veya daha önceki sürüm ile birlikte gelen ASP.NET Core Modülü'nü sürümlerinde `requestTimeout` yalnızca tam dakikalar içinde aksi 2 dakika olarak varsayılan olarak belirtilmelidir.</p> | `00:02:00` |
 | `shutdownTimeLimit` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Modül düzgün biçimde kapatmak için yürütülebilir dosyası için bekleyeceği saniye cinsinden süre olduğunda *app_offline.htm* dosya algılandı.</p> | `10` |
 | `startupTimeLimit` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Modül yürütülebilir dosyanın bağlantı noktasını dinleyen bir işlemi başlatmak için bekleyeceği saniye cinsinden süre. Bu süre aşılırsa, modül işlemi sonlandırır. Modül yeni bir istek alırsa ve uygulamayı başlatmak gelmedikçe gelen istekler işlemi yeniden başlatmaya devam işlemini yeniden dener **rapidFailsPerMinute** son kez sayısı dakika alınıyor.</p> | `120` |
 | `stdoutLogEnabled` | <p>İsteğe bağlı Boole öznitelik.</p><p>TRUE ise, **stdout** ve **stderr** belirtilen işlem için **processPath** belirtilen dosyasına yeniden yönlendiriliyor **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>İsteğe bağlı dize özniteliği.</p><p>Kendisi için göreli veya mutlak dosya yolunu belirtir **stdout** ve **stderr** belirtilen işleminden **processPath** kaydedilir. Site köküne göre göreli yollardır. İle başlayan herhangi bir yol `.` olan göre sitenin kök ve diğer tüm yolları mutlak yollar olarak kabul edilir. Yolu sağlanan herhangi bir klasörde günlük dosyası oluşturmak modülün mevcut olmalıdır. Alt çizgi sınırlayıcıları, zaman damgası, işlem kimliği ve dosya uzantısını kullanarak (*.log*) kesimini son eklenen **stdoutLogFile** yolu. Varsa `.\logs\stdout` sağlanan bir değer olarak, bir örnek stdout günlük olarak kaydedilir *stdout_20180205194132_1934.log* içinde *günlükleri* 2/5/2018 19:41:32 1934 bir işlem kimlikli adresindeki kaydedildiğinde klasör.</p> | `aspnetcore-stdout` |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Öznitelik | Açıklama | Varsayılan |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>İsteğe bağlı dize özniteliği.</p><p>Belirtilen yürütülebilir dosya bağımsız değişkenleri **processPath**.</p>| |
+| `disableStartUpErrorPage` | doğru veya yanlış.</p><p>TRUE ise, **502.5 - işlem hatası** sayfa geçersiz kılınır ve 502 durum kod sayfası yapılandırılan *web.config* önceliklidir.</p> | `false` |
+| `forwardWindowsAuthToken` | doğru veya yanlış.</p><p>TRUE ise, belirteç istek başına bir üstbilgi 'MS-ASPNETCORE-WINAUTHTOKEN' % ASPNETCORE_PORT % üzerinde dinleme alt işlem iletilir. Bu belirteç istek başına CloseHandle çağırmak için işlem sorumluluğundadır.</p> | `true` |
+| `processPath` | <p>Gerekli dize özniteliği.</p><p>HTTP isteklerini dinlemeye bir işlem başlatır yürütülebilir dosya yolu. Göreli yollar desteklenir. Yol ile başlıyorsa `.`, yolun site köküne göre değerlendirilir.</p> | |
+| `rapidFailsPerMinute` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakikada kilitlenmesine izin verilir. Bu sınır aşılırsa dakikanın geri kalan işlem başlatma modül durdurur.</p> | `10` |
+| `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET çekirdeği Modülü ' % ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt bekleyeceği süreyi belirtir.</p><p>ASP.NET Core 2.1 veya sonraki sürüm ile birlikte gelen ASP.NET Core Modülü'nü sürümlerinde `requestTimeout` saat, dakika ve saniye olarak belirtilir.</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Modül düzgün biçimde kapatmak için yürütülebilir dosyası için bekleyeceği saniye cinsinden süre olduğunda *app_offline.htm* dosya algılandı.</p> | `10` |
+| `startupTimeLimit` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Modül yürütülebilir dosyanın bağlantı noktasını dinleyen bir işlemi başlatmak için bekleyeceği saniye cinsinden süre. Bu süre aşılırsa, modül işlemi sonlandırır. Modül yeni bir istek alırsa ve uygulamayı başlatmak gelmedikçe gelen istekler işlemi yeniden başlatmaya devam işlemini yeniden dener **rapidFailsPerMinute** son kez sayısı dakika alınıyor.</p> | `120` |
+| `stdoutLogEnabled` | <p>İsteğe bağlı Boole öznitelik.</p><p>TRUE ise, **stdout** ve **stderr** belirtilen işlem için **processPath** belirtilen dosyasına yeniden yönlendiriliyor **stdoutLogFile**.</p> | `false` |
+| `stdoutLogFile` | <p>İsteğe bağlı dize özniteliği.</p><p>Kendisi için göreli veya mutlak dosya yolunu belirtir **stdout** ve **stderr** belirtilen işleminden **processPath** kaydedilir. Site köküne göre göreli yollardır. İle başlayan herhangi bir yol `.` olan göre sitenin kök ve diğer tüm yolları mutlak yollar olarak kabul edilir. Yolu sağlanan herhangi bir klasörde günlük dosyası oluşturmak modülün mevcut olmalıdır. Alt çizgi sınırlayıcıları, zaman damgası, işlem kimliği ve dosya uzantısını kullanarak (*.log*) kesimini son eklenen **stdoutLogFile** yolu. Varsa `.\logs\stdout` sağlanan bir değer olarak, bir örnek stdout günlük olarak kaydedilir *stdout_20180205194132_1934.log* içinde *günlükleri* 2/5/2018 19:41:32 1934 bir işlem kimlikli adresindeki kaydedildiğinde klasör.</p> | `aspnetcore-stdout` |
+::: moniker-end
 
 ### <a name="setting-environment-variables"></a>Ortam değişkenlerini ayarlama
 
@@ -113,11 +129,15 @@ Arka uç işlem veya arka uç işlemi başlar ancak yapılandırılmış bağlan
 
 ## <a name="log-creation-and-redirection"></a>Günlük oluşturma ve yeniden yönlendirme
 
-ASP.NET çekirdeği modülü yönlendiren `stdout` ve `stderr` diske günlükleri `stdoutLogEnabled` ve `stdoutLogFile` özniteliklerini `aspNetCore` öğesi ayarlanır. Herhangi bir klasörde `stdoutLogFile` yolu günlük dosyası oluşturmak modülün var olmalıdır. Bir zaman damgası ve dosya uzantısı günlük dosyası oluşturulduğunda otomatik olarak eklenir. İşlem geri dönüştürme/yeniden başlatma oluşmadığı sürece günlükleri Döndürülmüş değil. Günlükleri tüketen disk alanını sınırla barındırma sorumluluğundadır. Kullanarak `stdout` günlük, uygulama başlatma sorunlarını gidermek için yalnızca önerilir. Stdout günlük genel uygulama günlüğü amaçlar için kullanmayın. Bir ASP.NET Core uygulamada rutin günlüğü için günlük dosyası boyutu sınırlar ve günlükleri döndüğü bir günlük kitaplığını kullanın. Daha fazla bilgi için bkz: [üçüncü taraf günlüğü sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+ASP.NET çekirdeği modülü diske stdout ve stderr günlüklerini yönlendiren `stdoutLogEnabled` ve `stdoutLogFile` özniteliklerini `aspNetCore` öğesi ayarlanır. Herhangi bir klasörde `stdoutLogFile` yolu günlük dosyası oluşturmak modülün var olmalıdır. Uygulama havuzu günlükleri yazıldığı konuma yazma erişimi olması gerekir (kullanmak `IIS AppPool\<app_pool_name>` yazma izni sağlamak için).
 
-Günlük dosyası adı zaman damgası, işlem kimliği ve dosya uzantısı ekleyerek oluşur (*.log*) son segmenti için `stdoutLogFile` yol (genellikle *stdout*) alt çizgi tarafından ayrılmış. Varsa `stdoutLogFile` yolu bitiyor ile *stdout*, 2/5/2018 19:42: 32'de oluşturulan 1934 PID ile bir uygulama için bir günlük dosyası adına sahip *stdout_20180205194132_1934.log*.
+İşlem geri dönüştürme/yeniden başlatma oluşmadığı sürece günlükleri Döndürülmüş değil. Günlükleri tüketen disk alanını sınırla barındırma sorumluluğundadır.
 
-Aşağıdaki örnek `aspNetCore` öğesi yapılandırır `stdout` Azure App Service içinde barındırılan bir uygulama için günlüğe kaydetme. Bir yerel yol veya ağ paylaşım yolu yerel günlüğe kaydetme için kabul edilebilir değil. Uygulama havuzu kullanıcı kimliği sağlanan yolun yazma izni olduğunu doğrulayın.
+Yalnızca'yi stdout günlüğü kullanarak uygulama başlatma sorunlarını gidermek için önerilir. Stdout günlük genel uygulama günlüğü amaçlar için kullanmayın. Bir ASP.NET Core uygulamada rutin günlüğü için günlük dosyası boyutu sınırlar ve günlükleri döndüğü bir günlük kitaplığını kullanın. Daha fazla bilgi için bkz: [üçüncü taraf günlüğü sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+
+Bir zaman damgası ve dosya uzantısı günlük dosyası oluşturulduğunda otomatik olarak eklenir. Günlük dosyası adı zaman damgası, işlem kimliği ve dosya uzantısı ekleyerek oluşur (*.log*) son segmenti için `stdoutLogFile` yol (genellikle *stdout*) alt çizgi tarafından ayrılmış. Varsa `stdoutLogFile` yolu bitiyor ile *stdout*, 2/5/2018 19:42: 32'de oluşturulan 1934 PID ile bir uygulama için bir günlük dosyası adına sahip *stdout_20180205194132_1934.log*.
+
+Aşağıdaki örnek `aspNetCore` öğesi stdout günlüğü için Azure App Service içinde barındırılan bir uygulamayı yapılandırır. Bir yerel yol veya ağ paylaşım yolu yerel günlüğe kaydetme için kabul edilebilir değil. Uygulama havuzu kullanıcı kimliği sağlanan yolun yazma izni olduğunu doğrulayın.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -144,7 +164,7 @@ ASP.NET çekirdeği Modülü Yükleyicisi ayrıcalıklarıyla çalıştırır **
 1. Güncelleştirilmiş verme *applicationHost.config* dosya paylaşımına.
 1. IIS paylaşılan yapılandırma yeniden etkinleştirin.
 
-## <a name="module-version-and-hosting-bundle-installer-logs"></a>Modül sürümü ve Paket Yükleyici günlüklerini barındırma
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>Modül sürümü ve barındırma Paket Yükleyici günlükleri
 
 Yüklü ASP.NET Core modülünün sürümünü belirlemek için:
 
@@ -153,7 +173,7 @@ Yüklü ASP.NET Core modülünün sürümünü belirlemek için:
 1. Dosyaya sağ tıklayın ve seçin **özellikleri** bağlam menüsünde.
 1. Seçin **ayrıntıları** sekmesi. **Dosya sürümü** ve **ürün sürümü** modülünün yüklü sürümünü temsil eder.
 
-Modül için Windows Server'ı barındıran Paket Yükleyici günlüklerini konumunda bulunan *C:\\kullanıcılar\\% UserName %\\AppData\\yerel\\Temp*. Dosya adında *dd_DotNetCoreWinSvrHosting__\<zaman damgası > _000_AspNetCoreModule_x64.log*.
+Modül için barındırma Paket Yükleyici günlüklerini konumunda bulunan *C:\\kullanıcılar\\% UserName %\\AppData\\yerel\\Temp*. Dosya adında *dd_DotNetCoreWinSvrHosting__\<zaman damgası > _000_AspNetCoreModule_x64.log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Modül, şema ve yapılandırmasını dosya konumları
 
@@ -169,13 +189,13 @@ Modül için Windows Server'ı barındıran Paket Yükleyici günlüklerini konu
 
    * %ProgramFiles%\IIS Express\aspnetcore.dll
 
-   * %ProgramFiles(x86)%\IIS Express\aspnetcore.dll
+   * % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
 
 ### <a name="schema"></a>Şema
 
 **IIS**
 
-   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.xml
+   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.XML
 
 **IIS Express**
 

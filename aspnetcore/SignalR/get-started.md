@@ -3,6 +3,7 @@ title: ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 author: rachelappel
 description: Bu öğreticide, SignalR için ASP.NET Core kullanarak bir uygulama oluşturun.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 03/16/2018
@@ -10,17 +11,17 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: cf120d535c85c7871f5b1f27039018ea2405b9cb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 03735359bb22cc3085ddc7b34372ecfc9501a940
+ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
 Tarafından [Rachel Appel](https://twitter.com/rachelappel)
 
-[!INCLUDE [Version notice](../includes/signalr-version-notice.md)]
+[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 Bu öğretici, SignalR için ASP.NET Core kullanarak gerçek zamanlı bir uygulama oluşturma temelleri öğretir.
 
@@ -41,14 +42,14 @@ Aşağıdaki yazılımı yükleyin:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [.NET core 2.1.0 Önizleme 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1) veya daha yenisi
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) sürüm 15.6 veya üstü **ASP.NET ve web geliştirme** iş yükü
+* [.NET core 2.1.0 Önizleme 2 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2) veya daha yenisi
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) sürüm 15.7 veya üstü **ASP.NET ve web geliştirme** iş yükü
 * [npm](https://www.npmjs.com/get-npm)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [.NET core 2.1.0 Önizleme 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview1) veya daha yenisi
-* [Visual Studio Code](https://code.visualstudio.com/download) 
+* [.NET core 2.1.0 Önizleme 2 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-preview2) veya daha yenisi
+* [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# Visual Studio kodu](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [npm](https://www.npmjs.com/get-npm)
 
@@ -56,7 +57,8 @@ Aşağıdaki yazılımı yükleyin:
 
 ## <a name="create-an-aspnet-core-project-that-hosts-signalr-client-and-server"></a>SignalR istemcisi ve sunucusu barındıran bir ASP.NET Core projesi oluşturma
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 1. Kullanım **dosya** > **yeni proje** menü seçeneğini ve seçin **ASP.NET çekirdek Web uygulaması**. Proje adı *SignalRChat*.
 
    ![Visual Studio'da yeni proje iletişim kutusu](get-started/_static/signalr-new-project-dialog.png)
@@ -65,16 +67,19 @@ Aşağıdaki yazılımı yükleyin:
 
    ![Visual Studio'da yeni proje iletişim kutusu](get-started/_static/signalr-new-project-choose-type.png)
 
-3. ' Nde projeye sağ **Çözüm Gezgini** > **Ekle** > **yeni öğe** > **npm yapılandırma dosyası** . Dosya adı *package.json*.
+Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu kitaplıklarından içeren paket kendi **ASP.NET çekirdek Web uygulaması** şablonu. Ancak, SignalR için JavaScript istemci kitaplığı kullanılarak yüklenmelidir *npm*.
 
-4. Aşağıdaki komutu çalıştırın **Paket Yöneticisi Konsolu** penceresinden proje kök:
+3. Aşağıdaki komutları çalıştırın **Paket Yöneticisi Konsolu** penceresinden proje kök:
 
     ```console
+      npm init -y
       npm install @aspnet/signalr
-    ```
-5. Kopya <em>signalr.js</em> dosya <em>node_modules\\ @aspnet\signalr\dist\browser</em>  için <em>wwwroot\lib</em> projenizdeki klasöre.
+    ```     
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+4. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  için *lib* projenizdeki klasöre.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 1. Gelen **tümleşik Terminal**, aşağıdaki komutu çalıştırın:
 
     ```console
@@ -88,21 +93,24 @@ Aşağıdaki yazılımı yükleyin:
       npm install @aspnet/signalr
     ```
 
-* * *
+-----
+
 ## <a name="create-the-signalr-hub"></a>SignalR hub'ı Oluştur
 
 Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst düzey bir işlem hattı görevi gören bir sınıftır.
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 1. Bir sınıf projeye seçerek eklemek **dosya** > **yeni** > **dosya** ve seçerek **Visual C# sınıfı**.
 
 2. Devralınan `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Özellikleri ve olayları gönderme ve alma veri yanı sıra bağlantıları ve grupları yönetmek için sınıf içerir.
 
-3. Oluşturma `SendMessage` tüm bağlı sohbet istemcilere bir ileti gönderir yöntemi. Döndürdüğü fark bir [görev](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task(v=vs.110).aspx), SignalR zaman uyumsuz olarak çağrılır. Zaman uyumsuz kodu daha iyi ölçeklenir.
+3. Oluşturma `SendMessage` tüm bağlı sohbet istemcilere bir ileti gönderir yöntemi. Döndürdüğü fark bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task(v=vs.110).aspx), SignalR zaman uyumsuz olarak çağrılır. Zaman uyumsuz kodu daha iyi ölçeklenir.
 
-   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=7-14)]
+   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs)]
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 1. Açık *SignalRChat* Visual Studio Code klasöründe.
 
 2. Bir sınıf projeye seçerek eklemek **dosya** > **yeni dosya** menüsünde.
@@ -111,9 +119,10 @@ Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst d
 
 4. Ekleme bir `SendMessage` sınıfına yöntemi. `SendMessage` Yöntem, tüm bağlı sohbet istemcilere bir ileti gönderir. Döndürdüğü fark bir [görev](/dotnet/api/system.threading.tasks.task), SignalR zaman uyumsuz olarak çağrılır. Zaman uyumsuz kodu daha iyi ölçeklenir.
 
-   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=7-14)]
+   [!code-csharp[Startup](get-started/sample/Hubs/ChatHub.cs?range=6-12)]
 
-* * *
+-----
+
 ## <a name="configure-the-project-to-use-signalr"></a>SignalR kullanmak üzere proje yapılandırma
 
 SignalR için isteklerini iletmek için bilir böylece SignalR sunucusunun yapılandırılması gerekir.
@@ -124,7 +133,9 @@ SignalR için isteklerini iletmek için bilir böylece SignalR sunucusunun yapı
 
 2. Yollar kullanılarak, hub'larınız için yapılandırma `UseSignalR`.
 
-   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=22,40-43)]
+
+   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=36,56-59)]
+
 
 ## <a name="create-the-signalr-client-code"></a>SignalR istemci kodu oluşturma
 

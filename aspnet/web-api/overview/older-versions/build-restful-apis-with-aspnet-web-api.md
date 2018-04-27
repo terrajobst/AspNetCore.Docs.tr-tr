@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'lerini derleme
 ====================
@@ -25,7 +25,7 @@ Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > Son yıllarda Temizle HTTP HTML sayfaları yalnızca hizmet vermek için olmadığından emin olur. Ayrıca Web API'leri, birkaç basit kavramları gibi fiiller (GET, POST ve benzeri) sayıda kullanarak oluşturmak için güçlü bir platform olan *URI'ler* ve *üstbilgileri*. ASP.NET Web API HTTP programlama basitleştirmek bileşenleri kümesidir. ASP.NET MVC çalışma zamanı üzerine inşa edildiğinden, Web API HTTP alt düzey taşıma ayrıntılarını otomatik olarak yönetir. Aynı zamanda Web API HTTP programlama modeli doğal olarak kullanıma sunar. Aslında, bir Web API için hedefidir *değil* hemen HTTP gerçekte soyut. Sonuç olarak, Web API esnek ve kolay genişletmek ' dir. Bu uygulamalı laboratuarda bir kişi manager uygulaması için basit bir REST API oluşturmak için Web API'sini kullanır. Ayrıca, API kullanmak için bir istemci oluşturacaksınız. Bunu kesinlikle yalnızca geçerli bir yaklaşım HTTP olmasa da HTTP - yararlanmak için etkili bir yol olması REST mimari stili kanıtlamış. Kişi Yöneticisi, listeleme, ekleme ve diğerlerinin yanı sıra kişiler kaldırma için RESTful açığa çıkarır. Bu Laboratuvar, HTTP, REST, temel bir anlayış gerektirir ve HTML, JavaScript ve jQuery temel bilgiye sahip olduğunu varsayar.
 > 
 > > [!NOTE]
-> > ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
+> > ASP.NET Web sitesi ASP.NET Web API çerçevesi için ayrılmış bir alana sahip [ https://asp.net/web-api ](https://asp.net/web-api). Bu site, en son haberler, örnekler ve Web API'sine ilgili haberleri nedenle denetleyin, sık sağlamaya devam edecek özel Web API'leri neredeyse tüm aygıt ya da geliştirme framework kullanılabilir oluşturma resmi içine daha derin inceleyin isteyip istemediğinizi.
 > > 
 > > ASP.NET Web API, ASP.NET MVC 4'e benzer birkaç kullanılabilir bağımlılık ekleme çerçeveleri oldukça kullanmanızı sağlayan denetleyicilerinden hizmet katmanı ayırarak açısından büyük esneklik vardır. ASP.NET Web API projesinde buradan indirebilirsiniz bağımlılık ekleme için Ninject kullanmayı gösterir MSDN'de iyi bir örnek yok [burada](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 

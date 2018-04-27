@@ -10,18 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ada8120189baf036296b83f91d20b364ee90d074
+ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), ve [Scott Addie](https://scottaddie.com) 
 
 > [!IMPORTANT]
-> Bower korunur, ancak kendi maintainers farklı bir çözüme kullanmanızı öneririz. Yarn Webpack ile kendisi için popüler bir alternatif olan [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir.
+> Bower korunur, ancak kendi maintainers farklı bir çözüme kullanmanızı öneririz. [Kitaplık Yöneticisi](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (kısaca LibMan) olan Visual Studio'nun yeni istemci-tarafı statik içerik yönetim sistemi. Yarn Webpack ile kendisi için popüler bir alternatif olan [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir.
 
 [Bower](https://bower.io/) kendisini "web için bir paket Yöneticisi" çağırır. .NET ekosistemi içinde statik içerik dosyaları NuGet verilmemesine göre sol void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıklara devralınan [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
 

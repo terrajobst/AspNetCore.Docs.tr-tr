@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 705524a62018b9f0fbd8c40fa1b70d4c62ee236e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 83a6a09f8c0fd399efeb38903786bc41ff8ac4fb
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Çekirdeği ve Visual Studio Code ile Web API oluşturma
 
@@ -98,9 +98,11 @@ Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
 VS Code'da uygulamayı başlatmak için F5 tuşuna basın. Gidin http://localhost:5000/api/todo ( `Todo` yeni oluşturduğumuz denetleyicisi).
 
-[!INCLUDE [last part of web API](../includes/webApi/end.md)]
+[!INCLUDE[Javascript Jquery](../includes/add-javascript-jquery/index.md)]
 
-## <a name="visual-studio-code-help"></a>Visual Studio Code help
+[!INCLUDE[last part of web API](../includes/webApi/end.md)]
+
+## <a name="visual-studio-code-help"></a>Visual Studio Code Yardım
 
 - [Başlarken](https://code.visualstudio.com/docs)
 - [Hata Ayıklama](https://code.visualstudio.com/docs/editor/debugging)

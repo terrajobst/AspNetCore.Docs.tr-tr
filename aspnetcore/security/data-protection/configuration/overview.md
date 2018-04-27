@@ -9,19 +9,27 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Veri koruma sistem başlatıldığında geçerli [varsayılan ayarları](xref:security/data-protection/configuration/default-settings) işletimsel ortamına bağlı. Bu ayarlar genellikle tek bir makinede çalışan uygulamalar için uygundur. Burada bir geliştirici kendi uygulama birden fazla makine arasında veya uyumluluk nedenleriyle yayıldığı için varsayılan ayarları, belki de değiştirmek isteyebilirsiniz durumlar vardır. Bu senaryolar için veri koruması sistemi zengin yapılandırma API'si sunar.
+Veri koruma sistem başlatıldığında geçerli [varsayılan ayarları](xref:security/data-protection/configuration/default-settings) işletimsel ortamına bağlı. Bu ayarlar genellikle tek bir makinede çalışan uygulamalar için uygundur. Bir geliştirici varsayılan ayarlarını değiştirmek istediğiniz yere durumlar vardır:
 
-Bir genişletme yöntemi yoktur [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndüren bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` genişletme yöntemleri, veri korumayı yapılandırmak için seçenekleri zincir olduğunu gösterir.
+* Uygulama, birden fazla makine arasında yayılır.
+* Uyumluluk nedenleriyle.
+
+Bu senaryolar için veri koruması sistemi zengin yapılandırma API'si sunar.
+
+> [!WARNING]
+> Benzer şekilde yapılandırma dosyalarını, veri koruma anahtarı halkası uygun izinleri kullanarak korunmalıdır. REST anahtarlarını şifrelemek seçebilirsiniz, ancak bu yeni anahtarlar oluşturma saldırganlar engellemez. Sonuç olarak, uygulamanızın güvenliğini etkilenmez. Veri koruma ile yapılandırılmış depolama konumu uygulamanın kendi, benzer şekilde yapılandırma dosyalarını koruyun sınırlı kendi erişimine sahip olmalıdır. Örneğin, disk üzerinde anahtar halkası depolamayı seçerseniz, dosya sistemi izinlerini kullanın. Yalnızca altında emin olun, web uygulamanızın çalıştırdığı okuma, yazma ve bu dizine erişiminiz oluşturun. Azure Table Storage kullanıyorsanız, yalnızca web uygulaması okuma, yazma ya da yeni girişleri oluşturmak tablo deposu, vb. özelliği olması gerekir.
+>
+> Genişletme yöntemi [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndüren bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` genişletme yöntemleri, veri korumayı yapılandırmak için seçenekleri zincir olduğunu gösterir.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

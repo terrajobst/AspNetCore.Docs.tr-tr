@@ -5,16 +5,16 @@ description: ASP.NET Core başlangıç sınıfında Hizmetleri ve uygulamanın i
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/08/2017
+ms.date: 4/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: bad1bc986be3e8681dacdf48fe7d20ab660ebcb0
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 8dd632a2c888e65c6420e0fed7acf6fa15173b3d
+ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulama başlangıç
 
@@ -52,17 +52,55 @@ Daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundam
 
 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) yöntemi:
 
-* İsteğe bağlı.
+* İsteğe Bağlı
 * Önce web ana bilgisayarı tarafından çağrılan `Configure` yöntemi uygulamanın Hizmetleri'ni yapılandırmak için.
 * Burada [yapılandırma seçenekleri](xref:fundamentals/configuration/index) kurala göre ayarlanır.
 
 Hizmetler için hizmet kapsayıcı ekleme yapar bunları uygulama içinde ve kullanılabilir `Configure` yöntemi. Hizmetler aracılığıyla çözümlenmiş [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
-Web ana bilgisayarı önce bazı hizmetler yapılandırabilirsiniz `Startup` yöntemleri çağrılır. Ayrıntılar kullanılabilir [barındırma](xref:fundamentals/hosting) konu. 
+Web ana bilgisayarı önce bazı hizmetler yapılandırabilirsiniz `Startup` yöntemleri çağrılır. Ayrıntılar kullanılabilir [barındırma](xref:fundamentals/hosting) konu.
 
 Önemli kurulum gerektiren özellikleri vardır `Add[Service]` genişletme yöntemleri [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Tipik web uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
+
+::: moniker range=">= aspnetcore-2.1" 
+
+<a name="setcompatibilityversion"></a>
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>ASP.NET Core MVC SetCompatibilityVersion 
+
+`SetCompatibilityVersion` Yöntemi katılımı veya potansiyel olarak yeni ASP.NET MVC çekirdek 2.1 + sunulan davranışı değişiklikler çevirin bir uygulamanın olanak tanır. Büyük olasılıkla yeni davranış değişiklikler genellikle, MVC alt sistemi davranır nasıl ve ne bunlar **kodunuzu** çalışma zamanı tarafından çağrılır. Seçim tarafından son davranışı ve ASP.NET Core uzun vadeli davranışını alır.
+
+Aşağıdaki kod, ASP.NET Core 2.1 uyumluluk modu ayarlar:
+
+[!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
+
+En son sürümünü kullanarak uygulamanızı test öneririz (`CompatibilityVersion.Version_2_1`). Çoğu uygulama en son sürümünü kullanarak davranışı değişiklikler olmaz beklenir. 
+
+Çağıran uygulamalar `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` davranış değişiklikleri ASP.NET Core 2.1 MVC ve sonraki 2.x sürümlerinde sunulan potansiyel olarak sonlandırmasını korunur. Bu koruma:
+
+* Uygulanmaz 2.1 ve üzeri yapılan tüm değişiklikler, potansiyel olarak ASP.NET Core çalışma zamanı davranışı MVC alt sisteminde önemli değişiklikler için görünür duruma yöneliktir.
+* Sonraki ana sürüm kapsamaz.
+
+ASP.NET Core 2.1 ve yapmak sonraki 2.x uygulamaları için varsayılan uyumluluk **değil** çağrısı `SetCompatibilityVersion` 2.0 uyumluluğa yöneliktir. Diğer bir deyişle, değil çağırma `SetCompatibilityVersion` arama aynı `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
+
+Aşağıdaki kod uyumluluk modu dışında aşağıdaki davranışları ASP.NET Core 2.1 için ayarlar:
+
+* [AllowCombiningAuthorizeFilters](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+* [InputFormatterExceptionPolicy](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs)
+
+[!code-csharp[Main](startup/sampleCompatibility/Startup2.cs?name=snippet1)]
+
+Uygulamalar için uygun uyumluluk anahtarları kullanarak sonu davranış değişiklikleri karşılaşırsınız:
+
+* En son sürümü kullanma ve belirli sonu davranış değişiklikleri dışında opt izin verir.
+* Böylece son değişikliklerle birlikte çalışır uygulamanızı güncellemek için zaman verir.
+
+[MvcOptions](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.Core/MvcOptions.cs) sınıfı kaynak görüşlerinizi bildirmek iyi bir açıklama nelerin değiştiğini ve çoğu kullanıcı için bir geliştirme neden değişir.
+
+Bazı ileriki bir tarihte olacaktır bir [ASP.NET Core 3.0 sürümü](https://github.com/aspnet/Home/wiki/Roadmap). Uyumluluk anahtarları tarafından desteklenen eski davranışları 3.0 sürümünde kaldırılacak. Neredeyse tüm kullanıcılar teknolojisinden yararlanan pozitif değişiklikler bunlar eşitleyerek. Bu değişiklikleri şimdi sunarız tarafından çoğu uygulamalar artık yararlanabilir ve diğerlerinin uygulamalarını güncellemek için gerekir.
+
+::: moniker-end
 
 ## <a name="services-available-in-startup"></a>Başlangıç kullanılabilir hizmetler
 
@@ -76,7 +114,7 @@ Web ana bilgisayarı tarafından kullanılabilen bazı hizmetler sağlar `Startu
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
 
-Her `Use` genişletme yöntemi, istek ardışık düzenine bir ara yazılım bileşeni ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme Ara](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleyici olarak. 
+Her `Use` genişletme yöntemi, istek ardışık düzenine bir ara yazılım bileşeni ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme Ara](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleyici olarak.
 
 Her ara yazılım bileşeni istek kanalında, ardışık düzende sonraki bileşene çağırma veya zincir uygunsa kısa devre sorumludur. Kısa devre ara yazılım zinciri gerçekleşmezse, her ara istemciye gönderilmeden önce isteğini işlemek için ikinci bir fırsat sahiptir.
 

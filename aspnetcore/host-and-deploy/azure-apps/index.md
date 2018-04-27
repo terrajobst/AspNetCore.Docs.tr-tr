@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti
 
@@ -53,7 +53,7 @@ ASP.NET Core 2.0 ve daha sonra içindeki üç paketleri [Microsoft.AspNetCore.Al
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) uses [IHostingStartup](xref:host-and-deploy/platform-specific-configuration) to provide ASP.NET Core lightup integration with Azure App Service. Eklenen günlüğe kaydetme özelliklerini tarafından sağlanan `Microsoft.AspNetCore.AzureAppServicesIntegration` paket.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) executes [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) to add Azure App Service diagnostics logging providers in the `Microsoft.Extensions.Logging.AzureAppServices` package.
-* [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) provides logger implementations to support Azure App Service diagnostics logs and log streaming features.
+* [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) Günlükçü uygulamaları Azure App Service tanılama günlüklerini ve günlük özellikleri akış desteği sağlar.
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
 
@@ -85,7 +85,7 @@ Sorun giderme önerileri ile Azure App Service/IIS tarafından barındırılan u
 Dağıtım yuvaları arasında takası zaman veri koruması kullanan tüm sistemler anahtar halkası önceki yuvasına kullanarak depolanan verilerin şifresini çözmek mümkün olmayacaktır. ASP.NET tanımlama bilgisi ara veri koruma, tanımlama bilgilerini korumak için kullanır. Bu standart ASP.NET tanımlama bilgisi Ara kullanan bir uygulamanın oturumunu imzalanması kullanıcılara yol gösterir. Yuva bağımsız anahtar halkası çözümü için bir dış anahtar halkası sağlayıcısı gibi kullanın:
 
 * Azure Blob Depolama
-* Azure Key Vault
+* Azure anahtar kasası
 * SQL deposu
 * Redis önbelleği
 
@@ -95,14 +95,13 @@ Daha fazla bilgi için bkz: [anahtar depolama sağlayıcıları](xref:security/d
 
 ASP.NET Core Önizleme uygulamaları için Azure App Service ile aşağıdaki yaklaşımlardan dağıtılabilir:
 
-* [Önizleme sitesi uzantı yükleme](#site-x)
-* [Uygulamayı dağıtma kendi içinde](#self)
-* [Docker Web Apps ile kapsayıcıları için kullanın.](#docker)
+* [Önizleme sitesi uzantısını yükleyin](#install-the-preview-site-extension)
+* [Kendi içinde bulunan uygulama dağıtma](#deploy-the-app-self-contained)
+* [Docker Web Apps ile kapsayıcıları için kullanın.](#use-docker-with-web-apps-for-containers)
 
-Önizleme sitesi uzantısını kullanarak bir sorun varsa, bir sorun açmak [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Önizleme sitesi uzantısını kullanarak bir sorun oluşursa, sorunu açmak [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>Önizleme sitesi uzantı yükleme
+### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükleyin
 
 * Azure portalından, uygulama hizmeti dikey penceresine gidin.
 * "Örneğin" arama kutusuna girin.
@@ -111,10 +110,10 @@ ASP.NET Core Önizleme uygulamaları için Azure App Service ile aşağıdaki ya
 
 ![Önceki adımları ile azure uygulaması dikey](index/_static/x1.png)
 
-* Seçin **ASP.NET çekirdeği çalışma zamanı uzantıları**.
-* Seçin **Tamam** > **Tamam**.
+* Seçin **(x 86) ASP.NET çekirdeği 2.1 çalışma zamanı** veya **(x 64) ASP.NET çekirdeği 2.1 çalışma zamanı**.
+* Seçin **Tamam**. Seçin **Tamam** yeniden.
 
-Ekleme işlemleri tamamlandıktan sonra en son .NET Core 2.1 önizleme yüklenir. Yükleme çalıştırarak doğrulayabilirsiniz `dotnet --info` konsolunda. Uygulama hizmeti dikey penceresinden:
+Ekleme işlemleri tamamladığınızda, en son .NET Core 2.1 önizleme yüklenir. Çalıştırarak yüklemeyi doğrulayın `dotnet --info` konsolunda. Gelen **uygulama hizmeti** dikey penceresinde:
 
 * "Arama kutusuna con" girin.
 * Seçin **konsol**.
@@ -126,26 +125,24 @@ Ekleme işlemleri tamamlandıktan sonra en son .NET Core 2.1 önizleme yüklenir
 
 `dotnet --info` Görüntüler Önizleme yüklendiği site uzantısı yolu. Uygulama site uzantısı varsayılan çalıştırılmasının gösterir *ProgramFiles* konumu. Görürseniz *ProgramFiles*, siteyi yeniden başlatmak ve Çalıştır `dotnet --info`.
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Önizleme sitesi uzantı ile bir ARM şablonu kullanın
+**Önizleme site uzantısı ile bir ARM şablonu kullanın**
 
-Kullanabileceğiniz uygulamalar oluşturmak ve dağıtmak için ARM şablonunu kullanıyorsanız `siteextensions` bir Web uygulaması için site uzantısı eklemek için kaynak türü. Örneğin:
+ARM şablonunu oluşturmak ve uygulamalarını dağıtmak için kullanılırsa `siteextensions` kaynak türü, bir web uygulaması için site uzantısı eklemek için kullanılabilir. Örneğin:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
-### <a name="deploy-the-app-self-contained"></a>Uygulamayı dağıtma kendi içinde
+### <a name="deploy-the-app-self-contained"></a>Kendi içinde bulunan uygulama dağıtma
 
-Dağıtabilmeniz için bir [kendi içinde bulunan uygulama](/dotnet/core/deploying/#self-contained-deployments-scd) , taşıyan Önizleme çalışma zamanı onunla dağıtılan olduğunda. Kendi kendine bulunan Uygulama dağıtırken:
+A [kendi içinde bulunan uygulama](/dotnet/core/deploying/#self-contained-deployments-scd) dağıtılabilir, dağıtımda Önizleme çalışma zamanı taşır. Kendi başına bir uygulama dağıtımı sırasında:
 
-* Sitenizi hazırlama gerek yoktur.
-* SDK sunucusunda yüklendikten sonra bir uygulama dağıtırken yaptığınız daha uygulamanız farklı şekilde yayımlamak gerektirir.
+* Site hazırlanması gerekmez.
+* Uygulama framework bağımlı dağıtım paylaşılan çalışma zamanı ve ana bilgisayar sunucusunda yayımlama, farklı bir biçimde yayımlanması gerekir.
 
-Tüm .NET Core uygulamaları için bir seçenek müstakil uygulamalardır.
+Tüm ASP.NET Core uygulamaları için bir seçenek müstakil uygulamalardır.
 
-<a name="docker"></a>
 ### <a name="use-docker-with-web-apps-for-containers"></a>Docker Web Apps ile kapsayıcıları için kullanın.
 
-[Docker hub'a](https://hub.docker.com/r/microsoft/aspnetcore/) son 2.1 önizleme Docker görüntülerini içerir. Temel görüntüsü olarak kullanın ve Web uygulamaları kapsayıcıları için normal olarak dağıtın.
+[Docker hub'a](https://hub.docker.com/r/microsoft/aspnetcore/) son 2.1 önizleme Docker görüntülerini içerir. Görüntüleri temel görüntü kullanılabilir. Görüntüyü kullanmak ve Web uygulamaları kapsayıcıları için normal olarak dağıtın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -5,16 +5,16 @@ description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etk
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 04/04/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e88526d997618658f58488adb37ae1e519ea3f59
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core IIS modülleri
 
@@ -24,8 +24,10 @@ ASP.NET Core uygulamaları IIS tarafından bir ters proxy yapılandırması bar�
 
 ## <a name="native-modules"></a>Yerel modülleri
 
-| Modül | .NET core etkin | ASP.NET Core Option |
-| ------ | :--------------: | ------------------- |
+Tablo ASP.NET Core uygulamaları için ters proxy isteklerde işlevsel yerel IIS modülleri gösterir.
+
+| Modül | ASP.NET Core uygulamaları ile işlev | ASP.NET çekirdeği seçeneği |
+| ------ | :-------------------------------: | ------------------- |
 | **Anonim kimlik doğrulaması**<br>`AnonymousAuthenticationModule` | Evet | |
 | **Temel Kimlik Doğrulaması**<br>`BasicAuthenticationModule` | Evet | |
 | **İstemci sertifika eşlemesi kimlik doğrulaması**<br>`CertificateMappingAuthenticationModule` | Evet | |
@@ -49,7 +51,7 @@ ASP.NET Core uygulamaları IIS tarafından bir ters proxy yapılandırması bar�
 | **Protokol desteği**<br>`ProtocolSupportModule` | Evet | |
 | **İstek Filtreleme**<br>`RequestFilteringModule` | Evet | [URL yeniden yazma işlemi Ara `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **İstek İzleyicisi**<br>`RequestMonitorModule` | Evet | |
-| **URL yeniden yazma işlemi**<br>`RewriteModule` | Yes&#8224; | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
+| **URL yeniden yazma işlemi**<br>`RewriteModule` | Evet&#8224; | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
 | **Sunucu Tarafı İçermeler**<br>`ServerSideIncludeModule` | Hayır | |
 | **Statik sıkıştırma**<br>`StaticCompressionModule` | Hayır | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression) |
 | **Statik İçerik**<br>`StaticFileModule` | Hayır | [Statik dosya ara yazılımı](xref:fundamentals/static-files) |
@@ -62,21 +64,23 @@ ASP.NET Core uygulamaları IIS tarafından bir ters proxy yapılandırması bar�
 
 ## <a name="managed-modules"></a>Yönetilen modüller
 
-| Modül                  | .NET core etkin | ASP.NET Core Option |
-| ----------------------- | :--------------: | ------------------- |
-| AnonymousIdentification | Hayır               | |
-| DefaultAuthentication   | Hayır               | |
-| FileAuthorization       | Hayır               | |
-| FormsAuthentication     | Hayır               | [Tanımlama bilgisi kimlik doğrulaması ara yazılımı](xref:security/authentication/cookie) |
-| OutputCache             | Hayır               | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
-| Profil                 | Hayır               | |
-| RoleManager             | Hayır               | |
-| ScriptModule-4.0        | Hayır               | |
-| Oturum                 | Hayır               | [Oturum Ara](xref:fundamentals/app-state) |
-| UrlAuthorization        | Hayır               | |
-| UrlMappingsModule       | Hayır               | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
-| UrlRoutingModule-4.0    | Hayır               | [ASP.NET Core kimliği](xref:security/authentication/identity) |
-| WindowsAuthentication   | Hayır               | |
+Yönetilen modüller *değil* uygulama havuzunun .NET CLR sürümü ayarlandığında barındırılan ASP.NET Core uygulamaları ile işlevsel **yönetilen kod yok**. ASP.NET Core birkaç durumlarda ara yazılımı seçenekleri sunar.
+
+| Modül                  | ASP.NET çekirdeği seçeneği |
+| ----------------------- | ------------------- |
+| AnonymousIdentification | |
+| DefaultAuthentication   | |
+| FileAuthorization       | |
+| FormsAuthentication     | [Tanımlama bilgisi kimlik doğrulaması ara yazılımı](xref:security/authentication/cookie) |
+| OutputCache             | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
+| Profil                 | |
+| RoleManager             | |
+| ScriptModule 4.0        | |
+| Oturum                 | [Oturum Ara](xref:fundamentals/app-state) |
+| UrlAuthorization        | |
+| UrlMappingsModule       | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
+| UrlRoutingModule 4.0    | [ASP.NET Core kimliği](xref:security/authentication/identity) |
+| WindowsAuthentication   | |
 
 ## <a name="iis-manager-application-changes"></a>IIS Yöneticisi'ni uygulama değişiklikleri
 
@@ -88,7 +92,7 @@ Bir IIS modülünü sunucu düzeyinde bir uygulama, bir uygulamanın eklemeyi i�
 
 ### <a name="module-deactivation"></a>Modül devre dışı bırakma
 
-Birçok modül uygulamadan modülü kaldırmadan devre dışı bırakılmasına izin veren bir yapılandırma ayarı sunar. Bir modül devre dışı bırakmak için basit ve hızlı yolu budur. Örneğin, IIS URL yeniden yazma modülü ile devre dışı bırakılabilir  **\<httpRedirect >** öğesinde *web.config*:
+Birçok modül uygulamadan modülü kaldırmadan devre dışı bırakılmasına izin veren bir yapılandırma ayarı sunar. Bir modül devre dışı bırakmak için basit ve hızlı yolu budur. Örneğin, HTTP yeniden yönlendirme modülü ile devre dışı bırakılabilir  **\<httpRedirect >** öğesinde *web.config*:
 
 ```xml
 <configuration>
@@ -122,22 +126,6 @@ Bir ayar modülü kaldırmak için kullanmama varsa *web.config*, modülün kili
    </configuration>
    ```
 
-Yüklü varsayılan modüllerle bir IIS yüklemesi için aşağıdakileri kullanın  **\<modülü >** varsayılan modülleri kaldırmak için bölümü.
-
-```xml
-<modules>
-  <remove name="CustomErrorModule" />
-  <remove name="DefaultDocumentModule" />
-  <remove name="DirectoryListingModule" />
-  <remove name="HttpCacheModule" />
-  <remove name="HttpLoggingModule" />
-  <remove name="ProtocolSupportModule" />
-  <remove name="RequestFilteringModule" />
-  <remove name="StaticCompressionModule" /> 
-  <remove name="StaticFileModule" /> 
-</modules>
-```
-
 Bir IIS modülü ile de kaldırılabilir *Appcmd.exe*. Sağlamak `MODULE_NAME` ve `APPLICATION_NAME` komutta:
 
 ```console
@@ -155,6 +143,10 @@ Appcmd.exe delete module MODULE_NAME /app.name:APPLICATION_NAME
 Bir ASP.NET Core uygulamayı çalıştırmak için gerekli yalnızca Anonim kimlik doğrulama modülünü ve ASP.NET Core modülü modüllerdir.
 
 ![IIS Yöneticisi'ni açmak için modüller gösterilen en az modül yapılandırmasıyla](modules/_static/modules.png)
+
+URI önbelleği Modülü (`UriCacheModule`) IIS önbelleği Web sitesi yapılandırması URL düzeyinde izin verir. Bu modül IIS okumak ve hatta aynı URL'ye art arda istendiğinde yapılandırma her istekte ayrıştırmak gerekir. Yapılandırma ayrıştırılırken her isteği önemli bir performans sorunu sonuçlanır. *URI önbelleği modülü çalıştırmak barındırılan bir ASP.NET Core uygulama için kesinlikle gerekli olmasa da, tüm ASP.NET Core dağıtımları için URI önbelleğe alma modülü etkinleştirilmesi önerilir.*
+
+Önbelleğe alma HTTP modülü (`HttpCacheModule`) IIS çıktı önbelleği ve ayrıca HTTP.sys önbelleğindeki öğeler önbelleğe alma için mantığı uygular. Bu modül olmadan içeriği artık çekirdek modunda önbelleğe alınır ve önbellek profilleri göz ardı edilir. Önbelleğe alma HTTP modülü genellikle kaldırma performans ve kaynak kullanımı üzerinde olumsuz etkilere sahiptir. *Önbelleğe alma HTTP modülü çalıştırmak barındırılan bir ASP.NET Core uygulama için kesinlikle gerekli olmasa da, tüm ASP.NET Core dağıtımları için önbelleğe alma HTTP modülü etkin olmasını öneririz.*
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

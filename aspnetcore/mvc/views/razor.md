@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 168bd04585c5d7a2834cb97755dbf04b7b43767e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6dd78e1c4d0e3373719f24ac3615af4b6943acb8
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core için Razor söz dizimi başvurusu
 
@@ -127,7 +127,7 @@ Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabili
 <p>@(GenericMethod<int>())</p>
 ```
 
-## <a name="expression-encoding"></a>Expression encoding
+## <a name="expression-encoding"></a>İfade kodlama
 
 Bir dizeyi değerlendirmek C# HTML kodlu ifadelerini. Değerlendirmek için C# ifadeleri `IHtmlContent` doğrudan ile işlenir `IHtmlContent.WriteTo`. Değerlendirme yok C# ifadeleri `IHtmlContent` tarafından bir dizeye dönüştürülür `ToString` ve işlenen önce kodlanır.
 
@@ -212,7 +212,7 @@ HTML oluşturması gerektiğini bir kod bloğunun alt tanımlamak için Razor il
 
 Bir HTML etiketi tarafından çevrelenen olmayan HTML oluşturmak için bu yaklaşımı kullanın. Bir HTML veya Razor etiketi bir Razor çalışma zamanı hatası oluşur.
 
- **\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
+**\<Metin >** etiketi, içeriği işlenirken boşluk denetlemek yararlıdır:
 
 * Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
@@ -439,6 +439,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 
 Bu makalede, bölümün sonraki [bir görünümü için oluşturulan Razor C# sınıfı görüntüleme](#viewing-the-razor-c-class-generated-for-a-view) bu oluşturulan sınıf görüntülemek açıklanmaktadır.
 
+<a name="using"></a>
 ### <a name="using"></a>@using
 
 `@using` Yönergesi ekler C# `using` yönerge oluşturulan görüntülemek için:
@@ -471,7 +472,7 @@ Razor kullanıma sunan bir `Model` model erişmek için özelliği geçirilen g�
 <div>The Login Email: @Model.Email</div>
 ```
 
-`@model` Yönergesi bu özelliğin türünü belirtir. Yönergeyi belirtir `T` içinde `RazorPage<T>` türeyen görünümü oluşturulan, sınıfın. Varsa `@model` yönergesi değil belirtilen, `Model` özelliği türüdür `dynamic`. Model değeri denetleyicisinden görünümüne geçirilir. Daha fazla bilgi için [modelleri'kesin türü belirtilmiş ve @model anahtar sözcüğü.
+`@model` Yönergesi bu özelliğin türünü belirtir. Yönergeyi belirtir `T` içinde `RazorPage<T>` türeyen görünümü oluşturulan, sınıfın. Varsa `@model` yönergesi değil belirtilen, `Model` özelliği türüdür `dynamic`. Model değeri denetleyicisinden görünümüne geçirilir. Daha fazla bilgi için bkz: [modelleri'kesin türü belirtilmiş ve &commat;model anahtar sözcük](xref:tutorials/first-mvc-app/adding-model#strongly-typed-models-and-the--keyword).
 
 ### <a name="inherits"></a>@inherits
 
@@ -547,9 +548,9 @@ Aşağıdaki kodu oluşturulan Razor C# sınıf verilmiştir:
 
 | Yönergesi | İşlev |
 | --------- | -------- |
-| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Etiket Yardımcıları bir görünüm için kullanılabilir hale getirir. |
-| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Etiket Yardımcıları daha önce eklediğiniz bir görünümden kaldırır. |
-| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Etiket Yardımcısı desteğinin etkinleştirmek ve etiket Yardımcısı kullanım açık yapmak için etiket öneki belirtir. |
+| [&commat;addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Etiket Yardımcıları bir görünüm için kullanılabilir hale getirir. |
+| [&commat;removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Etiket Yardımcıları daha önce eklediğiniz bir görünümden kaldırır. |
+| [&commat;tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Etiket Yardımcısı desteğinin etkinleştirmek ve etiket Yardımcısı kullanım açık yapmak için etiket öneki belirtir. |
 
 ## <a name="razor-reserved-keywords"></a>Razor ayrılmış anahtar sözcükler
 

@@ -3,17 +3,18 @@ title: ASP.NET Core Razor sayfalarında giriş
 author: Rick-Anderson
 description: Daha kolay ve MVC kullanmaktan daha üretken ASP.NET Core Razor sayfalarında kodlama sayfa odaklı senaryoları nasıl kolaylaştırdığını öğrenin.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/12/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
+ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -291,7 +292,7 @@ Uygulama, aşağıdaki dosya/klasör yapısını sahiptir:
 * */ Sayfaları*
 
   * *Index.cshtml*
-  * */ Müşteri*
+  * */ Müşteriler*
 
     * *Create.cshtml*
     * *Edit.cshtml*
@@ -314,7 +315,7 @@ Göreli adlar sayfaları için URL oluşturmayı destekler. Aşağıdaki tabloda
 | RedirectToPage(".. / Dizin") | *Sayfa/dizini* |
 | RedirectToPage("Index")  | *Müşteriler/sayfalar/dizini* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan <em>göreli adlar</em>. `RedirectToPage` Parametresi <em>birleştirilmiş</em> ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan <em>göreli adlar</em>. `RedirectToPage` Parametresi <em>birleştirilmiş</em> ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Göreli adı bağlama karmaşık bir yapıyı siteleriyle oluştururken yararlıdır. Bir klasördeki sayfaları arasında bağlamak için göreli adları kullanıyorsa, bu klasörü yeniden adlandırabilirsiniz. Tüm bağlantılar hala çalışır, (bunlar klasör adı eklemediniz çünkü).
 
@@ -417,6 +418,7 @@ services.AddMvc()
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [ASP.NET Core giriş](xref:index)
+* [Razor söz dizimi](xref:mvc/views/razor)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
 * [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-convention-features)

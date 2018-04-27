@@ -25,7 +25,7 @@ Bir sorgu dizesi değeri olarak rota verilerini (URL kesimi) yerine olarak arama
 
 ![Url ve iki filmler, Ghostbusters ve Ghostbusters 2 döndürülen film listesi eklenen word hayalet dizin görünümünün](../../tutorials/first-mvc-app/search/_static/g2.png)
 
-Ancak, bunlar bir filmi için arama yapmak istediğiniz her zaman URL'sini değiştirmek için kullanıcıların beklediğiniz olamaz. Şimdi filmler filtre yardımcı olmak için kullanıcı Arabirimi ekleyeceksiniz. İmzası değiştirdiyseniz `Index` rota bağlı geçirmek nasıl test etmek için yöntem `ID` parametresi, böylece adlı bir parametre alan geri değiştirin `searchString`:
+Ancak, bunlar bir filmi için arama yapmak istediğiniz her zaman URL'sini değiştirmek için kullanıcıların beklediğiniz olamaz. Şimdi filmler filtre yardımcı olmak için kullanıcı Arabirimi öğeleri ekleyeceksiniz. İmzası değiştirdiyseniz `Index` rota bağlı geçirmek nasıl test etmek için yöntem `ID` parametresi, böylece adlı bir parametre alan geri değiştirin `searchString`:
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1&name=snippet_1stSearch)]
 

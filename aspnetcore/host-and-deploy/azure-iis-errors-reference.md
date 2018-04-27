@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
 
@@ -42,7 +42,7 @@ Aşağıdaki sık karşılaşılan bilgileri karşılaştırın. Bir eşleşme o
 
 Sorun giderme:
 
-* Sistem, paket barındırma sunucusu yüklenirken Internet erişimi yoksa, bu özel durum oluştu yükleyici almasını engellendiğinde *Microsoft Visual C++ 2015 Redistributable*. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun framework bağımlı dağıtım (FDD) barındırmak için gerekli .NET çekirdeği çalışma zamanı almayabilir. Bir FDD barındırma, çalışma zamanı programlarında yüklendiğinden emin olmak &amp; özellikleri. Gerekirse, bir çalışma zamanı Yükleyicisi'nden elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all). Çalışma zamanı yüklendikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Sistem, barındırma paket yüklenirken Internet erişimi yoksa, bu özel durum oluştu yükleyici almasını engellendiğinde *Microsoft Visual C++ 2015 Redistributable*. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun framework bağımlı dağıtım (FDD) barındırmak için gerekli .NET çekirdeği çalışma zamanı almayabilir. Bir FDD barındırma, çalışma zamanı programlarında yüklendiğinden emin olmak &amp; özellikleri. Gerekirse, bir çalışma zamanı Yükleyicisi'nden elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all). Çalışma zamanı yüklendikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>İşletim sistemi yükseltme 32-bit ASP.NET Core modül kaldırılır
 
@@ -50,7 +50,7 @@ Sorun giderme:
 
 Sorun giderme:
 
-* İşletim sistemi olmayan dosyaları **C:\Windows\SysWOW64\inetsrv** directory olmayan bir işletim sistemi sırasında korunur yükseltme. ASP.NET çekirdeği modülü öncesinde yüklüyse, bir işletim sistemi yükseltme ve ardından tüm AppPool çalıştırıldığında 32-bit modunda işletim sistemi yükseltme işleminden sonra bu sorunla karşılaştı. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Seçin **onarım** yükleyici çalıştırıldığında.
+* İşletim sistemi olmayan dosyaları **C:\Windows\SysWOW64\inetsrv** directory olmayan bir işletim sistemi sırasında korunur yükseltme. ASP.NET çekirdeği modülü öncesinde yüklüyse, bir işletim sistemi yükseltme ve ardından tüm AppPool çalıştırıldığında 32-bit modunda işletim sistemi yükseltme işleminden sonra bu sorunla karşılaştı. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seçin **onarım** yükleyici çalıştırıldığında.
 
 ## <a name="platform-conflicts-with-rid"></a>RID Platform çakışıyor
 
@@ -114,11 +114,11 @@ Sorun giderme:
 
 * Uygun rolde etkinleştirilmiş olduğunu doğrulayın. Bkz: [IIS yapılandırmasını](xref:host-and-deploy/iis/index#iis-configuration).
 
-* Denetleme **programlar &amp; özellikleri** onaylayın **Microsoft ASP.NET Core Modülü** yüklendi. Varsa **Microsoft ASP.NET Core Modülü** yüklü programlar listesinde yer almayan modülünü yükleyin. Bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
+* Denetleme **programlar &amp; özellikleri** onaylayın **Microsoft ASP.NET Core Modülü** yüklendi. Varsa **Microsoft ASP.NET Core Modülü** yüklü programlar listesinde yer almayan modülünü yükleyin. Bkz: [paket barındırma .NET Core yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Olduğundan emin olun **uygulama havuzu** > **işlem modeli** > **kimlik** ayarlanır **ApplicationPoolIdentity** veya özel kimlik uygulamanın dağıtım klasörüne erişmek için doğru izinlere sahip.
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Yanlış processPath, eksik PATH değişkeni, barındırma paketi yüklü değil, sistem/IIS yeniden, VC ++ yüklü değil, Redistributable veya dotnet.exe erişim ihlali
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Yanlış processPath, eksik PATH değişkeni, yüklü paketi barındırma, sistem/IIS yeniden, VC ++ yüklü değil, Redistributable veya dotnet.exe erişim ihlali
 
 * **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
 
@@ -138,7 +138,7 @@ Sorun giderme:
 
 * Bir FDD dağıtılan ve IIS'yi yeniden başlatmadan .NET Core yüklü. Sunucuyu yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
-* Bir FDD barındıran sistemde .NET çekirdeği çalışma zamanı yüklemeden dağıtılmış. .NET çekirdeği çalışma zamanı yüklenmemiştir çalıştırırsanız **.NET Core Windows Server barındırma Paket Yükleyici** sistemdeki. Bkz: [.NET Core Windows Server barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Internet bağlantısı olmadan bir sistemde .NET çekirdeği çalışma zamanı yükleme girişimi varsa, çalışma alanından elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all) ve ASP.NET Core modülünü yüklemek için barındırma paket yükleyiciyi çalıştırın. Sistemi yeniden başlatmayı veya yürüterek IIS yeniden yüklemeyi tamamlamak **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Bir FDD barındıran sistemde .NET çekirdeği çalışma zamanı yüklemeden dağıtılmış. .NET çekirdeği çalışma zamanı yüklenmemiştir çalıştırırsanız **.NET Core barındırma Paket Yükleyici** sistemdeki. Bkz: [paket barındırma .NET Core yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Internet bağlantısı olmadan bir sistemde .NET çekirdeği çalışma zamanı yükleme girişimi varsa, çalışma alanından elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all) ve ASP.NET Core modülünü yüklemek için barındırma paket yükleyiciyi çalıştırın. Sistemi yeniden başlatmayı veya yürüterek IIS yeniden yüklemeyi tamamlamak **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
 
 * Bir FDD dağıtılan ve *Microsoft Visual C++ 2015 Redistributable (x64)* sistemde yüklü değil. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
