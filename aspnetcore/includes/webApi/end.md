@@ -4,41 +4,63 @@ Aşağıdaki bölümlerde `Create`, `Update`, ve `Delete` yöntemleri, denetleyi
 
 ### <a name="create"></a>Create
 
-Aşağıdakileri ekleyin `Create` yöntemi.
+Aşağıdakileri ekleyin `Create` yöntemi:
 
-[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Önceki kod tarafından gösterilen bir HTTP POST yöntemi olup [ `[HttpPost]` ](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [ `[FromBody]` ](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) Özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
+Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
+
+Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC HTTP isteği gövdesinden Yapılacaklar öğesi değerini alır.
+::: moniker-end
 
 `CreatedAtRoute` Yöntemi:
 
 * 201 yanıtı döndürür. HTTP 201 yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıt'dir.
-* Bir konum üstbilgisi yanıta ekler. Konum üstbilgisi yeni oluşturulan Yapılacaklar öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Bir konum üstbilgisi yanıta ekler. Konum üstbilgisi yeni oluşturulan Yapılacaklar öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 * URL oluşturmak için "adlı rota GetTodo" kullanır. "Rota adlı GetTodo" tanımlanan `GetById`:
 
-[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
+::: moniker-end
 
 ### <a name="use-postman-to-send-a-create-request"></a>Postman oluşturma isteği göndermek için kullanın
 
+* Uygulamayı başlatın.
+* Postman açın.
+
 ![Postman konsol](../../tutorials/first-web-api/_static/pmc.png)
 
-* HTTP yöntemini ayarlayın `POST`
-* Seçin **gövde** radyo düğmesi
-* Seçin **ham** radyo düğmesi
-* Türü için JSON ayarlayın
-* Anahtar-değer Düzenleyicisi'nde bir Yapılacaklar öğesi gibi girin
+* Localhost URL'sini bağlantı noktası numarasını güncelleştirin.
+* HTTP yöntem kümesine *POST*.
+* Tıklatın **gövde** sekmesi.
+* Seçin **ham** radyo düğmesi.
+* Türü kümesine *JSON (uygulama/json)*.
+* Bir istek gövdesi aşağıdaki JSON benzeyen bir Yapılacaklar öğesi girin:
 
 ```json
 {
-    "name":"walk dog",
-    "isComplete":true
+  "name":"walk dog",
+  "isComplete":true
 }
 ```
 
-* Seçin **Gönder**
-* Alt bölme ve kopyalama Üstbilgileri sekmesini seçin **konumu** üstbilgisi:
+* Tıklatın **Gönder** düğmesi.
 
-![Postman konsolunun üst bilgiler sekmesi](../../tutorials/first-web-api/_static/pmget.png)
+::: moniker range=">= aspnetcore-2.1"
+> [!TIP]
+> Yanıt tıkladıktan sonra görüntülerse **Gönder**, devre dışı **SSL sertifika doğrulaması** seçeneği. Bu altında bulunan **dosya** > **ayarları**. Tıklatın **Gönder** daha sonra tekrar ayarı devre dışı bırakma düğmesi.
+::: moniker-end
+
+Tıklatın **üstbilgileri** sekmesinde **yanıt** bölmesinde ve kopyalama **konumu** üstbilgi değeri:
+
+![Postman konsolunun üst bilgiler sekmesi](../../tutorials/first-web-api/_static/pmc2.png)
 
 Konum üstbilgisi URI yeni öğe erişmek için kullanılabilir.
 
@@ -46,9 +68,16 @@ Konum üstbilgisi URI yeni öğe erişmek için kullanılabilir.
 
 Aşağıdakileri ekleyin `Update` yöntemi:
 
-[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+::: moniker-end
 
-`Update` benzer `Create`, ancak HTTP PUT kullanır. Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP spec göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca farkları göndermek istemci gerektirir. Kısmi güncelleştirmeler desteklemek için HTTP PATCH kullanın.
+`Update` benzer `Create`, HTTP PUT kullanır. Yanıt [204 (No içerik)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca farkları göndermek istemci gerektirir. Kısmi güncelleştirmeler desteklemek için HTTP PATCH kullanın.
+
+Postman "kat yürütmek için" Yapılacaklar öğesi'nin adı güncelleştirmek için kullanın:
 
 ![204 (No içerik) yanıt gösteren postman konsol](../../tutorials/first-web-api/_static/pmcput.png)
 
@@ -56,10 +85,10 @@ Aşağıdakileri ekleyin `Update` yöntemi:
 
 Aşağıdakileri ekleyin `Delete` yöntemi:
 
-[!code-csharp[](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-`Delete` Yanıt [204 (No içerik)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+`Delete` Yanıt [204 (No içerik)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
-Test `Delete`: 
+Postman Yapılacaklar öğesi silmek için kullanın:
 
 ![204 (No içerik) yanıt gösteren postman konsol](../../tutorials/first-web-api/_static/pmd.png)

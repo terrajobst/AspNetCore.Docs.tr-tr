@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 6530459afe5cc3987ace938af77151fdd74f07b3
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 45d64feea9b3466d32088b5949b33d3fec3b3a41
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'sinde özel biçimlendiricileri
 
-By [Tom Dykstra](https://github.com/tdykstra)
+Tarafından [zel Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core MVC web API'leri JSON, XML veya düz metin biçimlerini kullanarak veri değişimi için yerleşik destek sahip olur. Bu makalede, özel biçimlendiricileri oluşturarak ek biçimleri için destek eklemek gösterilmiştir.
 
-[Görüntülemek veya örnek Github'dan indirdiğinizde](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Ne zaman özel biçimlendiricileri kullanılır
 
@@ -65,7 +65,7 @@ Ekleyerek oluşturucuda geçerli bir medya türleri ve Kodlamalar belirtin `Supp
 > [!NOTE]
 > Bir biçimlendirici sınıf oluşturucu bağımlılık ekleme yapamazsınız. Örneğin, oluşturucuya bir Günlükçü parametresini ekleyerek bir Günlükçü alınamıyor. Hizmetlere erişmek için yönteme geçirilen context nesnesi kullanmak zorunda. Kod örneği [aşağıda](#read-write) bunun nasıl yapılacağı gösterilmektedir.
 
-### <a name="override-canreadtypecanwritetype"></a>Override CanReadType/CanWriteType
+### <a name="override-canreadtypecanwritetype"></a>CanReadType/CanWriteType geçersiz kıl
 
 İçine seri durumdan ya da geçersiz kılarak öğesinden seri türünü belirtmek `CanReadType` veya `CanWriteType` yöntemleri. Örneğin, yalnızca vCard metinden oluşturmak mümkün olabilir bir `Contact` türü tersi.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/razor
-ms.openlocfilehash: 6dd78e1c4d0e3373719f24ac3615af4b6943acb8
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 9c96ea34071bf3009f1ec53ed9af9206439aa229
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core için Razor söz dizimi başvurusu
 
@@ -109,19 +109,7 @@ Açık ifadeler bir ifade sonucu metinle birleştirmek için kullanılabilir:
 
 Açık ifade olmadan `<p>Age@joe.Age</p>` bir e-posta adresi olarak kabul edilir ve `<p>Age@joe.Age</p>` işlenir. Açık bir ifade olarak yazılırken `<p>Age33</p>` işlenir.
 
-
-Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabilir *.cshtml* dosyaları. Köşeli ayraçlar içindeki karakterlerden örtük bir ifadede (`<>`) bir HTML etiketi olarak yorumlanır. Aşağıdaki biçimlendirme **değil** geçerli Razor:
-
-```cshtml
-<p>@GenericMethod<int>()</p>
-```
-
-Önceki kod, aşağıdakilerden birini benzer bir derleyici hatası oluşturur:
-
-* "İnt" öğesi kapalı değildi. Tüm öğeleri ya da olmalıdır otomatik olarak kapatma veya eşleşen bir bitiş etiketi vardır.
-* Yöntem Grup 'object' türü temsilci için GenericMethod' dönüştürülemiyor. Yöntemini çağırmak istiyordunuz?' 
- 
-  Aşağıdaki biçimlendirmede doğru bir şekilde yazma bu kodu gösterir. Kod açık bir ifade olarak yazılır:
+Açık ifadeleri, genel yöntemleri çıktısını işlemek için kullanılabilir *.cshtml* dosyaları. Aşağıdaki biçimlendirmede gösterilen hatayı düzeltmek gösterilmiştir daha önce bir C# genel köşeli parantez neden oldu. Kod açık bir ifade olarak yazılır:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>

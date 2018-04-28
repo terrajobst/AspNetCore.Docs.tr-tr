@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: befbec393c089ec1f4dfdac5dbbdc3bdc7ddbf69
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 06526848dc84472c8629e6e1700a74312442f67c
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -192,7 +192,7 @@ $.get({
 
 ## <a name="iclientmodelvalidator"></a>IClientModelValidator
 
-İstemci tarafı mantığı, özel öznitelik için oluşturabilir ve [örtük doğrulama](http://jqueryvalidation.org/documentation/) , doğrulama bir parçası olarak otomatik olarak istemcide çalıştırır. Hangi veri öznitelikleri uygulayarak eklenen denetlemek için ilk adımdır `IClientModelValidator` arabirim aşağıda gösterildiği gibi:
+İstemci tarafı mantığı, özel öznitelik için oluşturabilir ve [örtük doğrulama](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) [jquery doğrulama] için bir bağdaştırıcı oluşturur (http://jqueryvalidation.org/documentation/) , doğrulama bir parçası olarak otomatik olarak istemcide çalıştırır. Hangi veri öznitelikleri uygulayarak eklenen denetlemek için ilk adımdır `IClientModelValidator` arabirim aşağıda gösterildiği gibi:
 
 [!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 
@@ -207,7 +207,7 @@ Bu arabirimi uygulayan öznitelikleri HTML öznitelikleri için oluşturulan ala
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Örtük doğrulama kullanır verilerde `data-` hata iletilerini görüntülemek için öznitelikler. Ancak, jQuery kuralları hakkında bilmiyor veya jQuery için 's ekleyene kadar iletileri `validator` nesnesi. Bu adlı bir yöntem ekleyen aşağıdaki örnekte gösterilen `classicmovie` jQuery için özel istemci doğrulama kodunu içeren `validator` nesnesi.
+Örtük doğrulama kullanır verilerde `data-` hata iletilerini görüntülemek için öznitelikler. Ancak, jQuery kuralları hakkında bilmiyor veya jQuery için 's ekleyene kadar iletileri `validator` nesnesi. Bu adlı bir yöntem ekleyen aşağıdaki örnekte gösterilen `classicmovie` jQuery için özel istemci doğrulama kodunu içeren `validator` nesnesi. Unobtrusive.adapters.add yöntemi bir açıklamalarını bulunabilir [burada](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
 
 [!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
 

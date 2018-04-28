@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4e9b747a3369bbb608c3b3832c865745a2322142
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4578a84adad668f1d60e202d7895cd67d451dc51
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 
@@ -88,7 +88,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 Geçiş iletisiyle başarısız olursa "*... dosyasına erişemiyor ContosoUniversity.dll çünkü başka bir işlem tarafından kullanılıyor.* " görüntülenir:
 
-* Stop IIS Express.
+* IIS Express durdurun.
 
    * Çıkmak ve Visual Studio'yu yeniden başlatın veya
    * IIS Express simgesini Windows Sistem tepsisinde bulun.
@@ -106,7 +106,7 @@ Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygul
 
 Önceki kod için ilk geçiş değil. Kodun ne zaman oluşturulduğu `migrations add InitialCreate` komutu çalıştırıldı. Geçiş adı parametresi (örneğin, "InitialCreate") için dosya adı kullanılır. Geçiş adı geçerli bir dosya adı olabilir. Bir sözcük veya tümcecik geçişte yapıldığını özetler seçmek en iyisidir. Örneğin, bir departman tablosu eklenen bir geçiş "AddDepartmentTable." adlı
 
-İlk geçiş oluşturduysanız ve DB çıkar:
+İlk geçiş oluşturulur ve DB varsa:
 
 * DB oluşturma kodu oluşturulur.
 * DB oluşturma kodu DB veri modeli eşleştiğinden çalıştırmak gerekmez. DB oluşturma kodu çalıştırırsanız, DB veri modeli eşleştiğinden herhangi bir değişiklik yapmaz.
@@ -123,7 +123,7 @@ Bir geçiş silerken kullanmak [dotnet ef geçişler kaldırmak](https://docs.mi
 
 Bkz: [EF çekirdek geçişler takım ortamlarda](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için.
 
-## <a name="remove-ensurecreated"></a>Remove EnsureCreated
+## <a name="remove-ensurecreated"></a>EnsureCreated Kaldır
 
 Erken geliştirme `EnsureCreated` komutu kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
 

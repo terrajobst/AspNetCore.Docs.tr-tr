@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f272f9629ab1f9e7f7643cafd0d45f19340d5284
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8325776597eab9c673a4847edf87ae0d9e0d3efb
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 
@@ -316,7 +316,7 @@ Anahtar bir önek olabilir.
 dotnet run key1=value1 -key2=value2 --key3=value3 /key4=value4
 ```
 
-Not: Varsa `-key1` mevcut değilse [geçiş eşlemeleri](#switch-mappings) yapılandırma sağlayıcısı için verilen bir `FormatException` oluşturulur.
+Not: Varsa `-key2` mevcut değilse [geçiş eşlemeleri](#switch-mappings) yapılandırma sağlayıcısı için verilen bir `FormatException` oluşturulur.
 
 **İki bağımsız değişken dizisi**
 

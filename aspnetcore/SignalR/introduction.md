@@ -1,21 +1,21 @@
 ---
 title: ASP.NET Core SignalR giriş
 author: rachelappel
-description: Uygulamalar için gerçek zamanlı web işlevselliği ekleme ASP.NET Core SignalR kitaplığı nasıl basitleştirir öğrenin.
+description: Uygulamalar için gerçek zamanlı işlevsellik ekleme ASP.NET Core SignalR kitaplığı nasıl basitleştirir öğrenin.
 manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/07/2018
+ms.date: 04/25/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: fa9b10201b5dc0e67bcd6d1321a3737e2025fda4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 190dfe9eac95be646b458870ac4ee95f681f45d7
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>ASP.NET Core SignalR giriş
 
@@ -51,20 +51,17 @@ Bir HTTP bağlantısı farklı olarak istemci ve sunucu arasındaki bağlantın�
 
 Gerçek zamanlı web uygulamaları oluşturmak için teknikleri sayısı üzerinden SignalR özetleri. [WebSockets](https://tools.ietf.org/html/rfc7118) en iyi Aktarım, ancak bunlar kullanılamaz Server-Sent olayları ve uzun yoklama gibi başka teknikler kullanılabilir. SignalR otomatik olarak algılar ve sunucu ve istemci üzerinde desteklenen özelliklere bağlı olarak uygun bir taşıma başlatılamıyor.
 
-## <a name="hubs-and-endpoints"></a>Hub ve uç noktaları
+## <a name="hubs"></a>Hub'ları
 
-SignalR hub'ları ve uç noktaları istemciler ve sunucular arasında iletişim kurmak için kullanır. Hub API çoğu senaryolar için geçerlidir.
+SignalR hub'ları istemcileri ve sunucuları arasında iletişim kurmak için kullanır.
 
-Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya veren bir uç nokta API üzerine inşa üst düzey bir işlem hattı ' dir. SignalR makine sınırları içinde otomatik olarak göndermeyi kolayca yerel yöntemleri ve tersi olarak sunucuda yöntemlerini çağırmaya istemcilere izin verme işler. Hub yöntemleri için kesin tür belirtilmiş parametreleri geçirme model bağlama sağlayan izin verir. SignalR iki yerleşik hub protokol sağlar: bir metin protokolü temel JSON ve temel bir ikili protokol [MessagePack](https://msgpack.org/).  MessagePack genellikle JSON kullanırken daha küçük ileti oluşturur. Eski tarayıcılar desteklemelidir [XHR Düzey 2](https://caniuse.com/#feat=xhr2) MessagePack protokolü desteği sağlamak için.
+Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst düzey bir işlem hattı ' dir. SignalR makine sınırları içinde otomatik olarak göndermeyi kolayca yerel yöntemleri ve tersi olarak sunucuda yöntemlerini çağırmaya istemcilere izin verme işler. Hub yöntemleri için kesin tür belirtilmiş parametreleri geçirme model bağlama sağlayan izin verir. SignalR iki yerleşik hub protokol sağlar: bir metin protokolü temel JSON ve temel bir ikili protokol [MessagePack](https://msgpack.org/).  MessagePack genellikle JSON kullanırken daha küçük ileti oluşturur. Eski tarayıcılar desteklemelidir [XHR Düzey 2](https://caniuse.com/#feat=xhr2) MessagePack protokolü desteği sağlamak için.
 
 Hub etkin taşımanın kullanarak iletiler göndererek istemci-tarafı kodu çağırma. İletileri adını ve istemci tarafı yönteminin parametrelerini içerir. Nesneleri yöntem parametreleri, yapılandırılmış protokolü kullanılarak seri durumdan olarak gönderilir. İstemci, istemci tarafı kodlar yönteminde adına eşleştirmeyi dener. Bir eşleşme gerçekleştiğinde, istemci yöntemi seri durumdan çıkarılmış parametre veri kullanarak çalışır.
 
-Uç noktaları istemciden okumasına ve yazmasına etkinleştirmeden bir ham yuva benzeri API sağlar. Bu gruplandırma, yayın ve diğer işlevleri işlemek için geliştiriciler için hazır. Hub API uç noktaları katman üzerinde oluşturulmuştur.
+## <a name="additional-resources"></a>Ek kaynaklar
 
-Aşağıdaki diyagramda hub, uç noktaları ve istemciler arasındaki ilişkiyi gösterir.
-
-![SignalR eşleme](introduction/_static/signalr-core-architecture.png)
-
-## <a name="related-resources"></a>İlgili kaynaklar
-
-[ASP.NET Core için SignalR ile çalışmaya başlama](xref:signalr/get-started)
+* [ASP.NET Core için SignalR ile çalışmaya başlama](xref:signalr/get-started)
+* [Desteklenen Platformlar](xref:signalr/supported-platforms)
+* [Hub'ları](xref:signalr/hubs)
+* [JavaScript istemci](xref:signalr/javascript-client)
