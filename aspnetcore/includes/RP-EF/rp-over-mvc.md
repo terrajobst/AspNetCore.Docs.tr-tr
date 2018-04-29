@@ -3,6 +3,6 @@ Bu öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve 
 * İzlemek daha kolay olur.
 * Daha fazla EF çekirdek en iyi yöntemler sağlar.
 * Daha verimli sorgularını kullanır.
-* En son API daha güncel değil.
+* Son API ile daha fazla geçerli değil.
 * Daha fazla özellikleri kapsar.
 * Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
