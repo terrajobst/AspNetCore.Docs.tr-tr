@@ -226,7 +226,8 @@
 ## [Kullanmaya başlama](xref:signalr/get-started)
 ## [Merkezler](xref:signalr/hubs)
 ## [JavaScript istemcisi](xref:signalr/javascript-client)
-## [Desteklenen platformlar](xref:signalr/supported-platforms)
+## [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
+## [Desteklenen Platformlar](xref:signalr/supported-platforms)
 
 # [Mobil](xref:mobile/index)
 ## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
