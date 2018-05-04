@@ -9,24 +9,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 16369a14dbe97778724632317a82e11de5a8faed
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 0653906996f9f37d436ebefc6a738d2603788d53
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a><span data-ttu-id="18cc6-103">Kimlik doğrulama ve kimlik için ASP.NET Core 2.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="18cc6-103">Migrate authentication and Identity to ASP.NET Core 2.0</span></span>
+# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a><span data-ttu-id="9e0e7-103">Kimlik doğrulama ve kimlik için ASP.NET Core 2.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="9e0e7-103">Migrate authentication and Identity to ASP.NET Core 2.0</span></span>
 
-<span data-ttu-id="18cc6-104">Tarafından [Scott Addie](https://github.com/scottaddie) ve [Hao Kung](https://github.com/HaoK)</span><span class="sxs-lookup"><span data-stu-id="18cc6-104">By [Scott Addie](https://github.com/scottaddie) and [Hao Kung](https://github.com/HaoK)</span></span>
+<span data-ttu-id="9e0e7-104">Tarafından [Scott Addie](https://github.com/scottaddie) ve [Hao Kung](https://github.com/HaoK)</span><span class="sxs-lookup"><span data-stu-id="9e0e7-104">By [Scott Addie](https://github.com/scottaddie) and [Hao Kung](https://github.com/HaoK)</span></span>
 
-<span data-ttu-id="18cc6-105">ASP.NET Core 2.0 kimlik doğrulaması için yeni bir modeli vardır ve [kimlik](xref:security/authentication/identity) hangi basitleştirir yapılandırma Hizmetleri kullanarak.</span><span class="sxs-lookup"><span data-stu-id="18cc6-105">ASP.NET Core 2.0 has a new model for authentication and [Identity](xref:security/authentication/identity) which simplifies configuration by using services.</span></span> <span data-ttu-id="18cc6-106">Aşağıda özetlendiği gibi yeni model kullanılacak kimlik doğrulama veya kimliği kullanan ASP.NET Core 1.x uygulamaları güncelleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="18cc6-106">ASP.NET Core 1.x applications that use authentication or Identity can be updated to use the new model as outlined below.</span></span>
+<span data-ttu-id="9e0e7-105">ASP.NET Core 2.0 kimlik doğrulaması için yeni bir modeli vardır ve [kimlik](xref:security/authentication/identity) hangi basitleştirir yapılandırma Hizmetleri kullanarak.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-105">ASP.NET Core 2.0 has a new model for authentication and [Identity](xref:security/authentication/identity) which simplifies configuration by using services.</span></span> <span data-ttu-id="9e0e7-106">Aşağıda özetlendiği gibi yeni model kullanılacak kimlik doğrulama veya kimliği kullanan ASP.NET Core 1.x uygulamaları güncelleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-106">ASP.NET Core 1.x applications that use authentication or Identity can be updated to use the new model as outlined below.</span></span>
 
 <a name="auth-middleware"></a>
 
-## <a name="authentication-middleware-and-services"></a><span data-ttu-id="18cc6-107">Kimlik doğrulaması ara yazılımı ve Hizmetleri</span><span class="sxs-lookup"><span data-stu-id="18cc6-107">Authentication Middleware and services</span></span>
-<span data-ttu-id="18cc6-108">1.x projelerinde kimlik doğrulaması ara yazılımı üzerinden yapılandırılır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-108">In 1.x projects, authentication is configured via middleware.</span></span> <span data-ttu-id="18cc6-109">Desteklemek istediğiniz her kimlik doğrulama şeması için bir ara yazılım yöntemi çağrılır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-109">A middleware method is invoked for each authentication scheme you want to support.</span></span>
+## <a name="authentication-middleware-and-services"></a><span data-ttu-id="9e0e7-107">Kimlik doğrulaması ara yazılımı ve Hizmetleri</span><span class="sxs-lookup"><span data-stu-id="9e0e7-107">Authentication Middleware and services</span></span>
+<span data-ttu-id="9e0e7-108">1.x projelerinde kimlik doğrulaması ara yazılımı üzerinden yapılandırılır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-108">In 1.x projects, authentication is configured via middleware.</span></span> <span data-ttu-id="9e0e7-109">Desteklemek istediğiniz her kimlik doğrulama şeması için bir ara yazılım yöntemi çağrılır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-109">A middleware method is invoked for each authentication scheme you want to support.</span></span>
 
-<span data-ttu-id="18cc6-110">Facebook kimlik doğrulaması aşağıdaki 1.x örnek kimliğinde yapılandırır *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-110">The following 1.x example configures Facebook authentication with Identity in *Startup.cs*:</span></span>
+<span data-ttu-id="9e0e7-110">Facebook kimlik doğrulaması aşağıdaki 1.x örnek kimliğinde yapılandırır *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-110">The following 1.x example configures Facebook authentication with Identity in *Startup.cs*:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -45,9 +45,9 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
 } 
 ```
 
-<span data-ttu-id="18cc6-111">2.0 projelerinde Hizmetleri aracılığıyla kimlik doğrulaması yapılandırılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-111">In 2.0 projects, authentication is configured via services.</span></span> <span data-ttu-id="18cc6-112">Her kimlik doğrulama şeması kaydedilir `ConfigureServices` yöntemi *haline*.</span><span class="sxs-lookup"><span data-stu-id="18cc6-112">Each authentication scheme is registered in the `ConfigureServices` method of *Startup.cs*.</span></span> <span data-ttu-id="18cc6-113">`UseIdentity` Yöntemi ile değiştirilir `UseAuthentication`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-113">The `UseIdentity` method is replaced with `UseAuthentication`.</span></span>
+<span data-ttu-id="9e0e7-111">2.0 projelerinde Hizmetleri aracılığıyla kimlik doğrulaması yapılandırılmaktadır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-111">In 2.0 projects, authentication is configured via services.</span></span> <span data-ttu-id="9e0e7-112">Her kimlik doğrulama şeması kaydedilir `ConfigureServices` yöntemi *haline*.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-112">Each authentication scheme is registered in the `ConfigureServices` method of *Startup.cs*.</span></span> <span data-ttu-id="9e0e7-113">`UseIdentity` Yöntemi ile değiştirilir `UseAuthentication`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-113">The `UseIdentity` method is replaced with `UseAuthentication`.</span></span>
 
-<span data-ttu-id="18cc6-114">Facebook kimlik doğrulaması aşağıdaki 2.0 örnek kimliğinde yapılandırır *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-114">The following 2.0 example configures Facebook authentication with Identity in *Startup.cs*:</span></span>
+<span data-ttu-id="9e0e7-114">Facebook kimlik doğrulaması aşağıdaki 2.0 örnek kimliğinde yapılandırır *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-114">The following 2.0 example configures Facebook authentication with Identity in *Startup.cs*:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -70,22 +70,22 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 }
 ```
 
-<span data-ttu-id="18cc6-115">`UseAuthentication` Yöntemi, otomatik kimlik doğrulama ve Uzaktan kimlik doğrulama isteklerini işleme için sorumlu olan tek bir kimlik doğrulaması ara yazılım bileşeni ekler.</span><span class="sxs-lookup"><span data-stu-id="18cc6-115">The `UseAuthentication` method adds a single authentication middleware component which is responsible for automatic authentication and the handling of remote authentication requests.</span></span> <span data-ttu-id="18cc6-116">Tek tek ara yazılım bileşenlerinin tümünü tek, ortak ara yazılım bileşeni ile değiştirir.</span><span class="sxs-lookup"><span data-stu-id="18cc6-116">It replaces all of the individual middleware components with a single, common middleware component.</span></span>
+<span data-ttu-id="9e0e7-115">`UseAuthentication` Yöntemi, otomatik kimlik doğrulama ve Uzaktan kimlik doğrulama isteklerini işleme için sorumlu olan tek bir kimlik doğrulaması ara yazılım bileşeni ekler.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-115">The `UseAuthentication` method adds a single authentication middleware component which is responsible for automatic authentication and the handling of remote authentication requests.</span></span> <span data-ttu-id="9e0e7-116">Tek tek ara yazılım bileşenlerinin tümünü tek, ortak ara yazılım bileşeni ile değiştirir.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-116">It replaces all of the individual middleware components with a single, common middleware component.</span></span>
 
-<span data-ttu-id="18cc6-117">Her ana kimlik doğrulaması düzeni için 2.0 geçiş yönergeleri aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="18cc6-117">Below are 2.0 migration instructions for each major authentication scheme.</span></span>
+<span data-ttu-id="9e0e7-117">Her ana kimlik doğrulaması düzeni için 2.0 geçiş yönergeleri aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-117">Below are 2.0 migration instructions for each major authentication scheme.</span></span>
 
-### <a name="cookie-based-authentication"></a><span data-ttu-id="18cc6-118">Tanımlama bilgisi tabanlı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-118">Cookie-based authentication</span></span>
-<span data-ttu-id="18cc6-119">Aşağıdaki iki seçenekten birini belirleyin ve gerekli değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-119">Select one of the two options below, and make the necessary changes in *Startup.cs*:</span></span>
+### <a name="cookie-based-authentication"></a><span data-ttu-id="9e0e7-118">Tanımlama bilgisi tabanlı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-118">Cookie-based authentication</span></span>
+<span data-ttu-id="9e0e7-119">Aşağıdaki iki seçenekten birini belirleyin ve gerekli değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-119">Select one of the two options below, and make the necessary changes in *Startup.cs*:</span></span>
 
-1. <span data-ttu-id="18cc6-120">Kimliğine sahip tanımlama bilgileri kullanma</span><span class="sxs-lookup"><span data-stu-id="18cc6-120">Use cookies with Identity</span></span>
-    - <span data-ttu-id="18cc6-121">Değiştir `UseIdentity` ile `UseAuthentication` içinde `Configure` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-121">Replace `UseIdentity` with `UseAuthentication` in the `Configure` method:</span></span>
+1. <span data-ttu-id="9e0e7-120">Kimliğine sahip tanımlama bilgileri kullanma</span><span class="sxs-lookup"><span data-stu-id="9e0e7-120">Use cookies with Identity</span></span>
+    - <span data-ttu-id="9e0e7-121">Değiştir `UseIdentity` ile `UseAuthentication` içinde `Configure` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-121">Replace `UseIdentity` with `UseAuthentication` in the `Configure` method:</span></span>
 
         ```csharp
         app.UseAuthentication();
         ```
 
-    - <span data-ttu-id="18cc6-122">Çağırma `AddIdentity` yönteminde `ConfigureServices` tanımlama bilgisi kimlik doğrulama hizmetleri ekleme yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18cc6-122">Invoke the `AddIdentity` method in the `ConfigureServices` method to add the cookie authentication services.</span></span>
-    - <span data-ttu-id="18cc6-123">İsteğe bağlı olarak, çağırma `ConfigureApplicationCookie` veya `ConfigureExternalCookie` yönteminde `ConfigureServices` kimlik tanımlama bilgisi ayarları ince ayar yapma yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18cc6-123">Optionally, invoke the `ConfigureApplicationCookie` or `ConfigureExternalCookie` method in the `ConfigureServices` method to tweak the Identity cookie settings.</span></span>
+    - <span data-ttu-id="9e0e7-122">Çağırma `AddIdentity` yönteminde `ConfigureServices` tanımlama bilgisi kimlik doğrulama hizmetleri ekleme yöntemi.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-122">Invoke the `AddIdentity` method in the `ConfigureServices` method to add the cookie authentication services.</span></span>
+    - <span data-ttu-id="9e0e7-123">İsteğe bağlı olarak, çağırma `ConfigureApplicationCookie` veya `ConfigureExternalCookie` yönteminde `ConfigureServices` kimlik tanımlama bilgisi ayarları ince ayar yapma yöntemi.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-123">Optionally, invoke the `ConfigureApplicationCookie` or `ConfigureExternalCookie` method in the `ConfigureServices` method to tweak the Identity cookie settings.</span></span>
 
         ```csharp
         services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -95,14 +95,14 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
         services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
         ```
 
-2. <span data-ttu-id="18cc6-124">Tanımlama bilgileri kimlik olmadan kullanma</span><span class="sxs-lookup"><span data-stu-id="18cc6-124">Use cookies without Identity</span></span>
-    - <span data-ttu-id="18cc6-125">Değiştir `UseCookieAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-125">Replace the `UseCookieAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+2. <span data-ttu-id="9e0e7-124">Tanımlama bilgileri kimlik olmadan kullanma</span><span class="sxs-lookup"><span data-stu-id="9e0e7-124">Use cookies without Identity</span></span>
+    - <span data-ttu-id="9e0e7-125">Değiştir `UseCookieAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-125">Replace the `UseCookieAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
   
         ```csharp
         app.UseAuthentication();
         ```
  
-    - <span data-ttu-id="18cc6-126">Çağırma `AddAuthentication` ve `AddCookie` yöntemleri `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-126">Invoke the `AddAuthentication` and `AddCookie` methods in the `ConfigureServices` method:</span></span>
+    - <span data-ttu-id="9e0e7-126">Çağırma `AddAuthentication` ve `AddCookie` yöntemleri `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-126">Invoke the `AddAuthentication` and `AddCookie` methods in the `ConfigureServices` method:</span></span>
 
         ```csharp
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User, 
@@ -115,15 +115,15 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
                 });
         ```
 
-### <a name="jwt-bearer-authentication"></a><span data-ttu-id="18cc6-127">JWT taşıyıcı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-127">JWT Bearer Authentication</span></span>
-<span data-ttu-id="18cc6-128">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-128">Make the following changes in *Startup.cs*:</span></span>
-- <span data-ttu-id="18cc6-129">Değiştir `UseJwtBearerAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-129">Replace the `UseJwtBearerAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+### <a name="jwt-bearer-authentication"></a><span data-ttu-id="9e0e7-127">JWT taşıyıcı kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-127">JWT Bearer Authentication</span></span>
+<span data-ttu-id="9e0e7-128">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-128">Make the following changes in *Startup.cs*:</span></span>
+- <span data-ttu-id="9e0e7-129">Değiştir `UseJwtBearerAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-129">Replace the `UseJwtBearerAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
  
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-130">Çağırma `AddJwtBearer` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-130">Invoke the `AddJwtBearer` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-130">Çağırma `AddJwtBearer` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-130">Invoke the `AddJwtBearer` method in the `ConfigureServices` method:</span></span>
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -134,18 +134,18 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
             });
     ```
 
-    <span data-ttu-id="18cc6-131">Varsayılan düzenini geçirerek ayarlamanız gerekir böylece bu kod parçacığını kimliği kullanmayan `JwtBearerDefaults.AuthenticationScheme` için `AddAuthentication` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18cc6-131">This code snippet doesn't use Identity, so the default scheme should be set by passing `JwtBearerDefaults.AuthenticationScheme` to the `AddAuthentication` method.</span></span>
+    <span data-ttu-id="9e0e7-131">Varsayılan düzenini geçirerek ayarlamanız gerekir böylece bu kod parçacığını kimliği kullanmayan `JwtBearerDefaults.AuthenticationScheme` için `AddAuthentication` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-131">This code snippet doesn't use Identity, so the default scheme should be set by passing `JwtBearerDefaults.AuthenticationScheme` to the `AddAuthentication` method.</span></span>
 
-### <a name="openid-connect-oidc-authentication"></a><span data-ttu-id="18cc6-132">Openıd Connect (OIDC) kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-132">OpenID Connect (OIDC) authentication</span></span>
-<span data-ttu-id="18cc6-133">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-133">Make the following changes in *Startup.cs*:</span></span>
+### <a name="openid-connect-oidc-authentication"></a><span data-ttu-id="9e0e7-132">Openıd Connect (OIDC) kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-132">OpenID Connect (OIDC) authentication</span></span>
+<span data-ttu-id="9e0e7-133">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-133">Make the following changes in *Startup.cs*:</span></span>
 
-- <span data-ttu-id="18cc6-134">Değiştir `UseOpenIdConnectAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-134">Replace the `UseOpenIdConnectAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+- <span data-ttu-id="9e0e7-134">Değiştir `UseOpenIdConnectAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-134">Replace the `UseOpenIdConnectAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-135">Çağırma `AddOpenIdConnect` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-135">Invoke the `AddOpenIdConnect` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-135">Çağırma `AddOpenIdConnect` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-135">Invoke the `AddOpenIdConnect` method in the `ConfigureServices` method:</span></span>
 
     ```csharp
     services.AddAuthentication(options => 
@@ -161,15 +161,15 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
     });
     ```
 
-### <a name="facebook-authentication"></a><span data-ttu-id="18cc6-136">facebook kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-136">Facebook authentication</span></span>
-<span data-ttu-id="18cc6-137">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-137">Make the following changes in *Startup.cs*:</span></span>
-- <span data-ttu-id="18cc6-138">Değiştir `UseFacebookAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-138">Replace the `UseFacebookAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+### <a name="facebook-authentication"></a><span data-ttu-id="9e0e7-136">facebook kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-136">Facebook authentication</span></span>
+<span data-ttu-id="9e0e7-137">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-137">Make the following changes in *Startup.cs*:</span></span>
+- <span data-ttu-id="9e0e7-138">Değiştir `UseFacebookAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-138">Replace the `UseFacebookAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
  
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-139">Çağırma `AddFacebook` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-139">Invoke the `AddFacebook` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-139">Çağırma `AddFacebook` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-139">Invoke the `AddFacebook` method in the `ConfigureServices` method:</span></span>
     
     ```csharp
     services.AddAuthentication()
@@ -180,15 +180,15 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
             });
     ```
 
-### <a name="google-authentication"></a><span data-ttu-id="18cc6-140">Google kimlik doğrulama</span><span class="sxs-lookup"><span data-stu-id="18cc6-140">Google authentication</span></span>
-<span data-ttu-id="18cc6-141">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-141">Make the following changes in *Startup.cs*:</span></span>
-- <span data-ttu-id="18cc6-142">Değiştir `UseGoogleAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-142">Replace the `UseGoogleAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+### <a name="google-authentication"></a><span data-ttu-id="9e0e7-140">Google kimlik doğrulama</span><span class="sxs-lookup"><span data-stu-id="9e0e7-140">Google authentication</span></span>
+<span data-ttu-id="9e0e7-141">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-141">Make the following changes in *Startup.cs*:</span></span>
+- <span data-ttu-id="9e0e7-142">Değiştir `UseGoogleAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-142">Replace the `UseGoogleAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
  
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-143">Çağırma `AddGoogle` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-143">Invoke the `AddGoogle` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-143">Çağırma `AddGoogle` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-143">Invoke the `AddGoogle` method in the `ConfigureServices` method:</span></span>
 
     ```csharp
     services.AddAuthentication()
@@ -199,15 +199,15 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
             });    
     ```
 
-### <a name="microsoft-account-authentication"></a><span data-ttu-id="18cc6-144">Microsoft Account kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-144">Microsoft Account authentication</span></span>
-<span data-ttu-id="18cc6-145">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-145">Make the following changes in *Startup.cs*:</span></span>
-- <span data-ttu-id="18cc6-146">Değiştir `UseMicrosoftAccountAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-146">Replace the `UseMicrosoftAccountAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+### <a name="microsoft-account-authentication"></a><span data-ttu-id="9e0e7-144">Microsoft Account kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-144">Microsoft Account authentication</span></span>
+<span data-ttu-id="9e0e7-145">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-145">Make the following changes in *Startup.cs*:</span></span>
+- <span data-ttu-id="9e0e7-146">Değiştir `UseMicrosoftAccountAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-146">Replace the `UseMicrosoftAccountAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-147">Çağırma `AddMicrosoftAccount` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-147">Invoke the `AddMicrosoftAccount` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-147">Çağırma `AddMicrosoftAccount` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-147">Invoke the `AddMicrosoftAccount` method in the `ConfigureServices` method:</span></span>
 
     ```csharp
     services.AddAuthentication()
@@ -218,15 +218,15 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
             });
     ``` 
 
-### <a name="twitter-authentication"></a><span data-ttu-id="18cc6-148">Twitter kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-148">Twitter authentication</span></span>
-<span data-ttu-id="18cc6-149">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-149">Make the following changes in *Startup.cs*:</span></span>
-- <span data-ttu-id="18cc6-150">Değiştir `UseTwitterAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-150">Replace the `UseTwitterAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
+### <a name="twitter-authentication"></a><span data-ttu-id="9e0e7-148">Twitter kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-148">Twitter authentication</span></span>
+<span data-ttu-id="9e0e7-149">Aşağıdaki değişiklikleri yapın *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-149">Make the following changes in *Startup.cs*:</span></span>
+- <span data-ttu-id="9e0e7-150">Değiştir `UseTwitterAuthentication` yöntem çağrısı `Configure` yöntemiyle `UseAuthentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-150">Replace the `UseTwitterAuthentication` method call in the `Configure` method with `UseAuthentication`:</span></span>
  
     ```csharp
     app.UseAuthentication();
     ```
 
-- <span data-ttu-id="18cc6-151">Çağırma `AddTwitter` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-151">Invoke the `AddTwitter` method in the `ConfigureServices` method:</span></span>
+- <span data-ttu-id="9e0e7-151">Çağırma `AddTwitter` yönteminde `ConfigureServices` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-151">Invoke the `AddTwitter` method in the `ConfigureServices` method:</span></span>
 
     ```csharp
     services.AddAuthentication()
@@ -237,18 +237,18 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
             });
     ```
 
-### <a name="setting-default-authentication-schemes"></a><span data-ttu-id="18cc6-152">Varsayılan kimlik doğrulama şemasını ayarlama</span><span class="sxs-lookup"><span data-stu-id="18cc6-152">Setting default authentication schemes</span></span>
-<span data-ttu-id="18cc6-153">1.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı hedeflenen bir tek bir kimlik doğrulaması düzeni için ayarlanacak.</span><span class="sxs-lookup"><span data-stu-id="18cc6-153">In 1.x, the `AutomaticAuthenticate` and `AutomaticChallenge` properties of the [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) base class were intended to be set on a single authentication scheme.</span></span> <span data-ttu-id="18cc6-154">Bu zorlamak için iyi hiçbir yolu yoktu.</span><span class="sxs-lookup"><span data-stu-id="18cc6-154">There was no good way to enforce this.</span></span>
+### <a name="setting-default-authentication-schemes"></a><span data-ttu-id="9e0e7-152">Varsayılan kimlik doğrulama şemasını ayarlama</span><span class="sxs-lookup"><span data-stu-id="9e0e7-152">Setting default authentication schemes</span></span>
+<span data-ttu-id="9e0e7-153">1.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı hedeflenen bir tek bir kimlik doğrulaması düzeni için ayarlanacak.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-153">In 1.x, the `AutomaticAuthenticate` and `AutomaticChallenge` properties of the [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) base class were intended to be set on a single authentication scheme.</span></span> <span data-ttu-id="9e0e7-154">Bu zorlamak için iyi hiçbir yolu yoktu.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-154">There was no good way to enforce this.</span></span>
 
-<span data-ttu-id="18cc6-155">2. 0 ', bu iki özellik tek tek özellikleri olarak kaldırılan `AuthenticationOptions` örneği.</span><span class="sxs-lookup"><span data-stu-id="18cc6-155">In 2.0, these two properties have been removed as properties on the individual `AuthenticationOptions` instance.</span></span> <span data-ttu-id="18cc6-156">İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-156">They can be configured in the `AddAuthentication` method call within the `ConfigureServices` method of *Startup.cs*:</span></span>
+<span data-ttu-id="9e0e7-155">2. 0 ', bu iki özellik tek tek özellikleri olarak kaldırılan `AuthenticationOptions` örneği.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-155">In 2.0, these two properties have been removed as properties on the individual `AuthenticationOptions` instance.</span></span> <span data-ttu-id="9e0e7-156">İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-156">They can be configured in the `AddAuthentication` method call within the `ConfigureServices` method of *Startup.cs*:</span></span>
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
-<span data-ttu-id="18cc6-157">Yukarıdaki kod parçacığında, varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme` ("tanımlama bilgileri").</span><span class="sxs-lookup"><span data-stu-id="18cc6-157">In the preceding code snippet, the default scheme is set to `CookieAuthenticationDefaults.AuthenticationScheme` ("Cookies").</span></span>
+<span data-ttu-id="9e0e7-157">Yukarıdaki kod parçacığında, varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme` ("tanımlama bilgileri").</span><span class="sxs-lookup"><span data-stu-id="9e0e7-157">In the preceding code snippet, the default scheme is set to `CookieAuthenticationDefaults.AuthenticationScheme` ("Cookies").</span></span>
 
-<span data-ttu-id="18cc6-158">Alternatif olarak, aşırı yüklenmiş bir sürümünü kullanmanız `AddAuthentication` birden çok özelliği ayarlamak için yöntem.</span><span class="sxs-lookup"><span data-stu-id="18cc6-158">Alternatively, use an overloaded version of the `AddAuthentication` method to set more than one property.</span></span> <span data-ttu-id="18cc6-159">Aşağıdaki aşırı yüklenmiş yöntemin örnekte varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-159">In the following overloaded method example, the default scheme is set to `CookieAuthenticationDefaults.AuthenticationScheme`.</span></span> <span data-ttu-id="18cc6-160">Kimlik doğrulama şeması alternatif olarak, tek tek içinde belirtilen `[Authorize]` öznitelikleri veya yetkilendirme ilkeleri.</span><span class="sxs-lookup"><span data-stu-id="18cc6-160">The authentication scheme may alternatively be specified within your individual `[Authorize]` attributes or authorization policies.</span></span>
+<span data-ttu-id="9e0e7-158">Alternatif olarak, aşırı yüklenmiş bir sürümünü kullanmanız `AddAuthentication` birden çok özelliği ayarlamak için yöntem.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-158">Alternatively, use an overloaded version of the `AddAuthentication` method to set more than one property.</span></span> <span data-ttu-id="9e0e7-159">Aşağıdaki aşırı yüklenmiş yöntemin örnekte varsayılan düzenini ayarlamak `CookieAuthenticationDefaults.AuthenticationScheme`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-159">In the following overloaded method example, the default scheme is set to `CookieAuthenticationDefaults.AuthenticationScheme`.</span></span> <span data-ttu-id="9e0e7-160">Kimlik doğrulama şeması alternatif olarak, tek tek içinde belirtilen `[Authorize]` öznitelikleri veya yetkilendirme ilkeleri.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-160">The authentication scheme may alternatively be specified within your individual `[Authorize]` attributes or authorization policies.</span></span>
 
 ```csharp
 services.AddAuthentication(options => 
@@ -258,63 +258,63 @@ services.AddAuthentication(options =>
 });
 ```
 
-<span data-ttu-id="18cc6-161">Aşağıdaki koşullardan biri doğruysa varsayılan düzeni 2.0 tanımlayın:</span><span class="sxs-lookup"><span data-stu-id="18cc6-161">Define a default scheme in 2.0 if one of the following conditions is true:</span></span>
-- <span data-ttu-id="18cc6-162">Otomatik olarak oturum açmanız kullanıcının istediğiniz</span><span class="sxs-lookup"><span data-stu-id="18cc6-162">You want the user to be automatically signed in</span></span>
-- <span data-ttu-id="18cc6-163">Kullandığınız `[Authorize]` düzenleri belirtmeden özniteliği veya Yetkilendirme İlkeleri</span><span class="sxs-lookup"><span data-stu-id="18cc6-163">You use the `[Authorize]` attribute or authorization policies without specifying schemes</span></span>
+<span data-ttu-id="9e0e7-161">Aşağıdaki koşullardan biri doğruysa varsayılan düzeni 2.0 tanımlayın:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-161">Define a default scheme in 2.0 if one of the following conditions is true:</span></span>
+- <span data-ttu-id="9e0e7-162">Otomatik olarak oturum açmanız kullanıcının istediğiniz</span><span class="sxs-lookup"><span data-stu-id="9e0e7-162">You want the user to be automatically signed in</span></span>
+- <span data-ttu-id="9e0e7-163">Kullandığınız `[Authorize]` düzenleri belirtmeden özniteliği veya Yetkilendirme İlkeleri</span><span class="sxs-lookup"><span data-stu-id="9e0e7-163">You use the `[Authorize]` attribute or authorization policies without specifying schemes</span></span>
 
-<span data-ttu-id="18cc6-164">Bu kural için bir istisna `AddIdentity` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="18cc6-164">An exception to this rule is the `AddIdentity` method.</span></span> <span data-ttu-id="18cc6-165">Bu yöntem ve varsayılan kimlik doğrulaması ve uygulama tanımlama bilgisine düzenleri sınama kümeleri için tanımlama bilgileri ekler `IdentityConstants.ApplicationScheme`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-165">This method adds cookies for you and sets the default authenticate and challenge schemes to the application cookie `IdentityConstants.ApplicationScheme`.</span></span> <span data-ttu-id="18cc6-166">Ayrıca, oturum açma varsayılan düzeni için dış tanımlama bilgisi ayarlar `IdentityConstants.ExternalScheme`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-166">Additionally, it sets the default sign-in scheme to the external cookie `IdentityConstants.ExternalScheme`.</span></span>
+<span data-ttu-id="9e0e7-164">Bu kural için bir istisna `AddIdentity` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-164">An exception to this rule is the `AddIdentity` method.</span></span> <span data-ttu-id="9e0e7-165">Bu yöntem ve varsayılan kimlik doğrulaması ve uygulama tanımlama bilgisine düzenleri sınama kümeleri için tanımlama bilgileri ekler `IdentityConstants.ApplicationScheme`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-165">This method adds cookies for you and sets the default authenticate and challenge schemes to the application cookie `IdentityConstants.ApplicationScheme`.</span></span> <span data-ttu-id="9e0e7-166">Ayrıca, oturum açma varsayılan düzeni için dış tanımlama bilgisi ayarlar `IdentityConstants.ExternalScheme`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-166">Additionally, it sets the default sign-in scheme to the external cookie `IdentityConstants.ExternalScheme`.</span></span>
 
 <a name="obsolete-interface"></a>
 
-## <a name="use-httpcontext-authentication-extensions"></a><span data-ttu-id="18cc6-167">HttpContext kimlik doğrulama uzantıları kullanma</span><span class="sxs-lookup"><span data-stu-id="18cc6-167">Use HttpContext authentication extensions</span></span>
-<span data-ttu-id="18cc6-168">`IAuthenticationManager` Arabirimi 1.x kimlik doğrulaması sistemine ana giriş noktasıdır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-168">The `IAuthenticationManager` interface is the main entry point into the 1.x authentication system.</span></span> <span data-ttu-id="18cc6-169">Yeni bir kümesi ile değiştirilen `HttpContext` uzantı yöntemleri `Microsoft.AspNetCore.Authentication` ad alanı.</span><span class="sxs-lookup"><span data-stu-id="18cc6-169">It has been replaced with a new set of `HttpContext` extension methods in the `Microsoft.AspNetCore.Authentication` namespace.</span></span>
+## <a name="use-httpcontext-authentication-extensions"></a><span data-ttu-id="9e0e7-167">HttpContext kimlik doğrulama uzantıları kullanma</span><span class="sxs-lookup"><span data-stu-id="9e0e7-167">Use HttpContext authentication extensions</span></span>
+<span data-ttu-id="9e0e7-168">`IAuthenticationManager` Arabirimi 1.x kimlik doğrulaması sistemine ana giriş noktasıdır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-168">The `IAuthenticationManager` interface is the main entry point into the 1.x authentication system.</span></span> <span data-ttu-id="9e0e7-169">Yeni bir kümesi ile değiştirilen `HttpContext` uzantı yöntemleri `Microsoft.AspNetCore.Authentication` ad alanı.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-169">It has been replaced with a new set of `HttpContext` extension methods in the `Microsoft.AspNetCore.Authentication` namespace.</span></span>
 
-<span data-ttu-id="18cc6-170">Örneğin, başvuru 1.x projeleri bir `Authentication` özelliği:</span><span class="sxs-lookup"><span data-stu-id="18cc6-170">For example, 1.x projects reference an `Authentication` property:</span></span>
+<span data-ttu-id="9e0e7-170">Örneğin, başvuru 1.x projeleri bir `Authentication` özelliği:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-170">For example, 1.x projects reference an `Authentication` property:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-<span data-ttu-id="18cc6-171">2.0 projelerinde alma `Microsoft.AspNetCore.Authentication` ad alanı ve silme `Authentication` özelliği başvuruları:</span><span class="sxs-lookup"><span data-stu-id="18cc6-171">In 2.0 projects, import the `Microsoft.AspNetCore.Authentication` namespace, and delete the `Authentication` property references:</span></span>
+<span data-ttu-id="9e0e7-171">2.0 projelerinde alma `Microsoft.AspNetCore.Authentication` ad alanı ve silme `Authentication` özelliği başvuruları:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-171">In 2.0 projects, import the `Microsoft.AspNetCore.Authentication` namespace, and delete the `Authentication` property references:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="windows-auth-changes"></a>
 
-## <a name="windows-authentication-httpsys--iisintegration"></a><span data-ttu-id="18cc6-172">Windows kimlik doğrulaması (HTTP.sys / IISIntegration)</span><span class="sxs-lookup"><span data-stu-id="18cc6-172">Windows Authentication (HTTP.sys / IISIntegration)</span></span>
-<span data-ttu-id="18cc6-173">Windows kimlik doğrulaması iki çeşidi vardır:</span><span class="sxs-lookup"><span data-stu-id="18cc6-173">There are two variations of Windows authentication:</span></span>
-1. <span data-ttu-id="18cc6-174">Ana bilgisayar kimliği doğrulanmış kullanıcılar yalnızca izin verir</span><span class="sxs-lookup"><span data-stu-id="18cc6-174">The host only allows authenticated users</span></span>
-2. <span data-ttu-id="18cc6-175">Ana bilgisayar hem anonim verir ve kullanıcıların kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="18cc6-175">The host allows both anonymous and authenticated users</span></span>
+## <a name="windows-authentication-httpsys--iisintegration"></a><span data-ttu-id="9e0e7-172">Windows kimlik doğrulaması (HTTP.sys / IISIntegration)</span><span class="sxs-lookup"><span data-stu-id="9e0e7-172">Windows Authentication (HTTP.sys / IISIntegration)</span></span>
+<span data-ttu-id="9e0e7-173">Windows kimlik doğrulaması iki çeşidi vardır:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-173">There are two variations of Windows authentication:</span></span>
+1. <span data-ttu-id="9e0e7-174">Ana bilgisayar kimliği doğrulanmış kullanıcılar yalnızca izin verir</span><span class="sxs-lookup"><span data-stu-id="9e0e7-174">The host only allows authenticated users</span></span>
+2. <span data-ttu-id="9e0e7-175">Ana bilgisayar hem anonim verir ve kullanıcıların kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="9e0e7-175">The host allows both anonymous and authenticated users</span></span>
 
-<span data-ttu-id="18cc6-176">Yukarıda açıklanan Birincisi 2.0 değişikliklerden etkilenmez.</span><span class="sxs-lookup"><span data-stu-id="18cc6-176">The first variation described above is unaffected by the 2.0 changes.</span></span>
+<span data-ttu-id="9e0e7-176">Yukarıda açıklanan Birincisi 2.0 değişikliklerden etkilenmez.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-176">The first variation described above is unaffected by the 2.0 changes.</span></span>
 
-<span data-ttu-id="18cc6-177">Yukarıda açıklanan ikinci değişim 2.0 değişikliklerden etkilenir.</span><span class="sxs-lookup"><span data-stu-id="18cc6-177">The second variation described above is affected by the 2.0 changes.</span></span> <span data-ttu-id="18cc6-178">Örnek olarak, anonim kullanıcılar uygulamanıza IIS sağlayarak veya [HTTP.sys](xref:fundamentals/servers/weblistener) katman denetleyici düzeyinde ancak yetki vererek kullanıcılar.</span><span class="sxs-lookup"><span data-stu-id="18cc6-178">As an example, you may be allowing anonymous users into your application at the IIS or [HTTP.sys](xref:fundamentals/servers/weblistener) layer but authorizing users at the Controller level.</span></span> <span data-ttu-id="18cc6-179">Bu senaryoda, varsayılan düzenini ayarlamak `IISDefaults.AuthenticationScheme` içinde `ConfigureServices` yöntemi *haline*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-179">In this scenario, set the default scheme to `IISDefaults.AuthenticationScheme` in the `ConfigureServices` method of *Startup.cs*:</span></span>
+<span data-ttu-id="9e0e7-177">Yukarıda açıklanan ikinci değişim 2.0 değişikliklerden etkilenir.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-177">The second variation described above is affected by the 2.0 changes.</span></span> <span data-ttu-id="9e0e7-178">Örnek olarak, anonim kullanıcılar uygulamanıza IIS sağlayarak veya [HTTP.sys](xref:fundamentals/servers/weblistener) katman denetleyici düzeyinde ancak yetki vererek kullanıcılar.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-178">As an example, you may be allowing anonymous users into your application at the IIS or [HTTP.sys](xref:fundamentals/servers/weblistener) layer but authorizing users at the Controller level.</span></span> <span data-ttu-id="9e0e7-179">Bu senaryoda, varsayılan düzenini ayarlamak `IISDefaults.AuthenticationScheme` içinde `ConfigureServices` yöntemi *haline*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-179">In this scenario, set the default scheme to `IISDefaults.AuthenticationScheme` in the `ConfigureServices` method of *Startup.cs*:</span></span>
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);
 ```
 
-<span data-ttu-id="18cc6-180">Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını sınama için authorize isteğinin engeller.</span><span class="sxs-lookup"><span data-stu-id="18cc6-180">Failure to set the default scheme accordingly prevents the authorize request to challenge from working.</span></span>
+<span data-ttu-id="9e0e7-180">Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını sınama için authorize isteğinin engeller.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-180">Failure to set the default scheme accordingly prevents the authorize request to challenge from working.</span></span>
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a><span data-ttu-id="18cc6-181">IdentityCookieOptions instances</span><span class="sxs-lookup"><span data-stu-id="18cc6-181">IdentityCookieOptions instances</span></span>
-<span data-ttu-id="18cc6-182">2.0 değişiklikleri yan etkisi seçenekleri tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanmanın anahtarıdır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-182">A side effect of the 2.0 changes is the switch to using named options instead of cookie options instances.</span></span> <span data-ttu-id="18cc6-183">Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.</span><span class="sxs-lookup"><span data-stu-id="18cc6-183">The ability to customize the Identity cookie scheme names is removed.</span></span>
+## <a name="identitycookieoptions-instances"></a><span data-ttu-id="9e0e7-181">IdentityCookieOptions örnekleri</span><span class="sxs-lookup"><span data-stu-id="9e0e7-181">IdentityCookieOptions instances</span></span>
+<span data-ttu-id="9e0e7-182">2.0 değişiklikleri yan etkisi seçenekleri tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanmanın anahtarıdır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-182">A side effect of the 2.0 changes is the switch to using named options instead of cookie options instances.</span></span> <span data-ttu-id="9e0e7-183">Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-183">The ability to customize the Identity cookie scheme names is removed.</span></span>
 
-<span data-ttu-id="18cc6-184">Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirmek için bir `IdentityCookieOptions` parametresine *AccountController.cs*.</span><span class="sxs-lookup"><span data-stu-id="18cc6-184">For example, 1.x projects use [constructor injection](xref:mvc/controllers/dependency-injection#constructor-injection) to pass an `IdentityCookieOptions` parameter into *AccountController.cs*.</span></span> <span data-ttu-id="18cc6-185">Dış tanımlama bilgisi kimlik doğrulama şeması sağlanan örneğinden erişilir:</span><span class="sxs-lookup"><span data-stu-id="18cc6-185">The external cookie authentication scheme is accessed from the provided instance:</span></span>
+<span data-ttu-id="9e0e7-184">Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirmek için bir `IdentityCookieOptions` parametresine *AccountController.cs*.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-184">For example, 1.x projects use [constructor injection](xref:mvc/controllers/dependency-injection#constructor-injection) to pass an `IdentityCookieOptions` parameter into *AccountController.cs*.</span></span> <span data-ttu-id="9e0e7-185">Dış tanımlama bilgisi kimlik doğrulama şeması sağlanan örneğinden erişilir:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-185">The external cookie authentication scheme is accessed from the provided instance:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
-<span data-ttu-id="18cc6-186">Daha önce bahsedilen Oluşturucu ekleme 2.0 projelerinde gereksiz olur ve `_externalCookieScheme` alan silinebilir:</span><span class="sxs-lookup"><span data-stu-id="18cc6-186">The aforementioned constructor injection becomes unnecessary in 2.0 projects, and the `_externalCookieScheme` field can be deleted:</span></span>
+<span data-ttu-id="9e0e7-186">Daha önce bahsedilen Oluşturucu ekleme 2.0 projelerinde gereksiz olur ve `_externalCookieScheme` alan silinebilir:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-186">The aforementioned constructor injection becomes unnecessary in 2.0 projects, and the `_externalCookieScheme` field can be deleted:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
-<span data-ttu-id="18cc6-187">`IdentityConstants.ExternalScheme` Sabiti doğrudan kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="18cc6-187">The `IdentityConstants.ExternalScheme` constant can be used directly:</span></span>
+<span data-ttu-id="9e0e7-187">`IdentityConstants.ExternalScheme` Sabiti doğrudan kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-187">The `IdentityConstants.ExternalScheme` constant can be used directly:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a><span data-ttu-id="18cc6-188">POCO IdentityUser Gezinti özellikleri ekleyin</span><span class="sxs-lookup"><span data-stu-id="18cc6-188">Add IdentityUser POCO navigation properties</span></span>
-<span data-ttu-id="18cc6-189">Entity Framework (EF) çekirdek Gezinti özellikleri taban `IdentityUser` POCO (düz eski CLR nesnesi) kaldırıldı.</span><span class="sxs-lookup"><span data-stu-id="18cc6-189">The Entity Framework (EF) Core navigation properties of the base `IdentityUser` POCO (Plain Old CLR Object) have been removed.</span></span> <span data-ttu-id="18cc6-190">El ile 1.x projenizi bu özellikleri kullandıysanız, bunları 2.0 projeye ekleyin:</span><span class="sxs-lookup"><span data-stu-id="18cc6-190">If your 1.x project used these properties, manually add them back to the 2.0 project:</span></span>
+## <a name="add-identityuser-poco-navigation-properties"></a><span data-ttu-id="9e0e7-188">POCO IdentityUser Gezinti özellikleri ekleyin</span><span class="sxs-lookup"><span data-stu-id="9e0e7-188">Add IdentityUser POCO navigation properties</span></span>
+<span data-ttu-id="9e0e7-189">Entity Framework (EF) çekirdek Gezinti özellikleri taban `IdentityUser` POCO (düz eski CLR nesnesi) kaldırıldı.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-189">The Entity Framework (EF) Core navigation properties of the base `IdentityUser` POCO (Plain Old CLR Object) have been removed.</span></span> <span data-ttu-id="9e0e7-190">El ile 1.x projenizi bu özellikleri kullandıysanız, bunları 2.0 projeye ekleyin:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-190">If your 1.x project used these properties, manually add them back to the 2.0 project:</span></span>
 
 ```csharp
 /// <summary>
@@ -333,7 +333,7 @@ public virtual ICollection<IdentityUserClaim<int>> Claims { get; } = new List<Id
 public virtual ICollection<IdentityUserLogin<int>> Logins { get; } = new List<IdentityUserLogin<int>>();
 ```
 
-<span data-ttu-id="18cc6-191">Yinelenen yabancı anahtarlar EF çekirdek geçişler çalıştırırken önlemek için aşağıdakileri ekleyin, `IdentityDbContext` sınıfı `OnModelCreating` yöntemi (sonra `base.OnModelCreating();` çağrısı):</span><span class="sxs-lookup"><span data-stu-id="18cc6-191">To prevent duplicate foreign keys when running EF Core Migrations, add the following to your `IdentityDbContext` class' `OnModelCreating` method (after the `base.OnModelCreating();` call):</span></span>
+<span data-ttu-id="9e0e7-191">Yinelenen yabancı anahtarlar EF çekirdek geçişler çalıştırırken önlemek için aşağıdakileri ekleyin, `IdentityDbContext` sınıfı `OnModelCreating` yöntemi (sonra `base.OnModelCreating();` çağrısı):</span><span class="sxs-lookup"><span data-stu-id="9e0e7-191">To prevent duplicate foreign keys when running EF Core Migrations, add the following to your `IdentityDbContext` class' `OnModelCreating` method (after the `base.OnModelCreating();` call):</span></span>
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder builder)
@@ -368,35 +368,35 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 <a name="synchronous-method-removal"></a>
 
-## <a name="replace-getexternalauthenticationschemes"></a><span data-ttu-id="18cc6-192">Replace GetExternalAuthenticationSchemes</span><span class="sxs-lookup"><span data-stu-id="18cc6-192">Replace GetExternalAuthenticationSchemes</span></span>
-<span data-ttu-id="18cc6-193">Zaman uyumlu yöntemi `GetExternalAuthenticationSchemes` lehinde zaman uyumsuz bir sürümünü kaldırıldı.</span><span class="sxs-lookup"><span data-stu-id="18cc6-193">The synchronous method `GetExternalAuthenticationSchemes` was removed in favor of an asynchronous version.</span></span> <span data-ttu-id="18cc6-194">1.x projeleri olmayan aşağıdaki kodu *ManageController.cs*:</span><span class="sxs-lookup"><span data-stu-id="18cc6-194">1.x projects have the following code in *ManageController.cs*:</span></span>
+## <a name="replace-getexternalauthenticationschemes"></a><span data-ttu-id="9e0e7-192">GetExternalAuthenticationSchemes Değiştir</span><span class="sxs-lookup"><span data-stu-id="9e0e7-192">Replace GetExternalAuthenticationSchemes</span></span>
+<span data-ttu-id="9e0e7-193">Zaman uyumlu yöntemi `GetExternalAuthenticationSchemes` lehinde zaman uyumsuz bir sürümünü kaldırıldı.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-193">The synchronous method `GetExternalAuthenticationSchemes` was removed in favor of an asynchronous version.</span></span> <span data-ttu-id="9e0e7-194">1.x projeleri olmayan aşağıdaki kodu *ManageController.cs*:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-194">1.x projects have the following code in *ManageController.cs*:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
-<span data-ttu-id="18cc6-195">Bu yöntem görünür *Login.cshtml* çok:</span><span class="sxs-lookup"><span data-stu-id="18cc6-195">This method appears in *Login.cshtml* too:</span></span>
+<span data-ttu-id="9e0e7-195">Bu yöntem görünür *Login.cshtml* çok:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-195">This method appears in *Login.cshtml* too:</span></span>
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?range=62,75-84)]
 
-<span data-ttu-id="18cc6-196">2.0 projelerinde kullanma `GetExternalAuthenticationSchemesAsync` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="18cc6-196">In 2.0 projects, use the `GetExternalAuthenticationSchemesAsync` method:</span></span>
+<span data-ttu-id="9e0e7-196">2.0 projelerinde kullanma `GetExternalAuthenticationSchemesAsync` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-196">In 2.0 projects, use the `GetExternalAuthenticationSchemesAsync` method:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
-<span data-ttu-id="18cc6-197">İçinde *Login.cshtml*, `AuthenticationScheme` erişilebilir özelliği `foreach` döngü değişiklikler `Name`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-197">In *Login.cshtml*, the `AuthenticationScheme` property accessed in the `foreach` loop changes to `Name`:</span></span>
+<span data-ttu-id="9e0e7-197">İçinde *Login.cshtml*, `AuthenticationScheme` erişilebilir özelliği `foreach` döngü değişiklikler `Name`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-197">In *Login.cshtml*, the `AuthenticationScheme` property accessed in the `foreach` loop changes to `Name`:</span></span>
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?range=62,75-84)]
 
 <a name="property-change"></a>
 
-## <a name="manageloginsviewmodel-property-change"></a><span data-ttu-id="18cc6-198">ManageLoginsViewModel özellik değişikliği</span><span class="sxs-lookup"><span data-stu-id="18cc6-198">ManageLoginsViewModel property change</span></span>
-<span data-ttu-id="18cc6-199">A `ManageLoginsViewModel` nesne kullanılıyor `ManageLogins` eylemi *ManageController.cs*.</span><span class="sxs-lookup"><span data-stu-id="18cc6-199">A `ManageLoginsViewModel` object is used in the `ManageLogins` action of *ManageController.cs*.</span></span> <span data-ttu-id="18cc6-200">1.x projelerinde nesne 's `OtherLogins` özelliği döndürme türü `IList<AuthenticationDescription>`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-200">In 1.x projects, the object's `OtherLogins` property return type is `IList<AuthenticationDescription>`.</span></span> <span data-ttu-id="18cc6-201">Bu dönüş türü alma gerektirir `Microsoft.AspNetCore.Http.Authentication`:</span><span class="sxs-lookup"><span data-stu-id="18cc6-201">This return type requires an import of `Microsoft.AspNetCore.Http.Authentication`:</span></span>
+## <a name="manageloginsviewmodel-property-change"></a><span data-ttu-id="9e0e7-198">ManageLoginsViewModel özellik değişikliği</span><span class="sxs-lookup"><span data-stu-id="9e0e7-198">ManageLoginsViewModel property change</span></span>
+<span data-ttu-id="9e0e7-199">A `ManageLoginsViewModel` nesne kullanılıyor `ManageLogins` eylemi *ManageController.cs*.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-199">A `ManageLoginsViewModel` object is used in the `ManageLogins` action of *ManageController.cs*.</span></span> <span data-ttu-id="9e0e7-200">1.x projelerinde nesne 's `OtherLogins` özelliği döndürme türü `IList<AuthenticationDescription>`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-200">In 1.x projects, the object's `OtherLogins` property return type is `IList<AuthenticationDescription>`.</span></span> <span data-ttu-id="9e0e7-201">Bu dönüş türü alma gerektirir `Microsoft.AspNetCore.Http.Authentication`:</span><span class="sxs-lookup"><span data-stu-id="9e0e7-201">This return type requires an import of `Microsoft.AspNetCore.Http.Authentication`:</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
-<span data-ttu-id="18cc6-202">Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>`.</span><span class="sxs-lookup"><span data-stu-id="18cc6-202">In 2.0 projects, the return type changes to `IList<AuthenticationScheme>`.</span></span> <span data-ttu-id="18cc6-203">Bu yeni dönüş türü değiştirme gerektirir `Microsoft.AspNetCore.Http.Authentication` ile içeri aktarma bir `Microsoft.AspNetCore.Authentication` içeri aktarın.</span><span class="sxs-lookup"><span data-stu-id="18cc6-203">This new return type requires replacing the `Microsoft.AspNetCore.Http.Authentication` import with a `Microsoft.AspNetCore.Authentication` import.</span></span>
+<span data-ttu-id="9e0e7-202">Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>`.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-202">In 2.0 projects, the return type changes to `IList<AuthenticationScheme>`.</span></span> <span data-ttu-id="9e0e7-203">Bu yeni dönüş türü değiştirme gerektirir `Microsoft.AspNetCore.Http.Authentication` ile içeri aktarma bir `Microsoft.AspNetCore.Authentication` içeri aktarın.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-203">This new return type requires replacing the `Microsoft.AspNetCore.Http.Authentication` import with a `Microsoft.AspNetCore.Authentication` import.</span></span>
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
 <a name="additional-resources"></a>
 
-## <a name="additional-resources"></a><span data-ttu-id="18cc6-204">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="18cc6-204">Additional resources</span></span>
-<span data-ttu-id="18cc6-205">Ek bilgi ve tartışma için bkz: [Auth 2.0 tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.</span><span class="sxs-lookup"><span data-stu-id="18cc6-205">For additional details and discussion, see the [Discussion for Auth 2.0](https://github.com/aspnet/Security/issues/1338) issue on GitHub.</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="9e0e7-204">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="9e0e7-204">Additional resources</span></span>
+<span data-ttu-id="9e0e7-205">Ek bilgi ve tartışma için bkz: [Auth 2.0 tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.</span><span class="sxs-lookup"><span data-stu-id="9e0e7-205">For additional details and discussion, see the [Discussion for Auth 2.0](https://github.com/aspnet/Security/issues/1338) issue on GitHub.</span></span>
