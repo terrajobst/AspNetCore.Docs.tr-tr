@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 711a96b17fd41847619ade21eb643af845705c79
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
 
@@ -38,9 +38,9 @@ Daha fazla bilgi için bkz: [Microsoft.AspNetCore.All metapackage ASP.NET Core 2
 
 Kullanan uygulamalar `Microsoft.AspNetCore.All` metapackage otomatik olarak avantajından yeni bir .NET çekirdeği çalışma zamanı deposu. Depo ASP.NET Core 2.0 uygulamaları çalıştırmak için gereken tüm çalışma zamanı varlıklarını içerir. Kullandığınızda `Microsoft.AspNetCore.All` metapackage, başvurulan ASP.NET Core NuGet paketlerini hiçbir varlıklarından, uygulama ile dağıtılır, hedef sistemde zaten bulundukları olduğundan. Çalışma zamanı deposu varlıkları, ayrıca uygulama başlangıç zamanını geliştirmek için önceden derlenmiş.
 
-Daha fazla bilgi için bkz: [çalışma zamanı deposu](https://docs.microsoft.com/dotnet/core/deploying/runtime-store)
+Daha fazla bilgi için bkz: [çalışma zamanı deposu](/dotnet/core/deploying/runtime-store)
 
-## <a name="net-standard-20"></a>.NET Standard 2.0
+## <a name="net-standard-20"></a>.NET standart 2.0
 
 ASP.NET Core 2.0 paketleri .NET standart 2.0 hedefleyin. Paketleri diğer .NET standart 2.0 kitaplıkları tarafından başvurulabilir ve .NET, .NET Core 2.0 ve .NET Framework 4.6.1 dahil olmak üzere, .NET standart 2.0 ile uyumlu uygulamalar üzerinde çalışabilir. 
 

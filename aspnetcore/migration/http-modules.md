@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: e02f3a75269e5e4a4794d1979d3a5add21fe38be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cbdef871ffc3269e3118d23ed20306a71b9df030
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>HTTP işleyicileri ve modülleri ASP.NET Core Ara geçirme
 
 Tarafından [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-Bu makalede mevcut ASP.NET geçirmek nasıl gösterilmektedir [HTTP modülleri ve system.webserver işleyicilerini](https://docs.microsoft.com/iis/configuration/system.webserver/) ASP.NET Core için [Ara](xref:fundamentals/middleware/index).
+Bu makalede mevcut ASP.NET geçirmek nasıl gösterilmektedir [HTTP modülleri ve system.webserver işleyicilerini](/iis/configuration/system.webserver/) ASP.NET Core için [Ara](xref:fundamentals/middleware/index).
 
 ## <a name="modules-and-handlers-revisited"></a>Modüller ve tekrar ziyaret işleyicileri
 
@@ -29,15 +29,15 @@ ASP.NET Core ara yazılımı için devam etmeden önce şimdi ilk HTTP modüller
 
 **İşleyicileri şunlardır:**
 
-   * Sınıfları uygulayan [IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
+   * Sınıfları uygulayan [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
    * Gibi belirli dosya adı veya uzantısı ile isteklerini işlemek için kullanılan *.report*
 
-   * [Yapılandırılmış](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/) içinde *Web.config*
+   * [Yapılandırılmış](/iis/configuration/system.webserver/handlers/) içinde *Web.config*
 
 **Modülleri şunlardır:**
 
-   * Sınıfları uygulayan [IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
+   * Sınıfları uygulayan [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
    * Her istek için çağrılır
 
@@ -45,11 +45,11 @@ ASP.NET Core ara yazılımı için devam etmeden önce şimdi ilk HTTP modüller
 
    * HTTP yanıtı eklemek veya kendi oluşturmak için
 
-   * [Yapılandırılmış](https://docs.microsoft.com//iis/configuration/system.webserver/modules/) içinde *Web.config*
+   * [Yapılandırılmış](/iis/configuration/system.webserver/modules/) içinde *Web.config*
 
 **Modülleri gelen istekleri işleme sırası tarafından belirlenir:**
 
-   1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen serisi olayları olduğu: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest), vb. Her modül işleyicisi için bir veya daha fazla olay oluşturabilirsiniz.
+   1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), vb. Her modül işleyicisi için bir veya daha fazla olay oluşturabilirsiniz.
 
    2. Aynı olay, bunlar yapılandırılmış sipariş için *Web.config*.
 
@@ -243,7 +243,7 @@ Daha önce gördüğünüzle, `Invoke` , Ara yönteminde türünde bir parametre
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext` ASP.NET Core önemli ölçüde değişti. Bu bölümde, en sık kullanılan özelliklerini çevirmek gösterilmiştir [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext) yeni `Microsoft.AspNetCore.Http.HttpContext`.
+`HttpContext` ASP.NET Core önemli ölçüde değişti. Bu bölümde, en sık kullanılan özelliklerini çevirmek gösterilmiştir [System.Web.HttpContext](/dotnet/api/system.web.httpcontext) yeni `Microsoft.AspNetCore.Http.HttpContext`.
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -271,7 +271,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
-**HttpContext.Request.IsSecureConnection** translates to:
+**HttpContext.Request.IsSecureConnection** için çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
@@ -283,7 +283,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Cookies)]
 
-**HttpContext.Request.RequestContext.RouteData** translates to:
+**HttpContext.Request.RequestContext.RouteData** için çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Route)]
 
@@ -295,7 +295,7 @@ Her istek için benzersiz bir kimlik verir. Günlüklerinize dahil etmek çok ku
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
 
-**HttpContext.Request.UrlReferrer** translates to:
+**HttpContext.Request.UrlReferrer** için çevirir:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 

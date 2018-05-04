@@ -1,7 +1,7 @@
-* Haline: [başlangıç sınıfı](../fundamentals/startup.md) -sınıfı uygulamaya yapılan tüm istekleri işleyen istek ardışık düzenini yapılandırır.
-* Program.cs: [Program sınıfı](../fundamentals/index.md) , uygulamanın ana giriş noktası içerir.
-* firstapp.csproj: [proje dosyası](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/csproj) ASP.NET Core uygulamaları için MSBuild proje dosyası biçimi. Proje için proje başvuruları içeren NuGet başvurularını ve diğer ilgili öğeler proje.
-* appSettings.JSON / appsettings. Development.JSON: Ortam temel uygulama ayarlarını yapılandırma dosyası. [Bkz.](xref:fundamentals/configuration/index).
+* Haline: [başlangıç sınıfı](xref:fundamentals/startup) -sınıfı uygulamaya yapılan tüm istekleri işleyen istek ardışık düzenini yapılandırır.
+* Program.cs: [Program sınıfı](xref:fundamentals/index) , uygulamanın ana giriş noktası içerir.
+* firstapp.csproj: [proje dosyası](/dotnet/articles/core/preview3/tools/csproj) ASP.NET Core uygulamaları için MSBuild proje dosyası biçimi. Proje için proje başvuruları içeren NuGet başvurularını ve diğer ilgili öğeler proje.
+* appSettings.JSON / appsettings. Development.JSON: Ortam temel uygulama ayarlarını yapılandırma dosyası. [Bkz.](xref:fundamentals/configuration/index)
 * bower.JSON: Bower Paket bağımlılıklarını projesi için.
 * .bowerrc: Bower varlıklar indirdiğinde bileşenleri yükleneceği tanımlayan bower yapılandırma dosyası.
 * bundleconfig.JSON: paketleme ve küçültme ön uç JavaScript ve CSS varlıklar için yapılandırma dosyaları.
