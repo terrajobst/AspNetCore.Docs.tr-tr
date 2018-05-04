@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/index
-ms.openlocfilehash: 017bcc1ed65b1baa92408db07201d1c7bab2849d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: f0368258d078673ab5eab21c5ce07f2437cb8ea4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Web API ile ASP.NET çekirdek oluşturma
 
@@ -75,6 +75,9 @@ Bağlama kaynak özniteliği, bir eylem parametresinin değeri bulunan konumu ta
 |**[[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute)**   | Geçerli isteğin rota verileri |
 |**[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices)** | Bir eylem parametresi olarak eklenen isteği hizmeti |
 
+> [!NOTE]
+> Yapmak **değil** kullanmak `[FromRoute]` zaman değerleri içeriyor olabilir `%2f` (diğer bir deyişle `/`) çünkü `%2f` için unescaped olmaz `/`. Kullanım `[FromQuery]` değeri içerme olasılığı varsa `%2f`.
+
 Olmadan `[ApiController]` öznitelikleri açıkça tanımlanmış kaynak bağlama özniteliği. Aşağıdaki örnekte, `[FromQuery]` öznitelik gösterir `discontinuedOnly` istek URL'SİNDEKİ sorgu dizesinde sağlanan parametre değeri:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=2)]
@@ -112,8 +115,8 @@ Eylemler aracılığıyla erişilemez [geleneksel yolları](xref:mvc/controllers
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Denetleyici eylem dönüş türleri](xref:web-api/action-return-types)
+* [Denetleyici eylemi dönüş türleri](xref:web-api/action-return-types)
 * [Özel biçimlendiriciler](xref:web-api/advanced/custom-formatters)
 * [Yanıt verilerini biçimlendirme](xref:web-api/advanced/formatting)
-* [Swagger kullanarak yardım sayfalarına](xref:tutorials/web-api-help-pages-using-swagger)
+* [Swagger kullanan yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
 * [Denetleyici eylemlerine yönlendirme](xref:mvc/controllers/routing)

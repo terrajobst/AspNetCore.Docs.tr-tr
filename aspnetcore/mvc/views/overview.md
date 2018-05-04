@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -56,7 +56,7 @@ Yukarıda gösterilen görünüm içeriği kullanıcı için işlenen tüm Web s
 
 ## <a name="how-controllers-specify-views"></a>Denetleyicileri görünümleri nasıl belirtin
 
-Görünümleri eylemlerine genellikle döndürülür bir [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), bir tür olduğu [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult). Eylem yöntemi oluşturun ve dönüş bir `ViewResult` doğrudan, ancak değil, yaygın olarak yapılır. Çoğu denetleyicileri devralınmalıdır beri [denetleyicisi](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), yalnızca kullandığınız `View` dönmek için yardımcı yöntem `ViewResult`:
+Görünümleri eylemlerine genellikle döndürülür bir [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), bir tür olduğu [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). Eylem yöntemi oluşturun ve dönüş bir `ViewResult` doğrudan, ancak değil, yaygın olarak yapılır. Çoğu denetleyicileri devralınmalıdır beri [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller), yalnızca kullandığınız `View` dönmek için yardımcı yöntem `ViewResult`:
 
 *HomeController.cs*
 
@@ -115,7 +115,7 @@ return View("./About");
 
 [Kısmi görünümler](xref:mvc/views/partial) ve [görüntülemek bileşenleri](xref:mvc/views/view-components) benzer (ancak aynı) bulma mekanizmasını kullanın.
 
-Nasıl görünümleri özel kullanarak uygulama içinde bulunur ve varsayılan kuralını özelleştirebilirsiniz [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).
+Nasıl görünümleri özel kullanarak uygulama içinde bulunur ve varsayılan kuralını özelleştirebilirsiniz [IViewLocationExpander](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander).
 
 Görünüm bulma görünümü dosyaları dosya adına göre bulma kullanır. Temeldeki dosya sistemi büyük küçük harfe duyarlı ise, görünüm adları büyük olasılıkla büyük küçük harf duyarlıdır. İşletim sistemleri arasında uyumluluk için denetleyici ve eylem adları ve ilişkili görünüm klasörleri ve dosya adları arasında büyük küçük harf duyarlı. Bulunamayan bir görünüm dosyası büyük küçük harfe duyarlı dosya sistemi ile çalışırken bir hatayla karşılaşırsanız, büyük küçük harf istenen görünüm dosyası ve gerçek görünümü dosya adı arasında eşleştiğini doğrulayın.
 
@@ -205,7 +205,7 @@ Bu koleksiyon yoluyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri 
 
 **ViewData**
 
-`ViewData` olan bir [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) üzerinden erişilen nesne `string` anahtarları. Dize verilerini depolanır ve bir cast gerek kalmadan doğrudan kullanılır, ancak diğer atamalısınız `ViewData` bunları ayıkladığınızda belirli türleri için değer nesnesi. Kullanabileceğiniz `ViewData` görünümlere ve görünümler dahil olmak üzere içinde denetleyicilerinden veri iletmek için [kısmi görünümler](xref:mvc/views/partial) ve [düzenleri](xref:mvc/views/layout).
+`ViewData` olan bir [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) üzerinden erişilen nesne `string` anahtarları. Dize verilerini depolanır ve bir cast gerek kalmadan doğrudan kullanılır, ancak diğer atamalısınız `ViewData` bunları ayıkladığınızda belirli türleri için değer nesnesi. Kullanabileceğiniz `ViewData` görünümlere ve görünümler dahil olmak üzere içinde denetleyicilerinden veri iletmek için [kısmi görünümler](xref:mvc/views/partial) ve [düzenleri](xref:mvc/views/layout).
 
 Aşağıdaki tebrik kartı ve bir adresi kullanarak ilişkin değerleri ayarlayan bir örnektir `ViewData` bir eylem:
 
@@ -247,7 +247,7 @@ Bir görünümdeki verilerle çalışma:
 
 Not: `ViewBag` Razor sayfalarında kullanılamaz.
 
-`ViewBag` olan bir [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag` atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
+`ViewBag` olan bir [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag` atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
 
 ```csharp
 public IActionResult SomeAction()
@@ -321,11 +321,11 @@ Her ikisini de kullanarak `ViewData` ve `ViewBag` adresindeki karıştırma ve o
  `ViewBag` Razor sayfalarında kullanılamaz.
 
 * `ViewData`
-  * Türetilen [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)gibi yararlı olabilecek sözlük özelliklere sahip nedenle `ContainsKey`, `Add`, `Remove`, ve `Clear`.
+  * Türetilen [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary)gibi yararlı olabilecek sözlük özelliklere sahip nedenle `ContainsKey`, `Add`, `Remove`, ve `Clear`.
   * Boşluk izin sözlükteki anahtarları, dizelerdir. Örnek: `ViewData["Some Key With Whitespace"]`
   * Herhangi türdeki dışındaki bir `string` kullanmak için görünümünde dönüştürülmelidir `ViewData`.
 * `ViewBag`
-  * Türetilen [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), böylece noktalı gösterim kullanılarak dinamik özellikleri oluşturulmasını sağlar (`@ViewBag.SomeKey = <value or object>`), ve hiçbir atama gereklidir. Söz dizimi `ViewBag` denetleyicileri ve görünümleri eklemek daha hızlı hale getirir.
+  * Türetilen [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), böylece noktalı gösterim kullanılarak dinamik özellikleri oluşturulmasını sağlar (`@ViewBag.SomeKey = <value or object>`), ve hiçbir atama gereklidir. Söz dizimi `ViewBag` denetleyicileri ve görünümleri eklemek daha hızlı hale getirir.
   * Null değerler için denetlemek daha basit. Örnek: `@ViewBag.Person?.Name`
 
 **Zaman ViewData veya Görünüm paketini kullanmak için**

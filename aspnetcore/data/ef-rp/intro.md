@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: be8162de1c839ef619e2ccd32253c6c3e5330301
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 99a8d158c896566c2f6e6c22e4b37b1956e21cbf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor sayfalarının Entity Framework Çekirdek ASP.NET Core - 8'in Öğreticisi 1 ile
 
@@ -175,7 +175,7 @@ Açık *appsettings.json* dosyası ve bir bağlantı dizesi aşağıdaki kodda g
 
 [!code-json[](./intro/samples/cu/appsettings1.json?highlight=2-4)]
 
-Önceki bağlantı dizesini kullanır `ConnectRetryCount=0` önlemek için [SQLClient](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) asılı gelen.
+Önceki bağlantı dizesini kullanır `ConnectRetryCount=0` önlemek için [SQLClient](/dotnet/framework/data/adonet/ef/sqlclient-for-the-entity-framework) asılı gelen.
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
@@ -315,7 +315,7 @@ Aşağıdaki kodda, `async` anahtar sözcüğü, `Task<T>` dönüş değeri, `aw
 * `async` Anahtar sözcüğü derleyiciye bildirir:
 
   * Geri aramalar yöntemi gövde bölümlerinin oluşturur.
-  * Otomatik olarak oluştur [görev](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task?view=netframework-4.7) döndürülen nesne. Daha fazla bilgi için bkz: [görev dönüş türü](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
+  * Otomatik olarak oluştur [görev](/dotnet/api/system.threading.tasks.task?view=netframework-4.7) döndürülen nesne. Daha fazla bilgi için bkz: [görev dönüş türü](/dotnet/csharp/programming-guide/concepts/async/async-return-types#BKMK_TaskReturnType).
 
 * Örtük dönüş türü `Task` devam eden iş temsil eder.
 
@@ -331,7 +331,7 @@ EF çekirdek kullanan zaman uyumsuz kodu yazarken dikkat edilmesi gereken bazı 
 
 * Zaman uyumsuz kod performans yararlarını yararlanmak için DB sorguları göndermek EF çekirdek yöntemleri çağırırsanız paketleri kitaplığı (disk belleği ettirilmesi gibi) zaman uyumsuz kullandığını doğrulayın.
 
-. NET'te zaman uyumsuz programlama hakkında daha fazla bilgi için bkz: [zaman uyumsuz genel bakış](https://docs.microsoft.com/dotnet/articles/standard/async).
+. NET'te zaman uyumsuz programlama hakkında daha fazla bilgi için bkz: [zaman uyumsuz genel bakış](/dotnet/articles/standard/async).
 
 Sonraki öğreticide, temel CRUD (Oluştur, oku, Güncelleştir, Sil) işlemleri incelenmesini.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 27246ece3eaaecb708f922bcaaf05658034bce82
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları
 
@@ -161,7 +161,7 @@ Bir etiketi yardımcı öznitelik girilen hemen etiketini ve öznitelik yazı ti
 
 ![görüntü](intro/_static/labelaspfor2.png)
 
-Visual Studio girebilirsiniz *CompleteWord* kısayol (Ctrl + Ara çubuğu olan [varsayılan](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) çift tırnak içine (""), ve bir C# sınıfta olması gibi C# ' ta sunulmuştur. IntelliSense sayfa model üzerinde tüm yöntemleri ve özellikleri görüntüler. Özellik türü olduğundan yöntemleri ve özellikleri kullanılabilir `ModelExpression`. Aşağıdaki resimde ı düzenleme `Register` görünümü, böylece `RegisterViewModel` kullanılabilir.
+Visual Studio girebilirsiniz *CompleteWord* kısayol (Ctrl + Ara çubuğu olan [varsayılan](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) çift tırnak içine (""), ve bir C# sınıfta olması gibi C# ' ta sunulmuştur. IntelliSense sayfa model üzerinde tüm yöntemleri ve özellikleri görüntüler. Özellik türü olduğundan yöntemleri ve özellikleri kullanılabilir `ModelExpression`. Aşağıdaki resimde ı düzenleme `Register` görünümü, böylece `RegisterViewModel` kullanılabilir.
 
 ![görüntü](intro/_static/intellemail.png)
 
@@ -179,7 +179,7 @@ Etiket Yardımcıları ekleme Razor görünümleri, HTML öğelerine sırada [HT
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-Konumunda (`@`) simgesi söyler Razor kod başlangıcı budur. Sonraki iki parametre ("Ad" ve "ad:"), bu nedenle dizelerdir [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) yardımcı olamaz. Son bağımsız değişken:
+Konumunda (`@`) simgesi söyler Razor kod başlangıcı budur. Sonraki iki parametre ("Ad" ve "ad:"), bu nedenle dizelerdir [IntelliSense](/visualstudio/ide/using-intellisense) yardımcı olamaz. Son bağımsız değişken:
 
 ```cshtml
 new {@class="caption"}
@@ -249,13 +249,13 @@ Visual Studio düzenleyicisinde yazmanıza yardımcı **tüm** biçimlendirme et
 
 * Web sunucusu denetimleri otomatik tarayıcı algılama içerir. Etiket Yardımcıları tarayıcı hiçbir bilgiye sahip.
 
-* Aynı öğede birden çok etiket Yardımcıları davranamaz (bkz [etiket Yardımcısı önlemenin çakışmaları](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts) ) Web sunucusu denetimleri genellikle oluşturamazsınız sırada.
+* Aynı öğede birden çok etiket Yardımcıları davranamaz (bkz [etiket Yardımcısı önlemenin çakışmaları](xref:mvc/views/tag-helpers/authoring#avoid-tag-helper-conflicts) ) Web sunucusu denetimleri genellikle oluşturamazsınız sırada.
 
 * Etiket Yardımcıları etiketini ve kapsamlı HTML öğelerinin içeriğini değiştirebilirsiniz, ancak bir sayfa üzerinde başka bir şey doğrudan değiştirmeyin. Web sunucusu denetimleri daha az belirli bir kapsamda sahip ve diğer sayfanızı bölümlerini etkileyen eylemler gerçekleştirebilir; istenmeyen yan etkileri etkinleştiriliyor.
 
 * Web sunucusu denetimleri dizeleri nesnelerine dönüştürmek için tür dönüştürücüleri kullanın. Tür dönüşümü gerek kalmaması etiket Yardımcıları ile yerel olarak C# ile çalışırsınız.
 
-* Web sunucusu denetimleri kullanın [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) bileşenleri ve denetimleri çalıştırma ve tasarım zamanı davranışını uygulamak için. `System.ComponentModel` temel sınıflar ve öznitelikler ve tür dönüştürücüleri uygulama, veri kaynakları bağlama ve bileşenleri lisans arabirimleri içerir. Genellikle türetin etiket Yardımcıları için Karşıtlık `TagHelper`ve `TagHelper` temel sınıfı yalnızca iki yöntem sunar `Process` ve `ProcessAsync`.
+* Web sunucusu denetimleri kullanın [System.ComponentModel](/dotnet/api/system.componentmodel) bileşenleri ve denetimleri çalıştırma ve tasarım zamanı davranışını uygulamak için. `System.ComponentModel` temel sınıflar ve öznitelikler ve tür dönüştürücüleri uygulama, veri kaynakları bağlama ve bileşenleri lisans arabirimleri içerir. Genellikle türetin etiket Yardımcıları için Karşıtlık `TagHelper`ve `TagHelper` temel sınıfı yalnızca iki yöntem sunar `Process` ve `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Etiketi yardımcı öğe yazı tipi özelleştirme
 

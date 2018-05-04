@@ -11,15 +11,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 9fca43e809720c22d87b963925bc009dc6c51831
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 46050f4bbd6ae821c03d92c8750e839d491328cd
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 Bu öğreticide, "Yapılacaklar" öğeleri listesini yönetmek için bir web API'si oluşturma. Kullanıcı arabirimini oluşturulan değil.
 
@@ -132,12 +136,12 @@ Ekleyeceğiz `Create`, `Update`, ve `Delete` denetleyiciye yöntemleri. Bu yönt
 ::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Yukarıdaki yöntem tarafından belirtildiği gibi bir HTTP POST yanıt [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
+Yukarıdaki yöntem tarafından belirtildiği gibi bir HTTP POST yanıt [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Yukarıdaki yöntem tarafından belirtildiği gibi bir HTTP POST yanıt [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC HTTP isteği gövdesinden Yapılacaklar öğesi değerini alır.
+Yukarıdaki yöntem tarafından belirtildiği gibi bir HTTP POST yanıt [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC HTTP isteği gövdesinden Yapılacaklar öğesi değerini alır.
 ::: moniker-end
 
 `CreatedAtRoute` Yöntemi 201 bir yanıt döndürür. Yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıt değil. `CreatedAtRoute` Ayrıca bir konum üstbilgisi yanıta ekler. Konum üstbilgisi yeni oluşturulan Yapılacaklar öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).

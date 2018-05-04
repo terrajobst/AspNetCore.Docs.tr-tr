@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 70a4b2e53be335b8854b0aef3cfbf8f4e21e6ebe
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1798c310f36073e90a4e3521cfd1447bc94af666
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core Facebook dış oturum açma Kurulumu
 
@@ -106,7 +106,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 ```
 
 * * *
-Bkz: [FacebookOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.facebookoptions) Facebook kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Yapılandırma seçenekleri için kullanılabilir:
+Bkz: [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) Facebook kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Yapılandırma seçenekleri için kullanılabilir:
 
 * Farklı kullanıcı bilgilerini ister.
 * Oturum açma deneyimini özelleştirmesini sorgu dizesi bağımsız değişkenleri ekleyin.

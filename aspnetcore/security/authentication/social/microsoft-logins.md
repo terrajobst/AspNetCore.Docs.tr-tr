@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 484cee3565fc5b72c19559f3fb907070d8178f9d
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core Microsoft Account dış oturum açma ayarı
 
@@ -105,7 +105,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 * * *
 Bu belirteçler Microsoft Geliştirici Portalı'ndaki kullanılan terminolojiyi adları olsa da `ApplicationId` ve `Password`, olarak sunulan `ClientId` ve `ClientSecret` yapılandırma API'si için.
 
-Bkz: [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft Account kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
+Bkz: [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) Microsoft Account kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
 
 ## <a name="sign-in-with-microsoft-account"></a>Microsoft hesapla oturum açın
 

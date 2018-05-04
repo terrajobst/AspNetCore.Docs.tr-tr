@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 45d64feea9b3466d32088b5949b33d3fec3b3a41
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: dbe42a6943dbf615c4227356271053329f01e34b
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'sinde özel biçimlendiricileri
 
@@ -35,7 +35,7 @@ ASP.NET Core MVC web API'leri JSON, XML veya düz metin biçimlerini kullanarak 
 
 * İstemciye gönderilecek verilerini seri hale getirmek istiyorsanız, bir çıktı biçimlendirici sınıfı oluşturun.
 * İstemciden alınan verileri seri durumdan istiyorsanız, bir giriş biçimlendirici sınıfı oluşturun.
-* Örnek, biçimlendiricilerin eklemek `InputFormatters` ve `OutputFormatters` koleksiyonlarda [MvcOptions](/aspnet/core/api/microsoft.aspnetcore.mvc.mvcoptions).
+* Örnek, biçimlendiricilerin eklemek `InputFormatters` ve `OutputFormatters` koleksiyonlarda [MvcOptions](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions).
 
 Aşağıdaki bölümler bu adımların her biri için yönergeler ve kod örnekleri sağlar.
 
@@ -50,11 +50,11 @@ Bir biçimlendirici oluşturmak için:
   
 ### <a name="derive-from-the-appropriate-base-class"></a>Uygun temel sınıfından türetilir
 
-Metin medya türleri için (örneğin, vCard) türetilen [TextInputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) veya [TextOutputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) temel sınıfı.
+Metin medya türleri için (örneğin, vCard) türetilen [TextInputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.textinputformatter) veya [TextOutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.textoutputformatter) temel sınıfı.
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-İkili türleri için türetilen [InputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.inputformatter) veya [OutputFormatter](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformatter) temel sınıfı.
+İkili türleri için türetilen [InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) veya [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) temel sınıfı.
 
 ### <a name="specify-valid-media-types-and-encodings"></a>Geçerli bir medya türlerini ve Kodlamalar belirtin
 
@@ -79,7 +79,7 @@ Bazı senaryolarda geçersiz kılmak zorunda `CanWriteResult` yerine `CanWriteTy
 * Çalışma zamanında döndürülen türetilmiş sınıfları vardır.
 * Sınıfı eylem tarafından döndürülen türetilmiş çalışma zamanında bilmeniz gerekir.
 
-Örneğin, eylem yöntemi imzası döndürür varsayalım bir `Person` türü, ancak döndürebilir bir `Student` veya `Instructor` türetilen tür `Person`. Yalnızca işlemek için biçimlendirici istiyorsanız `Student` nesneleri denetleyin türünü [nesne](/aspnet/core/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) için sağlanan context nesnesi içinde `CanWriteResult` yöntemi. Kullanmak için gerekli olmadığını göz önünde bulundurun `CanWriteResult` eylem yönteminin döndüğünde `IActionResult`; bu durumda, `CanWriteType` yöntemi çalışma zamanı türü alır.
+Örneğin, eylem yöntemi imzası döndürür varsayalım bir `Person` türü, ancak döndürebilir bir `Student` veya `Instructor` türetilen tür `Person`. Yalnızca işlemek için biçimlendirici istiyorsanız `Student` nesneleri denetleyin türünü [nesne](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) için sağlanan context nesnesi içinde `CanWriteResult` yöntemi. Kullanmak için gerekli olmadığını göz önünde bulundurun `CanWriteResult` eylem yönteminin döndüğünde `IActionResult`; bu durumda, `CanWriteType` yöntemi çalışma zamanı türü alır.
 
 <a id="read-write"></a>
 ### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>ReadRequestBodyAsync/WriteResponseBodyAsync geçersiz kıl

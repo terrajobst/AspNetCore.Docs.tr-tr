@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core dosya yüklemeleri"
+title: ASP.NET Core dosya yüklemeleri
 author: ardalis
-description: "Model bağlama ve akış ASP.NET Core MVC dosyaları karşıya yüklemek için nasıl kullanılacağı."
+description: Model bağlama ve akış ASP.NET Core MVC dosyaları karşıya yüklemek için nasıl kullanılacağı.
 manager: wpickett
 ms.author: riande
 ms.date: 07/05/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: bfcbddb208fedaa4de46df782336176d97ea5bdc
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7ba4f6d9e3901c310fe9fa7a70382d9243d8b347
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core dosya yüklemeleri
 
@@ -47,7 +47,7 @@ Dosya yüklemeleri desteklemek için HTML formları belirtmeniz gerekir. bir `en
 
 ![Dosyayı karşıya yükle formunu](file-uploads/_static/upload-form.png)
 
-Sunucuya yüklenen tek tek dosyaların üzerinden erişilen [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile` aşağıdaki yapıya sahiptir:
+Sunucuya yüklenen tek tek dosyaların üzerinden erişilen [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile` aşağıdaki yapıya sahiptir:
 
 ```csharp
 public interface IFormFile
@@ -195,7 +195,7 @@ Varsayılan ayar `30000000`, yaklaşık 28.6 MB olması. Değer düzenleyerek ö
 </system.webServer>
 ```
 
-Bu ayar, yalnızca IIS için geçerlidir. Davranışı varsayılan olarak Kestrel üzerinde barındırdığında oluşmaz. Daha fazla bilgi için bkz: [istek sınırları \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+Bu ayar, yalnızca IIS için geçerlidir. Davranışı varsayılan olarak Kestrel üzerinde barındırdığında oluşmaz. Daha fazla bilgi için bkz: [istek sınırları \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
 ### <a name="null-reference-exception-with-iformfile"></a>IFormFile ile null başvuru özel durumu
 

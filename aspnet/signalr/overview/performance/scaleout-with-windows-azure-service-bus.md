@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-with-windows-azure-service-bus
-title: "SignalR genişletme Azure Service Bus ile | Microsoft Docs"
+title: SignalR genişletme Azure Service Bus ile | Microsoft Docs
 author: MikeWasson
-description: "Yazılım sürümleri bu konu Visual Studio 2013 .NET 4.5 SignalR sürümünde bu konuda Bu konu için SignalR 1.x sürümü 2 önceki sürümlerinde kullanılan..."
+description: Yazılım sürümleri bu konu Visual Studio 2013 .NET 4.5 SignalR sürümünde bu konuda Bu konu için SignalR 1.x sürümü 2 önceki sürümlerinde kullanılan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 7cb68d578fee8d6ee036f8fb096ba45e0c8ef3d6
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e6d9e4e6ba2040aa2c6e453aacf0ddca38c4a1a9
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>Azure Service Bus ile SignalR genişletme
 ====================
@@ -46,7 +46,7 @@ Biz ayrıntılı öğretici ulaşmadan ne yapacağını Hızlı Bakış aşağı
 2. Bu NuGet paketleri uygulamanıza ekleyin: 
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.ServiceBus](http://www.nuget.org/packages/SignalR.WindowsAzureServiceBus)
+    - [Microsoft.AspNet.SignalR.ServiceBus3](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus3) veya [Microsoft.AspNet.SignalR.ServiceBus](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.ServiceBus)
 3. Bir SignalR uygulaması oluşturun.
 4. Devre kartına yapılandırmak için haline için aşağıdaki kodu ekleyin: 
 

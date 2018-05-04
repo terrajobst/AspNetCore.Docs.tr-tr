@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ab49eb1c45d69ff918b25190d7b94a105ff13972
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aba12a94a573db35eadaa6a38f2fcf074b7b64c2
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core Google dış oturum açma Kurulumu
 
@@ -25,7 +25,7 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
 * Gidin [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) ve oturum açın. Bir Google hesabınız zaten yoksa, kullanın **daha fazla seçenek** > **[hesabı oluşturma](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  bağlantı oluşturmak için:
 
-![Google API Console](index/_static/GoogleConsoleLogin.png)
+![Google API Konsolu](index/_static/GoogleConsoleLogin.png)
 
 * Yönlendirilirsiniz **API Yöneticisi Kitaplığı** sayfa:
 
@@ -122,7 +122,7 @@ app.UseGoogleAuthentication(new GoogleOptions()
 ```
 
 * * *
-Bkz: [GoogleOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
+Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulaması tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı hakkında farklı bilgi istemek için kullanılabilir.
 
 ## <a name="sign-in-with-google"></a>Oturum Google ile oturum aç
 

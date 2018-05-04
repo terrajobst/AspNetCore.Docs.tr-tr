@@ -1,4 +1,4 @@
-Vurgulanan gösterildiği eklenmesini film veritabanı bağlamı kod [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı (içinde *haline* dosyası). `services.AddDbContext<MvcMovieContext>(options =>` Kullanım ve bağlantı dizesi veritabanına belirtir. `=>` olan bir [lambda işleci](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+Vurgulanan gösterildiği eklenmesini film veritabanı bağlamı kod [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı (içinde *haline* dosyası). `services.AddDbContext<MvcMovieContext>(options =>` Kullanım ve bağlantı dizesi veritabanına belirtir. `=>` olan bir [lambda işleci](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Açık *Controllers/MoviesController.cs* dosya ve Oluşturucusu inceleyin:
 
@@ -30,9 +30,9 @@ Oluşturulan inceleyin `Details` yönteminde *Controllers/MoviesController.cs* d
 
 `http://localhost:1234/movies/details?id=1`
 
-`id` Parametre olarak tanımlanmış bir [boş değer atanabilir tür](https://docs.microsoft.com/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) durumda bir kimlik değeri sağlanmadı.
+`id` Parametre olarak tanımlanmış bir [boş değer atanabilir tür](/dotnet/csharp/programming-guide/nullable-types/index) (`int?`) durumda bir kimlik değeri sağlanmadı.
 
-A [lambda ifadesi](https://docs.microsoft.com/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) için geçirilen `SingleOrDefaultAsync` rota verileri veya sorgu dize değerinin eşleşmesi film varlıkları seçin.
+A [lambda ifadesi](/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions) için geçirilen `SingleOrDefaultAsync` rota verileri veya sorgu dize değerinin eşleşmesi film varlıkları seçin.
 
 ```csharp
 var movie = await _context.Movie

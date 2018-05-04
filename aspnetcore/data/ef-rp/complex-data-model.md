@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: bf643cab3b82a9e2138403c6c61d1c15c85abfbd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2cec45afbf08e5dd379a54e780e4218bfc86d13f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 
@@ -44,14 +44,14 @@ Güncelleştirme *Models/Student.cs* aşağıdaki vurgulanmış kodu:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-[DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) veritabanı geçerli bir tür daha fazla belirli bir veri türü özniteliği belirtir. Yalnızca tarih görüntülenmesi gerekir, bu durumda değil tarih ve saat. [DataType numaralandırma](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) tarih, saat, PhoneNumber, para birimi, EmailAddress, vb. gibi birçok veri türleri için sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin:
+[DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) veritabanı geçerli bir tür daha fazla belirli bir veri türü özniteliği belirtir. Yalnızca tarih görüntülenmesi gerekir, bu durumda değil tarih ve saat. [DataType numaralandırma](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) tarih, saat, PhoneNumber, para birimi, EmailAddress, vb. gibi birçok veri türleri için sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin:
 
 * `mailto:` Bağlantı için otomatik olarak oluşturulduğunda `DataType.EmailAddress`.
 * Tarih Seçici için sağlanan `DataType.Date` çoğu tarayıcılarda.
 
 `DataType` Özniteliği yayar HTML 5 `data-` HTML 5 tarayıcılar tüketebilir (okunur veri tire) öznitelikler. `DataType` Öznitelikler yok doğrulama sağlar.
 
-`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre tarih alanı görüntülenir [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre tarih alanı görüntülenir [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -74,13 +74,13 @@ Uygulamayı çalıştırın. Öğrenciler dizin sayfasına gidin. Zamanlar artı
 
 ### <a name="the-stringlength-attribute"></a>StringLength özniteliği
 
-Veri doğrulama kuralları ve doğrulama hata iletilerinin özniteliklerle belirtilebilir. [StringLength](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) özniteliği karakterden oluşan bir veri alanına izin verilen minimum ve maksimum uzunluğunu belirtir. `StringLength` Özniteliği, istemci ve sunucu tarafı doğrulama da sağlar. En düşük değer veritabanı şemasını temel bir etkisi yoktur.
+Veri doğrulama kuralları ve doğrulama hata iletilerinin özniteliklerle belirtilebilir. [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) özniteliği karakterden oluşan bir veri alanına izin verilen minimum ve maksimum uzunluğunu belirtir. `StringLength` Özniteliği, istemci ve sunucu tarafı doğrulama da sağlar. En düşük değer veritabanı şemasını temel bir etkisi yoktur.
 
 Güncelleştirme `Student` aşağıdaki kodla model:
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-Önceki kod adları en fazla 50 karakter sınırlar. `StringLength` Özniteliği değil engelleyen bir kullanıcı için bir ad boşluk girerek. [Yanıtta normal ifade](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) özniteliği girişine kısıtlamaları uygulamak için kullanılır. Örneğin, aşağıdaki kod, büyük harf olması için ilk karakter ve alfabetik olarak geriye kalan karakterler gerektirir:
+Önceki kod adları en fazla 50 karakter sınırlar. `StringLength` Özniteliği değil engelleyen bir kullanıcı için bir ad boşluk girerek. [Yanıtta normal ifade](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) özniteliği girişine kısıtlamaları uygulamak için kullanılır. Örneğin, aşağıdaki kod, büyük harf olması için ilk karakter ve alfabetik olarak geriye kalan karakterler gerektirir:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
@@ -572,7 +572,7 @@ Güncelleştirilmiş kod `DbInitializer` yeni varlıklar için çekirdek veri ek
 
 * Alternatif olarak, DB kullanarak silin:
 
-  * **SQL Server Object Explorer** (SSOX).
+  * **SQL Server Nesne Gezgini** (SSOX).
   * `database drop` CLI komutu:
 
     ```console

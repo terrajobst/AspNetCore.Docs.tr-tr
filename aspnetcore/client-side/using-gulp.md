@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET çekirdek Gulp kullanın
 
@@ -101,11 +101,11 @@ Aşağıdaki tabloda Yukarıdaki kod belirtilen görevler bir açıklamasını s
 
 |Görev adı|Açıklama|
 |--- |--- |
-|clean:js|Site.js dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
-|clean:css|Site.css dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
+|temiz: js|Site.js dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
+|temiz: css|Site.css dosyasının küçültülmüş sürümünü kaldırmak için rimraf düğümü silme modülü kullanan bir görev.|
 |Temizleme|Çağıran bir görev `clean:js` ve ardından görev `clean:css` görev.|
-|min:js|Küçültür ve js klasördeki tüm .js dosyaları art arda ekler bir görev. . Min.js dosyaları dışlanır.|
-|min:css|Küçültür ve css klasördeki tüm .css dosyaları art arda ekler bir görev. . Min.css dosyaları dışlanır.|
+|Min:js|Küçültür ve js klasördeki tüm .js dosyaları art arda ekler bir görev. . Min.js dosyaları dışlanır.|
+|Min:CSS|Küçültür ve css klasördeki tüm .css dosyaları art arda ekler bir görev. . Min.css dosyaları dışlanır.|
 |min|Çağıran bir görev `min:js` ve ardından görev `min:css` görev.|
 
 ## <a name="running-default-tasks"></a>Varsayılan görevleri çalıştırma
@@ -267,7 +267,7 @@ IntelliSense kod tamamlama, parametre açıklamaları ve üretkenliğini ve hata
 
 ![IntelliSense gulp](using-gulp/_static/08-IntelliSense.png)
 
-IntelliSense hakkında daha fazla bilgi için bkz: [JavaScript IntelliSense](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
+IntelliSense hakkında daha fazla bilgi için bkz: [JavaScript IntelliSense](/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Geliştirme, hazırlama ve üretim ortamları
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: d793a7ca3635108ed7941ccc8578572afd79c305
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili veriler - 8'in 7 güncelleştir
 
@@ -36,7 +36,7 @@ Kurslar/oluşturma ve kurslar/düzenleme sayfaları her bölüm adlarının bir 
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/DepartmentNamePageModel.cshtml.cs?highlight=9,11,20-21)]
 
-Önceki kod oluşturur bir [SelectList](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) bölüm adları listesi içerecek şekilde. Varsa `selectedDepartment` belirtilirse, bu bölüm seçildiğinde, `SelectList`.
+Önceki kod oluşturur bir [SelectList](/dotnet/api/microsoft.aspnetcore.mvc.rendering.selectlist?view=aspnetcore-2.0) bölüm adları listesi içerecek şekilde. Varsa `selectedDepartment` belirtilirse, bu bölüm seçildiğinde, `SelectList`.
 
 Oluşturma ve düzenleme sayfası modeli sınıfları öğesinden türetilen `DepartmentNamePageModel`.
 
@@ -103,7 +103,7 @@ Güncelleştirilmiş kod sınayın. Oluşturma, düzenleme ve bir indirmelere si
 
 ## <a name="add-asnotracking-to-the-details-and-delete-page-models"></a>Ayrıntılara AsNoTracking ekleme ve silme sayfa modelleri
 
-[AsNoTracking](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) izleme gerekli olmadığı durumlarda, performansı artırabilir. Ekleme `AsNoTracking` silebilir ve Ayrıntılar sayfası modeli. Aşağıdaki kod güncelleştirilmiş Delete sayfa modeli gösterir:
+[AsNoTracking](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.asnotracking?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_AsNoTracking__1_System_Linq_IQueryable___0__) izleme gerekli olmadığı durumlarda, performansı artırabilir. Ekleme `AsNoTracking` silebilir ve Ayrıntılar sayfası modeli. Aşağıdaki kod güncelleştirilmiş Delete sayfa modeli gösterir:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Delete.cshtml.cs?name=snippet&highlight=21,23,40,41)]
 
@@ -178,7 +178,7 @@ Oluşturma *Pages/Instructors/InstructorCoursesPageModel.cshtml.cs* temel sını
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/InstructorCoursesPageModel.cshtml.cs)]
 
-`InstructorCoursesPageModel` Taban sınıf, düzenleme için kullanabilir ve sayfa modelleri oluşturun. `PopulateAssignedCourseData` Tüm okur `Course` doldurmak için varlıklar `AssignedCourseDataList`. Kod her Elbette, ayarlar `CourseID`, başlık ve karşılamadığını Eğitmen indirmelere atanır. A [Hashset'i](https://docs.microsoft.com/dotnet/api/system.collections.generic.hashset-1) verimli aramalar oluşturmak için kullanılır.
+`InstructorCoursesPageModel` Taban sınıf, düzenleme için kullanabilir ve sayfa modelleri oluşturun. `PopulateAssignedCourseData` Tüm okur `Course` doldurmak için varlıklar `AssignedCourseDataList`. Kod her Elbette, ayarlar `CourseID`, başlık ve karşılamadığını Eğitmen indirmelere atanır. A [Hashset'i](/dotnet/api/system.collections.generic.hashset-1) verimli aramalar oluşturmak için kullanılır.
 
 ### <a name="instructors-edit-page-model"></a>Eğitmen Düzenle sayfası modeli
 

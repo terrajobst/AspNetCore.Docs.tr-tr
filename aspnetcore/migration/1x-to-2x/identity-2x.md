@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 16369a14dbe97778724632317a82e11de5a8faed
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 0653906996f9f37d436ebefc6a738d2603788d53
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulama ve kimlik için ASP.NET Core 2.0 geçirme
 
@@ -238,7 +238,7 @@ Aşağıdaki değişiklikleri yapın *haline*:
     ```
 
 ### <a name="setting-default-authentication-schemes"></a>Varsayılan kimlik doğrulama şemasını ayarlama
-1.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](https://docs.microsoft.com/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı hedeflenen bir tek bir kimlik doğrulaması düzeni için ayarlanacak. Bu zorlamak için iyi hiçbir yolu yoktu.
+1.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı hedeflenen bir tek bir kimlik doğrulaması düzeni için ayarlanacak. Bu zorlamak için iyi hiçbir yolu yoktu.
 
 2. 0 ', bu iki özellik tek tek özellikleri olarak kaldırılan `AuthenticationOptions` örneği. İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *haline*:
 
@@ -296,7 +296,7 @@ Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını sınama için a
 
 <a name="identity-cookie-options"></a>
 
-## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions instances
+## <a name="identitycookieoptions-instances"></a>IdentityCookieOptions örnekleri
 2.0 değişiklikleri yan etkisi seçenekleri tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanmanın anahtarıdır. Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.
 
 Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirmek için bir `IdentityCookieOptions` parametresine *AccountController.cs*. Dış tanımlama bilgisi kimlik doğrulama şeması sağlanan örneğinden erişilir:
@@ -368,7 +368,7 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 <a name="synchronous-method-removal"></a>
 
-## <a name="replace-getexternalauthenticationschemes"></a>Replace GetExternalAuthenticationSchemes
+## <a name="replace-getexternalauthenticationschemes"></a>GetExternalAuthenticationSchemes Değiştir
 Zaman uyumlu yöntemi `GetExternalAuthenticationSchemes` lehinde zaman uyumsuz bir sürümünü kaldırıldı. 1.x projeleri olmayan aşağıdaki kodu *ManageController.cs*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]

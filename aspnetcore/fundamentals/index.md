@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: b74870c93ea0120e43931bb75f47bab19a6de201
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -98,6 +98,10 @@ ASP.NET Core zengin bir yerleşik ara yazılımı içerir:
 [OWIN](http://owin.org)-tabanlı ara yazılım ASP.NET Core uygulamaları için kullanılabilir ve kendi özel ara yazabilirsiniz.
 
 Daha fazla bilgi için bkz: [ara yazılımı](xref:fundamentals/middleware/index) ve [açık Web arabirimi için .NET (OWIN)](xref:fundamentals/owin).
+
+## <a name="initiate-http-requests"></a>Başlatma HTTP istekleri
+
+Kullanma hakkında bilgi için `IHttpClientFactory` erişimi `HttpClient` HTTP isteği yapmak için örnekleri görmek [başlatmak HTTP istekleri](xref:fundamentals/http-requests).
 
 ## <a name="environments"></a>Ortamlar
 

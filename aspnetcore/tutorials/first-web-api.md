@@ -10,15 +10,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: 71f1e10dee9fbae8cf76733d33533be832fb5769
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 962c24a7e654328df7e8893e589e45b19e87b931
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 Bu öğretici, "Yapılacaklar" öğeleri listesini yönetmek için bir web API oluşturur. Bir kullanıcı arabirimi (UI) oluşturulmaz.
 
@@ -38,15 +42,11 @@ Bu öğretici için üç sürümü vardır:
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
-Visual Studio'dan seçin **dosya** menüsünde > **yeni** > **proje**.
+Visual Studio'da aşağıdaki adımları izleyin:
 
-Seçin **.NET Core** > **ASP.NET çekirdek Web uygulaması** proje şablonu. Proje adı *TodoApi* seçip **Tamam**.
-
-![Yeni Proje iletişim kutusu](first-web-api/_static/new-project.png)
-
-İçinde **yeni ASP.NET çekirdek Web uygulaması - TodoApi** iletişim kutusunda, ASP.NET Core sürümünü seçin. Seçin **API** şablonu. Seçin **Tamam**. Yapmak **değil** seçin **Docker desteğini etkinleştir**.
-
-![ASP.NET Core şablonlardan seçili Web API projesi şablonuyla yeni ASP.NET Web uygulaması iletişim kutusu](first-web-api/_static/web-api-project.png)
+* Gelen **dosya** menüsünde, select **yeni** > **proje**.
+* Seçin **ASP.NET çekirdek Web uygulaması** şablonu. Proje adı *TodoApi* tıklatıp **Tamam**.
+* İçinde **yeni ASP.NET çekirdek Web uygulaması - TodoApi** iletişim kutusunda, ASP.NET Core sürümünü seçin. Seçin **API** şablonu ve tıklatın **Tamam**. Yapmak **değil** seçin **Docker desteğini etkinleştir**.
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 

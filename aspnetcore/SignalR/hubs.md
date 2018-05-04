@@ -6,22 +6,24 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/30/2018
+ms.date: 05/01/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 7da0c4832b1aa6a844172bf751a46b280a02f37a
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: e23d7ef6d5e5e93d5fc69ad4c845a6a896836170
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Hub SignalR öğesinde ASP.NET Core için kullanın.
 
 Tarafından [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff)
 
 [!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
+
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(nasıl indirileceğini)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="what-is-a-signalr-hub"></a>Bir SignalR hub'ı nedir
 
@@ -31,17 +33,17 @@ SignalR hub'ları API sunucudan bağlı istemcilerde yöntemlerini çağırmaya 
 
 SignalR Ara çağırarak yapılandırılmış olan bazı hizmetler gerektirir `services.AddSignalR`.
 
-[!code-csharp[Configure service](hubs/sample/startup.cs?range=35)]
+[!code-csharp[Configure service](hubs/sample/startup.cs?range=37)]
 
 SignalR işlevi için bir ASP.NET Core uygulama eklerken, SignalR yollar çağırarak Kurulum `app.UseSignalR` içinde `Startup.Configure` yöntemi.
 
-[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=55-58)]
+[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=56-59)]
 
 ## <a name="create-and-use-hubs"></a>Oluşturma ve hub'ları kullanma
 
 Öğesinden devralınan bir sınıf bildirme tarafından bir hub oluşturmak `Hub`ve genel yöntemler ekleyin. İstemcileri olarak tanımlanan yöntemler çağırabilir `public`.
 
-[!code-csharp[Create and use hubs](hubs/sample/chathub.cs?range=10-13)]
+[!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
 
 Dönüş türü ve tüm C# yönteminde olduğu gibi karmaşık türler ve diziler dahil olmak üzere parametreleri de belirtebilirsiniz. SignalR seri hale getirme ve seri durumdan çıkarma karmaşık nesneler ve diziler parametreler ve dönüş değerlerini işler.
 
@@ -75,20 +77,19 @@ Her bir özellik veya yöntem yukarıdaki tablolarda sahip bir nesne döndürür
 
 Belirli istemcileri çağrı yapmak için özelliklerini kullanmak `Clients` nesnesi. Aşağıdaki örnekte, aşağıdaki `SendMessageToCaller` hub yöntemini çağırmış bağlantı için ileti gönderme yöntemini gösterir. `SendMessageToGroups` Yöntemi depolanan gruplarına bir ileti gönderir bir `List` adlı `groups`.
 
-[!code-csharp[Send messages](hubs/sample/chathub.cs?range=15-24)]
+[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
 
 ## <a name="handle-events-for-a-connection"></a>Bağlantı olayları işlemek
 
 SignalR hub'ları API sağlar `OnConnectedAsync` ve `OnDisconnectedAsync` yönetmek ve bağlantıları izlemek için sanal yöntemler. Geçersiz kılma `OnConnectedAsync` istemci bir gruba ekleme gibi Hub'ına bağlandığında eylemleri gerçekleştirmek için sanal bir yöntem.
 
-[!code-csharp[Handle events](hubs/sample/chathub.cs?range=26-30)]
+[!code-csharp[Handle events](hubs/sample/hubs/chathub.cs?range=26-36)]
 
 ## <a name="handle-errors"></a>Hata işleme
 
 Hub yöntemlerinde oluşturulan özel durumları yöntemini çağırmış istemciye gönderilir. JavaScript istemcide `invoke` yöntemi döndürür bir [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). İstemci bir işleyici ile bir hata olduğunda alır bağlı promise kullanmaya `catch`, çağrılan ve JavaScript geçirilen `Error` nesnesi.
 
-[!code-javascript[Error](hubs/sample/chat.js?range=20)]
-[!code-javascript[Error](hubs/sample/chat.js?range=16-18)]
+[!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=22)]
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 

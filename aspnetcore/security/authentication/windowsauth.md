@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: ff47519db4e9d1c5aea8811fef24c84bb564e80e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 876e1ab67fd283a9a8788bb2c7ef0ec111075794
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -25,7 +25,7 @@ Windows kimlik doğrulaması, IIS ile barındırılan ASP.NET Core uygulamaları
 
 Windows kimlik doğrulaması ASP.NET Core uygulamaları kullanıcıların kimliklerini işletim sistemine bağlıdır. Sunucunuzu kullanıcıları tanımlamak için Active Directory etki alanı kimlikleri veya diğer Windows hesaplarını kullanarak bir şirket ağında çalıştığında, Windows kimlik doğrulaması kullanabilirsiniz. Windows kimlik doğrulaması kullanıcılar, istemci uygulamaları ve web sunucuları aynı Windows etki alanına ait intranet ortamları için uygundur.
 
-[Windows kimlik doğrulaması ve IIS için yükleme hakkında daha fazla bilgi](https://docs.microsoft.com/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
+[Windows kimlik doğrulaması ve IIS için yükleme hakkında daha fazla bilgi](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
 
 ## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamasında Windows kimlik doğrulamasını etkinleştir
 
@@ -33,7 +33,7 @@ Visual Studio Web uygulaması şablonu, Windows kimlik doğrulamayı destekleyec
 
 ### <a name="use-the-windows-authentication-app-template"></a>Windows kimlik doğrulaması uygulama şablonu kullanın
 
-In Visual Studio:
+Visual Studio'da:
 1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
 1. Web uygulaması şablonları listesinden seçin.
 1. Seçin **kimlik doğrulamayı Değiştir** düğmesine tıklayın ve ardından **Windows kimlik doğrulaması**. 

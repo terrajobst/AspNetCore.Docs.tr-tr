@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 166111696a9c4244ede44fca8878dd3725bb3099
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0a04f5762a35426f342b58b8b60288c66c057ae7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 
@@ -21,7 +21,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](http
 
 Bu belge, gizli Yöneticisi aracını geliştirme gizli kodunuzu dışında tutmak için nasıl kullanabileceğinizi gösterir. En önemli kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme ve test modunda üretim gizli kullanmamanız noktasıdır. Bunun yerine kullanabileceğiniz [yapılandırma](xref:fundamentals/configuration/index) ortam değişkenlerinin bu değerleri okumak veya gizli Yöneticisi'ni kullanarak depolanan değerlerden aracı sistem. Gizli Manager aracı kaynak denetimine iade hassas verileri önlemeye yardımcı olur. [Yapılandırma](xref:fundamentals/configuration/index) sistem, bu makalede açıklanan gizli Yöneticisi aracıyla depolanan gizli okuyabilir.
 
-Parola Yöneticisi aracını yalnızca geliştirme kullanılır. Azure test ve üretim parolaları ile koruma [Microsoft Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) yapılandırma sağlayıcısı. Bkz: [Azure anahtar kasası yapılandırma sağlayıcısı](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration) daha fazla bilgi için.
+Parola Yöneticisi aracını yalnızca geliştirme kullanılır. Azure test ve üretim parolaları ile koruma [Microsoft Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) yapılandırma sağlayıcısı. Bkz: [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration) daha fazla bilgi için.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 

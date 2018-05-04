@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core özel Model bağlamanın"
+title: ASP.NET Core özel Model bağlamanın
 author: ardalis
-description: "Model bağlama ASP.NET Core modeli türleri ile doğrudan çalışmak denetleyici eylemleri nasıl olanak tanıdığını öğrenin."
+description: Model bağlama ASP.NET Core modeli türleri ile doğrudan çalışmak denetleyici eylemleri nasıl olanak tanıdığını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 04/10/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 941aa9e3ff4e4a75714e11b79d913418d0514d1e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a687753083d3b11898e9ff35828780a5ad240854
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET Core özel Model bağlamanın
 
@@ -31,7 +31,7 @@ Varsayılan model bağlayıcıları ortak .NET Core veri türleri çoğunu deste
 
 Model bağlama, üzerinde çalıştığı türleri için belirli tanımları kullanır. A *basit tür* girişte tek bir dizeden dönüştürülür. A *karmaşık tür* birden çok giriş değerleri dönüştürülür. Framework varlığını temel fark belirler bir `TypeConverter`. Oluşturduğunuz tür dönüştürücüsünü basit bir varsa önerilen `string`  ->  `SomeType` dış kaynaklar gerektirmeyen eşleme.
 
-Kendi özel model bağlayıcısını oluşturmadan önce bu gözden geçirme nasıl varolan model bağlayıcıları uygulanan olur. Göz önünde bulundurun [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) base64 ile kodlanmış dize bayt diziye dönüştürmek için kullanılabilir. Bayt dizileri genellikle dosyaları ya da veritabanı BLOB alanları depolanır.
+Kendi özel model bağlayıcısını oluşturmadan önce bu gözden geçirme nasıl varolan model bağlayıcıları uygulanan olur. Göz önünde bulundurun [ByteArrayModelBinder](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) base64 ile kodlanmış dize bayt diziye dönüştürmek için kullanılabilir. Bayt dizileri genellikle dosyaları ya da veritabanı BLOB alanları depolanır.
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>ByteArrayModelBinder ile çalışma
 
@@ -45,7 +45,7 @@ Aşağıdaki görüntüde kodlu bir dize küçük bir bölümü gösterilir:
 
 ' Ndaki yönergeleri izleyin [örnek'ın Benioku dosyası](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) base64 ile kodlanmış dize bir dosyasına dönüştürmek için.
 
-ASP.NET Core MVC base64 ile kodlanmış bir dize alabilir ve kullanmak bir `ByteArrayModelBinder` bir bayt dizisine dönüştürme. [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) hangi uygulayan [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) eşlemeleri `byte[]` bağımsız değişkenleri `ByteArrayModelBinder`:
+ASP.NET Core MVC base64 ile kodlanmış bir dize alabilir ve kullanmak bir `ByteArrayModelBinder` bir bayt dizisine dönüştürme. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) hangi uygulayan [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) eşlemeleri `byte[]` bağımsız değişkenleri `ByteArrayModelBinder`:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -64,7 +64,7 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Kendi özel model bağlayıcı oluşturulurken, kendi uygulayabileceğiniz `IModelBinderProvider` yazın veya [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Kendi özel model bağlayıcı oluşturulurken, kendi uygulayabileceğiniz `IModelBinderProvider` yazın veya [ModelBinderAttribute](/dotnet/api/microsoft.aspnetcore.mvc.modelbinderattribute).
 
 Aşağıdaki örnekte nasıl kullanılacağını gösterir `ByteArrayModelBinder` base64 ile kodlanmış bir dizeye dönüştürmek için bir `byte[]` ve sonucu bir dosyaya kaydedin:
 
@@ -135,4 +135,4 @@ Topluluğun sonuna sağlayıcınız ekleme özel bağlayıcı sıkıştırılabi
 Özel model bağlayıcıları:
 - Durum kodları ayarlamak veya sonuçları döndürmek çalışmayın (örneğin, 404 bulunamadı). Model bağlama başarısız olursa, bir [eylem filtresi](xref:mvc/controllers/filters) veya eylem yöntemi mantık hata işleme.
 - Yinelenen kodu ve eylem yöntemleri arası kesme kaygılarını ortadan kaldırmak için çok kullanışlıdır.
-- Genellikle bir özel tür bir dize dönüştürmek için kullanılmaması bir [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) genellikle daha iyi bir seçenektir.
+- Genellikle bir özel tür bir dize dönüştürmek için kullanılmaması bir [ `TypeConverter` ](/dotnet/api/system.componentmodel.typeconverter) genellikle daha iyi bir seçenektir.

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 33a88b8c1ba0704e5361399c672025e1c1ff49ff
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 9155bd54bc211c8be0678065e857f73d8a139365
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarında etiket Yardımcıları
 
@@ -59,7 +59,7 @@ MVC çalışma zamanı oluşturur `action` öznitelik değeri Form etiketi yard�
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Görünümlerde birçoğu *görünümler/hesap* klasörü (ile yeni bir web uygulaması oluşturduğunuzda oluşturulan *tek tek kullanıcı hesaplarını*) içeren [asp rota returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) özniteliği:
+Görünümlerde birçoğu *görünümler/hesap* klasörü (ile yeni bir web uygulaması oluşturduğunuzda oluşturulan *tek tek kullanıcı hesaplarını*) içeren [asp rota returnurl](xref:mvc/views/working-with-forms) özniteliği:
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -84,11 +84,11 @@ Giriş etiketi Yardımcısı:
 
 * Oluşturur `id` ve `name` belirtilen ifade adı için HTML özniteliklerini `asp-for` özniteliği. `asp-for="Property1.Property2"` eşdeğer olan `m => m.Property1.Property2`. İfade için kullanılan adıdır `asp-for` öznitelik değeri. Bkz: [ifade adlarının](#expression-names) ek bilgi için bölüm.
 
-* HTML ayarlar `type` öznitelik değeri model türüne göre ve [veri ek açıklamasını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) model özelliğine uygulanan öznitelikleri
+* HTML ayarlar `type` öznitelik değeri model türüne göre ve [veri ek açıklamasını](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) model özelliğine uygulanan öznitelikleri
 
 * HTML üzerine yazılmayacak `type` biri belirtildiğinde, öznitelik değeri
 
-* Oluşturur [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) doğrulama öznitelikleri [veri ek açıklamasını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) modeli özelliklerine uygulanan öznitelikleri
+* Oluşturur [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) doğrulama öznitelikleri [veri ek açıklamasını](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) modeli özelliklerine uygulanan öznitelikleri
 
 * Bir HTML Yardımcısı özelliği ile üst üste olan `Html.TextBoxFor` ve `Html.EditorFor`. Bkz: **giriş etiketi yardımcı HTML Yardımcısı alternatifleri** ayrıntıları bölümü.
 
@@ -109,25 +109,25 @@ Type expected
 
 |.NET türü|Giriş türü|
 |---|---|
-|bool|type=”checkbox”|
-|Dize|type=”text”|
+|bool|türü "onay kutusu" =|
+|Dize|tür = "text"|
 |DateTime|type=”datetime”|
-|Bayt|type=”number”|
-|int|type=”number”|
-|Tek, çift|type=”number”|
+|Bayt|tür = "number"|
+|int|tür = "number"|
+|Tek, çift|tür = "number"|
 
 
-Aşağıdaki tabloda, bazı ortak gösterilmektedir [veri ek açıklamaları](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) giriş etiketi Yardımcısı (her doğrulama özniteliği listelenir) belirli giriş türleri için eşler öznitelikleri:
+Aşağıdaki tabloda, bazı ortak gösterilmektedir [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) giriş etiketi Yardımcısı (her doğrulama özniteliği listelenir) belirli giriş türleri için eşler öznitelikleri:
 
 
 |Öznitelik|Giriş türü|
 |---|---|
 |[EmailAddress]|türü "e-posta" =|
 |[Url]|tür = "url"|
-|[HiddenInput]|type=”hidden”|
-|[Phone]|type=”tel”|
+|[HiddenInput]|türü "gizli" =|
+|[Phone]|türü "tel" =|
 |[DataType(DataType.Password)]| tür = "parola"|
-|[DataType(DataType.Date)]| type=”date”|
+|[DataType(DataType.Date)]| tür = "tarih"|
 |[DataType(DataType.Time)]| türü "zaman" =|
 
 
@@ -582,5 +582,5 @@ Doğru `<option>` öğesi seçilir (içeren `selected="selected"` özniteliği) 
 * [İstek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 * [Model Bağlamaları](xref:mvc/models/model-binding)
 * [Model doğrulama](xref:mvc/models/validation)
-* [IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [IAttributeAdapter arabirimi](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [Bu belge için kod parçacıkları](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

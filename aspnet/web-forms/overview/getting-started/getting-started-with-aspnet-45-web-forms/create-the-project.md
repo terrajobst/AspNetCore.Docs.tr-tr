@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="create-the-project"></a>Proje oluşturma
 ====================
@@ -52,7 +52,10 @@ Bu öğreticide oluşturmak, gözden geçirin ve Visual Studio'da ASP.NET özell
 
     > [!NOTE]
     > Bu öğretici serisinde proje adı **WingtipToys**. Bu kullanmanız önerilir *tam* böylece kodu öğretici serisi beklendiği gibi işlevler sağlanan proje adı.
-6. Ardından, **Web Forms** şablonu ve **proje oluştur** düğmesi.  
+
+6. Tıklatın **kimlik doğrulamayı Değiştir** düğmesi. Seçin **tek tek kullanıcı hesaplarını** tıklatıp **Tamam** düğmesi.
+
+7. Seçin **Web Forms** şablonu ve tıklatın **Tamam** düğmesi.
 
     ![Proje - yeni proje şablonu oluşturma](create-the-project/_static/image3.png)
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: b153a7406ae1b31a2aa453135c6bd0e5ce0b2997
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırın
 
@@ -33,15 +33,15 @@ Kurala göre proxy'leri HTTP üst bilgilerinde bilgileri iletin.
 
 | Üstbilgi | Açıklama |
 | ------ | ----------- |
-| X-Forwarded-For | İstek ve proxy'ler zinciri sonraki proxy'leri başlatılan istemci ile ilgili bilgileri tutar. Bu parametre, IP adresleri (ve isteğe bağlı olarak, bağlantı noktası numaralarını) içerebilir. Bir proxy sunucu zincirinde ilk parametre istek ilk yapıldığı istemci gösterir. Sonraki proxy tanımlayıcıları izleyin. Zincirdeki son proxy parametreleri listesinde değil. Son proxy'nin IP adresi ve isteğe bağlı olarak bir bağlantı noktası numarası aktarım katmanında uzak IP adresi olarak kullanılabilir. |
-| X-Forwarded-Proto | Kaynak şema (HTTP/HTTPS) değeri. İstek birden çok proxy'leri geçiş değilse değer düzenleri listesini de olabilir. |
-| X-Forwarded-Host | Ana bilgisayar üstbilgisi alanı özgün değeri. Genellikle, proxy'leri ana bilgisayar üstbilgisi değiştirmeyin. Bkz: [Microsoft güvenlik önerisi CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) burada değil proxy doğrulama sistemleri etkiler ayrıcalık yükseltme güvenlik açığı veya bilinen iyi değerlere restict konak üstbilgileri hakkında bilgi için. |
+| X-iletilen-için | İstek ve proxy'ler zinciri sonraki proxy'leri başlatılan istemci ile ilgili bilgileri tutar. Bu parametre, IP adresleri (ve isteğe bağlı olarak, bağlantı noktası numaralarını) içerebilir. Bir proxy sunucu zincirinde ilk parametre istek ilk yapıldığı istemci gösterir. Sonraki proxy tanımlayıcıları izleyin. Zincirdeki son proxy parametreleri listesinde değil. Son proxy'nin IP adresi ve isteğe bağlı olarak bir bağlantı noktası numarası aktarım katmanında uzak IP adresi olarak kullanılabilir. |
+| X iletilen Proto | Kaynak şema (HTTP/HTTPS) değeri. İstek birden çok proxy'leri geçiş değilse değer düzenleri listesini de olabilir. |
+| X iletilen konak | Ana bilgisayar üstbilgisi alanı özgün değeri. Genellikle, proxy'leri ana bilgisayar üstbilgisi değiştirmeyin. Bkz: [Microsoft güvenlik önerisi CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) burada değil proxy doğrulama sistemleri etkiler ayrıcalık yükseltme güvenlik açığı veya bilinen iyi değerlere restict konak üstbilgileri hakkında bilgi için. |
 
 İletilen üstbilgileri Ara gelen [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketini, bu üstbilgileri okur ve ilişkili alanlarında doldurur [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext). 
 
 Ara yazılım güncelleştirmeleri:
 
-* [HttpContext.Connection.RemoteIpAddress](/dotnet/api/microsoft.aspnetcore.http.connectioninfo.remoteipaddress) &ndash; Set using the `X-Forwarded-For` header value. Ek ayarları etkileyen nasıl ara yazılım ayarlar `RemoteIpAddress`. Ayrıntılar için bkz [iletilen üstbilgileri ara yazılım seçenekleri](#forwarded-headers-middleware-options).
+* [HttpContext.Connection.RemoteIpAddress](/dotnet/api/microsoft.aspnetcore.http.connectioninfo.remoteipaddress) &ndash; kullanılarak ayarlanan `X-Forwarded-For` üstbilgi değeri. Ek ayarları etkileyen nasıl ara yazılım ayarlar `RemoteIpAddress`. Ayrıntılar için bkz [iletilen üstbilgileri ara yazılım seçenekleri](#forwarded-headers-middleware-options).
 * [HttpContext.Request.Scheme](/dotnet/api/microsoft.aspnetcore.http.httprequest.scheme) &ndash; kullanılarak ayarlanan `X-Forwarded-Proto` üstbilgi değeri.
 * [HttpContext.Request.Host](/dotnet/api/microsoft.aspnetcore.http.httprequest.host) &ndash; kullanılarak ayarlanan `X-Forwarded-Host` üstbilgi değeri.
 
@@ -110,6 +110,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+::: moniker range="<= aspnetcore-2.0"
 | Seçenek | Açıklama |
 | ------ | ----------- |
 | [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername).<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
@@ -123,6 +124,23 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername).<br><br>Varsayılan, `X-Original-Host` değeridir. |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername).<br><br>Varsayılan, `X-Original-Proto` değeridir. |
 | [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | Üstbilgi değerleri arasında eşit sayıda gerekir [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) işleniyor.<br><br>Varsayılan olarak ASP.NET 1.x olan çekirdek `true`. Varsayılan ASP.NET Core 2.0 veya sonraki sürümlerde `false`. |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Seçenek | Açıklama |
+| ------ | ----------- |
+| AllowedHosts | Ana bilgisayarı tarafından kısıtlayan `X-Forwarded-Host` sağlanan değerlere üstbilgi.<ul><li>Değerleri, sıra yoksay çalışması kullanılarak karşılaştırılır.</li><li>Bağlantı noktası numaralarını dışında tutulması gerekir.</li><li>Liste boşsa, tüm konaklar izin verilir.</li><li>Üst düzey bir joker karakter `*` tüm boş ana sağlar.</li><li>Joker karakterler alt etki alanı izin verilen ancak kök etki alanı eşleşmiyor. Örneğin, `*.contoso.com` alt etki alanı eşleşen `foo.contoso.com` ancak kök etki alanı değil `contoso.com`.</li><li>Unicode ana bilgisayar adlarını izin verilir ancak dönüştürülür [Punycode](https://tools.ietf.org/html/rfc3492) eşleme.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) köşeli sınırlayıcı içerir ve olması gereken [geleneksel form](https://tools.ietf.org/html/rfc4291#section-2.2) (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). Özel-ortası farklı biçimleri arasında mantıksal eşitlik denetlemek için IPv6 adresleri değil ve hiçbir Standartlaştırma gerçekleştirilir.</li><li>İzin verilen ana kısıtlamak için hata, bir saldırganın hizmeti tarafından oluşturulan bağlantılar sızmasını izin verebilir.</li></ul>Boş bir varsayılan değer: [IList\<dize >](/dotnet/api/system.collections.generic.ilist-1). |
+| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername).<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
+| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Hangi ileticiler işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) için geçerli bir alanlar listesi. Bu özelliğe atanmış tipik değerler <code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>.<br><br>Varsayılan değer [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
+| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername).<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
+| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername).<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
+| [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | İşlenen üstbilgileri girişlerinde sayısını sınırlar. Kümesine `null` sınırı, ancak bu devre dışı bırakmak için yalnızca varsa yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |
+| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Adres aralıklarını iletilen üstbilgileri kabul etmek için bilinen proxy. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimini kullanarak IP aralıklarını belirtin.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IP ağı](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> için tek bir girdi içeren `IPAddress.Loopback`. |
+| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | İletilen üstbilgileri kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPADDRESS](/dotnet/api/system.net.ipaddress)> için tek bir girdi içeren `IPAddress.IPv6Loopback`. |
+| [OriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalforheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XOriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalforheadername).<br><br>Varsayılan, `X-Original-For` değeridir. |
+| [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername).<br><br>Varsayılan, `X-Original-Host` değeridir. |
+| [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | Bu özellik tarafından belirtilenden yerine tarafından belirtilen üstbilgi kullanmak [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername).<br><br>Varsayılan, `X-Original-Proto` değeridir. |
+| [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | Üstbilgi değerleri arasında eşit sayıda gerekir [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) işleniyor.<br><br>Varsayılan olarak ASP.NET 1.x olan çekirdek `true`. Varsayılan ASP.NET Core 2.0 veya sonraki sürümlerde `false`. |
+::: moniker-end
 
 ## <a name="scenarios-and-use-cases"></a>Senaryolar ve kullanım örnekleri
 

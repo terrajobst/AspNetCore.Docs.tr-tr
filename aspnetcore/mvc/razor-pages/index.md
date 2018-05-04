@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 5e2b53a4771a97b0a4091f593720b9c0e4e345bf
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -207,6 +207,38 @@ Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kurala gö
 * Müşteri irtibat bulunursa, müşteri kişiler listesinden kaldırıldı. Veritabanı güncelleştirilir.
 * Çağrıları `RedirectToPage` kök dizin sayfasına yeniden yönlendirmek için (`/Index`).
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="manage-head-requests-with-the-onget-handler"></a>HEAD isteklerini OnGet işleyici ile yönetme
+
+Normalde, HEAD işleyici oluşturulur ve HEAD isteklerini çağrılır:
+
+```csharp
+public void OnHead()
+{
+    HttpContext.Response.Headers.Add("HandledBy", "Handled by OnHead!");
+}
+```
+
+Hiçbir HEAD işleyici varsa (`OnHead`) olan tanımlı, Razor sayfalarının geri alma sayfası işleyicisi çağırma için döner (`OnGet`) ASP.NET Core 2.1 veya üzeri. Bu davranışı ile için kabul [SetCompatibilityVersion yöntemi](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) içinde `Startup.Configure` ASP.NET Core 2.1 2.x için:
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+```
+
+`SetCompatibilityVersion` Razor sayfalarının seçeneği etkin ayarlar `AllowMappingHeadRequestsToGetHandler` için `true`. Katılımı kadar ASP.NET Core 3.0 Preview 1 sürümü veya sonraki bir davranıştır. Her ana sürümü ASP.NET Core, tüm önceki sürümü düzeltme eki yayın davranışlarını devralır.
+
+Düzeltme eki sürümlerinde 2.1 2.x için genel katılımı davranışı HEAD istekleri GET işleyicisine eşleyen bir uygulama yapılandırma ile önlenebilir. Ayarlama `AllowMappingHeadRequestsToGetHandler` Razor sayfalarının seçeneği için `true` çağırmadan `SetCompatibilityVersion` içinde `Startup.Configure`:
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        options.AllowMappingHeadRequestsToGetHandler = true;
+    });
+```
+::: moniker-end
+
 <a name="xsrf"></a>
 
 ## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF ve Razor sayfaları
@@ -321,7 +353,7 @@ Göreli adı bağlama karmaşık bir yapıyı siteleriyle oluştururken yararlı
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core sunan [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData` birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için yararlıdır.
+ASP.NET Core sunan [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData` birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için yararlıdır.
 
 `[TempData]` Özniteliği ASP.NET Core 2. 0 ' yenidir ve denetleyicileri ve sayfaları desteklenir.
 
@@ -364,6 +396,8 @@ Sayfa modeli:
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?range=12-13)]
 
 Yukarıdaki kullanan kod, gönderildiği URL yolunu `OnPostJoinListAsync` olan `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Gönderildiği URL yolunu `OnPostJoinListUCAsync` olan `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
+
+
 
 ## <a name="customizing-routing"></a>Yönlendirme özelleştirme
 

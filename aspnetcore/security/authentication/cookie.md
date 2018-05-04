@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 26101d46557c64047f3d121083fe34ad34ff99ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b251aa3ff0b4d0c08f9885cd73a111b7c2008766
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 
@@ -40,7 +40,7 @@ Kullanmıyorsanız [Microsoft.AspNetCore.All metapackage](xref:fundamentals/meta
 
 [!code-csharp[](cookie/sample/Startup.cs?name=snippet2)]
 
-**AddCookie Options**
+**AddCookie seçenekleri**
 
 [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions?view=aspnetcore-2.0) sınıfı, kimlik doğrulama sağlayıcısı seçeneklerini yapılandırmak için kullanılır.
 
@@ -95,7 +95,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions()
 });
 ```
 
-**CookieAuthenticationOptions Options**
+**CookieAuthenticationOptions seçenekleri**
 
 [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions?view=aspnetcore-1.1) sınıfı, kimlik doğrulama sağlayıcısı seçeneklerini yapılandırmak için kullanılır.
 
@@ -162,7 +162,7 @@ Tanımlama bilgisi ilke Ara ayarını `MinimumSameSitePolicy` , ayarı etkileyeb
 
 ## <a name="creating-an-authentication-cookie"></a>Bir kimlik doğrulama tanımlama bilgisi oluşturma
 
-Kullanıcı bilgileri bulunduran bir tanımlama bilgisi oluşturmak için oluşturmalıdır bir [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Kullanıcı bilgilerini serileştirilmiş ve tanımlama bilgisinde depolanır. 
+Kullanıcı bilgileri bulunduran bir tanımlama bilgisi oluşturmak için oluşturmalıdır bir [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). Kullanıcı bilgilerini serileştirilmiş ve tanımlama bilgisinde depolanır. 
 
 #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Oluşturma bir [Claimsıdentity](/dotnet/api/system.security.claims.claimsidentity) gerekli ile [talep](/dotnet/api/system.security.claims.claim)s ve çağrı [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) kullanıcıyla oturum açmak için:

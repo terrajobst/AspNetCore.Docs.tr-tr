@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1a5d1bdcb20da8270a0605c3937af2a8700a4e7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
-en-us/
+en-us /
 
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor sayfalarının ASP.NET Core - eşzamanlılık - 8 8'in EF çekirdek ile
 
@@ -75,20 +75,20 @@ John tıklar **kaydetmek** bir düzenleme sayfasında $350,000.00 bütçe görü
 
 Olarak bir özellik yapılandırıldığında bir [eşzamanlılık belirteci](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF çekirdek getirildi sonra'nın özellik değiştirilmemiş doğrular. Onay oluşur zaman [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) olarak adlandırılır.
-* Bunu getirildikten sonra özelliği değiştirildiğinde, bir [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) atılır. 
+* EF çekirdek getirildi sonra'nın özellik değiştirilmemiş doğrular. Onay oluşur zaman [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) olarak adlandırılır.
+* Bunu getirildikten sonra özelliği değiştirildiğinde, bir [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) atılır. 
 
 Veritabanını ve veri modeli atma desteklemek için yapılandırılması gerekir `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Bir özelliğe eşzamanlılık çakışmalarını algılama
 
-Eşzamanlılık çakışması algılanan özelliği düzeyindeki [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliği. Öznitelik, model üzerinde birden çok özellikleri uygulanabilir. Daha fazla bilgi için bkz: [veri ek açıklamaları-ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
+Eşzamanlılık çakışması algılanan özelliği düzeyindeki [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) özniteliği. Öznitelik, model üzerinde birden çok özellikleri uygulanabilir. Daha fazla bilgi için bkz: [veri ek açıklamaları-ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations).
 
 `[ConcurrencyCheck]` Özniteliği, bu öğreticide kullanılan değil.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Bir satırda eşzamanlılık çakışmalarını algılama
 
-Eşzamanlılık çakışması algılamak için bir [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) sütun izleme modele eklenir.  `rowversion` :
+Eşzamanlılık çakışması algılamak için bir [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) sütun izleme modele eklenir.  `rowversion` :
 
 * SQL Server özeldir. Diğer veritabanlarını benzer bir özellik sağlamayabilir.
 * DB'den getirildikten sonra'nın bir varlık değiştirilmedi belirlemek için kullanılır. 
@@ -107,7 +107,7 @@ EF tarafından hiçbir satır güncelleştirildiğinde çekirdek içinde bir `Up
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-[Zaman damgası](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) özniteliği belirtir. Bu sütunda yer `Where` yan tümcesi `Update` ve `Delete` komutları. Öznitelik adı verilen `Timestamp` bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü `timestamp` önce SQL veri türü `rowversion` türü değiştirildi.
+[Zaman damgası](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) özniteliği belirtir. Bu sütunda yer `Where` yan tümcesi `Update` ve `Delete` komutları. Öznitelik adı verilen `Timestamp` bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü `timestamp` önce SQL veri türü `rowversion` türü değiştirildi.
 
 Fluent API izleme özelliği de belirtebilirsiniz:
 
@@ -127,7 +127,7 @@ Aşağıdaki vurgulanmış kodu tam olarak bir satır güncelleştirildi doğrul
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satırların sayısını döndürür. Hayır, satırları güncelleştirilir, EF çekirdek oluşturur bir `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](/sql/t-sql/functions/rowcount-transact-sql) son deyiminden etkilenen satırların sayısını döndürür. Hayır, satırları güncelleştirilir, EF çekirdek oluşturur bir `DbUpdateConcurrencyException`.
 
 Visual Studio çıktı penceresinde T-SQL EF çekirdeği oluşturur görebilirsiniz.
 
@@ -193,7 +193,7 @@ Güncelleştirme *pages\departments\edit.cshtml.cs* aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Bir eşzamanlılık sorunu algılamak için [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) ile güncelleştirilmiş `rowVersion` alınan varlık değeri. EF çekirdek özgün içeren bir WHERE yan tümcesi ile SQL güncelleştirme komut oluşturur `RowVersion` değeri. Hiçbir satır güncelleştirme komutu tarafından etkilenen varsa (özgün hiçbir satır sahip `RowVersion` değeri), bir `DbUpdateConcurrencyException` özel durumu oluşur.
+Bir eşzamanlılık sorunu algılamak için [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) ile güncelleştirilmiş `rowVersion` alınan varlık değeri. EF çekirdek özgün içeren bir WHERE yan tümcesi ile SQL güncelleştirme komut oluşturur `RowVersion` değeri. Hiçbir satır güncelleştirme komutu tarafından etkilenen varsa (özgün hiçbir satır sahip `RowVersion` değeri), bir `DbUpdateConcurrencyException` özel durumu oluşur.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
@@ -305,8 +305,8 @@ Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
-* [EF çekirdek eşzamanlılık belirteçleri](https://docs.microsoft.com/ef/core/modeling/concurrency)
-* [EF çekirdek eşzamanlılık işleme](https://docs.microsoft.com/ef/core/saving/concurrency)
+* [EF çekirdek eşzamanlılık belirteçleri](/ef/core/modeling/concurrency)
+* [EF çekirdek eşzamanlılık işleme](/ef/core/saving/concurrency)
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/update-related-data)

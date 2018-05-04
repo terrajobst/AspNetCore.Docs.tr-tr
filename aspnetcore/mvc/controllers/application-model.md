@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 9fbf81b382b76c108769204b4003f6e9f1b47d2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modelinde ile çalışma
 
@@ -39,18 +39,18 @@ Ortak bir modelin her düzeyi erişimi `Properties` koleksiyonu ve alt düzey er
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
-ASP.NET Core MVC tarafından tanımlanan bir sağlayıcı desenini kullanarak uygulama modelini yükler [IApplicationModelProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) arabirimi. Bu bölümde bazı nasıl iç uygulama ayrıntılarını kapsayan bu sağlayıcı işlevleri. Bu ileri düzeyde bir konudur - uygulama modeli yararlanan çoğu uygulamaları kuralları ile çalışarak bunu yapmanız gerekir.
+ASP.NET Core MVC tarafından tanımlanan bir sağlayıcı desenini kullanarak uygulama modelini yükler [IApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) arabirimi. Bu bölümde bazı nasıl iç uygulama ayrıntılarını kapsayan bu sağlayıcı işlevleri. Bu ileri düzeyde bir konudur - uygulama modeli yararlanan çoğu uygulamaları kuralları ile çalışarak bunu yapmanız gerekir.
 
 Uygulamaları `IApplicationModelProvider` arabirimi "kaydırma" birbirine, her uygulama arama ile `OnProvidersExecuting` göre artan kendi `Order` özelliği. `OnProvidersExecuted` Yöntemi sonra çağrılır ters sırada. Framework birkaç sağlayıcı tanımlar:
 
 İlk (`Order=-1000`):
 
-* [`DefaultApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
+* [`DefaultApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
 
 Sonra (`Order=-990`):
 
-* [`AuthorizationApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
-* [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
+* [`AuthorizationApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
+* [`CorsApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
 > Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` denir tanımlanmamış ve sonra bu nedenle dayanıyordu gerekir.
@@ -66,7 +66,7 @@ Sonra (`Order=-990`):
 * Eylem yöntemi parametrelerine bağlamına ekleme
 * Yol ve diğer öznitelikleri uygulama
 
-Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) örnekleri. `DefaultApplicationModelProvider` Ve gelecekte değiştirecek bir iç framework uygulaması ayrıntı bir sınıftır. 
+Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) örnekleri. `DefaultApplicationModelProvider` Ve gelecekte değiştirecek bir iç framework uygulaması ayrıntı bir sınıftır. 
 
 `AuthorizationApplicationModelProvider` İlişkili davranışı uygulamak için sorumlu `AuthorizeFilter` ve `AllowAnonymousFilter` öznitelikleri. [Bu öznitelikler hakkında daha fazla bilgi](xref:security/authorization/simple).
 
@@ -78,10 +78,10 @@ Uygulama modeli tüm model veya sağlayıcısı geçersiz kılma daha modelleri 
 
 Aşağıdaki kuralları kullanılabilir:
 
-* [`IApplicationModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
-* [`IControllerModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
-* [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
-* [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
+* [`IApplicationModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
+* [`IControllerModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
+* [`IActionModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
+* [`IParameterModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
 MVC seçenekler ekleyerek veya uygulama kuralları uygulanır `Attribute`s ve bunları denetleyicileri, Eylemler veya eylem parametrelerini uygulayarak (benzer şekilde [ `Filters` ](xref:mvc/controllers/filters)). Uygulama başlıyor, her isteğin bir parçası değil, filtreleri farklı olarak, yalnızca kuralları çalıştırılır.
 
@@ -144,7 +144,7 @@ Bu öznitelik, bir eylem yöntemine uygulanan `HomeController`:
 Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC kuralı geçersiz kılar ve eylem adı ile değiştirir `MyCoolAction`. Bu nedenle, bu eylem erişmek için kullanılan rota olduğu `/Home/MyCoolAction`.
 
 > [!NOTE]
-> Bu örnekte temelde aynı yerleşik kullanmakla, [EylemAdı](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.actionnameattribute) özniteliği.
+> Bu örnekte temelde aynı yerleşik kullanmakla, [EylemAdı](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) özniteliği.
 
 ### <a name="sample-custom-routing-convention"></a>Örnek: Özel yönlendirme kuralı
 
@@ -178,10 +178,10 @@ services.AddMvc().AddWebApiConventions();
 
 Dolgu tarafından sağlanan kuralları yalnızca uygulanmış belirli öznitelikler beklendiğinden uygulama bölümlerini uygulanır. Aşağıdaki dört öznitelikler denetleyicileri dolgu 's kuralları tarafından değiştirilmiş kendi kurallarına sahip denetlemek için kullanılır:
 
-* [UseWebApiActionConventionsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
-* [UseWebApiOverloadingAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
-* [UseWebApiParameterConventionsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiparameterconventionsattribute)
-* [UseWebApiRoutesAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiroutesattribute)
+* [UseWebApiActionConventionsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
+* [UseWebApiOverloadingAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
+* [UseWebApiParameterConventionsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiparameterconventionsattribute)
+* [UseWebApiRoutesAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiroutesattribute)
 
 ### <a name="action-conventions"></a>Eylem kuralları
 
@@ -203,7 +203,7 @@ Uyumluluk Paketi kuralları kümesi yanı sıra içerir bir `System.Web.Http.Api
 
 ## <a name="using-apiexplorer-to-document-your-app"></a>Uygulamanızı belge için ApiExplorer kullanma
 
-Uygulama modeli kullanıma sunan bir [ `ApiExplorer` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) her düzeyde uygulamanın yapısı geçiş yapmak için kullanılan özellik. Bunun için kullanılabilir [Swagger gibi araçları kullanarak, Web API'leri için Yardım sayfalarına üret](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Özelliği düzenlemenizi sağlayan bir `IsVisible` uygulamanızın modeli hangi kısımlarının açılmamalıdır belirtmek için ayarlanabilir özelliği. Bir kural kullanarak bu ayarı yapılandırabilirsiniz:
+Uygulama modeli kullanıma sunan bir [ `ApiExplorer` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) her düzeyde uygulamanın yapısı geçiş yapmak için kullanılan özellik. Bunun için kullanılabilir [Swagger gibi araçları kullanarak, Web API'leri için Yardım sayfalarına üret](xref:tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Özelliği düzenlemenizi sağlayan bir `IsVisible` uygulamanızın modeli hangi kısımlarının açılmamalıdır belirtmek için ayarlanabilir özelliği. Bir kural kullanarak bu ayarı yapılandırabilirsiniz:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 

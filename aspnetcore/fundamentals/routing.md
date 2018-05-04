@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 51f667352f7d92ab8c73d958c821c6acf5eb7529
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -28,7 +28,7 @@ Gelen istek yönlendirme işleyicisine eşlemek için yönlendirme işlevi sorum
 
 ## <a name="routing-basics"></a>Yönlendirme Temelleri
 
-Yönlendirme kullanır *yollar* (uygulamaları [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) için:
+Yönlendirme kullanır *yollar* (uygulamaları [IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter)) için:
 
 * gelen istekleri eşleme *rota işleyicileri*
 
@@ -231,7 +231,7 @@ Aşağıdaki tabloda verilen URI'ler yanıtları gösterir.
 | URI | Yanıt  |
 | ------- | -------- |
 | /Package/Create/3  | Merhaba! Rota değerleri: [işlemi, oluşturmak], [kimliği, 3] |
-| /package/track/-3  | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3] |
+| / /-3 Paket/İzle  | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3] |
 | / paketini / /-3 izlemek / | Merhaba! Rota değerleri: [işlem, izleme], [kimliği, -3]  |
 | /Package/İzle / | \<Eşleşme aracılığıyla, kalan > |
 | /Hello/Joe Al | Merhaba, CAN! |
@@ -278,8 +278,8 @@ Aşağıdaki tabloda bazı rota şablonlarının ve davranışlarını gösterir
 | Merhaba  | / Merhaba  | Yalnızca tek bir yol ile eşleşir `/hello` |
 | {Page=Home} | / | Eşleşen ve ayarlar `Page` için `Home` |
 | {Page=Home}  | / Başvurun  | Eşleşen ve ayarlar `Page` için `Contact` |
-| {controller}/{action}/{id?} | / Ürünler/listesi | Eşlendiği `Products` denetleyicisi ve `List` eylem |
-| {controller}/{action}/{id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id` için 123 ayarlayın |
+| {controller} / {action} / {id?} | / Ürünler/listesi | Eşlendiği `Products` denetleyicisi ve `List` eylem |
+| {controller} / {action} / {id?} | / Ürünler/Ayrıntılar/123  |  Eşlendiği `Products` denetleyicisi ve `Details` eylem.  `id` için 123 ayarlayın |
 | {controller=Home}/{action=Index}/{id?} | /  |  Eşlendiği `Home` denetleyicisi ve `Index` yöntemi; `id` göz ardı edilir. |
 
 Bir şablon kullanarak genellikle yönlendirme en basit yaklaşımdır. Ayrıca kısıtlamaları ve varsayılan rota şablonu dışında belirtilebilir.
@@ -321,7 +321,7 @@ Aşağıdaki tabloda bazı rota kısıtlamaları ve bunların beklenen bir davra
 
 ## <a name="regular-expressions"></a>Normal ifadeler 
 
-ASP.NET Core framework ekler `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` normal ifade oluşturucusu. Bkz: [RegexOptions numaralandırma](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) bu üyeleri açıklaması.
+ASP.NET Core framework ekler `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` normal ifade oluşturucusu. Bkz: [RegexOptions numaralandırma](/dotnet/api/system.text.regularexpressions.regexoptions) bu üyeleri açıklaması.
 
 Normal ifadeler sınırlayıcıları ve Yönlendirme ve C# dili tarafından kullanılan benzer belirteçleri kullanın. Normal ifade belirteçleri kaçış uygulanmalıdır. Örneğin, normal ifade kullanmak için `^\d{3}-\d{2}-\d{4}$` olması gerekiyor, yönlendirme `\` olarak yazdığınız karakterler `\\` kaçınmak için C# kaynak dosyasında `\` dize kaçış karakteri (kullanmadığınız sürece [verbatim dize değişmez değerleri](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). `{` , `}` , ' [' Ve ']' karakter yönlendirme parametre sınırlayıcı karakter kaçınmak için Katlama tarafından kaçış gerekir.  Aşağıdaki tabloda, normal bir ifade ve atlanan sürümünü gösterir.
 
@@ -363,10 +363,10 @@ Açıkça sağlanır, ancak, herhangi bir şey eşleşmeyen değerleri sorgu diz
 
 | Ortam değerleri | Açık değerler | Sonuç |
 | -------------   | -------------- | ------ |
-| controller="Home" | Eylem "About" = | `/Home/About` |
-| controller="Home" | controller="Order",action="About" | `/Order/About` |
-| controller="Home",color="Red" | Eylem "About" = | `/Home/About` |
-| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
+| Denetleyici = "Home" | Eylem "About" = | `/Home/About` |
+| Denetleyici = "Home" | Denetleyici "Order", Eylem = "About" = | `/Order/About` |
+| Denetleyici "Home", color = "Red" = | Eylem "About" = | `/Home/About` |
+| Denetleyici = "Home" | Eylem = "Hakkında", renk = "Red" | `/Home/About?color=Red`
 
 Bir rota parametresi karşılık gelmiyor varsayılan bir değeri yok ve bu değeri açıkça sağlanır, varsayılan değer eşleşmesi gerekir. Örneğin:
 

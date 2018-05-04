@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 06526848dc84472c8629e6e1700a74312442f67c
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 1ab19fad90eab9f2da58b4d62615a85d71894218
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -55,7 +55,7 @@ Yalnızca modeli aracılığıyla okuma kuralları hakkında daha kolay kod koru
 
 * `[Url]`: Doğrular bir URL biçimi özelliği vardır.
 
-MVC destekleyen türetilen herhangi bir öznitelik `ValidationAttribute` doğrulama amacıyla. Çok sayıda kullanışlı doğrulama öznitelikleri bulunabilir [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) ad alanı.
+MVC destekleyen türetilen herhangi bir öznitelik `ValidationAttribute` doğrulama amacıyla. Çok sayıda kullanışlı doğrulama öznitelikleri bulunabilir [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) ad alanı.
 
 Yerleşik öznitelikleri sağlamak özelliklerden daha fazlasını ihtiyaç duyacağınız örneği olabilir. Bu kez, türetilen özel doğrulama öznitelikleri oluşturabilirsiniz `ValidationAttribute` veya uygulamak için modelinizin değiştirme `IValidatableObject`.
 
@@ -65,7 +65,7 @@ Olamayan [değer türleri](/dotnet/csharp/language-reference/keywords/value-type
 
 Doğrulama ve doğrulama öznitelikleri ile ilgili değil, MVC model bağlama alamayan bir tür için boşluk veya eksik bir değer içeren bir form alanı gönderme reddeder. Olmadığında bir `BindRequired` özniteliği hedef özelliği, model bağlama null türleri için form alanı olan etmeksizin, eksik verilerin yoksayar gelen form verileri.
 
-[BindRequired özniteliği](/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Ayrıca bkz. [model bağlama davranışı öznitelikleri olan özelleştirme](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) form verilerini tam olduğundan emin olmak yararlıdır. Bir özelliğe uygulandığında, model bağlama sistem bu özellik için bir değer gerektirir. Bir türe uygulandığında, model bağlama sistem türü özelliklerinin tümü için değerleri gerektirir.
+[BindRequired özniteliği](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Ayrıca bkz. [model bağlama davranışı öznitelikleri olan özelleştirme](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) form verilerini tam olduğundan emin olmak yararlıdır. Bir özelliğe uygulandığında, model bağlama sistem bu özellik için bir değer gerektirir. Bir türe uygulandığında, model bağlama sistem türü özelliklerinin tümü için değerleri gerektirir.
 
 Kullandığınızda, bir [null atanabilir\<T > türü](/dotnet/csharp/programming-guide/nullable-types/) (örneğin, `decimal?` veya `System.Nullable<decimal>`) ve işaretleyin `Required`, özelliği (için standart null olabilir bir tür değilmiş gibi bir sunucu tarafı doğrulama denetimi gerçekleştirilir Örneğin, bir `string`).
 
@@ -192,7 +192,7 @@ $.get({
 
 ## <a name="iclientmodelvalidator"></a>IClientModelValidator
 
-İstemci tarafı mantığı, özel öznitelik için oluşturabilir ve [örtük doğrulama](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) [jquery doğrulama] için bir bağdaştırıcı oluşturur (http://jqueryvalidation.org/documentation/) , doğrulama bir parçası olarak otomatik olarak istemcide çalıştırır. Hangi veri öznitelikleri uygulayarak eklenen denetlemek için ilk adımdır `IClientModelValidator` arabirim aşağıda gösterildiği gibi:
+İstemci tarafı mantığı, özel öznitelik için oluşturabilir ve [örtük doğrulama](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) bir bağdaştırıcıya oluşturur [jquery doğrulama](http://jqueryvalidation.org/documentation/) otomatik olarak bir parçası olarak, istemcide yürütülmez doğrulama. Hangi veri öznitelikleri uygulayarak eklenen denetlemek için ilk adımdır `IClientModelValidator` arabirim aşağıda gösterildiği gibi:
 
 [!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=30-42)]
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: ca77db7bd498289b448475fc6cadeea622b4a606
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3a9463e5c501b5f32471f002ecab5ad7a81a5c4a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="session-and-application-state-in-aspnet-core"></a>ASP.NET Core oturum ve uygulama durumu
 
@@ -38,7 +38,7 @@ Bellek içi oturum sağlayıcısı, yerel sunucuda oturum verilerini depolar. Bi
 <a name="temp"></a>
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core MVC sunan [TempData](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData` birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için özellikle yararlı olacaktır. `TempData` TempData sağlayıcıları tarafından Örneğin, tanımlama bilgilerini veya oturum durumu kullanılarak uygulanır.
+ASP.NET Core MVC sunan [TempData](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) özelliği bir [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller?view=aspnetcore-2.0). Bu özellik, dosyayı okuma kadar verileri depolar. `Keep` Ve `Peek` yöntemleri, verileri silme olmadan incelemek için kullanılabilir. `TempData` birden çok tek bir istek için veri gerektiğinde yeniden yönlendirme için özellikle yararlı olacaktır. `TempData` TempData sağlayıcıları tarafından Örneğin, tanımlama bilgilerini veya oturum durumu kullanılarak uygulanır.
 
 <a name="tempdata-providers"></a>
 ### <a name="tempdata-providers"></a>TempData sağlayıcıları
@@ -47,7 +47,7 @@ ASP.NET Core MVC sunan [TempData](https://docs.microsoft.com/dotnet/api/microsof
 
 ASP.NET Core 2.0 ve daha sonra tanımlama bilgisi tabanlı TempData sağlayıcısı TempData tanımlama bilgilerini depolamak için varsayılan olarak kullanılır.
 
-Tanımlama bilgisi verileri ile kodlanmış [Base64UrlTextEncoder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Tanımlama bilgisinin şifrelenir ve öbekli çünkü tek tanımlama bilgisi ASP.NET 1.x uygulanmaz çekirdek bulunan sınır boyutu. Şifrelenmiş verileri sıkıştırmak için güvenlik sorunları gibi yol açabileceğinden tanımlama bilgisi verileri sıkıştırılmış [SUÇ](https://wikipedia.org/wiki/CRIME_(security_exploit)) ve [ihlali](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları. Tanımlama bilgisi tabanlı TempData sağlayıcısı hakkında daha fazla bilgi için bkz: [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+Tanımlama bilgisi verileri ile kodlanmış [Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder?view=aspnetcore-2.0). Tanımlama bilgisinin şifrelenir ve öbekli çünkü tek tanımlama bilgisi ASP.NET 1.x uygulanmaz çekirdek bulunan sınır boyutu. Şifrelenmiş verileri sıkıştırmak için güvenlik sorunları gibi yol açabileceğinden tanımlama bilgisi verileri sıkıştırılmış [SUÇ](https://wikipedia.org/wiki/CRIME_(security_exploit)) ve [ihlali](https://wikipedia.org/wiki/BREACH_(security_exploit)) saldırıları. Tanımlama bilgisi tabanlı TempData sağlayıcısı hakkında daha fazla bilgi için bkz: [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -117,9 +117,9 @@ Tanımlama bilgileri, genellikle içeriği bilinen bir kullanıcı için burada 
 
 `Microsoft.AspNetCore.Session` Paket oturum durumu yönetmek için ara yazılım sağlar. Oturum Ara etkinleştirmek için `Startup` içermelidir:
 
-- Herhangi bir [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) bellek önbellekleri. `IDistributedCache` Uygulama oturumu için bir yedekleme deposu olarak kullanılır.
-- [AddSession](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) çağrısı, NuGet paketi "Microsoft.AspNetCore.Session" gerektirir.
-- [UseSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) çağırın.
+- Herhangi bir [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) bellek önbellekleri. `IDistributedCache` Uygulama oturumu için bir yedekleme deposu olarak kullanılır.
+- [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions#Microsoft_Extensions_DependencyInjection_SessionServiceCollectionExtensions_AddSession_Microsoft_Extensions_DependencyInjection_IServiceCollection_) çağrısı, NuGet paketi "Microsoft.AspNetCore.Session" gerektirir.
+- [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) çağırın.
 
 Aşağıdaki kod, bellek içi oturum Sağlayıcısı'nı ayarlama gösterilmektedir.
 
@@ -138,9 +138,9 @@ Yeni bir oluşturmayı denerseniz `Session` (diğer bir deyişle, oturum tanıml
 
 ### <a name="loading-session-asynchronously"></a>Oturum zaman uyumsuz olarak yükleme 
 
-Arka plandaki gelen oturum kaydı ASP.NET Core varsayılan oturum sağlayıcısında yükler [IDistributedCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.distributed.idistributedcache) depolama zaman uyumsuz olarak yalnızca IF [ISession.LoadAsync](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) yöntemi önce açıkça çağrılır  `TryGetValue`, `Set`, veya `Remove` yöntemleri. Varsa `LoadAsync` ilk olarak, temel olarak adlandırılmaz oturum kayıt yüklendiği zaman uyumlu olarak, hangi olası ölçeklendirmenizi uygulamanın etkileyebilir.
+Arka plandaki gelen oturum kaydı ASP.NET Core varsayılan oturum sağlayıcısında yükler [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) depolama zaman uyumsuz olarak yalnızca IF [ISession.LoadAsync](/dotnet/api/microsoft.aspnetcore.http.isession#Microsoft_AspNetCore_Http_ISession_LoadAsync) yöntemi önce açıkça çağrılır  `TryGetValue`, `Set`, veya `Remove` yöntemleri. Varsa `LoadAsync` ilk olarak, temel olarak adlandırılmaz oturum kayıt yüklendiği zaman uyumlu olarak, hangi olası ölçeklendirmenizi uygulamanın etkileyebilir.
 
-Uygulamanız bu deseni zorlamak için Kaydır [DistributedSessionStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsessionstore) ve [DistributedSession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.session.distributedsession) uygulamaları, bir özel durum sürümleri ile `LoadAsync` yöntemi değil önce adlı `TryGetValue`, `Set`, veya `Remove`. Sarmalanan sürümleri hizmetler kapsayıcısının kaydedin.
+Uygulamanız bu deseni zorlamak için Kaydır [DistributedSessionStore](/dotnet/api/microsoft.aspnetcore.session.distributedsessionstore) ve [DistributedSession](/dotnet/api/microsoft.aspnetcore.session.distributedsession) uygulamaları, bir özel durum sürümleri ile `LoadAsync` yöntemi değil önce adlı `TryGetValue`, `Set`, veya `Remove`. Sarmalanan sürümleri hizmetler kapsayıcısının kaydedin.
 
 ### <a name="implementation-details"></a>Uygulama Ayrıntıları
 
@@ -161,7 +161,7 @@ Sunucunun kullandığı `IdleTimeout` içeriğinin terk önce ne kadar oturum bo
 
 ### <a name="setting-and-getting-session-values"></a>Ayarlama ve oturum değerleri alma
 
-Oturumu aracılığıyla erişilir `Session` özelliği `HttpContext`. Bu özellik bir [ISession](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.isession) uygulaması.
+Oturumu aracılığıyla erişilir `Session` özelliği `HttpContext`. Bu özellik bir [ISession](/dotnet/api/microsoft.aspnetcore.http.isession) uygulaması.
 
 Aşağıdaki örnek, ayarlama ve int ve bir dize alma gösterir:
 

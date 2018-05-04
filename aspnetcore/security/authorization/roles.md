@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/roles
-ms.openlocfilehash: 7bc7ed35ef0496e855b024f92c915eb85b55511b
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f1e7209cae1e2a58ad536547d655dd744ca0d3f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET Core rol tabanlı yetkilendirme
 
 <a name="security-authorization-role-based"></a>
 
-Kimlikteki oluşturduğunuzda bir veya daha fazla role ait. Örneğin, Scott yalnızca kullanıcı rolüne ait olabilir adımında Tracy yönetici ve kullanıcı role ait. Bu roller nasıl oluşturulduğunu ve yönetilen Yetkilendirme işlemi yedekleme deposunda bağlıdır. Rolleri geliştiriciye açığa [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) yöntemi [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) sınıfı.
+Kimlikteki oluşturduğunuzda bir veya daha fazla role ait. Örneğin, Scott yalnızca kullanıcı rolüne ait olabilir adımında Tracy yönetici ve kullanıcı role ait. Bu roller nasıl oluşturulduğunu ve yönetilen Yetkilendirme işlemi yedekleme deposunda bağlıdır. Rolleri geliştiriciye açığa [IsInRole](/dotnet/api/system.security.principal.genericprincipal.isinrole) yöntemi [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) sınıfı.
 
 ## <a name="adding-role-checks"></a>Rol denetimleri ekleme
 

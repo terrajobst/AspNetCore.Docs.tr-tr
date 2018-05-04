@@ -1,9 +1,9 @@
 
-Şu konulara değineceğiz [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmiyor şekilde (tarih), veri türünü belirtir.
+Şu konulara değineceğiz [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmiyor şekilde (tarih), veri türünü belirtir.
 
 Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hedef URL görmek için bağlantı.
 
-![Tarayıcı penceresini düzenleme bağlantısını ve bir bağlantı üzerinden fareyle http://localhost:1234/filmler/düzenleme/5 URL'sini gösterilir](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
+![Tarayıcı penceresini düzenleme bağlantısını ve bir bağlantı üzerinden fareyle URL'sini http://localhost:1234/Movies/Edit/5 gösterilir](../../tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
 
 **Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar çekirdek MVC yer işareti etiketi yardımcı tarafından üretilen *Views/Movies/Index.cshtml* dosya.
 
@@ -35,7 +35,7 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerlerini
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-`[Bind]` Karşı koruma yollarından özniteliğidir [aşırı gönderim](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [atlayarak nakil denetleyicinizi korumak](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlayın.
+`[Bind]` Karşı koruma yollarından özniteliğidir [aşırı gönderim](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [atlayarak nakil denetleyicinizi korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlayın.
 
 İkinci fark `Edit` tarafından eylem yöntemi öncesinde `[HttpPost]` özniteliği.
 
@@ -89,7 +89,7 @@ Tüm `HttpGet` benzer bir desen film denetleyicisi yöntemleri uygulayın. Film 
 * [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
 * [Yazar etiket Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 * [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)
-* Denetleyicisinden korumak [aşırı gönderim](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
+* Denetleyicisinden korumak [aşırı gönderim](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 * [Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms)

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 980c7f595e8276ed58e15f296dba69663384168d
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 24e754daa68d5247fa444e87ba733891c908d32c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreleri
 
@@ -283,13 +283,13 @@ Bir örnek eylem filtresi şöyledir:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
-[ActionExecutingContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) aşağıdaki özellikleri sağlar:
+[ActionExecutingContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) aşağıdaki özellikleri sağlar:
 
 * `ActionArguments` -Eylem girişleri işlemek olanak tanır.
 * `Controller` -denetleyici örneği yönlendirme sağlar. 
 * `Result` -Bu ayar, sonraki eylem filtrelerini ve eylem yönteminin yürütülmesi short-circuits. Bir özel durum atma ayrıca sonraki filtreleri ve eylem yönteminin yürütülmesi engeller, ancak başarılı sonuç yerine bir hata olarak kabul edilir.
 
-[ActionExecutedContext](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) sağlar `Controller` ve `Result` aşağıdaki özellikleri artı:
+[ActionExecutedContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) sağlar `Controller` ve `Result` aşağıdaki özellikleri artı:
 
 * `Canceled` -Eylem yürütme başka bir filtre tarafından kısa devre yapılma ise true olur.
 * `Exception` -Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa null olmayan olacaktır. Bu özellik etkili bir şekilde null olarak ayarlandığında 'handles' bir özel durum, ve `Result` eylem yönteminden normalde döndürülmedi sanki yürütülür.

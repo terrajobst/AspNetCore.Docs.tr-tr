@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ada8120189baf036296b83f91d20b364ee90d074
-ms.sourcegitcommit: 07903a1be39a99dcf538d57981161592d0e658b8
+ms.openlocfilehash: 2d6cc526b5a0890103e2856a0ca4b58c5f162c79
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
@@ -107,7 +107,7 @@ Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. A�
 ### <a name="enable-static-files"></a>Statik dosyaları etkinleştir
 
 * Ekleme `Microsoft.AspNetCore.StaticFiles` NuGet paketini projeye.
-* İle sunulacak statik dosyaları etkinleştir [statik dosya ara yazılımlarını](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions). Bir çağrı ekleyin [UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions) için `Configure` yöntemi `Startup`.
+* İle sunulacak statik dosyaları etkinleştir [statik dosya ara yazılımlarını](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions). Bir çağrı ekleyin [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions) için `Configure` yöntemi `Startup`.
 
 [!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 

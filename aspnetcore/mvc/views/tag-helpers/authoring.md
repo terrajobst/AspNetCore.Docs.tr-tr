@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: dce7668d06bd810f12bdb763143a003bee49e8f8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 85809a0f7bfe0adcf535c2be7f5b77e8abd947fd
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde Yazar etiket Yardımcıları
 
@@ -92,8 +92,6 @@ Bir FQN kullanarak görünüm için bir etiket Yardımcısı eklemek için önce
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
 4. Uygulamayı çalıştırın ve e-posta etiketleri olan bağlantı biçimlendirme değiştirilir doğrulayabilmeniz için HTML kaynağını görüntülemek için sık kullanılan tarayıcınızı kullanın (örneğin, `<a>Support</a>`). *Destek* ve *pazarlama* bağlantılar olarak işlenir ancak sahip olmayan bir `href` çalışır duruma getirme özniteliği. Biz, sonraki bölümde düzeltmesi.
-
-Not: HTML etiketleri ve öznitelikleri, etiketler, sınıf adları ve Razor ve C# öznitelikleri gibi büyük küçük harfe duyarlı değildir.
 
 ## <a name="setattribute-and-setcontent"></a>SetAttribute ve SetContent
 

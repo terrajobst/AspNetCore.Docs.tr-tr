@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 31ab125462da032d30ef25b45cf81a0d18212bc1
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 8f7aeadc7a1218bf203575add8c82c95faf137b4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET Core uygulama bölümleri
 
@@ -23,7 +23,7 @@ Bir *uygulama bölümü* MVC denetleyicileri, görünüm bileşenleri gibi özel
 
 ## <a name="introducing-application-parts"></a>Uygulama bölümlerini Tanıtımı
 
-MVC uygulamaları kendi özelliklerinden yük [uygulama bölümleri](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Özellikle, [AssemblyPart](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) sınıfı, bir derlemeyi tarafından yedeklenen bir uygulama bölümü temsil eder. Bu sınıfların bulmak ve denetleyicileri, görünümü bileşenler, etiket yardımcıları ve razor derleme kaynakları gibi MVC özellikleri yüklemek için kullanabilirsiniz. [ApplicationPartManager](/aspnet/core/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) MVC uygulamasını uygulama bölümleri ve özellik sağlayıcıları kullanılabilir izlemek için sorumludur. Etkileşim kurabildikleri `ApplicationPartManager` içinde `Startup` MVC yapılandırırken:
+MVC uygulamaları kendi özelliklerinden yük [uygulama bölümleri](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Özellikle, [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) sınıfı, bir derlemeyi tarafından yedeklenen bir uygulama bölümü temsil eder. Bu sınıfların bulmak ve denetleyicileri, görünümü bileşenler, etiket yardımcıları ve razor derleme kaynakları gibi MVC özellikleri yüklemek için kullanabilirsiniz. [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) MVC uygulamasını uygulama bölümleri ve özellik sağlayıcıları kullanılabilir izlemek için sorumludur. Etkileşim kurabildikleri `ApplicationPartManager` içinde `Startup` MVC yapılandırırken:
 
 ```csharp
 // create an assembly part from a class's assembly
@@ -64,10 +64,10 @@ Proje derleme ve bağımlı derlemeleri, ek olarak `ApplicationPartManager` böl
 
 Uygulama özellik sağlayıcıları uygulama bölümleri inceleyin ve bu bölümleri için özellikleri sağlar. Aşağıdaki MVC özellikler için yerleşik özellik sağlayıcıları vardır:
 
-* [Denetleyiciler](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
-* [Meta veri başvurusu](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
-* [Etiket Yardımcıları](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
-* [Görünüm bileşenleri](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
+* [Denetleyiciler](/dotnet/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
+* [Meta veri başvurusu](/dotnet/api/microsoft.aspnetcore.mvc.razor.compilation.metadatareferencefeatureprovider)
+* [Etiket Yardımcıları](/dotnet/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
+* [Görünüm bileşenleri](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Özellik sağlayıcıları devral `IApplicationFeatureProvider<T>`, burada `T` özellik türüdür. MVC'ın özellik türlerinin herhangi biriyle sağlayıcıları yukarıda listelenen kendi özellik uygulayabilirsiniz. Özellik sağlayıcıların sırası `ApplicationPartManager.FeatureProviders` sonraki sağlayıcıları önceki sağlayıcıları tarafından gerçekleştirilen eylemler için tepki gösterebilmesi beri koleksiyonu önemli olabilir.
 

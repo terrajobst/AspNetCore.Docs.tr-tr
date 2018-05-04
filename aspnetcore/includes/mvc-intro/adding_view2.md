@@ -73,7 +73,7 @@ Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri b
 
 Değişikliklerinizi kaydetmek ve gidin `http://localhost:xxxx/HelloWorld`. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. (Değişiklikleri tarayıcıda görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Yüklenecek sunucudan yanıt zorlamak için tarayıcınızda CTRL + F5'e basın.) Tarayıcı başlığı ile oluşturulan `ViewData["Title"]` biz kümesinde *Index.cshtml* şablonu ve ek görüntüle "-film uygulaması" düzeni dosyasına eklendi.
 
-Ayrıca dikkat edin nasıl içerik *Index.cshtml* görünüm şablonu birleştirilmiş ile *Views/Shared/_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderildi. Düzen şablonları, uygulamanızdaki sayfaların tümünü uygulamak değişiklik gerçekten kolay hale getirir. Daha fazla bilgi edinmek için [düzeni](../../mvc/views/layout.md).
+Ayrıca dikkat edin nasıl içerik *Index.cshtml* görünüm şablonu birleştirilmiş ile *Views/Shared/_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderildi. Düzen şablonları, uygulamanızdaki sayfaların tümünü uygulamak değişiklik gerçekten kolay hale getirir. Daha fazla bilgi edinmek için [düzeni](xref:mvc/views/layout).
 
 ![Film liste görünümü](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
 

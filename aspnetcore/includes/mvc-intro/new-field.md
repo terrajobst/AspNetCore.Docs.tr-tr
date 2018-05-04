@@ -4,7 +4,7 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici için yeni bir alan ekler `Movies` tablo. Biz veritabanını bırakıp biz şema değiştirdiğinizde, yeni bir tane oluşturun (yeni bir alan ekleyin). Biz perserve için herhangi bir üretim veri bulunmadığında bu iş akışı da erken geliştirme çalışır.
 
-Şema değiştirmeniz gerektiğinde, uygulamanın dağıtıldığı ve perserve için gereksinim duyduğunuz verilerine sahip sonra DB bırakılamıyor. Entity Framework [Code First Migrations](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) şemanızı güncelleştirmek ve verileri kaybetmeden veritabanını geçirme sağlar. Geçişler bir özelliktir popüler birçok geçiş şema işlemleri, SQL Server, ancak SQLlite kullanarak desteklemediğinde şekilde yalnızca çok basitçe geçişler mümkündür. Bkz: [SQLite sınırlamalar](https://docs.microsoft.com/ef/core/providers/sqlite/limitations) daha fazla bilgi için.
+Şema değiştirmeniz gerektiğinde, uygulamanın dağıtıldığı ve perserve için gereksinim duyduğunuz verilerine sahip sonra DB bırakılamıyor. Entity Framework [Code First Migrations](/ef/core/get-started/aspnetcore/new-db) şemanızı güncelleştirmek ve verileri kaybetmeden veritabanını geçirme sağlar. Geçişler bir özelliktir popüler birçok geçiş şema işlemleri, SQL Server, ancak SQLlite kullanarak desteklemediğinde şekilde yalnızca çok basitçe geçişler mümkündür. Bkz: [SQLite sınırlamalar](/ef/core/providers/sqlite/limitations) daha fazla bilgi için.
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeline derecelendirme özellik ekleme
 

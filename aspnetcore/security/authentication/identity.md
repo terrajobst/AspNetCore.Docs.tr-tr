@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: b3bfae665403162db1fb012fac227275b1dfd6c9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f9215767bf9a7c8b43b474848ba7dff7c3ddaf24
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET Core üzerinde kimliğini giriş
 
@@ -23,7 +23,7 @@ ASP.NET Core, uygulamanıza oturum açma işlevsellik eklemesine olanak tanıyan
 
 ASP.NET Core kimliği kullanıcı adları, parolalar ve profil verileri depolamak için bir SQL Server veritabanını kullanmak üzere yapılandırabilirsiniz. Alternatif olarak, örneğin, bir Azure Table Storage kendi kalıcı depoya kullanabilirsiniz. Bu belge, CLI kullanarak için ve Visual Studio için yönergeler içerir.
 
-[Görüntülemek veya örnek kodu indirin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Karşıdan yükleme)](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
+[Görüntülemek veya örnek kodu indirin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Karşıdan yükleme)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Kimliği'ne genel bakış
 

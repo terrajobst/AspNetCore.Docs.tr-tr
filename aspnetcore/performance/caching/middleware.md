@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 
@@ -33,7 +33,7 @@ Ara yazılım bir proje eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCo
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
-Ara yazılımla kullanmak için uygulamayı yapılandırma `UseResponseCaching` ara yazılım istek işleme ardışık düzenine ekler genişletme yöntemi. Örnek uygulaması ekler bir [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) alınabilir yanıtları 10 saniye için önbelleğe yanıtı üstbilgisi. Örnek gönderir bir [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) önbelleğe alınan yanıt eksikse sunmak için ara yazılımını yapılandırma üstbilgi [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) sonraki istekleri üstbilgisinin, özgün istek eşleşir.
+Ara yazılımla kullanmak için uygulamayı yapılandırma `UseResponseCaching` ara yazılım istek işleme ardışık düzenine ekler genişletme yöntemi. Örnek uygulaması ekler bir [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) alınabilir yanıtları 10 saniye için önbelleğe yanıtı üstbilgisi. Örnek gönderir bir [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) önbelleğe alınan yanıt eksikse sunmak için ara yazılımını yapılandırma üstbilgi [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) sonraki istekleri üstbilgisinin, özgün istek eşleşir. Aşağıdaki kod örneğinde [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) ve [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) gerektiren bir `using` bildirimi [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) ad alanı.
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
@@ -88,9 +88,9 @@ Yanıt ara yazılım tarafından önbelleğe alma HTTP üstbilgileri kullanılar
 | Üstbilgi | Ayrıntılar |
 | ------ | ------- |
 | Yetkilendirme | Yanıt üstbilgisi mevcutsa önbelleğe değil. |
-| Cache-Control | İle işaretlenen yanıtlarını önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alınmasını denetleyen:<ul><li>Maksimum yaş</li><li>max-stale&#8224;</li><li>Min-yeni</li><li>gereken revalidate</li><li>Hayır-önbellek</li><li>Hayır deposu</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Sınır için belirtilmişse, `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahip `must-revalidate`.<br><br>Daha fazla bilgi için bkz: [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | İle işaretlenen yanıtlarını önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alınmasını denetleyen:<ul><li>Maksimum yaş</li><li>en çok eski&#8224;</li><li>Min-yeni</li><li>gereken revalidate</li><li>Hayır-önbellek</li><li>Hayır deposu</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s-maxage</li><li>Proxy-revalidate&#8225;</li></ul>&#8224;Sınır için belirtilmişse, `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahip `must-revalidate`.<br><br>Daha fazla bilgi için bkz: [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | A `Pragma: no-cache` istek üstbilgisinde üreten aynı etkiye `Cache-Control: no-cache`. Bu üst ilgili yönergeleri tarafından geçersiz kılınır `Cache-Control` üstbilgisi, varsa. HTTP/1.0 ile geriye dönük uyumluluk için kabul. |
-| Set-Cookie | Yanıt üstbilgisi mevcutsa önbelleğe değil. |
+| Tanımlama bilgisi-Ayarla | Yanıt üstbilgisi mevcutsa önbelleğe değil. Yanıt önbelleğe alınan yanıt önbelleğe alma Ara Ara yazılımların, bir veya daha fazla tanımlama bilgisini ayarlar istek işleme ardışık düzeninde engeller (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcı](xref:fundamentals/app-state#tempdata)).  |
 | değişir | `Vary` Üstbilgisi önbelleğe alınan yanıtın farklılık için kullanılan başka bir üstbilgisi tarafından. Örneğin, ekleyerek kodlayarak yanıtı önbelleğe `Vary: Accept-Encoding` üstbilgileri olan istekler için yanıtlar önbelleğe alır, üst `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak. Bir yanıt üstbilgisi değerini `*` hiçbir zaman depolanır. |
 | Süre sonu | Bu üstbilgisi tarafından eski kabul yanıt değil veya depolanan diğer tarafından geçersiz kılınmadığı sürece alınan `Cache-Control` üstbilgileri. |
 | If-None-Match | Değer yoksa tam yanıtı önbelleğinden sunulan `*` ve `ETag` yanıtını sağlanan değerlerden herhangi birini eşleşmiyor. Aksi takdirde 304 (değişiklik) yanıt sunulur. |
@@ -105,7 +105,7 @@ Ara yazılım kurallarına uyar [HTTP 1.1 önbelleğe alma belirtimi](https://to
 
 Önbelleğe alma davranışı üzerinde daha fazla denetim için ASP.NET Core diğer önbelleğe alma özelliklerini keşfedin. Aşağıdaki konulara bakın:
 
-* [Önbellek-](xref:performance/caching/memory)
+* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [ASP.NET Core MVC etiketi yardımcı önbelleğe alma](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
@@ -130,19 +130,19 @@ Sınama ve önbelleğe alma davranışını sorun giderme, bir tarayıcı istenm
 * `Set-Cookie` Üstbilgisi mevcut olmamalıdır.
 * `Vary` Üstbilgi parametreleri geçerli ve eşit değil olmalıdır `*`.
 * `Content-Length` Üstbilgi değeri (varsa ayarlayın) yanıt gövdesi boyutu ile eşleşmelidir.
-* [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) kullanılmaz.
+* [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) kullanılmaz.
 * Yanıt belirtildiği gibi eski olmamalıdır `Expires` üstbilgi ve `max-age` ve `s-maxage` önbelleğe yönergeleri.
 * Yanıt arabelleğe alma başarılı olmalıdır ve yanıt boyutunun yapılandırılmış küçük veya varsayılan `SizeLimit`.
 * Yanıt göre alınabilir [RFC 7234](https://tools.ietf.org/html/rfc7234) belirtimleri. Örneğin, `no-store` yönergesi istek veya yanıt üstbilgi alanları mevcut olmalıdır. Bkz: *bölüm 3: önbellekleri depolama yanıtlarında* , [RFC 7234](https://tools.ietf.org/html/rfc7234) Ayrıntılar için.
 
 > [!NOTE]
-> Siteler arası istek sahteciliği (CSRF) önlemek için güvenli belirteçleri oluşturmak için Antiforgery sistem kümeleri saldırıları `Cache-Control` ve `Pragma` üstbilgileri `no-cache` böylece önbelleğe alınan yanıtları değil.
+> Siteler arası istek sahteciliği (CSRF) önlemek için güvenli belirteçleri oluşturmak için Antiforgery sistem kümeleri saldırıları `Cache-Control` ve `Pragma` üstbilgileri `no-cache` böylece önbelleğe alınan yanıtları değil. HTML form öğelerini antiforgery belirteçleri devre dışı bırakma hakkında daha fazla bilgi için bkz: [ASP.NET Core antiforgery yapılandırma](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Önbellek-](xref:performance/caching/memory)
+* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)

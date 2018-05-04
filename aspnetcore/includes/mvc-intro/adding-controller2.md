@@ -12,7 +12,7 @@ Uygulama olmayan hata ayıklama modunda çalıştırılması ve adres çubuğund
 
 ![Bu bir uygulama yanıt gösteren bir tarayıcı penceresi my varsayılan eylemdir](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC denetleyicisi sınıfları (ve bunların içindeki eylem yöntemleri) gelen URL bağlı olarak çağırır. Varsayılan [URL yönlendirme mantığı](../../mvc/controllers/routing.md) MVC tarafından bu gibi bir biçim ne çağırmak için kodu belirlemek için kullanır:
+MVC denetleyicisi sınıfları (ve bunların içindeki eylem yöntemleri) gelen URL bağlı olarak çağırır. Varsayılan [URL yönlendirme mantığı](xref:mvc/controllers/routing) MVC tarafından bu gibi bir biçim ne çağırmak için kodu belirlemek için kullanır:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
@@ -36,13 +36,13 @@ Bazı parametre bilgilerini URL'den denetleyiciye geçirmek için kodu değişti
 
 * C# isteğe bağlı parametre özelliği belirtmek için kullanılan `numTimes` parametresi varsayılan olarak 1'e bu parametre için değer iletilmezse.
 * Kullanan`HtmlEncoder.Default.Encode` kötü amaçlı giriş (yani JavaScript) uygulama korumak için. 
-* Kullanan [Ara değerli dizeler](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
+* Kullanan [Ara değerli dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
 
 Uygulamanızı çalıştırın ve göz atın:
 
    `http://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Xxxx, bağlantı noktası numarasını değiştirin.) İçin farklı değerler deneyin `name` ve `numtimes` URL. MVC [model bağlama](../../mvc/models/model-binding.md) sistem adres çubuğundaki sorgu dizesi yönteminizi parametrelerinde adlandırılmış parametreleri otomatik olarak eşlenir. Bkz: [Model bağlama](../../mvc/models/model-binding.md) daha fazla bilgi için.
+(Xxxx, bağlantı noktası numarasını değiştirin.) İçin farklı değerler deneyin `name` ve `numtimes` URL. MVC [model bağlama](xref:mvc/models/model-binding) sistem adres çubuğundaki sorgu dizesi yönteminizi parametrelerinde adlandırılmış parametreleri otomatik olarak eşlenir. Bkz: [Model bağlama](xref:mvc/models/model-binding) daha fazla bilgi için.
 
 ![Merhaba Rick uygulama yanıtın NumTimes gösteren bir tarayıcı penceresi: 4](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core WebListener web sunucusu uygulaması"
+title: ASP.NET Core WebListener web sunucusu uygulaması
 author: rick-anderson
-description: "WebListener, ASP.NET Core IIS olmadan Internet'e doğrudan bağlantı için kullanılan Windows için bir web sunucusu hakkında bilgi edinin."
+description: WebListener, ASP.NET Core IIS olmadan Internet'e doğrudan bağlantı için kullanılan Windows için bir web sunucusu hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/13/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 13555becb76b9df37728f78a7a8bc112d8de682f
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: cd2e477824d916afcf1a7901e935dd465a466922
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core WebListener web sunucusu uygulaması
 
@@ -78,7 +78,7 @@ Ayrıca [Http.Sys kayıt defteri ayarları](https://support.microsoft.com/kb/820
 
 * NuGet paket yüklemesi [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Bu da yükler [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) bağımlılık olarak.
 
-* Çağrı `UseWebListener` genişletme yöntemi [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) içinde `Main` yöntemi, hiçbir WebListener belirtme [seçenekleri](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) ve [ayarları](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) gereken , aşağıdaki örnekte gösterildiği gibi:
+* Çağrı `UseWebListener` genişletme yöntemi [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) içinde `Main` yöntemi, hiçbir WebListener belirtme [seçenekleri](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) ve [ayarları](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) gereken , aşağıdaki örnekte gösterildiği gibi:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 

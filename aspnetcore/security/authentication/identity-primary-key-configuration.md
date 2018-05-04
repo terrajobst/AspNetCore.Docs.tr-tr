@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: db47055aecc5252dbb3991f29a8255b946deaeb7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ce654492dc7bab6c031c9f82555f877f642171ce
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>ASP.NET Core kimlik birincil anahtar veri türünü yapılandırın
 
@@ -21,11 +21,11 @@ ASP.NET Core kimlik, bir birincil anahtar temsil etmek için kullanılan veri t�
 
 ## <a name="customize-the-primary-key-data-type"></a>Birincil anahtar veri türünü özelleştirme
 
-1. Özel bir uygulamasını oluşturma [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1) sınıfı. Kullanıcı nesneleri oluşturmak için kullanılacak türünü temsil eder. Aşağıdaki örnekte, varsayılan `string` türü ile değiştirilir `Guid`.
+1. Özel bir uygulamasını oluşturma [IdentityUser](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1) sınıfı. Kullanıcı nesneleri oluşturmak için kullanılacak türünü temsil eder. Aşağıdaki örnekte, varsayılan `string` türü ile değiştirilir `Guid`.
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationUser.cs?highlight=4&range=7-13)]
 
-2. Özel bir uygulamasını oluşturma [IdentityRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) sınıfı. Bu rol nesneleri oluşturmak için kullanılacak türünü temsil eder. Aşağıdaki örnekte, varsayılan `string` türü ile değiştirilir `Guid`.
+2. Özel bir uygulamasını oluşturma [IdentityRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) sınıfı. Bu rol nesneleri oluşturmak için kullanılacak türünü temsil eder. Aşağıdaki örnekte, varsayılan `string` türü ile değiştirilir `Guid`.
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationRole.cs?highlight=3&range=7-12)]
 

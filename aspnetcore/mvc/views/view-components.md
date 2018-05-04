@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 41c220c8db4e560f8d144982589eba6220f17980
-ms.sourcegitcommit: 664c5150e2f6bfa16aefb236daf9e32ecf6ab2e9
+ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core görünümü bileşenler
 
@@ -40,7 +40,7 @@ Görünüm bileşenleri herhangi bir yere kısmi görünüm için çok karmaşı
 * Tipik bir blog kenar içerik
 * Her sayfada işlenir ve oturum kapatma veya bağlı durumda olan kullanıcının günlük olarak oturum açma ya da bağlantılarını göster bir oturum açma paneli
 
-Bir görünümü bileşen iki bölümden oluşur: sınıfı (genellikle türetilmiş [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) ve isteğe bağlı olarak sonucu (genellikle bir görünüm) döndürür. Denetleyicileri gibi bir POCO görünümü bileşen olabilir, ancak çoğu Geliştirici türetme tarafından kullanılabilen özellikleri ve yöntemleri yararlanmak istersiniz `ViewComponent`.
+Bir görünümü bileşen iki bölümden oluşur: sınıfı (genellikle türetilmiş [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) ve isteğe bağlı olarak sonucu (genellikle bir görünüm) döndürür. Denetleyicileri gibi bir POCO görünümü bileşen olabilir, ancak çoğu Geliştirici türetme tarafından kullanılabilen özellikleri ve yöntemleri yararlanmak istersiniz `ViewComponent`.
 
 ## <a name="creating-a-view-component"></a>Bir görünüm bileşeni oluşturma
 

@@ -65,7 +65,7 @@ Aşağıda bölümüdür *Create.cshtml* öğreticinin önceki bölümlerinde is
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-[Giriş etiketi yardımcı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve istemci tarafında jQuery doğrulama için gereken HTML özniteliklerini üretir. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
+[Giriş etiketi yardımcı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve istemci tarafında jQuery doğrulama için gereken HTML özniteliklerini üretir. [Doğrulama etiket Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
 
 Bu yaklaşımı hakkında gerçekten iyi nedir hiçbiri denetleyicisi olan veya `Create` şablonu görüntüleme bilir, herhangi bir şey, görüntülenen özel hata iletileri veya zorlanan gerçek doğrulama kuralları hakkında. Doğrulama kuralları ve hata dizesi yalnızca belirtilen `Movie` sınıfı. Bu aynı doğrulama kuralları otomatik olarak uygulanır `Edit` görünümü ve modelinizi düzenleme oluşturduğunuz diğer görünümleri şablonlar.
 

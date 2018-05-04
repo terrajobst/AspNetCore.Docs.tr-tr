@@ -4,4 +4,4 @@ Bu öğretici ASP.NET Core MVC denetleyicileri ve görünümler ile web gelişti
 * İzlemek daha kolay olur.
 * Daha fazla özellikleri kapsar.
 
-Bu öğretici üzerinden seçerseniz [Razor sayfalarının](xref:tutorials/razor-pages/razor-pages-start) sürümü, lütfen nedenini açıklayan bir not bırakın.
+Üzerinden Bu öğretici seçerseniz [Razor sayfalarının](xref:tutorials/razor-pages/razor-pages-start) sürümü, lütfen neden bize içinde [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6146).

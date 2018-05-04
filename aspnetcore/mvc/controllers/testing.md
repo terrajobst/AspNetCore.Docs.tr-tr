@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: b80f92b815439796693528b314b521c1484ba661
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyici mantığında test
 
@@ -40,12 +40,12 @@ Tipik denetleyicisi sorumlulukları:
 
 ## <a name="unit-testing"></a>Birim testi
 
-[Birim testi](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme testleri](xref:mvc/controllers/testing#integration-testing).
+[Birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme testleri](xref:mvc/controllers/testing#integration-testing).
 
 Özel Filtreler, yollar, vb., yazıyorsanız, birim testi gereken bunları, ancak belirli denetleyici eylemi sınamalarınızı parçası olarak değil. Bunlar test yalıtım modunda.
 
 > [!TIP]
-> [Oluşturma ve Visual Studio ile birim testleri çalıştırma](https://docs.microsoft.com/visualstudio/test/unit-test-your-code).
+> [Oluşturma ve Visual Studio ile birim testleri çalıştırma](/visualstudio/test/unit-test-your-code).
 
 Birim testi göstermek için aşağıdaki denetleyicisiyle gözden geçirin. Oturumları fırtınası listesini görüntüler ve yeni bir posta ile oluşturulacak oturumları fırtınası sağlar:
 

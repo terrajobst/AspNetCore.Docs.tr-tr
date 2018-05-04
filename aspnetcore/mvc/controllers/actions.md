@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: c2f37bc7999b4c4ccc985d25d2ef009954d8f3f0
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri tanıtıcı istekleri
 
@@ -36,7 +36,7 @@ Aşağıdaki koşulların en az biri doğru olduğu bir instantiable sınıfı d
 
 Denetleyici sınıfını ilişkili bir olmamalıdır `[NonController]` özniteliği.
 
-Denetleyicileri izlemelidir [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/). Bu ilkeyi uygulamak için birkaç yaklaşım vardır. Aynı hizmetin birden fazla denetleyici eylemleri ihtiyacınız varsa kullanmayı [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) bu bağımlılıkların istemek için. Hizmetin yalnızca bir tek eylem yöntemi tarafından gerekirse kullanmayı [eylem ekleme](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) bağımlılık istemek için.
+Denetleyicileri izlemelidir [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/). Birkaç Bu ilkeyi uygulamak için yaklaşım vardır. Aynı hizmetin birden fazla denetleyici eylemleri ihtiyacınız varsa kullanmayı [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) bu bağımlılıkların istemek için. Hizmetin yalnızca bir tek eylem yöntemi tarafından gerekirse kullanmayı [eylem ekleme](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) bağımlılık istemek için.
 
 İçinde **M**odel -**V**görünümü -**C**ontroller deseni, bir denetleyici isteğin ilk işleme ve modeli örneklemesi için sorumlu. Genellikle, iş kararları içindeki model gerçekleştirilmesi gerekir.
 
@@ -54,7 +54,7 @@ Eylemler herhangi bir şeyi geri ancak sık örneği döndürür `IActionResult`
 
 ### <a name="controller-helper-methods"></a>Denetleyici yardımcı yöntemler
 
-Denetleyicileri genellikle devral [denetleyicisi](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), ancak bu zorunlu değildir. Türetme `Controller` yardımcı yöntemlerinin üç kategoride erişim sağlar:
+Denetleyicileri genellikle devral [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller), ancak bu zorunlu değildir. Türetme `Controller` yardımcı yöntemlerinin üç kategoride erişim sağlar:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Bir boş yanıt gövdesinde kaynaklanan yöntemleri
 
@@ -64,9 +64,9 @@ Bu kategoride iki sonuç türü vardır: yeniden yönlendirme ve HTTP durum kodu
 
 * **HTTP durum kodu**
 
-    Bu tür bir HTTP durum kodu döndürür. Bu tür birkaç yardımcı yöntemler `BadRequest`, `NotFound`, ve `Ok`. Örneğin, `return BadRequest();` çalıştırıldığında 400 durum kodu oluşturur. Zaman gibi yöntemler `BadRequest`, `NotFound`, ve `Ok` olan içerik anlaşması yer aldığı bu yana aşırı, bunlar artık HTTP durum kodu Yanıtlayıcı hakkını kullanmaya devam eder.
+    Bu tür bir HTTP durum kodu döndürür. Bu tür yardımcı yöntemler birkaç olan `BadRequest`, `NotFound`, ve `Ok`. Örneğin, `return BadRequest();` çalıştırıldığında 400 durum kodu oluşturur. Zaman gibi yöntemler `BadRequest`, `NotFound`, ve `Ok` olan içerik anlaşması yer aldığı bu yana aşırı, bunlar artık HTTP durum kodu Yanıtlayıcı hakkını kullanmaya devam eder.
 
-* **Redirect**
+* **yeniden yönlendirme**
 
     Bu tür bir yeniden yönlendirme için bir eylem veya hedef döndürür (kullanarak `Redirect`, `LocalRedirect`, `RedirectToAction`, veya `RedirectToRoute`). Örneğin, `return RedirectToAction("Complete", new {id = 123});` yönlendirir `Complete`, anonim bir nesne geçirme.
 
@@ -90,7 +90,7 @@ Bu kategoride iki sonuç türü vardır: [Görünüm](xref:mvc/views/overview) v
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. İstemciyle anlaşılan bir içerik türü boş yanıt gövdesi içinde kaynaklanan yöntemleri biçimlendirilmiş
 
-Bu kategori daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) bir eylem döndürür her geçerli bir [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) de biçimlendirilmiş bir yanıt döndürür.
+Bu kategori daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) bir eylem döndürür her geçerli bir [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) de biçimlendirilmiş bir yanıt döndürür.
 
 Bu türdeki bazı yardımcı yöntemler içerir `BadRequest`, `CreatedAtRoute`, ve `Ok`. Bu yöntemler örnekleridir `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, ve `return Ok(value);`sırasıyla. Unutmayın `BadRequest` ve `Ok` yalnızca bir değer geçirildiğinde içerik anlaşması gerçekleştirin; bir değer geçirilen olmadan, bunun yerine HTTP durum kodu sonuç türleri olarak verdikleri. `CreatedAtRoute` Yöntemi, diğer yandan, içerik anlaşmasını tüm gerektiren bir değere geçirilecek kendi aşırı itibaren her zaman gerçekleştirir.
 
@@ -101,7 +101,7 @@ Uygulamalar genellikle kendi iş akışının bölümlerini paylaşır. Alışve
 En filtre öznitelikleri gibi `[Authorize]`, ayrıntı düzeyi istenen düzeye bağlı olarak denetleyici veya eylem düzeyinde uygulanabilir.
 
 Hata işleme ve yanıt önbelleğe alma genellikle arası kesme sorunları şunlardır:
-   * [Hata işleme](xref:mvc/controllers/filters#exception-filters)
+   * [Hataları işleme](xref:mvc/controllers/filters#exception-filters)
    * [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
 
 Filtre ya da özel kullanılarak birçok arası kesme sorunları işlenebilir [Ara](xref:fundamentals/middleware/index).

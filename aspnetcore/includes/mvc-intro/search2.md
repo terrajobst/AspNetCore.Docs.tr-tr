@@ -33,7 +33,7 @@ Açık *Views/Movies/Index.cshtml* dosya ve ekleme `<form>` biçimlendirme vurgu
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexForm1.cshtml?highlight=10-16&range=4-21)]
 
-HTML `<form>` etiketi kullanır [Form etiketi yardımcı](../../mvc/views/working-with-forms.md), formu gönderdiğinde, filtre dizesi nakledilir `Index` filmler denetleyici eylem. Değişikliklerinizi kaydetmek ve filtre sınayın.
+HTML `<form>` etiketi kullanır [Form etiketi yardımcı](xref:mvc/views/working-with-forms), formu gönderdiğinde, filtre dizesi nakledilir `Index` filmler denetleyici eylem. Değişikliklerinizi kaydetmek ve filtre sınayın.
 
 ![Word hayalet başlığı filtre metin kutusuna yazdığınız dizin görünümünün](../../tutorials/first-mvc-app/search/_static/filter.png)
 
@@ -53,6 +53,6 @@ Ancak, bu bile eklerseniz `[HttpPost]` sürümü `Index` yöntemini nasıl bu t�
 
 ![Microsoft edge'de hayalet AramaDizesi değeriyle istek gövdesi gösteren Geliştirici Araçları'nın Ağ sekmesi](../../tutorials/first-mvc-app/search/_static/f12_rb.png)
 
-Arama parametresi görebilirsiniz ve [XSRF](../../security/anti-request-forgery.md) istek gövdesindeki belirteci. Önceki öğreticide belirtildiği gibi Not [Form etiketi yardımcı](../../mvc/views/working-with-forms.md) oluşturan bir [XSRF](../../security/anti-request-forgery.md) sahteciliğe karşı koruma belirteci. Biz denetleyicisi yönteminde belirtecini doğrula gerek kalmaması biz veri, değişiklik yaptığınız değil.
+Arama parametresi görebilirsiniz ve [XSRF](xref:security/anti-request-forgery) istek gövdesindeki belirteci. Önceki öğreticide belirtildiği gibi Not [Form etiketi yardımcı](xref:mvc/views/working-with-forms) oluşturan bir [XSRF](xref:security/anti-request-forgery) sahteciliğe karşı koruma belirteci. Biz denetleyicisi yönteminde belirtecini doğrula gerek kalmaması biz veri, değişiklik yaptığınız değil.
 
 Arama parametresi istek gövdesi ve URL olduğundan işaretine, arama bilgilerini yakalama veya başkalarıyla paylaşabilirsiniz. Biz bu düzeltme istek olmalıdır belirterek `HTTP GET`.

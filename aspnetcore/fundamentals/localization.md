@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: 3ae73cb40b4db492883f302aeb559b9606aa8ee7
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -21,7 +21,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](ht
 
 ASP.NET Core ile çok dilli bir Web sitesi oluşturma sitenizi daha geniş bir kitleye erişmesine izin verir. ASP.NET Core farklı dillere ve kültürlere yerelleştirme için hizmetleri ve ara yazılım sağlar.
 
-Uluslararası duruma getirme içerir [Genelleştirme](https://docs.microsoft.com/dotnet/api/system.globalization) ve [yerelleştirme](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). Genelleştirme farklı kültürler destekleyen uygulamalar tasarlama işlemidir. Genelleştirme giriş, görüntüleme ve bir dizi tanımlanmış belirli coğrafi alanlara ilgili dil komut çıktısı için destek ekler.
+Uluslararası duruma getirme içerir [Genelleştirme](/dotnet/api/system.globalization) ve [yerelleştirme](/dotnet/standard/globalization-localization/localization). Genelleştirme farklı kültürler destekleyen uygulamalar tasarlama işlemidir. Genelleştirme giriş, görüntüleme ve bir dizi tanımlanmış belirli coğrafi alanlara ilgili dil komut çıktısı için destek ekler.
 
 Yerelleştirme için belirli bir kültür/bölge için yerelleştirme zaten işlenmiş bir globalized uygulaması uyarlama işlemidir. Daha fazla bilgi için bkz: **Genelleştirme ve yerelleştirme koşulları** bu belgenin sonuna.
 
@@ -35,7 +35,7 @@ Uygulama yerelleştirme aşağıdakileri içerir:
 
 ## <a name="make-the-apps-content-localizable"></a>Uygulamanın içeriği yerelleştirilebilir olun
 
-ASP.NET Core içinde sunulan `IStringLocalizer` ve `IStringLocalizer<T>` yerelleştirilmiş uygulama geliştirme sırasında üretkenliği artırmak için tasarlanmış. `IStringLocalizer` kullanan [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager) ve [ResourceReader](https://docs.microsoft.com/dotnet/api/system.resources.resourcereader) çalışma zamanında kültüre özgü kaynakları sağlamak için. Bir dizin oluşturucu basit arabirim sahiptir ve bir `IEnumerable` yerelleştirilmiş dizeleri döndürmek için. `IStringLocalizer` Varsayılan dil dizeleri kaynak dosyasında depolamak gerektirmez. Yerelleştirme için hedeflenen bir uygulamayı geliştirme ve erken geliştirme kaynak dosyaları oluşturmak gerekmez. Aşağıdaki kod yerelleştirme "hakkında Title" dizesi sarmalama gösterir.
+ASP.NET Core içinde sunulan `IStringLocalizer` ve `IStringLocalizer<T>` yerelleştirilmiş uygulama geliştirme sırasında üretkenliği artırmak için tasarlanmış. `IStringLocalizer` kullanan [ResourceManager](/dotnet/api/system.resources.resourcemanager) ve [ResourceReader](/dotnet/api/system.resources.resourcereader) çalışma zamanında kültüre özgü kaynakları sağlamak için. Bir dizin oluşturucu basit arabirim sahiptir ve bir `IEnumerable` yerelleştirilmiş dizeleri döndürmek için. `IStringLocalizer` Varsayılan dil dizeleri kaynak dosyasında depolamak gerektirmez. Yerelleştirme için hedeflenen bir uygulamayı geliştirme ve erken geliştirme kaynak dosyaları oluşturmak gerekmez. Aşağıdaki kod yerelleştirme "hakkında Title" dizesi sarmalama gösterir.
 
 [!code-csharp[](localization/sample/Localization/Controllers/AboutController.cs)]
 
@@ -63,7 +63,7 @@ Bazı geliştiriciler kullanmak `Startup` sınıfı genel veya paylaşılan dize
 
 ## <a name="view-localization"></a>Görünüm yerelleştirme
 
-`IViewLocalizer` Hizmetidir yerelleştirilmiş dizeleri için bir [Görünüm](https://docs.microsoft.com/aspnet/core). `ViewLocalizer` Sınıfı bu arabirimi uygular ve görünüm dosya yolundan kaynak konumu bulur. Aşağıdaki kod varsayılan uygulamasını kullanmayı gösterir `IViewLocalizer`:
+`IViewLocalizer` Hizmetidir yerelleştirilmiş dizeleri için bir [Görünüm](xref:mvc/views/overview). `ViewLocalizer` Sınıfı bu arabirimi uygular ve görünüm dosya yolundan kaynak konumu bulur. Aşağıdaki kod varsayılan uygulamasını kullanmayı gösterir `IViewLocalizer`:
 
 [!code-cshtml[](localization/sample/Localization/Views/Home/About.cshtml)]
 
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures ve SupportedUICultures
 
-ASP.NET Core iki kültür değerleri belirtmenize olanak verir `SupportedCultures` ve `SupportedUICultures`. [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) için nesne `SupportedCultures` tarih, saat, sayı ve para birimi biçimlendirme gibi kültüre bağlı işlevleri sonuçlarını belirler. `SupportedCultures` Ayrıca, metin, büyük/küçük harf kuralları ve dize karşılaştırmaları sıralama düzenini belirler. Bkz: [CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) nasıl sunucu kültürü alır hakkında daha fazla bilgi için. `SupportedUICultures` Hangi dizeleri çevirir belirler (gelen *.resx* dosyaları) tarafından aranır [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). `ResourceManager` Yalnızca tarafından belirlenen kültüre özgü dizeleri arar `CurrentUICulture`. Her iş parçacığı .NET içinde `CurrentCulture` ve `CurrentUICulture` nesneleri. ASP.NET Core kültüre bağlı işlevleri oluşturulurken bu değerleri inceler. Örneğin, "en-US" (İngilizce, Amerika Birleşik Devletleri), geçerli iş parçacığının kültür ayarlanırsa `DateTime.Now.ToLongDateString()` , ancak "Perşembe 18 Şubat 2016,", görüntüler `CurrentCulture` ayarlanır "es-ES için" (İspanyolca, İspanya) çıktı olur "jueves, 18 de febrero de 2016".
+ASP.NET Core iki kültür değerleri belirtmenize olanak verir `SupportedCultures` ve `SupportedUICultures`. [CultureInfo](/dotnet/api/system.globalization.cultureinfo) için nesne `SupportedCultures` tarih, saat, sayı ve para birimi biçimlendirme gibi kültüre bağlı işlevleri sonuçlarını belirler. `SupportedCultures` Ayrıca, metin, büyük/küçük harf kuralları ve dize karşılaştırmaları sıralama düzenini belirler. Bkz: [CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) nasıl sunucu kültürü alır hakkında daha fazla bilgi için. `SupportedUICultures` Hangi dizeleri çevirir belirler (gelen *.resx* dosyaları) tarafından aranır [ResourceManager](/dotnet/api/system.resources.resourcemanager). `ResourceManager` Yalnızca tarafından belirlenen kültüre özgü dizeleri arar `CurrentUICulture`. Her iş parçacığı .NET içinde `CurrentCulture` ve `CurrentUICulture` nesneleri. ASP.NET Core kültüre bağlı işlevleri oluşturulurken bu değerleri inceler. Örneğin, "en-US" (İngilizce, Amerika Birleşik Devletleri), geçerli iş parçacığının kültür ayarlanırsa `DateTime.Now.ToLongDateString()` , ancak "Perşembe 18 Şubat 2016,", görüntüler `CurrentCulture` ayarlanır "es-ES için" (İspanyolca, İspanya) çıktı olur "jueves, 18 de febrero de 2016".
 
 ## <a name="resource-files"></a>Kaynak dosyaları
 
@@ -176,7 +176,7 @@ Bir kaynak için arama yaparken, yerelleştirme "kültürün geri dönüş" ilgi
 
 Sitenizi kültür "fr-CA" kullanarak bir "Hoş Geldiniz" kaynağı için bir istek alırsa düşünün. Yerelleştirme sistem aşağıdaki kaynaklar, sırayla arar ve ilk eşleşmeyi seçer:
 
-* *Welcome.fr-CA.resx*
+* *Welcome.fr CA.resx*
 * *Welcome.fr.resx*
 * *Welcome.resx* (varsa `NeutralResourcesLanguage` "fr-CA" dır)
 
@@ -310,7 +310,7 @@ Tak olamaz *_SelectLanguagePartial.cshtml* bu proje için örnek kod için. **Lo
 
 Uygulamanızı yerelleştirme işlemi aynı zamanda ilgili karakter kümesi modern yazılım geliştirme sık kullanılan temel bir anlayış ve bunlarla ilişkili sorunları anlaşılması gerektirir. Tüm bilgisayarlar (kodları) sayı olarak metin depolamaya rağmen farklı sistemler farklı numaraları kullanarak aynı metin saklar. Belirli bir kültür/yerel uygulama kullanıcı arabirimi (UI) çevirme için yerelleştirme işlemini gösterir.
 
-[Yerelleştirilebilirlik](https://docs.microsoft.com/dotnet/standard/globalization-localization/localizability-review) globalized uygulama yerelleştirme için hazır olduğunu doğrulamak için Ara bir işlemdir.
+[Yerelleştirilebilirlik](/dotnet/standard/globalization-localization/localizability-review) globalized uygulama yerelleştirme için hazır olduğunu doğrulamak için Ara bir işlemdir.
 
 [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) kültür adı biçimlendirme `<languagecode2>-<country/regioncode2>`, burada `<languagecode2>` dil kodu ve `<country/regioncode2>` alt kodudur. Örneğin, `es-CL` İzlandaca, için `en-US` İngilizce (ABD) için ve `en-AU` İngilizce (Avustralya). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) iki harfli küçük kültür kod dili ile ilişkili bir ISO 639 ve iki harfli büyük alt kod, bir ülke veya bölge ile ilişkili bir ISO 3166 birleşimidir. Bkz: [dil kültür adı](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx).
 
@@ -330,6 +330,6 @@ Koşulları:
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Localization.StarterWeb proje](https://github.com/aspnet/entropy) makalesinde kullanılır.
-* [Visual Studio'da kaynak dosyaları](https://docs.microsoft.com/cpp/windows/resource-files-visual-studio)
-* [.Resx dosyaları kaynakları](https://docs.microsoft.com/dotnet/framework/resources/working-with-resx-files-programmatically)
+* [Visual Studio'da kaynak dosyaları](/cpp/windows/resource-files-visual-studio)
+* [.Resx dosyaları kaynakları](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft çok dilli uygulama araç seti](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
