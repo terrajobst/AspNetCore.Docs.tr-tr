@@ -132,6 +132,7 @@
 ### [HTTP.sys](fundamentals/servers/httpsys.md)
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 ### [Orchard Core ile Taşınabilir Nesne Yerelleştirmesi Yapılandırma](xref:fundamentals/portable-object-localization)
+## [HTTP isteklerini başlatma](xref:fundamentals/http-requests)
 ## [İstek özellikleri](fundamentals/request-features.md)
 ## [Barındırılan hizmetler ile arka plan görevleri](xref:fundamentals/hosted-services)
 ## [Temel Türler](xref:fundamentals/primitives/index)
@@ -143,9 +144,11 @@
 ## [ASP.NET Core ile ASP.NET arasında seçim yapma](choose-aspnet-framework.md)
 
 # [Razor Sayfaları](xref:mvc/razor-pages/index)
-## [Rota ve uygulama kuralı özellikleri](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Razor Sayfaları için filtre metodu](xref:mvc/razor-pages/filter)
+## [Razor Sınıf Kitaplığı oluşturma](xref:mvc/razor-pages/ui-class)
+## [Rota ve uygulama kuralı özellikleri](xref:mvc/razor-pages/razor-pages-convention-features)
 ## [Razor SDK](xref:mvc/razor-pages/sdk)
+
 
 # [MVC](mvc/overview.md)
 ## [Model bağlama](mvc/models/model-binding.md)
@@ -355,7 +358,7 @@
 ## [ASP.NET Core 1.x sürümünden 2.0 sürümüne](xref:migration/1x-to-2x/index)
 ### [Kimlik Doğrulama ve Kimlik](xref:migration/1x-to-2x/identity-2x)
 
-# [API Başvurusu](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0)
+# [API Başvurusu](/dotnet/api/?view=aspnetcore-2.0)
 
 # [2.0 sürüm notları](aspnetcore-2.0.md)
 ## [1.1 sürüm notları](aspnetcore-1.1.md)
