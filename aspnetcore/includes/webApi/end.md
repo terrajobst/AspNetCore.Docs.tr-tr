@@ -9,12 +9,12 @@ Aşağıdakileri ekleyin `Create` yöntemi:
 ::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
+Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden Yapılacaklar öğesi değerini almak için MVC söyler.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC HTTP isteği gövdesinden Yapılacaklar öğesi değerini alır.
+Önceki kod belirtildiği gibi bir HTTP POST yöntemi olup [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC HTTP isteği gövdesinden Yapılacaklar öğesi değerini alır.
 ::: moniker-end
 
 `CreatedAtRoute` Yöntemi:
