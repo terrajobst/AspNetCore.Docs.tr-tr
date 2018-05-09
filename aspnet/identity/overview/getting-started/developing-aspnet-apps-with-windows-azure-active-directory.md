@@ -12,20 +12,17 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9b2dc05089126fd5f4c1b0a0bd85b8a39f3041dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Azure Active Directory ile ASP.NET uygulama geliştirme
 ====================
 tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Microsoft ASP.NET araçları Azure Active Directory üzerinde barındırılan web uygulamaları için kimlik doğrulamasını etkinleştirmek basit yapar için [Azure](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
-> 
->  Bu öğretici Rick Anderson tarafından yazıldı [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-
+Microsoft ASP.NET araçları etkinleştirme kimlik doğrulaması üzerinde barındırılan web uygulamaları için Azure Active Directory basitleştirir için [Azure](https://www.windowsazure.com/home/features/web-sites/). Kuruluşunuz, şirket içi Active Directory'nizden eşitlenen Kurumsal hesaplara veya kendi özel Azure Active Directory etki alanında oluşturulan kullanıcıların Office 365 kullanıcıların kimliğini doğrulamak için Azure kimlik doğrulaması kullanabilirsiniz. Windows Azure kimlik doğrulamasını etkinleştirme yapılandırır tek bir kullanarak kullanıcıların kimliklerini doğrulamak için uygulamanızın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Kiracı.
 
 Bu öğretici ile oturum açma için yapılandırılmış bir ASP.NET uygulamasının nasıl oluşturulacağını gösterir [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). Ayrıca, şu anda oturum açmış kullanıcı hakkında bilgi almak için grafik API'sini çağırmak nasıl ve uygulamayı Azure'a dağıtmayı öğreneceksiniz.
 

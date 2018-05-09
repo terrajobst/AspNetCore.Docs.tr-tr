@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core yetkilendirme
 author: rick-anderson
-description: "Uygulama kullanıcılara haklar ve ayrıcalıklar sağlamak açıklanmaktadır ASP.NET Core yetkilendirme konuları bulur."
+description: Uygulama kullanıcılara haklar ve ayrıcalıklar sağlamak açıklanmaktadır ASP.NET Core yetkilendirme konuları bulur.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: 652a01d58f7a7d19faa8531b61ea780bc379c428
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: ef275011cdd87b1d0c861de735d89d064574be5a
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="authorization-in-aspnet-core"></a>ASP.NET Core yetkilendirme
 
@@ -31,6 +31,8 @@ ms.lasthandoff: 02/20/2018
 * [Talep tabanlı yetkilendirme](xref:security/authorization/claims)
 
 * [İlke tabanlı yetkilendirme](xref:security/authorization/policies)
+
+* [Özel yetkilendirme ilkesi sağlayıcıları](xref:security/authorization/iauthorizationpolicyprovider)
 
 * [Gereksinim işleyicilerine bağımlılık ekleme](xref:security/authorization/dependencyinjection)
 

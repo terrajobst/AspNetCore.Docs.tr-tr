@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/hosting
-ms.openlocfilehash: 344bf5f0917f4c33d67eeb14176ff2aae3ae75da
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 727e6d8cc259ea4be62ead38d31c59e2785ddbad
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>ASP.NET çekirdek barındırma
 
@@ -187,7 +187,7 @@ Uygulamanın ortamını ayarlar.
 **Kullanılarak ayarlanan**: `UseEnvironment`  
 **Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
 
-Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
+Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments).
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -263,7 +263,7 @@ Bu özellik ASP.NET Core kullanılamıyor 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Başlangıç barındırma engelle
 
-Uygulamanın derlemesi tarafından yapılandırılan başlangıç derlemeleri barındırma dahil olmak üzere başlangıç derlemeleri barındırma otomatik yüklenmesini engeller. Bkz: [platforma özgü yapılandırma kullanarak uygulama özellik ekleme](xref:host-and-deploy/platform-specific-configuration) daha fazla bilgi için.
+Uygulamanın derlemesi tarafından yapılandırılan başlangıç derlemeleri barındırma dahil olmak üzere başlangıç derlemeleri barındırma otomatik yüklenmesini engeller. Bkz: [dış bütünleştirilmiş uygulama geliştirmek](xref:fundamentals/configuration/platform-specific-configuration) daha fazla bilgi için.
 
 **Anahtar**: preventHostingStartup  
 **Tür**: *bool* (`true` veya `1`)  
@@ -786,7 +786,7 @@ public class Startup
 ```
 
 > [!NOTE]
-> Ek olarak `IsDevelopment` genişletme yöntemi, `IHostingEnvironment` sunar `IsStaging`, `IsProduction`, ve `IsEnvironment(string environmentName)` yöntemleri. Bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments) Ayrıntılar için.
+> Ek olarak `IsDevelopment` genişletme yöntemi, `IHostingEnvironment` sunar `IsStaging`, `IsProduction`, ve `IsEnvironment(string environmentName)` yöntemleri. Bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments) Ayrıntılar için.
 
 `IHostingEnvironment` Hizmet aynı zamanda eklenen doğrudan `Configure` yöntemi işleme ardışık ayarlamak için:
 

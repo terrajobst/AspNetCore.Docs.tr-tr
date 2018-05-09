@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 223b1906ef9941084e18e0698f007d9564e81f09
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -107,7 +107,7 @@ Kullanma hakkında bilgi için `IHttpClientFactory` erişimi `HttpClient` HTTP i
 
 "Geliştirme" ve "Üretim" gibi ortamları ASP.NET Core, birinci sınıf bir kavram ve ortam değişkenlerini kullanma ayarlayabilirsiniz.
 
-Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
+Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments).
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -143,7 +143,7 @@ Daha fazla bilgi için bkz: [dosya sağlayıcıları](xref:fundamentals/file-pro
 
 Statik dosya ara yazılımı HTML, CSS, görüntü ve JavaScript gibi statik dosyaları sunar.
 
-Daha fazla bilgi için bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files).
+Daha fazla bilgi için bkz: [statik dosyaları](xref:fundamentals/static-files).
 
 ## <a name="hosting"></a>Barındırma
 

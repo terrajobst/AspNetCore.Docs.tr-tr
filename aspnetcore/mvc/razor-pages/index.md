@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Ryan Nowak](https://github.com/rynowak)
 
-Razor sayfalarının sayfa odaklı senaryoları daha kolay ve daha üretken kodlama yapar ASP.NET Core MVC yeni özelliğidir.
+Razor sayfalarının yeni bir sayfa odaklı senaryoları daha kolay ve daha üretken kodlama yapar ASP.NET Core MVC durumuyla olur.
 
 Model-View-Controller yaklaşım kullanan bir öğretici için arıyorsanız bkz [ASP.NET Core MVC ile çalışmaya başlama](xref:tutorials/first-mvc-app/start-mvc).
 
@@ -92,7 +92,7 @@ Notlar:
 
 ## <a name="writing-a-basic-form"></a>Temel form yazma
 
-Razor sayfalarının özellikleri ortak desenler web tarayıcılarıyla birlikte kullanılan kolay hale getirmek üzere tasarlanmıştır. [Model bağlama](xref:mvc/models/model-binding), [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)ve HTML Yardımcıları tüm *yalnızca iş* Razor sayfasını sınıfında tanımlanan özelliklere sahip. "Bize başvurun" form için temel bir uygulayan bir sayfa göz önünde bulundurun `Contact` modeli:
+Razor sayfalarının web tarayıcılarıyla birlikte kolay bir uygulama oluştururken uygulamak için kullanılan ortak desenler olmak için tasarlanmıştır. [Model bağlama](xref:mvc/models/model-binding), [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)ve HTML Yardımcıları tüm *yalnızca iş* Razor sayfasını sınıfında tanımlanan özelliklere sahip. "Bize başvurun" form için temel bir uygulayan bir sayfa göz önünde bulundurun `Contact` modeli:
 
 Bu belgede, örnekleri için `DbContext` içinde başlatılan [haline](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16) dosya.
 
@@ -147,7 +147,7 @@ Teslim edilen formu (yani sunucuya geçirilir) doğrulama hataları olduğunda`O
 Razor sayfalarının varsayılan olarak, GET olmayan fiiller yalnızca özelliklerle bağlayın. Bağlama özellikleri için kod yazmak zorunda miktarını azaltır. Bağlama form alanları oluşturmak için aynı özelliği kullanarak kod azaltır (`<input asp-for="Customer.Name" />`) ve giriş kabul edin.
 
 > [!NOTE]
-> Güvenlik nedenleriyle, sayfa model özellikleri GET isteği veri bağlaması kabul gerekir. Kullanıcı girişi özelliklere eşleme önce doğrulayın. Bu davranış seçim sorgu dizesi veya rota değerlerine dayanan özellikleri oluştururken yararlıdır.
+> Güvenlik nedenleriyle, sayfa model özellikleri GET isteği veri bağlaması kabul gerekir. Kullanıcı girişi özelliklere eşleme önce doğrulayın. Bu davranış seçim sorgu dizesi veya rota değerlerine dayanan senaryoları adresleme yararlıdır.
 >
 > Özellik GET isteklerinde bağlamak için ayarlanmış `[BindProperty]` özniteliğin `SupportsGet` özelliğine `true`: `[BindProperty(SupportsGet = true)]`
 
@@ -248,7 +248,7 @@ Herhangi bir kod yazmak zorunda değilsiniz [antiforgery doğrulama](xref:securi
 <a name="layout"></a>
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Düzenleri, kısmi, şablonları ve etiket Yardımcıları Razor Pages ile kullanma
 
-Sayfaları tüm özellikleri Razor görüntüleme altyapısı ile çalışmaz. Düzenleri, kısmi, şablonları, etiket Yardımcıları *_ViewStart.cshtml*, *_viewımports.cshtml* iş için geleneksel Razor görünümleri yaparlar aynı şekilde.
+Sayfaları Razor görüntüleme altyapısı tüm özellikleri çalışır. Düzenleri, kısmi, şablonları, etiket Yardımcıları *_ViewStart.cshtml*, *_viewımports.cshtml* iş için geleneksel Razor görünümleri yaparlar aynı şekilde.
 
 Şimdi bu sayfa bu özelliklerden bazıları yararlanarak declutter.
 
@@ -336,7 +336,7 @@ Uygulama, aşağıdaki dosya/klasör yapısını sahiptir:
 * `<a asp-page="/Index">My Index Page</a>`
 * `RedirectToPage("/Index")`
 
-Sayfa adı sayfasına kökünden yoludur */sayfaları* klasörü (başında dahil olmak üzere `/`, örneğin `/Index`). Önceki URL nesil yalnızca cmdlet'e kod bir URL daha çok daha zengin örneklerdir. URL oluşturma kullanan [yönlendirme](xref:mvc/controllers/routing) ve oluşturmak ve yol hedef yolunda nasıl tanımlandığına göre parametreleri kodlayın.
+Sayfa adı sayfasına kökünden yoludur */sayfaları* başında dahil olmak üzere klasörü `/` (örneğin, `/Index`). Önceki URL nesil örnekleri bir URL cmdlet'e kod Gelişmiş Seçenekler ve işlevsel özellikler sunar. URL oluşturma kullanan [yönlendirme](xref:mvc/controllers/routing) ve oluşturmak ve yol hedef yolunda nasıl tanımlandığına göre parametreleri kodlayın.
 
 Göreli adlar sayfaları için URL oluşturmayı destekler. Aşağıdaki tabloda hangi dizin sayfası ile farklı seçildiğini gösterir `RedirectToPage` parametrelerinden *Pages/Customers/Create.cshtml*:
 
@@ -455,5 +455,5 @@ services.AddMvc()
 * [Razor söz dizimi](xref:mvc/views/razor)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
-* [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-conventions)
 * [Razor sayfalarının testleri birim ve tümleştirme](xref:testing/razor-pages-testing)

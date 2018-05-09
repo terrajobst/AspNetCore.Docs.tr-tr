@@ -1,7 +1,7 @@
 ---
-title: ASP.NET ASP.NET Core 2.0 geçirme
+title: ASP.NET ASP.NET Core geçirme
 author: isaac2004
-description: ASP.NET Core 2.0 geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yönergeler alırsınız.
+description: Yönergeler için ASP.NET Core.web geçirme mevcut ASP.NET MVC veya Web API uygulamaları için alma
 manager: wpickett
 ms.author: scaddie
 ms.date: 08/27/2017
@@ -9,28 +9,29 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 86b4ee5f431d1e23ed3ad2be5740af34176de531
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82f85bf2919fac1c023c0b89419a42a3ef7c402c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
+# <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET ASP.NET Core geçirme
 
 Tarafından [Isaac Levin](https://isaaclevin.com)
 
-Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET uygulamaları için bir başvuru kılavuzu olarak görev yapar.
+Bu makalede, bir başvuru kılavuzu geçirme ASP.NET uygulamaları için ASP.NET Core olarak görev yapar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
-ASP.NET Core 2.0 projeleri geliştiriciler .NET Core, .NET Framework veya her ikisini hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim yapma](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) hangi hedef Framework'ü en uygun olduğunu belirlemek için.
+
+ASP.NET Core projeleri geliştiriciler .NET Core, .NET Framework veya her ikisini hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim yapma](/dotnet/standard/choosing-core-framework-server) hangi hedef Framework'ü en uygun olduğunu belirlemek için.
 
 .NET Framework hedeflerken projeleri tek tek NuGet paketlerini başvurmanız gerekir.
 
-.NET Core hedefleme ASP.NET Core 2.0 sayesinde çok sayıda açık paket referanslarını ortadan kaldırmanıza olanak tanır [metapackage](xref:fundamentals/metapackage). Yükleme `Microsoft.AspNetCore.All` projenizdeki metapackage:
+.NET Core hedefleme ASP.NET Core sayesinde çok sayıda açık paket referanslarını ortadan kaldırmanıza olanak tanır [metapackage](xref:fundamentals/metapackage). Yükleme `Microsoft.AspNetCore.All` projenizdeki metapackage:
 
 ```xml
 <ItemGroup>
@@ -41,7 +42,9 @@ ASP.NET Core 2.0 projeleri geliştiriciler .NET Core, .NET Framework veya her ik
 Metapackage kullanıldığında, metapackage başvurulan hiç paket uygulamayla dağıtılır. Bunlar performansını artırmak için önceden derlenmiş ve bu varlıkları .NET çekirdeği çalışma zamanı deposu içerir. Bkz: [ASP.NET Core Microsoft.AspNetCore.All metapackage 2.x](xref:fundamentals/metapackage) daha fazla ayrıntı için.
 
 ## <a name="project-structure-differences"></a>Proje yapısı farklar
+
 *.Csproj* dosya biçimi ASP.NET Core basitleştirilmiştir. Bazı önemli değişiklikler şunları içerir:
+
 - Açık dosyaları edilmesi bunları projenin bir parçası olarak kabul edilmesi gerekli değildir. Bu büyük takımlar temelinde çalışırken XML birleştirme çakışmaları riskini azaltır.
 - Hangi dosya okunabilirliğini artırır diğer projeler için GUID tabanlı başvuru vardır.
 - Visual Studio'da kaldırılması olmadan dosya düzenlenebilir:
@@ -49,6 +52,7 @@ Metapackage kullanıldığında, metapackage başvurulan hiç paket uygulamayla 
     ![Visual Studio 2017 CSPROJ bağlam menüsü seçeneğini Düzenle](_static/EditProjectVs2017.png)
 
 ## <a name="globalasax-file-replacement"></a>Global.asax dosyası değiştirme
+
 ASP.NET Core uygulama Önyüklemesi için yeni bir mekanizma sunar. ASP.NET uygulamaları için giriş noktası *Global.asax* dosya. Yol yapılandırması ve filtre ve alan kayıtlar gibi görevleri işlenir *Global.asax* dosya.
 
 [!code-csharp[](samples/globalasax-sample.cs)]
@@ -75,9 +79,11 @@ ASP.NET Core benzer bir yaklaşım kullanır, ancak giriş işlemek OWIN kullanm
 
 Ana bilgisayar ve uygulama, gelecekte farklı bir platform için taşıma esneklik sağlayan ayrılmış.
 
-**Not:** ASP.NET Core başlatma ve ara yazılımı için daha kapsamlı bir başvuru için bkz: [ASP.NET Core başlangıç](xref:fundamentals/startup)
+> [!NOTE]
+> ASP.NET çekirdeği başlangıç ve ara yazılımı için daha kapsamlı bir başvuru için bkz: [ASP.NET Core başlangıç](xref:fundamentals/startup)
 
-## <a name="storing-configurations"></a>Depolama yapılandırmaları
+## <a name="store-configurations"></a>Depolama yapılandırmaları
+
 ASP.NET depolama ayarlarını destekler. Bu ayar, örneğin, uygulamaları dağıtılıp dağıtılmadığını ortamını desteklemek için kullanılır. Tüm özel anahtar-değer çiftlerini depolamak için ortak bir uygulama kullanılmasıydır `<appSettings>` bölümünü *Web.config* dosyası:
 
 [!code-xml[](samples/webconfig-sample.xml)]
@@ -105,12 +111,14 @@ Bu yaklaşımın işlemi kullanarak gibi daha sağlam hale uzantıları vardır 
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**Not:** ASP.NET Core yapılandırma daha kapsamlı bir başvuru için bkz: [ASP.NET Core yapılandırmasında](xref:fundamentals/configuration/index).
+> [!NOTE]
+> ASP.NET Core yapılandırma daha kapsamlı bir başvuru için bkz: [ASP.NET Core yapılandırmasında](xref:fundamentals/configuration/index).
 
 ## <a name="native-dependency-injection"></a>Yerel bağımlılık ekleme
+
 Büyük, ölçeklendirilebilir uygulamalar oluştururken bir önemli bileşenleri ve hizmetlerin gevşek bağlantı hedeftir. [Bağımlılık ekleme](xref:fundamentals/dependency-injection) bunu elde etmek için yaygın olarak kullanılan bir tekniktir ve ASP.NET Core yerel bir bileşeni olduğu.
 
-ASP.NET uygulamalarında geliştiriciler bağımlılık ekleme uygulamak için bir üçüncü taraf kitaplığı kullanır. Bu tür bir kitaplığıdır [Unity](https://github.com/unitycontainer/unity), Microsoft Patterns & yöntemler tarafından sağlanan. 
+ASP.NET uygulamaları, geliştiricilerin bağımlılık ekleme uygulamak için bir üçüncü taraf kitaplığı kullanır. Bu tür bir kitaplığıdır [Unity](https://github.com/unitycontainer/unity), Microsoft Patterns & yöntemler tarafından sağlanan.
 
 Bir bağımlılık ekleme Unity ile ayarlama örneği uygulama `IDependencyResolver` , saran bir `UnityContainer`:
 
@@ -130,9 +138,11 @@ Bağımlılık ekleme ASP.NET Core parçası olduğundan, hizmetinizi ekleyebili
 
 Depo her yerden, Unity ile doğru şekilde yerleştirilebilir.
 
-**Not:** ASP.NET Core bağımlılık ekleme bir ayrıntılı başvuru için bkz: [ASP.NET Core bağımlılık ekleme](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
+> [!NOTE]
+> ASP.NET Core bağımlılık ekleme bir ayrıntılı başvuru için bkz: [ASP.NET Core bağımlılık ekleme](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
 
-## <a name="serving-static-files"></a>Statik dosyaları sunma
+## <a name="serve-static-files"></a>Statik dosyaları işleme
+
 Önemli, bir web geliştirme statik, istemci-tarafı varlıklar sunabilme özelliğini parçasıdır. En yaygın statik dosyaları HTML, CSS, Javascript ve görüntüleri gösterilebilir. Bu dosyalar veya uygulama (CDN) yayımlanan konumda kaydedilir ve bir istek tarafından yüklenebilmesi için başvurulan gerekir. Bu işlem, ASP.NET Core değişti.
 
 ASP.NET, statik dosyalar çeşitli dizinlerde depolanan ve görünümlerde başvurulan.
@@ -141,12 +151,14 @@ ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;
 
 [!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 
-**Not:** .NET Framework'ü hedefleme NuGet paketini yükleyin `Microsoft.AspNetCore.StaticFiles`.
+> [!NOTE]
+> .NET Framework'ü hedefleme NuGet paketini yükleyin `Microsoft.AspNetCore.StaticFiles`.
 
 Örneğin, bir görüntü varlığı *wwwroot/görüntüleri* klasördür erişilebilir bir konumda tarayıcıya gibi `http://<app>/images/<imageFileName>`.
 
-**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışma](xref:fundamentals/static-files).
+> [!NOTE]
+> ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [statik dosyaları](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [.NET Core kitaplıklara bağlantı noktası oluşturma](/dotnet/core/porting/libraries)
+- [.NET Core kitaplıklara bağlantı noktası oluşturma](/dotnet/core/porting/libraries)

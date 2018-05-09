@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 60115dd06a27bf856427953de29e993194afb991
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>ASP.NET Web sayfalarını - Programlama temelleri tanıtma
 ====================
@@ -207,7 +207,7 @@ Sayfayı çalıştırın ve tıklatın **gönderme**. Bu süre, yalnızca farkl�
 
 ### <a name="testing-the-value-of-a-query-string"></a>Bir sorgu dizesi değerini test etme
 
-Daha fazla test. Bu süre, eğer ekleyeceksiniz bir değeri test blok adlandırılmış sorgu dizesinde geçirilen göster. (Şöyle: ''http://localhost:43097/TestRazorPart2.cshtml`?show=true`), görüntüleme ileti böylece sayfa değiştireceğiz ("Bu ilk kez...", vb.) göster değeri true ise yalnızca görüntülenir.
+Daha fazla test. Bu süre, eğer ekleyeceksiniz bir değeri test blok adlandırılmış sorgu dizesinde geçirilen göster. (Şöyle: `http://localhost:43097/TestRazorPart2.cshtml?show=true`), görüntüleme ileti böylece sayfa değiştireceğiz ("Bu ilk kez...", vb.) göster değeri true ise yalnızca görüntülenir.
 
 Alt (ancak iç) sayfanın üstündeki kod bloğu aşağıdakileri ekleyin:
 
@@ -223,7 +223,7 @@ Yeni kod bloğundaki false showMessage adlı bir değişken başlatır. Ardında
 
 Kod URL sorgu dizesinde URL bu sürümü gibi show adlı bir değişken içerip içermediğini belirler:
 
-`http://localhost:43097/TestRazorPart2.cshtml`?show=true
+`http://localhost:43097/TestRazorPart2.cshtml`? Göster = true
 
 Test isteği nesnesinin QueryString özellik arar. Sorgu dizesi adlı bir öğe Göster içeriyorsa ve bu öğe true olarak if ayarlanmışsa bloğu çalıştırır ve showMessage değişkeni true olarak ayarlanır.
 

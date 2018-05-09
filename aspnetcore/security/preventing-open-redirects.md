@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/preventing-open-redirects
-ms.openlocfilehash: 4a210b8bb8091e7c036d4bc98306e3b3f90d7d46
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 9ac6b311170dbbc27dd388842c071bc64add6f08
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>ASP.NET Core açık yeniden yönlendirme saldırılarına engelle
 
@@ -29,18 +29,18 @@ Hedef URL isteğinin sorgu dizesinde belirtildiğinden, kötü niyetli bir kulla
 
 ### <a name="an-example-attack"></a>Örnek saldırının
 
-Kötü niyetli bir kullanıcı, bir kullanıcının kimlik bilgileri veya uygulamanızdan hassas bilgileri kötü amaçlı kullanıcı erişmesine izin vermek için amaçlanan bir saldırı geliştirebilir. Saldırı başlatmak için kullanıcının, sitenin oturum açma sayfasına bir bağlantı ile'ı bunlar ikna bir `returnUrl` URL'ye eklenen sorgu dizesi değeri. Örneğin, [NerdDinner.com](http://nerddinner.com) örnek uygulama (ASP.NET MVC için yazılan) bu tür bir oturum açma sayfasına burada içerir: ``http://nerddinner.com/Account/LogOn?returnUrl=/Home/About``. Saldırı sonra şu adımları izler:
+Kötü niyetli bir kullanıcı, bir kullanıcının kimlik bilgileri veya uygulamanızdan hassas bilgileri kötü amaçlı kullanıcı erişmesine izin vermek için amaçlanan bir saldırı geliştirebilir. Saldırı başlatmak için kullanıcının, sitenin oturum açma sayfasına bir bağlantı ile'ı bunlar ikna bir `returnUrl` URL'ye eklenen sorgu dizesi değeri. Örneğin, [NerdDinner.com](http://nerddinner.com) örnek uygulama (ASP.NET MVC için yazılan) bu tür bir oturum açma sayfasına burada içerir: `http://nerddinner.com/Account/LogOn?returnUrl=/Home/About`. Saldırı sonra şu adımları izler:
 
-1. Kullanıcı, bir bağlantı ``http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn`` (Not, ikinci URL'dir nerddi**n**er, değil nerddi**nn**er).
+1. Kullanıcı, bir bağlantı `http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn` (Not, ikinci URL'dir nerddi**n**er, değil nerddi**nn**er).
 2. Kullanıcı başarıyla oturum.
-3. Kullanıcı için (site tarafından) yönlendirilir ``http://nerddiner.com/Account/LogOn`` (gerçek sitesine benzeyen kötü amaçlı site).
+3. Kullanıcı için (site tarafından) yönlendirilir `http://nerddiner.com/Account/LogOn` (gerçek sitesine benzeyen kötü amaçlı site).
 4. Kullanıcı yeniden oturum (kimlik bilgilerini site kötü amaçlı vermiş) ve gerçek sitenin yönlendirilir.
 
 Kullanıcı büyük olasılıkla, ilk oturum açma girişimi başarısız oldu düşünüyorsanız ve bunların ikincisi başarılı oldu. Bunlar büyük olasılıkla farkında kalacak kimlik bilgilerini tehlikeye.
 
 ![Açık yeniden yönlendirme saldırısına işlemi](preventing-open-redirects/_static/open-redirection-attack-process.png)
 
-Oturum açma sayfaları ek olarak bazı siteler yeniden yönlendirme sayfaları veya uç noktaları sağlar. Uygulamanızı sahip açık bir yeniden yönlendirme içeren bir sayfa düşünün ``/Home/Redirect``. Bir saldırgan, örneğin, giden e-posta iletisinde bir bağlantı oluşturabilir ``[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login``. Tipik bir kullanıcıyı URL'de bakın ve site adınızı ile başlayan bakın. Güvenen, bunlar bağlantıya tıklayarak. Açık yeniden yönlendirme sonra kullanıcı dilediğiniz aynı görünür, kimlik avı siteye gönderir ve kullanıcı büyük olasılıkla misiniz ne düşünüyorsanız için oturum açma adıdır, sitenizi.
+Oturum açma sayfaları ek olarak bazı siteler yeniden yönlendirme sayfaları veya uç noktaları sağlar. Uygulamanızı sahip açık bir yeniden yönlendirme içeren bir sayfa düşünün `/Home/Redirect`. Bir saldırgan, örneğin, giden e-posta iletisinde bir bağlantı oluşturabilir `[yoursite]/Home/Redirect?url=http://phishingsite.com/Home/Login`. Tipik bir kullanıcıyı URL'de bakın ve site adınızı ile başlayan bakın. Güvenen, bunlar bağlantıya tıklayarak. Açık yeniden yönlendirme sonra kullanıcı dilediğiniz aynı görünür, kimlik avı siteye gönderir ve kullanıcı büyük olasılıkla misiniz ne düşünüyorsanız için oturum açma adıdır, sitenizi.
 
 ## <a name="protecting-against-open-redirect-attacks"></a>Açık yeniden yönlendirme saldırılarına karşı koruma
 
@@ -48,7 +48,7 @@ Web uygulamaları geliştirirken, tüm kullanıcı tarafından sağlanan veriler
 
 ### <a name="localredirect"></a>LocalRedirect
 
-Kullanım ``LocalRedirect`` temel yardımcı yöntemini `Controller` sınıfı:
+Kullanım `LocalRedirect` temel yardımcı yöntemini `Controller` sınıfı:
 
 ```csharp
 public IActionResult SomeAction(string redirectUrl)
@@ -57,7 +57,7 @@ public IActionResult SomeAction(string redirectUrl)
 }
 ```
 
-``LocalRedirect`` yerel olmayan URL'si belirtilmişse, bir özel durum oluşturur. Aksi takdirde, olduğu gibi davranır ``Redirect`` yöntemi.
+`LocalRedirect` yerel olmayan URL'si belirtilmişse, bir özel durum oluşturur. Aksi takdirde, olduğu gibi davranır `Redirect` yöntemi.
 
 ### <a name="islocalurl"></a>IsLocalUrl
 

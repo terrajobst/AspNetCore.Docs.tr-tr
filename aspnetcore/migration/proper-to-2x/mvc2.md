@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: f8e9d3c222bdd5491e946f286bbdf71a2d26ab10
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET ASP.NET Core 2.0 geçirme
 
@@ -25,7 +25,7 @@ Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET uygulamaları için bir başvuru 
 
 Yükleme **bir** birini [.NET indirir: Windows](https://www.microsoft.com/net/download/windows):
 
-* .NET Core SDK
+* .NET core SDK
 * Windows için Visual Studio
   * **ASP.NET ve web geliştirme** iş yükü
   * **.NET core platformlar arası geliştirme** iş yükü
@@ -150,7 +150,7 @@ ASP.NET çekirdek statik dosyaları "web root" depolanır (*&lt;içerik kök&gt;
 
 Örneğin, bir görüntü varlığı *wwwroot/görüntüleri* klasördür erişilebilir bir konumda tarayıcıya gibi `http://<app>/images/<imageFileName>`.
 
-**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [ASP.NET Core statik dosyaları ile çalışma](xref:fundamentals/static-files).
+**Not:** ASP.NET Core içinde statik dosyaları sunma daha ayrıntılı başvuru için bkz: [statik dosyaları](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

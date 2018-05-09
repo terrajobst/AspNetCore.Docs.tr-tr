@@ -11,17 +11,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 30ac239a38376feecffc3010387ec5e0009b6db6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="initiate-http-requests"></a>Başlatma HTTP istekleri
 
 Tarafından [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), ve [Steve Gordon](https://github.com/stevejgordon)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 Bir `IHttpClientFactory` kayıtlı ve yapılandırmak ve oluşturmak için kullanılan [HttpClient](/dotnet/api/system.net.http.httpclient) bir uygulama örneği. Aşağıdaki avantajları sunar:
 
@@ -77,7 +75,7 @@ Türü belirlenmiş istemci kabul bir `HttpClient` kurucusu parametresinde:
 
 [!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-Önceki kodda yapılandırma türü belirlenmiş istemci taşınır. `HttpClient` Nesnesi ortak bir özellik olarak gösterilir. Kullanıma API özgü yöntemleri tanımlamak mümkündür `HttpClient` işlevselliği. `GetLatestDocsIssue` Yöntemi sorgulamak ve en son sorun Github'da depodan dışarı ayrıştırmak için gereken kod yalıtır.
+Önceki kodda yapılandırma türü belirlenmiş istemci taşınır. `HttpClient` Nesnesi ortak bir özellik olarak gösterilir. Kullanıma API özgü yöntemleri tanımlamak mümkündür `HttpClient` işlevselliği. `GetAspNetDocsIssues` Yöntemi sorgulamak ve en son açık sorunlar Github'da depodan dışarı ayrıştırmak için gereken kod yalıtır.
 
 Türü belirlenmiş istemci, genel kaydetmek için `AddHttpClient` genişletme yöntemi, içinde kullanılabilir `ConfigureServices`, yazılan istemci sınıfı belirtme:
 

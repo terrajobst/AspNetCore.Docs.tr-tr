@@ -10,11 +10,11 @@ Aşağıdaki tabloda, dosya ve klasörleri projesinde listeler. Bu öğretici i�
 
 | Dosya veya klasör              | Amaç |
 | ----------------- | ------------ | 
-| wwwroot | Statik dosyaları içerir. Bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files). |
+| wwwroot | Statik dosyaları içerir. Bkz: [statik dosyaları](xref:fundamentals/static-files). |
 | Sayfaları | Klasör için [Razor sayfalarının](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Yapılandırma](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Ana bilgisayar](xref:fundamentals/hosting) ASP.NET Core uygulama.|
-| *Startup.cs* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|
+| *Haline* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|
 
 ### <a name="the-pages-folder"></a>Sayfaları klasörü
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -74,7 +74,7 @@ Yollar öncelikle tarafından sağlanan rota değerleri kullanmak `Values` ve `A
 
 İpucu: düşünmek `Values` geçersiz kılmalar için bir dizi olarak `AmbientValues`. URL üretmek için bağlantıları aynı yol ya da rota değerlerini kullanarak URL üretmek kolaylaştırmak için geçerli istek rota değerleri yeniden dener.
 
-Çıktısını `GetVirtualPath` olan bir `VirtualPathData`. `VirtualPathData` paralel olarak olan `RouteData`; içerdiği `VirtualPath` rota tarafından ayarlanması bazı ek özellikler yanı sıra çıkış URL.
+Çıktısını `GetVirtualPath` olan bir `VirtualPathData`. `VirtualPathData` paralel olarak olan `RouteData`; içerdiği `VirtualPath` çıkış URL ve rota tarafından ayarlanması bazı ek özellikler.
 
 `VirtualPathData.VirtualPath` Özelliği içeren *sanal yol* rota tarafından üretilen. Gereksinimlerinize bağlı olarak yol daha fazla işlem gerekebilir. Örneğin, HTML oluşturulan URL'yi oluşturmak istiyorsanız, uygulamanın taban yolu başına gerekir.
 

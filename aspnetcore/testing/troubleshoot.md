@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: a75dc666621600e1e2fe36c29acbe7484bae9229
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
@@ -29,8 +29,8 @@ Aşağıdaki bağlantılar sorun giderme kılavuzu sağlar:
 <a name="sdk"></a>
 ## <a name="net-core-sdk-warnings"></a>.NET core SDK uyarıları
 
-### <a name="both-the-32-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>32 ve 64 bit sürümleri .NET Core SDK'ın yüklü
-İçinde **yeni proje** iletişim ASP.NET Core için üstünde görünür aşağıdaki uyarı görebilirsiniz: 
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>32 bit ve 64 bit sürümlerini .NET Core SDK yüklü
+İçinde **yeni proje** iletişim ASP.NET Core için aşağıdaki uyarı görebilirsiniz: 
 
     Both 32 and 64 bit versions of the .NET Core SDK are installed. Only templates from the 64 bit version(s) installed at C:\Program Files\dotnet\sdk\" will be displayed.
 
@@ -45,12 +45,24 @@ Bu uyarı ne zaman görünür (x86) 32-bit ve 64-bit (x 64) sürümleri [.NET Co
 Bu uyarı önlemek için 32-bit .NET Core SDK'yı kaldırın. Kaldırın **Denetim Masası** > **programlar ve Özellikler** > **Kaldır veya Değiştir bir program**. Uyarı neden oluşur ve kendi etkileri anlarsanız, bu uyarıyı yoksayabilirsiniz.
 
 ### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK birden fazla konumda yüklü
-İçinde **yeni proje** iletişim kutusu için ASP.NET Core üstünde görünür aşağıdaki uyarıyı karşılaşabilirsiniz: 
+İçinde **yeni proje** iletişim için ASP.NET Core aşağıdaki uyarı görebilirsiniz: 
 
  .NET Core SDK birden fazla konumda yüklenir. Yüklü SDK(s) sadece şablonlardan ' C:\Program Files\dotnet\sdk\' görüntülenir.
 
 ![Uyarı iletisini gösteren OneASP.NET iletişim kutusunun ekran görüntüsü](troubleshoot/_static/multiplelocations.png)
 
-Dışında bir dizinde en az bir yükleme .NET Core SDK'ın yüklü olduğundan bu iletiyi görüyorsunuz * C:\Program Files\dotnet\sdk\*. .NET Core SDK yerine MSI yükleyicisi kopyala/yapıştır kullanarak bir makinede dağıtılan genellikle, olur.
+.NET Core SDK'sının en az bir yüklemesi dışında bir dizinde sahip olduğunda bu iletiyi görmesini * C:\Program Files\dotnet\sdk\*. .NET Core SDK yerine MSI yükleyicisi kopyala/yapıştır kullanarak bir makinede dağıtılan genellikle, olur.
 
 Bu uyarı önlemek için 32-bit .NET Core SDK'yı kaldırın. Kaldırın **Denetim Masası** > **programlar ve Özellikler** > **Kaldır veya Değiştir bir program**. Uyarı neden oluşur ve kendi etkileri anlarsanız, bu uyarıyı yoksayabilirsiniz.
+
+### <a name="no-net-core-sdks-were-detected"></a>Hiçbir .NET Core SDK'ları algılandı
+İçinde **yeni proje** iletişim için ASP.NET Core aşağıdaki uyarı görebilirsiniz: 
+
+**Hiçbir .NET Core SDK'ları algılandı, ortam değişkeni 'PATH' içerdiği emin olun**
+
+![Uyarı iletisini gösteren OneASP.NET iletişim kutusunun ekran görüntüsü](troubleshoot/_static/NoNetCore.png)
+
+Bu uyarı ne zaman görünür ortam değişkeni `PATH` tüm .NET Core SDK makinedeki gösteremiyor. Bu sorunu gidermek için:
+
+* Yükleme veya .NET Core SDK yüklendiğini doğrulayın.
+* Doğrulama `PATH` ortam değişkeni SDK yüklü konuma işaret eder. Yükleyici normalde ayarlar `PATH`.

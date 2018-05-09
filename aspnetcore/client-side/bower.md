@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 2d6cc526b5a0890103e2856a0ca4b58c5f162c79
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4f53d0f04d17631a12e2c2030d6dbb1f4fcc09d3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
 
@@ -115,7 +115,7 @@ Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. A�
 
 Bu bölümde, dağıtılan paketler erişebildiğinizi doğrulamak için bir HTML sayfası oluşturur.
 
-* Adlı yeni bir HTML sayfası Ekle *Index.html* için *wwwroot* klasör. Not: HTML dosyasına eklemelisiniz *wwwroot* klasör. Varsayılan olarak, statik içerik dışında sunulamıyor *wwwroot*. Bkz: [statik dosyaları ile çalışma](xref:fundamentals/static-files) daha fazla bilgi için.
+* Adlı yeni bir HTML sayfası Ekle *Index.html* için *wwwroot* klasör. Not: HTML dosyasına eklemelisiniz *wwwroot* klasör. Varsayılan olarak, statik içerik dışında sunulamıyor *wwwroot*. Bkz: [statik dosyalar](xref:fundamentals/static-files) daha fazla bilgi için.
 
   Değiştir *Index.html* aşağıdaki biçimlendirme ile:
 

@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core paket ve minifiy statik varlıkları
 
@@ -81,7 +81,7 @@ Yapılandırma seçenekleri şunlardır:
 * `inputFiles`: Birlikte paketlemektir dosyaları dizisi. Bu yapılandırma dosyasının göreli yollardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş bir değer sonuçlanır. [genelleme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenleri desteklenir.
 * `minify`: Çıkış türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
   * Çıkış dosya türü yapılandırma seçenekleri kullanılabilir.
-    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [CSS küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [HTML küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Proje dosyası için oluşturulan dosyalar eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
@@ -313,5 +313,5 @@ Alternatif olarak, Visual Studio'nun görev Çalıştırıcı Gezgini belirli Vi
 
 * [Gulp kullanma](xref:client-side/using-gulp)
 * [Grunt kullanma](xref:client-side/using-grunt)
-* [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
+* [Birden çok ortamları kullanın](xref:fundamentals/environments)
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)

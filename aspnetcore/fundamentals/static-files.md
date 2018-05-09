@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core statik dosyalarıyla çalışma
+title: ASP.NET Core statik dosyaları
 author: rick-anderson
 description: Hizmet ve statik dosyalar güvenli ve statik dosya ara yazılımı davranışları bir ASP.NET Core web uygulamasında barındırma yapılandırma hakkında bilgi edinin.
 manager: wpickett
@@ -11,13 +11,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 11856abe6e1f26a806e4fdb2d2d9757576f3593a
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="work-with-static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalarıyla çalışma
+# <a name="static-files-in-aspnet-core"></a>ASP.NET Core statik dosyaları
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -83,7 +83,7 @@ Sunulacak statik dosyaları dışında web kök bulunduğu bir dizin hiyerarşis
   * **js**
 * **MyStaticFiles**
   * **Görüntüleri**
-      * *banner1.svg*
+      * *banner1.SVG*
 
 Bir istek erişebilirsiniz *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
 
@@ -148,9 +148,9 @@ Varsayılan giriş sayfası ayarı ziyaretçileri mantıksal bir başlangıç no
 İle `UseDefaultFiles`, bir klasör arama istekleri:
 
 * *default.htm*
-* *default.html*
+* *default.HTML*
 * *index.htm*
-* *index.html*
+* *index.HTML*
 
 İstek gibi davranarak tam uygun URI ilk listeden bulunan dosya sunulur. Tarayıcı URL İstenen URI yansıtacak şekilde devam eder.
 
@@ -182,8 +182,8 @@ Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
   * **js**
 * **MyStaticFiles**
   * **Görüntüleri**
-      * *banner1.svg*
-  * *default.html*
+      * *banner1.SVG*
+  * *default.HTML*
 
 Aşağıdaki kod statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştirir `MyStaticFiles`:
 
@@ -197,8 +197,8 @@ Dosya hiyerarşisi kullanarak ve önceki kod, URL şu şekilde çözün:
 
 | URI            |                             Yanıt  |
 | ------- | ------|
-| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
-| *http://\<server_address>/StaticFiles*             |     MyStaticFiles/default.html |
+| *http://\<server_address > /StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<server_address > / StaticFiles*             |     MyStaticFiles/default.html |
 
 Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > / StaticFiles* dizin tıklanabilir bağlantıları ile listeleme döndürür:
 

@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor sayfalarıyla EF çekirdek ASP.NET Core - sıralama, filtre, disk belleği - 8'in 3
 
@@ -58,7 +58,7 @@ Aşağıdaki kod C# içeren [?: işleci](https://docs.microsoft.com/dotnet/cshar
 
 `?: operator` Olarak da bilinen Üçlü işlecidir.
 
-Bu iki ifade sütun başlığını köprüler şu şekilde ayarlamak görünümü etkinleştirin:
+Bu iki ifade sütun başlığını köprüler şu şekilde ayarlamak sayfanın etkinleştirin:
 
 | Geçerli bir sıralama düzeni | Son adı köprü | Tarih köprü |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ Yöntemi, LINQ to Entities göre sıralamak için sütun belirlemek için kullan
 
 `OnGetAsync` çok sayıda sütun ayrıntılı alabilirsiniz.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Sütun başlık köprüleri için Öğrenci dizini görünümü ekleme
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Sütun başlık köprüler Öğrenci dizin sayfasına ekleme
 
 Kodla *Students/Index.cshtml*, aşağıdakilerle vurgulanmış kodu:
 
@@ -122,7 +122,7 @@ Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 
 Not: Yukarıdaki kod çağrıları `Where` yöntemi bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda tha uygulama çağırma `Where` yöntemi bir bellek içi koleksiyonda bir genişletme yöntemi olarak. Örneğin, varsayalım `_context.Students` değişiklikleri EF çekirdek `DbSet` döndüren depo yönteme bir `IEnumerable` koleksiyonu. Sonuç normalde aynı kalır ancak bazı durumlarda farklı olabilir.
 
-Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneği harmanlama ayarı tarafından belirlenir. SQL hizmet etmesi için büyük küçük harf duyarsız varsayılan olarak ayarlanır. `ToUpper` test açıkça büyük küçük harf duyarsız yapmak için çağrılabilir:
+Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneği harmanlama ayarı tarafından belirlenir. SQL Server varsayılan olarak çok büyük küçük harfe duyarsızdır. `ToUpper` test açıkça büyük küçük harf duyarsız yapmak için çağrılabilir:
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
@@ -133,9 +133,9 @@ Kullanmak için kodu değişirse önceki kod sonuçları duyarlı olduğundan em
 
 Bulunmaktadır performans çağırma `ToUpper`. `ToUpper` Kod TSQL SELECT deyimi WHERE yan tümcesinde bir işlev ekler. Eklenen işlev iyileştirici dizin kullanmalarını engeller. SQL olarak büyük küçük harf duyarsız yüklendi Bunu önlemek en iyi düşünüldüğünde `ToUpper` gerekli olmadığı zaman çağırın.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Bir arama kutusu Öğrenci dizin görünümüne ekleyin
+### <a name="add-a-search-box-to-the-student-index-page"></a>Bir arama kutusu Öğrenci dizin sayfasına ekleme
 
-İçinde *Views/Student/Index.cshtml*, oluşturmak için aşağıdaki vurgulanmış kodu ekleyin bir **arama** düğmesi ve getirilebilir chrome.
+İçinde *Pages/Students/Index.cshtml*, oluşturmak için aşağıdaki vurgulanmış kodu ekleyin bir **arama** düğmesi ve getirilebilir chrome.
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -267,7 +267,7 @@ Not: LINQ `group` komutu EF çekirdek tarafından şu anda desteklenmiyor. Önce
 
 ### <a name="modify-the-about-razor-page"></a>Değiştirme Razor sayfa hakkında
 
-Kodla *Views/Home/About.cshtml* aşağıdaki kod ile dosya:
+Kodla *Pages/About.cshtml* aşağıdaki kod ile dosya:
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

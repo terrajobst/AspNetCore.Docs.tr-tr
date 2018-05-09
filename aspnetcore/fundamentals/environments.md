@@ -1,5 +1,5 @@
 ---
-title: Birden çok ASP.NET Core ortamlarda ile çalışma
+title: ASP.NET Core kullanan birden çok ortamlar
 author: rick-anderson
 description: Birden çok ortamlar genelinde uygulamanızın davranışını denetlemek için ASP.NET Core destek nasıl sağladığını öğrenin.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: b9c3b8a15424ca637a2486450bfdde2762204935
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 2c8441db527203aeea516073dae3bc335c335565
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="work-with-multiple-environments-in-aspnet-core"></a>Birden çok ASP.NET Core ortamlarda ile çalışma
+# <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core kullanan birden çok ortamlar
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 

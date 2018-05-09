@@ -10,21 +10,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: 731d37a8f4983b18ded114f05470f8a408deb7cd
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 44091ab8ab5d69a5975e191fd00fca1d1d957238
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi kullanarak ASP.NET Core Razor sınıf kitaplığı projesi oluşturun.
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri ve veri modelleri Razor sınıfı Library(RCL) oluşturulabilir. RCL olabilir ve paketlenmiş ve yeniden kullanılabilir. Uygulamalar görünümler ve içerdiği sayfaları geçersiz kılmak ve RCL içerir. Ne zaman görünümü, kısmi görünümü veya Razor sayfasını web uygulaması ve Razor biçimlendirme RCL bulunduğunda (*.cshtml* dosyası) web uygulaması önceliklidir.
+Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine oluşturulabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar görünümler ve içerdiği sayfaları geçersiz kılmak ve RCL içerir. Ne zaman görünümü, kısmi görünümü veya Razor sayfasını web uygulaması ve Razor biçimlendirme RCL bulunduğunda (*.cshtml* dosyası) web uygulaması önceliklidir.
 
 Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/ui-class/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 

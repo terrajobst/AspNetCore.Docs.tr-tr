@@ -2,7 +2,7 @@
 
 Bu bölümde, Web API'sini çağırmak için jQuery kullanan bir HTML sayfası eklenir. jQuery isteği başlatır ve sayfa API'nin yanıt ayrıntıları ile güncelleştirir.
 
-Projenin statik dosyaları işleme ve varsayılan dosya eşlemesini etkinleştirmek üzere yapılandırın. Bu çağırarak gerçekleştirilir [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) uzantı yöntemleri *Startup.Configure*. Daha fazla bilgi için bkz: [ASP.NET Core statik dosyaları ile çalışma](xref:fundamentals/static-files).
+Projenin statik dosyaları işleme ve varsayılan dosya eşlemesini etkinleştirmek üzere yapılandırın. Bu çağırarak gerçekleştirilir [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) uzantı yöntemleri *Startup.Configure*. Daha fazla bilgi için bkz: [statik dosyaları](xref:fundamentals/static-files).
 
 [!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup2.cs?name=snippet_Configure&highlight=3-4)]
 

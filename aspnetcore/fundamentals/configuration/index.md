@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b1c2b734a2e9b274792b597bfd222c31e661b0d7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 4637ff6312f32f5887ff0f7a6e74d10f5beb0ca5
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 
@@ -105,13 +105,13 @@ Ortam ayarlandığında `Staging`, aşağıdaki `Configure` yöntemi okur değer
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 
-Ortam genellikle ayarlamak `Development`, `Staging`, veya `Production`. Daha fazla bilgi için bkz: [çalışma ile birden çok ortamları](xref:fundamentals/environments).
+Ortam genellikle ayarlamak `Development`, `Staging`, veya `Production`. Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments).
 
 Yapılandırma dikkate alınacak noktalar:
 
 * [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) değişiklik yapıldığında yapılandırma verileri yeniden yükleyebilirsiniz.
 * Yapılandırma anahtarları **değil** büyük küçük harfe duyarlı.
-* **Hiçbir zaman** parolalar ve diğer hassas verileri yapılandırma sağlayıcısı kodu veya düz metin yapılandırma dosyalarını depolar. Verme geliştirme üretim gizlilikleri kullanın veya sınama ortamlarında. Böylece, bir kaynak kod deposuna yanlışlıkla uygulanamıyor gizli proje dışında belirtin. Daha fazla bilgi edinmek [birden çok ortamları ile çalışmaya nasıl](xref:fundamentals/environments) ve yönetme [uygulama sırrı geliştirme güvenli depolama](xref:security/app-secrets).
+* **Hiçbir zaman** parolalar ve diğer hassas verileri yapılandırma sağlayıcısı kodu veya düz metin yapılandırma dosyalarını depolar. Verme geliştirme üretim gizlilikleri kullanın veya sınama ortamlarında. Böylece, bir kaynak kod deposuna yanlışlıkla uygulanamıyor gizli proje dışında belirtin. Daha fazla bilgi edinmek [birden çok ortamı kullanmayı](xref:fundamentals/environments) ve yönetme [uygulama sırrı geliştirme güvenli depolama](xref:security/app-secrets).
 * Ortam değişkenleri, iki nokta belirtilen hiyerarşik yapılandırma değerleri için (`:`) tüm platformlarda çalışmayabilir. Çift alt çizgi (`__`) tüm platformlar tarafından desteklenir.
 * Yapılandırma API'si, iki nokta kullanılırken (`:`) tüm platformlarda çalışır.
 
@@ -413,6 +413,10 @@ A *web.config* dosya, IIS veya IIS Express uygulamasında barındırdığında g
 
 Erişim Yapılandırması içinde `ConfigureServices` veya `Configure` başlatma sırasında örneklere bakın [uygulama başlangıç](xref:fundamentals/startup) konu.
 
+## <a name="adding-configuration-from-an-external-assembly"></a>Bir dış derlemesinden ekleme yapılandırması
+
+Bir [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) uygulama sağlayan uygulamanın dışında bir dış derlemesinden başlatma sırasında bir uygulama için geliştirmeler ekleme `Startup` sınıfı. Daha fazla bilgi için bkz: [dış bütünleştirilmiş uygulama geliştirmek](xref:fundamentals/configuration/platform-specific-configuration).
+
 ## <a name="access-configuration-in-a-razor-page-or-mvc-view"></a>Bir Razor sayfasını veya MVC görünümündeki erişim yapılandırması
 
 Bir Razor sayfalarının sayfası veya bir MVC görünümündeki yapılandırma ayarlarına erişmek için ekleme bir [using yönergesi](xref:mvc/views/razor#using) ([C# başvurusu: using yönergesi](/dotnet/csharp/language-reference/keywords/using-directive)) için [Microsoft.Extensions.Configuration ad alanı ](/dotnet/api/microsoft.extensions.configuration) ve ekleme [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) sayfa ya da görünüm.
@@ -468,7 +472,7 @@ MVC görünümü içinde:
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Seçenekler](xref:fundamentals/configuration/options)
-* [Birden çok ortamı ile çalışma](xref:fundamentals/environments)
+* [Birden çok ortamları kullanın](xref:fundamentals/environments)
 * [Geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
 * [ASP.NET çekirdek barındırma](xref:fundamentals/hosting)
 * [Bağımlılık Ekleme](xref:fundamentals/dependency-injection)

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ac9b777bcc7f4a8634161fc1347a4d0fdc3b4784
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core dizin yapısı
 
@@ -34,7 +34,7 @@ ASP.NET Core, yayımlanan uygulama dizini içinde *yayımlama*, uygulama dosyala
 
 *Wwwroot* dizini, varsa, yalnızca içeren statik varlıklar.
 
-Stdout *günlükleri* dizin iki yaklaşımın şunlardan birini kullanarak dağıtım oluşturulabilir:
+Stdout *günlükleri* iki yaklaşımın şunlardan birini kullanarak dağıtım için dizin oluşturulabilir:
 
 * Aşağıdakileri ekleyin `<Target>` proje dosyası öğesine:
 
