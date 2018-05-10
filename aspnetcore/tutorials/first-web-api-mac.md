@@ -6,16 +6,16 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: b1a11f755e47783e1b4de52f590a2b6f695354a8
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: HT
+ms.openlocfilehash: 699fbbf54abf1dc5c4156c559761110cdb375558
+ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
@@ -117,7 +117,7 @@ Visual Studio'da seçin **çalıştırmak** > **Başlat ile hata ayıklama** uyg
 ["value1","value2"]
 ```
 
-Gidin `Todo` denetleyicisinde `http://localhost:<port>/api/todo`:
+Gidin `Todo` denetleyicisinde `http://localhost:<port>/api/todo`. Aşağıdaki JSON döndürdü:
 
 ```json
 [{"key":1,"name":"Item1","isComplete":false}]
