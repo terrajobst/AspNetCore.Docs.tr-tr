@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: 2cbebb12ccd1098e1950aa7eeb22fab4ffc689e6
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 [!INCLUDE [](~/includes/2.1-SDK.md)] İçeren `Microsoft.NET.Sdk.Razor` MSBuild SDK'sı (Razor SDK). Razor SDK:
 
@@ -66,7 +64,7 @@ Aşağıdaki özellikleri ve öğeleri ve Razor SDK çıkış girişleri yapıla
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Madde öğeleri (*.cshtml* dosyaları) girişleri kod oluşturma hedefleri olan. |
 | RazorCompile                                  | Razor derleme hedefleri girdiler öğesi öğeleri (.cs dosyaları). Razor derlemeye derlenmesi için ek dosyalar belirtmek için bu ItemGroup kullanın. |
-| RazorAssemblyAttribute                        | Kod için kullanılan öğesi öğeleri Razor derleme için öznitelikler oluşturun. Örneğin:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
+| RazorTargetAssemblyAttribute                  | Kod için kullanılan öğesi öğeleri Razor derleme için öznitelikler oluşturun. Örneğin:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Oluşturulan Razor derleme katıştırılmış kaynakları olarak eklenen öğesi öğeleri |
 
 | Özellik                                      | Açıklama                                                                   |
