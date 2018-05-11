@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET Core görünümü bileşenler
 
@@ -21,9 +21,11 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Görünüm bileşenleri Tanıtımı
+## <a name="view-components"></a>Görünüm bileşenleri
 
-Yeni ASP.NET Core MVC için Görünüm bileşenleri için kısmi görünümler benzerdir, ancak çok daha güçlü. Görünüm bileşenleri yoksa model bağlama kullanın ve yalnızca içine çağrılırken sağlanan verileri bağlıdır. Bir görünümü bileşen:
+Kısmi görünüm için Görünüm bileşenleri benzerdir, ancak çok daha güçlü. Görünüm bileşenleri yoksa model bağlama kullanın ve yalnızca içine çağrılırken sağlanan verileri bağlıdır. Bu makalede ASP.NET Core MVC kullanılarak yazılmıştır, ancak görünümü bileşenler Razor sayfalarının ile de çalışır.
+
+Bir görünümü bileşen:
 
 * Yanıtın tamamını yerine bir öbek işler.
 * Bir denetleyici ve görünüm arasında bulunan Test Edilebilirlik avantajları ve aynı ayrımı-in-ile ilgili sorunlar içerir.

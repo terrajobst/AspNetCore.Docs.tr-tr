@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 <a name="adding-validation"></a>Doğrulama ekleme
 ====================
@@ -134,7 +134,7 @@ Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. [ `System.ComponentModel
 
 [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikler verilerin biçimlendirilmesi görünüm altyapısı için ipuçları yalnızca sağlar (ve öznitelikler gibi tedarik `<a>` URL'SİNİN için ve `<a href="mailto:EmailAddress.com">` e-posta için. Kullanabileceğiniz [yanıtta normal ifade](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) veri biçimi doğrulamak için öznitelik. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği veritabanı geçerli bir tür daha fazla belirli bir veri türünü belirtmek için kullanılır, bunlar ***değil*** doğrulama öznitelikleri. Bu durumda yalnızca tarihi, tarih ve saat değil izlemek istiyoruz. [DataType numaralandırma](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) birçok veri türleri gibi sağlar *tarih, saat, PhoneNumber, para birimi, EmailAddress* ve daha fazlası. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin, bir `mailto:` bağlantı için oluşturulabilir [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), ve bir tarih seçici için sağlanan [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) destekleyen tarayıcılarda [HTML5](http://html5.org/). [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri yayar HTML 5 [veri](http://ejohn.org/blog/html-5-data-attributes/) (belirgin *veri tire*) HTML 5 tarayıcılar anlayabileceği öznitelikleri. [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) öznitelikleri tüm doğrulama sağlamaz.
 
-`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
+`DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir [CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
 `DisplayFormat` Özniteliği açıkça tarih biçimini belirtmek için kullanılır:
 
@@ -147,17 +147,17 @@ Açık *Movie.cs* dosya ve inceleyin `Movie` sınıfı. [ `System.ComponentModel
 Kullanabileceğiniz [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) kendisi, ancak tarafından özniteliktir genellikle kullanmak iyi bir fikir [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) de özniteliği. `DataType` Özniteliği ileten *semantiği* verilerin olarak ekranda işlemek nasıl değil ve ile elde etmezsiniz aşağıdaki yararları sağlar `DisplayFormat`:
 
 - Tarayıcı HTML5 özellikleri (örneğin. bir Takvim denetimi, yerel ayar uygun para birimi simgesini, e-posta bağlantılar, vb. göstermek) etkinleştirebilirsiniz.
-- Varsayılan olarak, tarayıcı göre doğru biçimi kullanarak bir veri oluşturmaz,[yerel ayar](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
-- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği verileri işlemek için sağ alan şablon seçmek MVC etkinleştirebilir ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) tarafından kullanılan kendisini dize şablonu kullanıyorsa). Daha fazla bilgi için Brad Wilson'ın bkz[ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2 için yazılmış olsa, bu makalede hala ASP.NET MVC geçerli sürümü için geçerlidir.)
+- Varsayılan olarak, tarayıcı göre doğru biçimi kullanarak bir veri oluşturmaz, [yerel ayar](https://msdn.microsoft.com/library/vstudio/wyzd2bce.aspx).
+- [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) özniteliği verileri işlemek için sağ alan şablon seçmek MVC etkinleştirebilir ( [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) tarafından kullanılan kendisini dize şablonu kullanıyorsa). Daha fazla bilgi için Brad Wilson'ın bkz [ASP.NET MVC 2 şablonları](http://bradwilson.typepad.com/blog/2009/10/aspnet-mvc-2-templates-part-1-introduction.html). (MVC 2 için yazılmış olsa, bu makalede hala ASP.NET MVC geçerli sürümü için geçerlidir.)
 
 Kullanırsanız `DataType` özniteliği belirtmek zorunda tarih alanıyla `DisplayFormat` ayrıca alanın doğru Chrome tarayıcılarda işler sağlamak için öznitelik. Daha fazla bilgi için bkz: [bu StackOverflow iş parçacığı](http://stackoverflow.com/questions/12633471/mvc4-datatype-date-editorfor-wont-display-date-value-in-chrome-fine-in-ie).
 
 > [!NOTE]
-> jQuery doğrulama ile çalışmıyor[aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
+> jQuery doğrulama ile çalışmıyor [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Örneğin, tarih belirtilen aralıkta olduğunda bile aşağıdaki kodu her zaman bir istemci tarafı doğrulama hatası görüntülenir:
 > 
 > [!code-csharp[Main](adding-validation/samples/sample9.cs)]
 > 
-> JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) ile öznitelik[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Bu genellikle bunu kullanarak Modellerinizi sabit tarihler derlemek için iyi bir uygulama değil[aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve[DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) önerilmez.
+> JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) ile öznitelik [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Bu genellikle bunu kullanarak Modellerinizi sabit tarihler derlemek için iyi bir uygulama değil [aralığı](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) özniteliği ve [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx) önerilmez.
 
 
 Aşağıdaki kod, tek bir satırda birleştirme öznitelikleri gösterir:

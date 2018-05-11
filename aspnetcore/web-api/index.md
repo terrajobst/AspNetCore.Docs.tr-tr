@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/index
-ms.openlocfilehash: f0368258d078673ab5eab21c5ce07f2437cb8ea4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 6afc02c1a966b62d0fcead0349c5f0803309dcbb
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Web API ile ASP.NET çekirdek oluşturma
 
@@ -40,7 +40,7 @@ Devralınan [ControllerBase](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase
 ::: moniker range=">= aspnetcore-2.1"
 ## <a name="annotate-class-with-apicontrollerattribute"></a>ApiControllerAttribute sınıfıyla açıklama ekleme
 
-ASP.NET Core 2.1 tanıtır `[ApiController]` bir web API denetleyicisi sınıfı belirtmek için öznitelik. Örneğin:
+ASP.NET Core 2.1 tanıtır [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) web API denetleyicisi sınıfı belirtmek için öznitelik. Örneğin:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 

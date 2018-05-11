@@ -5,16 +5,16 @@ description: Daha kolay ve MVC kullanmaktan daha üretken ASP.NET Core Razor say
 manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/12/2017
+ms.date: 5/12/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c848c5d66a9e8141d9d737e8ce9c994587b04916
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -208,6 +208,13 @@ Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kurala gö
 * Çağrıları `RedirectToPage` kök dizin sayfasına yeniden yönlendirmek için (`/Index`).
 
 ::: moniker range=">= aspnetcore-2.1"
+
+## <a name="mark-page-properties-required"></a>Gerekli işareti sayfa özellikleri
+
+Özellikleri bir `PageModel` ile donatılmış [gerekli](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) özniteliği:
+
+[!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
+
 ## <a name="manage-head-requests-with-the-onget-handler"></a>HEAD isteklerini OnGet işleyici ile yönetme
 
 Normalde, HEAD işleyici oluşturulur ve HEAD isteklerini çağrılır:
@@ -226,9 +233,10 @@ services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
 
-`SetCompatibilityVersion` Razor sayfalarının seçeneği etkin ayarlar `AllowMappingHeadRequestsToGetHandler` için `true`. Katılımı kadar ASP.NET Core 3.0 Preview 1 sürümü veya sonraki bir davranıştır. Her ana sürümü ASP.NET Core, tüm önceki sürümü düzeltme eki yayın davranışlarını devralır.
+`SetCompatibilityVersion` Razor sayfalarının seçeneği etkin ayarlar `AllowMappingHeadRequestsToGetHandler` için `true`.
 
-Düzeltme eki sürümlerinde 2.1 2.x için genel katılımı davranışı HEAD istekleri GET işleyicisine eşleyen bir uygulama yapılandırma ile önlenebilir. Ayarlama `AllowMappingHeadRequestsToGetHandler` Razor sayfalarının seçeneği için `true` çağırmadan `SetCompatibilityVersion` içinde `Startup.Configure`:
+Tüm 2.1 davranışlarla içine kullanmama yerine `SetCompatibilityVersion`, siz açıkça belirli davranışları katılımı. Aşağıdaki kod içine GET işleyici eşlemesi HEAD isteklerini kabul eder.
+
 
 ```csharp
 services.AddMvc()
@@ -267,7 +275,7 @@ Bkz: [düzen sayfası](xref:mvc/views/layout) daha fazla bilgi için.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
-**Not:** düzeni bulunduğu *sayfaları* klasör. Sayfaları başka görünümlerini (düzenleri, şablonlar, kısmi), geçerli sayfa ile aynı klasörde başlangıç hiyerarşik olarak arayın. Bir düzende *sayfaları* klasörü altında herhangi bir Razor sayfadan kullanılabilir *sayfaları* klasör.
+Düzen bulunduğu *sayfaları* klasör. Sayfaları başka görünümlerini (düzenleri, şablonlar, kısmi), geçerli sayfa ile aynı klasörde başlangıç hiyerarşik olarak arayın. Bir düzende *sayfaları* klasörü altında herhangi bir Razor sayfadan kullanılabilir *sayfaları* klasör.
 
 Öneririz **değil** Düzen dosyası içine *görünümler/paylaşılan* klasör. *Görünümler/paylaşılan* bir MVC görünümleri deseni. Razor sayfalarının klasör hiyerarşisi, yol kuralları yararlanmayı yöneliktir.
 
@@ -299,7 +307,7 @@ Zaman `@namespace` yönergesi bulunduğu *_viewımports.cshtml*, belirtilen ad a
 
 Oluşturulan ad alanı için *Pages/Customers/Edit.cshtml* Razor sayfasını aynıdır dosyanın arkasındaki kod. `@namespace` Yönergesi tasarlandığı bir proje ve sayfaları üretilen kod için C# sınıfları eklenmiş şekilde *yalnızca iş* eklemek zorunda kalmadan bir `@using` dosyanın arkasındaki kod için yönerge.
 
-**Not:** `@namespace` geleneksel Razor görünümleri ile de çalışır.
+`@namespace` *Geleneksel Razor görünümleri ile de çalışır.*
 
 Özgün *Pages/Create.cshtml* dosyasını görüntüle:
 
@@ -350,6 +358,42 @@ Göreli adlar sayfaları için URL oluşturmayı destekler. Aşağıdaki tabloda
 `RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan <em>göreli adlar</em>. `RedirectToPage` Parametresi <em>birleştirilmiş</em> ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Göreli adı bağlama karmaşık bir yapıyı siteleriyle oluştururken yararlıdır. Bir klasördeki sayfaları arasında bağlamak için göreli adları kullanıyorsa, bu klasörü yeniden adlandırabilirsiniz. Tüm bağlantılar hala çalışır, (bunlar klasör adı eklemediniz çünkü).
+
+::: moniker range=">= aspnetcore-2.1"
+## <a name="viewdata-attribute"></a>ViewData özniteliği
+
+Veri içeren bir sayfa geçirilebilir [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Denetleyicileri veya Razor sayfasını modelleri özelliklerini donatılmış ile `[ViewData]` depolanır ve aşağıdaki konumdan yüklendi değerlerine sahip [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+
+Aşağıdaki örnekte, `AboutModel` içeren bir `Title` özelliği donatılmış ile `[ViewData]`. `Title` Özelliği hakkında sayfa başlık ayarlayın:
+
+```csharp
+public class AboutModel : PageModel
+{
+    [ViewData]
+    public string Title { get; } = "About";
+
+    public void OnGet()
+    {
+    }
+}
+```
+
+Erişim hakkında sayfasının `Title` özelliği model özelliği olarak:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+Düzende başlığı ViewData sözlükten okunur:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 

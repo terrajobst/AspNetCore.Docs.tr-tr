@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümlerde
 
@@ -21,7 +21,7 @@ Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.
 
 Bu belgede ASP.NET Core MVC uygulamalarında kullanılan görünümler açıklanmaktadır. Razor sayfalarında daha fazla bilgi için bkz: [Razor sayfalarının giriş](xref:mvc/razor-pages/index).
 
-İçinde **M**odel -**V**görünümü -**C**ontroller (MVC) deseni *Görünüm* uygulamanın veri sunu ve kullanıcı etkileşimini işler. Bir HTML şablonu görünümdür ile katıştırılmış [Razor biçimlendirme](xref:mvc/views/razor). Razor biçimlendirme istemciye gönderilen bir Web sayfası oluşturmak için HTML biçimlendirmesi etkileşimde kodudur.
+Model-View-Controller (MVC) düzeninde *Görünüm* uygulamanın veri sunu ve kullanıcı etkileşimini işler. Bir HTML şablonu görünümdür ile katıştırılmış [Razor biçimlendirme](xref:mvc/views/razor). Razor biçimlendirme istemciye gönderilen bir Web sayfası oluşturmak için HTML biçimlendirmesi etkileşimde kodudur.
 
 ASP.NET Core MVC'de görünümlerdir *.cshtml* dosyaları kullanan [C# programlama dili](/dotnet/csharp/) Razor biçimlendirme. Genellikle, her uygulamanın adlı klasörlere dosyaları görüntüle gruplandırılmış [denetleyicileri](xref:mvc/controllers/actions). Klasörleri depolanmış bir *görünümleri* uygulama kökünde klasör:
 
@@ -37,7 +37,7 @@ Kullanım [düzenleri](xref:mvc/views/layout) tutarlı Web sayfası bölümler s
 
 ## <a name="benefits-of-using-views"></a>Görünümleri kullanmanın yararları
 
-Görünümleri Yardım kurmak için bir [ **S**eparation **o**f **C**oncerns (SoC) tasarım](http://deviq.com/separation-of-concerns/) kullanıcı arabirimi biçimlendirmeden ayıran bir MVC uygulaması içindeki uygulamanın diğer bölümleri. SoC tasarım aşağıdaki uygulamanızı birkaç avantaj sağlayan modüler yapar:
+Görünümleri Yardım kurmak için bir [sorunları ayırma (SoC) tasarım](http://deviq.com/separation-of-concerns/) kullanıcı arabirimi biçimlendirme uygulama diğer bölümlerden ayıran bir MVC uygulaması içindeki. SoC tasarım aşağıdaki uygulamanızı birkaç avantaj sağlayan modüler yapar:
 
 * Uygulama, daha iyi organize çünkü korumak kolaydır. Görünümleri genellikle uygulama özelliği tarafından gruplandırılır. Bu, bir özellik çalışırken ilgili görünümleri bulmayı kolaylaştırır.
 * Uygulama bölümlerini gevşek. Derleme ve uygulamanın görünümleri ayrı ayrı iş mantığı ve verileri erişim bileşenleri güncelleştirebilirsiniz. Uygulamanın diğer bölümleri güncelleştirmek mutlaka zorunda kalmadan uygulama görünümlerini değiştirebilirsiniz.
@@ -123,7 +123,16 @@ Denetleyicileri, işlemler ve Bakım ve daha anlaşılır olması için görün�
 
 ## <a name="passing-data-to-views"></a>Veri görünümleri geçirme
 
-Çeşitli yaklaşımlar kullanarak görünümleri için veri geçirebilirsiniz. En güçlü belirtmek için bir yaklaşımdır bir [modeli](xref:mvc/models/model-binding) görünümünde türü. Bu model, genellikle olarak adlandırılır bir *viewmodel*. Viewmodel türünün bir örneği eylemden görünümüne geçin.
+Veri çeşitli yaklaşımlar kullanılarak geçer:
+
+* Kesin türü belirtilmiş veri: viewmodel
+* Zayıf yazılmış veri
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>Kesin türü belirtilmiş veri (viewmodel)
+
+En güçlü belirtmek için bir yaklaşımdır bir [modeli](xref:mvc/models/model-binding) görünümünde türü. Bu model, genellikle olarak adlandırılır bir *viewmodel*. Viewmodel türünün bir örneği eylemden görünümüne geçin.
 
 Bir görünüme veri iletmek için bir viewmodel kullanarak sağlar yararlanmak için görünümü *güçlü* türü denetleniyor. *Güçlü yazarak* (veya *kesin türü belirtilmiş*) her değişken ve sabiti açıkça tanımlanmış bir türü olduğu anlamına gelir (örneğin, `string`, `int`, veya `DateTime`). Bir görünümde kullanılan türleri geçerliliğini derleme zamanında denetlenir.
 
@@ -162,7 +171,7 @@ public IActionResult Contact()
 }
 ```
 
-Bir görünüme sağlayabilir modeli türlerinde bir kısıtlama yoktur. Kullanmanızı öneririz **P**larak **O**ld **C**LR **O**nesne (POCO) viewmodels tanımlanan çok az kayıpla veya hiç davranışları (yöntemleri) sahip. Genellikle, viewmodel sınıflar ya da depolanmış *modelleri* klasör veya ayrı bir *ViewModels* uygulama kökünde klasör. *Adresi* yukarıdaki örnekte kullanılan viewmodel olan adındaki bir dosyada depolanan bir POCO viewmodel *Address.cs*:
+Bir görünüme sağlayabilir modeli türlerinde bir kısıtlama yoktur. Düz eski CLR nesnesi (POCO) viewmodels tanımlanan çok az kayıpla veya hiç davranışları ile (yöntemleri) kullanmanızı öneririz. Genellikle, viewmodel sınıflar ya da depolanmış *modelleri* klasör veya ayrı bir *ViewModels* uygulama kökünde klasör. *Adresi* yukarıdaki örnekte kullanılan viewmodel olan adındaki bir dosyada depolanan bir POCO viewmodel *Address.cs*:
 
 ```csharp
 namespace WebApplication1.ViewModels
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> Hiçbir şey viewmodel türleri ve iş modeli türleri için aynı sınıfları kullanmalarını engeller. Ancak, ayrı modelleri kullanarak iş mantığı ve verileri, uygulamanızın erişim bölümleri bağımsız olarak değiştirmek kendi görünümlerinizi sağlar. Modelleri ve viewmodels ayrılması sunduğu güvenlik avantajlarından modelleri kullandığınızda [model bağlama](xref:mvc/models/model-binding) ve [doğrulama](xref:mvc/models/validation) uygulama için kullanıcı tarafından gönderilen veriler için.
-
+Hiçbir şey viewmodel türleri ve iş modeli türleri için aynı sınıfları kullanmalarını engeller. Ancak, ayrı modelleri kullanarak iş mantığı ve verileri, uygulamanızın erişim bölümleri bağımsız olarak değiştirmek kendi görünümlerinizi sağlar. Modelleri ve viewmodels ayrılması sunduğu güvenlik avantajlarından modelleri kullandığınızda [model bağlama](xref:mvc/models/model-binding) ve [doğrulama](xref:mvc/models/validation) uygulama için kullanıcı tarafından gönderilen veriler için.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Zayıf yazılmış verileri (ViewData ve Görünüm Paketi)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Zayıf yazılmış veri (ViewData, ViewData özniteliği ve Görünüm Paketi)
 
-Not: `ViewBag` Razor sayfalarında kullanılamaz.
+`ViewBag` *Razor sayfalarında kullanılamaz.*
 
 Kesin türü belirtilmiş görünümleri yanı sıra, görünümleri erişimi bir *zayıf yazılmış* (olarak da bilinir *geniş yazılmış*) veri koleksiyonu. Güçlü türlerinin aksine *zayıf türleri* (veya *kaybetmiş türleri*) kullanmakta olduğunuz veri türünü açıkça bildirmeyin anlamına gelir. Zayıf yazılmış veri koleksiyonunu küçük miktarda denetleyicileri ve görünümler ve dışındaki veri geçirmek için kullanabilirsiniz.
 
@@ -199,7 +206,6 @@ Kesin türü belirtilmiş görünümleri yanı sıra, görünümleri erişimi bi
 Bu koleksiyon yoluyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri ve görünümlere özellikleri. `ViewData` Zayıf yazılmış nesneleri sözlüğü bir özelliktir. `ViewBag` Özelliktir çevresinde bir sarmalayıcı `ViewData` arka plandaki için dinamik özellikler sağlayan `ViewData` koleksiyonu.
 
 `ViewData` ve `ViewBag` çalışma zamanında dinamik olarak çözümlendiği. Derleme zamanı tür denetimi sunmuyoruz olduğundan, her ikisi de genellikle daha hata-bir viewmodel kullanmaktan daha fazladır. Bu nedenle, bazı geliştiriciler en düşük düzeyde ya da hiç kullanmayı tercih ederseniz `ViewData` ve `ViewBag`.
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ Bir görünümdeki verilerle çalışma:
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**ViewData özniteliği**
+
+Kullanan başka bir yaklaşım [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) olan [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Denetleyicileri veya Razor sayfasını modelleri özelliklerini donatılmış ile `[ViewData]` depolanır ve sözlükten yüklenen değerlerine sahip.
+
+Aşağıdaki örnekte, giriş denetleyicisi içeren bir `Title` özelliği donatılmış ile `[ViewData]`. `About` Yöntemi hakkında görünümü için başlık ayarlar:
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+Hakkında Görünümü'nde erişim `Title` özelliği model özelliği olarak:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+Düzende başlığı ViewData sözlükten okunur:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **Görünüm Paketi**
 
-Not: `ViewBag` Razor sayfalarında kullanılamaz.
+`ViewBag` *Razor sayfalarında kullanılamaz.*
 
 `ViewBag` olan bir [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) depolanan nesnelere dinamik erişim sağlayan nesne `ViewData`. `ViewBag` atama gerektirmez, çalışmaya daha kullanışlı olabilir. Aşağıdaki örnekte nasıl kullanılacağını gösterir `ViewBag` kullanarak aynı sonucu ile `ViewData` yukarıda:
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **ViewData ve Görünüm Paketi aynı anda kullanma**
 
-Not: `ViewBag` Razor sayfalarında kullanılamaz.
+`ViewBag` *Razor sayfalarında kullanılamaz.*
 
 Bu yana `ViewData` ve `ViewBag` aynı temel bakın `ViewData` koleksiyonu, her ikisi de kullanabilirsiniz `ViewData` ve `ViewBag` karıştırmak ve aralarındaki okurken ve yazarken değerleri aynı.
 

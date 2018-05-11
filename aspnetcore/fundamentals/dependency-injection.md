@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -351,13 +351,15 @@ Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde 
 
 * Statik erişimi önlemek `HttpContext`.
 
-> [!NOTE]
-> Gibi tüm ayarlar önerilerin bir yoksayılıyor gerekli olduğu durumlar karşılaşabilirsiniz. Nadir--istisnaları framework çoğunlukla çok özel durumlarını bulduk.
+Gibi tüm ayarlar önerilerin bir yoksayılıyor gerekli olduğu durumlar karşılaşabilirsiniz. Nadir--istisnaları framework çoğunlukla çok özel durumlarını bulduk.
 
-Bağımlılık ekleme olduğunu unutmayın bir *alternatif* statik/genel nesne erişim desenler için. Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmayacaktır.
+Bağımlılık ekleme olan bir *alternatif* statik/genel nesne erişim desenler için. Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmayabilir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [Görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection)
+* [Denetleyicilere bağımlılık ekleme](xref:mvc/controllers/dependency-injection)
+* [Gereksinim işleyicilerine bağımlılık ekleme](xref:security/authorization/dependencyinjection)
 * [Uygulama Başlatma](xref:fundamentals/startup)
 * [Test ve hata ayıklama](xref:testing/index)
 * [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)

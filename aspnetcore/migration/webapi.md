@@ -4,16 +4,16 @@ author: ardalis
 description: Bir Web API uygulaması için ASP.NET Core MVC ASP.NET Web API geçirmek öğrenin.
 manager: wpickett
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 059e1bc54c57e502ad01fd50d9899dfd0671037f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 8d842877e49e317323d453e71ebb3302245f388d
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API ASP.NET Core geçirme
 
@@ -36,7 +36,7 @@ Bu makalede örnek proje kullanan *ProductsApp*, makalede oluşturulmuş [ASP.NE
 [!code-csharp[](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-Bu sınıf yapılandırır [özniteliği yönlendirme](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), aslında projesinde kullanılan rağmen. Ayrıca, ASP.NET Web API tarafından kullanılan yönlendirme tablosunun yapılandırır. Bu durumda, ASP.NET Web API biçim ile eşleşmesi için URL'leri beklediği */api/ {controller} / {id}*, ile *{id}* isteğe bağlı olması.
+Bu sınıf yapılandırır [özniteliği yönlendirme](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), aslında projesinde kullanılan rağmen. Ayrıca, ASP.NET Web API tarafından kullanılan yönlendirme tablosu yapılandırır. Bu durumda, ASP.NET Web API biçim ile eşleşmesi için URL'leri beklediği */api/ {controller} / {id}*, ile *{id}* isteğe bağlı olması.
 
 *ProductsApp* proje içeriyor devraldığı tek bir basit denetleyicisi `ApiController` ve iki yöntem sunar:
 
@@ -116,6 +116,37 @@ Bu değişiklikler yapılmış ve kullanılmayan işlendikten sonra using deyiml
 [!code-csharp[](../migration/webapi/sample/ProductsCore/Controllers/ProductsController.cs?highlight=1,2,6,8,9,27)]
 
 Şimdi geçirilen projeyi çalıştırın ve Gözat yapabiliyor olmanız gerekir */api/ürünleri*; ve 3 ürünlerinin tam listesini görmelisiniz. Gözat */api/products/1* ve ilk ürün görmeniz gerekir.
+
+## <a name="microsoftaspnetcoremvcwebapicompatshim"></a>Microsoft.AspNetCore.Mvc.WebApiCompatShim
+
+ASP.NET Core geçirme ASP.NET Web API projeleri zaman yararlı bir araçtır [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) kitaplığı. Uyumluluk dolgusu kullanılmak üzere farklı Web API 2 kuralları sayısı izin vermek için ASP.NET Core genişletir. Bu belgede daha önce bağlantı noktalı uyumluluk dolgusu gerekli değildi yeterince temel örnektir. Büyük projeler için uyumluluk dolgusu kullanarak geçici olarak API boşluk ASP.NET Core ve ASP.NET Web API 2 arasında köprü oluşturma için yararlı olabilir.
+
+Web API uyumluluk dolgusu geçici bir ölçü olarak ASP.NET Core büyük geçirme Web API projeleri kolaylaştırmak için kullanılmak üzere tasarlanmıştır. ASP.NET Core desenleri uyumluluk dolgusu güvenmek yerine kullanmak için zaman içinde projeleri güncelleştirilmesi gerekir. 
+
+İçinde Microsoft.AspNetCore.Mvc.WebApiCompatShim dahil uyumluluk özellikleri içerir:
+
+* Ekler bir `ApiController` denetleyicileri taban türleri güncelleştirilecek gerekmemesi yazın.
+* Web API stili model bağlama sağlar. ASP.NET Core MVC model bağlama işlevleri varsayılan MVC 5 benzer şekilde çalışır. Uyumluluk dolgusu değişiklikleri Web API 2 model bağlama kurallarına daha benzer şekilde bağlama model. Örneğin, karmaşık türler isteği gövdesinden otomatik olarak bağlanır.
+* Denetleyici eylemleri türünde parametre yararlanabilmeniz model bağlama genişletir `HttpRequestMessage`.
+* Eylemler izin verme iletisi biçimlendiricileri'türünde sonuçlar döndürecek şekilde ekler `HttpResponseMessage`.
+* Web API 2 Eylemler yanıtları sunmak için kullanılan başka yanıt yöntemleri ekler:
+    * Bilgisayarın HttpResponseMessage oluşturucuları:
+        * `CreateResponse<T>`
+        * `CreateErrorResponse`
+    * Eylem sonucu yöntemleri:
+        * `BadResuestErrorMessageResult`
+        * `ExceptionResult`
+        * `InternalServerErrorResult`
+        * `InvalidModelStateResult`
+        * `NegotiatedContentResult`
+        * `ResponseMessageResult`
+* Bir örneğini ekler `IContentNegotiator` uygulamanın dı kapsayıcısı ve yapar içerik anlaşması ile ilgili türlerinden [Microsoft.AspNet.WebApi.Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) kullanılabilir. Bu gibi türlerini içerir `DefaultContentNegotiator`, `MediaTypeFormatter`vb.
+
+Uyumluluk dolgusu kullanmak için aktarmanız gerekir:
+
+* Başvuru [Microsoft.AspNetCore.Mvc.WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim) NuGet paketi.
+* Çağırarak uygulamanın dı kapsayıcı ile uyumluluk dolgusu ait Hizmetleri kaydedin `services.AddWebApiConventions()` uygulamanın içinde `Startup.ConfigureServices` yöntemi.
+* Web API özel yollar kullanılarak tanımlamak `MapWebApiRoute` üzerinde `IRouteBuilder` uygulamanın içinde `IApplicationBuilder.UseMvc` çağırın.
 
 ## <a name="summary"></a>Özet
 

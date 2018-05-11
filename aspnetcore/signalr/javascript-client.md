@@ -6,22 +6,20 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 04/06/2018
+ms.date: 05/09/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/javascript-client
-ms.openlocfilehash: d2530fe3c4b47687d3ef4015624499d96fea2d7b
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1701d9ac5222bf64f9690c1cecdf54ef95fe4a49
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemci
 
 Tarafından [Rachel Appel](http://twitter.com/rachelappel)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 ASP.NET Core SignalR JavaScript istemci kitaplığını, sunucu taraflı hub kod geliştiricilerin sağlar.
 
@@ -58,7 +56,7 @@ Genellikle, tarayıcılar, istenen sayfa aynı etki alanından bağlantıları y
 
 Kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önlemek için [çıkış noktaları arası bağlantılar](xref:security/cors) varsayılan olarak devre dışıdır. Çıkış noktaları arası istek izin vermek için içinde etkinleştirmek `Startup` sınıfı.
 
-[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-34,55)]
+[!code-csharp[Cross-origin connections](javascript-client/sample/Startup.cs?highlight=29-35,56)]
 
 ## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırın
 
@@ -102,7 +100,7 @@ Zincir bir `catch` yöntemi sonuna `connection.start` istemci-tarafı hataları 
 
 Kullanım `configureLogging` yöntemi `HubConnectionBuilder` günlük düzeyini yapılandırmak için. İletileri tarayıcı konsoluna yazılır.
 
-[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=11)]
+[!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 

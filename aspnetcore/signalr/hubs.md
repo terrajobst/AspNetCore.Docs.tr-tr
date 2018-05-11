@@ -11,17 +11,15 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: d9e06c75692b68c4147b775e5eb77ef000578b2e
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: cfe9f7a7321094b8f901687d91745df2247e1da6
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Hub SignalR öğesinde ASP.NET Core için kullanın.
 
 Tarafından [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(nasıl indirileceğini)](xref:tutorials/index#how-to-download-a-sample)
 
@@ -33,11 +31,11 @@ SignalR hub'ları API sunucudan bağlı istemcilerde yöntemlerini çağırmaya 
 
 SignalR Ara çağırarak yapılandırılmış olan bazı hizmetler gerektirir `services.AddSignalR`.
 
-[!code-csharp[Configure service](hubs/sample/startup.cs?range=37)]
+[!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
 SignalR işlevi için bir ASP.NET Core uygulama eklerken, SignalR yollar çağırarak Kurulum `app.UseSignalR` içinde `Startup.Configure` yöntemi.
 
-[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=56-59)]
+[!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
 ## <a name="create-and-use-hubs"></a>Oluşturma ve hub'ları kullanma
 
@@ -93,4 +91,6 @@ Hub yöntemlerinde oluşturulan özel durumları yöntemini çağırmış istemc
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 
-[ASP.NET Core SignalR giriş](xref:signalr/introduction)
+* [ASP.NET Core SignalR giriş](xref:signalr/introduction)
+* [JavaScript istemcisi](xref:signalr/javascript-client)
+* [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)

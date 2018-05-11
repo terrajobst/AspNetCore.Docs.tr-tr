@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: web-api/action-return-types
-ms.openlocfilehash: 88c8e61960982f405275c429087c7dd0c61abb8d
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 6734153eab699bb951400baa5c40968019c35b2c
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API, denetleyici eylem dönüş türleri
 
@@ -58,7 +58,7 @@ Olduğundan birden çok dönüş türü ve eylem, serbest yollarında kullanım�
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
 
-Ürün tarafından temsil edilen önceki eylemde 404 durum kodu döndürülür `id` temel alınan veri deposunda yok. [NotFound](/dotnet/api/system.web.http.apicontroller.notfound) yardımcı yöntemi, bir kısayol olarak çağrılır `return new NotFoundResult();`. Ürünün mevcut değilse, bir `Product` yükünü temsil eden bir 200 durum koduyla döndürülen nesne. [Tamam](/dotnet/api/system.web.http.apicontroller.ok) yardımcı yöntemi toplu biçiminde çağrılan `return new OkObjectResult(product);`.
+Ürün tarafından temsil edilen önceki eylemde 404 durum kodu döndürülür `id` temel alınan veri deposunda yok. [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) yardımcı yöntemi, bir kısayol olarak çağrılır `return new NotFoundResult();`. Ürünün mevcut değilse, bir `Product` yükünü temsil eden bir 200 durum koduyla döndürülen nesne. [Tamam](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) yardımcı yöntemi toplu biçiminde çağrılan `return new OkObjectResult(product);`.
 
 ### <a name="asynchronous-action"></a>Zaman uyumsuz eylem
 
@@ -66,16 +66,16 @@ Olduğundan birden çok dönüş türü ve eylem, serbest yollarında kullanım�
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Model doğrulama başarısız olduğunda önceki eyleminde 400 durum kodu döndürülür ve [BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest) yardımcı yöntemi çağrılır. Örneğin, aşağıdaki model istekleri sağlamalısınız belirtir `Name` özellik ve bir değer. Bu nedenle, uygun sağlamak için hata `Name` istekte model doğrulamasının başarısız olmasına neden olur.
+Model doğrulama başarısız olduğunda önceki eyleminde 400 durum kodu döndürülür ve [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) yardımcı yöntemi çağrılır. Örneğin, aşağıdaki model istekleri sağlamalısınız belirtir `Name` özellik ve bir değer. Bu nedenle, uygun sağlamak için hata `Name` istekte model doğrulamasının başarısız olmasına neden olur.
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
 
-Önceki eyleme ait diğer bilinen dönüş kodu bir 201 tarafından oluşturulan olan [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute) yardımcı yöntemi. Bu yolunda `Product` nesne döndürülür.
+Önceki eyleme ait diğer bilinen dönüş kodu bir 201 tarafından oluşturulan olan [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) yardımcı yöntemi. Bu yolunda `Product` nesne döndürülür.
 
 ::: moniker range=">= aspnetcore-2.1"
 ## <a name="actionresultt-type"></a>ActionResult\<T > türü
 
-ASP.NET Core 2.1 tanıtır `ActionResult<T>` dönüş türü Web API denetleyici eylemleri. Dönüş türetme bir türü sağlar [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) veya döndüren bir [belirli tür](#specific-type). `ActionResult<T>` üzerinde aşağıdaki avantajları sunar [IActionResult türü](#iactionresult-type):
+ASP.NET Core 2.1 tanıtır [ActionResult\<T >](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1) dönüş türü Web API denetleyici eylemleri. Dönüş türetme bir türü sağlar [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) veya döndüren bir [belirli tür](#specific-type). `ActionResult<T>` üzerinde aşağıdaki avantajları sunar [IActionResult türü](#iactionresult-type):
 
 * [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) özniteliğin `Type` özelliği hariç tutulamaz.
 * [Örtük atama işleçleri](/dotnet/csharp/language-reference/keywords/implicit) her ikisi de dönüşümünü destekleyen `T` ve `ActionResult` için `ActionResult<T>`. `T` dönüştürür [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult), anlamına `return new ObjectResult(T);` için Basitleştirilmiş `return T;`.
