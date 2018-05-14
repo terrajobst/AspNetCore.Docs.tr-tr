@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "Laboratuvar durum: Bir ASP.NET: ASP.NET Web Forms, MVC ve Web API tümleştirme | Microsoft Docs"
+title: 'Laboratuvar durum: Bir ASP.NET: ASP.NET Web Forms, MVC ve Web API tümleştirme | Microsoft Docs'
 author: rick-anderson
-description: "ASP.NET Web siteleri, uygulamaları ve Hizmetleri MVC, Web API ve diğerleri gibi özelleştirilmiş teknolojilerini kullanarak oluşturmaya yönelik bir çerçevedir. Genişletmeyle ASP.NET h..."
+description: ASP.NET Web siteleri, uygulamaları ve Hizmetleri MVC, Web API ve diğerleri gibi özelleştirilmiş teknolojilerini kullanarak oluşturmaya yönelik bir çerçevedir. Genişletmeyle ASP.NET h...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -161,7 +161,7 @@ Bu görevde oluşturulan çözümü çalıştırın, uygulama ve URL yeniden yaz
     *Kolay URL'ler*
 
     > [!NOTE]
-    > Gördüğünüz gibi URL değişikliklerini **/başvurun**. Başlayarak **ASP.NET 4**, URL yönlendirme özellikleri, Web formları için eklenmiştir, yazabileceğiniz şekilde URL'leri ister  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  yerine *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Daha fazla bilgi için bkz [URL yönlendirme](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Gördüğünüz gibi URL değişikliklerini **/başvurun**. Başlayarak **ASP.NET 4**, URL yönlendirme özellikleri, Web formları için eklenmiştir, yazabileceğiniz şekilde URL'leri ister *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* yerine *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Daha fazla bilgi için bkz [URL yönlendirme](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Şimdi uygulamaya tümleşik kimlik doğrulaması akışı inceleyeceksiniz. Bunu yapmak için tıklatın **kaydetmek** sayfanın sağ üst köşesindeki.
 
     ![Yeni bir kullanıcı kaydetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
