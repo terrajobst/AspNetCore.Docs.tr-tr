@@ -1,45 +1,45 @@
-# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a><span data-ttu-id="d52f1-101">ASP.NET Core URL yeniden yazma örnek (ASP.NET Core 2.x)</span><span class="sxs-lookup"><span data-stu-id="d52f1-101">ASP.NET Core URL Rewriting Sample (ASP.NET Core 2.x)</span></span>
+# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>ASP.NET Core URL yeniden yazma örnek (ASP.NET Core 2.x)
 
-<span data-ttu-id="d52f1-102">Bu örnek ASP.NET Core kullanımını göstermektedir 2.x URL yeniden yazma işlemi ara yazılım.</span><span class="sxs-lookup"><span data-stu-id="d52f1-102">This sample illustrates usage of ASP.NET Core 2.x URL Rewriting Middleware.</span></span> <span data-ttu-id="d52f1-103">Uygulama URL yeniden yönlendirme ve URL yeniden yazma seçenekleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="d52f1-103">The application demonstrates URL redirect and URL rewriting options.</span></span> <span data-ttu-id="d52f1-104">ASP.NET Core 1.x örnek için bkz: [ASP.NET Core URL yeniden yazma işlemi örnek (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).</span><span class="sxs-lookup"><span data-stu-id="d52f1-104">For the ASP.NET Core 1.x sample, see [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).</span></span>
+Bu örnek ASP.NET Core kullanımını göstermektedir 2.x URL yeniden yazma işlemi ara yazılım. Uygulama URL yeniden yönlendirme ve URL yeniden yazma seçenekleri gösterir. ASP.NET Core 1.x örnek için bkz: [ASP.NET Core URL yeniden yazma işlemi örnek (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).
 
-<span data-ttu-id="d52f1-105">Örnek çalıştırırken, bir yanıt kurallardan biri için bir istek URL'sini uygulanan ne zaman yeniden veya yeniden yönlendirilmiş bir URL gösteren sunulacak.</span><span class="sxs-lookup"><span data-stu-id="d52f1-105">When running the sample, a response will be served that shows the rewritten or redirected URL when one of the rules is applied to a request URL.</span></span>
+Örnek çalıştırırken, bir yanıt kurallardan biri için bir istek URL'sini uygulanan ne zaman yeniden veya yeniden yönlendirilmiş bir URL gösteren sunulacak.
 
-## <a name="examples-in-this-sample"></a><span data-ttu-id="d52f1-106">Bu örnekte örnekleri</span><span class="sxs-lookup"><span data-stu-id="d52f1-106">Examples in this sample</span></span>
+## <a name="examples-in-this-sample"></a>Bu örnekte örnekleri
 
 * `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
-  - <span data-ttu-id="d52f1-107">Başarı durumu kodu: 302 (bulundu)</span><span class="sxs-lookup"><span data-stu-id="d52f1-107">Success status code: 302 (Found)</span></span>
-  - <span data-ttu-id="d52f1-108">Örnek (Yönlendirme): **/redirect-rule / {capture_group}** için **/redirected/ {capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d52f1-108">Example (redirect): **/redirect-rule/{capture_group}** to **/redirected/{capture_group}**</span></span>
+  - Başarı durumu kodu: 302 (bulundu)
+  - Örnek (Yönlendirme): **/redirect-rule / {capture_group}** için **/redirected/ {capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
-  - <span data-ttu-id="d52f1-109">Başarı durumu kodu: 200 (Tamam)</span><span class="sxs-lookup"><span data-stu-id="d52f1-109">Success status code: 200 (OK)</span></span>
-  - <span data-ttu-id="d52f1-110">Örnek (yeniden): **/rewrite-rule / {capture_group_1} / {capture_group_2}** için **/ yeniden yazılmıştır? var1 {capture_group_1} = & var2 {capture_group_2} =**</span><span class="sxs-lookup"><span data-stu-id="d52f1-110">Example (rewrite): **/rewrite-rule/{capture_group_1}/{capture_group_2}** to **/rewritten?var1={capture_group_1}&var2={capture_group_2}**</span></span>
+  - Başarı durumu kodu: 200 (Tamam)
+  - Örnek (yeniden): **/rewrite-rule / {capture_group_1} / {capture_group_2}** için **/ yeniden yazılmıştır? var1 {capture_group_1} = & var2 {capture_group_2} =**
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
-  - <span data-ttu-id="d52f1-111">Başarı durumu kodu: 302 (bulundu)</span><span class="sxs-lookup"><span data-stu-id="d52f1-111">Success status code: 302 (Found)</span></span>
-  - <span data-ttu-id="d52f1-112">Örnek (Yönlendirme): **/apache-mod-rules-redirect / {capture_group}** için **/ yeniden yönlendirilen? kimliği = {capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d52f1-112">Example (redirect): **/apache-mod-rules-redirect/{capture_group}** to **/redirected?id={capture_group}**</span></span>
+  - Başarı durumu kodu: 302 (bulundu)
+  - Örnek (Yönlendirme): **/apache-mod-rules-redirect / {capture_group}** için **/ yeniden yönlendirilen? kimliği = {capture_group}**
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
-  - <span data-ttu-id="d52f1-113">Başarı durumu kodu: 200 (Tamam)</span><span class="sxs-lookup"><span data-stu-id="d52f1-113">Success status code: 200 (OK)</span></span>
-  - <span data-ttu-id="d52f1-114">Örnek (yeniden): **/iis-rules-rewrite / {capture_group}** için **/ yeniden yazılmıştır? kimliği = {capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d52f1-114">Example (rewrite): **/iis-rules-rewrite/{capture_group}** to **/rewritten?id={capture_group}**</span></span>
+  - Başarı durumu kodu: 200 (Tamam)
+  - Örnek (yeniden): **/iis-rules-rewrite / {capture_group}** için **/ yeniden yazılmıştır? kimliği = {capture_group}**
 * `Add(RedirectXMLRequests)`
-  - <span data-ttu-id="d52f1-115">Başarı durumu kodu: 301 (taşınmış kalıcı olarak)</span><span class="sxs-lookup"><span data-stu-id="d52f1-115">Success status code: 301 (Moved Permanently)</span></span>
-  - <span data-ttu-id="d52f1-116">Örnek (Yönlendirme): **/file.xml** için **/xmlfiles/file.xml**</span><span class="sxs-lookup"><span data-stu-id="d52f1-116">Example (redirect): **/file.xml** to **/xmlfiles/file.xml**</span></span>
+  - Başarı durumu kodu: 301 (taşınmış kalıcı olarak)
+  - Örnek (Yönlendirme): **/file.xml** için **/xmlfiles/file.xml**
 * `Add(new RedirectPNGRequests(".png", "/png-images")))`<br>`Add(new RedirectPNGRequests(".jpg", "/jpg-images")))`
-  - <span data-ttu-id="d52f1-117">Başarı durumu kodu: 301 (taşınmış kalıcı olarak)</span><span class="sxs-lookup"><span data-stu-id="d52f1-117">Success status code: 301 (Moved Permanently)</span></span>
-  - <span data-ttu-id="d52f1-118">Örnek (Yönlendirme): **/image.png** için **/png-images/image.png**</span><span class="sxs-lookup"><span data-stu-id="d52f1-118">Example (redirect): **/image.png** to **/png-images/image.png**</span></span>
-  - <span data-ttu-id="d52f1-119">Örnek (Yönlendirme): **/image.jpg** için **/jpg-images/image.jpg**</span><span class="sxs-lookup"><span data-stu-id="d52f1-119">Example (redirect): **/image.jpg** to **/jpg-images/image.jpg**</span></span>
+  - Başarı durumu kodu: 301 (taşınmış kalıcı olarak)
+  - Örnek (Yönlendirme): **/image.png** için **/png-images/image.png**
+  - Örnek (Yönlendirme): **/image.jpg** için **/jpg-images/image.jpg**
 
-## <a name="using-a-physicalfileprovider"></a><span data-ttu-id="d52f1-120">Kullanarak bir `PhysicalFileProvider`</span><span class="sxs-lookup"><span data-stu-id="d52f1-120">Using a `PhysicalFileProvider`</span></span>
-<span data-ttu-id="d52f1-121">Edinebilirsiniz bir `IFileProvider` oluşturarak bir `PhysicalFileProvider` uygulamasına geçirmek için `AddApacheModRewrite()` ve `AddIISUrlRewrite()` yöntemleri:</span><span class="sxs-lookup"><span data-stu-id="d52f1-121">You can also obtain an `IFileProvider` by creating a `PhysicalFileProvider` to pass into the `AddApacheModRewrite()` and `AddIISUrlRewrite()` methods:</span></span>
+## <a name="using-a-physicalfileprovider"></a>Kullanarak bir `PhysicalFileProvider`
+Edinebilirsiniz bir `IFileProvider` oluşturarak bir `PhysicalFileProvider` uygulamasına geçirmek için `AddApacheModRewrite()` ve `AddIISUrlRewrite()` yöntemleri:
 ```csharp
 using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
-## <a name="secure-redirection-extensions"></a><span data-ttu-id="d52f1-122">Yeniden yönlendirme uzantıları güvenli</span><span class="sxs-lookup"><span data-stu-id="d52f1-122">Secure redirection extensions</span></span>
-<span data-ttu-id="d52f1-123">Bu örnek içeren `WebHostBuilder` URL'leri kullanmak üzere uygulamayı yapılandırma (**https://localhost:5001**, **https://localhost**) ve bir test sertifikası (**testCert.pfx**) için size bu keşfetme yöntemlerini yeniden yönlendirme Yardımcısı.</span><span class="sxs-lookup"><span data-stu-id="d52f1-123">This sample includes `WebHostBuilder` configuration for the app to use URLs (**https://localhost:5001**, **https://localhost**) and a test certificate (**testCert.pfx**) to assist you in exploring these redirect methods.</span></span> <span data-ttu-id="d52f1-124">Herhangi birinin için ekleyin `RewriteOptions()` içinde **haline** davranışlarını incelemek için.</span><span class="sxs-lookup"><span data-stu-id="d52f1-124">Add any of them to the `RewriteOptions()` in **Startup.cs** to study their behavior.</span></span>
+## <a name="secure-redirection-extensions"></a>Yeniden yönlendirme uzantıları güvenli
+Bu örnek içeren `WebHostBuilder` URL'leri kullanmak üzere uygulamayı yapılandırma (**https://localhost:5001**, **https://localhost**) ve bir test sertifikası (**testCert.pfx**) için size bu keşfetme yöntemlerini yeniden yönlendirme Yardımcısı. Herhangi birinin için ekleyin `RewriteOptions()` içinde **haline** davranışlarını incelemek için.
 
 
-|              <span data-ttu-id="d52f1-125">Yöntem</span><span class="sxs-lookup"><span data-stu-id="d52f1-125">Method</span></span>              | <span data-ttu-id="d52f1-126">Durum kodu</span><span class="sxs-lookup"><span data-stu-id="d52f1-126">Status Code</span></span> |    <span data-ttu-id="d52f1-127">Bağlantı Noktası</span><span class="sxs-lookup"><span data-stu-id="d52f1-127">Port</span></span>    |
+|              Yöntem              | Durum kodu |    Bağlantı Noktası    |
 |----------------------------------|:-----------:|:----------:|
-| `.AddRedirectToHttpsPermanent()` |     <span data-ttu-id="d52f1-128">301</span><span class="sxs-lookup"><span data-stu-id="d52f1-128">301</span></span>     | <span data-ttu-id="d52f1-129">null (465)</span><span class="sxs-lookup"><span data-stu-id="d52f1-129">null (465)</span></span> |
-|     `.AddRedirectToHttps()`      |     <span data-ttu-id="d52f1-130">302</span><span class="sxs-lookup"><span data-stu-id="d52f1-130">302</span></span>     | <span data-ttu-id="d52f1-131">null (465)</span><span class="sxs-lookup"><span data-stu-id="d52f1-131">null (465)</span></span> |
-|    `.AddRedirectToHttps(301)`    |     <span data-ttu-id="d52f1-132">301</span><span class="sxs-lookup"><span data-stu-id="d52f1-132">301</span></span>     | <span data-ttu-id="d52f1-133">null (465)</span><span class="sxs-lookup"><span data-stu-id="d52f1-133">null (465)</span></span> |
-| `.AddRedirectToHttps(301, 5001)` |     <span data-ttu-id="d52f1-134">301</span><span class="sxs-lookup"><span data-stu-id="d52f1-134">301</span></span>     |    <span data-ttu-id="d52f1-135">5001</span><span class="sxs-lookup"><span data-stu-id="d52f1-135">5001</span></span>    |
+| `.AddRedirectToHttpsPermanent()` |     301     | null (465) |
+|     `.AddRedirectToHttps()`      |     302     | null (465) |
+|    `.AddRedirectToHttps(301)`    |     301     | null (465) |
+| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
 

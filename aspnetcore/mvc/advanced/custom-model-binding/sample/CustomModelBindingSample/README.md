@@ -1,12 +1,12 @@
-# <a name="custom-model-binding-demo"></a><span data-ttu-id="3b02e-101">Özel Model bağlama Tanıtımı</span><span class="sxs-lookup"><span data-stu-id="3b02e-101">Custom Model Binding Demo</span></span>
+# <a name="custom-model-binding-demo"></a>Özel Model bağlama Tanıtımı
 
-<span data-ttu-id="3b02e-102">Test `ByteArrayModelBinder` uygulamayı çalıştırarak ve Base64 ile kodlanmış bir dize olarak nakil `ImageController` uç noktası (`/api/image/`).</span><span class="sxs-lookup"><span data-stu-id="3b02e-102">Test `ByteArrayModelBinder` by running the app and POSTing a base64-encoded string to the `ImageController` endpoint (`/api/image/`).</span></span> <span data-ttu-id="3b02e-103">İstek gövdesini form verileri olarak dosya ve dosya adı proparties belirtin (kullanarak [Postman](https://www.getpostman.com/) veya benzer bir aracı).</span><span class="sxs-lookup"><span data-stu-id="3b02e-103">Specify the file and filename proparties in the request body as form-data (using [Postman](https://www.getpostman.com/) or a similar tool).</span></span> <span data-ttu-id="3b02e-104">Kullanabileceğiniz [Bu örnek dize](Base64String.txt).</span><span class="sxs-lookup"><span data-stu-id="3b02e-104">You can use [this sample string](Base64String.txt).</span></span> <span data-ttu-id="3b02e-105">Sonuç kaydedilir *görüntüleri/wwwroot/karşıya* klasörü belirtilen dosya adı.</span><span class="sxs-lookup"><span data-stu-id="3b02e-105">The result is saved in the *wwwroot/images/upload* folder with the filename specified.</span></span>
+Test `ByteArrayModelBinder` uygulamayı çalıştırarak ve Base64 ile kodlanmış bir dize olarak nakil `ImageController` uç noktası (`/api/image/`). İstek gövdesini form verileri olarak dosya ve dosya adı proparties belirtin (kullanarak [Postman](https://www.getpostman.com/) veya benzer bir aracı). Kullanabileceğiniz [Bu örnek dize](Base64String.txt). Sonuç kaydedilir *görüntüleri/wwwroot/karşıya* klasörü belirtilen dosya adı.
 
-<span data-ttu-id="3b02e-106">Özel bağlama örneği test etmek için şu uç noktalar deneyin:</span><span class="sxs-lookup"><span data-stu-id="3b02e-106">To test the custom binding example, try the following endpoints:</span></span>
+Özel bağlama örneği test etmek için şu uç noktalar deneyin:
 
-* <span data-ttu-id="3b02e-107">/api/Authors/1</span><span class="sxs-lookup"><span data-stu-id="3b02e-107">/api/authors/1</span></span>
-* <span data-ttu-id="3b02e-108">/api/Authors/2 (bulunamadı)</span><span class="sxs-lookup"><span data-stu-id="3b02e-108">/api/authors/2 (NOT FOUND)</span></span>
-* <span data-ttu-id="3b02e-109">/api/boundauthors/1</span><span class="sxs-lookup"><span data-stu-id="3b02e-109">/api/boundauthors/1</span></span>
-* <span data-ttu-id="3b02e-110">/api/boundauthors/2 (bulunamadı)</span><span class="sxs-lookup"><span data-stu-id="3b02e-110">/api/boundauthors/2 (NOT FOUND)</span></span>
-* <span data-ttu-id="3b02e-111">/api/boundauthors/Get/1</span><span class="sxs-lookup"><span data-stu-id="3b02e-111">/api/boundauthors/get/1</span></span>
-* <span data-ttu-id="3b02e-112">/api/boundauthors/Get/2 (NO içerik) &ndash; Bu eylem için null denetlemez ve döndüren bir *404 Bulunamadı*.</span><span class="sxs-lookup"><span data-stu-id="3b02e-112">/api/boundauthors/get/2 (NO CONTENT) &ndash; This action doesn't check for null and returns a *404 Not Found*.</span></span>
+* /api/Authors/1
+* /api/Authors/2 (bulunamadı)
+* /api/boundauthors/1
+* /api/boundauthors/2 (bulunamadı)
+* /api/boundauthors/Get/1
+* /api/boundauthors/Get/2 (NO içerik) &ndash; Bu eylem için null denetlemez ve döndüren bir *404 Bulunamadı*.

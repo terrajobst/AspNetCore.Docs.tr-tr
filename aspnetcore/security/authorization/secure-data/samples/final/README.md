@@ -1,9 +1,9 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a><span data-ttu-id="11393-101">Nasıl yapı/güvenli kullanıcı veri örneği çalıştırma</span><span class="sxs-lookup"><span data-stu-id="11393-101">How to build/run Secure user data sample</span></span>
+# <a name="how-to-buildrun-secure-user-data-sample"></a>Nasıl yapı/güvenli kullanıcı veri örneği çalıştırma
 
-* <span data-ttu-id="11393-102">Parola Yöneticisi Aracı ile parola ayarlayın:</span><span class="sxs-lookup"><span data-stu-id="11393-102">Set password with the Secret Manager tool:</span></span>
+* Parola Yöneticisi Aracı ile parola ayarlayın:
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
-* <span data-ttu-id="11393-103">Veritabanını güncelleştirme:</span><span class="sxs-lookup"><span data-stu-id="11393-103">Update the database:</span></span>
+* Veritabanını güncelleştirme:
 
     `dotnet ef database update`

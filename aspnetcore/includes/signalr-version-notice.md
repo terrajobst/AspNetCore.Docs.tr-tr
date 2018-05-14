@@ -1,2 +1,2 @@
 > [!NOTE]
-> <span data-ttu-id="bb311-101">Bu belge, ASP.NET Core SignalR en son sürümünü ayrıntıları verilmektedir.</span><span class="sxs-lookup"><span data-stu-id="bb311-101">This document details the latest version of ASP.NET Core SignalR.</span></span> <span data-ttu-id="bb311-102">Bkz: [SignalR 1.x belgelerine](/aspnet/signalr/) ASP.NET Framework sürümü için.</span><span class="sxs-lookup"><span data-stu-id="bb311-102">See the [SignalR 1.x documentation](/aspnet/signalr/) for the ASP.NET Framework version.</span></span>
+> Bu belge, ASP.NET Core SignalR en son sürümünü ayrıntıları verilmektedir. Bkz: [SignalR 1.x belgelerine](/aspnet/signalr/) ASP.NET Framework sürümü için.

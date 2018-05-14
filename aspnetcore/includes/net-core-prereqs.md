@@ -1,9 +1,9 @@
-<span data-ttu-id="9e916-101">Yükleme **bir** aşağıdaki:</span><span class="sxs-lookup"><span data-stu-id="9e916-101">Install **one** of the following:</span></span>
+Yükleme **bir** aşağıdaki:
 
-* <span data-ttu-id="9e916-102">CLI tooling: Windows, Linux veya macOS: [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]</span><span class="sxs-lookup"><span data-stu-id="9e916-102">CLI tooling: Windows, Linux, or macOS: [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]</span></span>
-* <span data-ttu-id="9e916-103">IDE/Düzenleyicisi araç</span><span class="sxs-lookup"><span data-stu-id="9e916-103">IDE/editor tooling</span></span>
-  * <span data-ttu-id="9e916-104">Windows: [Windows için Visual Studio](https://www.microsoft.com/net/download/windows)</span><span class="sxs-lookup"><span data-stu-id="9e916-104">Windows: [Visual Studio for Windows](https://www.microsoft.com/net/download/windows)</span></span>
-    * <span data-ttu-id="9e916-105">**ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="9e916-105">**ASP.NET and web development** workload</span></span>
-    * <span data-ttu-id="9e916-106">**.NET core platformlar arası geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="9e916-106">**.NET Core cross-platform development** workload</span></span>
-  * <span data-ttu-id="9e916-107">Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)</span><span class="sxs-lookup"><span data-stu-id="9e916-107">Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)</span></span>
-  * <span data-ttu-id="9e916-108">macOS: [Visual Studio for Mac](https://www.microsoft.com/net/download/macos)</span><span class="sxs-lookup"><span data-stu-id="9e916-108">macOS: [Visual Studio for Mac](https://www.microsoft.com/net/download/macos)</span></span>
+* CLI tooling: Windows, Linux veya macOS: [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+* IDE/Düzenleyicisi araç
+  * Windows: [Windows için Visual Studio](https://www.microsoft.com/net/download/windows)
+    * **ASP.NET ve web geliştirme** iş yükü
+    * **.NET core platformlar arası geliştirme** iş yükü
+  * Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)
+  * macOS: [Visual Studio for Mac](https://www.microsoft.com/net/download/macos)

@@ -1,8 +1,8 @@
-<span data-ttu-id="f7c8e-101">Bu öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve görünümler ile öğretir.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-101">This tutorial teaches ASP.NET Core MVC and Entity Framework Core with controllers and views.</span></span> <span data-ttu-id="f7c8e-102">Razor sayfalarının ASP.NET Core 2.0, daha kolay ve daha üretken yapı web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli yeni bir alternatif olur.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-102">Razor Pages is a new alternative in ASP.NET Core 2.0, a page-based programming model that makes building web UI easier and more productive.</span></span> <span data-ttu-id="f7c8e-103">Öneririz [Razor sayfalarının](xref:data/ef-rp/intro) MVC sürüm üzerinden Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-103">We recommend the [Razor Pages](xref:data/ef-rp/intro) tutorial over the MVC version.</span></span> <span data-ttu-id="f7c8e-104">Razor sayfalarının öğretici:</span><span class="sxs-lookup"><span data-stu-id="f7c8e-104">The Razor Pages tutorial:</span></span>
+Bu öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve görünümler ile öğretir. Razor sayfalarının ASP.NET Core 2.0, daha kolay ve daha üretken yapı web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli yeni bir alternatif olur. Öneririz [Razor sayfalarının](xref:data/ef-rp/intro) MVC sürüm üzerinden Öğreticisi. Razor sayfalarının öğretici:
 
-* <span data-ttu-id="f7c8e-105">İzlemek daha kolay olur.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-105">Is easier to follow.</span></span>
-* <span data-ttu-id="f7c8e-106">Daha fazla EF çekirdek en iyi yöntemler sağlar.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-106">Provides more EF Core best practices.</span></span>
-* <span data-ttu-id="f7c8e-107">Daha verimli sorgularını kullanır.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-107">Uses more efficient queries.</span></span>
-* <span data-ttu-id="f7c8e-108">Son API ile daha fazla geçerli değil.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-108">Is more current with the latest API.</span></span>
-* <span data-ttu-id="f7c8e-109">Daha fazla özellikleri kapsar.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-109">Covers more features.</span></span>
-* <span data-ttu-id="f7c8e-110">Yeni uygulama geliştirme için tercih edilen yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="f7c8e-110">Is the preferred approach for new application development.</span></span>
+* İzlemek daha kolay olur.
+* Daha fazla EF çekirdek en iyi yöntemler sağlar.
+* Daha verimli sorgularını kullanır.
+* Son API ile daha fazla geçerli değil.
+* Daha fazla özellikleri kapsar.
+* Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
