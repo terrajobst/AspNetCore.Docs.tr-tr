@@ -1,7 +1,0 @@
-### <a name="next-steps"></a><span data-ttu-id="fdf0d-101">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="fdf0d-101">Next steps</span></span>
-
-<span data-ttu-id="fdf0d-102">Başlarken eğitimleri bkz [ASP.NET Core öğreticileri](xref:tutorials/index).</span><span class="sxs-lookup"><span data-stu-id="fdf0d-102">For getting started tutorials, see [ASP.NET Core Tutorials](xref:tutorials/index).</span></span>
-
-<span data-ttu-id="fdf0d-103">ASP.NET temel kavramlar ve mimari bir giriş için bkz: [ASP.NET Core giriş](xref:index) ve [ASP.NET Core Temelleri](xref:fundamentals/index).</span><span class="sxs-lookup"><span data-stu-id="fdf0d-103">For an introduction to ASP.NET Core concepts and architecture, see [ASP.NET Core Introduction](xref:index) and [ASP.NET Core Fundamentals](xref:fundamentals/index).</span></span>
-
-<span data-ttu-id="fdf0d-104">Bir ASP.NET Core uygulama .NET Core veya .NET Framework temel sınıf kitaplığı ve çalışma zamanı kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fdf0d-104">An ASP.NET Core app can use the .NET Core or .NET Framework Base Class Library and runtime.</span></span> <span data-ttu-id="fdf0d-105">Daha fazla bilgi için bkz: [.NET Core ve .NET Framework arasında seçim yapma](/dotnet/articles/standard/choosing-core-framework-server).</span><span class="sxs-lookup"><span data-stu-id="fdf0d-105">For more information, see [Choosing between .NET Core and .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).</span></span>
