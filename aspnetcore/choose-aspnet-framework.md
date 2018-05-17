@@ -4,16 +4,16 @@ author: rick-anderson
 description: ASP.NET ve ASP.NET Core arasında seçim yapma hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2018
+ms.date: 05/11/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: e6ac9f54ef623895b81eea33d90791e5f0ad5120
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 0c6924d40b7327d2032a0278c56a0b4fa41d15a1
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core arasında seçim yapma
 
@@ -25,14 +25,16 @@ ASP.NET Core Windows, macOS ya da Linux modern, bulut tabanlı web uygulamaları
 
 ## <a name="aspnet"></a>ASP.NET
 
-ASP.NET, kurumsal sınıf oluşturmak için gereken tüm hizmetleri Windows server tabanlı web uygulamalarında sağlayan olgun bir çerçevedir.
+ASP.NET, kurumsal düzeyde oluşturmak için gereken tüm hizmetleri Windows server tabanlı web uygulamalarında sağlayan olgun bir çerçevedir.
 
-## <a name="which-one-is-right-for-me"></a>Hangisinin benim için en uygun mi?
+## <a name="framework-selection"></a>Framework seçimi
+
+Hangi framework gereksinimleriniz için en uygun olduğunu belirlemek için aşağıdaki tabloyu gözden geçirin.
 
 | ASP.NET Core | ASP.NET |
 |---|---|
 |Windows, macOS ya da Linux derleme|Windows için derleme|
-|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), veya [Web sayfaları](/aspnet/web-pages)|
+|[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), [Kancalarını](/aspnet/webhooks/), veya [Web sayfaları](/aspnet/web-pages)|
 |Makine başına birden çok sürüm|Makine başına bir sürüm|
 |Visual Studio ile geliştirme [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) C# veya F # kullanma|C#, VB ve F # kullanarak Visual Studio ile geliştirme|
 |ASP.NET daha yüksek performans|İyi bir performans|
@@ -40,7 +42,6 @@ ASP.NET, kurumsal sınıf oluşturmak için gereken tüm hizmetleri Windows serv
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core senaryoları
 
-<!-- update link to Razor Pages mvc movie series when done -->
 * [Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x.
 * [Web siteleri](xref:tutorials/first-mvc-app/index)
 * [API'leri](xref:tutorials/first-web-api)

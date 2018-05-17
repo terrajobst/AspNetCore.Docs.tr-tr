@@ -1,6 +1,6 @@
 ---
 title: Web server ASP.NET Core uygulamalarında
-author: tdykstra
+author: rick-anderson
 description: Kestrel ve HTTP.sys web sunucuları için ASP.NET Core bulur. Bir sunucu seçmek nasıl ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: cdf6fafce644f424d3cd58395e1fa91e5e6fa2cb
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 38af9d0206d66ac7fd2dc13a5a8245e8f66df41e
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
 
@@ -24,13 +24,12 @@ Bir ASP.NET Core uygulama işlem içi HTTP sunucusu uygulamasını ile çalış�
 
 ASP.NET Core iki sunucu uygulamaları gelir:
 
-* [Kestrel](xref:fundamentals/servers/kestrel) platformlar arası HTTP sunucusu dayanır [libuv](https://github.com/libuv/libuv), platformlar arası zaman uyumsuz g/ç kitaplığı.
-
+* [Kestrel](xref:fundamentals/servers/kestrel) platformlar arası HTTP sunucusu, varsayılan ASP.NET çekirdeği için olur.
 * [HTTP.sys](xref:fundamentals/servers/httpsys) yalnızca Windows HTTP sunucu dayanır [HTTP.sys çekirdek sürücüsü ve HTTP sunucu API'sini](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (HTTP.sys çağrılır [WebListener](xref:fundamentals/servers/weblistener) ASP.NET Core içinde 1.x.)
 
 ## <a name="kestrel"></a>kestrel
 
-Kestrel varsayılan ASP.NET Core yeni proje şablonları olarak dahil edilen web sunucusudur. 
+Kestrel ASP.NET Core proje şablonlarını dahil varsayılan web sunucusudur.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

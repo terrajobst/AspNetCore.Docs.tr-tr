@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: e3956bedbc243578f6dfdc09f5f043327de7c66b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Açısal proje şablonu kullanın
 
@@ -39,12 +39,14 @@ cd my-new-app
 
 Uygulama, Visual Studio veya .NET Core CLI çalıştırın:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Oluşturulan açmak *.csproj* dosya ve uygulama buradan normal olarak çalıştırın.
 
 Oluşturma işlemi birkaç dakika sürebilir ilk çalıştırmada npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
 
-#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+
 Adlı bir ortam değişkeni olduğundan emin olun `ASPNETCORE_Environment` değerini `Development`. (İçinde olmayan PowerShell komut istemleri) Windows üzerinde çalışan `SET ASPNETCORE_Environment=Development`. Linux veya macOS, çalıştırılan `export ASPNETCORE_Environment=Development`.
 
 Çalıştırma [dotnet yapı](/dotnet/core/tools/dotnet-build) uygulama doğrulamak için derlemeler doğru. İlk çalıştırılmasında oluşturma işlemi birkaç dakika sürebilir npm bağımlılıkları yükler. Sonraki derlemeleri çok daha hızlıdır.
@@ -57,9 +59,10 @@ Now listening on: http://localhost:<port>
 
 Bu URL'yi bir tarayıcıda gidin.
 
-Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: <em>NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost: &lt;otherport&gt; /</em> . Bu iletiyi göz ardı edin&mdash;sahip <strong>değil</strong> birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
+Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: <em>NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost:&lt; otherport&gt; /</em>  . Bu iletiyi göz ardı edin&mdash;sahip <strong>değil</strong> birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
 
-* * *
+---
+
 Proje şablonu, bir ASP.NET Core uygulama ve Açısal bir uygulama oluşturur. ASP.NET Core uygulama veri erişimi, yetkilendirme ve diğer sunucu tarafı sorunları için kullanılmak üzere tasarlanmıştır. Bulunan Açısal uygulama *ClientApp* alt, tüm kullanıcı Arabirimi sorunları için kullanılmak üzere tasarlanmıştır.
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Sayfaları, görüntüler, stil, modüller, vb. ekleyin.

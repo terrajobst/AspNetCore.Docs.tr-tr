@@ -1,6 +1,6 @@
 ---
 title: HTTP.sys web server ASP.NET Core uygulamasında
-author: tdykstra
+author: rick-anderson
 description: HTTP.sys, ASP.NET Core Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys bir IIS olmadan Internet'e doğrudan bağlantı için kullanılan Kestrel alternatifidir.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 1ec309a00b6cb156b0d11ad085eda3b7a772ac94
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: ce4edf6f07808d3958c919a1d81561ce020fe52b
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -80,7 +80,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
    | [Authentication.Schemes](/dotnet/api/microsoft.aspnetcore.server.httpsys.authenticationmanager.schemes) | İzin verilen kimlik doğrulama şemasını belirtin. Dinleyici atma önce herhangi bir zamanda değiştirilebilir. Tarafından sağlanan değerler [AuthenticationSchemes enum](/dotnet/api/microsoft.aspnetcore.server.httpsys.authenticationschemes): `Basic`, `Kerberos`, `Negotiate`, `None`, ve `NTLM`. | `None` |
    | [EnableResponseCaching](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.enableresponsecaching) | Girişimi [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) uygun üst bilgileri ile yanıtlarını önbelleğe alma. Yanıt değil içerebilir `Set-Cookie`, `Vary`, veya `Pragma` üstbilgileri. İçermesi gerekir bir `Cache-Control` üstbilgi o `public` ve ya da bir `shared-max-age` veya `max-age` değeri veya bir `Expires` üstbilgi. | `true` |
    | [MaxAccepts](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxaccepts) | En fazla eşzamanlı kabul eder. | 5 &times; [ortamı.<br> ProcessorCount](/dotnet/api/system.environment.processorcount) |
-   | [MaxConnections](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxconnections) | Kabul etmek için eşzamanlı bağlantı sayısı. Kullanım `-1` sonsuz için. Kullanmak `null` kayıt defterindeki makine genelinde ayarı kullanmak için. | `null`<br>(sınırsız) |
+   | [maxConnections](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxconnections) | Kabul etmek için eşzamanlı bağlantı sayısı. Kullanım `-1` sonsuz için. Kullanmak `null` kayıt defterindeki makine genelinde ayarı kullanmak için. | `null`<br>(sınırsız) |
    | [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.maxrequestbodysize) | Bkz: <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümü. | 30000000 bayt<br>(~28.6 MB) |
    | [RequestQueueLimit](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.requestqueuelimit) | Sıraya alınabilecek isteklerinin sayısı. | 1000 |
    | [ThrowWriteExceptions](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.throwwriteexceptions) | Başarısız istemci nedeniyle keser yanıt gövdesi yazma veya özel durumlar oluşturma normal şekilde tamamlayın gösterir. | `false`<br>(normal şekilde tamamlayın.) |
@@ -156,7 +156,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
       Aşağıdaki örnek, bir X.509 sertifikası atama gösterilmiştir:
 
       ```console
-      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid={00000000-0000-0000-0000-000000000000}"
+      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}"
       ```
 
       Başvuru belgelerini için *netsh.exe*:

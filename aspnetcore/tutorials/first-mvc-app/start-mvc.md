@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: b7036b92e8f25613917cfc4112389be81c12f614
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1dba6eaceb6b69cf92cb8a831df9dc8d70a005d4
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
@@ -29,10 +29,12 @@ Bu öğretici 3 sürümü vardır:
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Visual Studio Community 2017 yükleyin. Topluluk indirme seçin. Visual Studio yüklü 2017 varsa bu adımı atlayın.
 
 * [Visual Studio 2017 giriş sayfası yükleyicisi](https://www.visualstudio.com/)
@@ -46,7 +48,8 @@ Yükleyiciyi çalıştırın ve aşağıdaki iş yüklerini seçin:
 
 ![* *.NET çekirdek arası arası platfrom geliştirme ** (altında ** diğer Toolsets **)](start-mvc/_static/x_plat_wl.png)
 
-* * *
+---
+
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
 Visual Studio'dan seçin **Dosya > Yeni > Proje**.
@@ -61,7 +64,6 @@ Tamamlamak **yeni proje** iletişim:
 * Dokunun **Tamam**
 
 ![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .net core ](start-mvc/_static/new_project2.png)
-
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

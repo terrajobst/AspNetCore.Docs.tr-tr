@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core WebSockets desteği
-author: tdykstra
+author: rick-anderson
 description: ASP.NET Core WebSockets kullanmaya başlayacağınızı öğrenin.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: e744ab5b81ff85f48edb012a86b55003cc74929c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ede8064b5e77024b843357d4715869b3495b9147
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -31,12 +31,12 @@ Bu makalede, ASP.NET Core WebSockets kullanmaya başlama açıklanmaktadır. [We
   
   * Windows 7 / Windows Server 2008 veya üzeri
   * Linux
-  * macOS
+  * MacOS
   
 * Uygulama IIS ile Windows üzerinde çalışıyorsa:
 
   * Windows 8 / Windows Server 2012 veya üzeri
-  * IIS 8 / IIS 8 Express
+  * IIS 8 / 8 IIS Express
   * WebSockets, IIS'de etkin olması gerekir (bkz [IIS/IIS Express Destek](#iisiis-express-support) bölüm.)
   
 * Uygulama çalışıyorsa [HTTP.sys](xref:fundamentals/servers/httpsys):
@@ -131,7 +131,7 @@ WebSocket desteği kullanıyorsanız [Socket.IO](https://socket.io/) üzerinde [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) bu eşlik makaledir Yankı uygulama. WebSocket bağlantılar sağlayan bir web sayfasına sahip ve sunucunun aldığı iletileri istemciye yeniden gönderir. (Bunu ayarlanmamış yukarı IIS Express ile Visual Studio'dan çalıştırmak için) bir komut isteminden uygulamayı çalıştırın ve http://localhost: 5000 için gidin. Web sayfasının sol üst bağlantı durumunu gösterir:
+[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) bu eşlik makaledir Yankı uygulama. WebSocket bağlantılar sağlayan bir web sayfasına sahip ve sunucunun aldığı iletileri istemciye yeniden gönderir. (Bunu ayarlanmamış yukarı IIS Express ile Visual Studio'dan çalıştırmak için) bir komut isteminden uygulamayı çalıştırın ve gidin http://localhost:5000. Web sayfasının sol üst bağlantı durumunu gösterir:
 
 ![Web sayfasının ilk durumu](websockets/_static/start.png)
 

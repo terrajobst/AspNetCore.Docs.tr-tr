@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: 11c8cf079a0922e925060ad3d439ba5e095ae22e
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 5929ee44aa58088614f910560eafbf5f5ab82ded
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
@@ -70,8 +70,8 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
 3. Aşağıdaki komutları çalıştırın **Paket Yöneticisi Konsolu** penceresinden proje kök:
 
     ```console
-      npm init -y
-      npm install @aspnet/signalr
+    npm init -y
+    npm install @aspnet/signalr
     ```     
 
 4. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  için *lib* projenizdeki klasöre.
@@ -81,14 +81,14 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
 1. Gelen **tümleşik Terminal**, aşağıdaki komutu çalıştırın:
 
     ```console
-      dotnet new razor -o SignalRChat
+    dotnet new razor -o SignalRChat
     ```
 
 2. JavaScript istemci kitaplığını kullanarak yükleme *npm*.
 
-    ```
-      npm init -y
-      npm install @aspnet/signalr
+    ```console
+    npm init -y
+    npm install @aspnet/signalr
     ```
 
 3. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  için *lib* projenizdeki klasöre.
@@ -167,7 +167,7 @@ SignalR için isteklerini iletmek için bilir böylece SignalR sunucusunun yapı
 
 1. Ya da tarayıcı seçin, bir ad ve ileti girin ve tıklatın **Gönder** düğmesi. Ad ve ileti iki sayfalarında anında görüntülenir.
 
------
+---
 
   ![Çözüm](get-started/_static/signalr-get-started-finished.png)
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/localization
-ms.openlocfilehash: b81926f81fdfb832ff6ae3bd65c00fa09412fec4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 929c73c314a15e7003853d3996158d1328e597cb
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET Core içinde
 
@@ -141,14 +141,6 @@ Kaynak dosyası kodunuzdan yerelleştirilebilir dizeler ayırmak için kullanı�
     Visual Studio gösterir *Welcome.es.resx* dosya.
 
     ![Hoş Geldiniz İspanyolca (es) kaynak dosyası gösteren Çözüm Gezgini](localization/_static/se.png)
-
-<a name="error"></a>
-
-Visual Studio 2017 Önizleme sürümü 15.3 kullanıyorsanız, Kaynak Düzenleyicisi'nde bir hata göstergesi elde edersiniz. Kaldırma *ResXFileCodeGenerator* değeri *özel araç* bu hatayı önlemek için özellikleri Kılavuzu:
-
-![Resx Düzenleyicisi](localization/_static/err.png)
-
-Alternatif olarak, bu hatayı yoksayabilirsiniz. Sonraki sürümde bu sorunu gidermek umuyoruz.
 
 ## <a name="resource-file-naming"></a>Kaynak dosya adlandırma
 

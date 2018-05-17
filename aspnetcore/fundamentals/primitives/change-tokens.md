@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
 
@@ -108,7 +108,7 @@ Uygulanan sınıf `ConfigurationMonitor`, değişiklik bildirimleri için bir ge
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` belirteç sağlar. `InvokeChanged` geri çağırma yöntemidir. `state` Bu örnekte, izleme durumu açıklayan bir dizedir. İki özellik kullanılır:
+`config.GetReloadToken()` belirteç sağlar. `InvokeChanged` geri çağırma yöntemidir. `state` Bu örneğinde başvurusudur `IConfigurationMonitor` izleme durumu erişmek için kullanılan örnek. İki özellik kullanılır:
 
 * `MonitoringEnabled` geri arama özel kod çalışması gerekip gerekmediğini gösterir.
 * `CurrentState` kullanıcı arabirimini kullanmak için geçerli izleme durumu açıklar.
@@ -116,7 +116,6 @@ Uygulanan sınıf `ConfigurationMonitor`, değişiklik bildirimleri için bir ge
 `InvokeChanged` Yöntemi, önceki yaklaşım, BT'nin dışında benzerdir:
 
 * Kendi kod sürece çalışmaz `MonitoringEnabled` olan `true`.
-* Ayarlar `CurrentState` kodu çalıştırdığınızda kayıtları açıklayıcı bir ileti için özellik dizesi.
 * Geçerli Notlar `state` içinde kendi `WriteConsole` çıktı.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -199,9 +198,8 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Önbellek-](xref:performance/caching/memory)
+* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
-* [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
 * [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

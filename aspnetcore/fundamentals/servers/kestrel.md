@@ -1,26 +1,26 @@
 ---
 title: ASP.NET Core kestrel web sunucusu uygulaması
-author: tdykstra
-description: ASP.NET Core üzerinde libuv tabanlı için platformlar arası web sunucusu Kestrel hakkında bilgi edinin.
+author: rick-anderson
+description: Kestrel, ASP.NET Core için platformlar arası web sunucusu hakkında bilgi edinin.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/02/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: d68a6ec205dce9257040acd07ebd41458beb784d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: MT
+ms.openlocfilehash: a1162da01fad67f3e8ccb1e70bd646b39c38997f
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core kestrel web sunucusu uygulaması
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Chris fillerin](https://github.com/Tratcher), ve [Stephen Halter](https://twitter.com/halter73)
 
-Kestrel olan bir platformlar arası [ASP.NET Core için web sunucusu](xref:fundamentals/servers/index) göre [libuv](https://github.com/libuv/libuv), platformlar arası zaman uyumsuz g/ç kitaplığı. Kestrel varsayılan ASP.NET Core proje şablonları olarak dahil edilen web sunucusudur.
+Kestrel olan bir platformlar arası [web sunucusu için ASP.NET Core](xref:fundamentals/servers/index). Kestrel varsayılan ASP.NET Core proje şablonları olarak dahil edilen web sunucusudur.
 
 Kestrel aşağıdaki özellikleri destekler:
 
@@ -34,7 +34,7 @@ Kestrel tüm platformlar ve .NET Core destekleyen sürümler desteklenir.
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ters proxy ile Kestrel kullanma zamanı
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters proxy sunucusu*, IIS, Nginx ya da Apache gibi. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
@@ -44,7 +44,7 @@ Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters proxy sunucusu*
 
 Kestrel yalnızca bir iç ağ eline sürece Kestrel ters proxy sunucusu ile kullanmanızı öneririz.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Bir uygulamayı yalnızca bir iç ağ gelen istekleri kabul ederse, Kestrel doğrudan uygulamanın sunucusu olarak kullanılabilir.
 
@@ -56,7 +56,7 @@ Uygulamanızı internet kullanıma sunma, IIS, Nginx ya da Apache olarak kullan�
 
 Güvenlik nedenleriyle (trafiğini Internet'ten gösterilen) kenar dağıtımlar için ters Ara sunucu gereklidir. Kestrel 1.x sürümleri tamamlayıcı uygun zaman aşımları, boyut sınırları ve eş zamanlı bağlantı sınırlarını gibi saldırılarına karşı savunma yoktur.
 
-* * *
+---
 
 Aynı IP adresini ve bağlantı noktası tek bir sunucu üzerinde çalışan paylaşan birden çok uygulama olduğunda bir ters proxy senaryosu bulunmaktadır. Aynı IP adresini ve birden çok işlemler arasında bağlantı noktası paylaşımı Kestrel desteklemediğinden kestrel bu senaryo desteklemiyor. Kestrel Kestrel bir bağlantı noktasında dinleyecek şekilde yapılandırıldığında, bu bağlantı noktası isteklerini ana bilgisayar üstbilgisi bağımsız olarak tüm trafiği işler. Bağlantı noktalarını paylaşabilirsiniz ters bir proxy Kestrel, benzersiz bir IP ve bağlantı noktası isteklerini iletmek için özelliğine sahiptir.
 
@@ -72,7 +72,7 @@ Ters proxy sunucusu gerekli olmasa bile bir ters proxy sunucusu kullanmak iyi bi
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>ASP.NET Core uygulamaları Kestrel kullanma
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) paket dahil [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
 
@@ -80,7 +80,7 @@ ASP.NET Core proje şablonlarını Kestrel varsayılan olarak kullanın. İçind
 
 [!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) NuGet paketi.
 
@@ -88,11 +88,11 @@ Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Mi
 
 [!code-csharp[](kestrel/samples/1.x/Program.cs?name=snippet_Main&highlight=13-19)]
 
-* * *
+---
 
 ### <a name="kestrel-options"></a>Kestrel seçenekleri
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 Kestrel web sunucusu Internet'e yönelik dağıtımlarda özellikle yararlı kısıtlaması yapılandırma seçenekleri vardır. Özelleştirilebilir bir birkaç önemli sınırları:
 
@@ -109,9 +109,11 @@ Bunlar ve diğer kısıtlamaları ayarlamak [sınırları](/dotnet/api/microsoft
 
 Eşzamanlı açık TCP bağlantısı sayısı tüm uygulama aşağıdaki kod ile ayarlayabilirsiniz:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3-4)]
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3)]
 
 Başka bir protokol (örneğin, WebSockets istek üzerine) için HTTP veya HTTPS yükseltildi bağlantıları için ayrı bir sınır yoktur. Bir bağlantı yükseltildikten sonra onu karşı sayılan değil `MaxConcurrentConnections` sınırı.
+
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=4)]
 
 En fazla bağlantı sayısı, varsayılan olarak sınırsız (null) olur.
 
@@ -151,7 +153,7 @@ Minimum oran yanıt için de geçerlidir. İstek sınırı ve yanıt sınırı a
 
 En az veri hızları yapılandırmak nasıl oluşturulduğunu gösteren bir örnek şudur *Program.cs*:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-9)]
+[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-7)]
 
 İstek başına oranları Ara yazılımında yapılandırabilirsiniz:
 
@@ -163,18 +165,18 @@ Diğer Kestrel seçenekleri ve sınırları hakkında daha fazla bilgi için bkz
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits)
 * [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions)
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Kestrel seçenekleri ve sınırları hakkında daha fazla bilgi için bkz:
 
 * [KestrelServerOptions sınıfı](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions?view=aspnetcore-1.1)
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserverlimits?view=aspnetcore-1.1)
 
-* * *
+---
 
 ### <a name="endpoint-configuration"></a>Uç nokta yapılandırması
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 ::: moniker range="= aspnetcore-2.0"
 Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. Çağrı [dinleme](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) veya [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) yöntemlere [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) Kestrel için URL öneklerini ve bağlantı noktalarını yapılandırmak için. `UseUrls`, `--urls` komut satırı bağımsız değişkeni, `urls` ana bilgisayar yapılandırma anahtarı ve `ASPNETCORE_URLS` ortam değişkeni ayrıca iş ancak daha sonra bu bölümde belirtildiği sınırlamalar vardır.
@@ -194,8 +196,10 @@ var host = new WebHostBuilder()
     .UseStartup<Startup>()
     .Build();
 ```
+
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
+
 Varsayılan olarak, ASP.NET Core bağlar:
 
 * `http://localhost:5000`
@@ -216,10 +220,10 @@ ASP.NET Core 2.1 ve üzeri proje şablonları HTTPS üzerinde varsayılan olarak
 
 ASP.NET Core 2.1 `KestrelServerOptions` yapılandırma:
 
-**ConfigureEndpointDefaults (Eylem<ListenOptions>)**  
+**ConfigureEndpointDefaults (Eylem&lt;ListenOptions&gt;)**  
 Bir yapılandırma belirtir `Action` belirtilen her uç nokta için çalıştırılacak. Çağırma `ConfigureEndpointDefaults` öncesinde birden çok kez değiştirir `Action`son s `Action` belirtilen.
 
-**ConfigureHttpsDefaults (Eylem<HttpsConnectionAdapterOptions>)**  
+**ConfigureHttpsDefaults (Eylem&lt;HttpsConnectionAdapterOptions&gt;)**  
 Bir yapılandırma belirtir `Action` her HTTPS uç noktası için çalıştırılacak. Çağırma `ConfigureHttpsDefaults` öncesinde birden çok kez değiştirir `Action`son s `Action` belirtilen.
 
 **Configure(IConfiguration)**  
@@ -427,6 +431,7 @@ WebHost.CreateDefaultBuilder()
         });
     });
 ```
+
 ::: moniker-end
 
 **Bir TCP yuvası bağlama**
@@ -475,7 +480,7 @@ Bu yöntemleri Kestrel dışında sunucularıyla iş kodu yapmak için yararlıd
 
 IIS geçersiz kılmak için IIS, URL bağlamaları kullanılırken bağlamaları tarafından ayarlanan `Listen` veya `UseUrls`. Daha fazla bilgi için bkz: [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini ve Kestrel kullanarak bağlantı noktalarını yapılandırın:
 
@@ -490,13 +495,50 @@ Bu yöntemleri hakkında daha fazla bilgi için bkz: [barındırma](xref:fundame
 
 IIS kullanırken, IIS için URL bağlamaları tarafından belirlenen bağlamaları geçersiz kılma `UseUrls`. Daha fazla bilgi için bkz: [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
-* * *
+---
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="transport-configuration"></a>Taşıyıcı Yapılandırması
+
+ASP.NET Core 2.1 sürümünde Kestrel'ın varsayılan aktarım artık Libuv üzerinde temel ancak bunun yerine yönetilen yuvalarda dayalı. Bu çağrı 2.1 yükseltme ASP.NET Core 2.0 uygulamaları için önemli bir değişiklik olduğunu [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv) ve aşağıdaki paketlerden birini bağlıdır:
+
+* [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (doğrudan paketi Başvurusu)
+* [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+
+ASP.NET Core 2.1 veya sonrasını kullanan projeleri `Microsoft.AspNetCore.App` metapackage ve Libuv kullanılmasını gerektirir:
+
+* İçin bağımlılık ekleme [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) uygulamanın proje dosyası paketi:
+
+    ```xml
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
+                    Version="2.1.0" />
+    ```
+
+* Çağrı [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):
+
+    ```csharp
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateWebHostBuilder(args).Build().Run();
+        }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseLibuv()
+                .UseStartup<Startup>();
+    }
+    ```
+
+::: moniker-end
 
 ### <a name="url-prefixes"></a>URL öneklerini
 
 Kullanırken `UseUrls`, `--urls` komut satırı bağımsız değişkeni, `urls` ana bilgisayar yapılandırma anahtarı, veya `ASPNETCORE_URLS` ortam değişkeni URL öneklerini olabilir aşağıdaki biçimlerden birini.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 Yalnızca HTTP URL öneklerini geçerlidir. Kestrel SSL'yi desteklemez kullanarak URL bağlamaları yapılandırılırken `UseUrls`.
 
@@ -508,7 +550,6 @@ Yalnızca HTTP URL öneklerini geçerlidir. Kestrel SSL'yi desteklemez kullanara
 
   `0.0.0.0` tüm IPv4 adreslerine bağlar özel bir durumdur.
 
-
 * Bağlantı noktası numarası ile birlikte IPv6 adresi
 
   ```
@@ -516,7 +557,6 @@ Yalnızca HTTP URL öneklerini geçerlidir. Kestrel SSL'yi desteklemez kullanara
   ```
 
   `[::]` IPv4 IPv6 eşdeğerdir `0.0.0.0`.
-
 
 * Bağlantı noktası numarası ile ana bilgisayar adı
 
@@ -540,7 +580,7 @@ Yalnızca HTTP URL öneklerini geçerlidir. Kestrel SSL'yi desteklemez kullanara
 
   Zaman `localhost` belirtilirse, IPv4 ve IPv6 geri döngü arabirimlere bağlamak Kestrel çalışır. İstenen bağlantı noktası başka bir hizmet ya da geri döngü arabirimde tarafından kullanılıyor Kestrel başlatmak başarısız olur. Herhangi bir nedenden dolayı ya da geri döngü arabirimi kullanılabilir olup olmadığını (genellikle IPv6 desteklenmediğinden çoğu), Kestrel bir uyarı kaydeder.
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 * Bağlantı noktası numarası ile birlikte IPv4 adresi
 
@@ -618,7 +658,7 @@ var host = new WebHostBuilder()
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
-* * *
+---
 
 ## <a name="host-filtering"></a>Ana bilgisayar filtre
 

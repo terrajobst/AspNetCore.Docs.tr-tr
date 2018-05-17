@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile
-author: tdykstra
+author: rick-anderson
 description: Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Framework Çekirdek kullanarak sayfa için işlevsellik disk belleği eklemeniz.
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 344e3a1806ff21d8ce335b2b407a8a93baf72c1b
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile
 

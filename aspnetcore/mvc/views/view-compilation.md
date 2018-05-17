@@ -9,20 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 5d971645106a79497a9902063c7774dc6d546395
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 013ca0d149c6415b5e6825aa5a48e93ae48f6728
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Razor görünüm derleme ve ASP.NET Core içinde ön derlemesi
+# <a name="razor-file-cshtml-compilation-in-aspnet-core"></a>Razor dosya (.cshtml) ASP.NET Core derlemede
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Görünüm çağrıldığında razor görünümleri çalışma zamanında derlenir. ASP.NET Core 1.1.0 ve daha yüksek isteğe bağlı olarak Razor görünümleri derlemek ve uygulamayla dağıtmadan&mdash;ön derlemesi da bilinen bir işlem. ASP.NET Core 2.x proje şablonları ön derlemesi varsayılan olarak etkinleştirir.
+Görünüm çağrıldığında razor görünümleri çalışma zamanında derlenir. ASP.NET Core 2.1.0 veya üzeri derleme görünümlerde oluşturmak ve zaman kullanarak yayımlamak [Razor Sdk](/aspnetcore/mvc/razor-pages/sdk). ASP.NET Core 1.1 ve ASP.NET Core 2.0, görünümleri isteğe bağlı olarak Yayımla derlenmiş ve değiştirebilirsiniz uygulamayla dağıtılan &mdash; ön derleme aracını kullanarak. 
 
-> [!IMPORTANT]
-> Razor görünüm ön derlemesi şu anda kullanılamıyor gerçekleştirirken bir [müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) ASP.NET Core 2.0. 2.1 bıraktığında özellik SCDs için kullanılabilir olacak. Daha fazla bilgi için bkz: [görünüm derleme başarısız cross-Windows Linux için derlerken](https://github.com/aspnet/MvcPrecompilation/issues/102).
+
 
 Ön derleme dikkate alınacak noktalar:
 
@@ -31,7 +30,14 @@ Görünüm çağrıldığında razor görünümleri çalışma zamanında derlen
 
 Önceden derlenmiş görünümleri dağıtmak için:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-21tabaspnetcore21"></a>[ASP.NET Core 2.1](#tab/aspnetcore21/)
+Derleme ve Razor dosyaları derlenmesini Razor SDK'sı tarafından varsayılan olarak etkindir zaman yayımlayın. Güncelleştirmeden sonra Razor dosyaları düzenleme derleme zamanında desteklenir. Varsayılan olarak, yalnızca derlenmiş *Views.dll* ve hiçbir cshtml dosyası uygulamanızla birlikte dağıtılır. 
+    
+> [!IMPORTANT]
+> Razor SDK'sı etkili için hiçbir ön derleme belirli özellikler, proje dosyasında ayarlanır. Örneğin, ayarı `MvcRazorCompileOnPublish` içinde *.csproj* dosya Razor SDK'yı devre dışı bırakır.
+
+# <a name="aspnet-core-20tabaspnetcore20"></a>[ASP.NET Core 2.0](#tab/aspnetcore20/)
+
 Projeniz .NET Framework hedefliyorsa, bir paket başvuru eklemek [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
 ```xml
@@ -40,14 +46,10 @@ Projeniz .NET Framework hedefliyorsa, bir paket başvuru eklemek [Microsoft.AspN
 
 Projeniz .NET Core hedefliyorsa, hiçbir değişiklik gereklidir.
 
-ASP.NET Core 2.x proje şablonları örtük olarak ayarlamak `MvcRazorCompileOnPublish` için `true` varsayılan olarak, yani bu düğüm güvenle kaldırılabilir gelen *.csproj* dosya. Açık olmasını isterseniz, ayarı hiçbir zarar yoktur `MvcRazorCompileOnPublish` özelliğine `true`. Aşağıdaki *.csproj* örnek bu ayar vurgular:
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=5)]
-
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-Ayarlama `MvcRazorCompileOnPublish` için `true`ve bir paket başvuru eklemek `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. Aşağıdaki *.csproj* örnek bu ayarları vurgular:
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+ASP.NET Core 2.x proje şablonları örtük olarak ayarlar `MvcRazorCompileOnPublish` için `true` varsayılan olarak, yani bu düğüm güvenle kaldırılabilir gelen *.csproj* dosya.
+    
+> [!IMPORTANT]
+> Razor görünüm ön derlemesi kullanılamıyor gerektiğinde gerçekleştirme bir [müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) ASP.NET Core 2.0. 
 
 Uygulama için hazırlama bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd) ile [.NET Core CLI yayımlama komutu](/dotnet/core/tools/dotnet-publish). Örneğin, proje kökündeki aşağıdaki komutu yürütün:
 
@@ -55,6 +57,15 @@ Uygulama için hazırlama bir [framework bağımlı dağıtım](/dotnet/core/dep
 dotnet publish -c Release
 ```
 
-A *<project_name>.PrecompiledViews.dll* file, containing the compiled Razor views, is produced when precompilation succeeds. Örneğin, aşağıdaki ekran görüntüsünde içeriğini gösterir *Index.cshtml* içine *WebApplication1.PrecompiledViews.dll*:
+A *< project_name >. PrecompiledViews.dll* derlenmiş Razor görünümleri içeren dosyası ön derlemesi başarılı olduğunda oluşturulur. Örneğin, aşağıdaki ekran görüntüsünde içeriğini gösterir *Index.cshtml* içine *WebApplication1.PrecompiledViews.dll*:
 
 ![DLL içindeki Razor görünümleri](view-compilation/_static/razor-views-in-dll.png)
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
+Ayarlama `MvcRazorCompileOnPublish` için `true` ve bir paket başvuru eklemek `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. Aşağıdaki *.csproj* örnek bu ayarları vurgular:
+
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+
+---
+

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c40209e3b3f2b5bf28450bb2a88cbe40e9e23230
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 
@@ -44,19 +44,19 @@ Herhangi bir önbellek gibi dağıtılmış önbellek genellikle veri bir ilişk
 
 `IDistributedCache` Arabirim, zaman uyumlu ve zaman uyumsuz yöntemleri içerir. Arabirimi eklenebilir, alınan ve dağıtılmış önbellek uygulamasından kaldırılabilir öğelerine izin verir. `IDistributedCache` Arabirimi aşağıdaki yöntemleri içerir:
 
-**Get, GetAsync**
+**GET, GetAsync**
 
 Bir dize anahtarı alır ve önbelleğe alınan bir öğe olarak alır bir `byte[]` , önbellekte bulunamadı.
 
-**Set, SetAsync**
+**Ayarlama, SetAsync**
 
 Bir öğe ekler (olarak `byte[]`) bir dize anahtarı kullanarak önbelleği için.
 
-**Refresh, RefreshAsync**
+**Yenileme, RefreshAsync**
 
 Bir öğe (varsa), kayan zaman aşımı süresi sıfırlama kendi anahtarı, temel önbelleğinde yeniler.
 
-**Remove, RemoveAsync**
+**Kaldır, RemoveAsync**
 
 Alt anahtarına göre bir önbellek girişi kaldırır.
 
@@ -138,7 +138,7 @@ Hangi uyarlamasını karar verirken `IDistributedCache` sağ uygulamanız için 
 
 * [Azure önbelleği redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure üzerinde SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Önbellek-](xref:performance/caching/memory)
+* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)

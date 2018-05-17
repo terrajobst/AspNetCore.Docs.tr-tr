@@ -107,7 +107,7 @@ Filtre uzatır **ActionFilterAttributeClass** ve geçersiz kılma **OnActionExec
 
 Bu müzik deposu çözüm site günlüğü için yeni bir veri modeli tablosu sahip **ActionLog**, aşağıdaki alanlarla: bir istek, aranan eylemini, istemci IP'si ve zaman damgası alınan denetleyicinin adı.
 
-![Veri modeli. ActionLog tablo. ] (aspnet-mvc-4-custom-action-filters/_static/image1.png "Veri modeli. ActionLog tablo.")
+![Veri modeli. ActionLog tablo. ](aspnet-mvc-4-custom-action-filters/_static/image1.png "Veri modeli. ActionLog tablo.")
 
 *Veri modeli - ActionLog tablosu*
 
