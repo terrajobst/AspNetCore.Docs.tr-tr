@@ -1,129 +1,262 @@
 ---
 title: Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 author: rick-anderson
-description: Gizli geliştirme sırasında güvenli bir şekilde depolamak nasıl gösterir
+description: Bir ASP.NET Core uygulama geliştirme sırasında uygulama sırrı olarak hassas bilgilerini depolamak ve almak öğrenin.
 manager: wpickett
-ms.author: riande
-ms.date: 09/15/2017
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 05/16/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a><span data-ttu-id="fed39-103">Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme</span><span class="sxs-lookup"><span data-stu-id="fed39-103">Safe storage of app secrets in development in ASP.NET Core</span></span>
+# <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a><span data-ttu-id="acbf7-103">Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme</span><span class="sxs-lookup"><span data-stu-id="acbf7-103">Safe storage of app secrets in development in ASP.NET Core</span></span>
 
-<span data-ttu-id="fed39-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), ve [Scott Addie](https://scottaddie.com)</span><span class="sxs-lookup"><span data-stu-id="fed39-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), and [Scott Addie](https://scottaddie.com)</span></span> 
+<span data-ttu-id="acbf7-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), ve [Scott Addie](https://github.com/scottaddie)</span><span class="sxs-lookup"><span data-stu-id="acbf7-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), and [Scott Addie](https://github.com/scottaddie)</span></span>
 
-<span data-ttu-id="fed39-105">Bu belge, gizli Yöneticisi aracını geliştirme gizli kodunuzu dışında tutmak için nasıl kullanabileceğinizi gösterir.</span><span class="sxs-lookup"><span data-stu-id="fed39-105">This document shows how you can use the Secret Manager tool in development to keep secrets out of your code.</span></span> <span data-ttu-id="fed39-106">En önemli kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme ve test modunda üretim gizli kullanmamanız noktasıdır.</span><span class="sxs-lookup"><span data-stu-id="fed39-106">The most important point is you should never store passwords or other sensitive data in source code, and you shouldn't use production secrets in development and test mode.</span></span> <span data-ttu-id="fed39-107">Bunun yerine kullanabileceğiniz [yapılandırma](xref:fundamentals/configuration/index) ortam değişkenlerinin bu değerleri okumak veya gizli Yöneticisi'ni kullanarak depolanan değerlerden aracı sistem.</span><span class="sxs-lookup"><span data-stu-id="fed39-107">You can instead use the [configuration](xref:fundamentals/configuration/index) system to read these values from environment variables or from values stored using the Secret Manager tool.</span></span> <span data-ttu-id="fed39-108">Gizli Manager aracı kaynak denetimine iade hassas verileri önlemeye yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="fed39-108">The Secret Manager tool helps prevent sensitive data from being checked into source control.</span></span> <span data-ttu-id="fed39-109">[Yapılandırma](xref:fundamentals/configuration/index) sistem, bu makalede açıklanan gizli Yöneticisi aracıyla depolanan gizli okuyabilir.</span><span class="sxs-lookup"><span data-stu-id="fed39-109">The [configuration](xref:fundamentals/configuration/index) system can read secrets stored with the Secret Manager tool described in this article.</span></span>
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-105">[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/1.1) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="acbf7-105">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/1.1) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+<span data-ttu-id="acbf7-106">[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/2.1) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="acbf7-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/2.1) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+::: moniker-end
 
-<span data-ttu-id="fed39-110">Parola Yöneticisi aracını yalnızca geliştirme kullanılır.</span><span class="sxs-lookup"><span data-stu-id="fed39-110">The Secret Manager tool is used only in development.</span></span> <span data-ttu-id="fed39-111">Azure test ve üretim parolaları ile koruma [Microsoft Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) yapılandırma sağlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="fed39-111">You can safeguard Azure test and production secrets with the [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) configuration provider.</span></span> <span data-ttu-id="fed39-112">Bkz: [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="fed39-112">See [Azure Key Vault configuration provider](xref:security/key-vault-configuration) for more information.</span></span>
+<span data-ttu-id="acbf7-107">Bu belge, depolamak ve almak için kullanılan hassas verileri ASP.NET Core uygulama geliştirme sırasında teknikleri açıklar.</span><span class="sxs-lookup"><span data-stu-id="acbf7-107">This document explains techniques for storing and retrieving sensitive data during the development of an ASP.NET Core app.</span></span> <span data-ttu-id="acbf7-108">Kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme üretim gizlilikleri kullanın veya modu test döndürmemelidir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-108">You should never store passwords or other sensitive data in source code, and you shouldn't use production secrets in development or test mode.</span></span> <span data-ttu-id="acbf7-109">Depolama ve Azure test ve üretim parolaları ile korumak [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration).</span><span class="sxs-lookup"><span data-stu-id="acbf7-109">You can store and protect Azure test and production secrets with the [Azure Key Vault configuration provider](xref:security/key-vault-configuration).</span></span>
 
-## <a name="environment-variables"></a><span data-ttu-id="fed39-113">Ortam değişkenleri</span><span class="sxs-lookup"><span data-stu-id="fed39-113">Environment variables</span></span>
+## <a name="environment-variables"></a><span data-ttu-id="acbf7-110">Ortam değişkenleri</span><span class="sxs-lookup"><span data-stu-id="acbf7-110">Environment variables</span></span>
 
-<span data-ttu-id="fed39-114">Uygulama gizli kod veya yerel yapılandırma dosyalarını depolamak önlemek için ortam değişkenleri gizli depolar.</span><span class="sxs-lookup"><span data-stu-id="fed39-114">To avoid storing app secrets in code or in local configuration files, you store secrets in environment variables.</span></span> <span data-ttu-id="fed39-115">Kurulum [yapılandırma](xref:fundamentals/configuration/index) çağırarak ortam değişkenlerinin değerlerini okumasını framework `AddEnvironmentVariables`.</span><span class="sxs-lookup"><span data-stu-id="fed39-115">You can setup the [configuration](xref:fundamentals/configuration/index) framework to read values from environment variables by calling `AddEnvironmentVariables`.</span></span> <span data-ttu-id="fed39-116">Ardından, tüm daha önce belirtilen yapılandırma kaynakları için yapılandırma değerleri geçersiz kılmak için ortam değişkenlerini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fed39-116">You can then use environment variables to override configuration values for all previously specified configuration sources.</span></span>
+<span data-ttu-id="acbf7-111">Ortam değişkenleri, uygulama gizli kod veya yerel yapılandırma dosyalarını depolanmasını önlemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-111">Environment variables are used to avoid storage of app secrets in code or in local configuration files.</span></span> <span data-ttu-id="acbf7-112">Ortam değişkenleri tüm daha önce belirtilen yapılandırma kaynakları için yapılandırma değerleri geçersiz.</span><span class="sxs-lookup"><span data-stu-id="acbf7-112">Environment variables override configuration values for all previously specified configuration sources.</span></span>
 
-<span data-ttu-id="fed39-117">Örneğin, tek tek kullanıcı hesaplarını yeni bir ASP.NET Core web uygulaması oluşturursanız, bu varsayılan bağlantı dizesi ekleyecek *appsettings.json* anahtarla proje dosyasında `DefaultConnection`.</span><span class="sxs-lookup"><span data-stu-id="fed39-117">For example, if you create a new ASP.NET Core web app with individual user accounts, it will add a default connection string to the *appsettings.json* file in the project with the key `DefaultConnection`.</span></span> <span data-ttu-id="fed39-118">Varsayılan bağlantı dizesini, kullanıcı modunda çalışır ve bir parola gerektirmez, LocalDB kullanmak üzere kurulur.</span><span class="sxs-lookup"><span data-stu-id="fed39-118">The default connection string is setup to use LocalDB, which runs in user mode and doesn't require a password.</span></span> <span data-ttu-id="fed39-119">Uygulamanızı test veya üretim sunucusunu dağıttığınızda, geçersiz kılabilirsiniz `DefaultConnection` anahtar değerini ayarıyla test veya üretim veritabanı için (potansiyel olarak harfe duyarlı kimlik bilgileri) bağlantı dizesini içeren bir ortam değişkeni Sunucu.</span><span class="sxs-lookup"><span data-stu-id="fed39-119">When you deploy your application to a test or production server, you can override the `DefaultConnection` key value with an environment variable setting that contains the connection string (potentially with sensitive credentials) for a test or production database server.</span></span>
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-113">Ortam değişkeni değerlerini okuma çağırarak yapılandırma [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) içinde `Startup` Oluşturucusu:</span><span class="sxs-lookup"><span data-stu-id="acbf7-113">Configure the reading of environment variable values by calling [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) in the `Startup` constructor:</span></span>
 
->[!WARNING]
-> <span data-ttu-id="fed39-120">Ortam değişkenleri genellikle düz metin olarak depolanır ve şifrelenmez.</span><span class="sxs-lookup"><span data-stu-id="fed39-120">Environment variables are generally stored in plain text and are not encrypted.</span></span> <span data-ttu-id="fed39-121">Makine ya da işlem aşılırsa, ortam değişkenleri Güvenilmeyen taraflar tarafından erişilebilir.</span><span class="sxs-lookup"><span data-stu-id="fed39-121">If the machine or process is compromised, then environment variables can be accessed by untrusted parties.</span></span> <span data-ttu-id="fed39-122">Kullanıcı parolaları açığa çıkmasını önlemek için ek önlemler gerekli olabilir.</span><span class="sxs-lookup"><span data-stu-id="fed39-122">Additional measures to prevent disclosure of user secrets may still be required.</span></span>
+<span data-ttu-id="acbf7-114">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=10)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-114">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=10)]</span></span>
+::: moniker-end
 
-## <a name="secret-manager"></a><span data-ttu-id="fed39-123">Parola Yöneticisi</span><span class="sxs-lookup"><span data-stu-id="fed39-123">Secret Manager</span></span>
+<span data-ttu-id="acbf7-115">Bir ASP.NET Core web uygulaması, göz önünde bulundurun **tek tek kullanıcı hesaplarını** güvenlik etkindir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-115">Consider an ASP.NET Core web app in which **Individual User Accounts** security is enabled.</span></span> <span data-ttu-id="acbf7-116">Bir varsayılan veritabanı bağlantı dizesi projesinin dahil *appsettings.json* anahtar dosyasıyla `DefaultConnection`.</span><span class="sxs-lookup"><span data-stu-id="acbf7-116">A default database connection string is included in the project's *appsettings.json* file with the key `DefaultConnection`.</span></span> <span data-ttu-id="acbf7-117">Varsayılan bağlantı dizesini kullanıcı modunda çalışır ve bir parola gerektirmez LocalDB ' dir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-117">The default connection string is for LocalDB, which runs in user mode and doesn't require a password.</span></span> <span data-ttu-id="acbf7-118">Uygulama dağıtımı sırasında `DefaultConnection` anahtar değeri ile bir ortam değişkeninin değeri geçersiz.</span><span class="sxs-lookup"><span data-stu-id="acbf7-118">During app deployment, the `DefaultConnection` key value can be overridden with an environment variable's value.</span></span> <span data-ttu-id="acbf7-119">Ortam değişkeni hassas kimlik bilgileriyle tam bağlantı dizesi depolayabilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-119">The environment variable may store the complete connection string with sensitive credentials.</span></span>
 
-<span data-ttu-id="fed39-124">Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması için hassas verileri depolar.</span><span class="sxs-lookup"><span data-stu-id="fed39-124">The Secret Manager tool stores sensitive data for development work outside of your project tree.</span></span> <span data-ttu-id="fed39-125">Gizli Yöneticisi Aracı geliştirme sırasında bir .NET Core projesi için parolaları depolamak için kullanılan bir proje araçtır.</span><span class="sxs-lookup"><span data-stu-id="fed39-125">The Secret Manager tool is a project tool that can be used to store secrets for a .NET Core project during development.</span></span> <span data-ttu-id="fed39-126">Gizli Yöneticisi aracıyla uygulama sırrı belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşın.</span><span class="sxs-lookup"><span data-stu-id="fed39-126">With the Secret Manager tool, you can associate app secrets with a specific project and share them across multiple projects.</span></span>
+> [!WARNING]
+> <span data-ttu-id="acbf7-120">Ortam değişkenleri genellikle düz ve şifresiz metin olarak depolanır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-120">Environment variables are generally stored in plain, unencrypted text.</span></span> <span data-ttu-id="acbf7-121">Makine ya da işlem aşılırsa, ortam değişkenleri Güvenilmeyen taraflar tarafından erişilebilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-121">If the machine or process is compromised, environment variables can be accessed by untrusted parties.</span></span> <span data-ttu-id="acbf7-122">Kullanıcı parolaları açığa çıkmasını önlemek için ek önlemler gerekli olabilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-122">Additional measures to prevent disclosure of user secrets may be required.</span></span>
 
->[!WARNING]
-> <span data-ttu-id="fed39-127">Gizli Yöneticisi aracını depolanan parolaları şifrelemek değil ve bir güvenilen deposu olarak değerlendirilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="fed39-127">The Secret Manager tool doesn't encrypt the stored secrets and shouldn't be treated as a trusted store.</span></span> <span data-ttu-id="fed39-128">Yalnızca geliştirme amacıyla kullanılır.</span><span class="sxs-lookup"><span data-stu-id="fed39-128">It's for development purposes only.</span></span> <span data-ttu-id="fed39-129">Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.</span><span class="sxs-lookup"><span data-stu-id="fed39-129">The keys and values are stored in a JSON configuration file in the user profile directory.</span></span>
+## <a name="secret-manager"></a><span data-ttu-id="acbf7-123">Parola Yöneticisi</span><span class="sxs-lookup"><span data-stu-id="acbf7-123">Secret Manager</span></span>
 
-## <a name="installing-the-secret-manager-tool"></a><span data-ttu-id="fed39-130">Parola Yöneticisi aracını yükleme</span><span class="sxs-lookup"><span data-stu-id="fed39-130">Installing the Secret Manager tool</span></span>
+<span data-ttu-id="acbf7-124">Gizli Yöneticisi aracını hassas verileri ASP.NET Core projesinde geliştirme sırasında depolar.</span><span class="sxs-lookup"><span data-stu-id="acbf7-124">The Secret Manager tool stores sensitive data during the development of an ASP.NET Core project.</span></span> <span data-ttu-id="acbf7-125">Bu bağlamda bir gizli verilerin bir uygulama gizli anahtarı parçasıdır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-125">In this context, a piece of sensitive data is an app secret.</span></span> <span data-ttu-id="acbf7-126">Uygulama parolaları proje ağacından ayrı bir konumda depolanır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-126">App secrets are stored in a separate location from the project tree.</span></span> <span data-ttu-id="acbf7-127">Uygulama parolaları belirli bir projeyle ilişkili veya birkaç projeler arasında paylaşılan.</span><span class="sxs-lookup"><span data-stu-id="acbf7-127">The app secrets are associated with a specific project or shared across several projects.</span></span> <span data-ttu-id="acbf7-128">Uygulama parolaları kaynak denetimine iade değil.</span><span class="sxs-lookup"><span data-stu-id="acbf7-128">The app secrets aren't checked into source control.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="fed39-131">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fed39-131">Visual Studio</span></span>](#tab/visual-studio/)
+> [!WARNING]
+> <span data-ttu-id="acbf7-129">Gizli Yöneticisi aracını depolanan parolaları şifrelemek değil ve bir güvenilen deposu olarak değerlendirilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-129">The Secret Manager tool doesn't encrypt the stored secrets and shouldn't be treated as a trusted store.</span></span> <span data-ttu-id="acbf7-130">Yalnızca geliştirme amacıyla kullanılır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-130">It's for development purposes only.</span></span> <span data-ttu-id="acbf7-131">Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-131">The keys and values are stored in a JSON configuration file in the user profile directory.</span></span>
 
-<span data-ttu-id="fed39-132">Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Düzenle \<project_name\>.csproj** ve bağlam menüsünden.</span><span class="sxs-lookup"><span data-stu-id="fed39-132">Right-click the project in Solution Explorer, and select **Edit \<project_name\>.csproj** from the context menu.</span></span> <span data-ttu-id="fed39-133">Vurgulanan satırı ekleyin *.csproj* dosya ve ilişkili NuGet paket geri yüklemek için kaydedin:</span><span class="sxs-lookup"><span data-stu-id="fed39-133">Add the highlighted line to the *.csproj* file, and save to restore the associated NuGet package:</span></span>
+## <a name="how-the-secret-manager-tool-works"></a><span data-ttu-id="acbf7-132">Parola Yöneticisi aracını nasıl çalışır</span><span class="sxs-lookup"><span data-stu-id="acbf7-132">How the Secret Manager tool works</span></span>
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+<span data-ttu-id="acbf7-133">Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar.</span><span class="sxs-lookup"><span data-stu-id="acbf7-133">The Secret Manager tool abstracts away the implementation details, such as where and how the values are stored.</span></span> <span data-ttu-id="acbf7-134">Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="acbf7-134">You can use the tool without knowing these implementation details.</span></span> <span data-ttu-id="acbf7-135">İçinde depolanan değerlerden bir [JSON](https://json.org/) yerel makinede bir sistem korumalı kullanıcı profili klasöründeki yapılandırma dosyası:</span><span class="sxs-lookup"><span data-stu-id="acbf7-135">The values are stored in a [JSON](https://json.org/) configuration file in a system-protected user profile folder on the local machine:</span></span>
 
-<span data-ttu-id="fed39-134">Çözüm Gezgini'nde projeye tekrar sağ tıklayın ve seçin **kullanıcı parolaları yönetme** ve bağlam menüsünden.</span><span class="sxs-lookup"><span data-stu-id="fed39-134">Right-click the project in Solution Explorer again, and select **Manage User Secrets** from the context menu.</span></span> <span data-ttu-id="fed39-135">Bu hareketi yeni ekler `UserSecretsId` düğümde bir `PropertyGroup` , *.csproj* dosyası, aşağıdaki örnekte vurgulanmış olarak:</span><span class="sxs-lookup"><span data-stu-id="fed39-135">This gesture adds a new `UserSecretsId` node within a `PropertyGroup` of the *.csproj* file, as highlighted in the following sample:</span></span>
+* <span data-ttu-id="acbf7-136">Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`</span><span class="sxs-lookup"><span data-stu-id="acbf7-136">Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`</span></span>
+* <span data-ttu-id="acbf7-137">Linux & macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`</span><span class="sxs-lookup"><span data-stu-id="acbf7-137">Linux & macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`</span></span>
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+<span data-ttu-id="acbf7-138">Önceki dosya yolları ve Değiştir `<user_secrets_id>` ile `UserSecretsId` belirtilen değer *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="acbf7-138">In the preceding file paths, replace `<user_secrets_id>` with the `UserSecretsId` value specified in the *.csproj* file.</span></span>
 
-<span data-ttu-id="fed39-136">Değiştirilen kaydetme *.csproj* dosya de açılır bir `secrets.json` dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="fed39-136">Saving the modified *.csproj* file also opens a `secrets.json` file in the text editor.</span></span> <span data-ttu-id="fed39-137">Değiştir `secrets.json` aşağıdaki kod ile dosya:</span><span class="sxs-lookup"><span data-stu-id="fed39-137">Replace the contents of the `secrets.json` file with the following code:</span></span>
+<span data-ttu-id="acbf7-139">Konum veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kod yazmayın.</span><span class="sxs-lookup"><span data-stu-id="acbf7-139">Don't write code that depends on the location or format of data saved with the Secret Manager tool.</span></span> <span data-ttu-id="acbf7-140">Bu uygulama ayrıntılarını değişebilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-140">These implementation details may change.</span></span> <span data-ttu-id="acbf7-141">Örneğin, gizli değerleri şifreli değildir, ancak gelecekte olabilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-141">For example, the secret values aren't encrypted, but could be in the future.</span></span>
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
+::: moniker range="<= aspnetcore-2.0"
+## <a name="install-the-secret-manager-tool"></a><span data-ttu-id="acbf7-142">Parola Yöneticisi aracını yükleyin</span><span class="sxs-lookup"><span data-stu-id="acbf7-142">Install the Secret Manager tool</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="fed39-138">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="fed39-138">Visual Studio Code</span></span>](#tab/visual-studio-code/)
+<span data-ttu-id="acbf7-143">.NET Core SDK 2.1 içinde .NET Core CLI ile gizli Yöneticisi aracını paketlenebilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-143">The Secret Manager tool is bundled with the .NET Core CLI in .NET Core SDK 2.1.</span></span> <span data-ttu-id="acbf7-144">Aracı yükleme ve önceki sürümleri, .NET Core SDK 2.0 için gereklidir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-144">For .NET Core SDK 2.0 and earlier, tool installation is necessary.</span></span>
 
-<span data-ttu-id="fed39-139">Ekleme `Microsoft.Extensions.SecretManager.Tools` için *.csproj* dosya ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).</span><span class="sxs-lookup"><span data-stu-id="fed39-139">Add `Microsoft.Extensions.SecretManager.Tools` to the *.csproj* file and run [dotnet restore](/dotnet/core/tools/dotnet-restore).</span></span> <span data-ttu-id="fed39-140">Parola Yöneticisi için komut satırını kullanarak aracı yüklemek için aynı adımları kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fed39-140">You can use the same steps to install the Secret Manager Tool using for the command line.</span></span>
+<span data-ttu-id="acbf7-145">Yükleme [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core projenizdeki NuGet paketi:</span><span class="sxs-lookup"><span data-stu-id="acbf7-145">Install the [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) NuGet package in your ASP.NET Core project:</span></span>
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+<span data-ttu-id="acbf7-146">[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-146">[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]</span></span>
 
-<span data-ttu-id="fed39-141">Parola Yöneticisi aracını aşağıdaki komutu çalıştırarak test edin:</span><span class="sxs-lookup"><span data-stu-id="fed39-141">Test the Secret Manager tool by running the following command:</span></span>
+<span data-ttu-id="acbf7-147">Aracı yüklemesini doğrulamak için bir komut kabuğuna şu komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="acbf7-147">Execute the following command in a command shell to validate the tool installation:</span></span>
 
 ```console
 dotnet user-secrets -h
 ```
 
-<span data-ttu-id="fed39-142">Parola Yöneticisi aracını kullanımı, seçenekleri ve komut Yardımı görüntüler.</span><span class="sxs-lookup"><span data-stu-id="fed39-142">The Secret Manager tool will display usage, options and command help.</span></span>
+<span data-ttu-id="acbf7-148">Gizli Yöneticisi aracını örnek kullanım, seçenekleri ve komut Yardımı görüntüler:</span><span class="sxs-lookup"><span data-stu-id="acbf7-148">The Secret Manager tool displays sample usage, options, and command help:</span></span>
+
+```console
+Usage: dotnet user-secrets [options] [command]
+
+Options:
+  -?|-h|--help                        Show help information
+  --version                           Show version information
+  -v|--verbose                        Show verbose output
+  -p|--project <PROJECT>              Path to project. Defaults to searching the current directory.
+  -c|--configuration <CONFIGURATION>  The project configuration to use. Defaults to 'Debug'.
+  --id                                The user secret ID to use.
+
+Commands:
+  clear   Deletes all the application secrets
+  list    Lists all the application secrets
+  remove  Removes the specified user secret
+  set     Sets the user secret to the specified value
+
+Use "dotnet user-secrets [command] --help" for more information about a command.
+```
 
 > [!NOTE]
-> <span data-ttu-id="fed39-143">Aynı dizinde olmalıdır *.csproj* tanımlanan araçları çalıştırmak için dosya *.csproj* dosyanın `DotNetCliToolReference` düğümleri.</span><span class="sxs-lookup"><span data-stu-id="fed39-143">You must be in the same directory as the *.csproj* file to run tools defined in the *.csproj* file's `DotNetCliToolReference` nodes.</span></span>
+> <span data-ttu-id="acbf7-149">Aynı dizinde olmalıdır *.csproj* tanımlanan araçları çalıştırmak için dosya *.csproj* dosyanın `DotNetCliToolReference` öğeleri.</span><span class="sxs-lookup"><span data-stu-id="acbf7-149">You must be in the same directory as the *.csproj* file to run tools defined in the *.csproj* file's `DotNetCliToolReference` elements.</span></span>
+::: moniker-end
 
-<span data-ttu-id="fed39-144">Kullanıcı profilinizde depolanan projeye özgü yapılandırma ayarlarını gizli Yöneticisi aracını çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="fed39-144">The Secret Manager tool operates on project-specific configuration settings that are stored in your user profile.</span></span> <span data-ttu-id="fed39-145">Kullanıcı parolaları kullanmak için proje belirtmeniz gerekir bir `UserSecretsId` değeri kendi *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="fed39-145">To use user secrets, the project must specify a `UserSecretsId` value in its *.csproj* file.</span></span> <span data-ttu-id="fed39-146">Değeri `UserSecretsId` isteğe bağlıdır, ancak projeye genellikle benzersizdir.</span><span class="sxs-lookup"><span data-stu-id="fed39-146">The value of `UserSecretsId` is arbitrary, but is generally unique to the project.</span></span> <span data-ttu-id="fed39-147">Geliştiriciler genellikle oluşturmak için bir GUID `UserSecretsId`.</span><span class="sxs-lookup"><span data-stu-id="fed39-147">Developers typically generate a GUID for the `UserSecretsId`.</span></span>
+## <a name="set-a-secret"></a><span data-ttu-id="acbf7-150">Bir parola ayarlama</span><span class="sxs-lookup"><span data-stu-id="acbf7-150">Set a secret</span></span>
 
-<span data-ttu-id="fed39-148">Ekleme bir `UserSecretsId` projenizde için *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="fed39-148">Add a `UserSecretsId` for your project in the *.csproj* file:</span></span>
+<span data-ttu-id="acbf7-151">Projeye özgü yapılandırma ayarlarını kullanıcı profilinizde depolanan gizli Manager aracı çalışır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-151">The Secret Manager tool operates on project-specific configuration settings stored in your user profile.</span></span> <span data-ttu-id="acbf7-152">Kullanıcı parolaları kullanmak üzere tanımladığınız bir `UserSecretsId` öğesi içinde bir `PropertyGroup` , *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="acbf7-152">To use user secrets, define a `UserSecretsId` element within a `PropertyGroup` of the *.csproj* file.</span></span> <span data-ttu-id="acbf7-153">Değeri `UserSecretsId` isteğe bağlıdır, ancak projeye benzersizdir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-153">The value of `UserSecretsId` is arbitrary, but is unique to the project.</span></span> <span data-ttu-id="acbf7-154">Geliştiriciler genellikle oluşturmak için bir GUID `UserSecretsId`.</span><span class="sxs-lookup"><span data-stu-id="acbf7-154">Developers typically generate a GUID for the `UserSecretsId`.</span></span>
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-155">[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-155">[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]</span></span>
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+<span data-ttu-id="acbf7-156">[!code-xml[](app-secrets/samples/2.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-156">[!code-xml[](app-secrets/samples/2.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]</span></span>
+::: moniker-end
 
-<span data-ttu-id="fed39-149">Bir parolayı ayarlamak için gizli Yöneticisi aracını kullanın.</span><span class="sxs-lookup"><span data-stu-id="fed39-149">Use the Secret Manager tool to set a secret.</span></span> <span data-ttu-id="fed39-150">Örneğin, proje dizinden bir komut penceresinde aşağıdakileri girin:</span><span class="sxs-lookup"><span data-stu-id="fed39-150">For example, in a command window from the project directory, enter the following:</span></span>
+> [!TIP]
+> <span data-ttu-id="acbf7-157">Visual Studio'da, Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **kullanıcı parolaları yönetme** ve bağlam menüsünden.</span><span class="sxs-lookup"><span data-stu-id="acbf7-157">In Visual Studio, right-click the project in Solution Explorer, and select **Manage User Secrets** from the context menu.</span></span> <span data-ttu-id="acbf7-158">Bu hareketi ekler bir `UserSecretsId` öğesi, bir GUID ile çok doldurulmuş *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="acbf7-158">This gesture adds a `UserSecretsId` element, populated with a GUID, to the *.csproj* file.</span></span> <span data-ttu-id="acbf7-159">Visual Studio açılır bir *secrets.json* dosyasını bir metin düzenleyicisinde.</span><span class="sxs-lookup"><span data-stu-id="acbf7-159">Visual Studio opens a *secrets.json* file in the text editor.</span></span> <span data-ttu-id="acbf7-160">Değiştir *secrets.json* depolanması için anahtar-değer çiftleri ile.</span><span class="sxs-lookup"><span data-stu-id="acbf7-160">Replace the contents of *secrets.json* with the key-value pairs to be stored.</span></span> <span data-ttu-id="acbf7-161">Örneğin: [!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file.md)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-161">For example: [!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file.md)]</span></span>
+
+<span data-ttu-id="acbf7-162">Bir anahtarı ve değeri oluşan bir uygulama gizli anahtarı tanımlayın.</span><span class="sxs-lookup"><span data-stu-id="acbf7-162">Define an app secret consisting of a key and its value.</span></span> <span data-ttu-id="acbf7-163">Gizli projenin ilişkili olmadığından `UserSecretsId` değeri.</span><span class="sxs-lookup"><span data-stu-id="acbf7-163">The secret is associated with the project's `UserSecretsId` value.</span></span> <span data-ttu-id="acbf7-164">Örneğin, hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:</span><span class="sxs-lookup"><span data-stu-id="acbf7-164">For example, run the following command from the directory in which the *.csproj* file exists:</span></span>
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret
+dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 ```
 
-<span data-ttu-id="fed39-151">Diğer dizinlerden gizli Yöneticisi aracını çalıştırabilirsiniz ancak kullanmalısınız `--project` yolunu geçirmek için seçeneği *.csproj* dosyası:</span><span class="sxs-lookup"><span data-stu-id="fed39-151">You can run the Secret Manager tool from other directories, but you must use the `--project` option to pass in the path to the *.csproj* file:</span></span>
+<span data-ttu-id="acbf7-165">Önceki örnekte, iki nokta üst üste gösterir `Movies` bir nesne hazır olan bir `ServiceApiKey` özelliği.</span><span class="sxs-lookup"><span data-stu-id="acbf7-165">In the preceding example, the colon denotes that `Movies` is an object literal with a `ServiceApiKey` property.</span></span>
+
+<span data-ttu-id="acbf7-166">Gizli Manager aracı diğer dizinlerden çok kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-166">The Secret Manager tool can be used from other directories too.</span></span> <span data-ttu-id="acbf7-167">Kullanım `--project` seçeneği, dosya sistemi yolu sağlamak için *.csproj* dosya yok.</span><span class="sxs-lookup"><span data-stu-id="acbf7-167">Use the `--project` option to supply the file system path at which the *.csproj* file exists.</span></span> <span data-ttu-id="acbf7-168">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="acbf7-168">For example:</span></span>
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
+dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
 ```
 
-<span data-ttu-id="fed39-152">Gizli Yöneticisi aracını, listesinde, kaldırmak ve uygulama temizlemek için de kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fed39-152">You can also use the Secret Manager tool to list, remove and clear app secrets.</span></span>
+## <a name="set-multiple-secrets"></a><span data-ttu-id="acbf7-169">Birden çok gizli ayarlayın</span><span class="sxs-lookup"><span data-stu-id="acbf7-169">Set multiple secrets</span></span>
 
----
+<span data-ttu-id="acbf7-170">JSON olarak cmdlet'ine yönelterek gizli toplu ayarlanabilir `set` komutu.</span><span class="sxs-lookup"><span data-stu-id="acbf7-170">A batch of secrets can be set by piping JSON to the `set` command.</span></span> <span data-ttu-id="acbf7-171">Aşağıdaki örnekte, *input.json* dosyanın içeriğini yöneltilen için `set` Windows komutunu:</span><span class="sxs-lookup"><span data-stu-id="acbf7-171">In the following example, the *input.json* file's contents are piped to the `set` command on Windows:</span></span>
 
-## <a name="accessing-user-secrets-via-configuration"></a><span data-ttu-id="fed39-153">Kullanıcı parolaları yapılandırması aracılığıyla erişme</span><span class="sxs-lookup"><span data-stu-id="fed39-153">Accessing user secrets via configuration</span></span>
+```console
+type .\input.json | dotnet user-secrets set
+```
 
-<span data-ttu-id="fed39-154">Gizli Yöneticisi gizli yapılandırma sistemi aracılığıyla erişebilir.</span><span class="sxs-lookup"><span data-stu-id="fed39-154">You access Secret Manager secrets through the configuration system.</span></span> <span data-ttu-id="fed39-155">Ekleme `Microsoft.Extensions.Configuration.UserSecrets` paketini ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).</span><span class="sxs-lookup"><span data-stu-id="fed39-155">Add the `Microsoft.Extensions.Configuration.UserSecrets` package and run [dotnet restore](/dotnet/core/tools/dotnet-restore).</span></span>
+<span data-ttu-id="acbf7-172">MacOS ve Linux üzerinde aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="acbf7-172">Use the following command on macOS and Linux:</span></span>
 
-<span data-ttu-id="fed39-156">Kullanıcı parolaları yapılandırma kaynağı'na ekleyin `Startup` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="fed39-156">Add the user secrets configuration source to the `Startup` method:</span></span>
+```console
+cat ./input.json | dotnet user-secrets set
+```
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+## <a name="access-a-secret"></a><span data-ttu-id="acbf7-173">Bir gizli anahtar erişimi</span><span class="sxs-lookup"><span data-stu-id="acbf7-173">Access a secret</span></span>
 
-<span data-ttu-id="fed39-157">Kullanıcı parolaları yapılandırma API'si aracılığıyla erişebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="fed39-157">You can access user secrets via the configuration API:</span></span>
+<span data-ttu-id="acbf7-174">[ASP.NET çekirdek yapılandırma API'si](xref:fundamentals/configuration/index) gizli Yöneticisi gizli erişim sağlar.</span><span class="sxs-lookup"><span data-stu-id="acbf7-174">The [ASP.NET Core Configuration API](xref:fundamentals/configuration/index) provides access to Secret Manager secrets.</span></span> <span data-ttu-id="acbf7-175">.NET Core hedefleme 1.x veya .NET Framework yüklerseniz [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet paketi.</span><span class="sxs-lookup"><span data-stu-id="acbf7-175">If targeting .NET Core 1.x or .NET Framework, install the [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet package.</span></span>
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-176">Kullanıcı parolaları yapılandırma kaynağı'na ekleyin `Startup` Oluşturucusu:</span><span class="sxs-lookup"><span data-stu-id="acbf7-176">Add the user secrets configuration source to the `Startup` constructor:</span></span>
 
-## <a name="how-the-secret-manager-tool-works"></a><span data-ttu-id="fed39-158">Parola Yöneticisi aracını nasıl çalışır</span><span class="sxs-lookup"><span data-stu-id="fed39-158">How the Secret Manager tool works</span></span>
+<span data-ttu-id="acbf7-177">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=5-8)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-177">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=5-8)]</span></span>
+::: moniker-end
 
-<span data-ttu-id="fed39-159">Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar.</span><span class="sxs-lookup"><span data-stu-id="fed39-159">The Secret Manager tool abstracts away the implementation details, such as where and how the values are stored.</span></span> <span data-ttu-id="fed39-160">Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="fed39-160">You can use the tool without knowing these implementation details.</span></span> <span data-ttu-id="fed39-161">İçinde depolanan geçerli sürümde değerlerden bir [JSON](http://json.org/) kullanıcı profili dizini yapılandırma dosyasında:</span><span class="sxs-lookup"><span data-stu-id="fed39-161">In the current version, the values are stored in a [JSON](http://json.org/) configuration file in the user profile directory:</span></span>
+<span data-ttu-id="acbf7-178">Kullanıcı parolaları, aracılığıyla alınabilir `Configuration` API'si:</span><span class="sxs-lookup"><span data-stu-id="acbf7-178">User secrets can be retrieved via the `Configuration` API:</span></span>
 
-* <span data-ttu-id="fed39-162">Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`</span><span class="sxs-lookup"><span data-stu-id="fed39-162">Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`</span></span>
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-179">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=23)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-179">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=23)]</span></span>
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+<span data-ttu-id="acbf7-180">[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=14)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-180">[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=14)]</span></span>
+::: moniker-end
 
-* <span data-ttu-id="fed39-163">Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`</span><span class="sxs-lookup"><span data-stu-id="fed39-163">Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`</span></span>
+## <a name="string-replacement-with-secrets"></a><span data-ttu-id="acbf7-181">Gizli anahtarlarla dize değiştirme</span><span class="sxs-lookup"><span data-stu-id="acbf7-181">String replacement with secrets</span></span>
 
-* <span data-ttu-id="fed39-164">macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`</span><span class="sxs-lookup"><span data-stu-id="fed39-164">macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`</span></span>
+<span data-ttu-id="acbf7-182">Parolaları düz metin olarak depolanması risklidir.</span><span class="sxs-lookup"><span data-stu-id="acbf7-182">Storing passwords in plain text is risky.</span></span> <span data-ttu-id="acbf7-183">Örneğin, bir veritabanı bağlantı dizesi içinde depolanan *appsettings.json* belirtilen kullanıcı için bir parola içerebilir:</span><span class="sxs-lookup"><span data-stu-id="acbf7-183">For example, a database connection string stored in *appsettings.json* may include a password for the specified user:</span></span>
 
-<span data-ttu-id="fed39-165">Değeri `userSecretsId` içinde belirtilen değerle geldiği *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="fed39-165">The value of `userSecretsId` comes from the value specified in *.csproj* file.</span></span>
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
-<span data-ttu-id="fed39-166">Bu uygulama ayrıntılarını değişebilir gibi konumu veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kodu yazmaya döndürmemelidir.</span><span class="sxs-lookup"><span data-stu-id="fed39-166">You shouldn't write code that depends on the location or format of the data saved with the Secret Manager tool, as these implementation details might change.</span></span> <span data-ttu-id="fed39-167">Örneğin, gizli şu anda değerlerdir *değil* bugün şifrelenir, ancak gün olabilir.</span><span class="sxs-lookup"><span data-stu-id="fed39-167">For example, the secret values are currently *not* encrypted today, but could be someday.</span></span>
+<span data-ttu-id="acbf7-184">Parolayı gizlilik olarak depolamak daha güvenli bir yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="acbf7-184">A more secure approach is to store the password as a secret.</span></span> <span data-ttu-id="acbf7-185">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="acbf7-185">For example:</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="fed39-168">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="fed39-168">Additional resources</span></span>
+```console
+dotnet user-secrets set "DbPassword" "pass123"
+```
 
-* [<span data-ttu-id="fed39-169">Yapılandırma</span><span class="sxs-lookup"><span data-stu-id="fed39-169">Configuration</span></span>](xref:fundamentals/configuration/index)
+<span data-ttu-id="acbf7-186">Parolayı Değiştir *appsettings.json* bir yer tutucu.</span><span class="sxs-lookup"><span data-stu-id="acbf7-186">Replace the password in *appsettings.json* with a placeholder.</span></span> <span data-ttu-id="acbf7-187">Aşağıdaki örnekte, `{0}` form yer tutucu olarak kullanılan bir [bileşik biçim dizesi](/dotnet/standard/base-types/composite-formatting#composite-format-string).</span><span class="sxs-lookup"><span data-stu-id="acbf7-187">In the following example, `{0}` is used as the placeholder to form a [Composite Format String](/dotnet/standard/base-types/composite-formatting#composite-format-string).</span></span>
+
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings.json?highlight=3)]
+
+<span data-ttu-id="acbf7-188">Parolanın değeri bağlantı dizesini tamamlamak için yer tutucu yerleştirilebilir:</span><span class="sxs-lookup"><span data-stu-id="acbf7-188">The secret's value can be injected into the placeholder to complete the connection string:</span></span>
+
+::: moniker range="<= aspnetcore-1.1"
+<span data-ttu-id="acbf7-189">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-189">[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]</span></span>
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+<span data-ttu-id="acbf7-190">[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]</span><span class="sxs-lookup"><span data-stu-id="acbf7-190">[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]</span></span>
+::: moniker-end
+
+## <a name="list-the-secrets"></a><span data-ttu-id="acbf7-191">Gizli listesi</span><span class="sxs-lookup"><span data-stu-id="acbf7-191">List the secrets</span></span>
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+<span data-ttu-id="acbf7-192">Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:</span><span class="sxs-lookup"><span data-stu-id="acbf7-192">Run the following command from the directory in which the *.csproj* file exists:</span></span>
+
+```console
+dotnet user-secrets list
+```
+
+<span data-ttu-id="acbf7-193">Şu çıktı görünür:</span><span class="sxs-lookup"><span data-stu-id="acbf7-193">The following output appears:</span></span>
+
+```console
+Movies:ServiceApiKey = 12345
+Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
+```
+
+<span data-ttu-id="acbf7-194">Önceki örnekte, iki nokta üst üste anahtar adlarını nesne hiyerarşi içinde gösterir *secrets.json*.</span><span class="sxs-lookup"><span data-stu-id="acbf7-194">In the preceding example, a colon in the key names denotes the object hierarchy within *secrets.json*.</span></span>
+
+## <a name="remove-a-single-secret"></a><span data-ttu-id="acbf7-195">Tek bir gizlilik Kaldır</span><span class="sxs-lookup"><span data-stu-id="acbf7-195">Remove a single secret</span></span>
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+<span data-ttu-id="acbf7-196">Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:</span><span class="sxs-lookup"><span data-stu-id="acbf7-196">Run the following command from the directory in which the *.csproj* file exists:</span></span>
+
+```console
+dotnet user-secrets remove "Movies:ConnectionString"
+```
+
+<span data-ttu-id="acbf7-197">Uygulamanın *secrets.json* dosyası ile ilişkili anahtar-değer çifti kaldırmak için değiştirildi `MoviesConnectionString` anahtarı:</span><span class="sxs-lookup"><span data-stu-id="acbf7-197">The app's *secrets.json* file was modified to remove the key-value pair associated with the `MoviesConnectionString` key:</span></span>
+
+```json
+{
+  "Movies": {
+    "ServiceApiKey": "12345"
+  }
+}
+```
+
+<span data-ttu-id="acbf7-198">Çalışan `dotnet user-secrets list` aşağıdaki ileti görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="acbf7-198">Running `dotnet user-secrets list` displays the following message:</span></span>
+
+```console
+Movies:ServiceApiKey = 12345
+```
+
+## <a name="remove-all-secrets"></a><span data-ttu-id="acbf7-199">Tüm gizli Kaldır</span><span class="sxs-lookup"><span data-stu-id="acbf7-199">Remove all secrets</span></span>
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+<span data-ttu-id="acbf7-200">Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:</span><span class="sxs-lookup"><span data-stu-id="acbf7-200">Run the following command from the directory in which the *.csproj* file exists:</span></span>
+
+```console
+dotnet user-secrets clear
+```
+
+<span data-ttu-id="acbf7-201">Uygulama için tüm kullanıcı parolaları gelen silinmiş *secrets.json* dosyası:</span><span class="sxs-lookup"><span data-stu-id="acbf7-201">All user secrets for the app have been deleted from the *secrets.json* file:</span></span>
+
+```json
+{}
+```
+
+<span data-ttu-id="acbf7-202">Çalışan `dotnet user-secrets list` aşağıdaki ileti görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="acbf7-202">Running `dotnet user-secrets list` displays the following message:</span></span>
+
+```console
+No secrets configured for this application.
+```
+
+## <a name="additional-resources"></a><span data-ttu-id="acbf7-203">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="acbf7-203">Additional resources</span></span>
+
+* <xref:fundamentals/configuration/index>
+* <xref:security/key-vault-configuration>
