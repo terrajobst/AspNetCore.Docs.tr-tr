@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
-title: "Model doğrulama ASP.NET Web API'de | Microsoft Docs"
+title: Model doğrulama ASP.NET Web API'de | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/20/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 409a91eceb8baa48a7dded1b850d59a27cec2c60
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>ASP.NET Web API'de model doğrulama
 ====================
@@ -26,7 +26,7 @@ Bir istemci web API'nize veri gönderdiğinde, genellikle verileri herhangi bir 
 
 ## <a name="data-annotations"></a>Veri ek açıklamaları
 
-ASP.NET Web API'de özniteliklerini kullanabilirsiniz [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) modelinize göre özellikleri için doğrulama kuralları ayarlamak için ad alanı. Aşağıdaki model göz önünde bulundurun:
+ASP.NET Web API'de özniteliklerini kullanabilirsiniz [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) modelinize göre özellikleri için doğrulama kuralları ayarlamak için ad alanı. Aşağıdaki model göz önünde bulundurun:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 

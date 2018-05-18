@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 081a71ef67a6eee6c84058c30f9e15301afbed23
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 57477cf15bf6755523f28356d5384517bea24982
+ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
 
@@ -37,9 +37,9 @@ Bu uygulamalı Laboratuvar depolamak ve müzik deposu uygulaması için gereken 
 
 Ancak, aynı zamanda kullanabilirsiniz **Model First** yaklaşımını, araçları kullanarak aynı modelin oluşturun ve ondan veritabanı oluşturun.
 
-![Veritabanı ilk vs. Model ilk](aspnet-mvc-4-models-and-data-access/_static/image1.png "veritabanı ilk vs. Model First")
+![Veritabanı ilk vs. Model ilk](aspnet-mvc-4-models-and-data-access/_static/image1.png "veritabanı ilk vs. İlk model")
 
-*Veritabanı ilk vs. Model First*
+*Veritabanı ilk vs. İlk model*
 
 Model oluşturma sonra StoreController sabit kodlanmış verileri kullanmak yerine veritabanından alınan veri deposu görünümlerini sağlamak için uygun düzeltmeleri yapar. Görünüm şablonları için aynı ViewModels StoreController döndürme çünkü bu kez veritabanından veri gelir ancak herhangi bir değişiklik görünüm şablonlarda yapmak gerekmez.
 
@@ -235,12 +235,14 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, bu bilgileri almak iç
 
 ~~~
 [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
+~~~
 
 > [!NOTE]
-> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
+> Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
 > 
-> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
-~~~
+> LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
+
+
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu dizini*)

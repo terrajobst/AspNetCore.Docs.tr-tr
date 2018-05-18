@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: testing/troubleshoot
-ms.openlocfilehash: f2c785bfe27ddd67db0313b8ee1c077a8cc06e05
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3bba085c69ee96b5725331b14dcf15350d66e4a4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
@@ -66,3 +66,15 @@ Bu uyarı ne zaman görünür ortam değişkeni `PATH` tüm .NET Core SDK makine
 
 * Yükleme veya .NET Core SDK yüklendiğini doğrulayın.
 * Doğrulama `PATH` ortam değişkeni SDK yüklü konuma işaret eder. Yükleyici normalde ayarlar `PATH`.
+
+::: moniker range=">= aspnetcore-2.1"
+
+### <a name="use-of-ihtmlhelperpartial-may-result-in-application-deadlocks"></a>Uygulama kilitlenmeleri IHtmlHelper.Partial kullanımına neden olabilir
+
+ASP.NET Core 2.1 ve daha sonra çağırma `Html.Partial` Çözümleyicisi uyarı olası kilitlenme nedeniyle sonuçlanıyor. Uyarı iletisi şudur:
+
+*IHtmlHelper.Partial kullanımını uygulama kilitlenmeleri neden olabilir. Kullanmayı `<partial>` etiket Yardımcısı veya `IHtmlHelper.PartialAsync`.*
+
+Çağrılar `@Html.Partial` tarafından değiştirilmelidir `@await Html.PartialAsync` veya kısmi etiket Yardımcısı `<partial name="_Partial" />`.
+
+::: moniker-end

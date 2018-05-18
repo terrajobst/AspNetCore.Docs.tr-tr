@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -155,7 +155,7 @@ Daha fazla bilgi için bkz: [statik dosyaları](xref:fundamentals/static-files).
 
 ASP.NET Core uygulamaları yapılandırmak ve başlatma bir *konak*, uygulama başlatma ve ömür boyu yönetimi için sorumlu olduğu.
 
-Daha fazla bilgi için bkz: [barındırma](xref:fundamentals/hosting).
+Daha fazla bilgi için bkz: [ASP.NET Core ana](xref:fundamentals/host/index).
 
 ## <a name="session-and-application-state"></a>Oturum ve uygulama durumu
 
@@ -189,7 +189,7 @@ Daha fazla bilgi için bkz: [istek özellikleri](xref:fundamentals/request-featu
 
 Arka plan görevleri olarak gerçekleştirilen *barındırılan hizmetlere*. Barındırılan hizmet uygulayan arka plan görevi mantığı ile bir sınıftır [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) arabirimi.
 
-Daha fazla bilgi için bkz: [arka plan görevleri barındırılan hizmetleri ile](xref:fundamentals/hosted-services).
+Daha fazla bilgi için bkz: [arka plan görevleri barındırılan hizmetleri ile](xref:fundamentals/host/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>.NET (OWIN) için açık Web arabirimi
 

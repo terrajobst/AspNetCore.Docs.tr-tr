@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a1162da01fad67f3e8ccb1e70bd646b39c38997f
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: HT
+ms.openlocfilehash: 251385b268e75cfadb815c293be52176297ed3e4
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core kestrel web sunucusu uygulaması
 
@@ -276,7 +276,7 @@ Kullanarak URL'leri belirtin:
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
 
-Daha fazla bilgi için bkz: [sunucu URL'leri](xref:fundamentals/hosting#server-urls) ve [geçersiz kılınıyor yapılandırma](xref:fundamentals/hosting#overriding-configuration).
+Daha fazla bilgi için bkz: [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
 
 Bu yaklaşımı kullanarak sağlanan değer bir veya daha fazla HTTP ve HTTPS uç noktaları (varsayılan sertifika varsa HTTPS) olabilir. Noktalı virgülle ayrılmış liste olarak değerini yapılandırın (örneğin, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
@@ -489,7 +489,7 @@ Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL öneklerin
 * `urls` ana bilgisayar yapılandırma anahtarı
 * ASP.NET Core yapılandırma sistemi de dahil olmak üzere `ASPNETCORE_URLS` ortam değişkeni
 
-Bu yöntemleri hakkında daha fazla bilgi için bkz: [barındırma](xref:fundamentals/hosting).
+Bu yöntemleri hakkında daha fazla bilgi için bkz: [barındırma](xref:fundamentals/host/index).
 
 **IIS bitiş noktası yapılandırması**
 

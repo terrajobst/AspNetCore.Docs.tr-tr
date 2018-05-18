@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 700ceb081b2067f932ce8ed08c45c62058775e33
-ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -72,7 +72,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>Framework tarafından sağlanan hizmetleri kullanma
 
-`ConfigureServices` Yönteminde `Startup` sınıftır uygulama kullanır, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri dahil olmak üzere hizmetleri tanımlamak için sorumlu. Başlangıçta, `IServiceCollection` için sağlanan `ConfigureServices` tanımlı aşağıdaki hizmetleri sahiptir (bağlı olarak [konak nasıl yapılandırılan](xref:fundamentals/hosting)):
+`ConfigureServices` Yönteminde `Startup` sınıftır uygulama kullanır, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri dahil olmak üzere hizmetleri tanımlamak için sorumlu. Başlangıçta, `IServiceCollection` için sağlanan `ConfigureServices` tanımlı aşağıdaki hizmetleri sahiptir (bağlı olarak [konak nasıl yapılandırılan](xref:fundamentals/host/index)):
 
 | Hizmet Türü | Ömür |
 | ----- | ------- |
@@ -235,7 +235,7 @@ Kök hizmet sağlayıcısı oluşturulur [BuildServiceProvider](/dotnet/api/micr
 
 Kapsamlı Hizmetleri oluşturuldukları kapsayıcı tarafından elden. Kapsamlı bir hizmet kök kapsayıcısında oluşturduysanız, uygulama/sunucu kapatıldığında yalnızca kök kapsayıcı tarafından atıldı çünkü hizmetin ömrü tekliye etkili bir şekilde yükseltildi. Hizmet kapsamları doğrulama yakalar bu durumlarda, `BuildServiceProvider` olarak adlandırılır.
 
-Daha fazla bilgi için bkz: [kapsam doğrulama barındırma konusunda](xref:fundamentals/hosting#scope-validation).
+Daha fazla bilgi için bkz: [kapsam Web ana bilgisayarı konusunda doğrulama](xref:fundamentals/host/web-host#scope-validation).
 
 ## <a name="request-services"></a>İstek Hizmetleri
 
@@ -245,7 +245,7 @@ Bir ASP.NET içinde kullanılabilir hizmetler isteği `HttpContext` aracılığ�
 
 İstek hizmetleri yapılandırmak ve uygulamanızı bir parçası olarak istek Hizmetleri temsil eder. Nesnelerinizi bağımlılıklarını belirttiğinizde, bunlar bulunan tür tarafından karşılanır `RequestServices`değil `ApplicationServices`.
 
-Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](../testing/index.md)) ve daha geniş bağlı değildir.
+Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](xref:testing/index)) ve daha geniş bağlı değildir.
 
 > [!NOTE]
 > Erişim için Oluşturucusu parametre olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.

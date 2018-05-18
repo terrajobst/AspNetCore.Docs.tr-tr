@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bd739abe4737e0fb9e4da6011c5810d7b05a3a22
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 
@@ -101,7 +101,7 @@ Güncelleştirme `OnGetAsync` aşağıdaki kod ile yöntemi:
 
 Önceki kod ekler `AsNoTracking`. `AsNoTracking` döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
 
-Güncelleştirme *Views/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeyi ile:
+Güncelleştirme *Pages/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeyi ile:
 
 [!code-html[](intro/samples/cu/Pages/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 

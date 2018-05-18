@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: d40243454632550147a7d42ab26a8f1d2d100db2
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: HT
+ms.openlocfilehash: 46871edb744ad152df8eb958b344068b7408dd1e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET Core WebListener web sunucusu uygulaması
 
@@ -84,7 +84,7 @@ Ayrıca [Http.Sys kayıt defteri ayarları](https://support.microsoft.com/kb/820
 
 * Dinlemenin yapılacağı URL ve bağlantı noktalarını yapılandırmak 
 
-  Varsayılan olarak ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini ve bağlantı noktalarını yapılandırmak için kullanabileceğiniz `UseURLs` genişletme yöntemi, `urls` komut satırı bağımsız değişkeni veya ASP.NET Core yapılandırma sistemi. Daha fazla bilgi için bkz: [barındırma](../../fundamentals/hosting.md).
+  Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL öneklerini ve bağlantı noktalarını yapılandırmak için kullanabileceğiniz `UseURLs` genişletme yöntemi, `urls` komut satırı bağımsız değişkeni veya ASP.NET Core yapılandırma sistemi. [ASP.NET Core(xref:fundamentals/host/index) ana. daha fazla bilgi için bkz.
 
   Dinleyici kullanan web [Http.Sys önek dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). WebListener için özel önek dizesi biçimi gereksinimi yoktur.
 
@@ -179,4 +179,4 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Bu makale için örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)
 * [WebListener kaynak kodu](https://github.com/aspnet/HttpSysServer/)
-* [Barındırma](../hosting.md)
+* [Barındırma](xref:fundamentals/host/index)

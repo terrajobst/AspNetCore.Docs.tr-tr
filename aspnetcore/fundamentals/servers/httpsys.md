@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: ce4edf6f07808d3958c919a1d81561ce020fe52b
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
-ms.translationtype: HT
+ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>HTTP.sys web server ASP.NET Core uygulamasında
 
@@ -133,7 +133,7 @@ HTTP.sys türlerde saldırılarına karşı korur ve sağlamlık, güvenlik ve t
 
    Bir avantajı `UrlPrefixes` bir hata iletisi hemen düzgün biçimlendirilmemiş önekleri için oluşturulmuş.
 
-   Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarlar. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir HTTP.sys Kestrel arasında geçiş yapmak kolaydır. Daha fazla bilgi için `UseUrls`, `urls`, ve `ASPNETCORE_URLS`, bkz: [barındırma](xref:fundamentals/hosting).
+   Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarlar. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir HTTP.sys Kestrel arasında geçiş yapmak kolaydır. Daha fazla bilgi için `UseUrls`, `urls`, ve `ASPNETCORE_URLS`, bkz: [ASP.NET Core ana](xref:fundamentals/host/index) konu.
 
    HTTP.sys kullanan [HTTP Sunucusu API UrlPrefix dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 
@@ -179,4 +179,4 @@ Internet'ten veya bir şirket ağı isteklerle etkileşim HTTP.sys tarafından b
 
 * [HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [ASPNET/HttpSysServer GitHub deposunu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
-* [Barındırma](xref:fundamentals/hosting)
+* [ASP.NET Core ana bilgisayar](xref:fundamentals/host/index)

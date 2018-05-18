@@ -1,129 +1,262 @@
 ---
 title: Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 author: rick-anderson
-description: Gizli geliştirme sırasında güvenli bir şekilde depolamak nasıl gösterir
+description: Bir ASP.NET Core uygulama geliştirme sırasında uygulama sırrı olarak hassas bilgilerini depolamak ve almak öğrenin.
 manager: wpickett
-ms.author: riande
-ms.date: 09/15/2017
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 05/16/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), ve [Scott Addie](https://scottaddie.com) 
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), ve [Scott Addie](https://github.com/scottaddie)
 
-Bu belge, gizli Yöneticisi aracını geliştirme gizli kodunuzu dışında tutmak için nasıl kullanabileceğinizi gösterir. En önemli kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme ve test modunda üretim gizli kullanmamanız noktasıdır. Bunun yerine kullanabileceğiniz [yapılandırma](xref:fundamentals/configuration/index) ortam değişkenlerinin bu değerleri okumak veya gizli Yöneticisi'ni kullanarak depolanan değerlerden aracı sistem. Gizli Manager aracı kaynak denetimine iade hassas verileri önlemeye yardımcı olur. [Yapılandırma](xref:fundamentals/configuration/index) sistem, bu makalede açıklanan gizli Yöneticisi aracıyla depolanan gizli okuyabilir.
+::: moniker range="<= aspnetcore-1.1"
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/1.1) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/app-secrets/samples/2.1) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+::: moniker-end
 
-Parola Yöneticisi aracını yalnızca geliştirme kullanılır. Azure test ve üretim parolaları ile koruma [Microsoft Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) yapılandırma sağlayıcısı. Bkz: [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration) daha fazla bilgi için.
+Bu belge, depolamak ve almak için kullanılan hassas verileri ASP.NET Core uygulama geliştirme sırasında teknikleri açıklar. Kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme üretim gizlilikleri kullanın veya modu test döndürmemelidir. Depolama ve Azure test ve üretim parolaları ile korumak [Azure anahtar kasası yapılandırma sağlayıcısı](xref:security/key-vault-configuration).
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
-Uygulama gizli kod veya yerel yapılandırma dosyalarını depolamak önlemek için ortam değişkenleri gizli depolar. Kurulum [yapılandırma](xref:fundamentals/configuration/index) çağırarak ortam değişkenlerinin değerlerini okumasını framework `AddEnvironmentVariables`. Ardından, tüm daha önce belirtilen yapılandırma kaynakları için yapılandırma değerleri geçersiz kılmak için ortam değişkenlerini kullanabilirsiniz.
+Ortam değişkenleri, uygulama gizli kod veya yerel yapılandırma dosyalarını depolanmasını önlemek için kullanılır. Ortam değişkenleri tüm daha önce belirtilen yapılandırma kaynakları için yapılandırma değerleri geçersiz.
 
-Örneğin, tek tek kullanıcı hesaplarını yeni bir ASP.NET Core web uygulaması oluşturursanız, bu varsayılan bağlantı dizesi ekleyecek *appsettings.json* anahtarla proje dosyasında `DefaultConnection`. Varsayılan bağlantı dizesini, kullanıcı modunda çalışır ve bir parola gerektirmez, LocalDB kullanmak üzere kurulur. Uygulamanızı test veya üretim sunucusunu dağıttığınızda, geçersiz kılabilirsiniz `DefaultConnection` anahtar değerini ayarıyla test veya üretim veritabanı için (potansiyel olarak harfe duyarlı kimlik bilgileri) bağlantı dizesini içeren bir ortam değişkeni Sunucu.
+::: moniker range="<= aspnetcore-1.1"
+Ortam değişkeni değerlerini okuma çağırarak yapılandırma [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) içinde `Startup` Oluşturucusu:
 
->[!WARNING]
-> Ortam değişkenleri genellikle düz metin olarak depolanır ve şifrelenmez. Makine ya da işlem aşılırsa, ortam değişkenleri Güvenilmeyen taraflar tarafından erişilebilir. Kullanıcı parolaları açığa çıkmasını önlemek için ek önlemler gerekli olabilir.
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=10)]
+::: moniker-end
+
+Bir ASP.NET Core web uygulaması, göz önünde bulundurun **tek tek kullanıcı hesaplarını** güvenlik etkindir. Bir varsayılan veritabanı bağlantı dizesi projesinin dahil *appsettings.json* anahtar dosyasıyla `DefaultConnection`. Varsayılan bağlantı dizesini kullanıcı modunda çalışır ve bir parola gerektirmez LocalDB ' dir. Uygulama dağıtımı sırasında `DefaultConnection` anahtar değeri ile bir ortam değişkeninin değeri geçersiz. Ortam değişkeni hassas kimlik bilgileriyle tam bağlantı dizesi depolayabilir.
+
+> [!WARNING]
+> Ortam değişkenleri genellikle düz ve şifresiz metin olarak depolanır. Makine ya da işlem aşılırsa, ortam değişkenleri Güvenilmeyen taraflar tarafından erişilebilir. Kullanıcı parolaları açığa çıkmasını önlemek için ek önlemler gerekli olabilir.
 
 ## <a name="secret-manager"></a>Parola Yöneticisi
 
-Parola Yöneticisi aracını proje ağacı dışında geliştirme çalışması için hassas verileri depolar. Gizli Yöneticisi Aracı geliştirme sırasında bir .NET Core projesi için parolaları depolamak için kullanılan bir proje araçtır. Gizli Yöneticisi aracıyla uygulama sırrı belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşın.
+Gizli Yöneticisi aracını hassas verileri ASP.NET Core projesinde geliştirme sırasında depolar. Bu bağlamda bir gizli verilerin bir uygulama gizli anahtarı parçasıdır. Uygulama parolaları proje ağacından ayrı bir konumda depolanır. Uygulama parolaları belirli bir projeyle ilişkili veya birkaç projeler arasında paylaşılan. Uygulama parolaları kaynak denetimine iade değil.
 
->[!WARNING]
+> [!WARNING]
 > Gizli Yöneticisi aracını depolanan parolaları şifrelemek değil ve bir güvenilen deposu olarak değerlendirilmesi gerekir. Yalnızca geliştirme amacıyla kullanılır. Anahtarları ve değerleri, kullanıcı profili dizini bir JSON yapılandırma dosyasında depolanır.
 
-## <a name="installing-the-secret-manager-tool"></a>Parola Yöneticisi aracını yükleme
+## <a name="how-the-secret-manager-tool-works"></a>Parola Yöneticisi aracını nasıl çalışır
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz. İçinde depolanan değerlerden bir [JSON](https://json.org/) yerel makinede bir sistem korumalı kullanıcı profili klasöründeki yapılandırma dosyası:
 
-Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Düzenle \<project_name\>.csproj** ve bağlam menüsünden. Vurgulanan satırı ekleyin *.csproj* dosya ve ilişkili NuGet paket geri yüklemek için kaydedin:
+* Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
+* Linux & macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+Önceki dosya yolları ve Değiştir `<user_secrets_id>` ile `UserSecretsId` belirtilen değer *.csproj* dosya.
 
-Çözüm Gezgini'nde projeye tekrar sağ tıklayın ve seçin **kullanıcı parolaları yönetme** ve bağlam menüsünden. Bu hareketi yeni ekler `UserSecretsId` düğümde bir `PropertyGroup` , *.csproj* dosyası, aşağıdaki örnekte vurgulanmış olarak:
+Konum veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kod yazmayın. Bu uygulama ayrıntılarını değişebilir. Örneğin, gizli değerleri şifreli değildir, ancak gelecekte olabilir.
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+::: moniker range="<= aspnetcore-2.0"
+## <a name="install-the-secret-manager-tool"></a>Parola Yöneticisi aracını yükleyin
 
-Değiştirilen kaydetme *.csproj* dosya de açılır bir `secrets.json` dosyasını bir metin düzenleyicisinde. Değiştir `secrets.json` aşağıdaki kod ile dosya:
+.NET Core SDK 2.1 içinde .NET Core CLI ile gizli Yöneticisi aracını paketlenebilir. Aracı yükleme ve önceki sürümleri, .NET Core SDK 2.0 için gereklidir.
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
+Yükleme [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core projenizdeki NuGet paketi:
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
-Ekleme `Microsoft.Extensions.SecretManager.Tools` için *.csproj* dosya ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore). Parola Yöneticisi için komut satırını kullanarak aracı yüklemek için aynı adımları kullanabilirsiniz.
-
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
-
-Parola Yöneticisi aracını aşağıdaki komutu çalıştırarak test edin:
+Aracı yüklemesini doğrulamak için bir komut kabuğuna şu komutu çalıştırın:
 
 ```console
 dotnet user-secrets -h
 ```
 
-Parola Yöneticisi aracını kullanımı, seçenekleri ve komut Yardımı görüntüler.
+Gizli Yöneticisi aracını örnek kullanım, seçenekleri ve komut Yardımı görüntüler:
+
+```console
+Usage: dotnet user-secrets [options] [command]
+
+Options:
+  -?|-h|--help                        Show help information
+  --version                           Show version information
+  -v|--verbose                        Show verbose output
+  -p|--project <PROJECT>              Path to project. Defaults to searching the current directory.
+  -c|--configuration <CONFIGURATION>  The project configuration to use. Defaults to 'Debug'.
+  --id                                The user secret ID to use.
+
+Commands:
+  clear   Deletes all the application secrets
+  list    Lists all the application secrets
+  remove  Removes the specified user secret
+  set     Sets the user secret to the specified value
+
+Use "dotnet user-secrets [command] --help" for more information about a command.
+```
 
 > [!NOTE]
-> Aynı dizinde olmalıdır *.csproj* tanımlanan araçları çalıştırmak için dosya *.csproj* dosyanın `DotNetCliToolReference` düğümleri.
+> Aynı dizinde olmalıdır *.csproj* tanımlanan araçları çalıştırmak için dosya *.csproj* dosyanın `DotNetCliToolReference` öğeleri.
+::: moniker-end
 
-Kullanıcı profilinizde depolanan projeye özgü yapılandırma ayarlarını gizli Yöneticisi aracını çalıştırır. Kullanıcı parolaları kullanmak için proje belirtmeniz gerekir bir `UserSecretsId` değeri kendi *.csproj* dosya. Değeri `UserSecretsId` isteğe bağlıdır, ancak projeye genellikle benzersizdir. Geliştiriciler genellikle oluşturmak için bir GUID `UserSecretsId`.
+## <a name="set-a-secret"></a>Bir parola ayarlama
 
-Ekleme bir `UserSecretsId` projenizde için *.csproj* dosyası:
+Projeye özgü yapılandırma ayarlarını kullanıcı profilinizde depolanan gizli Manager aracı çalışır. Kullanıcı parolaları kullanmak üzere tanımladığınız bir `UserSecretsId` öğesi içinde bir `PropertyGroup` , *.csproj* dosya. Değeri `UserSecretsId` isteğe bağlıdır, ancak projeye benzersizdir. Geliştiriciler genellikle oluşturmak için bir GUID `UserSecretsId`.
 
-[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+::: moniker range="<= aspnetcore-1.1"
+[!code-xml[](app-secrets/samples/1.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-xml[](app-secrets/samples/2.1/UserSecrets/UserSecrets.csproj?name=snippet_PropertyGroup&highlight=3)]
+::: moniker-end
 
-Bir parolayı ayarlamak için gizli Yöneticisi aracını kullanın. Örneğin, proje dizinden bir komut penceresinde aşağıdakileri girin:
+> [!TIP]
+> Visual Studio'da, Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **kullanıcı parolaları yönetme** ve bağlam menüsünden. Bu hareketi ekler bir `UserSecretsId` öğesi, bir GUID ile çok doldurulmuş *.csproj* dosya. Visual Studio açılır bir *secrets.json* dosyasını bir metin düzenleyicisinde. Değiştir *secrets.json* depolanması için anahtar-değer çiftleri ile. Örneğin: [!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file.md)]
+
+Bir anahtarı ve değeri oluşan bir uygulama gizli anahtarı tanımlayın. Gizli projenin ilişkili olmadığından `UserSecretsId` değeri. Örneğin, hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret
+dotnet user-secrets set "Movies:ServiceApiKey" "12345"
 ```
 
-Diğer dizinlerden gizli Yöneticisi aracını çalıştırabilirsiniz ancak kullanmalısınız `--project` yolunu geçirmek için seçeneği *.csproj* dosyası:
+Önceki örnekte, iki nokta üst üste gösterir `Movies` bir nesne hazır olan bir `ServiceApiKey` özelliği.
+
+Gizli Manager aracı diğer dizinlerden çok kullanılabilir. Kullanım `--project` seçeneği, dosya sistemi yolu sağlamak için *.csproj* dosya yok. Örneğin:
 
 ```console
-dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\webapp1
+dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp1\src\WebApp1"
 ```
 
-Gizli Yöneticisi aracını, listesinde, kaldırmak ve uygulama temizlemek için de kullanabilirsiniz.
+## <a name="set-multiple-secrets"></a>Birden çok gizli ayarlayın
 
----
+JSON olarak cmdlet'ine yönelterek gizli toplu ayarlanabilir `set` komutu. Aşağıdaki örnekte, *input.json* dosyanın içeriğini yöneltilen için `set` Windows komutunu:
 
-## <a name="accessing-user-secrets-via-configuration"></a>Kullanıcı parolaları yapılandırması aracılığıyla erişme
+```console
+type .\input.json | dotnet user-secrets set
+```
 
-Gizli Yöneticisi gizli yapılandırma sistemi aracılığıyla erişebilir. Ekleme `Microsoft.Extensions.Configuration.UserSecrets` paketini ve çalıştırma [dotnet geri yükleme](/dotnet/core/tools/dotnet-restore).
+MacOS ve Linux üzerinde aşağıdaki komutu kullanın:
 
-Kullanıcı parolaları yapılandırma kaynağı'na ekleyin `Startup` yöntemi:
+```console
+cat ./input.json | dotnet user-secrets set
+```
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+## <a name="access-a-secret"></a>Bir gizli anahtar erişimi
 
-Kullanıcı parolaları yapılandırma API'si aracılığıyla erişebilirsiniz:
+[ASP.NET çekirdek yapılandırma API'si](xref:fundamentals/configuration/index) gizli Yöneticisi gizli erişim sağlar. .NET Core hedefleme 1.x veya .NET Framework yüklerseniz [Microsoft.Extensions.Configuration.UserSecrets](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.UserSecrets) NuGet paketi.
 
-[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+::: moniker range="<= aspnetcore-1.1"
+Kullanıcı parolaları yapılandırma kaynağı'na ekleyin `Startup` Oluşturucusu:
 
-## <a name="how-the-secret-manager-tool-works"></a>Parola Yöneticisi aracını nasıl çalışır
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupConstructor&highlight=5-8)]
+::: moniker-end
 
-Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz. İçinde depolanan geçerli sürümde değerlerden bir [JSON](http://json.org/) kullanıcı profili dizini yapılandırma dosyasında:
+Kullanıcı parolaları, aracılığıyla alınabilir `Configuration` API'si:
 
-* Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=23)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup.cs?name=snippet_StartupClass&highlight=14)]
+::: moniker-end
 
-* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+## <a name="string-replacement-with-secrets"></a>Gizli anahtarlarla dize değiştirme
 
-* macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+Parolaları düz metin olarak depolanması risklidir. Örneğin, bir veritabanı bağlantı dizesi içinde depolanan *appsettings.json* belirtilen kullanıcı için bir parola içerebilir:
 
-Değeri `userSecretsId` içinde belirtilen değerle geldiği *.csproj* dosya.
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
-Bu uygulama ayrıntılarını değişebilir gibi konumu veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi bağlıdır kodu yazmaya döndürmemelidir. Örneğin, gizli şu anda değerlerdir *değil* bugün şifrelenir, ancak gün olabilir.
+Parolayı gizlilik olarak depolamak daha güvenli bir yaklaşımdır. Örneğin:
+
+```console
+dotnet user-secrets set "DbPassword" "pass123"
+```
+
+Parolayı Değiştir *appsettings.json* bir yer tutucu. Aşağıdaki örnekte, `{0}` form yer tutucu olarak kullanılan bir [bileşik biçim dizesi](/dotnet/standard/base-types/composite-formatting#composite-format-string).
+
+[!code-json[](app-secrets/samples/2.1/UserSecrets/appsettings.json?highlight=3)]
+
+Parolanın değeri bağlantı dizesini tamamlamak için yer tutucu yerleştirilebilir:
+
+::: moniker range="<= aspnetcore-1.1"
+[!code-csharp[](app-secrets/samples/1.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.0"
+[!code-csharp[](app-secrets/samples/2.1/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+::: moniker-end
+
+## <a name="list-the-secrets"></a>Gizli listesi
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:
+
+```console
+dotnet user-secrets list
+```
+
+Şu çıktı görünür:
+
+```console
+Movies:ServiceApiKey = 12345
+Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
+```
+
+Önceki örnekte, iki nokta üst üste anahtar adlarını nesne hiyerarşi içinde gösterir *secrets.json*.
+
+## <a name="remove-a-single-secret"></a>Tek bir gizlilik Kaldır
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:
+
+```console
+dotnet user-secrets remove "Movies:ConnectionString"
+```
+
+Uygulamanın *secrets.json* dosyası ile ilişkili anahtar-değer çifti kaldırmak için değiştirildi `MoviesConnectionString` anahtarı:
+
+```json
+{
+  "Movies": {
+    "ServiceApiKey": "12345"
+  }
+}
+```
+
+Çalışan `dotnet user-secrets list` aşağıdaki ileti görüntülenir:
+
+```console
+Movies:ServiceApiKey = 12345
+```
+
+## <a name="remove-all-secrets"></a>Tüm gizli Kaldır
+
+[!INCLUDE[secrets.json file](~/includes/app-secrets/secrets-json-file-and-text.md)]
+
+Hangi dizininden aşağıdaki komutu çalıştırın *.csproj* dosyası bulunmaktadır:
+
+```console
+dotnet user-secrets clear
+```
+
+Uygulama için tüm kullanıcı parolaları gelen silinmiş *secrets.json* dosyası:
+
+```json
+{}
+```
+
+Çalışan `dotnet user-secrets list` aşağıdaki ileti görüntülenir:
+
+```console
+No secrets configured for this application.
+```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Yapılandırma](xref:fundamentals/configuration/index)
+* <xref:fundamentals/configuration/index>
+* <xref:security/key-vault-configuration>

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: afff36ffc232b00389c52d9e751ae398555c9656
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: HT
+ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 
@@ -478,6 +478,6 @@ MVC görünümü içinde:
 * [Seçenekler](xref:fundamentals/configuration/options)
 * [Birden çok ortam kullanma](xref:fundamentals/environments)
 * [Geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
-* [ASP.NET çekirdek barındırma](xref:fundamentals/hosting)
+* [ASP.NET Core ana bilgisayar](xref:fundamentals/host/index)
 * [Bağımlılık Ekleme](xref:fundamentals/dependency-injection)
 * [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)

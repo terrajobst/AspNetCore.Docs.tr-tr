@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 58ced0ae11f462bc309526b7db7bda7897c33009
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulama başlangıç
 
@@ -46,7 +46,7 @@ Belirtin `Startup` ile sınıf [WebHostBuilderExtensions](/dotnet/api/Microsoft.
 
 İnjecting alternatif `IHostingEnvironment` kuralları tabanlı bir yaklaşım kullanmaktır. Uygulama ayrı tanımlayabilirsiniz `Startup` farklı ortamlar için sınıflar (örneğin, `StartupDevelopment`), ve uygun başlangıç sınıfı çalışma zamanında seçilir. Geçerli ortamda, bir ad soneki eşleşen sınıfı öncelik. Uygulama geliştirme ortamında çalıştırın ve her ikisi de içeriyorsa bir `Startup` sınıfı ve bir `StartupDevelopment` sınıfı, `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments#startup-conventions).
 
-Daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundamentals/hosting) konu. Başlatma sırasında hata işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
+Daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundamentals/host/index) konu. Başlatma sırasında hata işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>ConfigureServices yöntemi
 
@@ -58,7 +58,7 @@ Daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundam
 
 Hizmetler için hizmet kapsayıcı ekleme yapar bunları uygulama içinde ve kullanılabilir `Configure` yöntemi. Hizmetler aracılığıyla çözümlenmiş [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
-Web ana bilgisayarı önce bazı hizmetler yapılandırabilirsiniz `Startup` yöntemleri çağrılır. Ayrıntılar kullanılabilir [barındırma](xref:fundamentals/hosting) konu.
+Web ana bilgisayarı önce bazı hizmetler yapılandırabilirsiniz `Startup` yöntemleri çağrılır. Ayrıntılar kullanılabilir [ASP.NET Core ana](xref:fundamentals/host/index) konu.
 
 Önemli kurulum gerektiren özellikleri vardır `Add[Service]` genişletme yöntemleri [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Tipik web uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
 
@@ -164,8 +164,8 @@ Bir [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Barındırma](xref:fundamentals/hosting)
-* [Birden çok ortamları kullanın](xref:fundamentals/environments)
+* [Barındırma](xref:fundamentals/host/index)
+* [Birden çok ortam kullanma](xref:fundamentals/environments)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Günlüğe kaydetme](xref:fundamentals/logging/index)
 * [Yapılandırma](xref:fundamentals/configuration/index)
