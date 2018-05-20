@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: cb02288e93be801a1e55852741ed1443d8d3617d
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'lerini derleme
 ====================
@@ -171,10 +171,7 @@ Bu görevde, API yöntemlerini yer alacağı denetleyicisi sınıfları oluştur
 
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi sınıfı*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample2.cs)]
 4. İçinde **ContactController** sınıfı, word seçin **dize** yöntemi tanımındaki **almak** yöntemi ve türünü word *kişi*. Word yazılmış sonra bir gösterge sözcüğün başında görünür **kişi**. Ya da basılı **Ctrl** anahtar ve nokta (.) tuşuna basın veya Yardım iletişim kutusu otomatik olarak doldurmak için kod düzenleyicisinde açmak için farenizi kullanarak simgesini **kullanarak** modelleri için yönergesi ad alanı.
 
     ![Ad alanı bildirimleri için IntelliSense Yardım'ı kullanarak](build-restful-apis-with-aspnet-web-api/_static/image12.png)
@@ -222,10 +219,7 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
     *Kişi deposu hizmet katmanı için kod içeren bir sınıf dosyası oluşturma*
 4. Kullanarak bir eklemek için yönerge **ContactRepository.cs** dosyasını modelleri ad alanı içerecek şekilde.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample4.cs)]
 5. Aşağıdaki vurgulanmış kodu ekleyin **ContactRepository.cs** GetAllContacts yöntemi uygulamak için dosya.
 
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi depo*)
@@ -234,10 +228,7 @@ Bu görev hizmeti işlevleri böylece gerçekte yapması Hizmetleri kullanılır
 6. Açık **ContactController.cs** zaten açık değilse, dosya.
 7. Aşağıdaki ekleme deyimini dosyanın ad alanı bildirimi bölümünü kullanarak.
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample6.cs)]
 8. Aşağıdaki vurgulanmış kodu ekleyin **ContactController.cs** üyeleri yapabilir sınıfı rest hizmeti uygulaması kullanabileceğiniz deposu örneğini temsil etmek için özel bir alan eklemek için sınıfı.
 
     (Kod parçacığını - *Web API Laboratuvar - Ex01 - kişi denetleyicisi*)
@@ -356,16 +347,10 @@ Bu görevde, bir HTML tarayıcısında varolan kişilerinizin listesini görünt
 3. Açık **Index.cshtml** konumunda bulunan dosya **görünümler/giriş** klasör.
 4. Div öğesinin içinde HTML kod kimliğiyle değiştirin **gövde** böylece aşağıdaki kod gibi görünüyor.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample13.html)]
 5. Web API HTTP isteği gerçekleştirmek için dosyanın sonuna şu Javascript kodunu ekleyin.
 
-
-~~~
-[!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](build-restful-apis-with-aspnet-web-api/samples/sample14.cshtml)]
 6. Açık **ContactController.cs** zaten açık değilse, dosya.
 7. Bir kesme noktası yerleştirin **almak** yöntemi **ContactController** sınıfı.
 
@@ -400,17 +385,11 @@ Bu görevde, MVC uygulaması dizini görünümünü değiştirmeye devam eder. B
 
     (Kod parçacığını - *Web API Laboratuvar - Ex03 - Post yöntemini*)
 
-
-~~~
-[!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](build-restful-apis-with-aspnet-web-api/samples/sample15.cs)]
 3. Açık **Index.cshtml** zaten açık değilse, Visual Studio'da dosya.
 4. Aşağıdaki HTML kod, yalnızca önceki görevde eklenen sırasız liste sonra dosyasına ekleyin.
 
-
-~~~
-[!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
-~~~
+    [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample16.html)]
 5. Belgenin sonuna betik öğesi içinde bir HTTP POST çağrısı kullanarak Web API'sine verileri gönderecek düğme tıklama olayları işlemek için aşağıdaki vurgulanmış kodu ekleyin.
 
     [!code-html[Main](build-restful-apis-with-aspnet-web-api/samples/sample17.html)]

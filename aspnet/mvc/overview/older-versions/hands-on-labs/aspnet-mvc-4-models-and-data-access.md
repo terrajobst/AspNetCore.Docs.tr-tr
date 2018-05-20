@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 57477cf15bf6755523f28356d5384517bea24982
-ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
+ms.openlocfilehash: 88b3316b116962dd35031f4b971dbfe31ed0e010
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>ASP.NET MVC 4 modelleri ve veri erişimi
 
@@ -224,41 +224,27 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, bu bilgileri almak iç
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 storeDB*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample1.cs)]
 2. **MusicStoreEntities** sınıfı veritabanındaki her tablo için bir koleksiyon özelliği sunar. Güncelleştirme **Gözat** bir tarzını tüm almak için eylem yöntemini **albümleri**.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu Gözat*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample2.cs)]
-~~~
-
-> [!NOTE]
-> Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
-> 
-> LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
-
-
+    > [!NOTE]
+    > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
+    > 
+    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926&amp;#040;v=vs.110&amp;#041;.aspx).
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu dizini*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample3.cs)]
 4. Güncelleştirme **dizin** tüm türler almak ve bir liste koleksiyona dönüştürmek için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 deposu GenreMenu*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample4.cs)]
 
 <a id="Ex1Task5"></a>
 
@@ -316,18 +302,12 @@ Kod ilk kullanılarak başlangışta oluşturulduğunda bu görevde, veritabanı
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 genel Asax kullanımları*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample5.cs)]
 4. İçinde **uygulama\_Start()** yöntemi veritabanı Başlatıcısı ayarlamak için aşağıdaki satırı ekleyin.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 genel Asax SetInitializer*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample6.cs)]
 
 <a id="Ex2Task2"></a>
 
@@ -342,10 +322,7 @@ Projemizin için bir veritabanı zaten eklenmiş, yazacağınız **Web.config** 
 
     *Web.config dosyası konumu*
 
-
-~~~
-[!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
-~~~
+    [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
 
 <a id="Ex2Task3"></a>
 
@@ -354,39 +331,29 @@ Projemizin için bir veritabanı zaten eklenmiş, yazacağınız **Web.config** 
 
 Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablolarını modeliyle bağlayacaksınız. Bu görevde, Code First olan veritabanına bağlı bir sınıf oluşturur. Değiştirilmesi gereken mevcut bir POCO model sınıfı olduğunu unutmayın.
 
-   > [!NOTE]
+> [!NOTE]
 > Alıştırma 1 tamamladıysa, bu adım sihirbaz tarafından gerçekleştirildi Not. Code First yaparak, veri varlıklarına bağlı sınıfları el ile oluşturur.
-
 
 1. POCO model sınıfı açmak **Tarz** gelen **modelleri** proje klasörünü ve bir kimliğini de ekleyin. İnt özelliği addaki **GenreId**.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk Tarz*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample8.cs)]
-
-> [!NOTE]
-> To work with Code First conventions, the class Genre must have a primary key property that will be automatically detected.
-> 
-> You can read more about Code First Conventions in this [msdn article](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
-~~~
+    > [!NOTE]
+    > Code First kuralları ile çalışmak için Tarz sınıfı otomatik olarak algılanır bir birincil anahtar özelliği olması gerekir.
+    > 
+    > Daha fazla bilgiyi bu kod ilk kuralları hakkında [msdn makalesine](https://msdn.microsoft.com/library/hh161541&amp;#040;v=vs.103&amp;#041;.aspx).
 2. Şimdi, POCO model sınıfı açmak **albüm** gelen **modelleri** proje klasörünü ve yabancı anahtarlar dahil, adlarıyla özellikleri oluşturma **GenreId** ve  **ArtistId**. Bu sınıf zaten **GenreId** birincil anahtar.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk albüm*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample9.cs)]
 3. POCO model sınıfı açmak **sanatçı** ve dahil **ArtistId** özelliği.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk sanatçı*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample10.cs)]
 4. Sağ **modelleri** proje klasörünü ve select **Ekle | Sınıf**. Dosya adı **MusicStoreEntities.cs**. Ardından **Ekle.**
 
     ![Sınıf ekleme](aspnet-mvc-4-models-and-data-access/_static/image20.png "sınıf ekleme")
@@ -398,21 +365,15 @@ Veritabanı bağlantısı zaten yapılandırdığınıza göre veritabanı tablo
     *Sınıf ekleme*
 5. Az önce oluşturduğunuz, sınıfın açık **MusicStoreEntities.cs**ve ad alanlarını dahil **System.Data.Entity** ve **System.Data.Entity.Infrastructure**.
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample11.cs)]
 6. Genişletmek için sınıf bildirimi Değiştir **DbContext** sınıfı: Genel bildirme **DBSet** ve geçersiz kılma **OnModelCreating** yöntemi. Bu adımdan sonra modelinizi Entity Framework bağlayacak bir etki alanı sınıf alırsınız. Bunu yapmak için sınıf kodu aşağıdakilerle değiştirin:
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 kod ilk MusicStoreEntities*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample12.cs)]
 
 > [!NOTE]
-> With Entity Framework **DbContext** and **DBSet** you will be able to query the POCO class Genre. By extending **OnModelCreating** method, you are specifying in the **code** how Genre will be mapped to a database table. You can find more information about DBContext and DBSet in this msdn article: [link](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
-~~~
+> Entity Framework **DbContext** ve **DBSet** POCO sınıfı Tarz sorgu kuramaz. Genişletme tarafından **OnModelCreating** yöntemi, belirtmenin **kod** tarzı bir veritabanı tablosuna nasıl eşleşecektir. Bu msdn makalesinde DBContext ve DBSet hakkında daha fazla bilgi bulabilirsiniz: [bağlantı](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx)
 
 <a id="Ex2Task4"></a>
 
@@ -431,39 +392,27 @@ Bu görevde, sabit kodlanmış verileri kullanmak yerine, onu veritabanından al
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex1 storeDB*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample13.cs)]
 2. **MusicStoreEntities** sınıfı veritabanındaki her tablo için bir koleksiyon özelliği sunar. Güncelleştirme **Gözat** bir tarzını tüm almak için eylem yöntemini **albümleri**.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu Gözat*)
 
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample14.cs)]
-
-> [!NOTE]
-> You are using a capability of .NET called **LINQ** (language-integrated query) to write strongly-typed query expressions against these collections - which will execute code against the database and return objects that you can program against.
-> 
-> For more information about LINQ, please visit the [msdn site](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
-~~~
+    > [!NOTE]
+    > Adlı .NET yeteneğini kullanarak **LINQ** (veritabanında kod yürütmek ve dönüş bu koleksiyonları karşı-kesin türü belirtilmiş sorgu ifadeleri yazmak için dil ile tümleşik sorgu) nesneleri, programlama yapabilirsiniz karşı.
+    > 
+    > LINQ hakkında daha fazla bilgi için lütfen ziyaret [msdn sitesini](https://msdn.microsoft.com/library/bb397926(v=vs.110).aspx).
 3. Güncelleştirme **dizin** tüm türler almak için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu dizini*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample15.cs)]
 4. Güncelleştirme **dizin** tüm türler almak ve bir liste koleksiyona dönüştürmek için eylem yöntemi.
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex2 deposu GenreMenu*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample16.cs)]
 
 <a id="Ex2Task5"></a>
 
@@ -494,7 +443,6 @@ Bu alıştırmada parametreleri kullanarak veritabanını sorgulama ve sorgu son
 > [!NOTE]
 > Sorgu sonucu şekillendirme hakkında daha fazla bilgi için aşağıdaki ziyaret [msdn makalesine](https://msdn.microsoft.com/library/bb896272&amp;#040;v=vs.100&amp;#041;.aspx).
 
-
 <a id="Ex3Task1"></a>
 
 <a id="Task_1_-_Modifying_StoreController_to_Retrieve_Albums_from_Database"></a>
@@ -515,17 +463,14 @@ Bu görevde, değişiklik yapacağınız **StoreController** belirli bir tarzın
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex3 StoreController BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample17.cs)]
 
 > [!NOTE]
-> To populate a collection of the entity, you need to use the **Include** method to specify you want to retrieve the albums too. You can use the .**Single()** extension in LINQ because in this case only one genre is expected for an album. The **Single()** method takes a Lambda expression as a parameter, which in this case specifies a single Genre object such that its name matches the value defined.
+> Varlık koleksiyonu doldurmak için kullanmanız gerekir **INCLUDE** yöntemi albümleri çok almak istediğiniz belirtin. Kullanabilirsiniz. **Single()** uzantısı LINQ bu durumda bir albüm için yalnızca bir tarzını beklendiğinden. **Single()** yöntemi bir Lambda ifadesi tanımlanan değer adıyla eşleşen şekilde, bu durumda tek bir tarzını nesne belirten bir parametre olarak alır.
 > 
-> You will take advantage of a feature that allows you to indicate other related entities you want loaded as well when the Genre object is retrieved. This feature is called **Query Result Shaping**, and enables you to reduce the number of times needed to access the database to retrieve information. In this scenario, you will want to pre-fetch the Albums for the Genre you retrieve.
+> Tarz nesnesi alınırken de yüklenen istediğiniz diğer ilgili varlıklar belirtmenize olanak sağlayan bir özelliği avantajlarından yararlanmak. Bu özellik adında **sorgu sonucu şekillendirme**ve bilgi almak için veritabanına erişmek için gerekli sayısını azaltmanızı sağlar. Bu senaryoda, Albümler aldığınız Tarz için önceden getirme isteyeceksiniz.
 > 
-> The query includes **Genres.Include(&quot;Albums&quot;)** to indicate that you want related albums as well. This will result in a more efficient application, since it will retrieve both Genre and Album data in a single database request.
-~~~
+> Sorgu içeren **Genres.Include (&quot;albümleri&quot;)** ilgili Albümler istediğinizi belirtmek için. Tek veritabanı isteği tarz ve albüm verilerde alacak beri bu daha verimli bir uygulamayla sonuçlanır.
 
 <a id="Ex3Task2"></a>
 
@@ -553,10 +498,7 @@ Bu görevde, Albümler kimliklerine göre almak için önceki yordamı tekrar ed
 
     (Kod parçacığını - *modelleri ve veri erişimi - Ex3 StoreController DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-models-and-data-access/samples/sample18.cs)]
 
 <a id="Ex3Task4"></a>
 
@@ -574,7 +516,6 @@ Bu görevde, uygulama bir web tarayıcısında çalışacak ve kimliklerine gör
 
 > [!NOTE]
 > Ayrıca, Windows Azure Web siteleri aşağıdaki bu uygulamayı dağıtabilmek için [ek B: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixB).
-
 
 * * *
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: a0dd32280321938aba84a2aed5273d80750ed774
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 225dff4663e0e556cfb8966f1078848b4c2b47a5
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>ASP.NET MVC 4 temelleri
 
@@ -181,7 +181,7 @@ Bu görevde URL'leri müzik deposu site giriş sayfasına işleyecek denetleyici
 
     ![Bir denetleyici komut ekleme](aspnet-mvc-4-fundamentals/_static/image5.png "denetleyicisi komut ekleme")
 
-    *Add Controller Command*
+    *Denetleyici komut ekleme*
 2. **Denetleyici Ekle** iletişim kutusu görüntülenir. Denetleyici adı *HomeController* ve basın **Ekle**.
 
     ![Denetleyici Ekle iletişim kutusu](aspnet-mvc-4-fundamentals/_static/image6.png "denetleyici Ekle iletişim kutusu")
@@ -191,10 +191,7 @@ Bu görevde URL'leri müzik deposu site giriş sayfasına işleyecek denetleyici
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex1 HomeController dizin*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample1.cs)]
 
 <a id="Ex1Task4"></a>
 
@@ -259,18 +256,12 @@ Bu görevde denir denetleyici yöntemlerine değiştirecek **Eylemler**. Eylemle
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex2 StoreController dizin*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample2.cs)]
 2. Ekleme **Gözat** ve **ayrıntıları** yöntemleri. Bunu yapmak için aşağıdaki kodu ekleyin **StoreController**:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex2 StoreController BrowseAndDetails*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample3.cs)]
 
 <a id="Ex2Task3"></a>
 
@@ -319,15 +310,12 @@ Bu görevde, kullanacağınız **querystring** parametreleri göndermek için **
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex3 StoreController BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample4.cs)]
 
 > [!NOTE]
-> You are using the **HttpUtility.HtmlEncode** utility method to prevents users from injecting Javascript into the View with a link like **/Store/Browse?Genre=&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
+> Kullanmakta olduğunuz **HttpUtility.HtmlEncode** yardımcı yöntemi, Javascript gibi bir bağlantıyla görünüme injecting gelen kullanıcılar önler   **/deposu/Gözat? Tarz =&lt;betik&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
 > 
-> For further explanation, please visit [this msdn article](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
-~~~
+> Daha fazla açıklama için lütfen şu adresi ziyaret [bu msdn makalesine](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -355,10 +343,7 @@ Bu görevde, kullanacağınız **URL** geçirmek için bir **kimliği** parametr
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex3 StoreController DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample5.cs)]
 
 <a id="Ex3Task4"></a>
 
@@ -441,10 +426,7 @@ Bu görevde, Düzen ana sayfa kullanacağınız HTML yanıtı oluşturmak için 
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex4 HomeController dizin*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample9.cs)]
 2. Şimdi, uygun bir görünüm şablon eklemeniz gerekir. Bunu yapmak için **sağ** içinde **dizin** eylem yöntemi ve select **Görünüm Ekle**. Bu getirir **Görünüm Ekle** iletişim.
 
     ![Dizin yöntemi içinden bir görünümle ekleme](aspnet-mvc-4-fundamentals/_static/image13.png "dizin yöntemi içinden bir görünümle ekleme")
@@ -469,10 +451,7 @@ Bu görevde, Düzen ana sayfa kullanacağınız HTML yanıtı oluşturmak için 
     > Bu şekilde, ASP.NET MVC açıkça bir görünüme dönmek için bu adlandırma kuralını kullanırken, bir görünüm şablonu konumu veya adı belirtin gereğini ortadan kaldırır.
 5. Oluşturulan görünüm şablonu dayanır  **\_layout.cshtml** daha önce tanımlanan şablon. ViewBag.Title özelliğine güncelleştirme **giriş**, ana içeriği değiştirip **bu giriş sayfasıdır**, aşağıdaki kodda gösterildiği gibi:
 
-
-~~~
-[!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
-~~~
+    [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample10.cshtml)]
 6. Seçin **MvcMusicStore** basın ve Çözüm Gezgini proje **F5** uygulamayı çalıştırın.
 
 <a id="Ex4Task4"></a>
@@ -550,13 +529,10 @@ Bu görevde, 2 Bu özellikler ekleyeceksiniz **StoreIndexViewModel** sınıfı: 
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 StoreIndexViewModel özellikleri*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample11.cs)]
 
 > [!NOTE]
-> The **{ get; set; }** notation makes use of C#'s auto-implemented properties feature. It provides the benefits of a property without requiring us to declare a backing field.
-~~~
+> **{Alın; ayarlayın;}**  gösterimi yapar C#, kullanıcının kullanan otomatik uygulanan özellikler özelliği. Bir özelliğin avantajlarından bize yedekleme alanı bildirmek gerek kalmadan sağlar.
 
 <a id="Ex5Task3"></a>
 
@@ -576,10 +552,7 @@ Bu görevde, güncelleştirecektir **StoreController** kullanmak için **StoreIn
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 ViewModels kullanarak StoreIndexViewModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample12.cs)]
 3. Değişiklik **StoreController**'s **dizin** şekilde oluşturur ve doldurur eylem yöntemi bir **StoreIndexViewModel** nesnesi ve ardından bunu bir görünüm şablonu geçirir devre dışı bir HTML yanıtını onunla oluşturur.
 
     > [!NOTE]
@@ -590,13 +563,10 @@ Bu görevde, güncelleştirecektir **StoreController** kullanmak için **StoreIn
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex5 StoreController dizin yöntemi*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample13.cs)]
 
 > [!NOTE]
-> If you're unfamiliar with C#, you may assume that using **var** means that the **viewModel** variable is late-bound. That's not correct - the C# compiler is using type-inference based on what you assign to the variable to determine that **viewModel** is of type **StoreIndexViewModel**. Also, by compiling the local **viewModel** variable as a **StoreIndexViewModel** type you get compile-time checking and Visual Studio code-editor support.
-~~~
+> C# ile tanınmayan, kullanmanın varsayabilir **var** anlamına **viewModel** değişkenidir geç bağlama. C# Derleyici kullanarak tür çıkarımı değişkene atayın göre belirlemek için doğru değil - **viewModel** türü **StoreIndexViewModel**. Ayrıca, yerel derleme tarafından **viewModel** değişken olarak bir **StoreIndexViewModel** derleme zamanı get denetimi ve Visual Studio kod düzenleyicisini desteği yazın.
 
 <a id="Ex5Task4"></a>
 
@@ -633,24 +603,20 @@ Bu görevde, türler ve sayfa içinde adları sayısını almak üzere son göre
 > [!NOTE]
 > @ Sözdizimini kullanır (genellikle olarak adlandırılan &quot;kod nuggets&quot;) görünüm şablonu içindeki kod yürütmek için.
 
-
 1. İçinde **Index.cshtml** içinde dosya **deposu** klasör, kendisine kodu şununla değiştirin:
 
-
-~~~
 [!code-cshtml[Main](aspnet-mvc-4-fundamentals/samples/sample14.cshtml)]
 
-> [!NOTE]
-> As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
-> 
-> ![](aspnet-mvc-4-fundamentals/_static/image25.png)
-> 
-> *Getting Model properties and methods with Visual Studio's IntelliSense*
-> 
-> The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
-> 
-> You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
-~~~
+    > [!NOTE]
+    > As soon as you finish typing the period after the word **Model**, Visual Studio's Intellisense will show a list of possible properties and methods to choose from.
+    > 
+    > ![](aspnet-mvc-4-fundamentals/_static/image25.png)
+    > 
+    > *Getting Model properties and methods with Visual Studio's IntelliSense*
+    > 
+    > The **Model** property references the **StoreIndexViewModel** object that the Controller passed to the View template. This means that you can access all of the data passed from the Controller to the View template via the **Model** property, and format it into an appropriate HTML response within the View template.
+    > 
+    > You can just select the **NumberOfGenres** property from the Intellisense list rather than typing it in and then it will auto-complete it by pressing the **tab key**.
 2. Döngü Tarz listesinde üzerinden **StoreIndexViewModel** ve bir HTML oluşturmak **&lt;ul&gt;** kullanarak listesinde bir **foreach** döngü.
    (C#)
 
@@ -698,19 +664,13 @@ Yalnızca bilgi denetleyicisinden görünüme iletmek için oluşturulan ViewMod
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 Tarz*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample16.cs)]
 5. Yordamın aynısını önce aşağıdaki eklemek bir **albüm** sınıfı. Bunu yapmak için sağ **modelleri** klasöründe **Çözüm Gezgini**seçin **Ekle** ve ardından **yeni öğe** seçeneği. Altında **kod**, seçin **sınıfı** öğe ve dosya adı *Album.cs*, ardından **Ekle**.
 6. İki özellik albüm sınıfına ekleyin: **Tarz** ve **başlık**. Bunu yapmak için aşağıdaki kodu ekleyin:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 albüm*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample17.cs)]
 
 <a id="Ex6Task2"></a>
 
@@ -724,25 +684,19 @@ A **StoreBrowseViewModel** bu görevin seçilen bir tarzını eşleşen albümle
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 UsingModel*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample18.cs)]
 3. İki özellikleri **StoreBrowseViewModel** sınıfı: **Tarz** ve **albümleri**. Bunu yapmak için aşağıdaki kodu ekleyin:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 ModelProperties*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample19.cs)]
 
 > [!NOTE]
-> What is **List&lt;Album&gt;** ?: This definition is using the **List&lt;T&gt;** type, where **T** constrains the type to which elements of this **List** belong to, in this case **Album** (or any of its descendants).
+> Nedir **listesi&lt;albüm&gt;**  ?: Bu tanımı kullanarak **listesi&lt;T&gt;**  yazın, burada **T** kısıtlar hangi öğelerin bu türe **listesi** , bu durumda ait **albüm** (veya alt öğelerinden birini).
 > 
-> This ability to design classes and methods that defer the specification of one or more types until the class or method is declared and instantiated by client code is a feature of the C# language called **Generics**.
+> Sınıflar ve sınıf veya yöntemin bildirilir ve istemci kodu tarafından örneği C# dili özelliğidir kadar bir veya daha fazla türü belirtimini erteleneceği yöntemler tasarlamak için bu özelliği adlı **genel türler**.
 > 
-> **List&lt;T&gt;** is the generic equivalent of the **ArrayList** type and is available in the **System.Collections.Generic** namespace. One of the benefits of using **generics** is that since the type is specified, you do not need to take care of type checking operations such as casting the elements into **Album** as you would do with an **ArrayList**.
-~~~
+> **Liste&lt;T&gt;**  genel eşdeğerdir **ArrayList** yazın ve kullanılabilir **System.Collections.Generic** ad alanı. Kullanmanın avantajlarından biri **genel türler** türü belirtilmiş olduğundan, ilgilenebilmek denetimi elemanlara atama gibi işlemleri türü gerek olmayan **albüm** bir ileyaptığınızgibi**ArrayList**.
 
 <a id="Ex6Task3"></a>
 
@@ -755,26 +709,17 @@ Bu görevde değiştirecek **StoreController**'s **Gözat** ve **ayrıntıları*
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 UsingModelInController*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample20.cs)]
 2. Değiştir **Gözat** eylem yönteminin kullanılacağını **StoreViewBrowseController** sınıfı. Sahte verilerle bir tarzını ve iki yeni Albümler nesneler oluşturur (sonraki uygulamalı laboratuar ortamında, bir veritabanından gerçek veri kullanır). Bunu yapmak için yerini **Gözat** aşağıdaki kod ile yöntemi:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 BrowseMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample21.cs)]
 3. Değiştir **ayrıntıları** eylem yönteminin kullanılacağını **StoreViewBrowseController** sınıfı. Yeni oluşturduğunuz **albüm** için döndürülecek nesne **Görünüm**. Bunu yapmak için yerini **ayrıntıları** aşağıdaki kod ile yöntemi:
 
     (Kod parçacığını - *ASP.NET MVC 4 temelleri - Ex6 DetailsMethod*)
 
-
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
-~~~
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample22.cs)]
 
 <a id="Ex6Task4"></a>
 
@@ -889,13 +834,10 @@ Bu görevde, modelde değişiklik yapmadan değerleri denetleyici ve görünüm 
 
 1. Gerekirse Visual Studio penceresine geri dönmek için tarayıcıyı kapatın. Açık **StoreController.cs** ve değiştirme **dizin** ViewModel koleksiyona listesini oluşturmak için yöntem starred türler:
 
+    [!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
 
-~~~
-[!code-csharp[Main](aspnet-mvc-4-fundamentals/samples/sample26.cs)]
-
-> [!NOTE]
-> You could also use the syntax **ViewBag[&quot;Starred&quot;]** to access the properties.
-~~~
+    > [!NOTE]
+    > Sözdizimi da kullanabilirsiniz **ViewBag [&quot;Starred&quot;]** özelliklerine erişmek için.
 2. Yıldız simgesine **&quot;starred.png&quot;** dahil **Source\Assets\Images** bu laboratuvarı klasör. Uygulama eklemek için bunların içerikten sürükleyin bir **Windows Explorer** penceresine **Çözüm Gezgini** Express'te Visual Web Developer aşağıda gösterildiği gibi:
 
     ![Çözüme yıldız görüntü ekleme](aspnet-mvc-4-fundamentals/_static/image34.png "çözüme yıldız görüntü ekleme")
@@ -965,11 +907,11 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri göz en ilgi
 5. Hata ayıklayıcıyı durdurduktan ve Visual Studio'ya dönmek için tarayıcıyı kapatın.
 6. Şimdi çözümü keşfedin ve ASP.NET MVC 4 proje şablonu içinde sunulan yeni özelliklerden bazıları göz atın.
 
-    ![ASP.NET MVC4-internet-application-project-template](aspnet-mvc-4-fundamentals/_static/image40.png "The ASP.NET MVC 4 Internet Application Project Template")
+    ![ASP.NET MVC4-Internet-uygulama-proje-şablonu](aspnet-mvc-4-fundamentals/_static/image40.png "ASP.NET MVC 4 Internet uygulaması proje şablonu")
 
     *ASP.NET MVC 4 Internet uygulaması proje şablonu*
 
-   1. **HTML5 markup**
+   1. **HTML5 biçimlendirme**
 
        Şablon görünümleri yeni temayı işaretleme, örneğin açık bulmak için Gözat **About.cshtml** görünümü **giriş** klasör.
 

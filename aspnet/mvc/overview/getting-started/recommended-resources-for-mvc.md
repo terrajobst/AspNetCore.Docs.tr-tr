@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7887d81366cc166ad89308b22ad7cc6af0263111
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC kaynakları önerilir
 ====================
@@ -42,7 +42,6 @@ tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="new-featured-content"></a>Yeni özellikli içerik
 
 - [Kültürlere yerelleştirme ASP.NET için seçme](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [MVC iç içe geçme düzenleri](http://astutelogic.com/nesting-layouts-in-mvc/) Reha Waite tarafından
 - [Facebook ve Google OAuth2 oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturma](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Anlama ASP.NET MVC filtreleri ve öznitelikleri](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Bir ASP.NET MVC 5 uygulama yaşam döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
@@ -194,9 +193,9 @@ tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 <a id="KO"></a>
 
-## <a name="angularjs-knockout-knockoutjs"></a>AngularJS, Knockout, KnockoutJS
+## <a name="angularjs-knockout-knockoutjs"></a>AngularJS, çakıştırma, Çakıştırmaları
 
-- [Knockout](http://knockoutjs.com/)
+- [Boşaltılan](http://knockoutjs.com/)
 - [ASP.NET mvc'de Çakıştırmaları ile çalışmaya başlama](http://www.dotnetcurry.com/ShowArticle.aspx?ID=933)
 - [AngularJS uygulamalardan sunucu tarafı veri ile ASP.NET MVC önyükleme](http://blog.mariusschulz.com/2014/03/25/bootstrapping-angularjs-applications-with-server-side-data-from-aspnet-mvc) Marius Schulz tarafından
 - [ASP.NET mvc'de typeScripted çakıştırma](http://www.dotnetcurry.com/ShowArticle.aspx?ID=939)
@@ -292,7 +291,7 @@ tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 - [Karma geliştirmek yerel ve mobil Web uygulamaları](https://msdn.microsoft.com/magazine/hh852592.aspx)
 - [ASP.NET MVC 4 ve jQuery Mobile ile Anahtarlanabilir bir masaüstü ve Mobile site yapma](http://www.hanselman.com/blog/MakingASwitchableDesktopAndMobileSiteWithASPNETMVC4AndJQueryMobile.aspx)
 - [MVC 4 mobil kolay Web uygulamaları](http://www.codeproject.com/Articles/455627/MVC4-Mobile-Friendly-Web-Applications)
-- [ASP.NET MVC 4 Mobile](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-4-Mobile)
+- [ASP.NET MVC 4 mobil](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-4-Mobile)
 
 <a id="spa"></a>
 
@@ -356,7 +355,7 @@ tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 - [http://www.tinymce.com/](http://www.tinymce.com/)
 - [http://www.componentone.com/SuperProducts/StudioASPNET/](http://www.componentone.com/SuperProducts/StudioASPNET/)
 - [Zengin metin düzenleme Infragistics HTML Düzenleyicisi'nde hem jQuery ve ASP.NET MVC ile](http://www.infragistics.com/community/blogs/damyan_petev/archive/2012/02/24/rich-text-editing-with-infragistics-html-editor-in-both-jquery-and-asp-net-mvc.aspx)
-- [DevExpress ASP.NET MVC RichEdit Control](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_MVC_RichEdit.aspx)
+- [DevExpress ASP.NET MVC RichEdit Denetimi](https://go.devexpress.com/AjaxControlToolkit_ASP_Resources_MVC_RichEdit.aspx)
 - [MVC iç içe geçme düzenleri](http://astutelogic.com/nesting-layouts-in-mvc/) Reha Waite tarafından
 
 <a id="general"></a>

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 4db09d3d41b705597f93d05af91077f2b9236b7e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 88b4ee9a963543f8cc97cb66271628a14fe657de
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 
@@ -55,8 +55,25 @@ Gizli Yöneticisi aracını hassas verileri ASP.NET Core projesinde geliştirme 
 
 Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz. İçinde depolanan değerlerden bir [JSON](https://json.org/) yerel makinede bir sistem korumalı kullanıcı profili klasöründeki yapılandırma dosyası:
 
-* Windows: `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
-* Linux & macOS: `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Dosya sistemi yolu:
+
+`%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Dosya sistemi yolu:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Dosya sistemi yolu:
+
+`~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`
+
+---
 
 Önceki dosya yolları ve Değiştir `<user_secrets_id>` ile `UserSecretsId` belirtilen değer *.csproj* dosya.
 
@@ -133,17 +150,33 @@ dotnet user-secrets set "Movies:ServiceApiKey" "12345" --project "C:\apps\WebApp
 
 ## <a name="set-multiple-secrets"></a>Birden çok gizli ayarlayın
 
-JSON olarak cmdlet'ine yönelterek gizli toplu ayarlanabilir `set` komutu. Aşağıdaki örnekte, *input.json* dosyanın içeriğini yöneltilen için `set` Windows komutunu:
+JSON olarak cmdlet'ine yönelterek gizli toplu ayarlanabilir `set` komutu. Aşağıdaki örnekte, *input.json* dosyanın içeriğini yöneltilen için `set` komutu.
 
-```console
-type .\input.json | dotnet user-secrets set
-```
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-MacOS ve Linux üzerinde aşağıdaki komutu kullanın:
+Bir komut kabuğu'nu açın ve aşağıdaki komutu yürütün:
 
-```console
-cat ./input.json | dotnet user-secrets set
-```
+  ```console
+  type .\input.json | dotnet user-secrets set
+  ```
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Bir komut kabuğu'nu açın ve aşağıdaki komutu yürütün:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Bir komut kabuğu'nu açın ve aşağıdaki komutu yürütün:
+
+  ```console
+  cat ./input.json | dotnet user-secrets set
+  ```
+
+---
 
 ## <a name="access-a-secret"></a>Bir gizli anahtar erişimi
 

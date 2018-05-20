@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 00b43cc548df44edded925521991a095ed856494
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f447dc0108dffb36ed6d627fb83b3117fd22c94c
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler
 ====================
@@ -259,10 +259,7 @@ Visual Studio şimdi açma veya kapatma birleriyle eşleşmesi için düzenleme 
 
 1. Üzerinde **Default.aspx** sayfasında, eklemek bir **H3** öğesi ile bir başlık (örneğin, Visual Studio 2012 Rocks!).
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample5.aspx)]
 2. Değişiklik **H3** etiketi ve türü **H2** veya **H1.**
 
     Bitiş etiketi otomatik olarak güncelleştirir dikkat edin. Bitiş etiketi başlangıç etiketiyle buna göre çok güncelleştirdiğini görmek için de değiştirebilirsiniz.
@@ -288,13 +285,10 @@ Visual Studio artık birkaç HTML5 kod parçacıkları içerir. Bu görevde, bu 
     *HTML5 kod parçacıkları ekleme*
 3. Ses kaynağı varolan ses dosyasına işaret edecek şekilde güncelleştirin.
 
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
 
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample6.aspx)]
-
-> [!NOTE]
-> You will need to add the audio file to the solution.
-~~~
+    > [!NOTE]
+    > Çözüme ses dosyası eklemeniz gerekir.
 4. Tuşuna **F5** siteyi çalıştırın ve ses yürütmek için.
 
     ![Ses denetimi çalıştıran](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/_static/image29.png "ses denetimini çalıştırma")
@@ -549,37 +543,25 @@ Bu görevde, etkinleştirmek ve ile birlikte gelen ve küçültülmüş JS ve CS
 
     Dikkat yeni **Microsoft.Web.Optimization** ad alanı geçersiz kılınan çıkış dosyasının başında. Using açıklamadan çıkarın paketleme ve küçültme özellikleri içerecek şekilde yönergesi.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample10.cs)]
 4. Bulun **uygulama\_Başlat** yöntemi.
 
     Bu yöntemde EnableDefaultBundles çağrısı parçacığında gösterildiği gibi açıklamadan çıkarın. Bize bu klasöre yol kullanılarak bir klasördeki CSS dosyaları ile birlikte gelen koleksiyonu başvurmak böylece artı &quot;CSS&quot; veya &quot;JS&quot; soneki.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample11.cs)]
 5. Açık **Optimization.aspx** dosya ve içerik denetimi için bulun **HeadContent**.
 
     CSS dosyaları ve tek bir başvurulan etiketine sahip JS dosyaları dikkat edin.
 
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
 
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample12.aspx)]
-
-> [!NOTE]
-> This code is for demo purposes. Ideally, you will reference the bundles in the Site.Master file. In this sample code, you will find that some of the bundled files are also being referenced by the Site.Master file, making this last reference redundant.
-~~~
+    > [!NOTE]
+    > Bu kod, tanıtım amacıyla kullanılır. İdeal olarak, paketleri Site.Master dosyasına başvurur. Bu örnek kod, bazı paketlenen dosyalar da Site.Master dosyası tarafından başvurulduğundan son bu başvuruyu yedekli yapmadan bulacaksınız.
 6. Bağlantıları paket kuralları kullanmakta olduğunu fark **href** stilleri ve Scripts\custom tüm CSS veya JS dosyaları almak için öznitelik klasörü sırasıyla.
 
     Yolun kullanabilirsiniz **özel/betikleri/JS** paketini ve içindeki tüm JS dosyaları minify için aşağıda gösterildiği gibi bir **betikleri/özel** klasör. Varsayılan paketlerle varsayılan davranış budur.
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample13.aspx)]
 7. Açık **Styles\Site.css** dosya.
 
     Özgün CSS dosyası girintili kodu, boşluk ve dosyayı büyütmek açıklamaları içerdiğine dikkat edin. (Ayrıca JavaScript dosyası boş alanları ve açıklamaları içerir).
@@ -620,18 +602,12 @@ Bu görevde, belirli bir paket ve minify dosyaları kümesini tanımlamak için 
 
     Dosyaları aynı yerde bulunmayan dikkat edin. Varsayılan paketleme üzerinden başka bir avantajı budur.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample14.cs)]
 4. Açık **Optimization.aspx** dosya.
 
     Dikkat bağlantısını **statik JS paket** bildirilen Global.asax.cs dosyasında statik paket yapılandırıldığında yolu kullanarak: **/StaticBundle**.
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample15.aspx)]
 5. Tuşuna **F5** uygulamayı çalıştırın ve ardından gidin **en iyi duruma getirme** sayfası.
 6. Tıklayın **statik JS paket** bağlantı dosyasını açın.
 
@@ -656,10 +632,7 @@ Bu örnekte, nasıl kullanılacağını öğreneceksiniz **DynamicFolderBundle**
 
     Kullanacağınız bir dinamik klasör paketi tanımlama **CoffeeMinify** ile dosyaları yalnızca uygulanacağı özel küçültme İşlemci &quot; **.coffee** &quot; uzantısı ( CoffeeScript dosyaları). Bir klasör içinde gibi gruplanacağını dosyalarını seçmek için bir arama deseniyle kullanabilirsiniz bildirimi '\*.coffee'.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample16.cs)]
 3. NuGet Paket Yöneticisi Konsolu'nu açın. Bunu yapmak için menüyü kullanın **Görünüm** | **diğer pencereler** | **Paket Yöneticisi Konsolu**.
 4. İçinde **Paket Yöneticisi Konsolu** türü **Install-Package CoffeeSharp** ve basın **ENTER**.
 5. Tıklatın **tüm dosyaları göster** düğmesini **Çözüm Gezgini** penceresi
@@ -676,10 +649,7 @@ Bu örnekte, nasıl kullanılacağını öğreneceksiniz **DynamicFolderBundle**
 
     Bu sınıf CoffeeScript kod derlemeden kaynaklanan JavaScript çıkış küçültülecek JsMinify devralır. JavaScript kodu ilk oluşturmak için CoffeeScript derleyici çağırır ve ortaya çıkan kodu küçültülecek JsMinify.Process yöntemi o gönderir.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample17.cs)]
 8. Açık **Script1.coffee** ve **Script2.coffee** dosyaları buradan **betikleri/paket** klasör.
 
     Bu dosyalar CoffeeMinify sınıfıyla paketleme gerçekleştirilirken derlenecek CoffeScript kodu içerir.
@@ -696,10 +666,7 @@ Bu örnekte, nasıl kullanılacağını öğreneceksiniz **DynamicFolderBundle**
 
     Dikkat bağlantısını **dinamik JS paket** başvuruyor **betikleri/paket** kullanarak klasörüne **/kahve** dinamik klasör paketi için yapılandırılmış soneki.
 
-
-~~~
-[!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-aspnet-and-web-development-in-visual-studio-2012/samples/sample18.aspx)]
 10. Tuşuna **F5** uygulamayı çalıştırın ve ardından gidin **en iyi duruma getirme** sayfası.
 11. Tıklayın **dinamik JS paket** bağlantı oluşturulan dosyasını açın.
 

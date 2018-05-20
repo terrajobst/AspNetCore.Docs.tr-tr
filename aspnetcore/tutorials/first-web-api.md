@@ -5,16 +5,16 @@ description: ASP.NET Core MVC ve Windows için Visual Studio ile web API'si olu�
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 05/17/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-web-api
-ms.openlocfilehash: cb46f8b4013488dbe2bb5ca3d08a8c6e452141dd
-ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
+ms.openlocfilehash: 1680d5e0be0f4844c904d923af30634c53bd1b81
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Windows için ASP.NET Core ve Visual Studio ile Web API oluşturma
 
@@ -51,6 +51,8 @@ Visual Studio'da uygulamayı başlatmak için CTRL + F5 tuşuna basın. Visual S
 ```json
 ["value1","value2"]
 ```
+
+Internet Explorer kullanıyorsanız, kaydetmeye istenir bir *values.json* dosya.
 
 ### <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
