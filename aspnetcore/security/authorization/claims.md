@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: da308b67be046395bb1baa0f272e767cccbc99c8
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2464f8cac720dcf5de02f2679e9450e8b77de3ee
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a>ASP.NET Core talep tabanlı yetkilendirme
 
@@ -100,6 +100,10 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
+
+### <a name="add-a-generic-claim-check"></a>Genel talep denetimi ekleme
+
+Talep değeri tek bir değer değil veya bir dönüşüm gereklidir, kullanın [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Daha fazla bilgi için bkz: [bir ilke karşılamak üzere bir func kullanarak](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
 ## <a name="multiple-policy-evaluation"></a>Birden çok ilke değerlendirmesi
 
