@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
-title: "Yönlendirme kuralları ASP.NET Web API 2 Odata | Microsoft Docs"
+title: Yönlendirme kuralları ASP.NET Web API 2 Odata | Microsoft Docs
 author: MikeWasson
-description: "Bu makalede, Web API OData uç noktaları için kullandığı yönlendirme kuralları açıklanır."
+description: Bu makalede, Web API OData uç noktaları için kullandığı yönlendirme kuralları açıklanır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/31/2013
@@ -147,7 +147,7 @@ Başvuru için burada her yerleşik OData yönlendirme kuralı yöntemi imzalar�
 
 Kuralı bu istek için geçerli değilse her iki yöntem için yöntemi null değerini döndürmelidir.
 
-**ODataPath** parametresi ayrıştırılmış OData kaynak yolunu temsil eder. Bir listesini içeren  **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  örnekler, her segment kaynak yolu için bir tane. **ODataPathSegment** bir Özet sınıf; her bölüm türü türeyen bir sınıf tarafından temsil edilen **ODataPathSegment**.
+**ODataPath** parametresi ayrıştırılmış OData kaynak yolunu temsil eder. Bir listesini içeren **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** örnekler, her segment kaynak yolu için bir tane. **ODataPathSegment** bir Özet sınıf; her bölüm türü türeyen bir sınıf tarafından temsil edilen **ODataPathSegment**.
 
 **ODataPath.TemplatePath** özelliktir birleştirme temsil eden bir dize tüm yol kesimleri. Örneğin, URI ise `/Products(1)/Supplier`, yol şablonu &quot;~/entityset/key/navigation&quot;. Segment doğrudan URI segmentlere karşılık verme dikkat edin. Örneğin, varlık anahtarı (1) kendi olarak temsil edilir **ODataPathSegment**.
 
@@ -169,7 +169,7 @@ Notlar:
 
 1. I öğesinden türetilen **EntitySetRoutingConvention**, çünkü **SelectController** bu sınıftaki yöntemi için bu yeni yönlendirme kuralı uygundur. Anlamına yok ihtiyacım yeniden uygulamak **SelectController**.
 2. Kuralı yalnızca GET isteklerini ve yalnızca yol şablonu olduğunda geçerlidir &quot;~/entityset/key/navigation/key&quot;.
-3. Eylem adı &quot;{EntityType} alma&quot;, burada *{EntityType}* Gezinti koleksiyon türü. Örneğin, &quot;GetSupplier&quot;. İstediğiniz herhangi bir adlandırma kuralını &#8212;kullanabilirsiniz; yalnızca eşleşen denetleyici eylemleri emin olun.
+3. Eylem adı &quot;{EntityType} alma&quot;, burada *{EntityType}* Gezinti koleksiyon türü. Örneğin, &quot;GetSupplier&quot;. İstediğiniz herhangi bir adlandırma kuralını & #8212 kullanabilirsiniz; yalnızca eşleşen denetleyici eylemleri emin olun.
 4. Adlı iki parametre eylemde *anahtar* ve *relatedKey*. (Bazı önceden tanımlanmış parametre adları listesi için bkz: [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Sonraki adım, yönlendirme kuralları listesine yeni kuralı eklemektir. Bu yapılandırması sırasında aşağıdaki kodda gösterildiği gibi olur:

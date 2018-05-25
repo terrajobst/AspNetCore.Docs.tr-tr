@@ -1,29 +1,29 @@
 ---
 title: ASP.NET Core Nginx ile Linux ana bilgisayar
 author: rick-anderson
-description: Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu Nginx Kurulum açıklar.
+description: Ubuntu Kestrel üzerinde çalışan bir ASP.NET Core web uygulaması HTTP trafiği iletmek için 16.04 üzerinde ters Ara sunucu Nginx Kurulum öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 05/22/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: cf8965131669b681e9477113953ed40cd81df884
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux ana bilgisayar
 
 Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-Bu kılavuz bir Ubuntu 16.04 sunucusunda üretime hazır ASP.NET Core ortamını ayarlama açıklar.
+Bu kılavuz bir Ubuntu 16.04 sunucusunda üretime hazır ASP.NET Core ortamını ayarlama açıklar. Büyük olasılıkla bu yönergeleri Ubuntu daha yeni sürümleri ile çalışır ancak yönergeleri içeren daha yeni sürümlerle test edilmemiştir.
 
 > [!NOTE]
-> Ubuntu 14.04 için *supervisord* Kestrel işlem izleme için bir çözüm olarak önerilir. *systemd* Ubuntu 14.04 üzerinde kullanılamaz. [Bu belgenin önceki sürümünü görmek](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
+> Ubuntu 14.04 için *supervisord* Kestrel işlem izleme için bir çözüm olarak önerilir. *systemd* Ubuntu 14.04 üzerinde kullanılamaz. Ubuntu 14.04 yönergeler için bkz: [bu konunun önceki sürümü](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
 
 Bu Kılavuzu:
 
@@ -34,23 +34,47 @@ Bu Kılavuzu:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Sudo ayrıcalığa sahip standart kullanıcı hesabı ile bir Ubuntu 16.04 sunucuya erişimi
-1. Mevcut bir ASP.NET Core uygulama
+1. Ubuntu 16.04 server sudo ayrıcalığa sahip standart kullanıcı hesabı ile erişim.
+1. .NET çekirdeği çalışma zamanı sunucuya yükleyin.
+   1. Ziyaret [.NET Core tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
+   1. En son Önizleme olmayan çalışma zamanı altındaki listeden seçin **çalışma zamanı**.
+   1. Seçin ve Ubuntu için sunucu Ubuntu sürümüyle eşleşen yönergeleri izleyin.
+1. Mevcut bir ASP.NET Core uygulama.
 
-## <a name="copy-over-the-app"></a>Uygulama kopyalama
+## <a name="publish-and-copy-over-the-app"></a>Yayımlama ve uygulama kopyalayın
 
-Çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) bir uygulama sunucusunda çalışabilecek kendi içinde bulunan bir dizine paketlemek için geliştirme ortamı'ndan.
+Uygulama için yapılandırma bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
 
-Kopya ne olursa olsun aracını kullanarak sunucu ASP.NET Core uygulamaya kuruluşun akışına (örneğin, SCP, FTP) tümleştirir. Uygulama, örneğin test edin:
+Çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) bir dizine bir uygulama paketi için geliştirme ortamı'ndan (örneğin, *bin/sürüm/&lt;target_framework_moniker&gt;/ yayımlama*), olabilir sunucusunda çalıştırın:
 
-* Komut satırından çalıştırma `dotnet <app_assembly>.dll`.
-* Bir tarayıcıda gidin `http://<serveraddress>:<port>` uygulama Linux üzerinde çalıştığını doğrulayın. 
- 
+```console
+dotnet publish --configuration Release
+```
+
+Uygulama aynı zamanda olarak yayımlanabilir bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) sunucuda .NET çekirdeği çalışma zamanı sürekli olmayan tercih ederseniz.
+
+ASP.NET Core uygulama (örneğin, SCP, SFTP) kuruluşunuzun akışına tümleşen bir aracı kullanarak sunucuya kopyalayın. Altında web uygulamaları bulmak için ortak olan *var* dizin (örneğin, *aspnetcore/var/hellomvc*).
+
+> [!NOTE]
+> Bir üretim dağıtım senaryosunda sürekli tümleştirme iş akışı uygulama yayımlama ve varlıkları sunucuya kopyalama işlemlerini yapar.
+
+Uygulamayı test etme:
+
+1. Komut satırından uygulamayı çalıştırın: `dotnet <app_assembly>.dll`.
+1. Bir tarayıcıda gidin `http://<serveraddress>:<port>` uygulaması çalışır Linux üzerinde yerel olarak doğrulayın.
+
 ## <a name="configure-a-reverse-proxy-server"></a>Ters proxy sunucusunu yapılandırın
 
 Ters proxy hizmet veren dinamik web uygulamaları için ortak bir kurulur. Ters proxy HTTP isteği sonlandırır ve ASP.NET Core uygulamaya iletir.
 
-### <a name="why-use-a-reverse-proxy-server"></a>Ters proxy sunucusu neden kullanılır?
+::: moniker range=">= aspnetcore-2.0"
+
+> [!NOTE]
+> Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+
+::: moniker-end
+
+### <a name="use-a-reverse-proxy-server"></a>Ters proxy sunucusu kullan
 
 Kestrel, dinamik içerik ASP.NET çekirdek hizmet vermek için mükemmeldir. Bununla birlikte, IIS, Apache veya Nginx gibi sunucuları olarak özellik zengin olarak web hizmet yetenekleri değil. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTP sunucusundan SSL sonlandırma sıkıştırma gibi iş boşaltabilir. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılabilir.
 
@@ -99,20 +123,28 @@ Proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar iç
 
 ### <a name="install-nginx"></a>Nginx yükleyin
 
+Kullanım `apt-get` Nginx yüklemek için. Yükleyici oluşturur bir *systemd* Nginx arka plan programı gibi sistem başlangıcında çalışan init komut dosyası. 
+
 ```bash
-sudo apt-get install nginx
+sudo -s
+nginx=stable # use nginx=development for latest development version
+add-apt-repository ppa:nginx/$nginx
+apt-get update
+apt-get install nginx
 ```
 
-> [!NOTE]
-> İsteğe bağlı Nginx modülleri yüklü değilse, Nginx kaynağından derleme gerekli olabilir.
+Ubuntu kişisel paket arşiv (PPA) gönüllüsü tarafından korunur ve tarafından dağıtılmadı [nginx.org](https://nginx.org/). Daha fazla bilgi için bkz: [Nginx: ikili sürümler: resmi Debian/Ubuntu paketleri](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages).
 
-Kullanım `apt-get` Nginx yüklemek için. Yükleyici Nginx arka plan programı gibi sistem başlangıcında çalışan bir sistem V init betiği oluşturur. Nginx ilk kez yüklendiğinden bu yana, açıkça başlatılsın çalıştırarak:
+> [!NOTE]
+> İsteğe bağlı Nginx modülleri gerekirse, Nginx kaynağından derleme gerekli olabilir.
+
+Nginx ilk kez yüklendiğinden bu yana, açıkça başlatılsın çalıştırarak:
 
 ```bash
 sudo service nginx start
 ```
 
-Giriş sayfasında Nginx için varsayılan bir tarayıcı görüntüler doğrulayın.
+Giriş sayfasında Nginx için varsayılan bir tarayıcı görüntüler doğrulayın. Giriş sayfası erişilebildiğinden `http://<server_IP_address>/index.nginx-debian.html`.
 
 ### <a name="configure-nginx"></a>Nginx yapılandırın
 
@@ -127,7 +159,7 @@ server {
         proxy_http_version 1.1;
         proxy_set_header   Upgrade $http_upgrade;
         proxy_set_header   Connection keep-alive;
-        proxy_set_header   Host $http_host;
+        proxy_set_header   Host $host;
         proxy_cache_bypass $http_upgrade;
     }
 }
@@ -149,6 +181,21 @@ server {
 > Uygun belirtmek için hata [sunucu_adı yönergesi](https://nginx.org/docs/http/server_names.html) güvenlik açıkları, uygulamanızın kullanıma sunar. Alt etki alanı joker bağlama (örneğin, `*.example.com`) tüm üst etki alanı denetlemek, bu güvenlik riski değil (tersine `*.com`, açık olduğu). Bkz: [rfc7230 bölüm-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
 
 Nginx yapılandırma kurulduktan sonra çalıştırmak `sudo nginx -t` yapılandırma dosyalarını söz dizimini doğrulayın. Yapılandırma dosyası sınaması başarılı olursa, çalıştırarak değişiklikleri almak için Nginx zorla `sudo nginx -s reload`.
+
+Doğrudan uygulama sunucusunda çalıştırmak için:
+
+1. Uygulamanın dizine gidin.
+1. Uygulamanın yürütülebilir dosyayı çalıştırmak: `./<app_executable>`.
+
+İzin hatası oluşursa, izinleri değiştirin:
+
+```console
+chmod u+x <app_executable>
+```
+
+Uygulama sunucusunda çalışır ancak Internet üzerinden yanıt başarısız olursa, sunucunun Güvenlik Duvarı'nı denetleyin ve 80 numaralı bağlantı noktası açık olduğundan emin olun. Bir Azure Ubuntu VM kullanıyorsanız, gelen bağlantı noktası 80 trafiğini etkinleştirir, bir ağ güvenlik grubu (NSG) kuralı ekleyin. Giden trafik gelen kuralı etkinleştirildiğinde otomatik olarak verilir gibi bir giden bağlantı noktası 80 Kuralı etkinleştirmek için gerek yoktur.
+
+Uygulamayı test etme işiniz bittiğinde, uygulama ile kapatıldı `Ctrl+C` komut isteminde.
 
 ## <a name="monitoring-the-app"></a>Uygulama izleme
 
@@ -182,8 +229,9 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 WantedBy=multi-user.target
 ```
 
-**Not:** , kullanıcı *www veri* kullanılmaz yapılandırma tarafından burada tanımlanan kullanıcı ilk oluşturulmalı ve dosyaları için doğru sahipliği verilen.
-**Not:** Linux büyük küçük harfe duyarlı dosya sistemine sahiptir. Yapılandırma dosyası için arama sonuçlarındaki "Üretim" ASPNETCORE_ENVIRONMENT ayarlanması *appsettings. Production.JSON*değil *appsettings.production.json*.
+Kullanıcı *www veri* kullanılmaz yapılandırma tarafından burada tanımlanan kullanıcı ilk oluşturulmalı ve dosyaları için doğru sahipliği verilen.
+
+Linux büyük küçük harfe duyarlı dosya sistemi vardır. Yapılandırma dosyası için arama sonuçlarındaki "Üretim" ASPNETCORE_ENVIRONMENT ayarlanması *appsettings. Production.JSON*değil *appsettings.production.json*.
 
 > [!NOTE]
 > Ortam değişkenleri okumak yapılandırma sağlayıcısı için bazı değerler (örneğin, SQL bağlantı dizelerini) kaçış uygulanmalıdır. Yapılandırma dosyasında kullanmak için düzgün bir şekilde Atlanan değeri oluşturmak için aşağıdaki komutu kullanın:
@@ -257,20 +305,6 @@ sudo ufw allow 443/tcp
 
 ### <a name="securing-nginx"></a>Nginx güvenliğini sağlama
 
-Nginx varsayılan dağıtımını SSL sağlamaz. Ek güvenlik özellikleri etkinleştirmek için kaynak sunucudan oluşturun.
-
-#### <a name="download-the-source-and-install-the-build-dependencies"></a>Kaynak yükleyip derleme bağımlılıkları
-
-```bash
-# Install the build dependencies
-sudo apt-get update
-sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
-
-# Download Nginx 1.10.0 or latest
-wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
-tar zxf nginx-1.10.0.tar.gz
-```
-
 #### <a name="change-the-nginx-response-name"></a>Nginx yanıt adını değiştirin
 
 Edit *src/http/ngx_http_header_filter_module.c*:
@@ -280,20 +314,9 @@ static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
 
-#### <a name="configure-the-options-and-build"></a>Seçenekleri yapılandırmak ve derleme
+#### <a name="configure-options"></a>Seçeneklerini yapılandırma
 
-Normal ifadeler için PCRE kitaplığı gereklidir. Normal ifadeler konumu yönergesinde ngx_http_rewrite_module için kullanılır. Http_ssl_module HTTPS protokolü desteği ekler.
-
-Bir web uygulaması güvenlik duvarı gibi kullanmayı *ModSecurity* uygulama sağlamlaştırmak için.
-
-```bash
-./configure
---with-pcre=../pcre-8.38
---with-zlib=../zlib-1.2.8
---with-http_ssl_module
---with-stream
---with-mail=dynamic
-```
+Sunucu ile ek gerekli modüllerini yapılandırın. Bir web uygulaması güvenlik duvarı gibi kullanmayı [ModSecurity](https://www.modsecurity.org/), uygulama sağlamlaştırmak için.
 
 #### <a name="configure-ssl"></a>SSL yapılandırma
 
@@ -335,3 +358,7 @@ sudo nano /etc/nginx/nginx.conf
 ```
 
 Satırı ekleyin `add_header X-Content-Type-Options "nosniff";` ve dosyayı kaydedin, sonra Nginx yeniden başlatın.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Nginx: İkili sürümler: resmi Debian/Ubuntu paketleri](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)

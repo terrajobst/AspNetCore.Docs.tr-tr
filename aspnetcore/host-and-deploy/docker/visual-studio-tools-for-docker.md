@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET çekirdeği ile Docker için Visual Studio Araçları"
+title: ASP.NET çekirdeği ile Docker için Visual Studio Araçları
 author: spboyer
-description: "Visual Studio 2017 araçları ve Windows için Docker ASP.NET Core uygulama containerize için nasıl kullanılacağını öğrenin."
+description: Visual Studio 2017 araçları ve Windows için Docker ASP.NET Core uygulama containerize için nasıl kullanılacağını öğrenin.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc

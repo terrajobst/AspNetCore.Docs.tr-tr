@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 6364f54ede43b8eec070166a75b4552d896644f3
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 1ffc7f9f2dc2a06dddb629d2d2553964b56cec05
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Ana bilgisayar ve ASP.NET Core dağıtma
 
@@ -22,9 +22,9 @@ Genel ASP.NET Core uygulama için bir barındırma ortamında dağıtmak için:
 
 * Barındırma sunucusu üzerindeki bir klasöre uygulamayı yayımlayın.
 * Uygulama isteklerinin gelmesini ve onu kilitlenmesine veya sunucu yeniden başlatıldıktan sonra uygulama yeniden başlatıldığında başlayan bir işlem yöneticisi ayarlayın.
-* Uygulama isteklerini iletir ters bir proxy ayarlayın.
+* Ters proxy yapılandırması istenirse, uygulama isteklerini iletir ters bir proxy ayarlayın.
 
-## <a name="publish-to-a-folder"></a>Bir klasöre yayımlama 
+## <a name="publish-to-a-folder"></a>Bir klasöre yayımlama
 
 [Dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) CLI komut uygulama kodu derler ve uygulamaya çalıştırmak için gerekli dosyaları kopyalar bir *yayımlama* klasör. Visual Studio'dan dağıtırken [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) adım otomatik olarak gerçekleşir dosyaları dağıtım hedefe kopyalanmadan önce.
 
@@ -51,7 +51,9 @@ Bir sunucu önyüklenir ve onu çökerse yeniden başlatılması gereken bir kon
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak kullanılabilir. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#when-to-use-kestrel-with-a-reverse-proxy).
+Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak kullanılabilir. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
+
+Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

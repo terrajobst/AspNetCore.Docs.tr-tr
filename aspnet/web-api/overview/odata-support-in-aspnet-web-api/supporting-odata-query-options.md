@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: "ASP.NET Web API 2 OData sorgu seçeneklerini destekleyen | Microsoft Docs"
+title: ASP.NET Web API 2 OData sorgu seçeneklerini destekleyen | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/04/2013
@@ -26,7 +26,7 @@ OData OData sorgusu değiştirmek için kullanılan parametreleri tanımlar. İs
 
 `http://localhost/Products?$orderby=Name`
 
-Bu parametreler OData belirtimi çağırır *sorgu seçenekleri*. Herhangi bir Web API denetleyicisi için OData sorgu seçeneklerini projenizi &#8212;etkinleştirebilirsiniz; Denetleyici bir OData uç nokta olması gerekmez. Bu, herhangi bir Web API uygulama sıralama ve filtreleme gibi özellikleri eklemek için kolay bir yol sağlar.
+Bu parametreler OData belirtimi çağırır *sorgu seçenekleri*. Herhangi bir Web API denetleyicisi için OData sorgu seçeneklerini projenizi & #8212 etkinleştirebilirsiniz; Denetleyici bir OData uç nokta olması gerekmez. Bu, herhangi bir Web API uygulama sıralama ve filtreleme gibi özellikleri eklemek için kolay bir yol sağlar.
 
 Lütfen konusunu okuyun sorgu seçeneklerini etkinleştirmeden önce [OData güvenlik rehberi](odata-security-guidance.md).
 

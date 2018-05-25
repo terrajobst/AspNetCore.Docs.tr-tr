@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
-title: "Bir ASP.NET Web sayfaları (Razor) sitesinde görüntülerle çalışma | Microsoft Docs"
+title: Bir ASP.NET Web sayfaları (Razor) sitesinde görüntülerle çalışma | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, ekleme, görüntüleme ve görüntüleri işlemek gösterir (yeniden boyutlandırabilir, ters çevirin ve filigran ekleme), Web sitenizin."
+description: Bu bölümde, ekleme, görüntüleme ve görüntüleri işlemek gösterir (yeniden boyutlandırabilir, ters çevirin ve filigran ekleme), Web sitenizin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -58,7 +58,7 @@ Bir görüntü zaten sitenizde kullanılabilir ve yalnızca bir sayfada görünt
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-Bazı durumlarda, yine de, görüntüleri dinamik olarak göstermek gerekir &#8212; kadar sayfasını görüntülemek için hangi görüntü çalıştıran diğer bir deyişle, tanımadığınız.
+Bazı durumlarda, yine de, görüntüleri dinamik olarak göstermek gerekir & #8212; kadar sayfasını görüntülemek için hangi görüntü çalıştıran diğer bir deyişle, tanımadığınız.
 
 Bu bölümdeki yordamı, burada kullanıcılar resim adları listesinden görüntü dosya adını belirtin. kolay bir şekilde bir görüntüyü gösterilmektedir. Görüntü adı açılan listeden seçerek ve sayfa gönderdiğinizde, seçili görüntü görüntülenir.
 
@@ -109,7 +109,7 @@ Bu bölümdeki yordamı, burada kullanıcılar resim adları listesinden görün
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    Bu yol bilgileri ancak istemediğiniz &#8212; yalnızca gerçek dosya adı istediğiniz (*SamplePhoto1.jpg*). Yalnızca bir yoldan dosya kullanarak Şerit `Path.GetFileName` yöntemi şuna benzer:
+    Bu yol bilgileri ancak istemediğiniz & #8212; yalnızca gerçek dosya adı istediğiniz (*SamplePhoto1.jpg*). Yalnızca bir yoldan dosya kullanarak Şerit `Path.GetFileName` yöntemi şuna benzer:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 

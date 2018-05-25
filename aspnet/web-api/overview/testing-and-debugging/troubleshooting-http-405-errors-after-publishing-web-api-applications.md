@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: "HTTP sorun giderme 405 hataları yayımlama sonra Web API 2 uygulamaları | Microsoft Docs"
+title: HTTP sorun giderme 405 hataları yayımlama sonra Web API 2 uygulamaları | Microsoft Docs
 author: rmcmurray
-description: "Bu öğretici, bir üretim web sunucusuna bir Web API uygulama yayımlandıktan sonra HTTP 405 hatalarında sorun giderme açıklar."
+description: Bu öğretici, bir üretim web sunucusuna bir Web API uygulama yayımlandıktan sonra HTTP 405 hatalarında sorun giderme açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2014

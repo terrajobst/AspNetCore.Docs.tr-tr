@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
-title: "Varlık İlişkileriyle ile Web API 2 OData v3 destekleme | Microsoft Docs"
+title: Varlık İlişkileriyle ile Web API 2 OData v3 destekleme | Microsoft Docs
 author: MikeWasson
-description: "Varlıkları arasındaki ilişkileri çoğu veri kümelerini tanımlayın: müşterilerin sahip siparişleri; Books yazarlar; yine de sahip istiyor musunuz? Ürünler Üreticiler vardır. OData kullanarak, istemciler üzerinde gidebilirsiniz..."
+description: 'Varlıkları arasındaki ilişkileri çoğu veri kümelerini tanımlayın: müşterilerin sahip siparişleri; Books yazarlar; yine de sahip istiyor musunuz? Ürünler Üreticiler vardır. OData kullanarak, istemciler üzerinde gidebilirsiniz...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,7 +68,7 @@ Bu istek desteklemek için aşağıdaki yöntemi ekleyin `ProductsController` s�
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-*Anahtar* parametresi, ürün anahtarıdır. Bu durumda, ilgili varlığın &#8212;yöntemi döndürür bir `Supplier` örneği. Yöntem adı parametre adı hem de önemli olması. Genel olarak, gezinme özelliğini "X" olarak adlandırılmışsa "GetX" adlı bir yöntem eklemeniz gerekir. Yöntem adlı bir parametre almalıdır "*anahtar*" üst öğenin anahtarın veri türü ile eşleşen.
+*Anahtar* parametresi, ürün anahtarıdır. Bu durumda, ilgili varlığın & #8212 yöntemi döndürür bir `Supplier` örneği. Yöntem adı parametre adı hem de önemli olması. Genel olarak, gezinme özelliğini "X" olarak adlandırılmışsa "GetX" adlı bir yöntem eklemeniz gerekir. Yöntem adlı bir parametre almalıdır "*anahtar*" üst öğenin anahtarın veri türü ile eşleşen.
 
 Eklenmesi önemlidir **[FromOdataUri]** özniteliğini *anahtar* parametresi. Bu öznitelik, istek URI'si anahtarından ayrıştırırken OData sözdizimi kurallarına kullanmak için Web API söyler.
 

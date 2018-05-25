@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/individual-accounts-in-web-api
-title: "Bireysel hesaplar ve ASP.NET Web API 2.2 yerel oturum açma ile Web API güvenliğini sağlama | Microsoft Docs"
+title: Bireysel hesaplar ve ASP.NET Web API 2.2 yerel oturum açma ile Web API güvenliğini sağlama | Microsoft Docs
 author: MikeWasson
-description: "Bu konu, üyelik veritabanına karşı kimlik doğrulaması için OAuth2 kullanarak bir web API güvenliğini sağlama gösterir. Eğitmen Visual Studio 201 kullanılan yazılım sürümleri..."
+description: Bu konu, üyelik veritabanına karşı kimlik doğrulaması için OAuth2 kullanarak bir web API güvenliğini sağlama gösterir. Eğitmen Visual Studio 201 kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/15/2014

@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 title: ASP.NET Web Forms ile Web API kullanma | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ Bir Web Forms uygulamasında Web API kullanmak için iki ana adım vardır:
 
 Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web Forms uygulaması**. Proje için bir ad girin ve tıklayın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web Forms uygulaması**. Proje için bir ad girin ve tıklayın **Tamam**.
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 

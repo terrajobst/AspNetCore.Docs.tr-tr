@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -113,7 +113,7 @@ Dosya dönüştürme gelen Web SDK'yı devre dışı bırakılırken *processPat
 
 ### <a name="webconfig-file-location"></a>Web.config dosyası konumu
 
-ASP.NET Core uygulamaları IIS Kestrel sunucusu arasında ters proxy barındırılır. Ters proxy oluşturmak için *web.config* dosya dağıtılan uygulama içerik kök yolda (genellikle uygulama temel yol) var olmalıdır. IIS için sağlanan Web sitesi fiziksel yolu ile aynı konumda budur. *Web.config* Web dağıtımı kullanarak birden çok uygulamaları yayımlamayı etkinleştirmek için uygulama kökü dosyası gereklidir.
+IIS ve Kestrel sunucu arasında ters proxy oluşturmak için *web.config* dosya dağıtılan uygulama içerik kök yolda (genellikle uygulama temel yol) var olmalıdır. IIS için sağlanan Web sitesi fiziksel yolu ile aynı konumda budur. *Web.config* Web dağıtımı kullanarak birden çok uygulamaları yayımlamayı etkinleştirmek için uygulama kökü dosyası gereklidir.
 
 Gizli dosyaların mevcut uygulamanın fiziksel yola gibi  *\<derleme >. runtimeconfig.json*,  *\<derleme > .xml* (XML belgeleri açıklamaları) ve  *\<derleme >. deps.json*. Zaman *web.config* dosya varsa ve ve site normalde başlatır ve bunların istenmesi halinde, IIS bu hassas dosyalar hizmet değil. Varsa *web.config* dosyası eksik, yanlış olarak adlandırılan veya site için normal başlangıç yapılandırılamıyor, IIS hassas dosyalar genel olarak hizmet.
 
@@ -172,7 +172,7 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 1. Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
 
    1. Gidin [.NET tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
-   1. En son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**.NET Core** > **çalışma zamanı** > **.NET çekirdeği çalışma zamanı x.y.z**). Önizleme yazılımıyla çalışmak düşünmüyorsanız, "Önizleme" word kendi bağlantı metne sahip çalışma zamanları kaçının.
+   1. En son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**.NET Core** > **çalışma zamanı** > **.NET çekirdeği çalışma zamanı x.y.z**). Önizleme yazılımıyla çalışmak düşünmüyorsanız, bir çalışma zamanı "Önizleme" sözcüğüyle veya "rc" (Sürüm Adayı), bağlantı metnini özen gösterin.
    1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **barındırma Paket Yükleyici** indirmek için bağlantı *.NET Core barındırma paket*.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılması gerekir. IIS yeniden yükledikten sonra barındırma paket yükleyiciyi çalıştırın.

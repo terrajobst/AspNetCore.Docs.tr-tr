@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: "Onay ve parola sıfırlama (C#) e-posta ile oturum açma, Güvenli ASP.NET MVC 5 web uygulaması oluşturma | Microsoft Docs"
+title: Onay ve parola sıfırlama (C#) e-posta ile oturum açma, Güvenli ASP.NET MVC 5 web uygulaması oluşturma | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici, e-posta onayı ve parola sıfırlama ASP.NET Identity üyelik sistemini kullanarak bir ASP.NET MVC 5 web uygulamasının nasıl oluşturulacağını gösterir. Ca..."
+description: Bu öğretici, e-posta onayı ve parola sıfırlama ASP.NET Identity üyelik sistemini kullanarak bir ASP.NET MVC 5 web uygulamasının nasıl oluşturulacağını gösterir. Ca...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: bfa5d52019be81374c7a544e255ab7ffb301fa7b
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Onay ve parola sıfırlama (C#) e-posta ile oturum açma, Güvenli ASP.NET MVC 5 web uygulaması oluşturma
 ====================
@@ -62,7 +62,7 @@ Genellikle, yeni kullanıcılar e-posta ile bir SMS metin iletisi ya da başka b
 
 Bu öğretici yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, ancak [SendGrid](http://sendgrid.com/), SMTP ve diğer mekanizmalarını kullanarak e-posta gönderebilirsiniz (bkz [ek kaynaklar](#addRes)).
 
-1. Paket Yöneticisi konsolunda aşağıdaki girin aşağıdaki komutu: 
+1. Paket Yöneticisi konsolunda aşağıdaki komutu girin: 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
 2. Git [Azure SendGrid kayıt sayfasını](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) ve boş bir SendGrid hesabına kaydolun. SendGrid aşağıdakine benzer bir kod ekleyerek yapılandırma *App_Start/IdentityConfig.cs*:
@@ -78,7 +78,7 @@ Bu örneği basit tutmak için uygulama ayarlarında depolarız *web.config* dos
 [!code-xml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample4.xml)]
 
 > [!WARNING]
-> Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Hesabı ve kimlik bilgileri appSetting depolanır. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz  **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  Azure portalında sekmesi. Bkz: [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Güvenlik - hiçbir zaman deposu gizli verileri kaynak kodu. Hesabı ve kimlik bilgileri appSetting depolanır. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolayabileceğiniz **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. Bkz: [en iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure dağıtmak için](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>E-posta onayı hesap denetleyicideki etkinleştir
@@ -108,7 +108,7 @@ Oluşturma bir `Views\Shared\Info.cshtml` dosya ve aşağıdaki razor biçimlend
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-Ekleme [Authorize özniteliği](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) için `Contact` giriş denetleyici eylem yöntemi. Tıklatın kullanabileceğiniz **kişi** anonim kullanıcıların erişim sahip değilseniz ve kimliği doğrulanmış kullanıcıların erişimi doğrulamak için bağlantı.
+Ekleme [Authorize özniteliği](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) için `Contact` giriş denetleyici eylem yöntemi. Tıklatabilirsiniz **kişi** anonim kullanıcıların erişim sahip değilseniz ve kimliği doğrulanmış kullanıcıların erişimi doğrulamak için bağlantı.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -148,18 +148,18 @@ Yeni Yardımcısı kullanmak için kayıt yöntemi güncelleştirin:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-Güncelleştirme parolayı yeniden göndermek için oturum açma yöntemi, kullanıcı hesabı doğrulanmamış varsa:
+Kullanıcı hesabı doğrulanmamış, parolayı yeniden göndermek için oturum açma yöntemi güncelleştirin:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
 ## <a name="combine-social-and-local-login-accounts"></a>Sosyal ve yerel oturum açma hesaplarını birleştirmek
 
-Yerel ve sosyal hesapları, e-posta bağlantısını tıklatarak birleştirebilirsiniz. Aşağıdaki sırayla  **RickAndMSFT@gmail.com**  yerel bir oturum olarak oluşturulur, ancak ilk sosyal günlüğüne olarak hesabı oluşturun, sonra yerel oturum açma ekleyin.
+Yerel ve sosyal hesapları, e-posta bağlantısını tıklatarak birleştirebilirsiniz. Aşağıdaki sırayla **RickAndMSFT@gmail.com** yerel bir oturum olarak oluşturulur, ancak ilk sosyal günlüğüne olarak hesabı oluşturun, sonra yerel oturum açma ekleyin.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-Tıklayın **Yönet** bağlantı. Bu hesapla ilişkilendirilen 0 dış (sosyal oturum açma bilgileri) unutmayın.
+Tıklayın **Yönet** bağlantı. Not **dış oturum açma: 0** bu hesapla ilişkili.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 

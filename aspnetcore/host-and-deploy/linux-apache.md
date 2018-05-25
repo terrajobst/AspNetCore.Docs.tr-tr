@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 473585f1be180645395c14a154c9c017ca50edab
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: b073f00469ada915244a2db71540fd7c971d55ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux ana bilgisayar
 
@@ -24,15 +24,29 @@ Bu kılavuz kullanılarak nasıl ayarlanacağını öğrenin [Apache](https://ht
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Sudo ayrıcalığa sahip standart kullanıcı hesabı ile CentOS 7'yi çalıştıran sunucu
-2. ASP.NET Core uygulama
+1. Sudo ayrıcalığa sahip standart kullanıcı hesabı ile CentOS 7 çalıştıran sunucu.
+1. .NET çekirdeği çalışma zamanı sunucuya yükleyin.
+   1. Ziyaret [.NET Core tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
+   1. En son Önizleme olmayan çalışma zamanı altındaki listeden seçin **çalışma zamanı**.
+   1. Seçin ve CentOS/Oracle için yönergeleri izleyin.
+1. Mevcut bir ASP.NET Core uygulama.
 
-## <a name="publish-the-app"></a>Uygulama yayımlama
+## <a name="publish-and-copy-over-the-app"></a>Yayımlama ve uygulama kopyalayın
 
-Bir uygulama olarak yayımlama bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) CentOS 7 çalışma zamanı için sürüm yapılandırmasında (`centos.7-x64`). İçeriğini kopyalayın *bin/Release/netcoreapp2.0/centos.7-x64/publish* SCP, FTP veya başka bir dosya aktarım yöntemi kullanarak sunucu klasörüne.
+Uygulama için yapılandırma bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
+
+Çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) bir dizine bir uygulama paketi için geliştirme ortamı'ndan (örneğin, *bin/sürüm/&lt;target_framework_moniker&gt;/ yayımlama*), olabilir sunucusunda çalıştırın:
+
+```console
+dotnet publish --configuration Release
+```
+
+Uygulama aynı zamanda olarak yayımlanabilir bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) sunucuda .NET çekirdeği çalışma zamanı sürekli olmayan tercih ederseniz.
+
+ASP.NET Core uygulama (örneğin, SCP, SFTP) kuruluşunuzun akışına tümleşen bir aracı kullanarak sunucuya kopyalayın. Altında web uygulamaları bulmak için ortak olan *var* dizin (örneğin, *aspnetcore/var/hellomvc*).
 
 > [!NOTE]
-> Bir üretim dağıtım senaryosunda sürekli tümleştirme iş akışı uygulama yayımlama ve varlıkları sunucuya kopyalama işlemlerini yapar. 
+> Bir üretim dağıtım senaryosunda sürekli tümleştirme iş akışı uygulama yayımlama ve varlıkları sunucuya kopyalama işlemlerini yapar.
 
 ## <a name="configure-a-proxy-server"></a>Bir proxy sunucusunu yapılandırın
 
@@ -43,6 +57,11 @@ Bir proxy sunucusu, istemci isteklerini istekleri kendisi yerine getirmesini yer
 İstekleri tarafından ters proxy iletilir çünkü iletilen üstbilgileri Ara kullanmak [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paket. Ara yazılım güncelleştirmeleri `Request.Scheme`kullanarak `X-Forwarded-Proto` , yeniden yönlendirme URI'ler ve diğer güvenlik ilkelerini doğru çalışması için üstbilgi.
 
 Kimlik doğrulaması ara yazılımı herhangi bir türde kullanırken, iletilen üstbilgileri Ara ilk çalıştırmanız gerekir. Bu sıralama, kimlik doğrulaması ara yazılımı üstbilgi değerlerini kullanabilir ve doğru yeniden yönlendirme URI oluşturmak sağlar.
+
+::: moniker range=">= aspnetcore-2.0"
+> [!NOTE]
+> Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+::: moniker-end
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -157,7 +176,6 @@ sudo systemctl enable httpd
 ## <a name="monitoring-the-app"></a>Uygulama izleme
 
 Apache olan şimdi yapılan isteklerini iletmek için kurulumu `http://localhost:80` Kestrel çalışan ASP.NET Core App `http://127.0.0.1:5000`.  Ancak, Apache Kestrel işlemini yönetmek için ayarlanmamış. Kullanım *systemd* ve Başlat ve temel web uygulaması izlemek için bir hizmet dosyası oluşturun. *systemd* , başlatma, durdurma ve işlemlerini yönetme için çok güçlü özellikler sağlayan bir init sistemidir. 
-
 
 ### <a name="create-the-service-file"></a>Hizmet dosyası oluşturma
 

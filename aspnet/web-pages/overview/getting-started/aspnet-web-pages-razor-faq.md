@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
-title: "ASP.NET Web sayfaları (Razor) ile ilgili SSS | Microsoft Docs"
+title: ASP.NET Web sayfaları (Razor) ile ilgili SSS | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, ASP.NET Web sayfaları (Razor) ve WebMatrix hakkında sık sorulan bazı sorular listelenmektedir. Öğretici ASP.NET Web Pages'da (r.. kullanılan yazılım sürümleri"
+description: Bu makalede, ASP.NET Web sayfaları (Razor) ve WebMatrix hakkında sık sorulan bazı sorular listelenmektedir. Öğretici ASP.NET Web Pages'da (r.. kullanılan yazılım sürümleri
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014

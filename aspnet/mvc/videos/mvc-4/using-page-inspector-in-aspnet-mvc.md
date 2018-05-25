@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc
-title: "ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs"
+title: ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır. Öğreticiyi okuyun"
+description: Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır. Öğreticiyi okuyun
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2012
@@ -24,4 +24,4 @@ tarafından Tim Ammann
 
 Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır. [Öğreticiyi okuyun](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[&#9654; (6 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[& #9654; (6 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

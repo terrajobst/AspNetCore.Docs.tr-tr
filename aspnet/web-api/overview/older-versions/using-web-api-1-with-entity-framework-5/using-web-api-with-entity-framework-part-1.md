@@ -71,7 +71,7 @@ Visual Web Developer Express veya Visual Studio'nın tam sürümünü kullanarak
 
 Gelen **Başlat** sayfasında, **yeni proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. "ProductStore" adını verin ve projeyi tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. "ProductStore" adını verin ve projeyi tıklatın **Tamam**.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image5.png)
 

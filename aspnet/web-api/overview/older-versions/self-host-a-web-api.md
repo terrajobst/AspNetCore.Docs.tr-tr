@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: "ASP.NET Web API 1 (C#) kendini barındırma | Microsoft Docs"
+title: ASP.NET Web API 1 (C#) kendini barındırma | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API IIS gerektirmez. Kendi ana bilgisayar işlemi otomatik olarak bir web API barındırabilir. Bu öğretici, bir konsol applic içinde bir web API barındırmak gösterilmektedir..."
+description: ASP.NET Web API IIS gerektirmez. Kendi ana bilgisayar işlemi otomatik olarak bir web API barındırabilir. Bu öğretici, bir konsol applic içinde bir web API barındırmak gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 
 Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Windows**. Proje şablonları listesinde seçin **konsol uygulaması**. Proje adı &quot;SelfHost&quot; tıklatıp **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Windows**. Proje şablonları listesinde seçin **konsol uygulaması**. Proje adı &quot;SelfHost&quot; tıklatıp **Tamam**.
 
 ![](self-host-a-web-api/_static/image1.png)
 

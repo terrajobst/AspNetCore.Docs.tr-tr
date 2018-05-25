@@ -76,7 +76,7 @@ Bu bölümde, bir ASP.NET MVC 4 uygulama oluşturmak, SignalR Kitaplığı eklem
       6. Sağ **hub** klasörünü tıklatın **Ekle | Sınıf**ve adlı yeni bir C# sınıfı oluşturmanız **ChatHub.cs**. Bu sınıf, tüm istemcilere iletileri gönderen bir SignalR sunucu hub olarak kullanır.
 
 > [!NOTE]
-> Visual Studio 2012 kullanın ve yüklediyseniz [ASP.NET ve Web Araçları 2012.2 güncelleştirme](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), hub sınıfı oluşturmak için yeni SignalR öğe şablonu kullanabilirsiniz. Bunu yapmak için sağ **hub** klasörünü tıklatın **Ekle | Yeni öğe**seçin **SignalR hub'ı sınıfı (v1)**ve sınıf adını **ChatHub.cs**.
+> Visual Studio 2012 kullanın ve yüklediyseniz [ASP.NET ve Web Araçları 2012.2 güncelleştirme](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), hub sınıfı oluşturmak için yeni SignalR öğe şablonu kullanabilirsiniz. Bunu yapmak için sağ **hub** klasörünü tıklatın **Ekle | Yeni öğe**seçin **SignalR hub'ı sınıfı (v1)** ve sınıf adını **ChatHub.cs**.
 
 
 1. Kodla **ChatHub** aşağıdaki kodla sınıfı.

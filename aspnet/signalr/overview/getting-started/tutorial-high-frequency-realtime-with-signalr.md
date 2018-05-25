@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: "Öğretici: Yüksek sıklıkta gerçek zamanlı SignalR 2 ile | Microsoft Docs"
+title: 'Öğretici: Yüksek sıklıkta gerçek zamanlı SignalR 2 ile | Microsoft Docs'
 author: pfletcher
-description: "Bu öğretici yüksek sıklıkta Mesajlaşma işlevleri sağlamak için ASP.NET SignalR kullanan bir web uygulamasının nasıl oluşturulacağını gösterir. Yüksek içinde ileti sıklıkta..."
+description: Bu öğretici yüksek sıklıkta Mesajlaşma işlevleri sağlamak için ASP.NET SignalR kullanan bir web uygulamasının nasıl oluşturulacağını gösterir. Yüksek içinde ileti sıklıkta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

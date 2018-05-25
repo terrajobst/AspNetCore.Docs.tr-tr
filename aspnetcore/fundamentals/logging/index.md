@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET çekirdeği günlüğü
 
@@ -583,21 +583,22 @@ Projenizi Azure ortamında çalıştığında sağlayıcısı yalnızca çalış
 
 ## <a name="third-party-logging-providers"></a>Üçüncü taraf günlüğü sağlayıcıları
 
-ASP.NET Core ile iş bazı üçüncü taraf günlük altyapıları şunlardır:
+ASP.NET Core ile iş üçüncü taraf günlük altyapıları:
 
-* [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging) -Elmah.Io hizmet sağlayıcısı
+* [elmah.io](https://elmah.io/) ([GitHub deposuna](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [JSNLog](http://jsnlog.com/) ([GitHub deposuna](https://github.com/mperdeck/jsnlog))
+* [Loggr](http://loggr.net/) ([GitHub deposuna](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](http://nlog-project.org/) ([GitHub deposuna](https://github.com/NLog/NLog.Extensions.Logging))
+* [Serilog](https://serilog.net/) ([GitHub deposuna](https://github.com/serilog/serilog-extensions-logging))
 
-* [JSNLog](http://jsnlog.com) -JavaScript özel durumlarının ve diğer istemci tarafında olayları, sunucu tarafı günlüğüne kaydeder.
+Bazı üçüncü taraf çerçeveleri gerçekleştirebilirsiniz [yapılandırılmış günlük olarak da bilinen semantik günlük](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-* [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging) -Loggr hizmet sağlayıcısı
+Bir üçüncü taraf framework kullanılarak yerleşik sağlayıcılar birini kullanmaya benzer:
 
-* [NLog](https://github.com/NLog/NLog.Extensions.Logging) -NLog kitaplık için sağlayıcı
+1. NuGet paketini projenize ekleyin.
+1. Bir genişletme yöntemi çağırmak `ILoggerFactory`.
 
-* [Serilog](https://github.com/serilog/serilog-extensions-logging) -Serilog kitaplık için sağlayıcı
-
-Bazı üçüncü taraf çerçeveleri yapabilirsiniz [yapılandırılmış günlük olarak da bilinen semantik günlük](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
-
-Bir üçüncü taraf framework kullanılarak yerleşik sağlayıcılar birini kullanmaya benzer: NuGet paketini projenize ekleyin ve üzerinde uzantı metodu çağırma `ILoggerFactory`. Daha fazla bilgi için her framework'ün belgelerine bakın.
+Daha fazla bilgi için her framework'ün belgelerine bakın.
 
 ## <a name="azure-log-streaming"></a>Akış azure günlük
 

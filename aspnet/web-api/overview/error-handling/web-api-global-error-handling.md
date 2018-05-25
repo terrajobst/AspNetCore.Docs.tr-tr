@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/error-handling/web-api-global-error-handling
-title: "Genel hata ASP.NET Web API 2 işleme | Microsoft Docs"
+title: Genel hata ASP.NET Web API 2 işleme | Microsoft Docs
 author: davidmatson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/03/2014

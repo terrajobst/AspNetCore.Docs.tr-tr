@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: "Azure Service Bus ile SignalR genişletme (SignalR 1.x) | Microsoft Docs"
+title: Azure Service Bus ile SignalR genişletme (SignalR 1.x) | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013

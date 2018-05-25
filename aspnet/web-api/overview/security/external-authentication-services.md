@@ -90,7 +90,7 @@ Visual Studio 2013 seçin Başlat **yeni proje** başlangıç sayfasından. Veya
 
 [![](external-authentication-services/_static/image6.png "Görüntü genişletmek için tıklatın")](external-authentication-services/_static/image5.png)
 
-Zaman **yeni proje** iletişim kutusu görüntülenir, seçin **yüklü** **şablonları** ve genişletin **Visual C#**. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web uygulaması**. Projeniz için bir ad girin ve tıklayın **Tamam**.
+Zaman **yeni proje** iletişim kutusu görüntülenir, seçin **yüklü** **şablonları** ve genişletin **Visual C#**. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web uygulaması**. Projeniz için bir ad girin ve tıklayın **Tamam**.
 
 [![](external-authentication-services/_static/image8.png "Görüntü genişletmek için tıklatın")](external-authentication-services/_static/image7.png)
 

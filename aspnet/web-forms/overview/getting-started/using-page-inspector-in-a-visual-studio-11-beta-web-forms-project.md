@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: "Visual Studio 2012'de ASP.NET Web formları için sayfa denetçisi kullanarak | Microsoft Docs"
+title: Visual Studio 2012'de ASP.NET Web formları için sayfa denetçisi kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Visual Studio 2012 için sayfa denetçisi, tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcı ve sayfa Denetçisi ' herhangi bir öğe seçin..."
+description: Visual Studio 2012 için sayfa denetçisi, tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcı ve sayfa Denetçisi ' herhangi bir öğe seçin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -63,7 +63,7 @@ Sayfa denetçisi, Microsoft Web geliştirici araçları ile gelir. 1.3 en son s�
 
 ## <a name="create-a-web-application"></a>Bir Web uygulaması oluşturma
 
-İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturacaksınız. Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#**seçin **Web**ve ardından **ASP.NET Web Forms uygulaması**.
+İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturacaksınız. Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#** seçin **Web**ve ardından **ASP.NET Web Forms uygulaması**.
 
 ![Yeni Web Forms uygulaması](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
@@ -249,7 +249,7 @@ Satırındaki arka plan rengi özelliği olduğu "bc" yazın ve bir kez aşağı
 
 ![IntelliSense filtre değerleri](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Şimdi iki nokta yazın. Bunu yaptığınızda, tam arka plan rengi özellik adı eklenir. Tür  **#**  veya **rgb (**, ve Renk Seçici çubuğu görüntülenir:
+Şimdi iki nokta yazın. Bunu yaptığınızda, tam arka plan rengi özellik adı eklenir. Tür **#** veya **rgb (**, ve Renk Seçici çubuğu görüntülenir:
 
 ![CSS Renk Seçici çubuğu](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 

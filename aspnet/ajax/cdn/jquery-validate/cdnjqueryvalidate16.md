@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate16
 msc.type: content
 ms.openlocfilehash: d781fe9dfc2545b6b2176e0ed27eed248d930ed2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/21/2018
 ---
 <a name="jquery-validate-16"></a>jQuery doğrulama 1.6
 ====================
@@ -28,11 +28,11 @@ Aşağıdaki dosyalar üzerinde CDN barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_ar.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_bg.js
-- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_CN.js
+- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_cn.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_cs.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_da.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_de.js
-- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_Es.js
+- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_es.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_fa.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_fi.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_fr.js
@@ -46,7 +46,7 @@ Aşağıdaki dosyalar üzerinde CDN barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_ptpt.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_ro.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_ru.js
-- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_SE.js
+- https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_se.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_sk.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_tr.js
 - https://ajax.aspnetcdn.com/ajax/jQuery.Validate/1.6/localization/messages\_tw.js

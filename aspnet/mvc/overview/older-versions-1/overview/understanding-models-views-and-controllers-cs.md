@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
-title: "Anlama modeller, görünümler ve denetleyiciler (C#) | Microsoft Docs"
+title: Anlama modeller, görünümler ve denetleyiciler (C#) | Microsoft Docs
 author: StephenWalther
-description: "Modeller, görünümler ve denetleyiciler hakkında kafası? Bu öğreticide, Stephen Walther bir ASP.NET MVC uygulaması farklı bölümlerine tanıtır."
+description: Modeller, görünümler ve denetleyiciler hakkında kafası? Bu öğreticide, Stephen Walther bir ASP.NET MVC uygulaması farklı bölümlerine tanıtır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008

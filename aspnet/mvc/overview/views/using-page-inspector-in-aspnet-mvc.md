@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
-title: "ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs"
+title: ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Sayfa denetçisi Visual Studio 2012'de bir tümleşik bir tarayıcı ile web geliştirme aracıdır. Herhangi bir öğe tümleşik tarayıcı ve sayfa Denetçisi'i seçin..."
+description: Sayfa denetçisi Visual Studio 2012'de bir tümleşik bir tarayıcı ile web geliştirme aracıdır. Herhangi bir öğe tümleşik tarayıcı ve sayfa Denetçisi'i seçin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -58,7 +58,7 @@ Sayfa denetçisi, Microsoft Web geliştirici araçları ile gelir. 1.3 en son s�
 
 ## <a name="create-a-web-application"></a>Bir Web uygulaması oluşturma
 
-İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturun. Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#**seçin **Web**ve ardından **ASP.NET MVC4 Web uygulaması**.
+İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturun. Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#** seçin **Web**ve ardından **ASP.NET MVC4 Web uygulaması**.
 
 ![Yeni ASP.NET MVC uygulaması](using-page-inspector-in-aspnet-mvc/_static/image2.png)
 
@@ -202,7 +202,7 @@ Sayfa denetçisi tarayıcıda, fare işaretçisini kadar "Giriş sayfası" böl�
 
 Visual Studio 2012'de CSS Düzenleyicisi'ni seçin ve renkleri eklemek kolaylaştıran bir renk seçici sahiptir. Renk Seçici standart bir renk paletini içerir, standart renk adları, karma kodları, RGB, RGBA, HSL ve HSLA renkleri destekler ve belgede en yakın zamanda kullandığınız renkleri listesini tutar.
 
-Önceki bölümde değerini değiştirdiğiniz `background-color` özelliği. Renk Seçici çağrılacak ekleme noktasını özellik adı ve türü sonra yerleştirin  **#**  veya **rgb (**.
+Önceki bölümde değerini değiştirdiğiniz `background-color` özelliği. Renk Seçici çağrılacak ekleme noktasını özellik adı ve türü sonra yerleştirin **#** veya **rgb (**.
 
 ![CSS Renk Seçici çubuğu](using-page-inspector-in-aspnet-mvc/_static/image36.png)
 
@@ -243,7 +243,7 @@ Sürüm 1.3 sayfa denetçisi şimdi sayfasına karşılık gelen JavaScript kodu
 > SPA şablonu gerektirir [ASP.NET ve Web Araçları 2012.2](https://go.microsoft.com/fwlink/?LinkId=282650) güncelleştirin.
 
 
-Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#**seçin **Web**ve ardından **ASP.NET MVC4 Web uygulaması**. **Tamam**'ı tıklatın.
+Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#** seçin **Web**ve ardından **ASP.NET MVC4 Web uygulaması**. **Tamam**'ı tıklatın.
 
 İçinde **yeni ASP.NET MVC 4 proje** iletişim kutusunda **tek sayfa uygulaması**.
 

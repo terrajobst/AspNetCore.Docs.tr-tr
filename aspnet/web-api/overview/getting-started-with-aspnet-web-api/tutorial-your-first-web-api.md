@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "ASP.NET Web API 2 (C#) ile çalışmaya başlama"
+title: ASP.NET Web API 2 (C#) ile çalışmaya başlama
 author: MikeWasson
-description: "HTTP web sayfaları yalnızca hizmet vermek için değil. Hizmetler ve veri kullanıma API'ları oluşturmak için de güçlü bir platformdur. HTTP basit, esnek ve ubiq ise..."
+description: HTTP web sayfaları yalnızca hizmet vermek için değil. Hizmetler ve veri kullanıma API'ları oluşturmak için de güçlü bir platformdur. HTTP basit, esnek ve ubiq ise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ Bu öğreticide, bir web ürünlerin listesini döndürür API oluşturmak için
 
 Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web uygulaması**. "ProductsApp" adını verin ve projeyi tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web uygulaması**. "ProductsApp" adını verin ve projeyi tıklatın **Tamam**.
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -126,7 +126,7 @@ Bu bölümde, web API'sini çağırmak için AJAX kullanan bir HTML sayfası ekl
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-İçinde **Yeni Öğe Ekle** iletişim kutusunda **Web** düğümü altında **Visual C#**ve ardından **HTML sayfası** öğesi. Sayfa adı &quot;index.html&quot;.
+İçinde **Yeni Öğe Ekle** iletişim kutusunda **Web** düğümü altında **Visual C#** ve ardından **HTML sayfası** öğesi. Sayfa adı &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

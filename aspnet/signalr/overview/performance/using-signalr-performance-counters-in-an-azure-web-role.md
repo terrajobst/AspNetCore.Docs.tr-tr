@@ -1,9 +1,9 @@
 ---
 uid: signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
-title: "SignalR performans sayaçlarını bir Azure Web rolü kullanılarak | Microsoft Docs"
+title: SignalR performans sayaçlarını bir Azure Web rolü kullanılarak | Microsoft Docs
 author: guardrex
-description: "Nasıl yüklemek ve bir Azure Web rolünde SignalR performans sayaçlarını kullanın."
-keywords: "ASP.NET,signalr,Performance sayacı, azure web rolü"
+description: Nasıl yüklemek ve bir Azure Web rolünde SignalR performans sayaçlarını kullanın.
+keywords: ASP.NET,signalr,Performance sayacı, azure web rolü
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2017

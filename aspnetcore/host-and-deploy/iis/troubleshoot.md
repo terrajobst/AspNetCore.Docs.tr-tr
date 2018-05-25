@@ -29,7 +29,7 @@ Ek sorun giderme konuları:
 [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)  
 Uygulama hizmeti kullansa [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve ana bilgisayar uygulamaları için IIS uygulama hizmeti için özel yönergeler için ayrılmış konusuna bakın.
 
-[Hata işleme](xref:fundamentals/error-handling)  
+[Hataları işleme](xref:fundamentals/error-handling)  
 Yerel sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl bulur.
 
 [Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger)  

@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları | Microsoft Docs"
+title: ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları | Microsoft Docs
 author: microsoft
-description: "Bu belgede, ASP.NET ve Web Araçları 2013.1 sürümü için Visual Studio 2012 açıklanmaktadır."
+description: Bu belgede, ASP.NET ve Web Araçları 2013.1 sürümü için Visual Studio 2012 açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Bu değişikliği yaptıktan sonra F5 seçerek gider, uygulamanızın kök dizin
 
 URL yeniden yazdırmaya kullanıyorsanız, ASP.NET Razor 3 veya ASP.NET MVC 5'e yükselttikten sonra tilde(~) gösterimi artık doğru çalışmayabilir. URL yeniden yazma gibi HTML öğeleri tilde(~) gösterimde etkiler &lt;A /&gt;, &lt;komut dosyası /&gt;, &lt;bağlantı /&gt;, ve bunun sonucunda tilde kök dizinine artık eşler.
 
-Örneğin, istek için yeniden **asp.net/content** için **asp.net**, href özniteliği &lt;A href = "~/content/" /&gt; çözümler **/content/ İçerik /** yerine  **/** . Bu değişiklik gizlemek için ayarlayabileceğiniz **IIS\_WasUrlRewritten** false her Web sayfası veya bağlam **uygulama\_BeginRequest** Global.asax içinde.
+Örneğin, istek için yeniden **asp.net/content** için **asp.net**, href özniteliği &lt;A href = "~/content/" /&gt; çözümler **/content/ İçerik /** yerine **/**. Bu değişiklik gizlemek için ayarlayabileceğiniz **IIS\_WasUrlRewritten** false her Web sayfası veya bağlam **uygulama\_BeginRequest** Global.asax içinde.
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Şablonlar

@@ -232,4 +232,4 @@ Güncelleştirilmiş web uygulaması seçerek görüntülemek **Gözat** Azure P
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Derleme ve sürekli dağıtımı olan bir Azure Web uygulamasına yayımlamak için VSTS kullanın](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
-* [Project Kudu](https://github.com/projectkudu/kudu/wiki)
+* [Proje Kudu](https://github.com/projectkudu/kudu/wiki)

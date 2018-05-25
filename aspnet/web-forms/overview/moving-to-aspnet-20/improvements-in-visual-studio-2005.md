@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/improvements-in-visual-studio-2005
-title: "Visual Studio 2005'te geliştirmeleri | Microsoft Docs"
+title: Visual Studio 2005'te geliştirmeleri | Microsoft Docs
 author: microsoft
-description: "Visual Studio 2005 yenilikleri ve geliştirmeleri Web projeleri için uzun bir listesi ile Web uygulaması geliştiricileri sağlar."
+description: Visual Studio 2005 yenilikleri ve geliştirmeleri Web projeleri için uzun bir listesi ile Web uygulaması geliştiricileri sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -445,7 +445,7 @@ Zaten ele weve Visual Studio 2005 ASP.NET Geliştirme Sunucusu adı verilen bir 
 
 ASP.NET Geliştirme Sunucusu kısıtlı bir Web sunucusudur. Uzak bağlantılara izin vermez, onu tüm istekler Web sunucusu başlatan kullanıcı dışındaki herhangi bir kullanıcıdan izin vermiyor. Ayrıca ASP sayfalarını sunmadan özelliği yok. Yalnızca ASP.NET ve HTML kaynaklarının (görüntüleri, CSS dosyaları, vb. dahil) sunulur.
 
-ASP.NET Geliştirme Sunucusu c:/Windows/Microsoft.NET/Framework/v2.0./ bulunan WebDev.WebServer.exe dosyasını çalıştırarak komut satırı üzerinden başlatılabilir */*  /  */*/*. Kullanılabilir parametreler aşağıdaki iletişim kutusunu görüntüler.
+ASP.NET Geliştirme Sunucusu c:/Windows/Microsoft.NET/Framework/v2.0./ bulunan WebDev.WebServer.exe dosyasını çalıştırarak komut satırı üzerinden başlatılabilir*/* /  */*/*. Kullanılabilir parametreler aşağıdaki iletişim kutusunu görüntüler.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

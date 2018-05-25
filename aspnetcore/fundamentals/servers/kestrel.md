@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 251385b268e75cfadb815c293be52176297ed3e4
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: cd93aa8136b76179d552a11143dedf74e82de2de
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core kestrel web sunucusu uygulaması
 
@@ -42,7 +42,7 @@ Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters proxy sunucusu*
 
 ![Kestrel dolaylı olarak IIS, Nginx ya da Apache gibi bir ters proxy sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
 
-Kestrel yalnızca bir iç ağ eline sürece Kestrel ters proxy sunucusu ile kullanmanızı öneririz.
+Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

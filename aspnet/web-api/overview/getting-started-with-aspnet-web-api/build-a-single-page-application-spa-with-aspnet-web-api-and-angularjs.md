@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: "Laboratuvar durum: ASP.NET Web API ve Angular.js tek sayfalı uygulama (SPA) yapı | Microsoft Docs"
+title: 'Laboratuvar durum: ASP.NET Web API ve Angular.js tek sayfalı uygulama (SPA) yapı | Microsoft Docs'
 author: rick-anderson
-description: "Geleneksel web uygulamalarında bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu sonra isteğini işler..."
+description: Geleneksel web uygulamalarında bir sayfa isteyerek istemci (tarayıcı) sunucusu ile iletişim başlatır. Sunucu sonra isteğini işler...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2015
@@ -153,13 +153,13 @@ Bu görevde ASP.NET Web API dayalı için yeni bir ASP.NET MVC proje desteğiyle
 
     > [!NOTE]
     > **Authorize** filtre kullanıcının kimliği doğrulanır durumunda olup olmadığını kontrol eder. Kullanıcının kimliği doğrulanmazsa, HTTP durum kodunu 401 (yetkisiz) eylemi çağırma olmadan döndürür. Genel olarak, denetleyici düzeyinde veya bireysel eylemlerin düzeyinde filtre uygulayabilirsiniz.
-9. Şimdi web sayfalarını ve markalama düzenini özelleştirin. Bunu yapmak için açın  **\_Layout.cshtml** içinde dosya **görünümleri | Paylaşılan** klasörü ve içeriği güncelleştirme  **&lt;başlık&gt;**  değiştirerek öğesi *My ASP.NET Application* ile *günlük test* .
+9. Şimdi web sayfalarını ve markalama düzenini özelleştirin. Bunu yapmak için açın  **\_Layout.cshtml** içinde dosya **görünümleri | Paylaşılan** klasörü ve içeriği güncelleştirme **&lt;başlık&gt;** değiştirerek öğesi *My ASP.NET Application* ile *günlük test* .
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
 10. Aynı dosyada kaldırarak gezinti çubuğunda güncelleştirme *hakkında* ve *kişi* bağlantılar ve yeniden adlandırma *giriş* bağlantı *Yürüt*. Ayrıca, yeniden adlandırma *uygulama adı* bağlantı *günlük test*. HTML gezinti çubuğu için aşağıdaki kod gibi görünmelidir.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Düzen sayfasının altbilgi değiştirerek güncelleştirme *My ASP.NET Application* ile *günlük test*. Bunu yapmak için içeriğinin yerine geçecek  **&lt;altbilgi&gt;**  aşağıdaki vurgulanmış kodu sahip öğe.
+11. Düzen sayfasının altbilgi değiştirerek güncelleştirme *My ASP.NET Application* ile *günlük test*. Bunu yapmak için içeriğinin yerine geçecek **&lt;altbilgi&gt;** aşağıdaki vurgulanmış kodu sahip öğe.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
@@ -421,7 +421,7 @@ Bu görevde bir soru yanıtlandığında ve sonraki soruya alındığında Çevi
 5. Bulun **sırasında Çevir arkasına Bölmesini Gizle** açıklama. Ayarlayarak çıktığınızda Görüntüleyicisi bakacak olmadığında açıklamanın altındaki stil yüz arka tarafında gizler **backface görünürlük** CSS özelliğine *gizli*.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Açık **BundleConfig.cs** içinde dosya **uygulama\_Başlat** klasörü ve başvuru ekleyin **Flip.css** dosyasını  **&quot;~/Content/css&quot;**  stili paket
+6. Açık **BundleConfig.cs** içinde dosya **uygulama\_Başlat** klasörü ve başvuru ekleyin **Flip.css** dosyasını **&quot;~/Content/css&quot;** stili paket
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
 7. Tuşuna **F5** çözümü ve kimlik bilgilerinizi oturum çalıştırmak için.

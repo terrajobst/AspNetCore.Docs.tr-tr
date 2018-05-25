@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
-title: "$Select kullanarak $genişletin ve ASP.NET Web API 2 OData $value | Microsoft Docs"
+title: $Select kullanarak $genişletin ve ASP.NET Web API 2 OData $value | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/11/2013

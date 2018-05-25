@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
-title: "Öğretici: SignalR ile çalışmaya başlama 1.x | Microsoft Docs"
+title: 'Öğretici: SignalR ile çalışmaya başlama 1.x | Microsoft Docs'
 author: pfletcher
-description: "Bir HTML sayfasında bir gerçek zamanlı sohbet uygulaması oluşturmak için ASP.NET SignalR kullanın."
+description: Bir HTML sayfasında bir gerçek zamanlı sohbet uygulaması oluşturmak için ASP.NET SignalR kullanın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013

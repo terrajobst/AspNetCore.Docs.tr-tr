@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/troubleshooting
-title: "SignalR sorunlarını giderme | Microsoft Docs"
+title: SignalR sorunlarını giderme | Microsoft Docs
 author: pfletcher
-description: "Bu makalede SignalR uygulamaları geliştirme ile ilgili genel sorunları açıklar."
+description: Bu makalede SignalR uygulamaları geliştirme ile ilgili genel sorunları açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

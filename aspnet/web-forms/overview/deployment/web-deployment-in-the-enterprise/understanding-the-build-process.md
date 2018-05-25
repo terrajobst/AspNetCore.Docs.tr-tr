@@ -210,7 +210,7 @@ Benzer bir gösterimde görebilirsiniz  **\_Cmd** uygun anahtarlarını VSDBCMD 
 [!code-xml[Main](understanding-the-build-process/samples/sample11.xml)]
 
 
-Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu.  **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
+Bu durumda, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPackages.TargetDatabase)**, ve **%(DbPublishPackages.FullPath)** tüm başvurur meta veri değerlerini **DbPublishPackages** öğe koleksiyonu. **\_Cmd** özelliği tarafından kullanılan **Exec** komutu çağıran görev.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample12.xml)]
