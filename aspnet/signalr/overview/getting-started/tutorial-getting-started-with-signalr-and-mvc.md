@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
-title: "Öğretici: SignalR 2 ve MVC 5 ile çalışmaya başlama | Microsoft Docs"
+title: 'Öğretici: SignalR 2 ve MVC 5 ile çalışmaya başlama | Microsoft Docs'
 author: pfletcher
-description: "Bu öğretici ASP.NET SignalR 2 gerçek zamanlı sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Bir MVC 5 uygulamaya SignalR ekleyebilir ve sohbet Görünüm Oluştur..."
+description: Bu öğretici ASP.NET SignalR 2 gerçek zamanlı sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Bir MVC 5 uygulamaya SignalR ekleyebilir ve sohbet Görünüm Oluştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

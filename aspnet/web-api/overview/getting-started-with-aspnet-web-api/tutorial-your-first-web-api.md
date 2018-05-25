@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "ASP.NET Web API 2 (C#) ile çalışmaya başlama"
+title: ASP.NET Web API 2 (C#) ile çalışmaya başlama
 author: MikeWasson
-description: "HTTP web sayfaları yalnızca hizmet vermek için değil. Hizmetler ve veri kullanıma API'ları oluşturmak için de güçlü bir platformdur. HTTP basit, esnek ve ubiq ise..."
+description: HTTP web sayfaları yalnızca hizmet vermek için değil. Hizmetler ve veri kullanıma API'ları oluşturmak için de güçlü bir platformdur. HTTP basit, esnek ve ubiq ise...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="73958-121">Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.</span><span class="sxs-lookup"><span data-stu-id="73958-121">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="73958-122">Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="73958-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="73958-123">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="73958-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="73958-124">Altında **Visual C#**seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="73958-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="73958-125">Proje şablonları listesinde seçin **ASP.NET Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="73958-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="73958-126">"ProductsApp" adını verin ve projeyi tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="73958-126">Name the project "ProductsApp" and click **OK**.</span></span>
+<span data-ttu-id="73958-123">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="73958-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="73958-124">Altında **Visual C#** seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="73958-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="73958-125">Proje şablonları listesinde seçin **ASP.NET Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="73958-125">In the list of project templates, select **ASP.NET Web Application**.</span></span> <span data-ttu-id="73958-126">"ProductsApp" adını verin ve projeyi tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="73958-126">Name the project "ProductsApp" and click **OK**.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image2.png)
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 03/15/2018
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-<span data-ttu-id="73958-183">İçinde **Yeni Öğe Ekle** iletişim kutusunda **Web** düğümü altında **Visual C#**ve ardından **HTML sayfası** öğesi.</span><span class="sxs-lookup"><span data-stu-id="73958-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="73958-184">Sayfa adı &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="73958-184">Name the page &quot;index.html&quot;.</span></span>
+<span data-ttu-id="73958-183">İçinde **Yeni Öğe Ekle** iletişim kutusunda **Web** düğümü altında **Visual C#** ve ardından **HTML sayfası** öğesi.</span><span class="sxs-lookup"><span data-stu-id="73958-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="73958-184">Sayfa adı &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="73958-184">Name the page &quot;index.html&quot;.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

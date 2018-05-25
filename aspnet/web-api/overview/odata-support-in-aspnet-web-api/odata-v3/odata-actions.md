@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 title: ASP.NET Web API 2 OData eylemleri destekleyen | Microsoft Docs
 author: MikeWasson
-description: "OData içinde eylemler kolayca CRUD işlemleri varlıklar üzerinde olarak tanımlanmamış olan sunucu tarafı davranışları eklemek için bir yoldur. Bazı eylemler kullanımları şunlardır: uygulama..."
+description: 'OData içinde eylemler kolayca CRUD işlemleri varlıklar üzerinde olarak tanımlanmamış olan sunucu tarafı davranışları eklemek için bir yoldur. Bazı eylemler kullanımları şunlardır: uygulama...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014

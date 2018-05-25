@@ -2,7 +2,7 @@
 uid: signalr/overview/older-versions/troubleshooting
 title: SignalR sorun giderme (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Bu makalede SignalR uygulamaları geliştirme ile ilgili genel sorunları açıklar."
+description: Bu makalede SignalR uygulamaları geliştirme ile ilgili genel sorunları açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013

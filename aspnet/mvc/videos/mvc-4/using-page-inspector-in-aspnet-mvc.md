@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc
-title: "ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs"
+title: ASP.NET MVC uygulamasında sayfa denetçisi kullanarak | Microsoft Docs
 author: rick-anderson
-description: "Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır. Öğreticiyi okuyun"
+description: Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır. Öğreticiyi okuyun
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2012
@@ -18,10 +18,10 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-<a name="using-page-inspector-in-aspnet-mvc"></a><span data-ttu-id="9df9c-104">Sayfa denetçisi ASP.NET MVC uygulamasında kullanma</span><span class="sxs-lookup"><span data-stu-id="9df9c-104">Using Page Inspector in ASP.NET MVC</span></span>
+<a name="using-page-inspector-in-aspnet-mvc"></a><span data-ttu-id="0bd9d-104">Sayfa denetçisi ASP.NET MVC uygulamasında kullanma</span><span class="sxs-lookup"><span data-stu-id="0bd9d-104">Using Page Inspector in ASP.NET MVC</span></span>
 ====================
-<span data-ttu-id="9df9c-105">tarafından Tim Ammann</span><span class="sxs-lookup"><span data-stu-id="9df9c-105">by Tim Ammann</span></span>
+<span data-ttu-id="0bd9d-105">tarafından Tim Ammann</span><span class="sxs-lookup"><span data-stu-id="0bd9d-105">by Tim Ammann</span></span>
 
-<span data-ttu-id="9df9c-106">Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır.</span><span class="sxs-lookup"><span data-stu-id="9df9c-106">The videos explores the usage of Page Inspector in ASP.NET MVC web applications.</span></span> [<span data-ttu-id="9df9c-107">Öğreticiyi okuyun</span><span class="sxs-lookup"><span data-stu-id="9df9c-107">Read the tutorial</span></span>](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
+<span data-ttu-id="0bd9d-106">Videolar sayfa denetçisi kullanım ASP.NET MVC web uygulamalarında araştırır.</span><span class="sxs-lookup"><span data-stu-id="0bd9d-106">The videos explores the usage of Page Inspector in ASP.NET MVC web applications.</span></span> [<span data-ttu-id="0bd9d-107">Öğreticiyi okuyun</span><span class="sxs-lookup"><span data-stu-id="0bd9d-107">Read the tutorial</span></span>](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[<span data-ttu-id="9df9c-108">&#9654; (6 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="9df9c-108">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[<span data-ttu-id="0bd9d-108">& #9654; (6 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="0bd9d-108">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/10-working-with-video
-title: "Video görüntüleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: Video görüntüleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu bölümde, bir ASP.NET Web Pages'de Razor sözdizimi sayfasıyla video görüntülemek açıklanmaktadır."
+description: Bu bölümde, bir ASP.NET Web Pages'de Razor sözdizimi sayfasıyla video görüntülemek açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014

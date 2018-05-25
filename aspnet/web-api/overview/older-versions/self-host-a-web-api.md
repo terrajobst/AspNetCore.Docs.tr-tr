@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/self-host-a-web-api
-title: "ASP.NET Web API 1 (C#) kendini barındırma | Microsoft Docs"
+title: ASP.NET Web API 1 (C#) kendini barındırma | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API IIS gerektirmez. Kendi ana bilgisayar işlemi otomatik olarak bir web API barındırabilir. Bu öğretici, bir konsol applic içinde bir web API barındırmak gösterilmektedir..."
+description: ASP.NET Web API IIS gerektirmez. Kendi ana bilgisayar işlemi otomatik olarak bir web API barındırabilir. Bu öğretici, bir konsol applic içinde bir web API barındırmak gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -37,7 +37,7 @@ ms.lasthandoff: 01/24/2018
 
 <span data-ttu-id="8855d-116">Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.</span><span class="sxs-lookup"><span data-stu-id="8855d-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="8855d-117">Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="8855d-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="8855d-118">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="8855d-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="8855d-119">Altında **Visual C#**seçin **Windows**.</span><span class="sxs-lookup"><span data-stu-id="8855d-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="8855d-120">Proje şablonları listesinde seçin **konsol uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="8855d-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="8855d-121">Proje adı &quot;SelfHost&quot; tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="8855d-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="8855d-118">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="8855d-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="8855d-119">Altında **Visual C#** seçin **Windows**.</span><span class="sxs-lookup"><span data-stu-id="8855d-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="8855d-120">Proje şablonları listesinde seçin **konsol uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="8855d-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="8855d-121">Proje adı &quot;SelfHost&quot; tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="8855d-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 

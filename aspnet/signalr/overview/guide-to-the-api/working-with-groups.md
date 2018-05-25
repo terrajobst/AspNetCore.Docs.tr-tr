@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/working-with-groups
-title: "SignalR grupları ile çalışma | Microsoft Docs"
+title: SignalR grupları ile çalışma | Microsoft Docs
 author: pfletcher
-description: "Bu konu, grup üyeliği bilgileri Hub API ile kalıcı açıklar."
+description: Bu konu, grup üyeliği bilgileri Hub API ile kalıcı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

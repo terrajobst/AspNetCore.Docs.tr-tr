@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/working-with-ssl-in-web-api
-title: "Web API'de SSL ile çalışma | Microsoft Docs"
+title: Web API'de SSL ile çalışma | Microsoft Docs
 author: MikeWasson
-description: "SSL istemci sertifikalarını kullanan dahil olmak üzere ASP.NET Web API ile SSL kullanmayı gösterir."
+description: SSL istemci sertifikalarını kullanan dahil olmak üzere ASP.NET Web API ile SSL kullanmayı gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012

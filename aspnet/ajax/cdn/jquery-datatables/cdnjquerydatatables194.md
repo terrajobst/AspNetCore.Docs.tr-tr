@@ -13,27 +13,27 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables194
 msc.type: content
 ms.openlocfilehash: ea4449a248aa7c1ebbb61bad6c142009b8d9bb2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/21/2018
 ---
-<a name="jquery-datatables-194"></a><span data-ttu-id="3692e-102">jQuery DataTables 1.9.4</span><span class="sxs-lookup"><span data-stu-id="3692e-102">jQuery DataTables 1.9.4</span></span>
+<a name="jquery-datatables-194"></a><span data-ttu-id="af71a-102">jQuery DataTables 1.9.4</span><span class="sxs-lookup"><span data-stu-id="af71a-102">jQuery DataTables 1.9.4</span></span>
 ====================
-<span data-ttu-id="3692e-103">Aşağıdaki dosyalar jQuery DataTables eklentileri için CDN üzerinde barındırılan:</span><span class="sxs-lookup"><span data-stu-id="3692e-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
+<span data-ttu-id="af71a-103">Aşağıdaki dosyalar jQuery DataTables eklentileri için CDN üzerinde barındırılan:</span><span class="sxs-lookup"><span data-stu-id="af71a-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css
-- <span data-ttu-id="3692e-104">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables\_themeroller.css</span><span class="sxs-lookup"><span data-stu-id="3692e-104">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables\_themeroller.css</span></span>
-- <span data-ttu-id="3692e-105">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_disabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-105">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_disabled.png</span></span>
-- <span data-ttu-id="3692e-106">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-106">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled.png</span></span>
-- <span data-ttu-id="3692e-107">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled\_hover.png</span><span class="sxs-lookup"><span data-stu-id="3692e-107">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled\_hover.png</span></span>
-- <span data-ttu-id="3692e-108">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_disabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-108">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_disabled.png</span></span>
-- <span data-ttu-id="3692e-109">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-109">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled.png</span></span>
-- <span data-ttu-id="3692e-110">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled\_hover.png</span><span class="sxs-lookup"><span data-stu-id="3692e-110">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled\_hover.png</span></span>
-- <span data-ttu-id="3692e-111">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc.png</span><span class="sxs-lookup"><span data-stu-id="3692e-111">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc.png</span></span>
-- <span data-ttu-id="3692e-112">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc\_disabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-112">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc\_disabled.png</span></span>
-- <span data-ttu-id="3692e-113">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_Both.PNG</span><span class="sxs-lookup"><span data-stu-id="3692e-113">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_both.png</span></span>
-- <span data-ttu-id="3692e-114">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc.png</span><span class="sxs-lookup"><span data-stu-id="3692e-114">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc.png</span></span>
-- <span data-ttu-id="3692e-115">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc\_disabled.png</span><span class="sxs-lookup"><span data-stu-id="3692e-115">https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc\_disabled.png</span></span>
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables\_themeroller.css
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_disabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled\_hover.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_disabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled\_hover.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc\_disabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_both.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc\_disabled.png

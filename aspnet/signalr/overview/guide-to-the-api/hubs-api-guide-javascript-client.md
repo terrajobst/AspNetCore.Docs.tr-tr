@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
-title: "ASP.NET SignalR hub'ları API Kılavuzu - JavaScript istemci | Microsoft Docs"
+title: ASP.NET SignalR hub'ları API Kılavuzu - JavaScript istemci | Microsoft Docs
 author: pfletcher
-description: "Bu belge için SignalR sürüm 2'in JavaScript istemciler, tarayıcıları ve Windows Mağazası (WinJS) applicat gibi hub API'sini kullanmaya tanıtılmaktadır..."
+description: Bu belge için SignalR sürüm 2'in JavaScript istemciler, tarayıcıları ve Windows Mağazası (WinJS) applicat gibi hub API'sini kullanmaya tanıtılmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2015

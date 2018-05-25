@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/using-signalr-with-azure-web-sites
-title: "Azure App Service'te Web uygulamalarını SignalR kullanarak | Microsoft Docs"
+title: Azure App Service'te Web uygulamalarını SignalR kullanarak | Microsoft Docs
 author: pfletcher
-description: "Bu belgede, Microsoft Azure üzerinde çalışan bir SignalR uygulamasının nasıl yapılandırılacağını açıklar. Yazılım sürümleri, Visual Studio 2013 veya Vis. öğreticide kullanılan..."
+description: Bu belgede, Microsoft Azure üzerinde çalışan bir SignalR uygulamasının nasıl yapılandırılacağını açıklar. Yazılım sürümleri, Visual Studio 2013 veya Vis. öğreticide kullanılan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2015

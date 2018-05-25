@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: "Yönlendirme ve eylem seçimi ASP.NET Web API'de | Microsoft Docs"
+title: Yönlendirme ve eylem seçimi ASP.NET Web API'de | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012

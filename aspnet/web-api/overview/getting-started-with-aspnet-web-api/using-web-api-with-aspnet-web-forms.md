@@ -2,7 +2,7 @@
 uid: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 title: ASP.NET Web Forms ile Web API kullanma | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2012
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/01/2017
 
 <span data-ttu-id="12d7f-111">Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.</span><span class="sxs-lookup"><span data-stu-id="12d7f-111">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="12d7f-112">Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-112">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="12d7f-113">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="12d7f-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="12d7f-114">Altında **Visual C#**seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="12d7f-115">Proje şablonları listesinde seçin **ASP.NET Web Forms uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="12d7f-116">Proje için bir ad girin ve tıklayın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-116">Enter a name for the project and click **OK**.</span></span>
+<span data-ttu-id="12d7f-113">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="12d7f-113">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="12d7f-114">Altında **Visual C#** seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-114">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="12d7f-115">Proje şablonları listesinde seçin **ASP.NET Web Forms uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-115">In the list of project templates, select **ASP.NET Web Forms Application**.</span></span> <span data-ttu-id="12d7f-116">Proje için bir ad girin ve tıklayın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="12d7f-116">Enter a name for the project and click **OK**.</span></span>
 
 ![](using-web-api-with-aspnet-web-forms/_static/image1.png)
 
