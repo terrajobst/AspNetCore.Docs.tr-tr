@@ -3,6 +3,7 @@ title: ASP.NET Core ile tepki proje şablonu kullanın
 author: SteveSandersonMS
 description: Tepki ve oluşturma tepki-uygulama için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,16 +12,20 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c88320c628f219652a2cb63a16b494661c481ffb
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki proje şablonu kullanın
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > Bu belge hakkında tepki proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni tepki hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.
+
+::: moniker-end
 
 Güncelleştirilmiş tepki proje şablonu uygun bir başlama noktası için ASP.NET Core tepki kullanarak uygulamaları sağlar ve [oluşturma tepki-uygulama](https://github.com/facebookincubator/create-react-app) (CRA) kuralları zengin, istemci tarafı kullanıcı arabirimini (UI).
 

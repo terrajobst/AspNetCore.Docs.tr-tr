@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9a56ceb9eab5774906ecc89ce9da570d4f691a82
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/27/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>LINQ-SQL (C#) ile modeli sınıfları oluşturma
 ====================
@@ -149,7 +149,7 @@ Bazı veritabanı kayıtlarını ekledikten sonra `tblMovies` tablo ve uygulamay
 
 ## <a name="using-the-repository-pattern"></a>Depo düzeni kullanma
 
-Önceki bölümde SQL sınıflara doğrudan bir denetleyici eylemi içinde LINQ kullanılır. Kullandık `MovieDataContex` t sınıfı `Index()` denetleyici eylemi. Basit bir uygulama durumunda bunu ile yanlış bir şey yoktur. Ancak, daha karmaşık bir uygulama oluşturmak ihtiyacınız olduğunda LINQ-SQL ile doğrudan çalışmak denetleyicisi sınıfında sorunları oluşturur.
+Önceki bölümde SQL sınıflara doğrudan bir denetleyici eylemi içinde LINQ kullanılır. Kullandık `MovieDataContext` doğrudan sınıf `Index()` denetleyici eylemi. Basit bir uygulama durumunda bunu ile yanlış bir şey yoktur. Ancak, daha karmaşık bir uygulama oluşturmak ihtiyacınız olduğunda LINQ-SQL ile doğrudan çalışmak denetleyicisi sınıfında sorunları oluşturur.
 
 LINQ-SQL içinde denetleyici sınıfını kullanarak veri erişim teknolojileri gelecekte geçiş yapmak zorlaştırır. Örneğin, veri erişim teknoloji Microsoft Entity Framework kullanarak Microsoft LINQ-SQL kullanarak geçiş karar verebilirsiniz. Bu durumda, veritabanı, uygulamanızın içinde erişen her bir denetleyicisi yeniden gerekir.
 

@@ -9,24 +9,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: c462f38ba345a9eaf648967524cadd1ba45aee19
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>ASP.NET çekirdek geçirmek 1.x 2.0
 
 Tarafından [Scott Addie](https://github.com/scottaddie)
 
-Bu makalede, sizi, ASP.NET Core 2.0 için mevcut bir ASP.NET Core 1.x projesini güncelleştirme ile gösterilecektir. ASP.NET Core 2.0 uygulamanıza geçirme sağlar yararlanmak [birçok yeni özellik ve performans iyileştirmeleri](xref:aspnetcore-2.0). 
+Bu makalede, sizi, ASP.NET Core 2.0 için mevcut bir ASP.NET Core 1.x projesini güncelleştirme ile yol. ASP.NET Core 2.0 uygulamanıza geçirme sağlar yararlanmak [birçok yeni özellik ve performans iyileştirmeleri](xref:aspnetcore-2.0). 
 
 Mevcut ASP.NET Core 1.x uygulamaları sürüme özgü proje şablonları dışına temel alır. Bu nedenle ASP.NET Core framework geliştikçe proje şablonları ve içerdikleri Başlatıcı kodu yapın. ASP.NET Core framework güncelleştirmeye ek olarak, uygulamanız için kod güncelleştirmeniz gerekir.
 
 <a name="prerequisites"></a>
 
 ## <a name="prerequisites"></a>Önkoşullar
-Lütfen bakın [ASP.NET Core ile çalışmaya başlama](xref:getting-started).
+Bkz: [ASP.NET Core ile çalışmaya başlama](xref:getting-started).
 
 <a name="tfm"></a>
 

@@ -4,16 +4,17 @@ author: rick-anderson
 description: Veri koruma ASP.NET Core yapılandırmayı öğrenin.
 manager: wpickett
 ms.author: riande
+ms.custom: mvc
 ms.date: 07/17/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 803b81f5f69496900791ca1d1976f70f8c266f29
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
@@ -30,6 +31,33 @@ Bu senaryolar için veri koruması sistemi zengin yapılandırma API'si sunar.
 > Benzer şekilde yapılandırma dosyalarını, veri koruma anahtarı halkası uygun izinleri kullanarak korunmalıdır. REST anahtarlarını şifrelemek seçebilirsiniz, ancak bu yeni anahtarlar oluşturma saldırganlar engellemez. Sonuç olarak, uygulamanızın güvenliğini etkilenmez. Veri koruma ile yapılandırılmış depolama konumu uygulamanın kendi, benzer şekilde yapılandırma dosyalarını koruyun sınırlı kendi erişimine sahip olmalıdır. Örneğin, disk üzerinde anahtar halkası depolamayı seçerseniz, dosya sistemi izinlerini kullanın. Yalnızca altında emin olun, web uygulamanızın çalıştırdığı okuma, yazma ve bu dizine erişiminiz oluşturun. Azure Table Storage kullanıyorsanız, yalnızca web uygulaması okuma, yazma ya da yeni girişleri oluşturmak tablo deposu, vb. özelliği olması gerekir.
 >
 > Genişletme yöntemi [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndüren bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` genişletme yöntemleri, veri korumayı yapılandırmak için seçenekleri zincir olduğunu gösterir.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="protectkeyswithazurekeyvault"></a>ProtectKeysWithAzureKeyVault
+
+İçindeki anahtarları depolamak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), sistemiyle yapılandırma [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) içinde `Startup` sınıfı:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToAzureBlobStorage(new Uri("<blobUriWithSasToken>"))
+        .ProtectKeysWithAzureKeyVault("<keyIdentifier>", "<clientId>", "<clientSecret>");
+}
+```
+
+Anahtar halkası depolama konumunu ayarlayın (örneğin, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Konumun çağırmak için ayarlanmalıdır `ProtectKeysWithAzureKeyVault` uygulayan bir [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) , devre dışı bırakır anahtar halkası depolama konumu da dahil olmak üzere otomatik veri koruma ayarları. Önceki örnekte, anahtar halkası kalıcı hale getirmek için Azure Blob Depolama kullanır. Daha fazla bilgi için bkz: [anahtar depolama sağlayıcıları: Azure ve Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Yerel olarak ile anahtar halkası devam edebilir [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+
+`keyIdentifier` Anahtar şifreleme için kullanılan anahtar kasası anahtar tanımlayıcısı (örneğin, `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+
+`ProtectKeysWithAzureKeyVault` aşırı:
+
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder, KeyVaultClient, dize)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_Microsoft_Azure_KeyVault_KeyVaultClient_System_String_) kullanımına izin verir bir [KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient) anahtar kasası kullanmak veri koruma sisteminde etkinleştirmek için.
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder, dize, dize, X509Certificate2)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_Security_Cryptography_X509Certificates_X509Certificate2_) kullanımına izin verir bir `ClientId` ve [X509Certificate](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) anahtar kasası kullanmak veri koruma sisteminde etkinleştirmek için.
+* [ProtectKeysWithAzureKeyVault (IDataProtectionBuilder, dize, dize, dize)](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault#Microsoft_AspNetCore_DataProtection_AzureDataProtectionBuilderExtensions_ProtectKeysWithAzureKeyVault_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_System_String_System_String_) kullanımına izin verir bir `ClientId` ve `ClientSecret` anahtar kasası kullanmak veri koruma sisteminde etkinleştirmek için.
+
+::: moniker-end
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modelinde ile çalışma
 
@@ -168,7 +168,7 @@ Bu örnek denetleyicisi "Namespace" adına sahip olduğu özniteliği yönlendir
 ASP.NET Core MVC farklı kümesinden kuralları ASP.NET Web API 2 kullanır. Özel kuralları kullanarak, bir Web API uygulaması ile tutarlı olacak şekilde bir ASP.NET Core MVC uygulamanın davranışı değiştirebilirsiniz. Microsoft gelir [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) özellikle bu amaç için.
 
 > [!NOTE]
-> Daha fazla bilgi edinmek [ASP.NET Web API geçirmek](xref:migration/webapi).
+> Daha fazla bilgi edinmek [ASP.NET Web API geçiş](xref:migration/webapi).
 
 Web API uyumluluk dolgusu kullanmak için paket projenize ekleyin ve ardından kuralları için MVC çağırarak eklemeniz gerekir `AddWebApiConventions` içinde `Startup`:
 

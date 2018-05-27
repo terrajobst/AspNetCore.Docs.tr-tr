@@ -1,6 +1,6 @@
 # <a name="custom-model-binding-demo"></a>Özel Model bağlama Tanıtımı
 
-Test `ByteArrayModelBinder` uygulamayı çalıştırarak ve Base64 ile kodlanmış bir dize olarak nakil `ImageController` uç noktası (`/api/image/`). İstek gövdesini form verileri olarak dosya ve dosya adı proparties belirtin (kullanarak [Postman](https://www.getpostman.com/) veya benzer bir aracı). Kullanabileceğiniz [Bu örnek dize](Base64String.txt). Sonuç kaydedilir *görüntüleri/wwwroot/karşıya* klasörü belirtilen dosya adı.
+Test `ByteArrayModelBinder` uygulamayı çalıştırarak ve Base64 ile kodlanmış bir dize olarak nakil `ImageController` uç noktası (`/api/image/`). Form verileri olarak istek gövdesinde dosyasını ve dosya adı özelliklerini belirtin (kullanarak [Postman](https://www.getpostman.com/) veya benzer bir aracı). Kullanabileceğiniz [Bu örnek dize](Base64String.txt). Sonuç kaydedilir *görüntüleri/wwwroot/karşıya* klasörü belirtilen dosya adı.
 
 Özel bağlama örneği test etmek için şu uç noktalar deneyin:
 

@@ -3,6 +3,7 @@ title: ASP.NET Core ile Açısal proje şablonu kullanın
 author: SteveSandersonMS
 description: Angular ve Açısal CLI için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile başlayacağınızı öğrenin.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,16 +12,20 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Açısal proje şablonu kullanın
 
+::: moniker range="= aspnetcore-2.0"
+
 > [!NOTE]
 > Bu belge hakkında Açısal proje şablonu ASP.NET Core 2. 0 ' dahil değildir. Bunu el ile güncelleştirme yapabilmeniz için daha yeni Açısal hakkında şablonudur. Şablon ASP.NET Core 2.1 içinde varsayılan olarak dahil edilir.
+
+::: moniker-end
 
 Güncelleştirilmiş Açısal proje şablonu, zengin, istemci tarafı kullanıcı arabirimini (UI) uygulamak için Angular ve Açısal CLI kullanarak uygulamaları ASP.NET Core için uygun bir başlama noktası sağlar.
 
@@ -59,7 +64,7 @@ Now listening on: http://localhost:<port>
 
 Bu URL'yi bir tarayıcıda gidin.
 
-Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: <em>NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost:&lt; otherport&gt; /</em>  . Bu iletiyi göz ardı edin&mdash;sahip <strong>değil</strong> birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
+Arka planda Açısal CLI sunucu örneği oluşturan uygulamayı başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *NG Canlı geliştirme sunucusu localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost:&lt; otherport&gt; /*  . Bu iletiyi göz ardı edin&mdash;sahip **değil** birleşik ASP.NET Core ve Açısal CLI uygulama için URL.
 
 ---
 
@@ -137,7 +142,7 @@ SSR etkinleştirmek için projenize eklemeleri sayısı yapmanız gerekir.
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-Komut dosyası çalıştırarak SSR paket oluşturmak bu kodu geliştirme modunda çalışır `build:ssr`, içinde tanımlanan *ClientApp\package.json*. Bu adlı bir Açısal uygulama derlemeler `ssr`, henüz tanımlı değil. 
+Komut dosyası çalıştırarak SSR paket oluşturmak bu kodu geliştirme modunda çalışır `build:ssr`, içinde tanımlanan *ClientApp\package.json*. Bu adlı bir Açısal uygulama derlemeler `ssr`, henüz tanımlı değil.
 
 Sonunda `apps` içinde dizi *ClientApp/.angular-cli.json*, ek bir uygulama adıyla tanımlamak `ssr`. Aşağıdaki seçenekleri kullanın:
 
@@ -149,7 +154,7 @@ Adlı yeni bir dosya ekleme *tsconfig.server.json* içinde *ClientApp/src* (varo
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
 
-Bu dosya adlı bir modül için aranacak Angular'ın Uygulama Nesne Ağacı derleyici yapılandırır `app.server.module`. Bu, yeni bir dosya oluşturarak eklersiniz *ClientApp/src/app/app.server.module.ts* (varolan yanında *app.module.ts*) aşağıdakileri içeren: 
+Bu dosya adlı bir modül için aranacak Angular'ın Uygulama Nesne Ağacı derleyici yapılandırır `app.server.module`. Bu, yeni bir dosya oluşturarak eklersiniz *ClientApp/src/app/app.server.module.ts* (varolan yanında *app.module.ts*) aşağıdakileri içeren:
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
 
@@ -159,7 +164,7 @@ Sözcüğünün yeni `ssr` girişi *.angular cli.json* adlı bir giriş noktası
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
-Bu dosyanın kodu çalıştırıldığında ne ASP.NET Core her istek için yürütür `UseSpaPrerendering` eklediğiniz ara yazılımı *başlangıç* sınıfı. Alma ile ilgilenen `params` (örneğin, istenen URL) .NET kodu ve sonuçta elde edilen HTML almak için Açısal SSR API çağrıları yapma. 
+Bu dosyanın kodu çalıştırıldığında ne ASP.NET Core her istek için yürütür `UseSpaPrerendering` eklediğiniz ara yazılımı *başlangıç* sınıfı. Alma ile ilgilenen `params` (örneğin, istenen URL) .NET kodu ve sonuçta elde edilen HTML almak için Açısal SSR API çağrıları yapma.
 
 Kesinlikle konuşulur, bu SSR geliştirme modunda etkinleştirmek yeterli olur. Böylece yayımlandığında, uygulamanızın düzgün çalıştığını bir son değişiklik yapmak için gereklidir. Uygulamanızın ana içinde *.csproj* dosya, ayarlamak `BuildServerSideRenderer` özellik değerine `true`:
 

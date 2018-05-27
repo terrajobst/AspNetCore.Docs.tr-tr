@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreleri
 
@@ -66,7 +66,7 @@ Filtreler farklı arabirimi tanımları aracılığıyla zaman uyumlu ve uyumsuz
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet1)]
 
-Zaman uyumsuz filtreleri üzerinde tek bir tanımlamak*aşama*ExecutionAsync yöntemi. Bu yöntem alır bir *FilterType*filtre ardışık düzen aşaması yürüten ExecutionDelegate temsilci. Örneğin, `ActionExecutionDelegate` ve eylem yöntemi yürütebilir çağrıları kod önce ve sonra onu çağırabilir.
+Zaman uyumsuz filtreleri üzerinde tek bir tanımlamak*aşama*ExecutionAsync yöntemi. Bu yöntem alır bir *FilterType*filtre ardışık düzen aşaması yürüten ExecutionDelegate temsilci. Örneğin, `ActionExecutionDelegate` çağrıları eylem yönteminin veya bir sonraki eylem filtresi ve yürütebilir kodu önce ve sonra onu çağırabilir.
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
@@ -171,7 +171,7 @@ Yukarıdaki örnek ancak kümesi gösterilen 3 eylem filtrelerini aynı varsa `O
 | 5 | Denetleyici | 1.  | `OnActionExecuted` |
 | 6 | Yöntem | 0  | `OnActionExecuted` |
 
-`Order` Filtreleri çalıştırılacağı sipariş belirlerken özelliği toplayın kapsamı. Filtreler önce sıraya göre sıralanır ve ardından kapsamı TIES ayırmak için kullanılır. Tüm yerleşik filtreleri uygulamak `IOrderedFilter` ve varsayılan `Order` 0 değeri. FIR yerleşik filtreleri, kapsamı belirler sipariş ayarladığınız sürece `Order` için sıfır olmayan bir değer.
+`Order` Filtreleri çalıştırılacağı sipariş belirlerken özelliği toplayın kapsamı. Filtreler önce sıraya göre sıralanır ve ardından kapsamı TIES ayırmak için kullanılır. Tüm yerleşik filtreleri uygulamak `IOrderedFilter` ve varsayılan `Order` 0 değeri. Ayarladığınız sürece yerleşik filtreler için kapsam sırasını belirler. `Order` için sıfır olmayan bir değer.
 
 ## <a name="cancellation-and-short-circuiting"></a>İptal etme ve kestirmeler
 

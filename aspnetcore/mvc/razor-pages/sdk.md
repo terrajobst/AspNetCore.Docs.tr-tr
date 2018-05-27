@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: cf0e1873c7ce500ce3b8ad2b3367555bdc41a576
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
@@ -63,7 +63,7 @@ Aşağıdaki özellikleri ve öğeleri ve Razor SDK çıkış girişleri yapıla
 | Öğeler                                         | Açıklama                                                                   |
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Madde öğeleri (*.cshtml* dosyaları) girişleri kod oluşturma hedefleri olan. |
-| RazorCompile                                  | Razor derleme hedefleri girdiler öğesi öğeleri (.cs dosyaları). Razor derlemeye derlenmesi için ek dosyalar belirtmek için bu ItemGroup kullanın. |
+| RazorCompile                                  | Razor derleme hedefleri girdiler öğesi öğeleri (.cs dosyaları). Razor derlemeye derlenecek ek dosyaları belirtmek için bu ItemGroup kullanın. |
 | RazorTargetAssemblyAttribute                  | Kod için kullanılan öğesi öğeleri Razor derleme için öznitelikler oluşturun. Örneğin:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Oluşturulan Razor derleme katıştırılmış kaynakları olarak eklenen öğesi öğeleri |
 

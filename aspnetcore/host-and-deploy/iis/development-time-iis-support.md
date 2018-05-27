@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 0bf4585d44e61c5e7e5b89ce9d8dfdfa10d5460e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği
 
@@ -24,7 +24,10 @@ Bu makalede [Visual Studio](https://www.visualstudio.com/vs/) hata ayıklama IIS
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE[](~/includes/net-core-prereqs-windows.md)]
+* [Windows için Visual Studio](https://www.microsoft.com/net/download/windows)
+* **ASP.NET ve web geliştirme** iş yükü
+* **.NET core platformlar arası geliştirme** iş yükü
+* X.509 güvenlik sertifikası
 
 ## <a name="enable-iis"></a>IIS etkinleştir
 
