@@ -8,6 +8,6 @@ Razor kullanarak bir görünüm şablon dosyası oluşturun. Razor tabanlı gör
 
 Şu anda `Index` yöntemi controller sınıfında sabit kodlanmış olduğunu belirten bir ileti ile bir dize döndürür. İçinde `HelloWorldController` sınıfı, yerine `Index` aşağıdaki kod ile yöntemi:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
 Önceki kod döndüren bir `View` nesnesi. Tarayıcıya bir HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerine (eylem yöntemleri olarak da bilinir) gibi `Index` yukarıdaki genellikle döndürme bir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (veya türetilmiş bir sınıf `ActionResult`), dize gibi bir tür değil.

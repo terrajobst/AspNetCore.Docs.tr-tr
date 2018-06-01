@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: 3adfd1703dbf6446356886a662168bf1dbf65d56
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: 92a7000f4f8e4c2097065cb530fe106ef0e98545
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688633"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core AB genel veri koruma düzenleme (GDPR) desteği
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core API ve şablonları bazı karşılamak amacıyla sağlar [UE genel veri koruma düzenleme (GDPR)](https://www.eugdpr.org/) gereksinimleri:
+ASP.NET Core API ve şablonları bazı karşılamak amacıyla sağlar [AB genel veri koruma düzenleme (GDPR)](https://www.eugdpr.org/) gereksinimleri:
 
 * Proje şablonları uzantı noktaları ve gizlilik ve tanımlama bilgisi kullanım ilkesi ile değiştirebilirsiniz tamamlanmamış biçimlendirme içerir.
 * Bir tanımlama bilgisi onayı özelliği onay için sormak (ve izlemek), kullanıcıların kişisel bilgilerini depolamak için sağlar. Bir kullanıcı için veri toplama seçtiği değil ve uygulama ile ayarlanırsa [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded?view=aspnetcore-2.1#Microsoft_AspNetCore_Builder_CookiePolicyOptions_CheckConsentNeeded) için `true`, gerekli olmayan tanımlama bilgilerini tarayıcıya gönderilmeyecek.
@@ -28,9 +29,9 @@ ASP.NET Core API ve şablonları bazı karşılamak amacıyla sağlar [UE genel 
 * [TempData ve oturum tanımlama bilgileri](#tempdata) izleme devre dışı bırakıldığında işlevsel değildir.
 * [Kimlik](#pd) sayfası, indirin ve kullanıcı verilerini silmek için bir bağlantı sağlar.
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr) GDPR uzantı noktaları ve ASP.NET Core 2.1 şablonları eklenen API'leri çoğunu test sağlar. Bkz: [Benioku](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr) yönergeleri sınama dosyası.
+[Örnek uygulaması](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) GDPR uzantı noktaları ve ASP.NET Core 2.1 şablonları eklenen API'leri çoğunu test sağlar. Bkz: [Benioku](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) yönergeleri sınama dosyası.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Oluşturulan şablon kodunun ASP.NET Core GDPR desteği
 
@@ -38,7 +39,7 @@ Razor sayfalarının ve MVC proje şablonları ile oluşturulan projeleri aşağ
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-2.0) ve [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_CookiePolicyAppBuilderExtensions_UseCookiePolicy_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ayarlanır `Startup`.
 * *_CookieConsentPartial.cshtml* [kısmi Görünüm](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* *Pages/Privacy.cshtml* veya *Home/rivacy.cshtml* görünümü, bir sayfa, sitenin gizlilik ilkesi ayrıntı sağlar. *_CookieConsentPartial.cshtml* dosyası gizlilik sayfasına bir bağlantı oluşturur.
+* *Pages/Privacy.cshtml* veya *Home/Privacy.cshtml* görünümü, bir sayfa, sitenin gizlilik ilkesi ayrıntı sağlar. *_CookieConsentPartial.cshtml* dosyası gizlilik sayfasına bir bağlantı oluşturur.
 * Bireysel kullanıcı hesapları ile oluşturulan uygulamalar için Yönet sayfasını indirin ve silmek için bağlantılar sağlar. [kişisel kullanıcı verilerini](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions ve UseCookiePolicy

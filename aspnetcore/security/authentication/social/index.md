@@ -9,15 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: dc6ec61519c200901cc8af03853e7381c1d4cad0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688963"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
-
-<a name="security-authentication-social-logins"></a>
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -78,13 +77,15 @@ Uygulamanızı ilgili sağlayıcılarını kullanacak şekilde yapılandırmak i
 * [Microsoft](xref:security/authentication/microsoft-logins) yönergeleri
 * [Diğer sağlayıcı](xref:security/authentication/otherlogins) yönergeleri
 
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
+
 ## <a name="optionally-set-password"></a>İsteğe bağlı olarak parola ayarlama
 
 Bir dış oturum açma sağlayıcısıyla kaydederken uygulamayla kayıtlı bir parola yok. Bu, oluşturma ve site için bir parola anımsama azaltır, ancak aynı zamanda, dış oturum açma sağlayıcısı üzerinde bağımlı kolaylaştırır. Dış oturum açma sağlayıcısı kullanılamıyorsa, web sitesine oturum açamaz olmayacaktır.
 
 Bir parola oluşturmasını ve dış sağlayıcıları ile oturum açma işlemi sırasında ayarlanan e-posta kullanarak oturum için:
 
-* Dokunun **Hello <email alias>**  gitmek için sağ üst köşedeki bağlantıda **Yönet** görünümü.
+* Dokunun **Hello &lt;e-posta diğer&gt;**  gitmek için sağ üst köşedeki bağlantıda **Yönet** görünümü.
 
 ![Web uygulaması yönet görünümü](index/_static/pass1a.png)
 

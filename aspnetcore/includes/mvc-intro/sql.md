@@ -4,7 +4,7 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 
-[!code-csharp[](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-8)]
+[!code-csharp[](~/tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet2&highlight=6-8)]
 
 ## <a name="sqlite"></a>SQLite
 
@@ -14,13 +14,13 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Çok sayıda üçüncü taraf araçları indirebilirsiniz vardır yönetmek ve bir SQLite veritabanı görüntülemek için. Aşağıdaki görüntü arasındadır [SQLite DB tarayıcı](http://sqlitebrowser.org/). Sık kullanılan bir SQLite aracı varsa, bu konuda şeyleri üzerinde bir yorum bırakın.
 
-![SQLite gösteren film db DB tarayıcısı](../../tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)
+![SQLite gösteren film db DB tarayıcısı](~/tutorials/first-mvc-app-xplat/working-with-sql/_static/dbb.png)
 
 ## <a name="seed-the-database"></a>Çekirdek veritabanı
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
 Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür.
 
@@ -36,7 +36,12 @@ if (context.Movie.Any())
 
 Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Program.cs?highlight=6,16-32)]
+::: moniker-end
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
 
@@ -44,4 +49,4 @@ if (context.Movie.Any())
    
 Uygulama hazırlığı yapmış veriler gösterir.
 
-![MVC film uygulaması açık tarayıcı film verileri gösterme](../../tutorials/first-mvc-app/working-with-sql/_static/m55.png)
+![MVC film uygulaması açık tarayıcı film verileri gösterme](~/tutorials/first-mvc-app/working-with-sql/_static/m55.png)

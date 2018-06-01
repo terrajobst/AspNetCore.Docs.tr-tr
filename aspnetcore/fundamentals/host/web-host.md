@@ -10,23 +10,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/web-host
-ms.openlocfilehash: ced2a766359894b9b83164c12a3ab69aa13c93a0
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: ce95599ec8e940635ca63c3bf9a3c28784a3f371
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687496"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web barındırma
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core uygulamaları yapılandırmak ve başlatma bir *konak*. Ana bilgisayar için uygulama başlatma ve ömrü Yönetimi sorumludur. En az bir sunucu ve bir istek işleme ardışık düzenine konak yapılandırır. Bu konu, ASP.NET çekirdek Web Host içerir ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), web uygulamaları barındırmak için yararlı olan. Kapsamı .NET genel ana bilgisayar için ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), bkz: [genel ana bilgisayar](xref:fundamentals/host/generic-host) konu.
+ASP.NET Core uygulamaları yapılandırmak ve başlatma bir *konak*. Ana bilgisayar için uygulama başlatma ve ömrü Yönetimi sorumludur. En az bir sunucu ve bir istek işleme ardışık düzenine konak yapılandırır. Bu konu, ASP.NET çekirdek Web Host içerir ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), web uygulamaları barındırmak için yararlı olan. Kapsamı .NET genel ana bilgisayar için ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), bkz: [genel ana bilgisayar](xref:fundamentals/host/generic-host) konu.
 
 ## <a name="set-up-a-host"></a>Bir ana bilgisayar kümesi
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-Bir örneği kullanılarak bir ana bilgisayar oluşturma [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Bu genellikle uygulamanın giriş noktası gerçekleştirilen `Main` yöntemi. Proje şablonları içinde `Main` bulunan *Program.cs*. Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir ana bilgisayar ayarı başlatmak için:
+Bir örneği kullanılarak bir ana bilgisayar oluşturma [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Bu genellikle uygulamanın giriş noktası gerçekleştirilen `Main` yöntemi. Proje şablonları içinde `Main` bulunan *Program.cs*. Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir ana bilgisayar ayarı başlatmak için:
 
 ```csharp
 public class Program
@@ -44,12 +45,12 @@ public class Program
 
 `CreateDefaultBuilder` Aşağıdaki görevleri gerçekleştirir:
 
-* Yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak. Kestrel varsayılan seçenekleri için bkz [Kestrel seçenekleri Kestrel web server ASP.NET Core uygulamasında bölümünü](xref:fundamentals/servers/kestrel#kestrel-options).
+* Yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve uygulamanın barındırma yapılandırma sağlayıcıları kullanarak sunucusunu yapılandırır. Kestrel varsayılan seçenekleri için bkz [Kestrel seçenekleri Kestrel web server ASP.NET Core uygulamasında bölümünü](xref:fundamentals/servers/kestrel#kestrel-options).
 * İçerik kök tarafından döndürülen yola ayarlar [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
-* Gelen isteğe bağlı yapılandırma yükler:
+* İsteğe bağlı yükleri [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) gelen:
   * *appSettings.JSON*.
   * *appSettings. {Ortam} .json*.
-  * [Kullanıcı parolaları](xref:security/app-secrets) uygulama çalıştırıldığında `Development` ortamı.
+  * [Kullanıcı parolaları](xref:security/app-secrets) uygulama çalıştırıldığında `Development` girişi derleme kullanarak ortamı.
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Yapılandırır [günlüğü](xref:fundamentals/logging/index) konsol ve hata ayıklama çıktısı için. Günlük kaydı içerir [günlüğü filtreleme](xref:fundamentals/logging/index#log-filtering) günlüğe kaydetme yapılandırma bölümünde belirtilen kuralları bir *appsettings.json* veya *appsettings. { Ortam} .json* dosya.

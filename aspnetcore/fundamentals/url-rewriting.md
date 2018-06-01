@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 336a097c2186bc195854bd54211d4554a577ed14
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: a021c1e133bac6676859f5bf8eb01f3a7a8c63ed
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34689054"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -22,15 +23,16 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Mikael Mengistu](http
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 URL yeniden yazma işlemi bir veya daha fazla önceden tanımlanmış kurallar URL'leri dayalı isteği değiştirme işlemidir. URL yeniden yazma işlemi bir Özet kaynak konumları ve adresleri arasında adreslerini ve konumları sıkı şekilde bağlı olmayan şekilde oluşturur. URL yeniden yazma işlemi değerli olduğu birkaç senaryo vardır:
-* Taşıma veya bu kaynaklar için kararlı bulucular korurken sunucu kaynaklarını geçici veya kalıcı olarak değiştirme
-* İstek farklı uygulamalar arasında veya bir uygulamanın alanları genelinde işleme bölme
-* Kaldırma, ekleme ya da URL kesimleri gelen istekleri üzerinde yeniden düzenleme
-* Ortak URL'ler arama motoru iyileştirme (SEO) için en iyi duruma getirme
-* Bir bağlantıyı izleyerek bulacaksınız içerik tahmin kişilerin yardımcı olmak üzere ortak kolay URL'leri kullanımını erişimine izin verme
-* Uç noktalarını güvenli hale getirmek için güvenli olmayan istekleri yönlendirme
-* Görüntü hotlinking önleme
 
-Özel kural mantığı kullanarak birkaç yoldan URL değiştirme ve regex, Apache mod_rewrite modülü kuralları, IIS yeniden yazma modülü kuralları da dahil olmak üzere için kurallar tanımlayabilirsiniz. Bu belge, ASP.NET Core uygulamaları URL yeniden yazma işlemi Ara kullanma hakkında yönergeler içeren URL yeniden yazma işlemi sunar.
+* Taşıma veya bu kaynaklar için kararlı bulucular korurken sunucu kaynaklarını geçici veya kalıcı olarak değiştirme.
+* İstek farklı uygulamalar arasında veya bir uygulamanın alanları genelinde işleme bölme.
+* Kaldırma, ekleme veya URL kesimleri gelen istekleri üzerinde yeniden düzenleniyor.
+* Ortak URL'ler arama motoru iyileştirme (SEO) için en iyi duruma getirme.
+* Bir bağlantıyı izleyerek bulacaksınız içerik tahmin kişilerin yardımcı olmak üzere ortak kolay URL'leri kullanımını erişimine izin verme.
+* Uç noktalarını güvenli hale getirmek için güvenli olmayan istekleri yönlendirme.
+* Görüntü hotlinking engelliyor.
+
+Regex, Apache mod_rewrite modülü kuralları, IIS yeniden yazma modülü kuralları da dahil olmak üzere birkaç yoldan URL değiştirme ve özel kural mantığı kullanarak için kurallar tanımlayabilirsiniz. Bu belge, ASP.NET Core uygulamaları URL yeniden yazma işlemi Ara kullanma hakkında yönergeler içeren URL yeniden yazma işlemi sunar.
 
 > [!NOTE]
 > URL yeniden yazma işlemi bir uygulama performansını azaltabilir. Uygun yerlerde sayısı ve karmaşıklığı kuralları sınırlamanız gerekir.
@@ -127,8 +129,8 @@ Parantez içinde yer alan ifade parçası olarak adlandırılan bir *yakalama gr
 
 Dolar işareti ile dizesine eklenen değiştirme dizesini yakalanan gruplar (`$`) yakalama sıra numarası tarafından izlenen. İlk yakalama grup değeri ile elde edilen `$1`, ikinci ile `$2`, ve, regex yakalama grupları için sırayla devam eder. Yoktur tek yakalanan grubu içinde yeniden yönlendirme kuralı regex örnek uygulamasında olduğu değiştirme dizesi içinde yalnızca bir eklenen Grup şekilde `$1`. Kural uygulandığında, URL hale `/redirected/1234/5678`.
 
-<a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Güvenli bir uç noktası için URL yeniden yönlendirme
+
 Kullanım `AddRedirectToHttps` aynı ana bilgisayar ve HTTPS kullanarak yolu HTTP isteklerini yeniden yönlendirmek için (`https://`). Durum kodu sağlanan değil, ara yazılım 302 (bulundu) varsayılan olarak. Bağlantı noktası değil sağlandıysa ara yazılım için varsayılan olarak `null`, protokol başka bir deyişle, değişikliklerini `https://` ve istemci kaynak bağlantı noktası 443 üzerinden erişir. Örneğin, durum kodu 301 (taşınmış kalıcı olarak) ve bağlantı noktası için 5001 değiştirmek gösterilmektedir.
 
 ```csharp
@@ -153,13 +155,16 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Örnek uygulamayı nasıl kullanılacağını gösteren özellikli `AddRedirectToHttps` veya `AddRedirectToHttpsPermanent`. Add genişletme yöntemi `RewriteOptions`. Tüm URL'deki uygulamaya güvenli olmayan bir isteği oluşturun. Tarayıcı güvenlik otomatik olarak imzalanan sertifika güvenilmeyen uyarısı yok sayın.
+> [!NOTE]
+> Ek yeniden yönlendirme kuralları gereksinimi olmadan 443 numaralı bağlantı noktasında HTTPS yönlendirirken HTTPS yeniden yönlendirmesi Ara kullanmanızı öneririz. Daha fazla bilgi için bkz: [zorunlu HTTPS](xref:security/enforcing-ssl#require-https) konu.
 
-Özgün istek kullanarak `AddRedirectToHttps(301, 5001)`: `/secure`
+Örnek uygulamayı nasıl kullanılacağını gösteren özellikli `AddRedirectToHttps` veya `AddRedirectToHttpsPermanent`. Add genişletme yöntemi `RewriteOptions`. Tüm URL'deki uygulamaya güvenli olmayan bir isteği oluşturun. Tarayıcı güvenlik otomatik olarak imzalanan sertifika güvenilmeyen uyarısı kapatmak veya sertifika güven için bir özel durum oluşturun.
+
+Özgün istek kullanarak `AddRedirectToHttps(301, 5001)`: `http://localhost:5000/secure`
 
 ![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_to_https.png)
 
-Özgün istek kullanarak `AddRedirectToHttpsPermanent`: `/secure`
+Özgün istek kullanarak `AddRedirectToHttpsPermanent`: `http://localhost:5000/secure`
 
 ![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
@@ -254,6 +259,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ##### <a name="supported-server-variables"></a>Desteklenen sunucu değişkenleri
 
 Ara yazılım aşağıdaki Apache mod_rewrite sunucu değişkenlerini destekler:
+
 * CONN_REMOTE_ADDR
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -325,6 +331,7 @@ Uygulamanızı istenmeyen şekilde etkileyebilecek yapılandırılmış sunucu d
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Yayımlanan ara yazılımı ile ASP.NET Core 2.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
+
 * Giden kuralları
 * Özel sunucu değişkenleri
 * Joker karakterler
@@ -333,6 +340,7 @@ Yayımlanan ara yazılımı ile ASP.NET Core 2.x aşağıdaki IIS URL yeniden ya
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Yayımlanan ara yazılımı ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
+
 * Genel kurallar
 * Giden kuralları
 * MAPS yeniden yazma
@@ -347,6 +355,7 @@ Yayımlanan ara yazılımı ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden ya
 #### <a name="supported-server-variables"></a>Desteklenen sunucu değişkenleri
 
 Ara yazılım aşağıdaki IIS URL yeniden yazma modülünü sunucu değişkenleri destekler:
+
 * CONTENT_LENGTH İS SIFIRDAN BÜYÜK
 * CONTENT_TYPE
 * HTTP_ACCEPT

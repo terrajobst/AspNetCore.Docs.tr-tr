@@ -22,13 +22,13 @@ Not: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için 
 ASP.NET iskele kurucu daha önce yüklemediyseniz şimdi yükle:
 
 ```cli
-dotnet tool install -g dotnet-aspnet-codegenerator --version 2.1.0-rc1-final
+dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Paket için bir başvuru ekleyin [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) projeye (\*.csproj) dosyası. Proje dizininde aşağıdaki komutu çalıştırın:
 
 ```cli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 ```
 

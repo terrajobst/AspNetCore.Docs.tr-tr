@@ -1,12 +1,23 @@
+::: moniker range=">= aspnetcore-2.1"
+Bir kırmızı dalgalı satıra sağ tıklayın > **hızlı Eylemler ve yapan yeniden düzenlemeler** üzerinde `[Column]` özniteliği çetele ve seçin `using System.ComponentModel.DataAnnotations.Schema;`
+
+`[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklamasını, Entity Framework Çekirdek doğru eşleyebilir gereklidir `Price` veritabanındaki para birimi. Daha fazla bilgi için bkz: [veri türleri](/ef/core/modeling/relational/data-types).
+
+Tamamlanan modeli:
+
+[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateFixed.cs?name=snippet_1)]
+
+::: moniker-end
+
 Şu konulara değineceğiz [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntülemek](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) özniteliği ne bir alanın adını (Bu durumda "ReleaseDate" yerine "yayın tarihi") için görüntülenecek belirtir. [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgisi görüntülenmiyor şekilde (tarih), veri türünü belirtir.
 
 Sayfa/filmlere göz atın ve üzerine gelerek bir **Düzenle** hedef URL görmek için bağlantı.
 
-![Tarayıcı penceresini düzenleme bağlantısını ve bir bağlantı üzerinden fareyle URL'sini http://localhost:1234/Movies/Edit/5 gösterilir](../../tutorials/razor-pages/da1/edit7.png)
+![Tarayıcı penceresini düzenleme bağlantısını ve bir bağlantı üzerinden fareyle URL'sini http://localhost:1234/Movies/Edit/5 gösterilir](~/tutorials/razor-pages/da1/edit7.png)
 
 **Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar tarafından üretilen [yer işareti etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) içinde *sayfaları/filmler / Index.cshtml* dosya.
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
 [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Önceki kod `AnchorTagHelper` dinamik olarak HTML oluşturan `href` öznitelik değeri Razor (rota göreli) sayfasından `asp-page`ve rota kimliği (`asp-route-id`). Bkz: [sayfaları için URL oluşturma](xref:mvc/razor-pages/index#url-generation-for-pages) daha fazla bilgi için.
 
@@ -38,11 +49,13 @@ Düzenleme, Ayrıntılar ve Razor Sayfaları Sil "{kimliği: int}" rota şablonu
 @page "{id:int?}"
 ```
 
+::: moniker range="= aspnetcore-2.0"
+
 ### <a name="update-concurrency-exception-handling"></a>Güncelleştirme eşzamanlılık özel durum işleme
 
 Güncelleştirme `OnPostAsync` yönteminde *Pages/Movies/Edit.cshtml.cs* dosya. Aşağıdaki vurgulanmış kodu değişiklikleri gösterir:
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet1&highlight=16-23)]
 
 Önceki kod, yalnızca ilk eşzamanlı istemci film siler ve ikinci eşzamanlı istemci film değişiklikler yazılarını eşzamanlılık algılar.
 
@@ -55,9 +68,21 @@ Test etmek için `catch` engelle:
 
 Üretim kodu genellikle eşzamanlılık çakışması iki algılamaz veya daha fazla istemciler eşzamanlı olarak güncelleştirilen bir kaydı. Bkz: [eşzamanlılık çakışmalarını ele](xref:data/ef-rp/concurrency) daha fazla bilgi için.
 
+::: moniker-end
+
 ### <a name="posting-and-binding-review"></a>Gönderme ve bağlama gözden geçirin
 
-İncelemek *Pages/Movies/Edit.cshtml.cs* dosyası: [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
+İncelemek *Pages/Movies/Edit.cshtml.cs* dosyası:
+
+::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
+
+::: moniker-end
 
 Ne zaman bir HTTP GET isteği yapıldığında filmler/Düzenle sayfasına (örneğin, `http://localhost:5000/Movies/Edit/2`):
 

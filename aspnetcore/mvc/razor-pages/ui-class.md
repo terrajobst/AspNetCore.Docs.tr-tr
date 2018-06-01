@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: 44091ab8ab5d69a5975e191fd00fca1d1d957238
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: b6658186adf5ccd74e1d0f0e925627f50bad250c
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687557"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi kullanarak ASP.NET Core Razor sınıf kitaplığı projesi oluşturun.
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine oluşturulabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar görünümler ve içerdiği sayfaları geçersiz kılmak ve RCL içerir. Ne zaman görünümü, kısmi görünümü veya Razor sayfasını web uygulaması ve Razor biçimlendirme RCL bulunduğunda (*.cshtml* dosyası) web uygulaması önceliklidir.
+Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri [görüntülemek bileşenleri](xref:mvc/views/view-components), ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine oluşturulabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar görünümler ve içerdiği sayfaları geçersiz kılmak ve RCL içerir. Ne zaman görünümü, kısmi görünümü veya Razor sayfasını web uygulaması ve Razor biçimlendirme RCL bulunduğunda (*.cshtml* dosyası) web uygulaması önceliklidir.
 
 Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -188,8 +189,8 @@ Uygulamayı çalıştırın.
 
 Razor sayfalarının web app ve Razor sayfalarının uygulama ve Razor sınıf kitaplığı içeren bir çözüm dosyasını oluşturun:
 
-``` CLI
-dotnet new razor -o WebApp1
+```console
+dotnet new webapp -o WebApp1
 dotnet new sln
 dotnet sln add WebApp1
 dotnet sln add RazorUIClassLib
@@ -198,12 +199,12 @@ dotnet add WebApp1 reference RazorUIClassLib
 
 Derleme ve web uygulaması çalıştırın:
 
-``` CLI
+```console
 cd WebApp1
 dotnet run
 ```
 
-------
+---
 
 <a name="test"></a>
 

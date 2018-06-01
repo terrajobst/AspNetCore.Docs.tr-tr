@@ -1,14 +1,14 @@
 Değiştir *Views/HelloWorld/Index.cshtml* aşağıdaki Razor görünüm dosyası:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Gidin `http://localhost:xxxx/HelloWorld`. `Index` Yönteminde `HelloWorldController` çok yapmak olmadı; deyim çalışan `return View();`, hangi belirtilen tarayıcı yanıta işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Görünüm şablonu dosyasının adı açıkça belirtmediğiniz çünkü MVC kullanarak varsayılan *Index.cshtml* görünüm dosyasında */görünümler/HelloWorld* klasör. Aşağıdaki görüntü dizesi "bizim Görünüm şablonundan! Hello ifadesini" gösterir sabit kodlanmış görünümünde.
 
-![Bir tarayıcı penceresi](../../tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![Bir tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
 Tarayıcı pencerenizi (örneğin bir mobil cihazda) küçükse, geçiş (tap) gerekebilecek [önyükleme gezinti düğmesi](http://getbootstrap.com/components/#navbar) görmek için sağ üst **giriş**, **hakkında**, ve **kişi** bağlantılar.
 
-![Tarayıcı penceresini önyükleme gezinti düğmesi vurgulama](../../tutorials/first-mvc-app/adding-view/_static/1.png)
+![Tarayıcı penceresini önyükleme gezinti düğmesi vurgulama](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
 ## <a name="changing-views-and-layout-pages"></a>Görünümleri ve Düzen sayfaları değiştirme
 
@@ -20,16 +20,21 @@ Menü Bağlantılar'a dokunun (**MvcMovie**, **giriş**, **hakkında**). Her bir
 
 Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metinde değiştirmek `MvcMovie` için `Movie App` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
 
-Not: ASP.NET Core 2.0 sürümü biraz farklıdır. Bunu içermiyor `@inject ApplicationInsights` ve `@Html.Raw(JavaScriptSnippet.FullScript)`.
+::: moniker range="<= aspnetcore-2.0"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+::: moniker-end
 
 >[!WARNING]
 > Uygulanan henüz `Movies` , henüz denetleyicisi, dolayısıyla bu bağlantıyı tıklatın, 404 (bulunamadı) hata iletisi alırsınız.
 
 Yaptığınız değişiklikleri kaydedin ve dokunun **hakkında** bağlantı. Nasıl başlık tarayıcı sekmesinde şimdi görüntülendiğine dikkat edin **- film uygulaması hakkında** yerine **hakkında - Mvc film**: 
 
-![Hakkında sekmesi](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
+![Hakkında sekmesi](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
 Dokunun **kişi** başlık ve bağlantı metni ayrıca görüntüle dikkat edin ve bağlama **film uygulaması**. Düzen şablonda değişiklik kez bulduk ve sahip sitesindeki tüm sayfalara yansıtmak yeni bağlantı metnini ve yeni başlığı.
 
@@ -75,7 +80,7 @@ Değişikliklerinizi kaydetmek ve gidin `http://localhost:xxxx/HelloWorld`. Tara
 
 Ayrıca dikkat edin nasıl içerik *Index.cshtml* görünüm şablonu birleştirilmiş ile *Views/Shared/_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderildi. Düzen şablonları, uygulamanızdaki sayfaların tümünü uygulamak değişiklik gerçekten kolay hale getirir. Daha fazla bilgi edinmek için [düzeni](xref:mvc/views/layout).
 
-![Film liste görünümü](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Film liste görünümü](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
 Bizim az bitlik (Bu durumda "Hello bizim görünüm şablondan!" "veri" ileti), sabit kodlanmış, ancak. MVC uygulama bir "V" (Görünüm) vardır ve bir "C" (denetleyicisi), ancak hiçbir "M" (modeli) henüz var.
 
@@ -89,7 +94,7 @@ Denetleyicileri sırada bir yanıtı işlemek bir şablonu görüntüleme için 
 
 Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewData` sözlük. `ViewData` Dictionary'si, koyabilir istediğiniz ona; yani dinamik bir nesne `ViewData` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [MVC model bağlama sistem](xref:mvc/models/model-binding) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 `ViewData` Sözlük nesnesi görünüme iletilen verileri içerir. 
 
@@ -97,7 +102,7 @@ Adlı bir Hoş Geldiniz görünüm şablonu oluşturma *Views/HelloWorld/Welcome
 
 Bir döngüde oluşturacaksınız *Welcome.cshtml* "Hello" görüntüler şablonu görüntüleme `NumTimes`. Değiştir *Views/HelloWorld/Welcome.cshtml* aşağıdaki:
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Yaptığınız değişiklikleri kaydedin ve aşağıdaki URL'ye gidin:
 
@@ -105,7 +110,7 @@ Yaptığınız değişiklikleri kaydedin ve aşağıdaki URL'ye gidin:
 
 Veri URL'den alınır ve denetleyici kullanmaya geçirilen [MVC model bağlayıcı](xref:mvc/models/model-binding) . Denetleyici verileri paketleri bir `ViewData` sözlük ve nesne görünümüne geçirir. Görünümü sonra verileri tarayıcıya HTML olarak işler.
 
-![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick deyimi gösteren görünüm hakkında](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick deyimi gösteren görünüm hakkında](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 Yukarıdaki örnekte, kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticide daha sonra bir denetleyicisinden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli genellikle çok tercih edilen üzerinden yaklaşımdır `ViewData` sözlük yaklaşım. Bkz: [ViewModel vs ViewData vs ViewBag vs TempData vs MVC oturumunda](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) daha fazla bilgi için.
 

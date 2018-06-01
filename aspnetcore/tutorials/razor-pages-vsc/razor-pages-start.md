@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 0ad008b4f2b2e74dcf7f3d6c83798d5f03d1d315
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 3dda0f20dfbb7066dfeb3360361435ef65caaca4
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34688393"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>ASP.NET Core Razor sayfalarında, Visual Studio Code ile çalışmaya başlama
 
@@ -30,11 +31,25 @@ Bu öğretici, bir ASP.NET Core Razor sayfalarının web uygulaması oluşturman
 
 Terminal durumundan, aşağıdaki komutları çalıştırın:
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new webapp -o RazorPagesMovie
+cd RazorPagesMovie
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new razor -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
+
+::: moniker-end
 
 Yukarıdaki komutları kullanım [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/dotnet) oluşturun ve Razor sayfalarının proje çalıştırın. Bir tarayıcıda http://localhost:5000 uygulamayı görüntülemek için.
 

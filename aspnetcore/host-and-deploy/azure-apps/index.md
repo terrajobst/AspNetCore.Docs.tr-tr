@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687509"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ana bilgisayar ASP.NET Core üzerinde Azure uygulama hizmeti
 
@@ -103,25 +104,29 @@ ASP.NET Core Önizleme uygulamaları için Azure App Service ile aşağıdaki ya
 
 ### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükleyin
 
-* Azure portalından, uygulama hizmeti dikey penceresine gidin.
-* "Örneğin" arama kutusuna girin.
-* Seçin **uzantıları**.
-* "Ekle"'yi seçin.
+1. Azure portalından, uygulama hizmeti dikey penceresine gidin.
+1. Web uygulaması seçin.
+1. Arama kutusuna "ex" girin veya yönetim bölmeleri listesini aşağı kaydırın **geliştirme araçları**.
+1. Seçin **geliştirme araçları** > **uzantıları**.
+1. Seçin **eklemek**.
 
-![Önceki adımları ile azure uygulaması dikey](index/_static/x1.png)
+   ![Önceki adımları ile azure uygulaması dikey](index/_static/x1.png)
 
-* Seçin **(x 86) ASP.NET çekirdeği 2.1 çalışma zamanı** veya **(x 64) ASP.NET çekirdeği 2.1 çalışma zamanı**.
-* Seçin **Tamam**. Seçin **Tamam** yeniden.
+1. Seçin **ASP.NET Core uzantıları**.
+1. Seçin **Tamam** yasal koşulları kabul etmek için.
+1. Seçin **Tamam** uzantıyı yüklemek için.
 
-Ekleme işlemleri tamamladığınızda, en son .NET Core 2.1 önizleme yüklenir. Çalıştırarak yüklemeyi doğrulayın `dotnet --info` konsolunda. Gelen **uygulama hizmeti** dikey penceresinde:
+Ekleme işlemleri tamamladığınızda, en son .NET Core Önizleme yüklenir. Çalıştırarak yüklemeyi doğrulayın `dotnet --info` konsolunda. Gelen **uygulama hizmeti** dikey penceresinde:
 
-* "Arama kutusuna con" girin.
-* Seçin **konsol**.
-* Girin `dotnet --info` konsolunda.
+1. "Arama kutusu veya kaydırma yönetim bölmeleri listede aşağı için con" girin **geliştirme araçları**.
+1. Seçin **geliştirme araçları** > **konsol**.
+1. Girin `dotnet --info` konsolunda.
+
+Varsa sürüm `2.1.300-preview1-008174` en son Önizleme sürümlerinden biri çalıştırarak aşağıdaki çıktı elde `dotnet --info` komut isteminde:
 
 ![Önceki adımları ile azure uygulaması dikey](index/_static/cons.png)
 
-Önceki görüntünün bu yazıldığı sırada geçerli. Farklı bir sürümünü görebilirsiniz.
+Önceki görüntüde gösterildiği ASP.NET Core sürümünü `2.1.300-preview1-008174`, bir örnektir. ASP.NET Core en son Önizleme sürümü site uzantısı yapılandırılmış zaman yürüttüğünüzde görünür `dotnet --info`.
 
 `dotnet --info` Görüntüler Önizleme yüklendiği site uzantısı yolu. Uygulama site uzantısı varsayılan çalıştırılmasının gösterir *ProgramFiles* konumu. Görürseniz *ProgramFiles*, siteyi yeniden başlatmak ve Çalıştır `dotnet --info`.
 
@@ -142,7 +147,7 @@ Tüm ASP.NET Core uygulamaları için bir seçenek müstakil uygulamalardır.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Docker Web Apps ile kapsayıcıları için kullanın.
 
-[Docker hub'a](https://hub.docker.com/r/microsoft/aspnetcore/) son 2.1 önizleme Docker görüntülerini içerir. Görüntüleri temel görüntü kullanılabilir. Görüntüyü kullanmak ve Web uygulamaları kapsayıcıları için normal olarak dağıtın.
+[Docker hub'a](https://hub.docker.com/r/microsoft/aspnetcore/) içeren en son Önizleme Docker görüntüler. Görüntüleri temel görüntü kullanılabilir. Görüntüyü kullanmak ve Web uygulamaları kapsayıcıları için normal olarak dağıtın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

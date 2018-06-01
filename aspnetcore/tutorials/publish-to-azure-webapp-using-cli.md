@@ -12,11 +12,12 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a393e9dc80fdbf646c52342b13e3cda5c725aa93
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34688263"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
 
@@ -24,13 +25,13 @@ Tarafından [Cam Soper](https://twitter.com/camsoper)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Bu öğretici komut satırı araçlarını kullanarak oluşturmak ve Microsoft Azure App Service ASP.NET Core uygulama dağıtmak nasıl yapacağınızı gösterir.  Tamamlandığında, ASP.NET MVC Azure App Service Web uygulaması barındırılan çekirdek yerleşik bir web uygulamasına sahip olacaksınız.  Bu öğretici Windows komut satırı araçları kullanılarak yazılmış ancak macOS hem de Linux ortamlarında uygulanabilir.  
+Bu öğretici komut satırı araçlarını kullanarak nasıl oluşturulacağı ve ASP.NET Core uygulama Microsoft Azure App Service'e dağıtmak gösterir. Tamamlandığında, ASP.NET Core yerleşik web uygulamasını Azure App Service Web uygulaması barındırılan bir Razor sayfalarının sahip olacaksınız. Bu öğretici Windows komut satırı araçları kullanılarak yazılmış ancak macOS hem de Linux ortamlarında uygulanabilir.
 
 Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
 > * Azure CLI kullanarak Azure App Service Web sitesi oluşturma
-> * Azure App Service Git komut satırı aracını kullanarak bir ASP.NET Core uygulamayı dağıtma
+> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulama dağıtma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,41 +41,81 @@ Bu öğreticiyi tamamlamak için ihtiyacınız vardır:
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://www.git-scm.com/) komut satırı istemcisi
 
-## <a name="create-a-web-application"></a>Bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
-Web uygulaması için yeni bir dizin oluşturma, yeni bir ASP.NET Core MVC uygulaması oluşturma ve Web sitesi yerel olarak çalıştırın.
+Web uygulaması için yeni bir dizin oluşturma, yeni bir ASP.NET Core Razor sayfalarının uygulaması oluşturma ve Web sitesi yerel olarak çalıştırın.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-```cmd
-REM Create a new ASP.NET Core MVC application
+
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+REM Change to the new directory that was just created
+cd MyApplication
+
+REM Run the app
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```console
+REM Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 REM Change to the new directory that was just created
 cd MyApplication
 
-REM Run the application
+REM Run the app
 dotnet run
 ```
 
+::: moniker-end
+
 # <a name="othertabother"></a>[Diğer](#tab/other)
+
+::: moniker range=">= aspnetcore-2.1"
+
 ```bash
-# Create a new ASP.NET Core MVC application
+# Create a new ASP.NET Core Razor Pages app
+dotnet new webapp -o MyApplication
+
+# Change to the new directory that was just created
+cd MyApplication
+
+# Run the app
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+```bash
+# Create a new ASP.NET Core Razor Pages app
 dotnet new razor -o MyApplication
 
 # Change to the new directory that was just created
 cd MyApplication
 
-# Run the application
+# Run the app
 dotnet run
 ```
+
+::: moniker-end
+
 ---
 
 ![Komut satırı çıkışı](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-Göz atarak uygulamayı test http://localhost:5000.
+Göz atarak uygulamayı test etme `http://localhost:5000`.
 
 ![Yerel olarak çalışan Web sitesi](publish-to-azure-webapp-using-cli/_static/app_test.png)
-
 
 ## <a name="create-the-azure-app-service-instance"></a>Azure App Service örneği oluşturma
 
@@ -101,14 +142,15 @@ Dağıtım öncesinde aşağıdaki komutu kullanarak hesap düzeyinde dağıtım
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```
 
-Bir dağıtım URL'si Git kullanarak uygulamayı dağıtmak için gereklidir.  Bu gibi URL'sini alın.
+Bir dağıtım URL'si uygulamasını Git kullanarak dağıtmak için gereklidir. Bu gibi URL'sini alın.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git -n $webappname -g DotNetAzureTutorial --query [url] -o tsv
 ```
+
 Biten görüntülenen URL'yi Not `.git`. Sonraki adımda kullanılır.
 
-## <a name="deploy-the-application-using-git"></a>Git kullanarak uygulamayı dağıtın
+## <a name="deploy-the-app-using-git"></a>Git kullanarak uygulamayı dağıtın
 
 Yerel makinenizden Git kullanarak dağıtmak hazırsınız.
 
@@ -116,6 +158,7 @@ Yerel makinenizden Git kullanarak dağıtmak hazırsınız.
 > Satır sonları ilgili Git tüm uyarılar yoksaymak güvenlidir.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
 ```cmd
 REM Initialize the local Git repository
 git init
@@ -134,6 +177,7 @@ git push azure master
 ```
 
 # <a name="othertabother"></a>[Diğer](#tab/other)
+
 ```bash
 # Initialize the local Git repository
 git init
@@ -150,15 +194,16 @@ git remote add azure <THE GIT URL YOU NOTED EARLIER>
 # Push the local repository to the remote
 git push azure master
 ```
+
 ---
 
 Git önceki ayarlanan dağıtım kimlik bilgilerini ister. Kimlik doğrulandıktan sonra uygulama uzak konuma gönderilir, oluşturulur ve dağıtılır.
 
 ![Git dağıtımı çıktı](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 
-## <a name="test-the-application"></a>Uygulamayı test etme
+## <a name="test-the-app"></a>Uygulamayı test etme
 
-Göz atarak uygulamayı test `https://<web app name>.azurewebsites.net`.  Bulut Kabuğu (veya Azure CLI) adresini görüntülemek için aşağıdakini kullanın:
+Göz atarak uygulamayı test etme `https://<web app name>.azurewebsites.net`. Bulut Kabuğu (veya Azure CLI) adresini görüntülemek için aşağıdakini kullanın:
 
 ```azurecli-interactive
 az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o tsv
@@ -180,7 +225,7 @@ Bu öğreticide, öğrenilen nasıl yapılır:
 
 > [!div class="checklist"]
 > * Azure CLI kullanarak Azure App Service Web sitesi oluşturma
-> * Azure App Service Git komut satırı aracını kullanarak bir ASP.NET Core uygulamayı dağıtma
+> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulama dağıtma
 
 Ardından, CosmosDB kullanan mevcut bir web uygulamasına dağıtmak için komut satırını kullanmayı öğrenin.
 

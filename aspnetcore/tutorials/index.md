@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34688445"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -39,7 +40,7 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 * [Visual Studio kullanarak ASP.NET Core ve Entity Framework Core ile çalışmaya başlama](xref:data/ef-mvc/index)
 * [Etiket Yardımcıları oluşturma](xref:mvc/views/tag-helpers/authoring)
 * [Basit Görünüm bileşeni oluşturma](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
-* [DotNet Gözcü kullanarak ASP.NET Core uygulamaları geliştirme](xref:tutorials/dotnet-watch)
+* [Bir dosya İzleyicisi'ni kullanarak uygulama geliştirmeleri](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Web API'ları oluşturma
 * Bir Web API ile ASP.NET Core oluşturma
@@ -49,13 +50,13 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
   * [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
 
 * [Swagger kullanan ASP.NET Core Web API yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
-  * [NSwag ile çalışmaya başlama](xref:tutorials/get-started-with-nswag)
-  * [Swashbuckle ile çalışmaya başlama](xref:tutorials/get-started-with-swashbuckle)
+  * [NSwag Kullanmaya Başlama](xref:tutorials/get-started-with-nswag)
+  * [Swashbuckle kullanmaya başlama](xref:tutorials/get-started-with-swashbuckle)
 
 * [Web hizmetleri yerel mobil uygulama arka ucu oluşturma](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Veri erişimi ve depolama
-* [Razor sayfalarının ve EF Visual Studio kullanarak çekirdek kullanmaya başlama](xref:data/ef-rp/intro)
+* [Visual Studio kullanarak Razor Sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro)
 * [ASP.NET Core MVC ve EF Visual Studio kullanarak çekirdek kullanmaya başlama](xref:data/ef-mvc/index)
 * [ASP.NET Core MVC EF çekirdek - yeni bir veritabanı ile](/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core MVC EF çekirdek - var olan veritabanı ile](/ef/core/get-started/aspnetcore/existing-db)

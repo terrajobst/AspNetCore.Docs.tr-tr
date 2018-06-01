@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: fb448f22db5bb624083f07cefaad29d6d58331ef
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
+ms.openlocfilehash: eb14fbf42f5c18ccdc3ca42af8fd8bcfaa15c623
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688594"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
@@ -40,13 +41,13 @@ Aşağıdaki yazılımı yükleyin:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [.NET core 2.1.0 RC 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1) veya daha yenisi
+* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) sürüm 15.7 veya üstü **ASP.NET ve web geliştirme** iş yükü
 * [npm](https://www.npmjs.com/get-npm)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* [.NET core 2.1.0 RC 1 SDK](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300-rc1) veya daha yenisi
+* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# Visual Studio kodu](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [npm](https://www.npmjs.com/get-npm)
@@ -81,7 +82,7 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
 1. Gelen **tümleşik Terminal**, aşağıdaki komutu çalıştırın:
 
     ```console
-    dotnet new razor -o SignalRChat
+    dotnet new webapp -o SignalRChat
     ```
 
 2. JavaScript istemci kitaplığını kullanarak yükleme *npm*.

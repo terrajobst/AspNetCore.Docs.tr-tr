@@ -9,27 +9,40 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 802cb458cb05579b97256022b56d6f97a03d2f1a
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34687798"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Model bir ASP.NET Core MVC uygulamasına ekleme
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
-
-Not: ASP.NET Core 2.0 şablonlarını içeren *modelleri* klasör.
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
 Sağ *modelleri* klasörü > **Ekle** > **sınıfı**. Sınıf adını **film** ve aşağıdaki özellikleri ekleyin:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 `ID` Alan veritabanı için birincil anahtarı gerekli. 
 
 Herhangi bir hata yoksa doğrulamak için projeyi oluşturun. Artık elinizde bir **M**odeldeki, **M**VC uygulama.
 
 ## <a name="scaffolding-a-controller"></a>Bir denetleyici iskele kurma
+
+::: moniker range=">= aspnetcore-2.1"
+
+İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasörü **> Ekle > Yeni iskele kurulmuş öğe**.
+
+![Yukarıdaki adımı görünümü](adding-model/_static/add_controller21.png)
+
+İçinde **İskele Ekle** iletişim, dokunun **görünümleri ile MVC Entity Framework kullanarak denetleyicisi > Ekle**.
+
+![İskele iletişim ekleyin](adding-model/_static/add_scaffold21.png)
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
 İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasörü **> Ekle > denetleyicisi**.
 
@@ -43,6 +56,8 @@ Varsa **MVC bağımlılıkları ekleyin** iletişim kutusu görüntülenir:
 İçinde **İskele Ekle** iletişim, dokunun **görünümleri ile MVC Entity Framework kullanarak denetleyicisi > Ekle**.
 
 ![İskele iletişim ekleyin](adding-model/_static/add_scaffold2.png)
+
+::: moniker-end
 
 Tamamlamak **denetleyici Ekle** iletişim:
 
@@ -67,7 +82,7 @@ Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikip
 
 Uygulamayı çalıştırın ve tıklayın, **Mvc film** bağlantı, aldığınız hata aşağıdakine benzer:
 
-```
+``` error
 An unhandled exception occurred while processing the request.
 
 SqlException: Cannot open database "MvcMovieContext-<GUID removed>" requested by the login. The login failed.
@@ -93,6 +108,20 @@ Gelen **Araçları** menüsünde, select **NuGet Paket Yöneticisi > Paket Yöne
 
 PMC aşağıdaki komutları girin:
 
+::: moniker range=">= aspnetcore-2.1"
+``` PMC
+Add-Migration Initial
+Update-Database
+```
+
+Aşağıdaki hata iletisini yoksaymak, biz sonraki öğreticide düzeltin:
+
+*Microsoft.EntityFrameworkCore.Model.Validation[30000]*  
+      *Varlık türü 'Film' ondalık 'Fiyat' sütunu için hiç türü belirtildi. Bu, bunlar varsayılan duyarlık ve ölçek uymuyorsa sessizce kesilecek değerleri neden olur. Açıkça 'ForHasColumnType()' kullanarak tüm değerleri uyum SQL server sütun türü belirtin.*
+
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+
 ``` PMC
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Add-Migration Initial
@@ -100,6 +129,8 @@ Update-Database
 ```
 
 **Not:** ile bir hata alırsanız, `Install-Package` komutu, NuGet Paket Yöneticisi'ni açın ve arama `Microsoft.EntityFrameworkCore.Tools` paket. Bu, paket yüklemek veya zaten yüklü olup olmadığını denetlemek sağlar. Alternatif olarak, bkz: [CLI yaklaşım](#cli) PMC sorununuz varsa.
+
+::: moniker-end
 
 `Add-Migration` Komutu ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayalı `DbContext`(içinde *Data/MvcMovieContext.cs* dosyası). `Initial` Bağımsız değişkeni geçişler adlandırmak için kullanılır. Herhangi bir ad kullanabilirsiniz, ancak kurala göre geçiş açıklayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
 
@@ -113,23 +144,28 @@ Update-Database
   ```console
   dotnet ef migrations add Initial
   dotnet ef database update
-  ```     
-  
+  ```
+
   Uygulamayı çalıştırın ve alma hatası ise:
-  
+
   ```text
   SqlException: Cannot open database "Movie" requested by the login.
   The login failed.
   Login failed for user 'user name'.
   ```
 
-Büyük olasılıkla değil çalıştırdığınız ` dotnet ef database update`.
-  
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
+Büyük olasılıkla değil çalıştırdığınız `dotnet ef database update`.
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+::: moniker-end
+
+[!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]
 
 ![Kimliği, fiyat, yayın tarihi ve başlık için kullanılabilir özellikleri listeleyen bir Model öğesi bağlam menüsünde IntelliSense](adding-model/_static/ints.png)
 
