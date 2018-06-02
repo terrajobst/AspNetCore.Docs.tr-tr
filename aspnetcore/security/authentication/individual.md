@@ -9,17 +9,30 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/individual
-ms.openlocfilehash: 40715debb48c0a7121ce84d7843b8517b0973e74
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 699def0133f53b922477ac294f70db41998945ef
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729556"
 ---
-# <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a><span data-ttu-id="9ebbb-103">Bireysel kullanıcı hesapları ile oluşturulan ASP.NET Core projeleri göre makaleleri</span><span class="sxs-lookup"><span data-stu-id="9ebbb-103">Articles based on ASP.NET Core projects created with individual user accounts</span></span>
+# <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a><span data-ttu-id="5eda2-103">Bireysel kullanıcı hesapları ile oluşturulan ASP.NET Core projeleri göre makaleleri</span><span class="sxs-lookup"><span data-stu-id="5eda2-103">Articles based on ASP.NET Core projects created with individual user accounts</span></span>
 
-<span data-ttu-id="9ebbb-104">ASP.NET Core kimlik "Tek tek kullanıcı hesaplarını" seçeneği ile Visual Studio Proje şablonları dahil edilir.</span><span class="sxs-lookup"><span data-stu-id="9ebbb-104">ASP.NET Core Identity is included in project templates in Visual Studio with the "Individual User Accounts" option.</span></span>
+<span data-ttu-id="5eda2-104">ASP.NET Core kimlik "Tek tek kullanıcı hesaplarını" seçeneği ile Visual Studio Proje şablonları dahil edilir.</span><span class="sxs-lookup"><span data-stu-id="5eda2-104">ASP.NET Core Identity is included in project templates in Visual Studio with the "Individual User Accounts" option.</span></span>
 
-<span data-ttu-id="9ebbb-105">Kimlik doğrulama şablonları .NET Core CLI ile kullanılabilir `-au Individual`:</span><span class="sxs-lookup"><span data-stu-id="9ebbb-105">The authentication templates are available in .NET Core CLI with `-au Individual`:</span></span>
+<span data-ttu-id="5eda2-105">Kimlik doğrulama şablonları .NET Core CLI ile kullanılabilir `-au Individual`:</span><span class="sxs-lookup"><span data-stu-id="5eda2-105">The authentication templates are available in .NET Core CLI with `-au Individual`:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new mvc -au Individual
+dotnet new webapi -au Individual
+dotnet new webapp -au Individual
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 ```console
 dotnet new mvc -au Individual
@@ -27,8 +40,10 @@ dotnet new webapi -au Individual
 dotnet new razor -au Individual
 ```
 
-<span data-ttu-id="9ebbb-106">Aşağıdaki makaleler bireysel kullanıcı hesapları kullanan ASP.NET Core şablonlarında oluşturulan kodu kullanmayı göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="9ebbb-106">The following articles show how to use the code generated in ASP.NET Core templates that use individual user accounts:</span></span>
+::: moniker-end
 
-* [<span data-ttu-id="9ebbb-107">SMS ile iki öğeli kimlik doğrulama</span><span class="sxs-lookup"><span data-stu-id="9ebbb-107">Two-factor authentication with SMS</span></span>](xref:security/authentication/2fa)
-* [<span data-ttu-id="9ebbb-108">Hesap doğrulama ve ASP.NET Core parola kurtarma</span><span class="sxs-lookup"><span data-stu-id="9ebbb-108">Account confirmation and password recovery in ASP.NET Core</span></span>](xref:security/authentication/accconfirm)
-* [<span data-ttu-id="9ebbb-109">Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="9ebbb-109">Create an ASP.NET Core app with user data protected by authorization</span></span>](xref:security/authorization/secure-data)
+<span data-ttu-id="5eda2-106">Aşağıdaki makaleler bireysel kullanıcı hesapları kullanan ASP.NET Core şablonlarında oluşturulan kodu kullanmayı göstermektedir:</span><span class="sxs-lookup"><span data-stu-id="5eda2-106">The following articles show how to use the code generated in ASP.NET Core templates that use individual user accounts:</span></span>
+
+* [<span data-ttu-id="5eda2-107">SMS ile iki öğeli kimlik doğrulama</span><span class="sxs-lookup"><span data-stu-id="5eda2-107">Two-factor authentication with SMS</span></span>](xref:security/authentication/2fa)
+* [<span data-ttu-id="5eda2-108">Hesap doğrulama ve ASP.NET Core parola kurtarma</span><span class="sxs-lookup"><span data-stu-id="5eda2-108">Account confirmation and password recovery in ASP.NET Core</span></span>](xref:security/authentication/accconfirm)
+* [<span data-ttu-id="5eda2-109">Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="5eda2-109">Create an ASP.NET Core app with user data protected by authorization</span></span>](xref:security/authorization/secure-data)

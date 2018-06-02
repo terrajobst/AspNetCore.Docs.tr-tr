@@ -1,8 +1,10 @@
-Bu öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve görünümler ile öğretir. Razor sayfalarının ASP.NET Core 2.0, daha kolay ve daha üretken yapı web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli yeni bir alternatif olur. Öneririz [Razor sayfalarının](xref:data/ef-rp/intro) MVC sürüm üzerinden Öğreticisi. Razor sayfalarının öğretici:
+<span data-ttu-id="59ccf-101">Bu öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve görünümler ile öğretir.</span><span class="sxs-lookup"><span data-stu-id="59ccf-101">This tutorial teaches ASP.NET Core MVC and Entity Framework Core with controllers and views.</span></span> <span data-ttu-id="59ccf-102">Razor sayfalarının ASP.NET Core 2.0, daha kolay ve daha üretken yapı web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli yeni bir alternatif olur.</span><span class="sxs-lookup"><span data-stu-id="59ccf-102">Razor Pages is a new alternative in ASP.NET Core 2.0, a page-based programming model that makes building web UI easier and more productive.</span></span> <span data-ttu-id="59ccf-103">Öneririz [Razor sayfalarının](xref:data/ef-rp/intro) MVC sürüm üzerinden Öğreticisi.</span><span class="sxs-lookup"><span data-stu-id="59ccf-103">We recommend the [Razor Pages](xref:data/ef-rp/intro) tutorial over the MVC version.</span></span> <span data-ttu-id="59ccf-104">Razor sayfalarının öğretici:</span><span class="sxs-lookup"><span data-stu-id="59ccf-104">The Razor Pages tutorial:</span></span>
 
-* İzlemek daha kolay olur.
-* Daha fazla EF çekirdek en iyi yöntemler sağlar.
-* Daha verimli sorgularını kullanır.
-* Son API ile daha fazla geçerli değil.
-* Daha fazla özellikleri kapsar.
-* Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
+* <span data-ttu-id="59ccf-105">İzlemek daha kolay olur.</span><span class="sxs-lookup"><span data-stu-id="59ccf-105">Is easier to follow.</span></span>
+* <span data-ttu-id="59ccf-106">Daha fazla EF çekirdek en iyi yöntemler sağlar.</span><span class="sxs-lookup"><span data-stu-id="59ccf-106">Provides more EF Core best practices.</span></span>
+* <span data-ttu-id="59ccf-107">Daha verimli sorgularını kullanır.</span><span class="sxs-lookup"><span data-stu-id="59ccf-107">Uses more efficient queries.</span></span>
+* <span data-ttu-id="59ccf-108">Son API ile daha fazla geçerli değil.</span><span class="sxs-lookup"><span data-stu-id="59ccf-108">Is more current with the latest API.</span></span>
+* <span data-ttu-id="59ccf-109">Daha fazla özellikleri kapsar.</span><span class="sxs-lookup"><span data-stu-id="59ccf-109">Covers more features.</span></span>
+* <span data-ttu-id="59ccf-110">Yeni uygulama geliştirme için tercih edilen yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="59ccf-110">Is the preferred approach for new application development.</span></span>
+
+<span data-ttu-id="59ccf-111">Bu öğretici üzerinden seçerseniz [Razor sayfalarının](xref:data/ef-rp/intro) sürümü, bize bunun nedenini de bilmeniz izin [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6146).</span><span class="sxs-lookup"><span data-stu-id="59ccf-111">If you choose this tutorial over the [Razor Pages](xref:data/ef-rp/intro) version, let us know why in [this GitHub issue](https://github.com/aspnet/Docs/issues/6146).</span></span>

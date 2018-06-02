@@ -1,5 +1,9 @@
 # [Giriş](index.md)
 
+# [Yenilikler](xref:aspnetcore-2.1)
+# [Yenilikler](xref:aspnetcore-2.0)
+# [Yenilikler](xref:aspnetcore-1.1)
+
 # [Kullanmaya başlama](getting-started.md)
 ## [Web uygulaması oluşturma](xref:mvc/razor-pages/index)
 ## [Web API'si oluşturma](xref:tutorials/first-web-api)
@@ -104,6 +108,8 @@
 ### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
 ### [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
 
+## [Bir dosya İzleyicisi'ni kullanarak uygulama geliştirmeleri](xref:tutorials/dotnet-watch)
+
 ## [Mobil uygulamalar için arka uç hizmetleri oluşturma](mobile/native-mobile-backend.md)
 
 # [Temeller](fundamentals/index.md)
@@ -198,15 +204,15 @@
 ### [Özel biçimlendiriciler](xref:web-api/advanced/custom-formatters)
 ### [Yanıt verilerini biçimlendirme](xref:web-api/advanced/formatting)
 
-# [Test etme, hata ayıklama ve sorun giderme](xref:testing/index)
+# [Test etme, hata ayıklama ve sorun giderme](xref:test/index)
 ## [Birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-## [Tümleştirme testleri](xref:testing/integration-testing)
-## [Razor Sayfaları testi](xref:testing/razor-pages-testing)
+## [Tümleştirme testleri](xref:test/integration-tests)
+## [Razor sayfalarının birim testleri](xref:test/razor-pages-tests)
 ## [Test denetleyicileri](xref:mvc/controllers/testing)
 ## [Uzaktan hata ayıklama](/visualstudio/debugger/remote-debugging-azure)
 ## [Anlık görüntü hatalarını ayıklama](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Visual Studio'da anlık görüntü hatalarını ayıklama](/visualstudio/debugger/debug-live-azure-applications)
-## [Sorun giderme](xref:testing/troubleshoot)
+## [Sorun giderme](xref:test/troubleshoot)
 
 # [EF Core ve Azure ile veri erişimi](data/index.md)
 ## [Visual Studio kullanarak Razor Sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro)
@@ -361,6 +367,7 @@
 ## [Yanıt sıkıştırma ara yazılımı](xref:performance/response-compression)
 
 # [Geçiş](xref:migration/index)
+## [ASP.NET Core 2.0 için 2.1](xref:migration/20_21)
 ## [ASP.NET’ten ASP.NET Core’a](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Web API](xref:migration/webapi)
@@ -372,11 +379,6 @@
 ## [ASP.NET Core 1.x sürümünden 2.0 sürümüne](xref:migration/1x-to-2x/index)
 ### [Kimlik Doğrulama ve Kimlik](xref:migration/1x-to-2x/identity-2x)
 
-# [API Başvurusu](/dotnet/api/?view=aspnetcore-2.0)
-
-# [2.0 sürüm notları](aspnetcore-2.0.md)
-## [1.1 sürüm notları](aspnetcore-1.1.md)
-## [Önceki sürüm notları](https://github.com/aspnet/home/releases)
-## [VS 2015/project.json belgeleri](https://docs.microsoft.com/dotnet/articles/project-json)
+# [API başvurusu](/dotnet/api/?view=aspnetcore-2.0)
 
 # [Katkıda bulunun](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
