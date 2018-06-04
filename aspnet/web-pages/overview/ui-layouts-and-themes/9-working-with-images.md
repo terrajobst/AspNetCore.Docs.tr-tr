@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573351"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde görüntülerle çalışma
 ====================
@@ -62,7 +63,7 @@ Bazı durumlarda, yine de, görüntüleri dinamik olarak göstermek gerekir & #8
 
 Bu bölümdeki yordamı, burada kullanıcılar resim adları listesinden görüntü dosya adını belirtin. kolay bir şekilde bir görüntüyü gösterilmektedir. Görüntü adı açılan listeden seçerek ve sayfa gönderdiğinizde, seçili görüntü görüntülenir.
 
-![[Görüntü] ] (9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
+![[Görüntü]](9-working-with-images/_static/image1.jpg "ch9images 1.jpg")
 
 1. Webmatrix'te, yeni bir Web sitesi oluşturun.
 2. Adlı yeni bir sayfa ekleyin *DynamicImage.cshtml*.
@@ -92,7 +93,7 @@ Bu bölümdeki yordamı, burada kullanıcılar resim adları listesinden görün
 
 Önceki örnekte bir görüntüyü dinamik olarak nasıl oluşturulacağını gösterir, ancak, Web sitenizde bulunan görüntüleri ile çalıştınız. Bu yordamda daha sonra sayfada görüntülenen bir görüntüyü karşıya yükleyin, kullanıcıların izin gösterilmiştir. ASP.NET, görüntüleri kullanarak kolay bir şekilde işleyebilir `WebImage` oluşturmak, değiştirmek ve görüntüleri Kaydet olanak sağlayan yöntemleri vardır Yardımcısı. `WebImage` Yardımcısı dahil olmak üzere tüm ortak web görüntü dosya türlerini destekler, *.jpg*, *.png*, ve *.bmp*. Bu makale kullanacağınız *.jpg* görüntüler, ancak herhangi birini kullanabilirsiniz resim türleri.
 
-![[Görüntü] ] (9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
+![[Görüntü]](9-working-with-images/_static/image2.jpg "ch9images 2.jpg")
 
 1. Yeni bir sayfa ekleyin ve adını *UploadImage.cshtml*.
 2. Sayfa varolan içeriği aşağıdakiyle değiştirin: 
@@ -144,7 +145,7 @@ Web sitenizi bir kullanıcı görüntülerden kabul ederse, görüntüleme veya 
 
 Bu yordamda, küçük resim oluşturma ve ardından Web sitesi küçük resim ve özgün görüntüsüne kaydetmek için karşıya yüklenen görüntüyü yeniden boyutlandırma gösterilmiştir. Küçük Resim sayfada görüntülenir ve kullanıcılar tam boyutlu görüntüyü yönlendirmek için bir köprü kullanın.
 
-![[Görüntü] ] (9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
+![[Görüntü]](9-working-with-images/_static/image3.jpg "ch9images 3.jpg")
 
 1. Adlı yeni bir sayfa ekleyin *Thumbnail.cshtml*.
 2. İçinde *görüntüleri* klasör adında bir alt klasör oluşturun *başparmak*.
@@ -165,7 +166,7 @@ Bu yordamda, küçük resim oluşturma ve ardından Web sitesi küçük resim ve
 
 `WebImage` Yardımcı de sağlar çevirme ve döndürme görüntüler. Bu yordamda, sunucudan bir görüntüsünü Al, görüntü (dikey) ters çevir, dosyayı kaydedin ve sonra döndürülen resim sayfada görüntülemek gösterilmiştir. Bu örnekte, sunucu üzerinde zaten sahip bir dosyayı yalnızca kullanıyorsanız (*Photo2.jpg*). Gerçek bir uygulamada büyük olasılıkla önceki örneklerde olduğu gibi adları dinamik olarak almak görüntü çevir.
 
-![[Görüntü] ] (9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
+![[Görüntü]](9-working-with-images/_static/image4.jpg "ch9images 4.jpg")
 
 1. Adlı yeni bir sayfa ekleyin *FlipImage.cshtml*.
 2. Sayfa varolan içeriği aşağıdakiyle değiştirin: 
@@ -189,7 +190,7 @@ Bir resmi döndürmek için çağırmak yerine hariç aynı kodu kullan `FlipVer
 
 Web sitenize görüntüsü eklediğinizde kaydetmek veya bir sayfada görüntülemek için önce bir filigran görüntüye eklemek isteyebilirsiniz. Kişi filigranlar görüntüye telif hakkı bilgileri eklemenize veya kendi iş adı tanıtmak için genellikle kullanır.
 
-![[Görüntü] ] (9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
+![[Görüntü]](9-working-with-images/_static/image5.jpg "ch9images 5.jpg")
 
 1. Adlı yeni bir sayfa ekleyin *Watermark.cshtml*.
 2. Sayfa varolan içeriği aşağıdakiyle değiştirin: 
@@ -206,7 +207,7 @@ Web sitenize görüntüsü eklediğinizde kaydetmek veya bir sayfada görüntül
 
 Metin için Filigran kullanmak yerine, başka bir görüntü kullanabilirsiniz. Kişiler bazen görüntüleri bir şirket logosu gibi filigran olarak veya bunların bir filigran resmi yerine metin için telif hakkı bilgileri kullanın.
 
-![[Görüntü] ] (9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
+![[Görüntü]](9-working-with-images/_static/image6.jpg "ch9images 6.jpg")
 
 1. Adlı yeni bir sayfa ekleyin *ImageWatermark.cshtml*.
 2. Görüntüye ekleme *görüntüleri* logo olarak kullanın ve görüntüyü tekrar adlandırmanız klasörü *MyCompanyLogo.jpg*. Bu görüntü, 80 piksel genişliğinde ve 20 piksel yüksek ayarlandığında açıkça görebilirsiniz görüntüyü olmalıdır.
