@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: d1a345fe8c61f6e07ebbe53de6d53e18d6f4c851
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 92a5965e7a535ca729c0bec13911b6bf051a7b19
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34582875"
 ---
 # <a name="work-with-sql-server-localdb-and-aspnet-core"></a>SQL Server yerel veritabanı ve ASP.NET Core ile çalışma
 
@@ -22,9 +23,22 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Audette](ht
 
 `MovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
 
-ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosyası:
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+Kullanılan yöntemleri hakkında daha fazla bilgi için `ConfigureServices`, bkz:
+
+* [ASP.NET Core AB genel veri koruma düzenleme (GDPR) desteği](xref:security/gdpr) için `CookiePolicyOptions`.
+* [SetCompatibilityVersion](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc)
+
+::: moniker-end
+
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosya. Veritabanı için ad değeri (`Database={Database name}`) oluşturulan kodunuz için farklı olacaktır. Ad değer isteğe bağlıdır.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -55,7 +69,17 @@ Anahtar simgesine yanına Not `ID`. Varsayılan olarak, EF adlı bir özellik ol
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
 
+::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/SeedData.cs?name=snippet_1)]
+
+::: moniker-end
 
 Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür ve hiçbir filmler eklenir.
 
@@ -68,11 +92,32 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>Çekirdek Başlatıcısı ekleme
 
-Çekirdek Başlatıcı sonuna ekleyin `Main` yönteminde *Program.cs* dosyası:
+İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapın:
+
+* Bir DB bağlamı örneği bağımlılık ekleme kapsayıcıdan alın.
+* İçin bağlamı geçirme çekirdek yöntemini çağırın.
+* Seed yöntemi tamamlandığında bağlamını siler.
+
+Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
-Uygulamayı test etme
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Program.cs)]
+
+::: moniker-end
+
+Bir üretim uygulaması çağrılmayan `Database.Migrate`. Şu özel durum önlemek için önce gelen kod eklenen zaman `Update-Database` değil çalıştırın:
+
+SqlException: "RazorPagesMovieContext-21" oturum açma tarafından istenen veritabanı açılamıyor. Oturum açma başarısız.
+Oturum açma kullanıcısı 'user name' için başarısız oldu.
+
+### <a name="test-the-app"></a>Uygulamayı test etme
 
 * DB tüm kayıtları silin. Tarayıcıda veya gelen silme bağlantılarla bunu yapabilirsiniz [SSOX](xref:tutorials/razor-pages/new-field#ssox)
 * Uygulamayı başlatmak için zorlama (yöntemleri Çağır `Startup` sınıfı) seed yöntemi çalıştığında. Başlatma zorlamak için IIS Express durdurulup yeniden gerekir. Bu yaklaşımın şunlardan birini yapabilirsiniz:
