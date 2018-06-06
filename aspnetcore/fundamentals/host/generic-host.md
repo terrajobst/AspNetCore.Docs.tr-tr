@@ -11,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 15f4a689b2756d2bfb6320ab31f2e8d63af51a09
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: a851f2faf13792b2c232c124371d07710ae1fce3
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734477"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -38,7 +39,7 @@ Visual Studio kodda konsol ayarlamak için:
 
 ## <a name="introduction"></a>Giriş
 
-Genel ana bilgisayar kitaplığı kullanılabilir [Microsoft.Extensions.Hosting ad alanı](/dotnet/api/microsoft.extensions.hosting) ve tarafından sağlanan [Microsoft.Extensions.Hosting NuGet paketi](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/). `Microsoft.Extensions.Hosting` Paket dahil [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) metapackage.
+Genel ana bilgisayar kitaplığı kullanılabilir [Microsoft.Extensions.Hosting ad alanı](/dotnet/api/microsoft.extensions.hosting) ve tarafından sağlanan [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting/) paket. `Microsoft.Extensions.Hosting` Paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya sonrası).
 
 [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice) kod yürütülmesine giriş noktasıdır. Her `IHostedService` uygulama sırasına göre yürütüldüğünde [hizmet ConfigureServices kaydında](#configureservices). [StartAsync](/dotnet/api/microsoft.extensions.hosting.ihostedservice.startasync) her adlı `IHostedService` ana bilgisayar başlatıldığında ve [StopAsync](/dotnet/api/microsoft.extensions.hosting.ihostedservice.stopasync) ters kayıt sırayla konak düzgün biçimde kapatıldığında çağrılır.
 
@@ -226,10 +227,9 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        var host = new HostBuilder()
-            .Build();
+        var hostBuilder = new HostBuilder();
 
-        await host.RunConsoleAsync();
+        await hostBuilder.RunConsoleAsync();
     }
 }
 ```

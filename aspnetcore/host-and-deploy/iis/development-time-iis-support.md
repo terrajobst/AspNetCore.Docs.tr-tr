@@ -11,10 +11,11 @@ ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
 ms.openlocfilehash: aeff8cd7da0637290d4edffaf183fc3c4f56f7f4
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34555488"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS Visual Studio'da ASP.NET Core için desteği
 

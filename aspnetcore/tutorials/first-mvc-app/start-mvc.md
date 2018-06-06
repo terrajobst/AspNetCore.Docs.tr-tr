@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 1dba6eaceb6b69cf92cb8a831df9dc8d70a005d4
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 3272700c7739778a6a341ae8ee424fd69605ca53
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729723"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](~/includes/razor.md)]
 
 Bu öğretici 3 sürümü vardır:
 
@@ -29,9 +30,64 @@ Bu öğretici 3 sürümü vardır:
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
+::: moniker range=">= aspnetcore-2.1"
+
+[! [] (~/İncludes/net-core-prereqs-windows.md) içerir [](~/includes/net-core-prereqs-windows.md)]
+
+## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
+
+Visual Studio'dan seçin **Dosya > Yeni > Proje**.
+
+![Dosya > Yeni > Proje](start-mvc/_static/alt_new_project.png)
+
+Tamamlamak **yeni proje** iletişim:
+
+* Sol bölmede, dokunun **.NET Core**
+* Orta bölmede, dokunun **ASP.NET çekirdek Web uygulaması (.NET çekirdek)**
+* (Kod kopyaladığınızda, ad alanı eşleşecek şekilde "MvcMovie" proje adı önemlidir.) "MvcMovie" proje adı
+* Dokunun **Tamam**
+
+![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .net core ](start-mvc/_static/new_project2-21.png)
+
+Tamamlamak **yeni ASP.NET çekirdek Web uygulaması (.NET Core) - MvcMovie** iletişim:
+
+* Sürüm Seçici açılan kutusunda **ASP.NET Core 2.1**
+* Seçin **Application(Model-View-Controller) Web**
+* Dokunun **Tamam**.
+
+![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .net core ](start-mvc/_static/new_project22-21.png)
+
+Visual Studio, yeni oluşturduğunuz MVC proje için varsayılan bir şablon kullanılır. Bir çalışma şu anda bir proje adı girerek ve birkaç seçenek seçerek uygulamanız. Bu temel başlangıç projesi ve başlatmak için uygun bir yerdir,
+
+Dokunun **F5** uygulamayı hata ayıklama modunda çalıştırmak için veya **Ctrl-F5** olmayan hata ayıklama modunda.
+<!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
+![Uygulamayı çalıştırma](start-mvc/_static/1.png)
+
+* Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamanızı çalışır. Adres çubuğunun bildirim `localhost:port#` bir şey yok gibi ve `example.com`. Çünkü `localhost` , yerel bilgisayarınızın standart barındırıcı adıdır. Visual Studio web projesini oluşturduğunda, rastgele bir bağlantı noktası web sunucusu için kullanılır. Yukarıdaki resimde 5000 bağlantı noktası numarasıdır. Tarayıcı gösterir URL'de `localhost:5000`. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
+* Uygulama başlatma **Ctrl + F5** (olmayan hata ayıklama modu), kod değişiklikleri yapabilir, dosyayı kaydedin, tarayıcıyı yenilemek ve kod değişiklikleri görmek olanak sağlar. Çoğu geliştirici, hızlı bir şekilde uygulamayı başlatın ve değişiklikleri görmek için olmayan hata ayıklama modu kullanmayı tercih eder.
+* Hata ayıklama veya hata ayıklama olmayan modundan uygulamada başlatabilirsiniz **hata ayıklama** menü öğesi:
+
+![Menü hata ayıklama](start-mvc/_static/debug_menu.png)
+
+* Uygulama dokunarak ayıklayabilirsiniz **IIS Express** düğmesi
+
+![IIS Express](start-mvc/_static/iis_express.png)
+
+Varsayılan şablonu, çalışma sunar **hakkında giriş** ve **kişi** bağlantılar. Yukarıdaki tarayıcı resimde bu bağlantıları göstermez. Tarayıcınız boyutuna bağlı olarak, bunları göstermek için Gezinti simgesini gerekebilir.
+
+![sağ üstteki gezinti simgesi](start-mvc/_static/2.png)
+
+Hata ayıklama modunda çalışıyormuş dokunun **Shift + F5** hata ayıklamasını durdurmak için.
+
+Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz kod yazmaya başlamadan.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[! [] (~/İncludes/net-core-prereqs.md) içerir [](~/includes/net-core-prereqs.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
@@ -88,7 +144,7 @@ Tamamlamak **yeni ASP.NET çekirdek Web uygulaması (.NET Core) - MvcMovie** ile
 
 ---
 
-Visual Studio, yeni oluşturduğunuz MVC proje için varsayılan bir şablon kullanılır. Bir çalışma şu anda bir proje adı girerek ve birkaç seçenek seçerek uygulamanız. Bu bir basit başlangıç projesi ve başlatmak için uygun bir yerdir,
+Visual Studio, yeni oluşturduğunuz MVC proje için varsayılan bir şablon kullanılır. Bir çalışma şu anda bir proje adı girerek ve birkaç seçenek seçerek uygulamanız. Bu temel başlangıç projesi ve başlatmak için uygun bir yerdir,
 
 Dokunun **F5** uygulamayı hata ayıklama modunda çalıştırmak için veya **Ctrl-F5** olmayan hata ayıklama modunda.
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
@@ -112,5 +168,6 @@ Hata ayıklama modunda çalışıyormuş dokunun **Shift + F5** hata ayıklamas�
 
 Bu öğreticinin sonraki bölümünde, biz MVC hakkında bilgi edinin ve biraz kod yazmaya başlamadan.
 
+::: moniker-end
 > [!div class="step-by-step"]
 > [Next](adding-controller.md)  

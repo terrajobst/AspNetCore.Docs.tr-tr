@@ -1,6 +1,6 @@
 Oluşturulan kimlik veritabanı kod gerektirir [Entity Framework Çekirdek geçişler](/ef/core/managing-schemas/migrations/). Bir geçiş oluşturun ve veritabanı güncelleştirin. Örneğin, aşağıdaki komutları çalıştırın:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio'da **Paket Yöneticisi Konsolu**:
 
@@ -18,4 +18,4 @@ dotnet ef database update
 
 ------
 
-"CreateIdentitySchema" name parametresi için `Add-Migration` komuttur rasgele. ' "CreateIdentitySchema" geçiş açıklar.
+"CreateIdentitySchema" name parametresi için `Add-Migration` komuttur rasgele. `"CreateIdentitySchema"` geçiş açıklar.

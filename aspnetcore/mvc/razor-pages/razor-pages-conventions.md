@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-conventions
-ms.openlocfilehash: 15bb0687ffef777b82ea9374fdc3b92f3af7818b
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: eba3422fbf46ac181a783b7f8cc605c2a549b4b7
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729749"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Razor sayfalarının yol ve uygulama kuralları ASP.NET Çekirdeği
 
@@ -104,8 +105,6 @@ Bu ve diğer kuralları konunun ilerleyen bölümlerinde göstermek için örnek
 
 ::: moniker range=">= aspnetcore-2.1"
 **Tüm sayfalar için bir işleyici modeli Kuralı Ekle**
-
-
 
 Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) oluşturmak ve eklemek için bir [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) koleksiyonuna [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) sırasında sayfa işleyici modeli uygulanan örnekleri oluşturma.
 
@@ -342,6 +341,6 @@ MVC [eylem filtrelerini](xref:mvc/controllers/filters#action-filters) Razor sayf
 
 Sayfa filtresi ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) Razor sayfaya uygulanan bir filtredir. Daha fazla bilgi için bkz: [yöntemleri için Razor sayfalarının filtre](xref:mvc/razor-pages/filter).
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)

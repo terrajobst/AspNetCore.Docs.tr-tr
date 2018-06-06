@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 381c1a5cecee945559ea0dabd0aa086c8d52b43a
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729174"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Ara
 
@@ -196,14 +197,16 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar ek
 | [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri aramalar için. |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenleri önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Hatalar oluşturur bileşenlerini önce. |
-| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, ClientIP, yöntem). |
+| [İletilen üstbilgileri/HTTP geçersiz kılmaları](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, ClientIP, yöntem). |
+| [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini yeniden yönlendir HTTPS (ASP.NET Core 2.1 veya sonrası). | URL tüketen bileşenleri önce. |
+| [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Bir özel yanıt üst bilgisi (ASP.NET Core 2.1 veya sonrası) eklediği güvenlik geliştirme ara yazılımı. | Yanıtları gönderilmeden önce ve sonra değiştirme isteklerini (örneğin, iletilen üst bilgiler, URL yeniden yazma işlemi) bileşenleri. |
 | [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. | Önbelleğe alma gerektiren bileşenler önce. |
 | [Yanıt sıkıştırma](xref:performance/response-compression) | Yanıtları sıkıştırma için destek sağlar. | Sıkıştırma iste bileşenleri önce. |
-| [RequestLocalization](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirme önce hassas bileşenleri. |
+| [İstek yerelleştirme](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirme önce hassas bileşenleri. |
 | [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. | Yollar eşleştirmek için terminal. |
 | [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenler önce. |
 | [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. | Bir isteği dosyaları eşleşirse terminal. |
-| [URL yeniden yazma işlemi ](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
+| [URL yeniden yazma işlemi](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets Protokolü sağlar. | WebSocket isteklerini kabul etmek için gerekli bileşenleri önce. |
 
 <a name="middleware-writing-middleware"></a>

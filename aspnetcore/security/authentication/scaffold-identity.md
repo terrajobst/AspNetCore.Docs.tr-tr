@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 7527d3c075fd845ac804d4cfd56469a0679ed7e8
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 8933cf9c4063bd94f7f3a9ba53b5372b443eb7c8
+ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34758758"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimliği
 
@@ -26,7 +27,7 @@ Yapmak uygulamaları **değil** dahil kimlik doğrulama RCL kimlik paketini ekle
 
 Gerekli kodu çoğunu iskele kurucu oluşturur ancak işlemi tamamlamak için projenize güncelleştirmeniz gerekir. Bu belge kimliği yapı iskelesi güncelleştirmesini tamamlamak için gereken adımları açıklar.
 
-Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası sahip gerekenler kimlik yapı iskelesi güncelleştirmeyi tamamlamak genel yönergeler içerir. Bu belgeyi okuma değerinden daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.
+Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir. Bu belgeyi okuma değerinden daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.
 
 Dosya farklar gösterilmektedir ve dışında değişiklikleri geri olanak sağlayan bir kaynak denetim sistemi kullanmanızı öneririz. Değişiklikleri kimlik iskele kurucu çalıştırdıktan sonra inceleyin.
 
@@ -47,7 +48,7 @@ Aşağıdaki vurgulanan çağrıları ekleme `Startup` sınıfı:
 <!--
 set projNam=RPnoAuth
 set projType=razor
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -61,6 +62,10 @@ dotnet ef database update
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
 Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+
+<a name="efm"></a>
+
+### <a name="migrations-useauthentication-and-layout"></a>Geçişler, UseAuthentication ve düzeni
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
@@ -76,12 +81,13 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-individual-authorization"></a>Tek tek yetkilendirme ile Razor projeye iskele kimliği
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Yetkilendirme ile Razor projeye iskele kimliği
 
 <!--
-dotnet new razor -au Individual -o RPauth
+Use >=2.1: dotnet new webapp -au Individual -o RPauth
+Use = 2.0: dotnet new razor -au Individual -o RPauth
 cd RPauth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files Account.Register
 -->
@@ -94,7 +100,7 @@ Bazı kimlik seçenekleri yapılandırılan *Areas/Identity/IdentityHostingStart
 <!--
 set projNam=MvcNoAuth
 set projType=mvc
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -123,12 +129,12 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-individual-authorization"></a>Tek tek yetkilendirme ile bir MVC projeye iskele kimliği
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Yetkilendirme ile MVC projeye bir iskele kimliği
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
 cd MvcAuth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --files Account.Register
 -->

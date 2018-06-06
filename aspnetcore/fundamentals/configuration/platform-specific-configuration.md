@@ -11,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 793169b491596cd7326d747a3f19d7fdaf7e2b65
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: d913d8a773d312fc4c3191926c6eae2fcb7c6a3e
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734397"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>ASP.NET Core IHostingStartup ile dış bir derlemede uygulama geliştirmek
 
@@ -68,7 +69,7 @@ Dosyanın yalnızca bir kısmını gösterilir. Örnek derleme adı `StartupEnha
 
 ### <a name="update-the-dependencies-file"></a>Bağımlılıklar dosyasını güncelleştirme
 
-Çalışma zamanı konumun belirtildiğinden  *\*. deps.json* dosya. Etkin geliştirme `runtime` öğesi geliştirme'nın çalışma zamanı derlemesi konumunu belirtmeniz gerekir. Önek `runtime` konumla `lib/netcoreapp2.0/`:
+Çalışma zamanı konumun belirtildiğinden  *\*. deps.json* dosya. Etkin geliştirme `runtime` öğesi geliştirme'nın çalışma zamanı derlemesi konumunu belirtmeniz gerekir. Önek `runtime` konumla `lib/<TARGET_FRAMEWORK_MONIKER>/`:
 
 [!code-json[](platform-specific-configuration/snapshot_sample/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
 
@@ -83,13 +84,13 @@ Dosyanın yalnızca bir kısmını gösterilir. Örnek derleme adı `StartupEnha
 Kullanıcı başına kullanım için kullanıcı profilinin çalışma zamanı mağazada derleme koyun:
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Users\<USER>\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Genel kullanım için derleme .NET Core yüklemenin çalışma zamanı depolama alanına yerleştir:
 
 ```
-<DRIVE>\Program Files\dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Program Files\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Derleme çalışma zamanı depoya dağıtırken, simgeler dosyası dağıtılan de ancak geliştirme çalışması gerekli değildir.
@@ -98,19 +99,19 @@ Derleme çalışma zamanı depoya dağıtırken, simgeler dosyası dağıtılan 
 
 Uygulama 's  *\*. deps.json* dosya erişilebilir bir yerde olması gerekir.
 
-Kullanıcı başına kullanım için dosyasına yerleştirin `additonalDeps` kullanıcı profilinin klasöründe `.dotnet` ayarları: 
+Kullanıcı başına kullanım için dosyasına yerleştirin `additonalDeps` kullanıcı profilinin klasöründe `.dotnet` ayarları:
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
 ```
 
 Genel kullanım için dosyasına yerleştirin `additonalDeps` .NET Core yükleme klasörü:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
 ```
 
-Sürüm Not `2.0.0`, hedef uygulamanın kullandığı paylaşılan çalışma zamanı sürümü yansıtır. Paylaşılan çalışma zamanı gösterilen  *\*. runtimeconfig.json* dosya. Paylaşılan çalışma zamanı belirtildiğinden örnek uygulamasında *HostingStartupSample.runtimeconfig.json* dosya.
+Paylaşılan framework sürümü hedef uygulamanın kullandığı paylaşılan çalışma zamanı sürümü yansıtır. Paylaşılan çalışma zamanı gösterilen  *\*. runtimeconfig.json* dosya. Paylaşılan çalışma zamanı belirtildiğinden örnek uygulamasında *HostingStartupSample.runtimeconfig.json* dosya.
 
 **Ortam değişkenlerini ayarlama**
 
@@ -135,7 +136,7 @@ Dosya bir kullanıcı profilin yerleştirilir *.dotnet* kullanıcı başına kul
 .NET Core yükleme genel kullanım için dosya yerleştirilir gerekirse, dosyanın tam yolunu sağlayın:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
 ```
 
 Örnek uygulaması bu değer ayarlar:

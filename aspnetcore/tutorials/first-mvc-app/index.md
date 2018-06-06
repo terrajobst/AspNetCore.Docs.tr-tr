@@ -9,21 +9,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 46e98bc0de19ca09921c7505aa0a2f075887cd64
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 84ccaee9bc9e6af0b420de9a35caa36f49d8f6bb
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729814"
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Visual Studio ile Windows ASP.NET Core MVC ile bir web uygulaması oluşturma
 
-[!INCLUDE [consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](~/includes/razor.md)]
 
 Bu öğretici 3 sürümü vardır:
 
 * Windows: Bu serisi
 * macOS: [Mac için Visual Studio ile ASP.NET Core MVC uygulama oluşturma](xref:tutorials/first-mvc-app-mac/start-mvc)
-* macOS, Linux ve Windows: [Visual Studio Code ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-xplat/start-mvc) öğretici serisi aşağıdakileri içerir:
+* macOS, Linux ve Windows: [Visual Studio Code ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+Eğitmen serisi aşağıdakileri içerir:
 
 1. [Kullanmaya başlama](start-mvc.md)
 1. [Denetleyici ekleme](adding-controller.md)
