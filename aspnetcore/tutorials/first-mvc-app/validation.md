@@ -10,15 +10,15 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/validation
 ms.openlocfilehash: 6d92b5ae1cdc144aab2799c40004fbd660b74563
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34688328"
 ---
 [!INCLUDE [validation](~/includes/mvc-intro/validation.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="bb0c4-103">[Önceki](new-field.md)
-> [sonraki](details.md)</span><span class="sxs-lookup"><span data-stu-id="bb0c4-103">[Previous](new-field.md)
+> <span data-ttu-id="36115-103">[Önceki](new-field.md)
+> [sonraki](details.md)</span><span class="sxs-lookup"><span data-stu-id="36115-103">[Previous](new-field.md)
 [Next](details.md)</span></span>  

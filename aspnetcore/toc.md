@@ -280,6 +280,7 @@
 ## [Kimlik Doğrulaması](xref:security/authentication/index)
 ### [Kimliğe giriş](xref:security/authentication/identity)
 ### [İskele Kimliği](xref:security/authentication/scaffold-identity)
+### [Özel kullanıcı verilerini kimliğine ekleme](xref:security/authentication/add-user-data)
 ### [Topluluk OSS kimlik doğrulama seçenekleri](xref:security/authentication/community)
 ### [Kimliği Yapılandırma](xref:security/authentication/identity-configuration)
 ### [Windows Kimlik Doğrulaması Yapılandırma](xref:security/authentication/windowsauth)
