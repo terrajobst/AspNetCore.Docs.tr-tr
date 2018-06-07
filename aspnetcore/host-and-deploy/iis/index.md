@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 0cb9bc7d8bf415e5a0125c3798f2430c9e861c98
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729658"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>IIS ile Windows ana ASP.NET Çekirdeği
 
@@ -43,7 +44,7 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Yöntemi dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır `http://localhost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, yapılan çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
+ASP.NET çekirdeği modülü arka uç işlemine atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) dinamik bağlantı noktası seçer ve Dinlemenin yapılacağı Kestrel yapılandırır yöntemi `http://localhost:{dynamicPort}/`. Bu çağrı gibi diğer URL yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, yapılan çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrıldığında Kestrel dinlediği IIS olmadan uygulama çalıştırıldığında, belirtilen bağlantı noktası.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -89,7 +90,7 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig-file"></a>Web.config dosyası
 
-*Web.config* dosyası yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Oluşturma, dönüştürme ve yayımlama *web.config* .NET Core Web SDK tarafından yapılır (`Microsoft.NET.Sdk.Web`). SDK proje dosyasının üst kısmında ayarlanır:
+*Web.config* dosyası yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Oluşturma, dönüştürme ve yayımlama *web.config* dosya MSBuild hedef tarafından işlenen (`_TransformWebConfig`) proje zaman yayımlanır. Bu hedef Web SDK hedeflerin varsa (`Microsoft.NET.Sdk.Web`). SDK proje dosyasının üst kısmında ayarlanır:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -172,8 +173,9 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 1. Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET çekirdeği çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem Internet bağlantısı yoksa, edinme ve yükleme [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
 
    1. Gidin [.NET tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
-   1. En son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**.NET Core** > **çalışma zamanı** > **.NET çekirdeği çalışma zamanı x.y.z**). Önizleme yazılımıyla çalışmak düşünmüyorsanız, bir çalışma zamanı "Önizleme" sözcüğüyle veya "rc" (Sürüm Adayı), bağlantı metnini özen gösterin.
-   1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **barındırma Paket Yükleyici** indirmek için bağlantı *.NET Core barındırma paket*.
+   1. İçinde **çalışma zamanı** sütunu tablonun son Önizleme .NET çekirdeği çalışma zamanı listeden seçin (**X.Y çalışma zamanı (vX.Y.Z) yüklemeleri**). Son çalışma zamanı sahip bir **geçerli** etiketi. Önizleme yazılımıyla çalışmak düşünmüyorsanız, bir çalışma zamanı "Önizleme" sözcüğüyle veya "rc" (Sürüm Adayı), bağlantı metnini özen gösterin.
+   1. .NET çekirdeği Çalışma Zamanı Modülü indirme sayfasının altında **Windows**seçin **barındırma Paket Yükleyici** indirmek için bağlantı *.NET Core barındırma paket* yükleyici.
+   1. Yükleyici sunucusunda çalıştırın.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılması gerekir. IIS yeniden yükledikten sonra barındırma paket yükleyiciyi çalıştırın.
    
