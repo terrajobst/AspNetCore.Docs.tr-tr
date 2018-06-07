@@ -1,3 +1,6 @@
-[<span data-ttu-id="fb47a-101">Windows için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="fb47a-101">Visual Studio for Windows</span></span>](https://www.microsoft.com/net/download/windows)
-* <span data-ttu-id="fb47a-102">**ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="fb47a-102">**ASP.NET and web development** workload</span></span>
-* <span data-ttu-id="fb47a-103">**.NET core platformlar arası geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="fb47a-103">**.NET Core cross-platform development** workload</span></span>
+<span data-ttu-id="66789-101">[Windows için Visual Studio](https://www.microsoft.com/net/download/windows).</span><span class="sxs-lookup"><span data-stu-id="66789-101">[Visual Studio for Windows](https://www.microsoft.com/net/download/windows).</span></span>  
+<span data-ttu-id="66789-102">Seçin **ASP.NET ve web geliştirme** iş yükü.</span><span class="sxs-lookup"><span data-stu-id="66789-102">Select the **ASP.NET and web development** workload.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+[<span data-ttu-id="66789-103">.NET core 2.1 SDK'sı</span><span class="sxs-lookup"><span data-stu-id="66789-103">.Net Core 2.1 SDK</span></span>](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300)
+::: moniker-end
