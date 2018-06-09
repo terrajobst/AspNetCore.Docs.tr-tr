@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/project-properties
 msc.type: authoredcontent
 ms.openlocfilehash: fba3f089bf1693eec873b08b4bc50e3accba06ee
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30879887"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-project-properties"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: Proje Özellikleri
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+Tarafından [zel Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -39,7 +40,7 @@ Aşağıdaki öğreticilerde göreceğiniz gibi dağıtımı sırasında neler e
 
 ![Paketle/Yayımla Web sekmesi](project-properties/_static/image1.png)
 
-Pencere görüntülendiğinde, hesaptaki yapı yapılandırması çözüm için şu anda etkin olan ayarları göstermek için varsayılan olarak. Varsa **yapılandırma** kutusunu belirtmez **etkin (sürüm)**seçin **sürüm** sürüm yapı yapılandırma ayarlarını görüntülemek için. Yayın derlemeleri, test ve üretim ortamları için dağıtacaksınız.
+Pencere görüntülendiğinde, hesaptaki yapı yapılandırması çözüm için şu anda etkin olan ayarları göstermek için varsayılan olarak. Varsa **yapılandırma** kutusunu belirtmez **etkin (sürüm)** seçin **sürüm** sürüm yapı yapılandırma ayarlarını görüntülemek için. Yayın derlemeleri, test ve üretim ortamları için dağıtacaksınız.
 
 ![Yayın derleme yapılandırması seçme](project-properties/_static/image2.png)
 

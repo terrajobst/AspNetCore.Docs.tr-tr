@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874635"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Web API 2 OData v3 uç noktası oluşturma
 ====================
@@ -57,7 +58,7 @@ Bu öğreticide, temel CRUD işlemleri destekleyen OData uç noktası oluşturur
 
 Visual Studio'yu başlatın ve seçin **yeni proje** başlangıç sayfasından. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve Visual C# düğümünü genişletin. Altında **Visual C#**seçin **Web**. Seçin **ASP.NET Web uygulaması** şablonu.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve Visual C# düğümünü genişletin. Altında **Visual C#** seçin **Web**. Seçin **ASP.NET Web uygulaması** şablonu.
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 

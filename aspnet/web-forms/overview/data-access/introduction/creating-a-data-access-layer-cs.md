@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30891477"
 ---
 <a name="creating-a-data-access-layer-c"></a>Veri erişim katmanı (C#) oluşturma
 ====================
@@ -79,7 +80,7 @@ Veritabanına bir bağlantı oluşturma gibi temel alınan veri kaynağına özg
 
 - **GetCategories(),** tüm kategorileri hakkında bilgiler döndürecektir
 - **GetProducts()**, ürünlerin tamamı hakkında bilgi döndürecektir
-- **GetProductsByCategoryID(*categoryID*)**, which will return all products that belong to a specified category
+- **GetProductsByCategoryID (*adlı kullanıcı, Categoryıd'si*)**, belirtilen bir kategoriye ait tüm ürünleri döndürecektir
 - **GetProductByProductID(*productID*)**, which will return information about a particular product
 
 Bu yöntem çağrıldığında, veritabanına bağlanmak, uygun sorgu vermek ve sonuçlar döndürebilir. Bu sonuçları nasıl döndürürüz önemlidir. Bu yöntemleri yalnızca bir veri kümesi veya veritabanı sorgusunun doldurulmuş DataReader döndürebilir ancak kullanarak bu sonuçlar ideal olarak döndürülmelidir *türü kesin belirlenmiş nesnelerin*. Geniş yazılmış bir nesne karşıtı biri, şema çalışma zamanına kadar bilinmiyor iken kesin türü belirtilmiş bir nesne, şema aracılığı derleme zamanında tanımlanan biridir.
@@ -114,7 +115,7 @@ Ekle, veri kümesine eklemek için istendiğinde tıkladıktan sonra **uygulama\
 
 Yazılan veri kümesi veri kesin türü belirtilmiş koleksiyonu olarak hizmet verir; her biri sırayla kesin türü belirtilmiş DataRow örneklerini oluşan kesin türü belirtilmiş DataTable örnekleri, oluşur. Bu öğretici serisinde çalışmak için ihtiyacımız temel alınan veritabanı tabloların her biri için kesin türü belirtilmiş bir DataTable oluşturacağız. DataTable için oluşturmayla başlayalım **ürünleri** tablo.
 
-Kesin türü belirtilmiş DataTables kendi temel veritabanı tablodan veri erişim hakkında hiçbir bilgi içermez aklınızda bulundurun. DataTable doldurmak için verileri almak için veri erişim katmanı işlevleri bir TableAdapter sınıf kullanırız. İçin bizim **ürünleri** DataTable, TableAdapter yöntemleri içerecek **GetProducts()**, **GetProductByCategoryID (*adlı kullanıcı, Categoryıd'si*)**ve benzeri sunu katmanı çağıran. DataTable nesnesinin katmanlar arasında veri iletmek için kullanılan türü kesin belirlenmiş nesnelerin olarak hizmet verecek rolüdür.
+Kesin türü belirtilmiş DataTables kendi temel veritabanı tablodan veri erişim hakkında hiçbir bilgi içermez aklınızda bulundurun. DataTable doldurmak için verileri almak için veri erişim katmanı işlevleri bir TableAdapter sınıf kullanırız. İçin bizim **ürünleri** DataTable, TableAdapter yöntemleri içerecek **GetProducts()**, **GetProductByCategoryID (*adlı kullanıcı, Categoryıd'si*)** ve benzeri sunu katmanı çağıran. DataTable nesnesinin katmanlar arasında veri iletmek için kullanılan türü kesin belirlenmiş nesnelerin olarak hizmet verecek rolüdür.
 
 TableAdapter Yapılandırma Sihirbazı'nı çalışmak için hangi veritabanı seçmenizi isteyerek başlar. Aşağı açılan liste Server Explorer'da bu veritabanlarını gösterir. Sunucu Gezgini Northwind veritabanı eklemediyseniz, bunu yapmak için şu anda yeni bağlantı düğmeyi tıklatabilirsiniz.
 
@@ -401,7 +402,7 @@ Güncelleştirmezseniz **GetProducts()** **seçin** kullanarak **katılma** söz
 
 Aşağıdaki TableAdapters ve aşağıdaki sorguları kullanarak yöntemleri oluşturmak için birkaç dakika sürebilir. Unutmayın sorgularda **düzenleyen** her ürünün kategori ve sağlayıcı adları şablonlarınızdan alt sorgular içerir. Ayrıca, aşağıdaki, zaten eklediğiniz **düzenleyen** sınıfının **GetProducts()** ve **GetProductsByCategoryID (*adlı kullanıcı, Categoryıd'si* )** yöntemleri.
 
-- **ProductsTableAdapter**
+- **Düzenleyen**
 
   - **GetProducts**: 
 
@@ -537,7 +538,7 @@ Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) ya da kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 

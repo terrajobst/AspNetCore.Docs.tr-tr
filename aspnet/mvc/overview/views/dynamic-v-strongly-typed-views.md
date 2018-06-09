@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/dynamic-v-strongly-typed-views
-title: "Dinamik v. Görünümleri'kesin türü belirtilmiş | Microsoft Docs"
+title: Dinamik v. Görünümleri'kesin türü belirtilmiş | Microsoft Docs
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2011
@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
 ms.openlocfilehash: 8a96d43e04a0a50d5176c10c26aa49918a0e56ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26565533"
 ---
 <a name="dynamic-v-strongly-typed-views"></a>Dinamik v. Kesin türü belirtilmiş görünümleri
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 ASP.NET MVC 3'te bir görünüm için bir denetleyicisinden bilgi aktarmak için üç yolu vardır:
 

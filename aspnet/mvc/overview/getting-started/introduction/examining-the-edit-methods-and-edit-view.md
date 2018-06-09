@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a3baa8e9af572d4c21813218ba394715a6db65cb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874752"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme görünümü ve düzenleme yöntemler inceleniyor
 ====================
@@ -106,7 +107,7 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölüm atlayın ve sonraki ö
 1. Gelen **Araçları** menüsünü tıklatın **NuGetLibrary Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
-2. Sol bölmede seçin <strong>Gözat*.</strong>* (Aşağıdaki görüntü bakın.)
+2. Sol bölmede seçin <strong>Gözat *.</strong>* (Aşağıdaki görüntü bakın.)
 3. Giriş kutusuna * Globalize **.  
   
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Seçin `jQuery.Validation.Globalize`, seçin `MvcMovie` tıklatıp **yükleme**. *Scripts\jquery.globalize\globalize.js* dosyayı projenize eklenir. *Scripts\jquery.globalize\cultures\* klasörü birçok kültür JavaScript dosyaları içerir. Not: Bu paket yüklemek için beş dakika sürebilir.

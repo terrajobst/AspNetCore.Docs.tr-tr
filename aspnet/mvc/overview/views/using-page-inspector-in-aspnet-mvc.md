@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
 ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034522"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Sayfa denetçisi ASP.NET MVC uygulamasında kullanma
 ====================
@@ -102,7 +103,7 @@ Sayfa denetçisi denetleme moduna için tıklatın **incele** düğmesi. İşlen
 
 Şimdi farenizi sayfa içinde sayfa denetçisi farklı kısımlarını üzerine getirin. Yaptığınız gibi büyük bir artı işareti fare işaretçisini değiştirir ve öğesinin altında vurgulanır:
 
-![Hovering over div.content-wrapper](using-page-inspector-in-aspnet-mvc/_static/image14.png)
+![Div.Content-sarmalayıcı vurgulama](using-page-inspector-in-aspnet-mvc/_static/image14.png)
 
 Fare işaretçisini ilerlerken, Visual Studio kaynak dosyasında karşılık gelen Razor sözdizimi vurgular. HTML öğesi başka bir kaynak dosyasından geliyorsa, Visual Studio dosya otomatik olarak açılır.
 
@@ -162,7 +163,7 @@ Tıklatın **incele** sayfa denetçisi denetleme moduna yerleştirilecek.
 
 Sayfa denetçisi tarayıcı penceresinde fare "Giriş sayfası" bölümüne kadar işaretçiyi üzerine **div.content sarmalayıcı** etiketi görüntülenir.
 
-![Hovering over div.content-wrapper](using-page-inspector-in-aspnet-mvc/_static/image26.png)
+![Div.Content-sarmalayıcı vurgulama](using-page-inspector-in-aspnet-mvc/_static/image26.png)
 
 Bir kez div.content sarmalayıcı bölüm içinde tıklayın ve fare işaretçisini taşıma **stilleri** penceresi. **Syles** penceresi tüm bu öğe için CSS kuralları gösterir. Bul .featured .content sarmalayıcı sınıf seçici aşağı kaydırın. Şimdi arka plan rengi özelliği için onay kutusunu temizleyin.
 

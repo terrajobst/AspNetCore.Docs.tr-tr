@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
-title: "ASP.NET Web API 2 çıkış noktaları arası istekleri etkinleştirme | Microsoft Docs"
+title: ASP.NET Web API 2 çıkış noktaları arası istekleri etkinleştirme | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API'de çıkış noktaları arası kaynak paylaşımı (CORS) desteklemek nasıl gösterir."
+description: ASP.NET Web API'de çıkış noktaları arası kaynak paylaşımı (CORS) desteklemek nasıl gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/15/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566820"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2 çıkış noktaları arası istekleri etkinleştirme
 ====================
@@ -51,10 +52,10 @@ Bu iki URL'leri aynı kaynağa sahip:
 
 Bu URL'leri iki farklı çıkış önceki daha vardır:
 
-- `http://example.net`-Farklı bir etki alanı
-- `http://example.com:9000/foo.html`-Farklı bir bağlantı noktası
-- `https://example.com/foo.html`-Farklı düzeni
-- `http://www.example.com/foo.html`-Farklı bir alt etki alanı
+- `http://example.net` -Farklı bir etki alanı
+- `http://example.com:9000/foo.html` -Farklı bir bağlantı noktası
+- `https://example.com/foo.html` -Farklı düzeni
+- `http://www.example.com/foo.html` -Farklı bir alt etki alanı
 
 > [!NOTE]
 > Internet Explorer bağlantı noktası kaynakları karşılaştırılırken dikkate almaz.

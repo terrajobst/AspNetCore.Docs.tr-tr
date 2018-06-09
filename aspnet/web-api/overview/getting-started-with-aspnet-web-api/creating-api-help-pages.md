@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: "ASP.NET Web API Yardım sayfası oluşturma | Microsoft Docs"
+title: ASP.NET Web API Yardım sayfası oluşturma | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037909"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API Yardım sayfası oluşturma
 ====================
@@ -60,9 +61,9 @@ NuGet Paket Yöneticisi'ni kullanarak, varolan bir Web API projesine yardım say
 
 Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. İçinde [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde, aşağıdaki komutlardan birini yazın:
 
-İçin bir **C#** uygulama:`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+İçin bir **C#** uygulama: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-İçin bir **Visual Basic** uygulama:`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+İçin bir **Visual Basic** uygulama: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 İki paketler, bir C# ve Visual Basic için bir vardır. Projenizi eşleşen bir kullandığınızdan emin olun.
 

@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 127b336cb628e55bd59481ecb1c4df83960dc25b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036170"
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
 ====================
@@ -80,7 +81,7 @@ MakeCert, özel anahtarı bir parola girmenizi ister.
 
 Ardından, sertifika sunucunun "güvenilen kök sertifika yetkilileri" depolamak, aşağıdaki gibi test ekleyin:
 
-1. Open MMC.
+1. MMC'yi açın.
 2. Altında **dosya**seçin **Ekle/Kaldır ek bileşenini**.
 3. Seçin **bilgisayar hesabı**.
 4. Seçin **yerel bilgisayar** ve Sihirbazı tamamlayın.

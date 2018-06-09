@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30878184"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>ASP.NET MVC 4 Yardımcıları, formlar ve doğrulama
 
@@ -605,7 +606,7 @@ Veri ek açıklamaları model sınıfınıza ekleyerek uygulamaya doğrulama ekl
 
 Bu görevde, doğrulama iletisi uygun olduğunda veri ek açıklamaları oluşturma ve düzenleme sayfa albüm modeline görüntülemek ekleyeceksiniz.
 
-Basit bir Model sınıfı için bir veri ek açıklama ekleme yalnızca ekleyerek işlenir bir **kullanarak** bildirimi **System.ComponentModel.DataAnnotation**, sonra yerleştirerek bir **[gerekli]**uygun özellikleri özniteliği. Aşağıdaki örnek yapacağı **adı** özelliği görünümünde gerekli bir alan.
+Basit bir Model sınıfı için bir veri ek açıklama ekleme yalnızca ekleyerek işlenir bir **kullanarak** bildirimi **System.ComponentModel.DataAnnotation**, sonra yerleştirerek bir **[gerekli]** uygun özellikleri özniteliği. Aşağıdaki örnek yapacağı **adı** özelliği görünümünde gerekli bir alan.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 
@@ -743,7 +744,7 @@ Bu görevde, sınayacak **StoreManager** şablonu gerçekleştiren kullanıcı y
    > Her istemci doğrulama kuralı için örtük jQuery verilerle bir öznitelik ekler-val -*rulename*=&quot;*ileti*&quot;. Etiketlerin listesini bu Unobtrusive aşağıdadır jQuery istemci doğrulama gerçekleştirmek için html giriş alanında ekler:
    > 
    > - Veri val
-   > - Data-val-number
+   > - Veri val numarası
    > - Veri val aralığı
    > - Veri val aralığı min / val aralığı maksimum veri
    > - Veri val gerekiyor

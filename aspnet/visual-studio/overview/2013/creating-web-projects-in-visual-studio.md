@@ -1,26 +1,27 @@
 ---
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
-title: "ASP.NET Web projeleri Visual Studio 2013'te oluşturma | Microsoft Docs"
+title: ASP.NET Web projeleri Visual Studio 2013'te oluşturma | Microsoft Docs
 author: tdykstra
-description: "Bu konuda, burada güncelleştirme 3 ile Visual Studio 2013'te ASP.NET web projeleri oluşturmak için seçenekler web geliştirme c için yeni özelliklerden bazıları açıklanmaktadır..."
+description: Bu konuda, burada güncelleştirme 3 ile Visual Studio 2013'te ASP.NET web projeleri oluşturmak için seçenekler web geliştirme c için yeni özelliklerden bazıları açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038871"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Visual Studio 2013'te ASP.NET Web projeleri oluşturma
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+Tarafından [zel Dykstra](https://github.com/tdykstra)
 
 > Bu konu Visual Studio 2013 güncelleştirme 3 ile ASP.NET web projeleri oluşturmak için kullanabileceğiniz seçenekler açıklanmaktadır
 > 
@@ -243,7 +244,7 @@ Bir dikey yönelimli menüsüne genişletmek için tıklatabileceği bir simge y
 
 Uygulamanın görünüm değişikliği kolayca etkilemek için önyükleme'nın Tema oluşturma özelliğini de kullanabilirsiniz. Örneğin, temayı değiştirmek için aşağıdaki adımları yapabilirsiniz.
 
-1. Tarayıcınızda, Git [http://Bootswatch.com](http://Bootswatch.com)bir tema seçin ve ardından **karşıdan**. (Bu indirir *bootstrap.min.css* CSS kodunu incelemek isterseniz, varsayılan olarak; alma *bootstrap.css* küçültülmüş sürümü yerine.)
+1. Tarayıcınızda, Git [ http://Bootswatch.com ](http://Bootswatch.com)bir tema seçin ve ardından **karşıdan**. (Bu indirir *bootstrap.min.css* CSS kodunu incelemek isterseniz, varsayılan olarak; alma *bootstrap.css* küçültülmüş sürümü yerine.)
 2. İndirilen CSS dosyasının içeriğini kopyalayın.
 3. Visual Studio'da yeni bir oluşturma **stil sayfası** adlı dosya *önyükleme theme.css* içinde *içerik* klasörü ve Yapıştır indirilen CSS kodunu buna kopyalayın.
 4. Açık *uygulama\_Start/Bundle.config* değiştirip *bootstrap.css* için *önyükleme theme.css*.
@@ -321,7 +322,7 @@ Yeni üyelik sistemi yeni şablonlar, otomatik olarak uygulanır ve el ile .NET 
 
 Bireysel kullanıcı hesapları seçeneği hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [www.asp.net/identity](../../../identity/index.md). ASP.NET web sitesindeki belgeleri ASP.NET Identity hakkında.
+- [www.ASP.NET/identity](../../../identity/index.md). ASP.NET web sitesindeki belgeleri ASP.NET Identity hakkında.
 - [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). Ayrıca kullanıcı profili verilerini özelleştirmek nasıl gösterir.
 - [Web API - Dış kimlik doğrulama hizmeti](../../../web-api/overview/security/external-authentication-services.md)
 - [ASP.NET uygulamanızı Visual Studio 2013'te dış oturum açma ekleme](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -426,4 +427,4 @@ AD bu uygulamayı tanımlamak ya da Visual Studio oluşturmak izin vermek için 
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belge, Visual Studio 2013'te yeni bir ASP.NET web projesi oluşturmak için bazı temel Yardım sağlamıştır. Visual Studio web geliştirme için kullanma hakkında daha fazla bilgi için bkz: [https://www.asp.net/visual-studio/](../../index.md).
+Bu belge, Visual Studio 2013'te yeni bir ASP.NET web projesi oluşturmak için bazı temel Yardım sağlamıştır. Visual Studio web geliştirme için kullanma hakkında daha fazla bilgi için bkz: [ https://www.asp.net/visual-studio/ ](../../index.md).

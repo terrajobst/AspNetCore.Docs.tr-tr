@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/emberjs-template
-title: "EmberJS şablon | Microsoft Docs"
+title: EmberJS şablon | Microsoft Docs
 author: xqiu
-description: "EmberJS şablonu"
+description: EmberJS şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1fb7633aee288be648d4f9681b43c8911b7dbab9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566346"
 ---
 <a name="emberjs-template"></a>EmberJS şablonu
 ====================
@@ -43,7 +44,7 @@ Sunucu tarafında EmberJS şablonu neredeyse aynıdır [Çakıştırmaları SPA 
 
 İndirin ve şablonu yukarıdaki karşıdan yükleme düğmesini tıklatarak yükleyin. Visual Studio yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
 
 ![](emberjs-template/_static/image2.png)
 
@@ -134,7 +135,7 @@ TodoListRoute.js setupController işlevi geçersiz kılarak verileri için TodoL
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember URL'leri, rota adları, denetleyicileri ve şablonları eşleştirmek için adlandırma kuralları kullanır. Daha fazla bilgi için bkz: [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS belgelerine.
+Ember URL'leri, rota adları, denetleyicileri ve şablonları eşleştirmek için adlandırma kuralları kullanır. Daha fazla bilgi için bkz: [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) EmberJS belgelerine.
 
 ## <a name="templates"></a>Şablonlar
 
@@ -146,7 +147,7 @@ Ember URL'leri, rota adları, denetleyicileri ve şablonları eşleştirmek içi
 - todoList.hbs: şablon için "/ todo" rota.
 - \_navbar.hbs: Gezinti Menüsü şablonu tanımlar.
 
-Uygulama şablonu, bir ana sayfa gibi davranır. Üstbilgi ve altbilgi "{{rota bağlı olarak diğer şablonlar eklemek için prizine}}" içerir. Ember uygulama şablonları hakkında daha fazla bilgi için bkz: [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
+Uygulama şablonu, bir ana sayfa gibi davranır. Üstbilgi ve altbilgi "{{rota bağlı olarak diğer şablonlar eklemek için prizine}}" içerir. Ember uygulama şablonları hakkında daha fazla bilgi için bkz: [ http://guides.emberjs.com/v1.10.0/templates/the-application-template// ](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
 
 "/ TodoList" şablonu iki döngü ifadeleri içeriyor. Dış döngü `{{#each controller}}`ve iç döngü `{{#each todos}}`. Aşağıdaki kod bir yerleşik gösterir `Ember.Checkbox` görüntülemek, özelleştirilmiş `App.TodoItemEditView`, bir bağlantı ile bir `deleteTodo` eylem.
 

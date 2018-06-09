@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-configuring-project-properties-4-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: b8352c1832ffc79db93b6324dd673afaff6b0d74
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30887206"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-configuring-project-properties---4-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: Proje özellikleri - 4 12 yapılandırma
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+Tarafından [zel Dykstra](https://github.com/tdykstra)
 
 [Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -41,7 +42,7 @@ Aşağıdaki öğreticilerde göreceğiniz gibi dağıtımı sırasında neler e
 
 ![Package_Publish_Web_tab](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image1.png)
 
-Pencere görüntülendiğinde, hesaptaki yapı yapılandırması çözüm için şu anda etkin olan ayarları göstermek için varsayılan olarak. Varsa **yapılandırma** kutusunu belirtmez **etkin (sürüm)**seçin **sürüm** sürüm yapı yapılandırma ayarlarını görüntülemek için. Yayın derlemeleri, test ve üretim ortamları için dağıtacaksınız.
+Pencere görüntülendiğinde, hesaptaki yapı yapılandırması çözüm için şu anda etkin olan ayarları göstermek için varsayılan olarak. Varsa **yapılandırma** kutusunu belirtmez **etkin (sürüm)** seçin **sürüm** sürüm yapı yapılandırma ayarlarını görüntülemek için. Yayın derlemeleri, test ve üretim ortamları için dağıtacaksınız.
 
 ![Package_Publish_Web_tab_selecting_Release](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12/_static/image2.png)
 

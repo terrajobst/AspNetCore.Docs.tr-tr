@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/backbonejs-template
-title: "Omurga şablon | Microsoft Docs"
+title: Omurga şablon | Microsoft Docs
 author: madskristensen
-description: "Backbone.js SPA şablonu"
+description: Backbone.js SPA şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566310"
 ---
 <a name="backbone-template"></a>Omurga şablonu
 ====================
@@ -39,7 +40,7 @@ Gereksinimleri:
 
 İndirin ve şablonu yukarıdaki karşıdan yükleme düğmesini tıklatarak yükleyin. Şablonu bir Visual Studio Uzantısı (VSIX) dosyası olarak paketlenir. Visual Studio yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
 
 ![](backbonejs-template/_static/image1.png)
 
@@ -61,11 +62,11 @@ Derleme ve hata ayıklama olmadan uygulamayı çalıştırmak için CTRL-F5 tuş
 
 **Uygulama**
 
-`Application`Application.TS içinde tanımlanmıştır. Bu nesne, uygulama başlatır ve kök ad alanı olarak davranır. Kullanıcının oturum açtığı gibi uygulama arasında paylaşılacak yapılandırma ve durum bilgilerini tutar.
+`Application` Application.TS içinde tanımlanmıştır. Bu nesne, uygulama başlatır ve kök ad alanı olarak davranır. Kullanıcının oturum açtığı gibi uygulama arasında paylaşılacak yapılandırma ve durum bilgilerini tutar.
 
 `application.start` Yöntemi kalıcı görünümler oluşturur ve kullanıcı oturum açma gibi uygulama düzeyindeki olayları için olay işleyicileri iliştirir. Ardından, varsayılan yönlendirici oluşturur ve herhangi bir istemci-tarafı URL belirtilen olup olmadığını denetler. Varsayılan URL'ye yeniden yönlendirilen değil, varsa (#! /).
 
-**Olayları**
+**Olaylar**
 
 Olaylar, her zaman geniş geliştirme bileşenleri bağlı olduğunda önemlidir. Uygulamalar genellikle birden çok yanıt olarak bir kullanıcı eylemi işlemleri. Omurga modeli, koleksiyon ve görünüm gibi bileşenlerle yerleşik olayları sağlar. Bu bileşenler arasında arası bağımlılıklar oluşturmak yerine, şablonu "pub/alt" modeli kullanır: `events` events.ts içinde tanımlanan nesne, olay hub'ı yayımlama ve uygulama olaylara abone olma görür. `events` Tek bir nesnedir. Aşağıdaki kod, bir olaya abone olmak ve olayı tetiklemek gösterilmektedir:
 
@@ -113,7 +114,7 @@ Eklenti confirm.ts tarayıcının değiştirir API biraz farklı olmasına rağm
 
 Artık sunucu tarafında bakalım.
 
-**Denetleyicileri**
+**Denetleyiciler**
 
 Bir tek sayfalı uygulama sunucusu kullanıcı arabiriminde yalnızca küçük bir rol oynar. Genellikle, sunucunun başlangıç sayfası oluşturur ve ardından gönderir ve JSON verilerini alır.
 

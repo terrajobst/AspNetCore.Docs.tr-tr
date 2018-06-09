@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
 ms.openlocfilehash: 7d0486b4cab85ffe77fda87d4b34dd3ec0a9e8fe
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874232"
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Bir Windows Phone 8 uygulamasından (C#) Web API'si çağırma
 ====================
@@ -48,9 +49,9 @@ Bu uçtan uca öğretici kapsamında, Web API aşağıdaki projeleri oluşturmak
 
 Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir Web API projesi oluşturmaktır; Bu çözüm için Windows Phone Uygulama projesi ekleyeceğini unutmayın [2. adım](#STEP2) Bu öğreticinin.
 
-1. Open **Visual Studio 2013**.
+1. Açık **Visual Studio 2013'ün**.
 2. Tıklatın **dosya**, ardından **yeni**ve ardından **proje**.
-3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **şablonları**, ardından **Visual C#**ve ardından **Web**.
+3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **şablonları**, ardından **Visual C#** ve ardından **Web**.
 
 
    | [![](calling-web-api-from-a-windows-phone-8-application/_static/image2.png)](calling-web-api-from-a-windows-phone-8-application/_static/image1.png) |
@@ -109,7 +110,7 @@ Bu uçtan uca öğreticinin ilk adımı, tüm CRUD işlemleri destekleyen bir We
 Bu uçtan uca senaryoyu bir sonraki adım, Windows Phone 8 için katalog uygulama oluşturmaktır. Bu uygulamayı kullanmak *Windows Phone veriye bağlı uygulama* şablonu varsayılan kullanıcı arabirimi ve onu için oluşturduğunuz Web API uygulama kullanacağınız [1. adım](#STEP1) veri kaynağı olarak bu öğreticinin.
 
 1. Sağ **kitap** çözümde Çözüm Gezgini'nde ardından **Ekle**ve ardından **yeni proje**.
-2. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **Visual C#**ve ardından **Windows Phone**.
+2. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletin **yüklü**, ardından **Visual C#** ve ardından **Windows Phone**.
 3. Vurgula **Windows Phone veriye bağlı uygulama**, girin **BookCatalog** adı ve ardından **Tamam**.
 4. Json.NET NuGet paketi ekleme **BookCatalog** proje:
 

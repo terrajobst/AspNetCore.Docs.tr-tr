@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
 ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036433"
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları
 ====================
@@ -31,19 +32,19 @@ tarafından [Microsoft](https://github.com/microsoft)
 - [Yazılım gereksinimleri](#requirements)
 - ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
-    - [Önyükleme](#bootstrap)
+    - [önyükleme](#bootstrap)
     - [Şablonlar](#templates)
 
         - [ASP.NET MVC 5 şablonu](#mvc5template)
         - [ASP.NET Web API 2 şablonu](#apitemplate)
         - [Öğe şablonları](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [ASP.NET Scaffolding](#scaffold)
+    - [ASP.NET İskele](#scaffold)
     - [Razor Düzenleyicisi](#razor)
     - [NuGet 2.7](#nuget)
 - Bilinen sorunlar ve yeni değişiklikler
 
-    - [ASP.NET Scaffolding](#issuescaffolding)
+    - [ASP.NET İskele](#issuescaffolding)
 
         - [MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası](#404issue)
         - [Visual Studio Express 2012 için Web iskele kurulmuş öğe sonra çalışmayı durdurur.](#expressissue)
@@ -96,7 +97,7 @@ Entity Framework kullanarak bir MVC veya Web API denetleyicisi iskele kurduğunu
 Ayrıca, indirin ve Visual Studio 2012 için Entity Framework 6 araçlarını yükleyin. Bkz: [alma Entity Framework](https://msdn.com/data/ee712906#tooling).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>ASP.NET İskele
 
 ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
 
@@ -125,10 +126,10 @@ NuGet bu sürümü eksik paketleri geri yüklemek için NuGet açıkça izin ver
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
 
 <a id="issuescaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>ASP.NET İskele
 
 <a id="404issue"></a>
-#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC and Web API Scaffolding - HTTP 404, Not Found error
+#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası
 
 Bir projeye iskele kurulmuş öğe olduğunda hatayla karşılaşırsanız, projenizin tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılan değişiklikler geri alınacak ancak yüklü NuGet paketleri gibi diğer değişiklikler geri alınacak değil. Yönlendirme yapılandırması değişiklikler geri alınır, gezinme öğeleri iskele kurulmuş kullanıcılar bir HTTP 404 hata alır.
 
@@ -168,7 +169,7 @@ Bu sorunu düzeltmek için System.Web.Extensions MSIL görüntüsü ile çalış
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Bir sunucu hatası cshtml dosyası withBrowse WithorF5causes görüntüleme
 
-Visual Studio 2012 (veya Visual Studio 2013'te oluşturulan Visual Studio 2012 bir MVC 5 Proje Aç) bir MVC 5 projesi oluşturduğunuzda ve Gözat ile ya da F5 kullanarak cshtml dosyasını görüntüleme girişiminde durumları - hatayla karşılaşırsınız **sunucu hatası '/' Uygulama**. Sunucu gitmek çalışır`http://localhost:XXXX/Views/../XXXX.cshtml`
+Visual Studio 2012 (veya Visual Studio 2013'te oluşturulan Visual Studio 2012 bir MVC 5 Proje Aç) bir MVC 5 projesi oluşturduğunuzda ve Gözat ile ya da F5 kullanarak cshtml dosyasını görüntüleme girişiminde durumları - hatayla karşılaşırsınız **sunucu hatası '/' Uygulama**. Sunucu gitmek çalışır `http://localhost:XXXX/Views/../XXXX.cshtml`
 
 Bu sorunu çözmek için değiştirme **eylemi Başlat** projenize ayarını **belirli sayfa**. Sayfa için bir değer sağlamanız gerekmez.
 

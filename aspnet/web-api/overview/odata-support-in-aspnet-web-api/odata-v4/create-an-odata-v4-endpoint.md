@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
-title: "ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma | Microsoft Docs"
+title: ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma | Microsoft Docs
 author: MikeWasson
-description: "Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümelerini CRUD işlemleri üzerinden işlemek için Tekdüzen bir yol sağlar..."
+description: Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümelerini CRUD işlemleri üzerinden işlemek için Tekdüzen bir yol sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
 ms.openlocfilehash: a3f94818f9674b0e1e9a45b2a6cc9455edc79726
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566721"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma
 ====================
@@ -34,7 +35,7 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > - Web API 2.2
 > - OData v4
 > - [Visual Studio 2013 Güncelleştirme 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
-> - Varlık Çerçevesi 6
+> - Entity Framework 6
 > - .NET 4.5
 > 
 > 

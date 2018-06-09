@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/advanced/custom-mvc-templates
-title: "Özel MVC şablonu | Microsoft Docs"
+title: Özel MVC şablonu | Microsoft Docs
 author: joeloff
-description: "Bir şablonu VSIX uzantısı olarak oluşturun."
+description: Bir şablonu VSIX uzantısı olarak oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/10/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034613"
 ---
 <a name="custom-mvc-template"></a>Özel MVC şablonu
 ====================
@@ -63,7 +64,7 @@ Tüm Professional ve daha yüksek SKU'ları (Professional, Premium ve Ultimate) 
 
 **Varlıklar** sekmesi VSIX için tüm içerik dosyalarını eklemek için kullanılır. MVC özel meta verileri gerektirdiğinden kullanmak yerine VSIX bildirim dosyasının ham XML düzenleyeceksiniz **varlıklar** içeriği eklemek için sekmesi. VSIX proje şablonu içeriği ekleyerek başlayın. Klasör ve içeriği yapısını proje düzeni yansıtma önemlidir. Aşağıdaki örnek, temel MVC proje şablonu türetilen dört proje şablonları içerir. Proje şablonu (her şeyi ProjectTemplates klasörü altında) oluşturan tüm dosyalar için eklendiğinden emin olun **içerik** ItemGroup in VSIX proje dosyası ve her bir öğeyi içeren  **CopyToOutputDirectory** ve **IncludeInVsix** meta veriler, aşağıdaki örnekte gösterildiği gibi ayarlayın.
 
-&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;İçerik =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
 &lt;CopyToOutputDirectory&gt;her zaman&lt;/CopyToOutputDirectory&gt;
 
@@ -79,23 +80,23 @@ VSIX Tasarımcısı'nı kapatın, sonra sağ tıklayın **source.extension.manif
 
 ![İletişim kutusu ile Aç](custom-mvc-templates/_static/image7.jpg)
 
-Oluşturma bir  **&lt;varlıklar&gt;**  öğesi ekleyin bir  **&lt;varlık&gt;**  öğesi içinde VSIX içine dahil edilmesi her dosya için. **Türü** her özniteliği  **&lt;varlık&gt;**  öğesi ayarlanmalıdır **Microsoft.VisualStudio.Mvc.Template**. Bu yalnızca MVC Proje Sihirbazı anlar özel bir ad alanıdır. Bildirim dosyasının düzeni ve yapısı hakkında daha fazla bilgi için VSIX 2.0 şema belgelerine bakın.
+Oluşturma bir **&lt;varlıklar&gt;** öğesi ekleyin bir **&lt;varlık&gt;** öğesi içinde VSIX içine dahil edilmesi her dosya için. **Türü** her özniteliği **&lt;varlık&gt;** öğesi ayarlanmalıdır **Microsoft.VisualStudio.Mvc.Template**. Bu yalnızca MVC Proje Sihirbazı anlar özel bir ad alanıdır. Bildirim dosyasının düzeni ve yapısı hakkında daha fazla bilgi için VSIX 2.0 şema belgelerine bakın.
 
-Yalnızca VSIX için dosyaları ekleme, şablonları MVC Sihirbazı ile kaydetmek yeterli değil. MVC sihirbazın şablon adı, açıklama, desteklenen görünüm altyapısı ve programlama dili gibi bilgileri sağlamanız gerekir. Bu bilgiler ile ilişkili özel öznitelikler taşınan  **&lt;varlık&gt;**  öğesini her **vstemplate** dosya.
+Yalnızca VSIX için dosyaları ekleme, şablonları MVC Sihirbazı ile kaydetmek yeterli değil. MVC sihirbazın şablon adı, açıklama, desteklenen görünüm altyapısı ve programlama dili gibi bilgileri sağlamanız gerekir. Bu bilgiler ile ilişkili özel öznitelikler taşınan **&lt;varlık&gt;** öğesini her **vstemplate** dosya.
 
-&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Varlık d:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
-Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
+Tür =&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
 d:Source =&quot;dosyası&quot;
 
-Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
+Yolu =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
 ProjectType=&quot;MVC&quot;
 
-Language=&quot;C#&quot;
+Dil =&quot;C#&quot;
 
-ViewEngine=&quot;Aspx&quot;
+ViewEngine =&quot;Aspx&quot;
 
 Templateıd =&quot;MyMvcApplication&quot;
 
@@ -114,7 +115,7 @@ Mevcut özel öznitelikler açıklaması aşağıdadır:
 - **Başlık** her proje şablonu altındaki MVC Sihirbazı'nda görüntülenen kısa bir açıklama belirtir.
 - **Açıklama** şablonun daha ayrıntılı bir açıklamasını belirtir.
 
-Bildirime tüm dosyaları ekledikten sonra kaydettiyseniz, göreceksiniz **varlıklar** Tasarımcı sekmesinde tüm dosyaları görüntüler, ancak eklediğiniz özel öznitelikleri  **&lt;varlık&gt;**  için öğeleri **vstemplate** dosyaları.
+Bildirime tüm dosyaları ekledikten sonra kaydettiyseniz, göreceksiniz **varlıklar** Tasarımcı sekmesinde tüm dosyaları görüntüler, ancak eklediğiniz özel öznitelikleri **&lt;varlık&gt;** için öğeleri **vstemplate** dosyaları.
 
 ![Proje Tasarımcısı varlıklar](custom-mvc-templates/_static/image8.jpg)
 

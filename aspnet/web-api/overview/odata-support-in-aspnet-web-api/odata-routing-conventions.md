@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037327"
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Yönlendirme kuralları ASP.NET Web API 2 Odata
 ====================
@@ -47,9 +48,9 @@ Web API OData rota kurallarını tanımlamak önce OData URI anlamaya yardımcı
 
 Yönlendirme için önemli bir bölümü kaynak yoludur. Kaynak yolu parçalara bölünür. Örneğin, `/Products(1)/Supplier` üç kesimleri vardır:
 
-- `Products`"Ürünler" adlı bir varlık kümesine başvuruyor.
-- `1`tek bir varlık kümesinden seçerek bir varlık anahtarı.
-- `Supplier`ilgili varlık seçen bir gezinti özelliğidir.
+- `Products` "Ürünler" adlı bir varlık kümesine başvuruyor.
+- `1` tek bir varlık kümesinden seçerek bir varlık anahtarı.
+- `Supplier` ilgili varlık seçen bir gezinti özelliğidir.
 
 Bu nedenle bu yolu ürün 1 tedarikçi seçer.
 
@@ -169,7 +170,7 @@ Notlar:
 
 1. I öğesinden türetilen **EntitySetRoutingConvention**, çünkü **SelectController** bu sınıftaki yöntemi için bu yeni yönlendirme kuralı uygundur. Anlamına yok ihtiyacım yeniden uygulamak **SelectController**.
 2. Kuralı yalnızca GET isteklerini ve yalnızca yol şablonu olduğunda geçerlidir &quot;~/entityset/key/navigation/key&quot;.
-3. Eylem adı &quot;{EntityType} alma&quot;, burada *{EntityType}* Gezinti koleksiyon türü. Örneğin, &quot;GetSupplier&quot;. İstediğiniz herhangi bir adlandırma kuralını & #8212 kullanabilirsiniz; yalnızca eşleşen denetleyici eylemleri emin olun.
+3. Eylem adı &quot;{EntityType} alma&quot;, burada *{EntityType}* Gezinti koleksiyon türü. Örneğin, &quot;GetSupplier&quot;. İstediğiniz herhangi bir adlandırma kuralını kullanabilirsiniz &#8212; yalnızca eşleşen denetleyici eylemleri emin olun.
 4. Adlı iki parametre eylemde *anahtar* ve *relatedKey*. (Bazı önceden tanımlanmış parametre adları listesi için bkz: [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 Sonraki adım, yönlendirme kuralları listesine yeni kuralı eklemektir. Bu yapılandırması sırasında aşağıdaki kodda gösterildiği gibi olur:

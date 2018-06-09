@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875740"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Denetleyicileri ve görünümleri listeleme/Ayrıntılar UI uygulamak için kullanın
 ====================
@@ -96,9 +97,9 @@ URL'leri çeşitli nasıl gösteren bir tablo, varsayılan kullanılarak eşlend
 
 | **URL** | **Denetleyici sınıfı** | **Eylem yöntemi** | **Geçirilen parametre** |
 | --- | --- | --- | --- |
-| */ Azalma/Ayrıntılar/2* | DinnersController | Details(id) | id=2 |
-| */ Azalma/düzenleme/5* | DinnersController | Edit(id) | id=5 |
-| */Dinners/Create* | DinnersController | Create() | Yok |
+| */ Azalma/Ayrıntılar/2* | DinnersController | Details(id) | ID = 2 |
+| */ Azalma/düzenleme/5* | DinnersController | Edit(id) | ID = 5 |
+| */ Azalma/oluşturma* | DinnersController | Create() | Yok |
 | */ Azalma* | DinnersController | İNDİS() | Yok |
 | */ Giriş* | HomeController | İNDİS() | Yok |
 | */* | HomeController | İNDİS() | Yok |

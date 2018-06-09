@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
 ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30881363"
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Birden çok ortamlar için veritabanı dağıtımları özelleştirme
 ====================
@@ -74,9 +75,9 @@ Bu tablo farklı bir hedef ortamlar için tipik dağıtım ayarlarını gösteri
 | **Dağıtım karşılaştırma harmanlama** | Kaynak | Hedef | Hedef |
 | **Veritabanı özellikleri dağıtma** | Doğru | Yalnızca ilk kez | Yalnızca ilk kez |
 | **Veritabanı her zaman yeniden oluşturma** | Doğru | False | False |
-| **Veri kaybı, artımlı dağıtım engelle** | False | Maybe | Doğru |
+| **Veri kaybı, artımlı dağıtım engelle** | False | Olabilir | Doğru |
 | **Dağıtım betiği tek kullanıcı modunda çalıştır** | False | Doğru | Doğru |
-| **Dağıtımdan önce veritabanını yedekleyin** | False | Maybe | Doğru |
+| **Dağıtımdan önce veritabanını yedekleyin** | False | Olabilir | Doğru |
 | **Hedef veritabanındaki nesneler için bırak deyimleri oluşturur, ancak veritabanı projesi içinde olmayan** | False | Doğru | Doğru |
 | **CLR Türleri güncelleştirmek için ALTER ASSEMBLY deyimleri kullanmayın** | False | False | False |
   

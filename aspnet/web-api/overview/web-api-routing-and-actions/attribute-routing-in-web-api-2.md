@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
-title: "Öznitelik ASP.NET Web API 2 yönlendirme | Microsoft Docs"
+title: Öznitelik ASP.NET Web API 2 yönlendirme | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038055"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 özniteliği yönlendirme
 ====================
@@ -180,22 +181,22 @@ Aşağıdaki tabloda, desteklenen kısıtlamaları listeler.
 
 | Kısıtlama | Açıklama | Örnek |
 | --- | --- | --- |
-| Alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {x:alpha} |
-| bool | Bir Boole değeri ile eşleşir. | {x:bool} |
+| Alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {x: alfa} |
+| bool | Bir Boole değeri ile eşleşir. | {x: bool} |
 | datetime | Eşleşen bir **DateTime** değeri. | {x:datetime} |
 | decimal | Ondalık bir değeri ile eşleşir. | {x:decimal} |
 | çift | 64-bit kayan nokta değeri eşleşir. | {x:double} |
-| float | 32 bit kayan nokta değeri eşleşir. | {x:float} |
+| float | 32 bit kayan nokta değeri eşleşir. | {x: float} |
 | GUID | GUID değeri eşleşir. | {x: GUID} |
 | int | 32 bit tamsayı değeri eşleşir. | {x:int} |
-| length | Belirtilen uzunluğa sahip veya uzunlukları belirtilen aralığı içinde bir dizeyle eşleşir. | {x:length(6)} {x:length(1,20)} |
-| long | 64 bit tamsayı değeri eşleşir. | {x:long} |
+| length | Belirtilen uzunluğa sahip veya uzunlukları belirtilen aralığı içinde bir dizeyle eşleşir. | {x: length(6)} {x: length(1,20)} |
+| long | 64 bit tamsayı değeri eşleşir. | {x: uzun} |
 | max | Tamsayı bir maksimum değer ile eşleşir. | {x:max(10)} |
 | MaxLength | En fazla bir dizeyle eşleşir. | {x:maxlength(10)} |
-| min | Tamsayı en az bir değerle eşleşir. | {x:min(10)} |
-| MinLength | Minimum uzunluk bir dizeyle eşleşir. | {x:minlength(10)} |
-| aralık | Tamsayı değerleri aralığı içinde eşleşir. | {x:range(10,50)} |
-| Regex | Normal ifadeyle eşleşir. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| min | Tamsayı en az bir değerle eşleşir. | {x: min(10)} |
+| MinLength | Minimum uzunluk bir dizeyle eşleşir. | {x: minlength(10)} |
+| aralık | Tamsayı değerleri aralığı içinde eşleşir. | {x: range(10,50)} |
+| Regex | Normal ifadeyle eşleşir. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Bildirimi, bazı kısıtlamaları gibi &quot;min&quot;, bağımsız değişkenleri parantez içine alır. Virgülle ayrılmış bir parametre birden çok kısıtlama uygulayabilirsiniz.
 

@@ -1,26 +1,27 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: "En iyi uygulamalar parolaları ve diğer hassas verileri ASP.NET ve Azure App Service'e dağıtma | Microsoft Docs"
+title: En iyi uygulamalar parolaları ve diğer hassas verileri ASP.NET ve Azure App Service'e dağıtma | Microsoft Docs
 author: Rick-Anderson
-description: "Bu öğretici nasıl kodunuzu güvenli bir şekilde depolayın ve güvenli bilgilere gösterir. Parolaları veya diğer ğ hiçbir zaman saklamalısınız en önemli noktasıdır..."
+description: Bu öğretici nasıl kodunuzu güvenli bir şekilde depolayın ve güvenli bilgilere gösterir. Parolaları veya diğer ğ hiçbir zaman saklamalısınız en önemli noktasıdır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033027"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Parolalar ve diğer hassas verileri ASP.NET ve Azure uygulama hizmeti dağıtmak için en iyi uygulamalar
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Bu öğretici nasıl kodunuzu güvenli bir şekilde depolayın ve güvenli bilgilere gösterir. En önemli kaynak kodunda parolalar ve diğer hassas verileri asla saklamalısınız ve geliştirme ve test modunda üretim gizli kullanmamanız noktasıdır.
 > 
@@ -90,7 +91,7 @@ Kullanabileceğiniz `configSource` tüm değiştirmek için öznitelik `<connect
 
 Web uygulamanızı Azure'a dağıtırken *AppSettingsSecrets.config* (yani istediğinizi) dosyası dağıtılmaz. Git [Azure Yönetim Portalı](https://azure.microsoft.com/services/management-portal/) ve bunu yapmak için bunları el ile ayarlayın:
 
-1. Git [https://portal.azure.com](https://portal.azure.com)ve Azure kimlik bilgilerinizle oturum açın.
+1. Git [ https://portal.azure.com ](https://portal.azure.com)ve Azure kimlik bilgilerinizle oturum açın.
 2. Tıklatın **Gözat &gt; Web uygulamaları**, web uygulamanızın adına tıklayın.
 3. Tıklatın **tüm ayarları &gt; uygulama ayarları**.
 

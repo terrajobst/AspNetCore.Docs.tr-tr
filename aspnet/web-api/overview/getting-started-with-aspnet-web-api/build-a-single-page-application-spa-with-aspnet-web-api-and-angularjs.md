@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566484"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Laboratuvar durum: ASP.NET Web API ve Angular.js tek sayfalı uygulama (SPA) derleme
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 [Kit eğitim Web Camps indirin](http://aka.ms/webcamps-training-kit)
 
@@ -32,7 +33,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Bu elle üzerinde laboratuar ortamında günlük test, SPA kavramı dayalı bir trivia Web sitesi uygulamak için bu teknolojilerden sürer. İlk test sorularını almak ve yanıtları depolamak için gerekli uç noktalarını kullanıma sunmak için ASP.NET Web API ile hizmet katmanı gerçekleştireceksiniz. Ardından, AngularJS ve CSS3 dönüştürme efektleri kullanarak zengin ve esnek bir kullanıcı Arabirimi oluşturacaksınız.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -307,7 +308,7 @@ Bu görevde kullanacağınız **AngularJS** günlük test uygulama istemci taraf
 Visual Studio'nun Paket Yöneticisi Konsolu'ndan AngularJS yükleyerek başlar. Ardından, günlük test uygulamayı test sorularını ve yanıtlarını AngularJS şablonu altyapısını kullanarak işlenecek görünümü ve davranışı sağlamak için denetleyici oluşturur.
 
 > [!NOTE]
-> AngularJS hakkında daha fazla bilgi için bkz [ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/).
+> AngularJS hakkında daha fazla bilgi için bkz [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
 
 
 1. Açık **için Visual Studio Express 2013 Web** ve açın **GeekQuiz.sln** çözüm bulunan **kaynak/Ex2-CreatingASPAInterface/başlangıç** klasör. Alternatif olarak, önceki alıştırmada elde çözümüyle devam edebilirsiniz.

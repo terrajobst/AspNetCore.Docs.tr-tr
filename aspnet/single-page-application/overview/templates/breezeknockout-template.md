@@ -1,22 +1,23 @@
 ---
 uid: single-page-application/overview/templates/breezeknockout-template
-title: "Kolay/Boşaltılan şablon | Microsoft Docs"
+title: Kolay/Boşaltılan şablon | Microsoft Docs
 author: madskristensen
-description: "Kolay/Boşaltılan tek sayfa uygulaması şablonu"
+description: Kolay/Boşaltılan tek sayfa uygulaması şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 3bd94827-3c59-448f-abc3-36e6df4858db
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/breezeknockout-template
 msc.type: authoredcontent
 ms.openlocfilehash: 07ec099a0381458fe42c1972a2554f76fd34638c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566316"
 ---
 <a name="breezeknockout-template"></a>Kolay/Boşaltılan şablonu
 ====================
@@ -57,7 +58,7 @@ Haydi başlayalım.
 
 İndirin ve şablonu yukarıdaki karşıdan yükleme düğmesini tıklatarak yükleyin. Şablonu bir Visual Studio Uzantısı (VSIX) dosyası olarak paketlenir. Visual Studio yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
 
 İçinde **yeni proje** seçin **kolay Boşaltılan SPA**.
 

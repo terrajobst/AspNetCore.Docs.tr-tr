@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26566442"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Laboratuvar durum: Bir ASP.NET: ASP.NET Web Forms, MVC ve Web API tümleştirme
 ====================
-tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 
 [Kit eğitim Web Camps indirin](http://aka.ms/webcamps-training-kit)
 
@@ -28,7 +29,7 @@ tarafından [Web Camps ekibi](https://twitter.com/webcamps)
 > 
 > Visual Studio 2013'ün bir uygulama oluşturmak ve bir projede tüm ASP.NET teknolojileri kullanmanıza olanak sağlayan yeni bir birleşik proje sistemi tanıtır. Bu özellik proje ve onunla çubuğu başlangıcında bir teknoloji çekme gereğini ortadan kaldırır ve bunun yerine bir projede birden çok ASP.NET çerçeveyi kullanılmasını önerir.
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -161,7 +162,7 @@ Bu görevde oluşturulan çözümü çalıştırın, uygulama ve URL yeniden yaz
     *Kolay URL'ler*
 
     > [!NOTE]
-    > Gördüğünüz gibi URL değişikliklerini **/başvurun**. Başlayarak **ASP.NET 4**, URL yönlendirme özellikleri, Web formları için eklenmiştir, yazabileceğiniz şekilde URL'leri ister *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* yerine *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Daha fazla bilgi için bkz [URL yönlendirme](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Gördüğünüz gibi URL değişikliklerini **/başvurun**. Başlayarak **ASP.NET 4**, URL yönlendirme özellikleri, Web formları için eklenmiştir, yazabileceğiniz şekilde URL'leri ister *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* yerine  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Daha fazla bilgi için bkz [URL yönlendirme](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Şimdi uygulamaya tümleşik kimlik doğrulaması akışı inceleyeceksiniz. Bunu yapmak için tıklatın **kaydetmek** sayfanın sağ üst köşesindeki.
 
     ![Yeni bir kullanıcı kaydetme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)

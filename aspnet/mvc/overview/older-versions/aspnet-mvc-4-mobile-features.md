@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
 ms.openlocfilehash: 5f38fcdd8e71ce12f7899214b6b2133e21f9910c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30876845"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 mobil özellikleri
 ====================
@@ -29,7 +30,7 @@ Bu öğretici bir ASP.NET MVC 4 Web uygulamasında mobil özellikleri ile nasıl
 
 Başlamadan önce aşağıda listelenen önkoşulları kurduğunuzdan emin olun.
 
-- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (recommended) or Visual Studio Web Developer Express SP1. Visual Studio 2012, ASP.NET MVC 4 içerir. Visual Web Developer 2010 kullanıyorsanız, yüklemelisiniz [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
+- [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) (önerilir) ya da Visual Studio Web Developer Express SP1. Visual Studio 2012, ASP.NET MVC 4 içerir. Visual Web Developer 2010 kullanıyorsanız, yüklemelisiniz [ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392).
 
 Bir mobil tarayıcı öykünücüsü de gerekir. Aşağıdakilerden birini çalışır:
 
@@ -137,7 +138,7 @@ Kopya *Views\Home\AllTags.cshtml* dosya *Views\Home\AllTags.Mobile.cshtml*. Yeni
 
 Bir masaüstü tarayıcısı kullanarak ve mobil tarayıcı öykünücüsü kullanarak etiketleri sayfasına göz atın. Mobil tarayıcı öykünücüsü iki değişikliklerinin gösterir.
 
-[![p2m_layoutTags.mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
+[![p2m_layoutTags.Mobile](aspnet-mvc-4-mobile-features/_static/image12.png)](aspnet-mvc-4-mobile-features/_static/image11.png)
 
 Buna karşılık, masaüstü görüntü değişmemiştir.
 
@@ -396,6 +397,6 @@ Bu öğreticide, ASP.NET MVC 4 Geliştirici önizlemesi yeni mobil özelliklerin
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 - [jQuery Mobile](http://jquerymobile.com) site.
-- [jQuery Mobile Overview](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
+- [jQuery Mobile genel bakış](http://jquerymobile.com/demos/1.0b3/docs/about/intro.html)
 - [W3C öneri mobil Web uygulaması en iyi uygulamalar](http://www.w3.org/TR/mwabp/)
 - [Medya sorgular için W3C adayı önerisi](http://www.w3.org/TR/css3-mediaqueries/)

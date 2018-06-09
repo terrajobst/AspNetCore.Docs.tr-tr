@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-view
 msc.type: authoredcontent
 ms.openlocfilehash: 61a93c1430e9e39543c69b84901a50ceb710a5ae
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30874524"
 ---
 <a name="adding-a-view"></a>Bir görünümü ekleme
 ====================
@@ -94,7 +95,7 @@ Uygulama ve şimdi yazacaktır bildirimi çalıştırmak &quot;MVC film &quot;. 
 
 Şimdi, dizin görünümünün başlığı değiştirelim.
 
-Open *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
+Açık *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
 
 [!code-cshtml[Main](adding-a-view/samples/sample6.cshtml)]
 

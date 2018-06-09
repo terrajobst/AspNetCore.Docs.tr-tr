@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
-title: "ASP.NET Web API'de 1 CRUD işlemleri etkinleştirme | Microsoft Docs"
+title: ASP.NET Web API'de 1 CRUD işlemleri etkinleştirme | Microsoft Docs
 author: MikeWasson
-description: "Bu öğreticide, ASP.NET Web API kullanarak, HTTP hizmeti CRUD işlemleri desteklemek gösterilmiştir. Eğitmen Visual Studio 2012 Web AP içinde kullanılan yazılım sürümleri..."
+description: Bu öğreticide, ASP.NET Web API kullanarak, HTTP hizmeti CRUD işlemleri desteklemek gösterilmiştir. Eğitmen Visual Studio 2012 Web AP içinde kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
 ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "29153014"
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>ASP.NET Web API'de 1 CRUD işlemleri etkinleştirme
 ====================
@@ -42,11 +43,11 @@ API ürünler, yöntemleri açığa çıkarır.
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
 | Tüm ürünlerin listesini al | AL | / api/ürünleri |
-| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
-| Bir ürün kategorisine göre alma | AL | /api/products?category=*category* |
+| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
+| Bir ürün kategorisine göre alma | AL | / api/ürünleri? kategori =*kategorisi* |
 | Yeni Ürün oluşturma | YAYINLA | / api/ürünleri |
-| Bir ürün güncelleştir | PUT | /api/products/*id* |
-| Ürünü silme | DELETE | /api/products/*id* |
+| Bir ürün güncelleştir | PUT | /api/ürünler/*kimliği* |
+| Ürünü silme | DELETE | /api/ürünler/*kimliği* |
 
 Bazı URI'ler ürün kimliği yolundaki dahil dikkat edin. Örneğin, Kimliğine sahip 28 ürün almak için istemci bir GET isteği gönderir `http://hostname/api/products/28`.
 
@@ -57,7 +58,7 @@ API ürünleri URI'ler iki kaynak türleri için tanımlar:
 | Kaynak | URI |
 | --- | --- |
 | Tüm ürünler listesi. | / api/ürünleri |
-| Bir ürünün. | /api/products/*id* |
+| Bir ürünün. | /api/ürünler/*kimliği* |
 
 ### <a name="methods"></a>Yöntemler
 
@@ -74,7 +75,7 @@ Not: Tüm ürün varlık PUT yöntemini değiştirir. Diğer bir deyişle, istem
 
 Visual Studio çalıştırarak ve seçin **yeni proje** gelen **Başlat** sayfası. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı &quot;ProductStore&quot; tıklatıp **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı &quot;ProductStore&quot; tıklatıp **Tamam**.
 
 ![](creating-a-web-api-that-supports-crud-operations/_static/image1.png)
 
@@ -158,14 +159,14 @@ ProductStore API birkaç açığa çıkarır &quot;okuma&quot; HTTP GET yöntemi
 | Eylem | HTTP yöntemi | Göreli URI |
 | --- | --- | --- |
 | Tüm ürünlerin listesini al | AL | / api/ürünleri |
-| Ürün Kimliği tarafından Al | AL | /api/products/*id* |
-| Bir ürün kategorisine göre alma | AL | /api/products?category=*category* |
+| Ürün Kimliği tarafından Al | AL | /api/ürünler/*kimliği* |
+| Bir ürün kategorisine göre alma | AL | / api/ürünleri? kategori =*kategorisi* |
 
 Tüm ürünlerin listesini almak için bu yöntemi ekleyin `ProductsController` sınıfı:
 
 [!code-csharp[Main](creating-a-web-api-that-supports-crud-operations/samples/sample6.cs)]
 
-Yöntem adı ile başlayan &quot;almak&quot;, isteğe bağlı olarak kurala göre GET isteklerinin eşler. Ayrıca, bu eşlemeleri içermeyen bir URI yöntemi hiçbir parametre yoktur çünkü bir  *&quot;kimliği&quot;*  yol kesimi.
+Yöntem adı ile başlayan &quot;almak&quot;, isteğe bağlı olarak kurala göre GET isteklerinin eşler. Ayrıca, bu eşlemeleri içermeyen bir URI yöntemi hiçbir parametre yoktur çünkü bir *&quot;kimliği&quot;* yol kesimi.
 
 Kimliğe göre bir ürün almak için bu yöntemi ekleyin `ProductsController` sınıfı:
 

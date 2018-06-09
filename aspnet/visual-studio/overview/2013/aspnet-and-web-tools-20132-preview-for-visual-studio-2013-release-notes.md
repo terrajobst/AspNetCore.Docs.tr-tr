@@ -1,22 +1,23 @@
 ---
 uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
-title: "ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları için 2013.2 | Microsoft Docs"
+title: ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları için 2013.2 | Microsoft Docs
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2014
 ms.topic: article
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036030"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları 2013.2 Visual Studio 2013 sürüm notları
 ====================
@@ -45,7 +46,7 @@ Aşağıdaki bölümlerde sürümünde tanıtılan özellikleri açıklanmaktad�
 - [Visual Studio'da Azure App Service Web uygulamaları için destek](#waws)
 - [Yeni bir Web projesi oluştururken, uzaktan Azure kaynakları oluşturun](#AzureResources)
 - [Web yayımlama geliştirmeleri](#webpublish)
-- [ASP.NET Scaffolding](#scaffolding)
+- [ASP.NET İskele](#scaffolding)
 - [NuGet 2.8.1](#nuget)
 - [ASP.NET Web formları](#webforms)
 - [ASP.NET MVC 5.1.2](#mvc)
@@ -149,7 +150,7 @@ Bir Azure eklediğimiz ["Uzak kaynaklar oluştur"](https://docs.microsoft.com/az
 - Yayımlama kullanıcı deneyimini geliştirir.
 
 <a id="scaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+### <a name="aspnet-scaffolding"></a>ASP.NET İskele
 
 - **Enum desteği:** model numaralandırmaları kullanarak sonra MVC iskele kurucu Enum için açılır liste oluşturur. Bu, MVC'de Enum Yardımcıları kullanır.
 - **Bootstrap Destek**: önyükleme sınıfları kullanması için yapı İskelesi MVC EditorFor şablonlarında güncelleştirildi.
@@ -175,7 +176,7 @@ Aşağıdaki ekran görüntüleri yapı iskelesi modellerini göstermektedir.
     ![Birleşik giriş kutusu boş dize izin verme](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image26.png)
 
 <a id="nuget"></a>
-### <a name="nuget-281"></a>NuGet 2.8.1
+### <a name="nuget-281"></a>NuGet 2.8.1 ile
 
 NuGet 2.8.1 ile RTM Nisan 2014'te kullanıma sunulacaktır. Sürüm Notları belirgin noktalarından İşte, ancak lütfen denetleyin [tam sürüm notları](http://docs.nuget.org/docs/release-notes/nuget-2.8) bu değişiklikler hakkında daha fazla bilgi için.
 
@@ -256,7 +257,7 @@ Entity Framework sürüm 6.1 çalışma zamanı ve araçları için güncelleşt
 - **UserManager aracılığıyla destek silme işlemi**
 - **Kullanıcı adı özniteliklerinde dizin**: ASP.NET Identity Entity Framework uygulamasını eklediğimiz benzersiz bir dizin kullanıcı EF 6.1.0 yeni IndexAttribute kullanarak. Bu kullanıcı adlarını her zaman benzersiz ve hangi, yinelenen kullanıcı adları ile şunun hiçbir yarış durumu oluştu emin olur.
 - **Gelişmiş Parola doğrulayıcı:** ASP.NET Identity 1. 0 ' sevk edilen Parola doğrulayıcı yalnızca en az uzunluk doğrulama oldukça temel parola Doğrulayıcı oluştu. Parola karmaşıklığını üzerinde daha fazla denetim sağlar yeni bir parola Doğrulayıcı yoktur. Lütfen bu parolayı dosyasındaki tüm ayarların kapatmanız olsa bile, kullanıcı hesaplarını iki faktörlü kimlik doğrulamasını etkinleştirmek için öneririz olduğunu unutmayın.
-- **IdentityFactory Middleware/ CreatePerOwinContext**:
+- **IdentityFactory Ara / CreatePerOwinContext**:
 
     - **Kullanıcı Yöneticisi**: UserManager örneği OWIN bağlamı elde etmek için Üreteç uygulaması kullanabilirsiniz. Bu desen ne bulunan OWIN bağlamından Signın ve SignOut için almak için kullandığımız için benzer. Bu uygulama için istek başına UserManager örneği almanın önerilen bir yoludur.
     - **DbContextFactory**: ASP.NET Identity Entity Framework SQL Server'daki kimlik sistemi sürdürmek için kullanır. Kimlik sistemi bunun için ApplicationDbContext bir başvuru içeriyor. DbContextFactory ara yazılım, uygulamanızda kullanabilirsiniz istek başına ApplicationDbContext örneğini döndürür.

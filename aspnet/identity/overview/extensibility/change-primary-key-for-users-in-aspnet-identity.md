@@ -1,22 +1,23 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: "ASP.NET kimliği kullanıcılar için birincil anahtar değiştirme | Microsoft Docs"
+title: ASP.NET kimliği kullanıcılar için birincil anahtar değiştirme | Microsoft Docs
 author: tfitzmac
-description: "Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları anahtarının bir dize değeri kullanır. ASP.NET Identity türünü değiştirmenizi sağlar..."
+description: Visual Studio 2013'te varsayılan web uygulaması için kullanıcı hesapları anahtarının bir dize değeri kullanır. ASP.NET Identity türünü değiştirmenizi sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
 ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26563775"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>ASP.NET kimliği kullanıcılar için birincil anahtarı Değiştir
 ====================
@@ -275,7 +276,7 @@ Daha önce ASP.NET Identity tablolar ile farklı bir birincil anahtar oluşturdu
 <a id="other"></a>
 ## <a name="other-resources"></a>Diğer kaynaklar
 
-- [ASP.NET kimliği için özel depolama sağlayıcıları genel bakış](overview-of-custom-storage-providers-for-aspnet-identity.md)
-- [Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış](overview-of-custom-storage-providers-for-aspnet-identity.md)
+- [Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
 - [Üyelik ve ASP.NET kimliği için kullanıcı profilleri için evrensel sağlayıcısı verileri geçirme](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [Örnek uygulama](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) değiştirilen birincil anahtara sahip

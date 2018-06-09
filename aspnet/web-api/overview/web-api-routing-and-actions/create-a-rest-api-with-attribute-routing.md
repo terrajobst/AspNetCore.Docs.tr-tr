@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223268"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 yönlendirme özniteliği olan bir REST API'si oluşturma
 ====================
@@ -27,7 +28,7 @@ Web API 2 destekleyen yeni bir tür yönlendirme biri olarak adlandırılan *öz
 | Eylem | Örnek URI |
 | --- | --- |
 | Tüm books listesini alın. | / api/books |
-| Kimliğe göre defteri alma | /api/books/1 |
+| Kimliğe göre defteri alma | /api/Books/1 |
 | Kitap ayrıntılarını alın. | /api/Books/1/details |
 | Türe göre books listesini alın. | /api/Books/fantasy |
 | Yayın tarihe göre books listesini alın. | /api/Books/Date/2013-02-16 /api/books/date/2013/02/16 (alternatif form) |
@@ -39,7 +40,7 @@ Entity Framework veri katmanı için kullanacağız. Kayıt defteri aşağıdaki
 
 - Kimlik
 - Başlık
-- Genre
+- Tarz
 - Yayın tarihi
 - Fiyat
 - Açıklama
@@ -55,7 +56,7 @@ Entity Framework veri katmanı için kullanacağız. Kayıt defteri aşağıdaki
 
 Visual Studio çalıştırarak başlayın. Gelen **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı &quot;BooksAPI&quot;.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
@@ -168,7 +169,7 @@ Her denetleyici yöntemi için rota şablonu için önekidir artı dizeyi belirt
 | Yöntem | Rota şablonu | Örnek URI |
 | --- | --- | --- |
 | `GetBooks` | "API/books" | `http://localhost/api/books` |
-| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
+| `GetBook` | "API/books / {kimliği: int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Defteri ayrıntıları alma
 
