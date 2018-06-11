@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
-ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
+ms.openlocfilehash: d515e1354546e95553a010fa7a2143f0e529d68b
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252457"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -40,17 +41,53 @@ Bkz: [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
+::: moniker range=">= aspnetcore-2.1"
+
+Çalıştırma `dotnet new webapp` komut satırından.
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Çalıştırma `dotnet new razor` komut satırından.
+
+::: moniker-end
 
 Oluşturulan açmak *.csproj* Visual Studio dosyasından Mac için
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Çalıştırma `dotnet new webapp` komut satırından.
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Çalıştırma `dotnet new razor` komut satırından.
+
+::: moniker-end
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Çalıştırma `dotnet new webapp` komut satırından.
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Çalıştırma `dotnet new razor` komut satırından.
+
+::: moniker-end
 
 ---
 
@@ -116,7 +153,7 @@ Db bağlamı:
 
 Kural tarafından `PageModel` sınıfı çağrıldığında `<PageName>Model` ve sayfa aynı ad.
 
-`PageModel` Sınıfı, bir sayfa mantığı ayrılması kendi sunudan olanak tanır. Sayfaya gönderilen istekleri ve sayfayı oluşturmak için kullanılan verileri için sayfa işleyiciler tanımlar. Bu ayrım aracılığıyla sayfa bağımlılıklar yönetmenize olanak sağlayan [bağımlılık ekleme](xref:fundamentals/dependency-injection) ve [birim testi](xref:testing/razor-pages-testing) sayfaları.
+`PageModel` Sınıfı, bir sayfa mantığı ayrılması kendi sunudan olanak tanır. Sayfaya gönderilen istekleri ve sayfayı oluşturmak için kullanılan verileri için sayfa işleyiciler tanımlar. Bu ayrım aracılığıyla sayfa bağımlılıklar yönetmenize olanak sağlayan [bağımlılık ekleme](xref:fundamentals/dependency-injection) ve [birim testi](xref:test/razor-pages-tests) sayfaları.
 
 Sayfasına sahip bir `OnPostAsync` *işleyici yöntemi*, üzerinde çalıştığı `POST` ister (kullanıcı formu gönderdiğinde). Herhangi bir HTTP fiil için işleyici yöntemleri ekleyebilirsiniz. En yaygın işleyicileri şunlardır:
 
@@ -443,17 +480,19 @@ Sayfa modeli:
 
 Yukarıdaki kullanan kod, gönderildiği URL yolunu `OnPostJoinListAsync` olan `http://localhost:5000/Customers/CreateFATH?handler=JoinList`. Gönderildiği URL yolunu `OnPostJoinListUCAsync` olan `http://localhost:5000/Customers/CreateFATH?handler=JoinListUC`.
 
-
-
 ## <a name="customizing-routing"></a>Yönlendirme özelleştirme
+
+Sorgu dizesi değiştirebileceğiniz `?handler=JoinList` yol kesimi URL'yi `/JoinList` rota şablonu belirterek `@page "{handler?}"`.
 
 Sorgu dizesi hoşlanmıyorsanız `?handler=JoinList` URL'de işleyicisi adı URL'nin yol kısmı koymak için rota değiştirebilirsiniz. Bir rota şablonu sonra çift tırnak içine ekleyerek rota özelleştirebilirsiniz `@page` yönergesi.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
-Önceki yol işleyicisi adı ve URL yolunu sorgu dizesi yerine koyar. `?` Aşağıdaki `handler` rota parametresinin isteğe bağlı olduğu anlamına gelir.
+Yukarıdaki kullanan kod, gönderildiği URL yolunu `OnPostJoinListAsync` olan `http://localhost:5000/Customers/CreateFATH/JoinList`. Gönderildiği URL yolunu `OnPostJoinListUCAsync` olan `http://localhost:5000/Customers/CreateFATH/JoinListUC`.
 
-Kullanabileceğiniz `@page` ek kesimleri ve parametreleri bir sayfanın rotaya eklemek için. Ne olursa olsun sahip **eklenmiş** sayfasının varsayılan yol için. Sayfanın yolu değiştirmek için bir mutlak ya da sanal yolu kullanarak (gibi `"~/Some/Other/Path"`) desteklenmiyor.
+`?` Aşağıdaki `handler` rota parametresinin isteğe bağlı olduğu anlamına gelir.
+
+Kullanabileceğiniz `@page` kesimleri ve parametreleri bir sayfanın varsayılan yol için eklenecek. Sayfanın yolu değiştirmek için bir mutlak ya da sanal yolu kullanarak (gibi `"~/Some/Other/Path"`) desteklenmiyor.
 
 ## <a name="configuration-and-settings"></a>Yapılandırma ve ayarları
 
@@ -502,4 +541,4 @@ services.AddMvc()
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor sayfalarının yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
 * [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-conventions)
-* [Razor sayfalarının testleri birim ve tümleştirme](xref:testing/razor-pages-testing)
+* [Razor sayfalarının birim testleri](xref:test/razor-pages-tests)

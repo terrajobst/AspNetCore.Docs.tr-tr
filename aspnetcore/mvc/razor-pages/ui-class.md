@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: advanced
 uid: mvc/razor-pages/ui-class
-ms.openlocfilehash: b6658186adf5ccd74e1d0f0e925627f50bad250c
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 1321164d683439709ed2a219aa2d784094bae7cf
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687557"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252327"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi kullanarak ASP.NET Core Razor sınıf kitaplığı projesi oluşturun.
 
@@ -33,6 +33,7 @@ Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 
 * Visual Studio'dan **dosya** menüsünde, select **yeni** > **proje**.
 * Seçin **ASP.NET Core Web uygulaması**.
+* (Örneğin, "RazorClassLib") kitaplığı adı > **Tamam**. Oluşturulan görünüm kitaplığı ile dosya adı çakışmaları önlemek için kitaplık adını uç olun `.Views`.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * Seçin **Razor sınıf kitaplığı** > **Tamam**.
 
@@ -44,7 +45,7 @@ Komut satırı ' çalıştırma `dotnet new razorclasslib`. Örneğin:
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
-Daha fazla bilgi için bkz: [dotnet yeni](/dotnet/core/tools/dotnet-new).
+Daha fazla bilgi için bkz: [dotnet yeni](/dotnet/core/tools/dotnet-new). Oluşturulan görünüm kitaplığı ile dosya adı çakışmaları önlemek için kitaplık adını uç olun `.Views`.
 
 ------
 Razor dosyaları RCL ekleyin.
@@ -58,12 +59,6 @@ RCL tarafından başvurulabilir:
 
 * NuGet paketi. Bkz: [oluşturma NuGet paketlerini](/nuget/create-packages/creating-a-package) ve [dotnet paket ekleme](/dotnet/core/tools/dotnet-add-package) ve [oluşturma ve bir NuGet Paketi Yayımlama](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName} .csproj*. Bkz: [dotnet-Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference).
-
-### <a name="partial-files-access-in-the-rcl"></a>RCL kısmi dosya erişimi
-
-RCL dışında içerik için ASP.NET çekirdeği çalışma zamanı RCL kısmi dosyalarında aramaz.
-
-Örneğin, örnek indirme içinde *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* kısmi görüntüleyebilecek **değil** başvuruda bulunulamıyor *WebApp1\Pages\About.cshtml* . Ancak, RCL sayfaları ( *RazorUIClassLib /* **için** erişim *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
 
 ## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: bir Razor sınıf kitaplığı proje oluşturma ve Razor sayfalarının projeden kullanma
 
@@ -196,6 +191,8 @@ dotnet sln add WebApp1
 dotnet sln add RazorUIClassLib
 dotnet add WebApp1 reference RazorUIClassLib
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 Derleme ve web uygulaması çalıştırın:
 

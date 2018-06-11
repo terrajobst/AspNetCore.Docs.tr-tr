@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 36475776966cfb0cb3bb40477798f6e24df9725d
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 1ffa44d1816284d563b80b2d9a02b7b816116ee1
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688458"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252119"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -309,6 +309,8 @@ Bir kişi yöneticinin tarayıcıda oluşturun. Delete URL'sini kopyalayın ve y
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
+
+  [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

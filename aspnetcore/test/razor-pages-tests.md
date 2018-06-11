@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: test/razor-pages-tests
-ms.openlocfilehash: 460c35754750691d3d940dac04d06823083133c2
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: df74d8e44b2dff00e76139edba47fd8a30ce33ef
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734723"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252311"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core Razor sayfalarının birim testleri
 
@@ -34,7 +34,7 @@ Bu konu Razor sayfalarının uygulamaları ve birim testleri temel bilgilere sah
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Birim testi C# .NET çekirdek dotnet test ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tests/razor-pages-tests/samples/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Örnek Proje iki uygulamaların oluşur:
 

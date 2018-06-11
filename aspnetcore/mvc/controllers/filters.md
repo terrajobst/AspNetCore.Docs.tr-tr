@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252158"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreleri
 
@@ -77,7 +78,7 @@ Tek bir sınıftaki birden çok filtre aşamaları için arabirimleri uygulayabi
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` uygulayan `IFilter`. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilter` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, `CreateInstance` yöntemi oluşturmak için çağrılır `IFilter` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başlatıldığında açıkça ayarlanması gerekmez beri esnek bir tasarım sağlar.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) uygulayan [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilterMetadata` filtre ardışık düzen başka bir yerindeki örneği. Framework filtre çağırmak hazırlarken, hangisine yayınlayacağınızı çalışır bir `IFilterFactory`. Bu atama başarılı olursa, [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) yöntemi oluşturmak için çağrılır `IFilterMetadata` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başlatıldığında açıkça ayarlanması gerekmez beri esnek bir tasarım sağlar.
 
 Uygulayabileceğiniz `IFilterFactory` filtreleri oluşturma için başka bir yaklaşım olarak kendi özniteliği uygulamaları üzerinde:
 
@@ -220,7 +221,7 @@ System.InvalidOperationException: No service for type
 'FiltersSample.Filters.AddHeaderFilterWithDI' has been registered.
 ```
 
-`ServiceFilterAttribute` uygulayan `IFilterFactory`. `IFilterFactory` sunan `CreateInstance` yöntemi oluşturmak için bir `IFilter` örneği. `CreateInstance` Yöntemi (dı) Hizmetleri kapsayıcıdan belirtilen tür yükler.
+`ServiceFilterAttribute` uygulayan `IFilterFactory`. `IFilterFactory` sunan `CreateInstance` yöntemi oluşturmak için bir `IFilterMetadata` örneği. `CreateInstance` Yöntemi (dı) Hizmetleri kapsayıcıdan belirtilen tür yükler.
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 

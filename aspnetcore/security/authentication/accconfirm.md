@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: d7c1aea2b533fc614eb25c537b72bea773e76077
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688976"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252288"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap doğrulama ve ASP.NET Core parola kurtarma
 
@@ -43,6 +43,8 @@ Bkz: [bu PDF dosyası](https://github.com/aspnet/Docs/tree/master/aspnetcore/sec
 dotnet new webapp --auth Individual -o WebPWrecover
 cd WebPWrecover
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
@@ -110,7 +112,7 @@ Bkz: [HTTPS gerektiren](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>E-posta onayı iste
 
-Yeni bir kullanıcı kaydı e-posta onaylamak için en iyi bir uygulamadır. E-posta, bunlar değil kimliğine bürünmek başkası doğrulamak için onayı yardımcı olur (diğer bir deyişle, başka birinin e-posta ile kayıtlı olmayan). Bir tartışma Forumu var ve bu engellemek istediğinizi varsayalım "yli@example.com"Kimden olarak kaydetme"nolivetto@contoso.com." E-posta onaysız "nolivetto@contoso.com" istenmeyen e-posta uygulamanızdan alabilir. Kullanıcı olarak yanlışlıkla kayıtlı varsayalım "ylo@example.com" ve "yli", yazım hatası fark yüklediniz. Parola kurtarma uygulama doğru e-postalarına sahip olmadığından bunlar bağlanamayacak. E-posta onayı yalnızca sınırlı koruma aracılarını sağlar. E-posta onayı birçok e-posta hesaplarıyla kötü niyetli kullanıcıların koruma sağlamaz.
+Yeni bir kullanıcı kaydı e-posta onaylamak için en iyi bir uygulamadır. E-posta, bunlar değil kimliğine bürünmek başkası doğrulamak için onayı yardımcı olur (diğer bir deyişle, başka birinin e-posta ile kayıtlı olmayan). Bir tartışma Forumu var ve bu engellemek istediğinizi varsayalım "yli@example.com"Kimden olarak kaydetme"nolivetto@contoso.com". E-posta onaysız "nolivetto@contoso.com" istenmeyen e-posta uygulamanızdan alabilir. Kullanıcı olarak yanlışlıkla kayıtlı varsayalım "ylo@example.com" ve "yli", yazım hatası fark yüklediniz. Parola kurtarma uygulama doğru e-postalarına sahip olmadığından bunlar bağlanamayacak. E-posta onayı yalnızca sınırlı koruma aracılarını sağlar. E-posta onayı birçok e-posta hesaplarıyla kötü niyetli kullanıcıların koruma sağlamaz.
 
 Genellikle, yeni kullanıcılar sahip oldukları onaylanan bir e-posta önce web siteniz için herhangi bir veri gönderme önlemek isteyebilirsiniz.
 
@@ -307,7 +309,7 @@ Başka bir oturum açma hizmeti bağlantısını tıklatın ve uygulama istekler
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Kullanıcıların bir siteye atandıktan sonra Hesap doğrulama etkinleştir
 
-Kullanıcılarla etkinleştirme Hesap doğrulama sitesinde var olan tüm kullanıcıların kilitler. Hesaplarında onaylanıp değil çünkü mevcut kullanıcılar kilitlenir. Kullanıcı kilitlemesi çıkma geçici olarak çözmek için aşağıdaki yaklaşımlardan birini kullanın:
+Kullanıcılarla etkinleştirme Hesap doğrulama sitesinde var olan tüm kullanıcıların kilitler. Hesaplarında onaylanıp değil çünkü mevcut kullanıcılar kilitlenir. Varolan kullanıcı kilitlemesinin olarak çözmek için aşağıdaki yaklaşımlardan birini kullanın:
 
-* Onaylanan olarak tüm mevcut kullanıcılar işaretlemek için veritabanını güncelleştirme
+* Onaylanan olarak tüm mevcut kullanıcılar işaretlemek için veritabanını güncelleştirin.
 * Mevcut kullanıcıları onaylayın. Örneğin, batch onay bağlantılar ile e-postaları gönderme.

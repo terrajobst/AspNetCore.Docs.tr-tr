@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: dc95d2b76277e177246a6b0e4af5bb3815dce383
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 11f3e0b0cc1356db4c5fb9a2ce948099ed9f85b5
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734581"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252392"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -26,11 +26,11 @@ Seçenekler düzeni sınıfları ilgili ayar gruplarını göstermek için kulla
 * [Arabirimi arasında ayrım yapma ilkesine (ISS)](http://deviq.com/interface-segregation-principle/): yapılandırma ayarlarına bağlıdır (sınıflar) özelliklerine bağlıdır, kullandıkları yapılandırma ayarları.
 * [Sorunları ayrılması](http://deviq.com/separation-of-concerns/): uygulamanın farklı bölümleri için ayarları bağımlı veya birbiriyle eşleşmiş değil.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) Bu makalede örnek uygulama ile izleyin daha kolaydır.
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) Bu makalede örnek uygulama ile izleyin daha kolaydır.
 
 ## <a name="basic-options-configuration"></a>Temel seçeneklerini yapılandırma
 
-Temel Seçenekler yapılandırma, örnek olarak gösterilmiştir &num;1'de [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Temel Seçenekler yapılandırma, örnek olarak gösterilmiştir &num;1'de [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Özet olmayan bir seçenek sınıfı olmalıdır genel bir parametresiz oluşturucuya sahip. Aşağıdaki sınıf `MyOptions`, iki özelliğe sahip `Option1` ve `Option2`. Varsayılan değerleri ayarlama isteğe bağlı olmakla birlikte, aşağıdaki örnekte sınıfı oluşturucusu varsayılan değerini ayarlar `Option1`. `Option2` özellik doğrudan başlatarak ayarlamak varsayılan değeri (*Models/MyOptions.cs*):
 
@@ -60,7 +60,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Bir temsilci ile basit seçeneklerini yapılandırma
 
-Bir temsilci ile basit seçeneklerini yapılandırma örnek olarak gösterilmiştir &num;2'de [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Bir temsilci ile basit seçeneklerini yapılandırma örnek olarak gösterilmiştir &num;2'de [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Bir temsilci seçenekleri değerleri ayarlamak için kullanın. Örnek uygulama kullandığı `MyOptionsWithDelegateConfig` sınıfı (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -90,7 +90,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Suboptions yapılandırma
 
-Suboptions yapılandırma örnek olarak gösterilmiştir &num;3'te [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Suboptions yapılandırma örnek olarak gösterilmiştir &num;3'te [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Uygulamalar, uygulama (sınıflar) belirli özellik gruplarına ait seçenekleri sınıfları oluşturmanız gerekir. Yapılandırma değerlerini gerektiren uygulama bölümleri yalnızca kullandıkları yapılandırma değerlerini erişiminiz olması.
 
@@ -126,7 +126,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Bir görünüm modeli veya doğrudan görünümü ekleme ile sağlanan seçenekleri
 
-Bir görünüm modeli veya doğrudan görünümü ekleme ile sağlanan seçenekleri, örnek olarak gösterilmiştir &num;4'te [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Bir görünüm modeli veya doğrudan görünümü ekleme ile sağlanan seçenekleri, örnek olarak gösterilmiştir &num;4'te [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Seçenekler sağlanan bir görünüm modeli veya injecting `IOptions<TOptions>` bir görünüm doğrudan (*Pages/Index.cshtml.cs*):
 
@@ -146,7 +146,7 @@ Uygulama çalıştırıldığında seçenek değerlerinin oluşturulan sayfada g
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Yapılandırma verileri IOptionsSnapshot ile yeniden yükleyin
 
-Yapılandırma verileri ile yeniden `IOptionsSnapshot` gösterildiği gibi &num;5'te [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Yapılandırma verileri ile yeniden `IOptionsSnapshot` gösterildiği gibi &num;5'te [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *ASP.NET Core 1.1 veya üstünü gerektirir.*
 
@@ -174,7 +174,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>IConfigureNamedOptions seçenekleri desteğiyle adlı
 
-Seçenekler desteğiyle adlı [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) örnek olarak gösterilmiştir &num;6 ' [örnek uygulaması](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Seçenekler desteğiyle adlı [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) örnek olarak gösterilmiştir &num;6 ' [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *ASP.NET Core 2.0 veya sonraki sürümünü gerektirir.*
 

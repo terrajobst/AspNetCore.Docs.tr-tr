@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/validation
-ms.openlocfilehash: 1ab19fad90eab9f2da58b4d62615a85d71894218
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f6748ef6df865919e43cdd9ee86fcc64dbe9651a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252366"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -99,9 +100,13 @@ Doğrulama özniteliklerinin çoğu doğrulama ihtiyaçları için çalışır. 
 
 Kullanıcılar bir tarzını ayarlamaz, aşağıdaki örnekte, bir iş kuralı durumları *Klasik* 1960 sonra yayımlanan film için. `[ClassicMovie]` Özniteliği Tarz ilk denetler ve klasik ise, yayın tarihi 1960 sonraki olup olmadığını denetler. 1960 sonra yayımlanan doğrulama başarısız olur. Öznitelik verileri doğrulamak için kullanabileceğiniz yılı temsil eden bir tamsayı parametresini kabul eder. Aşağıda gösterildiği gibi özniteliğin oluşturucuda parametresinin değeri yakalamak için:
 
-[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-29)]
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=9-28)]
 
-`movie` Temsil yukarıda değişken bir `Movie` doğrulamak için form gönderme verilerini içeren nesne. İçinde bir tarzını ve tarihi bu durumda, doğrulama kodu denetler `IsValid` yöntemi `ClassicMovieAttribute` sınıfı kuralları göredir. Doğrulama başarılı bağlı `IsValid` döndürür bir `ValidationResult.Success` kodunu ve doğrulama başarısız olduğunda bir `ValidationResult` hata iletisiyle. Ne zaman bir kullanıcıyı değiştirir `Genre` alan ve formu gönderdikten `IsValid` yöntemi `ClassicMovieAttribute` film Klasik olup olmadığını doğrular. Yerleşik herhangi bir öznitelik gibi uygulama `ClassicMovieAttribute` gibi bir özelliğe `ReleaseDate` doğrulama olur, önceki kod örneğinde gösterildiği gibi sağlamak için. Bu örnek yalnızca birlikte çalışır. bu yana `Movie` türleri, daha iyi bir seçenektir kullanmak için `IValidatableObject` aşağıdaki paragrafta gösterildiği gibi.
+`movie` Temsil yukarıda değişken bir `Movie` doğrulamak için form gönderme verilerini içeren nesne. İçinde bir tarzını ve tarihi bu durumda, doğrulama kodu denetler `IsValid` yöntemi `ClassicMovieAttribute` sınıfı kuralları göredir. Başarılı bir doğrulama sırasında`IsValid` döndüren bir `ValidationResult.Success` kodu. Doğrulama başarısız olduğunda bir `ValidationResult` ileti ile bir hata döndürdü:
+
+[!code-csharp[](validation/sample/ClassicMovieAttribute.cs?range=55-58)]
+
+Ne zaman bir kullanıcıyı değiştirir `Genre` alan ve formu gönderdikten `IsValid` yöntemi `ClassicMovieAttribute` film Klasik olup olmadığını doğrular. Yerleşik herhangi bir öznitelik gibi uygulama `ClassicMovieAttribute` gibi bir özelliğe `ReleaseDate` doğrulama olur, önceki kod örneğinde gösterildiği gibi sağlamak için. Bu örnek yalnızca birlikte çalışır. bu yana `Movie` türleri, daha iyi bir seçenektir kullanmak için `IValidatableObject` aşağıdaki paragrafta gösterildiği gibi.
 
 Alternatif olarak, bu aynı kodu modelde uygulayarak yerleştirilemedi `Validate` yöntemi `IValidatableObject` arabirimi. Özel doğrulama öznitelikleri de ayrı ayrı özellikler doğrulamak için çalışırken, uygulama `IValidatableObject` sınıf düzeyi doğrulama burada görüldüğü gibi uygulamak için kullanılabilir.
 

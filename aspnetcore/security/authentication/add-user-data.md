@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 23fd792c0d93c038f31ce947e7885ad6e36d119e
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: 005491168ba3e538991ed1bf8a53c320ecf2818d
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758806"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35251989"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Ekle, indirin ve ASP.NET Core projesinde kimliğine özel kullanıcı verilerini sil
 
@@ -50,7 +50,9 @@ Proje örnek bir Razor sayfalarının web uygulamasından oluşturuldu, ancak bi
 dotnet new webapp -o WebApp1
 ```
 
-------
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
+---
 
 ## <a name="run-the-identity-scaffolder"></a>Kimlik iskele kurucu çalıştırın
 
@@ -116,7 +118,7 @@ Güncelleştirme `IdentityUser` türetilmiş sınıf özel özelliklere sahip. P
 
 Özellikler donatılmış ile [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) özniteliği şunlardır:
 
-* Ne zaman silineceğini *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor sayfasını çağırır `UserManager.Delete`.
+* Ne zaman silinmiş *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor sayfasını çağırır `UserManager.Delete`.
 * Tarafından yüklenen veriler dahil *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor sayfası.
 
 ### <a name="update-the-accountmanageindexcshtml-page"></a>Güncelleştirme Account/Manage/Index.cshtml sayfası

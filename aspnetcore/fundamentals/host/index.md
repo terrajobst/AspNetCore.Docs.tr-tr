@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/index
-ms.openlocfilehash: 37c527718433410eede8321dd7813f0ffd6473e5
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 7f8ccff7e3da93d6e617505ac93fafc3a82ed880
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34687450"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252015"
 ---
 # <a name="host-in-aspnet-core"></a>ASP.NET Core ana bilgisayar
 
@@ -24,4 +24,4 @@ ms.locfileid: "34687450"
 * [Web ana bilgisayar](xref:fundamentals/host/web-host) &ndash; web uygulamalarını barındırmak için uygundur.
 * [Genel ana bilgisayar](xref:fundamentals/host/generic-host) (ASP.NET Core 2.1 veya sonrası) &ndash; olmayan web uygulamaları (örneğin, arka plan görevleri çalışan uygulamalar) barındırmak için uygundur. Gelecekteki bir sürümde genel ana bilgisayar uygulaması, web uygulamaları dahil olmak üzere her türlü barındırma için uygun olacaktır. Genel ana bilgisayar sonunda Web ana bilgisayarı yerini alır.
 
-Şu anda geliştiriciler kullanmalıdır [Web ana bilgisayarı](xref:fundamentals/host/web-host) göre [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) ASP.NET Core uygulamaları barındırmak için.
+ASP.NET Core barındırmak için *web uygulamaları*, geliştiricilerin temel Web barındırma kullanması gereken [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Barındırma için *olmayan web uygulamaları*, geliştiricilerin genel göre ana kullanması gereken [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder).

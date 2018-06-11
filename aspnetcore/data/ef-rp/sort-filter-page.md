@@ -8,11 +8,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1220740ca35edf75fac97d4f33eff4e221414574
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252470"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor sayfalarıyla EF çekirdek ASP.NET Core - sıralama, filtre, disk belleği - 8'in 3
 
@@ -120,7 +121,7 @@ Güncelleştirme *Students/Index.cshtml.cs* `OnGetAsync` aşağıdaki kod ile:
 * Ekler `searchString` parametresi `OnGetAsync` yöntemi. Sonraki bölümde eklenen bir metin kutusundan arama dizesi değeri alındı.
 * LINQ ifadesi eklenen bir `Where` yan tümcesi. `Where` Yan tümcesi yalnızca, ad ve Soyadı arama dizesini içeren Öğrenciler seçer. Yalnızca arama için bir değer olduğunda LINQ ifadesi yürütülür.
 
-Not: Yukarıdaki kod çağrıları `Where` yöntemi bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda tha uygulama çağırma `Where` yöntemi bir bellek içi koleksiyonda bir genişletme yöntemi olarak. Örneğin, varsayalım `_context.Students` değişiklikleri EF çekirdek `DbSet` döndüren depo yönteme bir `IEnumerable` koleksiyonu. Sonuç normalde aynı kalır ancak bazı durumlarda farklı olabilir.
+Not: Yukarıdaki kod çağrıları `Where` yöntemi bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda, uygulama çağırma `Where` yöntemi bir bellek içi koleksiyonda bir genişletme yöntemi olarak. Örneğin, varsayalım `_context.Students` değişiklikleri EF çekirdek `DbSet` döndüren depo yönteme bir `IEnumerable` koleksiyonu. Sonuç normalde aynı kalır ancak bazı durumlarda farklı olabilir.
 
 Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneği harmanlama ayarı tarafından belirlenir. SQL Server varsayılan olarak çok büyük küçük harfe duyarsızdır. `ToUpper` test açıkça büyük küçük harf duyarsız yapmak için çağrılabilir:
 

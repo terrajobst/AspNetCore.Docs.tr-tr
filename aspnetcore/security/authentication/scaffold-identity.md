@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 8933cf9c4063bd94f7f3a9ba53b5372b443eb7c8
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: e7a2cf3633ed48a0d2030739cdc092441fcae2ff
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758758"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252041"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimliği
 
@@ -27,7 +27,7 @@ Yapmak uygulamaları **değil** dahil kimlik doğrulama RCL kimlik paketini ekle
 
 Gerekli kodu çoğunu iskele kurucu oluşturur ancak işlemi tamamlamak için projenize güncelleştirmeniz gerekir. Bu belge kimliği yapı iskelesi güncelleştirmesini tamamlamak için gereken adımları açıklar.
 
-Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir. Bu belgeyi okuma değerinden daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.
+Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir. Bu belgede daha daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.
 
 Dosya farklar gösterilmektedir ve dışında değişiklikleri geri olanak sağlayan bir kaynak denetim sistemi kullanmanızı öneririz. Değişiklikleri kimlik iskele kurucu çalıştırdıktan sonra inceleyin.
 
@@ -90,6 +90,8 @@ cd RPauth
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files Account.Register
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]

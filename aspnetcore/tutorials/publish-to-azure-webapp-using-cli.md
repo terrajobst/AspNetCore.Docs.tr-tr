@@ -12,12 +12,12 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: a393e9dc80fdbf646c52342b13e3cda5c725aa93
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 3fc068096a4b8696340787aa15120a2f97d10164
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688263"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252444"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
 
@@ -60,6 +60,8 @@ REM Run the app
 dotnet run
 ```
 
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -91,6 +93,8 @@ cd MyApplication
 # Run the app
 dotnet run
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

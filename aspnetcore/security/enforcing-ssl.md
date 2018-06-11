@@ -1,5 +1,5 @@
 ---
-title: Bir ASP.NET Core HTTPS zorla
+title: ASP.NET Core HTTPS zorla
 author: rick-anderson
 description: Bir ASP.NET Core HTTPS/TLS gerektiren web uygulaması gösterilmektedir.
 manager: wpickett
@@ -9,52 +9,79 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0433ddb3bf1ef0074c683903ad4553cd6a0b4741
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687824"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252080"
 ---
-# <a name="enforce-https-in-an-aspnet-core"></a>Bir ASP.NET Core HTTPS zorla
+# <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core HTTPS zorla
 
 tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu belge gösterir nasıl yapılır:
 
-- HTTPS için tüm istekleri gerektirir.
-- Tüm HTTP isteklerini yeniden yönlendirmek için HTTPS.
+* HTTPS için tüm istekleri gerektirir.
+* Tüm HTTP isteklerini yeniden yönlendirmek için HTTPS.
 
 > [!WARNING]
-> Yapmak **değil** kullanmak `RequireHttpsAttribute` Web API'lerde hassas bilgiler alırsınız. `RequireHttpsAttribute` HTTP tarayıcılarından HTTPS'ye yeniden yönlendirmek için HTTP durum kodları kullanır. API istemcileri değil anlamak veya HTTP yönlendirir HTTPS uymaktadır. Bu tür istemciler HTTP üzerinden bilgi gönderebilir. Web API'leri aşağıdakilerden birini yapmalısınız:
+> Yapmak **değil** kullanmak [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) Web API'lerde hassas bilgiler alırsınız. `RequireHttpsAttribute` HTTP tarayıcılarından HTTPS'ye yeniden yönlendirmek için HTTP durum kodları kullanır. API istemcileri değil anlamak veya HTTP yönlendirir HTTPS uymaktadır. Bu tür istemciler HTTP üzerinden bilgi gönderebilir. Web API'leri aşağıdakilerden birini yapmalısınız:
 >
->* HTTP dinleme değil.
->* Durum kodu 400 (Hatalı istek) ile bağlantı kapatın ve istek hizmet yok.
+> * HTTP dinleme değil.
+> * Durum kodu 400 (Hatalı istek) ile bağlantı kapatın ve istek hizmet yok.
 
 <a name="require"></a>
 ## <a name="require-https"></a>HTTPS gerektirir
 
 ::: moniker range=">= aspnetcore-2.1"
-Web uygulamaları çağrısı tüm ASP.NET Core öneririz `UseHttpsRedirection` HTTPS için tüm HTTP isteklerini yeniden yönlendirmek için. Varsa `UseHsts` çağrılır uygulamada, onu önce çağrılmalıdır `UseHttpsRedirection`.
+
+Tüm ASP.NET Core web uygulamaları çağrı HTTPS yeniden yönlendirmesi Ara öneririz ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) için HTTPS tüm HTTP isteklerini yeniden yönlendirmek için.
 
 Aşağıdaki kod çağrıları `UseHttpsRedirection` içinde `Startup` sınıfı:
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
 
+Aşağıdaki kod çağrıları [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) ara yazılım seçenekleri yapılandırmak için:
 
-Aşağıdaki kod:
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
+Önceki vurgulanmış kodu:
 
-* Ayarlar `RedirectStatusCode`.
+* Ayarlar [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
 * HTTPS bağlantı noktası için 5001 ayarlar.
+
+Aşağıdaki mekanizmalardan bağlantı noktasını otomatik olarak ayarlayın:
+
+* Ara yazılım aracılığıyla bağlantı noktalarını bulabilmesi için [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) zaman aşağıdaki koşullar geçerlidir:
+  - Kestrel veya HTTP.sys doğrudan HTTPS uç noktalarla birlikte kullanılan (uygulama Visual Studio kodun hata ayıklayıcısı ile çalıştırma için de geçerlidir).
+  - Yalnızca **bir HTTPS bağlantı noktası** uygulama tarafından kullanılır.
+* Visual Studio kullanılır:
+  - IIS Express HTTPS etkinleştirilmiş sahiptir.
+  - *launchSettings.json* ayarlar `sslPort` IIS Express için.
+
+> [!NOTE]
+> Ters Ara sunucu (örneğin, IIS, IIS Express), bir uygulama çalıştırıldığında `IServerAddressesFeature` kullanılamaz. Bağlantı noktasını el ile yapılandırılması gerekir. Bağlantı noktası ayarlanmamışsa, istekleri yeniden yönlendirilen değil.
+
+Bağlantı noktası ayarlanarak yapılandırılabilir:
+
+* `ASPNETCORE_HTTPS_PORT` Ortam değişkeni.
+* `http_port` ana bilgisayar yapılandırma anahtarı (örneğin, aracılığıyla *hostsettings.json* veya komut satırı bağımsız değişkeni).
+* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Bağlantı noktası için 5001 ayarlanması gösterilmektedir önceki örneğe bakın.
+
+> [!NOTE]
+> Bağlantı noktası URL'si ile ayarlayarak dolaylı olarak yapılandırılabilir `ASPNETCORE_URLS` ortam değişkeni. Ortam değişkeni sunucusu yapılandırır ve ara yazılım HTTPS bağlantı noktası aracılığıyla dolaylı olarak bulur `IServerAddressesFeature`.
+
+Bağlantı noktası yok ayarlanırsa:
+
+* İstekleri yeniden yönlendirilen değil.
+* Ara yazılım bir uyarı kaydeder.
 
 ::: moniker-end
 
-
 ::: moniker range="< aspnetcore-2.1"
 
-[RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) HTTPS gerektirecek şekilde kullanılır. `[RequireHttpsAttribute]` denetleyicileri veya yöntemleri işaretleme veya genel olarak uygulanabilir. Öznitelik genel uygulamak için aşağıdaki kodu ekleyin `ConfigureServices` içinde `Startup`:
+[RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) HTTPS gerektirecek şekilde kullanılır. `[RequireHttpsAttribute]` denetleyicileri veya yöntemleri işaretleme veya genel olarak uygulanabilir. Öznitelik genel uygulamak için aşağıdaki kodu ekleyin `ConfigureServices` içinde `Startup`:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
@@ -69,6 +96,7 @@ HTTPS genel gerektiren (`options.Filters.Add(new RequireHttpsAttribute());`) bir
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP katı Aktarım güvenlik protokolünü (HSTS)
 
@@ -76,13 +104,13 @@ Başına [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_
 
 ASP.NET Core 2.1 veya sonrası ile HSTS uygulayan `UseHsts` genişletme yöntemi. Aşağıdaki kod çağrıları `UseHsts` zaman uygulama değil de [geliştirme modunu](xref:fundamentals/environments):
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
 `UseHsts` HSTS üstbilgisi tarayıcılar tarafından yüksek oranda cachable olduğundan öneri geliştirme değil. Varsayılan olarak, yerel bir geri döngü adresine UseHsts dışlar.
 
 Aşağıdaki kod:
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
 * Strict Aktarım güvenlik üstbilgisi önyüklemesi parametresinin ayarlar. Önyükleme değil parçası [RFC HSTS belirtimi](https://tools.ietf.org/html/rfc6797), yeniden yüklemeyi HSTS sitelerinde önceden yüklemek için web tarayıcısı tarafından desteklenir, ancak. Bkz: [ https://hstspreload.org/ ](https://hstspreload.org/) daha fazla bilgi için.
 * Etkinleştirir [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), ana bilgisayar alt etki alanları için HSTS ilkesi uygulanır. 
@@ -98,12 +126,12 @@ Aşağıdaki kod:
 Önceki örnekte, ek ana bilgisayar eklemek gösterilmiştir.
 ::: moniker-end
 
-
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="https"></a>
 ## <a name="opt-out-of-https-on-project-creation"></a>Üyelikten çıkmak HTTPS projesi oluşturma
 
-Sonraki web uygulama şablonlardan (Visual Studio veya dotnet komut satırı) ve ASP.NET Core 2.1 etkinleştirmek [HTTPS yeniden yönlendirmesi](#require) ve [HSTS](#hsts). HTTPS gerektirmeyen dağıtımları için HTTPS çevirin. Örneğin, burada HTTPS dışarıdan sınırında her düğümde HTTPS kullanarak işlenen bazı arka uç hizmetlerinin gerekli değildir.
+ASP.NET Core 2.1 veya üzeri bir web uygulaması şablonlardan (Visual Studio veya dotnet komut satırı) etkinleştirme [HTTPS yeniden yönlendirmesi](#require) ve [HSTS](#hsts). HTTPS gerektirmeyen dağıtımları için HTTPS çevirin. Örneğin, burada HTTPS dışarıdan sınırında her düğümde HTTPS kullanarak işlenen bazı arka uç hizmetlerinin gerekli değildir.
 
 HTTPS çevirin için:
 
@@ -121,11 +149,14 @@ Kullanım `--no-https` seçeneği. Örneğin
 dotnet new webapp --no-https
 ```
 
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 ---
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Bir geliştirici sertifikası için Docker ayarlama
 
 Bkz: [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6199).

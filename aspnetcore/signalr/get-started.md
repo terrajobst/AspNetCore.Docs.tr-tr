@@ -11,12 +11,12 @@ ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: eb14fbf42f5c18ccdc3ca42af8fd8bcfaa15c623
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: c71d98f86c15a4c6fbbe400f912123419b4ad076
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688594"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252210"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
@@ -75,7 +75,7 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
     npm install @aspnet/signalr
     ```     
 
-4. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  için *lib* projenizdeki klasöre.
+4. İçindeki "signalr" adlı yeni bir klasör oluşturun *lib* projenizdeki klasöre. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  bu klasöre.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -85,6 +85,8 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
     dotnet new webapp -o SignalRChat
     ```
 
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+
 2. JavaScript istemci kitaplığını kullanarak yükleme *npm*.
 
     ```console
@@ -92,9 +94,9 @@ Visual Studio içerir `Microsoft.AspNetCore.SignalR` parçası olarak, sunucu ki
     npm install @aspnet/signalr
     ```
 
-3. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  için *lib* projenizdeki klasöre.
+3. İçindeki "signalr" adlı yeni bir klasör oluşturun *lib* projenizdeki klasöre. Kopya *signalr.js* dosya *node_modules\\ @aspnet\signalr\dist\browser*  bu klasöre.
 
------
+---
 
 ## <a name="create-the-signalr-hub"></a>SignalR hub'ı Oluştur
 
@@ -102,7 +104,7 @@ Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst d
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Bir sınıf projeye seçerek eklemek **dosya** > **yeni** > **dosya** ve seçerek **Visual C# sınıfı**.
+1. Bir sınıf projeye seçerek eklemek **dosya** > **yeni** > **dosya** ve seçerek **Visual C# sınıfı**. Dosya adı *ChatHub*. 
 
 2. Devralınan `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Özellikleri ve olayları gönderme ve alma veri yanı sıra bağlantıları ve grupları yönetmek için sınıf içerir.
 
@@ -140,15 +142,16 @@ SignalR için isteklerini iletmek için bilir böylece SignalR sunucusunun yapı
 
 ## <a name="create-the-signalr-client-code"></a>SignalR istemci kodu oluşturma
 
-1. İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
+1. Adlı bir JavaScript dosyası ekleme *chat.js*, *wwwroot\js* klasör. Aşağıdaki kodu ekleyin:
+
+   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
+
+2. İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
 
    [!code-cshtml[Index](get-started/sample/Pages/Index.cshtml)]
 
    Önceki HTML adını ve ileti alanları ve bir gönderme düğmesi görüntüler. Komut dosyası başvuruları altındaki dikkat edin: SignalR başvurusu ve *chat.js*.
 
-2. Adlı bir JavaScript dosyası ekleme *chat.js*, *wwwroot\js* klasör. Aşağıdaki kodu ekleyin:
-
-   [!code-javascript[Index](get-started/sample/wwwroot/js/chat.js)]
 
 ## <a name="run-the-app"></a>Uygulama Çalıştırma
 

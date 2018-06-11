@@ -1,27 +1,29 @@
 # <a name="custom-webhost-service-sample"></a>Özel WebHost hizmet örneği
 
-Bu örnek bir Windows hizmeti olarak IIS kullanmadan Windows üzerinde bir ASP.NET Core uygulama barındırmak için önerilen yol göstermektedir. Bu örnek açıklanan özelliklerini gösterir [bir Windows hizmetinde bir ASP.NET Core uygulama ana bilgisayar](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+Bu örnek, bir ASP.NET Core uygulama IIS kullanmadan bir Windows hizmeti olarak barındırmak gösterilmiştir. Bu örnek açıklanan senaryoyu göstermektedir [bir Windows hizmetinde bir ASP.NET Core uygulama ana bilgisayar](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
 
 ## <a name="instructions"></a>Yönergeler
 
-Örnek uygulaması yönergelerine göre değiştiren basit bir MVC web uygulaması olduğundan [bir Windows hizmetinde bir ASP.NET Core uygulama ana bilgisayar](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+Örnek uygulaması yönergelerine göre değiştiren bir Razor sayfalarının web uygulaması olduğundan [bir Windows hizmetinde bir ASP.NET Core uygulama ana bilgisayar](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
 
 Uygulamayı bir hizmet olarak çalıştırmak için aşağıdaki adımları gerçekleştirin:
 
 1. Konumunda bir klasör oluşturun *c:\svc*.
 
-1. Uygulamayı içeren klasöre yayımlama `dotnet publish --configuration Release --output c:\\svc`. Komutu uygulamanın varlıklar gerekli dahil olmak üzere klasörüne taşımak `appsettings.json` dosya ve `wwwroot` içeriğiyle ilgili klasör.
+1. Uygulamayı içeren klasöre yayımlama `dotnet publish --configuration Release --output c:\\svc`. Uygulamanın varlıklarına komutu taşır *svc* gerekli dahil olmak üzere, klasör `appsettings.json` dosya ve `wwwroot` klasör.
 
-1. Açık bir **yönetici** komut kabuğunda.
+1. Açık bir **yönetici** komut istemi.
 
 1. Aşağıdaki komutları çalıştırın:
 
    ```console
-   sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
    sc start MyService
    ```
 
-1. Bir tarayıcıda Git `http://localhost:5000` hizmetinin çalıştığını doğrulayın.
+  *Eşittir işareti ve yol dizesi başlangıcı arasındaki boşluğu gereklidir.*
+
+1. Bir tarayıcıda gidin `http://localhost:5000` ve hizmetin çalıştığını doğrulayın. Uygulama güvenli uç noktasına yönlendirir `https://localhost:5001`.
 
 1. Hizmeti durdurmak için komutu kullanın:
 
@@ -29,7 +31,7 @@ Uygulamayı bir hizmet olarak çalıştırmak için aşağıdaki adımları ger�
    sc stop MyService
    ```
 
-Uygulamayı bir hizmet olarak çalıştırırken istendiği şekilde başlamazsa, hata iletileri erişilebilir hale getirmek için hızlı bir şekilde bir oturum açma sağlayıcısı gibi eklemektir [Windows olay günlüğü sağlayıcısı](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog). Sistemde Olay Görüntüleyicisi'ni kullanarak uygulama olay günlüğünü denetleyin başka bir seçenektir. Örneğin, işlenmeyen bir özel durum FileNotFound hata uygulama olay günlüğü'ndeki şöyledir:
+Uygulamanın beklendiği gibi başlamazsa, hata iletileri erişilebilir hale getirmek için hızlı bir şekilde bir oturum açma sağlayıcısı gibi eklemektir [Windows olay günlüğü sağlayıcısı](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog). Sistemde Olay Görüntüleyicisi'ni kullanarak uygulama olay günlüğünü denetleyin başka bir seçenektir. Örneğin, işlenmeyen bir özel durum FileNotFound hata uygulama olay günlüğü'ndeki şöyledir:
 
 ```console
 Application: AspNetCoreService.exe
