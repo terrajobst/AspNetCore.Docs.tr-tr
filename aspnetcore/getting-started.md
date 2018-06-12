@@ -5,17 +5,17 @@ description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulam
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 5/31/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: 1b4d765c08c67a65a8752e7f650d4e61ec0d2fbf
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
-ms.translationtype: HT
+ms.openlocfilehash: 0b5de87b99e57df16f663f13d41e750a29ea6276
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687463"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252054"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
 
@@ -23,28 +23,62 @@ ms.locfileid: "34687463"
 
 1. Yükleme [!INCLUDE [](~/includes/2.1-SDK.md)].
 
-2. Yeni bir .NET Core projesi oluşturun.
+2. Bir ASP.NET Core projesi oluşturun. Bir komut kabuğu'nu açın ve aşağıdaki komutu girin:
 
-   MacOS ve Linux üzerinde bir terminal penceresi açın. Windows, bir komut istemi açın. Aşağıdaki komutu girin:
-
-    ```terminal
+    ```console
     dotnet new webapp -o aspnetcoreapp
     ```
 
-3. Uygulama ile aşağıdaki komutları çalıştırın:
+    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
-    ```terminal
+3. HTTPS geliştirme sertifikası güven:
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+    ```console
+    dotnet dev-certs https --trust
+    ```
+
+    The preceding command displays the following dialog:
+
+    ![Security warning dialog](getting-started/_static/cert.png)
+
+    Select **Yes** if you agree to trust the development certificate.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+    ```console
+    dotnet dev-certs https --trust
+    ```
+
+    The preceding command displays the following message:
+
+    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
+    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+    *This command might prompt you for your password to install the certificate on the system keychain.
+    Password:*
+
+    Enter your password if you agree to trust the development certificate.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+---
+
+4. Uygulamayı çalıştırın:
+
+    ```console
     cd aspnetcoreapp
     dotnet run
     ```
 
-4. Gözat [ http://localhost:5000 ](http://localhost:5000).
+5. Gözat [ http://localhost:5001 ](http://localhost:5001).  Tıklatın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulamayı, kişisel bilgi korumayarak.
 
-5. Açık *Pages/About.cshtml* ve iletiyi görüntülemek için sayfanın değiştirme "Hello, world! Sunucusundaki zamandır @DateTime.Now":
+6. Açık *Pages/About.cshtml* ve aşağıdaki vurgulanmış biçimlendirmeyi sayfasıyla değiştirin:
 
-    [!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9)]
 
-6. Gözat [ http://localhost:5000/About ](http://localhost:5000/About) ve değişiklikleri doğrulayın.
+7. Gözat [ http://localhost:5001/About ](http://localhost:5001/About) ve değişiklikleri görüntülenir doğrulayın.
 
 [!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
 
@@ -54,17 +88,17 @@ ms.locfileid: "34687463"
 
 1. Yükleme [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
-2. Yeni bir .NET Core projesi oluşturun.
+2. Yeni bir ASP.NET Core projesi oluşturun.
 
-   MacOS ve Linux üzerinde bir terminal penceresi açın. Windows, bir komut istemi açın. Aşağıdaki komutu girin:
+   Bir komut kabuğu'nu açın. Aşağıdaki komutu girin:
 
-    ```terminal
+    ```console
     dotnet new razor -o aspnetcoreapp
     ```
 
 3. Uygulama ile aşağıdaki komutları çalıştırın:
 
-    ```terminal
+    ```console
     cd aspnetcoreapp
     dotnet run
     ```
@@ -85,11 +119,11 @@ ms.locfileid: "34687463"
 
 1. .NET Core yükleme **SDK'sı yükleyicisi** 1.0.4 SDK'dan için [.NET Core tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
 
-2. Yeni bir .NET Core proje için bir klasör oluşturun.
+2. Yeni bir ASP.NET Core proje için bir klasör oluşturun.
 
-   MacOS ve Linux üzerinde bir terminal penceresi açın. Windows, bir komut istemi açın.
+   Bir komut kabuğu'nu açın. Aşağıdaki komutları girin:
 
-   ```terminal
+   ```console
    mkdir aspnetcoreapp
    cd aspnetcoreapp
    ```
@@ -102,21 +136,21 @@ ms.locfileid: "34687463"
    }
    ```
 
-4. Yeni bir .NET Core projesi oluşturun.
+4. Yeni bir ASP.NET Core projesi oluşturun.
 
-   ```terminal
+   ```console
    dotnet new web
    ```
 
 5. Paketler geri yükleyin.
 
-    ```terminal
+    ```console
     dotnet restore
     ```
 
 6. Uygulamayı çalıştırın.
 
-   ```terminal
+   ```console
    dotnet run
    ```
 
