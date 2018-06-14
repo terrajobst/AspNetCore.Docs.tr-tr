@@ -6,4 +6,4 @@ Yükleme **bir** aşağıdaki:
     * **ASP.NET ve web geliştirme** iş yükü
     * **.NET core platformlar arası geliştirme** iş yükü
   * Linux: [Visual Studio Code](https://www.microsoft.com/net/download/linux)
-  * macOS: [Visual Studio for Mac](https://www.microsoft.com/net/download/macos)
+  * macOS: [Mac için Visual Studio](https://www.microsoft.com/net/download/macos)

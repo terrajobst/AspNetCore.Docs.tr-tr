@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/index
-ms.openlocfilehash: 01d40d3839c652fb72f90f2d7c4cd81538938c53
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 5c4b84c7b563ba24dfd4b526d5309907773103ce
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35251976"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341775"
 ---
 # <a name="aspnet-core-signalr"></a>ASP.NET Core SignalR
 
@@ -24,6 +24,8 @@ ms.locfileid: "35251976"
 * [Merkezler](xref:signalr/hubs)
 * [JavaScript istemcisi](xref:signalr/javascript-client)
 * [.NET istemcisi](xref:signalr/dotnet-client)
+* [Kullanıcılar ve gruplar](xref:signalr/groups)
 * [MessagePack Hub Protokolü](xref:signalr/messagepackhubprotocol)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
+* [Akış](xref:signalr/streaming)
 * [Desteklenen platformlar](xref:signalr/supported-platforms)

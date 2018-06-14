@@ -11,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: d913d8a773d312fc4c3191926c6eae2fcb7c6a3e
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 47d3a64ce0cc543162a066eeeaa0aaaf7dc96a5f
+ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734397"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35415014"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>ASP.NET Core IHostingStartup ile dış bir derlemede uygulama geliştirmek
 
@@ -57,7 +57,7 @@ A [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattrib
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet1)]
 
-Bir sınıf uygular `IHostingStartup`. Sınıfının [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) yöntemi kullanan bir [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) geliştirmeleri bir uygulamaya eklemek için:
+Bir sınıf uygular `IHostingStartup`. Sınıfının [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) yöntemi kullanan bir [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) geliştirmeleri bir uygulamaya eklemek için. `IHostingStartup.Configure` barındırma başlangıç derleme önce çalışma zamanı tarafından çağrılır `Startup.Configure` kullanıcı kodunda veren barındırma başlangıç derlemesi tarafından sağlanan yapılandırma üzerine yazmak kullanıcı kodu.
 
 [!code-csharp[](platform-specific-configuration/snapshot_sample/StartupEnhancement.cs?name=snippet2&highlight=3,5)]
 
@@ -117,13 +117,15 @@ Paylaşılan framework sürümü hedef uygulamanın kullandığı paylaşılan �
 
 Aşağıdaki ortam değişkenleri geliştirme kullanan uygulama bağlamında ayarlayın.
 
-ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
+ASPNETCORE_HOSTINGSTARTUPASSEMBLIES
 
 Yalnızca barındırma başlangıç derlemeler için taranan `HostingStartupAttribute`. Bu ortam değişkeninde sağlanan uygulaması derleme adıdır. Bu değer örnek uygulaması ayarlar `StartupDiagnostics`.
 
 Değer kullanılarak da ayarlanabilir [barındırma başlangıç derlemeleri](xref:fundamentals/host/web-host#hosting-startup-assemblies) ana bilgisayar yapılandırma ayarı.
 
-DOTNET\_EK\_DEPS
+Ne zaman birden çok barındırma başlangıç derler var, kendi [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) yöntemleri derlemeler listelenen sırayla çalıştırılır.
+
+DOTNET_ADDITIONAL_DEPS
 
 Uygulaması'nın konumunu  *\*. deps.json* dosya.
 

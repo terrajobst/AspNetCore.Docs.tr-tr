@@ -3,39 +3,41 @@ title: Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 author: guardrex
 description: Yapılandırma ve ASP.NET Core yanıt önbelleğe alma Ara kullanma öğrenin.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341710"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [John Luo](https://github.com/JunTaoLuo)
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan ASP.NET Core 2.1 örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Bu makalede, bir ASP.NET Core uygulamada yanıt önbelleğe alma ara yazılım yapılandırma açıklanmaktadır. Ara yazılım yanıtları alınabilir olduğunda, depoları yanıtlar ve görevi görür yanıtları önbelleğinden belirler. HTTP önbellek giriş ve `ResponseCache` özniteliği için bkz: [yanıt önbelleğe alma](xref:performance/caching/response).
 
 ## <a name="package"></a>Paket
 
-Ara yazılım bir proje eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCore.ResponseCaching` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketini veya kullanmak [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) paket (ASP.NET Core 2.0 veya üstü .NET Core hedeflerken).
+Ara yazılım projenize eklemek için bir başvuru ekleyin [Microsoft.AspNetCore.ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) paketini veya kullanmak [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), ASP uygulamasında kullanılabilir olduğu. NET çekirdek 2.1 veya üzeri.
 
 ## <a name="configuration"></a>Yapılandırma
 
 İçinde `ConfigureServices`, ara yazılım hizmeti koleksiyonuna ekleyin.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=9)]
 
 Ara yazılımla kullanmak için uygulamayı yapılandırma `UseResponseCaching` ara yazılım istek işleme ardışık düzenine ekler genişletme yöntemi. Örnek uygulaması ekler bir [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) alınabilir yanıtları 10 saniye için önbelleğe yanıtı üstbilgisi. Örnek gönderir bir [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) önbelleğe alınan yanıt eksikse sunmak için ara yazılımını yapılandırma üstbilgi [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) sonraki istekleri üstbilgisinin, özgün istek eşleşir. Aşağıdaki kod örneğinde [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) ve [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) gerektiren bir `using` bildirimi [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) ad alanı.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=17,21-28)]
 
 Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum koduna neden sunucu yanıtlarını önbelleğe alır. Dahil olmak üzere diğer bir yanıtlar [hata sayfaları](xref:fundamentals/error-handling), ara yazılım tarafından göz ardı edilir.
 
@@ -46,10 +48,10 @@ Yanıt önbelleğe alma ara yazılımı yalnızca 200 (Tamam) durum koduna neden
 
 Ara yazılım denetleme yanıt önbelleğe alma için üç seçenek sunar.
 
-| Seçenek                | Varsayılan Değer |
-| --------------------- | ------------- |
-| UseCaseSensitivePaths | Büyük küçük harfe duyarlı yollarında yanıtlarını önbelleğe alınmaz belirler.</p><p>Varsayılan değer `false` şeklindedir. |
-| MaximumBodySize       | Yanıt gövdesi bayt cinsinden en büyük alınabilir boyutu.</p>Varsayılan değer `64 * 1024 * 1024` (64 MB). |
+| Seçenek                | Açıklama |
+| --------------------- | ----------- |
+| UseCaseSensitivePaths | Büyük küçük harfe duyarlı yollarında yanıtlarını önbelleğe alınmaz belirler. Varsayılan değer `false` şeklindedir. |
+| MaximumBodySize       | Yanıt gövdesi bayt cinsinden en büyük alınabilir boyutu. Varsayılan değer `64 * 1024 * 1024` (64 MB). |
 | SizeLimit             | Bayt cinsinden yanıt önbellek ara yazılımı için boyut sınırı. Varsayılan değer `100 * 1024 * 1024` (100 MB). |
 
 Aşağıdaki örnek Ara yapılandırır:

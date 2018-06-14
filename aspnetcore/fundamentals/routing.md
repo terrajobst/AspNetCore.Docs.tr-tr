@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341788"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -262,7 +263,6 @@ Rota parametrelerine dışında düz metin (örneğin, `{id}`) ve yol ayırıcı
 Bir isteğe bağlı bir dosya uzantılı bir dosya adı yakalama girişimi URL desenlerini dikkat edilecek diğer noktalar vardır. Örneğin, şablonu kullanarak `files/{filename}.{ext?}` - her ikisi de `filename` ve `ext` var, her iki değerin doldurulur. Yalnızca `filename` URL, yol eşleşmeleri var olduğundan, sonundaki nokta `.` isteğe bağlıdır. Aşağıdaki URL'ler bu rota eşleşir:
 
 * `/files/myFile.txt`
-* `/files/myFile.`
 * `/files/myFile`
 
 Kullanabileceğiniz `*` öneki olarak karakter - URI geri kalanı için bağlamak için bir rota parametresini için bu çağrılır bir *catch tüm* parametresi. Örneğin, `blog/{*slug}` kullanmaya herhangi bir URL eşleşir `/blog` ve sonrasında herhangi bir değer (hangi atanabilir için `slug` rota değeri). Catch tüm parametreleri da boş dize eşleştirebilirsiniz.

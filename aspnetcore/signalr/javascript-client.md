@@ -6,16 +6,17 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 05/09/2018
+ms.date: 05/29/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/javascript-client
-ms.openlocfilehash: 1701d9ac5222bf64f9690c1cecdf54ef95fe4a49
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 6ff888d3337bb53d435744009f4cc24b327ebcda
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341944"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemci
 
@@ -78,7 +79,7 @@ Hub'dan iletileri almak için bir yöntemi kullanarak tanımlarsınız `connecti
 
 Önceki kod `connection.on` sunucu tarafı kodu kullanarak çağırdığında çalışır `SendAsync` yöntemi.
 
-[!code-javascript[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
+[!code-csharp[Call client-side](javascript-client/sample/hubs/chathub.cs?range=8-11)]
 
 SignalR belirler yöntem adı eşleştirerek çağırmak için hangi istemci yöntemi ve bağımsız değişkenler tanımlanan `SendAsync` ve `connection.on`.
 
@@ -104,5 +105,7 @@ Kullanım `configureLogging` yöntemi `HubConnectionBuilder` günlük düzeyini 
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 
-* [ASP.NET Core SignalR hub'ları](xref:signalr/hubs)
+* [Merkezler](xref:signalr/hubs)
+* [.NET istemcisi](xref:signalr/dotnet-client)
+* [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
 * [ASP.NET Core çıkış noktaları arası istekleri (CORS) etkinleştir](xref:security/cors)

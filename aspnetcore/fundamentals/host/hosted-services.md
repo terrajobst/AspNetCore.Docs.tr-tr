@@ -3,6 +3,7 @@ title: ASP.NET Core barındırılan hizmetleri ile arka plan görevleri
 author: guardrex
 description: ASP.NET Core arka plan görevlerini barındırılan hizmetleri ile uygulama öğrenin.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
@@ -10,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: cc39d125b639719599eca68d627fda014fb107e0
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 13ac7e266b657bc186188b2b6f40204cfd936fca
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341827"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET Core barındırılan hizmetleri ile arka plan görevleri
 
@@ -45,7 +47,7 @@ Barındırılan hizmetler uygulama [IHostedService](/dotnet/api/microsoft.extens
 
 * [StopAsync(CancellationToken)](/dotnet/api/microsoft.extensions.hosting.ihostedservice.stopasync) -ana bilgisayar normal şekilde kapatılmasını gerçekleştirirken tetiklendi. `StopAsync` Son arka plan görevi ve yönetilmeyen kaynakları dispose mantığını içerir. Uygulama beklenmedik biçimde (örneğin, uygulamanın işlemi başarısız olur), kapatılırsa `StopAsync` çağrılmaz.
 
-Barındırılan hizmet uygulaması başlangıçta ve düzgün biçimde kapatma uygulama kapatma sırasında bir kez etkinleştirilmiş bir singleton ' dir. Zaman [IDisposable](/dotnet/api/system.idisposable) olan hizmet kapsayıcısı uygulanan kaynakları silinmediğinde. Arka plan Görev yürütülürken bir hata oluşursa `Dispose` çağrılmalıdır olsa bile `StopAsync` olarak adlandırılmaz.
+Barındırılan hizmet uygulaması başlangıçta ve düzgün biçimde kapatma uygulama kapatma sırasında bir kez etkinleştirilir. Zaman [IDisposable](/dotnet/api/system.idisposable) olan hizmet kapsayıcısı uygulanan kaynakları silinmediğinde. Arka plan Görev yürütülürken bir hata oluşursa `Dispose` çağrılmalıdır olsa bile `StopAsync` olarak adlandırılmaz.
 
 ## <a name="timed-background-tasks"></a>Zamanlanmış arka plan görevleri
 
@@ -53,9 +55,21 @@ Zamanlanmış arka plan görevi kullanır [süre System.Threading.Timer](/dotnet
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
-Hizmet kayıtlı `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Hizmet kayıtlı `Startup.ConfigureServices` ile `AddHostedService` genişletme yöntemi:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Hizmet kayıtlı `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Kapsamlı bir arka plan görevi hizmetinde kullanma
 
@@ -69,13 +83,25 @@ Barındırılan hizmet çağırmak için kapsamlı bir arka plan görev hizmeti 
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
-Hizmetleri kayıtlı `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Hizmetleri kayıtlı `Startup.ConfigureServices`. `IHostedService` İle kayıtlı uygulama `AddHostedService` genişletme yöntemi:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
 
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Hizmetleri kayıtlı `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
+
+::: moniker-end
+
 ## <a name="queued-background-tasks"></a>Sıraya alınan arka plan görevleri
 
-Arka plan görev sırası .NET tabanlı 4.x [QueueBackgroundWorkItem](/dotnet/api/system.web.hosting.hostingenvironment.queuebackgroundworkitem) ([ASP.NET Core 2.2 yerleşik olarak kesin zamanlanmış](https://github.com/aspnet/Hosting/issues/1280)):
+Arka plan görev sırası .NET tabanlı 4.x [QueueBackgroundWorkItem](/dotnet/api/system.web.hosting.hostingenvironment.queuebackgroundworkitem) ([ASP.NET Core 3.0 için yerleşik olarak kesin zamanlanmış](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
@@ -83,9 +109,21 @@ Arka plan görev sırası .NET tabanlı 4.x [QueueBackgroundWorkItem](/dotnet/ap
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
 
-Hizmetleri kayıtlı `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Hizmetleri kayıtlı `Startup.ConfigureServices`. `IHostedService` İle kayıtlı uygulama `AddHostedService` genişletme yöntemi:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Hizmetleri kayıtlı `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
 
 Dizin sayfası modeli sınıfında `IBackgroundTaskQueue` oluşturucuya eklenen ve atanan `Queue`:
 

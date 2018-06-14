@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341866"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
@@ -43,11 +44,13 @@ CSRF saldırı örneği:
 1. Kullanıcı düğmesi seçer. Tarayıcı isteği yapar ve otomatik olarak istenen etki alanı için kimlik doğrulama tanımlama bilgisi içeren `www.good-banking-site.com`.
 1. İstek çalıştığı `www.good-banking-site.com` kullanıcının kimlik doğrulaması bağlamı sunucuyla ve kimliği doğrulanmış bir kullanıcı gerçekleştirmek için izin verilen herhangi bir eylem gerçekleştirebilir.
 
-Kullanıcı form gönderme düğmesini seçtiğinde, zararlı site olabilir:
+Kullanıcı form gönderme düğmesi nerede seçer senaryo ek olarak, kötü amaçlı site olabilir:
 
 * Otomatik olarak form gönderen bir komut dosyasını çalıştırın.
-* Form gönderme AJAX isteği gönderir. 
-* Gizli bir form CSS ile kullanın. 
+* Form gönderme bir AJAX isteği gönder.
+* CSS kullanarak form gizleyin.
+
+Bu alternatif senaryoların herhangi bir eylem veya başlangıçta amaçlı sitesini ziyaret dışındaki kullanıcı girişi gerekmez.
 
 HTTPS kullanarak CSRF saldırı engellemez. Kötü amaçlı site gönderebilirsiniz bir `https://www.good-banking-site.com/` kolayca güvenli olmayan bir istek gönderebilir gibi isteyin.
 
@@ -195,7 +198,7 @@ services.AddAntiforgery(options =>
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| [Cookie](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Antiforgery tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. |
+| [Tanımlama bilgisi](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Antiforgery tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. |
 | [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Tanımlama bilgisinin etki alanı. Varsayılan olarak `null`. Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Domain alternatiftir. |
 | [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Tanımlama bilgisinin adı. Ayarlanmadı, sistem ile başlayan bir benzersiz ad oluşturursa [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Name alternatiftir. |
 | [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Yolu tanımlama bilgisinde ayarlanır. Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Path alternatiftir. |

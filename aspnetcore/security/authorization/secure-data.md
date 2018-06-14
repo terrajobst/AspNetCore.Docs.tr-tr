@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 1ffa44d1816284d563b80b2d9a02b7b816116ee1
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 0b67d4aef198aa418b54fb92db76d331ffa2785a
+ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252119"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35415039"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -111,7 +111,7 @@ Visual Studio kullanıyorsanız, HTTPS etkinleştirin.
 
 HTTPS için HTTP isteklerini yeniden yönlendirmek için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting). Visual Studio Code kullanarak ya da yerel bir platformda sınama, HTTPS için bir test sertifikası içermez:
 
-  Ayarlama `"LocalTest:skipSSL": true` içinde *appsettings. Developement.JSON* dosya.
+  Ayarlama `"LocalTest:skipHTTPS": true` içinde *appsettings. Developement.JSON* dosya.
 
 ### <a name="require-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar gerektirir
 
@@ -273,7 +273,7 @@ Ayrıntılar sayfası modeli güncelleştirin:
 
 Visual Studio Code kullanarak ya da yerel bir platformda sınama, HTTPS için bir test sertifikası içermez:
 
-* Ayarlama `"LocalTest:skipSSL": true` içinde *appsettings. Developement.JSON* HTTPS gereksinim atlamak için dosya. Bir geliştirme makinede yalnızca HTTPS atla.
+* Ayarlama `"LocalTest:skipHTTPS": true` içinde *appsettings. Developement.JSON* HTTPS gereksinim atlamak için dosya. Bir geliştirme makinede yalnızca HTTPS atla.
 
 Uygulamanın kişiler varsa:
 
