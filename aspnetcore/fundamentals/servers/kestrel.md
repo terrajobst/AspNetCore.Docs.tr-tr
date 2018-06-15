@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1c5d229614e6d6ca6889d19a5f3dc145da01bc04
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 39949585dc8fce10c31045ef3013c6bc166e45ba
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613157"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET Core kestrel web sunucusu uygulaması
 
@@ -74,11 +75,11 @@ Ters proxy sunucusu gerekli olmasa bile bir ters proxy sunucusu kullanmak iyi bi
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) paket dahil [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+[Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) paketinde [Microsoft.AspNetCore.App metapackage] (xref:fundamentals / metapackage uygulama) (ASP.NET Core 2.1 veya sonrası).
 
 ASP.NET Core proje şablonlarını Kestrel varsayılan olarak kullanın. İçinde *Program.cs*, şablonu kodu çağrılarının [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), çağıran [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) arka planda.
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
@@ -86,7 +87,7 @@ Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Mi
 
 Çağrı [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1) genişletme yöntemi [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder?view=aspnetcore-1.1) içinde `Main` herhangi belirtme yöntemi [Kestrel seçenekleri](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions?view=aspnetcore-1.1) , sonraki bölümde gösterildiği gibi gerekli.
 
-[!code-csharp[](kestrel/samples/1.x/Program.cs?name=snippet_Main&highlight=13-19)]
+[!code-csharp[](kestrel/samples/1.x/KestrelSample/Program.cs?name=snippet_Main&highlight=13-19)]
 
 ---
 
@@ -109,11 +110,11 @@ Bunlar ve diğer kısıtlamaları ayarlamak [sınırları](/dotnet/api/microsoft
 
 Eşzamanlı açık TCP bağlantısı sayısı tüm uygulama aşağıdaki kod ile ayarlayabilirsiniz:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=3)]
 
 Başka bir protokol (örneğin, WebSockets istek üzerine) için HTTP veya HTTPS yükseltildi bağlantıları için ayrı bir sınır yoktur. Bir bağlantı yükseltildikten sonra onu karşı sayılan değil `MaxConcurrentConnections` sınırı.
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=4)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=4)]
 
 En fazla bağlantı sayısı, varsayılan olarak sınırsız (null) olur.
 
@@ -132,11 +133,11 @@ public IActionResult MyActionMethod()
 
 Aşağıda, her istek için uygulama kısıtlama yapılandırmak nasıl oluşturulduğunu gösteren bir örnek verilmiştir:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=5)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=5)]
 
 Belirli bir istek Ara yazılımında ayarı geçersiz kılabilirsiniz:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Limits&highlight=3-4)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=3-4)]
 
 Uygulama isteği okumak başlatıldıktan sonra bir istekte sınırını yapılandırmak çalışırsanız özel durum oluşur. Var. bir `IsReadOnly` gösterir özelliği `MaxRequestBodySize` özelliği olan salt okunur durumda olduğu çok geç sınırını yapılandırmak için anlamına gelir.
 
@@ -153,11 +154,11 @@ Minimum oran yanıt için de geçerlidir. İstek sınırı ve yanıt sınırı a
 
 En az veri hızları yapılandırmak nasıl oluşturulduğunu gösteren bir örnek şudur *Program.cs*:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_Limits&highlight=6-7)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=6-7)]
 
 İstek başına oranları Ara yazılımında yapılandırabilirsiniz:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Limits&highlight=5-8)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=5-8)]
 
 Diğer Kestrel seçenekleri ve sınırları hakkında daha fazla bilgi için bkz:
 
@@ -208,7 +209,7 @@ Varsayılan olarak, ASP.NET Core bağlar:
 Geliştirme sertifikası oluşturulur:
 
 * Zaman [.NET Core SDK](/dotnet/core/sdk) yüklenir.
-* [Geliştirme sertifikaları aracı](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-dev-certs) bir sertifika oluşturmak için kullanılır.
+* [Geliştirme sertifikaları aracı](xref:aspnetcore-2.1#https) bir sertifika oluşturmak için kullanılır.
 
 Bazı tarayıcılar, yerel geliştirme sertifika güven açık izni tarayıcıya vermenizi gerektirir.
 
@@ -366,7 +367,7 @@ Kullanmaya alternatif **yolu** ve **parola** herhangi bir sertifika için sertif
       });
   ```
 
-  Ayrıca doğrudan erişebilirsiniz `KestrelServerOptions.ConfigurationLoader` tarafından sağlanan gibi varolan yükleyicisi yineleme tutmak için `WebHost.CreatedDeafaultBuilder`.
+  Ayrıca doğrudan erişebilirsiniz `KestrelServerOptions.ConfigurationLoader` tarafından sağlanan gibi varolan yükleyicisi yineleme tutmak için [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 * Her uç nokta için yapılandırma bölümü bir seçeneklerinde kullanılabilir `Endpoint` yöntemi böylece özel ayarları okuyabilirsiniz.
 * Birden çok yapılandırmayı çağırarak yüklenmemiş olabilir `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` yeniden başka bir bölüme sahip. Sürece yalnızca son yapılandırma kullanılır `Load` önceki örneklerinde açık olarak adlandırılır. Metapackage çağrısı değil `Load` böylece kendi varsayılan yapılandırma bölümü değiştirilebilir.
@@ -394,7 +395,10 @@ options.ConfigureHttpsDefaults(httpsOptions =>
 
 Kestrel destekleyen aracılığıyla SNI `ServerCertificateSelector` geri çağırma. Geri arama, ana bilgisayar adı inceleyin ve uygun sertifikayı seçin yazmasına izin vermek için bağlantı bir kez çağrılır.
 
-SNI destek gerektiren hedef framework üzerinde çalışan `netcoreapp2.1`. Üzerinde `netcoreapp2.0` ve `net461`, geri çağırma çağrılır ancak `name` her zaman `null`. `name` De `null` istemci TLS el sıkışma name parametresinde konak sağlamıyorsa.
+SNI desteği gerektirir:
+
+* Hedef framework üzerinde çalışan `netcoreapp2.1`. Üzerinde `netcoreapp2.0` ve `net461`, geri çağırma çağrılır ancak `name` her zaman `null`. `name` De `null` istemci TLS el sıkışma name parametresinde konak sağlamıyorsa.
+* Tüm Web siteleri aynı Kestrel örneğinde çalıştırın. Kestrel ters Ara sunucu olmadan birden çok örneği üzerinde bir IP adresi ve bağlantı noktası paylaşımı desteklemiyor.
 
 ```csharp
 WebHost.CreateDefaultBuilder()
@@ -438,7 +442,7 @@ WebHost.CreateDefaultBuilder()
 
 [Dinleme](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) yöntemi bir TCP yuvasını bağlar ve SSL sertifikası yapılandırma seçenekleri lambda verir:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
 
 Örnek bir uç nokta için SSL yapılandırır [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions). Özel uç noktaları diğer Kestrel ayarlarını yapılandırmak için aynı API'yi kullanın.
 
@@ -448,13 +452,13 @@ WebHost.CreateDefaultBuilder()
 
 Bir UNIX yuvası ile Dinlemenin [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) Bu örnekte gösterildiği gibi Nginx ile Gelişmiş performans için:
 
-[!code-csharp[](kestrel/samples/2.x/Program.cs?name=snippet_UnixSocket)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
 **Bağlantı noktası 0**
 
 Bağlantı noktası numarasını `0` belirtilirse, Kestrel dinamik olarak kullanılabilir bir bağlantı noktasına bağlar. Aşağıdaki örnek, Kestrel çalışma zamanında gerçekten bağlı hangi bağlantı noktasını belirlemek gösterilmektedir:
 
-[!code-csharp[](kestrel/samples/2.x/Startup.cs?name=snippet_Port0&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Port0&highlight=3)]
 
 Uygulamayı çalıştırdığınızda, konsol penceresi çıktısı uygulama burada ulaşılabilen dinamik bağlantı noktası gösterir:
 
@@ -506,13 +510,13 @@ ASP.NET Core 2.1 sürümünde Kestrel'ın varsayılan aktarım artık Libuv üze
 * [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) (doğrudan paketi Başvurusu)
 * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
 
-ASP.NET Core 2.1 veya sonrasını kullanan projeleri `Microsoft.AspNetCore.App` metapackage ve Libuv kullanılmasını gerektirir:
+ASP.NET Core 2.1 veya sonrasını kullanan projeleri [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ve Libuv kullanılmasını gerektirir:
 
 * İçin bağımlılık ekleme [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) uygulamanın proje dosyası paketi:
 
     ```xml
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
-                    Version="2.1.0" />
+                      Version="2.1.0" />
     ```
 
 * Çağrı [WebHostBuilderLibuvExtensions.UseLibuv](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderlibuvextensions.uselibuv):
@@ -664,10 +668,15 @@ var host = new WebHostBuilder()
 
 Kestrel gibi ön eklerine göre yapılandırma desteklerken `http://example.com:5000`, Kestrel büyük ölçüde ana bilgisayar adı yok sayar. Ana bilgisayar `localhost` bağlama geri döngü adresleri için kullanılan özel bir durum. Açık bir IP adresi tüm ortak IP adresine bağlar daha herhangi diğer barındırır. Bu bilgilerin hiçbiri isteği doğrulamak için kullanılan `Host` üstbilgileri.
 
-İki geçici çözüm vardır:
+::: moniker range="< aspnetcore-2.0"
 
-* Ana bilgisayar üstbilgisi filtreleme ile ters Ara sunucu arkasındaki ana bilgisayarı. ASP.NET Core Kestrel için desteklenen tek senaryo, bu 1.x.
-* Filtre uygulamak için bir ara yazılım istekleri tarafından kullanım `Host` üstbilgi. Bir örnek ara yazılımı aşağıdaki gibidir:
+Ana bilgisayar üstbilgisi filtreleme ile ters Ara sunucu arkasındaki geçici bir çözüm olarak barındırır. ASP.NET Core Kestrel için desteklenen tek senaryo budur 1.x.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Geçici bir çözüm olarak, istekleri filtrelemek için ara yazılımı kullanmak `Host` üstbilgisi:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -803,23 +812,40 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Önceki Ara bekliyor bir `AllowedHosts` anahtarını *appsettings.\< EnvironmentName > .json*. Bu anahtarın değeri, bağlantı noktası numaralarını olmadan ana bilgisayar adlarını noktalı virgülle ayrılmış bir listesidir. Dahil `AllowedHosts` anahtar-değer çifti *appsettings. Production.JSON*:
+Ara yazılım bekliyor bir `AllowedHosts` anahtarını *appsettings.json*/*appsettings.\< EnvironmentName > .json*. Değeri, bağlantı noktası numaralarını olmadan ana bilgisayar adlarını noktalı virgülle ayrılmış bir listesi verilmiştir:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Geçici bir çözüm olarak, ana bilgisayar filtreleme ara yazılımı kullanın. Ana bilgisayar filtreleme ara yazılımı tarafından sağlanan [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering) yer aldığı paket [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya sonrası). Ara yazılım tarafından eklenen [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), çağıran [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):
+
+[!code-csharp[](kestrel/samples-snapshot/2.x/KestrelSample/Program.cs?name=snippet_Program&highlight=9)]
+
+Ana bilgisayar filtreleme ara yazılımı varsayılan olarak devre dışıdır. Ara yazılım etkinleştirmek için tanımlama bir `AllowedHosts` anahtarını *appsettings.json*/*appsettings.\< EnvironmentName > .json*. Değeri, bağlantı noktası numaralarını olmadan ana bilgisayar adlarını noktalı virgülle ayrılmış bir listesi verilmiştir:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+*appSettings.JSON*:
 
 ```json
 {
-  "AllowedHosts": "example.com"
+  "AllowedHosts": "example.com;localhost"
 }
 ```
 
-*appSettings. Development.JSON* (localhost yapılandırma dosyası):
+> [!NOTE]
+> [Üstbilgiler Ara iletilen](xref:host-and-deploy/proxy-load-balancer) de sahip bir [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts) seçeneği. İletilen üstbilgileri ara yazılım ve konak filtreleme Ara farklı senaryolar için benzer işlevlere sahiptir. Ayarı `AllowedHosts` iletilen üstbilgileri Ara yazılımla ana bilgisayar üstbilgisi istekleri ters proxy sunucusu ile iletme sırasında korunur değil, uygun yük dengeleyici mi. Ayarı `AllowedHosts` Kestrel bir uç sunucusu kullanıldığında veya ana bilgisayar üstbilgisi doğrudan iletilen zaman konak filtreleme Ara yazılımla uygundur.
+>
+> İletilen üstbilgileri ara yazılım hakkında daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
-```json
-{
-  "AllowedHosts": "localhost"
-}
-```
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [HTTPS'yi Zorunlu Kılma](xref:security/enforcing-ssl)
 * [Kestrel kaynak kodu](https://github.com/aspnet/KestrelHttpServer)
+* [RFC 7230: İleti sözdizimi ve yönlendirme (Bölüm 5.4: ana bilgisayar)](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [Proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırın](xref:host-and-deploy/proxy-load-balancer)

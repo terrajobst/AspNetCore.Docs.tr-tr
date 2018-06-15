@@ -12,11 +12,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: c88320c628f219652a2cb63a16b494661c481ffb
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 073259aaca7b72ca8ac61b290499c627cb6489ae
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35612972"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki proje şablonu kullanın
 
@@ -33,7 +34,16 @@ Güncelleştirilmiş tepki proje şablonu uygun bir başlama noktası için ASP.
 
 ## <a name="create-a-new-app"></a>Yeni uygulama oluştur
 
-ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş tepki proje şablonu yüklü](xref:spa/index#installation). ASP.NET Core 2.1 varsa, yüklemek için gerek yoktur.
+::: moniker range="= aspnetcore-2.0"
+
+ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş tepki proje şablonu yüklü](xref:spa/index#installation).
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 yüklü değilse, tepki proje şablonu yüklemeye gerek yoktur.
+
+::: moniker-end
 
 Komutunu kullanarak bir komut isteminden yeni bir proje oluşturun `dotnet new react` boş bir dizinde. Örneğin, aşağıdaki komutları uygulaması oluşturmak bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 

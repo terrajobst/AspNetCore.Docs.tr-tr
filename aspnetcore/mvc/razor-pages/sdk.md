@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: cf0e1873c7ce500ce3b8ad2b3367555bdc41a576
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 5217f17045a0fec09a8a67b4c9f132b1cebeaf1e
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35612885"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
@@ -87,3 +88,9 @@ Razor SDK'sı iki birincil hedefleri tanımlar:
 
 * `RazorGenerate` -Kod oluşturur *.cs* RazorGenerate dosyalardan öğeleri öğesi. Kullanım `RazorGenerateDependsOn` özelliği ek hedefler belirtmek için önce veya sonra bu hedefi çalıştırabilirsiniz.
 * `RazorCompile` -Derlerken oluşturulan *.cs* bir Razor derleme dosyaları. Kullanım `RazorCompileDependsOn` önce veya sonra bu hedefi çalıştırabilirsiniz ek hedefleri belirtmek için.
+
+### <a name="runtime-compilation-of-razor-views"></a>Razor görünümlerini çalışma zamanı derlemesi
+
+* Varsayılan olarak, çalışma zamanı derlemesi gerçekleştirmek için gereken başvuru derlemeleri Razor SDK yayımlama değil. Çalışma zamanı derlemesi uygulama modeli kullanır bu sonuçlara derleme hataları&mdash;Örneğin, uygulama yayımlandıktan sonra uygulama katıştırılmış görünümleri veya değişiklikleri görünümleri kullanır. Ayarlama `CopyRefAssembliesToPublishDirectory` için `true` başvuru derlemeleri yayımlamaya devam etmek için.
+
+* Web uygulamaları için uygulamanızı hedefleme olun `Microsoft.NET.Sdk.Web` SDK.

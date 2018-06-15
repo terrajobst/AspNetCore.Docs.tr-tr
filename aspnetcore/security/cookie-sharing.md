@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cookie-sharing
-ms.openlocfilehash: 5f77377f168993d48686217adac54a75313766ec
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: c22db501a2689feb8c16649eba4866e1190361a4
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613024"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core tanımlama bilgilerini uygulamalar arasında paylaşın
 
@@ -40,7 +41,7 @@ Tanımlama bilgisi, tanımlama bilgisi kimlik doğrulamasını kullanan üç uyg
 * ASP.NET Core uygulamalardaki [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) anahtar depolama konumu ayarlamak için kullanılır. [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) ortak bir paylaşılan uygulama adına yapılandırmak için kullanılır.
 * .NET Framework uygulamasında, tanımlama bilgisi kimlik doğrulaması Ara uygulaması kullanan [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider). `DataProtectionProvider` şifreleme ve kimlik doğrulama tanımlama bilgisi yük verilerinin şifresinin çözülmesi için veri koruma hizmetleri sağlar. `DataProtectionProvider` Örneğidir diğer uygulama bölümleri tarafından kullanılan veri koruma sisteminden yalıtılmış.
   * [DataProtectionProvider.Create (System.IO.DirectoryInfo, eylemi\<IDataProtectionBuilder >)](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider.create?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionProvider_Create_System_IO_DirectoryInfo_System_Action_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder__) kabul eden bir [DirectoryInfo](/dotnet/api/system.io.directoryinfo) veri koruma anahtarı depolama konumunu belirtmek için. Örnek uygulaması yolunu sağlar *KeyRing* klasörüne `DirectoryInfo`. [DataProtectionBuilderExtensions.SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname?view=aspnetcore-2.0#Microsoft_AspNetCore_DataProtection_DataProtectionBuilderExtensions_SetApplicationName_Microsoft_AspNetCore_DataProtection_IDataProtectionBuilder_System_String_) ortak uygulama adını ayarlar.
-  * [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) gerektirir [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) NuGet paketi. Bu paket ASP.NET Core 2.0 ve daha sonraki uygulamalar için elde etmek için başvuru [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) metapackage. .NET Framework hedeflerken, paket için bir başvuru ekleyin `Microsoft.AspNetCore.DataProtection.Extensions`.
+  * [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionprovider) gerektirir [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) NuGet paketi. Bu paket ASP.NET Core 2.1 ve üzeri uygulamalar için elde etmek için başvuru [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). .NET Framework hedeflerken, paket için bir başvuru ekleyin `Microsoft.AspNetCore.DataProtection.Extensions`.
 
 ## <a name="share-authentication-cookies-among-aspnet-core-apps"></a>Kimlik doğrulaması tanımlama bilgileri ASP.NET Core uygulamaları arasında paylaşma
 
@@ -140,19 +141,15 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı kullanan ASP.NET 4.x uygulamaların ASP.NET Core tanımlama bilgisi kimlik doğrulaması ara yazılımı ile uyumlu olan kimlik doğrulama tanımlama bilgisi oluşturmak için yapılandırılabilir. Bu, büyük bir sitenin tek tek uygulamalar parça parça site genelinde kesintisiz SSO bir deneyim sağlarken yükseltme olanağı sağlar.
 
-> [!TIP]
-> Bir uygulama Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı kullandığında, çağıran `UseCookieAuthentication` projenin *Startup.Auth.cs* dosya. ASP.NET 4.x web uygulama projeleri, Visual Studio 2013 ile oluşturulan ve daha sonra Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı varsayılan olarak kullanın.
+Bir uygulama Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı kullandığında, çağıran `UseCookieAuthentication` projenin *Startup.Auth.cs* dosya. ASP.NET 4.x web uygulama projeleri, Visual Studio 2013 ile oluşturulan ve daha sonra Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı varsayılan olarak kullanın. Ancak `UseCookieAuthentication` artık kullanılmayan ve ASP.NET Core uygulamaları, çağırmak için desteklenmeyen `UseCookieAuthentication` Katana kullanan ASP.NET 4.x uygulamada tanımlama bilgisi kimlik doğrulaması ara yazılımı geçerlidir.
 
-> [!NOTE]
-> ASP.NET 4.x uygulama .NET Framework 4.5.1 hedeflemesi gerekir ya da daha yüksek. Aksi takdirde, gerekli NuGet paketleri yüklenemedi.
+ASP.NET 4.x uygulama .NET Framework 4.5.1 hedeflemesi gerekir ya da daha yüksek. Aksi takdirde, gerekli NuGet paketleri yüklenemedi.
 
-ASP.NET 4.x uygulamaları ve ASP.NET Core uygulamaları arasında kimlik doğrulaması tanımlama bilgileri paylaşmak için yukarıda belirtildiği gibi ASP.NET Core uygulama yapılandırın, ardından aşağıdaki adımları izleyerek ASP.NET 4.x uygulamaları yapılandırın.
+ASP.NET 4.x uygulama ve ASP.NET Core uygulama arasındaki kimlik doğrulaması tanımlama bilgileri paylaşmak için yukarıda belirtildiği gibi ASP.NET Core uygulama yapılandırın, ardından aşağıdaki adımları izleyerek ASP.NET 4.x uygulamayı yapılandırabilirsiniz:
 
 1. Paketi yüklemek [Microsoft.Owin.Security.Interop](https://www.nuget.org/packages/Microsoft.Owin.Security.Interop/) her ASP.NET 4.x uygulamada.
 
 2. İçinde *Startup.Auth.cs*, çağrısı bulun `UseCookieAuthentication` ve aşağıdaki gibi değiştirin. ASP.NET Core tanımlama bilgisi kimlik doğrulaması ara yazılımı tarafından kullanılan adla eşleşmesi için tanımlama bilgisi adını değiştirin. Örneği sağlayan bir `DataProtectionProvider` ortak veri koruma anahtarı depolama konumu başlatıldı. Uygulama adı tanımlama bilgileri, paylaşan tüm uygulamalar tarafından kullanılan ortak uygulama adına ayarlandığından emin olun `SharedCookieApp` örnek uygulama.
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
@@ -163,32 +160,6 @@ Bir kullanıcı kimliği oluşturulurken, kimlik doğrulama türü tanımlanan t
 *Models/IdentityModels.cs*:
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/Models/IdentityModels.cs?name=snippet1)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Ayarlama `CookieManager` birlikte çalışma `ChunkingCookieManager` kümeleme biçimi uyumlu olacak şekilde.
-
-```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions
-{
-    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-    CookieName = ".AspNetCore.Cookies",
-    // CookieName = ".AspNetCore.ApplicationCookie", (if using ASP.NET Identity)
-    // CookiePath = "...", (if necessary)
-    // ...
-    TicketDataFormat = new AspNetTicketDataFormat(
-        new DataProtectorShim(
-            DataProtectionProvider.Create(
-                new DirectoryInfo(@"PATH_TO_KEY_RING_FOLDER"))
-            .CreateProtector(
-                "Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationMiddleware",
-                "Cookies", 
-                "v2"))),
-    CookieManager = new ChunkingCookieManager()
-});
-```
-
----
 
 ## <a name="use-a-common-user-database"></a>Ortak bir kullanıcı veritabanını kullanın
 

@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 1048554c78e3810206b1261371ae7c41485c436a
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 10653764e6fa02bdd0551e493eb5353fe0440fac
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252132"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613144"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 
@@ -102,7 +102,7 @@ Aşağıdakileri göz önünde bulundurun *appsettings. Staging.JSON* dosyası:
 
 [!code-json[](index/sample/appsettings.Staging.json)]
 
-Ortam ayarlandığında `Staging`, aşağıdaki `Configure` yöntemi okur değerini `MyConfig`:
+Aşağıdaki kodda, `Configure` değerini okur `MyConfig`:
 
 [!code-csharp[](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
 

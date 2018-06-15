@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: cabb5acc6e593c02c20b3403b39c601ce26a4d99
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: f9c28930c1f8a9c54792a2f689d890f16d795a55
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688989"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613115"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET Core Facebook dış oturum açma Kurulumu
 
@@ -47,6 +47,9 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 ![İstemci OAuth Ayarları sayfası](index/_static/FBOAuthSetup.png)
 
 * Geliştirme URI girin ile */signin-facebook* içine eklenen **geçerli OAuth yeniden yönlendirme URI'ler** alan (örneğin: `https://localhost:44320/signin-facebook`). Daha sonra Bu öğreticide yapılandırılmış Facebook kimlik doğrulama istekleri otomatik olarak işleyecek */signin-facebook* OAuth akış uygulamak için rota.
+
+> [!NOTE]
+> URI */signin-facebook* Facebook kimlik doğrulama sağlayıcısı varsayılan geri dönüş ayarlanır. Facebook kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırılırken, varsayılan geri çağırma URI değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [FacebookOptions](/dotnet/api/microsoft.aspnetcore.authentication.facebook.facebookoptions) sınıf.
 
 * Tıklatın **değişiklikleri kaydetmek**.
 

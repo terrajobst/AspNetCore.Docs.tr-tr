@@ -12,11 +12,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: b8ee7e1b401b16a240fa0373c58f0ee6a400d9f8
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35612985"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Açısal proje şablonu kullanın
 
@@ -33,7 +34,16 @@ Bir API arka ucu olarak görev yapması için bir ASP.NET Core proje ve bir kull
 
 ## <a name="create-a-new-app"></a>Yeni uygulama oluştur
 
-ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş Açısal proje şablonu yüklü](xref:spa/index#installation). ASP.NET Core 2.1 varsa, yüklemek için gerek yoktur.
+::: moniker range="= aspnetcore-2.0"
+
+ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş tepki proje şablonu yüklü](xref:spa/index#installation).
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 yüklü değilse Açısal proje şablonu yüklemeye gerek yoktur.
+
+::: moniker-end
 
 Komutunu kullanarak bir komut isteminden yeni bir proje oluşturun `dotnet new angular` boş bir dizinde. Örneğin, aşağıdaki komutları uygulaması oluşturmak bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 

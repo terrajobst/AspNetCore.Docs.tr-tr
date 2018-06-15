@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: a021c1e133bac6676859f5bf8eb01f3a7a8c63ed
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: a4ffa512825fedafdc58ade9929097e255593fa9
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34689054"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652220"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
 
@@ -156,7 +156,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> Ek yeniden yönlendirme kuralları gereksinimi olmadan 443 numaralı bağlantı noktasında HTTPS yönlendirirken HTTPS yeniden yönlendirmesi Ara kullanmanızı öneririz. Daha fazla bilgi için bkz: [zorunlu HTTPS](xref:security/enforcing-ssl#require-https) konu.
+> HTTPS için ek yönlendirme kuralları gereksinimi olmadan yönlendirirken HTTPS yeniden yönlendirmesi Ara kullanmanızı öneririz. Daha fazla bilgi için bkz: [zorunlu HTTPS](xref:security/enforcing-ssl#require-https) konu.
 
 Örnek uygulamayı nasıl kullanılacağını gösteren özellikli `AddRedirectToHttps` veya `AddRedirectToHttpsPermanent`. Add genişletme yöntemi `RewriteOptions`. Tüm URL'deki uygulamaya güvenli olmayan bir isteği oluşturun. Tarayıcı güvenlik otomatik olarak imzalanan sertifika güvenilmeyen uyarısı kapatmak veya sertifika güven için bir özel durum oluşturun.
 

@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: b073f00469ada915244a2db71540fd7c971d55ea
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 38fcbb1b6691854eb6d5930fdcb789b1c67f4c70
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652181"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux ana bilgisayar
 
@@ -54,9 +55,9 @@ Ters proxy hizmet veren dinamik web uygulamaları için ortak bir kurulur. Ters 
 
 Bir proxy sunucusu, istemci isteklerini istekleri kendisi yerine getirmesini yerine başka bir sunucuya iletir biridir. Ters proxy genellikle rastgele istemcileri adına sabit bir hedef iletir. Bu kılavuzda, Apache Kestrel ASP.NET Core uygulama hizmet ettiğini aynı sunucu üzerinde çalışan ters proxy yapılandırılmıştır.
 
-İstekleri tarafından ters proxy iletilir çünkü iletilen üstbilgileri Ara kullanmak [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paket. Ara yazılım güncelleştirmeleri `Request.Scheme`kullanarak `X-Forwarded-Proto` , yeniden yönlendirme URI'ler ve diğer güvenlik ilkelerini doğru çalışması için üstbilgi.
+İstekleri tarafından ters proxy iletilir olduğundan [iletilen üstbilgileri Ara](xref:host-and-deploy/proxy-load-balancer) gelen [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paket. Ara yazılım güncelleştirmeleri `Request.Scheme`kullanarak `X-Forwarded-Proto` , yeniden yönlendirme URI'ler ve diğer güvenlik ilkelerini doğru çalışması için üstbilgi.
 
-Kimlik doğrulaması ara yazılımı herhangi bir türde kullanırken, iletilen üstbilgileri Ara ilk çalıştırmanız gerekir. Bu sıralama, kimlik doğrulaması ara yazılımı üstbilgi değerlerini kullanabilir ve doğru yeniden yönlendirme URI oluşturmak sağlar.
+Kimlik doğrulama, bağlantı oluşturma, yeniden yönlendirir ve coğrafi konum, gibi şema bağımlı herhangi bir bileşeni iletilen üstbilgileri Ara başlatma sonrasında yerleştirilmelidir. Genel kural olarak, tanılama ve hata işleme ara yazılım dışındaki diğer ara yazılımdan önce iletilen üstbilgileri Ara çalıştırmanız gerekir. Bu sıralama iletilen üstbilgileri bilgi bağlı olan ara yazılım işleme üstbilgi değerleri tüketebileceği sağlar.
 
 ::: moniker range=">= aspnetcore-2.0"
 > [!NOTE]
@@ -135,13 +136,17 @@ Complete!
 > [!NOTE]
 > Bu örnekte, CentOS 7 sürümü 64-bit olduğundan çıktı httpd.86_64 yansıtır. Apache yüklendiği doğrulamak için çalıştırın `whereis httpd` bir komut isteminden.
 
-### <a name="configure-apache-for-reverse-proxy"></a>Apache için ters proxy ayarlarını yapılandır
+### <a name="configure-apache"></a>Apache yapılandırın
 
 İçinde Apache için yapılandırma dosyalarının bulunduğu `/etc/httpd/conf.d/` dizin. Herhangi dosya ile *.conf* uzantısı modül yapılandırma dosyalarında yanı sıra alfabetik sırada işlenir `/etc/httpd/conf.modules.d/`, herhangi bir yapılandırma içeren modüllerini yüklemek gerekli dosyaları.
 
 Adlı bir yapılandırma dosyası oluşturma *hellomvc.conf*, uygulama için:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     ProxyPreserveHost On
     ProxyPass / http://127.0.0.1:5000/
@@ -279,7 +284,7 @@ sudo firewall-cmd --add-port=443/tcp --permanent
 
 Güvenlik Duvarı ayarlarını yeniden yükleyin. Kullanılabilir hizmetleri ve bağlantı noktalarını varsayılan bölgede denetleyin. Seçenekleri kullanılabilir inceleyerek `firewall-cmd -h`.
 
-```bash 
+```bash
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-all
 ```
@@ -303,6 +308,7 @@ SSL, Apache yapılandırmak için *mod_ssl* modülü kullanılır. Zaman *httpd*
 ```bash
 sudo yum install mod_ssl
 ```
+
 SSL zorlamak için yükleme `mod_rewrite` modülü URL yeniden yazma işlemi etkinleştirmek için:
 
 ```bash
@@ -312,10 +318,14 @@ sudo yum install mod_rewrite
 Değiştirme *hellomvc.conf* dosya URL yeniden yazma işlemi etkinleştirmek ve bağlantı noktası 443 üzerinden iletişimi güvenli hale getirmek için:
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -381,7 +391,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 Satırı ekleyin `Header set X-Content-Type-Options "nosniff"`. Dosyayı kaydedin. Apache yeniden başlatın.
 
-### <a name="load-balancing"></a>YükDengeleme 
+### <a name="load-balancing"></a>YükDengeleme
 
 Bu örnekte, Kurulum ve Apache CentOS 7 ve Kestrel aynı örneği makinede yapılandırmak gösterilmektedir. Tek bir hata noktası olmaması için; kullanarak *mod_proxy_balancer* ve değiştirme **VirtualHost** web uygulamaları Apache proxy sunucunun arkasında birden çok örneğini yönetmek için izin verir.
 
@@ -392,10 +402,14 @@ sudo yum install mod_proxy_balancer
 Yapılandırma dosyasında ek bir örneği aşağıda gösterilen `hellomvc` 5001 bağlantı noktası üzerinde çalıştırmak için Kurulum uygulamadır. *Proxy* bölüm ayarlanmış iki üyeleriyle dengeleyici yapılandırmasına sahip Yük Dengelemesi *byrequests*.
 
 ```
+<VirtualHost *:*>
+    RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+</VirtualHost>
+
 <VirtualHost *:80>
     RewriteEngine On
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^/?(.*) https://%{SERVER_NAME}/ [R,L]
+    RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 </VirtualHost>
 
 <VirtualHost *:443>
@@ -424,6 +438,7 @@ Yapılandırma dosyasında ek bir örneği aşağıda gösterilen `hellomvc` 500
 ```
 
 ### <a name="rate-limits"></a>Oran sınırları
+
 Kullanarak *mod_ratelimit*, içinde bulunan *httpd* modülü, bant genişliği istemcilerin olabilir sınırlı:
 
 ```bash
@@ -439,3 +454,7 @@ sudo nano /etc/httpd/conf.d/ratelimit.conf
     </Location>
 </IfModule>
 ```
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırın](xref:host-and-deploy/proxy-load-balancer)

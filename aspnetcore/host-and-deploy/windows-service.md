@@ -10,12 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 33493e1ff674cd81544a7d14a7fd758c1e68bf9a
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 5eba685bbe55d43bb063a01798bc691a1ba0d6fc
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252353"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613092"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Bir Windows hizmetinde konak ASP.NET Çekirdeği
 
@@ -29,7 +29,16 @@ Bir ASP.NET Core uygulama IIS olarak kullanmadan Windows üzerinde barındırıl
 
 Bir hizmet olarak çalıştırmak üzere mevcut bir ASP.NET Core projeyi ayarlamak için aşağıdaki en düşük değişiklikleri gerekir:
 
-1. Bir paket başvurusunu ekleyin [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+1. Proje dosyasında:
+
+   1. Çalışma zamanı tanımlayıcı varlığını onaylamak veya ekleyin  **\<PropertyGroup >** hedef Framework'ü içerir:
+      ```xml
+      <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+      </PropertyGroup>
+      ```
+   1. Bir paket başvurusunu ekleyin [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 
 1. Aşağıdaki değişiklikleri yapın `Program.Main`:
 
@@ -174,9 +183,6 @@ Varsa özel `WebHostService` kod bağımlılık ekleme (örneğin, bir Günlük�
 
 Internet'ten veya bir şirket ağı isteklerle etkileşim ve bir proxy'nin arkasında veya yük dengeleyici Hizmetleri ek yapılandırma gerektirebilir. Daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="acknowledgments"></a>İlgili kaynaklar
+## <a name="kestrel-endpoint-configuration"></a>Kestrel uç nokta yapılandırması
 
-Bu makale, yayımlanan kaynaklarının yardımıyla yazılmıştır:
-
-* [ASP.NET Core Windows hizmeti olarak barındırma](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
-* [Bir Windows hizmetinde ASP.NET çekirdek barındırmak nasıl](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+HTTPS yapılandırma ve SNI destek dahil olmak üzere Kestrel uç noktasını yapılandırma hakkında bilgi için bkz: [Kestrel uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration).

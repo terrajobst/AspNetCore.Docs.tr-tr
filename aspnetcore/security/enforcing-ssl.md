@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252080"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652194"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET Core HTTPS zorla
 
@@ -48,8 +48,8 @@ Aşağıdaki kod çağrıları [AddHttpsRedirection](/dotnet/api/microsoft.aspne
 
 Önceki vurgulanmış kodu:
 
-* Ayarlar [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
-* HTTPS bağlantı noktası için 5001 ayarlar.
+* Ayarlar [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) için `Status307TemporaryRedirect`, varsayılan değer olan. Üretim uygulamaları çağrısı [UseHsts](#hsts).
+* HTTPS bağlantı noktası için 5001 ayarlar. Varsayılan değer 443'tür.
 
 Aşağıdaki mekanizmalardan bağlantı noktasını otomatik olarak ayarlayın:
 
@@ -77,6 +77,11 @@ Bağlantı noktası yok ayarlanırsa:
 * İstekleri yeniden yönlendirilen değil.
 * Ara yazılım bir uyarı kaydeder.
 
+> [!NOTE]
+> HTTPS yeniden yönlendirmesi Ara kullanmaya alternatif (`UseHttpsRedirection`) URL yeniden yazma işlemi Ara kullanmaktır (`AddRedirectToHttps`). `AddRedirectToHttps` yeniden yönlendirme çalıştırıldığında de durum kodunu ve bağlantı noktası ayarlayabilirsiniz. Daha fazla bilgi için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting).
+>
+> HTTPS için ek yönlendirme kuralları gereksinimi olmadan yönlendirirken HTTPS yeniden yönlendirmesi ara yazılımı kullanmanız önerilir (`UseHttpsRedirection`) Bu konuda açıklanan.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.1"
@@ -89,7 +94,7 @@ Tüm istekleri kullanır önceki vurgulanmış kodu gerektirir `HTTPS`; bu neden
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-999)]
 
-Daha fazla bilgi için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting).
+Daha fazla bilgi için bkz: [URL yeniden yazma işlemi Ara](xref:fundamentals/url-rewriting). Ara yazılım de yeniden yönlendirme çalıştırıldığında durum kodunu veya durum kodu ve bağlantı noktası ayarlamak için uygulama izin verir.
 
 HTTPS genel gerektiren (`options.Filters.Add(new RequireHttpsAttribute());`) bir güvenlik en iyi uygulamadır. Uygulama `[RequireHttps]` tüm denetleyicileri/Razor sayfalarının özniteliğine değil olarak kabul güvenli olarak genel HTTPS gerektiren. Garanti edemez `[RequireHttps]` özniteliği yeni denetleyicileri ve Razor sayfalarının eklendiğinde uygulanır.
 

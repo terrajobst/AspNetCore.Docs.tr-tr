@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c8d5a63948aed0630d677ad3c0a40fb07ddc62af
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613131"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET Core içinde etiket Yardımcıları
 
@@ -67,11 +68,11 @@ Etiket Yardımcıları kapsam bir birleşimi tarafından denetlenen `@addTagHelp
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` Etiket Yardımcıları kullanılabilir hale getirir
 
-Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelpers* (ile kimlik doğrulaması yok), aşağıdaki *Views/_ViewImports.cshtml* dosyayı projenize eklenir:
+Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelpers*, aşağıdaki *Views/_ViewImports.cshtml* dosyayı projenize eklenir:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` Yönergesi etiket Yardımcıları görüntülemek için kullanılabilir yapar. Bu durumda, görünüm dosyasıdır *Views/_ViewImports.cshtml*, varsayılan olarak tüm görünüm dosyaları tarafından devralınır *görünümleri* klasörü ve alt dizinleri; etiket Yardımcıları kullanılabilir hale getirme. Yukarıdaki kod joker sözdizimini kullanır ("\*") belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her görünüm dosyaya kullanılabilecek *görünümleri* dizini veya alt dizin. İlk parametre sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemenin belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derlemesidir.
+`@addTagHelper` Yönergesi etiket Yardımcıları görüntülemek için kullanılabilir yapar. Bu durumda, görünüm dosyasıdır *Pages/_ViewImports.cshtml*, varsayılan olarak tüm dosyaları tarafından devralınır *sayfaları* klasörde ve alt klasörlerinde; etiket Yardımcıları kullanılabilir hale getirme. Yukarıdaki kod joker sözdizimini kullanır ("\*") belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her görünüm dosyaya kullanılabilecek *görünümleri* dizini veya alt dizin. İlk parametre sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemenin belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derlemesidir.
 
 Tüm bu projede etiket Yardımcıları kullanıma sunmak için (adlı bir derleme oluşturur *AuthoringTagHelpers*), aşağıdaki kullanırsınız:
 

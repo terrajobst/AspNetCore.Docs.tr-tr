@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
+ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35652207"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET çekirdeği günlüğü
 
@@ -33,7 +34,7 @@ ASP.NET çekirdeği günlüğü sağlayıcıları çeşitli çalışır bir gün
 
 ## <a name="how-to-create-logs"></a>Günlükleri oluşturma
 
-Günlükleri oluşturmak için alma bir `ILogger` nesnesinin [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
+Günlükleri oluşturmak için uygulaması bir [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) nesnesinin [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
@@ -63,14 +64,14 @@ Varsayılan proje şablonu ile günlük kaydını etkinleştirir [CreateDefaultB
 
 Oturum açma sağlayıcısı ile oluşturduğunuz iletileri alan bir `ILogger` nesnesi, görüntüler ve bunları depolar. Örneğin, konsolu sağlayıcısı konsolda iletileri görüntüler ve Azure uygulama hizmeti sağlayıcısı Azure blob storage'da depolayabilirsiniz.
 
-Bir sağlayıcı kullanmak için NuGet paketini yükleyin ve bir örneğinde sağlayıcının uzantı metodu çağırma `ILoggerFactory`, aşağıdaki örnekte gösterildiği gibi.
+Bir sağlayıcı kullanmak için NuGet paketini yükleyin ve bir örneğinde sağlayıcının uzantı metodu çağırma [Iloggerfactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory), aşağıdaki örnekte gösterildiği gibi:
 
 [!code-csharp[](index/sample//Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
 ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı) sağlayan `ILoggerFactory` örneği. `AddConsole` Ve `AddDebug` genişletme yöntemleri tanımlanmış [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) ve [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) paketler. Her bir genişletme yöntemi çağırır `ILoggerFactory.AddProvider` sağlayıcının bir örneğini geçirerek yöntemi. 
 
 > [!NOTE]
-> Bu makalede örnek uygulama günlüğü sağlayıcıları ekler `Configure` yöntemi `Startup` sınıfı. Daha önce yürütür kodundan günlük çıktısı almak istiyorsanız, günlük Sağlayıcıları Ekle `Startup` Oluşturucusu yerine sınıfı. 
+> [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) günlüğü sağlayıcıları ekler `Startup.Configure` yöntemi. Daha önce yürütür koddan günlük çıktısı alma istiyorsanız, günlük Sağlayıcıları Ekle `Startup` sınıfı oluşturucusu.
 
 ---
 
@@ -372,7 +373,7 @@ Filtreleme için belirli bir kategoriye yazılan tüm günlükleri önlemek içi
 
 Mantıksal işlemlerini kümesi gruplandırabilirsiniz bir *kapsam* aynı veri kümesinin bir parçası olarak oluşturulan her bir günlükteki iliştirmek için. Örneğin, işlem kimliği eklemek için bir işlem işlenirken bir parçası olarak oluşturulan her günlük isteyebilirsiniz.
 
-Bir kapsam bir `IDisposable` tarafından döndürülen tür `ILogger.BeginScope<TState>` yöntemi ve bırakılana kadar lasts. Kaydırma, Günlükçü çağrıları tarafından bir kapsamı kullanacak bir `using` , aşağıda gösterildiği gibi engelle:
+Bir kapsam bir `IDisposable` tarafından döndürülen tür [ILogger.BeginScope&lt;TState&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger.beginscope) yöntemi ve bırakılana kadar lasts. Kaydırma, Günlükçü çağrıları tarafından bir kapsamı kullanacak bir `using` , aşağıda gösterildiği gibi engelle:
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
@@ -410,15 +411,14 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core aşağıdaki sağlayıcıları gelir:
 
-* [Console](#console)
-* [Hata ayıklama](#debug)
-* [EventSource](#eventsource)
-* [EventLog](#eventlog)
-* [TraceSource](#tracesource)
-* [Azure uygulama hizmeti](#appservice)
+* [Console](#console-provider)
+* [Hata ayıklama](#debug-provider)
+* [EventSource](#eventsource-provider)
+* [EventLog](#windows-eventlog-provider)
+* [TraceSource](#tracesource-provider)
+* [Azure uygulama hizmeti](#azure-app-service-provider)
 
-<a id="console"></a>
-### <a name="the-console-provider"></a>Konsolu sağlayıcısı
+### <a name="console-provider"></a>Konsolu sağlayıcısı
 
 [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sağlayıcısı paketi konsola günlük çıkış gönderir. 
 
@@ -452,8 +452,7 @@ Hata ayıklama düzeyinde açıklandığı gibi oturum sınırı framework günl
 
 ---
 
-<a id="debug"></a>
-### <a name="the-debug-provider"></a>Hata ayıklama sağlayıcısı
+### <a name="debug-provider"></a>Sağlayıcı hata ayıklama
 
 [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) sağlayıcısı paketi kullanarak bir günlük çıktısı Yazar [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) sınıfı (`Debug.WriteLine` yöntem çağrıları).
 
@@ -475,8 +474,7 @@ loggerFactory.AddDebug()
 
 ---
 
-<a id="eventsource"></a>
-### <a name="the-eventsource-provider"></a>EventSource sağlayıcısı
+### <a name="eventsource-provider"></a>EventSource sağlayıcısı
 
 ASP.NET Core 1.1.0 hedef uygulamalar için veya daha yüksek [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) sağlayıcısı paketi olay izleme uygulayabilirsiniz. Windows üzerinde kullandığı [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Sağlayıcı için platformlar arası olsa da, toplama ve görüntüleme araçları Linux veya macOS için henüz hiç olay vardır. 
 
@@ -500,8 +498,7 @@ Bu sağlayıcı tarafından günlüğe kaydedilen olayları toplamak için PerfV
 
 ![Perfview ek sağlayıcılar](index/_static/perfview-additional-providers.png)
 
-<a id="eventlog"></a>
-### <a name="the-windows-eventlog-provider"></a>Windows olay günlüğü sağlayıcısı
+### <a name="windows-eventlog-provider"></a>Windows olay günlüğü sağlayıcısı
 
 [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) sağlayıcısı paketi için Windows olay günlüğü günlük çıkış gönderir.
 
@@ -521,8 +518,7 @@ loggerFactory.AddEventLog()
 
 ---
 
-<a id="tracesource"></a>
-### <a name="the-tracesource-provider"></a>TraceSource sağlayıcısı
+### <a name="tracesource-provider"></a>TraceSource sağlayıcısı
 
 [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) sağlayıcısı paketi kullanan [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) kitaplıkları ve sağlayıcıları.
 
@@ -548,16 +544,15 @@ Aşağıdaki örnek yapılandırır bir `TraceSource` oturum sağlayıcısı `Wa
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
-<a id="appservice"></a>
-### <a name="the-azure-app-service-provider"></a>Azure uygulama hizmeti sağlayıcısı
+### <a name="azure-app-service-provider"></a>Azure uygulama hizmeti sağlayıcısı
 
-[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) sağlayıcısı paketi metin dosyalarına bir Azure uygulama hizmeti uygulamanın dosya sistemi ve çok günlükler Yazar [blob depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) bir Azure depolama hesabındaki. Sağlayıcı, ASP.NET Core 1.1.0 hedefleyen uygulamalar için veya yüksek kullanılabilir. 
+[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) sağlayıcısı paketi metin dosyalarına bir Azure uygulama hizmeti uygulamanın dosya sistemi ve çok günlükler Yazar [blob depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) bir Azure depolama hesabındaki. Sağlayıcı veya üstünü ASP.NET Core 1.1 hedefleyen uygulamalar için kullanılabilir.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-.NET Core hedefleme, sağlayıcı paket yükleme veya açıkça çağırın yok `AddAzureWebAppDiagnostics`. Azure App Service'e uygulamayı dağıttığınızda sağlayıcı uygulamanıza otomatik olarak kullanılabilir.
+.NET Core hedefleme yok sağlayıcı paketini yüklemek veya açıkça çağırın [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics). Azure App Service uygulama dağıtıldığında sağlayıcı uygulamaya otomatik olarak kullanılabilir.
 
-.NET Framework'ü hedefleme, sağlayıcı paketini projenize ekleyin ve çağırma `AddAzureWebAppDiagnostics`:
+.NET Framework'ü hedefleme, sağlayıcı paketini projeye ekleyin ve çağırma `AddAzureWebAppDiagnostics`:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -569,23 +564,24 @@ logging.AddAzureWebAppDiagnostics();
 loggerFactory.AddAzureWebAppDiagnostics();
 ```
 
-Bir `AddAzureWebAppDiagnostics` geçirdiğiniz sağlar aşırı [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs) ile geçersiz kılabilirsiniz günlük çıkış şablonu, blob adı ve dosya boyutu sınırını gibi varsayılan ayarları. (*Çıkış şablonu* çağırdığınızda sağlayan bir üstünde tüm günlükler için uygulanan bir ileti şablonu bir `ILogger` yöntemi.)
+Bir [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) geçirdiğiniz sağlar aşırı [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings) ile geçersiz kılabilirsiniz günlük çıkış şablonu, blob adı ve dosya gibi varsayılan ayarları boyut sınırını aştı. (*Çıkış şablonu* çağırdığınızda sağlayan bir üstünde tüm günlükler için uygulanan bir ileti şablonu bir `ILogger` yöntemi.)
 
 ---
 
-Bir uygulama hizmeti uygulama dağıttığınızda, uygulamanız ayarlarında yapılırken [tanılama günlüklerini](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) bölümünü **uygulama hizmeti** Azure portal sayfası. Bu ayarları değiştirdiğinizde, değişiklikler hemen geçerli gerektirmeden uygulamayı yeniden başlatın veya ona kod dağıtmanız olur. 
+Bir uygulama hizmeti uygulama dağıttığınızda, uygulamayı ayarlarında yapılırken [tanılama günlüklerini](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) bölümünü **uygulama hizmeti** Azure portal sayfası. Bu ayarları güncelleştirildiğinde, değişiklikler hemen geçerli bir yeniden başlatma veya yeniden dağıtım uygulamanın gerek kalmadan olur.
 
 ![Azure günlük ayarları](index/_static/azure-logging-settings.png)
 
-Günlük dosyaları için varsayılan konum olarak *D:\\ev\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırı 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Varsayılan davranış hakkında daha fazla bilgi için bkz: [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
+Günlük dosyaları için varsayılan konum olarak *D:\\ev\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırı 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Varsayılan davranış hakkında daha fazla bilgi için bkz: [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings).
 
-Projenizi Azure ortamında çalıştığında sağlayıcısı yalnızca çalışır. Yerel olarak çalıştırdığınızda, herhangi bir etkisi olmaz &mdash; yerel dosyalara veya yerel geliştirme depolama BLOB'lar için yazma değil.
+Projeyi Azure ortamında çalıştığında sağlayıcısı yalnızca çalışır. Projeyi yerel olarak çalıştırdığınızda hiçbir etkisi olmaz&mdash;yerel dosyalara veya yerel geliştirme depolama BLOB'lar için yazma değil.
 
 ## <a name="third-party-logging-providers"></a>Üçüncü taraf günlüğü sağlayıcıları
 
 ASP.NET Core ile iş üçüncü taraf günlük altyapıları:
 
 * [elmah.io](https://elmah.io/) ([GitHub deposuna](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](http://docs.graylog.org/en/2.3/pages/gelf.html) ([GitHub deposuna](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](http://jsnlog.com/) ([GitHub deposuna](https://github.com/mperdeck/jsnlog))
 * [Loggr](http://loggr.net/) ([GitHub deposuna](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub deposuna](https://github.com/NLog/NLog.Extensions.Logging))
@@ -604,22 +600,21 @@ Daha fazla bilgi için her framework'ün belgelerine bakın.
 
 Azure günlük akış, gerçek zamanlı günlük etkinliği görüntülemenize olanak tanır: 
 
-* Uygulama sunucusu 
+* Uygulama sunucusu
 * Web sunucusu
-* Başarısız istek izleme 
+* Başarısız istek izleme
 
-Azure günlük akış yapılandırmak için: 
+Azure günlük akış yapılandırmak için:
 
 * Gidin **tanılama günlükleri** uygulamanızın portal sayfası sayfasından
-* Ayarlama **uygulama günlüğü (dosya sistemi)** için açık. 
+* Ayarlama **uygulama günlüğü (dosya sistemi)** için açık.
 
 ![Azure portal tanılama günlüklerini sayfası](index/_static/azure-diagnostic-logs.png)
 
-Gidin **günlük akış** uygulama iletilerini görüntülemek için sayfa. Aracılığıyla uygulama tarafından oturum açtınız `ILogger` arabirimi. 
+Gidin **günlük akış** uygulama iletilerini görüntülemek için sayfa. Aracılığıyla uygulama tarafından oturum açtınız `ILogger` arabirimi.
 
 ![Akış azure portal uygulama günlüğü](index/_static/azure-log-streaming.png)
 
-
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 [Yüksek performans günlüğü LoggerMessage ile](xref:fundamentals/logging/loggermessage)

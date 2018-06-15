@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: c61918d42b407b01484b67d740edc7a682c3a4b0
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 463c1c7b3aef624622e34943f1a7a518e658a037
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613040"
 ---
 # <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir
 
@@ -89,4 +90,4 @@ QR kodunu doğru biçimlendirilmiş URL'sini bulunur:
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP istemci ve sunucu zaman eğme
 
-TOTP kimlik doğrulaması doğru zaman sahip hem sunucu hem de kimlik doğrulayıcı aygıta bağlıdır. Belirteçleri yalnızca 30 saniye son. TOTP 2FA oturumları başarısız oluyorsa, sunucu saati doğru ve doğru bir NTP hizmeti tercihen eşitlenmiş olup olmadığını denetleyin.
+TOTP (zamana dayalı kerelik parola) kimlik doğrulaması doğru zaman sahip hem sunucu hem de kimlik doğrulayıcı aygıta bağlıdır. Belirteçleri yalnızca 30 saniye son. TOTP 2FA oturumları başarısız oluyorsa, sunucu saati doğru ve doğru bir NTP hizmeti tercihen eşitlenmiş olup olmadığını denetleyin.
