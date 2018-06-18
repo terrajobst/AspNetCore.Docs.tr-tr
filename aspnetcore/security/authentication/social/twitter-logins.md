@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34689002"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725997"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>ASP.NET Core twitter dış oturum açma Kurulumu
 
@@ -32,7 +32,10 @@ Bu öğreticide, kullanıcılarınıza etkinleştirme gösterilir [kendi Twitter
 
 ![Uygulama sayfası oluşturma](index/_static/TwitterCreate.png)
 
-* Geliştirme URI girin ile */signin-twitter* içine eklenen **geçerli OAuth yeniden yönlendirme URI'ler** alan (örneğin: `https://localhost:44320/signin-twitter`). Daha sonra Bu öğreticide yapılandırılmış Twitter kimlik doğrulama şeması istekleri otomatik olarak işleyecek */signin-twitter* OAuth akış uygulamak için rota.
+* Geliştirme URI girin ile `/signin-twitter` içine eklenen **geçerli OAuth yeniden yönlendirme URI'ler** alan (örneğin: `https://localhost:44320/signin-twitter`). Daha sonra Bu öğreticide yapılandırılmış Twitter kimlik doğrulama şeması istekleri otomatik olarak işleyecek `/signin-twitter` OAuth akış uygulamak için rota.
+
+> [!NOTE]
+> URI segmenti `/signin-twitter` Twitter kimlik doğrulama sağlayıcısı varsayılan geri dönüş ayarlanır. Twitter kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırılırken, varsayılan geri çağırma URI değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) sınıf.
 
 * Kalan formu doldurun ve dokunun **Twitter uygulamanızı oluşturma**. Yeni uygulama ayrıntıları görüntülenir:
 

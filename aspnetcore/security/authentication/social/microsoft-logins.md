@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: a9bf7b49b1cfdfff65c639eed1e14c94c5432350
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 46973f8a82034bd99a6e6634bbd6da06b1b14f25
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689028"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726036"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core Microsoft Account dış oturum açma ayarı
 
@@ -46,9 +46,12 @@ Zaten bir Microsoft hesabınız yoksa, dokunun  **[oluşturun!](https://signup.l
 
 ![Platform iletişim ekleyin](index/_static/MicrosoftDevAppPlatform.png)
 
-* Yeni **Web** platform bölümünde, geliştirme URL'nizi girin */signin-microsoft* içine eklenen **yönlendirme URL'si** alan (örneğin: `https://localhost:44320/signin-microsoft`). Daha sonra Bu öğreticide yapılandırılmış Microsoft kimlik doğrulama şeması istekleri otomatik olarak işleyecek */signin-microsoft* OAuth akış uygulamak için rota:
+* Yeni **Web** platform bölümünde, geliştirme URL'nizi girin `/signin-microsoft` içine eklenen **yönlendirme URL'si** alan (örneğin: `https://localhost:44320/signin-microsoft`). Daha sonra Bu öğreticide yapılandırılmış Microsoft kimlik doğrulama şeması istekleri otomatik olarak işleyecek `/signin-microsoft` OAuth akış uygulamak için rota:
 
 ![Web Platformu bölümünde](index/_static/MicrosoftRedirectUri.png)
+
+> [!NOTE]
+> URI segmenti `/signin-microsoft` Microsoft kimlik doğrulama sağlayıcısı varsayılan geri dönüş ayarlanır. Microsoft kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırılırken, varsayılan geri çağırma URI değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) sınıfı.
 
 * Dokunun **URL Ekle** URL eklenen emin olmak için.
 

@@ -6,7 +6,7 @@ Bu örnek Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları ku
 
 | Senaryo | Örnek Tanıtımı |
 | -------- | ----------- |
-| [Model kuralları](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#model-conventions) | Rota özniteliğinin ve üstbilgi uygulamanın sayfalara ekleyin. |
-| [Sayfa yol eklemek üzere AddPageRoute kullanın](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Belirtilen rota belirtilen sayfa sayfanın ekler. |
-| [Sayfa modeli eylem kuralları](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Tek bir sayfaya ekleyin üstbilgi sayfaları, bir klasördeki bir üstbilgi ekleyin ve bir üstbilgi uygulamanın sayfalara eklemek için bir filtre fabrikası yapılandırın. |
-| [Varsayılan sayfa uygulama modeli sağlayıcıyı Değiştir](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | İşleyici adlandırma kurallarını değiştirin. |
+| [Model kuralları](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#model-conventions) | Rota özniteliğinin ve üstbilgi uygulamanın sayfalara ekleyin. |
+| [Sayfa yol eklemek üzere AddPageRoute kullanın](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#configure-a-page-route) | Belirtilen rota belirtilen sayfa sayfanın ekler. |
+| [Sayfa modeli eylem kuralları](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#page-model-action-conventions) | Tek bir sayfaya ekleyin üstbilgi sayfaları, bir klasördeki bir üstbilgi ekleyin ve bir üstbilgi uygulamanın sayfalara eklemek için bir filtre fabrikası yapılandırın. |
+| [Varsayılan sayfa uygulama modeli sağlayıcıyı Değiştir](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-conventions#replace-the-default-page-app-model-provider) | İşleyici adlandırma kurallarını değiştirin. |

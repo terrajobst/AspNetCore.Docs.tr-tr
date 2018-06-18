@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 878c0b16e24f48a0ee84f93393af67af1728e284
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34689041"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725971"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET Core Google dış oturum açma Kurulumu
 
@@ -61,7 +61,10 @@ Bu öğreticide, kullanıcılarınızın üzerinde oluşturulmuş bir örnek ASP
 
 * Tek bir özellik (biz girebilirsiniz aynı oturum açma), bir Google + proje oluşturuyoruz çünkü **adı** OAuth 2.0 istemci kimliği olarak proje için kullandık.
 
-* Geliştirme URI girin ile */signin-google* içine eklenen **yetkili yönlendirmek URI'ler** alan (örneğin: `https://localhost:44320/signin-google`). Daha sonra Bu öğreticide yapılandırılmış Google kimlik doğrulama istekleri otomatik olarak işleyecek */signin-google* OAuth akış uygulamak için rota.
+* Geliştirme URI girin ile `/signin-google` içine eklenen **yetkili yönlendirmek URI'ler** alan (örneğin: `https://localhost:44320/signin-google`). Daha sonra Bu öğreticide yapılandırılmış Google kimlik doğrulama istekleri otomatik olarak işleyecek `/signin-google` OAuth akış uygulamak için rota.
+
+> [!NOTE]
+> URI segmenti `/signin-google` Google kimlik doğrulama sağlayıcısı varsayılan geri dönüş ayarlanır. Google kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırılırken, varsayılan geri çağırma URI değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) sınıfı.
 
 * Eklemek için SEKME tuşuna basın **yetkili yönlendirmek URI'ler** girişi.
 

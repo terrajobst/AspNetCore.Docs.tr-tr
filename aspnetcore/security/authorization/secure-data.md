@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 0b67d4aef198aa418b54fb92db76d331ffa2785a
-ms.sourcegitcommit: 0d6f151e69c159d776ed0142773279e645edbc0a
+ms.openlocfilehash: 53cab4b72980eef47c899a22e49fa697e7497279
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35415039"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726010"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı veri yetkilendirme tarafından korunan bir ASP.NET Core uygulaması oluşturma
 
@@ -139,6 +139,8 @@ Ekleme `[AllowAnonymous]` için [LoginModel ve RegisterModel](https://github.com
 ```console
 dotnet user-secrets set SeedUserPW <PW>
 ```
+
+Güçlü bir parola kullanmıyorsanız, ne zaman özel durum `SeedData.Initialize` olarak adlandırılır.
 
 Güncelleştirme `Main` test parola kullanmak için:
 

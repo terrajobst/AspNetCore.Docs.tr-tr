@@ -1,7 +1,7 @@
 ---
 title: ASP.NET çekirdek yapılandırması
 author: rick-anderson
-description: Yapılandırma API'si tarafından birden çok yöntem ASP.NET Core uygulamayı yapılandırmak için kullanın.
+description: ASP.NET Core uygulamayı yapılandırmak için yapılandırma API'si kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 10653764e6fa02bdd0551e493eb5353fe0440fac
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: a146991945add3c1299633db2147edbc63d3bc40
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613144"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725984"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET çekirdek yapılandırması
 

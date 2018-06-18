@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56876f43ed48b577f4d870825fd9230f526baec3
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725958"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core veri koruması
 
 Web uygulamaları, genellikle güvenlik açısından duyarlı verileri depolamak gerekir. Windows Masaüstü uygulamaları için DPAPI sağlar ancak bu web uygulamaları için uygun değil. ASP.NET Core veri koruma yığını Geliştirici anahtar yönetimi ve döndürme dahil olmak üzere verileri korumak için kullanabileceğiniz basit, kullanımı kolay bir şifreleme API sağlar.
 
-ASP.NET Core veri koruma yığını uzun vadeli yerini olarak hizmet için tasarlanmış <machineKey> ASP.NET öğesinde 1.x - 4.x. Eski şifreleme yığın eksikliklerini çoğunu Çoğu modern uygulamalar karşılaşabileceğiniz olası kullanım durumu için Giden kutusu çözümünü sağlarken gidermek için tasarlanmıştır.
+ASP.NET Core veri koruma yığını uzun vadeli yerini olarak hizmet için tasarlanmış &lt;machineKey&gt; ASP.NET öğesinde 1.x - 4.x. Eski şifreleme yığın eksikliklerini çoğunu Çoğu modern uygulamalar karşılaşabileceğiniz olası kullanım durumu için Giden kutusu çözümünü sağlarken gidermek için tasarlanmıştır.
 
 ## <a name="problem-statement"></a>Sorun bildirimi
 
@@ -75,6 +76,6 @@ Veri koruma yığını beş paketlerini oluşur.
 
 * Microsoft.AspNetCore.DataProtection.Extensions contains additional APIs which developers might find useful but which don't belong in the core package. Örneğin, bu paket, bir basit bir "Hiçbir bağımlılık ekleme Kurulum sahip bir özel anahtar depolama dizin gösteren sistem örneği" API (daha fazla bilgi) içerir. Ayrıca, korumalı yüklerini (daha fazla bilgi) ömrü sınırlamak için genişletme yöntemleri içerir.
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb can be installed into an existing ASP.NET 4.x application to redirect its <machineKey> operations to instead use the new data protection stack. Bkz: [Uyumluluk](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) daha fazla bilgi için.
+* Microsoft.AspNetCore.DataProtection.SystemWeb yönlendirmek için mevcut ASP.NET 4.x uygulamasına yüklenebilir kendi &lt;machineKey&gt; yeni veri koruma yığını kullanmayı işlemleri. Bkz: [Uyumluluk](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) daha fazla bilgi için.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation provides an implementation of the PBKDF2 password hashing routine and can be used by systems which need to handle user passwords securely. Bkz: [karma parolaları](xref:security/data-protection/consumer-apis/password-hashing) daha fazla bilgi için.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation PBKDF2 parola yordamı karma uygulaması sağlar ve kullanıcı parolalarını güvenli bir şekilde işlemek için gereken sistemleri tarafından kullanılabilir. Bkz: [karma parolaları](xref:security/data-protection/consumer-apis/password-hashing) daha fazla bilgi için.

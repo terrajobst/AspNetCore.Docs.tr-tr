@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/intro
-ms.openlocfilehash: 99a8d158c896566c2f6e6c22e4b37b1956e21cbf
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d7cf4740f31f1e0ae56461efc4c1b3d91238270f
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726023"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor sayfalarının Entity Framework Çekirdek ASP.NET Core - 8'in Öğreticisi 1 ile
 
@@ -226,7 +227,7 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
 
 Önceki komutu NuGet paketlerini *.csproj dosyasına ekler:
 
-[!code-csharp[](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
+[!code-xml[](intro/samples/cu/ContosoUniversity1_csproj.txt?highlight=7-8)]
 
 <a name="scaffold"></a>
 ## <a name="scaffold-the-model"></a>İskele modeli
@@ -237,6 +238,7 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Utils
 
  ```console
 dotnet restore
+dotnet tool install --global dotnet-aspnet-codegenerator --version 2.1.0
 dotnet aspnet-codegenerator razorpage -m Student -dc SchoolContext -udl -outDir Pages\Students --referenceScriptLibraries
  ```
 
