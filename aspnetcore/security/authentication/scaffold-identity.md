@@ -10,32 +10,32 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: e7a2cf3633ed48a0d2030739cdc092441fcae2ff
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 80cd39af61e856d3ce92db1c26e70788bcdca83d
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252041"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725825"
 ---
-# <a name="scaffold-identity-in-aspnet-core-projects"></a><span data-ttu-id="16da0-103">ASP.NET Core projelerinde iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-103">Scaffold Identity in ASP.NET Core projects</span></span>
+# <a name="scaffold-identity-in-aspnet-core-projects"></a><span data-ttu-id="5421b-103">ASP.NET Core projelerinde iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-103">Scaffold Identity in ASP.NET Core projects</span></span>
 
-<span data-ttu-id="16da0-104">tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="16da0-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="5421b-104">tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="5421b-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="16da0-105">ASP.NET Core 2.1 ve üzeri sağlar [ASP.NET Core kimliği](xref:security/authentication/identity) olarak bir [Razor sınıf kitaplığı](xref:mvc/razor-pages/ui-class).</span><span class="sxs-lookup"><span data-stu-id="16da0-105">ASP.NET Core 2.1 and later provides [ASP.NET Core Identity](xref:security/authentication/identity) as a [Razor Class Library](xref:mvc/razor-pages/ui-class).</span></span> <span data-ttu-id="16da0-106">Kimliği içeren uygulamaları kimlik Razor sınıf kitaplığı (RCL) bulunan kaynak koduna seçerek eklemek için iskele kurucu uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="16da0-106">Applications that include Identity can apply the scaffolder to selectively add the source code contained in the Identity Razor Class Library (RCL).</span></span> <span data-ttu-id="16da0-107">Kodu değiştirin ve davranışını değiştirmek için kaynak kodu oluşturmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="16da0-107">You might want to generate source code so you can modify the code and change the behavior.</span></span> <span data-ttu-id="16da0-108">Örneğin, kayıt için kullanılan kodu oluşturmak için iskele kurucu istemeniz.</span><span class="sxs-lookup"><span data-stu-id="16da0-108">For example, you could instruct the scaffolder to generate the code used in registration.</span></span> <span data-ttu-id="16da0-109">Oluşturulan kod kimlik RCL aynı kodu daha önceliklidir.</span><span class="sxs-lookup"><span data-stu-id="16da0-109">Generated code takes precedence over the same code in the Identity RCL.</span></span>
+<span data-ttu-id="5421b-105">ASP.NET Core 2.1 ve üzeri sağlar [ASP.NET Core kimliği](xref:security/authentication/identity) olarak bir [Razor sınıf kitaplığı](xref:mvc/razor-pages/ui-class).</span><span class="sxs-lookup"><span data-stu-id="5421b-105">ASP.NET Core 2.1 and later provides [ASP.NET Core Identity](xref:security/authentication/identity) as a [Razor Class Library](xref:mvc/razor-pages/ui-class).</span></span> <span data-ttu-id="5421b-106">Kimliği içeren uygulamaları kimlik Razor sınıf kitaplığı (RCL) bulunan kaynak koduna seçerek eklemek için iskele kurucu uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5421b-106">Applications that include Identity can apply the scaffolder to selectively add the source code contained in the Identity Razor Class Library (RCL).</span></span> <span data-ttu-id="5421b-107">Kodu değiştirin ve davranışını değiştirmek için kaynak kodu oluşturmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5421b-107">You might want to generate source code so you can modify the code and change the behavior.</span></span> <span data-ttu-id="5421b-108">Örneğin, kayıt için kullanılan kodu oluşturmak için iskele kurucu istemeniz.</span><span class="sxs-lookup"><span data-stu-id="5421b-108">For example, you could instruct the scaffolder to generate the code used in registration.</span></span> <span data-ttu-id="5421b-109">Oluşturulan kod kimlik RCL aynı kodu daha önceliklidir.</span><span class="sxs-lookup"><span data-stu-id="5421b-109">Generated code takes precedence over the same code in the Identity RCL.</span></span> <span data-ttu-id="5421b-110">UI tam denetimini ve varsayılan RCL kullanmamak için bölümüne bakın [oluşturma tam kimlik UI kaynak](#full).</span><span class="sxs-lookup"><span data-stu-id="5421b-110">To gain full control of the UI and not use the default RCL, see the section [Create full identity UI source](#full).</span></span>
 
-<span data-ttu-id="16da0-110">Yapmak uygulamaları **değil** dahil kimlik doğrulama RCL kimlik paketini eklemek için iskele kurucu uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="16da0-110">Applications that do **not** include authentication can apply the scaffolder to add the RCL Identity package.</span></span> <span data-ttu-id="16da0-111">Oluşturulacak kimlik kodu seçme seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="16da0-111">You have the option of selecting Identity code to be generated.</span></span>
+<span data-ttu-id="5421b-111">Yapmak uygulamaları **değil** dahil kimlik doğrulama RCL kimlik paketini eklemek için iskele kurucu uygulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5421b-111">Applications that do **not** include authentication can apply the scaffolder to add the RCL Identity package.</span></span> <span data-ttu-id="5421b-112">Oluşturulacak kimlik kodu seçme seçeneğiniz vardır.</span><span class="sxs-lookup"><span data-stu-id="5421b-112">You have the option of selecting Identity code to be generated.</span></span>
 
-<span data-ttu-id="16da0-112">Gerekli kodu çoğunu iskele kurucu oluşturur ancak işlemi tamamlamak için projenize güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="16da0-112">Although the scaffolder generates most of the necessary code, you'll have to update your project to complete the process.</span></span> <span data-ttu-id="16da0-113">Bu belge kimliği yapı iskelesi güncelleştirmesini tamamlamak için gereken adımları açıklar.</span><span class="sxs-lookup"><span data-stu-id="16da0-113">This document explains the steps needed to complete an Identity scaffolding update.</span></span>
+<span data-ttu-id="5421b-113">Gerekli kodu çoğunu iskele kurucu oluşturur ancak işlemi tamamlamak için projenize güncelleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="5421b-113">Although the scaffolder generates most of the necessary code, you'll have to update your project to complete the process.</span></span> <span data-ttu-id="5421b-114">Bu belge kimliği yapı iskelesi güncelleştirmesini tamamlamak için gereken adımları açıklar.</span><span class="sxs-lookup"><span data-stu-id="5421b-114">This document explains the steps needed to complete an Identity scaffolding update.</span></span>
 
-<span data-ttu-id="16da0-114">Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="16da0-114">When the Identity scaffolder is run, a *ScaffoldingReadme.txt* file is created in the project directory.</span></span> <span data-ttu-id="16da0-115">*ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir.</span><span class="sxs-lookup"><span data-stu-id="16da0-115">The *ScaffoldingReadme.txt* file contains general instructions on what's needed to complete the Identity scaffolding update.</span></span> <span data-ttu-id="16da0-116">Bu belgede daha daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.</span><span class="sxs-lookup"><span data-stu-id="16da0-116">This document contains more complete instructions than the *ScaffoldingReadme.txt* file.</span></span>
+<span data-ttu-id="5421b-115">Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="5421b-115">When the Identity scaffolder is run, a *ScaffoldingReadme.txt* file is created in the project directory.</span></span> <span data-ttu-id="5421b-116">*ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir.</span><span class="sxs-lookup"><span data-stu-id="5421b-116">The *ScaffoldingReadme.txt* file contains general instructions on what's needed to complete the Identity scaffolding update.</span></span> <span data-ttu-id="5421b-117">Bu belgede daha daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.</span><span class="sxs-lookup"><span data-stu-id="5421b-117">This document contains more complete instructions than the *ScaffoldingReadme.txt* file.</span></span>
 
-<span data-ttu-id="16da0-117">Dosya farklar gösterilmektedir ve dışında değişiklikleri geri olanak sağlayan bir kaynak denetim sistemi kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="16da0-117">We recommend using a source control system that shows file differences and allows you to back out of changes.</span></span> <span data-ttu-id="16da0-118">Değişiklikleri kimlik iskele kurucu çalıştırdıktan sonra inceleyin.</span><span class="sxs-lookup"><span data-stu-id="16da0-118">Inspect the changes after running the Identity scaffolder.</span></span>
+<span data-ttu-id="5421b-118">Dosya farklar gösterilmektedir ve dışında değişiklikleri geri olanak sağlayan bir kaynak denetim sistemi kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="5421b-118">We recommend using a source control system that shows file differences and allows you to back out of changes.</span></span> <span data-ttu-id="5421b-119">Değişiklikleri kimlik iskele kurucu çalıştırdıktan sonra inceleyin.</span><span class="sxs-lookup"><span data-stu-id="5421b-119">Inspect the changes after running the Identity scaffolder.</span></span>
 
-## <a name="scaffold-identity-into-an-empty-project"></a><span data-ttu-id="16da0-119">Boş bir projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-119">Scaffold identity into an empty project</span></span>
+## <a name="scaffold-identity-into-an-empty-project"></a><span data-ttu-id="5421b-120">Boş bir projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-120">Scaffold identity into an empty project</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="16da0-120">Aşağıdaki vurgulanan çağrıları ekleme `Startup` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="16da0-120">Add the following highlighted calls to the `Startup` class:</span></span>
+<span data-ttu-id="5421b-121">Aşağıdaki vurgulanan çağrıları ekleme `Startup` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="5421b-121">Add the following highlighted calls to the `Startup` class:</span></span>
 
 [!code-csharp[Main](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
 
@@ -43,7 +43,7 @@ ms.locfileid: "35252041"
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a><span data-ttu-id="16da0-121">Varolan yetkilendirme olmadan Razor projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-121">Scaffold identity into a Razor project without existing authorization</span></span>
+## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a><span data-ttu-id="5421b-122">Varolan yetkilendirme olmadan Razor projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-122">Scaffold identity into a Razor project without existing authorization</span></span>
 
 <!--
 set projNam=RPnoAuth
@@ -61,27 +61,27 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="16da0-122">Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="16da0-122">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="16da0-123">Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span><span class="sxs-lookup"><span data-stu-id="16da0-123">for more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
+<span data-ttu-id="5421b-123">Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="5421b-123">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="5421b-124">Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span><span class="sxs-lookup"><span data-stu-id="5421b-124">for more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
 
 <a name="efm"></a>
 
-### <a name="migrations-useauthentication-and-layout"></a><span data-ttu-id="16da0-124">Geçişler, UseAuthentication ve düzeni</span><span class="sxs-lookup"><span data-stu-id="16da0-124">Migrations, UseAuthentication, and layout</span></span>
+### <a name="migrations-useauthentication-and-layout"></a><span data-ttu-id="5421b-125">Geçişler, UseAuthentication ve düzeni</span><span class="sxs-lookup"><span data-stu-id="5421b-125">Migrations, UseAuthentication, and layout</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-<span data-ttu-id="16da0-125">İçinde `Configure` yöntemi `Startup` sınıfı, arama [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="16da0-125">In the `Configure` method of the `Startup` class, call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
+<span data-ttu-id="5421b-126">İçinde `Configure` yöntemi `Startup` sınıfı, arama [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="5421b-126">In the `Configure` method of the `Startup` class, call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
 
 [!code-csharp[Main](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-### <a name="layout-changes"></a><span data-ttu-id="16da0-126">Düzen değişiklikleri</span><span class="sxs-lookup"><span data-stu-id="16da0-126">Layout changes</span></span>
+### <a name="layout-changes"></a><span data-ttu-id="5421b-127">Düzen değişiklikleri</span><span class="sxs-lookup"><span data-stu-id="5421b-127">Layout changes</span></span>
 
-<span data-ttu-id="16da0-127">İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) Düzen dosyası için:</span><span class="sxs-lookup"><span data-stu-id="16da0-127">Optional: Add the login partial (`_LoginPartial`) to the layout file:</span></span>
+<span data-ttu-id="5421b-128">İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) Düzen dosyası için:</span><span class="sxs-lookup"><span data-stu-id="5421b-128">Optional: Add the login partial (`_LoginPartial`) to the layout file:</span></span>
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a><span data-ttu-id="16da0-128">Yetkilendirme ile Razor projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-128">Scaffold identity into a Razor project with authorization</span></span>
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a><span data-ttu-id="5421b-129">Yetkilendirme ile Razor projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-129">Scaffold identity into a Razor project with authorization</span></span>
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -95,9 +95,9 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-<span data-ttu-id="16da0-129">Bazı kimlik seçenekleri yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="16da0-129">Some Identity options are configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="16da0-130">Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span><span class="sxs-lookup"><span data-stu-id="16da0-130">For more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
+<span data-ttu-id="5421b-130">Bazı kimlik seçenekleri yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="5421b-130">Some Identity options are configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="5421b-131">Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span><span class="sxs-lookup"><span data-stu-id="5421b-131">For more information, see [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).</span></span>
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a><span data-ttu-id="16da0-131">Varolan yetkilendirme olmadan bir MVC projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-131">Scaffold identity into an MVC project without existing authorization</span></span>
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a><span data-ttu-id="5421b-132">Varolan yetkilendirme olmadan bir MVC projeye iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-132">Scaffold identity into an MVC project without existing authorization</span></span>
 
 <!--
 set projNam=MvcNoAuth
@@ -115,23 +115,23 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-<span data-ttu-id="16da0-132">İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) için *Views/Shared/_Layout.cshtml* dosyası:</span><span class="sxs-lookup"><span data-stu-id="16da0-132">Optional: Add the login partial (`_LoginPartial`) to the *Views/Shared/_Layout.cshtml* file:</span></span>
+<span data-ttu-id="5421b-133">İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) için *Views/Shared/_Layout.cshtml* dosyası:</span><span class="sxs-lookup"><span data-stu-id="5421b-133">Optional: Add the login partial (`_LoginPartial`) to the *Views/Shared/_Layout.cshtml* file:</span></span>
 
 [!code-html[Main](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
 
-* <span data-ttu-id="16da0-133">Taşıma *Pages/Shared/_LoginPartial.cshtml* dosya *Views/Shared/_LoginPartial.cshtml*</span><span class="sxs-lookup"><span data-stu-id="16da0-133">Move the *Pages/Shared/_LoginPartial.cshtml* file to *Views/Shared/_LoginPartial.cshtml*</span></span>
+* <span data-ttu-id="5421b-134">Taşıma *Pages/Shared/_LoginPartial.cshtml* dosya *Views/Shared/_LoginPartial.cshtml*</span><span class="sxs-lookup"><span data-stu-id="5421b-134">Move the *Pages/Shared/_LoginPartial.cshtml* file to *Views/Shared/_LoginPartial.cshtml*</span></span>
 
-<span data-ttu-id="16da0-134">Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="16da0-134">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="16da0-135">Daha fazla bilgi için IHostingStartup bakın.</span><span class="sxs-lookup"><span data-stu-id="16da0-135">For more information, see IHostingStartup.</span></span>
+<span data-ttu-id="5421b-135">Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*.</span><span class="sxs-lookup"><span data-stu-id="5421b-135">Identity is configured in *Areas/Identity/IdentityHostingStartup.cs*.</span></span> <span data-ttu-id="5421b-136">Daha fazla bilgi için IHostingStartup bakın.</span><span class="sxs-lookup"><span data-stu-id="5421b-136">For more information, see IHostingStartup.</span></span>
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-<span data-ttu-id="16da0-136">Çağrı [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="16da0-136">Call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
+<span data-ttu-id="5421b-137">Çağrı [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:</span><span class="sxs-lookup"><span data-stu-id="5421b-137">Call [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) after `UseStaticFiles`:</span></span>
 
 [!code-csharp[Main](scaffold-identity/sample/StartupMvcNoAuth.cs?name=snippet1&highlight=23)]
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a><span data-ttu-id="16da0-137">Yetkilendirme ile MVC projeye bir iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="16da0-137">Scaffold identity into an MVC project with authorization</span></span>
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a><span data-ttu-id="5421b-138">Yetkilendirme ile MVC projeye bir iskele kimliği</span><span class="sxs-lookup"><span data-stu-id="5421b-138">Scaffold identity into an MVC project with authorization</span></span>
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -143,4 +143,25 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
-<span data-ttu-id="16da0-138">Silme *sayfaları/paylaşılan* klasörüne ve o klasördeki dosyaları.</span><span class="sxs-lookup"><span data-stu-id="16da0-138">Delete the *Pages/Shared* folder and the files in that folder.</span></span>
+<span data-ttu-id="5421b-139">Silme *sayfaları/paylaşılan* klasörüne ve o klasördeki dosyaları.</span><span class="sxs-lookup"><span data-stu-id="5421b-139">Delete the *Pages/Shared* folder and the files in that folder.</span></span>
+
+<a name="full"></a>
+
+## <a name="create-full-identity-ui-source"></a><span data-ttu-id="5421b-140">Tam kimlik UI kaynağı oluşturun</span><span class="sxs-lookup"><span data-stu-id="5421b-140">Create full identity UI source</span></span>
+
+<span data-ttu-id="5421b-141">Kimlik UI tam denetimi korumak için kimlik iskele kurucu çalıştırın ve seçin **tüm dosyaları geçersiz kılma**.</span><span class="sxs-lookup"><span data-stu-id="5421b-141">To maintain full control of the Identity UI, run the Identity scaffolder and select **Override all files**.</span></span>
+
+<span data-ttu-id="5421b-142">Aşağıdaki vurgulanmış kodu varsayılan kimlik UI kimliği ile bir ASP.NET Core 2.1 web uygulamasında değiştirmek için değişiklikleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="5421b-142">The following highlighted code shows the changes to replace the default Identity UI with Identity in an ASP.NET Core 2.1 web app.</span></span> <span data-ttu-id="5421b-143">Bu kimlik UI tam denetime sahip olmasını yapmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="5421b-143">You might want to do this to have full control of the Identity UI.</span></span>
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
+
+<span data-ttu-id="5421b-144">Varsayılan kimlik aşağıdaki kodda değiştirilir: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet2)]</span><span class="sxs-lookup"><span data-stu-id="5421b-144">The default Identity is replaced in the following code: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet2)]</span></span>
+
+<span data-ttu-id="5421b-145">Aşağıdaki kod, ASP.NET yetkilendirmesi gerektiren kimlik sayfaları yetkilendirmek için çekirdek yapılandırır: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]</span><span class="sxs-lookup"><span data-stu-id="5421b-145">The following code configures ASP.NET Core to authorize the Identity pages that require authorization: [!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]</span></span>
+
+<span data-ttu-id="5421b-146">Aşağıdaki kod doğru kimlik sayfaları yolu kullanmak üzere kimlik tanımlama bilgisi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="5421b-146">The following the code sets the Identity cookie to use the correct Identity pages path.</span></span>
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
+
+<span data-ttu-id="5421b-147">Kayıt bir `IEmailSender` uygulamasında, örneğin:</span><span class="sxs-lookup"><span data-stu-id="5421b-147">Register an `IEmailSender` implementation, for example:</span></span>
+
+[!code-csharp[Main](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
