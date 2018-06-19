@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878457"
 ---
 <a name="aspnet-mvc-storefront-part-3-pipes-and-filters"></a>ASP.NET MVC Storefront bölüm 3: Kanallar ve filtreleri
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
-title: "[Nasıl stop yaparım] Bir Web sitesinden e-posta göndermek için ASP.NET kullanın | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir Web sitesinden e-posta göndermek için ASP.NET kullanın | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels oluşturmak ve bir ASP.NET web sitesinde bir e-posta göndermek nasıl gösterir. İlk olarak, System.Net.Mail ad alanı f çekirdek sınıfları hakkında bilgi edinin..."
+description: Bu video Chris Pels oluşturmak ve bir ASP.NET web sitesinde bir e-posta göndermek nasıl gösterir. İlk olarak, System.Net.Mail ad alanı f çekirdek sınıfları hakkında bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572121"
 ---
 <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Nasıl stop yaparım] ASP.NET Web sitesinden e-posta göndermek için kullanın
 ====================

@@ -9,13 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 772409f11a43e1d130265d8bba3bad1da5a41b86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aee1682755385d9fa292f9ba0814d5d3602f3881
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729914"
 ---
-[!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search1.md)]
 
 Hızlı bir şekilde adlandırabilirsiniz `searchString` parametresi `id` ile **yeniden adlandırma** komutu. Sağ tıklayın `searchString` **> yeniden adlandırma**.
 
@@ -29,7 +30,7 @@ Parametre değiştirme `id` ve tüm oluşumlarını `searchString` değiştirmek
 
 ![Kod Düzenleyicisi değişkeni gösteren kimliğine değiştirildi](search/_static/rename3.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search2.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search2.md)]
 
 IntelliSense bize işaretleme güncelleştirme nasıl yardımcı olduğunu dikkat edin.
 
@@ -37,11 +38,11 @@ IntelliSense bize işaretleme güncelleştirme nasıl yardımcı olduğunu dikka
 
 ![IntelliSense bağlamsal menüsüyle yöntemi öznitelik değerleri listesinde seçili](search/_static/int_get.png)
 
-Ayırt edici yazı tipini fark `<form>` etiketi. Etiket tarafından desteklenen farklı yazı gösterir [etiket Yardımcıları](../../mvc/views/tag-helpers/intro.md).
+Ayırt edici yazı tipini fark `<form>` etiketi. Etiket tarafından desteklenen farklı yazı gösterir [etiket Yardımcıları](~/mvc/views/tag-helpers/intro.md).
 
 ![Form etiketi mor metin ile](search/_static/th_font.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search3.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search3.md)]
 
 > [!div class="step-by-step"]
 > [Önceki](controller-methods-views.md)

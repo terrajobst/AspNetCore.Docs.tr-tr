@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control
-title: "[Nasıl stop yaparım] Kaydetme ve yükleme durum bilgilerini görüntüle özel bir Web sunucusu denetimi | Microsoft Docs"
+title: '[Nasıl stop yaparım] Kaydetme ve yükleme durum bilgilerini görüntüle özel bir Web sunucusu denetimi | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels kalır ve özel bir kullanıcı denetimi ViewState özelliğiyle bilgilerinin geri yüklemek nasıl yapacağınızı gösterir. İlk olarak, basit değer yapılandırılana öğrenin..."
+description: Bu video Chris Pels kalır ve özel bir kullanıcı denetimi ViewState özelliğiyle bilgilerinin geri yüklemek nasıl yapacağınızı gösterir. İlk olarak, basit değer yapılandırılana öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571977"
 ---
 <a name="how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control"></a>[Nasıl stop yaparım] Kaydet ve bir özel Web sunucusu denetimi için yük görünüm durumu bilgileri
 ====================

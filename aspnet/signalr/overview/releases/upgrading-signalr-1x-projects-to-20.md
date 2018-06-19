@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/releases/upgrading-signalr-1x-projects-to-20
-title: "Sürüm 2 SignalR 1.x projeleri yükseltme | Microsoft Docs"
+title: Sürüm 2 SignalR 1.x projeleri yükseltme | Microsoft Docs
 author: pfletcher
-description: "Bu konu, SignalR için mevcut bir SignalR 1.x projesini yükseltileceğini açıklar 2.x ve yükseltme işlemi sırasında ortaya çıkabilecek sorunları gidermek nasıl..."
+description: Bu konu, SignalR için mevcut bir SignalR 1.x projesini yükseltileceğini açıklar 2.x ve yükseltme işlemi sırasında ortaya çıkabilecek sorunları gidermek nasıl...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566028"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>Sürüm 2 SignalR 1.x projelerini yükseltme
 ====================

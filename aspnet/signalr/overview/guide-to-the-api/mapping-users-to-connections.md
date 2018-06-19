@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
-title: "SignalR kullanıcıları eşlemek için bağlantıları | Microsoft Docs"
+title: SignalR kullanıcıları eşlemek için bağlantıları | Microsoft Docs
 author: tfitzmac
-description: "Bu konu, kullanıcılar ve kendi bağlantılarını hakkındaki bilgileri korumak nasıl gösterir. Bu konuda yazma CAN Fletcher'dan Yardım. Bu konuda kullanılan yazılım sürümleri..."
+description: Bu konu, kullanıcılar ve kendi bağlantılarını hakkındaki bilgileri korumak nasıl gösterir. Bu konuda yazma CAN Fletcher'dan Yardım. Bu konuda kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/30/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036420"
 ---
 <a name="mapping-signalr-users-to-connections"></a>Eşleme SignalR bağlantıları kullanıcılara
 ====================

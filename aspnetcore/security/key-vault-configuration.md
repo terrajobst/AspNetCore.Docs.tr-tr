@@ -8,11 +8,12 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78a00e04e260863af17d7888ca6bf77d3f915ce1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cf56515a2a7116f399af7e671547fc81b616619c
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734711"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -30,16 +31,18 @@ Görüntülemek veya karşıdan 2.x için örnek kod:
 Görüntülemek veya karşıdan 1.x için örnek kod:
 
 * [Temel örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))-gizli değerleri uygulamaya okur.
-* [Anahtar adı öneki örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) - gizli değerleri her uygulama sürümü için farklı bir kümesini yüklemek izin veren bir uygulamanın sürümünü temsil eden bir anahtar adı ön ekini kullanarak gizli değerleri okur. 
+* [Anahtar adı öneki örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) - gizli değerleri her uygulama sürümü için farklı bir kümesini yüklemek izin veren bir uygulamanın sürümünü temsil eden bir anahtar adı ön ekini kullanarak gizli değerleri okur.
 
 ---
 
 Bu belge nasıl kullanılacağını açıklamaktadır [Microsoft Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) Azure anahtar kasası gizli uygulama yapılandırma değerlerini yüklemek için yapılandırma sağlayıcısı. Azure anahtar kasası, şifreleme anahtarları ve gizli anahtarları uygulamalar ve hizmetler tarafından kullanılan korumaya yardımcı olan bir bulut tabanlı bir hizmettir. Önemli yapılandırma verilerine erişimi denetleme yaygın senaryolar içerir ve FIPS 140-2 gereksinimini toplantı Düzey 2 donanım güvenlik modülleri (HSM's) yapılandırma verileri depolarken doğrulanabilir. Bu özellik, daha yüksek veya ASP.NET Core 1.1 hedefleyen uygulamalar için kullanılabilir.
 
 ## <a name="package"></a>Paket
+
 Sağlayıcı kullanmak için bir başvuru ekleyin [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) paket.
 
 ## <a name="application-configuration"></a>Uygulama yapılandırması
+
 Sağlayıcı ile keşfedebilirsiniz [örnek uygulamaları](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples). Bir anahtar kasası oluşturmak ve kasasına gizli anahtarları oluşturmak sonra örnek uygulamaları güvenli bir şekilde gizli değerlerini yapılandırmalarına yüklemek ve Web sayfalarındaki görüntüleme.
 
 Sağlayıcı eklenen `ConfigurationBuilder` ile `AddAzureKeyVault` uzantısı. Örnek uygulamaları uzantısı gelen yüklenen üç yapılandırma değerlerini kullanır. *appsettings.json* dosya.
@@ -50,9 +53,10 @@ Sağlayıcı eklenen `ConfigurationBuilder` ile `AddAzureKeyVault` uzantısı. �
 | `ClientId`     | Azure Active Directory Uygulama Kimliği  | 627e911e-43cc-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Azure Active Directory Uygulama anahtarı | g58K3dtg59o1Pa + e59v2Tx829w6VxTB2yv9sv/101di = |
 
-[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Anahtar kasasına gizli anahtarları oluşturma ve yapılandırma değerlerini (basic örnek) yükleme
+
 1. Bir anahtar kasası oluşturun ve yer alan yönergeleri izleyerek uygulama için Azure Active Directory'yi (Azure AD) ayarlama ayarlayın [Azure anahtar kasası ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
    * Gizli anahtar kasası kullanmaya eklemek [AzureRM anahtar kasası PowerShell Modülü](/powershell/module/azurerm.keyvault) kullanılabilir [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.KeyVault), [Azure anahtar kasası REST API](/rest/api/keyvault/), veya [Azure Portal](https://portal.azure.com/). Gizli ya da oluşturulan *el ile* veya *sertifika* gizli. *Sertifika* gizli uygulamalar ve hizmetler tarafından kullanılması için sertifikalar ancak yapılandırma sağlayıcısı tarafından desteklenmiyor. Kullanmanız gereken *el ile* yapılandırma sağlayıcısı ile kullanmak için ad-değer çifti parolaları oluşturmak için seçeneği.
      * Basit gizli ad-değer çiftleri olarak oluşturulur. Azure anahtar kasası gizli adların, alfasayısal karakterler ve tire sınırlıdır.
@@ -75,6 +79,7 @@ Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerle
 ![Azure anahtar kasası yapılandırma sağlayıcısı aracılığıyla yüklenen gizli değerleri gösteren bir tarayıcı penceresi](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Önekli anahtar kasasına gizli anahtarları oluşturma ve yapılandırma değerlerini (anahtar-adı-önek-sample) yükleme
+
 `AddAzureKeyVault` Ayrıca uygulaması kabul eden bir aşırı sağlar `IKeyVaultSecretManager`, nasıl anahtar kasasına gizli anahtarları denetlemenize olanak sağlayan yapılandırma anahtarlara dönüştürülür. Örneğin, uygulama başlatma sırasında sağladığınız bir önek değere göre gizli değerlerini yüklemek için arabirimi uygulayabilirsiniz. Bu, örneğin, uygulama sürümüne gizli yüklemek için sağlar.
 
 > [!WARNING]
@@ -82,7 +87,7 @@ Uygulamayı çalıştırdığınızda, bir Web sayfası yüklenen gizli değerle
 
 İkinci örnek uygulaması kullanarak, bir gizli anahtar kasası için oluşturduğunuz `5000-AppSecret` (anahtar kasası gizli adlarında nokta izin verilmiyor) temsil eden 5.0.0.0 sürümü, uygulamanız için bir uygulama gizli anahtarı. Başka bir sürümü için 5.1.0.0, için gizli anahtar oluşturma `5100-AppSecret`. Her uygulamanın sürüm yapılandırmasıyla gizli değerini yükler `AppSecret`, çıkarma sürümü gizli yüklerken. Örnek 's uygulama aşağıda gösterilmiştir:
 
-[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=20)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 
@@ -116,6 +121,7 @@ Ne zaman bu yaklaşımı uygulayın:
    ![Uygulamanın sürüm 5.1.0.0 olduğunda Azure anahtar kasası yapılandırma sağlayıcısı aracılığıyla yüklenen gizli bir değer gösteren bir tarayıcı penceresi](key-vault-configuration/_static/sample2-2.png)
 
 ## <a name="controlling-access-to-the-clientsecret"></a>ClientSecret erişimi denetleme
+
 Kullanım [gizli Yöneticisi aracını](xref:security/app-secrets) korumak için `ClientSecret` proje kaynak ağacı dışında. Uygulama parolaları belirli bir proje ile ilişkilendirmek ve birden çok projeler arasında paylaşmak gizli Manager'la.
 
 Sertifikaları destekleyen bir ortamda bir .NET Framework uygulama geliştirirken, Azure anahtar Kasası'na bir X.509 sertifikası ile doğrulanabilir. X.509 sertifikasının özel anahtarı işletim sistemi tarafından yönetilir. Daha fazla bilgi için bkz: [istemci parolası yerine bir sertifika ile kimlik doğrulama](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Kullanım `AddAzureKeyVault` kabul aşırı bir `X509Certificate2`.
@@ -136,6 +142,7 @@ Configuration = builder.Build();
 ```
 
 ## <a name="reloading-secrets"></a>Parolaları yeniden yükleniyor
+
 Parolaları önbelleğe kadar `IConfigurationRoot.Reload()` olarak adlandırılır. Süresi doldu, devre dışı bırakıldı ve güncelleştirilmiş gizli anahtar kasasında değil kadar uygulama tarafından dikkate `Reload` yürütülür.
 
 ```csharp
@@ -143,10 +150,13 @@ Configuration.Reload();
 ```
 
 ## <a name="disabled-and-expired-secrets"></a>Devre dışı bırakılmış ve süresi dolan gizli
+
 Devre dışı bırakılmış ve süresi dolan gizli throw bir `KeyVaultClientException`. Uygulamanızı atma gelen önlemek için uygulamanızı değiştirmek veya devre dışı bırakılmış/süresi dolmuş gizli güncelleştirin.
 
 ## <a name="troubleshooting"></a>Sorun giderme
+
 Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız olduğunda bir hata iletisi yazılır [ASP.NET oturum altyapı](xref:fundamentals/logging/index). Aşağıdaki koşullar yapılandırma yüklenmesini engeller:
+
 * Uygulama Azure Active Directory'de doğru yapılandırılmamış.
 * Anahtar kasası Azure anahtar kasası yok.
 * Uygulama anahtar kasası erişmek için yetkili değil.
@@ -157,6 +167,7 @@ Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız ol
 * Yapılandırma anahtarı (ad) uygulama yüklemeye çalıştığınız değer için geçersiz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
+
 * [Yapılandırma](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Anahtar kasası](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Anahtar kasası belgeleri](https://docs.microsoft.com/azure/key-vault/)

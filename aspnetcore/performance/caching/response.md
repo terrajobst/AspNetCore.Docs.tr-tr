@@ -8,20 +8,21 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734516"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
 Tarafından [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), ve [Luke Latham](https://github.com/guardrex)
 
 > [!NOTE]
-> Yanıt önbelleğe alma [Razor sayfalarında ASP.NET Core 2.0 desteklenmeyen](https://github.com/aspnet/Mvc/issues/6437). Bu özellik, desteklenen [ASP.NET Core 2.1 yayın](https://github.com/aspnet/Home/wiki/Roadmap).
-  
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+> Razor sayfalarında yanıt önbelleğe alma ASP.NET Core 2.1 veya sonraki sürümlerinde kullanılabilir.
+
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Yanıt önbelleğe alma, bir istemci ya da proxy web sunucusu yapar istekleri sayısını azaltır. Yanıt önbelleğe alma ayrıca miktarını azaltan bir yanıtı oluşturmak için web sunucusu çalışma gerçekleştirir. Yanıt önbelleğe alma, istemci, proxy ve önbellek yanıtları Ara nasıl istediğinizi belirtin üstbilgileri tarafından denetlenir.
 
@@ -37,9 +38,9 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Bir önbellek yanıt depolayabilir. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Yanıt tarafından paylaşılan bir önbellek depolanması gerekir. Özel bir önbellek depolamak ve yanıt yeniden kullanabilirsiniz. |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | İstemci, geçerlilik süresi belirtilen sayıda saniye büyük bir yanıtı kabul edilmeyecektir. Örnekler: `max-age=60` (60 saniye olarak), `max-age=2592000` (1 ay) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: bir önbellekte depolanan yanıt isteği karşılamak için kullanmaması gerekir. Not: İstemci için yanıt kaynak sunucuya yeniden oluşturur ve ara yazılım önbelleğinde depolanan yanıtta güncelleştirir.<br><br>**Yanıtları üzerinde**: kaynak sunucuda onaysız sonraki istek için yanıt kullanılmamalıdır. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: önbellek istek depolamamayı gerekir.<br><br>**Yanıtları üzerinde**: önbellek yanıt herhangi bir kısmını depolamamayı gerekir. |
+| [Maksimum yaş](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | İstemci, geçerlilik süresi belirtilen sayıda saniye büyük bir yanıtı kabul edilmeyecektir. Örnekler: `max-age=60` (60 saniye olarak), `max-age=2592000` (1 ay) |
+| [Hayır-önbellek](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: bir önbellekte depolanan yanıt isteği karşılamak için kullanmaması gerekir. Not: İstemci için yanıt kaynak sunucuya yeniden oluşturur ve ara yazılım önbelleğinde depolanan yanıtta güncelleştirir.<br><br>**Yanıtları üzerinde**: kaynak sunucuda onaysız sonraki istek için yanıt kullanılmamalıdır. |
+| [Hayır deposu](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: önbellek istek depolamamayı gerekir.<br><br>**Yanıtları üzerinde**: önbellek yanıt herhangi bir kısmını depolamamayı gerekir. |
 
 Önbelleğe alma işleminde, bir rol oynar diğer önbellek üstbilgileri aşağıdaki tabloda gösterilmiştir.
 
@@ -72,7 +73,7 @@ Uygulama bir bulut veya sunucu grubunda barındırıldığında bellek verileri 
 
 Daha fazla bilgi için bkz: [iş dağıtılmış önbellek ile](xref:performance/caching/distributed).
 
-### <a name="cache-tag-helper"></a>Cache Tag Helper
+### <a name="cache-tag-helper"></a>Önbellek etiket Yardımcısı
 
 Önbellek etiket Yardımcısı'nı kullanarak bir MVC görünümü ya da Razor sayfasından içerik önbelleğe alabilir. Önbellek etiket Yardımcısı, verileri depolamak için bellek içi önbelleğe alma kullanır.
 
@@ -113,7 +114,17 @@ Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKe
 
 Bu üst yalnızca zaman yazılır `VaryByHeader` özelliği ayarlanmış. Ayarlanır `Vary` özelliğin değeri. Aşağıdaki örnek kullanır `VaryByHeader` özelliği:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+
+::: moniker-end
 
 Yanıt Üstbilgileri tarayıcınızın ağ araçları ile görüntüleyebilirsiniz. Aşağıdaki resim kenar çubuğunda çıktı F12 gösterir **ağ** sekmesinde `About2` eylem yöntemi yenilenir:
 
@@ -130,7 +141,17 @@ Varsa `NoStore` olan `false` ve `Location` olan `None`, `Cache-Control` ve `Prag
 
 Genelde ayarlanan `NoStore` için `true` hata sayfalarında. Örneğin:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+
+::: moniker-end
 
 Bu aşağıdaki üstbilgilerinde sonuçlanır:
 
@@ -148,7 +169,17 @@ Pragma: no-cache
 
 Üstbilgileri gösteren bir örnek ayarlayarak aşağıda üretilen `Duration` ve varsayılan bırakarak `Location` değeri:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+
+::: moniker-end
 
 Aşağıdaki üstbilgi üretir:
 
@@ -162,11 +193,31 @@ Cache-Control: public,max-age=60
 
 Önbellek profili ayarlama:
 
-[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 Önbellek profili başvuruyor:
 
-[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-csharp[](response/samples/2.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+[!code-csharp[](response/samples/1.x/ResponseCacheSample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+
+::: moniker-end
 
 `ResponseCache` Özniteliği hem de (yöntemleri) eylemlerin ve denetleyicilerin (sınıflar) uygulanabilir. Yöntem düzeyindeki öznitelikler sınıf düzeyi özniteliklerinde belirtilen ayarları geçersiz kılar.
 
@@ -182,7 +233,7 @@ Cache-Control: public,max-age=60
 
 * [Önbellekleri depolanmasını yanıtları](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Önbellek-](xref:performance/caching/memory)
+* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
 * [Değişiklik belirteçleri değişikliklerle Algıla](xref:fundamentals/primitives/change-tokens)
 * [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/index
 title: ColorPicker | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici, bir renk açılır penceresinden kullanıcıların seçmesine izin veren ColorPicker denetiminin nasıl kullanılacağını gösterir."
+description: Bu öğretici, bir renk açılır penceresinden kullanıcıların seçmesine izin veren ColorPicker denetiminin nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567096"
 ---
 <a name="colorpicker"></a>ColorPicker
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/how-do-i/index
-title: "Nasıl | Microsoft Docs"
+title: Nasıl | Microsoft Docs
 author: rick-anderson
-description: "Bu çok parçalı video serisi ASP.NET 3.5 ve Visual Studio 2008'deki yeni özelliklerden yararlanmak nasıl gösterir."
+description: Bu çok parçalı video serisi ASP.NET 3.5 ve Visual Studio 2008'deki yeni özelliklerden yararlanmak nasıl gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570498"
 ---
 <a name="how-do-i"></a>Nasıl yapılır
 ====================

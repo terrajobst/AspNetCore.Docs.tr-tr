@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/index
-title: "ASP.NET MVC3 ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET MVC3 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Microsoft Visual Web Developer 2010 Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temel bilgileri."
+description: Microsoft Visual Web Developer 2010 Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temel bilgileri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564801"
 ---
 <a name="getting-started-with-aspnet-mvc3"></a>ASP.NET MVC3 ile çalışmaya başlama
 ====================

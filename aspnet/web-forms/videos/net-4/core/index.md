@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/net-4/core/index
-title: "Çekirdek | Microsoft Docs"
+title: Çekirdek | Microsoft Docs
 author: rick-anderson
-description: "Bu video serisini otomatik başlatma, temiz yapılandırma dosyalarını ve HTML kodlaması gibi ASP.NET 4'te çekirdek iyileştirmeleri araştırır."
+description: Bu video serisini otomatik başlatma, temiz yapılandırma dosyalarını ve HTML kodlaması gibi ASP.NET 4'te çekirdek iyileştirmeleri araştırır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572178"
 ---
 <a name="core"></a>Çekirdek
 ====================

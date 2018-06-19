@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 5c477dd64c4cf8b7d6da1f121a290b00f3864f45
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819090"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Hub SignalR öğesinde ASP.NET Core için kullanın.
 
@@ -63,12 +64,12 @@ Ayrıca, `Hub.Clients` aşağıdaki yöntemleri içerir:
 | `AllExcept` | Bağlanan tüm istemciler belirtilen bağlantıların dışında bir yöntem çağırır |
 | `Client` | Belirli bir bağlı istemci üzerinde bir yöntemi çağırır |
 | `Clients` | Belirli bağlı istemcilerde bir yöntemi çağırır |
-| `Group` | Belirtilen gruptaki tüm bağlantılara bir ileti gönderir  |
-| `GroupExcept` | Belirtilen bağlantıların dışında belirtilen gruptaki tüm bağlantılara bir ileti gönderir |
-| `Groups` | Bağlantıları birden çok gruba ileti gönderir  |
-| `OthersInGroup` | Bir hub yöntemini çağıran istemci hariç bağlantıları, gruba bir ileti gönderir  |
-| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantılara bir ileti gönderir |
-| `Users` | Belirtilen kullanıcılar ile ilişkili tüm bağlantılara bir ileti gönderir |
+| `Group` | Belirtilen grubun tüm bağlantılar için bir yöntemi çağırır  |
+| `GroupExcept` | Belirtilen bağlantıların dışında belirtilen gruptaki tüm bağlantılar için bir yöntemi çağırır |
+| `Groups` | Birden çok grup bağlantıları için bir yöntemi çağırır  |
+| `OthersInGroup` | Hub yöntemini çağıran istemci hariç bağlantıları, bir grup için bir yöntem çağırır  |
+| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantılar için bir yöntemi çağırır |
+| `Users` | Belirtilen kullanıcılar ile ilişkilendirilmiş tüm bağlantılar için bir yöntem çağırır |
 
 Her bir özellik veya yöntem yukarıdaki tablolarda sahip bir nesne döndürür bir `SendAsync` yöntemi. `SendAsync` Yöntemi çağırmak için istemci yönteminin parametreleri ve adını sağlayın olanak tanır.
 

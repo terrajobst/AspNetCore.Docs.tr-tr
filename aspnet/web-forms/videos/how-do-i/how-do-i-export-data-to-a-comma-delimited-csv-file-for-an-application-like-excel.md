@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: "[Nasıl stop yaparım] Verileri Excel gibi bir uygulama için bir virgülle ayrılmış (CSV) dosyasına dışarı | Microsoft Docs"
+title: '[Nasıl stop yaparım] Verileri Excel gibi bir uygulama için bir virgülle ayrılmış (CSV) dosyasına dışarı | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda bir veritabanı veya diğer kaynaklardan veri almak ve bir uygulama li kullanılabilir bir virgülle ayrılmış dosya vermek nasıl Chris Pels gösterir..."
+description: Bu videoda bir veritabanı veya diğer kaynaklardan veri almak ve bir uygulama li kullanılabilir bir virgülle ayrılmış dosya vermek nasıl Chris Pels gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571998"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[Nasıl stop yaparım] Excel gibi bir uygulama için bir virgülle ayrılmış (CSV) dosyası için verileri dışa aktarın
 ====================

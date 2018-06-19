@@ -3,17 +3,20 @@ title: ASP.NET Core için yanıt sıkıştırma Ara
 author: guardrex
 description: Yanıt sıkıştırma ve ASP.NET Core uygulamaları yanıt sıkıştırma ara yazılım kullanma hakkında bilgi edinin.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
+ms.custom: mvc
 ms.date: 08/20/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/response-compression
-ms.openlocfilehash: cae81a04e41dc7fcbacec975e63171f633fccecf
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: e970e74547f1f3efaf719c1f9e26918f34788005
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734633"
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>ASP.NET Core için yanıt sıkıştırma Ara
 
@@ -44,7 +47,7 @@ Genellikle, yerel olarak sıkıştırılmış herhangi bir yanıt gelen yanıt s
 Bir istemci sıkıştırılmış içerik işlerken istemci yeteneklerini sunucu göndererek bilgilendirmeniz `Accept-Encoding` istek üstbilgisi. Bir sunucu sıkıştırılmış içerik gönderdiğinde, bilgileri içermelidir `Content-Encoding` sıkıştırılmış yanıtı nasıl kodlandığını üzerinde üstbilgi. Ara yazılım tarafından desteklenen içerik kodlama belirlemeleri aşağıdaki tabloda gösterilmiştir.
 
 | `Accept-Encoding` Üstbilgi değerleri | Desteklenen Ara | Açıklama                                                 |
-| :-----------------------------: | :------------------: | ----------------------------------------------------------- |
+| ------------------------------- | :------------------: | ----------------------------------------------------------- |
 | `br`                            | Hayır                   | Brotli sıkıştırılmış veri biçimi                               |
 | `compress`                      | Hayır                   | UNIX "Sıkıştır" veri biçimi                                 |
 | `deflate`                       | Hayır                   | "" zlib"veri biçimi içindeki sıkıştırılmış verileri deflate"     |
@@ -80,21 +83,36 @@ Yanıt sıkıştırma Ara yazılımla özelliklerini keşfedebilirsiniz [örnek 
 
 ## <a name="package"></a>Paket
 
-Ara yazılım projenize eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCore.ResponseCompression` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paketini veya kullanmak [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) paket. Bu özellik veya üstünü ASP.NET Core 1.1 hedef uygulamaları için kullanılabilir.
+::: moniker range="< aspnetcore-2.1"
+
+Ara yazılım projenize eklemek için bir başvuru ekleyin [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paket. Bu özellik veya üstünü ASP.NET Core 1.1 hedef uygulamaları için kullanılabilir.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+Ara yazılım projenize eklemek için bir başvuru ekleyin [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) paketini veya kullanmak [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya sonrası).
+
+::: moniker-end
 
 ## <a name="configuration"></a>Yapılandırma
 
 Aşağıdaki kod, yanıt sıkıştırma ara yazılımı varsayılan MIME türleri için varsayılan gzip sıkıştırması ile etkinleştirmek gösterilmiştir.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+```csharp
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddResponseCompression();
+    }
 
-[!code-csharp[](response-compression/samples/2.x/StartupBasic.cs?name=snippet1&highlight=4,8)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-[!code-csharp[](response-compression/samples/1.x/StartupBasic.cs?name=snippet1&highlight=3,8)]
-
----
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseResponseCompression();
+    }
+}
+```
 
 > [!NOTE]
 > Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlamak için `Accept-Encoding` isteği başlığı ve yanıt üstbilgileri, boyutu ve gövde araştırmak.
@@ -111,29 +129,30 @@ Aşağıdaki kod, yanıt sıkıştırma ara yazılımı varsayılan MIME türler
 
 ### <a name="gzipcompressionprovider"></a>GzipCompressionProvider
 
-Kullanım `GzipCompressionProvider` gzip ile yanıtları sıkıştırma. Hiçbiri belirtilmezse, varsayılan sıkıştırma sağlayıcısı budur. Sıkıştırma düzeyi ile ayarlayabilirsiniz `GzipCompressionProviderOptions`. 
+Kullanım [GzipCompressionProvider](/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovider) gzip ile yanıtları sıkıştırma. Hiçbiri belirtilmezse, varsayılan sıkıştırma sağlayıcısı budur. Sıkıştırma düzeyi ile ayarlayabilirsiniz [GzipCompressionProviderOptions](/dotnet/api/microsoft.aspnetcore.responsecompression.gzipcompressionprovideroptions).
 
-Gzip sıkıştırma sağlayıcısı hızlı sıkıştırma düzeyi varsayılan olarak (`CompressionLevel.Fastest`), hangi değil verebilir en verimli sıkıştırma. En verimli sıkıştırma istenirse, ara yazılım en iyi sıkıştırma için yapılandırabilirsiniz.
+Gzip sıkıştırma sağlayıcısı hızlı sıkıştırma düzeyi varsayılan olarak ([CompressionLevel.Fastest](/dotnet/api/system.io.compression.compressionlevel)), hangi değil verebilir en verimli sıkıştırma. En verimli sıkıştırma istenirse, ara yazılım en iyi sıkıştırma için yapılandırabilirsiniz.
 
-| Sıkıştırma düzeyi                | Açıklama                                                                                                   |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | Sonuçta çıktı en iyi şekilde sıkıştırılmaz olsa bile sıkıştırma mümkün olan en kısa sürede tamamlamanız gerekir. |
-| `CompressionLevel.NoCompression` | Sıkıştırma yok gerçekleştirilmelidir.                                                                           |
-| `CompressionLevel.Optimal`       | Sıkıştırma tamamlamak için daha uzun sürer olsa bile yanıtları en iyi şekilde, sıkıştırılmış.                |
+| Sıkıştırma düzeyi | Açıklama |
+| ----------------- | ----------- |
+| [CompressionLevel.Fastest](/dotnet/api/system.io.compression.compressionlevel) | Sonuçta çıktı en iyi şekilde sıkıştırılmaz olsa bile sıkıştırma mümkün olan en kısa sürede tamamlamanız gerekir. |
+| [CompressionLevel.NoCompression](/dotnet/api/system.io.compression.compressionlevel) | Sıkıştırma yok gerçekleştirilmelidir. |
+| [CompressionLevel.Optimal](/dotnet/api/system.io.compression.compressionlevel) | Sıkıştırma tamamlamak için daha uzun sürer olsa bile yanıtları en iyi şekilde, sıkıştırılmış. |
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=3,8-11)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5,12-15)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,10-13)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,12-15)]
 
 ---
 
 ## <a name="mime-types"></a>MIME türleri
 
 Ara yazılım varsayılan bir sıkıştırma için MIME türlerini belirtir:
+
 * `text/plain`
 * `text/css`
 * `application/javascript`
@@ -147,29 +166,29 @@ MIME türleri yanıt sıkıştırma ara yazılım seçenekleri ile ekleme ya da 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=5)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7-9)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
 
 ---
 
 ### <a name="custom-providers"></a>Özel sağlayıcılar
 
-Özel sıkıştırma uygulamaları ile oluşturabileceğiniz `ICompressionProvider`. `EncodingName` Bu kodlama içeriğini temsil eder `ICompressionProvider` üretir. Ara yazılım, belirtilen liste temel sağlayıcı seçmek için bu bilgileri kullanır. `Accept-Encoding` isteği üstbilgisi.
+Özel sıkıştırma uygulamaları ile oluşturabileceğiniz [ICompressionProvider](/dotnet/api/microsoft.aspnetcore.responsecompression.icompressionprovider). [EncodingName](/dotnet/api/microsoft.aspnetcore.responsecompression.icompressionprovider.encodingname) bu kodlama içeriğini temsil eder `ICompressionProvider` üretir. Ara yazılım, belirtilen liste temel sağlayıcı seçmek için bu bilgileri kullanır. `Accept-Encoding` isteği üstbilgisi.
 
 Örnek uygulaması kullanarak, istemci isteği gönderdikten `Accept-Encoding: mycustomcompression` üstbilgi. Ara yazılım ile yanıt verir ve özel sıkıştırma uygulama kullanır bir `Content-Encoding: mycustomcompression` üstbilgi. İstemci sırayla çalışması özel sıkıştırma uygulaması için özel kodlama sıkıştırmasını kurabilmesi gerekir.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!code-csharp[](response-compression/samples/2.x/Program.cs?name=snippet1&highlight=4)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5,12-15)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5,12-15)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
@@ -185,11 +204,19 @@ Güvenli bağlantı üzerinden sıkıştırılmış yanıtlar ile denetlenebilir
 
 ## <a name="adding-the-vary-header"></a>Ayırmayı üstbilgisi ekleme
 
-Yanıtları sıkıştırma zaman temel `Accept-Encoding` üstbilgisi, büyük olasılıkla, yanıtı birden çok sıkıştırılmış sürümlerini ve sıkıştırılmamış bir vardır. Birden çok sürümü var ve depolanması gereken, istemci ve proxy önbellekleri istemek için `Vary` üstbilgi eklenmiş olup bir `Accept-Encoding` değeri. ASP.NET Core içinde 1.x, ekleme `Vary` üstbilgisi yanıt için el ile gerçekleştirilir. ASP.NET Core içinde 2.x, ara yazılımı ekler `Vary` yanıt otomatik olarak sıkıştırılır zaman üstbilgi.
+::: moniker range=">= aspnetcore-2.0"
 
-**ASP.NET 1.x yalnızca çekirdek**
+Yanıtları sıkıştırma zaman temel `Accept-Encoding` üstbilgisi, büyük olasılıkla, yanıtı birden çok sıkıştırılmış sürümlerini ve sıkıştırılmamış bir vardır. Birden çok sürümü var ve depolanması gereken, istemci ve proxy önbellekleri istemek için `Vary` üstbilgi eklenmiş olup bir `Accept-Encoding` değeri. ASP.NET Core 2.0 veya sonraki sürümlerde, ara yazılımı ekler `Vary` yanıt otomatik olarak sıkıştırılır zaman üstbilgi.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Yanıtları sıkıştırma zaman temel `Accept-Encoding` üstbilgisi, büyük olasılıkla, yanıtı birden çok sıkıştırılmış sürümlerini ve sıkıştırılmamış bir vardır. Birden çok sürümü var ve depolanması gereken, istemci ve proxy önbellekleri istemek için `Vary` üstbilgi eklenmiş olup bir `Accept-Encoding` değeri. ASP.NET Core içinde 1.x, ekleme `Vary` üstbilgisi yanıt için el ile gerçekleştirilir:
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Bir Nginx ters proxy zaman ardında ara yazılım sorunu
 
@@ -204,7 +231,7 @@ Bir etkin IIS dinamik sıkıştırma bir uygulama için devre dışı bırakmak 
 Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/), ayarlama izin `Accept-Encoding` isteği başlığı ve yanıt üstbilgileri, boyutu ve gövde araştırmak. Yanıt sıkıştırma Ara aşağıdaki koşullara uyan yanıtları sıkıştırır:
 
 * `Accept-Encoding` Üstbilgi değeri olan mevcut `gzip`, `*`, veya belirlediğinize göre bir özel sıkıştırma sağlayıcısı eşleşen özel kodlama. Değer olmamalıdır `identity` veya kalite değeri (qvalue, `q`) 0 (sıfır) ayarlama.
-* MIME türü (`Content-Type`) ayarlanmalı ve yapılandırılmış bir MIME türü eşleşmelidir `ResponseCompressionOptions`.
+* MIME türü (`Content-Type`) ayarlanmalı ve yapılandırılmış bir MIME türü eşleşmelidir [ResponseCompressionOptions](/dotnet/api/microsoft.aspnetcore.responsecompression.responsecompressionoptions).
 * İstek içermemelidir `Content-Range` üstbilgi.
 * Güvenli bir protokol (https) yanıt sıkıştırma ara yazılımı seçenekleri yapılandırılmadığı sürece istek güvenli olmayan bir protokol (http) kullanmanız gerekir. *Tehlike Not [yukarıda açıklanan](#compression-with-secure-protocol) güvenli içerik sıkıştırma etkinleştirirken.*
 

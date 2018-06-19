@@ -4,17 +4,18 @@ author: rick-anderson
 description: ASP.NET Core bellekte önbelleğe öğrenin.
 manager: wpickett
 ms.author: riande
-ms.custom: H1Hack27Feb2017
+ms.custom: mvc
 ms.date: 12/14/2016
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 4835e2331afca7a648abac6bc35d255ec6356067
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: eca6610caf4e0a654c9a31f89a42e2ac82e94d23
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734490"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Bellek içi ASP.NET Core, önbelleğe alma
 
@@ -28,7 +29,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https:/
 
 ASP.NET Core birkaç farklı önbellek destekler. En basit önbellek dayanır [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), web sunucusu bellekte bir önbellek temsil eder. Bir sunucu grubunda birden çok sunucu çalışan uygulamaları oturumları bellek içi önbellek kullanırken Yapışkan emin olun. Yapışkan oturumları tüm istemciden gelen sonraki istekleri aynı sunucuya gidin emin olun. Örneğin, Azure Web apps kullanımı [uygulama isteği yönlendirme](https://www.iis.net/learn/extensions/planning-for-arr) tüm istekler aynı sunucuya yönlendirmek için (ARR).
 
-Bir web grubunda olmayan Yapışkan oturumları gerektiren bir [dağıtılmış önbellek](distributed.md) önbellek tutarlılık sorunları önlemek için. Bazı uygulamalar için bir bellek içi önbellek daha yüksek ölçek genişletme dağıtılmış önbellek destekleyebilir. Dağıtılmış önbellek kullanarak bir dış işlem için önbelleği boşaltır. 
+Bir web grubunda olmayan Yapışkan oturumları gerektiren bir [dağıtılmış önbellek](distributed.md) önbellek tutarlılık sorunları önlemek için. Bazı uygulamalar için bir bellek içi önbellek daha yüksek ölçek genişletme dağıtılmış önbellek destekleyebilir. Dağıtılmış önbellek kullanarak bir dış işlem için önbelleği boşaltır.
 
 `IMemoryCache` Sürece, önbelleği önbellek girişlerinin bellek baskısı altında Tahliye [önbelleğe öncelik](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) ayarlanır `CacheItemPriority.NeverRemove`. Ayarlayabileceğiniz `CacheItemPriority` önbellek çıkarır öğeleri bellek baskısı altında önceliğini ayarlamak için.
 
@@ -38,13 +39,29 @@ Bellek içi önbellek herhangi bir nesne depolayabilir; Dağıtılmış önbelle
 
 Bellek içi önbelleğe alma bir *hizmet* , uygulamayı kullanarak başvurulan [bağımlılık ekleme](../../fundamentals/dependency-injection.md). Çağrı `AddMemoryCache` içinde `ConfigureServices`:
 
-[!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=8)] 
+[!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=9)]
 
 İstek `IMemoryCache` oluşturucuda örneği:
 
-[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-999)] 
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor)]
 
-`IMemoryCache` NuGet paketi "Microsoft.Extensions.Caching.Memory" gerektirir.
+::: moniker range="< aspnetcore-2.0"
+
+`IMemoryCache` NuGet paketi gerekir [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/).
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+`IMemoryCache` NuGet paketi gerekir [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), hub içinde olduğu [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.0"
+
+`IMemoryCache` NuGet paketi gerekir [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), hub içinde olduğu [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
+::: moniker-end
 
 Aşağıdaki kod [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) birer önbellekte olup olmadığını denetlemek için. Bir süre önbelleğe değil, yeni bir girdi oluşturulur ve önbellek ile eklenen [ayarlamak](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_).
 
@@ -74,14 +91,14 @@ Aşağıdaki örnek:
 
 - Mutlak sona erme zamanı ayarlar. Bu giriş önbelleğe alınacak en fazla süreyi ve öğe kayan zaman aşımı sürekli olarak yenilendiğinde çok eski hale gelmesini engeller.
 - Kayan süre sonu zamanı ayarlar. Bu önbelleğe alınan öğe erişim istekleri kayan sona erme saati sıfırlanır.
-- Önbellek önceliği ayarlar `CacheItemPriority.NeverRemove`. 
+- Önbellek önceliği ayarlar `CacheItemPriority.NeverRemove`.
 - Ayarlar bir [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) , çağrılır giriş önbellekten çıkarılmasına sonra. Öğeyi önbellekten kaldırır kodundan farklı bir iş parçacığı üzerinde geri arama çalıştırın.
 
-[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-20)]
+[!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
 ## <a name="cache-dependencies"></a>Önbellek bağımlılıkları
 
-Aşağıdaki örnek, bağımlı giriş süresi dolarsa önbellek girişinin süresi dolacak şekilde gösterilmiştir. A `CancellationChangeToken` önbelleğe alınmış öğesine eklenir. Zaman `Cancel` üzerinde adlı `CancellationTokenSource`, her iki önbellek girişlerinin çıkarılacak. 
+Aşağıdaki örnek, bağımlı giriş süresi dolarsa önbellek girişinin süresi dolacak şekilde gösterilmiştir. A `CancellationChangeToken` önbelleğe alınmış öğesine eklenir. Zaman `Cancel` üzerinde adlı `CancellationTokenSource`, her iki önbellek girişlerinin çıkarılacak.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 
@@ -91,7 +108,7 @@ Kullanarak bir `CancellationTokenSource` grup olarak çıkarılacak birden fazla
 
 - Bir önbellek öğesi yeniden doldurmak için bir geri çağırma kullanırken:
 
-  - Geri çağırma tamamlanmadığından kurmadı birden çok istek önbelleğe alınan anahtar değeri boş bulabilirsiniz. 
+  - Geri çağırma tamamlanmadığından kurmadı birden çok istek önbelleğe alınan anahtar değeri boş bulabilirsiniz.
   - Bu, önbelleğe alınan öğe yeniden birkaç iş parçacığı neden olabilir.
 
 - Başka bir oluşturmak için bir önbellek girişi kullanıldığında, alt üst girişin sona erme belirteçleri ve zaman tabanlı sona erme ayarları kopyalar. Alt tarafından el ile temizleme süresi dolmuş ya da üst girişinin güncelleştirme değil.

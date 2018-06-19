@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896276"
 ---
 <a name="how-do-i-create-my-own-bug-work-item"></a>[Nasıl stop yaparım] Kendi hata iş öğesi oluşturulsun mu?
 ====================

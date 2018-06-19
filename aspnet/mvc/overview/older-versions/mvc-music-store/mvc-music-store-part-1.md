@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868977"
 ---
 <a name="part-1-overview-and-file-new-project"></a>1. Kısım: Genel bakış ve Yeni Proje -> Dosya
 ====================

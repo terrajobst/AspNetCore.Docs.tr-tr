@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890365"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild proje dosyalarından Windows PowerShell betikleri çalıştırma
 ====================

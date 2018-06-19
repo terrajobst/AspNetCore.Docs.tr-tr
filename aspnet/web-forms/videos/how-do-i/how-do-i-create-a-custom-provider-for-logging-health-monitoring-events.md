@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
-title: "[Nasıl stop yaparım] Olayları izleme günlüğü sistem durumu için özel bir sağlayıcı oluşturma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Olayları izleme günlüğü sistem durumu için özel bir sağlayıcı oluşturma | Microsoft Docs'
 author: rick-anderson
-description: "Chris Pels sistem durumu izleme olayları bir metin tabanlı günlük dosyasına kaydeder sistem izleme ASP.NET sistem durumu için özel bir sağlayıcı oluşturulacağını gösterir. Le..."
+description: Chris Pels sistem durumu izleme olayları bir metin tabanlı günlük dosyasına kaydeder sistem izleme ASP.NET sistem durumu için özel bir sağlayıcı oluşturulacağını gösterir. Le...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571797"
 ---
 <a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Nasıl stop yaparım] Olayları izleme günlüğü sistem durumu için özel bir sağlayıcı oluşturma
 ====================

@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734542"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te zaman uyumsuz yöntemler kullanma
 ====================
@@ -43,7 +44,7 @@ Web sunucusunda .NET Framework ASP.NET isteklere hizmet vermek için kullanılan
 
 ## <a name="processing-asynchronous-requests"></a>Zaman uyumsuz istek işleme
 
-Çok sayıda eş zamanlı istekleri başlatma görür veya (burada eşzamanlılık aniden artırır) bursty yük sahip web uygulamalarında, bu web hizmeti çağrıları zaman uyumsuz hale uygulamanızın yanıtlama artacaktır. Zaman uyumsuz bir istek aynı zaman uyumlu bir isteği işlemek için gereken süre. Örneğin, bir istek bir web hizmeti, çağrı yaparsa tamamlamak, isteği alır iki saniye eşzamanlı veya zaman uyumsuz olarak gerçekleştirilen olup olmadığını iki saniye gerektirir. Ancak, bir zaman uyumsuz çağrı sırasında ilk istek tamamlanması için beklerken diğer isteklere yanıt iş parçacığı engellenmez. Bu nedenle, uzun süre çalışan işlemleri çağırma çok sayıda eş zamanlı istekleri olduğunda zaman uyumsuz istekleri isteği sıraya alma ve iş parçacığı havuzu büyümesini engellemek.
+Çok sayıda eş zamanlı istekleri başlatma görür veya (burada eşzamanlılık aniden artırır) bursty yük sahip bir web uygulamasında zaman uyumsuz web hizmeti çağrıları yapma uygulama yanıt hızını artırır. Zaman uyumsuz bir istek aynı zaman uyumlu bir isteği işlemek için gereken süre. İstek bir web hizmeti, çağrı yaparsa tamamlamak iki saniye isteği alır eşzamanlı veya zaman uyumsuz olarak gerçekleştirilen olup olmadığını iki saniye gerektirir. Ancak bir zaman uyumsuz çağrı sırasında ilk istek tamamlanması için beklerken diğer isteklere yanıt iş parçacığı engellenen değil. Bu nedenle, uzun süre çalışan işlemleri çağırma çok sayıda eş zamanlı istekleri olduğunda zaman uyumsuz istekleri isteği sıraya alma ve iş parçacığı havuzu büyümesini engellemek.
 
 ## <a id="ChoosingSyncVasync"></a>  Zaman uyumlu veya zaman uyumsuz eylem yöntemleri seçme
 
@@ -61,7 +62,7 @@ Genel olarak, aşağıdaki koşullar için zaman uyumlu yöntemleri kullanın:
 - , Ağ sınırını veya g/O-bağlı CPU bağımlı yerine işlemleridir.
 - Paralellik kod kolaylık daha önemlidir.
 - Uzun süre çalışan isteği iptal kullanıcıların olanak sağlayan bir mekanizma sağlamak istediğinizde.
-- Ne zaman iş parçacığı çıkış geçiş avantajı, içerik anahtarı maliyetini ağırlık verir. Zaman uyumlu yöntemi ASP.NET isteği iş parçacığı üzerinde hiçbir iş yaparken bekliyorsa genel olarak, bir yöntem zaman uyumsuz yapmanız. Arama zaman uyumsuz hale getirerek ASP.NET isteği iş parçacığı için web hizmeti isteği tamamlamak beklerken hiçbir çalışarak durdu değil.
+- Ne zaman iş parçacığı geçiş avantajı içerik anahtarının maliyetinden ağır. Zaman uyumlu yöntemi ASP.NET isteği iş parçacığı üzerinde hiçbir iş yaparken bekliyorsa genel olarak, bir yöntem zaman uyumsuz yapmanız. Arama zaman uyumsuz hale getirerek ASP.NET isteği iş parçacığı için web hizmeti isteği tamamlamak beklerken hiçbir çalışarak durdu değil.
 - Sınama engelleme işlemleri site performans bir performans sorunu olduğunu ve IIS daha fazla isteği bu engelleme çağrıları için zaman uyumsuz yöntemleri kullanarak hizmet gösterir.
 
   İndirilebilir örnekteki zaman uyumsuz eylem yöntemlerinin etkili bir şekilde nasıl kullanılacağını gösterir. Sağlanan örnek, .NET 4.5 kullanarak ASP.NET MVC 4'te zaman uyumsuz programlama basit Tanıtımı sağlamak için tasarlanmıştır. Örnek ASP.NET MVC içinde zaman uyumsuz programlama için bir başvuru mimarisi olması amaçlanmamıştır. Örnek program çağrıları [ASP.NET Web API](../../../web-api/index.md) daha sırayla çağıran yöntemleri [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) uzun süre çalışan web hizmeti çağrıları benzetimini yapmak için. Üretim uygulamaların çoğu zaman uyumsuz eylem yöntemleri kullanarak bu tür belirgin avantajları göstermez.   
