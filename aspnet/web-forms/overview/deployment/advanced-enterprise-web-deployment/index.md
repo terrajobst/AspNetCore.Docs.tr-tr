@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: "ASP.NET 4 - kurumsal dağıtım serisi 4 konuları Gelişmiş | Microsoft Docs"
+title: ASP.NET 4 - kurumsal dağıtım serisi 4 konuları Gelişmiş | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide gerekli veya çok sayıda kurumsal dağıtım senaryoları arzu çeşitli görevleri gerçekleştirmek nasıl yapacağınızı gösterir."
+description: Bu öğreticide gerekli veya çok sayıda kurumsal dağıtım senaryoları arzu çeşitli görevleri gerçekleştirmek nasıl yapacağınızı gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568851"
 ---
 <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a><span data-ttu-id="e24c0-103">ASP.NET 4 - kurumsal dağıtım serisi 4 Gelişmiş konular</span><span class="sxs-lookup"><span data-stu-id="e24c0-103">ASP.NET 4 - Enterprise Deployment Series 4 Advanced Topics</span></span>
 ====================

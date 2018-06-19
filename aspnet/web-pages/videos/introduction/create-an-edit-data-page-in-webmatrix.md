@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-an-edit-data-page-in-webmatrix
-title: "Bir düzen veri sayfası Webmatrix'te oluşturma | Microsoft Docs"
+title: Bir düzen veri sayfası Webmatrix'te oluşturma | Microsoft Docs
 author: rick-anderson
-description: "Bölüm 7 nasıl veritabanınızı düzenlemek ve otomatik olarak güncelleştirilen değişiklikleri görmek için bir sayfasında bulunabilir göstermek için bu oluşturur."
+description: Bölüm 7 nasıl veritabanınızı düzenlemek ve otomatik olarak güncelleştirilen değişiklikleri görmek için bir sayfasında bulunabilir göstermek için bu oluşturur.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573234"
 ---
 <a name="create-an-edit-data-page-in-webmatrix"></a><span data-ttu-id="c6f13-103">Webmatrix'te bir düzen veri sayfası oluşturma</span><span class="sxs-lookup"><span data-stu-id="c6f13-103">Create an Edit Data Page in WebMatrix</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890677"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a><span data-ttu-id="71cbf-104">Bir kullanıcı hesabı birçok (C# ' dan) seçmek için bir arabirim oluşturma</span><span class="sxs-lookup"><span data-stu-id="71cbf-104">Building an Interface to Select One User Account from Many (C#)</span></span>
 ====================

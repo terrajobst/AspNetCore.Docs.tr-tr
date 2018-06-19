@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
-title: "[Nasıl stop yaparım] Bir ASP.NET sayfasının önbelleğe alma dayalı özel bilgilerine bağlı denetimi | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir ASP.NET sayfasının önbelleğe alma dayalı özel bilgilerine bağlı denetimi | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma ölçütlerini denetleme gösterir. Bir örnek sayfa oluşturulur ve ardından Hayır..."
+description: Bu video Chris Pels özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma ölçütlerini denetleme gösterir. Bir örnek sayfa oluşturulur ve ardından Hayır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572745"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a><span data-ttu-id="16eec-104">[Nasıl stop yaparım] Bir ASP.NET sayfasının önbelleğe alma özel bilgilere dayalı denetimi</span><span class="sxs-lookup"><span data-stu-id="16eec-104">[How Do I:] Control the Caching of an ASP.NET Page Based Upon Custom Information</span></span>
 ====================

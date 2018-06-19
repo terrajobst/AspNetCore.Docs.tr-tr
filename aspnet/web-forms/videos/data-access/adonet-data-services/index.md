@@ -2,7 +2,7 @@
 uid: web-forms/videos/data-access/adonet-data-services/index
 title: ADO.NET Data Services | Microsoft Docs
 author: rick-anderson
-description: "Bu videolar nasıl basit bir ASP.NET uygulaması için yazılmış bir veri kümesini kullanarak veri erişim katmanı oluşturulacağını gösterir."
+description: Bu videolar nasıl basit bir ASP.NET uygulaması için yazılmış bir veri kümesini kullanarak veri erişim katmanı oluşturulacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571836"
 ---
 <a name="adonet-data-services"></a><span data-ttu-id="fbb54-103">ADO.NET Veri Hizmetleri</span><span class="sxs-lookup"><span data-stu-id="fbb54-103">ADO.NET Data Services</span></span>
 ====================

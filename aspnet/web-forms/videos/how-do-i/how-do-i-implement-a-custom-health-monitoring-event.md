@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
-title: "[Nasıl stop yaparım] Bir özel durum olayı izleme uygulamak | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir özel durum olayı izleme uygulamak | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels bir özel durum olayları ASP.NET izleme standart bir sistem durumu genişleten olay izleme oluşturmak nasıl yapacağınızı gösterir. Özel pro..."
+description: Bu video Chris Pels bir özel durum olayları ASP.NET izleme standart bir sistem durumu genişleten olay izleme oluşturmak nasıl yapacağınızı gösterir. Özel pro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571794"
 ---
 <a name="how-do-i-implement-a-custom-health-monitoring-event"></a><span data-ttu-id="2e997-104">[Nasıl stop yaparım] Bir özel durum olayı izleme uygulama</span><span class="sxs-lookup"><span data-stu-id="2e997-104">[How Do I:] Implement a Custom Health Monitoring Event</span></span>
 ====================

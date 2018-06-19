@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153579"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a><span data-ttu-id="db659-103">ASP.NET Core anahtar depolama biçimi</span><span class="sxs-lookup"><span data-stu-id="db659-103">Key storage format in ASP.NET Core</span></span>
 

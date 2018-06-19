@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26566445"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a><span data-ttu-id="6ffb2-104">Laboratuvar durum: Visual Studio 2013 Web Araçları</span><span class="sxs-lookup"><span data-stu-id="6ffb2-104">Hands On Lab: Visual Studio 2013 Web Tools</span></span>
 ====================
@@ -302,7 +303,7 @@ ms.lasthandoff: 04/10/2018
     <span data-ttu-id="6ffb2-291">![Soru düzenleme](visual-studio-2013-web-tools/_static/image28.png "soru düzenleme")</span><span class="sxs-lookup"><span data-stu-id="6ffb2-291">![Editing the question](visual-studio-2013-web-tools/_static/image28.png "Editing the question")</span></span>
 
     <span data-ttu-id="6ffb2-292">*Soru düzenleme*</span><span class="sxs-lookup"><span data-stu-id="6ffb2-292">*Editing the question*</span></span>
-3. <span data-ttu-id="6ffb2-293">Bir imleç görüntülenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="6ffb2-293">A cursor should appear.</span></span> <span data-ttu-id="6ffb2-294">Özgün metinle *daha uzun bir soru yazdığınızda, nasıl göründüğünü?*ve tuşuna basarak **ESC** Tasarım modundan çıkmak için.</span><span class="sxs-lookup"><span data-stu-id="6ffb2-294">Replace the original text with *What does it look like when I write a longer question?*, and then press **ESC** to exit Design Mode.</span></span>
+3. <span data-ttu-id="6ffb2-293">Bir imleç görüntülenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="6ffb2-293">A cursor should appear.</span></span> <span data-ttu-id="6ffb2-294">Özgün metinle *daha uzun bir soru yazdığınızda, nasıl göründüğünü?* ve tuşuna basarak **ESC** Tasarım modundan çıkmak için.</span><span class="sxs-lookup"><span data-stu-id="6ffb2-294">Replace the original text with *What does it look like when I write a longer question?*, and then press **ESC** to exit Design Mode.</span></span>
 
     <span data-ttu-id="6ffb2-295">![Düzenlenen soru](visual-studio-2013-web-tools/_static/image29.png "düzenlenebilir soru")</span><span class="sxs-lookup"><span data-stu-id="6ffb2-295">![Question edited](visual-studio-2013-web-tools/_static/image29.png "Question edited")</span></span>
 

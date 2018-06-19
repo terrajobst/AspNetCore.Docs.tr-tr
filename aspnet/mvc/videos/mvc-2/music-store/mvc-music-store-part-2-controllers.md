@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871070"
 ---
 <a name="mvc-music-store-part-2-controllers"></a><span data-ttu-id="2584e-103">MVC müzik deposu bölüm 2: denetleyicileri</span><span class="sxs-lookup"><span data-stu-id="2584e-103">MVC Music Store Part 2: Controllers</span></span>
 ====================

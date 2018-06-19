@@ -1,8 +1,8 @@
 ---
 uid: web-forms/index
-title: "ASP.NET Web formları | Microsoft Docs"
+title: ASP.NET Web formları | Microsoft Docs
 author: rick-anderson
-description: "Visual Web Developer Express indir ve hızlı bir şekilde anlaşılması kolay denetimlerinde üzerinde ASP.NET Web Forms görsel bir tasarım kullanarak uygulamaları environ web oluşturmayı öğrenin..."
+description: Visual Web Developer Express indir ve hızlı bir şekilde anlaşılması kolay denetimlerinde üzerinde ASP.NET Web Forms görsel bir tasarım kullanarak uygulamaları environ web oluşturmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567228"
 ---
 <a name="aspnet-web-forms"></a><span data-ttu-id="12367-103">ASP.NET Web Forms</span><span class="sxs-lookup"><span data-stu-id="12367-103">ASP.NET Web Forms</span></span>
 ====================

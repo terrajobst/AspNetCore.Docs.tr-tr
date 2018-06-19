@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/persistent-connection-authorization
-title: "Kimlik doğrulama ve yetkilendirme için SignalR kalıcı bağlantılar (SignalR 1.x) | Microsoft Docs"
+title: Kimlik doğrulama ve yetkilendirme için SignalR kalıcı bağlantılar (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Bu konu, kalıcı bir bağlantı üzerindeki yetkilendirmeyi açıklar. Bir SignalR uygulamasına güvenlik tümleştirme hakkında genel bilgi için..."
+description: Bu konu, kalıcı bir bağlantı üzerindeki yetkilendirmeyi açıklar. Bir SignalR uygulamasına güvenlik tümleştirme hakkında genel bilgi için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/21/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036108"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections-signalr-1x"></a><span data-ttu-id="a8aaf-104">Kimlik doğrulama ve yetkilendirme için SignalR kalıcı bağlantılar (SignalR 1.x)</span><span class="sxs-lookup"><span data-stu-id="a8aaf-104">Authentication and Authorization for SignalR Persistent Connections (SignalR 1.x)</span></span>
 ====================

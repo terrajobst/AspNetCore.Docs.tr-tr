@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876169"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a><span data-ttu-id="0bad7-103">İyimser eşzamanlılık SqlDataSource (C#) ile uygulama</span><span class="sxs-lookup"><span data-stu-id="0bad7-103">Implementing Optimistic Concurrency with the SqlDataSource (C#)</span></span>
 ====================

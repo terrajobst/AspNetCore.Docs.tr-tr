@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153647"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a><span data-ttu-id="6df2e-103">Veri - 10 7 ASP.NET Core MVC EF çekirdek - güncelleştirme ile ilgili</span><span class="sxs-lookup"><span data-stu-id="6df2e-103">ASP.NET Core MVC with EF Core - Update Related Data - 7 of 10</span></span>
 

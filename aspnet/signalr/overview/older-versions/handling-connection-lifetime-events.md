@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/handling-connection-lifetime-events
-title: "Anlama ve SignalR bağlantısı ömrü olayları işleme 1.x | Microsoft Docs"
+title: Anlama ve SignalR bağlantısı ömrü olayları işleme 1.x | Microsoft Docs
 author: pfletcher
-description: "Bu makalede, hub API'si tarafından kullanıma sunulan olayları kullanmayı açıklar."
+description: Bu makalede, hub API'si tarafından kullanıma sunulan olayları kullanmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036732"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a><span data-ttu-id="c242b-103">Anlama ve SignalR bağlantısı ömrü olayları işleme 1.x</span><span class="sxs-lookup"><span data-stu-id="c242b-103">Understanding and Handling Connection Lifetime Events in SignalR 1.x</span></span>
 ====================

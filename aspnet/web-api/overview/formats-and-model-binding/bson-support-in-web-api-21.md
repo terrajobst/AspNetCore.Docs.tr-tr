@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
-title: "ASP.NET Web API 2.1 BSON desteği | Microsoft Docs"
+title: ASP.NET Web API 2.1 BSON desteği | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984589"
 ---
 <a name="bson-support-in-aspnet-web-api-21"></a><span data-ttu-id="f3bd7-102">ASP.NET Web API 2.1 BSON desteği</span><span class="sxs-lookup"><span data-stu-id="f3bd7-102">BSON Support in ASP.NET Web API 2.1</span></span>
 ====================

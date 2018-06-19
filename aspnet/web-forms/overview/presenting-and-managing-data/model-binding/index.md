@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/index
-title: "Model bağlama ve Visual Studio 2013'te Web Forms | Microsoft Docs"
+title: Model bağlama ve Visual Studio 2013'te Web Forms | Microsoft Docs
 author: rick-anderson
-description: "Model bağlama ve Web Forms kullanarak verilerle çalışmak nasıl."
+description: Model bağlama ve Web Forms kullanarak verilerle çalışmak nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570237"
 ---
 <a name="model-binding-and-web-forms-in-visual-studio-2013"></a><span data-ttu-id="bdc29-103">Model bağlama ve Visual Studio 2013'te Web formları</span><span class="sxs-lookup"><span data-stu-id="bdc29-103">Model Binding and Web Forms in Visual Studio 2013</span></span>
 ====================

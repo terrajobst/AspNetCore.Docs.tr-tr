@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870550"
 ---
 <a name="part-3-creating-an-admin-controller"></a><span data-ttu-id="cc2e7-102">3. Kısım: bir yönetim denetleyicisi oluşturma</span><span class="sxs-lookup"><span data-stu-id="cc2e7-102">Part 3: Creating an Admin Controller</span></span>
 ====================

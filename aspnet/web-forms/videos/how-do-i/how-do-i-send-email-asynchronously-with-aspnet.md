@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-email-asynchronously-with-aspnet
-title: "[Nasıl stop yaparım] ASP.NET ile zaman uyumsuz olarak e-posta gönderme | Microsoft Docs"
+title: '[Nasıl stop yaparım] ASP.NET ile zaman uyumsuz olarak e-posta gönderme | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda, Chris Pels System.Net.Mail sınıflarının ASP.NET bir zaman uyumsuz e-posta iletisi göndermek için nasıl kullanılacağını gösterir. İlk olarak, bir web si yapılandırmak bkz...."
+description: Bu videoda, Chris Pels System.Net.Mail sınıflarının ASP.NET bir zaman uyumsuz e-posta iletisi göndermek için nasıl kullanılacağını gösterir. İlk olarak, bir web si yapılandırmak bkz....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572067"
 ---
 <a name="how-do-i-send-email-asynchronously-with-aspnet"></a><span data-ttu-id="3f0fa-104">[Nasıl stop yaparım] ASP.NET ile zaman uyumsuz olarak e-posta Gönder</span><span class="sxs-lookup"><span data-stu-id="3f0fa-104">[How Do I:] Send Email Asynchronously with ASP.NET</span></span>
 ====================

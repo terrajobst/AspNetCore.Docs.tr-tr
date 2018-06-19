@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/index
-title: "ASP.NET MVC 3 (VB.NET) ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET MVC 3 (VB.NET) ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Microsoft Visual Web Developer 2010 VB.NET kullanarak Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temel bilgileri."
+description: Microsoft Visual Web Developer 2010 VB.NET kullanarak Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temel bilgileri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564792"
 ---
 <a name="getting-started-with-aspnet-mvc-3-vbnet"></a><span data-ttu-id="806be-103">ASP.NET MVC 3 (VB.NET) ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="806be-103">Getting Started with ASP.NET MVC 3 (VB.NET)</span></span>
 ====================

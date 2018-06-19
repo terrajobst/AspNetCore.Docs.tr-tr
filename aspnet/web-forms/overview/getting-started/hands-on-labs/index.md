@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/index
-title: "Visual Studio 2012 uygulamalı Laboratuarları | Microsoft Docs"
+title: Visual Studio 2012 uygulamalı Laboratuarları | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Forms üzerinde bu ellerini Labs ile geliştirmeyi öğrenin"
+description: ASP.NET Web Forms üzerinde bu ellerini Labs ile geliştirmeyi öğrenin
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569271"
 ---
 <a name="visual-studio-2012-hands-on-labs"></a><span data-ttu-id="d7ba4-103">Visual Studio 2012 uygulamalı Laboratuarları</span><span class="sxs-lookup"><span data-stu-id="d7ba4-103">Visual Studio 2012 Hands On Labs</span></span>
 ====================

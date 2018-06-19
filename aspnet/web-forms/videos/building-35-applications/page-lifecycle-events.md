@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/page-lifecycle-events
-title: "Sayfa yaşam döngüsü olayları | Microsoft Docs"
+title: Sayfa yaşam döngüsü olayları | Microsoft Docs
 author: JoeStagner
-description: "ASP.NET, bir çok zengin olay mekanizmasına kancaları ile tüm önemli kronolojik örnekleri ASP.NET sayfası yaşam döngüsü sağlar. Bu video enum..."
+description: ASP.NET, bir çok zengin olay mekanizmasına kancaları ile tüm önemli kronolojik örnekleri ASP.NET sayfası yaşam döngüsü sağlar. Bu video enum...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570786"
 ---
 <a name="page-lifecycle-events"></a><span data-ttu-id="b83fa-104">Sayfa yaşam döngüsü olayları</span><span class="sxs-lookup"><span data-stu-id="b83fa-104">Page Lifecycle Events</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874856"
 ---
 <a name="part-3-views-and-viewmodels"></a><span data-ttu-id="d0e7a-104">3. Kısım: Görünümleri ve ViewModels</span><span class="sxs-lookup"><span data-stu-id="d0e7a-104">Part 3: Views and ViewModels</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
-title: "[Nasıl stop yaparım] Uygulama bir HTTP kullanarak olayları işler? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Uygulama bir HTTP kullanarak olayları işler? | Microsoft Docs'
 author: rick-anderson
-description: "Bir sayfa isteği işleme sırasında uygulama olaylarını işleyen bir HTTP oluşturmayı öğrenin. Örnek modül bilgileri günlüğe yazacak..."
+description: Bir sayfa isteği işleme sırasında uygulama olaylarını işleyen bir HTTP oluşturmayı öğrenin. Örnek modül bilgileri günlüğe yazacak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572160"
 ---
 <a name="how-do-i-handle-application-events-using-an-httpmodule"></a><span data-ttu-id="0f441-105">[Nasıl stop yaparım] Uygulama bir HTTP kullanarak olayları işler?</span><span class="sxs-lookup"><span data-stu-id="0f441-105">[How Do I:] Handle Application Events using an HttpModule?</span></span>
 ====================

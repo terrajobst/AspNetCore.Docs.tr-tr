@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/index
-title: "Düzenleme, ekleme ve verileri silme | Microsoft Docs"
+title: Düzenleme, ekleme ve verileri silme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticileri ObjectDataSource Denetimi yöntemlerini BLL yöntemleri için eşleme ve GridView, DetailsView ve FormView co nasıl yapılandırılacağı gördüğünüz..."
+description: Bu öğreticileri ObjectDataSource Denetimi yöntemlerini BLL yöntemleri için eşleme ve GridView, DetailsView ve FormView co nasıl yapılandırılacağı gördüğünüz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568449"
 ---
 <a name="editing-inserting-and-deleting-data"></a><span data-ttu-id="f22bb-103">Düzenleme, ekleme ve verileri silme</span><span class="sxs-lookup"><span data-stu-id="f22bb-103">Editing, Inserting, and Deleting Data</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
-title: "[Nasıl stop yaparım] Çok dilli bir Site ile yerelleştirme oluşturulsun mu? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Çok dilli bir Site ile yerelleştirme oluşturulsun mu? | Microsoft Docs'
 author: microsoft
-description: "Kültür farkında olduğundan ve yerel ayarlara özgü web içeriği ile ek kod oluşturmayı öğrenin. Sayfa düzeyi ve uygulama düzeyi oluşturmak için kaynak düzenleyicisini kullanın..."
+description: Kültür farkında olduğundan ve yerel ayarlara özgü web içeriği ile ek kod oluşturmayı öğrenin. Sayfa düzeyi ve uygulama düzeyi oluşturmak için kaynak düzenleyicisini kullanın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571839"
 ---
 <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a><span data-ttu-id="d4f5f-105">[Nasıl stop yaparım] Çok dilli bir Site ile yerelleştirme oluşturulsun mu?</span><span class="sxs-lookup"><span data-stu-id="d4f5f-105">[How Do I:] Create a Multi-Lingual Site with Localization?</span></span>
 ====================

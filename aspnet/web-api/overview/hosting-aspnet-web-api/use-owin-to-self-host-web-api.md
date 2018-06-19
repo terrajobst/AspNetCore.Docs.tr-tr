@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: "ASP.NET Web API 2 Self barındırmak için OWIN kullanın | Microsoft Docs"
+title: ASP.NET Web API 2 Self barındırmak için OWIN kullanın | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide, ASP.NET Web API Web API çerçevesi Self barındırmak için OWIN kullanarak bir konsol uygulamasında barındırmak gösterilmiştir. .NET (OWIN) d için Web arabirimi Aç..."
+description: Bu öğreticide, ASP.NET Web API Web API çerçevesi Self barındırmak için OWIN kullanarak bir konsol uygulamasında barındırmak gösterilmiştir. .NET (OWIN) d için Web arabirimi Aç...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566397"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a><span data-ttu-id="d1df0-104">ASP.NET Web API 2 Self barındırmak için OWIN kullanın</span><span class="sxs-lookup"><span data-stu-id="d1df0-104">Use OWIN to Self-Host ASP.NET Web API 2</span></span>
 ====================

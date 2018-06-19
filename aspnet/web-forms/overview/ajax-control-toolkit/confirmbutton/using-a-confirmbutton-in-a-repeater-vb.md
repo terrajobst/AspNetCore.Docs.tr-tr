@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869458"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a><span data-ttu-id="219e4-104">Yineleyici (VB) içinde bir ConfirmButton kullanma</span><span class="sxs-lookup"><span data-stu-id="219e4-104">Using a ConfirmButton In a Repeater (VB)</span></span>
 ====================

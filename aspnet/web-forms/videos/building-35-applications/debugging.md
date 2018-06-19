@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/debugging
-title: "Hata ayıklama | Microsoft Docs"
+title: Hata ayıklama | Microsoft Docs
 author: JoeStagner
-description: "Açıklama: Visual Web Developer yeni başlayanlar ve aynı şekilde uzman geliştirici için zengin bir hata ayıklama deneyimini sunar. Bu videoda Joe VW turu..."
+description: 'Açıklama: Visual Web Developer yeni başlayanlar ve aynı şekilde uzman geliştirici için zengin bir hata ayıklama deneyimini sunar. Bu videoda Joe VW turu...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572751"
 ---
 <a name="debugging"></a><span data-ttu-id="ad1bd-104">Hata Ayıklama</span><span class="sxs-lookup"><span data-stu-id="ad1bd-104">Debugging</span></span>
 ====================

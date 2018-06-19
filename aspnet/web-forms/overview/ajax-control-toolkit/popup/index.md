@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/index
-title: "Açılan | Microsoft Docs"
+title: Açılan | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici Popup denetimi herhangi bir denetimi etkinleştirildiğinde popup görüntülemek için nasıl kullanılacağını gösterir."
+description: Bu öğretici Popup denetimi herhangi bir denetimi etkinleştirildiğinde popup görüntülemek için nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567480"
 ---
 <a name="popup"></a><span data-ttu-id="d7bce-103">Açılan Pencere</span><span class="sxs-lookup"><span data-stu-id="d7bce-103">Popup</span></span>
 ====================

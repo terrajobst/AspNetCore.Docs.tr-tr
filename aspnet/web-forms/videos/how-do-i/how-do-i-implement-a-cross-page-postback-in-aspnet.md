@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
-title: "[Nasıl stop yaparım] Çapraz sayfa geri gönderimin ASP.NET uygulama | Microsoft Docs"
+title: '[Nasıl stop yaparım] Çapraz sayfa geri gönderimin ASP.NET uygulama | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET, burada bir denetimi kaynak sayfasına bir geri gönderme farklı bir hedef için olayını arası sayfa geri gönderimin oluşturulacağını gösterir..."
+description: Bu video Chris Pels ASP.NET, burada bir denetimi kaynak sayfasına bir geri gönderme farklı bir hedef için olayını arası sayfa geri gönderimin oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572199"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a><span data-ttu-id="e3650-103">[Nasıl stop yaparım] Çapraz sayfa geri gönderimin ASP.NET uygulama</span><span class="sxs-lookup"><span data-stu-id="e3650-103">[How Do I:] Implement a Cross Page PostBack in ASP.NET</span></span>
 ====================

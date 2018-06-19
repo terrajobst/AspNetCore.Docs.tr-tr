@@ -8,7 +8,7 @@ manager: wpickett
 ms.date: 06/25/2013
 ms.topic: article
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/20/2018
+ms.locfileid: "27980169"
 ---
 <a name="aspnet-and-visual-studio-2013"></a><span data-ttu-id="d3770-103">ASP.NET ve Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="d3770-103">ASP.NET and Visual Studio 2013</span></span>
 ====================

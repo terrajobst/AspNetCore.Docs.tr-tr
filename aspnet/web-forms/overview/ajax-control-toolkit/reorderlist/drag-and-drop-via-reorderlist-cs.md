@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873462"
 ---
 <a name="drag-and-drop-via-reorderlist-c"></a><span data-ttu-id="1f711-104">Sürükle ve bırak aracılığıyla ReorderList (C#)</span><span class="sxs-lookup"><span data-stu-id="1f711-104">Drag and Drop via ReorderList (C#)</span></span>
 ====================

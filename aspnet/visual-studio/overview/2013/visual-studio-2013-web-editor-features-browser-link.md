@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-editor-features-browser-link
-title: "Visual Studio 2013 Web Düzenleyicisi özellikleri - tarayıcı bağlantısı | Microsoft Docs"
+title: Visual Studio 2013 Web Düzenleyicisi özellikleri - tarayıcı bağlantısı | Microsoft Docs
 author: shanselman
-description: "Tarayıcı bağlantısı Visual Studio ve birden çok bağlı tarayıcılar arasında iki yönlü iletişim sağlayan Visual Studio 2013'te Scott Hanselman gösteren..."
+description: Tarayıcı bağlantısı Visual Studio ve birden çok bağlı tarayıcılar arasında iki yönlü iletişim sağlayan Visual Studio 2013'te Scott Hanselman gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 45bf07c6-145f-435e-a703-3233e710d528
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-browser-link
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566274"
 ---
 <a name="visual-studio-2013-web-editor-features---browser-link"></a><span data-ttu-id="d84c9-103">Visual Studio 2013 Web Düzenleyicisi özellikleri - tarayıcı bağlantısı</span><span class="sxs-lookup"><span data-stu-id="d84c9-103">Visual Studio 2013 Web Editor Features - Browser Link</span></span>
 ====================

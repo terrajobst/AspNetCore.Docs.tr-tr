@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870823"
 ---
 <a name="disabling-actions-during-animation-c"></a><span data-ttu-id="83821-104">Animasyon sırasında (C#) eylemleri devre dışı bırakma</span><span class="sxs-lookup"><span data-stu-id="83821-104">Disabling Actions during Animation (C#)</span></span>
 ====================

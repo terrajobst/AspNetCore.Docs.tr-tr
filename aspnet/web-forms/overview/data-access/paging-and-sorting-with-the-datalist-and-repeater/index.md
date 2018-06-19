@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/index
-title: "Disk belleği ve DataList ve yineleyici sıralama | Microsoft Docs"
+title: Disk belleği ve DataList ve yineleyici sıralama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler disk belleği ve sıralama için çok esnek bir kullanıcı Arabirimi oluşturmak için DataList veya yineleyici denetlemek için sayfalama desteği ekleme gösterir."
+description: Bu öğreticiler disk belleği ve sıralama için çok esnek bir kullanıcı Arabirimi oluşturmak için DataList veya yineleyici denetlemek için sayfalama desteği ekleme gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568632"
 ---
 <a name="paging-and-sorting-with-the-datalist-and-repeater"></a><span data-ttu-id="91e26-103">Disk belleği ve DataList ve yineleyici sıralama</span><span class="sxs-lookup"><span data-stu-id="91e26-103">Paging and Sorting with the DataList and Repeater</span></span>
 ====================

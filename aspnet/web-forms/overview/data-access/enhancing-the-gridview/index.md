@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/index
-title: "GridView geliştirme | Microsoft Docs"
+title: GridView geliştirme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler tek bir satır seçmek için sezgisel bir yol sağlamak üzere bir GridView denetimi radyo düğmelerini bir sütun ekleme gösterir."
+description: Bu öğreticiler tek bir satır seçmek için sezgisel bir yol sağlamak üzere bir GridView denetimi radyo düğmelerini bir sütun ekleme gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568530"
 ---
 <a name="enhancing-the-gridview"></a><span data-ttu-id="6d9dd-103">GridView geliştirme</span><span class="sxs-lookup"><span data-stu-id="6d9dd-103">Enhancing the GridView</span></span>
 ====================

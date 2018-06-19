@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: "[Nasıl stop yaparım]  İzleme, bir ASP.NET Web sitesi uygulansın mı? | Microsoft Docs"
+title: '[Nasıl stop yaparım]  İzleme, bir ASP.NET Web sitesi uygulansın mı? | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels izlemek ve performansını ölçmek için ve hataları tanılamak için bir ASP.NET web sitesini izleme uygulamak nasıl yapacağınızı gösterir. Değerlendirdiğiniz bilgi edinin..."
+description: Bu videoda Chris Pels izlemek ve performansını ölçmek için ve hataları tanılamak için bir ASP.NET web sitesini izleme uygulamak nasıl yapacağınızı gösterir. Değerlendirdiğiniz bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572274"
 ---
 <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a><span data-ttu-id="2a8b1-105">[Nasıl stop yaparım]  İzleme, bir ASP.NET Web sitesi uygulansın mı?</span><span class="sxs-lookup"><span data-stu-id="2a8b1-105">[How Do I:]  Implement Tracing in an ASP.NET Web Site?</span></span>
 ====================

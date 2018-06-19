@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871382"
 ---
 <a name="using-auto-postback-with-cascadingdropdown-vb"></a><span data-ttu-id="2baba-103">Otomatik geri gönderme CascadingDropDown (VB) ile kullanma</span><span class="sxs-lookup"><span data-stu-id="2baba-103">Using Auto-Postback with CascadingDropDown (VB)</span></span>
 ====================

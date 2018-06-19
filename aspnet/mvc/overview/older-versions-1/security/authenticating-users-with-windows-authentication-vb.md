@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869003"
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a><span data-ttu-id="d647d-104">Kullanıcıların Windows kimlik doğrulaması (VB) ile kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="d647d-104">Authenticating Users with Windows Authentication (VB)</span></span>
 ====================

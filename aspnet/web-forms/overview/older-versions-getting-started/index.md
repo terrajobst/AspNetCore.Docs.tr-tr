@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/index
-title: "Eski sürümleri - Web Forms Başlarken | Microsoft Docs"
+title: Eski sürümleri - Web Forms Başlarken | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Forms 4 ve önceki sürümlerde belgeleri."
+description: ASP.NET Web Forms 4 ve önceki sürümlerde belgeleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569721"
 ---
 <a name="older-versions---web-forms-getting-started"></a><span data-ttu-id="241ce-103">Eski sürümleri - Web formlarını kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="241ce-103">Older Versions - Web Forms Getting Started</span></span>
 ====================

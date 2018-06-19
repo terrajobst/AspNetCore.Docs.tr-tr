@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: "ASP.NET 4 - SQL Server Visual Studio kullanarak Compact ile Web dağıtımı | Microsoft Docs"
+title: ASP.NET 4 - SQL Server Visual Studio kullanarak Compact ile Web dağıtımı | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici seri SQL Server Compact kullanılabilir internet üzerinden kullanan bir üçüncü taraf h dağıtarak bir ASP.NET web uygulaması yapılacağını gösterir..."
+description: Bu öğretici seri SQL Server Compact kullanılabilir internet üzerinden kullanan bir üçüncü taraf h dağıtarak bir ASP.NET web uygulaması yapılacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569736"
 ---
 <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a><span data-ttu-id="ea49a-103">ASP.NET 4 - SQL Server Visual Studio kullanarak Compact ile Web dağıtımı</span><span class="sxs-lookup"><span data-stu-id="ea49a-103">ASP.NET 4 - Web Deployment with SQL Server Compact using Visual Studio</span></span>
 ====================

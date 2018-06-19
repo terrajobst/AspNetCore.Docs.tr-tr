@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/side-by-side-with-10
-title: ".NET Framework 1.0 ve 1.1 ASP.NET yan yana yürütme | Microsoft Docs"
+title: .NET Framework 1.0 ve 1.1 ASP.NET yan yana yürütme | Microsoft Docs
 author: rick-anderson
-description: "Bu teknik ya da çerçeve sürümünde çalıştırmak bir ASP.NET Web uygulamasına izin vererek, makinenizde .NET 1.0 ve .NET 1.1 yüklemeyi açıklar..."
+description: Bu teknik ya da çerçeve sürümünde çalıştırmak bir ASP.NET Web uygulamasına izin vererek, makinenizde .NET 1.0 ve .NET 1.1 yüklemeyi açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573360"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a><span data-ttu-id="15433-103">.NET Framework 1.0 ve 1.1 ASP.NET yan yana yürütme</span><span class="sxs-lookup"><span data-stu-id="15433-103">ASP.NET Side-by-Side Execution of .NET Framework 1.0 and 1.1</span></span>
 ====================

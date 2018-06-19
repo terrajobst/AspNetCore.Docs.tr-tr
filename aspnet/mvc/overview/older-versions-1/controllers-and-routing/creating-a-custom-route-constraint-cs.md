@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874349"
 ---
 <a name="creating-a-custom-route-constraint-c"></a><span data-ttu-id="28a1c-104">Özel rota kısıtlaması (C#) oluşturma</span><span class="sxs-lookup"><span data-stu-id="28a1c-104">Creating a Custom Route Constraint (C#)</span></span>
 ====================

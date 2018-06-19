@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/index
-title: "Web sayfaları sürümler | Microsoft Docs"
+title: Web sayfaları sürümler | Microsoft Docs
 author: rick-anderson
-description: "Her ASP.NET Web sayfaları sürümde yenilikler."
+description: Her ASP.NET Web sayfaları sürümde yenilikler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572877"
 ---
 <a name="web-pages-releases"></a><span data-ttu-id="1efa5-103">Web sayfaları sürümleri</span><span class="sxs-lookup"><span data-stu-id="1efa5-103">Web Pages Releases</span></span>
 ====================

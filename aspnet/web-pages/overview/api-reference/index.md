@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/api-reference/index
-title: "API Başvurusu | Microsoft Docs"
+title: API Başvurusu | Microsoft Docs
 author: rick-anderson
-description: "API başvuru belgeleri için ASP.NET Web sayfaları."
+description: API başvuru belgeleri için ASP.NET Web sayfaları.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572865"
 ---
 <a name="api-reference"></a><span data-ttu-id="cc21c-103">API Başvurusu</span><span class="sxs-lookup"><span data-stu-id="cc21c-103">API Reference</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
 title: LINQ videolar VB ekibinden | Microsoft Docs
 author: rick-anderson
-description: "Bir saat ve Visual Basic 9.0 Visual Studio 2008'de bulunan yeni LINQ dil özelliklerini odaklanan içerik yarısı üzerinden bu videolar sağlar."
+description: Bir saat ve Visual Basic 9.0 Visual Studio 2008'de bulunan yeni LINQ dil özelliklerini odaklanan içerik yarısı üzerinden bu videolar sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572082"
 ---
 <a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="9e488-103">VB ekibinden LINQ videolar</span><span class="sxs-lookup"><span data-stu-id="9e488-103">LINQ Videos from the VB Team</span></span>
 ====================

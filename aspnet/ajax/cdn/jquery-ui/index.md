@@ -2,13 +2,13 @@
 uid: ajax/cdn/jquery-ui/index
 title: jQuery UI | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2014
 ms.topic: article
 ms.assetid: bd72bb7e-bdcb-490b-8bc1-9b669329632b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-ui
 msc.type: folder
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563061"
 ---
 <a name="jquery-ui"></a><span data-ttu-id="3f633-102">jQuery UI</span><span class="sxs-lookup"><span data-stu-id="3f633-102">jQuery UI</span></span>
 ====================

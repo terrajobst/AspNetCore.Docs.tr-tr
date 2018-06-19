@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/change-the-visual-style-of-a-web-page
-title: "Bir Web sayfasının görsel stilini değiştirin | Microsoft Docs"
+title: Bir Web sayfasının görsel stilini değiştirin | Microsoft Docs
 author: rick-anderson
-description: "Bölüm 3 sayfanızı gününüz olabilmeniz CSS ve stil sayfaları ile başlamanızı sağlar."
+description: Bölüm 3 sayfanızı gününüz olabilmeniz CSS ve stil sayfaları ile başlamanızı sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573300"
 ---
 <a name="change-the-visual-style-of-a-web-page"></a><span data-ttu-id="26b6b-103">Bir Web sayfasının görsel stilini değiştirin</span><span class="sxs-lookup"><span data-stu-id="26b6b-103">Change the Visual Style of a Web Page</span></span>
 ====================

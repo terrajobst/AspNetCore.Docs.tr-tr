@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
-title: "Web API 2.2 kullanma kapsama OData v4 içinde | Microsoft Docs"
+title: Web API 2.2 kullanma kapsama OData v4 içinde | Microsoft Docs
 author: rick-anderson
-description: "Bir varlık kümesi içinde kapsüllenmiş, geleneksel olarak, bir varlığın yalnızca erişilebilir. Ancak OData v4 Singleton ve Con olmak üzere iki ek seçenekler sağlar..."
+description: Bir varlık kümesi içinde kapsüllenmiş, geleneksel olarak, bir varlığın yalnızca erişilebilir. Ancak OData v4 Singleton ve Con olmak üzere iki ek seçenekler sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566706"
 ---
 <a name="containment-in-odata-v4-using-web-api-22"></a><span data-ttu-id="f931e-104">OData v4 içinde kapsama Web API 2.2 kullanma</span><span class="sxs-lookup"><span data-stu-id="f931e-104">Containment in OData v4 Using Web API 2.2</span></span>
 ====================

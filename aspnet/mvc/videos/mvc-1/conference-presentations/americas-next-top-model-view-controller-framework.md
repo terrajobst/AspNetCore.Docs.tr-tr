@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
-title: "Amerika'nın sonraki üst Model Görünümü denetleyicisi Framework | Microsoft Docs"
+title: Amerika'nın sonraki üst Model Görünümü denetleyicisi Framework | Microsoft Docs
 author: Haacked
-description: "Bazı ASP.NET MVC anahtar özelliklerini vurgular basit bir uygulama oluşturmak bkz. Ayrıca, bazı kullanarak üretkenliği artırma öğrenin..."
+description: Bazı ASP.NET MVC anahtar özelliklerini vurgular basit bir uygulama oluşturmak bkz. Ayrıca, bazı kullanarak üretkenliği artırma öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565338"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a><span data-ttu-id="42c9a-104">Amerika'nın sonraki üst Model Görünümü denetleyicisi Framework</span><span class="sxs-lookup"><span data-stu-id="42c9a-104">America's Next Top Model View Controller Framework</span></span>
 ====================

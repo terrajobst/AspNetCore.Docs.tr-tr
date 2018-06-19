@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/index
 title: Entity Framework 6 ile Web API 2 kullanma | Microsoft Docs
 author: rick-anderson
-description: "Entity Framework veritabanı kalıcılığını kullanan bir Web API uygulaması oluşturma"
+description: Entity Framework veritabanı kalıcılığını kullanan bir Web API uygulaması oluşturma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566301"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a><span data-ttu-id="b1ee0-103">Entity Framework 6 ile Web API 2 kullanma</span><span class="sxs-lookup"><span data-stu-id="b1ee0-103">Using Web API 2 with Entity Framework 6</span></span>
 ====================

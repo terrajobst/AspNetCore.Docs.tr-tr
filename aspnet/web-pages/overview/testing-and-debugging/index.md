@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/index
-title: "Test ve hata ayıklama | Microsoft Docs"
+title: Test ve hata ayıklama | Microsoft Docs
 author: rick-anderson
-description: "Test ve ASP.NET Web sayfaları uygulamalarında hata ayıklamasını nasıl."
+description: Test ve ASP.NET Web sayfaları uygulamalarında hata ayıklamasını nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573162"
 ---
 <a name="testing-and-debugging"></a><span data-ttu-id="aeb03-103">Test ve hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="aeb03-103">Testing and Debugging</span></span>
 ====================

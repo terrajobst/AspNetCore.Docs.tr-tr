@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879627"
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a><span data-ttu-id="eb03d-104">Sayfa düzenleri görünümü ana sayfalar (VB) ile oluşturma</span><span class="sxs-lookup"><span data-stu-id="eb03d-104">Creating Page Layouts with View Master Pages (VB)</span></span>
 ====================

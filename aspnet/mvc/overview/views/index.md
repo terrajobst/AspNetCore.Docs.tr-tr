@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/views/index
-title: "ASP.NET MVC UI, düzenleri ve Temalar | Microsoft Docs"
+title: ASP.NET MVC UI, düzenleri ve Temalar | Microsoft Docs
 author: rick-anderson
-description: "Razor sözdizimi ve nasıl bilgileri görüntülemek için görünümler (MVC V) kullanın."
+description: Razor sözdizimi ve nasıl bilgileri görüntülemek için görünümler (MVC V) kullanın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565290"
 ---
 <a name="aspnet-mvc-ui-layouts-and-themes"></a><span data-ttu-id="6c690-103">ASP.NET MVC UI, düzenleri ve Temalar</span><span class="sxs-lookup"><span data-stu-id="6c690-103">ASP.NET MVC UI, Layouts, and Themes</span></span>
 ====================

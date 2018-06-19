@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/index
-title: "ASP.NET 4 - kurumsal dağıtım serisi 2 sunucuları yapılandırma | Microsoft Docs"
+title: ASP.NET 4 - kurumsal dağıtım serisi 2 sunucuları yapılandırma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici sunucu ortamları desteği tek tıklamayla veya otomatik, Web dağıtımı ve çeşitli farklı scen içine yayımlama için ayarlamak üzere nasıl yapacağınızı gösterir..."
+description: Bu öğretici sunucu ortamları desteği tek tıklamayla veya otomatik, Web dağıtımı ve çeşitli farklı scen içine yayımlama için ayarlamak üzere nasıl yapacağınızı gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568875"
 ---
 <a name="aspnet-4---enterprise-deployment-series-2-configuring-servers"></a><span data-ttu-id="d4d68-103">ASP.NET 4 - kurumsal dağıtım serisi 2 sunucuları yapılandırma</span><span class="sxs-lookup"><span data-stu-id="d4d68-103">ASP.NET 4 - Enterprise Deployment Series 2 Configuring Servers</span></span>
 ====================

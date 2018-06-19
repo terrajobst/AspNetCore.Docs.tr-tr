@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886335"
 ---
 <a name="your-first-scaffold-and-what-is-dynamic-data"></a><span data-ttu-id="1b975-104">İlk İskele ve dinamik veri nedir?</span><span class="sxs-lookup"><span data-stu-id="1b975-104">Your First Scaffold and What is Dynamic Data?</span></span>
 ====================

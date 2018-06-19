@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control
-title: "[Nasıl stop yaparım] Bir özel Web sunucusu denetimi için bilgilerinin sürdürülmesi için denetim durumunu | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir özel Web sunucusu denetimi için bilgilerinin sürdürülmesi için denetim durumunu | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda, bir özel web sunucusu denetimi ViewState bağımsız olan denetim durumunda ilgili bilgileri depolamak nasıl Chris Pels gösterecek..."
+description: Bu videoda, bir özel web sunucusu denetimi ViewState bağımsız olan denetim durumunda ilgili bilgileri depolamak nasıl Chris Pels gösterecek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572172"
 ---
 <a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a><span data-ttu-id="faace-103">[Nasıl stop yaparım] Bir özel Web sunucusu denetimi için bilgilerinin sürdürülmesi için kullanım denetim durumu</span><span class="sxs-lookup"><span data-stu-id="faace-103">[How Do I:] Use Control State to Persist Information for a Custom Web Server Control</span></span>
 ====================

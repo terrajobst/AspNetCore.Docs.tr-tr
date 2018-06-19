@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870589"
 ---
 <a name="databinding-the-slider-control-c"></a><span data-ttu-id="7e57d-104">Veri bağlama kaydırıcı denetimi (C#)</span><span class="sxs-lookup"><span data-stu-id="7e57d-104">Databinding the Slider Control (C#)</span></span>
 ====================

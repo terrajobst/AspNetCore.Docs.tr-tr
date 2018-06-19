@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890440"
 ---
 <a name="adding-content-to-source-control"></a><span data-ttu-id="bad01-104">İçerik kaynak denetimine ekleme</span><span class="sxs-lookup"><span data-stu-id="bad01-104">Adding Content to Source Control</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/index
-title: "ASP.NET Web Forms ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET Web Forms ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Bilgi hakkında ASP.NET Web Forms ASP.NET Web Forms, bilinen sürükle ve bırak, olay denetimli modeli kullanarak derleme dinamik Web siteleri olanak tanır. Tasarım yüzeyi ile hund..."
+description: Bilgi hakkında ASP.NET Web Forms ASP.NET Web Forms, bilinen sürükle ve bırak, olay denetimli modeli kullanarak derleme dinamik Web siteleri olanak tanır. Tasarım yüzeyi ile hund...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569277"
 ---
 <a name="getting-started-with-aspnet-web-forms"></a><span data-ttu-id="9bafd-104">ASP.NET Web Forms ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="9bafd-104">Getting Started with ASP.NET Web Forms</span></span>
 ====================

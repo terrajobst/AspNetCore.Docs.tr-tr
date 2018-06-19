@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/using-a-catpcha-to-prevent-automated-programs-bots-from-using-your-aspnet-web-site
-title: "Bot, ASP.NET Web Razor kullanmasını önlemek için bir güvenlik kodu kullanarak) Site | Microsoft Docs"
+title: Bot, ASP.NET Web Razor kullanmasını önlemek için bir güvenlik kodu kullanarak) Site | Microsoft Docs
 author: microsoft
-description: "Bu makalede bir ASP.NET Web Pages'da (Razor) görevler önleyecek otomatik programları (aracılarını) ReCaptcha (bir güvenlik önlemi) kullanımı açıklanmaktadır biz..."
+description: Bu makalede bir ASP.NET Web Pages'da (Razor) görevler önleyecek otomatik programları (aracılarını) ReCaptcha (bir güvenlik önlemi) kullanımı açıklanmaktadır biz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573282"
 ---
 <a name="using-a-captcha-to-prevent-bots-from-using-your-aspnet-web-razor-site"></a><span data-ttu-id="73ee0-103">Site bot, ASP.NET Web Razor kullanmasını önlemek için bir güvenlik kodu kullanarak)</span><span class="sxs-lookup"><span data-stu-id="73ee0-103">Using a CAPTCHA to Prevent Bots from Using Your ASP.NET Web Razor) Site</span></span>
 ====================

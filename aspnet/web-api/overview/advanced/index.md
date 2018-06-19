@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/index
-title: "ASP.NET Web API konuları Gelişmiş | Microsoft Docs"
+title: ASP.NET Web API konuları Gelişmiş | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web API geliştirme konuları daha gelişmiş, sonra temel bilgileri öğrendiniz."
+description: ASP.NET Web API geliştirme konuları daha gelişmiş, sonra temel bilgileri öğrendiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566331"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a><span data-ttu-id="053d9-103">ASP.NET Web API konuları Gelişmiş</span><span class="sxs-lookup"><span data-stu-id="053d9-103">Advanced Topics for ASP.NET Web API</span></span>
 ====================

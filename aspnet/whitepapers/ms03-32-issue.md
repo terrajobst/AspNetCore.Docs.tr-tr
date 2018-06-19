@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898219"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a><span data-ttu-id="96e80-103">IE güvenlik güncelleştirmesi uygulandıktan sonra 'Sunucu uygulaması kullanılamıyor' hata düzeltme</span><span class="sxs-lookup"><span data-stu-id="96e80-103">Fix for 'Server Application Unavailable' Error after Applying Security Update for IE</span></span>
 ====================

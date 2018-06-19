@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306838"
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a><span data-ttu-id="43521-103">ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler</span><span class="sxs-lookup"><span data-stu-id="43521-103">What's New in ASP.NET and Web Development in Visual Studio 2012</span></span>
 ====================

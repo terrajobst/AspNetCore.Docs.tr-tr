@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153757"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a><span data-ttu-id="401ff-103">EF çekirdek - eşzamanlılık - 8, 10 ile ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="401ff-103">ASP.NET Core MVC with EF Core - Concurrency - 8 of 10</span></span>
 

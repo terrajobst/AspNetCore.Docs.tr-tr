@@ -1,20 +1,21 @@
 ---
 uid: webhooks/source
-title: "ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri | Microsoft Docs"
+title: ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri bağlantılar"
+description: ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri bağlantılar
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 91a62bfa-ea3a-41f9-a2e1-e90d2c8fc8ca
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 733a0839c77bcfc96214bdf235ce8fe22ee2d3cf
 ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27709976"
 ---
 # <a name="aspnet-webhooks-source-code-and-nuget-packages"></a><span data-ttu-id="dfe86-103">ASP.NET Web Kancalarını kaynak kodu ve NuGet paketleri</span><span class="sxs-lookup"><span data-stu-id="dfe86-103">ASP.NET WebHooks source code and NuGet packages</span></span>
 

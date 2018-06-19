@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/visual-studio-2010/index
-title: "Genel VS 2010 ipuçları | Microsoft Docs"
+title: Genel VS 2010 ipuçları | Microsoft Docs
 author: rick-anderson
-description: "Visual Studio 2010, ASP.NET ile çalışmak için özellikle dahil olmak üzere özellikleri."
+description: Visual Studio 2010, ASP.NET ile çalışmak için özellikle dahil olmak üzere özellikleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572247"
 ---
 <a name="general-vs-2010-tips"></a><span data-ttu-id="14278-103">Genel VS 2010 ipuçları</span><span class="sxs-lookup"><span data-stu-id="14278-103">General VS 2010 Tips</span></span>
 ====================

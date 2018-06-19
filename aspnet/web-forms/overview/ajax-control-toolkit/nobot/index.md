@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/nobot/index
 title: NoBot | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici aracılarını bir siteye önlemek için otomatik bir yönteminiz sağlar NoBot denetiminin nasıl kullanılacağını gösterir."
+description: Bu öğretici aracılarını bir siteye önlemek için otomatik bir yönteminiz sağlar NoBot denetiminin nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567507"
 ---
 <a name="nobot"></a><span data-ttu-id="f4e20-103">NoBot</span><span class="sxs-lookup"><span data-stu-id="f4e20-103">NoBot</span></span>
 ====================

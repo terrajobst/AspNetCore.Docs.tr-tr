@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741283"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a><span data-ttu-id="4b04d-103">Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile</span><span class="sxs-lookup"><span data-stu-id="4b04d-103">Razor Pages with EF Core in ASP.NET Core - Data Model - 5 of 8</span></span>
 

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/advanced/index
-title: "Gelişmiş konular SignalR | Microsoft Docs"
+title: Gelişmiş konular SignalR | Microsoft Docs
 author: rick-anderson
-description: "SignalR belgeleri - Gelişmiş Konular."
+description: SignalR belgeleri - Gelişmiş Konular.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565371"
 ---
 <a name="signalr-advanced-topics"></a><span data-ttu-id="d9bd8-103">SignalR Gelişmiş konular</span><span class="sxs-lookup"><span data-stu-id="d9bd8-103">SignalR Advanced Topics</span></span>
 ====================

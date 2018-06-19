@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/index
-title: "Web sayfaları videolar giriş | Microsoft Docs"
+title: Web sayfaları videolar giriş | Microsoft Docs
 author: rick-anderson
-description: "Hangi videoları, Web sayfalarını ve Webmatrix'i ilgili temel bilgileri öğrenmek için görüntüleyebilirsiniz."
+description: Hangi videoları, Web sayfalarını ve Webmatrix'i ilgili temel bilgileri öğrenmek için görüntüleyebilirsiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573297"
 ---
 <a name="introduction-to-web-pages-videos"></a><span data-ttu-id="6fe40-103">Web sayfaları videolar giriş</span><span class="sxs-lookup"><span data-stu-id="6fe40-103">Introduction to Web Pages Videos</span></span>
 ====================

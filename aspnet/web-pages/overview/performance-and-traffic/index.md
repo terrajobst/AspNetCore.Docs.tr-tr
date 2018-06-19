@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/index
 title: Performans | Microsoft Docs
 author: rick-anderson
-description: "Önbellek içeriği daha hızlı performans sağlar ve site trafiğini ölçme nasıl."
+description: Önbellek içeriği daha hızlı performans sağlar ve site trafiğini ölçme nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572862"
 ---
 <a name="performance"></a><span data-ttu-id="2124a-103">Performans</span><span class="sxs-lookup"><span data-stu-id="2124a-103">Performance</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876091"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a><span data-ttu-id="b25bd-103">Özel düğmeler DataList ve yineleyici (VB)</span><span class="sxs-lookup"><span data-stu-id="b25bd-103">Custom Buttons in the DataList and Repeater (VB)</span></span>
 ====================

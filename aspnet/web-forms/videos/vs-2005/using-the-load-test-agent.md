@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893283"
 ---
 <a name="using-the-load-test-agent"></a><span data-ttu-id="03df2-104">Yük testi Aracısı'nı kullanma</span><span class="sxs-lookup"><span data-stu-id="03df2-104">Using the Load Test Agent</span></span>
 ====================

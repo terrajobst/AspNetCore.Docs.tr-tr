@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-call-a-simple-web-service-in-aspnet
-title: "[Nasıl stop yaparım] Oluşturma ve ASP.NET basit bir Web hizmeti çağrısı | Microsoft Docs"
+title: '[Nasıl stop yaparım] Oluşturma ve ASP.NET basit bir Web hizmeti çağrısı | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET web hizmeti oluşturmak ve ardından başka bir ASP.NET web sitesinden hizmetini çağırmak nasıl yapacağınızı gösterir. İlk olarak nasıl oluşturulacağını öğrenin..."
+description: Bu video Chris Pels ASP.NET web hizmeti oluşturmak ve ardından başka bir ASP.NET web sitesinden hizmetini çağırmak nasıl yapacağınızı gösterir. İlk olarak nasıl oluşturulacağını öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572244"
 ---
 <a name="how-do-i-create-and-call-a-simple-web-service-in-aspnet"></a><span data-ttu-id="79877-104">[Nasıl stop yaparım] Oluşturma ve ASP.NET basit bir Web hizmeti çağrısı</span><span class="sxs-lookup"><span data-stu-id="79877-104">[How Do I:] Create and Call a Simple Web Service in ASP.NET</span></span>
 ====================

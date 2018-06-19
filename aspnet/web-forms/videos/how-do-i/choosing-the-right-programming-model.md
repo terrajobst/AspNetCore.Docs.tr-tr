@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/choosing-the-right-programming-model
-title: "Programlama modeli sağ seçme | Microsoft Docs"
+title: Programlama modeli sağ seçme | Microsoft Docs
 author: shanselman
-description: "Microsoft'un Scott Hanselman ASP.NET Web Forms, ASP.NET MVC ya da ASP.NET Web sayfaları sizin için uygun olup olmadığına karar için gereken bilgileri sağlar."
+description: Microsoft'un Scott Hanselman ASP.NET Web Forms, ASP.NET MVC ya da ASP.NET Web sayfaları sizin için uygun olup olmadığına karar için gereken bilgileri sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571938"
 ---
 <a name="choosing-the-right-programming-model"></a><span data-ttu-id="c7ed7-103">Programlama modeli sağ seçme</span><span class="sxs-lookup"><span data-stu-id="c7ed7-103">Choosing the Right Programming Model</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/index
-title: "ASP.NET Web API ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET Web API ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Bilgi hakkında ASP.NET Web API ASP.NET Web API istemcileri tarayıcılar dahil olmak üzere, geniş bir yelpazedeki ulaşmak HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir..."
+description: Bilgi hakkında ASP.NET Web API ASP.NET Web API istemcileri tarayıcılar dahil olmak üzere, geniş bir yelpazedeki ulaşmak HTTP hizmetlerini oluşturmayı kolaylaştıran bir çerçevedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566361"
 ---
 <a name="getting-started-with-aspnet-web-api"></a><span data-ttu-id="dabe8-103">ASP.NET Web API ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="dabe8-103">Getting Started with ASP.NET Web API</span></span>
 ====================

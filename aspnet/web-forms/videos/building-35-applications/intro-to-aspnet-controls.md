@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-aspnet-controls
-title: "ASP.NET denetimleri için giriş | Microsoft Docs"
+title: ASP.NET denetimleri için giriş | Microsoft Docs
 author: JoeStagner
-description: "Denetimleri geliştirme güdümlü geliştirme üretkenliğinizi gerçekten artırabilir. Bu görüntü, standart ASP.NET denetimleri için temel bir giriş sağlar."
+description: Denetimleri geliştirme güdümlü geliştirme üretkenliğinizi gerçekten artırabilir. Bu görüntü, standart ASP.NET denetimleri için temel bir giriş sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570594"
 ---
 <a name="intro-to-aspnet-controls"></a><span data-ttu-id="b19d7-104">ASP.NET denetimleri için giriş</span><span class="sxs-lookup"><span data-stu-id="b19d7-104">Intro to ASP.NET Controls</span></span>
 ====================

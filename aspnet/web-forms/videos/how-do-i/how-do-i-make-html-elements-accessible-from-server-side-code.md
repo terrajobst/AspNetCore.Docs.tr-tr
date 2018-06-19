@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
-title: "[Nasıl stop yaparım] Sunucu tarafı kodu HTML öğeleri erişilebilir | Microsoft Docs"
+title: '[Nasıl stop yaparım] Sunucu tarafı kodu HTML öğeleri erişilebilir | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels sayfa processin kullanılabilmesi için standart HTML öğeleri bir .aspx sayfasında sunucu tarafı kodu erişilebilir yapma gösterecektir..."
+description: Bu video Chris Pels sayfa processin kullanılabilmesi için standart HTML öğeleri bir .aspx sayfasında sunucu tarafı kodu erişilebilir yapma gösterecektir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570771"
 ---
 <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a><span data-ttu-id="7bf13-103">[Nasıl stop yaparım] Sunucu tarafı kodu HTML öğeleri erişilebilir</span><span class="sxs-lookup"><span data-stu-id="7bf13-103">[How Do I:] Make HTML elements accessible from server side code</span></span>
 ====================

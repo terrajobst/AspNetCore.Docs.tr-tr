@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/validation
-title: "Doğrulama | Microsoft Docs"
+title: Doğrulama | Microsoft Docs
 author: JoeStagner
-description: "Bu video Joe ASP.NET kullanarak Microsoft Visual Web Developer FormValidation denetimlerinde kullanımı gösterilmektedir."
+description: Bu video Joe ASP.NET kullanarak Microsoft Visual Web Developer FormValidation denetimlerinde kullanımı gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571806"
 ---
 <a name="validation"></a><span data-ttu-id="451b3-103">Doğrulama</span><span class="sxs-lookup"><span data-stu-id="451b3-103">Validation</span></span>
 ====================

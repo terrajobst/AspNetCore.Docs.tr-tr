@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870121"
 ---
 <a name="part-9-registration-and-checkout"></a><span data-ttu-id="90d86-104">9. Kısım: Kayıt ve kullanıma alma</span><span class="sxs-lookup"><span data-stu-id="90d86-104">Part 9: Registration and Checkout</span></span>
 ====================

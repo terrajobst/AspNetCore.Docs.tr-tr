@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872279"
 ---
 <a name="displaying-a-table-of-database-data-vb"></a><span data-ttu-id="80f54-104">Bir tablo veritabanı verilerinin (VB) görüntüleme</span><span class="sxs-lookup"><span data-stu-id="80f54-104">Displaying a Table of Database Data (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889026"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a><span data-ttu-id="aa264-103">Ana/ayrıntı madde işaretli ana kayıtların listesini ayrıntıları DataList (VB) ile kullanma</span><span class="sxs-lookup"><span data-stu-id="aa264-103">Master/Detail Using a Bulleted List of Master Records with a Details DataList (VB)</span></span>
 ====================

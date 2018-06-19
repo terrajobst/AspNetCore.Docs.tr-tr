@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874947"
 ---
 <a name="build-a-model-with-business-rule-validations"></a><span data-ttu-id="2cbd5-103">İş kuralı doğrulamaları ile bir Model oluşturma</span><span class="sxs-lookup"><span data-stu-id="2cbd5-103">Build a Model with Business Rule Validations</span></span>
 ====================

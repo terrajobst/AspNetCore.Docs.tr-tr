@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868821"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a><span data-ttu-id="99ac2-103">Web hizmeti arka uç ile (C#) sayısal yukarı/aşağı denetimi oluşturma</span><span class="sxs-lookup"><span data-stu-id="99ac2-103">Creating a Numeric Up/Down Control with a Web Service Backend (C#)</span></span>
 ====================

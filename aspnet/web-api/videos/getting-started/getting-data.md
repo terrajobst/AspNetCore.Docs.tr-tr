@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/getting-data
-title: "ASP.NET Web API, bölüm 2: Verileri alma | Microsoft Docs"
+title: 'ASP.NET Web API, bölüm 2: Verileri alma | Microsoft Docs'
 author: jongalloway
-description: "Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir."
+description: 'Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567024"
 ---
 <a name="aspnet-web-api-part-2-getting-data"></a><span data-ttu-id="69f32-103">ASP.NET Web API, bölüm 2: Verileri alma</span><span class="sxs-lookup"><span data-stu-id="69f32-103">ASP.NET Web API, Part 2: Getting Data</span></span>
 ====================

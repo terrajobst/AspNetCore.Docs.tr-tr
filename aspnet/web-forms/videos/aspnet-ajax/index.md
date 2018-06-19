@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-ajax/index
 title: ASP.NET AJAX | Microsoft Docs
 author: rick-anderson
-description: "JavaScript Uzman olmadığınız halde hızlı yanıt veren sayfaları oluşturmak için ASP.NET AJAX ile çalışmanın yolları."
+description: JavaScript Uzman olmadığınız halde hızlı yanıt veren sayfaları oluşturmak için ASP.NET AJAX ile çalışmanın yolları.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571056"
 ---
 <a name="aspnet-ajax"></a><span data-ttu-id="20528-103">ASP.NET AJAX'I</span><span class="sxs-lookup"><span data-stu-id="20528-103">ASP.NET AJAX</span></span>
 ====================

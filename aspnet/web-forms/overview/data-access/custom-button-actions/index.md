@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions/index
-title: "Özel düğme eylemleri | Microsoft Docs"
+title: Özel düğme eylemleri | Microsoft Docs
 author: rick-anderson
-description: "Bu kısa öğreticileri kümesi, uygulamanızın gerektirdiği herhangi bir eylem gerçekleştiren GridView veya DetailsView denetimine düğme ekleme gösterilmektedir."
+description: Bu kısa öğreticileri kümesi, uygulamanızın gerektirdiği herhangi bir eylem gerçekleştiren GridView veya DetailsView denetimine düğme ekleme gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568095"
 ---
 <a name="custom-button-actions"></a><span data-ttu-id="96e07-103">Özel düğme eylemleri</span><span class="sxs-lookup"><span data-stu-id="96e07-103">Custom Button Actions</span></span>
 ====================

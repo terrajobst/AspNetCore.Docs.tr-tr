@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
-title: "[Nasıl stop yaparım] Özelliği için farklı veri ListView denetimiyle grupları oluşturmak için kullanın | Microsoft Docs"
+title: '[Nasıl stop yaparım] Özelliği için farklı veri ListView denetimiyle grupları oluşturmak için kullanın | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels ListView denetiminde verileri görüntülerken, öğeleri gruplandırmak nasıl yapacağınızı gösterir. İlk olarak, bkz: ListView etkilenen sistemin tüm denetimini öğesi düzende temelleri..."
+description: 'Bu videoda Chris Pels ListView denetiminde verileri görüntülerken, öğeleri gruplandırmak nasıl yapacağınızı gösterir. İlk olarak, bkz: ListView etkilenen sistemin tüm denetimini öğesi düzende temelleri...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571866"
 ---
 <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a><span data-ttu-id="05e55-104">[Nasıl stop yaparım] Özelliği için farklı veri ListView denetimiyle grupları oluşturmak için kullanın</span><span class="sxs-lookup"><span data-stu-id="05e55-104">[How Do I:] Use the Ability to Create Groups with the ListView Control for Different Data</span></span>
 ====================

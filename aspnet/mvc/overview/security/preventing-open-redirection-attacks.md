@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879679"
 ---
 <a name="preventing-open-redirection-attacks-c"></a><span data-ttu-id="6a8e5-104">Engelleme açık yeniden yönlendirme saldırılarına (C#)</span><span class="sxs-lookup"><span data-stu-id="6a8e5-104">Preventing Open Redirection Attacks (C#)</span></span>
 ====================

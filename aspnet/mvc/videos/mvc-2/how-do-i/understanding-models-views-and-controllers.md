@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870030"
 ---
 <a name="understanding-models-views-and-controllers"></a><span data-ttu-id="bee72-104">Anlama modeller, görünümler ve denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="bee72-104">Understanding Models, Views, and Controllers</span></span>
 ====================

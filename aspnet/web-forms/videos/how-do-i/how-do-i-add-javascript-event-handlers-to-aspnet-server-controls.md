@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-event-handlers-to-aspnet-server-controls
-title: "[Nasıl stop yaparım] ASP.NET sunucu denetimleri için JavaScript olay işleyicileri ekleme | Microsoft Docs"
+title: '[Nasıl stop yaparım] ASP.NET sunucu denetimleri için JavaScript olay işleyicileri ekleme | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels arabirim JavaScript yöntemleri istemci tarafı sağlamak üzere ASP.NET sunucu denetimleri ile nasıl yapacağınızı gösterir işlevselliği sunucu Sözl için..."
+description: Bu videoda Chris Pels arabirim JavaScript yöntemleri istemci tarafı sağlamak üzere ASP.NET sunucu denetimleri ile nasıl yapacağınızı gösterir işlevselliği sunucu Sözl için...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571929"
 ---
 <a name="how-do-i-add-javascript-event-handlers-to-aspnet-server-controls"></a><span data-ttu-id="70ae2-103">[Nasıl stop yaparım] ASP.NET sunucu denetimleri için JavaScript olay işleyicileri ekleme</span><span class="sxs-lookup"><span data-stu-id="70ae2-103">[How Do I:] Add JavaScript Event Handlers to ASP.NET Server Controls</span></span>
 ====================

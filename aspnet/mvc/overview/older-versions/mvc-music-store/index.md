@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/index
-title: "ASP.NET MVC 3 müzik deposu | Microsoft Docs"
+title: ASP.NET MVC 3 müzik deposu | Microsoft Docs
 author: rick-anderson
-description: "MVC müzik deposu uygulaması, çevrimiçi müzik albümlerini sattığı ve kullanıcı oturum açma, site yönetimi uygulayan örnek bir uygulama oluşturmak nasıl bir..."
+description: MVC müzik deposu uygulaması, çevrimiçi müzik albümlerini sattığı ve kullanıcı oturum açma, site yönetimi uygulayan örnek bir uygulama oluşturmak nasıl bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565041"
 ---
 <a name="aspnet-mvc-3-music-store"></a><span data-ttu-id="312b0-103">ASP.NET MVC 3 müzik deposu</span><span class="sxs-lookup"><span data-stu-id="312b0-103">ASP.NET MVC 3 Music Store</span></span>
 ====================

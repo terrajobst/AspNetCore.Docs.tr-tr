@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
-title: "[Nasıl stop yaparım] Bir Web sitesi için kullanıcı seçilebilir temaları oluşturma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir Web sitesi için kullanıcı seçilebilir temaları oluşturma | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels bir web sitesi için birden çok tema oluşturun ve kullanıcının hangi tema siteye uygulanan seçmesine izin vermek nasıl yapacağınızı gösterir. Bkz. nasıl..."
+description: Bu videoda Chris Pels bir web sitesi için birden çok tema oluşturun ve kullanıcının hangi tema siteye uygulanan seçmesine izin vermek nasıl yapacağınızı gösterir. Bkz. nasıl...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571791"
 ---
 <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a><span data-ttu-id="4ac11-104">[Nasıl stop yaparım] Bir Web sitesi için kullanıcı seçilebilir temaları oluşturma</span><span class="sxs-lookup"><span data-stu-id="4ac11-104">[How Do I:] Create User Selectable Themes for a Web Site</span></span>
 ====================

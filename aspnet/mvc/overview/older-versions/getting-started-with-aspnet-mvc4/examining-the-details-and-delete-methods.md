@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868782"
 ---
 <a name="examining-the-details-and-delete-methods"></a><span data-ttu-id="a22aa-104">Silme yöntemleri ve ayrıntıları İnceleme</span><span class="sxs-lookup"><span data-stu-id="a22aa-104">Examining the Details and Delete Methods</span></span>
 ====================

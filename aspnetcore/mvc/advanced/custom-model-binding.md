@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740627"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a><span data-ttu-id="4f6e4-103">ASP.NET Core özel Model bağlamanın</span><span class="sxs-lookup"><span data-stu-id="4f6e4-103">Custom Model Binding in ASP.NET Core</span></span>
 

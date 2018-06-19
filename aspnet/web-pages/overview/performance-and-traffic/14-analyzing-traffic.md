@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: "(Razor) Site ASP.NET Web sayfaları için izleme ziyaretçi bilgileri (Analytics) | Microsoft Docs"
+title: (Razor) Site ASP.NET Web sayfaları için izleme ziyaretçi bilgileri (Analytics) | Microsoft Docs
 author: tfitzmac
-description: "Giderek Web sitenizin kabulünüzü sonra Web sitesi trafiğini analiz etmek isteyebilirsiniz."
+description: Giderek Web sitenizin kabulünüzü sonra Web sitesi trafiğini analiz etmek isteyebilirsiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572934"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="ac00f-103">Ziyaretçi bilgi (Analytics) bir ASP.NET Web sayfaları (Razor) sitesi için izleme</span><span class="sxs-lookup"><span data-stu-id="ac00f-103">Tracking Visitor Information (Analytics) for an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

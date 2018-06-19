@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-dynamic-data/index
 title: ASP.NET dinamik veri | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET dinamik veri biliyorsunuz otomatik olarak veri erişimi gerçekleştirdiği kurulmuş uygulamaları oluşturmak için nasıl kullanılacağını."
+description: ASP.NET dinamik veri biliyorsunuz otomatik olarak veri erişimi gerçekleştirdiği kurulmuş uygulamaları oluşturmak için nasıl kullanılacağını.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571059"
 ---
 <a name="aspnet-dynamic-data"></a><span data-ttu-id="13420-103">ASP.NET dinamik veri</span><span class="sxs-lookup"><span data-stu-id="13420-103">ASP.NET Dynamic Data</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: "[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) verileri eşitlemek | Microsoft Docs"
+title: '[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) verileri eşitlemek | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ikinci listedeki öğeler bir öğenin ilk listede seçilmesi burada doldurur iki DropDownList denetimlerinin nasıl oluşturulduğunu gösterir. Firs..."
+description: Bu video Chris Pels ikinci listedeki öğeler bir öğenin ilk listede seçilmesi burada doldurur iki DropDownList denetimlerinin nasıl oluşturulduğunu gösterir. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572238"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a><span data-ttu-id="c18db-104">[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) veri eşitleme</span><span class="sxs-lookup"><span data-stu-id="c18db-104">[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections</span></span>
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) veri eşitleme
+[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections
 ====================
 <span data-ttu-id="c18db-105">tarafından [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="c18db-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

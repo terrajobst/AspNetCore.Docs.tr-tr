@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869939"
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a><span data-ttu-id="a1720-102">Veritabanını oluşturmak için Code First geçişleri kullanın</span><span class="sxs-lookup"><span data-stu-id="a1720-102">Use Code First Migrations to Seed the Database</span></span>
 ====================

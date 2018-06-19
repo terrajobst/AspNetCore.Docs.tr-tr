@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: "[Nasıl stop yaparım] Ana sayfa ve Site gezintisi? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Ana sayfa ve Site gezintisi? | Microsoft Docs'
 author: microsoft
-description: "Bir web sitesi, ASP.NET 2.0 MasterPages kullanarak tüm sayfaları arasında tutarlı düzen ve tasarım ile oluşturun. Bir web sitesine Gezinti eklemek ne kadar kolay olduğunu görmeye..."
+description: Bir web sitesi, ASP.NET 2.0 MasterPages kullanarak tüm sayfaları arasında tutarlı düzen ve tasarım ile oluşturun. Bir web sitesine Gezinti eklemek ne kadar kolay olduğunu görmeye...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570756"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a><span data-ttu-id="75f15-105">[Nasıl stop yaparım] Ana sayfa ve Site gezintisi?</span><span class="sxs-lookup"><span data-stu-id="75f15-105">[How Do I:] Use Master Pages and Site Navigation?</span></span>
 ====================

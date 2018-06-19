@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/index
-title: "ASP.NET 4 - kurumsal dağıtım giriş | Microsoft Docs"
+title: ASP.NET 4 - kurumsal dağıtım giriş | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler araçları ve web uygulamaları çeşitli Kuruluş senaryolarında dağıtmak için kullanabileceğiniz teknikleri açıklar."
+description: Bu öğreticiler araçları ve web uygulamaları çeşitli Kuruluş senaryolarında dağıtmak için kullanabileceğiniz teknikleri açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568854"
 ---
 <a name="aspnet-4---enterprise-deployment-introduction"></a><span data-ttu-id="54396-103">ASP.NET 4 - kurumsal dağıtım giriş</span><span class="sxs-lookup"><span data-stu-id="54396-103">ASP.NET 4 - Enterprise Deployment Introduction</span></span>
 ====================

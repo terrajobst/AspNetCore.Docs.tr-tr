@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/index
-title: "Web sitesi projeleri Visual Studio 2008 ve daha önceki sürümlerde dağıtma | Microsoft Docs"
+title: Web sitesi projeleri Visual Studio 2008 ve daha önceki sürümlerde dağıtma | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor..."
+description: ASP.NET web uygulamaları genellikle tasarlanmıştır, oluşturulan bir yerel geliştirme ortamında test ve bir üretim ortamında o dağıtılması gerekiyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569529"
 ---
 <a name="deploying-web-site-projects-in-visual-studio-2008-and-earlier"></a><span data-ttu-id="fc916-103">Web sitesi projeleri Visual Studio 2008 ve daha önceki sürümlerde dağıtma</span><span class="sxs-lookup"><span data-stu-id="fc916-103">Deploying Web Site Projects in Visual Studio 2008 and earlier</span></span>
 ====================

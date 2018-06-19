@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/index
-title: "ASP.NET Web sayfaları giriş | Microsoft Docs"
+title: ASP.NET Web sayfaları giriş | Microsoft Docs
 author: rick-anderson
-description: "2 ile tanışın ASP.NET Web sayfaları"
+description: 2 ile tanışın ASP.NET Web sayfaları
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572874"
 ---
 <a name="introducing-aspnet-web-pages"></a><span data-ttu-id="41a36-103">ASP.NET Web sayfalarını tanıtma</span><span class="sxs-lookup"><span data-stu-id="41a36-103">Introducing ASP.NET Web Pages</span></span>
 ====================

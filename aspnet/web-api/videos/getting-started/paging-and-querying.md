@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/paging-and-querying
-title: "ASP.NET Web API, Bölüm 4: Disk belleği ve sorgulama | Microsoft Docs"
+title: 'ASP.NET Web API, Bölüm 4: Disk belleği ve sorgulama | Microsoft Docs'
 author: jongalloway
-description: "Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir."
+description: 'Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567039"
 ---
 <a name="aspnet-web-api-part-4-paging-and-querying"></a><span data-ttu-id="fece6-103">ASP.NET Web API, Bölüm 4: Disk belleği ve sorgulama</span><span class="sxs-lookup"><span data-stu-id="fece6-103">ASP.NET Web API, Part 4: Paging and Querying</span></span>
 ====================

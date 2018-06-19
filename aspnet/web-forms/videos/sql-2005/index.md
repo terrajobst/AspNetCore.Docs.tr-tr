@@ -2,7 +2,7 @@
 uid: web-forms/videos/sql-2005/index
 title: SQL 2005 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET uygulamaları için veritabanı özellikleri eklemek için SQL Server Express ile çalışmaya nasıl."
+description: ASP.NET uygulamaları için veritabanı özellikleri eklemek için SQL Server Express ile çalışmaya nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570981"
 ---
 <a name="sql-2005"></a><span data-ttu-id="4af7a-103">SQL 2005</span><span class="sxs-lookup"><span data-stu-id="4af7a-103">SQL 2005</span></span>
 ====================

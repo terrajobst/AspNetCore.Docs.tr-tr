@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-to-best-learn-aspnet-web-forms
-title: "ASP.NET Web formları en iyi öğrenmek nasıl | Microsoft Docs"
+title: ASP.NET Web formları en iyi öğrenmek nasıl | Microsoft Docs
 author: JoeStagner
-description: "Microsoft'un Joe Stagner ASP.NET Web Forms, web uygulamaları geliştirmek için nasıl kullanılacağını öğrenmek gerekenleri gösterir."
+description: Microsoft'un Joe Stagner ASP.NET Web Forms, web uygulamaları geliştirmek için nasıl kullanılacağını öğrenmek gerekenleri gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/03/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570828"
 ---
 <a name="how-to-best-learn-aspnet-web-forms"></a><span data-ttu-id="4dcf8-103">ASP.NET Web formları en iyi öğrenmek nasıl</span><span class="sxs-lookup"><span data-stu-id="4dcf8-103">How to Best Learn ASP.NET Web Forms</span></span>
 ====================

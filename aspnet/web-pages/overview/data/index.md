@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/index
-title: "Verileri ile çalışma | Microsoft Docs"
+title: Verileri ile çalışma | Microsoft Docs
 author: rick-anderson
-description: "Veritabanları ve Web sayfalarını ve nasıl görüntüleneceğini ve veri güncelleştirme dosyaları ile çalışma konusunda."
+description: Veritabanları ve Web sayfalarını ve nasıl görüntüleneceğini ve veri güncelleştirme dosyaları ile çalışma konusunda.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572868"
 ---
 <a name="working-with-data"></a><span data-ttu-id="2ddd2-103">Verilerle Çalışma</span><span class="sxs-lookup"><span data-stu-id="2ddd2-103">Working with Data</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871417"
 ---
 <a name="executing-several-animations-after-each-other-c"></a><span data-ttu-id="577a2-104">Birkaç animasyon her art arda (C#) yürütme</span><span class="sxs-lookup"><span data-stu-id="577a2-104">Executing Several Animations after Each Other (C#)</span></span>
 ====================

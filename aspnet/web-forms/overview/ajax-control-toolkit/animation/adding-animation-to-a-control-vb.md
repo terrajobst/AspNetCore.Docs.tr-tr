@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870641"
 ---
 <a name="adding-animation-to-a-control-vb"></a><span data-ttu-id="1b37f-104">Denetim (VB) için animasyon ekleme</span><span class="sxs-lookup"><span data-stu-id="1b37f-104">Adding Animation to a Control (VB)</span></span>
 ====================

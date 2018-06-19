@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
 title: ASP.NET Web API'de OData | Microsoft Docs
 author: rick-anderson
-description: "Web API'de OData uç noktaları oluşturma OData, web için veri erişim protokolüdür. Sorgu ve veri kümelerini işlemek için Tekdüzen bir yol sağlar. Web API s..."
+description: Web API'de OData uç noktaları oluşturma OData, web için veri erişim protokolüdür. Sorgu ve veri kümelerini işlemek için Tekdüzen bir yol sağlar. Web API s...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566718"
 ---
 <a name="odata-in-aspnet-web-api"></a><span data-ttu-id="6ff30-106">ASP.NET Web API'de OData</span><span class="sxs-lookup"><span data-stu-id="6ff30-106">OData in ASP.NET Web API</span></span>
 ====================

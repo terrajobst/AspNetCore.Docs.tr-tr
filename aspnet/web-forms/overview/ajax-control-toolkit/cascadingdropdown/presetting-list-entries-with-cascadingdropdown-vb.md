@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869900"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-vb"></a><span data-ttu-id="44338-103">Liste girişlerini CascadingDropDown (VB) ile önceden belirleme</span><span class="sxs-lookup"><span data-stu-id="44338-103">Presetting List Entries with CascadingDropDown (VB)</span></span>
 ====================

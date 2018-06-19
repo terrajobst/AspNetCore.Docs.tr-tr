@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867505"
 ---
 <a name="creating-a-custom-route-constraint-vb"></a><span data-ttu-id="b293c-104">Özel rota kısıtlaması (VB) oluşturma</span><span class="sxs-lookup"><span data-stu-id="b293c-104">Creating a Custom Route Constraint (VB)</span></span>
 ====================

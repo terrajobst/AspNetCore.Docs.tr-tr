@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868405"
 ---
 <a name="using-hovermenu-with-a-repeater-control-vb"></a><span data-ttu-id="779a5-103">Yineleyici denetimi (VB) ile HoverMenu kullanma</span><span class="sxs-lookup"><span data-stu-id="779a5-103">Using HoverMenu with a Repeater Control (VB)</span></span>
 ====================

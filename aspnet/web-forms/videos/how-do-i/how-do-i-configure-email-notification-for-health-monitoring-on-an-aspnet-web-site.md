@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
-title: "[Nasıl stop yaparım] Bir ASP.NET Web sitesinde sistem durumu izleme için e-posta bildirimi yapılandırma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir ASP.NET Web sitesinde sistem durumu izleme için e-posta bildirimi yapılandırma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels, bir ASP.NET web sitesini izleme sistem durumu için e-posta bildirimi yapılandırma gösterilmektedir. İlk olarak, e gönderme yapılandırmak bkz...."
+description: Bu video Chris Pels, bir ASP.NET web sitesini izleme sistem durumu için e-posta bildirimi yapılandırma gösterilmektedir. İlk olarak, e gönderme yapılandırmak bkz....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570834"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a><span data-ttu-id="1b260-104">[Nasıl stop yaparım] Bir ASP.NET Web sitesinde izleme sistem durumu için e-posta bildirimini yapılandırın</span><span class="sxs-lookup"><span data-stu-id="1b260-104">[How Do I:] Configure Email Notification for Health Monitoring on an ASP.NET Web Site</span></span>
 ====================

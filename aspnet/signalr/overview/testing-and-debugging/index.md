@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/testing-and-debugging/index
-title: "Test ve hata ayıklama SignalR | Microsoft Docs"
+title: Test ve hata ayıklama SignalR | Microsoft Docs
 author: rick-anderson
-description: "Test ve hata ayıklama SignalR uygulamalarını nasıl."
+description: Test ve hata ayıklama SignalR uygulamalarını nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565965"
 ---
 <a name="signalr-testing-and-debugging"></a><span data-ttu-id="01bb1-103">SignalR test ve hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="01bb1-103">SignalR Testing and Debugging</span></span>
 ====================

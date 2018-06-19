@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868886"
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a><span data-ttu-id="10ddf-104">TextBoxWatermark ile doğrulama denetimleri (C#) kullanma</span><span class="sxs-lookup"><span data-stu-id="10ddf-104">Using TextBoxWatermark With Validation Controls (C#)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/index
 title: Videolar | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572301"
 ---
 <a name="videos"></a><span data-ttu-id="4f986-102">Videolar</span><span class="sxs-lookup"><span data-stu-id="4f986-102">Videos</span></span>
 ====================

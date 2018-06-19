@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/index
-title: "Eski sürümleri - MVC 1 ve 2 | Microsoft Docs"
+title: Eski sürümleri - MVC 1 ve 2 | Microsoft Docs
 author: rick-anderson
-description: "Program MVC 1 ve 2 öğrenme için kaynaklar."
+description: Program MVC 1 ve 2 öğrenme için kaynaklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564333"
 ---
 <a name="older-versions---mvc-1-and-2"></a><span data-ttu-id="47dde-103">Eski sürümleri - MVC 1 ve 2</span><span class="sxs-lookup"><span data-stu-id="47dde-103">Older Versions - MVC 1 and 2</span></span>
 ====================

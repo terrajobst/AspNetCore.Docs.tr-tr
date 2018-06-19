@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: "[Nasıl stop yaparım] Depolamak ve istemci tarafı bilgileri işlemek için gizli bir alan kullanma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Depolamak ve istemci tarafı bilgileri işlemek için gizli bir alan kullanma | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels bir yaklaşım basit durum yönetimi için bir ASP.NET sayfası ve istemci tarafı iletişim için gizli bir alan kullanmak nasıl yapacağınızı gösterir..."
+description: Bu videoda Chris Pels bir yaklaşım basit durum yönetimi için bir ASP.NET sayfası ve istemci tarafı iletişim için gizli bir alan kullanmak nasıl yapacağınızı gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571830"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a><span data-ttu-id="88538-103">[Nasıl stop yaparım] Gizli bir alan depolamak ve istemci tarafı bilgilerini yönetmek için kullanın</span><span class="sxs-lookup"><span data-stu-id="88538-103">[How Do I:] Use a Hidden Field to Store and Manipulate Client-Side Information</span></span>
 ====================

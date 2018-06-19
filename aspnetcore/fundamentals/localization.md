@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094606"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a><span data-ttu-id="9c6bb-103">Genelleştirme ve yerelleştirme ASP.NET Core içinde</span><span class="sxs-lookup"><span data-stu-id="9c6bb-103">Globalization and localization in ASP.NET Core</span></span>
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/index
-title: "Eski sürümleri - güvenlik | Microsoft Docs"
+title: Eski sürümleri - güvenlik | Microsoft Docs
 author: rick-anderson
-description: "Güvenlik, kimlik doğrulama ve yetkilendirme konular ASP.NET 4 ve önceki Web Forms uygulamaları için."
+description: Güvenlik, kimlik doğrulama ve yetkilendirme konular ASP.NET 4 ve önceki Web Forms uygulamaları için.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570027"
 ---
 <a name="older-versions---security"></a><span data-ttu-id="5349d-103">Eski sürümleri - güvenlik</span><span class="sxs-lookup"><span data-stu-id="5349d-103">Older Versions - Security</span></span>
 ====================

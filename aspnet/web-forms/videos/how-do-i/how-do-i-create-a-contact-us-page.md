@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
-title: "Bize sayfasında kişi nasıl oluşturulur"
+title: Bize sayfasında kişi nasıl oluşturulur
 author: microsoft
-description: "Derleme Sihirbazı denetimiyle kullanıcıdan bilgi toplamak, bu bilgileri doğrulamak ve bir sütun göndermek için System.Net.Mail sınıfları kullanması için bir web sayfası..."
+description: Derleme Sihirbazı denetimiyle kullanıcıdan bilgi toplamak, bu bilgileri doğrulamak ve bir sütun göndermek için System.Net.Mail sınıfları kullanması için bir web sayfası...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/24/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571944"
 ---
 <a name="how-do-i-create-a-contact-us-page"></a><span data-ttu-id="5e62c-103">[Nasıl stop yaparım] "Bize başvurun" sayfası oluşturulsun mu?</span><span class="sxs-lookup"><span data-stu-id="5e62c-103">[How Do I:] Create a "Contact Us" Page?</span></span>
 ====================

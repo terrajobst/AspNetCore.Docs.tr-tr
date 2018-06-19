@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869666"
 ---
 <a name="performing-simple-validation-c"></a><span data-ttu-id="adcb3-104">Basit bir doğrulama (C#) gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="adcb3-104">Performing Simple Validation (C#)</span></span>
 ====================

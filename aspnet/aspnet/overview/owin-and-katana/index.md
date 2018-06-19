@@ -2,13 +2,13 @@
 uid: aspnet/overview/owin-and-katana/index
 title: OWIN ve Katana | Microsoft Docs
 author: rick-anderson
-description: "Katana oluşturma ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran bileşenleri esnek kümesidir."
+description: Katana oluşturma ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran bileşenleri esnek kümesidir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2013
 ms.topic: article
 ms.assetid: 37e005e9-2f1c-4039-b6ef-15612e0fdbc9
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana
 msc.type: chapter
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563637"
 ---
 <a name="owin-and-katana"></a><span data-ttu-id="84139-103">OWIN ve Katana</span><span class="sxs-lookup"><span data-stu-id="84139-103">OWIN and Katana</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/install-and-use-the-microsoft-webmatrix-tool
-title: "Microsoft WebMatrix aracı yükleme ve kullanma | Microsoft Docs"
+title: Microsoft WebMatrix aracı yükleme ve kullanma | Microsoft Docs
 author: rick-anderson
-description: "Bölüm 1 WebMatrix ve nasıl yüklemek ve kullanmak için tanıtır."
+description: Bölüm 1 WebMatrix ve nasıl yüklemek ve kullanmak için tanıtır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573222"
 ---
 <a name="install-and-use-the-microsoft-webmatrix-tool"></a><span data-ttu-id="6b0c8-103">Microsoft WebMatrix aracı yükleme ve kullanma</span><span class="sxs-lookup"><span data-stu-id="6b0c8-103">Install and Use the Microsoft WebMatrix Tool</span></span>
 ====================

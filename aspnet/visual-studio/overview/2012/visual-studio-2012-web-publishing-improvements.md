@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements
-title: "Visual Studio 2012 Web yayımlama geliştirmeleri | Microsoft Docs"
+title: Visual Studio 2012 Web yayımlama geliştirmeleri | Microsoft Docs
 author: shanselman
-description: "Scott Hanselman Visual Studio 2012'de yeni web yayımlama özellikleri gösterir."
+description: Scott Hanselman Visual Studio 2012'de yeni web yayımlama özellikleri gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 61222942-e650-40ee-9ee1-8fcb879ae92f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566259"
 ---
 <a name="visual-studio-2012-web-publishing-improvements"></a><span data-ttu-id="a78de-103">Visual Studio 2012 Web yayımlama geliştirmeleri</span><span class="sxs-lookup"><span data-stu-id="a78de-103">Visual Studio 2012 Web Publishing Improvements</span></span>
 ====================

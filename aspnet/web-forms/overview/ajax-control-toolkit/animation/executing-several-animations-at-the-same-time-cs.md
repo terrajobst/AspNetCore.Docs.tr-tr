@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869367"
 ---
 <a name="executing-several-animations-at-the-same-time-c"></a><span data-ttu-id="9786e-104">Aynı anda (C#) birkaç animasyon yürütme</span><span class="sxs-lookup"><span data-stu-id="9786e-104">Executing Several Animations at The Same Time (C#)</span></span>
 ====================

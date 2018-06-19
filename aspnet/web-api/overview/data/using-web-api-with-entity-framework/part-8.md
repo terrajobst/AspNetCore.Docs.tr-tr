@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868093"
 ---
 <a name="display-item-details"></a><span data-ttu-id="f8868-102">Görüntü öğe ayrıntıları</span><span class="sxs-lookup"><span data-stu-id="f8868-102">Display Item Details</span></span>
 ====================

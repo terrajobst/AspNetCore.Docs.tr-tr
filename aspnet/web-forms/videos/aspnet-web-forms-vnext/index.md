@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-web-forms-vnext/index
 title: ASP.NET 4.5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET 4.5 içinde sunulan yeni Web Forms özellikleri hakkında."
+description: ASP.NET 4.5 içinde sunulan yeni Web Forms özellikleri hakkında.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570693"
 ---
 <a name="aspnet-45"></a><span data-ttu-id="76907-103">ASP.NET 4.5</span><span class="sxs-lookup"><span data-stu-id="76907-103">ASP.NET 4.5</span></span>
 ====================

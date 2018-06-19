@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/index
-title: "Entity Framework 6 veritabanını kullanmaya başlama ilk MVC 5 kullanma | Microsoft Docs"
+title: Entity Framework 6 veritabanını kullanmaya başlama ilk MVC 5 kullanma | Microsoft Docs
 author: rick-anderson
-description: "Bu seri Entity Framework ile bir MVC 5 uygulaması oluşturmak için veritabanı ilk geliştirme kullanmayı gösterir"
+description: Bu seri Entity Framework ile bir MVC 5 uygulaması oluşturmak için veritabanı ilk geliştirme kullanmayı gösterir
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563718"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a><span data-ttu-id="b9d08-103">Entity Framework 6 veritabanını kullanmaya başlama ilk MVC 5 kullanma</span><span class="sxs-lookup"><span data-stu-id="b9d08-103">Getting Started with Entity Framework 6 Database First Using MVC 5</span></span>
 ====================

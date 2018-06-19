@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740302"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a><span data-ttu-id="7d2e7-102">ASP.NET Core MVC denetleyicileri tanıtıcı istekleri</span><span class="sxs-lookup"><span data-stu-id="7d2e7-102">Handle requests with controllers in ASP.NET Core MVC</span></span>
 

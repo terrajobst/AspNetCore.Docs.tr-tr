@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878613"
 ---
 <a name="dynamically-populating-a-control-c"></a><span data-ttu-id="19dc9-103">Bir denetim (C#) dinamik olarak doldurma</span><span class="sxs-lookup"><span data-stu-id="19dc9-103">Dynamically Populating a Control (C#)</span></span>
 ====================

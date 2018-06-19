@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-event-handlers-in-aspnet-web-pages-and-controls
-title: "[Nasıl stop yaparım] Olay işleyicileri ASP.NET Web sayfaları ve denetimleri | Microsoft Docs"
+title: '[Nasıl stop yaparım] Olay işleyicileri ASP.NET Web sayfaları ve denetimleri | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET web sayfaları ve web sunucusu denetimleri için olay işleyicileri oluşturma gösterilir. İlk olarak, sayfa düzeyi olayları f oluşturmayı öğrenin..."
+description: Bu video Chris Pels ASP.NET web sayfaları ve web sunucusu denetimleri için olay işleyicileri oluşturma gösterilir. İlk olarak, sayfa düzeyi olayları f oluşturmayı öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/17/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572118"
 ---
 <a name="how-do-i-event-handlers-in-aspnet-web-pages-and-controls"></a><span data-ttu-id="0cecd-104">[Nasıl stop yaparım] ASP.NET Web sayfaları ve denetimleri olay işleyicileri</span><span class="sxs-lookup"><span data-stu-id="0cecd-104">[How Do I:] Event Handlers in ASP.NET Web Pages and Controls</span></span>
 ====================

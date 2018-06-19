@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/index
-title: "Nasıl--ı | Microsoft Docs"
+title: Nasıl--ı | Microsoft Docs
 author: rick-anderson
-description: "Bu bölümdeki videolar 'Mağaza' - tamamlamak için tüm e-ticaret uygulamanın başından yapı da dahil olmak üzere, ASP.NET MVC kapsar."
+description: Bu bölümdeki videolar 'Mağaza' - tamamlamak için tüm e-ticaret uygulamanın başından yapı da dahil olmak üzere, ASP.NET MVC kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565584"
 ---
 <a name="how-do-i"></a><span data-ttu-id="720fd-103">Nasıl--ı</span><span class="sxs-lookup"><span data-stu-id="720fd-103">How-Do-I</span></span>
 ====================

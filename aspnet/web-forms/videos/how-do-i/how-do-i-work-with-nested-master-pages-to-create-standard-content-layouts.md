@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
-title: "[Nasıl stop yaparım] İç içe geçmiş ana standart içerik düzenleri oluşturmak için sayfaları ile çalışma | Microsoft Docs"
+title: '[Nasıl stop yaparım] İç içe geçmiş ana standart içerik düzenleri oluşturmak için sayfaları ile çalışma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels iç içe geçmiş ana sayfalar w için farklı standart içerik düzenler temsil eden her bir ana sayfayı oluşturmak için nasıl kullanılacağını gösterir..."
+description: Bu video Chris Pels iç içe geçmiş ana sayfalar w için farklı standart içerik düzenler temsil eden her bir ana sayfayı oluşturmak için nasıl kullanılacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572094"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a><span data-ttu-id="787fa-103">[Nasıl stop yaparım] İç içe geçmiş ana standart içerik düzenleri oluşturmak için sayfaları ile çalışma</span><span class="sxs-lookup"><span data-stu-id="787fa-103">[How Do I:] Work with Nested Master Pages to Create Standard Content Layouts</span></span>
 ====================

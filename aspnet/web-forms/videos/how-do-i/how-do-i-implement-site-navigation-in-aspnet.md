@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
-title: "[Nasıl stop yaparım] ASP.NET uygulama Site gezintisi? | Microsoft Docs"
+title: '[Nasıl stop yaparım] ASP.NET uygulama Site gezintisi? | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda bir site haritası tanımlayın ve menü, TreeView ve site haritası sunucu denetimleri ile kullanmak üzere nasıl öğreneceksiniz. Biz ana sayfada bir site haritası kullanılması hakkında bilgi..."
+description: Bu videoda bir site haritası tanımlayın ve menü, TreeView ve site haritası sunucu denetimleri ile kullanmak üzere nasıl öğreneceksiniz. Biz ana sayfada bir site haritası kullanılması hakkında bilgi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572013"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a><span data-ttu-id="5b860-105">[Nasıl stop yaparım] ASP.NET uygulama Site gezintisi?</span><span class="sxs-lookup"><span data-stu-id="5b860-105">[How Do I:] Implement Site Navigation in ASP.NET?</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/index
 title: ASP.NET 3.5 - AJAX | Microsoft Docs
 author: rick-anderson
-description: "Hata ayıklama ve UpdatePanels ve kısmi Sayfa güncelleştirmelerini, kimlik doğrulama, yerelleştirme dahil olmak üzere ASP.NET AJAX Kitaplığı hakkında '."
+description: Hata ayıklama ve UpdatePanels ve kısmi Sayfa güncelleştirmelerini, kimlik doğrulama, yerelleştirme dahil olmak üzere ASP.NET AJAX Kitaplığı hakkında '.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569301"
 ---
 <a name="aspnet-35---ajax"></a><span data-ttu-id="8779c-103">ASP.NET 3.5 - AJAX</span><span class="sxs-lookup"><span data-stu-id="8779c-103">ASP.NET 3.5 - AJAX</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/masterpages
 title: Ana sayfalar | Microsoft Docs
 author: JoeStagner
-description: "ASP.NET MasterPages Çevik web uygulamaları oluşturmak için anahtar bir parçası olan. Bu videoda, ana sayfalar ve içinde iç içe geçmiş ana sayfalar kullanma temelleri gösterecek..."
+description: ASP.NET MasterPages Çevik web uygulamaları oluşturmak için anahtar bir parçası olan. Bu videoda, ana sayfalar ve içinde iç içe geçmiş ana sayfalar kullanma temelleri gösterecek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570576"
 ---
 <a name="masterpages"></a><span data-ttu-id="ffd7a-104">Ana sayfalar</span><span class="sxs-lookup"><span data-stu-id="ffd7a-104">MasterPages</span></span>
 ====================

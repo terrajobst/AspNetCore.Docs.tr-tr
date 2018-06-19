@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566829"
 ---
 <a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a><span data-ttu-id="9b3ac-104">Varlık İlişkileriyle ile Web API 2 OData v3 destekleme</span><span class="sxs-lookup"><span data-stu-id="9b3ac-104">Supporting Entity Relations in OData v3 with Web API 2</span></span>
 ====================

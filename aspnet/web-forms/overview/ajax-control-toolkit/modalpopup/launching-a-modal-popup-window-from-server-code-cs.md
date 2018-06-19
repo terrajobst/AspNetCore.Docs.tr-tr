@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872903"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a><span data-ttu-id="fb1a9-104">Sunucu kod (C#) kalıcı açılır penceresinden başlatma</span><span class="sxs-lookup"><span data-stu-id="fb1a9-104">Launching a Modal Popup Window from Server Code (C#)</span></span>
 ====================

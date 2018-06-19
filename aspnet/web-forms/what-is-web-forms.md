@@ -2,7 +2,7 @@
 uid: web-forms/what-is-web-forms
 title: Web Forms nedir | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572889"
 ---
 <a name="what-is-web-forms"></a><span data-ttu-id="681a1-102">Web Forms nedir</span><span class="sxs-lookup"><span data-stu-id="681a1-102">What is Web Forms</span></span>
 ====================

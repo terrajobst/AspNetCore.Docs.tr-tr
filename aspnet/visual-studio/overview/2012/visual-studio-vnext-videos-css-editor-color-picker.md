@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-color-picker
-title: "Visual Studio vNext videolar: CSS Düzenleyicisi Renk Seçici | Microsoft Docs"
+title: 'Visual Studio vNext videolar: CSS Düzenleyicisi Renk Seçici | Microsoft Docs'
 author: madskristensen
-description: "Bu videoda, Renk Seçici renk geçerli elektronik tabloda gösterir ve sunan Visual Studio vNext CSS Düzenleyicisi'nde Mads Kristensen gösteren..."
+description: Bu videoda, Renk Seçici renk geçerli elektronik tabloda gösterir ve sunan Visual Studio vNext CSS Düzenleyicisi'nde Mads Kristensen gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2011
 ms.topic: article
 ms.assetid: c0c084d3-1b12-4de1-b904-30fbbda59a30
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-color-picker
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566232"
 ---
 <a name="visual-studio-vnext-videos-css-editor-color-picker"></a><span data-ttu-id="320a5-103">Visual Studio vNext videolar: CSS Düzenleyicisi Renk Seçici</span><span class="sxs-lookup"><span data-stu-id="320a5-103">Visual Studio vNext Videos: CSS Editor Color Picker</span></span>
 ====================

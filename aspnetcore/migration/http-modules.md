@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741056"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a><span data-ttu-id="c5664-102">HTTP işleyicileri ve modülleri ASP.NET Core Ara geçirme</span><span class="sxs-lookup"><span data-stu-id="c5664-102">Migrate HTTP handlers and modules to ASP.NET Core middleware</span></span>
 

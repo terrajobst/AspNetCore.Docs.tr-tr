@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/complex-type-inheritance-in-odata-v4
-title: "ASP.NET Web API ile OData v4 karmaşık tür devralma | Microsoft Docs"
+title: ASP.NET Web API ile OData v4 karmaşık tür devralma | Microsoft Docs
 author: microsoft
-description: "OData v4 belirtimine göre başka bir karmaşık türü bir karmaşık tür devralabilirsiniz. (Bir karmaşık türü bir anahtar olmadan yapılandırılmış bir tür olur.) Web API..."
+description: OData v4 belirtimine göre başka bir karmaşık türü bir karmaşık tür devralabilirsiniz. (Bir karmaşık türü bir anahtar olmadan yapılandırılmış bir tür olur.) Web API...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566832"
 ---
 <a name="complex-type-inheritance-in-odata-v4-with-aspnet-web-api"></a><span data-ttu-id="7b943-104">ASP.NET Web API ile OData v4 karmaşık tür devralma</span><span class="sxs-lookup"><span data-stu-id="7b943-104">Complex Type Inheritance in OData v4 with ASP.NET Web API</span></span>
 ====================

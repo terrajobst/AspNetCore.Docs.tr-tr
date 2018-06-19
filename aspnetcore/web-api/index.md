@@ -15,6 +15,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33972793"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a><span data-ttu-id="ba374-103">Web API ile ASP.NET çekirdek oluşturma</span><span class="sxs-lookup"><span data-stu-id="ba374-103">Build web APIs with ASP.NET Core</span></span>
 

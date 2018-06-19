@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site
-title: "[Nasıl stop yaparım] Bir ASP.NET Web sitesi işlevindeki segmentlere ayırmak için rolleri kullanmak | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir ASP.NET Web sitesi işlevindeki segmentlere ayırmak için rolleri kullanmak | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels ASP.NET üyeliği ayarlandıktan sonra bir ASP.NET web sitesi rollerinde kullanımını en üst düzeye çıkarmak nasıl yapacağınızı gösterir. İlk olarak, rol Kurulumu öğrenin..."
+description: Bu videoda Chris Pels ASP.NET üyeliği ayarlandıktan sonra bir ASP.NET web sitesi rollerinde kullanımını en üst düzeye çıkarmak nasıl yapacağınızı gösterir. İlk olarak, rol Kurulumu öğrenin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572265"
 ---
 <a name="how-do-i-use-roles-to-segment-functionality-in-an-aspnet-web-site"></a><span data-ttu-id="0f7ee-104">[Nasıl stop yaparım] Bir ASP.NET Web sitesi işlevindeki segmentlere ayırmak için rolleri kullanın</span><span class="sxs-lookup"><span data-stu-id="0f7ee-104">[How Do I:] Use Roles to Segment Functionality in an ASP.NET Web Site</span></span>
 ====================

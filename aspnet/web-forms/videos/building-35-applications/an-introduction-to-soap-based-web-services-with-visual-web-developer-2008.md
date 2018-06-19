@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
-title: "Web Hizmetleri ile Visual Web Developer 2008 SOAP giriş dayalı | Microsoft Docs"
+title: Web Hizmetleri ile Visual Web Developer 2008 SOAP giriş dayalı | Microsoft Docs
 author: JoeStagner
-description: "Bu video nasıl hızlı gösterir ve kolay SOAP üzerinde dayalı olarak dağıtılmış uygulamaların geliştirmeye başlamak için çalıştırılabilir / XML web hizmetleri."
+description: Bu video nasıl hızlı gösterir ve kolay SOAP üzerinde dayalı olarak dağıtılmış uygulamaların geliştirmeye başlamak için çalıştırılabilir / XML web hizmetleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570798"
 ---
 <a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a><span data-ttu-id="aeaad-103">Web Hizmetleri ile Visual Web Developer 2008 SOAP giriş dayalı</span><span class="sxs-lookup"><span data-stu-id="aeaad-103">An Introduction to SOAP Based Web Services with Visual Web Developer 2008</span></span>
 ====================

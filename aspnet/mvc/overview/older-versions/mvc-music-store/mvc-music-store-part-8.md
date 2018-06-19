@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871291"
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a><span data-ttu-id="bc441-104">8. Kısım: Alışveriş sepetine Ajax güncelleştirmelerle</span><span class="sxs-lookup"><span data-stu-id="bc441-104">Part 8: Shopping Cart with Ajax Updates</span></span>
 ====================

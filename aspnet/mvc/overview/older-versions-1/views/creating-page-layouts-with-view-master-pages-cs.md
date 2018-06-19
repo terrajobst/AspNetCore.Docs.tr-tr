@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871252"
 ---
 <a name="creating-page-layouts-with-view-master-pages-c"></a><span data-ttu-id="b9dd5-104">Sayfa düzenleri oluşturma görünümü ana sayfa (C#)</span><span class="sxs-lookup"><span data-stu-id="b9dd5-104">Creating Page Layouts with View Master Pages (C#)</span></span>
 ====================

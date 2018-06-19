@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872163"
 ---
 <a name="using-hovermenu-with-a-repeater-control-c"></a><span data-ttu-id="9334b-103">Yineleyici denetimiyle birlikte (C#) HoverMenu kullanma</span><span class="sxs-lookup"><span data-stu-id="9334b-103">Using HoverMenu with a Repeater Control (C#)</span></span>
 ====================

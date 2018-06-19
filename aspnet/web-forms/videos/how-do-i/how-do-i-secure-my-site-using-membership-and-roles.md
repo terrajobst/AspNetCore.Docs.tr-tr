@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
-title: "[Nasıl stop yaparım] Üyelik ve roller kullanarak Sitem güvenli mi? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Üyelik ve roller kullanarak Sitem güvenli mi? | Microsoft Docs'
 author: microsoft
-description: "ASP.NET 2.0 yeni üyelik ve roller özelliklerini kullanarak bir web sitesini güvenli öğrenin. Kullanıcı kaydı, parola kurtarma ve restricti Konular..."
+description: ASP.NET 2.0 yeni üyelik ve roller özelliklerini kullanarak bir web sitesini güvenli öğrenin. Kullanıcı kaydı, parola kurtarma ve restricti Konular...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/09/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572136"
 ---
 <a name="how-do-i-secure-my-site-using-membership-and-roles"></a><span data-ttu-id="856e0-105">[Nasıl stop yaparım] Üyelik ve roller kullanarak Sitem güvenli mi?</span><span class="sxs-lookup"><span data-stu-id="856e0-105">[How Do I:] Secure my Site using Membership and Roles?</span></span>
 ====================

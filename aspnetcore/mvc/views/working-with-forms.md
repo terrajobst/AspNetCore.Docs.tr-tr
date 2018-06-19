@@ -15,6 +15,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741134"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="c8c0d-103">ASP.NET Core formlarında etiket Yardımcıları</span><span class="sxs-lookup"><span data-stu-id="c8c0d-103">Tag Helpers in forms in ASP.NET Core</span></span>
 

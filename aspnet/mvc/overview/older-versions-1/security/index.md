@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/index
-title: "Güvenlik | Microsoft Docs"
+title: Güvenlik | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici kapsar ayarlamak için parola bazı sayfaları, ASP.NET MVC uygulamanızın ve kullanıcılar ve roller oluşturmak ve yönetmek nasıl korunmasına nasıl."
+description: Bu öğretici kapsar ayarlamak için parola bazı sayfaları, ASP.NET MVC uygulamanızın ve kullanıcılar ve roller oluşturmak ve yönetmek nasıl korunmasına nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564501"
 ---
 <a name="security"></a><span data-ttu-id="53518-103">Güvenlik</span><span class="sxs-lookup"><span data-stu-id="53518-103">Security</span></span>
 ====================

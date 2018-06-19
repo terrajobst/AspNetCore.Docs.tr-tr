@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/iis/index
-title: "Genel IIS ipuçları | Microsoft Docs"
+title: Genel IIS ipuçları | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET uygulamaları ile çalışmak üzere IIS'yi yapılandırmak nasıl."
+description: ASP.NET uygulamaları ile çalışmak üzere IIS'yi yapılandırmak nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571986"
 ---
 <a name="general-iis-tips"></a><span data-ttu-id="a6325-103">Genel IIS ipuçları</span><span class="sxs-lookup"><span data-stu-id="a6325-103">General IIS Tips</span></span>
 ====================

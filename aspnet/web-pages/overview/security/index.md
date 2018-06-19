@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/security/index
-title: "Güvenlik | Microsoft Docs"
+title: Güvenlik | Microsoft Docs
 author: rick-anderson
-description: "Bir ASP.NET Web Pages uygulaması için oturum açma yetenekleri ekleme ve uygulama aracılarını korunmasına nasıl yardımcı."
+description: Bir ASP.NET Web Pages uygulaması için oturum açma yetenekleri ekleme ve uygulama aracılarını korunmasına nasıl yardımcı.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573165"
 ---
 <a name="security"></a><span data-ttu-id="de325-103">Güvenlik</span><span class="sxs-lookup"><span data-stu-id="de325-103">Security</span></span>
 ====================

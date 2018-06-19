@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/index
-title: "Yineleyici ve DataList senaryolarıyla filtreleme | Microsoft Docs"
+title: Yineleyici ve DataList senaryolarıyla filtreleme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler master kayıtları ve Ayrıntılar için DataList denetimi için açılan listeleri kullanarak ana/ayrıntı raporları görüntülemek konusuna bakın."
+description: Bu öğreticiler master kayıtları ve Ayrıntılar için DataList denetimi için açılan listeleri kullanarak ana/ayrıntı raporları görüntülemek konusuna bakın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568536"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a><span data-ttu-id="e40ad-103">Yineleyici ve DataList senaryolarıyla filtreleme</span><span class="sxs-lookup"><span data-stu-id="e40ad-103">Filtering Scenarios with the DataList and Repeater</span></span>
 ====================

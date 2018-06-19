@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868561"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a><span data-ttu-id="d085a-104">NerdDinner Öğreticisi Tanıtımı</span><span class="sxs-lookup"><span data-stu-id="d085a-104">Introducing the NerdDinner Tutorial</span></span>
 ====================

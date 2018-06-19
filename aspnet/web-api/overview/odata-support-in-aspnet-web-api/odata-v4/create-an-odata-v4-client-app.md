@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-client-app
-title: "OData v4 istemci uygulaması (C#) oluşturma | Microsoft Docs"
+title: OData v4 istemci uygulaması (C#) oluşturma | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036706"
 ---
 <a name="create-an-odata-v4-client-app-c"></a><span data-ttu-id="3081b-102">OData v4 istemci uygulaması (C#) oluşturma</span><span class="sxs-lookup"><span data-stu-id="3081b-102">Create an OData v4 Client App (C#)</span></span>
 ====================

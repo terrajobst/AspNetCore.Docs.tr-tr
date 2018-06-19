@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/index
-title: "ASP.NET MVC 4 ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET MVC 4 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici seri Microsoft Visual Web Developer 2010 Express Service Pack 1, w kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek..."
+description: Bu öğretici seri Microsoft Visual Web Developer 2010 Express Service Pack 1, w kullanarak bir ASP.NET MVC Web uygulaması oluşturmanın temellerini öğretmek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564855"
 ---
 <a name="getting-started-with-aspnet-mvc-4"></a><span data-ttu-id="7c38e-103">ASP.NET MVC 4 ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="7c38e-103">Getting Started with ASP.NET MVC 4</span></span>
 ====================

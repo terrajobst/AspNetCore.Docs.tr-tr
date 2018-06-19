@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871200"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a><span data-ttu-id="cc3f3-105">Nasıl Yaparım İçin ASP.NET MVC görünümleri verileri yönetmek için uygulama modelleri görüntüle?</span><span class="sxs-lookup"><span data-stu-id="cc3f3-105">How Do I: Implement View  Models to Manage Data for ASP.NET MVC Views?</span></span>
 ====================

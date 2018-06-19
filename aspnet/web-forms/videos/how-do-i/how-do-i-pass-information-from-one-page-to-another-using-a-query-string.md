@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: "[Nasıl stop yaparım] Bilgiler bir sayfadan bir sorgu dizesi kullanılarak diğerine geçirmek | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bilgiler bir sayfadan bir sorgu dizesi kullanılarak diğerine geçirmek | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda, Chris Pels nasıl bilgi bir sayfadan başka bir sorgu dizesi kullanılarak için geçirilebilir gösterir. İlk olarak, bir sorgu dizesi olarak oluşturmak bkz...."
+description: Bu videoda, Chris Pels nasıl bilgi bir sayfadan başka bir sorgu dizesi kullanılarak için geçirilebilir gösterir. İlk olarak, bir sorgu dizesi olarak oluşturmak bkz....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570894"
 ---
 <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a><span data-ttu-id="af375-104">[Nasıl stop yaparım] Başka bir sorgu dizesi kullanarak bilgi bir sayfadan diğerine geçirin</span><span class="sxs-lookup"><span data-stu-id="af375-104">[How Do I:] Pass Information From One Page to Another Using a Query String</span></span>
 ====================

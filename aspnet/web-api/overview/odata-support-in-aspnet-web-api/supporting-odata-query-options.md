@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566712"
 ---
 <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a><span data-ttu-id="1e616-102">ASP.NET Web API 2 OData sorgu seçeneklerini destekleme</span><span class="sxs-lookup"><span data-stu-id="1e616-102">Supporting OData Query Options in ASP.NET Web API 2</span></span>
 ====================

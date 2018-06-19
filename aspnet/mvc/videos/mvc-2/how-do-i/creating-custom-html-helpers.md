@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872128"
 ---
 <a name="creating-custom-html-helpers"></a><span data-ttu-id="96bcd-104">Özel HTML Yardımcıları oluşturma</span><span class="sxs-lookup"><span data-stu-id="96bcd-104">Creating Custom HTML Helpers</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: "ASP.NET Razor sayfalarının | Microsoft Docs"
+title: ASP.NET Razor sayfalarının | Microsoft Docs
 author: rick-anderson
-description: "Hangi videolar Web sayfalarını ve Webmatrix'i detaya görüntüleyebilirsiniz."
+description: Hangi videolar Web sayfalarını ve Webmatrix'i detaya görüntüleyebilirsiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573285"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="e0856-103">ASP.NET Web sayfaları</span><span class="sxs-lookup"><span data-stu-id="e0856-103">ASP.NET Web Pages</span></span>
 =================

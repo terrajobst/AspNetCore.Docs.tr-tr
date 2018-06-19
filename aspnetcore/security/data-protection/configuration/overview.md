@@ -15,6 +15,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555423"
 ---
 # <a name="configure-aspnet-core-data-protection"></a><span data-ttu-id="4a660-103">ASP.NET Core veri korumasını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4a660-103">Configure ASP.NET Core Data Protection</span></span>
 

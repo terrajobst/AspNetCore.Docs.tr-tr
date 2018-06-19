@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895391"
 ---
 <a name="visual-studio-2010-quick-hit---new-multi-targeting"></a><span data-ttu-id="d6593-103">Visual Studio 2010 "Hızlı isabet" - yeni çoklu sürüm desteği</span><span class="sxs-lookup"><span data-stu-id="d6593-103">Visual Studio 2010 "Quick Hit" - New Multi-Targeting</span></span>
 ====================

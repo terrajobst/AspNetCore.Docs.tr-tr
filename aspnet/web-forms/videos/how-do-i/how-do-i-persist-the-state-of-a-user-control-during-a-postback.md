@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
-title: "[Nasıl yedeklerim]: bir kullanıcı denetimi durumunu geri gönderme sırasında kalıcı | Microsoft Docs"
+title: '[Nasıl yedeklerim]: bir kullanıcı denetimi durumunu geri gönderme sırasında kalıcı | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels, bir kullanıcı denetimi bir veya daha fazla nesne durumu devam ettirmek gösterilmiştir. İlk olarak, bir kullanıcı denetimi abilit temsil eden oluşturulur..."
+description: Bu video Chris Pels, bir kullanıcı denetimi bir veya daha fazla nesne durumu devam ettirmek gösterilmiştir. İlk olarak, bir kullanıcı denetimi abilit temsil eden oluşturulur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572097"
 ---
-<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a><span data-ttu-id="9d3d4-104">[Nasıl yedeklerim]: bir kullanıcı denetimi durumunu geri gönderme sırasında Sürdür</span><span class="sxs-lookup"><span data-stu-id="9d3d4-104">[How Do I]: Persist the State of a User Control During a Postback</span></span>
+<a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[Nasıl yedeklerim]: bir kullanıcı denetimi durumunu geri gönderme sırasında Sürdür
+[How Do I]: Persist the State of a User Control During a Postback
 ====================
 <span data-ttu-id="9d3d4-105">tarafından [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="9d3d4-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153741"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a><span data-ttu-id="4468e-103">ASP.NET Core MVC EF temel - Migrations - 4 10</span><span class="sxs-lookup"><span data-stu-id="4468e-103">ASP.NET Core MVC with EF Core - Migrations - 4 of 10</span></span>
 

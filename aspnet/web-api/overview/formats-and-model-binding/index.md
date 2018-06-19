@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/formats-and-model-binding/index
-title: "Seri hale getirme ve ASP.NET Web API'de Model bağlama | Microsoft Docs"
+title: Seri hale getirme ve ASP.NET Web API'de Model bağlama | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web API HTTP ileti etki alanı modelleri için nasıl bağlar ve Web API'si medya ile çalışmaya nasıl biçimlendirir."
+description: ASP.NET Web API HTTP ileti etki alanı modelleri için nasıl bağlar ve Web API'si medya ile çalışmaya nasıl biçimlendirir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566337"
 ---
 <a name="serialization-and-model-binding-in-aspnet-web-api"></a><span data-ttu-id="8a984-103">Seri hale getirme ve ASP.NET Web API'de Model bağlama</span><span class="sxs-lookup"><span data-stu-id="8a984-103">Serialization and Model Binding in ASP.NET Web API</span></span>
 ====================

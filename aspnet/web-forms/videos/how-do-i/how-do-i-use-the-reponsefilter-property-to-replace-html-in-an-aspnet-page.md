@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page
-title: "[Nasıl stop yaparım] Bir ASP.NET sayfasının HTML değiştirmek için Reponse.Filter özelliğini kullanın | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir ASP.NET sayfasının HTML değiştirmek için Reponse.Filter özelliğini kullanın | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels Reponse.Filter özelliğinin bir sayfaya gönderilen HTML kesecek şekilde nasıl kullanılacağını gösterir. İlk olarak, bir örnek sayfa w oluşturulur..."
+description: Bu video Chris Pels Reponse.Filter özelliğinin bir sayfaya gönderilen HTML kesecek şekilde nasıl kullanılacağını gösterir. İlk olarak, bir örnek sayfa w oluşturulur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/29/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571965"
 ---
 <a name="how-do-i-use-the-reponsefilter-property-to-replace-html-in-an-aspnet-page"></a><span data-ttu-id="a4cca-104">[Nasıl stop yaparım] Bir ASP.NET sayfasının HTML değiştirmek için Reponse.Filter özelliğini kullanın</span><span class="sxs-lookup"><span data-stu-id="a4cca-104">[How Do I:] Use the Reponse.Filter Property to Replace HTML in an ASP.NET Page</span></span>
 ====================

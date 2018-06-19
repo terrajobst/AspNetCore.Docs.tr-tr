@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891860"
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a><span data-ttu-id="ea4b7-104">Yüklemeyi kaldırma ve onaylama kullanıcı hesapları (VB)</span><span class="sxs-lookup"><span data-stu-id="ea4b7-104">Unlocking and Approving User Accounts (VB)</span></span>
 ====================

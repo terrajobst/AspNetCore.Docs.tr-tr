@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "28034002"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a><span data-ttu-id="958a5-103">ASP.NET MVC ve Web sayfaları XSRF/CSRF önleme</span><span class="sxs-lookup"><span data-stu-id="958a5-103">XSRF/CSRF Prevention in ASP.NET MVC and Web Pages</span></span>
 ====================

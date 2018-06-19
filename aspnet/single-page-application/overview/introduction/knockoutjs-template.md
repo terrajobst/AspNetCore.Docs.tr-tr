@@ -1,14 +1,14 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: "Tek sayfa uygulaması: Çakıştırmaları şablonu | Microsoft Docs"
+title: 'Tek sayfa uygulaması: Çakıştırmaları şablonu | Microsoft Docs'
 author: MikeWasson
-description: "Boşaltılan şablonu"
+description: Boşaltılan şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036901"
 ---
 <a name="single-page-application-knockoutjs-template"></a><span data-ttu-id="b6cc7-103">Tek sayfa uygulaması: Çakıştırmaları şablonu</span><span class="sxs-lookup"><span data-stu-id="b6cc7-103">Single Page Application: KnockoutJS template</span></span>
 ====================
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/15/2018
 
 <span data-ttu-id="b6cc7-121">Visual Studio'yu başlatın ve seçin **yeni proje** başlangıç sayfasından.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-121">Start Visual Studio and select **New Project** from the Start page.</span></span> <span data-ttu-id="b6cc7-122">Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-122">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="b6cc7-123">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="b6cc7-124">Altında **Visual C#**seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="b6cc7-125">Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-125">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="b6cc7-126">Proje adı ve'ı tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-126">Name the project and click **OK**.</span></span>
+<span data-ttu-id="b6cc7-123">İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-123">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="b6cc7-124">Altında **Visual C#** seçin **Web**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-124">Under **Visual C#**, select **Web**.</span></span> <span data-ttu-id="b6cc7-125">Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-125">In the list of project templates, select **ASP.NET MVC 4 Web Application**.</span></span> <span data-ttu-id="b6cc7-126">Proje adı ve'ı tıklatın **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="b6cc7-126">Name the project and click **OK**.</span></span>
 
 ![](knockoutjs-template/_static/image2.png)
 

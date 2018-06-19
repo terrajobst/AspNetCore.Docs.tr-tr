@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869731"
 ---
 <a name="creating-custom-html-helpers-c"></a><span data-ttu-id="0ba2c-104">Oluşturma özel HTML Yardımcıları (C#)</span><span class="sxs-lookup"><span data-stu-id="0ba2c-104">Creating Custom HTML Helpers (C#)</span></span>
 ====================

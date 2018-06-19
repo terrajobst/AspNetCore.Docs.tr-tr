@@ -2,13 +2,13 @@
 uid: aspnet/overview/web-development-best-practices/async-and-await
 title: Async ve Await | Microsoft Docs
 author: shanselman
-description: "Scott Hanselman Async ve Await ASP.NET 4.5 desteği nasıl kullanılacağı gösterilmektedir."
+description: Scott Hanselman Async ve Await ASP.NET 4.5 desteği nasıl kullanılacağı gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 776bf687-c2c2-438f-8796-a93d0ccd164b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/async-and-await
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563676"
 ---
 <a name="async-and-await"></a><span data-ttu-id="beaf9-103">Async ve Await</span><span class="sxs-lookup"><span data-stu-id="beaf9-103">Async and Await</span></span>
 ====================

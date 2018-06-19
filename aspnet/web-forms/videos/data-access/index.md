@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/index
-title: "Veri erişimi | Microsoft Docs"
+title: Veri erişimi | Microsoft Docs
 author: rick-anderson
-description: "Veri erişim düzeyi (DAL) oluşturma"
+description: Veri erişim düzeyi (DAL) oluşturma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571980"
 ---
 <a name="data-access"></a><span data-ttu-id="c35fe-103">Veri Erişimi</span><span class="sxs-lookup"><span data-stu-id="c35fe-103">Data Access</span></span>
 ====================

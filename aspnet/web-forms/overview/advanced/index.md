@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/advanced/index
-title: "ASP.NET Web Forms Gelişmiş konular | Microsoft Docs"
+title: ASP.NET Web Forms Gelişmiş konular | Microsoft Docs
 author: rick-anderson
-description: "Uluslararası duruma getirme, erişilebilirlik ve genişletilebilirlik gibi ASP.NET Web Forms uygulamaları programlama için Gelişmiş Konular."
+description: Uluslararası duruma getirme, erişilebilirlik ve genişletilebilirlik gibi ASP.NET Web Forms uygulamaları programlama için Gelişmiş Konular.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/18/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567015"
 ---
 <a name="aspnet-web-forms-advanced-topics"></a><span data-ttu-id="7238f-103">Gelişmiş konular ASP.NET Web formları</span><span class="sxs-lookup"><span data-stu-id="7238f-103">ASP.NET Web Forms Advanced Topics</span></span>
 ====================

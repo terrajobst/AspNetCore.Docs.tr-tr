@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-to-install-asp-net-and-tools
-title: "ASP.NET ve araçlarını yükleme | Microsoft Docs"
+title: ASP.NET ve araçlarını yükleme | Microsoft Docs
 author: shanselman
-description: "Microsoft'un Scott Hanselman yükleyip, web uygulamaları geliştirme başlatabilmeniz ASP.NET ve araçları gösterilmektedir."
+description: Microsoft'un Scott Hanselman yükleyip, web uygulamaları geliştirme başlatabilmeniz ASP.NET ve araçları gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/10/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572193"
 ---
 <a name="how-to-install-aspnet-and-tools"></a><span data-ttu-id="82f46-103">ASP.NET ve araçlarını yükleme</span><span class="sxs-lookup"><span data-stu-id="82f46-103">How to Install ASP.NET and Tools</span></span>
 ====================

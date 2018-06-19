@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/data/index
-title: "ASP.NET Web API verileri ile çalışma | Microsoft Docs"
+title: ASP.NET Web API verileri ile çalışma | Microsoft Docs
 author: rick-anderson
-description: "Program CRUD nasıl (oluşturma, okuma, güncelleştirme, silme) Web API işlemleri."
+description: Program CRUD nasıl (oluşturma, okuma, güncelleştirme, silme) Web API işlemleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566304"
 ---
 <a name="working-with-data-in-aspnet-web-api"></a><span data-ttu-id="4fbfe-103">ASP.NET Web API'de verilerle çalışma</span><span class="sxs-lookup"><span data-stu-id="4fbfe-103">Working with Data in ASP.NET Web API</span></span>
 ====================

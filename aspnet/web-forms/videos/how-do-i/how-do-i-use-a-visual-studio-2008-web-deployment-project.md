@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
-title: "[Nasıl stop yaparım] Visual Studio 2008 Web dağıtım projesi kullanın | Microsoft Docs"
+title: '[Nasıl stop yaparım] Visual Studio 2008 Web dağıtım projesi kullanın | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda, Chris Pels daha hassas bir denetime nasıl sahip olan dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklenti kullanmayı gösterir..."
+description: Bu videoda, Chris Pels daha hassas bir denetime nasıl sahip olan dağıtım projeleri oluşturmak için Visual Studio 2008 Web dağıtımı eklenti kullanmayı gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570861"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a><span data-ttu-id="a2c31-103">[Nasıl stop yaparım] Visual Studio 2008 Web dağıtım projesi kullanın</span><span class="sxs-lookup"><span data-stu-id="a2c31-103">[How Do I:] Use a Visual Studio 2008 Web Deployment Project</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875857"
 ---
 <a name="nested-data-web-controls-c"></a><span data-ttu-id="425fc-104">İç içe veri Web denetimleri (C#)</span><span class="sxs-lookup"><span data-stu-id="425fc-104">Nested Data Web Controls (C#)</span></span>
 ====================

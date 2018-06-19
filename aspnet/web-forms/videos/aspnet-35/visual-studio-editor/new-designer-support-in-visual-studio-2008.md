@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881704"
 ---
 <a name="new-designer-support-in-visual-studio-2008"></a><span data-ttu-id="ecd78-103">Visual Studio 2008'de yeni tasarımcı desteği</span><span class="sxs-lookup"><span data-stu-id="ecd78-103">New Designer Support in Visual Studio 2008</span></span>
 ====================
