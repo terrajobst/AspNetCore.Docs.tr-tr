@@ -15,6 +15,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483376"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a><span data-ttu-id="dc1d4-103">Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için</span><span class="sxs-lookup"><span data-stu-id="dc1d4-103">Visual Studio publish profiles for ASP.NET Core app deployment</span></span>
 

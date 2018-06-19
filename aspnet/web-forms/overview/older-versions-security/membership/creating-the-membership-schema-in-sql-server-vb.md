@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891765"
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a><span data-ttu-id="b1d7a-104">SQL Server (VB) üyelik şema oluşturma</span><span class="sxs-lookup"><span data-stu-id="b1d7a-104">Creating the Membership Schema in SQL Server (VB)</span></span>
 ====================

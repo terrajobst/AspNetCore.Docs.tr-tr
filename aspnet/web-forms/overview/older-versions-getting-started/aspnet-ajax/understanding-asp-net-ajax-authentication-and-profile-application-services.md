@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892146"
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a><span data-ttu-id="d60f2-103">ASP.NET AJAX kimlik doğrulaması ve profil uygulaması hizmetlerini anlama</span><span class="sxs-lookup"><span data-stu-id="d60f2-103">Understanding ASP.NET AJAX Authentication and Profile Application Services</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879575"
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a><span data-ttu-id="f19ff-103">DynamicPopulate kullanarak bir kullanıcı denetimi ve JavaScript (C#)</span><span class="sxs-lookup"><span data-stu-id="f19ff-103">Using DynamicPopulate with a User Control And JavaScript (C#)</span></span>
 ====================

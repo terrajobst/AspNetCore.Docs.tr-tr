@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884372"
 ---
 <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a><span data-ttu-id="17200-104">[Nasıl stop yaparım] ASP.NET AJAX Takvim denetimi yapılandırma?</span><span class="sxs-lookup"><span data-stu-id="17200-104">[How Do I:] Configure the ASP.NET AJAX Calendar Control?</span></span>
 ====================

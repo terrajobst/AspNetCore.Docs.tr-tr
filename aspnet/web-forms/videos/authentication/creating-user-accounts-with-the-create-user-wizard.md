@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884548"
 ---
 <a name="creating-user-accounts-with-the-create-user-wizard"></a><span data-ttu-id="fe80a-104">Kullanıcı hesapları oluşturma kullanıcı Oluşturma Sihirbazı</span><span class="sxs-lookup"><span data-stu-id="fe80a-104">Creating User Accounts with the Create User Wizard</span></span>
 ====================

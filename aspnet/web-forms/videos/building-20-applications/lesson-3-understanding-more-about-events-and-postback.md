@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886153"
 ---
 <a name="lesson-3--understanding-more-about-events-and-postback"></a><span data-ttu-id="c33e5-103">[Ders 3:]  Olaylar ve geri gönderme hakkında daha fazla anlama</span><span class="sxs-lookup"><span data-stu-id="c33e5-103">[Lesson 3:]  Understanding More About Events and Postback</span></span>
 ====================

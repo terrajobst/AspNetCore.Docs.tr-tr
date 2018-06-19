@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877183"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a><span data-ttu-id="0a938-103">Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (VB) yapılandırma</span><span class="sxs-lookup"><span data-stu-id="0a938-103">Configuring the Data Access Layer's Connection- and Command-Level Settings (VB)</span></span>
 ====================

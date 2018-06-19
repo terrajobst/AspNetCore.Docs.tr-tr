@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879172"
 ---
 <a name="caching-data-at-application-startup-c"></a><span data-ttu-id="ffc87-104">Verileri önbelleğe alma uygulama başlangıcında (C#)</span><span class="sxs-lookup"><span data-stu-id="ffc87-104">Caching Data at Application Startup (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875922"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-c"></a><span data-ttu-id="c49f4-103">Özel AJAX Denetim Araç Seti denetim genişletici (C#) oluşturma</span><span class="sxs-lookup"><span data-stu-id="c49f4-103">Creating a Custom AJAX Control Toolkit Control Extender (C#)</span></span>
 ====================

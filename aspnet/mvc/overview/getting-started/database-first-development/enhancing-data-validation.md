@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879614"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a><span data-ttu-id="8ca5f-104">EF veritabanıyla ilk ASP.NET MVC: veri doğrulama geliştirme</span><span class="sxs-lookup"><span data-stu-id="8ca5f-104">EF Database First with ASP.NET MVC: Enhancing Data Validation</span></span>
 ====================

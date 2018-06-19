@@ -2,7 +2,7 @@
 uid: web-pages/index
 title: ASP.NET Web Pages | Microsoft Docs
 author: rick-anderson
-description: "WebMatrix yükle & hızlı bir şekilde sunucu kodunu HTML ile birleştirmenin basit bir şekilde web sayfaları oluşturmayı öğrenin."
+description: WebMatrix yükle & hızlı bir şekilde sunucu kodunu HTML ile birleştirmenin basit bir şekilde web sayfaları oluşturmayı öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572904"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="e78e5-103">ASP.NET Web sayfaları</span><span class="sxs-lookup"><span data-stu-id="e78e5-103">ASP.NET Web Pages</span></span>
 ====================

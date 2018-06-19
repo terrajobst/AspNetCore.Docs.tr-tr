@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871655"
 ---
 <a name="aspnet-mvc-storefront-part-1-architectural-discussion-and-overview"></a><span data-ttu-id="1cda2-104">ASP.NET MVC Storefront bölüm 1: Mimari tartışma ve genel bakış</span><span class="sxs-lookup"><span data-stu-id="1cda2-104">ASP.NET MVC Storefront Part 1: Architectural Discussion and Overview</span></span>
 ====================

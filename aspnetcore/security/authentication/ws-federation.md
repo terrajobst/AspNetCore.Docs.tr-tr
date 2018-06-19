@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898810"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a><span data-ttu-id="51098-103">WS-Federasyon'da, ASP.NET Core kullanıcılarla kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="51098-103">Authenticate users with WS-Federation in ASP.NET Core</span></span>
 

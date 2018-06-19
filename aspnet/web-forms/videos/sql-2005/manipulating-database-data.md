@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893608"
 ---
 <a name="manipulating-database-data"></a><span data-ttu-id="bdaac-104">Veritabanı verileri düzenleme</span><span class="sxs-lookup"><span data-stu-id="bdaac-104">Manipulating Database Data</span></span>
 ====================

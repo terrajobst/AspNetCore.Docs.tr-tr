@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890001"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a><span data-ttu-id="ffef7-103">DataList denetimi (VB) ile satır başına birden çok kaydı gösteriliyor</span><span class="sxs-lookup"><span data-stu-id="ffef7-103">Showing Multiple Records per Row with the DataList Control (VB)</span></span>
 ====================

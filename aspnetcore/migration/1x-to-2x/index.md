@@ -14,6 +14,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555241"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a><span data-ttu-id="32f7b-103">ASP.NET çekirdek geçirmek 1.x 2.0</span><span class="sxs-lookup"><span data-stu-id="32f7b-103">Migrate from ASP.NET Core 1.x to 2.0</span></span>
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34154549"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a><span data-ttu-id="55f7d-103">EF çekirdek - veri modeli - 5, 10 ile ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="55f7d-103">ASP.NET Core MVC with EF Core - Data Model - 5 of 10</span></span>
 

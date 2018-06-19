@@ -14,6 +14,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851449"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core"></a><span data-ttu-id="a4bb2-103">Kimlik doğrulama ve kimlik için ASP.NET Core geçirme</span><span class="sxs-lookup"><span data-stu-id="a4bb2-103">Migrate Authentication and Identity to ASP.NET Core</span></span>
 

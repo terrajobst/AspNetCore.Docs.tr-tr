@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891506"
 ---
 <a name="control-id-naming-in-content-pages-vb"></a><span data-ttu-id="ce6c6-103">İçerik sayfaları (VB) adlandırma denetim kimliği</span><span class="sxs-lookup"><span data-stu-id="ce6c6-103">Control ID Naming in Content Pages (VB)</span></span>
 ====================

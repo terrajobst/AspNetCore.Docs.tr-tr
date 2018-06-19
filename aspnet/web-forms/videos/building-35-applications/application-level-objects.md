@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/application-level-objects
-title: "Uygulama düzeyi nesneleri | Microsoft Docs"
+title: Uygulama düzeyi nesneleri | Microsoft Docs
 author: JoeStagner
-description: "Bu videoyu uygulama düzeyi olayları ve nesneleri getirir ve kavramı açıklayan &quot;kapsam&quot; onlara ilgili olarak."
+description: Bu videoyu uygulama düzeyi olayları ve nesneleri getirir ve kavramı açıklayan &quot;kapsam&quot; onlara ilgili olarak.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570774"
 ---
 <a name="application-level-objects"></a><span data-ttu-id="31fdf-103">Uygulama düzeyi nesneleri</span><span class="sxs-lookup"><span data-stu-id="31fdf-103">Application Level Objects</span></span>
 ====================

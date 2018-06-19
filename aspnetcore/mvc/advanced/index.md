@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30305779"
 ---
 # <a name="advanced-topics-for-aspnet-core-mvc"></a><span data-ttu-id="b69f5-103">ASP.NET Core MVC için Gelişmiş konular</span><span class="sxs-lookup"><span data-stu-id="b69f5-103">Advanced topics for ASP.NET Core MVC</span></span>
 

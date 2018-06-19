@@ -15,6 +15,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153711"
 ---
 # <a name="aspnet-core-module"></a><span data-ttu-id="f25d2-103">ASP.NET çekirdeği Modülü</span><span class="sxs-lookup"><span data-stu-id="f25d2-103">ASP.NET Core Module</span></span>
 

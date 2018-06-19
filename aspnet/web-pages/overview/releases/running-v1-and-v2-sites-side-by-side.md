@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898412"
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a><span data-ttu-id="25bbc-103">ASP.NET Web sayfaları (Razor) farklı sürümlerini yan yana çalıştırma</span><span class="sxs-lookup"><span data-stu-id="25bbc-103">Running Different Versions of ASP.NET Web Pages (Razor) Side by Side</span></span>
 ====================

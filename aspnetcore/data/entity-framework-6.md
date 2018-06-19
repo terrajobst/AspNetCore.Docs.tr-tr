@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153605"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a><span data-ttu-id="cf66f-103">ASP.NET Core ve Entity Framework 6 kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="cf66f-103">Get Started with ASP.NET Core and Entity Framework 6</span></span>
 

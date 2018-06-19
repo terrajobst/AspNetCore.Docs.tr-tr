@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870173"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a><span data-ttu-id="263e4-104">Veri ek açıklaması doğrulayıcıları (VB) ile doğrulama</span><span class="sxs-lookup"><span data-stu-id="263e4-104">Validation with the Data Annotation Validators (VB)</span></span>
 ====================

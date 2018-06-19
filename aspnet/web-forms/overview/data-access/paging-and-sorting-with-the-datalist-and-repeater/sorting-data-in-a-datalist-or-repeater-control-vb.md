@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891532"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-vb"></a><span data-ttu-id="069ca-103">Bir DataList veya yineleyici denetimi (VB) verileri sıralama</span><span class="sxs-lookup"><span data-stu-id="069ca-103">Sorting Data in a DataList or Repeater Control (VB)</span></span>
 ====================

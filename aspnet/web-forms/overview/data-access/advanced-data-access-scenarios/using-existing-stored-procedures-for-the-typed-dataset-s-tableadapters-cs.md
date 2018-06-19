@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877079"
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a><span data-ttu-id="9e21a-104">Varolanı kullanma saklı yordamlar için yazılan veri kümesi'nin TableAdapters (C#)</span><span class="sxs-lookup"><span data-stu-id="9e21a-104">Using Existing Stored Procedures for the Typed DataSet's TableAdapters (C#)</span></span>
 ====================

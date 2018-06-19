@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899440"
 ---
 <a name="the-effects-of-viewstate"></a><span data-ttu-id="f14f8-103">ViewState etkileri</span><span class="sxs-lookup"><span data-stu-id="f14f8-103">The Effects of ViewState</span></span>
 ====================

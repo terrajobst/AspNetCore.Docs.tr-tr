@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894705"
 ---
 <a name="working-with-data-part-1"></a><span data-ttu-id="edc7d-103">Verileri (Kısım 1) ile çalışma</span><span class="sxs-lookup"><span data-stu-id="edc7d-103">Working with Data (Part 1)</span></span>
 ====================

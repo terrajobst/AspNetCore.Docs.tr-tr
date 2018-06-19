@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 title: Birim ASP.NET Web API 2 denetleyicisi testi | Microsoft Docs
 author: MikeWasson
-description: "Bu konu, birim denetleyicileri Web API 2'de test etmek için bazı belirli teknikleri açıklar. Bu konu okumadan önce birim öğretici okumak isteyebilirsiniz..."
+description: Bu konu, birim denetleyicileri Web API 2'de test etmek için bazı belirli teknikleri açıklar. Bu konu okumadan önce birim öğretici okumak isteyebilirsiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/11/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039550"
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a><span data-ttu-id="47f8e-104">Birim ASP.NET Web API 2 denetleyicisi testi</span><span class="sxs-lookup"><span data-stu-id="47f8e-104">Unit Testing Controllers in ASP.NET Web API 2</span></span>
 ====================

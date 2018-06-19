@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891899"
 ---
 <a name="checkout-and-payment-with-paypal"></a><span data-ttu-id="c7879-103">Kullanıma alma ve PayPal ödeme</span><span class="sxs-lookup"><span data-stu-id="c7879-103">Checkout and Payment with PayPal</span></span>
 ====================

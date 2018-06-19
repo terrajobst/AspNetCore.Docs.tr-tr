@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5ae0c125ee3bbd324edef3818d1d160f4dd84602
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34224732"
 ---
 <a name="model-validation-in-aspnet-web-api"></a><span data-ttu-id="5a4a8-102">ASP.NET Web API'de model doğrulama</span><span class="sxs-lookup"><span data-stu-id="5a4a8-102">Model Validation in ASP.NET Web API</span></span>
 ====================

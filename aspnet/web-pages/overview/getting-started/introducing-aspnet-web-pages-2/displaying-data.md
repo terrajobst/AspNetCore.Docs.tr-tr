@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898463"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a><span data-ttu-id="0091e-104">ASP.NET Web sayfaları sunarak - verileri görüntüleme</span><span class="sxs-lookup"><span data-stu-id="0091e-104">Introducing ASP.NET Web Pages - Displaying Data</span></span>
 ====================
