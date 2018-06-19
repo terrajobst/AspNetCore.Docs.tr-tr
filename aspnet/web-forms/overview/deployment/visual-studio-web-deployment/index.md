@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/index
-title: "Visual Studio kullanarak ASP.NET Web dağıtımı | Microsoft Docs"
+title: Visual Studio kullanarak ASP.NET Web dağıtımı | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici seri t dağıtarak internet üzerinden SQL Server (olmayan SQL Server Compact) kullanılabilir kullanan bir ASP.NET web uygulaması yapılacağını gösterir..."
+description: Bu öğretici seri t dağıtarak internet üzerinden SQL Server (olmayan SQL Server Compact) kullanılabilir kullanan bir ASP.NET web uygulaması yapılacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568866"
 ---
 <a name="aspnet-web-deployment-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web dağıtımı
 ====================

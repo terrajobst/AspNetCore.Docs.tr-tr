@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888620"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Yeni bir kayıt (C#) eklerken bir dosyayı karşıya yükleme seçeneği de dahil olmak üzere
 ====================

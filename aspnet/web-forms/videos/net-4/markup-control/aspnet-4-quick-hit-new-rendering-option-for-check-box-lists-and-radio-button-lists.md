@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884736"
 ---
 <a name="aspnet-4-quick-hit--new-rendering-option-for-check-box-lists-and-radio-button-lists"></a>"Hızlı isabet yeni seçenek onay kutusunu listeler ve radyo düğmesi için işleme" – ASP.NET 4 listeler
 ====================

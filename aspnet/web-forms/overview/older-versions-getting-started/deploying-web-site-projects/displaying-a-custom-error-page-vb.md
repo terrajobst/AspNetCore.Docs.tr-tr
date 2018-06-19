@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889169"
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Bir özel hata sayfası (VB) görüntüleme
 ====================

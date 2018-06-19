@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30867989"
 ---
 <a name="adding-a-create-method-and-create-view"></a>Ekleme bir yöntem ve görünüm oluşturun
 ====================

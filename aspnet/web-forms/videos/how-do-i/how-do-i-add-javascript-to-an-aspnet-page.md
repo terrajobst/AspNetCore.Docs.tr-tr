@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
-title: "[Nasıl stop yaparım] JavaScript için bir ASP.NET sayfası ekleme | Microsoft Docs"
+title: '[Nasıl stop yaparım] JavaScript için bir ASP.NET sayfası ekleme | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels JavaScript daha zengin ve daha güçlü bir kullanıcı deneyimi sağlamak için istemci sayfasında kullanmak için bir ASP.NET sayfası dahil etmek nasıl yapacağınızı gösterir..."
+description: Bu videoda Chris Pels JavaScript daha zengin ve daha güçlü bir kullanıcı deneyimi sağlamak için istemci sayfasında kullanmak için bir ASP.NET sayfası dahil etmek nasıl yapacağınızı gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571971"
 ---
 <a name="how-do-i-add-javascript-to-an-aspnet-page"></a>[Nasıl stop yaparım] JavaScript için bir ASP.NET sayfası Ekle
 ====================

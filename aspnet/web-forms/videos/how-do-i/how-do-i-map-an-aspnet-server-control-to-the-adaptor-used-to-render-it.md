@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
-title: "[Nasıl stop yaparım] Bir ASP.NET sunucu denetimi oluşturmak için kullanılan bağdaştırıcıya eşleme | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir ASP.NET sunucu denetimi oluşturmak için kullanılan bağdaştırıcıya eşleme | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels bir denetim bağdaştırıcısı c değiştirmeden farklı renderings için bir ASP.NET sunucu denetimini sağlamak için nasıl kullanılacağı gösterilir..."
+description: Bu video Chris Pels bir denetim bağdaştırıcısı c değiştirmeden farklı renderings için bir ASP.NET sunucu denetimini sağlamak için nasıl kullanılacağı gösterilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572124"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[Nasıl stop yaparım] Harita oluşturmak için kullanılan bağdaştırıcısı için bir ASP.NET sunucu denetimi
 ====================

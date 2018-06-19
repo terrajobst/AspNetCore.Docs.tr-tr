@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884840"
 ---
 <a name="how-to-create-table-specific-custom-forms-in-an-aspnet-dynamic-data-application"></a>ASP.NET dinamik veri uygulamada tablo belirli özel formlar oluşturma
 ====================

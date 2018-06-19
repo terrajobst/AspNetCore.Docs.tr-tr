@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888376"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>GridView'ın altbilginin (VB) yeni bir kayıt ekleme
 ====================

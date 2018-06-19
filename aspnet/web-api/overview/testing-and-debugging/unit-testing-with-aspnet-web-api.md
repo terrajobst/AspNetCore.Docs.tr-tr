@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: Birim testi ASP.NET Web API 2 | Microsoft Docs
 author: tfitzmac
-description: "Bu yönerge ve uygulama, Web API 2 uygulamanız için basit birim testleri oluşturmak nasıl ekleyebileceğiniz gösterilmektedir. Bu öğretici, bir birim testi proj dahil gösterilmektedir..."
+description: Bu yönerge ve uygulama, Web API 2 uygulamanız için basit birim testleri oluşturmak nasıl ekleyebileceğiniz gösterilmektedir. Bu öğretici, bir birim testi proj dahil gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/05/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042751"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>Birim testi ASP.NET Web API 2
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877781"
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application-4-of-10"></a>Bir ASP.NET MVC uygulaması (10 4) daha karmaşık bir veri modeli oluşturma
 ====================

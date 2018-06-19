@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 381c1a5cecee945559ea0dabd0aa086c8d52b43a
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: c6d362cf15b5d4611f0e544c5092a18f32ed7dfc
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729174"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819051"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core Ara
 
@@ -197,7 +197,8 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar ek
 | [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri aramalar için. |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenleri önce. |
 | [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Hatalar oluşturur bileşenlerini önce. |
-| [İletilen üstbilgileri/HTTP geçersiz kılmaları](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, ClientIP, yöntem). |
+| [İletilen üstbilgileri](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, istemci IP yöntemi). |
+| [HTTP yöntemini geçersiz kılma](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Yöntemini geçersiz kılmak gelen bir POST isteği sağlar. | Consume güncelleştirilmiş yöntemi bileşenleri önce. |
 | [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini yeniden yönlendir HTTPS (ASP.NET Core 2.1 veya sonrası). | URL tüketen bileşenleri önce. |
 | [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Bir özel yanıt üst bilgisi (ASP.NET Core 2.1 veya sonrası) eklediği güvenlik geliştirme ara yazılımı. | Yanıtları gönderilmeden önce ve sonra değiştirme isteklerini (örneğin, iletilen üst bilgiler, URL yeniden yazma işlemi) bileşenleri. |
 | [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. | Önbelleğe alma gerektiren bileşenler önce. |

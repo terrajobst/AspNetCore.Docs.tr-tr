@@ -12,11 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
-ms.translationtype: HT
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34473213"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Web dağıtımı için yayımlama (Uzak Aracı) bir Web sunucusu yapılandırma
 ====================
@@ -217,7 +218,7 @@ Sunucunuza, herhangi bir web paket dağıtmayı denemeden önce son bir görev o
 
 Varsayılan olarak, uzaktan Aracı hizmeti bu URL'de TCP bağlantı noktası 80 üzerinde dinler:
 
-http:// [<em>sunucu adı</em>] / MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 Çoğu durumda, web sunucuları genellikle bağlantı noktası 80 üzerinde HTTP isteklerini dinlemek için uzaktan Aracı hizmeti için herhangi bir ek güvenlik duvarı kuralı yapılandırmanız gerekmez. Standart olmayan bir bağlantı noktasında dinleyecek şekilde yüklemenizi özelleştirdiyseniz, güvenlik duvarı özel durumlarını gerektiği şekilde yapılandırmanız gerekir.
 

@@ -4,16 +4,18 @@ author: ardalis
 description: Dağıtılmış ASP.NET Core uygulama performans ve ölçeklenebilirlik, özellikle bir bulut veya sunucu grubu ortamında artırmak için önbelleğe alma kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
+ms.custom: mvc
 ms.date: 02/14/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: c40209e3b3f2b5bf28450bb2a88cbe40e9e23230
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 6c595572641604d241c0c8f702d4f392afe34f71
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734464"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>ASP.NET Core dağıtılmış önbelleğinde ile çalışma
 
@@ -73,13 +75,13 @@ Kullanılacak `IDistributedCache` arabirimi:
 
 Aşağıdaki örnek, bir örneğini kullanması gösterilmiştir `IDistributedCache` basit ara yazılım bileşeni içinde:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
 
 Yukarıdaki kod önbelleğe alınan değer okuma, ancak hiçbir zaman yazılır. Bu örnekte, bir sunucu başlatıldığında ve değişmez değer yalnızca ayarlanır. Çok sunuculu bir senaryoda, diğer sunucular tarafından ayarlanan herhangi bir önceki değeri başlatmak için en son sunucu üzerine yazar. `Get` Ve `Set` yöntemleri kullanın `byte[]` türü. Bu nedenle, dize değeri kullanılarak dönüştürülmelidir `Encoding.UTF8.GetString` (için `Get`) ve `Encoding.UTF8.GetBytes` (için `Set`).
 
 Aşağıdaki kod *haline* ayarlanan değer gösterir:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
 
 > [!NOTE]
 > Bu yana `IDistributedCache` yapılandırılan `ConfigureServices` yöntemi, onu kullanılabilir `Configure` yöntemi bir parametre olarak. Parametre olarak eklenmesi dı sağlanacak yapılandırılmış örneği olanak tanır.
@@ -92,7 +94,7 @@ Redis uygulamasında yapılandırma `ConfigureServices` ve örneği isteyerek uy
 
 Örnek kodda bir `RedisCache` uygulama sunucusu için yapılandırıldığında kullanılır bir `Staging` ortamı. Bu nedenle `ConfigureStagingServices` yöntemi yapılandırır `RedisCache`:
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
 > Yerel makinenizde Redis yüklemek için chocolatey paketini Yükle [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
@@ -101,31 +103,42 @@ Redis uygulamasında yapılandırma `ConfigureServices` ve örneği isteyerek uy
 
 SqlServerCache uygulama, yedekleme deposu olarak bir SQL Server veritabanını kullanmak dağıtılmış önbellek sağlar. SQL sunucusu oluşturmak için belirttiğiniz adı ve şema ile sql önbellek aracı Aracı'nı kullanabilirsiniz Tablosu bir tablo oluşturur.
 
-Sql önbellek aracını kullanmak için add `SqlConfig.Tools` için `<ItemGroup>` öğesinin *.csproj* dosya ve dotnet geri yükleme çalıştırın.
+::: moniker range="< aspnetcore-2.1"
 
-[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+Ekleme `SqlConfig.Tools` için `<ItemGroup>` proje dosyası ve çalışma öğesi `dotnet restore`.
 
-Aşağıdaki komutu çalıştırarak SqlConfig.Tools test etme
+```xml
+<ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools" 
+                          Version="2.0.2" />
+</ItemGroup>
+```
 
-```none
-C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create --help
-   ```
+::: moniker-end
 
-"sql önbellek oluşturma" komutunu çalıştırarak sql Server'a tablolar oluşturabilirsiniz artık sql önbelleği aracı kullanımı, seçenekleri ve komut Yardım görüntülenir:
+Aşağıdaki komutu çalıştırarak SqlConfig.Tools test edin:
 
-```none
-C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
-   info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
-       Table and index were created successfully.
-   ```
+```console
+dotnet sql-cache create --help
+```
+
+SqlConfig.Tools kullanımı, seçenekleri ve komut Yardımı görüntüler.
+
+Çalıştırarak SQL Server'da bir tablo oluşturma `sql-cache create` komutu:
+
+```console
+dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
+info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
+Table and index were created successfully.
+```
 
 Oluşturulan tablonun aşağıdaki şema sahiptir:
 
 ![SqlServer önbelleği tablosu](distributed/_static/SqlServerCacheTable.png)
 
-Tüm önbellek uygulamaları gibi uygulamanız alma ve ayarlama örneği kullanarak önbellek değerleri `IDistributedCache`değil bir `SqlServerCache`. Örnek uygulayan `SqlServerCache` içinde `Production` ortam (olarak yapılandırıldığı şekilde `ConfigureProductionServices`).
+Tüm önbellek uygulamaları gibi uygulamanız alma ve ayarlama örneği kullanarak önbellek değerleri `IDistributedCache`değil bir `SqlServerCache`. Örnek uygulayan `SqlServerCache` üretim ortamında (olarak yapılandırıldığı şekilde `ConfigureProductionServices`).
 
-[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
 
 > [!NOTE]
 > `ConnectionString` (Ve isteğe bağlı olarak `SchemaName` ve `TableName`) kimlik bilgileri içerebilir gibi tipik olarak (örneğin, UserSecrets), kaynak denetimi dışında depolanması gerekir.

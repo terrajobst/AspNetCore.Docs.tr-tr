@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884421"
 ---
 <a name="how-do-i-create-nested-master-page-in-visual-studio-2008"></a>[Nasıl stop yaparım] Visual Studio 2008'de iç içe geçmiş ana sayfa oluşturma
 ====================

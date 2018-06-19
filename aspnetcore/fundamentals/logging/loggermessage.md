@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme"
+title: ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 author: guardrex
-description: "Yüksek performanslı günlük kaydı senaryoları için daha az nesne ayırmaları gerektiren alınabilir temsilciler oluşturmak için LoggerMessage kullanmayı öğrenin."
+description: Yüksek performanslı günlük kaydı senaryoları için daha az nesne ayırmaları gerektiren alınabilir temsilciler oluşturmak için LoggerMessage kullanmayı öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729200"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET Core LoggerMessage ile yüksek performanslı günlüğe kaydetme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) özellikler oluşturmak daha az nesne ayırmaları gerektiren ve hesaplama ek yükü daha azaltılmış alınabilir Temsilciler [Günlükçü genişletme yöntemleri](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), gibi `LogInformation`, `LogDebug`ve `LogError`. Yüksek performanslı günlük kaydı senaryoları için kullanmak `LoggerMessage` düzeni.
+[LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) özellikler oluşturmak daha az nesne ayırmaları gerektiren alınabilir Temsilciler ve azaltılmış hesaplama yükünü karşılaştırdığınızda [Günlükçü genişletme yöntemleri](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), gibi `LogInformation`, `LogDebug`, ve `LogError`. Yüksek performanslı günlük kaydı senaryoları için kullanmak `LoggerMessage` düzeni.
 
 `LoggerMessage` Günlükçü genişletme yöntemleri aşağıdaki performans avantajları sunar:
 
@@ -143,13 +144,9 @@ Tanımlayan bir [oturum kapsamı](xref:fundamentals/logging/index#log-scopes) g�
 
 Örnek uygulaması olan bir **Tümünü Temizle** tüm veritabanı tırnaklar silme düğmesi. Tırnak işaretleri bunları kaldırarak silinir birer birer. Bir teklif silinir, her zaman `QuoteDeleted` yöntemi, üzerinde Günlükçü çağrılır. Bir günlük kapsamı bu günlük iletilerini eklenir.
 
-Etkinleştirme `IncludeScopes` konsol Günlükçü seçenekleri:
+Etkinleştirme `IncludeScopes` konsol Günlükçü bölümündeki *appsettings.json*:
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-Ayarı `IncludeScopes` ASP.NET Core 2.0 uygulamalarında günlük kapsamları etkinleştirmek için gereklidir. Ayarı `IncludeScopes` aracılığıyla *appsettings* yapılandırma dosyaları için ASP.NET Core 2.1 yayın planladığını bir özelliktir.
-
-Örnek uygulama diğer sağlayıcıları temizler ve günlük çıktısı azaltmak için filtre ekler. Bu gösteren örnek ait günlük iletilerini görmek kolaylaştırır `LoggerMessage` özellikleri.
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 Bir günlük kapsamı oluşturmak için tutmak için bir alan ekleyebilmek bir `Func` kapsam için temsilci. Adlı bir alan örnek uygulaması oluşturur `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Günlüğe kaydetme](xref:fundamentals/logging/index)
