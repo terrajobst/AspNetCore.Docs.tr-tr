@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889494"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a><span data-ttu-id="e9da3-103">Web Forms Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4</span><span class="sxs-lookup"><span data-stu-id="e9da3-103">Getting Started with Entity Framework 4.0 Database First and ASP.NET 4 Web Forms</span></span>
 ====================

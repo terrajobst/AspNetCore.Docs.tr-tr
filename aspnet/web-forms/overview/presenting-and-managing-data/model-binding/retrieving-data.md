@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889101"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a><span data-ttu-id="ed870-104">Model bağlama ve web forms ile verilerini görüntüleme ve alma</span><span class="sxs-lookup"><span data-stu-id="ed870-104">Retrieving and displaying data with model binding and web forms</span></span>
 ====================

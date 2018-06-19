@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878106"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a><span data-ttu-id="cc433-104">Ekleme ve düğmelere GridView (VB) yanıt verme</span><span class="sxs-lookup"><span data-stu-id="cc433-104">Adding and Responding to Buttons to a GridView (VB)</span></span>
 ====================

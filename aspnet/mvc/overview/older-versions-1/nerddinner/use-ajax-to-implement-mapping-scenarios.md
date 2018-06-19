@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872721"
 ---
 <a name="use-ajax-to-implement-mapping-scenarios"></a><span data-ttu-id="38d14-103">AJAX senaryolarında eşleme uygulamak için kullanın</span><span class="sxs-lookup"><span data-stu-id="38d14-103">Use AJAX to Implement Mapping Scenarios</span></span>
 ====================

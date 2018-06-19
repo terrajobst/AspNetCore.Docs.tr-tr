@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882123"
 ---
 <a name="how-do-i-get-started-with-aspnet-ajax"></a><span data-ttu-id="c45c4-104">[Nasıl stop yaparım] ASP.NET AJAX ile çalışmaya başlama?</span><span class="sxs-lookup"><span data-stu-id="c45c4-104">[How Do I:] Get Started with ASP.NET AJAX?</span></span>
 ====================

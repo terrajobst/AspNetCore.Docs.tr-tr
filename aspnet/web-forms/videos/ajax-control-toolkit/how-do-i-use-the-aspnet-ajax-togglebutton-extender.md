@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885984"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-togglebutton-extender"></a><span data-ttu-id="c64ac-104">[Nasıl stop yaparım] ASP.NET AJAX ToggleButton genişletici kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="c64ac-104">[How Do I:] Use the ASP.NET AJAX ToggleButton Extender?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888529"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a><span data-ttu-id="f5584-104">Hata ayrıntılarını günlüğü ASP.NET Durum İzleme (C#)</span><span class="sxs-lookup"><span data-stu-id="f5584-104">Logging Error Details with ASP.NET Health Monitoring (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877768"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a><span data-ttu-id="ee9fb-104">Türü belirtilmiş veri kümesi'nin TableAdapters (VB) için saklı yordamlar yeni oluşturma</span><span class="sxs-lookup"><span data-stu-id="ee9fb-104">Creating New Stored Procedures for the Typed DataSet's TableAdapters (VB)</span></span>
 ====================

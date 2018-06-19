@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886829"
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a><span data-ttu-id="73436-104">Filtre veri için sorgu dizesi değerlerini model bağlama ve web forms ile kullanma</span><span class="sxs-lookup"><span data-stu-id="73436-104">Using query string values to filter data with model binding and web forms</span></span>
 ====================

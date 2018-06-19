@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874401"
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a><span data-ttu-id="ad55f-104">ASP.NET MVC farklı sürümleri IIS (C#) ile kullanma</span><span class="sxs-lookup"><span data-stu-id="ad55f-104">Using ASP.NET MVC with Different Versions of IIS (C#)</span></span>
 ====================

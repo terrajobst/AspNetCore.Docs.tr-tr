@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887648"
 ---
 <a name="using-basic-forms-authentication-in-aspnet"></a><span data-ttu-id="aaf30-104">ASP.NET temel form kimlik doğrulaması kullanma</span><span class="sxs-lookup"><span data-stu-id="aaf30-104">Using Basic Forms Authentication in ASP.NET</span></span>
 ====================

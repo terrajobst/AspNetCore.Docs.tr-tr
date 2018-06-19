@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: "ASP.NET Web API'de siteler arası istek sahtekarlığı (CSRF) saldırılarını önleme | Microsoft Docs"
+title: ASP.NET Web API'de siteler arası istek sahtekarlığı (CSRF) saldırılarını önleme | Microsoft Docs
 author: MikeWasson
-description: "Siteler arası istek sahtekarlığı (CSRF) saldırı ve ASP.NET Web API'de anti-CSRF önlemlerini açıklar."
+description: Siteler arası istek sahtekarlığı (CSRF) saldırı ve ASP.NET Web API'de anti-CSRF önlemlerini açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566751"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a><span data-ttu-id="018d2-103">ASP.NET Web API'de siteler arası istek sahtekarlığı (CSRF) saldırılarını önleme</span><span class="sxs-lookup"><span data-stu-id="018d2-103">Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API</span></span>
 ====================

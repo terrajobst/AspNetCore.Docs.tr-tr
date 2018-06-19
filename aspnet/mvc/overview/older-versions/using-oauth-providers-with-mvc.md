@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
-title: "OAuth sağlayıcılarıyla MVC 4 ile kullanma | Microsoft Docs"
+title: OAuth sağlayıcılarıyla MVC 4 ile kullanma | Microsoft Docs
 author: tfitzmac
-description: "Bu öğretici Facebo gibi harici bir sağlayıcıdan kimlik bilgilerinizle oturum açmalarını sağlar bir ASP.NET MVC 4 web uygulamasının nasıl oluşturulacağını gösterir..."
+description: Bu öğretici Facebo gibi harici bir sağlayıcıdan kimlik bilgilerinizle oturum açmalarını sağlar bir ASP.NET MVC 4 web uygulamasının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28033583"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a><span data-ttu-id="383e1-103">OAuth sağlayıcılarıyla MVC 4 ile kullanma</span><span class="sxs-lookup"><span data-stu-id="383e1-103">Using OAuth Providers with MVC 4</span></span>
 ====================

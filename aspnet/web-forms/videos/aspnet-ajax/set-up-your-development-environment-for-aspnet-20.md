@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882929"
 ---
 <a name="set-up-your-development-environment-for-aspnet-20"></a><span data-ttu-id="282b0-103">ASP.NET 2.0 için geliştirme ortamınızı ayarlayın</span><span class="sxs-lookup"><span data-stu-id="282b0-103">Set Up Your Development Environment for ASP.NET 2.0</span></span>
 ====================

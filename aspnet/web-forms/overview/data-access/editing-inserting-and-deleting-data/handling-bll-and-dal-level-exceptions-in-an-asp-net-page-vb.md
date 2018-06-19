@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886842"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a><span data-ttu-id="28a0f-103">Bir ASP.NET sayfası (VB) BLL ve DAL düzeyi özel durumları işleme</span><span class="sxs-lookup"><span data-stu-id="28a0f-103">Handling BLL- and DAL-Level Exceptions in an ASP.NET Page (VB)</span></span>
 ====================

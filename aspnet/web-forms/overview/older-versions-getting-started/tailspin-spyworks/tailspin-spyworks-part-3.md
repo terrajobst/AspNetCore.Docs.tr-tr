@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882094"
 ---
 <a name="part-3-layout-and-category-menu"></a><span data-ttu-id="02b67-104">3. Kısım: Düzeni ve kategori menüsü</span><span class="sxs-lookup"><span data-stu-id="02b67-104">Part 3: Layout and Category Menu</span></span>
 ====================

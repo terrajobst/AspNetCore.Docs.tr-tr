@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879562"
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a><span data-ttu-id="c19d7-103">İlk kod geçişler ve ASP.NET MVC uygulamasındaki Entity Framework ile dağıtımı</span><span class="sxs-lookup"><span data-stu-id="c19d7-103">Code First Migrations and Deployment with the Entity Framework in an ASP.NET MVC Application</span></span>
 ====================

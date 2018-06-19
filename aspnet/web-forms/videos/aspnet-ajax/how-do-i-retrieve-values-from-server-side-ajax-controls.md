@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884814"
 ---
 <a name="how-do-i-retrieve-values-from-server-side-ajax-controls"></a><span data-ttu-id="d2fff-103">[Nasıl stop yaparım] Sunucu tarafı AJAX denetimlerden değerlerini alma</span><span class="sxs-lookup"><span data-stu-id="d2fff-103">[How Do I:] Retrieve Values From Server Side AJAX Controls</span></span>
 ====================

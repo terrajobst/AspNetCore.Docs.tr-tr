@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887323"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a><span data-ttu-id="3e8c7-103">Disk belleği rapor verilerini bir DataList ya da yineleyici denetimi (VB)</span><span class="sxs-lookup"><span data-stu-id="3e8c7-103">Paging Report Data in a DataList or Repeater Control (VB)</span></span>
 ====================

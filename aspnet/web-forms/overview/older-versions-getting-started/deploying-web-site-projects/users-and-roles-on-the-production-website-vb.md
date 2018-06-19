@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886998"
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a><span data-ttu-id="e7e29-103">Kullanıcılar ve roller üretim Web sitesinde (VB)</span><span class="sxs-lookup"><span data-stu-id="e7e29-103">Users and Roles On The Production Website (VB)</span></span>
 ====================

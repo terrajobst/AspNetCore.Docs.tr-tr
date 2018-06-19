@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867973"
 ---
 <a name="creating-custom-routes-c"></a><span data-ttu-id="e9a32-104">Özel yollar oluşturma (C#)</span><span class="sxs-lookup"><span data-stu-id="e9a32-104">Creating Custom Routes (C#)</span></span>
 ====================

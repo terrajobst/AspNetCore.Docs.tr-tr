@@ -14,6 +14,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33965731"
 ---
 # <a name="views-in-aspnet-core-mvc"></a><span data-ttu-id="42a1d-103">ASP.NET Core MVC görünümlerde</span><span class="sxs-lookup"><span data-stu-id="42a1d-103">Views in ASP.NET Core MVC</span></span>
 

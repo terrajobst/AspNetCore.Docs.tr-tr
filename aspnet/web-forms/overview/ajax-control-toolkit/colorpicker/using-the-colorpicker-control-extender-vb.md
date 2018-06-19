@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874531"
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a><span data-ttu-id="bd0eb-104">ColorPicker denetim genişletici (VB) kullanma</span><span class="sxs-lookup"><span data-stu-id="bd0eb-104">Using the ColorPicker Control Extender (VB)</span></span>
 ====================

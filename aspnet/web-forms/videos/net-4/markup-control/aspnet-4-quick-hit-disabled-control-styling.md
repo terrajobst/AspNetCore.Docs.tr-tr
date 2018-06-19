@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882110"
 ---
 <a name="aspnet-4-quick-hit---disabled-control-styling"></a><span data-ttu-id="987b7-103">"Hızlı isabet" - devre dışı ASP.NET 4 denetim stil oluşturma</span><span class="sxs-lookup"><span data-stu-id="987b7-103">ASP.NET 4 "Quick Hit" - Disabled Control Styling</span></span>
 ====================

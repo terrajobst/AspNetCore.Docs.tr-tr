@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882201"
 ---
 <a name="how-do-i-get-started-with-the-entity-framework"></a><span data-ttu-id="d814c-103">[Nasıl stop yaparım] Entity Framework ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="d814c-103">[How Do I:] Get Started with the Entity Framework</span></span>
 ====================

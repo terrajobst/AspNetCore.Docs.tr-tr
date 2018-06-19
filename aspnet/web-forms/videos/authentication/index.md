@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/authentication/index
-title: "Kimlik doğrulama | Microsoft Docs"
+title: Kimlik doğrulama | Microsoft Docs
 author: rick-anderson
-description: "Uygulamak ve bir ASP.NET uygulamasında güvenlik (kimlik doğrulaması) yönetmek nasıl."
+description: Uygulamak ve bir ASP.NET uygulamasında güvenlik (kimlik doğrulaması) yönetmek nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570825"
 ---
 <a name="authentication"></a><span data-ttu-id="0590d-103">Kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="0590d-103">Authentication</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876559"
 ---
 <a name="owin-oauth-20-authorization-server"></a><span data-ttu-id="90a06-104">OWIN OAuth 2.0 yetkilendirme sunucusu</span><span class="sxs-lookup"><span data-stu-id="90a06-104">OWIN OAuth 2.0 Authorization Server</span></span>
 ====================

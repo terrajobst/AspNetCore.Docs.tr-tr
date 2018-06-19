@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885412"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a><span data-ttu-id="cd2e6-104">Sıralama, disk belleği ve model bağlama ve web forms ile verileri filtreleme</span><span class="sxs-lookup"><span data-stu-id="cd2e6-104">Sorting, paging, and filtering data with model binding and web forms</span></span>
 ====================

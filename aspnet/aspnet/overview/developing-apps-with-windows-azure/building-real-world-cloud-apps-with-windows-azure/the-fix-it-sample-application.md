@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876481"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="5d6d1-104">Ek: Düzeltme bu örnek uygulama (Azure ile gerçek bulut uygulamaları derleme)</span><span class="sxs-lookup"><span data-stu-id="5d6d1-104">Appendix: The Fix It Sample Application (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

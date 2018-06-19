@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883033"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a><span data-ttu-id="640c1-104">Ana/ayrıntı seçilebilir ana GridView ayrıntıları DetailView ile (C#) kullanarak</span><span class="sxs-lookup"><span data-stu-id="640c1-104">Master/Detail Using a Selectable Master GridView with a Details DetailView (C#)</span></span>
 ====================

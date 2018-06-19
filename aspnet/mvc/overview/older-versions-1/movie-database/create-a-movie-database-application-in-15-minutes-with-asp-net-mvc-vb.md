@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876208"
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a><span data-ttu-id="8d2ab-104">ASP.NET MVC (VB) ile 15 dakika içinde bir film veritabanı uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="8d2ab-104">Create a Movie Database Application in 15 Minutes with ASP.NET MVC (VB)</span></span>
 ====================

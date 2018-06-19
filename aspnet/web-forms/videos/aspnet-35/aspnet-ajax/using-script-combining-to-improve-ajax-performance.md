@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886803"
 ---
 <a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="cb6f3-103">AJAX performansı artırmak için komut dosyası birleştirme kullanma</span><span class="sxs-lookup"><span data-stu-id="cb6f3-103">Using Script Combining to improve AJAX performance</span></span>
 ====================

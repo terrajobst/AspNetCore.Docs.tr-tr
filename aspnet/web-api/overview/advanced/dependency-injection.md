@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: "ASP.NET Web API 2 bağımlılık ekleme | Microsoft Docs"
+title: ASP.NET Web API 2 bağımlılık ekleme | Microsoft Docs
 author: MikeWasson
-description: "Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları eklemesine gösterilmiştir. Eğitmen Web API 2 Unity uygulama bloğunda kullanılan yazılım sürümleri..."
+description: Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları eklemesine gösterilmiştir. Eğitmen Web API 2 Unity uygulama bloğunda kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036521"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a><span data-ttu-id="6ce9d-104">ASP.NET Web API 2 bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="6ce9d-104">Dependency Injection in ASP.NET Web API 2</span></span>
 ====================

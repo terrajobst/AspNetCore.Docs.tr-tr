@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885329"
 ---
 <a name="lesson-1-getting-started-with-visual-web-developer-express"></a><span data-ttu-id="5fb96-103">[Ders 1:] Visual ile çalışmaya başlama Web Developer Express</span><span class="sxs-lookup"><span data-stu-id="5fb96-103">[Lesson 1:] Getting Started with Visual Web Developer Express</span></span>
 ====================

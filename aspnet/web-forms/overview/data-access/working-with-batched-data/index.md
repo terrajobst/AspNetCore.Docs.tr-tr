@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: "Toplu verileri ile çalışma | Microsoft Docs"
+title: Toplu verileri ile çalışma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticileri, güncelleştirme, silme ve işlemleri kullanarak verileri toplu ekleme arayın."
+description: Bu öğreticileri, güncelleştirme, silme ve işlemleri kullanarak verileri toplu ekleme arayın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568734"
 ---
 <a name="working-with-batched-data"></a><span data-ttu-id="baa25-103">Toplu verileri ile çalışma</span><span class="sxs-lookup"><span data-stu-id="baa25-103">Working with Batched Data</span></span>
 ====================

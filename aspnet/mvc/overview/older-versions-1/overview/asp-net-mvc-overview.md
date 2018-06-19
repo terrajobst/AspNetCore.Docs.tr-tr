@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/asp-net-mvc-overview
-title: "ASP.NET MVC genel bakış | Microsoft Docs"
+title: ASP.NET MVC genel bakış | Microsoft Docs
 author: microsoft
-description: "ASP.NET MVC uygulaması ile ASP.NET Web Forms uygulamaları arasındaki farklar hakkında bilgi edinin. Bir ASP.NET MVC uygulaması derleme karar vermenize öğrenin."
+description: ASP.NET MVC uygulaması ile ASP.NET Web Forms uygulamaları arasındaki farklar hakkında bilgi edinin. Bir ASP.NET MVC uygulaması derleme karar vermenize öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564567"
 ---
 <a name="aspnet-mvc-overview"></a><span data-ttu-id="bc382-104">ASP.NET MVC genel bakış</span><span class="sxs-lookup"><span data-stu-id="bc382-104">ASP.NET MVC Overview</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet
-title: "Nasıl kullanırım ASP.NET IIS Kayıt Aracı ASP.NET yapılandırmak için | Microsoft Docs"
+title: Nasıl kullanırım ASP.NET IIS Kayıt Aracı ASP.NET yapılandırmak için | Microsoft Docs
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET IIS Kayıt Aracı ASP.NET yapılandırmak için nasıl kullanılacağını gösterir. İlk olarak, ASP.NET için dosya uzantıları nasıl eşlendiğini bkz..."
+description: Bu video Chris Pels ASP.NET IIS Kayıt Aracı ASP.NET yapılandırmak için nasıl kullanılacağını gösterir. İlk olarak, ASP.NET için dosya uzantıları nasıl eşlendiğini bkz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572073"
 ---
 <a name="how-do-i-use-the-aspnet-iis-registration-tool-to-configure-aspnet"></a><span data-ttu-id="8b4fd-104">ASP.NET IIS Kayıt Aracı ASP.NET yapılandırmak için nasıl kullanırım</span><span class="sxs-lookup"><span data-stu-id="8b4fd-104">How Do I Use the ASP.NET IIS Registration Tool to Configure ASP.NET</span></span>
 ====================

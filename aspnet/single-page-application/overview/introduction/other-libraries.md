@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872591"
 ---
 <a name="know-a-library-other-than-knockout"></a><span data-ttu-id="a3f4b-104">Bir kitaplık Boşaltılan dışında biliyor musunuz?</span><span class="sxs-lookup"><span data-stu-id="a3f4b-104">Know a library other than Knockout?</span></span>
 ====================

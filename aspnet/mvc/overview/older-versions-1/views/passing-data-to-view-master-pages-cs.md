@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869848"
 ---
 <a name="passing-data-to-view-master-pages-c"></a><span data-ttu-id="4d1cf-104">Görünüm ana sayfalar (C#) için veri geçirme</span><span class="sxs-lookup"><span data-stu-id="4d1cf-104">Passing Data to View Master Pages (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885503"
 ---
 <a name="how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax"></a><span data-ttu-id="5f201-104">[Nasıl stop yaparım] Veya ASP.NET AJAX olmadan çalışmak yapı özel sunucu denetimleri?</span><span class="sxs-lookup"><span data-stu-id="5f201-104">[How Do I:] Build Custom Server Controls that Work With or Without ASP.NET AJAX?</span></span>
 ====================

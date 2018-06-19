@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889062"
 ---
 <a name="multiple-contentplaceholders-and-default-content-c"></a><span data-ttu-id="473f6-103">Birden çok ContentPlaceHolders için ve varsayılan içerik (C#)</span><span class="sxs-lookup"><span data-stu-id="473f6-103">Multiple ContentPlaceHolders and Default Content (C#)</span></span>
 ====================

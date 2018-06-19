@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882864"
 ---
 <a name="how-do-i-create-an-aspnet-ajax-extender-from-scratch"></a><span data-ttu-id="d75ad-105">[Nasıl stop yaparım] ASP.NET AJAX genişletici sıfırdan oluşturulsun mu?</span><span class="sxs-lookup"><span data-stu-id="d75ad-105">[How Do I:] Create an ASP.NET AJAX Extender from Scratch?</span></span>
 ====================

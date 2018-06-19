@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/working-with-binary-files/index
-title: "İkili dosyaları ile çalışma | Microsoft Docs"
+title: İkili dosyaları ile çalışma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler bunlar klasörler veya veritabanında depolanabileceği sunucuya (örneğin, Word veya PDF belgesini) ikili dosyaları karşıya yükleme kullanıcıların izin verecek şekilde nasıl gösterir."
+description: Bu öğreticiler bunlar klasörler veya veritabanında depolanabileceği sunucuya (örneğin, Word veya PDF belgesini) ikili dosyaları karşıya yükleme kullanıcıların izin verecek şekilde nasıl gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568848"
 ---
 <a name="working-with-binary-files"></a><span data-ttu-id="2b588-103">İkili dosyalarıyla çalışma</span><span class="sxs-lookup"><span data-stu-id="2b588-103">Working with Binary Files</span></span>
 ====================

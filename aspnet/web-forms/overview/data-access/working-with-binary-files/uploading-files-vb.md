@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30888103"
 ---
 <a name="uploading-files-vb"></a><span data-ttu-id="c3fc4-103">Dosyalar (VB)</span><span class="sxs-lookup"><span data-stu-id="c3fc4-103">Uploading Files (VB)</span></span>
 ====================

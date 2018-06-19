@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884242"
 ---
 <a name="migrating-from-classic-asp-to-aspnet"></a><span data-ttu-id="ddd22-104">[Geçiş] ASP.NET için Klasik ASP</span><span class="sxs-lookup"><span data-stu-id="ddd22-104">[Migrating from] Classic ASP to ASP.NET</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887700"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a><span data-ttu-id="f67bf-104">Üretim Web uygulamanızı üretim veritabanını (C#) kullanacak şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="f67bf-104">Configuring the Production Web Application to Use the Production Database (C#)</span></span>
 ====================

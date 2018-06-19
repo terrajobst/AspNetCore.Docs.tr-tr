@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879744"
 ---
 <a name="dynamically-populating-a-control-vb"></a><span data-ttu-id="3810a-103">Bir denetim (VB) dinamik olarak doldurma</span><span class="sxs-lookup"><span data-stu-id="3810a-103">Dynamically Populating a Control (VB)</span></span>
 ====================

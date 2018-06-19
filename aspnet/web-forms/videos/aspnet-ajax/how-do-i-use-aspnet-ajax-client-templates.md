@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886348"
 ---
 <a name="how-do-i-use-aspnet-ajax-client-templates"></a><span data-ttu-id="bce95-104">Nasıl Yaparım Kullanım ASP.NET AJAX istemci şablonları</span><span class="sxs-lookup"><span data-stu-id="bce95-104">How Do I: Use ASP.NET AJAX Client Templates</span></span>
 ====================

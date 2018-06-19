@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887879"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a><span data-ttu-id="fd2f0-104">Kullanıcıya (VB) bağlı bir sınırlama veri değişikliği işlevi</span><span class="sxs-lookup"><span data-stu-id="fd2f0-104">Limiting Data Modification Functionality Based on the User (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30880368"
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a><span data-ttu-id="6f2bd-104">Dağıtım destekleyen bir yapı tanımı oluşturma</span><span class="sxs-lookup"><span data-stu-id="6f2bd-104">Creating a Build Definition That Supports Deployment</span></span>
 ====================

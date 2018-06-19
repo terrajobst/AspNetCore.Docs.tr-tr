@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886933"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a><span data-ttu-id="0ba30-103">Veri Web denetimleri (VB) ikili verileri görüntüleme</span><span class="sxs-lookup"><span data-stu-id="0ba30-103">Displaying Binary Data in the Data Web Controls (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879640"
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a><span data-ttu-id="e1722-104">Geri göndermeler bir UpdatePanel (C#) ile açılan kontrolü işleme</span><span class="sxs-lookup"><span data-stu-id="e1722-104">Handling Postbacks from A Popup Control With an UpdatePanel (C#)</span></span>
 ====================

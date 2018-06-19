@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888077"
 ---
 <a name="urls-in-master-pages-vb"></a><span data-ttu-id="5677f-104">Ana sayfalar (VB) URL'leri</span><span class="sxs-lookup"><span data-stu-id="5677f-104">URLs in Master Pages (VB)</span></span>
 ====================

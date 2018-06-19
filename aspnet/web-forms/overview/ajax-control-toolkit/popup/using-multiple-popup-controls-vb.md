@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869328"
 ---
 <a name="using-multiple-popup-controls-vb"></a><span data-ttu-id="f0c5f-104">Birden çok açılan denetimler (VB) kullanma</span><span class="sxs-lookup"><span data-stu-id="f0c5f-104">Using Multiple Popup Controls (VB)</span></span>
 ====================

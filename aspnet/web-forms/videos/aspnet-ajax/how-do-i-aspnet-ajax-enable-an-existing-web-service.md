@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880742"
 ---
 <a name="how-do-i-aspnet-ajax-enable-an-existing-web-service"></a><span data-ttu-id="57d22-105">[Nasıl stop yaparım] ASP.NET AJAX var olan bir Web hizmetini etkinleştirilsin mi?</span><span class="sxs-lookup"><span data-stu-id="57d22-105">[How Do I:] ASP.NET AJAX Enable an Existing Web Service?</span></span>
 ====================

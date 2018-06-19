@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881155"
 ---
 <a name="how-do-i-perform-group-and-aggregate-queries"></a><span data-ttu-id="d68a5-104">[Nasıl stop yaparım] Grup ve toplama sorguları gerçekleştirmek?</span><span class="sxs-lookup"><span data-stu-id="d68a5-104">[How Do I:] Perform Group and Aggregate Queries?</span></span>
 ====================

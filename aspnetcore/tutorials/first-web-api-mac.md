@@ -16,6 +16,7 @@ ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/09/2018
+ms.locfileid: "33923210"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a><span data-ttu-id="c9943-103">Mac için ASP.NET Core ve Visual Studio ile Web API oluşturma</span><span class="sxs-lookup"><span data-stu-id="c9943-103">Create a Web API with ASP.NET Core and Visual Studio for Mac</span></span>
 

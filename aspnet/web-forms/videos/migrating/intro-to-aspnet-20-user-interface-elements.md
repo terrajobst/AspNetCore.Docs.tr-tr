@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883943"
 ---
 <a name="intro-to-aspnet-20-user-interface-elements"></a><span data-ttu-id="b2434-103">[ASP.NET 2.0 giriş:] Kullanıcı arabirimi öğeleri</span><span class="sxs-lookup"><span data-stu-id="b2434-103">[Intro to ASP.NET 2.0:] User Interface Elements</span></span>
 ====================

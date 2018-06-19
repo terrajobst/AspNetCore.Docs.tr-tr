@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873618"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a><span data-ttu-id="fb3ad-104">SMS ve e-posta iki öğeli kimlik doğrulama ile ASP.NET MVC 5 uygulaması</span><span class="sxs-lookup"><span data-stu-id="fb3ad-104">ASP.NET MVC 5 app with SMS and email Two-Factor Authentication</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886452"
 ---
 <a name="how-do-i-handle-business-logic-exceptions"></a><span data-ttu-id="0e47c-105">Nasıl yedeklerim iş mantığı özel durumları işlemek?</span><span class="sxs-lookup"><span data-stu-id="0e47c-105">How do I Handle Business Logic Exceptions?</span></span>
 ====================

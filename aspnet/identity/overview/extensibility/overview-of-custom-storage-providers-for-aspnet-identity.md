@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876806"
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a><span data-ttu-id="6a5cc-103">ASP.NET kimliği için özel depolama sağlayıcıları genel bakış</span><span class="sxs-lookup"><span data-stu-id="6a5cc-103">Overview of Custom Storage Providers for ASP.NET Identity</span></span>
 ====================

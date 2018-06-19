@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870706"
 ---
 <a name="executing-animations-using-client-side-code-vb"></a><span data-ttu-id="6eeab-104">İstemci tarafı kodlar (VB) kullanarak animasyonları yürütme</span><span class="sxs-lookup"><span data-stu-id="6eeab-104">Executing Animations Using Client-Side Code (VB)</span></span>
 ====================

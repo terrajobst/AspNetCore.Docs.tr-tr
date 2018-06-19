@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892328"
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a><span data-ttu-id="c1c44-103">Senaryo: Web dağıtımı için hazırlama ortamını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="c1c44-103">Scenario: Configuring a Staging Environment for Web Deployment</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882370"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a><span data-ttu-id="aefa8-105">My alanlarını nasıl işle nasıl değiştiririm?</span><span class="sxs-lookup"><span data-stu-id="aefa8-105">How do I Change how my Fields render?</span></span>
 ====================

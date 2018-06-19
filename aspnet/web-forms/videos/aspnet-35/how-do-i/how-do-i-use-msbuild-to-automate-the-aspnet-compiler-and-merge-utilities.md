@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885547"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a><span data-ttu-id="729b4-103">[Nasıl stop yaparım] MSBuild ASP.NET derleyicisi otomatikleştirmek için kullanın ve yardımcı programları birleştirme</span><span class="sxs-lookup"><span data-stu-id="729b4-103">[How Do I:] Use MSBuild to Automate the ASP.NET Compiler and Merge Utilities</span></span>
 ====================

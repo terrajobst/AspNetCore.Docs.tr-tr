@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882471"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a><span data-ttu-id="d11b8-103">Web Farm Framework ile bir sunucu grubu oluşturma</span><span class="sxs-lookup"><span data-stu-id="d11b8-103">Creating a Server Farm with the Web Farm Framework</span></span>
 ====================

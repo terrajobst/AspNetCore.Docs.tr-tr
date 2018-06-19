@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876910"
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a><span data-ttu-id="a0e91-104">GridView denetiminde (VB) TemplateFields kullanma</span><span class="sxs-lookup"><span data-stu-id="a0e91-104">Using TemplateFields in the GridView Control (VB)</span></span>
 ====================

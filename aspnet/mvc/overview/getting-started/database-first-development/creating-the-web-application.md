@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878782"
 ---
 <a name="ef-database-first-with-aspnet-mvc-creating-the-web-application-and-data-models"></a><span data-ttu-id="47c5a-104">EF veritabanıyla ilk ASP.NET MVC: veri modelleri ve Web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="47c5a-104">EF Database First with ASP.NET MVC: Creating the Web Application and Data Models</span></span>
 ====================

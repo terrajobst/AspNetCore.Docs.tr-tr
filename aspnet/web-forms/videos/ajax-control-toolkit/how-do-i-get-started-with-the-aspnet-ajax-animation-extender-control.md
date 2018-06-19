@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880630"
 ---
 <a name="how-do-i-get-started-with-the-aspnet-ajax-animation-extender-control"></a><span data-ttu-id="5866e-104">[Nasıl stop yaparım] ASP.NET AJAX animasyon genişletici denetimi ile çalışmaya başlama?</span><span class="sxs-lookup"><span data-stu-id="5866e-104">[How Do I:] Get Started with the ASP.NET AJAX Animation Extender Control?</span></span>
 ====================

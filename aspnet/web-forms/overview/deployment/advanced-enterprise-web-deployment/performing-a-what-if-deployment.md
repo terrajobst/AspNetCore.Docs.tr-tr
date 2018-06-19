@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879991"
 ---
 <a name="performing-a-what-if-deployment"></a><span data-ttu-id="4a092-103">"," Dağıtım gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="4a092-103">Performing a "What If" Deployment</span></span>
 ====================

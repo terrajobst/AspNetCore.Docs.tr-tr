@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882770"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-tabs-control"></a><span data-ttu-id="00d3a-104">[Nasıl stop yaparım] ASP.NET AJAX sekme denetimi kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="00d3a-104">[How Do I:] Use the ASP.NET AJAX Tabs Control?</span></span>
 ====================

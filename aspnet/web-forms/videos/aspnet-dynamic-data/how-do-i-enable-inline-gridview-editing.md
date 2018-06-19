@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883631"
 ---
 <a name="how-do-i-enable-inline-gridview-editing"></a><span data-ttu-id="76e0f-105">Satır içi düzenleme GridView nasıl etkinleştirebilirim?</span><span class="sxs-lookup"><span data-stu-id="76e0f-105">How Do I Enable Inline GridView Editing?</span></span>
 ====================

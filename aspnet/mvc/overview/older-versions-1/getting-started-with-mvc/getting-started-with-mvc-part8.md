@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30879263"
 ---
 <a name="adding-a-column-to-the-model"></a><span data-ttu-id="93252-104">Modele bir sütun ekleme</span><span class="sxs-lookup"><span data-stu-id="93252-104">Adding a Column to the Model</span></span>
 ====================

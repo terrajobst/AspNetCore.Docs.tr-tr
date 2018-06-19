@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878574"
 ---
 <a name="animation-depending-on-a-condition-c"></a><span data-ttu-id="5cac6-104">Animasyon bağlı olarak bir koşul (C#)</span><span class="sxs-lookup"><span data-stu-id="5cac6-104">Animation Depending On a Condition (C#)</span></span>
 ====================

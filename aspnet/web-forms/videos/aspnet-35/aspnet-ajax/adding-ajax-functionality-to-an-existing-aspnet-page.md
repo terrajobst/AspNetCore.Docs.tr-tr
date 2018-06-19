@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885873"
 ---
 <a name="adding-ajax-functionality-to-an-existing-aspnet-page"></a><span data-ttu-id="8d458-104">Mevcut bir ASP.NET sayfası AJAX işlevsellik ekleme</span><span class="sxs-lookup"><span data-stu-id="8d458-104">Adding AJAX Functionality to an Existing ASP.NET Page</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885903"
 ---
 <a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a><span data-ttu-id="a381e-104">[Nasıl stop yaparım] XML IntelliSense'i etkinleştirme ve XML ad alanları kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="a381e-104">[How Do I:] Enable XML IntelliSense and Use XML Namespaces?</span></span>
 ====================

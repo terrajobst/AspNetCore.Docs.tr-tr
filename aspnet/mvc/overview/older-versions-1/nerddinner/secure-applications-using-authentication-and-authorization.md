@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874388"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a><span data-ttu-id="769cf-103">Güvenli kimlik doğrulama ve yetkilendirme kullanarak uygulamaları</span><span class="sxs-lookup"><span data-stu-id="769cf-103">Secure Applications Using Authentication and Authorization</span></span>
 ====================

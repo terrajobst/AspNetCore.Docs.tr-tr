@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: "[Nasıl stop yaparım] Ana ve içerik sayfaları olayları işlemek | Microsoft Docs"
+title: '[Nasıl stop yaparım] Ana ve içerik sayfaları olayları işlemek | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda, Chris Pels olayları ana ve tek tek içerik sayfalarında nasıl işlendiğini gösterir. Olsa bile bir ana ve tek tek ğlamda nihai sonucu..."
+description: Bu videoda, Chris Pels olayları ana ve tek tek içerik sayfalarında nasıl işlendiğini gösterir. Olsa bile bir ana ve tek tek ğlamda nihai sonucu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572106"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a><span data-ttu-id="8e819-104">[Nasıl stop yaparım] Ana ve içerik sayfaları olayları işleme</span><span class="sxs-lookup"><span data-stu-id="8e819-104">[How Do I:] Handle Events in Master and Content Pages</span></span>
 ====================

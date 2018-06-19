@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879146"
 ---
 <a name="databinding-the-slider-control-vb"></a><span data-ttu-id="992a4-104">Veri bağlama (VB) kaydırıcı denetimi</span><span class="sxs-lookup"><span data-stu-id="992a4-104">Databinding the Slider Control (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881044"
 ---
 <a name="adding-users-to-your-membership-system"></a><span data-ttu-id="27ba8-103">Kullanıcı, üyelik sistemi ekleme</span><span class="sxs-lookup"><span data-stu-id="27ba8-103">Adding Users to Your Membership System</span></span>
 ====================

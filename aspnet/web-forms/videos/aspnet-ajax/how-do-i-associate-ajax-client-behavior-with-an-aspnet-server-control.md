@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881899"
 ---
 <a name="how-do-i-associate-ajax-client-behavior-with-an-aspnet-server-control"></a><span data-ttu-id="0b0ae-105">[Nasıl stop yaparım] AJAX istemci davranışını ASP.NET sunucu denetimi ile ilişkilendirmek?</span><span class="sxs-lookup"><span data-stu-id="0b0ae-105">[How Do I:] Associate AJAX Client Behavior with an ASP.NET Server Control?</span></span>
 ====================

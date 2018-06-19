@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884408"
 ---
 <a name="creating-inactive-users"></a><span data-ttu-id="208b1-103">Etkin olmayan kullanıcılar oluşturma</span><span class="sxs-lookup"><span data-stu-id="208b1-103">Creating Inactive Users</span></span>
 ====================

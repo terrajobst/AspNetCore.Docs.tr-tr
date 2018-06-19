@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880875"
 ---
 <a name="implement-the-registration-verification-pattern"></a><span data-ttu-id="239cb-103">Kayıt doğrulama düzeni uygulama</span><span class="sxs-lookup"><span data-stu-id="239cb-103">Implement the Registration Verification Pattern</span></span>
 ====================

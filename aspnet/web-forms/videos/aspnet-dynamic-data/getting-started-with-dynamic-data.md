@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883573"
 ---
 <a name="getting-started-with-dynamic-data"></a><span data-ttu-id="a82fc-103">Dinamik veri ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="a82fc-103">Getting Started with Dynamic Data</span></span>
 ====================

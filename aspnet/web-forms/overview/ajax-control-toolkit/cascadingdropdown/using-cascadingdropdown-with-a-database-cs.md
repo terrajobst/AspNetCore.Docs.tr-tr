@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879133"
 ---
 <a name="using-cascadingdropdown-with-a-database-c"></a><span data-ttu-id="42021-103">CascadingDropDown kullanarak bir veritabanıyla (C#)</span><span class="sxs-lookup"><span data-stu-id="42021-103">Using CascadingDropDown with a Database (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883365"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-accordion-control"></a><span data-ttu-id="5bac9-104">[Nasıl stop yaparım] ASP.NET AJAX Accordion denetimi kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="5bac9-104">[How Do I:] Use the ASP.NET AJAX Accordion Control?</span></span>
 ====================

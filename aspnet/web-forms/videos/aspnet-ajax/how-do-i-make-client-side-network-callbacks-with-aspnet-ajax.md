@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882994"
 ---
 <a name="how-do-i-make-client-side-network-callbacks-with-aspnet-ajax"></a><span data-ttu-id="57ba1-105">[Nasıl stop yaparım] İstemci-tarafı ağ geri aramalar ASP.NET AJAX ile yapılsın mı?</span><span class="sxs-lookup"><span data-stu-id="57ba1-105">[How Do I:] Make Client-Side Network Callbacks with ASP.NET AJAX?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876754"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a><span data-ttu-id="9952f-103">CRUD sağlayın (oluşturma, okuma, güncelleştirme, silme) veri Form girişi desteği</span><span class="sxs-lookup"><span data-stu-id="9952f-103">Provide CRUD (Create, Read, Update, Delete) Data Form Entry Support</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887431"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a><span data-ttu-id="30311-104">Bir ASP.NET Web oluşturmak Forms uygulamayla SMS iki faktörlü kimlik doğrulaması (C#)</span><span class="sxs-lookup"><span data-stu-id="30311-104">Create an ASP.NET Web Forms app with SMS Two-Factor Authentication (C#)</span></span>
 ====================

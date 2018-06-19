@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880173"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a><span data-ttu-id="7293a-103">Onay kutularını (C#) bir GridView sütun ekleme</span><span class="sxs-lookup"><span data-stu-id="7293a-103">Adding a GridView Column of Checkboxes (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886735"
 ---
 <a name="how-to-use-attribute-validation-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="1c71f-103">ASP.NET dinamik veri uygulamalarda özniteliği doğrulama kullanma</span><span class="sxs-lookup"><span data-stu-id="1c71f-103">How to Use Attribute Validation in ASP.NET Dynamic Data Applications</span></span>
 ====================

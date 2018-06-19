@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
-title: "Bir ASP.NET MVC 5 uygulama yaşam döngüsü | Microsoft Docs"
+title: Bir ASP.NET MVC 5 uygulama yaşam döngüsü | Microsoft Docs
 author: cephalin
-description: "Bir ASP.NET MVC 5 uygulama yaşam döngüsü grafikleri bir PDF belgesini indirin. Bu yaşam döngüsü belge MVC yaşam döngüsü üst düzey bir görünümünü sunan bir..."
+description: Bir ASP.NET MVC 5 uygulama yaşam döngüsü grafikleri bir PDF belgesini indirin. Bu yaşam döngüsü belge MVC yaşam döngüsü üst düzey bir görünümünü sunan bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/28/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036498"
 ---
 <a name="lifecycle-of-an-aspnet-mvc-5-application"></a><span data-ttu-id="78fb0-104">Bir ASP.NET MVC 5 uygulama yaşam döngüsü</span><span class="sxs-lookup"><span data-stu-id="78fb0-104">Lifecycle of an ASP.NET MVC 5 Application</span></span>
 ====================

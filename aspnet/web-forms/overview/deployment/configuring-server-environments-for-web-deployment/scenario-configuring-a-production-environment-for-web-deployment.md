@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882952"
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a><span data-ttu-id="a5cfe-103">Senaryo: bir üretim ortamı için Web dağıtımı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="a5cfe-103">Scenario: Configuring a Production Environment for Web Deployment</span></span>
 ====================

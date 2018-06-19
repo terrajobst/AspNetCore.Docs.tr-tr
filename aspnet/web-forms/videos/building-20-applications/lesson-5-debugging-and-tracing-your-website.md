@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881928"
 ---
 <a name="lesson-5-debugging-and-tracing-your-website"></a><span data-ttu-id="a8e6d-103">[Ders 5:] Hata ayıklama ve Web sitenizi izleme</span><span class="sxs-lookup"><span data-stu-id="a8e6d-103">[Lesson 5:] Debugging and Tracing Your Website</span></span>
 ====================

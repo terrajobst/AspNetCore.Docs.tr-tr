@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881070"
 ---
 <a name="part-4-listing-products"></a><span data-ttu-id="e86da-104">4. Kısım: Listeleme ürünleri</span><span class="sxs-lookup"><span data-stu-id="e86da-104">Part 4: Listing Products</span></span>
 ====================

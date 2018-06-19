@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873803"
 ---
 <a name="improving-performance-with-output-caching-c"></a><span data-ttu-id="e4eb7-104">Çıktı önbelleği (C#) ile performansı iyileştirme</span><span class="sxs-lookup"><span data-stu-id="e4eb7-104">Improving Performance with Output Caching (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877209"
 ---
 <a name="working-with-computed-columns-vb"></a><span data-ttu-id="e7f84-103">Hesaplanan sütunlar (VB) ile çalışma</span><span class="sxs-lookup"><span data-stu-id="e7f84-103">Working with Computed Columns (VB)</span></span>
 ====================
