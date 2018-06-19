@@ -15,6 +15,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838442"
 ---
 # <a name="aspnet-core-directory-structure"></a><span data-ttu-id="c4c7a-103">ASP.NET Core dizin yapısı</span><span class="sxs-lookup"><span data-stu-id="c4c7a-103">ASP.NET Core directory structure</span></span>
 

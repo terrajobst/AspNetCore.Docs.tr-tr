@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890950"
 ---
 <a name="implementing-optimistic-concurrency-vb"></a><span data-ttu-id="eaaf7-104">İyimser eşzamanlılık (VB) uygulama</span><span class="sxs-lookup"><span data-stu-id="eaaf7-104">Implementing Optimistic Concurrency (VB)</span></span>
 ====================

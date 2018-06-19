@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core temelleri
 author: guardrex
-description: "ASP.NET Core yapı taşları kendi kodunuzda kullanabilirsiniz framework uzantıları tarafından paylaşılan makalelerini bulur."
+description: ASP.NET Core yapı taşları kendi kodunuzda kullanabilirsiniz framework uzantıları tarafından paylaşılan makalelerini bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 10/28/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882717"
 ---
 # <a name="primitives-in-aspnet-core"></a><span data-ttu-id="87833-103">ASP.NET Core temelleri</span><span class="sxs-lookup"><span data-stu-id="87833-103">Primitives in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891340"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a><span data-ttu-id="b6d1b-103">Üyelik kullanıcı deposu (VB) karşı kullanıcı kimlik bilgileri doğrulanıyor</span><span class="sxs-lookup"><span data-stu-id="b6d1b-103">Validating User Credentials Against the Membership User Store (VB)</span></span>
 ====================

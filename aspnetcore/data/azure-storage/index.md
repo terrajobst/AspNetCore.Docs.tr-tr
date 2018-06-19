@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071291"
 ---
 # <a name="azure-storage-in-aspnet-core"></a><span data-ttu-id="7d588-102">Azure depolama alanında ASP.NET Çekirdeği</span><span class="sxs-lookup"><span data-stu-id="7d588-102">Azure Storage in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892185"
 ---
 <a name="creating-user-accounts-c"></a><span data-ttu-id="01ff2-104">Kullanıcı hesapları oluşturma (C#)</span><span class="sxs-lookup"><span data-stu-id="01ff2-104">Creating User Accounts (C#)</span></span>
 ====================

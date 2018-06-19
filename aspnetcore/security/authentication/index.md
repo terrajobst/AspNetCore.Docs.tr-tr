@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core kimlik doğrulaması"
+title: ASP.NET Core kimlik doğrulaması
 author: rick-anderson
-description: "ASP.NET Core kimlik doğrulama teknolojileri için İlgili Konular'a bulur."
+description: ASP.NET Core kimlik doğrulama teknolojileri için İlgili Konular'a bulur.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903305"
 ---
 # <a name="authentication-in-aspnet-core"></a><span data-ttu-id="1f844-103">ASP.NET Core kimlik doğrulaması</span><span class="sxs-lookup"><span data-stu-id="1f844-103">Authentication in ASP.NET Core</span></span>
 

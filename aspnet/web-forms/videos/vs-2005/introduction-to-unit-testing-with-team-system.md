@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894060"
 ---
 <a name="introduction-to-unit-testing-with-team-system"></a><span data-ttu-id="26f4b-103">Birim testi Team System ile giriş</span><span class="sxs-lookup"><span data-stu-id="26f4b-103">Introduction to Unit Testing with Team System</span></span>
 ====================

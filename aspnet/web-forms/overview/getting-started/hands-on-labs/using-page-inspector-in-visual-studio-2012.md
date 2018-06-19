@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891249"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a><span data-ttu-id="52337-104">Visual Studio 2012'de sayfa denetçisi kullanma</span><span class="sxs-lookup"><span data-stu-id="52337-104">Using Page Inspector in Visual Studio 2012</span></span>
 ====================

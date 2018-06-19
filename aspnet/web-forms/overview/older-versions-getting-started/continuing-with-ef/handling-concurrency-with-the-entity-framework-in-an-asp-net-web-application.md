@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889868"
 ---
 <a name="handling-concurrency-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a><span data-ttu-id="7497d-104">Bir ASP.NET 4 Web uygulamasında Entity Framework 4.0 eşzamanlılık işleme</span><span class="sxs-lookup"><span data-stu-id="7497d-104">Handling Concurrency with the Entity Framework 4.0 in an ASP.NET 4 Web Application</span></span>
 ====================

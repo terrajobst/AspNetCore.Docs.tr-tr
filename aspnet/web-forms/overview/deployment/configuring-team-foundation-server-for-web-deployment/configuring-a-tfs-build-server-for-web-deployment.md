@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892523"
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a><span data-ttu-id="38ab2-103">TFS yapı sunucu için Web dağıtımı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="38ab2-103">Configuring a TFS Build Server for Web Deployment</span></span>
 ====================

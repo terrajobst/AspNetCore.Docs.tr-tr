@@ -1,3 +1,3 @@
-# <a name="aspnet-core-httpsys-sample"></a>ASP.NET Core HTTP.sys örnek
+# <a name="aspnet-core-httpsys-sample"></a><span data-ttu-id="18df1-101">ASP.NET Core HTTP.sys örnek</span><span class="sxs-lookup"><span data-stu-id="18df1-101">ASP.NET Core HTTP.sys Sample</span></span>
 
-Bu örnek HTTP.sys kullanımını göstermektedir. Bu örnek açıklanan özelliklerini gösterir [HTTP.sys web sunucusu uygulaması](https://docs.microsoft.com/aspnet/core/fundamentals/servers/httpsys) konu.
+<span data-ttu-id="18df1-102">Bu örnek HTTP.sys kullanımını göstermektedir.</span><span class="sxs-lookup"><span data-stu-id="18df1-102">This sample illustrates the use of HTTP.sys.</span></span> <span data-ttu-id="18df1-103">Bu örnek açıklanan özelliklerini gösterir [HTTP.sys web sunucusu uygulaması](https://docs.microsoft.com/aspnet/core/fundamentals/servers/httpsys) konu.</span><span class="sxs-lookup"><span data-stu-id="18df1-103">This sample demonstrates the features described in the [HTTP.sys web server implementation](https://docs.microsoft.com/aspnet/core/fundamentals/servers/httpsys) topic.</span></span>

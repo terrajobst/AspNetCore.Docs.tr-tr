@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891223"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a><span data-ttu-id="9e763-103">DataList denetimi (C#) ile satır başına birden çok kaydı gösteriliyor</span><span class="sxs-lookup"><span data-stu-id="9e763-103">Showing Multiple Records per Row with the DataList Control (C#)</span></span>
 ====================

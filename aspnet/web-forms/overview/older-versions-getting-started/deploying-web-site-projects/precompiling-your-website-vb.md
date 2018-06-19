@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889962"
 ---
 <a name="precompiling-your-website-vb"></a><span data-ttu-id="ace6c-104">Web sitenizi (VB) önceden derleme</span><span class="sxs-lookup"><span data-stu-id="ace6c-104">Precompiling Your Website (VB)</span></span>
 ====================

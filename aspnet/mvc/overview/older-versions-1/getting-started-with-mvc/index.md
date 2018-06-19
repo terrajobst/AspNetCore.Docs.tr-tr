@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/index
-title: "MVC ile çalışmaya başlama | Microsoft Docs"
+title: MVC ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC tanıtan bir başlangıç Öğreticisi serisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun."
+description: ASP.NET MVC tanıtan bir başlangıç Öğreticisi serisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883304"
 ---
 <a name="getting-started-with-mvc"></a><span data-ttu-id="c69af-104">MVC ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="c69af-104">Getting Started With MVC</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: "Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de | Microsoft Docs"
+title: Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API'de kimlik doğrulama ve yetkilendirme genel bir bakış sağlar."
+description: ASP.NET Web API'de kimlik doğrulama ve yetkilendirme genel bir bakış sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/27/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29726764"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a><span data-ttu-id="d4f17-103">Kimlik doğrulama ve yetkilendirme ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="d4f17-103">Authentication and Authorization in ASP.NET Web API</span></span>
 ====================

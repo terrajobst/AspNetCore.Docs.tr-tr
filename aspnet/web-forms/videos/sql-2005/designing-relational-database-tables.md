@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893635"
 ---
 <a name="designing-relational-database-tables"></a><span data-ttu-id="3b37c-104">İlişkisel veritabanı tabloları tasarlama</span><span class="sxs-lookup"><span data-stu-id="3b37c-104">Designing Relational Database Tables</span></span>
 ====================

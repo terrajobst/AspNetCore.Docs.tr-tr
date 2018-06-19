@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: "[Nasıl stop yaparım]  Bir ASP.NET sayfası, HTTP üst bilgisinde dayalı önbellek | Microsoft Docs"
+title: '[Nasıl stop yaparım]  Bir ASP.NET sayfası, HTTP üst bilgisinde dayalı önbellek | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels bilgi sayfanın HTTP üst bilgisinde temel ASP.NET çıktı önbelleğine bir sayfa tutmak gösterilmektedir. Birinci, olası HTTP üst..."
+description: Bu video Chris Pels bilgi sayfanın HTTP üst bilgisinde temel ASP.NET çıktı önbelleğine bir sayfa tutmak gösterilmektedir. Birinci, olası HTTP üst...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882223"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a><span data-ttu-id="4ba68-104">[Nasıl stop yaparım]  Bir ASP.NET sayfasının HTTP üst bilgileri temel önbelleği</span><span class="sxs-lookup"><span data-stu-id="4ba68-104">[How Do I:]  Cache an ASP.NET Page Based Upon Information in the HTTP Header</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883878"
 ---
 <a name="how-do-i-implement-the-ajax-incremental-page-display-pattern"></a><span data-ttu-id="ecafd-104">[Nasıl stop yaparım] AJAX artımlı sayfa görüntüleme düzeni uygulansın mı?</span><span class="sxs-lookup"><span data-stu-id="ecafd-104">[How Do I:] Implement the AJAX Incremental Page Display Pattern?</span></span>
 ====================

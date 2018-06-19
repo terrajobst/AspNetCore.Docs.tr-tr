@@ -17,6 +17,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33966565"
 ---
 <a name="adding-validation"></a><span data-ttu-id="daec8-102">Doğrulama ekleme</span><span class="sxs-lookup"><span data-stu-id="daec8-102">Adding Validation</span></span>
 ====================

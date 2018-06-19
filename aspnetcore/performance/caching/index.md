@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070829"
 ---
 # <a name="cache-responses-in-aspnet-core"></a><span data-ttu-id="d31e9-103">ASP.NET Core önbellek yanıtları</span><span class="sxs-lookup"><span data-stu-id="d31e9-103">Cache responses in ASP.NET Core</span></span>
 

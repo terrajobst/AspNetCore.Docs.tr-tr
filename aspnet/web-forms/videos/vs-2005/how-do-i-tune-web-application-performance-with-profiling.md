@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893800"
 ---
 <a name="how-do-i-tune-web-application-performance-with-profiling"></a><span data-ttu-id="e68fb-105">[Nasıl stop yaparım] Profil oluşturma ile Web uygulaması performansını ayarlamak?</span><span class="sxs-lookup"><span data-stu-id="e68fb-105">[How Do I:] Tune Web Application Performance with Profiling?</span></span>
 ====================

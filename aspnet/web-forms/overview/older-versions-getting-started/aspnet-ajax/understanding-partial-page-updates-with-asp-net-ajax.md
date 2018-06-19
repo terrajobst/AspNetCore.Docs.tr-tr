@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891327"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a><span data-ttu-id="0176a-103">ASP.NET AJAX ile anlama kısmi sayfa güncelleştirir</span><span class="sxs-lookup"><span data-stu-id="0176a-103">Understanding Partial Page Updates with ASP.NET AJAX</span></span>
 ====================

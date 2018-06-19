@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core model bağlama"
+title: ASP.NET Core model bağlama
 author: rachelappel
-description: "Eylem yöntemi parametrelerine HTTP isteklerini verilerini ASP.NET Core MVC model bağlamanın nasıl eşlendiğini öğrenin."
+description: Eylem yöntemi parametrelerine HTTP isteklerini verilerini ASP.NET Core MVC model bağlamanın nasıl eşlendiğini öğrenin.
 manager: wpickett
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: rachelap
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904566"
 ---
 # <a name="model-binding-in-aspnet-core"></a><span data-ttu-id="c10f8-103">ASP.NET Core model bağlama</span><span class="sxs-lookup"><span data-stu-id="c10f8-103">Model Binding in ASP.NET Core</span></span>
 

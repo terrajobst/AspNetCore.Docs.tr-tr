@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core denetleyici eylemleri için yönlendirme"
+title: ASP.NET Core denetleyici eylemleri için yönlendirme
 author: rick-anderson
-description: "Ara yazılım yönlendirme ASP.NET Core MVC gelen istekleri URL'lerini eşleşen ve eylemlere eşlemek için nasıl kullandığını öğrenin."
+description: Ara yazılım yönlendirme ASP.NET Core MVC gelen istekleri URL'lerini eşleşen ve eylemlere eşlemek için nasıl kullandığını öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 03/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905211"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a><span data-ttu-id="0fe6e-103">ASP.NET Core denetleyici eylemleri için yönlendirme</span><span class="sxs-lookup"><span data-stu-id="0fe6e-103">Routing to controller actions in ASP.NET Core</span></span>
 

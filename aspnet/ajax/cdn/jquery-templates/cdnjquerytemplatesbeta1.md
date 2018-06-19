@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30078159"
 ---
 <a name="jquery-templates-beta-1"></a><span data-ttu-id="07506-102">jQuery şablonları Beta 1</span><span class="sxs-lookup"><span data-stu-id="07506-102">jQuery Templates Beta 1</span></span>
 ====================

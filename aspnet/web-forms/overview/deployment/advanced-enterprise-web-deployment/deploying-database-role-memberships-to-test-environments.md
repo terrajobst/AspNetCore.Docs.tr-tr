@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892562"
 ---
 <a name="deploying-database-role-memberships-to-test-environments"></a><span data-ttu-id="ba438-104">Test ortamları için veritabanı rolü üyeliği dağıtma</span><span class="sxs-lookup"><span data-stu-id="ba438-104">Deploying Database Role Memberships to Test Environments</span></span>
 ====================

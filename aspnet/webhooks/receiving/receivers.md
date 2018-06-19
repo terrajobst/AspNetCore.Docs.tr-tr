@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896302"
 ---
 # <a name="aspnet-webhooks-receivers"></a><span data-ttu-id="ce7f2-103">ASP.NET Web Kancalarını alıcıları</span><span class="sxs-lookup"><span data-stu-id="ce7f2-103">ASP.NET WebHooks receivers</span></span>
 

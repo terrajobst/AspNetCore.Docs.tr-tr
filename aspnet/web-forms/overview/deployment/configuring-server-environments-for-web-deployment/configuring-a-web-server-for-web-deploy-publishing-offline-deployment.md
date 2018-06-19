@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884034"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a><span data-ttu-id="3e461-104">Web dağıtımı için yayımlama (çevrimdışı dağıtımı) bir Web sunucusu yapılandırma</span><span class="sxs-lookup"><span data-stu-id="3e461-104">Configuring a Web Server for Web Deploy Publishing (Offline Deployment)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890014"
 ---
 <a name="security-basics-and-aspnet-support-vb"></a><span data-ttu-id="6874e-103">Güvenlik temel kavramları ve ASP.NET Destek (VB)</span><span class="sxs-lookup"><span data-stu-id="6874e-103">Security Basics and ASP.NET Support (VB)</span></span>
 ====================

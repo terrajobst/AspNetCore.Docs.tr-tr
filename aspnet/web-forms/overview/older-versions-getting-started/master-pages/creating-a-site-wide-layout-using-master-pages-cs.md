@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891275"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a><span data-ttu-id="d2735-104">Ana sayfalar (C#) kullanarak bir Site genelinde düzeni oluşturma</span><span class="sxs-lookup"><span data-stu-id="d2735-104">Creating a Site-Wide Layout Using Master Pages (C#)</span></span>
 ====================

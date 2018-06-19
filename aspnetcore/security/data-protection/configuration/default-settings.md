@@ -1,7 +1,7 @@
 ---
-title: "Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi"
+title: Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi
 author: rick-anderson
-description: "Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi hakkında bilgi edinin."
+description: Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887296"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a><span data-ttu-id="90cd6-103">Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi</span><span class="sxs-lookup"><span data-stu-id="90cd6-103">Data Protection key management and lifetime in ASP.NET Core</span></span>
 

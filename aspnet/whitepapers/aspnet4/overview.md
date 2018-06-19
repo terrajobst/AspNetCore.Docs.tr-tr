@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30899050"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="64a4d-103">ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış</span><span class="sxs-lookup"><span data-stu-id="64a4d-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 ====================

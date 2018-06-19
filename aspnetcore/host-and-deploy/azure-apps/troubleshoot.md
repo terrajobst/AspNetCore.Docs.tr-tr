@@ -15,6 +15,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897445"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a><span data-ttu-id="b94dc-103">Azure uygulama Hizmeti'nde ASP.NET Core sorun giderme</span><span class="sxs-lookup"><span data-stu-id="b94dc-103">Troubleshoot ASP.NET Core on Azure App Service</span></span>
 

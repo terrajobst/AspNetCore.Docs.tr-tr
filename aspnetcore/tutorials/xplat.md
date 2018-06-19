@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30223079"
 ---
 # <a name="aspnet-core-tutorials"></a><span data-ttu-id="e02b8-103">ASP.NET Core öğreticileri</span><span class="sxs-lookup"><span data-stu-id="e02b8-103">ASP.NET Core tutorials</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891951"
 ---
 <a name="user-based-authorization-vb"></a><span data-ttu-id="eba0a-103">Kullanıcı tabanlı bir yetkilendirme (VB)</span><span class="sxs-lookup"><span data-stu-id="eba0a-103">User-Based Authorization (VB)</span></span>
 ====================

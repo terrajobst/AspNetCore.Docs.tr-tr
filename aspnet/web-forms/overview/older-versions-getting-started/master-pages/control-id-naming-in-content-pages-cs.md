@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891353"
 ---
 <a name="control-id-naming-in-content-pages-c"></a><span data-ttu-id="39109-103">İçerik sayfaları (C#) adlandırma denetim kimliği</span><span class="sxs-lookup"><span data-stu-id="39109-103">Control ID Naming in Content Pages (C#)</span></span>
 ====================

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core taşınabilir nesne yerelleştirme yapılandırın"
+title: ASP.NET Core taşınabilir nesne yerelleştirme yapılandırın
 author: sebastienros
-description: "Bu makalede, taşınabilir nesne dosyaları tanıtır ve ASP.NET Core uygulamayla Orchard çekirdek çerçevenin kullanılarak adımlarını özetler."
+description: Bu makalede, taşınabilir nesne dosyaları tanıtır ve ASP.NET Core uygulamayla Orchard çekirdek çerçevenin kullanılarak adımlarını özetler.
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/26/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904553"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a><span data-ttu-id="d165e-103">ASP.NET Core taşınabilir nesne yerelleştirme yapılandırın</span><span class="sxs-lookup"><span data-stu-id="d165e-103">Configure portable object localization in ASP.NET Core</span></span>
 

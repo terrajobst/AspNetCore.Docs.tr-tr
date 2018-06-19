@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892718"
 ---
 <a name="how-do-i-upgrade-visual-basic-projects-to-enable-linq"></a><span data-ttu-id="05faf-104">[Nasıl stop yaparım] LINQ etkinleştirmek için Visual Basic projeleri yükseltme?</span><span class="sxs-lookup"><span data-stu-id="05faf-104">[How Do I:] Upgrade Visual Basic Projects to Enable LINQ?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892159"
 ---
 <a name="role-based-authorization-vb"></a><span data-ttu-id="961d4-104">Rol tabanlı yetkilendirme (VB)</span><span class="sxs-lookup"><span data-stu-id="961d4-104">Role-Based Authorization (VB)</span></span>
 ====================

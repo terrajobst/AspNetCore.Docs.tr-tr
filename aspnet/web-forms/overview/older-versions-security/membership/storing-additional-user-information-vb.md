@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891987"
 ---
 <a name="storing-additional-user-information-vb"></a><span data-ttu-id="e05ac-104">Ek kullanıcı bilgileri depolayan (VB)</span><span class="sxs-lookup"><span data-stu-id="e05ac-104">Storing Additional User Information (VB)</span></span>
 ====================

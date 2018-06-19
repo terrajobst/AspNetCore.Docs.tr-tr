@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/data-source-controls
-title: "Veri kaynağı denetimleri | Microsoft Docs"
+title: Veri kaynağı denetimleri | Microsoft Docs
 author: microsoft
-description: "DataGrid denetimi ASP.NET Web uygulamalarında veri erişimi harika bir gelişme 1.x olarak işaretlenmiş. Ancak, silinmiş olarak kolay değildi..."
+description: DataGrid denetimi ASP.NET Web uygulamalarında veri erişimi harika bir gelişme 1.x olarak işaretlenmiş. Ancak, silinmiş olarak kolay değildi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885901"
 ---
 <a name="data-source-controls"></a><span data-ttu-id="c58c0-104">Veri kaynağı denetimleri</span><span class="sxs-lookup"><span data-stu-id="c58c0-104">Data Source Controls</span></span>
 ====================

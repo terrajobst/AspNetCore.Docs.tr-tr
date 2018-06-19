@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892757"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a><span data-ttu-id="d8bd3-104">Model bağlama ve web forms kullanan projesine ekleniyor iş mantığı katmanı</span><span class="sxs-lookup"><span data-stu-id="d8bd3-104">Adding business logic layer to a project that uses model binding and web forms</span></span>
 ====================

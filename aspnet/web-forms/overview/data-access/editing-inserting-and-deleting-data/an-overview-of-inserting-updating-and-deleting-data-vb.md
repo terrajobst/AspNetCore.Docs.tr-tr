@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890827"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-vb"></a><span data-ttu-id="b872f-103">Ekleme, güncelleştirme ve verileri (VB) silme bir genel bakış</span><span class="sxs-lookup"><span data-stu-id="b872f-103">An Overview of Inserting, Updating, and Deleting Data (VB)</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
-title: "[Nasıl stop yaparım] CSS kolay denetim bağdaştırıcıları kullanan? | Microsoft Docs"
+title: '[Nasıl stop yaparım] CSS kolay denetim bağdaştırıcıları kullanan? | Microsoft Docs'
 author: rick-anderson
-description: "CSS kolay denetim bağdaştırıcılarının standart bir ASP.NET 2.0 sunucusu denetimi tarafından işlenen HTML alter olanak sağlar. Bu videoda biz, öğreneceksiniz stan..."
+description: CSS kolay denetim bağdaştırıcılarının standart bir ASP.NET 2.0 sunucusu denetimi tarafından işlenen HTML alter olanak sağlar. Bu videoda biz, öğreneceksiniz stan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988087"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a><span data-ttu-id="5e11a-105">[Nasıl stop yaparım] CSS kolay denetim bağdaştırıcıları kullanan?</span><span class="sxs-lookup"><span data-stu-id="5e11a-105">[How Do I:] Utilize the CSS Friendly Control Adapters?</span></span>
 ====================

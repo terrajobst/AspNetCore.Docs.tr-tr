@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072268"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a><span data-ttu-id="370cf-103">ASP.NET Core görüntü etiketi yok</span><span class="sxs-lookup"><span data-stu-id="370cf-103">Image Tag Helper in ASP.NET Core</span></span>
 

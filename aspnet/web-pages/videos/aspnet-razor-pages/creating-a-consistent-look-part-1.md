@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893488"
 ---
 <a name="creating-a-consistent-look-part-1"></a><span data-ttu-id="4ca10-103">Tutarlı bir görünüm (Kısım 1) oluşturma</span><span class="sxs-lookup"><span data-stu-id="4ca10-103">Creating a Consistent Look (Part 1)</span></span>
 ====================

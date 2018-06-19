@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897450"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a><span data-ttu-id="55f0a-104">ASP.NET Web sayfaları sunarak - veritabanı verileri silme</span><span class="sxs-lookup"><span data-stu-id="55f0a-104">Introducing ASP.NET Web Pages - Deleting Database Data</span></span>
 ====================

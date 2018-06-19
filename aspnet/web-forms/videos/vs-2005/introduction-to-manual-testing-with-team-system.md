@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894846"
 ---
 <a name="introduction-to-manual-testing-with-team-system"></a><span data-ttu-id="b818e-103">Team System ile el ile test yapmak için giriş</span><span class="sxs-lookup"><span data-stu-id="b818e-103">Introduction to Manual Testing with Team System</span></span>
 ====================

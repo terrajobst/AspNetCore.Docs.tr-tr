@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076968"
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a><span data-ttu-id="96b62-103">Veri koruma makine genelinde İlkesi ASP.NET çekirdek desteği</span><span class="sxs-lookup"><span data-stu-id="96b62-103">Data Protection machine-wide policy support in ASP.NET Core</span></span>
 

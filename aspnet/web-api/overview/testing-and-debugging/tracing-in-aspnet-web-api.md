@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 title: ASP.NET Web API 2 izleme | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API izlemenin nasıl etkinleştirileceği gösterir."
+description: ASP.NET Web API izlemenin nasıl etkinleştirileceği gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044214"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a><span data-ttu-id="6d8c0-103">ASP.NET Web API 2 izleme</span><span class="sxs-lookup"><span data-stu-id="6d8c0-103">Tracing in ASP.NET Web API 2</span></span>
 ====================

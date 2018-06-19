@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894005"
 ---
 <a name="how-do-i-load-test-a-web-application"></a><span data-ttu-id="e3f36-105">[Nasıl stop yaparım] Yük testi bir Web uygulaması?</span><span class="sxs-lookup"><span data-stu-id="e3f36-105">[How Do I:] Load Test a Web Application?</span></span>
 ====================

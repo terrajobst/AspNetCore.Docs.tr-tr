@@ -15,6 +15,7 @@ ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29841283"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a><span data-ttu-id="d52e9-103">ASP.NET çekirdeği ile Docker için Visual Studio Araçları</span><span class="sxs-lookup"><span data-stu-id="d52e9-103">Visual Studio Tools for Docker with ASP.NET Core</span></span>
 

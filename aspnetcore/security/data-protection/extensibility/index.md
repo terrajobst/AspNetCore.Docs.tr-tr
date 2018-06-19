@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077515"
 ---
 # <a name="aspnet-core-data-protection-extensibility-apis"></a><span data-ttu-id="b91d3-103">ASP.NET Core veri koruması genişletilebilirlik API'leri</span><span class="sxs-lookup"><span data-stu-id="b91d3-103">ASP.NET Core Data Protection extensibility APIs</span></span>
 

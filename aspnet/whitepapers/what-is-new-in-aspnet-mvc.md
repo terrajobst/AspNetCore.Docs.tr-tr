@@ -2,13 +2,13 @@
 uid: whitepapers/what-is-new-in-aspnet-mvc
 title: ASP.NET MVC 2 yenilikler | Microsoft Docs
 author: rick-anderson
-description: "Bu belgede, yeni özellikler ve geliştirmeler ASP.NET MVC 2'de tanıtılan açıklanmaktadır. Bu belge da indirme için kullanılabilir."
+description: Bu belgede, yeni özellikler ve geliştirmeler ASP.NET MVC 2'de tanıtılan açıklanmaktadır. Bu belge da indirme için kullanılabilir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2010
 ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885238"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a><span data-ttu-id="a3848-104">ASP.NET MVC 2 yenilikler nelerdir?</span><span class="sxs-lookup"><span data-stu-id="a3848-104">What's New in ASP.NET MVC 2</span></span>
 ====================

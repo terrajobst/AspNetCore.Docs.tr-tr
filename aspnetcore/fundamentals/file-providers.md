@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core dosya sağlayıcıları"
+title: ASP.NET Core dosya sağlayıcıları
 author: ardalis
-description: "ASP.NET Core dosya sistemi erişimini dosyasını sağlayıcıları kullanımı ile nasıl soyutlar öğrenin."
+description: ASP.NET Core dosya sistemi erişimini dosyasını sağlayıcıları kullanımı ile nasıl soyutlar öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29724577"
 ---
 # <a name="file-providers-in-aspnet-core"></a><span data-ttu-id="eff39-103">ASP.NET Core dosya sağlayıcıları</span><span class="sxs-lookup"><span data-stu-id="eff39-103">File Providers in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895272"
 ---
 <a name="adding-email-to-your-web-site"></a><span data-ttu-id="61afb-103">E-posta, Web sitenize ekleme</span><span class="sxs-lookup"><span data-stu-id="61afb-103">Adding Email to Your Web Site</span></span>
 ====================

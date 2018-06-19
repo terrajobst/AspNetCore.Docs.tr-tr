@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894902"
 ---
 <a name="how-do-i-publish-and-analyze-test-results"></a><span data-ttu-id="c0d89-105">[Nasıl stop yaparım] Yayımlama ve Test sonuçlarını analiz?</span><span class="sxs-lookup"><span data-stu-id="c0d89-105">[How Do I:] Publish and Analyze Test Results?</span></span>
 ====================

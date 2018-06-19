@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892692"
 ---
 <a name="troubleshooting-the-packaging-process"></a><span data-ttu-id="622dc-103">Paketleme işlemini sorunlarını giderme</span><span class="sxs-lookup"><span data-stu-id="622dc-103">Troubleshooting the Packaging Process</span></span>
 ====================

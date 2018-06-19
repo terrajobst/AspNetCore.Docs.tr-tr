@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892471"
 ---
 <a name="part-1-file--new-project"></a><span data-ttu-id="d0f47-104">Bölüm 1: Dosya -> Yeni Proje</span><span class="sxs-lookup"><span data-stu-id="d0f47-104">Part 1: File-> New Project</span></span>
 ====================

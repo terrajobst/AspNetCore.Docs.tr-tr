@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891974"
 ---
 <a name="creating-a-data-access-layer-vb"></a><span data-ttu-id="524aa-103">Veri erişim katmanı (VB) oluşturma</span><span class="sxs-lookup"><span data-stu-id="524aa-103">Creating a Data Access Layer (VB)</span></span>
 ====================

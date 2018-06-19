@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897511"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a><span data-ttu-id="faec3-104">(Razor) giriş hata ayıklama ASP.NET Web sayfaları</span><span class="sxs-lookup"><span data-stu-id="faec3-104">Introduction to Debugging ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

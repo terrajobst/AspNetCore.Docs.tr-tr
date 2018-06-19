@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
 title: CascadingDropdown | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici nasıl kullanılacağını gösterir kullanıcılar seçimi yaptığınızda bu güncelleştirmeyi ilgili açılan oluşturmak için CascadingDropDown denetim listeleri."
+description: Bu öğretici nasıl kullanılacağını gösterir kullanıcılar seçimi yaptığınızda bu güncelleştirmeyi ilgili açılan oluşturmak için CascadingDropDown denetim listeleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152858"
 ---
 <a name="cascadingdropdown"></a><span data-ttu-id="ec7c6-103">CascadingDropdown</span><span class="sxs-lookup"><span data-stu-id="ec7c6-103">CascadingDropdown</span></span>
 ====================

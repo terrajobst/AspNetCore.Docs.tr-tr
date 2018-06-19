@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881470"
 ---
 <a name="create-the-data-access-layer"></a><span data-ttu-id="bac82-103">Veri erişim katmanı oluşturma</span><span class="sxs-lookup"><span data-stu-id="bac82-103">Create the Data Access Layer</span></span>
 ====================

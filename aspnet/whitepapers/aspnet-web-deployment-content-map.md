@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-web-deployment-content-map
-title: "ASP.NET Web dağıtımı - önerilen kaynakları | Microsoft Docs"
+title: ASP.NET Web dağıtımı - önerilen kaynakları | Microsoft Docs
 author: rick-anderson
-description: "Bu konuda belgeleri (ASP.NET Yayımlama) web kaynakları nasıl dağıtılacağı hakkında bağlantılar sağlanmaktadır Visual Web De Visual Studio 2010 kullanarak IIS uygulamaları..."
+description: Bu konuda belgeleri (ASP.NET Yayımlama) web kaynakları nasıl dağıtılacağı hakkında bağlantılar sağlanmaktadır Visual Web De Visual Studio 2010 kullanarak IIS uygulamaları...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048174"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a><span data-ttu-id="5b056-103">ASP.NET Web dağıtımı - önerilen kaynakları</span><span class="sxs-lookup"><span data-stu-id="5b056-103">ASP.NET Web Deployment - Recommended Resources</span></span>
 ====================

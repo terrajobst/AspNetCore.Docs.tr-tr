@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
-title: "[Nasıl stop yaparım] ASP.NET Web sayfaları tarayıcının yeteneklerini saptamak | Microsoft Docs"
+title: '[Nasıl stop yaparım] ASP.NET Web sayfaları tarayıcının yeteneklerini saptamak | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels hangi özelliklere sayfaları bir ASP.NET web sitesi görüntülerken bir kullanıcının tarayıcısına sahip olduğunu belirlemek nasıl yapacağınızı gösterir. İlk olarak, bilgi hesabı nasıl yapılır..."
+description: Bu videoda Chris Pels hangi özelliklere sayfaları bir ASP.NET web sitesi görüntülerken bir kullanıcının tarayıcısına sahip olduğunu belirlemek nasıl yapacağınızı gösterir. İlk olarak, bilgi hesabı nasıl yapılır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884097"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a><span data-ttu-id="90fd9-104">[Nasıl stop yaparım] ASP.NET Web Pages'da tarayıcı yetenekleri Algıla</span><span class="sxs-lookup"><span data-stu-id="90fd9-104">[How Do I:] Detect Browser Capabilities in ASP.NET Web Pages</span></span>
 ====================

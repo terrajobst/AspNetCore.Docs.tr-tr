@@ -15,6 +15,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483558"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a><span data-ttu-id="1e92a-103">ASP.NET çekirdek tek sayfa uygulamaları oluşturmak için JavaScriptServices kullanın</span><span class="sxs-lookup"><span data-stu-id="1e92a-103">Use JavaScriptServices to Create Single Page Applications in ASP.NET Core</span></span>
 

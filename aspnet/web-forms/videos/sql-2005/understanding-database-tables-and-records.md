@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893621"
 ---
 <a name="understanding-database-tables-and-records"></a><span data-ttu-id="b51e5-104">Anlama veritabanı tabloları ve kayıtları</span><span class="sxs-lookup"><span data-stu-id="b51e5-104">Understanding Database Tables and Records</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896832"
 ---
 # <a name="core-cryptography-extensibility-in-aspnet-core"></a><span data-ttu-id="a2ba0-103">ASP.NET Core çekirdek şifreleme genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="a2ba0-103">Core cryptography extensibility in ASP.NET Core</span></span>
 

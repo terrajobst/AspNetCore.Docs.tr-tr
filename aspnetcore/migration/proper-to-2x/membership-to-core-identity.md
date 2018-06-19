@@ -12,8 +12,10 @@ ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
 ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33851599"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a><span data-ttu-id="584d7-103">ASP.NET Core 2.0 kimliği için ASP.NET üyelik kimlik doğrulamasını geçirme</span><span class="sxs-lookup"><span data-stu-id="584d7-103">Migrate from ASP.NET Membership authentication to ASP.NET Core 2.0 Identity</span></span>
 

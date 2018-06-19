@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-filters
-title: "ASP.NET Web API 2 kimlik doğrulaması filtrelerini | Microsoft Docs"
+title: ASP.NET Web API 2 kimlik doğrulaması filtrelerini | Microsoft Docs
 author: MikeWasson
-description: "Bir kimlik doğrulaması filtresini bir HTTP isteğinin kimliğini doğrulayan bir bileşenidir. Web API 2 ve MVC 5 hem de kimlik doğrulaması filtreleri desteklemez, ancak bunların biraz farklı..."
+description: Bir kimlik doğrulaması filtresini bir HTTP isteğinin kimliğini doğrulayan bir bileşenidir. Web API 2 ve MVC 5 hem de kimlik doğrulaması filtreleri desteklemez, ancak bunların biraz farklı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/25/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153524"
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a><span data-ttu-id="f4246-104">ASP.NET Web API 2 kimlik doğrulaması filtreleri</span><span class="sxs-lookup"><span data-stu-id="f4246-104">Authentication Filters in ASP.NET Web API 2</span></span>
 ====================

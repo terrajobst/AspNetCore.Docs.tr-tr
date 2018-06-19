@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/membership
-title: "Üyelik | Microsoft Docs"
+title: Üyelik | Microsoft Docs
 author: microsoft
-description: "ASP.NET üyelik derlemeler Forms kimlik doğrulaması modeli başarı ASP.NET tarafından 1.x. ASP.NET formları kimlik doğrulamasını incorp için kullanışlı bir yol sağlayan..."
+description: ASP.NET üyelik derlemeler Forms kimlik doğrulaması modeli başarı ASP.NET tarafından 1.x. ASP.NET formları kimlik doğrulamasını incorp için kullanışlı bir yol sağlayan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28885586"
 ---
 <a name="membership"></a><span data-ttu-id="2ee2c-104">Üyelik</span><span class="sxs-lookup"><span data-stu-id="2ee2c-104">Membership</span></span>
 ====================

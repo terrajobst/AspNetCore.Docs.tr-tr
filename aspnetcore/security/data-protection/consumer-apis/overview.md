@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30076013"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a><span data-ttu-id="a0c46-103">ASP.NET Core tüketici API'leri genel bakış</span><span class="sxs-lookup"><span data-stu-id="a0c46-103">Consumer APIs overview for ASP.NET Core</span></span>
 

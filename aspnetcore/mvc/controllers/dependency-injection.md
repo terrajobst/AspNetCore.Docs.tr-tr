@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071808"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a><span data-ttu-id="52321-103">ASP.NET Core denetleyicileri içine bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="52321-103">Dependency injection into controllers in ASP.NET Core</span></span>
 

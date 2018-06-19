@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892783"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a><span data-ttu-id="e186a-103">Düzenleme ve silme (VB) DataList verilerde bir genel bakış</span><span class="sxs-lookup"><span data-stu-id="e186a-103">An Overview of Editing and Deleting Data in the DataList (VB)</span></span>
 ====================

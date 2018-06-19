@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30074170"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a><span data-ttu-id="d0f96-103">ASP.NET Core anahtar yönetimi genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="d0f96-103">Key management extensibility in ASP.NET Core</span></span>
 

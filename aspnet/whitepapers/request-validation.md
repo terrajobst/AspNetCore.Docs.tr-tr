@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/request-validation
-title: "İstek doğrulama - komut dosyası saldırılarını önleme | Microsoft Docs"
+title: İstek doğrulama - komut dosyası saldırılarını önleme | Microsoft Docs
 author: rick-anderson
-description: "Bu yazı, varsayılan olarak, uygulama kodlanmamış HTML içerik submitt işleme engellenmediği ASP.NET istek doğrulama özelliği açıklar..."
+description: Bu yazı, varsayılan olarak, uygulama kodlanmamış HTML içerik submitt işleme engellenmediği ASP.NET istek doğrulama özelliği açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883561"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="485a5-103">İstek doğrulama - komut dosyası saldırılarını önleme</span><span class="sxs-lookup"><span data-stu-id="485a5-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891210"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a><span data-ttu-id="4bc42-104">Bir kullanıcı hesabı birçok (VB) seçmek için bir arabirim oluşturma</span><span class="sxs-lookup"><span data-stu-id="4bc42-104">Building an Interface to Select One User Account from Many (VB)</span></span>
 ====================

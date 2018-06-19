@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076994"
 ---
 # <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a><span data-ttu-id="1efd3-103">ASP.NET Core, veri koruma API'ları kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="1efd3-103">Get started with the Data Protection APIs in ASP.NET Core</span></span>
 
