@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/routing/creating-readable-urls-in-aspnet-web-pages-sites
-title: "Okunabilir URL'ler oluşturma ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs"
+title: Okunabilir URL'ler oluşturma ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesi ve nasıl bu daha okunabilir ve SEO için daha iyi URL'leri kullanmanıza olanak sağlayan yönlendirme açıklanmaktadır. Ne artıracaksınız..."
+description: Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesi ve nasıl bu daha okunabilir ve SEO için daha iyi URL'leri kullanmanıza olanak sağlayan yönlendirme açıklanmaktadır. Ne artıracaksınız...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573231"
 ---
 <a name="creating-readable-urls-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitelerinde okunabilir URL'ler oluşturma
 ====================

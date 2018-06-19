@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/index
 title: Modelleri (veriler) | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici serisinde Microsoft Entity Framework ile ASP.NET MVC kullanmayı öğrenin. Bu öğretici süresince bir web uygulaması oluştur..."
+description: Bu öğretici serisinde Microsoft Entity Framework ile ASP.NET MVC kullanmayı öğrenin. Bu öğretici süresince bir web uygulaması oluştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564300"
 ---
 <a name="models-data"></a>Modelleri (veriler)
 ====================

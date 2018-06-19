@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874115"
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>(Azure ile gerçek bulut uygulamaları derleme) hatalarına karşı korur tasarlama
 ====================

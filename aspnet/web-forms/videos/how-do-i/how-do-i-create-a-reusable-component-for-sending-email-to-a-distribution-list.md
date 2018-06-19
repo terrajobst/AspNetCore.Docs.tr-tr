@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
-title: "[Nasıl stop yaparım] Bir dağıtım listesine e-posta göndermek için yeniden kullanılabilir bileşen oluşturma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir dağıtım listesine e-posta göndermek için yeniden kullanılabilir bileşen oluşturma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels alıcıların listesi için e-posta gönderir birden çok web sayfaları ve web siteleri kullanılan bir bileşen oluşturulacağını gösterir. Firs..."
+description: Bu video Chris Pels alıcıların listesi için e-posta gönderir birden çok web sayfaları ve web siteleri kullanılan bir bileşen oluşturulacağını gösterir. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/04/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571956"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Nasıl stop yaparım] Bir dağıtım listesine e-posta göndermek için yeniden kullanılabilir bir bileşeni oluşturma
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
-title: "ASP.NET SignalR hub'ları API Kılavuzu - .NET istemci (SignalR 1.x) | Microsoft Docs"
+title: ASP.NET SignalR hub'ları API Kılavuzu - .NET istemci (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Bu belge SignalR sürüm 2'in Windows Mağazası (WinRT), WPF, Silverlight ve simgeler gibi .NET istemcileri için hub API'sini kullanmaya tanıtılmaktadır..."
+description: Bu belge SignalR sürüm 2'in Windows Mağazası (WinRT), WPF, Silverlight ve simgeler gibi .NET istemcileri için hub API'sini kullanmaya tanıtılmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28037486"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR hub'ları API Kılavuzu - .NET istemci (SignalR 1.x)
 ====================

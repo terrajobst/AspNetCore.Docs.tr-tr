@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-the-asp-net-mvc-execution-process
-title: "ASP.NET MVC yürütme işlemi anlama | Microsoft Docs"
+title: ASP.NET MVC yürütme işlemi anlama | Microsoft Docs
 author: microsoft
-description: "ASP.NET MVC çerçevesi adım adım bir tarayıcı isteğini nasıl işlediği hakkında bilgi edinin."
+description: ASP.NET MVC çerçevesi adım adım bir tarayıcı isteğini nasıl işlediği hakkında bilgi edinin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564525"
 ---
 <a name="understanding-the-aspnet-mvc-execution-process"></a>ASP.NET MVC yürütme işlemi anlama
 ====================

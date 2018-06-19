@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index
-title: "ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama | Microsoft Docs"
+title: ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici seri ASP.NET 4.5 ve Visual Studio 2013 Express Web kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek. Bir Visua..."
+description: Bu öğretici seri ASP.NET 4.5 ve Visual Studio 2013 Express Web kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek. Bir Visua...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569268"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>ASP.NET 4.5 Web formları ve Visual Studio 2013 ile çalışmaya başlama
 ====================

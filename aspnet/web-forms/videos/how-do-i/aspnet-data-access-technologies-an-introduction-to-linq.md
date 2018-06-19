@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/aspnet-data-access-technologies-an-introduction-to-linq
-title: "ASP.NET veri erişim teknolojileri, LINQ giriş | Microsoft Docs"
+title: ASP.NET veri erişim teknolojileri, LINQ giriş | Microsoft Docs
 author: JoeStagner
-description: "LINQ, ASP.NET geliştiricilerinin veri erişim mekanizması tercih edilen ' dir. Bu videoyu LINQ ile programlamaya giriş olduğu ve basit veri erişim betwee karşılaştırır..."
+description: LINQ, ASP.NET geliştiricilerinin veri erişim mekanizması tercih edilen ' dir. Bu videoyu LINQ ile programlamaya giriş olduğu ve basit veri erişim betwee karşılaştırır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571932"
 ---
 <a name="aspnet-data-access-technologies-an-introduction-to-linq"></a>ASP.NET veri erişim teknolojileri, LINQ giriş
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose
-title: "[Nasıl stop yaparım] Genişletme ve belirli bir amaç için bir ASP.NET sunucu denetimini özelleştirme | Microsoft Docs"
+title: '[Nasıl stop yaparım] Genişletme ve belirli bir amaç için bir ASP.NET sunucu denetimini özelleştirme | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels standart ASP.NET sunucu denetimi genişletmek ve belirli bir amaç için özelleştirmek nasıl yapacağınızı gösterir. Özel denetimler bir c sağlayın..."
+description: Bu video Chris Pels standart ASP.NET sunucu denetimi genişletmek ve belirli bir amaç için özelleştirmek nasıl yapacağınızı gösterir. Özel denetimler bir c sağlayın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572256"
 ---
 <a name="how-do-i-extend-and-customize-an-aspnet-server-control-for-a-specific-purpose"></a>[Nasıl stop yaparım] Genişletme ve belirli bir amaç için bir ASP.NET sunucu denetimini özelleştirme
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: "Nasıl I: verimli ve standartlaştırılmış bir yaklaşım CSS stilleri uygulamak üzere oluşturulur? | Microsoft Docs"
+title: 'Nasıl I: verimli ve standartlaştırılmış bir yaklaşım CSS stilleri uygulamak üzere oluşturulur? | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels, düzenlemek ve bir web sitesi standartlaştırılmış bir görünüm ve kullanımında sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stillerdir..."
+description: Bu video Chris Pels, düzenlemek ve bir web sitesi standartlaştırılmış bir görünüm ve kullanımında sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stillerdir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570876"
 ---
 <a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Nasıl I: verimli ve standartlaştırılmış bir yaklaşım CSS stilleri uygulamak üzere oluşturulur?
 ====================

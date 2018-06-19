@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869718"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-c"></a>Birim testleri oluşturmak için ASP.NET MVC uygulamaları (C#)
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/index
-title: "Genel bakış | Microsoft Docs"
+title: Genel bakış | Microsoft Docs
 author: rick-anderson
-description: "MVC nedir, nasıl Web Forms farklıdır ve ASP.NET uygulamasının nasıl oluşturulacağını öğrenin."
+description: MVC nedir, nasıl Web Forms farklıdır ve ASP.NET uygulamasının nasıl oluşturulacağını öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564528"
 ---
 <a name="overview"></a>Genel Bakış
 ====================

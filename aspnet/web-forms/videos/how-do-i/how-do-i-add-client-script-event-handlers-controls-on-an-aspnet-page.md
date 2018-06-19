@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page
-title: "[Nasıl yedeklerim]: bir ASP.NET sayfasında istemci komut dosyası olay işleyicileri denetimleri ekleme? | Microsoft Docs"
+title: '[Nasıl yedeklerim]: bir ASP.NET sayfasında istemci komut dosyası olay işleyicileri denetimleri ekleme? | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET sayfası denetimlere istemci komut dosyası olayları ekleme gösterir. İlk olarak, birkaç ASP.NET denetimleri sayfası ve bir e eklenir..."
+description: Bu video Chris Pels ASP.NET sayfası denetimlere istemci komut dosyası olayları ekleme gösterir. İlk olarak, birkaç ASP.NET denetimleri sayfası ve bir e eklenir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571854"
 ---
 <a name="how-do-i-add-client-script-event-handlers-controls-on-an-aspnet-page"></a>[Nasıl yedeklerim]: bir ASP.NET sayfasında istemci komut dosyası olay işleyicileri denetimleri ekleme?
 ====================

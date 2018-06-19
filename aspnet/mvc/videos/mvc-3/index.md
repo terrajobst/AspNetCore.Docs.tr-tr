@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-3/index
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 3 hızlı İsabetli Okuma"
+description: ASP.NET MVC 3 hızlı İsabetli Okuma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565365"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================

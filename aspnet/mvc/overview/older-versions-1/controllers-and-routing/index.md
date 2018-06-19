@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/index
-title: "Denetleyicileri ve yönlendirme | Microsoft Docs"
+title: Denetleyicileri ve yönlendirme | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici kümesinde, ASP.NET yönlendirme hakkında ASP.NET MVC denetleyici eylemleri için tarayıcı istekleri eşler öğreneceksiniz."
+description: Bu öğretici kümesinde, ASP.NET yönlendirme hakkında ASP.NET MVC denetleyici eylemleri için tarayıcı istekleri eşler öğreneceksiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564291"
 ---
 <a name="controllers-and-routing"></a>Denetleyicileri ve yönlendirme
 ====================

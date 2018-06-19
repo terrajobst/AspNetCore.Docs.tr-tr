@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/hub-authorization
-title: "Kimlik doğrulama ve yetkilendirme SignalR hub'ları için (SignalR 1.x) | Microsoft Docs"
+title: Kimlik doğrulama ve yetkilendirme SignalR hub'ları için (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: "Bu konuda, hangi kullanıcılar ya da roller hub yöntemlerini erişebilecek kişileri kısıtlayın açıklar."
+description: Bu konuda, hangi kullanıcılar ya da roller hub yöntemlerini erişebilecek kişileri kısıtlayın açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042881"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Kimlik doğrulama ve yetkilendirme SignalR hub'ları için (SignalR 1.x)
 ====================

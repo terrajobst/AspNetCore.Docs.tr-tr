@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/error-handling/index
-title: "ASP.NET Web API işleme hatası | Microsoft Docs"
+title: ASP.NET Web API işleme hatası | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web API özel durumları nasıl ele alınacağını."
+description: ASP.NET Web API özel durumları nasıl ele alınacağını.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566340"
 ---
 <a name="error-handling-in-aspnet-web-api"></a>ASP.NET Web API işleme hatası
 ====================

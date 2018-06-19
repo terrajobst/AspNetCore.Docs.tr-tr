@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-20-applications/index
-title: "2.0 uygulamaları oluşturma | Microsoft Docs"
+title: 2.0 uygulamaları oluşturma | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET 2.0 oluşturma uygulamaları"
+description: ASP.NET 2.0 oluşturma uygulamaları
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570783"
 ---
 <a name="building-20-applications"></a>2.0 uygulamaları oluşturma
 ====================

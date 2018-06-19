@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/index
-title: "Düzenleme ve silme DataList verilerine | Microsoft Docs"
+title: Düzenleme ve silme DataList verilerine | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticileri, böylece verileri değiştirme kullanır sağlar DataList denetimi ince ayar gösterilmektedir."
+description: Bu öğreticileri, böylece verileri değiştirme kullanır sağlar DataList denetimi ince ayar gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568338"
 ---
 <a name="editing-and-deleting-data-through-the-datalist"></a>Düzenleme ve DataList verilerine silme
 ====================

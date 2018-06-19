@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/build-your-first-asp-net-application-with-asp-net-mvc
-title: "ASP.NET MVC ile ilk ASP.NET uygulamanızı oluşturmak | Microsoft Docs"
+title: ASP.NET MVC ile ilk ASP.NET uygulamanızı oluşturmak | Microsoft Docs
 author: lmoroney
-description: "Microsoft'un Laurence Moroney ASP.NET MVC ile ilk ASP.NET uygulamanızı nasıl oluşturulacağını gösterir."
+description: Microsoft'un Laurence Moroney ASP.NET MVC ile ilk ASP.NET uygulamanızı nasıl oluşturulacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571857"
 ---
 <a name="build-your-first-aspnet-application-with-aspnet-mvc"></a>ASP.NET MVC ile ilk ASP.NET uygulamanızı oluşturma
 ====================

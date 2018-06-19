@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index
-title: "ASP.NET 4 - kurumsal dağıtım serisi 3 TFS Yapılandırma | Microsoft Docs"
+title: ASP.NET 4 - kurumsal dağıtım serisi 3 TFS Yapılandırma | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici Team Foundation Server (çözümleri oluşturmak ve web içeriği ortamlarla hedef dağıtmak için TFS) 2010 yapılandırmak nasıl yapacağınızı gösterir."
+description: Bu öğretici Team Foundation Server (çözümleri oluşturmak ve web içeriği ortamlarla hedef dağıtmak için TFS) 2010 yapılandırmak nasıl yapacağınızı gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568857"
 ---
 <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 - kurumsal dağıtım serisi 3 TFS Yapılandırma
 ====================

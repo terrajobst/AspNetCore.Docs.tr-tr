@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
-title: "Özel düğme eylemleri DataList ve yineleyici | Microsoft Docs"
+title: Özel düğme eylemleri DataList ve yineleyici | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler düğmeleri özel işlevsellik eklemek için DataList ve yineleyici denetimlerin için nasıl ekleneceğini gösterir."
+description: Bu öğreticiler düğmeleri özel işlevsellik eklemek için DataList ve yineleyici denetimlerin için nasıl ekleneceğini gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568110"
 ---
 <a name="custom-button-actions-with-the-datalist-and-repeater"></a>Yineleyici ve DataList Özel düğme eylemleri
 ====================

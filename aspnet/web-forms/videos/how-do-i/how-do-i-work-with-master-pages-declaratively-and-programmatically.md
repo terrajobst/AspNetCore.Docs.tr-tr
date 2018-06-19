@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
-title: "[Nasıl stop yaparım] Ana sayfalar bildirimli olarak ve program aracılığıyla çalışma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Ana sayfalar bildirimli olarak ve program aracılığıyla çalışma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels tanımlama ve ana sayfalar bir ASP.NET web sitesini kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar declarati oluşturmak bkz...."
+description: Bu video Chris Pels tanımlama ve ana sayfalar bir ASP.NET web sitesini kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar declarati oluşturmak bkz....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572262"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Nasıl stop yaparım] Ana sayfalar bildirimli olarak ve program aracılığıyla çalışma
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/index
 title: ASP.NET 4 - Entity Framework 4 ve Web Forms ile devam etmeden | Microsoft Docs
 author: rick-anderson
-description: "ObjectDataSource denetimi kullanarak n katmanlı uygulama olarak Contoso U uygulamasının nasıl oluşturulacağını ve nasıl eşzamanlılık işlemek ve performansı en üst düzeye çıkarın."
+description: ObjectDataSource denetimi kullanarak n katmanlı uygulama olarak Contoso U uygulamasının nasıl oluşturulacağını ve nasıl eşzamanlılık işlemek ve performansı en üst düzeye çıkarın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569298"
 ---
 <a name="aspnet-4---continuing-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 - Entity Framework 4 ve Web Forms ile devam etmeden
 ====================

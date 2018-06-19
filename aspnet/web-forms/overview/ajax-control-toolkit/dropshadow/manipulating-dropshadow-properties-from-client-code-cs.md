@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870342"
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-c"></a>İstemci kodu (C#) DropShadow özelliklerini düzenleme
 ====================

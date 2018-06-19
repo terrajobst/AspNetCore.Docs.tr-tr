@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/combobox/index
 title: ComboBox | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticide kullanıcılar aralarından seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştirir ComboBox denetiminin nasıl kullanılacağını gösterir."
+description: Bu öğreticide kullanıcılar aralarından seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştirir ComboBox denetiminin nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567411"
 ---
 <a name="combobox"></a>ComboBox
 ====================

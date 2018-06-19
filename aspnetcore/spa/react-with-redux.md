@@ -17,6 +17,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555228"
 ---
 # <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>ASP.NET Core ile tepki-ile-Redux proje şablonu kullanın
 

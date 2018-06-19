@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider
-title: "[Nasıl stop yaparım] Web olayları SqlWebEventProvider kullanarak bir SQL Server veritabanına yazma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Web olayları SqlWebEventProvider kullanarak bir SQL Server veritabanına yazma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET durum SqlWebEventProvider izleme bir web sitesinde bir SQL Server veritabanına hataları günlüğe kaydetmek için nasıl kullanılacağını gösterir. Birinci, Temizle..."
+description: Bu video Chris Pels ASP.NET durum SqlWebEventProvider izleme bir web sitesinde bir SQL Server veritabanına hataları günlüğe kaydetmek için nasıl kullanılacağını gösterir. Birinci, Temizle...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572268"
 ---
 <a name="how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider"></a>[Nasıl stop yaparım] Web olayları SqlWebEventProvider kullanarak bir SQL Server veritabanına yazma
 ====================

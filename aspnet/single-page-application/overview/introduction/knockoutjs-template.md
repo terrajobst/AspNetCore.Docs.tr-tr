@@ -1,14 +1,14 @@
 ---
 uid: single-page-application/overview/introduction/knockoutjs-template
-title: "Tek sayfa uygulaması: Çakıştırmaları şablonu | Microsoft Docs"
+title: 'Tek sayfa uygulaması: Çakıştırmaları şablonu | Microsoft Docs'
 author: MikeWasson
-description: "Boşaltılan şablonu"
+description: Boşaltılan şablonu
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "28036901"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Tek sayfa uygulaması: Çakıştırmaları şablonu
 ====================
@@ -46,7 +47,7 @@ Gereksinimleri:
 
 Visual Studio'yu başlatın ve seçin **yeni proje** başlangıç sayfasından. Veya **dosya** menüsünde, select **yeni** ve ardından **proje**.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#**seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
 
 ![](knockoutjs-template/_static/image2.png)
 

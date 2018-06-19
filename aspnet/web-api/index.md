@@ -2,7 +2,7 @@
 uid: web-api/index
 title: ASP.NET Web API | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 4'ü indirmek ve çok çeşitli istemciler ulaşmak HTTP Hizmetleri oluşturun."
+description: ASP.NET MVC 4'ü indirmek ve çok çeşitli istemciler ulaşmak HTTP Hizmetleri oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566421"
 ---
 <a name="aspnet-web-api"></a>ASP.NET Web API
 ====================

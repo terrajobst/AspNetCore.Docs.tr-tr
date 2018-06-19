@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-precompile-an-aspnet-website
-title: "[Nasıl stop yaparım] ASP.NET Web sitesi ön derleme yap | Microsoft Docs"
+title: '[Nasıl stop yaparım] ASP.NET Web sitesi ön derleme yap | Microsoft Docs'
 author: rick-anderson
-description: "Chris Pels, ilk çalıştırma performansı artırır ve uygulama güvenliği güçlendirir bir ASP.NET Web sitesi derleneceği gösterilmiştir."
+description: Chris Pels, ilk çalıştırma performansı artırır ve uygulama güvenliği güçlendirir bir ASP.NET Web sitesi derleneceği gösterilmiştir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570816"
 ---
 <a name="how-do-i-precompile-an-aspnet-website"></a>[Nasıl stop yaparım] ASP.NET Web sitesi ön derleme yap
 ====================

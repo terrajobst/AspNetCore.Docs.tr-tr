@@ -1,8 +1,8 @@
 ---
 uid: web-forms/pluralsight
-title: "Web Forms Video eğitim Pluralsight gelen | Microsoft Docs"
+title: Web Forms Video eğitim Pluralsight gelen | Microsoft Docs
 author: rick-anderson
-description: "Web Forms Video eğitim Pluralsight bu ASP.NET Web Forms geliştirme indirmelere gelen .NET istisnası bilmeniz gereken birkaç anahtar teknolojiler sunar..."
+description: Web Forms Video eğitim Pluralsight bu ASP.NET Web Forms geliştirme indirmelere gelen .NET istisnası bilmeniz gereken birkaç anahtar teknolojiler sunar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/16/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570348"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a>Web Forms Video eğitim Pluralsight gelen
 ====================

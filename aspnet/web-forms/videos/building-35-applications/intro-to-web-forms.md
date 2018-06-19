@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
-title: "Web Forms giriş | Microsoft Docs"
+title: Web Forms giriş | Microsoft Docs
 author: JoeStagner
-description: "ASP.NET Web Forms mekanizmasıdır varsayılan kullanıcı arabirimi ASP.NET uygulamaları için... Bu videoyu Web Forms geliştirmenin temel gösterilmektedir."
+description: ASP.NET Web Forms mekanizmasıdır varsayılan kullanıcı arabirimi ASP.NET uygulamaları için... Bu videoyu Web Forms geliştirmenin temel gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570612"
 ---
 <a name="intro-to-web-forms"></a>Web Forms giriş
 ====================

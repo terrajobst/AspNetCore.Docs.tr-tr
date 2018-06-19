@@ -2,7 +2,7 @@
 uid: web-forms/videos/jquery/index
 title: jQuery | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET sayfaları jQuery özellikleri kullanmak nasıl."
+description: ASP.NET sayfaları jQuery özellikleri kullanmak nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572112"
 ---
 <a name="jquery"></a>jQuery
 ====================

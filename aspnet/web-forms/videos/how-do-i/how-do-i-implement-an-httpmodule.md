@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-an-httpmodule
-title: "[Nasıl stop yaparım] Bir HTTP uygulansın mı? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir HTTP uygulansın mı? | Microsoft Docs'
 author: scottgolightly
-description: "Bu video Scott Golightly BeginRequest ve EndRequest olayları b hakkında bazı verileri depolamak için kullandığı basit bir HTTP uygulama gösterilmektedir..."
+description: Bu video Scott Golightly BeginRequest ve EndRequest olayları b hakkında bazı verileri depolamak için kullandığı basit bir HTTP uygulama gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572115"
 ---
 <a name="how-do-i-implement-an-httpmodule"></a>[Nasıl stop yaparım] Bir HTTP uygulansın mı?
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: "Veri erişim senaryoları Gelişmiş | Microsoft Docs"
+title: Veri erişim senaryoları Gelişmiş | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticileri saklı yordamları ve hesaplanan sütunlar ile nasıl çalışılacağı, veritabanı tablolarıyla birleştirmeler kullanmayı ve veri bağlantı bilgileri şifrelemek nasıl ele..."
+description: Bu öğreticileri saklı yordamları ve hesaplanan sütunlar ile nasıl çalışılacağı, veritabanı tablolarıyla birleştirmeler kullanmayı ve veri bağlantı bilgileri şifrelemek nasıl ele...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567993"
 ---
 <a name="advanced-data-access-scenarios"></a>Gelişmiş Veri erişim senaryoları
 ====================

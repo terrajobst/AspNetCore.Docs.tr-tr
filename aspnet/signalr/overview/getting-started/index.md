@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/index
-title: "SignalR Başlarken | Microsoft Docs"
+title: SignalR Başlarken | Microsoft Docs
 author: rick-anderson
-description: "Bilgi hakkında ASP.NET SignalR ASP.NET SignalR geliştirme gerçek zamanlı web işlevselliği kolaylaştırır yeni bir kitaplık ASP.NET geliştiricilerinin ' dir. SignalR BI sağlar..."
+description: Bilgi hakkında ASP.NET SignalR ASP.NET SignalR geliştirme gerçek zamanlı web işlevselliği kolaylaştırır yeni bir kitaplık ASP.NET geliştiricilerinin ' dir. SignalR BI sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565455"
 ---
 <a name="signalr-getting-started"></a>SignalR Başlarken
 ====================

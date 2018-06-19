@@ -1,8 +1,8 @@
 ---
 uid: web-api/videos/getting-started/your-first-web-api
-title: "ASP.NET Web API, bölüm 1: İlk Web API | Microsoft Docs"
+title: 'ASP.NET Web API, bölüm 1: İlk Web API | Microsoft Docs'
 author: jongalloway
-description: "Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir."
+description: 'Not: Bu videoda bir ASP.NET Web API yayım öncesi sürümü bilgilerini içerir.'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26567033"
 ---
 <a name="aspnet-web-api-part-1-your-first-web-api"></a>ASP.NET Web API, bölüm 1: İlk Web API
 ====================

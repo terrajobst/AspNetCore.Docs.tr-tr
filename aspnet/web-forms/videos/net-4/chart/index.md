@@ -2,7 +2,7 @@
 uid: web-forms/videos/net-4/chart/index
 title: Grafik | Microsoft Docs
 author: rick-anderson
-description: "Bu video serisini ASP.NET grafik denetiminin görsel olarak ilgi çekici veri görüntüsü oluşturmak için nasıl kullanılacağını gösterir."
+description: Bu video serisini ASP.NET grafik denetiminin görsel olarak ilgi çekici veri görüntüsü oluşturmak için nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570873"
 ---
 <a name="chart"></a>Grafik
 ====================

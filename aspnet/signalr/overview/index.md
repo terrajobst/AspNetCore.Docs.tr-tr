@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/index
-title: "SignalR Kılavuzu | Microsoft Docs"
+title: SignalR Kılavuzu | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/24/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565974"
 ---
 <a name="signalr-guidance"></a>SignalR Kılavuzu
 ====================

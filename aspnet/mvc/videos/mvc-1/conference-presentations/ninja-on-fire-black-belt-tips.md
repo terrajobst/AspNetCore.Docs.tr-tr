@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/ninja-on-fire-black-belt-tips
-title: "Ninja yangın siyah bandı ipuçları üzerinde | Microsoft Docs"
+title: Ninja yangın siyah bandı ipuçları üzerinde | Microsoft Docs
 author: Haacked
-description: "Bazı ipuçları ve püf noktaları en ASP.NET MVC çerçevesi dışında almak için bkz."
+description: Bazı ipuçları ve püf noktaları en ASP.NET MVC çerçevesi dışında almak için bkz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565476"
 ---
 <a name="ninja-on-fire-black-belt-tips"></a>Ninja yangın siyah bandı ipuçları hakkında
 ====================

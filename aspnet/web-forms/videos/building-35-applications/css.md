@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/css
 title: CSS | Microsoft Docs
 author: JoeStagner
-description: "Geçişli stil sayfası modern web geliştirme için tam sayı ve Visual Web Developer 2008 yardımcı olmak için tesis derleme güçlü CSS oluşan bir koleksiyonu içerir..."
+description: Geçişli stil sayfası modern web geliştirme için tam sayı ve Visual Web Developer 2008 yardımcı olmak için tesis derleme güçlü CSS oluşan bir koleksiyonu içerir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570750"
 ---
 <a name="css"></a>CSS
 ====================

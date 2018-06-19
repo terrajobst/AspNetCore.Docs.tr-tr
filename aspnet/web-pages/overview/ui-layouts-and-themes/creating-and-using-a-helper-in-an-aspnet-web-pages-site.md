@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
-title: "Oluşturma ve bir Yardımcısını kullanarak bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: Oluşturma ve bir Yardımcısını kullanarak bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: tfitzmac
-description: "Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı oluşturulacağını açıklar. Bir yardımcı kod ve performans için biçimlendirme içeren yeniden kullanılabilir bir bileşenidir..."
+description: Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı oluşturulacağını açıklar. Bir yardımcı kod ve performans için biçimlendirme içeren yeniden kullanılabilir bir bileşenidir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573306"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Oluşturma ve bir ASP.NET Web sayfaları (Razor) sitesinde bir Yardımcısını kullanma
 ====================

@@ -1,14 +1,14 @@
 ---
 uid: identity/overview/index
-title: "ASP.NET Kimliği'ne genel bakış | Microsoft Docs"
+title: ASP.NET Kimliği'ne genel bakış | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: d3972a0e-9ff6-4de1-bf4d-c94943cab048
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview
 msc.type: book
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563685"
 ---
 <a name="aspnet-identity-overview"></a>ASP.NET Kimliği'ne genel bakış
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/data-controls/index
 title: Veri denetimleri | Microsoft Docs
 author: rick-anderson
-description: "Yeni veri denetim özellikleri ASP.NET 3.5 ile birlikte kullanmak nasıl bu video serisini inceler"
+description: Yeni veri denetim özellikleri ASP.NET 3.5 ile birlikte kullanmak nasıl bu video serisini inceler
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570459"
 ---
 <a name="data-controls"></a>Veri denetimleri
 ====================

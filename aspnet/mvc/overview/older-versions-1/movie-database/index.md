@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/index
-title: "Film veritabanı | Microsoft Docs"
+title: Film veritabanı | Microsoft Docs
 author: rick-anderson
-description: "15 dakika içinde bir film veritabanı uygulaması oluşturma."
+description: 15 dakika içinde bir film veritabanı uygulaması oluşturma.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564519"
 ---
 <a name="movie-database"></a>Film veritabanı
 ====================

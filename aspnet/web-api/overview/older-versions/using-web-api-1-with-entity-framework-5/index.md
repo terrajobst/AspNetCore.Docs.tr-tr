@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/index
 title: ASP.NET Web API 1 Entity Framework 5 ile kullanma | Microsoft Docs
 author: rick-anderson
-description: "Entity Framework veritabanı kalıcılığını kullanan bir Web API 1 uygulaması oluşturma"
+description: Entity Framework veritabanı kalıcılığını kullanan bir Web API 1 uygulaması oluşturma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566742"
 ---
 <a name="using-aspnet-web-api-1-with-entity-framework-5"></a>ASP.NET Web API 1 Entity Framework 5 ile kullanma
 ====================

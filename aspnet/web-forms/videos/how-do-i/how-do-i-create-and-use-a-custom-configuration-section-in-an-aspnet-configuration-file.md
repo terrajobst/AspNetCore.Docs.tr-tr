@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file
-title: "[Nasıl stop yaparım] Oluşturma ve özel yapılandırma bölümü bir ASP.NET yapılandırma dosyasında kullanma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Oluşturma ve özel yapılandırma bölümü bir ASP.NET yapılandırma dosyasında kullanma | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels kendi XML yapılandırma öğeleri ile ASP.NET yapılandırma ayarları standart kümesini genişletmek nasıl yapacağınızı gösterir. İlk olarak, bkz: nasıl..."
+description: 'Bu videoda Chris Pels kendi XML yapılandırma öğeleri ile ASP.NET yapılandırma ayarları standart kümesini genişletmek nasıl yapacağınızı gösterir. İlk olarak, bkz: nasıl...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/16/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572757"
 ---
 <a name="how-do-i-create-and-use-a-custom-configuration-section-in-an-aspnet-configuration-file"></a>[Nasıl stop yaparım] Oluşturma ve özel yapılandırma bölümü bir ASP.NET yapılandırma dosyasında kullanma
 ====================

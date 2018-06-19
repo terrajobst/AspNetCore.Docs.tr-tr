@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
-title: "Okuma, yazma ve silme ASP.NET tanımlama bilgilerini | Microsoft Docs"
+title: Okuma, yazma ve silme ASP.NET tanımlama bilgilerini | Microsoft Docs
 author: rick-anderson
-description: "Bu video Chris Pels okuma, yazma ve bir ASP.NET uygulamasında tanımlama bilgilerini silmek nasıl yapacağınızı gösterir. İlk olarak, cooki düzenleme için temel işlemleri bilgi edinin..."
+description: Bu video Chris Pels okuma, yazma ve bir ASP.NET uygulamasında tanımlama bilgilerini silmek nasıl yapacağınızı gösterir. İlk olarak, cooki düzenleme için temel işlemleri bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572217"
 ---
 <a name="read-write-and-delete-cookies-in-aspnet"></a>Okuma, yazma ve ASP.NET tanımlama bilgilerini silme
 ====================

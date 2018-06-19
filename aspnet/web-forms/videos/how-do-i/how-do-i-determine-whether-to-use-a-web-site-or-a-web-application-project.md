@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
-title: "[Nasıl stop yaparım] Bir Web sitesi veya bir Web uygulaması projesi kullanmayı belirleme | Microsoft Docs"
+title: '[Nasıl stop yaparım] Bir Web sitesi veya bir Web uygulaması projesi kullanmayı belirleme | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels bir ASP.NET web sitesi projesini ve web uygulama projesi arasındaki farklar Karşıtlık. Kullanmak için dikkat edilecek noktalar bilgi edinin..."
+description: Bu video Chris Pels bir ASP.NET web sitesi projesini ve web uygulama projesi arasındaki farklar Karşıtlık. Kullanmak için dikkat edilecek noktalar bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570966"
 ---
 <a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a>[Nasıl stop yaparım] Bir Web sitesi veya bir Web uygulaması projesi kullanılacağını belirleme
 ====================

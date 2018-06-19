@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
-title: "ASP.NET Web API 2.2 kullanarak varlık ilişkileriyle OData v4 içinde | Microsoft Docs"
+title: ASP.NET Web API 2.2 kullanarak varlık ilişkileriyle OData v4 içinde | Microsoft Docs
 author: MikeWasson
-description: "Varlıkları arasındaki ilişkileri çoğu veri kümelerini tanımlayın: müşterilerin sahip siparişleri; Books yazarlar; yine de sahip istiyor musunuz? Ürünler Üreticiler vardır. OData kullanarak, istemciler üzerinde gidebilirsiniz..."
+description: 'Varlıkları arasındaki ilişkileri çoğu veri kümelerini tanımlayın: müşterilerin sahip siparişleri; Books yazarlar; yine de sahip istiyor musunuz? Ürünler Üreticiler vardır. OData kullanarak, istemciler üzerinde gidebilirsiniz...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566736"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>OData v4 varlık ilişkilerine ASP.NET Web API 2.2 kullanma
 ====================

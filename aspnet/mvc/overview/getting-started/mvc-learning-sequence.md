@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/mvc-learning-sequence
-title: "MVC önerilen öğreticiler ve makaleleri | Microsoft Docs"
+title: MVC önerilen öğreticiler ve makaleleri | Microsoft Docs
 author: Rick-Anderson
-description: "Bu sayfa, ASP.NET MVC öğreticiler ve bunları izlemek için önerilen bir dizi bağlantılar içerir."
+description: Bu sayfa, ASP.NET MVC öğreticiler ve bunları izlemek için önerilen bir dizi bağlantılar içerir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032647"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>MVC önerilen öğreticiler ve makaleleri
 ====================

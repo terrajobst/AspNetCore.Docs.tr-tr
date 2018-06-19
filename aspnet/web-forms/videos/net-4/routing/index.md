@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/net-4/routing/index
-title: "Yönlendirme | Microsoft Docs"
+title: Yönlendirme | Microsoft Docs
 author: rick-anderson
-description: "Bu videoda, sezgisel oluşturma ve SEO dostu URL'leri Web formları uygulamalarını gösterir."
+description: Bu videoda, sezgisel oluşturma ve SEO dostu URL'leri Web formları uygulamalarını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571923"
 ---
 <a name="routing"></a>Yönlendirme
 ====================

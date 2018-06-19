@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-simple-file-uploads-in-aspnet
-title: "[Nasıl stop yaparım]  Basit dosya yüklemeleri ASP.NET | Microsoft Docs"
+title: '[Nasıl stop yaparım]  Basit dosya yüklemeleri ASP.NET | Microsoft Docs'
 author: JoeStagner
-description: "Bu videoda'ı, gösterecek ASP.NET kullanarak, sunucunuz için tek bir istemci makine dosyadan yüklemek. Bu yükleme, bir dizi ilk olacaktır..."
+description: Bu videoda'ı, gösterecek ASP.NET kullanarak, sunucunuz için tek bir istemci makine dosyadan yüklemek. Bu yükleme, bir dizi ilk olacaktır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572139"
 ---
 <a name="how-do-i--simple-file-uploads-in-aspnet"></a>[Nasıl stop yaparım]  ASP.NET basit dosya yüklemeleri
 ====================

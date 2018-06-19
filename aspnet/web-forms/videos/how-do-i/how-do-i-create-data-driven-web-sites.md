@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-data-driven-web-sites
-title: "[Nasıl stop yaparım] Veri tabanlı Web siteleri oluşturulsun mu? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Veri tabanlı Web siteleri oluşturulsun mu? | Microsoft Docs'
 author: microsoft
-description: "Veri tabanlı web ASP.NET 2.0, Visual Web Developer 2005 Express Edition ve SQL Server 2005 Express Edition'ı kullanarak site oluşturmak için nasıl basit olduğunu görün. Bilgi edinin..."
+description: Veri tabanlı web ASP.NET 2.0, Visual Web Developer 2005 Express Edition ve SQL Server 2005 Express Edition'ı kullanarak site oluşturmak için nasıl basit olduğunu görün. Bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571779"
 ---
 <a name="how-do-i-create-data-driven-web-sites"></a>[Nasıl stop yaparım] Veri tabanlı Web siteleri oluşturulsun mu?
 ====================

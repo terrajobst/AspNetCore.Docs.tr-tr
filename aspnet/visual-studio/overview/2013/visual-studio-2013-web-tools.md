@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26566445"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Laboratuvar durum: Visual Studio 2013 Web Araçları
 ====================
@@ -302,7 +303,7 @@ Bu görevde, tarayıcı bağlantının kullanacağı **Tasarım modunda** taray�
     ![Soru düzenleme](visual-studio-2013-web-tools/_static/image28.png "soru düzenleme")
 
     *Soru düzenleme*
-3. Bir imleç görüntülenmesi gerekir. Özgün metinle *daha uzun bir soru yazdığınızda, nasıl göründüğünü?*ve tuşuna basarak **ESC** Tasarım modundan çıkmak için.
+3. Bir imleç görüntülenmesi gerekir. Özgün metinle *daha uzun bir soru yazdığınızda, nasıl göründüğünü?* ve tuşuna basarak **ESC** Tasarım modundan çıkmak için.
 
     ![Düzenlenen soru](visual-studio-2013-web-tools/_static/image29.png "düzenlenebilir soru")
 

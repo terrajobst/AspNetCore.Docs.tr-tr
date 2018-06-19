@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/index
-title: "ASP.NET 3.5 - üyelik | Microsoft Docs"
+title: ASP.NET 3.5 - üyelik | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici seri kullanıcı hesapları oluşturun ve yetkilendirme kurallarını yapılandırmak için yerleşik üyelik (güvenlik) sistemini kullanma teknikleri inceler."
+description: Bu öğretici seri kullanıcı hesapları oluşturun ve yetkilendirme kurallarını yapılandırmak için yerleşik üyelik (güvenlik) sistemini kullanma teknikleri inceler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570036"
 ---
 <a name="aspnet-35---membership"></a>ASP.NET 3.5 - üyelik
 ====================

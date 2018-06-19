@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/httpclient-message-handlers
-title: "ASP.NET Web API'de HttpClient ileti işleyicileri | Microsoft Docs"
+title: ASP.NET Web API'de HttpClient ileti işleyicileri | Microsoft Docs
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566343"
 ---
 <a name="httpclient-message-handlers-in-aspnet-web-api"></a>ASP.NET Web API'de HttpClient ileti işleyicileri
 ====================

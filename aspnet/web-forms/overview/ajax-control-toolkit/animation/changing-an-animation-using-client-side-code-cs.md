@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870654"
 ---
 <a name="changing-an-animation-using-client-side-code-c"></a>İstemci tarafı kod (C#) kullanarak bir animasyon değiştirme
 ====================

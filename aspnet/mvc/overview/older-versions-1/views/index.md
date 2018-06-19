@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/index
-title: "ASP.NET MVC görünümleri | Microsoft Docs"
+title: ASP.NET MVC görünümleri | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler, ASP.NET MVC görünüm, görünüm verilerini ve HTML Yardımcıları kısa bir giriş sağlar."
+description: Bu öğreticiler, ASP.NET MVC görünüm, görünüm verilerini ve HTML Yardımcıları kısa bir giriş sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564555"
 ---
 <a name="aspnet-mvc-views"></a>ASP.NET MVC görünümleri
 ====================

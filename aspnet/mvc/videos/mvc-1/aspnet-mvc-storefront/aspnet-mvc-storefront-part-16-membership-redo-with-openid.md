@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868041"
 ---
 <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC Storefront bölümü 16: Openıd üyelik Yinele
 ====================

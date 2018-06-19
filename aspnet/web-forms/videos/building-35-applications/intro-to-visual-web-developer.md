@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-visual-web-developer
-title: "Visual Web Developer giriş | Microsoft Docs"
+title: Visual Web Developer giriş | Microsoft Docs
 author: JoeStagner
-description: "Microsoft Visual Web Developer ücretsiz Visual Studio ASP.NET uygulamaları geliştirmek için sürümüdür. Bu videoyu almak ve bunu ve t yüklemek nasıl yapacağınızı gösterir..."
+description: Microsoft Visual Web Developer ücretsiz Visual Studio ASP.NET uygulamaları geliştirmek için sürümüdür. Bu videoyu almak ve bunu ve t yüklemek nasıl yapacağınızı gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570564"
 ---
 <a name="intro-to-visual-web-developer"></a>Visual Web Developer giriş
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-35/aspnet-ajax/index
 title: ASP.NET Ajax | Microsoft Docs
 author: rick-anderson
-description: "Bu video serisini Ajax işlevselliği için bir ASP.NET uygulaması eklemek nasıl araştırır."
+description: Bu video serisini Ajax işlevselliği için bir ASP.NET uygulaması eklemek nasıl araştırır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570375"
 ---
 <a name="aspnet-ajax"></a>ASP.NET Ajax'ı
 ====================

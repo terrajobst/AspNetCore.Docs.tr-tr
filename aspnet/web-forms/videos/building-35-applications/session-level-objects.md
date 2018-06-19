@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/session-level-objects
-title: "Oturum düzeyi nesneleri | Microsoft Docs"
+title: Oturum düzeyi nesneleri | Microsoft Docs
 author: JoeStagner
-description: "Bu videoyu oturum düzeyi etkinlikleri ve nesneleri ve kullanımlarını uygulama ve sayfa düzeyinde eşdeğerlerine ile karşılaştırın."
+description: Bu videoyu oturum düzeyi etkinlikleri ve nesneleri ve kullanımlarını uygulama ve sayfa düzeyinde eşdeğerlerine ile karşılaştırın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571803"
 ---
 <a name="session-level-objects"></a>Oturum düzeyi nesneleri
 ====================

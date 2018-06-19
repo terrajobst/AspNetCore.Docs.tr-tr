@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
-title: "[Nasıl stop yaparım] Derlemeleri birleştirmek için aspnet_merge.exe yardımcı programını kullanın | Microsoft Docs"
+title: '[Nasıl stop yaparım] Derlemeleri birleştirmek için aspnet_merge.exe yardımcı programını kullanın | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels aspnet_merge.exe yardımcı programının aspnet_compiler.exe utilit kullanarak derlenmiş derlemeleri birleştirmek için nasıl kullanılacağı gösterilir..."
+description: Bu videoda Chris Pels aspnet_merge.exe yardımcı programının aspnet_compiler.exe utilit kullanarak derlenmiş derlemeleri birleştirmek için nasıl kullanılacağı gösterilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572253"
 ---
 <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[Nasıl stop yaparım] Derlemeleri birleştirmek için aspnet_merge.exe yardımcı programını kullanın
 ====================

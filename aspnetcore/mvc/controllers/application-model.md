@@ -14,6 +14,7 @@ ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555358"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modelinde ile çalışma
 

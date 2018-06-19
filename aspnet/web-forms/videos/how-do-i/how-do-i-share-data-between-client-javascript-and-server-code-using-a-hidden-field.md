@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
-title: "[Nasıl stop yaparım] İstemci JavaScript ve gizli bir alan kullanarak sunucu kodu arasında veri paylaşır | Microsoft Docs"
+title: '[Nasıl stop yaparım] İstemci JavaScript ve gizli bir alan kullanarak sunucu kodu arasında veri paylaşır | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels gizli bir alan bir ASP.NET sayfası kullanarak veri JavaScript ve sunucu tarafı kodu arasında paylaşmak nasıl yapacağınızı gösterir. Ardından, bilgi nasıl t..."
+description: Bu video Chris Pels gizli bir alan bir ASP.NET sayfası kullanarak veri JavaScript ve sunucu tarafı kodu arasında paylaşmak nasıl yapacağınızı gösterir. Ardından, bilgi nasıl t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570780"
 ---
 <a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a>[Nasıl stop yaparım] İstemci JavaScript ve gizli bir alan kullanarak sunucu kodu arasında veri paylaşma
 ====================

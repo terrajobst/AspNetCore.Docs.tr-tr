@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/basic-authentication
-title: "ASP.NET Web API'de temel kimlik doğrulaması | Microsoft Docs"
+title: ASP.NET Web API'de temel kimlik doğrulaması | Microsoft Docs
 author: MikeWasson
-description: "ASP.NET Web API'de temel kimlik doğrulaması kullanmayı açıklar."
+description: ASP.NET Web API'de temel kimlik doğrulaması kullanmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566745"
 ---
 <a name="basic-authentication-in-aspnet-web-api"></a>ASP.NET Web API'de temel kimlik doğrulaması
 ====================

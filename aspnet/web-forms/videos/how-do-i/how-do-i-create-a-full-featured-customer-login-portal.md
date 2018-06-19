@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-full-featured-customer-login-portal
-title: "[Nasıl stop yaparım] Tam özellikli müşteri oturum açma portalı oluşturulsun mu? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Tam özellikli müşteri oturum açma portalı oluşturulsun mu? | Microsoft Docs'
 author: microsoft
-description: "Ana sayfalar, temalar, üyelik, roller, site gezintisi, kullanıcı profilleri hakkında bilgi edinmek için kurgusal müşteri portalı oluşturulmasını aracılığıyla izlemek ve..."
+description: Ana sayfalar, temalar, üyelik, roller, site gezintisi, kullanıcı profilleri hakkında bilgi edinmek için kurgusal müşteri portalı oluşturulmasını aracılığıyla izlemek ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571896"
 ---
 <a name="how-do-i-create-a-full-featured-customer-login-portal"></a>[Nasıl stop yaparım] Tam özellikli müşteri oturum açma portalı oluşturulsun mu?
 ====================

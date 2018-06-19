@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/index
-title: "Eski sürümleri - ASP.NET 2.0 | Microsoft Docs"
+title: Eski sürümleri - ASP.NET 2.0 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET 2.0 için ASP.NET 1.x uygulamaları geçirmek nasıl."
+description: ASP.NET 2.0 için ASP.NET 1.x uygulamaları geçirmek nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26569313"
 ---
 <a name="older-versions---aspnet-20"></a>Eski sürümleri - ASP.NET 2.0
 ====================

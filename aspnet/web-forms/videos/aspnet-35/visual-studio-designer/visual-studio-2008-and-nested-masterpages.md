@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-designer/visual-studio-2008-and-nested-masterpages
-title: "Visual Studio 2008 ve iç içe geçmiş ana sayfalar | Microsoft Docs"
+title: Visual Studio 2008 ve iç içe geçmiş ana sayfalar | Microsoft Docs
 author: JoeStagner
-description: "Oswd.org web şablonundan ana sayfalar ve Visual Studio 2008'de nasıl desteklenen kullanımını göstermek için kullanır. Özellikle, th gösterecektir..."
+description: Oswd.org web şablonundan ana sayfalar ve Visual Studio 2008'de nasıl desteklenen kullanımını göstermek için kullanır. Özellikle, th gösterecektir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570474"
 ---
 <a name="visual-studio-2008-and-nested-masterpages"></a>Visual Studio 2008 ve iç içe geçmiş ana sayfalar
 ====================

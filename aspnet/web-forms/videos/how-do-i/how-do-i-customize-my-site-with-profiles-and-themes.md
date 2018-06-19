@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-customize-my-site-with-profiles-and-themes
-title: "[Nasıl stop yaparım] Sitem profilleri ve Temalar özelleştirebilir? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Sitem profilleri ve Temalar özelleştirebilir? | Microsoft Docs'
 author: microsoft
-description: "Kullanıcı başına yapılandırma bilgilerini toplayan ve bir tutarlı görünüm-ve-kullanım Web sitesi boyunca genişletmek için Temalar uygulamak için profilleri kullanmayı öğrenin."
+description: Kullanıcı başına yapılandırma bilgilerini toplayan ve bir tutarlı görünüm-ve-kullanım Web sitesi boyunca genişletmek için Temalar uygulamak için profilleri kullanmayı öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572163"
 ---
 <a name="how-do-i-customize-my-site-with-profiles-and-themes"></a>[Nasıl stop yaparım] Sitem profilleri ve Temalar özelleştirebilir?
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: "ASP.NET 4 - kurumsal dağıtım serisi 1 | Microsoft Docs"
+title: ASP.NET 4 - kurumsal dağıtım serisi 1 | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici, çok sayıda developmen için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar..."
+description: Bu öğretici, çok sayıda developmen için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568860"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 - kurumsal dağıtım serisi 1
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/page-layout
-title: "Sayfa düzeni | Microsoft Docs"
+title: Sayfa düzeni | Microsoft Docs
 author: JoeStagner
-description: "Tablo veya stil sayfaları? Mutlak veya göreli konumlandırma? Bu görüntü ile yo geliştirme desteği Visual Web developer özelliklerini gösteren..."
+description: Tablo veya stil sayfaları? Mutlak veya göreli konumlandırma? Bu görüntü ile yo geliştirme desteği Visual Web developer özelliklerini gösteren...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571926"
 ---
 <a name="page-layout"></a>Sayfa düzeni
 ====================

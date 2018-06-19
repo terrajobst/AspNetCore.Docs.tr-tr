@@ -1,14 +1,14 @@
 ---
 uid: single-page-application/index
-title: "ASP.NET tek sayfa uygulaması | Microsoft Docs"
+title: ASP.NET tek sayfa uygulaması | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET sonbaharda 2012 güncelleştirmeyi indirin ve önemli istemci tarafı etkileşimler JavaScrip kullanarak uygulamaları oluşturmak için daha iyi bir uçtan uca deneyim sahibi..."
+description: ASP.NET sonbaharda 2012 güncelleştirmeyi indirin ve önemli istemci tarafı etkileşimler JavaScrip kullanarak uygulamaları oluşturmak için daha iyi bir uçtan uca deneyim sahibi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2012
 ms.topic: article
 ms.assetid: 4760328c-3d73-4757-a36f-ab80a5b3f611
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application
 msc.type: categoryindex
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565995"
 ---
 <a name="aspnet-single-page-application"></a>ASP.NET tek sayfa uygulaması
 ====================

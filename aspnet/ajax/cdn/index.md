@@ -1,22 +1,23 @@
 ---
 uid: ajax/cdn/index
-title: "Microsoft Ajax içerik teslim ağı | Microsoft Docs"
+title: Microsoft Ajax içerik teslim ağı | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: fc98bde7-484a-4191-bba2-04d29551cb8f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
-msc.legacyurl: 
+msc.legacyurl: ''
 msc.type: content
 ms.openlocfilehash: 104099ac25df23f2f73cea94a807a17f981c96a2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26563082"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax içerik teslim ağı
 ====================

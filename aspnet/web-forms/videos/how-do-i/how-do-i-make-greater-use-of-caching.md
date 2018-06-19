@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-greater-use-of-caching
-title: "[Nasıl stop yaparım] Önbelleğe alma büyük kullanımını yapılsın mı? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Önbelleğe alma büyük kullanımını yapılsın mı? | Microsoft Docs'
 author: microsoft
-description: "Kısmi sayfa çıktı önbelleği tanıtımı izleyin, nasıl verimli bir veri sunumu bağlanacağını gösterir önbellek API genel bir bakış tarafından izlenen..."
+description: Kısmi sayfa çıktı önbelleği tanıtımı izleyin, nasıl verimli bir veri sunumu bağlanacağını gösterir önbellek API genel bir bakış tarafından izlenen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572241"
 ---
 <a name="how-do-i-make-greater-use-of-caching"></a>[Nasıl stop yaparım] Önbelleğe alma büyük kullanımını yapılsın mı?
 ====================

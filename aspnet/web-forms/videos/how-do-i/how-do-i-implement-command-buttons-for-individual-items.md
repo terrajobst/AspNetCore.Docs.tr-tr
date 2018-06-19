@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-command-buttons-for-individual-items
-title: "[Nasıl stop yaparım] Komut düğmeleri uygulamak için ayrı ayrı öğeleri | Microsoft Docs"
+title: '[Nasıl stop yaparım] Komut düğmeleri uygulamak için ayrı ayrı öğeleri | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda Chris Pels gibi ListView denetimine veri bağlama denetimi her öğesinde düğme denetimi ile ilişkili olayları işlemek nasıl yapacağınızı gösterir. Birinci..."
+description: Bu videoda Chris Pels gibi ListView denetimine veri bağlama denetimi her öğesinde düğme denetimi ile ilişkili olayları işlemek nasıl yapacağınızı gösterir. Birinci...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571974"
 ---
 <a name="how-do-i-implement-command-buttons-for-individual-items"></a>[Nasıl stop yaparım] Tek tek öğelerin uygulama komut düğmeleri
 ====================

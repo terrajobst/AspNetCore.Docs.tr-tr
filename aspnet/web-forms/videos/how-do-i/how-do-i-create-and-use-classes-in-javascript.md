@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
 title: "Nasıl I: oluşturmak ve JavaScript'te sınıfları kullanır? | Microsoft Docs"
 author: rick-anderson
-description: "Bu videoda Chris Pels sınıfları JavaScript'te işlevselliğe sahip nesne yönelimli capabilitie diğer programlama dilleriyle benzer nasıl oluşturulacağını gösterir..."
+description: Bu videoda Chris Pels sınıfları JavaScript'te işlevselliğe sahip nesne yönelimli capabilitie diğer programlama dilleriyle benzer nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/08/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572088"
 ---
 <a name="how-do-i-create-and-use-classes-in-javascript"></a>Nasıl I: oluşturmak ve JavaScript'te sınıfları kullanır?
 ====================

@@ -1,20 +1,21 @@
 ---
 uid: aspnet/tutorials
-title: "ASP.NET öğreticileri | Microsoft Docs"
+title: ASP.NET öğreticileri | Microsoft Docs
 author: tdykstra
-description: "ASP.NET uygulamaları geliştirmek için adım adım kılavuzlar listesi."
+description: ASP.NET uygulamaları geliştirmek için adım adım kılavuzlar listesi.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036771"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET öğreticileri
 

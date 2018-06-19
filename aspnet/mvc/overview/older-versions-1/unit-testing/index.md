@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/unit-testing/index
 title: Birim testi | Microsoft Docs
 author: rick-anderson
-description: "Bu öğretici kümesi birim testleri için ASP.NET MVC denetleyici eylemleri oluşturulacağını gösterir."
+description: Bu öğretici kümesi birim testleri için ASP.NET MVC denetleyici eylemleri oluşturulacağını gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564522"
 ---
 <a name="unit-testing"></a>Birim testi
 ====================

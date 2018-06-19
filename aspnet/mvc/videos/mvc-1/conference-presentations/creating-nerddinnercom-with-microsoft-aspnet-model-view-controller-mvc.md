@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc
-title: "Microsoft ASP.NET Model View Controller (MVC) NerdDinner.com oluşturma | Microsoft Docs"
+title: Microsoft ASP.NET Model View Controller (MVC) NerdDinner.com oluşturma | Microsoft Docs
 author: shanselman
-description: "Slayt yok. Yalnızca kodu. Dosya-yeni ile başlamalı ve ASP.NET, ASP.NET AJAX, kimlik doğrulama, yetkilendirme, MVC, Microsoft SQL Server ile gerçek bir Web sitesi oluşturma ve..."
+description: Slayt yok. Yalnızca kodu. Dosya-yeni ile başlamalı ve ASP.NET, ASP.NET AJAX, kimlik doğrulama, yetkilendirme, MVC, Microsoft SQL Server ile gerçek bir Web sitesi oluşturma ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565341"
 ---
 <a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a>Microsoft ASP.NET Model View Controller (MVC) NerdDinner.com oluşturma
 ====================

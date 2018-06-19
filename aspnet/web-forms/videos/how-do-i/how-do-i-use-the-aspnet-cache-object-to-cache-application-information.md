@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
-title: "[Nasıl yedeklerim]: uygulama bilgilerini önbelleğe almak için ASP.NET önbellek nesnesi kullanma | Microsoft Docs"
+title: '[Nasıl yedeklerim]: uygulama bilgilerini önbelleğe almak için ASP.NET önbellek nesnesi kullanma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels ASP.NET önbellek nesnesini uygulama bilgilerini depolamak için nasıl kullanılacağını gösterir. Örnek sayfası basit bir kullanıcı arabirimi ile oluşturulan bir..."
+description: Bu video Chris Pels ASP.NET önbellek nesnesini uygulama bilgilerini depolamak için nasıl kullanılacağını gösterir. Örnek sayfası basit bir kullanıcı arabirimi ile oluşturulan bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572100"
 ---
 <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Nasıl yedeklerim]: uygulama bilgilerini önbelleğe almak için ASP.NET önbellek nesnesi kullanma
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
 title: "[Nasıl stop yaparım] Kopyalama Web sitesi Aracı'nı kullanarak bir Web sitesi dağıtma | Microsoft Docs"
 author: rick-anderson
-description: "Bu video Chris Pels Visual Studio kopyası Web sitesi Aracı'nı kullanarak bir web sitesinin nasıl dağıtılacağı gösterir. İlk uzak bir web sitesine bağlanmak nasıl bakın ve..."
+description: Bu video Chris Pels Visual Studio kopyası Web sitesi Aracı'nı kullanarak bir web sitesinin nasıl dağıtılacağı gösterir. İlk uzak bir web sitesine bağlanmak nasıl bakın ve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572007"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a>[Nasıl stop yaparım] Kopyalama Web sitesi Aracı'nı kullanarak bir Web sitesi dağıtma
 ====================

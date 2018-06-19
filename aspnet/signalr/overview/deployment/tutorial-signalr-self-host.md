@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: "Öğretici: SignalR kendini barındırma | Microsoft Docs"
+title: 'Öğretici: SignalR kendini barındırma | Microsoft Docs'
 author: pfletcher
-description: "Bu öğretici, kendi kendini barındıran bir SignalR 2 sunucunun nasıl oluşturulacağını ve JavaScript istemci ile bağlanmak nasıl gösterir. V öğreticide kullanılan yazılım sürümleri..."
+description: Bu öğretici, kendi kendini barındıran bir SignalR 2 sunucunun nasıl oluşturulacağını ve JavaScript istemci ile bağlanmak nasıl gösterir. V öğreticide kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036784"
 ---
 <a name="tutorial-signalr-self-host"></a>Öğretici: SignalR kendini barındırma
 ====================

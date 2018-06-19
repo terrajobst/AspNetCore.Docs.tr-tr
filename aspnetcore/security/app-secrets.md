@@ -5,16 +5,17 @@ description: Bir ASP.NET Core uygulama geliştirme sırasında uygulama sırrı 
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 9e9b548e5572da2c347bc874c473a02d8691e738
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: fd5cf5cdffd7281d7f4e0d96e8230b60be64a7c3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819142"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 
@@ -48,7 +49,7 @@ Gizli Yöneticisi aracını hassas verileri ASP.NET Core projesinde geliştirme 
 
 ## <a name="how-the-secret-manager-tool-works"></a>Parola Yöneticisi aracını nasıl çalışır
 
-Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz. İçinde depolanan değerlerden bir [JSON](https://json.org/) yerel makinede bir sistem korumalı kullanıcı profili klasöründeki yapılandırma dosyası:
+Parola Yöneticisi aracını hemen nerede ve nasıl değerleri saklanır gibi uygulama ayrıntılarını soyutlar. Bu uygulama ayrıntılarını bilmeden aracını kullanabilirsiniz. Değerleri bir sistem korumalı kullanıcı profili klasörü JSON yapılandırma dosyasında yerel makine üzerinde saklanır:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -77,9 +78,18 @@ Konum veya gizli anahtarı Yöneticisi aracıyla kaydedilen verilerin biçimi ba
 ::: moniker range="<= aspnetcore-2.0"
 ## <a name="install-the-secret-manager-tool"></a>Parola Yöneticisi aracını yükleyin
 
-.NET Core SDK 2.1 içinde .NET Core CLI ile gizli Yöneticisi aracını paketlenebilir. Aracı yükleme ve önceki sürümleri, .NET Core SDK 2.0 için gereklidir.
+.NET Core SDK 2.1.300 itibariyle .NET Core CLI ile gizli Yöneticisi aracını paketlenebilir. Aracı yükleme 2.1.300 önce .NET Core SDK sürümleri için gereklidir.
 
-Yükleme [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core projenizdeki NuGet paketi:
+> [!TIP]
+> Çalıştırma `dotnet --version` yüklü .NET Core SDK sürüm numarasını görmek için bir komut kabuğu'ndan.
+
+.NET Core kullanılan SDK aracı içeriyorsa, bir uyarı görüntülenir:
+
+```console
+The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
+```
+
+Yükleme [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) ASP.NET Core projenizdeki NuGet paketi. Örneğin:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 
@@ -205,7 +215,7 @@ Kullanıcı parolaları, aracılığıyla alınabilir `Configuration` API'si:
 
 ## <a name="string-replacement-with-secrets"></a>Gizli anahtarlarla dize değiştirme
 
-Parolaları düz metin olarak depolanması risklidir. Örneğin, bir veritabanı bağlantı dizesi içinde depolanan *appsettings.json* belirtilen kullanıcı için bir parola içerebilir:
+Parolaları düz metin olarak depolanması güvenli değil. Örneğin, bir veritabanı bağlantı dizesi içinde depolanan *appsettings.json* belirtilen kullanıcı için bir parola içerebilir:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings-unsecure.json?highlight=3)]
 
@@ -215,17 +225,17 @@ Parolayı gizlilik olarak depolamak daha güvenli bir yaklaşımdır. Örneğin:
 dotnet user-secrets set "DbPassword" "pass123"
 ```
 
-Parolayı Değiştir *appsettings.json* bir yer tutucu. Aşağıdaki örnekte, `{0}` form yer tutucu olarak kullanılan bir [bileşik biçim dizesi](/dotnet/standard/base-types/composite-formatting#composite-format-string).
+Kaldırma `Password` anahtar-değer çifti bağlantı dizesinden *appsettings.json*. Örneğin:
 
 [!code-json[](app-secrets/samples/2.x/UserSecrets/appsettings.json?highlight=3)]
 
-Parolanın değeri bağlantı dizesini tamamlamak için yer tutucu yerleştirilebilir:
+Parolanın değer ayarlanabilir bir [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder) nesnenin [parola](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.password) bağlantı dizesini tamamlamak için özellik:
 
 ::: moniker range="<= aspnetcore-1.1"
-[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=23-25)]
+[!code-csharp[](app-secrets/samples/1.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=26-29)]
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.0"
-[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-16)]
+[!code-csharp[](app-secrets/samples/2.x/UserSecrets/Startup2.cs?name=snippet_StartupClass&highlight=14-17)]
 ::: moniker-end
 
 ## <a name="list-the-secrets"></a>Gizli listesi

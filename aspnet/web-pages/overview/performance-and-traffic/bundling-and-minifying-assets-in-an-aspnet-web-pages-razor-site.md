@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
-title: "Paketleme ve küçültme varlıklar bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs"
+title: Paketleme ve küçültme varlıklar bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
 author: microsoft
-description: "Paketleme ve küçültme sitenizi hızlandırmak için yollarıdır. Paketleme sağlar, birden çok JavaScript (.js) dosyaları veya birden çok geçişli stil sayfası (... birleştirin"
+description: Paketleme ve küçültme sitenizi hızlandırmak için yollarıdır. Paketleme sağlar, birden çok JavaScript (.js) dosyaları veya birden çok geçişli stil sayfası (... birleştirin
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572871"
 ---
 <a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>Paketleme ve ASP.NET Web sayfaları (Razor) sitesi varlıklar küçültme
 ====================

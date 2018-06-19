@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
-title: "[Nasıl stop yaparım] Özel üyelik sağlayıcısı oluşturulsun mu? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Özel üyelik sağlayıcısı oluşturulsun mu? | Microsoft Docs'
 author: rick-anderson
-description: "Üyelik sağlayıcısı depolamak ve bir kullanıcı için üyelik veri almak bir web uygulaması sağlar ve standart ASP.NET üyelik sağlayıcısı kullanır önceden tanımlı..."
+description: Üyelik sağlayıcısı depolamak ve bir kullanıcı için üyelik veri almak bir web uygulaması sağlar ve standart ASP.NET üyelik sağlayıcısı kullanır önceden tanımlı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26571962"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a>[Nasıl stop yaparım] Özel üyelik sağlayıcısı oluşturulsun mu?
 ====================

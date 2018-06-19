@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
-title: "Nasıl Yaparım jQuery kullanarak yapma Ajax çağrılarını? | Microsoft Docs"
+title: Nasıl Yaparım jQuery kullanarak yapma Ajax çağrılarını? | Microsoft Docs
 author: rick-anderson
-description: "Bu video Chris Pels jQuery kitaplığını kullanarak Ajax çağrıları yapma gösterir. Örnek bir web sitesini döndüren basit bir web hizmeti içeren oluşturulur..."
+description: Bu video Chris Pels jQuery kitaplığını kullanarak Ajax çağrıları yapma gösterir. Örnek bir web sitesini döndüren basit bir web hizmeti içeren oluşturulur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572232"
 ---
 <a name="how-do-i-make-ajax-calls-using-jquery"></a>Nasıl Yaparım jQuery kullanarak yapma Ajax çağrılarını?
 ====================

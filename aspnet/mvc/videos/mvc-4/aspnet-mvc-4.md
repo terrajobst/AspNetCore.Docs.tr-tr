@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-4/aspnet-mvc-4
 title: ASP.NET MVC 4 | Microsoft Docs
 author: shanselman
-description: "Scott Hanselman ASP.NET MVC 4'teki yeni özellikleri gösterir."
+description: Scott Hanselman ASP.NET MVC 4'teki yeni özellikleri gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565407"
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================

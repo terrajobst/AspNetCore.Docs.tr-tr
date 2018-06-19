@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site
-title: "[Nasıl stop yaparım] Kaplamaları için esnek ve sürdürülebilir ASP.NET Web sitesi CSS ile kullanma | Microsoft Docs"
+title: '[Nasıl stop yaparım] Kaplamaları için esnek ve sürdürülebilir ASP.NET Web sitesi CSS ile kullanma | Microsoft Docs'
 author: rick-anderson
-description: "Bu video Chris Pels, ASP.NET sunucu denetimleri için kaplamaları oluşturmak ve dış görünüm Sözl görünümünü denetlemek üzere CSS stillerinin dahil gösterilmektedir..."
+description: Bu video Chris Pels, ASP.NET sunucu denetimleri için kaplamaları oluşturmak ve dış görünüm Sözl görünümünü denetlemek üzere CSS stillerinin dahil gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/07/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570837"
 ---
 <a name="how-do-i-use-skins-with-css-for-a-flexible-and-maintainable-aspnet-web-site"></a>[Nasıl stop yaparım] Dış CSS ile esnek ve sürdürülebilir ASP.NET Web sitesi için kullanın.
 ====================

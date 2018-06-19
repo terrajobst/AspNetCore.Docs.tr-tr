@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-server
-title: "ASP.NET SignalR hub'ları API Kılavuzu - sunucu (C#) | Microsoft Docs"
+title: ASP.NET SignalR hub'ları API Kılavuzu - sunucu (C#) | Microsoft Docs
 author: pfletcher
-description: "Bu belge gösteren kod örnekleri ile sürüm 2, SignalR için ASP.NET SignalR hub'ları API sunucu tarafı programlama için bir giriş sağlar..."
+description: Bu belge gösteren kod örnekleri ile sürüm 2, SignalR için ASP.NET SignalR hub'ları API sunucu tarafı programlama için bir giriş sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039215"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR hub'ları API Kılavuzu - sunucu (C#)
 ====================

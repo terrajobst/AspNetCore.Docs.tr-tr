@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
-title: "[Nasıl stop yaparım] İpuçları ve püf noktaları uzmanlar, öğrenin? | Microsoft Docs"
+title: '[Nasıl stop yaparım] İpuçları ve püf noktaları uzmanlar, öğrenin? | Microsoft Docs'
 author: microsoft
-description: "İpuçları ve püf noktaları hassas bilgileri karmaşık URL'leri basitleştirme farklı bir sayfaya içerik nakil web.config dosyasında depolanan şifreleme dahil olmak üzere görüntüle..."
+description: İpuçları ve püf noktaları hassas bilgileri karmaşık URL'leri basitleştirme farklı bir sayfaya içerik nakil web.config dosyasında depolanan şifreleme dahil olmak üzere görüntüle...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572034"
 ---
 <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Nasıl stop yaparım] İpuçları ve püf noktaları uzmanlar, öğrenin?
 ====================

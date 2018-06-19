@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
-title: "[Nasıl stop yaparım] URL yeniden yazma işlemi uygulansın mı? | Microsoft Docs"
+title: '[Nasıl stop yaparım] URL yeniden yazma işlemi uygulansın mı? | Microsoft Docs'
 author: scottgolightly
-description: "Bu videoda Scott Golightly' ' bir web sayfası için bir istek geldiğinde URL yeniden yazma için bir ASP.NET HTTP oluşturulacağını gösterir. Yeniden yazma isteyebilirsiniz..."
+description: Bu videoda Scott Golightly' ' bir web sayfası için bir istek geldiğinde URL yeniden yazma için bir ASP.NET HTTP oluşturulacağını gösterir. Yeniden yazma isteyebilirsiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572184"
 ---
 <a name="how-do-i-implement-url-rewriting"></a>[Nasıl stop yaparım] URL yeniden yazma işlemi uygulansın mı?
 ====================

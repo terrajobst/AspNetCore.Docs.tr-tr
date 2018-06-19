@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/index
 title: ASP.NET Web API OData v3 destekleme | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web API OData sürümü 3'ü destekleyen uç noktaları oluşturmak için kullanın."
+description: ASP.NET Web API OData sürümü 3'ü destekleyen uç noktaları oluşturmak için kullanın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566781"
 ---
 <a name="supporting-odata-v3-in-aspnet-web-api"></a>ASP.NET Web API OData v3 destekleme
 ====================

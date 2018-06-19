@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-2
-title: "[Nasıl stop yaparım]  Birden çok dosya yüklemeleri ASP.NET 2 | Microsoft Docs"
+title: '[Nasıl stop yaparım]  Birden çok dosya yüklemeleri ASP.NET 2 | Microsoft Docs'
 author: JoeStagner
-description: "Bu videoda ı dosyaları dinamik olarak belirlenen sayıda ASP.NET uygulamanızı karşıya gösterilmektedir."
+description: Bu videoda ı dosyaları dinamik olarak belirlenen sayıda ASP.NET uygulamanızı karşıya gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570720"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-2"></a>[Nasıl stop yaparım]  ASP.NET 2 birden çok dosya yüklemeleri
 ====================

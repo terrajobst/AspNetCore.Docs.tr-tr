@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/basic-reporting/index
 title: Temel raporlama | Microsoft Docs
 author: rick-anderson
-description: "Bu öğreticiler kümesini ObjectDataSource Denetimi BLL tüm kodu olmadan kaynağından alınan verilerle çalışmak için nasıl kullanılacağını bakar."
+description: Bu öğreticiler kümesini ObjectDataSource Denetimi BLL tüm kodu olmadan kaynağından alınan verilerle çalışmak için nasıl kullanılacağını bakar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26568086"
 ---
 <a name="basic-reporting"></a>Temel raporlama
 ====================

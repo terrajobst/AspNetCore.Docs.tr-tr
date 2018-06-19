@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-and-iis6
-title: "IIS 6.0 ile ASP.NET 1.1 çalıştıran | Microsoft Docs"
+title: IIS 6.0 ile ASP.NET 1.1 çalıştıran | Microsoft Docs
 author: rick-anderson
-description: "Windows Server 2003, IIS 6.0 ve ASP.NET 1.1 içerir, ancak bu bileşenler varsayılan olarak devre dışıdır. Bu teknik, IIS 6.0 etkinleştirmeyi açıklar bir..."
+description: Windows Server 2003, IIS 6.0 ve ASP.NET 1.1 içerir, ancak bu bileşenler varsayılan olarak devre dışıdır. Bu teknik, IIS 6.0 etkinleştirmeyi açıklar bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: 5a5537bf-2aaa-49e7-839f-9e6522b829d8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-and-iis6
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573339"
 ---
 <a name="running-aspnet-11-with-iis-60"></a>IIS 6.0 ile çalışan ASP.NET 1.1
 ====================

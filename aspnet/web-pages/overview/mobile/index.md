@@ -2,7 +2,7 @@
 uid: web-pages/overview/mobile/index
 title: Mobil | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Pages uygulamaları mobil cihazlarda çalışmak nasıl."
+description: ASP.NET Web Pages uygulamaları mobil cihazlarda çalışmak nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26572895"
 ---
 <a name="mobile"></a>Mobil
 ====================

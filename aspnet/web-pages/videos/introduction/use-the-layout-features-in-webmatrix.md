@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/use-the-layout-features-in-webmatrix
-title: "Webmatrix'te yerleşim özellikleri kullanmak | Microsoft Docs"
+title: Webmatrix'te yerleşim özellikleri kullanmak | Microsoft Docs
 author: rick-anderson
-description: "Bölüm 4 düzeni ve nasıl düzeni Webmatrix'te için ortak kodun sayfalar arasında kullanabileceğiniz öğretir."
+description: Bölüm 4 düzeni ve nasıl düzeni Webmatrix'te için ortak kodun sayfalar arasında kullanabileceğiniz öğretir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573237"
 ---
 <a name="use-the-layout-features-in-webmatrix"></a>Webmatrix'te düzen özelliklerini kullanma
 ====================

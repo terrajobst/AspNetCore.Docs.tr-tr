@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/index
-title: "ASP.NET MVC Kılavuzu | Microsoft Docs"
+title: ASP.NET MVC Kılavuzu | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26564066"
 ---
 <a name="aspnet-mvc-guidance"></a>ASP.NET MVC Kılavuzu
 ====================

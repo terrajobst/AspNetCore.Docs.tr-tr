@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/testing-and-debugging/index
-title: "Test ve ASP.NET Web API hata ayıklama | Microsoft Docs"
+title: Test ve ASP.NET Web API hata ayıklama | Microsoft Docs
 author: rick-anderson
-description: "Test ve ASP.NET Web API hata ayıklama"
+description: Test ve ASP.NET Web API hata ayıklama
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26566784"
 ---
 <a name="testing-and-debugging-aspnet-web-api"></a>Test ve ASP.NET Web API hata ayıklama
 ====================

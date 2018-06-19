@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "SignalR bağlantısı yoğunluğu mili ile test etme | Microsoft Docs"
+title: SignalR bağlantısı yoğunluğu mili ile test etme | Microsoft Docs
 author: tfitzmac
-description: "SignalR bağlantısı yoğunluğu mili ile test etme"
+description: SignalR bağlantısı yoğunluğu mili ile test etme
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26575541"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>SignalR bağlantısı yoğunluğu mili ile test etme
 ====================

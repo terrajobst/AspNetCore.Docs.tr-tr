@@ -1,8 +1,8 @@
 ---
 uid: web-pages/pluralsight
-title: "WebMatrix ve Web sayfaları Video eğitim Pluralsight gelen | Microsoft Docs"
+title: WebMatrix ve Web sayfaları Video eğitim Pluralsight gelen | Microsoft Docs
 author: rick-anderson
-description: "WebMatrix &amp; Pluralsight bu ayrıntılı indirmelere gelen Web sayfalarını eğitim alırsınız, hazır ve çalışır WebMatrix ve ASP.NET Web sayfaları. Everythi kapsayan..."
+description: WebMatrix &amp; Pluralsight bu ayrıntılı indirmelere gelen Web sayfalarını eğitim alırsınız, hazır ve çalışır WebMatrix ve ASP.NET Web sayfaları. Everythi kapsayan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26573252"
 ---
 <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>WebMatrix ve Web sayfaları Video eğitim Pluralsight gelen
 ====================

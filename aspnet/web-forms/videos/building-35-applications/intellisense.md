@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/intellisense
 title: IntelliSense | Microsoft Docs
 author: JoeStagner
-description: "IntelliSense, her iki öğrenme .NET programlama yanı sıra kodlama verimliliğinizi hızlandırmaya için değerli bir Visual Studio özelliğidir. Bu videoyu tanıtılacaktır..."
+description: IntelliSense, her iki öğrenme .NET programlama yanı sıra kodlama verimliliğinizi hızlandırmaya için değerli bir Visual Studio özelliğidir. Bu videoyu tanıtılacaktır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26570666"
 ---
 <a name="intellisense"></a>IntelliSense
 ====================

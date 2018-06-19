@@ -1,8 +1,8 @@
 ---
 uid: mvc/pluralsight
-title: "MVC Video eğitim Pluralsight gelen | Microsoft Docs"
+title: MVC Video eğitim Pluralsight gelen | Microsoft Docs
 author: rick-anderson
-description: "MVC Video eğitim Pluralsight bu ücretsiz video eğitim gelen ASP.NET MVC ile çalışır alırsınız. Bir geliştirme ayarlama her şeyi kapsayan..."
+description: MVC Video eğitim Pluralsight bu ücretsiz video eğitim gelen ASP.NET MVC ile çalışır alırsınız. Bir geliştirme ayarlama her şeyi kapsayan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565473"
 ---
 <a name="mvc-video-training-from-pluralsight"></a>MVC Video eğitim Pluralsight gelen
 ====================

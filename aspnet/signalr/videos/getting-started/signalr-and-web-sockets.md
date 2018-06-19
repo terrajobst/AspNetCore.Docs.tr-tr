@@ -1,8 +1,8 @@
 ---
 uid: signalr/videos/getting-started/signalr-and-web-sockets
-title: "SignalR ve Web yuvalarını | Microsoft Docs"
+title: SignalR ve Web yuvalarını | Microsoft Docs
 author: shanselman
-description: "SignalR ve Web yuvalarını Scott Hanselman tanıtır."
+description: SignalR ve Web yuvalarını Scott Hanselman tanıtır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26565962"
 ---
 <a name="signalr-and-web-sockets"></a>SignalR ve Web yuvaları
 ====================
