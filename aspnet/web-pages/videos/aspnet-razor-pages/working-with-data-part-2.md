@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895212"
 ---
 <a name="working-with-data-part-2"></a><span data-ttu-id="a3c97-103">(Bölüm 2) verileri ile çalışma</span><span class="sxs-lookup"><span data-stu-id="a3c97-103">Working with Data (Part 2)</span></span>
 ====================

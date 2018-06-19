@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895746"
 ---
 <a name="measuring-the-business-value-of-ajax"></a><span data-ttu-id="8e8b1-104">AJAX iş değerini ölçme</span><span class="sxs-lookup"><span data-stu-id="8e8b1-104">Measuring the Business Value of AJAX</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899703"
 ---
 <a name="tailspin-spyworks---display-shopping-cart"></a><span data-ttu-id="fe0b3-103">Tailspin Spyworks - alışveriş sepeti görüntüle</span><span class="sxs-lookup"><span data-stu-id="fe0b3-103">Tailspin Spyworks - Display Shopping Cart</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890885"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a><span data-ttu-id="795f5-104">Ana sayfalar (VB) kullanarak bir Site genelinde düzeni oluşturma</span><span class="sxs-lookup"><span data-stu-id="795f5-104">Creating a Site-Wide Layout Using Master Pages (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889153"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a><span data-ttu-id="60deb-103">Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlama</span><span class="sxs-lookup"><span data-stu-id="60deb-103">ASP.NET Web Deployment using Visual Studio: Preparing for Database Deployment</span></span>
 ====================

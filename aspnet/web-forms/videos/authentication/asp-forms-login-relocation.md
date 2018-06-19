@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887024"
 ---
 <a name="asp-forms-login-relocation"></a><span data-ttu-id="0b949-103">ASP Forms oturum açma yeniden konumlandırma</span><span class="sxs-lookup"><span data-stu-id="0b949-103">ASP Forms Login Relocation</span></span>
 ====================

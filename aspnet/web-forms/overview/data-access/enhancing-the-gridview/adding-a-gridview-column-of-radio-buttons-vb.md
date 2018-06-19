@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889728"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a><span data-ttu-id="562a9-103">Radyo düğmelerini (VB) GridView sütun ekleme</span><span class="sxs-lookup"><span data-stu-id="562a9-103">Adding a GridView Column of Radio Buttons (VB)</span></span>
 ====================

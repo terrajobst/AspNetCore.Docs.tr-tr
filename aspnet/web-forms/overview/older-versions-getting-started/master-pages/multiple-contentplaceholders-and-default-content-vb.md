@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889455"
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a><span data-ttu-id="13a03-103">Birden çok ContentPlaceHolders için ve varsayılan içerik (VB)</span><span class="sxs-lookup"><span data-stu-id="13a03-103">Multiple ContentPlaceHolders and Default Content (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899820"
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a><span data-ttu-id="4b550-104">ASP.NET Web sayfaları sunarak - tutarlı bir düzen oluşturma</span><span class="sxs-lookup"><span data-stu-id="4b550-104">Introducing ASP.NET Web Pages - Creating a Consistent Layout</span></span>
 ====================

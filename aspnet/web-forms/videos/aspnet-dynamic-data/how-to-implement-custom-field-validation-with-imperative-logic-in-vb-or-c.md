@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885022"
 ---
 <a name="how-to-implement-custom-field-validation-with-imperative-logic-in-vb-or-c"></a><span data-ttu-id="73147-103">VB veya C# içinde kesinlik temelli mantığı ile özel alan doğrulama gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="73147-103">How to Implement Custom Field Validation with Imperative Logic in VB or C#</span></span>
 ====================
