@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153910"
 ---
 <a name="aspnet-mvc-1"></a>ASP.NET MVC 1
 ====================

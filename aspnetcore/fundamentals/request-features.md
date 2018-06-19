@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core istek özellikleri"
+title: ASP.NET Core istek özellikleri
 author: ardalis
-description: "HTTP istekleri ve yanıtları arabirimlerde ASP.NET Core için tanımlanan ilgili web sunucusu uygulama ayrıntıları hakkında bilgi edinin."
+description: HTTP istekleri ve yanıtları arabirimlerde ASP.NET Core için tanımlanan ilgili web sunucusu uygulama ayrıntıları hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28913578"
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core istek özellikleri
 

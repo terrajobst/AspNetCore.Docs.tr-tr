@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/submit-and-postback
-title: "Gönderme ve geri gönderme | Microsoft Docs"
+title: Gönderme ve geri gönderme | Microsoft Docs
 author: JoeStagner
-description: "Bu videoda, ne kullanılacak tanıtılacaktır &quot;kapsar altında&quot; zaman, ASP.NET uygulamanızın tarayıcı ve sunucu arasındaki etkileşim."
+description: Bu videoda, ne kullanılacak tanıtılacaktır &quot;kapsar altında&quot; zaman, ASP.NET uygulamanızın tarayıcı ve sunucu arasındaki etkileşim.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882360"
 ---
 <a name="submit-and-postback"></a>Gönderme ve geri gönderme
 ====================

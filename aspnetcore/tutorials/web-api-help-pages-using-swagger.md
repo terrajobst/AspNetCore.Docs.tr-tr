@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077342"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>ASP.NET Core Web API Yardım sayfası Swagger / açık API
 

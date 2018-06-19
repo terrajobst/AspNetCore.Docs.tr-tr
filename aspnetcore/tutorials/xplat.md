@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30223079"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 

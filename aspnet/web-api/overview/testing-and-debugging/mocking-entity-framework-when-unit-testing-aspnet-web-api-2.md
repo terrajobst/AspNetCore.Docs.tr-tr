@@ -2,7 +2,7 @@
 uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 title: Entity Framework mocking zaman birim testi ASP.NET Web API 2 | Microsoft Docs
 author: tfitzmac
-description: "Bu yönerge ve uygulama Entity Framework kullanan Web API 2 uygulamanız için birim testleri oluşturmak nasıl ekleyebileceğiniz gösterilmektedir. Nasıl değiştirileceğini gösterir..."
+description: Bu yönerge ve uygulama Entity Framework kullanan Web API 2 uygulamanız için birim testleri oluşturmak nasıl ekleyebileceğiniz gösterilmektedir. Nasıl değiştirileceğini gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/13/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152871"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Entity Framework mocking zaman birim ASP.NET Web API 2 testi
 ====================

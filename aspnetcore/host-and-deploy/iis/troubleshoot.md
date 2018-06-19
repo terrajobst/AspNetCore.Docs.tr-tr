@@ -15,6 +15,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073899"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorun giderme
 

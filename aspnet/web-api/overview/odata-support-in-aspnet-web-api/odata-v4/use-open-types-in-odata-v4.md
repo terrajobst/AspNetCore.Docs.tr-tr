@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/use-open-types-in-odata-v4
-title: "ASP.NET Web API ile OData v4 türleri Aç | Microsoft Docs"
+title: ASP.NET Web API ile OData v4 türleri Aç | Microsoft Docs
 author: microsoft
-description: "OData v4 içinde bir açık tür tanımında bildirilen herhangi bir özellik yanı sıra Dinamik Özellikler içeren bir stuctured türü türüdür. Aç..."
+description: OData v4 içinde bir açık tür tanımında bildirilen herhangi bir özellik yanı sıra Dinamik Özellikler içeren bir stuctured türü türüdür. Aç...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/15/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153278"
 ---
 <a name="open-types-in-odata-v4-with-aspnet-web-api"></a>ASP.NET Web API ile OData v4 türleri Aç
 ====================

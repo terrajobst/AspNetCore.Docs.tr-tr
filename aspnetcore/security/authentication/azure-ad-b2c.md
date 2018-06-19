@@ -1,7 +1,7 @@
 ---
-title: "Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması"
+title: Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 author: camsoper
-description: "ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur."
+description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur.
 manager: wpickett
 ms.date: 01/25/2018
 ms.topic: tutorial
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905081"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 

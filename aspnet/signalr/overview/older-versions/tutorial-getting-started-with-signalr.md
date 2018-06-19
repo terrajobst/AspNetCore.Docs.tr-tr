@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044740"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR ile çalışmaya başlama 1.x
 ====================

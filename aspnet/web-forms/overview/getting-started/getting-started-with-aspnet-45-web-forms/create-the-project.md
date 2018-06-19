@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740458"
 ---
 <a name="create-the-project"></a>Proje oluşturma
 ====================

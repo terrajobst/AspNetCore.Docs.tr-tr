@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: "[Nasıl stop yaparım] Geçişli stil sayfası Web sayfa düzeni için kullanılsın mı? | Microsoft Docs"
+title: '[Nasıl stop yaparım] Geçişli stil sayfası Web sayfa düzeni için kullanılsın mı? | Microsoft Docs'
 author: rick-anderson
-description: "Bu videoda biz nasıl kullanacağınızı öğrenin &amp;lt; div&amp;gt; web p sağlam ve yüksek performans oluşturmak için geçişli stil sayfaları (CSS) ile birlikte öğeleri..."
+description: Bu videoda biz nasıl kullanacağınızı öğrenin &amp;lt; div&amp;gt; web p sağlam ve yüksek performans oluşturmak için geçişli stil sayfaları (CSS) ile birlikte öğeleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988009"
 ---
 <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[Nasıl stop yaparım] Geçişli stil sayfası Web sayfa düzeni için kullanılsın mı?
 ====================

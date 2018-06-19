@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
-title: "ASP.NET MVC mağaza | Microsoft Docs"
+title: ASP.NET MVC mağaza | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC Storefront Starter Kit
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29153248"
 ---
 <a name="aspnet-mvc-storefront"></a>ASP.NET MVC Storefront
 ====================

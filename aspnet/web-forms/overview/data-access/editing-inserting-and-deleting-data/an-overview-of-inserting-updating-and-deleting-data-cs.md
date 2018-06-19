@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891236"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Ekleme, güncelleştirme ve silme verileri (C#) bir genel bakış
 ====================

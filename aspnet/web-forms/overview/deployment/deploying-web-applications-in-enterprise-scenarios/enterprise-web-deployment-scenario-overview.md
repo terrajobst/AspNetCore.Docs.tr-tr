@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890027"
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Kurumsal Web Dağıtımı: Senaryoya genel bakış
 ====================

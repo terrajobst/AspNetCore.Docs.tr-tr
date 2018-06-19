@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891366"
 ---
 <a name="creating-and-managing-roles-vb"></a>Rolleri (VB) oluşturarak ve yöneterek
 ====================

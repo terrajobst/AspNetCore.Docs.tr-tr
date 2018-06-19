@@ -15,6 +15,7 @@ ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30280101"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Ana bilgisayar ASP.NET Core Docker kapsayıcılarında
 

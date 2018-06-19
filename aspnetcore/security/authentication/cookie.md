@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: f84d69f84cb0b80418bbb6de6bfcd7e2172f65ef
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 82f826bbc2bb19339851d5e25c539ea2c03acfb3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734620"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819116"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 
@@ -22,7 +22,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Luke Latham](ht
 
 Önceki kimlik doğrulaması konularında gördüğünüz gibi [ASP.NET Core kimliği](xref:security/authentication/identity) oluşturmak ve oturum açma bilgileri korumak için bir tam, tam özellikli kimlik doğrulaması sağlayıcıdır. Ancak, tanımlama bilgisi tabanlı kimlik doğrulaması ile zaman zaman kendi özel kimlik doğrulama mantığı kullanmak isteyebilirsiniz. Tanımlama bilgisi tabanlı kimlik doğrulaması, ASP.NET Core kimliği olmadan tek başına kimlik doğrulama sağlayıcısı olarak kullanabilirsiniz.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Örnek uygulama tanıtım amacıyla, kullanıcı Maria Rodriguez kuramsal kullanıcı için sabit kodlanmış uygulamada hesabıdır. E-posta kullanıcı adı kullanma "maria.rodriguez@contoso.com" ve kullanıcıyla oturum açmak için herhangi bir parola. Kullanıcı, kimlik doğrulaması `AuthenticateUser` yönteminde *Pages/Account/Login.cshtml.cs* dosya. Gerçek dünya örnekte, bir veritabanına karşı kullanıcı kimlik doğrulaması.
 

@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core düzeni"
+title: ASP.NET Core düzeni
 author: ardalis
-description: "Ortak düzenler kullanma, yönergeleri paylaşma ve işleme görünümleri önce ortak kodun bir ASP.NET Core uygulamada çalıştırmak öğrenin."
+description: Ortak düzenler kullanma, yönergeleri paylaşma ve işleme görünümleri önce ortak kodun bir ASP.NET Core uygulamada çalıştırmak öğrenin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29904757"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET Core düzeni
 

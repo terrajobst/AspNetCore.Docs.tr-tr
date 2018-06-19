@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892172"
 ---
 <a name="storing-additional-user-information-c"></a>Ek kullanıcı bilgileri depolayan (C#)
 ====================

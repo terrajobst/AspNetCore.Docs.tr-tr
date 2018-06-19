@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894336"
 ---
 <a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a>Web uygulamanıza SQL Server 2005 Express Edition bağlanma
 ====================

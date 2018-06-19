@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153439"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC
 

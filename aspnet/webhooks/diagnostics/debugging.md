@@ -1,20 +1,21 @@
 ---
 uid: webhooks/diagnostics/debugging
-title: "ASP.NET hata ayıklama Kancalarını | Microsoft Docs"
+title: ASP.NET hata ayıklama Kancalarını | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET Web Kancalarını hata ayıklamak nasıl."
+description: ASP.NET Web Kancalarını hata ayıklamak nasıl.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 524cdf0246eda9ef213414923cd23a92a01f211e
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044870"
 ---
 # <a name="aspnet-webhooks-debugging"></a>ASP.NET Web Kancalarını hata ayıklama  
 

@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819103"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile bir ASP.NET MVC 5 uygulaması oluşturma
 ====================
@@ -174,7 +175,7 @@ Facebook OAuth2 kimlik doğrulaması için Facebook içinde oluşturduğunuz bir
     ![Yeni uygulama oluşturma](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Girin bir **App Name** ve **kategori**, ardından **oluşturma uygulama**.
 
-    Bu Facebook arasında benzersiz olması gerekir. <strong>Uygulama Namespace</strong> uygulamanıza kimlik doğrulaması için Facebook uygulama erişmek için kullanacağınız URL parçası olan (örneğin, https://apps.facebook.com/{App Namespace}). Belirtmediyseniz bir <strong>uygulama Namespace</strong>, <strong>uygulama kimliği</strong> URL için kullanılacaktır. <strong>Uygulama kimliği</strong> sonraki adımda görürsünüz uzun sistem tarafından oluşturulan bir sayı.
+    <strong>Uygulama Namespace</strong> uygulamanıza kimlik doğrulaması için Facebook uygulama erişmek için kullanacağınız URL parçası olan (örneğin, https\://apps.facebook.com/{App Namespace}). Belirtmediyseniz bir <strong>uygulama Namespace</strong>, <strong>uygulama kimliği</strong> URL için kullanılacaktır. <strong>Uygulama kimliği</strong> sonraki adımda görürsünüz uzun sistem tarafından oluşturulan bir sayı.
 
     ![Yeni uygulama iletişim oluşturma](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Standart güvenlik denetimi gönderin.

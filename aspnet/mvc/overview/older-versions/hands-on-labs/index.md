@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: "ASP.NET MVC 4 aktarır laboratuvarlarda | Microsoft Docs"
+title: ASP.NET MVC 4 aktarır laboratuvarlarda | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC üzerinde bu ellerini Labs ile birlikte geliştirmeyi öğrenin"
+description: ASP.NET MVC üzerinde bu ellerini Labs ile birlikte geliştirmeyi öğrenin
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727177"
 ---
 # <a name="aspnet-mvc-4-hands-on-labs"></a>ASP.NET MVC 4 laboratuvarlarda aktarır
 

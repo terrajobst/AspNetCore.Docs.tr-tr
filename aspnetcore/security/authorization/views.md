@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076639"
 ---
 # <a name="view-based-authorization-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümü tabanlı yetkilendirme
 

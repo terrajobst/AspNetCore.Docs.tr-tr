@@ -1,7 +1,7 @@
 ---
-title: "ASP.NET Core ile Mobil Geliştirme"
+title: ASP.NET Core ile Mobil Geliştirme
 author: rick-anderson
-description: "Mobil Geliştirme ASP.NET Core ile ilgili konular hakkında bilgi edinin."
+description: Mobil Geliştirme ASP.NET Core ile ilgili konular hakkında bilgi edinin.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29902285"
 ---
 # <a name="mobile-development-with-aspnet-core"></a>ASP.NET Core ile Mobil Geliştirme
 

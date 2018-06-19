@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075641"
 ---
 # <a name="key-immutability-and-key-settings-in-aspnet-core"></a>Anahtar girişi ve ASP.NET Core anahtar ayarları
 

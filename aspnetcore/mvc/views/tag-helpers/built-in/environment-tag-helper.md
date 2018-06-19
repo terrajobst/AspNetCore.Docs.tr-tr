@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Core ortam etiketi yok
 author: pkellner
-description: "Tüm özellikleri dahil olmak üzere tanımlanan ASP.NET Core ortam etiketi Yardımcısı"
+description: Tüm özellikleri dahil olmak üzere tanımlanan ASP.NET Core ortam etiketi Yardımcısı
 manager: wpickett
 ms.author: riande
 ms.date: 07/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887811"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>ASP.NET Core ortam etiketi yok
 
