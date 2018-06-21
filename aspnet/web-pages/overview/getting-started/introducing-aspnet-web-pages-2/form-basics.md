@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
 ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/20/2018
 ms.locfileid: "30898927"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web sayfalarını - HTML formu temelleri tanıtma
@@ -92,7 +92,7 @@ Bu biçimlendirme bir sayfa çalıştığında, bu çizim gibi görünen basit b
 - Metin kutusu: `<input type="text">`
 - Onay kutusu: `<input type="check">`
 - Radyo düğmesi: `<input type="radio">`
-- Button: `<input type="button">`
+- düğmesi: `<input type="button">`
 - Gönder düğmesi: `<input type="submit">`
 
 De kullanabilirsiniz `<textarea>` öğenin çok satırlı metin kutusu oluşturma ve `<select>` aşağı açılan listesi veya kaydırılabilir listesi oluşturmak için öğesi. (HTML hakkında daha fazla öğeleri oluşturmak için bkz: [HTML formları ve giriş](http://www.w3schools.com/html/html_forms.asp) W3Schools sitesinde.)
