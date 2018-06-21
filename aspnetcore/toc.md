@@ -108,7 +108,7 @@
 ### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
 ### [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
 
-## [Bir dosya İzleyicisi'ni kullanarak uygulama geliştirmeleri](xref:tutorials/dotnet-watch)
+## [Dosya izleyicisi kullanarak uygulama geliştirme](xref:tutorials/dotnet-watch)
 
 ## [Mobil uygulamalar için arka uç hizmetleri oluşturma](mobile/native-mobile-backend.md)
 
@@ -207,7 +207,7 @@
 # [Test etme, hata ayıklama ve sorun giderme](xref:test/index)
 ## [Birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 ## [Tümleştirme testleri](xref:test/integration-tests)
-## [Razor sayfalarının birim testleri](xref:test/razor-pages-tests)
+## [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
 ## [Test denetleyicileri](xref:mvc/controllers/testing)
 ## [Uzaktan hata ayıklama](/visualstudio/debugger/remote-debugging-azure)
 ## [Anlık görüntü hatalarını ayıklama](/azure/application-insights/app-insights-snapshot-debugger)
@@ -246,7 +246,11 @@
 ## [Merkezler](xref:signalr/hubs)
 ## [JavaScript istemcisi](xref:signalr/javascript-client)
 ## [.NET istemcisi](xref:signalr/dotnet-client)
+## [HubContext](xref:signalr/hubcontext)
+## [Kullanıcılar ve Gruplar](xref:signalr/groups)
+## [MessagePack Hub Protokolü](xref:signalr/messagepackhubprotocol)
 ## [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
+## [Akış](xref:signalr/streaming)
 ## [Desteklenen platformlar](xref:signalr/supported-platforms)
 
 # [Mobil](xref:mobile/index)
@@ -280,7 +284,7 @@
 ## [Kimlik Doğrulaması](xref:security/authentication/index)
 ### [Kimliğe giriş](xref:security/authentication/identity)
 ### [İskele Kimliği](xref:security/authentication/scaffold-identity)
-### [Özel kullanıcı verilerini kimliğine ekleme](xref:security/authentication/add-user-data)
+### [Özel kullanıcı verilerini Kimlik’e ekleme](xref:security/authentication/add-user-data)
 ### [Topluluk OSS kimlik doğrulama seçenekleri](xref:security/authentication/community)
 ### [Kimliği Yapılandırma](xref:security/authentication/identity-configuration)
 ### [Windows Kimlik Doğrulaması Yapılandırma](xref:security/authentication/windowsauth)
@@ -368,7 +372,7 @@
 ## [Yanıt sıkıştırma ara yazılımı](xref:performance/response-compression)
 
 # [Geçiş](xref:migration/index)
-## [ASP.NET Core 2.0 için 2.1](xref:migration/20_21)
+## [ASP.NET Core 2.0’dan 2.1’e geçiş](xref:migration/20_21)
 ## [ASP.NET’ten ASP.NET Core’a](xref:migration/proper-to-2x/index)
 ### [MVC](xref:migration/mvc)
 ### [Web API](xref:migration/webapi)
