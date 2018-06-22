@@ -2,19 +2,15 @@
 title: ASP.NET Core anahtar yönetimi genişletilebilirliği
 author: rick-anderson
 description: ASP.NET Core veri koruması anahtar yönetimi genişletilebilirlik hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.date: 11/22/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: e3042b371cf7be8fa0218c1906042d2810b180e3
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 3ebde889d207e02aff8c042b1d80884210a68ff4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074170"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274758"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core anahtar yönetimi genişletilebilirliği
 
@@ -120,7 +116,7 @@ Uygulamasında `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` bileşen b
 
 ---
 
-   *Key Retrieval / GetAllKeys*
+   *Anahtar alma / GetAllKeys*
 
 Uygulamasında `GetAllKeys`temsil eden anahtarları XML belgeleri ve iptalleri arka plandaki gelen okunur `IXmlRepository`. Bu belgeler şifrelenir, sistem otomatik olarak onları şifresini. `XmlKeyManager` uygun oluşturur `IAuthenticatedEncryptorDescriptorDeserializer` belgeleri seri durumdan çıkarılacak örnekleri yeniden `IAuthenticatedEncryptorDescriptor` sonra tek tek Sarmalanan örnekleri `IKey` örnekleri. Bu koleksiyonu `IKey` örnekleri çağırana döndürülür.
 
@@ -130,7 +126,7 @@ Uygulamasında `GetAllKeys`temsil eden anahtarları XML belgeleri ve iptalleri a
 
 `IXmlRepository` Arabirimi XML kalıcı hale getirmek ve yedekleme depolama alanından XML almak bir türü temsil eder. İki API'lerini gösterir:
 
-* GetAllElements() : IReadOnlyCollection<XElement>
+* GetAllElements(): IReadOnlyCollection<XElement>
 
 * StoreElement (XElement öğesi, dize friendlyName)
 
@@ -210,7 +206,7 @@ Türleri uygulayan `IXmlDecryptor` aşağıdaki iki ortak oluşturuculardan biri
 
 Emanet arabirimi herhangi tarafından yapılandırılan dönüştürüldükten önce ham serileştirilmiş XML izin veren bir Acil Durum kaçış tarama sağlar [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor). Arabirim tek bir API sunar:
 
-* Store(Guid keyId, XElement element)
+* Depolama (GUID Keyıd, XElement öğe)
 
 En fazla olan `IKeyEscrowSink` sağlanan öğe iş ilkesiyle tutarlı güvenli şekilde işlemek üzere uygulama. Sertifikanın özel anahtarı bir yere kalacakları bilinen bir kurumsal X.509 sertifikası kullanarak XML öğesi şifrelemek emanet havuz için bir olası uygulama olabilir; `CertificateXmlEncryptor` türü bu yardımcı olabilir. `IKeyEscrowSink` Uygulamasıdır ayrıca sağlanan öğe uygun şekilde sürdürmek için sorumlu.
 

@@ -2,20 +2,16 @@
 title: IIS üzerinde ASP.NET Core sorun giderme
 author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaların dağıtımlarını sorunları tanılamak öğrenin.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d57196693feb6413560ec25e09cf74e9babf93bf
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073899"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276171"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorun giderme
 

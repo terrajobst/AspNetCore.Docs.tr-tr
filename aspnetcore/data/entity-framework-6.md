@@ -2,19 +2,15 @@
 title: ASP.NET Core ve Entity Framework 6 kullanmaya başlama
 author: rick-anderson
 description: Bu makalede, bir ASP.NET Core uygulamada Entity Framework 6 kullanmayı gösterir.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 02/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: data/entity-framework-6
-ms.openlocfilehash: 97905158a2ac352418d065b730919f335c1d319d
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 500954bdf8ea592e0ed706943e0f5ba4f4594dbc
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153605"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274085"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core ve Entity Framework 6 kullanmaya başlama
 

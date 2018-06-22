@@ -2,19 +2,15 @@
 title: ASP.NET Core bekleyen anahtar şifrelemesi
 author: rick-anderson
 description: Bekleyen anahtar şifreleme ASP.NET Core veri koruma uygulama ayrıntılarını öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: e5082d831dd4822fad0fb3211fe2b8c76ff967bf
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c733540bbee2d48ab45cf2b230b7be1ee07fb146
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851124"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274706"
 ---
 # <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET Core bekleyen anahtar şifrelemesi
 

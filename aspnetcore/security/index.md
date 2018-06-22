@@ -2,19 +2,15 @@
 title: ASP.NET Core güvenliğine genel bakış
 author: rachelappel
 description: ASP.NET Core kimlik doğrulama, yetkilendirme ve güvenlik temel kavramları hakkında bilgi edinin.
-manager: wpickett
 ms.author: rachelap
 ms.date: 11/01/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/index
-ms.openlocfilehash: da3829b2d5ae5db1861c7423da5afc7acbee6697
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a23d23cf1bf0503b59c6f5d962cecf89af37b4b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074360"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278511"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -94,13 +90,13 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
         *   [Anahtar yönetimi](xref:security/data-protection/implementation/key-management)
         *   [Anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)
         *   [Bekleme durumunda anahtar şifreleme](xref:security/data-protection/implementation/key-encryption-at-rest)
-        *   [Anahtar girişi ve ayarları](xref:security/data-protection/implementation/key-immutability)
+        *   [Anahtar değiştirilemezliği ve ayarlar](xref:security/data-protection/implementation/key-immutability)
         *   [Anahtar depolama biçimi](xref:security/data-protection/implementation/key-storage-format)
         *   [Kısa ömürlü veri koruma sağlayıcıları](xref:security/data-protection/implementation/key-storage-ephemeral)
     *   [Uyumluluk](xref:security/data-protection/compatibility/index)
         *   [ASP.NET’te <machineKey> değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)
 *   [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
-*   [Güvenli Depolama Uygulama sırrı geliştirme](xref:security/app-secrets)
+*   [Geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması](xref:security/app-secrets)
 *   [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)
 *   [SSL uygulama](xref:security/enforcing-ssl)
 *   [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)

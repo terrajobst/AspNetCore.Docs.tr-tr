@@ -2,19 +2,15 @@
 title: Kimlik doğrulama ve kimlik için ASP.NET Core 2.0 geçirme
 author: scottaddie
 description: Bu makalede, ASP.NET Core 2.0 geçirme ASP.NET Core 1.x kimlik doğrulama ve kimlik için en yaygın adımlara özetlenmektedir.
-manager: wpickett
 ms.author: scaddie
 ms.date: 10/26/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 0653906996f9f37d436ebefc6a738d2603788d53
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 0485b1bdf8be550de35a49803a24666c026b3d9b
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741465"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276425"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulama ve kimlik için ASP.NET Core 2.0 geçirme
 

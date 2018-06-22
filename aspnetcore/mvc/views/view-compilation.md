@@ -2,21 +2,17 @@
 title: Razor dosya derleme ve ASP.NET Core içinde ön derlemesi
 author: rick-anderson
 description: Razor dosyaları ve ASP.NET Core uygulamasında Razor dosyası ön derlemesi yüklemenin nasıl yapılacağını önceden derleme avantajları hakkında bilgi edinin.
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 03b11116a15c291452acd878e32cd015dc553dcc
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 6ef450a24f57c721021f77f6df5088574caa2645
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34336284"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274046"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core Razor dosyası derleme
 
@@ -29,7 +25,7 @@ tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 İlişkili Razor sayfasını veya MVC görünümü çağrıldığında bir Razor dosya çalışma zamanında derlenir. Derleme zamanı Razor dosya yayımlama desteklenmiyor. Razor dosyaları isteğe bağlı olarak derlenmesi sırasında zaman yayımlama ve uygulama ile&mdash;ön derleme aracını kullanarak.
 ::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
-İlişkili Razor sayfasını veya MVC görünümü çağrıldığında bir Razor dosya çalışma zamanında derlenir. Razor dosyaları her iki derleme sırasında derlenir ve zaman kullanarak yayımlamak [Razor SDK](xref:mvc/razor-pages/sdk).
+İlişkili Razor sayfasını veya MVC görünümü çağrıldığında bir Razor dosya çalışma zamanında derlenir. Razor dosyaları her iki derleme sırasında derlenir ve zaman kullanarak yayımlamak [Razor SDK](xref:razor-pages/sdk).
 ::: moniker-end
 
 ## <a name="precompilation-considerations"></a>Ön derleme dikkat edilecek noktalar
@@ -87,12 +83,12 @@ A *< project_name >. PrecompiledViews.dll* derlenmiş Razor dosyalarını içere
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-* <xref:mvc/razor-pages/index>
+* <xref:razor-pages/index>
 * <xref:mvc/views/overview>
-* <xref:mvc/razor-pages/sdk>
+* <xref:razor-pages/sdk>
 ::: moniker-end

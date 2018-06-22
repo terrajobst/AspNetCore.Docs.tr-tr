@@ -2,19 +2,16 @@
 title: ASP.NET Core bağımlılık ekleme
 author: ardalis
 description: ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 04c52bd47d34cd2135753c469077b6a75ee02f86
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278459"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET Core bağımlılık ekleme
 
@@ -245,7 +242,7 @@ Bir ASP.NET içinde kullanılabilir hizmetler isteği `HttpContext` aracılığ�
 
 İstek hizmetleri yapılandırmak ve uygulamanızı bir parçası olarak istek Hizmetleri temsil eder. Nesnelerinizi bağımlılıklarını belirttiğinizde, bunlar bulunan tür tarafından karşılanır `RequestServices`değil `ApplicationServices`.
 
-Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](xref:testing/index)) ve daha geniş bağlı değildir.
+Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız. Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](xref:test/index)) ve daha geniş bağlı değildir.
 
 > [!NOTE]
 > Erişim için Oluşturucusu parametre olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.
@@ -361,7 +358,7 @@ Bağımlılık ekleme olan bir *alternatif* statik/genel nesne erişim desenler 
 * [Denetleyicilere bağımlılık ekleme](xref:mvc/controllers/dependency-injection)
 * [Gereksinim işleyicilerine bağımlılık ekleme](xref:security/authorization/dependencyinjection)
 * [Uygulama Başlatma](xref:fundamentals/startup)
-* [Test ve hata ayıklama](xref:testing/index)
+* [Test ve hata ayıklama](xref:test/index)
 * [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core temiz kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Kapsayıcı yönetilen uygulama tasarımı, Prelude: Burada kapsayıcı ait mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

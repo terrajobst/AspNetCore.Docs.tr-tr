@@ -2,18 +2,15 @@
 title: ASP.NET Core MVC EF temel - Gelişmiş - 10, 10
 author: rick-anderson
 description: Bu öğretici için Entity Framework Çekirdek kullanan ASP.NET Core web uygulamaları geliştirme temelleri ötesine geçmesini yararlı konularını tanıtır.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 95500686052a3f75dd71244bc9da500300416dec
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274375"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC EF temel - Gelişmiş - 10, 10
 
@@ -147,9 +144,9 @@ Hata ayıklama modunu kullanın ve günlük çıktısı almak için bir kesme no
 
 * EF deposu kod yazmadan TDD uygulamaya yönelik özellikler içerir.
 
-Depo ve iş desenleri ölçü uygulama hakkında daha fazla bilgi için bkz: [Bu öğretici seri Entity Framework 5 sürümünü](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
+Depo ve iş desenleri ölçü uygulama hakkında daha fazla bilgi için bkz: [Bu öğretici seri Entity Framework 5 sürümünü](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Çekirdek test etmek için kullanılan bir bellek içi veritabanı sağlayıcısı uygular. Daha fazla bilgi için bkz: [Inmemory ile Test](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Çekirdek test etmek için kullanılan bir bellek içi veritabanı sağlayıcısı uygular. Daha fazla bilgi için bkz: [Inmemory ile Test](/ef/core/miscellaneous/testing/in-memory).
 
 ## <a name="automatic-change-detection"></a>Otomatik değiştirme algılama
 

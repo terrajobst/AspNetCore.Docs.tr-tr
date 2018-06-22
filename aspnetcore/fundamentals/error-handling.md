@@ -2,19 +2,16 @@
 title: ASP.NET Core hataları işlemek
 author: ardalis
 description: ASP.NET Core uygulamaları hataların nasıl işleneceğini bulur.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 3ff3a17d14d9ed7c438399191ffe3cf93d555d49
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 2fe46ecc32d61a7fafb2ad6e2a35456476608251
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273715"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET Core hataları işlemek
 
@@ -49,17 +46,21 @@ Bu istek tanımlama bilgilerine sahip oldu, ancak olsaydı, üzerinde görünece
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Sayfa işleme özel bir durum yapılandırma
 
-Uygulama çalışmadığında kullanmak için bir özel durum işleyici sayfasını yapılandırmak için iyi bir fikirdir `Development` ortamı.
+Uygulama çalışmadığında kullanmak için bir özel durum işleyici sayfasını yapılandırmak `Development` ortamı.
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-Bir MVC uygulamasında açıkça HTTP yöntemi öznitelikleriyle hata işleyici eylem yöntemi gibi tasarlamanız yok `HttpGet`. Açık fiillerini kullanarak bazı istekleri yöntemi ulaşmasını engellemeniz.
+Bir Razor sayfalarının uygulamasında [dotnet yeni](/dotnet/core/tools/dotnet-new) Razor sayfalarının şablonu bir hata sayfası sağlar ve `ErrorModel` sayfasında modeli sınıfında *sayfaları* klasör.
+
+Bir MVC uygulamasında HTTP yöntemi öznitelikleriyle hata işleyici eylem yöntemi gibi tasarlamanız yok `HttpGet`. Açık fiiller bazı istekleri yöntemi erişmesini engelleyin. Kimliği doğrulanmamış kullanıcıların hata görünümünün alabilir; böylece yöntemi anonim erişime izin verin.
+
+Örneğin, aşağıdaki hata işleyici yöntemi tarafından sağlanan [dotnet yeni](/dotnet/core/tools/dotnet-new) MVC şablonu ve giriş denetleyicide görünür:
 
 ```csharp
-[Route("/Error")]
-public IActionResult Index()
+[AllowAnonymous]
+public IActionResult Error()
 {
-    // Handle error here
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }
 ```
 
@@ -106,6 +107,53 @@ if (statusCodePagesFeature != null)
 }
 ```
 
+Kullanılıyorsa bir `UseStatusCodePages*` uygulama içinde uç noktalarına oluşturduğunuz bir MVC görünümü veya Razor sayfasını uç nokta için aşırı yükleme. Örneğin, [dotnet yeni](/dotnet/core/tools/dotnet-new) şablonu için bir Razor sayfalarının uygulaması aşağıdaki sayfasını ve sayfa model sınıfı üretir:
+
+*Error.cshtml*:
+
+```cshtml
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+</p>
+```
+
+*Error.cshtml.cs*:
+
+```csharp
+public class ErrorModel : PageModel
+{
+    public string RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public void OnGet()
+    {
+        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+    }
+}
+```
+
 ## <a name="exception-handling-code"></a>Özel durum işleme kodu
 
 Özel durum işleme sayfaları kodda istisnalar atabilirsiniz. Genellikle, yalnızca statik içeriği oluşması üretim hata sayfaları için iyi bir fikir olabilir.
@@ -132,7 +180,7 @@ Ana bilgisayar adresini/bağlantı noktası sonra bağlama hatası oluşursa Bar
 
 Özel durum filtreleri, genel olarak veya bir MVC uygulamasında her denetleyici veya eylem başına temelinde yapılandırılabilir. Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durum işleme ve aksi durumda adlı değil. Özel durum filtreleri hakkında daha fazla bilgi [filtreleri](xref:mvc/controllers/filters).
 
->[!TIP]
+> [!TIP]
 > Özel durum filtreleri içinde MVC Eylemler oluşan özel durumlarını yakalama için iyi, ancak bunlar hata ara yazılım işleme kadar esnek değildir. Ara yazılımı genel örneği için tercih ettiğiniz ve hata işleme yapmak için yalnızca ihtiyaç duyacağınız filtreleri kullanın *farklı* MVC eylemi seçildi tabanlı.
 
 ### <a name="handling-model-state-errors"></a>İşleme Model durumu hataları
@@ -140,6 +188,3 @@ Ana bilgisayar adresini/bağlantı noktası sonra bağlama hatası oluşursa Bar
 [Model doğrulama](xref:mvc/models/validation) her denetleyici eylemi çağırma öncesi oluşur ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki.
 
 Model doğrulama hataları, ilgilenmek için standart bir kural, bu durumda izlemeniz gereken bazı uygulamalar seçecektir bir [filtre](xref:mvc/controllers/filters) böyle bir ilke uygulamak için uygun bir yerdir olabilir. Geçersiz model durumlarıyla eylemlerinizi nasıl davranacağını test etmeniz gerekir. Daha fazla bilgi edinin [Test denetleyicisi mantığı](xref:mvc/controllers/testing).
-
-
-

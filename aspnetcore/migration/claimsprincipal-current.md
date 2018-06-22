@@ -2,20 +2,16 @@
 title: ClaimsPrincipal.Current geçirme
 author: mjrousos
 description: Geçerli kimliği doğrulanmış kullanıcının kimlik ve ASP.NET Core Taleplerde almak için ClaimsPrincipal.Current yapmaktan öğrenin.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/04/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/claimsprincipal-current
-ms.openlocfilehash: ea43d17e76380baf57cd9debbc508e8812cfa4a6
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 477f9fe8f0249bdfc528e1b401f072851f2f0d23
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851596"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277192"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>ClaimsPrincipal.Current geçirme
 

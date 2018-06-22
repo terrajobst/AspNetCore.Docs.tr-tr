@@ -2,18 +2,15 @@
 title: ASP.NET Core MVC’ye Genel Bakış
 author: ardalis
 description: ASP.NET Core MVC web uygulamaları oluşturmak için zengin bir çerçeve nasıl olduğunu öğrenin ve Model-View-Controller kullanarak API'leri düzeni tasarlayın.
-manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272598"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -191,7 +188,7 @@ Bağlantı oluşturma iletilir desteğini etkinleştirmek için kullanın. Kolay
 
 ### <a name="testability"></a>Test Edilebilirlik
 
-Framework'ün kullanımını arabirimleri ve bağımlılık ekleme kılmaktadır birim testi ve framework (gibi bir TestHost ve Inmemory sağlayıcısı için Entity Framework) olun özellikler içerir [tümleştirme testleri](../testing/integration-testing.md) hızlı ve kolay de. Daha fazla bilgi edinmek [denetleyici mantığında test etme](controllers/testing.md).
+Framework'ün kullanımını arabirimleri ve bağımlılık ekleme kılmaktadır birim testi ve framework (gibi bir TestHost ve Inmemory sağlayıcısı için Entity Framework) olun özellikler içerir [tümleştirme testleri](xref:test/integration-tests) hızlı ve kolay de. Daha fazla bilgi edinmek [denetleyici mantığında test etme](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Razor görüntüleme altyapısı
 

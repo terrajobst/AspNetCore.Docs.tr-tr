@@ -2,19 +2,15 @@
 title: ASP.NET Core uygulamasında gereksinim işleyicileri bağımlılık ekleme
 author: rick-anderson
 description: Bağımlılık ekleme kullanılarak ASP.NET Core uygulamaya yetkilendirme gereksinimi işleyicileri ekleme hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: 4de7f0e49ade459968f8c30fbad76ce96a65815f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c6bb2589c6fef9f4586e6f4ddbb574866e6c48ab
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073000"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273728"
 ---
 # <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>ASP.NET Core uygulamasında gereksinim işleyicileri bağımlılık ekleme
 

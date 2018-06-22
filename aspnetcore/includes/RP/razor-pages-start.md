@@ -9,9 +9,9 @@ Bağlantıları sınayın. **RazorPagesMovie** ve **giriş** bağlantılar dizin
 Aşağıdaki tabloda, dosya ve klasörleri projesinde listeler. Bu öğretici için *haline* dosyasıdır anlamak en önemli. Aşağıda sağlanan her bir bağlantının gözden gerek yoktur. Bir dosya veya klasör projesinde hakkında daha fazla bilgi gerektiğinde bağlantılar bir başvuru olarak sağlanır.
 
 | Dosya veya klasör              | Amaç |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | wwwroot | Statik dosyaları içerir. Bkz: [statik dosyaları](xref:fundamentals/static-files). |
-| Sayfaları | Klasör için [Razor sayfalarının](xref:mvc/razor-pages/index). | 
+| Sayfaları | Klasör için [Razor sayfalarının](xref:razor-pages/index). |
 | *appsettings.json* | [Yapılandırma](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Ana bilgisayar](xref:fundamentals/host/index) ASP.NET Core uygulama.|
 | *Haline* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|

@@ -2,20 +2,16 @@
 title: ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 author: steve-smith
 description: Web uygulamaları burada kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşimi etkileyebilir saldırıları önlemek nasıl bulur.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/19/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: a00bd4ff4b265a19766e54e6ad6b97b870df56c5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341866"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279605"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
@@ -138,7 +134,7 @@ Otomatik antiforgery belirteçleri oluşturulmasında HTML form öğelerini devr
   ```
 
 > [!NOTE]
-> [Razor sayfalarının](xref:mvc/razor-pages/index) XSRF/CSRF otomatik olarak korunur. Daha fazla bilgi için bkz: [XSRF/CSRF ve Razor sayfalarının](xref:mvc/razor-pages/index#xsrf).
+> [Razor sayfalarının](xref:razor-pages/index) XSRF/CSRF otomatik olarak korunur. Daha fazla bilgi için bkz: [XSRF/CSRF ve Razor sayfalarının](xref:razor-pages/index#xsrf).
 
 CSRF saldırılarına karşı savunma en yaygın yaklaşım kullanmaktır *Eşitleyici belirteci düzeni* (STP). Kullanıcı form verilerini içeren bir sayfa istediğinde STP kullanılır:
 

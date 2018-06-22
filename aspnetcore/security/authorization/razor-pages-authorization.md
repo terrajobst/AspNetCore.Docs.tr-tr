@@ -2,20 +2,16 @@
 title: ASP.NET Core Razor sayfalarının yetkilendirme kuralları
 author: guardrex
 description: Kullanıcıları yetkilendirmek ve anonim kullanıcıların sayfa veya sayfaları klasör erişmesine izin veren kuralları sayfalarıyla erişimi denetlemek öğrenin.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/27/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: cd1fa7957ca50db0de71f71234f84d3fbc631f45
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 8856520bf43f2f62cc12c7e883485babdb43fb3e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341749"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272681"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>ASP.NET Core Razor sayfalarının yetkilendirme kuralları
 
@@ -40,7 +36,7 @@ Bir [AuthorizePage aşırı](/dotnet/api/microsoft.extensions.dependencyinjectio
 ::: moniker range=">= aspnetcore-2.1"
 
 > [!NOTE]
-> Bir `AuthorizeFilter` bir sayfa modeli sınıfla uygulanabilir `[Authorize]` filtre özniteliği. Daha fazla bilgi için bkz: [Authorize filtre özniteliği](xref:mvc/razor-pages/filter#authorize-filter-attribute).
+> Bir `AuthorizeFilter` bir sayfa modeli sınıfla uygulanabilir `[Authorize]` filtre özniteliği. Daha fazla bilgi için bkz: [Authorize filtre özniteliği](xref:razor-pages/filter#authorize-filter-attribute).
 
 ::: moniker-end
 
@@ -90,5 +86,5 @@ Ters ancak, doğru değil. Sayfaların anonim erişim için bir klasör bildirme
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:mvc/razor-pages/razor-pages-conventions)
+* [Razor sayfalarının özel yolu ve sayfayı model sağlayıcıları](xref:razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) sınıfı

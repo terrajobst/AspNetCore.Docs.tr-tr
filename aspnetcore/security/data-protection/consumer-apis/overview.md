@@ -2,19 +2,15 @@
 title: ASP.NET Core tüketici API'leri genel bakış
 author: rick-anderson
 description: Çeşitli API'ler ASP.NET Core veri koruma kitaplıkta kullanılabilir tüketici kısa bir genel bakış alırsınız.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 5d161ed8fbc39bcf4a970644480b4e909810b555
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30076013"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279122"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>ASP.NET Core tüketici API'leri genel bakış
 

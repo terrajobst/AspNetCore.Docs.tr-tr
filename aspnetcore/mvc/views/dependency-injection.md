@@ -2,19 +2,15 @@
 title: ASP.NET Core görünümlerde içine bağımlılık ekleme
 author: ardalis
 description: ASP.NET Core bağımlılık ekleme MVC görünümleri içine nasıl destekler? öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: d33f0253fc7c1329e8bab400ace4c4ce8d10d792
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 753a335ec4f9f6a62fd20851af43da078b6f6a37
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613066"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277338"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET Core görünümlerde içine bağımlılık ekleme
 

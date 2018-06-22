@@ -2,19 +2,15 @@
 title: ASP.NET Core istek özellikleri
 author: ardalis
 description: HTTP istekleri ve yanıtları arabirimlerde ASP.NET Core için tanımlanan ilgili web sunucusu uygulama ayrıntıları hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/request-features
-ms.openlocfilehash: c79ad6001e106a3e3104b0f804a386fe8b0ee30a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: d0f3ae521d1f314dd04cb581d9a921da4719273d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28913578"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279499"
 ---
 # <a name="request-features-in-aspnet-core"></a>ASP.NET Core istek özellikleri
 
@@ -26,34 +22,34 @@ Web sunucusu uygulama ayrıntılarını ilgili HTTP istekleri ve yanıtları ara
 
 ASP.NET Core HTTP özelliği arabirimlerde sayısını tanımlar `Microsoft.AspNetCore.Http.Features` hangi sunucuları tarafından destekledikleri özellikleri tanımlamak için kullanılır. Aşağıdaki özellik arabirimleri isteklerini işler ve yanıtları döndürür:
 
-`IHttpRequestFeature`Protokol, yol, sorgu dizesi, üstbilgiler ve gövde dahil olmak üzere bir HTTP isteği yapısını tanımlar.
+`IHttpRequestFeature` Protokol, yol, sorgu dizesi, üstbilgiler ve gövde dahil olmak üzere bir HTTP isteği yapısını tanımlar.
 
-`IHttpResponseFeature`Durum kodu, üstbilgiler ve yanıtın gövdesini içeren bir HTTP yanıtının yapısını tanımlar.
+`IHttpResponseFeature` Durum kodu, üstbilgiler ve yanıtın gövdesini içeren bir HTTP yanıtının yapısını tanımlar.
 
-`IHttpAuthenticationFeature`Temel alarak kullanıcılara tanımlamak için destek tanımlayan bir `ClaimsPrincipal` ve bir kimlik doğrulama işleyicisi belirtme.
+`IHttpAuthenticationFeature` Temel alarak kullanıcılara tanımlamak için destek tanımlayan bir `ClaimsPrincipal` ve bir kimlik doğrulama işleyicisi belirtme.
 
-`IHttpUpgradeFeature`Desteğini tanımlar [HTTP yükseltmeler](https://tools.ietf.org/html/rfc2616.html#section-14.42), ek, iletişim kurallarını belirtmek istemci olanak sunucu protokolleri geçiş isterse kullanmak istersiniz.
+`IHttpUpgradeFeature` Desteğini tanımlar [HTTP yükseltmeler](https://tools.ietf.org/html/rfc2616.html#section-14.42), ek, iletişim kurallarını belirtmek istemci olanak sunucu protokolleri geçiş isterse kullanmak istersiniz.
 
-`IHttpBufferingFeature`Arabelleğe alma isteklerini ve/veya yanıtlarını devre dışı bırakmak için yöntemleri tanımlar.
+`IHttpBufferingFeature` Arabelleğe alma isteklerini ve/veya yanıtlarını devre dışı bırakmak için yöntemleri tanımlar.
 
-`IHttpConnectionFeature`Yerel ve uzak adresleri ve bağlantı noktaları özelliklerini tanımlar.
+`IHttpConnectionFeature` Yerel ve uzak adresleri ve bağlantı noktaları özelliklerini tanımlar.
 
-`IHttpRequestLifetimeFeature`Bağlantıları durduruluyor ya da bir istek erken, böyle bir istemcinin bağlantısının kesildiği gibi tarafından sonlanıp sonlanmadığını algılama desteği tanımlar.
+`IHttpRequestLifetimeFeature` Bağlantıları durduruluyor ya da bir istek erken, böyle bir istemcinin bağlantısının kesildiği gibi tarafından sonlanıp sonlanmadığını algılama desteği tanımlar.
 
-`IHttpSendFileFeature`Dosyaları zaman uyumsuz olarak göndermek için bir yöntem tanımlar.
+`IHttpSendFileFeature` Dosyaları zaman uyumsuz olarak göndermek için bir yöntem tanımlar.
 
-`IHttpWebSocketFeature`Bir API web yuvalarını desteklemek için tanımlar.
+`IHttpWebSocketFeature` Bir API web yuvalarını desteklemek için tanımlar.
 
-`IHttpRequestIdentifierFeature`İstekleri benzersiz şekilde tanımlamak için uygulanan bir özellik ekler.
+`IHttpRequestIdentifierFeature` İstekleri benzersiz şekilde tanımlamak için uygulanan bir özellik ekler.
 
-`ISessionFeature`Tanımlar `ISessionFactory` ve `ISession` kullanıcı oturumlarını desteklemek için soyutlamalar.
+`ISessionFeature` Tanımlar `ISessionFactory` ve `ISession` kullanıcı oturumlarını desteklemek için soyutlamalar.
 
-`ITlsConnectionFeature`İstemci sertifikaları almak için bir API tanımlar.
+`ITlsConnectionFeature` İstemci sertifikaları almak için bir API tanımlar.
 
-`ITlsTokenBindingFeature`TLS belirteci bağlama parametreleri ile çalışmak için yöntemleri tanımlar.
+`ITlsTokenBindingFeature` TLS belirteci bağlama parametreleri ile çalışmak için yöntemleri tanımlar.
 
 > [!NOTE]
-> `ISessionFeature`bir sunucu özelliği olmayan, ancak tarafından uygulanan `SessionMiddleware` (bkz [yönetme uygulama durumu](app-state.md)).
+> `ISessionFeature` bir sunucu özelliği olmayan, ancak tarafından uygulanan `SessionMiddleware` (bkz [yönetme uygulama durumu](app-state.md)).
 
 ## <a name="feature-collections"></a>Özellik koleksiyonları
 

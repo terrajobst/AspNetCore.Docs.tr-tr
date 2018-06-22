@@ -2,19 +2,15 @@
 title: Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 author: rick-anderson
 description: Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın.
-manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d39e1aa40ff97d5b335f2bde6170242e89f6189a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740081"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272354"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 

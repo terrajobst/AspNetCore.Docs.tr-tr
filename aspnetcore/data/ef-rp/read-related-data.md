@@ -2,19 +2,15 @@
 title: Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 author: rick-anderson
 description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüleyin.
-manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233407"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276766"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
 
@@ -184,7 +180,7 @@ Değiştir *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
 `OnGetAsync` Yöntemi seçili Eğitmen kimliği için isteğe bağlı rota veri kabul eder.
 
-Üzerinde sorgu inceleyin *Pages/Instructors/Index.cshtml* sayfa:
+Sorguda inceleyin *Pages/Instructors/Index.cshtml.cs* dosyası:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
@@ -278,7 +274,7 @@ Aşağıdaki kod görünüm modelinin doldurur `Enrollments` bir indirmelere se�
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-Aşağıdaki biçimlendirmede sonuna ekleyin *Pages/Courses/Index.cshtml* Razor sayfasını:
+Aşağıdaki biçimlendirmede sonuna ekleyin *Pages/Instructors/Index.cshtml* Razor sayfasını:
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 

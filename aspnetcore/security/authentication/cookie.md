@@ -2,19 +2,15 @@
 title: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 author: rick-anderson
 description: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullanarak bir açıklama
-manager: wpickett
 ms.author: riande
 ms.date: 10/11/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 82f826bbc2bb19339851d5e25c539ea2c03acfb3
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 2064e4d6406ce3ca3ce28732f113e8c81447aace
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819116"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275612"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 

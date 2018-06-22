@@ -2,20 +2,16 @@
 title: Ana bilgisayar ASP.NET Core Docker kapsayıcılarında
 author: rick-anderson
 description: Docker kapsayıcılarında ASP.NET Core uygulamaları barındırmak öğrenme için kaynaklarına bağlantılar bulma.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: 12a179287ec302994380e0faf4b843596f8c2f4e
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: 272bd0a0dad2fb62c33dcedd1ce8430eefb2c238
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30280101"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276094"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Ana bilgisayar ASP.NET Core Docker kapsayıcılarında
 

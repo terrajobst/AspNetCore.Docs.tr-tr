@@ -2,20 +2,16 @@
 title: Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 ve üzeri
 author: Rick-Anderson
 description: Desteklenen tüm ASP.NET Core ve Entity Framework Çekirdek paket Microsoft.AspNetCore.App metapackage içerir.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 7c7f69a6176d3f7982a67106cb823ff42200b50e
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
+ms.openlocfilehash: 4840d0a7536b1e9d8da835690b285ac2074967f5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306627"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277478"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 Microsoft.AspNetCore.App metapackage
 
@@ -63,5 +59,11 @@ Aşağıdaki *.csproj* proje dosyası başvuruları `Microsoft.AspNetCore.App` m
 Bir sürüm numarası belirtme `Microsoft.AspNetCore.App` başvuru etmez **değil** paylaşılan sürümünün garanti framework seçilebilir. Örneğin, sürüm "2.1.1" belirtildi, ancak "2.1.3" yüklü varsayalım. Bu durumda, uygulama "2.1.3" kullanır. Önerilmemesine rağmen Top İleri (düzeltme eki ve/veya ikincil) devre dışı bırakabilirsiniz. Dotnet konak İleri alma ve davranışını yapılandırma ile ilgili daha fazla bilgi için bkz: [dotnet konak İleri alma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
 `Microsoft.AspNetCore.App` [Metapackage](/dotnet/core/packages#metapackages) Nuget'ten güncelleştirilmiş geleneksel bir paketi değil. Benzer şekilde `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` özel sürüm semantiği NuGet dışında işlenmiş olan bir paylaşılan çalıştırması temsil eder. Daha fazla bilgi için bkz: [paketleri, metapackages ve çerçeveleri](/dotnet/core/packages).
+
+`<Project Sdk` ayarlanmalıdır `Microsoft.NET.Sdk.Web` örtük sürümü kullanmak için `Microsoft.AspNetCore.App`.  Zaman `<Project Sdk="Microsoft.NET.Sdk">` olan kullanıldığında, aşağıdaki uyarılarla oluşturulur:
+
+*Uyarı NU1604: Proje bağımlılığı Microsoft.AspNetCore.App (bunlar dahil) bir alt sınır içermiyor. Alt sınır tutarlı geri yükleme sonuçlar sağlamak için bağımlılık sürümünü içerir.*
+
+*Uyarı NU1602: [Proje adı] için bağımlılık Microsoft.AspNetCore.App (bunlar dahil) bir alt sınır sağlamaz. Yaklaşık en iyi eşleşme Microsoft.AspNetCore.App 2.1.0, çözüldü.*
 
 Uygulamanızı daha önce kullandıysanız `Microsoft.AspNetCore.All`, bkz: [Microsoft.AspNetCore.App için Microsoft.AspNetCore.All geçiş](xref:fundamentals/metapackage#migrate).

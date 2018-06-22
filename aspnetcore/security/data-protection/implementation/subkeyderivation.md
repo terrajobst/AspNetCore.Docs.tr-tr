@@ -2,19 +2,15 @@
 title: Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
 author: rick-anderson
 description: ASP.NET Core veri koruma uygulama ayrıntılarını türetme alt anahtar ve şifreleme kimliği doğrulanmış öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072645"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275729"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
 
@@ -61,7 +57,7 @@ Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele başlatma vekt
 
 ![CBC modunda işlemi ve dönüş](subkeyderivation/_static/cbcprocess.png)
 
-*output:= keyModifier || iv || E_cbc (K_E,iv,data) || HMAC(K_H, iv || E_cbc (K_E,iv,data))*
+*Çıkış: keyModifier = || IV || E_cbc (K_E, IV, veri) || HMAC (K_H, IV || E_cbc (K_E, IV, veri))*
 
 > [!NOTE]
 > `IDataProtector.Protect` Uygulaması olacak [Sihirli üstbilgi ve anahtarı kimliği başına](xref:security/data-protection/implementation/authenticated-encryption-details) çağırana dönmeden önce çıktı. Sihirli üstbilgi ve anahtarı kimliği örtük olarak olduğundan parçası [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), ve anahtar değiştiricisi KDF giriş olarak gönderilir, bu Mac tarafından döndürülen yük tek her bir bitini doğrulanır anlamına gelir

@@ -2,19 +2,15 @@
 title: ASP.NET Core öğreticileri
 author: rick-anderson
 description: ASP.NET Core uygulamaları geliştirmek öğrenme için adım adım kılavuzlar listesi.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: 097d63d5be5bd83c688a7f377d8ed45ffdd43ff8
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 9cc2f7a91c081fbd74999f6dc0334a4ee1980864
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223079"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277055"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -22,9 +18,9 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 
 ## <a name="build-web-apps"></a>Web uygulamaları oluşturma
 
-[Razor sayfalarının](xref:mvc/razor-pages/index) ASP.NET Core 2.0 ve daha sonra yeni bir Web kullanıcı arabirimini uygulaması oluşturmak için önerilen yaklaşımdır.
+[Razor sayfalarının](xref:razor-pages/index) ASP.NET Core 2.0 ve daha sonra yeni bir Web kullanıcı arabirimini uygulaması oluşturmak için önerilen yaklaşımdır.
 
-* [ASP.NET Core Razor sayfalarında giriş](xref:mvc/razor-pages/index)
+* [ASP.NET Core Razor sayfalarında giriş](xref:razor-pages/index)
 * ASP.NET Core ile bir Razor sayfalarının web uygulaması oluşturma
 
    * [MacOS Razor sayfalarında](xref:tutorials/razor-pages-mac/index)

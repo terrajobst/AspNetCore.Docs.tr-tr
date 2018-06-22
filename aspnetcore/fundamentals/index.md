@@ -2,20 +2,16 @@
 title: ASP.NET Core temelleri
 author: rick-anderson
 description: ASP.NET Core uygulamaları oluşturmak için temel kavramları bulur.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/30/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34233316"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278875"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -78,7 +74,7 @@ Daha fazla bilgi için bkz: [uygulama başlangıç](xref:fundamentals/startup).
 
 ## <a name="content-root"></a>İçerik kök
 
-Taban yol görünümler gibi uygulama tarafından kullanılan herhangi bir içerik için içerik köküdür [Razor sayfalarının](xref:mvc/razor-pages/index)ve statik varlıklar. Varsayılan olarak, içerik kök uygulama barındırma yürütülebilir dosyası için uygulama temel yolu ile aynıdır.
+Taban yol görünümler gibi uygulama tarafından kullanılan herhangi bir içerik için içerik köküdür [Razor sayfalarının](xref:razor-pages/index)ve statik varlıklar. Varsayılan olarak, içerik kök uygulama barındırma yürütülebilir dosyası için uygulama temel yolu ile aynıdır.
 
 ## <a name="web-root"></a>Web kök
 
@@ -106,9 +102,13 @@ ASP.NET Core zengin bir yerleşik ara yazılımı içerir:
 
 Daha fazla bilgi için bkz: [ara yazılımı](xref:fundamentals/middleware/index) ve [açık Web arabirimi için .NET (OWIN)](xref:fundamentals/owin).
 
+::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="initiate-http-requests"></a>Başlatma HTTP istekleri
 
 Kullanma hakkında bilgi için `IHttpClientFactory` erişimi `HttpClient` HTTP isteği yapmak için örnekleri görmek [başlatmak HTTP istekleri](xref:fundamentals/http-requests).
+
+::: moniker-end
 
 ## <a name="environments"></a>Ortamlar
 
@@ -126,7 +126,7 @@ Daha fazla bilgi için bkz: [yapılandırma](xref:fundamentals/configuration/ind
 
 ASP.NET çekirdeği günlüğü sağlayıcıları çeşitli çalışır bir günlük API destekler. Yerleşik sağlayıcılar, bir veya daha fazla hedeflere gönderen günlükleri destekler. Üçüncü taraf günlük altyapıları kullanılabilir.
 
-[Günlüğe kaydetme](xref:fundamentals/logging/index)
+Daha fazla bilgi için bkz: [günlüğe kaydetme](xref:fundamentals/logging/index)
 
 ## <a name="error-handling"></a>Hata işleme
 
@@ -158,11 +158,11 @@ ASP.NET Core uygulamaları yapılandırmak ve başlatma bir *konak*, uygulama ba
 
 Daha fazla bilgi için bkz: [ASP.NET Core ana](xref:fundamentals/host/index).
 
-## <a name="session-and-application-state"></a>Oturum ve uygulama durumu
+## <a name="session-and-app-state"></a>Oturum ve uygulama durumu
 
-Oturum durumunu kaydetmek ve kullanıcı web uygulamanızı gözatar sırasında kullanıcı verilerini depolamak için kullanabileceğiniz ASP.NET Core bir özelliğidir.
+ASP.NET Core kullanıcının bir web uygulaması gözatar sırada oturum ve uygulama durumunu korumak için çeşitli yaklaşımlar sunar.
 
-Daha fazla bilgi için bkz: [oturum ve uygulama durumu](xref:fundamentals/app-state).
+Daha fazla bilgi için bkz: [oturum ve uygulama durumunu](xref:fundamentals/app-state).
 
 ## <a name="servers"></a>Sunucular
 

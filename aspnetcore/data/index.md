@@ -2,19 +2,15 @@
 title: ASP.NET Core verilerle çalışma
 author: rick-anderson
 description: Verilerle çalışma hakkında makalelerinin bağlantıları sağlar. Birçok Entity Framework Çekirdek kullanın.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: data/index
-ms.openlocfilehash: 068c70c15acc8d8da6759020725e48a77946c53e
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 8591201133a4b11a29d4e71d7d13a9d48b55b84a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223173"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276701"
 ---
 # <a name="work-with-data-in-aspnet-core"></a>ASP.NET Core verilerle çalışma
 

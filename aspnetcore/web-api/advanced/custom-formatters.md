@@ -2,19 +2,15 @@
 title: ASP.NET Core Web API'sinde özel biçimlendiricileri
 author: rick-anderson
 description: Oluşturmayı ve web ASP.NET Core API'leri için özel biçimlendiricileri kullanmayı öğrenin.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 02/08/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: ec38a988a73278481de6535c627b2479a9805387
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: a21fcea68d957d0344309c9bbd3286b71c092f60
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "34452580"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273864"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'sinde özel biçimlendiricileri
 

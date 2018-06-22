@@ -2,18 +2,15 @@
 title: ASP.NET Core kimliği için özel depolama sağlayıcıları
 author: ardalis
 description: Özel depolama sağlayıcıları ASP.NET Core kimliği için yapılandırmayı öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: a50069586c702152e81961773114ea75901ab23d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11c49d630c922b0aa91678277e9553bf0c25134d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278433"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -170,7 +167,7 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
 - **Iuserlockoutstore**  
  [Iuserlockoutstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) arabirimi uygulayan bir hesap kilitleme hakkında bilgi depolamak için yöntemleri tanımlar. Başarısız erişim denemesi ve kilitlemeleri izlemek için yöntemler içerir.
 - **Iqueryableuserstore**  
- [Iqueryableuserstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi sorgulanabilir bir kullanıcı deposunun sağlamak için üyeleri uygulama tanımlar.
+ [Iqueryableuserstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi uygulayan sorgulanabilir bir kullanıcı deposunun sağlamak için üyeleri tanımlar.
 
 Yalnızca gerekli olan arabirimler uygulamanızda uygulayın. Örneğin:
 

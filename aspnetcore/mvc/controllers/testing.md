@@ -2,18 +2,15 @@
 title: ASP.NET Core denetleyici mantığında test
 author: ardalis
 description: Denetleyici mantığında ASP.NET Core Moq ve xUnit test öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273929"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyici mantığında test
 
@@ -74,7 +71,7 @@ Geçersiz model durumu kullanarak hataları ekleyerek test edilmiş `AddModelErr
 
 Uygulama başka bir denetleyici belirli fırtınası oturumuyla ilgili bilgiler görüntüler. Geçersiz kimlik değerleri ile mücadele etmek için bazı mantığı içerir:
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 Denetleyici eylemini sınamak için her üç durumda olan `return` deyimi:
 
@@ -100,7 +97,7 @@ Son test doğrular deponun `Update` yöntemi çağrılır. Daha önce yaptığı
 
 ## <a name="integration-testing"></a>Tümleştirme sınaması
 
-[Tümleştirme testleri](../../testing/integration-testing.md) uygulama iş içindeki ayrı modülleri doğru birlikte emin olmak için gerçekleştirilir. Genellikle, herhangi bir şey birim testi ile test ile tümleştirme test ayrıca test edebilirsiniz, ancak tersi doğru değil. Ancak, tümleştirme testleri birim testleri çok daha yavaş olma eğilimindedir. Bu nedenle, ne olursa olsun da ile birim testleri ve birden çok ortak çalışanlar gerektiren senaryolar için tümleştirme testleri kullanın test etmek en iyisidir.
+[Tümleştirme testleri](xref:test/integration-tests) uygulama iş içindeki ayrı modülleri doğru birlikte emin olmak için gerçekleştirilir. Genellikle, herhangi bir şey birim testi ile test ile tümleştirme test ayrıca test edebilirsiniz, ancak tersi doğru değil. Ancak, tümleştirme testleri birim testleri çok daha yavaş olma eğilimindedir. Bu nedenle, ne olursa olsun da ile birim testleri ve birden çok ortak çalışanlar gerektiren senaryolar için tümleştirme testleri kullanın test etmek en iyisidir.
 
 Bunlar hala yararlı olabilir ancak sahte nesneler tümleştirme testlerinde nadiren kullanılır. Birim testi sınanan birim dışında ortak test amaçları doğrultusunda nasıl hareket etmesi gerektiğini denetlemek için etkili bir yol sahte nesneleridir. Bir tümleştirme testinde gerçek ortak çalışanlar, tüm alt sistemi birlikte düzgün çalıştığını doğrulamak için kullanılır.
 

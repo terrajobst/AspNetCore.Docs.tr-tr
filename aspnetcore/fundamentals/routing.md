@@ -2,19 +2,15 @@
 title: ASP.NET çekirdek yönlendirme
 author: ardalis
 description: ASP.NET Core yönlendirme işlevini nasıl gelen istek yönlendirme işleyicisine eşlemek için sorumlu olduğu bulur.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0bb62cad0dcf54d593171d6a40eb1510a88eb6b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341788"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274901"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -285,6 +281,16 @@ Aşağıdaki tabloda bazı rota şablonlarının ve davranışlarını gösterir
 Bir şablon kullanarak genellikle yönlendirme en basit yaklaşımdır. Ayrıca kısıtlamaları ve varsayılan rota şablonu dışında belirtilebilir.
 
 İpucu: Etkinleştirmek [günlüğü](xref:fundamentals/logging/index) görmek için nasıl yönlendirme uygulamalarında gibi yerleşik `Route`, eşleşen istekleri.
+
+## <a name="reserved-routing-names"></a>Ayrılmış yönlendirme adlar
+
+Aşağıdaki anahtar sözcükler ayrılmış adlarının ve rota adları veya parametre kullanılamaz:
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
 
 ## <a name="route-constraint-reference"></a>Rota kısıtlaması başvurusu
 

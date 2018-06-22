@@ -2,21 +2,17 @@
 title: .NET genel ana bilgisayar
 author: guardrex
 description: Uygulama başlatma ve ömür boyu yönetimi için sorumlu olduğu .NET genel ana bilgisayar hakkında bilgi edinin.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: a851f2faf13792b2c232c124371d07710ae1fce3
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 33e5829ce4a09e132743b4174a588cf232a44775
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734477"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276272"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -58,7 +54,13 @@ Genel ana bilgisayar kitaplığı kullanılabilir [Microsoft.Extensions.Hosting 
 
 ### <a name="configuration-builder"></a>Yapılandırma oluşturucusu
 
-Ana bilgisayar Oluşturucu yapılandırması çağırarak oluşturulur [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) üzerinde [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) uygulaması. `ConfigureHostConfiguration` kullanan bir [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) oluşturmak için bir [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) ana bilgisayar için. Yapılandırma Oluşturucu başlatır [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) uygulamanın derleme işleminde kullanmak için. `ConfigureHostConfiguration` toplama sonuçları ile birden çok kez çağrılabilir. Ana bilgisayar son hangi seçeneği bir değer ayarlar kullanır.
+Ana bilgisayar Oluşturucu yapılandırması çağırarak oluşturulur [ConfigureHostConfiguration](/dotnet/api/microsoft.extensions.hosting.ihostbuilder.configurehostconfiguration) üzerinde [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) uygulaması. `ConfigureHostConfiguration` kullanan bir [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder) oluşturmak için bir [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) ana bilgisayar için. Yapılandırma Oluşturucu başlatır [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) uygulamanın derleme işleminde kullanmak için.
+
+Ortam değişkeni yapılandırma, varsayılan olarak eklenmez. Çağrı [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) ortam değişkenleri konaktan yapılandırmak için konak oluşturucu üzerinde. `AddEnvironmentVariables` İsteğe bağlı kullanıcı tanımlı önek kabul eder. Bir önek örnek uygulamanın kullandığı `PREFIX_`. Ortam değişkenleri okurken öneki kaldırılır. Örnek uygulamanın ana zaman yapılandırılmışsa, ortam değişken değeri `PREFIX_ENVIRONMENT` için ana bilgisayar yapılandırma değeri olur `environment` anahtarı.
+
+Kullanırken geliştirme sırasında [Visual Studio](https://www.visualstudio.com/) veya bir uygulamayla çalıştıran `dotnet run`, ortam değişkenleri kümesinde *Properties/launchSettings.json* dosya. İçinde [Visual Studio Code](https://code.visualstudio.com/), ortam değişkenleri kümesinde *.vscode/launch.json* geliştirme sırasında dosya. Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments).
+
+`ConfigureHostConfiguration` toplama sonuçları ile birden çok kez çağrılabilir. Ana bilgisayar son hangi seçeneği bir değer ayarlar kullanır.
 
 *hostsettings.JSON*:
 
@@ -83,7 +85,7 @@ Bu ayar, ana bilgisayar için içerik dosyaları arama başladığı belirler.
 **Tür**: *dize*  
 **Varsayılan**: varsayılan olarak, uygulama derleme bulunduğu klasöre.  
 **Kullanılarak ayarlanan**: `UseContentRoot`  
-**Ortam değişkeni**: `ASPNETCORE_CONTENTROOT`
+**Ortam değişkeni**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` olan [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
 
 Yol yoksa, konağı başlatmak başarısız olur.
 
@@ -97,9 +99,9 @@ Uygulamanın ayarlar [ortam](xref:fundamentals/environments).
 **Tür**: *dize*  
 **Varsayılan**: üretim  
 **Kullanılarak ayarlanan**: `UseEnvironment`  
-**Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
+**Ortam değişkeni**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` olan [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
 
-Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir. Varsayılan olarak, *ortam* okuma `ASPNETCORE_ENVIRONMENT` ortam değişkeni. Kullanırken [Visual Studio](https://www.visualstudio.com/), ortam değişkenleri kümesinde *launchSettings.json* dosya. Daha fazla bilgi için bkz: [kullanan birden çok ortamlar](xref:fundamentals/environments).
+Ortam herhangi bir değere ayarlanabilir. Framework tanımlı değerler `Development`, `Staging`, ve `Production`. Değerleri büyük küçük harfe duyarlı değildir.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseEnvironment)]
 

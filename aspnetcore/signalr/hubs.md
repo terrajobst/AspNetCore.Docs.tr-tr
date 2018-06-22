@@ -2,21 +2,17 @@
 title: ASP.NET Core SignalR hub'ları kullanın
 author: rachelappel
 description: ASP.NET Core SignalR hub'ları kullanmayı öğrenin.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/01/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 5558a5787396c3aa8055175486369eb2534c1fa2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34819090"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277676"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Hub SignalR öğesinde ASP.NET Core için kullanın.
 

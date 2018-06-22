@@ -2,20 +2,16 @@
 title: ASP.NET Core tümleştirme testlerinde
 author: guardrex
 description: Bir uygulamanın bileşenleri doğru veritabanı, dosya sistemi ve ağ dahil olmak üzere altyapı düzeyinde işlev tümleştirme testleri nasıl emin öğrenin.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734720"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277702"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET Core tümleştirme testlerinde
 
@@ -29,9 +25,9 @@ Bu konu, birim testleri temel bir anlayış varsayar. Tanınmayan test kavramlar
 
 Örnek uygulama Razor sayfalarının uygulama ve Razor sayfalarının temel bir anlayış varsayar. Tanınmayan Razor sayfaları ile varsa, aşağıdaki konulara bakın:
 
-* [Razor sayfalarının giriş](xref:mvc/razor-pages/index)
+* [Razor sayfalarının giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
-* [Razor sayfalarının birim testleri](xref:test/razor-pages-tests)
+* [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
 
 ## <a name="introduction-to-integration-tests"></a>Tümleştirme testleri giriş
 
@@ -314,6 +310,6 @@ Tümleştirme testleri test yürütülmeden önce veritabanında küçük bir ve
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Razor sayfalarının birim testleri](xref:test/razor-pages-tests)
+* [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Test denetleyicileri](xref:mvc/controllers/testing)

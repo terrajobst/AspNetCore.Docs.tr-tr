@@ -2,20 +2,16 @@
 title: Mac için Visual Studio ile ASP.NET Core Razor sayfalarının uygulama için model ekleme
 author: rick-anderson
 description: ASP.NET Core Mac için Visual Studio kullanarak bir Razor sayfalarının uygulama için bir model eklemeyi öğrenin
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: 97bc9f14b8d6da958a7f587e54a37d2d0e0aabd4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 3ca6c9b9988b8335116b7248c6c4a89997d02b14
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483678"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273280"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-for-mac"></a>Mac için Visual Studio ile ASP.NET Core Razor sayfalarının uygulama için model ekleme
 

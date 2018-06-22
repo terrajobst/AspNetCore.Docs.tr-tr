@@ -2,20 +2,16 @@
 title: ASP.NET Core Web API Yardım sayfası Swagger / açık API
 author: rsuter
 description: Bu öğretici belgeleri oluşturmak ve bir Web API uygulaması için sayfa yardımcı olmak için Swagger ekleme bir kılavuz sağlar.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/09/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: e44b491fd5265e12646efa42f12eb0662e287f04
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077342"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272257"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>ASP.NET Core Web API Yardım sayfası Swagger / açık API
 
@@ -33,7 +29,7 @@ Bu makalede, [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbu
 
 Swagger belirtimidir açıklayan bir dilden bağımsız [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API'leri. Swagger proje bağışlanır [OpenAPI Initiative](https://www.openapis.org/), burada bunu şimdi için açık API adlandırılır. Her iki birbirinin yerine kullanıldığı; Ancak, açık API tercih edilir. Bu, hem bilgisayarları hem de bir hizmet uygulaması (kaynak kodu, ağ erişimi, belgeleri) doğrudan erişim olmadan özelliklerini anlamak için insanlar sağlar. Bir iş ilişkilendirilmemiş Hizmetleri bağlanmak için gereken en aza indirmek için hedeftir. Başka bir hizmet doğru bir şekilde belge için gereken süreyi azaltmak amacıyla belirtilir.
 
-## <a name="swagger-specification-swaggerjson"></a>Swagger specification (swagger.json)
+## <a name="swagger-specification-swaggerjson"></a>Swagger belirtimi (swagger.json)
 
 Swagger akışı için çekirdek Swagger belirtimidir&mdash;varsayılan olarak, bir belge adlı *swagger.json*. Hizmet tabanlı Swagger aracını zinciri (veya üçüncü taraf uygulamaları bunu) tarafından oluşturulur. API'nizi ve HTTP ile erişim özelliklerini açıklar. Swagger kullanıcı arabirimini yönlendirir ve aracı zincir bulma ve istemci kodu oluşturma etkinleştirmek için kullanılır. Konuyu uzatmamak amacıyla sınırlı bir Swagger belirtimi bir örneği burada verilmiştir:
 
@@ -121,5 +117,5 @@ Her denetleyicilerinizi ortak eylem yönteminde kullanıcı Arabiriminden sınan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Swashbuckle ile çalışmaya başlama](xref:tutorials/get-started-with-swashbuckle)
-* [NSwag ile çalışmaya başlama](xref:tutorials/get-started-with-nswag)
+* [Swashbuckle kullanmaya başlama](xref:tutorials/get-started-with-swashbuckle)
+* [NSwag Kullanmaya Başlama](xref:tutorials/get-started-with-nswag)

@@ -2,18 +2,15 @@
 title: Siteler arası komut dosyası (XSS) ASP.NET Core içinde engelle
 author: rick-anderson
 description: Siteler arası komut dosyası (XSS) ve ASP.NET Core uygulama bu güvenlik açığı adresleme teknikleri hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272454"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası komut dosyası (XSS) ASP.NET Core içinde engelle
 
@@ -60,7 +57,7 @@ Bu görünüm içeriğini çıkarır *untrustedInput* değişkeni. Bu değişken
 
 ## <a name="javascript-encoding-using-razor"></a>Razor kullanarak JavaScript kodlama
 
-JavaScript görünümünüzde işlemek için bir değer eklemek istediğiniz durumlar olabilir. Bunu yapmanın iki yolu vardır. Basit değerler eklemek için güvenli bir veri özniteliği bir etiket değeri koyun ve, JavaScript almak için yoludur. Örneğin:
+JavaScript görünümünüzde işlemek için bir değer eklemek istediğiniz durumlar olabilir. Bunu yapmanın iki yolu vardır. Değerleri eklemek için güvenli bir veri özniteliği bir etiket değeri koyun ve, JavaScript almak için yoludur. Örneğin:
 
 ```none
 @{
@@ -228,4 +225,4 @@ Genel kodlama çıkış noktasında gerçekleşir ve kodlanmış değerler hiçb
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Bir XSS önleme teknik olarak doğrulama
 
-Doğrulama XSS saldırılarını sınırlama de yararlı bir aracı olabilir. Örneğin, yalnızca 0-9 karakter içeren basit bir sayısal dize XSS saldırısı tetiklemez. Doğrulama HTML uygulamasında kullanıcı girdisi - kabul etmek istediğiniz HTML giriş ayrıştırma imkansız olmasa zordur daha karmaşık hale gelir. MarkDown ve diğer metin biçimleri zengin girişi için daha güvenli bir seçenek olabilir. Hiçbir zaman tek başına doğrulama yararlanmalıdır. Her zaman güvenilmeyen giriş çıkış önce kodlama, ne olursa olsun, doğrulamanın.
+Doğrulama XSS saldırılarını sınırlama de yararlı bir aracı olabilir. Örneğin, yalnızca 0-9 karakter içeren bir sayısal dize XSS saldırısı tetiklemez. Doğrulama HTML uygulamasında kullanıcı girdisi - kabul etmek istediğiniz HTML giriş ayrıştırma imkansız olmasa zordur daha karmaşık hale gelir. MarkDown ve diğer metin biçimleri zengin girişi için daha güvenli bir seçenek olabilir. Hiçbir zaman tek başına doğrulama yararlanmalıdır. Her zaman güvenilmeyen giriş çıkış önce kodlama, ne olursa olsun, doğrulamanın.

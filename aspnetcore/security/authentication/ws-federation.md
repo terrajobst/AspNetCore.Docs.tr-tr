@@ -2,20 +2,16 @@
 title: WS-Federasyon'da, ASP.NET Core kullanıcılarla kimlik doğrulaması
 author: chlowell
 description: Bu öğretici, bir ASP.NET Core uygulamada WS-Federasyon kullanmayı gösterir.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/27/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/ws-federation
-ms.openlocfilehash: d4621c7b97678903b9f2562e353da3883334b599
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 55504ed28cf8ef1095bf16c101c09a6f374f038c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898810"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277445"
 ---
 # <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>WS-Federasyon'da, ASP.NET Core kullanıcılarla kimlik doğrulaması
 
@@ -26,7 +22,7 @@ ASP.NET Core 2.0 uygulamaları için WS-Federasyon desteği tarafından sağlana
 Varsayılan olarak, yeni ara:
 
 * İstenmeyen oturumları izin vermez. Bu özellik WS-Federasyon protokolünün XSRF saldırılarına açıktır. Ancak, bunu ile etkinleştirilebilir `AllowUnsolicitedLogins` seçeneği.
-* Her form post oturum açma iletileri için denetlemez. Yalnızca ister `CallbackPath` oturum eklentiler için denetlenir `CallbackPath` varsayılan olarak `/signin-wsfed` ancak değiştirilebilir. Bu yol sağlayarak diğer kimlik doğrulama sağlayıcıları ile paylaşılabilir `SkipUnrecognizedRequests` seçeneği.
+* Her form post oturum açma iletileri için denetlemez. Yalnızca ister `CallbackPath` oturum eklentiler için denetlenir `CallbackPath` varsayılan olarak `/signin-wsfed` ancak değiştirilebilir devralınan aracılığıyla [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [ WsFederationOptions](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions) sınıfı. Bu yol sağlayarak diğer kimlik doğrulama sağlayıcıları ile paylaşılabilir [SkipUnrecognizedRequests](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions.skipunrecognizedrequests) seçeneği.
 
 ## <a name="register-the-app-with-active-directory"></a>Uygulama Active Directory'ye kaydetme
 

@@ -2,20 +2,16 @@
 title: ASP.NET Core yer işareti etiketi yok
 author: pkellner
 description: ASP.NET Core yer işareti etiketi yardımcı öznitelik ve her öznitelik HTML yer işareti etiketi davranışını genişletme oynadığı rolü bulur.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 31ff62b6bedb5e577a51f341c89d241d06a83ad3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899414"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273890"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET Core yer işareti etiketi yok
 
@@ -65,7 +61,7 @@ Oluşturulan HTML:
 
 Varsa `asp-action` öznitelik değeri `Index`, hiçbir eylem varsayılan çağrılması için önde gelen URL, eklenecek sonra `Index` eylem. Eylem belirtilen (veya varsayılan), başvurulan denetleyicisi bulunmalıdır `asp-controller`.
 
-## <a name="asp-route-value"></a>asp-route-{value}
+## <a name="asp-route-value"></a>ASP - rota-{value}
 
 [Asp - rota-{value}](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.routevalues) öznitelik joker karakter rota öneki sağlar. Herhangi bir değer kaplayan `{value}` yer tutucu, olası bir rota parametresi olarak yorumlanır. Varsayılan bir yol bulunmazsa, bu rota öneki eklenir oluşturulan `href` istek parametresi ve değeri olarak özniteliği. Aksi takdirde, rota şablonu konur.
 
@@ -137,7 +133,7 @@ Yer işareti etiketi yardımcı doğrudan URL'yi kullanarak bu denetleyici eylem
 
 Varsa `asp-controller` veya `asp-action` ek olarak belirtilen `asp-route`, oluşturulan rota beklediğiniz olmayabilir. Bir rota çakışmayı önlemek için `asp-route` ile kullanılmaması `asp-controller` ve `asp-action` öznitelikleri.
 
-## <a name="asp-all-route-data"></a>asp-all-route-data
+## <a name="asp-all-route-data"></a>ASP tüm rota veri
 
 [Tüm rota veri asp](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.routevalues) özniteliği, anahtar-değer çiftleri sözlüğü oluşturulmasını destekler. Parametre adı anahtarıdır ve değerin parametre değeridir.
 
@@ -171,7 +167,7 @@ Oluşturulan HTML:
 
 Karma etiketleri, istemci-tarafı uygulamaları oluştururken yararlıdır. Bunlar, kolay işaretleme ve JavaScript'te, örneğin arama için kullanılabilir.
 
-## <a name="asp-area"></a>asp-area
+## <a name="asp-area"></a>ASP alanı
 
 [Asp alanı](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) öznitelik ayarlar uygun yol ayarlamak için kullanılan alan adı. Aşağıdaki örnek, alan özniteliği yeniden eşleme yolların nasıl neden gösterilmektedir. Ayarı `asp-area` "Bloglara" dizin önekleri *alanları/blog* ilişkili denetleyicilerinin ve görünümlerin bu yer işareti etiketi için yollar.
 
@@ -272,4 +268,4 @@ Oluşturulan HTML:
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Alanlar](xref:mvc/controllers/areas)
-* [Razor sayfalarının giriş](xref:mvc/razor-pages/index)
+* [Razor sayfalarının giriş](xref:razor-pages/index)

@@ -2,19 +2,15 @@
 title: ASP.NET Core kullanan birden çok ortamlar
 author: rick-anderson
 description: Birden çok ortamlar genelinde uygulamanızın davranışını denetlemek için ASP.NET Core destek nasıl sağladığını öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 12/25/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: 2c8441db527203aeea516073dae3bc335c335565
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 5a4caeeba045cb93dec9c73c931dae8a352bede9
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33840963"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276938"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core kullanan birden çok ortamlar
 
@@ -82,8 +78,8 @@ Ne zaman bir uygulama başlatıldığında ile [çalıştırmak dotnet](/dotnet/
 * *launchSettings.json* okunur varsa. `environmentVariables` ayarlarında *launchSettings.json* ortam değişkenleri geçersiz.
 * Barındırma ortamı görüntülenir.
 
-
 Aşağıdaki çıkış kullanmaya uygulama gösterir [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run):
+
 ```bash
 PS C:\Webs\WebApp1> dotnet run
 Using launch settings from C:\Webs\WebApp1\Properties\launchSettings.json...
@@ -99,8 +95,29 @@ Visual Studio **hata ayıklama** sekmesi sağlar düzenlemek için bir GUI *laun
 
 Web sunucu yeniden başlatılana kadar proje profillere yapılan değişiklikler etkilerini göstermeyebilir. Kestrel, ortama yapılan değişiklikleri algılar önce başlatılması gerekir.
 
->[!WARNING]
+> [!WARNING]
 > *launchSettings.json* parolaları depolamak döndürmemelidir. [Gizli Yöneticisi aracını](xref:security/app-secrets) yerel geliştirme için parolaları depolamak için kullanılır.
+
+Kullanırken [Visual Studio Code](https://code.visualstudio.com/), ortam değişkenleri ayarlanabilir *.vscode/launch.json* dosya. Aşağıdaki örnek ortamını ayarlar `Development`:
+
+```json
+{
+   "version": "0.2.0",
+   "configurations": [
+        {
+            "name": ".NET Core Launch (web)",
+
+            ... additional VS Code configuration settings ...
+
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    ]
+}
+```
+
+A *.vscode/launch.json* proje dosyasında değil okuma uygulamayla başlatırken `dotnet run` aynı şekilde *Properties/launchSettings.json*. Bir uygulama yok geliştirme başlatılırken bir *launchSettings.json* dosya, bir ortam değişkeni veya bir komut satırı bağımsız değişkeni ortamıyla ayarladıktan `dotnet run` komutu.
 
 ### <a name="production"></a>Üretim
 

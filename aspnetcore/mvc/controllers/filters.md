@@ -2,19 +2,15 @@
 title: ASP.NET Core filtreleri
 author: ardalis
 description: Filtreler nasıl çalışır ve bunları ASP.NET Core MVC'de nasıl kullanacağınızı öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252158"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275651"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET Core filtreleri
 
@@ -23,10 +19,10 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [zel Dykstra](http
 *Filtreler* ASP.NET Core MVC'de, önce veya sonra istek işleme ardışık düzeninde belirli aşamaları kodu çalıştırmanızı sağlar.
 
 > [!IMPORTANT]
-> Bu konuda mu **değil** Razor sayfalarına uygulayın. ASP.NET Core 2.1 ve üzeri destekler [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Razor sayfalarının. Daha fazla bilgi için bkz: [yöntemleri için Razor sayfalarının filtre](xref:mvc/razor-pages/filter).
+> Bu konuda mu **değil** Razor sayfalarına uygulayın. ASP.NET Core 2.1 ve üzeri destekler [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Razor sayfalarının. Daha fazla bilgi için bkz: [yöntemleri için Razor sayfalarının filtre](xref:razor-pages/filter).
 
  Yerleşik filtreler görevler gibi işler:
- 
+
  * Yetkilendirme (bir kullanıcı için yetkili değil kaynaklarına erişimini engelleme).
  * Tüm istekleri HTTPS kullanmak sağlama.
  * Yanıt (önbelleğe alınan yanıt döndürmek için istek ardışık düzenini kısa devre) önbelleğe alma. 

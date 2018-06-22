@@ -3,19 +3,15 @@ title: Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik d
 author: camsoper
 description: ASP.NET Core Web API ile Azure Active Directory B2C kimlik doğrulaması kurma bulur. Kimliği doğrulanmış web API'si Postman ile test edin.
 ms.author: casoper
-manager: wpickett
 ms.date: 01/25/2018
-ms.topic: tutorial
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897810"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273424"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması
 
@@ -61,11 +57,11 @@ Aşağıdaki değerleri kullanın:
 
 | Ayar                       | Değer               | Notlar                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
-| **Ad**                      | *&lt;API name&gt;*  | Girin bir **adı** uygulamanızı tüketicilere tanımlar uygulaması.                     |
+| **Ad**                      | *&lt;API adı&gt;*  | Girin bir **adı** uygulamanızı tüketicilere tanımlar uygulaması.                     |
 | **Web uygulaması eklemek veya web API'si** | Evet                 |                                                                                        |
 | **Örtük akış izin ver**       | Evet                 |                                                                                        |
 | **Yanıt URL'si**                 | `https://localhost` | Yanıt URL'leri Azure AD B2C uygulamanızı istekleri herhangi bir belirtece döndüğü noktalarıdır. |
-| **Uygulama Kimliği URI'si**                | *api*               | URI, bir fiziksel adresine gerekmez. Yalnızca benzersiz olması gerekir.     |
+| **Uygulama Kimliği URI'si**                | *API*               | URI, bir fiziksel adresine gerekmez. Yalnızca benzersiz olması gerekir.     |
 | **Yerel istemci Ekle**     | Hayır                  |                                                                                        |
 
 API kaydedildikten sonra Kiracı uygulamalar ve API'ler, listesinde görüntülenir. Yalnızca kayıtlı API seçin. Seçin **kopya** simgesine sağ tarafındaki **uygulama kimliği** panoya kopyalamak için alana. Seçin **kapsamları yayımlanan** ve varsayılan doğrulama *user_impersonation* kapsamı mevcut değil.
@@ -74,7 +70,7 @@ API kaydedildikten sonra Kiracı uygulamalar ve API'ler, listesinde görüntüle
 
 Visual Studio Web uygulaması şablonu, Azure AD B2C kiracısı için kimlik doğrulaması kullanacak şekilde yapılandırılabilir.
 
-In Visual Studio:
+Visual Studio'da:
 
 1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
 2. Seçin **Web API** şablonları listesinden.

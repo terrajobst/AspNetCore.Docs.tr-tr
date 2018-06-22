@@ -2,20 +2,16 @@
 title: Web server ASP.NET Core uygulamalarında
 author: rick-anderson
 description: Kestrel ve HTTP.sys web sunucuları için ASP.NET Core bulur. Bir sunucu seçmek nasıl ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/13/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: c9ed385208df083f631174c7071ca31ed2114350
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: bb0331d7201d4e979e6c6524cbf630280c4eaeb6
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34473200"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274449"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
 

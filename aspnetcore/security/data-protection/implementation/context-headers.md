@@ -2,19 +2,15 @@
 title: ASP.NET Core içerik üstbilgileri
 author: rick-anderson
 description: ASP.NET Core veri koruması içerik üstbilgileri uygulama ayrıntılarını öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2343e59898c024eba420390d7fb0bce2fc82a895
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077860"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274475"
 ---
 # <a name="context-headers-in-aspnet-core"></a>ASP.NET Core içerik üstbilgileri
 
@@ -71,7 +67,7 @@ B7 92 3D BF 59 90 00 A9
 
 Ardından, Enc_CBC işlem (K_E, IV, "") AES-192-IV verilen CBC için = 0 * ve yukarıdaki K_E.
 
-result := F474B1872B3B53E4721DE19C0841DB6F
+Sonuç: F474B1872B3B53E4721DE19C0841DB6F =
 
 Ardından, MAC işlem (K_H, "") K_H yukarıdaki verilen HMACSHA256 için.
 
@@ -118,11 +114,11 @@ D1 F7 5A 34 EB 28 3E D7 D4 67 B4 64
 
 Ardından, Enc_CBC işlem (K_E, IV, "") 3DES-192-IV verilen CBC için = 0 * ve yukarıdaki K_E.
 
-result := ABB100F81E53E10E
+Sonuç: ABB100F81E53E10E =
 
 Ardından, MAC işlem (K_H, "") K_H yukarıdaki verilen HMACSHA1 için.
 
-result := 76EB189B35CF03461DDF877CD9F4B1B4D63A7555
+Sonuç: 76EB189B35CF03461DDF877CD9F4B1B4D63A7555 =
 
 Bu bir parmak izi kimliği doğrulanmış tüm içerik başlık oluşturur aşağıda gösterilen şifreleme algoritması çifti (3DES 192 CBC şifreleme + HMACSHA1 doğrulama):
 
@@ -162,11 +158,11 @@ Bileşenleri gibi Bölünme:
 
 * [32 bit] Kimliği doğrulanmış şifreleme işleviyle üretilen kimlik doğrulama etiketi boyutu (bayt cinsinden, big endian). (Sistemimizde için bu etiketi boyutta sabittir 128 bit =.)
 
-* [128 bits] The tag of Enc_GCM (K_E, nonce, ""), which is the output of the symmetric block cipher algorithm given an empty string input and where nonce is a 96-bit all-zero vector.
+* [128 bit] Enc_GCM etiket (K_E, nonce, ""), boş bir dize giriş verilen simetrik blok şifreleme algoritması çıktısını olduğu ve nonce 96 bit tüm sıfır vektör olduğu.
 
 K_E CBC şifreleme + HMAC kimlik doğrulama senaryosu olduğu gibi aynı mekanizmayı kullanarak elde edilir. Ancak, burada play'de hiçbir K_H olduğundan, aslında sahibiz | K_H | = 0, ve için algoritma daraltır formun altındaki.
 
-K_E = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
+K_E SP800_108_CTR = (prf HMACSHA512, = anahtar = "", etiket = "", bağlam = "")
 
 ### <a name="example-aes-256-gcm"></a>Örnek: AES 256 GCM
 

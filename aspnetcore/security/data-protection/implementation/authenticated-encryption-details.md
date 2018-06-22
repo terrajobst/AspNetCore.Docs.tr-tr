@@ -2,19 +2,15 @@
 title: ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 author: rick-anderson
 description: Kimliği doğrulanmış ASP.NET Core veri koruması şifreleme uygulama ayrıntılarını öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac650e5c32e7eacc4088225e63f56340f95e1913
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077913"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275690"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>ASP.NET Core kimliği doğrulanmış şifreleme ayrıntıları
 

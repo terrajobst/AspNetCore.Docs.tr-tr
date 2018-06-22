@@ -2,20 +2,16 @@
 title: ASP.NET Core 2.0 kimliği için ASP.NET üyelik kimlik doğrulamasını geçirme
 author: isaac2004
 description: ASP.NET Core 2.0 kimlik üyelik kimlik doğrulaması kullanarak mevcut ASP.NET uygulamaları geçirmek öğrenin.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851599"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274111"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>ASP.NET Core 2.0 kimliği için ASP.NET üyelik kimlik doğrulamasını geçirme
 
@@ -42,7 +38,7 @@ ASP.NET Core 2.0 Identity için şema görüntülemek için en hızlı yolu, yen
 
 * Select **File** > **New** > **Project**.
 * Yeni bir **ASP.NET çekirdek Web uygulaması**ve proje adı *CoreIdentitySample*.
-* Seçin **ASP.NET Core 2.0** açılır ve ardından **Web uygulaması**. Bu şablon üreten bir [Razor sayfalarının](xref:mvc/razor-pages/index) uygulama. Tıklatmadan önce **Tamam**, tıklatın **kimlik doğrulamayı Değiştir**.
+* Seçin **ASP.NET Core 2.0** açılır ve ardından **Web uygulaması**. Bu şablon üreten bir [Razor sayfalarının](xref:razor-pages/index) uygulama. Tıklatmadan önce **Tamam**, tıklatın **kimlik doğrulamayı Değiştir**.
 * Seçin **tek tek kullanıcı hesaplarını** kimlik şablonları için. Son olarak, tıklatın **Tamam**, ardından **Tamam**. Visual Studio ASP.NET Core kimliği şablonunu kullanarak bir proje oluşturur.
 
 ASP.NET Core 2.0 kimliğini kullanır [Entity Framework Çekirdek](/ef/core) kimlik doğrulama verileri depolamak veritabanıyla etkileşim kurmak için. Yeni oluşturulan uygulamanın çalışması için sırayla var. Bu verileri depolamak için bir veritabanı olması gerekiyor. Yeni bir uygulama oluşturduktan sonra bir veritabanı ortamında şema incelemek için en hızlı yolu Entity Framework geçişler kullanarak veritabanı oluşturmaktır. Bu işlem, bir veritabanı, yerel olarak ya da başka bir yerde, hangi bu şema taklit eder oluşturur. Daha fazla bilgi için önceki belgelerini gözden geçirin.

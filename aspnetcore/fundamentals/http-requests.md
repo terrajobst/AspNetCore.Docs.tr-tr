@@ -2,21 +2,17 @@
 title: Başlatma HTTP istekleri
 author: stevejgordon
 description: ASP.NET Core mantıksal HttpClient örnekleri yönetmek için IHttpClientFactory arabirimi kullanma hakkında bilgi edinin.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 540bbbf01f7f1780b2d0cce9bd51e53dccb6a336
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33838767"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273267"
 ---
 # <a name="initiate-http-requests"></a>Başlatma HTTP istekleri
 

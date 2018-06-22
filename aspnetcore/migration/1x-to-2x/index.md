@@ -2,25 +2,21 @@
 title: ASP.NET çekirdek geçirmek 1.x 2.0
 author: scottaddie
 description: Bu makalede, bir ASP.NET Core 1.x proje için ASP.NET Core 2.0 geçirme en yaygın adımları ve önkoşullar özetlenmektedir.
-manager: wpickett
 ms.author: scaddie
 ms.date: 10/03/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 1052b17b433f06162325db340cd53ee61b76a184
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555241"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272510"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>ASP.NET çekirdek geçirmek 1.x 2.0
 
 Tarafından [Scott Addie](https://github.com/scottaddie)
 
-Bu makalede, sizi, ASP.NET Core 2.0 için mevcut bir ASP.NET Core 1.x projesini güncelleştirme ile yol. ASP.NET Core 2.0 uygulamanıza geçirme sağlar yararlanmak [birçok yeni özellik ve performans iyileştirmeleri](xref:aspnetcore-2.0). 
+Bu makalede, sizi, ASP.NET Core 2.0 için mevcut bir ASP.NET Core 1.x projesini güncelleştirme ile yol. ASP.NET Core 2.0 uygulamanıza geçirme sağlar yararlanmak [birçok yeni özellik ve performans iyileştirmeleri](xref:aspnetcore-2.0).
 
 Mevcut ASP.NET Core 1.x uygulamaları sürüme özgü proje şablonları dışına temel alır. Bu nedenle ASP.NET Core framework geliştikçe proje şablonları ve içerdikleri Başlatıcı kodu yapın. ASP.NET Core framework güncelleştirmeye ek olarak, uygulamanız için kod güncelleştirmeniz gerekir.
 

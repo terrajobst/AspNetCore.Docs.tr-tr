@@ -2,19 +2,15 @@
 title: ASP.NET Core Microsoft Account dış oturum açma ayarı
 author: rick-anderson
 description: Bu öğretici, var olan bir ASP.NET Core uygulamaya Microsoft hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir.
-manager: wpickett
 ms.author: riande
 ms.date: 08/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 46973f8a82034bd99a6e6634bbd6da06b1b14f25
-ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
+ms.openlocfilehash: cc4fe8c71b97d29cc6697e2aebf04694afb753ec
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35726036"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272782"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core Microsoft Account dış oturum açma ayarı
 

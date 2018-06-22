@@ -2,19 +2,16 @@
 title: Proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırın
 author: guardrex
 description: Proxy sunucuları ve genellikle önemli isteği bilgileri soyutlamaması yük dengeleyici arkasında barındırılan uygulamalar için yapılandırma hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/26/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1797962d6eada9c48b31cd94e2c7481380301a0d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276782"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırın
 
@@ -25,7 +22,7 @@ ASP.NET Core için önerilen yapılandırma, IIS/ASP.NET çekirdek modülü, Ngi
 * HTTPS istekleri HTTP üzerinden yönlendirilirken, özgün düzenini (HTTPS) kaybolur ve bir üstbilgisinde gönderilmelidir.
 * Uygulama proxy'si ve doğru kaynağına değil Internet veya kurumsal bir ağda bir istek aldığından, kaynak istemci IP adresini de başlığı gönderilmelidir.
 
-Bu bilgiler, örneğin yeniden yönlendirmeleri, kimlik doğrulama, bağlantı oluşturma, ilke değerlendirmesi ve istemci geoloation istek işleme önemli olabilir.
+Bu bilgiler, örneğin yeniden yönlendirmeleri, kimlik doğrulama, bağlantı oluşturma, ilke değerlendirmesi ve istemci coğrafi konum isteği işleme önemli olabilir.
 
 ## <a name="forwarded-headers"></a>İletilen üstbilgileri
 
@@ -37,7 +34,7 @@ Kurala göre proxy'leri HTTP üst bilgilerinde bilgileri iletin.
 | X iletilen Proto | Kaynak şema (HTTP/HTTPS) değeri. İstek birden çok proxy'leri geçiş değilse değer düzenleri listesini de olabilir. |
 | X iletilen konak | Ana bilgisayar üstbilgisi alanı özgün değeri. Genellikle, proxy'leri ana bilgisayar üstbilgisi değiştirmeyin. Bkz: [Microsoft güvenlik önerisi CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) burada değil proxy doğrulama sistemleri etkiler ayrıcalık yükseltme güvenlik açığı veya bilinen iyi değerlere restict konak üstbilgileri hakkında bilgi için. |
 
-İletilen üstbilgileri Ara gelen [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketini, bu üstbilgileri okur ve ilişkili alanlarında doldurur [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext). 
+İletilen üstbilgileri Ara gelen [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketini, bu üstbilgileri okur ve ilişkili alanlarında doldurur [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
 Ara yazılım güncelleştirmeleri:
 
@@ -66,7 +63,7 @@ Ara yazılımla yapılandırma [ForwardedHeadersOptions](/dotnet/api/microsoft.a
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
-    
+
     services.Configure<ForwardedHeadersOptions>(options =>
     {
         options.ForwardedHeaders = 
@@ -96,6 +93,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 > [!NOTE]
 > Öyle değilse [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) belirtilen `Startup.ConfigureServices` veya doğrudan uzantısı yöntemiyle [UseForwardedHeaders (IApplicationBuilder, ForwardedHeadersOptions)](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ForwardedHeadersExtensions_UseForwardedHeaders_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_ForwardedHeadersOptions_), varsayılan iletmek için başlıkları [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) özelliği iletmek için üstbilgiler ile yapılandırılması gerekir.
+
+## <a name="nginx-configuration"></a>Nginx yapılandırma
+
+İletmek için `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgiler, bkz: [Nginx ile Linux konakta: yapılandırmak Nginx](xref:host-and-deploy/linux-nginx#configure-nginx). Daha fazla bilgi için bkz: [NGINX: iletilen üstbilgi kullanarak](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
+
+## <a name="apache-configuration"></a>Apache yapılandırma
+
+`X-Forwarded-For` otomatik olarak eklenir (bkz [Apache modülü mod_proxy: Ters Proxy istek üstbilgileri](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). İletme hakkında bilgi için `X-Forwarded-Proto` , üst bkz [Linux Apache ile konakta: yapılandırma Apache](xref:host-and-deploy/linux-apache#configure-apache).
 
 ## <a name="forwarded-headers-middleware-options"></a>İletilen üstbilgileri ara yazılım seçenekleri
 

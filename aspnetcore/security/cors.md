@@ -2,19 +2,15 @@
 title: ASP.NET Core çıkış noktaları arası istekleri (CORS) etkinleştir
 author: rick-anderson
 description: Bilgi nasıl CORS izin verme veya reddetme bir ASP.NET Core uygulamasında cross-origin istekleri için bir standart olarak.
-manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 3c5d0840426c7ed52353a7832a1a1959027121de
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2920917d0a488e72afb94d65bdc6d7034c6f66a9
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077554"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278667"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET Core çıkış noktaları arası istekleri (CORS) etkinleştir
 

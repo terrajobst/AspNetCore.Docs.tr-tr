@@ -2,18 +2,15 @@
 title: ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 author: guardrex
 description: Çalışma zamanında yüklenen ad-değer çiftleri kullanarak bir uygulamayı yapılandırmak için Azure anahtar kasası yapılandırma Sağlayıcısı'nı kullanmayı öğrenin.
-manager: wpickett
 ms.author: riande
 ms.date: 08/09/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: cf56515a2a7116f399af7e671547fc81b616619c
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 433a9cee917a36ff7aa950dbe2a631d127c74821
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734711"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273443"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core Azure anahtar kasası yapılandırma sağlayıcısı
 

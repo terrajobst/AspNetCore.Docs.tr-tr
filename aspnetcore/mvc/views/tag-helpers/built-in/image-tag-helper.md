@@ -2,19 +2,15 @@
 title: ASP.NET Core görüntü etiketi yok
 author: pkellner
 description: Görüntü etiketi Yardımcısı ile çalışmaya nasıl gösterir
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 6aa9175f873c4ea62e0319c812e5312cd3331141
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 7ed160354b25aa0183ac49db93307b1f1b4d0666
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072268"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276649"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET Core görüntü etiketi yok
 
@@ -29,7 +25,7 @@ Varsa görüntü kaynağı (`src`) (örneğin bir uzak URL veya dosya yoksa sunu
 ## <a name="image-tag-helper-attributes"></a>Görüntü etiketi yardımcı öznitelik
 
 
-### <a name="asp-append-version"></a>asp-append-version
+### <a name="asp-append-version"></a>ASP append sürümü
 
 İle birlikte belirtildiğinde bir `src` , resim etiketi yardımcı öznitelik çağrılır.
 

@@ -2,20 +2,16 @@
 title: Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştir
 author: rick-anderson
 description: Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştirmek hakkında bilgi edinin.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 5/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
+ms.date: 05/30/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: e36982f2b14ec65feb6be0c7f9e942c7a3c9e9ca
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 55ff98712da314e28e50a1b1b1e04530d5b3fedd
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688438"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278076"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştir
 

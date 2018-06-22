@@ -2,19 +2,15 @@
 title: Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 author: camsoper
 description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur.
-manager: wpickett
 ms.date: 01/25/2018
-ms.topic: tutorial
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: a7bad452a68cf7fe7aa81645d79a0ee9e7719fe7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: caadeec57272ee2823452ed7c4b91e7aca07c3f4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29905081"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272428"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -70,7 +66,7 @@ Hiçbir şey daha şu anda Azure AD B2C kiracısı'nda yapılandırılabilir, an
 
 Visual Studio Web uygulaması şablonu, Azure AD B2C kiracısı için kimlik doğrulaması kullanacak şekilde yapılandırılabilir.
 
-In Visual Studio:
+Visual Studio'da:
 
 1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
 2. Seçin **Web uygulaması** şablonları listesinden.

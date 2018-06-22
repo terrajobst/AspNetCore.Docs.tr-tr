@@ -2,19 +2,15 @@
 title: ASP.NET Core çekirdek şifreleme genişletilebilirliği
 author: rick-anderson
 description: IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve en üst düzey Fabrika hakkında bilgi edinin.
-manager: wpickett
 ms.author: riande
 ms.date: 8/11/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: b5a0dbc9120a8032dbb8d8eee74684495a982ac1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 47432cfefe0a52c9f815d717f7269ec68fdb6af3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896832"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272902"
 ---
 # <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core çekirdek şifreleme genişletilebilirliği
 
@@ -78,7 +74,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 * CreateEncryptorInstance(): IAuthenticatedEncryptor
 
-* ExportToXml() : XmlSerializedDescriptorInfo
+* ExportToXml(): XmlSerializedDescriptorInfo
 
 IAuthenticatedEncryptor gibi IAuthenticatedEncryptorDescriptor örneği belirli bir anahtarı sarmalama varsayılır. Verilen tüm IAuthenticatedEncryptorDescriptor örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak düşünülmesi gereken, yani örnek kod aşağıda.
 
@@ -110,7 +106,7 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 **IAuthenticatedEncryptorDescriptor** arabirimi kendisini XML biçimine dışa bildiği bir türü temsil eder. Kendi API aşağıdaki gibidir.
 
-* ExportToXml() : XmlSerializedDescriptorInfo
+* ExportToXml(): XmlSerializedDescriptorInfo
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -137,7 +133,7 @@ Durumları serileştirilmiş tanımlayıcısı hassas bilgileri nerede içermiyo
 
 **IAuthenticatedEncryptorDescriptorDeserializer** arabirimi bir XElement IAuthenticatedEncryptorDescriptor örneğinden seri durumdan çıkarılacak bildiği bir türü temsil eder. Tek bir yöntem sunar:
 
-* ImportFromXml(XElement element) : IAuthenticatedEncryptorDescriptor
+* ImportFromXml (XElement öğesi): IAuthenticatedEncryptorDescriptor
 
 ImportFromXml yöntemi tarafından döndürülen XElement alır [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml) ve özgün IAuthenticatedEncryptorDescriptor bir eşdeğerini oluşturur.
 
