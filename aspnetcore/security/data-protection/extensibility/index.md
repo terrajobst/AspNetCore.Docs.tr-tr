@@ -2,24 +2,20 @@
 title: ASP.NET Core veri koruması genişletilebilirlik API'leri
 author: rick-anderson
 description: Çeşitli ASP.NET Core veri koruması genişletilebilirlik konuları bulur.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/extensibility/index
-ms.openlocfilehash: 822f44b9aa2745278c3074f74f7f6f7972d5edd2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 6a5a50f13fa3c7c437ec7d98da4dab67e4870f71
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077515"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273533"
 ---
-# <a name="aspnet-core-data-protection-extensibility-apis"></a><span data-ttu-id="b91d3-103">ASP.NET Core veri koruması genişletilebilirlik API'leri</span><span class="sxs-lookup"><span data-stu-id="b91d3-103">ASP.NET Core Data Protection extensibility APIs</span></span>
+# <a name="aspnet-core-data-protection-extensibility-apis"></a><span data-ttu-id="dfe89-103">ASP.NET Core veri koruması genişletilebilirlik API'leri</span><span class="sxs-lookup"><span data-stu-id="dfe89-103">ASP.NET Core Data Protection extensibility APIs</span></span>
 
-* [<span data-ttu-id="b91d3-104">Çekirdek şifreleme genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="b91d3-104">Core cryptography extensibility</span></span>](xref:security/data-protection/extensibility/core-crypto)
+* [<span data-ttu-id="dfe89-104">Çekirdek şifreleme genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="dfe89-104">Core cryptography extensibility</span></span>](xref:security/data-protection/extensibility/core-crypto)
 
-* [<span data-ttu-id="b91d3-105">Anahtar yönetimi genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="b91d3-105">Key management extensibility</span></span>](xref:security/data-protection/extensibility/key-management)
+* [<span data-ttu-id="dfe89-105">Anahtar yönetimi genişletilebilirliği</span><span class="sxs-lookup"><span data-stu-id="dfe89-105">Key management extensibility</span></span>](xref:security/data-protection/extensibility/key-management)
 
-* [<span data-ttu-id="b91d3-106">Çeşitli API'ler</span><span class="sxs-lookup"><span data-stu-id="b91d3-106">Miscellaneous APIs</span></span>](xref:security/data-protection/extensibility/misc-apis)
+* [<span data-ttu-id="dfe89-106">Çeşitli API'ler</span><span class="sxs-lookup"><span data-stu-id="dfe89-106">Miscellaneous APIs</span></span>](xref:security/data-protection/extensibility/misc-apis)
