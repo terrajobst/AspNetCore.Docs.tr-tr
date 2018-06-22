@@ -181,7 +181,7 @@ Bu alıştırmada, ASP.NET MVC 4 proje şablonları geliştirmeleri inceleyeceks
 
        Yeni temayı biçimlendirme bulmak için şablon görünümleri göz atın.
 
-       ![Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu.")
+       ![Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Razor ve HTML5 biçimlendirme About.cshtml kullanarak yeni şablonu.")
 
        *Razor ve HTML5 biçimlendirme (About.cshtml) kullanarak yeni şablonu.*
    - **Güncelleştirilmiş JavaScript kitaplıkları**
