@@ -5,20 +5,20 @@ description: ASP.NET Core mantıksal HttpClient örnekleri yönetmek için IHttp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 06/22/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 540bbbf01f7f1780b2d0cce9bd51e53dccb6a336
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e56c7a3ed80cc08103f6178859a1a99f1a5ec068
+ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273267"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36327528"
 ---
 # <a name="initiate-http-requests"></a>Başlatma HTTP istekleri
 
 Tarafından [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), ve [Steve Gordon](https://github.com/stevejgordon)
 
-Bir `IHttpClientFactory` kayıtlı ve yapılandırmak ve oluşturmak için kullanılan [HttpClient](/dotnet/api/system.net.http.httpclient) bir uygulama örneği. Aşağıdaki avantajları sunar:
+Bir [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) kayıtlı ve yapılandırmak ve oluşturmak için kullanılan [HttpClient](/dotnet/api/system.net.http.httpclient) bir uygulama örneği. Aşağıdaki avantajları sunar:
 
 * Adlandırma ve mantıksal yapılandırmak için merkezi bir konum sağlar `HttpClient` örnekleri. Örneğin, "github" istemci kayıtlı ve değiştirebilirsiniz GitHub erişmek için yapılandırılmış. Varsayılan istemci diğer amaçlar için kaydedilebilir.
 * İşleyiciler için temsilci seçme aracılığıyla giden Ara kavramı kod oluşturur `HttpClient` ve, yararlanmak Polly tabanlı ara yazılımı için uzantılar sağlar.
@@ -38,7 +38,7 @@ Bunların hiçbiri diğerine kesinlikle üstün. En iyi yaklaşımı uygulamanı
 
 ### <a name="basic-usage"></a>Temel kullanım
 
-`IHttpClientFactory` Çağırarak kayıtlı `AddHttpClient` genişletme yöntemi `IServiceCollection`içine `ConfigureServices` haline yöntemi.
+`IHttpClientFactory` Çağırarak kayıtlı `AddHttpClient` genişletme yöntemi `IServiceCollection`içine `Startup.ConfigureServices` yöntemi.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
 
@@ -50,7 +50,7 @@ Kullanarak `IHttpClientFactory` bu şekilde mevcut bir uygulamayı yeniden düze
 
 ### <a name="named-clients"></a>Adlandırılmış istemcileri
 
-Bir uygulama birden çok farklı kullanımlarını gerektiriyorsa `HttpClient`, her farklı bir yapılandırma ile kullanmak için bir seçenek olan **istemciler adında**. Yapılandırma için bir adlandırılmış `HttpClient` kaydı sırasında belirtilen `ConfigureServices`.
+Bir uygulama birden çok farklı kullanımlarını gerektiriyorsa `HttpClient`, her farklı bir yapılandırma ile kullanmak için bir seçenek olan **istemciler adında**. Yapılandırma için bir adlandırılmış `HttpClient` kaydı sırasında belirtilen `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
@@ -74,7 +74,7 @@ Türü belirlenmiş istemci kabul bir `HttpClient` kurucusu parametresinde:
 
 Önceki kodda yapılandırma türü belirlenmiş istemci taşınır. `HttpClient` Nesnesi ortak bir özellik olarak gösterilir. Kullanıma API özgü yöntemleri tanımlamak mümkündür `HttpClient` işlevselliği. `GetAspNetDocsIssues` Yöntemi sorgulamak ve en son açık sorunlar Github'da depodan dışarı ayrıştırmak için gereken kod yalıtır.
 
-Türü belirlenmiş istemci, genel kaydetmek için `AddHttpClient` genişletme yöntemi, içinde kullanılabilir `ConfigureServices`, yazılan istemci sınıfı belirtme:
+Türü belirlenmiş istemci, genel kaydetmek için `AddHttpClient` genişletme yöntemi, içinde kullanılabilir `Startup.ConfigureServices`, yazılan istemci sınıfı belirtme:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
 
@@ -82,7 +82,7 @@ Türü belirlenmiş istemci dı ile geçici olarak kaydedilir. Türü belirlenmi
 
 [!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
-Kaydı sırasında tercih edilen olduğunda yazılan istemci yapılandırması belirtilebilir `ConfigureServices`, yerine yazılan istemcinin Oluşturucusu:
+Kaydı sırasında tercih edilen olduğunda yazılan istemci yapılandırması belirtilebilir `Startup.ConfigureServices`, yerine yazılan istemcinin Oluşturucusu:
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
 
@@ -171,7 +171,7 @@ Birden çok işleyici yürütme sırayla kaydedilebilir. Her işleyici sonraki i
 
 `IHttpClientFactory` adlı popüler bir üçüncü taraf kitaplığı ile tümleşir [Polly](https://github.com/App-vNext/Polly). Polly kapsamlı esnekliği ve .NET için geçici hata işleme Kitaplığı ' dir. Geliştiricilerin fluent ve iş parçacığı açısından güvenli bir şekilde yeniden deneme devre kesici, zaman aşımı, Bulkhead yalıtım ve geri dönüş gibi ilkeleri express olanak tanır.
 
-Genişletme yöntemleri Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly Uzantıları 'Microsoft.Extensions.Http.Polly' adlı bir NuGet paketi kullanılabilir. Bu paketi 'Microsoft.AspNetCore.App' metapackage tarafından varsayılan olarak dahil edilmez. Uzantıları kullanmak için bir PackageReference açıkça projeye eklenmelidir.
+Genişletme yöntemleri Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly uzantıları kullanılabilir [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet paketi. Bu paket bulunup [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Açık bir uzantıları kullanmak için `<PackageReference />` projeye eklenmelidir.
 
 [!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
 
@@ -181,7 +181,7 @@ Bu paket geri yükledikten sonra Polly tabanlı istemcilere işleyicileri destek
 
 Dış HTTP çağrıları yapma meydana gelmesini beklediğiniz en yaygın hataları geçici olacaktır. Uygun genişletme yöntemi olarak adlandırılan `AddTransientHttpErrorPolicy` olan geçici hataları işlemek için tanımlanmış bir ilke sağlayan dahil. Bu uzantı yöntemi tanıtıcıyla yapılandırılmış ilkeler `HttpRequestException`, HTTP 5xx yanıtlar ve HTTP 408 yanıtlar.
 
-`AddTransientHttpErrorPolicy` Uzantısı içinde kullanılabilir `ConfigureServices`. Uzantı erişim sağlayan bir `PolicyBuilder` olası geçici bir hata temsil eden hataları işlemek için yapılandırılmış nesnesi:
+`AddTransientHttpErrorPolicy` Uzantısı içinde kullanılabilir `Startup.ConfigureServices`. Uzantı erişim sağlayan bir `PolicyBuilder` olası geçici bir hata temsil eden hataları işlemek için yapılandırılmış nesnesi:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
 
