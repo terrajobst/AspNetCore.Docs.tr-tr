@@ -1,0 +1,5 @@
+> <span data-ttu-id="4b25d-101">Uygulama kimlik veri deposu olarak SQLite kullanıyorsa bazı komutlar desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="4b25d-101">Some commands aren't supported if the app uses SQLite as its Identity data store.</span></span> <span data-ttu-id="4b25d-102">Veritabanı Altyapısı'ndaki sınırlamaları nedeniyle `Alter` komutları şu özel durum:</span><span class="sxs-lookup"><span data-stu-id="4b25d-102">Due to limitations in the database engine, `Alter` commands throw the following exception:</span></span>
+>
+> <span data-ttu-id="4b25d-103">"System.NotSupportedException: SQLite bu geçiş işlemini desteklemiyor."</span><span class="sxs-lookup"><span data-stu-id="4b25d-103">"System.NotSupportedException: SQLite does not support this migration operation."</span></span> 
+>
+> <span data-ttu-id="4b25d-104">Geçici bir çözüm, Code First geçişleri tabloları değiştirmek için veritabanı üzerinde çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="4b25d-104">As a work around, run Code First migrations on the database to change the tables.</span></span>
