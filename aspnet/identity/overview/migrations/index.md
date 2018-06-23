@@ -12,17 +12,19 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations
 msc.type: chapter
-ms.openlocfilehash: 7e7b3d999bac106959017e5c9562f81fad03a7b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6209a56ac859ca1152bfa5fe850eac6333a106ac
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563682"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36313921"
 ---
-<a name="migrating-to-aspnet-identity"></a><span data-ttu-id="032df-103">ASP.NET kimliği geçirme</span><span class="sxs-lookup"><span data-stu-id="032df-103">Migrating to ASP.NET Identity</span></span>
+<a name="migrating-to-aspnet-identity"></a><span data-ttu-id="8a9ec-103">ASP.NET kimliği geçirme</span><span class="sxs-lookup"><span data-stu-id="8a9ec-103">Migrating to ASP.NET Identity</span></span>
 ====================
-> <span data-ttu-id="032df-104">Diğer üyelik sağlayıcıları ASP.NET Identity için geçiş</span><span class="sxs-lookup"><span data-stu-id="032df-104">Migration to ASP.NET Identity from other membership providers</span></span>
+> <span data-ttu-id="8a9ec-104">Diğer üyelik sağlayıcıları ASP.NET Identity için geçiş</span><span class="sxs-lookup"><span data-stu-id="8a9ec-104">Migration to ASP.NET Identity from other membership providers</span></span>
 
 
-- [<span data-ttu-id="032df-105">Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme</span><span class="sxs-lookup"><span data-stu-id="032df-105">Migrating an Existing Website from SQL Membership to ASP.NET Identity</span></span>](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [<span data-ttu-id="032df-106">Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcısı verileri geçirme</span><span class="sxs-lookup"><span data-stu-id="032df-106">Migrating Universal Provider Data for Membership and User Profiles to ASP.NET Identity (C#)</span></span>](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [<span data-ttu-id="8a9ec-105">Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme</span><span class="sxs-lookup"><span data-stu-id="8a9ec-105">Migrating an Existing Website from SQL Membership to ASP.NET Identity</span></span>](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+- [<span data-ttu-id="8a9ec-106">Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)</span><span class="sxs-lookup"><span data-stu-id="8a9ec-106">Migrating Universal Provider Data for Membership and User Profiles to ASP.NET Identity (C#)</span></span>](migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
