@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir ASP.NET Core uygulama geliştirme sırasında uygulama sırrı olarak hassas bilgilerini depolamak ve almak öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/23/2018
+ms.date: 06/21/2018
 uid: security/app-secrets
-ms.openlocfilehash: 8db1d1069958d3b08bbb3b9727ddbc47ae5747df
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d3b2de1a17012986ef8dea7aaf8636dd35d10fa1
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275431"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314181"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Güvenli Depolama Uygulama sırrı ASP.NET Core geliştirme
 

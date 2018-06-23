@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c56efda28c668b8f88d28334705b4c26f288870f
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273424"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314168"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API'ları ile Azure Active Directory B2C ASP.NET Core, bulut kimlik doğrulaması
 
@@ -117,7 +117,7 @@ Aşağıdaki değerleri kullanın:
 | **Web uygulaması eklemek veya web API'si** | Evet                              |                                 |
 | **Örtük akış izin ver**       | Evet                              |                                 |
 | **Yanıt URL'si**                 | `https://getpostman.com/postman` |                                 |
-| **Uygulama Kimliği URI'si**                | *&lt;Boş bırakın&gt;*            | Bu öğretici için gerekli değildir. |
+| **Uygulama Kimliği URI'si**                | *&lt;boş bırakın&gt;*            | Bu öğretici için gerekli değildir. |
 | **Yerel istemci Ekle**     | Hayır                               |                                 |
 
 Yeni kaydettiğiniz web uygulaması web API'si kullanıcı adınıza erişmek için izniniz gerekiyor.  
@@ -173,9 +173,9 @@ Web API kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı belirt
    |      <strong>Belirteç adı</strong>       |                                  <em>&lt;belirteç adı&gt;</em>                                  |                                                                                                                   Belirteç için açıklayıcı bir ad girin.                                                                                                                    |
    |      <strong>Sağlama türü</strong>       |                                           Örtük                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Geri çağırma URL'si</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Kimlik doğrulama URL'si</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Değiştir <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip.                                                                                                  |
+   |       <strong>Kimlik doğrulama URL'si</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Değiştir <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip.                                                                                                  |
    |       <strong>İstemci kimliği</strong>       |                <em>&lt;Postman uygulamanın girin <b>uygulama kimliği</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
-   |     <strong>İstemci parolası</strong>     |                                 <em>&lt;Boş bırakın&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |     <strong>İstemci parolası</strong>     |                                 <em>&lt;boş bırakın&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
    |         <strong>Kapsam</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Değiştir <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip. Değiştir <em>&lt;API&gt;</em> Web API projesi ada sahip. Uygulama kimliği de kullanabilirsiniz URL deseni: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope adı}</em>. |
    | <strong>İstemci kimlik doğrulaması</strong> |                                İstemci kimlik bilgileri gövdesinde Gönder                                |                                                                                                                                                                                                                                                                              |
 

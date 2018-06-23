@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1766c11dabec3931ec2bfc4ae2e15332427d7855
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874999"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314019"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme
 ====================
@@ -89,8 +89,8 @@ ASP.NET Identity sınıfları kutusu mevcut kullanıcıların dışında veriler
 
 | **IdentityUser** | **Türü** | **IdentityRole** | **IdentityUserRole** | **IdentityUserLogin** | **IdentityUserClaim** |
 | --- | --- | --- | --- | --- | --- |
-| Kimliği | dize | Kimliği | RoleId | ProviderKey | Kimliği |
-| Kullanıcı adı | dize | Ad | UserId | UserId | ClaimType |
+| Kimliği | dize | Kimliği | Roleıd | ProviderKey | Kimliği |
+| Kullanıcı adı | dize | Ad | Kullanıcı Kimliği | Kullanıcı Kimliği | ClaimType |
 | PasswordHash | dize |  |  | LoginProvider | ClaimValue |
 | SecurityStamp | dize |  |  |  | Kullanıcı\_kimliği |
 | E-posta | dize |  |  |  |  |
@@ -103,19 +103,21 @@ ASP.NET Identity sınıfları kutusu mevcut kullanıcıların dışında veriler
 
 Biz tabloları her Bu modeller için özellikler karşılık gelen sütunlara sahip olması gerekir. Sınıfları ve tablolar arasında eşleme tanımlanan `OnModelCreating` yöntemi `IdentityDBContext`. Bu yapılandırma fluent API yöntemi olarak bilinir ve daha fazla bilgi bulunabilir [burada](https://msdn.microsoft.com/data/jj591617.aspx). Aşağıda belirtildiği gibi sınıfları için yapılandırma gereklidir
 
-| **sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
+| **Sınıfı** | **Tablo** | **Birincil anahtar** | **Yabancı anahtar** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Kimliği |  |
 | IdentityRole | AspnetRoles | Kimliği |  |
-| IdentityUserRole | AspnetUserRole | UserId + RoleId | User\_Id-&gt;AspnetUsers RoleId-&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserID + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Kimliği | User\_Id-&gt;AspnetUsers |
+| IdentityUserRole | AspnetUserRole | UserId + Roleıd | Kullanıcı\_kimliği -&gt;AspnetUsers Roleıd -&gt;AspnetRoles |
+| IdentityUserLogin | AspnetUserLogins | ProviderKey + UserID + LoginProvider | UserId -&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Kimliği | Kullanıcı\_kimliği -&gt;AspnetUsers |
 
 Bu bilgilerle yeni tablo oluşturmak için SQL deyimleri oluşturabilir. Biz ayrı ayrı her ifadesi yazın ya da size daha sonra düzenleyebilirsiniz EntityFramework PowerShell komutlarını gerektiği gibi kullanarak tüm komut dosyası oluştur. Bunun VS Aç **Paket Yöneticisi Konsolu** gelen **Görünüm** veya **Araçları** menüsü
 
 - EntityFramework geçişler etkinleştirmek için "Enable-Migrations" komutunu çalıştırın.
 - "Veritabanı C# ' ta oluşturmak için ilk kurulum kodu oluşturan Add-migration ilk" komutunu çalıştırın / vb
 - Son adım çalıştırmaktır "Update-Database – komut dosyası" SQL betiğini oluşturur komut tabanlı modeli sınıflarında.
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 Bu veritabanı oluşturma komut dosyası burada size yeni sütun ekleyin ve verileri kopyalamak için ek değişiklikler yapmak bir başlangıç kullanılabilir. Biz oluşturmak Bu avantajı olan `_MigrationHistory` EntityFramework tarafından değişiklik kimlik sürümleri gelecekteki sürümleri için model sınıfları zaman veritabanı şeması değiştirmek için kullanılan tablo. 
 
@@ -150,7 +152,7 @@ Bu komut dosyası, bu örnek için özeldir. Ek tablolar sahip uygulamalar için
 
     ASP\_netUsers ve asp\_netMembership--&gt; AspNetUsers
 
-    aspnet\_UserInRoles --&gt; AspNetUserRoles
+    ASPNET\_UserInRoles--&gt; AspNetUserRoles
 
     Yukarıdaki bölümde açıklandığı gibi AspNetUserClaims ve AspNetUserLogins tablolarını boş. AspNetUser tablosunda bulunan 'Ayrıştırıcı' alanının sonraki adım olarak tanımlanan model sınıf adı eşleşmelidir. Ayrıca PasswordHash sütun biçimindedir ' şifrelenmiş parola | parola güvenlik | parola biçimini '. Bu, böylece eski parolaları yeniden özel SQL üyelik şifre mantığı kullanmanıza olanak sağlar. Bu, makalenin sonraki bölümlerinde açıklanmıştır.
 

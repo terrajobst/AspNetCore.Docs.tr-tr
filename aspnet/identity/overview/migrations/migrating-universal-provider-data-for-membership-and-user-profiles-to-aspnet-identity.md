@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: f65f93b20543d06ea70a9009b6921e297477c99e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 75d273d9fdb5d8ff0f7a910f42abe8bcce6e397d
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871577"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314006"
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcısı verileri geçirme
 ====================
@@ -106,6 +106,8 @@ SQL komut dosyasından Yapıştır [ https://raw.github.com/suhasj/UniversalProv
    'ProfileInfo' artık kullanıcı sınıfı bir özellik olduğuna dikkat edin. Bu nedenle biz doğrudan profili verilerle çalışmak için kullanıcı sınıfını kullanabilirsiniz.
 
 Dosyaları kopyalama **IdentityModels** ve **IdentityAccount** klasörleri yükleme kaynağından ( [ https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations ](https://github.com/suhasj/UniversalProviders-Identity-Migrations/tree/master/UniversalProviders-Identity-Migrations) ). Bunlar, kalan modeli sınıfları ve kullanıcı ve rol yönetimi ASP.NET Identity API'lerini kullanarak için gereken yeni sayfalar içerir. Kullanılan yaklaşımı SQL üyelik benzer ve ayrıntılı açıklama bulunabilir [burada](migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md).
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 ## <a name="copying-profile-data-to-the-new-tables"></a>Yeni tablolar için profil verileri kopyalama
 
