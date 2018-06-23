@@ -5,12 +5,12 @@ description: ASP.NET Core yönlendirme işlevini nasıl gelen istek yönlendirme
 ms.author: riande
 ms.date: 10/14/2016
 uid: fundamentals/routing
-ms.openlocfilehash: 0bb62cad0dcf54d593171d6a40eb1510a88eb6b3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274901"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314142"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET çekirdek yönlendirme
 
@@ -150,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Bu şablon bir URL yolu gibi eşleşir `/Products/5` ve değerlerini ayıklar `{ controller = Products, action = Details, id = 5 }` ve veri belirteçleri `{ locale = en-US }`.
+Bu şablonu ile eşleşen bir URL yolu gibi `/en-US/Products/5` ve değerlerini ayıklayan `{ controller = Products, action = Details, id = 5 }` ve veri belirteçleri `{ locale = en-US }`.
 
 ![Yerel öğeler Windows belirteçleri](routing/_static/tokens.png)
 
@@ -346,8 +346,8 @@ Normal ifadeler yönlendirmeye kullanılan ile genellikle başlayacak `^` karakt
 | `[a-z]{2}` | 123abc456 | Evet | eşleşmelerini |
 | `[a-z]{2}` | mz | Evet | ifadesiyle eşleşiyor |
 | `[a-z]{2}` | MZ | Evet | değil büyük küçük harfe duyarlı |
-| `^[a-z]{2}$` |  Merhaba | Yok | bkz: `^` ve `$` yukarıda |
-| `^[a-z]{2}$` |  123abc456 | Yok | bkz: `^` ve `$` yukarıda |
+| `^[a-z]{2}$` |  Merhaba | yok | bkz: `^` ve `$` yukarıda |
+| `^[a-z]{2}$` |  123abc456 | yok | bkz: `^` ve `$` yukarıda |
 
 Başvurmak [.NET Framework normal ifadeleri](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) normal ifade sözdizimi hakkında daha fazla bilgi için.
 
