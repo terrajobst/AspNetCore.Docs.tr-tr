@@ -107,7 +107,7 @@ Uygulamayı çalıştırın ve bağlantıları projesinde test (**giriş**, **ha
 
 [!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Düzen dosyasını önceki biçimlendirme ayarlar *Pages/_Layout.cshtml* altındaki tüm Razor dosyaları için *sayfaları* klasör. Bkz: [düzeni](xref:mvc/razor-pages/index#layout) daha fazla bilgi için.
+Düzen dosyasını önceki biçimlendirme ayarlar *Pages/_Layout.cshtml* altındaki tüm Razor dosyaları için *sayfaları* klasör. Bkz: [düzeni](xref:razor-pages/index#layout) daha fazla bilgi için.
 
 ### <a name="update-the-layout"></a>Güncelleştirme düzeni
 
