@@ -5,12 +5,12 @@ description: Authorize öznitelik ASP.NET Core denetleyicileri ve eylemleri içi
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/simple
-ms.openlocfilehash: 3c5e9d5dfd65ded40c9828a666143c1868f5562f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6409def0508b855d3d2a4a1f4d3a3d15bfe5dd32
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272071"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961129"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a>ASP.NET Core basit yetkilendirme
 
@@ -71,5 +71,5 @@ public class AccountController : Controller
 
 Bu, yalnızca kimliği doğrulanmış kullanıcılara olanak tanır `AccountController`, dışında `Login` kimliği doğrulanmış veya doğrulanmamış / anonim durumlarını bakılmaksızın herkes tarafından erişilebilir olan eylem.
 
->[!WARNING]
-> `[AllowAnonymous]` Tüm Yetkilendirme deyimleri atlar. Birleştirme uygularsanız `[AllowAnonymous]` ve tüm `[Authorize]` özniteliği sonra Authorize öznitelikleri her zaman yok sayılacak. Örneğin, uygulama `[AllowAnonymous]` denetleyicisinde herhangi düzey `[Authorize]` öznitelikleri aynı denetleyicisi veya içindeki herhangi bir işlem yok sayılacak.
+> [!WARNING]
+> `[AllowAnonymous]` Tüm Yetkilendirme deyimleri atlar. Birleştiriyorsanız `[AllowAnonymous]` ve tüm `[Authorize]` özniteliği `[Authorize]` öznitelikleri yok sayılır. Örneğin, uygulama `[AllowAnonymous]` denetleyici düzeyinde herhangi `[Authorize]` öznitelikleri aynı denetleyicisine (veya içindeki herhangi bir işlem) göz ardı edilir.

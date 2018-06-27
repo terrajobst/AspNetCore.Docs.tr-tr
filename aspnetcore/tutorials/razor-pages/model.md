@@ -5,12 +5,12 @@ description: Entity Framework Çekirdek (EF çekirdek) kullanarak bir veritaban�
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327558"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961181"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>ASP.NET Core bir Razor sayfalarının uygulama için model ekleme
 
@@ -53,6 +53,36 @@ Tamamlamak **Razor Entity Framework (CRUD) kullanarak Sayfa Ekle** iletişim:
 * Seçin **eklemek**.
 
 ![Önceki yönergeleri görüntüden.](model/_static/arp.png)
+
+İskele işlemi oluşturulan ve aşağıdaki dosyaları değişti:
+
+### <a name="files-created"></a>Oluşturulan dosyalar
+
+* *Sayfa/filmler* oluşturma, silme, ayrıntı, düzenleme, dizin. Bu sayfa, sonraki öğreticide açıklanmıştır.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="files-updates"></a>Güncelleştirme dosyaları
+
+* *Haline*: Bu dosyada yapılan değişiklikler ayrıntılı bir sonraki bölüm.
+* *appSettings.JSON*: yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi eklendi.
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
+
+ASP.NET Core ile oluşturulan [bağımlılık ekleme](xref:fundamentals/dependency-injection). Hizmetleri (örneğin, EF çekirdek DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu Hizmetleri (örneğin, Razor sayfalarının) gerektiren bileşenler bu hizmetlere Oluşturucu parametreleri yoluyla sağlanır. Bir DB bağlamı örneği alır Oluşturucusu kodu daha sonra öğreticide gösterilir.
+
+Yapı iskelesi Aracı'nı otomatik olarak bir veritabanı bağlamını oluşturulur ve bağımlılık ekleme kapsayıcısını ile kayıtlı.
+
+İncelemek `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+Verilen veri modeli için EF temel işlevleri koordinatları ana sınıfı DB bağlamı sınıftır. Veri bağlamı türetilir [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). Veri bağlamı hangi varlıkların veri modelinde dahil edildiğini belirtir. Bu projede adlı sınıfı `RazorPagesMovieContext`.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs)]
+
+Önceki kod oluşturur bir [DbSet\<film >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) özelliği için varlık kümesi. Entity Framework terminolojisinde bir varlık kümesine genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satırı karşılık gelir.
+
+Bağlantı dizesinin adını bağlamına üzerinde bir yöntemini çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesnesi. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
 <a name="pmc"></a>
 ## <a name="perform-initial-migration"></a>İlk geçiş gerçekleştirme
@@ -194,4 +224,4 @@ Sonraki öğretici yapı iskelesi tarafından oluşturulan dosyalar açıklanmak
 
 > [!div class="step-by-step"]
 > [Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
-> [sonraki: iskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)    
+> [sonraki: iskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)

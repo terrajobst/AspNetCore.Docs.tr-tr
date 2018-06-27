@@ -1,6 +1,6 @@
-# <a name="adding-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına bir görünümü ekleme
+# <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına bir görünüm ekleyin
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde, değişiklik `HelloWorldController` sınıfı şablon dosyalarını düzgün bir şekilde kapsülleyen bir istemci HTML yanıtlarını oluşturma işlemine Razor görünümünü kullanın.
 

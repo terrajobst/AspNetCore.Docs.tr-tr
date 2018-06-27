@@ -1,6 +1,6 @@
-# <a name="adding-validation"></a>Doğrulama ekleme
+# <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına doğrulama ekleme
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde için doğrulama mantığını ekleyeceksiniz `Movie` modeli, emin olun ve bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman doğrulama kuralları zorunlu tutulmaz.
 
@@ -23,7 +23,7 @@ Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `String
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 ::: moniker-end
 
-Doğrulama öznitelikleri uygulanan model özellikleri zorlayan istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değer; olması gerekir, ancak hiçbir şey bu doğrulama karşılamak için boşluk girişini kullanıcı engeller. `RegularExpression` Özniteliği ne karakter olabilir sınırlamak için kullanılır giriş. Yukarıdaki kod `Genre` ve `Rating` yalnızca harf (beyaz alan, sayı ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Özniteliği için bir değer belirtilen aralıkta kısıtlar. `StringLength` Özniteliği bir dize özelliği en büyük uzunluğu ve isteğe bağlı olarak, minimum uzunluğu ayarlamanıza olanak tanır. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
+Doğrulama öznitelikleri uygulanan model özellikleri zorlayan istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değer; olması gerekir, ancak hiçbir şey bu doğrulama karşılamak için boşluk girişini kullanıcı engeller. `RegularExpression` Özniteliği ne karakter olabilir sınırlamak için kullanılır giriş. Yukarıdaki kod `Genre` ve `Rating` yalnızca harf (ilk harfi büyük harfli, beyaz alanı, rakam ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Özniteliği için bir değer belirtilen aralıkta kısıtlar. `StringLength` Özniteliği bir dize özelliği en büyük uzunluğu ve isteğe bağlı olarak, minimum uzunluğu ayarlamanıza olanak tanır. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
 
 Doğrulama kuralları otomatik olarak sahip uygulamanızı daha güçlü ASP.NET yardımcı olun tarafından zorunlu tutulur. Ayrıca, bir şey doğrulamak ve yanlışlıkla hatalı veri veritabanına izin unuttunuz olamaz sağlar.
 

@@ -1,7 +1,7 @@
 <!-- This include not used by windows version -->
-# <a name="adding-a-new-field"></a>Yeni bir alan ekleme
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulama için yeni bir alan ekleyin
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğretici için yeni bir alan ekler `Movies` tablo. Biz veritabanını bırakıp biz şema değiştirdiğinizde, yeni bir tane oluşturun (yeni bir alan ekleyin). Biz perserve için herhangi bir üretim veri bulunmadığında bu iş akışı da erken geliştirme çalışır.
 

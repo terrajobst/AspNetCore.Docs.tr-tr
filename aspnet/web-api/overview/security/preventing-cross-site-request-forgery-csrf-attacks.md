@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd03f3b396cc2ece1d8dbe6820f6277c02d8e62
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5e7b24c697e0bb37f388341abd89609c76f6b64c
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566751"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961243"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>ASP.NET Web API'de siteler arası istek sahtekarlığı (CSRF) saldırılarını önleme
 ====================
@@ -27,7 +27,7 @@ Burada kötü amaçlı bir site olduğu kullanıcı şu anda oturum savunmasız 
 
 CSRF saldırı bir örneği burada verilmiştir:
 
-1. Bir kullanıcının oturum açtığı www.example.com, kullanarak kimlik doğrulaması oluşturur.
+1. İçine bir kullanıcı oturum `www.example.com` forms kimlik doğrulaması kullanma.
 2. Sunucu kullanıcının kimliğini doğrular. Sunucudan gelen yanıtı bir kimlik doğrulama tanımlama bilgisi içerir.
 3. Günlük olmadan, kullanıcının kötü amaçlı web sitesini ziyaret eder. Bu kötü amaçlı site aşağıdaki HTML formu içerir: 
 

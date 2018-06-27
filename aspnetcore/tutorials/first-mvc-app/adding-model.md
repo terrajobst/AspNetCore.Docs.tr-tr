@@ -5,15 +5,13 @@ description: Bir model için basit bir ASP.NET Core uygulama ekleyin.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 1e562116de8e6a88666f578f7255e325735c10a9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 28a63498bc1a3c7b6ad6be038209dacdb49e44ee
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272328"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960674"
 ---
-# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Model bir ASP.NET Core MVC uygulamasına ekleme
-
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
 Sağ *modelleri* klasörü > **Ekle** > **sınıfı**. Sınıf adını **film** ve aşağıdaki özellikleri ekleyin:

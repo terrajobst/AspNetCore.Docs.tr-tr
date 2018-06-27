@@ -1,6 +1,6 @@
-# <a name="adding-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulama arama ekleme
+# <a name="add-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına arama ekleyin
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde eklediğiniz için arama yeteneğine `Index` olanak sağlayan eylem yöntemi tarafından filmler arama *Tarz* veya *adı*.
 

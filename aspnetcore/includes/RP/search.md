@@ -1,6 +1,6 @@
-# <a name="adding-search-to-a-razor-pages-app"></a>Arama bir Razor sayfalarının uygulamasına ekleme
+# <a name="add-search-to-an-aspnet-core-razor-pages-app"></a>Arama için bir ASP.NET Core Razor sayfalarının uygulama ekleyin
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu belgede, arama özelliği tarafından arama filmler etkinleştirir dizin sayfası eklenir *Tarz* veya *adı*.
 

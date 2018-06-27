@@ -1,6 +1,6 @@
-# <a name="working-with-sqlite-in-an-aspnet-core-mvc-project"></a>ASP.NET Core MVC projesinde SQLite ile çalışma
+# <a name="work-with-sqlite-in-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulama SQLite ile çalışma
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 

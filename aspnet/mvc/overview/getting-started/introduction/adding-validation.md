@@ -12,16 +12,16 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 946d4d5e5a506fb437232f9f4440c98e33a1a9b3
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 96dc6724b48daf77034c0741be970be11b81ab37
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33966565"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961522"
 ---
 <a name="adding-validation"></a>Doğrulama ekleme
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
@@ -57,7 +57,7 @@ Bu komut sona erdiğinde, Visual Studio yeni tanımlar sınıfı dosyasını aç
 
 [!code-csharp[Main](adding-validation/samples/sample3.cs)]
 
-`Genre` Alanı artık boş değer atanabilir olmayan (diğer bir deyişle, bir değer girmelisiniz). `Rating` Alan en fazla 5 sahip ve `Title` 60 maksimum uzunluğunu aşıyor. En az 3'te uzunluğu `Title` ve aralıkta `Price` şema değişiklikleri oluşturmadı.
+`Genre` Alandır artık boş değer atanabilir (diğer bir deyişle, bir değer girmelisiniz). `Rating` Alan en fazla 5 sahip ve `Title` 60 maksimum uzunluğunu aşıyor. En az 3'te uzunluğu `Title` ve aralıkta `Price` şema değişiklikleri oluşturmadı.
 
 Film şema inceleyin:
 

@@ -1,16 +1,16 @@
 ---
-title: Bir ASP.NET Core MVC uygulama arama ekleme
+title: Bir ASP.NET Core MVC uygulamasına arama ekleyin
 author: rick-anderson
 description: Basit ASP.NET Core MVC uygulaması için arama eklemeyi gösterir
 ms.author: riande
 ms.date: 04/07/2017
 uid: tutorials/first-mvc-app-mac/search
-ms.openlocfilehash: 4175d4dfd03d173f7025aff3b51d255bb1c213ee
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: aca0835340977605cc84fad1970ac30fa1a9872a
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274488"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961548"
 ---
 [!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
 

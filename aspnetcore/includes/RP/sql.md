@@ -1,6 +1,6 @@
-# <a name="working-with-sqlite-in-and-razor-pages"></a>İçinde SQLite ve Razor sayfaları ile çalışma
+# <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a>Bir ASP.NET Core SQLite ile çalışırsınız Razor uygulama sayfaları
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 

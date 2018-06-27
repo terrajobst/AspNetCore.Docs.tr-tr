@@ -1,4 +1,4 @@
-# <a name="adding-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına bir modeli ekleme
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Model bir ASP.NET Core MVC uygulamasına ekleme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [zel Dykstra](https://github.com/tdykstra)
 

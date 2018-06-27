@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e57fa86476dcb57a04211240a7202dcfc2e263ad
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291626"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960613"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
@@ -29,7 +29,7 @@ Bu öğretici aşağıdaki SignalR geliştirme görevleri gösterir:
 > * İçeriği istemcilere göndermek için bir SignalR hub'ı oluşturun.
 > * Değiştirme `Startup` sınıfı ve uygulamayı yapılandırır.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="prerequisites"></a>Önkoşullar
 
@@ -100,7 +100,7 @@ Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst d
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Bir sınıf projeye seçerek eklemek **dosya** > **yeni** > **dosya** ve seçerek **Visual C# sınıfı**. Dosya adı *ChatHub*.
+1. Bir sınıf projeye seçerek eklemek **dosya** > **yeni** > **dosya** ve seçerek **Visual C# sınıfı**. Sınıf adını `ChatHub` ve dosya *ChatHub.cs*.
 
 2. Devralınan `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Özellikleri ve olayları gönderme ve alma veri yanı sıra bağlantıları ve grupları yönetmek için sınıf içerir.
 
@@ -112,13 +112,13 @@ Bir hub istemci ve sunucu birbirine yöntemlerini çağırmaya izin veren üst d
 
 1. Açık *SignalRChat* Visual Studio Code klasöründe.
 
-2. Bir sınıf projeye seçerek eklemek **dosya** > **yeni dosya** menüsünde.
+2. Bir sınıf projeye seçerek eklemek **dosya** > **yeni dosya** menüsünde. Sınıf adını `ChatHub` ve dosya *ChatHub.cs*.
 
 3. Devralınan `Microsoft.AspNetCore.SignalR.Hub`. `Hub` Özellikleri ve olayları istemciye gönderme ve alma veri yanı sıra bağlantıları ve grupları yönetmek için sınıf içerir.
 
 4. Ekleme bir `SendMessage` sınıfına yöntemi. `SendMessage` Yöntem, tüm bağlı sohbet istemcilere bir ileti gönderir. Döndürdüğü fark bir [görev](/dotnet/api/system.threading.tasks.task), SignalR zaman uyumsuz olarak çağrılır. Zaman uyumsuz kodu daha iyi ölçeklenir.
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 

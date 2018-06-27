@@ -12,12 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 58d87bd6211ae1b1eea227d34c001239efcf5f1d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891786"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961405"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (C#)
 ====================
@@ -55,7 +55,7 @@ Tablo 1 aracılığıyla özelleştirilmiş özellikleri özetler &lt;forms&gt; 
 |         koruma         |                                                                                                                                            Forms kimlik doğrulaması bileti korumak için hangi teknikleri kullanıldığını belirtir. İzin verilen değerler: tüm (varsayılan); Şifreleme; Yok; ve doğrulama. Bu ayarlar, adım 3'te ayrıntılı ele alınmıştır.                                                                                                                                            |
 |         requireSSL         |                                                                                                                                                                                Kimlik doğrulama tanımlama bilgisini iletmek için bir SSL bağlantısının gerekli olup olmadığını gösteren bir Boole değeri. Varsayılan değer false'tur.                                                                                                                                                                                |
 |     SlidingExpiration değeri      |                                                                                                 Kullanıcı kimlik doğrulama tanımlama bilgisinin zaman aşımı her erişimde sıfırlanacağını olup olmadığını tek bir oturum sırasındaki site ziyaret gösteren bir Boole değeri. Varsayılan değer true olur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü.                                                                                                 |
-|          Zaman aşımı           |                                                                                                                               Saat geçtikten sonra kimlik doğrulama bileti tanımlama bilgisinin süresinin dakika cinsinden belirtir. Varsayılan değer 30'dur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü.                                                                                                                               |
+|          zaman aşımı           |                                                                                                                               Saat geçtikten sonra kimlik doğrulama bileti tanımlama bilgisinin süresinin dakika cinsinden belirtir. Varsayılan değer 30'dur. Kimlik doğrulama bileti zaman aşımı ilkesini belirtme bölümlerinde daha ayrıntılı ele alınmıştır anahtarı'nın zaman aşımı değeri bölümü.                                                                                                                               |
 
 **Tablo 1**: bir özetini &lt;forms&gt; öğenin öznitelikleri
 
@@ -160,7 +160,7 @@ Ancak, URL'de oturum açtıktan sonra forms kimlik doğrulaması bileti katışt
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/default.aspx`
 
-Forms kimlik doğrulaması bileti URL içinde katıştırılmış. The string (F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2) represents the hex-encoded authentication ticket information, and is the same data that is usually stored within a cookie.
+Forms kimlik doğrulaması bileti URL içinde katıştırılmış. Dize (F (jaIOIDTJxIr12xYS VVgkqKCVAuIoW30Bu0diWi6flQC FyMaLXJfow\_Vd9GZkB2Cv rfezq0gKadKX0YPZCkA2) onaltılık kodlanmış kimlik doğrulaması bileti bilgileri temsil eder ve genellikle bir tanımlama bilgisi içinde depolanan aynı veridir.
 
 Cookieless kimlik doğrulama biletlerini çalışmak sırasıyla sistem kimlik doğrulaması bilet verileri içerecek şekilde tüm URL'leri sayfasında kodlamak gerekir, kullanıcı bir bağlantıyı tıklattığında Aksi takdirde kimlik doğrulaması bileti kaybolacaktır. Thankfully, bu katıştırma mantığı otomatik olarak gerçekleştirilir. Bu işlevselliğini göstermek için Default.aspx sayfasını açın ve bir köprü denetim Bağlantıyı Sına ve SomePage.aspx, metin ve NavigateUrl özelliklerini sırasıyla ayarı ekleyin. Gerçekten olmadığından bir sayfa Projemizin SomePage.aspx adlı önemli değildir.
 
@@ -168,7 +168,7 @@ Değişiklikleri kaydetmek için Default.aspx ve bir tarayıcı ziyaret edin. B�
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-Bağlantıda URL SomePage.aspx otomatik olarak kimlik doğrulaması bileti - dahil bir URL'ye dönüştürüldü biz lick kod yazmak zorunda oldu! Form kimlik doğrulaması bileti http:// ile başlayan değil köprüler URL'sini otomatik olarak katıştırılır veya /. Köprü Response.Redirect yapılan bir çağrı, bir köprü denetim veya bağlı HTML bağlayıcı öğesi görünürse önemli değildir (yani, &lt;bir href = "..."&gt;... &lt;/a&gt;). URL şöyle olmadığı sürece http://www.someserver.com/SomePage.aspx veya /SomePage.aspx, forms kimlik doğrulaması bileti katıştırılmış bize.
+Bağlantıda URL SomePage.aspx otomatik olarak kimlik doğrulaması bileti - dahil bir URL'ye dönüştürüldü biz lick kod yazmak zorunda oldu! Form kimlik doğrulaması bileti ile başlamaz köprüler URL'sini otomatik olarak katıştırılır `http://` veya `/`. Köprü Response.Redirect yapılan bir çağrı, bir köprü denetim veya bağlı HTML bağlayıcı öğesi görünürse önemli değildir (yani, `<a href="...">...</a>`). URL şöyle olmadığı sürece `http://www.someserver.com/SomePage.aspx` veya `/SomePage.aspx`, forms kimlik doğrulaması bileti için bize katıştırılır.
 
 > [!NOTE]
 > Cookieless form kimlik doğrulama biletlerini tanımlama bilgisi tabanlı kimlik doğrulama biletlerini olarak aynı zaman aşımı ilkelerine uyması. Ancak, tanımlama bilgisi olmayan kimlik doğrulama biletlerini doğrudan URL'de kimlik doğrulaması bileti ekli olduğundan yeniden yürütme saldırılarını daha fazladır. Bir Web sitesini ziyaret eder, oturum açtığında ve bir iş arkadaşınıza e-posta içinde URL gönderebilir bir kullanıcı düşünün. Süre sonu ulaşılmadan önce iş arkadaşı bu bağlantıyı tıklattığında, bunlar e-posta gönderen bir kullanıcı olarak kaydedilir!
@@ -269,7 +269,7 @@ userDataString dize = dize. Concat (ŞirketAdı [i] "|", titleAtCompany[i]);
 
 Ardından, kimlik doğrulaması bileti oluşturur, yöntemi çağrılır, FormsAuthentication.GetAuthCookie şifreler ve yapılandırma ayarlarını göre doğrular ve HttpCookie nesneyi yerleştirir.
 
-HttpCookie authCookie = FormsAuthentication.GetAuthCookie(UserName.Text, RememberMe.Checked);
+HttpCookie authCookie = FormsAuthentication.GetAuthCookie (UserName.Text, RememberMe.Checked);
 
 Tanımlama bilgisi içinde katıştırılmış FormAuthenticationTicket çalışmak için FormAuthentication sınıfının çağırmak ihtiyacımız [şifresini yöntemi](https://msdn.microsoft.com/library/system.web.security.formsauthentication.decrypt.aspx), geçen tanımlama bilgisi değeri.
 
@@ -281,7 +281,7 @@ FormsAuthenticationTicket newTicket = yeni FormsAuthenticationTicket (bileti. S�
 
 Biz sonra şifrelemek (ve doğrula) çağırarak yeni FormsAuthenticationTicket örnek [yöntemi şifrelemek](https://msdn.microsoft.com/library/system.web.security.formsauthentication.encrypt.aspx)ve bu şifrelenmiş (ve doğrulanmış) verileri geri authCookie yerleştirin.
 
-authCookie.Value = FormsAuthentication.Encrypt(newTicket);
+authCookie.Value FormsAuthentication.Encrypt(newTicket); =
 
 Son olarak, authCookie Response.Cookies koleksiyonuna eklenir ve kullanıcıya göndermek için uygun sayfayı belirlemek için GetRedirectUrl yöntemi çağrılır.
 
