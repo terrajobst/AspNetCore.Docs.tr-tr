@@ -1,20 +1,20 @@
 ---
-title: ASP.NET Core içinde SQL Server yerel veritabanı ile çalışma
+title: Bir ASP.NET Core MVC uygulama içinde SQL Server yerel veritabanı ile çalışma
 author: rick-anderson
 description: SQL Server yerel veritabanı basit bir ASP.NET Core MVC uygulamasında kullanma hakkında bilgi edinin.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 5b8bbcd3c6590edbe199a0a52494e83fd2aa4dcf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273877"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961064"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core içinde SQL Server yerel veritabanı ile çalışma
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
 

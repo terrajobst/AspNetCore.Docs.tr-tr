@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 400329dd852ca3c527387ee45e3e902b725e771b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89b065fccd0e4864f4a24c37b4caa29a1e127840
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566826"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961305"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>ASP.NET Web API 2.2 yenilikler nelerdir?
 ====================
@@ -131,7 +131,7 @@ Eğik çizgi (% 2F) arasında URL dize değişmez değerleri kodlanmış ve ODat
 
 Bu tür istekleri konakları kaydını kaçış Hizmetleri aldığınızda, bu Web API çalışma zamanı için geçirmeden önce kaçış dizilerine. Bu, aşağıdaki gibi saldırılarına karşı korur:  
   
- http://www.contoso.com/..%2f..%2f/Windows/System32/cmd.exe?/c+dir+c:
+`http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:`
 
 Bu, 404 hatası (bulunamadı) dönmek Web API OData yığını neden olur. Bu hatayı önlemek için istemci ters eğik çizgi (% 255 C) ve çift kaçış sıralarına eğik çizgi işareti (% 252F) kullanmanız gerekir. Bu sorgu dizelerine /Employees gibi gerçekleşmez? $filter adı eq 'Adı % 2F' =
 
@@ -158,7 +158,7 @@ Aşağıdaki kod, Web API yapılandırmada kullanmak için alternatif bir geçic
 Sorun: FromUri özniteliği ile donatılmış karmaşık türünün Model bağlama özniteliği yönlendirme kullanırken farklı şekilde davranır.
 
 Aşağıdaki bağlantı sorun izleme ve geçici bir çözüm ayrıntılarını da sahiptir.  
-[http://aspnetwebstack.Codeplex.com/workitem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
+[http://aspnetwebstack.codeplex.com/workitem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
 
 Sorun: Yapı İskelesi MVC/Web API projesine 5.2.0 ile 5.1.2 paketleri sonuçlarında paketler için olanları projede zaten mevcut değil
 
