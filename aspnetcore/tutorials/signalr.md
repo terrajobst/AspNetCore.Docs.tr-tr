@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: e57fa86476dcb57a04211240a7202dcfc2e263ad
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960613"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033348"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>ASP.NET Core üzerinde SignalR ile çalışmaya başlama
 
@@ -31,7 +31,7 @@ Bu öğretici aşağıdaki SignalR geliştirme görevleri gösterir:
 
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki yazılımı yükleyin:
 

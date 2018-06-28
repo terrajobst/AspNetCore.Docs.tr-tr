@@ -3,15 +3,19 @@ title: Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 author: rick-anderson
 description: Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın.
 ms.author: riande
-ms.date: 10/15/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: d39e1aa40ff97d5b335f2bde6170242e89f6189a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f1776506ef15c75beb9f1a2579b0073f927b013a
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272354"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033257"
 ---
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
+::: moniker range=">= aspnetcore-2.1"
+
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -20,8 +24,8 @@ Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://tw
 
 Bu öğreticide, veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanılır.
 
-Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 Yeni bir uygulama geliştirilmiş, veri değişikliklerini sık model. Her model değişiklikleri model veritabanı ile eşitlenmemiş alır. Bu öğretici yoksa veritabanı oluşturmak için Entity Framework yapılandırma tarafından başlatıldı. Her veri değişiklikleri model:
 
@@ -33,71 +37,57 @@ DB veri modeli ile eşitlenmiş tutmak için bu yaklaşım, iyi uygulamayı üre
 
 Bırakma ve değişiklikleri veri modelini kullanırken DB yeniden oluşturma, yerine geçişler şema güncelleştirir ve mevcut verileri korur.
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>Geçişler için Entity Framework Core NuGet paketleri
+## <a name="drop-the-database"></a>Veritabanı bırakma
 
-Geçişler ile çalışmak için kullanın **Paket Yöneticisi Konsolu** (PMC) veya komut satırı arabirimi (CLI). Bu öğreticiler CLI komutlarının nasıl kullanılacağını gösterir. Bilgilerine PMC hakkında [Bu öğreticide sonuna](#pmc).
+Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` komutu:
 
-EF çekirdek Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Bu paketi yüklemek için ekleyin `DotNetCliToolReference` koleksiyonunda *.csproj* gösterildiği gibi dosya. **Not:** düzenleyerek bu paketi yüklenmelidir *.csproj* dosya. `install-package` Bu paketi yüklemek için komut veya Paket Yöneticisi GUI kullanılamaz. Düzen *.csproj* proje adına sağ tıklanarak dosya **Çözüm Gezgini** ve seçerek **Düzenle ContosoUniversity.csproj**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Aşağıdaki biçimlendirmede güncelleştirilmiş gösterir *.csproj* vurgulanmış EF çekirdek CLI araçlarını dosyasıyla:
+İçinde **Paket Yöneticisi Konsolu** (PMC), aşağıdaki komutu çalıştırın:
 
-[!code-xml[](intro/samples/cu/ContosoUniversity.csproj?highlight=12)]
-  
-Önceki örnekte sürüm numaralarını öğretici yazıldıktan sonra geçerli. Aynı sürüm diğer paketlerinde bulunan EF çekirdek CLI araçlarını kullanın.
+```PMC
+Drop-Database
+```
 
-## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirin
+Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerine ulaşmak için PMC gelen.
 
-İçinde *appsettings.json* dosya, ContosoUniversity2 için bağlantı dizesi DB'de adını değiştirin.
-
-[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
-
-Bağlantı dizesindeki DB adının değiştirilmesi, yeni bir veritabanı oluşturmak ilk geçiş neden olur. Bu ada sahip bir mevcut olmadığından yeni bir veritabanı oluşturulur. Bağlantı dizesi değiştirme geçişler ile çalışmaya başlama için gerekli değildir.
-
-DB adını değiştirmek için bir alternatif DB siliyor. Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` CLI komutu:
-
- ```console
- dotnet ef database drop
- ```
-
-Aşağıdaki bölümde, CLI komutları çalıştırmak açıklanmaktadır.
-
-## <a name="create-an-initial-migration"></a>İlk geçiş oluştur
-
-Projeyi oluşturun.
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörünü içeren *haline* dosya.
 
 Komut penceresinde aşağıdakileri girin:
 
+ ```console
+ dotnet ef database drop
+ ```
+
+------
+
+## <a name="create-an-initial-migration-and-update-the-db"></a>İlk geçiş oluşturun ve DB güncelleştirin
+
+Projeyi derlemek ve ilk geçiş oluşturun.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+```PMC
+Add-Migration InitialCreate
+Update-Database
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
 ```console
 dotnet ef migrations add InitialCreate
+dotnet ef database update
 ```
 
-Komut penceresinde aşağıdakine benzer bilgiler görüntüler:
-
-```console
-info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
-      User profile is available. Using 'C:\Users\username\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-info: Microsoft.EntityFrameworkCore.Infrastructure[100403]
-      Entity Framework Core 2.0.0-rtm-26452 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-Done. To undo this action, use 'ef migrations remove'
-```
-
-Geçiş iletisiyle başarısız olursa "*... dosyasına erişemiyor ContosoUniversity.dll çünkü başka bir işlem tarafından kullanılıyor.* " görüntülenir:
-
-* IIS Express durdurun.
-
-   * Çıkmak ve Visual Studio'yu yeniden başlatın veya
-   * IIS Express simgesini Windows Sistem tepsisinde bulun.
-   * IIS Express simgesine sağ tıklayın ve ardından **ContosoUniversity > Durdur Site**.
-
-Hata iletisi "yapılandırma başarısızsa." , komutu yeniden çalıştırın görüntülenir. Bu hata alırsanız, bu öğreticinin sonunda not bırakın.
+------
 
 ### <a name="examine-the-up-and-down-methods"></a>Yukarı inceleyin ve yöntemleri aşağı
 
-EF çekirdek komutu `migrations add` DB'den oluşturmak için kodu oluşturulur. Bu geçiş kod *geçişler\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen DB tablolar oluşturur. `Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:
+EF çekirdek `migrations add` DB oluşturmak için oluşturulan komut kodu. Bu geçiş kod *geçişler\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen DB tablolar oluşturur. `Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:
 
-[!code-csharp[](intro/samples/cu/Migrations/20171026010210_InitialCreate.cs?range=8-24,77-)]
+[!code-csharp[](intro/samples/cu21/Migrations/20180626224812_InitialCreate.cs?range=7-24,77-88)]
 
 Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntem. Geri alma güncelleştirme, geçişler çağrıları komutu girdiğinizde `Down` yöntemi.
 
@@ -110,19 +100,33 @@ Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygul
 
 Uygulama için yeni bir ortam dağıtıldığında DB oluşturma kod DB oluşturmak için çalıştırması gerekir.
 
-Daha önce bağlantı dizesi DB için yeni bir ad kullanmak üzere değiştirilmiştir. Belirtilen veritabanı yok, bu geçişler oluşturur şekilde DB.
+Daha önce DB bırakıldı ve geçişleri oluşturur şekilde yeni DB, mevcut değil.
 
 ### <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntü
 
-Geçişler oluşturur bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler.
+Geçişler oluşturma bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler.
 
-Bir geçiş silerken kullanmak [dotnet ef geçişler kaldırmak](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) komutu. `dotnet ef migrations remove` geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
+Bir geçiş silmek için aşağıdaki komutu kullanın:
 
-Bkz: [EF çekirdek geçişler takım ortamlarda](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyasının nasıl kullanıldığı hakkında daha fazla bilgi için.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-## <a name="remove-ensurecreated"></a>EnsureCreated Kaldır
+Remove-geçiş
 
-Erken geliştirme `EnsureCreated` komutu kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet ef migrations remove
+```
+
+Daha fazla bilgi için bkz: [dotnet ef geçişler kaldırmak](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+
+------
+
+Kaldır geçişler komut geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
+
+### <a name="remove-ensurecreated-and-test-the-app"></a>EnsureCreated kaldırın ve uygulamayı test etme
+
+Erken geliştirme `EnsureCreated` kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
 
 * Geçişler atlar ve şeması ve DB oluşturur.
 * Geçiş tablosu oluşturmaz.
@@ -135,48 +139,9 @@ Aşağıdaki satırı Kaldır `DbInitializer`:
 context.Database.EnsureCreated();
 ```
 
-## <a name="apply-the-migration-to-the-db-in-development"></a>Geliştirme DB'de geçiş uygulamak
+Uygulamayı çalıştırın ve DB sağlanmış doğrulayın.
 
-Komut penceresinde DB ve tablolar oluşturmak için aşağıdakileri girin.
-
-```console
-dotnet ef database update
-```
-
-Not: Varsa `update` komut, "oluşturma başarısız oldu." hatasını döndürür:
-
-* Komutu yeniden çalıştırın.
-* Yine başarısız olursa, Visual Studio'dan çıkın ve ardından çalıştırın `update` komutu.
-* Sayfanın altındaki bir ileti bırakın.
-
-Komut çıktısı benzer `migrations add` komut çıktı. Önceki komutta DB'yi yedekleyin ayarlamak SQL komutlarını günlüklerinde görüntülenir. Aşağıdaki örnek çıktıda günlükleri çoğunu göz ardı edilir:
-
-```text
-info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
-      User profile is available. Using 'C:\Users\username\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-info: Microsoft.EntityFrameworkCore.Infrastructure[100403]
-      Entity Framework Core 2.0.0-rtm-26452 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
-      Executed DbCommand (467ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
-      CREATE DATABASE [ContosoUniversity2];
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
-      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [__EFMigrationsHistory] (
-          [MigrationId] nvarchar(150) NOT NULL,
-          [ProductVersion] nvarchar(32) NOT NULL,
-          CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
-      );
-
-<logs omitted for brevity>
-
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20170816151242_InitialCreate', N'2.0.0-rtm-26452');
-Done.
-```
-
-Günlük iletilerini ayrıntı düzeyi azaltmak için günlük düzeyleri değiştirmek *appsettings. Development.JSON* dosya. Daha fazla bilgi için bkz: [günlük giriş](xref:fundamentals/logging/index).
+### <a name="inspect-the-database"></a>Veritabanı inceleyin.
 
 Kullanım **SQL Server Nesne Gezgini** DB incelemek için. Eklenmesi fark bir `__EFMigrationsHistory` tablo. `__EFMigrationsHistory` Hangi geçişleri Veritabanına uygulanmış olan tablo izler. Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir. Son günlük önceki CLI çıkış örnekte bu satırı oluşturur INSERT deyiminin gösterir.
 
@@ -193,27 +158,9 @@ Veritabanı geçiş, dağıtım ve denetimli bir şekilde bir parçası olarak y
 
 EF çekirdek kullanan `__MigrationsHistory` tüm geçişler çalıştırmak gerekip gerekmediğini görmek için tablo. DB güncel ise, herhangi bir geçiş çalıştırın.
 
-<a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>Komut satırı arabirimi (CLI) vs. Paket Yöneticisi Konsolu (PMC)
-
-EF geçişler yönetmek için tooling çekirdek kullanılabilir:
-
-* .NET core CLI komutları.
-* Visual Studio'da PowerShell cmdlet'leri **Paket Yöneticisi Konsolu** (PMC) penceresi.
-
-Bu öğretici CLI kullanmayı gösterir, bazı geliştiriciler PMC kullanmayı tercih.
-
-PMC EF çekirdek komutlarında bulunan [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paket. Bu paket dahil [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) yüklemek zorunda kalmamak için metapackage.
-
-**Önemli:** bu düzenleyerek için CLI yükleme biri aynı pakette değil *.csproj* dosya. Bu ada bitiyor `Tools`, biten CLI paket adı aksine `Tools.DotNet`.
-
-CLI komutları hakkında daha fazla bilgi için bkz: [.NET Core CLI](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
-
-PMC komutları hakkında daha fazla bilgi için bkz: [Paket Yöneticisi Konsolu (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
-
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Karşıdan [Bu aşama için tamamlanan uygulama](
+Karşıdan [tamamlanan uygulama](
 https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
 
 Uygulama şu özel durum oluşturur:
@@ -226,10 +173,12 @@ Login failed for user 'user name'.
 
 Çözüm: Çalıştır `dotnet ef database update`
 
-Varsa `update` komut, "oluşturma başarısız oldu." hatasını döndürür:
+### <a name="additional-resources"></a>Ek kaynaklar
 
-* Komutu yeniden çalıştırın.
-* Sayfanın altındaki bir ileti bırakın.
+* [.NET core CLI](/ef/core/miscellaneous/cli/dotnet).
+* [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
+
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/sort-filter-page)
