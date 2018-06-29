@@ -2,17 +2,16 @@
 title: ASP.NET Core 2.1 yenilikler nelerdir?
 author: isaac2004
 description: ASP.NET Core 2.1 yeni özellikler hakkında bilgi edinin.
-manager: wpickett
 monikerRange: = aspnetcore-2.1
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: aspnetcore-2.1
-ms.openlocfilehash: 98e867ec77a79102bc536fe5580c8796cf142feb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3dcd4e726c51830b626f5132ab9ee620364bcc14
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291653"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077595"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 yenilikler nelerdir?
 

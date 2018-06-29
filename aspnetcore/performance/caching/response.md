@@ -2,18 +2,15 @@
 title: ASP.NET Core yanıt önbelleğe alma
 author: rick-anderson
 description: Düşük bant genişliği gereksinimlerini önbelleğe alma yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansı arttırır.
-manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: c53ae3f6ab8d26588533772dd4fdacb36ec12059
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734516"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077770"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -46,10 +43,10 @@ Ortak `Cache-Control` yönergeleri aşağıdaki tabloda gösterilmiştir.
 
 | Üstbilgi                                                     | İşlev |
 | ---------------------------------------------------------- | -------- |
-| [geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt beri geçen saniye cinsinden süreyi tahmini oluşturulan veya kaynak sunucuda başarıyla doğrulandı. |
+| [Geçerlilik süresi](https://tools.ietf.org/html/rfc7234#section-5.1)     | Yanıt beri geçen saniye cinsinden süreyi tahmini oluşturulan veya kaynak sunucuda başarıyla doğrulandı. |
 | [Süre sonu](https://tools.ietf.org/html/rfc7234#section-5.3) | Daha sonra yanıtı eski olarak değerlendirmeden tarih. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Geriye dönük HTTP/1.0 ile uyumluluk için ayar önbellekleri için mevcut `no-cache` davranışı. Varsa `Cache-Control` üstbilgisi mevcutsa, `Pragma` üstbilgi göz ardı edilir. |
-| [değişir](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Önbelleğe alınan yanıt sürece tüm gönderilmemesini gerekir belirtir, `Vary` üstbilgi alanları eşleşen hem önbelleğe alınan yanıtın ilk istek hem de yeni istek. |
+| [Değişir](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Önbelleğe alınan yanıt sürece tüm gönderilmemesini gerekir belirtir, `Vary` üstbilgi alanları eşleşen hem önbelleğe alınan yanıtın ilk istek hem de yeni istek. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>Cache-Control yönergeleri HTTP tabanlı önbelleğe alma gizliliğinize isteği
 
@@ -110,7 +107,7 @@ Yanıt önbelleğe alma Ara ayarlamak için etkinleştirilmelidir `VaryByQueryKe
 * Kümesinde özelliklerine göre uygun üstbilgileri çıkışı Yazar `ResponseCacheAttribute`. 
 * HTTP özelliği, önbelleğe alma yanıt güncelleştirmeleri `VaryByQueryKeys` ayarlanır.
 
-### <a name="vary"></a>değişir
+### <a name="vary"></a>Değişir
 
 Bu üst yalnızca zaman yazılır `VaryByHeader` özelliği ayarlanmış. Ayarlanır `Vary` özelliğin değeri. Aşağıdaki örnek kullanır `VaryByHeader` özelliği:
 

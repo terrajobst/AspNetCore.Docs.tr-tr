@@ -2,20 +2,16 @@
 title: Bellek içi ASP.NET Core, önbelleğe alma
 author: rick-anderson
 description: ASP.NET Core bellekte önbelleğe öğrenin.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: eca6610caf4e0a654c9a31f89a42e2ac82e94d23
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 5a7085269e255ae233a0e7eeb860a04b2c6bede3
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734490"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077592"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Bellek içi ASP.NET Core, önbelleğe alma
 

@@ -3,20 +3,24 @@ title: Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 author: rick-anderson
 description: Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir ve veri modeli, doğrulama, biçimlendirme ve eşleme kurallarını belirterek özelleştirebilirsiniz.
 ms.author: riande
-ms.date: 10/25/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: a885809205f13e1090a957496710cc0d9c7257c0
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d96ce7a3f81c54d3c4c0fe26d3fb588d9ce2e0ce
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274547"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37090003"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor sayfalarının EF çekirdek ASP.NET Core - veri modeli - 8'in 5 ile
 
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
+::: moniker range=">= aspnetcore-2.1"
+
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
 Önceki öğreticileri üç varlıklarının oluşan bir temel veri modeli ile çalışmıştır. Bu öğreticide:
 
@@ -27,7 +31,8 @@ Tamamlanan veri modeli için sınıflar aşağıdaki çizimde gösterilmiştir:
 
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
-Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part5-complex).
+Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="customize-the-data-model-with-attributes"></a>Veri modeli öznitelikleri ile özelleştirme
 
@@ -39,7 +44,7 @@ Bu bölümde, veri modeli özniteliklerini kullanarak özelleştirilir.
 
 Güncelleştirme *Models/Student.cs* aşağıdaki vurgulanmış kodu:
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
 [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) veritabanı geçerli bir tür daha fazla belirli bir veri türü özniteliği belirtir. Yalnızca tarih görüntülenmesi gerekir, bu durumda değil tarih ve saat. [DataType numaralandırma](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) tarih, saat, PhoneNumber, para birimi, EmailAddress, vb. gibi birçok veri türleri için sağlar. `DataType` Özniteliği de otomatik olarak türüne özgü özellikleri sağlamak uygulama etkinleştir. Örneğin:
 
@@ -75,7 +80,7 @@ Veri doğrulama kuralları ve doğrulama hata iletilerinin özniteliklerle belir
 
 Güncelleştirme `Student` aşağıdaki kodla model:
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
 Önceki kod adları en fazla 50 karakter sınırlar. `StringLength` Özniteliği değil engelleyen bir kullanıcı için bir ad boşluk girerek. [Yanıtta normal ifade](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) özniteliği girişine kısıtlamaları uygulamak için kullanılır. Örneğin, aşağıdaki kod, büyük harf olması için ilk karakter ve alfabetik olarak geriye kalan karakterler gerektirir:
 
@@ -107,7 +112,7 @@ DB oluşturulduğunda, model üzerinde özellik adlarını sütun adları için 
 
 Güncelleştirme *Student.cs* aşağıdaki vurgulanmış kodu dosyasıyla:
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 Yukarıdaki değişikliği ile `Student.FirstMidName` uygulamada eşlendiğini `FirstName` sütunu `Student` tablo.
 
@@ -121,12 +126,23 @@ DB güncelleştirmek için:
 * Projeyi oluşturun.
 * Proje klasöründe bir komut penceresi açın. Yeni geçiş oluştur ve DB güncelleştirmek için aşağıdaki komutları girin:
 
-    ```console
-    dotnet ef migrations add ColumnFirstName
-    dotnet ef database update
-    ```
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-`dotnet ef migrations add ColumnFirstName` Komutu aşağıdaki uyarı iletisini oluşturur:
+```PMC
+Add-Migration ColumnFirstName
+Update-Database
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet ef migrations add ColumnFirstName
+dotnet ef database update
+```
+
+------
+
+`migrations add ColumnFirstName` Komutu aşağıdaki uyarı iletisini oluşturur:
 
 ```text
 An operation was scaffolded that may result in the loss of data.
@@ -152,7 +168,7 @@ Geçiş uygulanmadan adı sütun türü olan [nvarchar(MAX)](https://docs.micros
 
 Güncelleştirme *Models/Student.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>Gerekli özniteliği
 
@@ -180,9 +196,7 @@ public string LastName { get; set; }
 
 Oluşturma *Models/Instructor.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
-
-Çeşitli özelliklerin aynı olmasına dikkat edin `Student` ve `Instructor` varlıklar. Bu serideki sonraki uygulama devralma öğreticide artıklık ortadan kaldırmak için bu kodu bulunanad.
+[!code-csharp[](intro/samples/cu21/Models/Instructor.cs)]
 
 Birden çok öznitelik tek bir satırda olabilir. `HireDate` Öznitelikleri yazılmaya gibi:
 
@@ -226,7 +240,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 Oluşturma *Models/OfficeAssignment.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu21/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>Key özniteliği
 
@@ -275,7 +289,7 @@ public Instructor Instructor { get; set; }
 
 Güncelleştirme *Models/Course.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu21/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 `Course` Varlık sahip bir yabancı anahtar (FK) özellik `DepartmentID`. `DepartmentID` işaret ilgili `Department` varlık. `Course` Varlık sahip bir `Department` gezinti özelliği.
 
@@ -333,7 +347,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 Oluşturma *Models/Department.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu21/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>Sütun özniteliği
 
@@ -386,7 +400,7 @@ Not: kurala göre art arda silme çok-çok ilişkileri ve null FKs için EF çek
 
 Önceki kod art arda silme departmanı Eğitmen ilişkiyi devre dışı bırakır.
 
-## <a name="update-the-enrollment-entity"></a>Güncelleştirme kayıt varlık
+## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Kayıt entityUpdate kayıt varlık güncelleştir
 
 Bir kaydı bir öğrenci tarafından gerçekleştirilen bir indirmelere içindir.
 
@@ -394,7 +408,7 @@ Bir kaydı bir öğrenci tarafından gerçekleştirilen bir indirmelere içindir
 
 Güncelleştirme *Models/Enrollment.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu21/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
@@ -436,7 +450,7 @@ Not: EF 6.x destekler örtük birleştirme tablolarını çok-çok ilişkileri a
 
 Oluşturma *Models/CourseAssignment.cs* aşağıdaki kod ile:
 
-[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu21/Models/CourseAssignment.cs)]
 
 ### <a name="instructor-to-courses"></a>Eğitmen kurslar
 
@@ -470,7 +484,7 @@ Bileşik anahtarın sağlar:
 
 Aşağıdaki vurgulanmış kodu ekleyin *Data/SchoolContext.cs*:
 
-[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu21/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 Önceki kod yeni varlıklar ekler ve yapılandırır `CourseAssignment` varlığın bileşik yinelenir
 
@@ -520,7 +534,7 @@ Aşağıdaki çizimde EF güç araçları için tamamlanan Okul modeli oluşturm
 
 Kodda güncelleştirme *Data/DbInitializer.cs*:
 
-[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
 Önceki kod yeni varlıklar için çekirdek verileri sağlar. Bu kod çoğunu yeni varlık nesnesi oluşturur ve örnek verileri yükler. Örnek verileri test etmek için kullanılır. Yukarıdaki kod aşağıdaki çok-çok ilişkileri oluşturur:
 
@@ -531,11 +545,21 @@ Not: [EF çekirdek 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadm
 
 ## <a name="add-a-migration"></a>Bir geçiş ekleme
 
-Projeyi oluşturun. Proje klasöründeki bir komut penceresi açın ve aşağıdaki komutu girin:
+Projeyi oluşturun.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+```PMC
+Add-Migration ComplexDataModel
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ```console
 dotnet ef migrations add ComplexDataModel
 ```
+
+------
 
 Yukarıdaki komut, olası veri kaybı hakkında bir uyarı görüntüler.
 
@@ -554,42 +578,40 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 
 Var olan verilerle geçişler çalıştırdığınızda, mevcut verilerle memnun değil FK kısıtlamaları olabilir. FK bir kısıtlama ihlali olduklarından Bu öğretici için yeni bir veritabanı oluşturulur. Bkz: [eski verilerle yabancı anahtar kısıtlamaları düzelttikten](#fk) geçerli DB'de FK ihlalleri gidermeye yönelik yönergeler için.
 
-## <a name="change-the-connection-string-and-update-the-db"></a>Bağlantı dizesini değiştirin ve DB güncelleştirme
+### <a name="drop-and-update-the-database"></a>Bırakma ve veritabanı güncelleştirme
 
-Güncelleştirilmiş kod `DbInitializer` yeni varlıklar için çekirdek veri ekler. EF yeni bir boş veritabanı oluşturmak için çekirdek zorlamak için:
+Güncelleştirilmiş kod `DbInitializer` yeni varlıklar için çekirdek veri ekler. EF yeni bir veritabanı oluşturmak için çekirdek zorlamak için bırakma ve DB güncelleştirin:
 
-* DB bağlantı dizesi adı değiştirmek *appsettings.json* ContosoUniversity3 için. Yeni bir ad bilgisayarda kullanılmamış bir adı olması gerekir.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-    ```json
-    {
-      "ConnectionStrings": {
-        "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ContosoUniversity3;Trusted_Connection=True;MultipleActiveResultSets=true"
-      },
-    ```
+İçinde **Paket Yöneticisi Konsolu** (PMC), aşağıdaki komutu çalıştırın:
 
-* Alternatif olarak, DB kullanarak silin:
-
-  * **SQL Server Nesne Gezgini** (SSOX).
-  * `database drop` CLI komutu:
-
-    ```console
-    dotnet ef database drop
-    ```
-
-Çalıştırma `database update` komut penceresinde:
-
-```console
-dotnet ef database update
+```PMC
+Drop-Database
+Update-Database
 ```
 
-Yukarıdaki komut, tüm geçişler çalışır.
+Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerine ulaşmak için PMC gelen.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörünü içeren *haline* dosya.
+
+Komut penceresinde aşağıdakileri girin:
+
+ ```console
+ dotnet ef database drop
+dotnet ef database update
+ ```
+
+------
 
 Uygulamayı çalıştırın. Uygulamanın çalıştığı çalışan `DbInitializer.Initialize` yöntemi. `DbInitializer.Initialize` Yeni DB doldurur.
 
 DB içinde SSOX açın:
 
-* Genişletme **tabloları** düğümü. Oluşturulan tablolar görüntülenir.
 * SSOX önceden açılmışsa tıklatın **yenileme** düğmesi.
+* Genişletme **tabloları** düğümü. Oluşturulan tablolar görüntülenir.
 
 ![SSOX tablolarında](complex-data-model/_static/ssox-tables.png)
 
@@ -638,6 +660,8 @@ Bir üretim uygulaması gerekir:
 * "Temp" departman veya için varsayılan değer kullanmamanız `Course.DepartmentID`.
 
 Sonraki öğretici ilgili veriler içerir.
+
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/migrations)

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 601d6ac2cb373c40fb1de5427b0ea6c299fa1f32
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9d7d4d49dbb55e327a208df99a0e3ca744de8609
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291536"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077754"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında giriş
 
@@ -31,7 +31,7 @@ Bu belge Razor sayfalarının tanıtılmaktadır. Adım adım öğretici değil.
 
 ## <a name="creating-a-razor-pages-project"></a>Razor sayfalarının proje oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Bkz: [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages/razor-pages-start) Razor sayfalarının oluşturma konusunda ayrıntılı yönergeler için Proje Visual Studio kullanarak.
 
@@ -53,7 +53,7 @@ Bkz: [Razor sayfalarının ile çalışmaya başlama](xref:tutorials/razor-pages
 
 Oluşturulan açmak *.csproj* Visual Studio dosyasından Mac için
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -69,7 +69,7 @@ Oluşturulan açmak *.csproj* Visual Studio dosyasından Mac için
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -113,10 +113,10 @@ URL yollarını sayfalara ilişkilendirmelerini dosya sisteminde sayfanın konum
 
 | Dosya adı ve yolu               | URL eşleştirme |
 | ----------------- | ------------ |
-| */Pages/Index.cshtml* | `/` Veya `/Index` |
+| */Pages/Index.cshtml* | `/` veya `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/Index.cshtml* | `/Store` Veya `/Store/Index` |
+| */Pages/Store/Index.cshtml* | `/Store` veya `/Store/Index` |
 
 Notlar:
 
@@ -295,7 +295,17 @@ Sayfaları Razor görüntüleme altyapısı tüm özellikleri çalışır. Düze
 
 Şimdi bu sayfa bu özelliklerden bazıları yararlanarak declutter.
 
+::: moniker range=">= aspnetcore-2.1"
+
+Ekleme bir [düzen sayfası](xref:mvc/views/layout) için *Pages/Shared/_Layout.cshtml*:
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Ekleme bir [düzen sayfası](xref:mvc/views/layout) için *Pages/_Layout.cshtml*:
+
+::: moniker-end
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_LayoutSimple.cshtml)]
 
@@ -310,7 +320,19 @@ Bkz: [düzen sayfası](xref:mvc/views/layout) daha fazla bilgi için.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
+::: moniker range=">= aspnetcore-2.1"
+
+Düzen bulunduğu *paylaşılan/sayfaları* klasör. Sayfaları başka görünümlerini (düzenleri, şablonlar, kısmi), geçerli sayfa ile aynı klasörde başlangıç hiyerarşik olarak arayın. Bir düzende *paylaşılan/sayfaları* klasörü altında herhangi bir Razor sayfadan kullanılabilir *sayfaları* klasör.
+
+Düzen dosyasını gitmesi gereken *sayfaları/paylaşılan* klasör.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Düzen bulunduğu *sayfaları* klasör. Sayfaları başka görünümlerini (düzenleri, şablonlar, kısmi), geçerli sayfa ile aynı klasörde başlangıç hiyerarşik olarak arayın. Bir düzende *sayfaları* klasörü altında herhangi bir Razor sayfadan kullanılabilir *sayfaları* klasör.
+
+::: moniker-end
 
 Öneririz **değil** Düzen dosyası içine *görünümler/paylaşılan* klasör. *Görünümler/paylaşılan* bir MVC görünümleri deseni. Razor sayfalarının klasör hiyerarşisi, yol kuralları yararlanmayı yöneliktir.
 

@@ -1,20 +1,19 @@
 ---
-title: ASP.NET Core Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir
+title: ASP.NET Core TOTP Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir
 author: rick-anderson
-description: ASP.NET Core iki faktörlü kimlik doğrulamasıyla çalışmak Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştirmek nasıl bulur.
+description: ASP.NET Core iki faktörlü kimlik doğrulamasıyla çalışmak TOTP Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştirmek nasıl bulur.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/24/2017
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 7604371eef1e8dcf35a5c47ef11b66c0669cacc5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b0d8f104119340b97bd65f1826bb921ca875acf8
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274735"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089977"
 ---
-# <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>ASP.NET Core Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir
-
-Not: Bu konu, ASP.NET Core geçerlidir 2.x
+# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET Core TOTP Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir
 
 ASP.NET Core tek tek kimlik doğrulaması için Doğrulayıcı uygulamalar için destek ile birlikte gelir. Bir zaman tabanlı kerelik parola algoritması (TOTP), kullanarak iki faktörlü kimlik doğrulamasını (2FA) Doğrulayıcı uygulamalar önerilen yaklaşımı 2FA için endüstri ' dir. 2FA TOTP kullanarak, SMS 2FA için tercih edilen yöntemdir. Doğrulayıcı uygulama hangi kullanıcıların, kullanıcı adını ve parolayı doğruladıktan sonra girmelisiniz 8 6 rakamlı bir kod sağlar. Genellikle bir doğrulayıcı uygulama üzerinde akıllı telefona yüklenir.
 
@@ -58,7 +57,7 @@ Uygulamanızı çalıştırın ve QR kodunu tarayın ve Doğrulayıcı kanıtlar
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>QR kodu site adını değiştirin
 
-Site adı QR kodu başlangıçta projenizi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirme `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor sayfalarının) dosyası ya da *Controllers\ManageController.cs* (MVC) dosyası. 
+Site adı QR kodu başlangıçta projenizi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirme `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* (Razor sayfalarının) dosyası ya da *Controllers\ManageController.cs* (MVC) dosyası.
 
 Şablondan varsayılan kod şu şekilde görünür:
 
@@ -82,7 +81,7 @@ Tercih edilen kitaplıkla QR kodunu kitaplığı değiştirebilirsiniz. HTML iç
 QR kodunu doğru biçimlendirilmiş URL'sini bulunur:
 
 * `AuthenticatorUri` model özelliği.
-* `data-url` bir özellik `qrCodeData` öğesi. 
+* `data-url` bir özellik `qrCodeData` öğesi.
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP istemci ve sunucu zaman eğme
 

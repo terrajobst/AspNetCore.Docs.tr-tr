@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277780"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077637"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Bir ASP.NET Core Razor sayfasına doğrulama ekleme
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu bölümde, doğrulama mantığını eklenen `Movie` modeli. Doğrulama kuralları, bir kullanıcı oluşturur veya bir filmi düzenler dilediğiniz zaman uygulanır.
 
@@ -45,7 +45,7 @@ Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `
 Doğrulama öznitelikleri zorlanır davranışı model özellikleri belirtin:
 
 * `Required` Ve `MinimumLength` öznitelikleri gösteren bir özelliği bir değere sahip olmalıdır. Ancak, hiçbir şey kullanıcı null atanabilir bir tür için doğrulama kısıtlamasını boşluk geçmesini engeller. Olamayan [değer türleri](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (gibi `decimal`, `int`, `float`, ve `DateTime`) kendiliğinden gereklidir ve gerekmeyen `Required` özniteliği.
-* `RegularExpression` Öznitelik, kullanıcının girebileceği karakterleri sınırlar. Önceki kod `Genre` ve `Rating` yalnızca harf kullanmanız gerekir (boşluk, rakam ve özel karakterler izin verilmiyor).
+* `RegularExpression` Öznitelik, kullanıcının girebileceği karakterleri sınırlar. Önceki kod `Genre` bir veya daha fazla büyük harf ile başlamalı ve sıfır veya daha fazla harf, tek veya çift tırnak, boşluk karakterleri veya kısa çizgi ile izleyin. `Rating` bir veya daha fazla büyük harf ile başlamalı ve ile sıfır veya daha fazla harf, rakam, tek veya çift tırnak, boşluk karakterleri veya tire izleyin.
 * `Range` Özniteliği belirli bir aralık için bir değer kısıtlar.
 * `StringLength` Öznitelik, bir dize uzunluğu en fazla ve isteğe bağlı olarak en az uzunluk ayarlar. 
 

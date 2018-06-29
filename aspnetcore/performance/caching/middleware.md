@@ -2,20 +2,17 @@
 title: Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 author: guardrex
 description: Yapılandırma ve ASP.NET Core yanıt önbelleğe alma Ara kullanma öğrenin.
-manager: wpickett
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 0b33e55acc6b3112349a2a5a791f7563dbd19fb5
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341710"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077653"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt Ara yazılımında ASP.NET çekirdek önbelleğe alma
 
@@ -93,13 +90,13 @@ Yanıt ara yazılım tarafından önbelleğe alma HTTP üstbilgileri kullanılar
 | Cache-Control | İle işaretlenen yanıtlarını önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alınmasını denetleyen:<ul><li>Maksimum yaş</li><li>en çok eski&#8224;</li><li>Min-yeni</li><li>gereken revalidate</li><li>Hayır-önbellek</li><li>Hayır deposu</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s-maxage</li><li>Proxy-revalidate&#8225;</li></ul>&#8224;Sınır için belirtilmişse, `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahip `must-revalidate`.<br><br>Daha fazla bilgi için bkz: [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | A `Pragma: no-cache` istek üstbilgisinde üreten aynı etkiye `Cache-Control: no-cache`. Bu üst ilgili yönergeleri tarafından geçersiz kılınır `Cache-Control` üstbilgisi, varsa. HTTP/1.0 ile geriye dönük uyumluluk için kabul. |
 | Tanımlama bilgisi-Ayarla | Yanıt üstbilgisi mevcutsa önbelleğe değil. Yanıt önbelleğe alınan yanıt önbelleğe alma Ara Ara yazılımların, bir veya daha fazla tanımlama bilgisini ayarlar istek işleme ardışık düzeninde engeller (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcı](xref:fundamentals/app-state#tempdata)).  |
-| değişir | `Vary` Üstbilgisi önbelleğe alınan yanıtın farklılık için kullanılan başka bir üstbilgisi tarafından. Örneğin, ekleyerek kodlayarak yanıtı önbelleğe `Vary: Accept-Encoding` üstbilgileri olan istekler için yanıtlar önbelleğe alır, üst `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak. Bir yanıt üstbilgisi değerini `*` hiçbir zaman depolanır. |
+| Değişir | `Vary` Üstbilgisi önbelleğe alınan yanıtın farklılık için kullanılan başka bir üstbilgisi tarafından. Örneğin, ekleyerek kodlayarak yanıtı önbelleğe `Vary: Accept-Encoding` üstbilgileri olan istekler için yanıtlar önbelleğe alır, üst `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak. Bir yanıt üstbilgisi değerini `*` hiçbir zaman depolanır. |
 | Süre sonu | Bu üstbilgisi tarafından eski kabul yanıt değil veya depolanan diğer tarafından geçersiz kılınmadığı sürece alınan `Cache-Control` üstbilgileri. |
 | If-None-Match | Değer yoksa tam yanıtı önbelleğinden sunulan `*` ve `ETag` yanıtını sağlanan değerlerden herhangi birini eşleşmiyor. Aksi takdirde 304 (değişiklik) yanıt sunulur. |
 | If-Modified-Since | Varsa `If-None-Match` üstbilgisi mevcut değilse, önbelleğe alınan yanıt tarih sağlanan değerden daha yeniyse tam yanıtı önbelleğinden sunulur. Aksi takdirde 304 (değişiklik) yanıt sunulur. |
 | Tarih | Önbelleğe alınan hizmet veren zaman `Date` üstbilgi ayarlanmışsa ara yazılım tarafından özgün yanıtta sağlanmadı. |
 | İçerik Uzunluğu | Önbelleğe alınan hizmet veren zaman `Content-Length` üstbilgi ayarlanmışsa ara yazılım tarafından özgün yanıtta sağlanmadı. |
-| geçerlilik süresi | `Age` Özgün yanıt olarak gönderilen üstbilgisi göz ardı edilir. Ara yazılım, önbelleğe alınan yanıt hizmet veren zaman yeni bir değer hesaplar. |
+| Geçerlilik süresi | `Age` Özgün yanıt olarak gönderilen üstbilgisi göz ardı edilir. Ara yazılım, önbelleğe alınan yanıt hizmet veren zaman yeni bir değer hesaplar. |
 
 ## <a name="caching-respects-request-cache-control-directives"></a>Önbelleğe alma isteği Cache-Control yönergeleri dikkate alır
 
