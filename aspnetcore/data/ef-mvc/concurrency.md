@@ -5,14 +5,18 @@ description: Bu öğretici, birden çok kullanıcı aynı anda aynı varlık gü
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 77e5fba176835f7da9be6c7057084ed017d34bec
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9bf65621213c9657232dfff1701c9937d5105a9c
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278404"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093029"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>EF çekirdek - eşzamanlılık - 8, 10 ile ASP.NET Core MVC
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -207,7 +211,7 @@ Delete sayfa için Entity Framework birisi başka departman benzer bir şekilde 
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
-Yöntemi, bir eşzamanlılık hatası sonra sayfanın görünürler olup olmadığını belirten isteğe bağlı bir parametre kabul eder. Bu bayrağı true olarak ayarlandığında ve artık departman mevcut değilse, başka bir kullanıcı tarafından silindi. Bu durumda, kod dizin sayfasına yönlendirir.  Bu bayrağı true olarak ayarlandığında ve departman mevcut değilse, başka bir kullanıcı tarafından değiştirildi. Bu durumda, görünümü kullanarak kodu bir hata iletisi gönderir `ViewData`.  
+Yöntemi, bir eşzamanlılık hatası sonra sayfanın görünürler olup olmadığını belirten isteğe bağlı bir parametre kabul eder. Bu bayrağı true olarak ayarlandığında ve artık departman mevcut değilse, başka bir kullanıcı tarafından silindi. Bu durumda, kod dizin sayfasına yönlendirir.  Bu bayrağı true olarak ayarlandığında ve departman mevcut değilse, başka bir kullanıcı tarafından değiştirildi. Bu durumda, görünümü kullanarak kodu bir hata iletisi gönderir `ViewData`.
 
 HttpPost kodla `Delete` yöntemi (adlı `DeleteConfirmed`) aşağıdaki kod ile:
 
@@ -276,6 +280,8 @@ Kodla *Views/Departments/Create.cshtml* Seç seçeneği aşağı açılan listey
 
 Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. EF çekirdek eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz: [eşzamanlılık çakışması](https://docs.microsoft.com/ef/core/saving/concurrency). Sonraki öğretici nasıl Eğitmen ve Öğrenci varlıklar için tablo başına hiyerarşisi devralma uygulandığını gösterir.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Önceki](update-related-data.md)
-> [sonraki](inheritance.md)  
+> [sonraki](inheritance.md)

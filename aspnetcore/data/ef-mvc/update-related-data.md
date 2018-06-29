@@ -5,14 +5,18 @@ description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri 
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 53f1607d96a9a1db98f4e80e9582c124cedf6c8d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272656"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093065"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>Veri - 10 7 ASP.NET Core MVC EF çekirdek - güncelleştirme ile ilgili
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -134,7 +138,7 @@ Kod şunları yapar:
         "",
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
-    
+
 -   Ofis konumu boş ise, böylece OfficeAssignment tablodaki ilgili satırda silinecek null olarak Instructor.OfficeAssignment özelliğini ayarlar.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
@@ -213,7 +217,7 @@ Bir indirmelere onay kutusunun seçili edilmedi ancak indirmelere bulunduğu `In
 İçinde *Views/Instructors/Edit.cshtml*, ekleme bir **kurslar** aşağıdakileri ekleyerek onay kutularını dizisi ile alan hemen sonra kod `div` için öğeleri **Office**  alan ve önce `div` öğesi için **kaydetmek** düğmesi.
 
 <a id="notepad"></a>
-> [!NOTE] 
+> [!NOTE]
 > Visual Studio'da kodu yapıştırın, satır sonları kodu keser bir biçimde değiştirilir.  CTRL + Z otomatik biçimlendirme geri almak için bir kez basın.  Burada gördüğünüz gibi göründükleri böylece satır sonları düzeltir. Girinti kusursuz, olmak zorunda değildir ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırlarını her tek bir satıra gösterildiği gibi veya olmalıdır, bir çalışma zamanı hatasıyla karşılaşırsınız. Seçili yeni kod bloğu ile sekme yeni kodu var olan kodu ile hizalamak için üç kez basın. Bu sorunu durumunu kontrol edebilirsiniz [burada](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
@@ -228,7 +232,7 @@ Uygulama, belirleyin **Eğitmen** sekmesine ve tıklayın **Düzenle** görmek i
 
 Bazı indirmelere atamalarını değiştirin ve Kaydet'e tıklayın. Dizin sayfasında yaptığınız değişiklikleri yansıtır.
 
-> [!NOTE] 
+> [!NOTE]
 > Eğitmen indirmelere verileri düzenlemek için burada uygulanan yaklaşıma iyi kurslar sınırlı sayıda olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, çok daha büyük olan koleksiyonları için gerekli olacak.
 
 ## <a name="update-the-delete-page"></a>Güncelleştirme Sil sayfası
@@ -282,7 +286,7 @@ Değiştirirseniz `CourseAssignments` özelliği bu şekilde, denetleyici açık
 
 [!code-html[](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Uygulama çalışırken ve bir eğitmen oluşturma sınayın. 
+Uygulama çalışırken ve bir eğitmen oluşturma sınayın.
 
 ## <a name="handling-transactions"></a>İşleme işlemleri
 
@@ -292,6 +296,8 @@ Uygulama çalışırken ve bir eğitmen oluşturma sınayın.
 
 İlgili verilerle çalışmaya giriş tamamladınız. Sonraki öğreticide eşzamanlılık çakışmaları nasıl ele alınacağını görürsünüz.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Önceki](read-related-data.md)
-> [sonraki](concurrency.md)  
+> [sonraki](concurrency.md)

@@ -5,14 +5,18 @@ description: Bu öğreticide daha fazla varlıkları ve ilişkileri ekleyebilir 
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d89ca44917fac57febc2f8b0d632ae004ca7216c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277393"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093120"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>EF çekirdek - veri modeli - 5, 10 ile ASP.NET Core MVC
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -351,7 +355,7 @@ Her ilişki ucu ve bir yıldız işareti (*) 1 diğer sırasında bir-çok iliş
 
 Kayıt tablo düzeyde bilgi eklemediyseniz, yalnızca iki yabancı anahtarları CourseID ve StudentID içerecek şekilde gerekir. Bu durumda, bir çok-çok birleştirme tablo yükü olmadan (veya bir saf birleştirme tablo) veritabanında olacaktır. Eğitmen ve indirmelere varlıkları bu tür bir çok-çok ilişkisi vardır ve sonraki adımınız yükü olmadan birleştirme tablosu olarak çalışması için bir varlık sınıfı oluşturmaktır.
 
-(Örtük birleştirme tablolarını çok-çok ilişkileri ancak EF çekirdek değildir EF 6.x destekler. Daha fazla bilgi için bkz: [EF çekirdek GitHub deposuna tartışmada](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(Örtük birleştirme tablolarını çok-çok ilişkileri ancak EF çekirdek değildir EF 6.x destekler. Daha fazla bilgi için bkz: [EF çekirdek GitHub deposuna tartışmada](https://github.com/aspnet/EntityFramework/issues/1368).)
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment varlık
 
@@ -437,7 +441,7 @@ Bazen geçişler var olan verilerle yürüttüğünüzde saplama veri yabancı a
 
 Varsayılan departman olarak davranacak şekilde "Temp" adlı yeni bir sütun varsayılan bir değer vermek için kodu değiştirmek zorunda olan verilerle çalışmak ve bir saplama bölüm oluşturma bu geçiş yapmak için. Sonuç olarak, indirmelere satırları varolan tüm sonra "Temp" departmanına ilişkili olacağı `Up` yöntemi çalışır.
 
-* Açık *{timestamp}_ComplexDataModel.cs* dosya. 
+* Açık *{timestamp}_ComplexDataModel.cs* dosya.
 
 * DepartmentID sütun indirmelere tabloya ekler kod satırı çıkışı açıklama.
 
@@ -491,7 +495,8 @@ Sağ **CourseAssignment** tablo ve seçin **görünüm verilerini** veri içinde
 ## <a name="summary"></a>Özet
 
 Artık daha karmaşık veri modeli ve karşılık gelen veritabanı vardır. Aşağıdaki öğreticide, ilgili veri erişimi hakkında daha fazla bilgi edineceksiniz.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Önceki](migrations.md)
-> [sonraki](read-related-data.md)  
+> [sonraki](read-related-data.md)

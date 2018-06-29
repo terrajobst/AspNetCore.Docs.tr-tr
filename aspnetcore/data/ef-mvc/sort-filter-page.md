@@ -5,14 +5,18 @@ description: Bu öğreticide, sıralama, filtreleme ve ASP.NET Core ve Entity Fr
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 34097eacad16c0ffb989efb3b6a8656be4a076cd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273656"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093094"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC EF çekirdek - sıralama, filtre, disk belleği - 10 3 ile
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -110,7 +114,7 @@ Bu aşamada, bir sütun başlığını sıralama bağlantısını tıklatırsan�
 
 Disk belleği Öğrenciler dizin sayfasına eklemek için oluşturacağınız bir `PaginatedList` kullanan sınıfı `Skip` ve `Take` her zaman tablonun tüm satırlarının almak yerine sunucusundaki verileri filtrelemek için deyimleri. Ek değişiklikler hale getireceğiz sonra `Index` yöntemi ve disk belleği düğmelere ekleme `Index` görünümü. Aşağıdaki çizimde, disk belleği düğmeleri gösterir.
 
-![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
+![Disk belleği bağlantılar sayfasıyla Öğrenciler dizin](sort-filter-page/_static/paging.png)
 
 Proje klasöründe oluşturma `PaginatedList.cs`ve ardından şablon kodu aşağıdaki kodla değiştirin.
 
@@ -191,7 +195,7 @@ Disk belleği düğmeler etiketi Yardımcılar tarafından görüntülenir:
 
 Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 
-![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
+![Disk belleği bağlantılar sayfasıyla Öğrenciler dizin](sort-filter-page/_static/paging.png)
 
 Disk belleği çalıştığından emin olmak için farklı sıralamalar disk belleği bağlantıları tıklatın. Ardından bir arama dizesi girin ve yeniden disk belleği de doğru sıralama ve filtreleme ile çalıştığını doğrulamak için disk belleği deneyin.
 
@@ -228,7 +232,7 @@ Değiştir `About` aşağıdaki kod ile yöntemi:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ ifadesi Öğrenci varlıklar kayıt tarihe göre gruplar, her grup içindeki varlıkların sayısı hesaplar ve sonuçları bir koleksiyondaki depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
-> [!NOTE] 
+> [!NOTE]
 > Entity Framework Çekirdek 1.0 sürümü, istemciye tüm sonuç kümesi döndürdü ve gruplandırma istemcide yapılır. Bazı senaryolarda bu performans sorunlarını oluşturabilirsiniz. Veri üretim birimleri ile performansı test edin ve gerekirse ham SQL sunucusunda gruplandırma yapmak için kullanın emin olun. Ham SQL kullanma hakkında daha fazla bilgi için bkz: [bu serideki son Öğreticisi](advanced.md).
 
 ### <a name="modify-the-about-view"></a>Değiştirme Görünüm hakkında
@@ -245,6 +249,8 @@ Uygulamayı çalıştırın ve hakkında sayfasına gidin. Öğrenciler için he
 
 Bu öğreticide, sıralama, filtreleme, disk belleği ve gruplandırma gerçekleştirmeyi öğrendiniz. Sonraki öğreticide geçişler kullanarak veri modeli değişikliklerini işlemek öğreneceksiniz.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Önceki](crud.md)
-> [sonraki](migrations.md)  
+> [sonraki](migrations.md)

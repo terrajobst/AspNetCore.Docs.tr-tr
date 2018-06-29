@@ -5,14 +5,18 @@ description: Bu öğretici ASP.NET Core uygulamada Entity Framework Çekirdek ku
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 818af711c23d37810b29eda8915b3c195a3e48f8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272860"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093003"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>EF çekirdek - devralma - 9, 10 ile ASP.NET Core MVC
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -50,7 +54,7 @@ Birleştirilmiş TPT desenleri karmaşık JOIN sorguları sağladığından TPC 
 
 Bu öğretici nasıl TPH devralma uygulanacağını gösterir. TPH Entity Framework Çekirdek destekleyen tek devralma deseni ortaya çıkar.  Ne siz gerçekleştirirsiniz oluşturmaktır bir `Person` sınıfı, değişiklik `Instructor` ve `Student` öğesinden türetilen sınıflar `Person`, yeni sınıf ekleyin `DbContext`ve bir geçiş oluşturun.
 
-> [!TIP] 
+> [!TIP]
 > Aşağıdaki değişiklik yapmadan önce bir kopyasını proje kaydetme göz önünde bulundurun.  Ardından, sorunları ve baştan başlamak gerek alıyorsanız, Bu öğretici için yapılan adımları ters çevirme veya devam eden yerine kaydedilmiş projeden geri tüm dizileri başlangıcına başlatmak daha kolay olacaktır.
 
 ## <a name="create-the-person-class"></a>Kişi sınıfı oluşturma
@@ -121,7 +125,7 @@ dotnet ef database update
 
 (Bir üretim sisteminde karşılık gelen değişiklikler yapacağınız `Down` yöntemi şimdiye kadar olan, önceki veritabanı sürümüne geri dönmek için kullanılacak durumda. Bu öğretici, olmaz kullanıyor `Down` yöntemi.)
 
-> [!NOTE] 
+> [!NOTE]
 > Şema değişiklikleri var olan verileri içeren bir veritabanına yaparken diğer hatalarıyla mümkündür. Çözümlenemiyor Geçiş hataları alırsanız, bağlantı dizesindeki veritabanı adını değiştirin veya veritabanını silin. Yeni bir veritabanı ile geçirmek için veri yok ve update-database komutunu hatasız tamamlamak daha yüksektir. Veritabanını silmek için SSOX kullanın veya çalıştırın `database drop` CLI komutu.
 
 ## <a name="test-with-inheritance-implemented"></a>Uygulanan devralma ile test
@@ -140,6 +144,8 @@ Kişi tabloyu sağ tıklatın ve ardından **Show Table Data** ayrıştırıcı 
 
 Tablo başına hiyerarşisi devralma uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Entity Framework Çekirdek devralma hakkında daha fazla bilgi için bkz: [devralma](https://docs.microsoft.com/ef/core/modeling/inheritance). Sonraki öğreticide çeşitli göreceli olarak Gelişmiş Entity Framework senaryolarda nasıl ele alınacağını görürsünüz.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Önceki](concurrency.md)
-> [sonraki](advanced.md)  
+> [sonraki](advanced.md)

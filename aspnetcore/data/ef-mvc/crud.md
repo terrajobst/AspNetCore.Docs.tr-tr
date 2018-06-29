@@ -5,14 +5,18 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: e0d454ce4f2319b48b649d46c0878d6969acbc9f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278563"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093107"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>EF çekirdek - CRUD - 2, 10 ile ASP.NET Core MVC
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -20,7 +24,7 @@ Contoso University örnek web uygulaması Entity Framework Çekirdek ve Visual S
 
 Önceki öğreticide depolayan ve SQL Server yerel veritabanı ve Entity Framework kullanarak verileri görüntüleyen bir MVC uygulaması oluşturuldu. Bu öğreticide, gözden geçirmenizi ve CRUD özelleştirme (oluşturma, okuma, güncelleştirme, silme) MVC yapı iskelesi otomatik olarak denetleyicileri ve görünümlerde oluşturur kodu.
 
-> [!NOTE] 
+> [!NOTE]
 > Denetleyicinizi ve veri erişim katmanı arasındaki bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit ve Entity Framework kullanmayı öğretmek odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları EF ile ilgili daha fazla bilgi için bkz: [bu serideki son Öğreticisi](advanced.md).
 
 Bu öğreticide, aşağıdaki web sayfalarının çalışması:
@@ -183,7 +187,7 @@ Bu değişiklikler, HttpPost yöntemi imzası sonucunda `Edit` yöntemi aynıdı
 
 ### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatif HttpPost düzenleme kod: oluşturun ve ekleme
 
-Önerilen HttpPost düzenleme kod yalnızca değiştirilen sütun güncelleştirilmesi ve model bağlama için dahil istemediğiniz özellikleri verilerini korur sağlar. Ancak, ek veritabanı okuma ve eşzamanlılık çakışmalarını işleme için daha karmaşık kod sonuçlanabilir okuma ilk yaklaşım gerektirir. EF bağlamı için model bağlayıcı tarafından oluşturulan bir varlık eklemek ve değiştirilmiş olarak işaretlemek için kullanılan bir alternatiftir. (Projenizin güncelleştirmemeniz şu kodla yalnızca isteğe bağlı bir yaklaşım göstermek için gösterilen.) 
+Önerilen HttpPost düzenleme kod yalnızca değiştirilen sütun güncelleştirilmesi ve model bağlama için dahil istemediğiniz özellikleri verilerini korur sağlar. Ancak, ek veritabanı okuma ve eşzamanlılık çakışmalarını işleme için daha karmaşık kod sonuçlanabilir okuma ilk yaklaşım gerektirir. EF bağlamı için model bağlayıcı tarafından oluşturulan bir varlık eklemek ve değiştirilmiş olarak işaretlemek için kullanılan bir alternatiftir. (Projenizin güncelleştirmemeniz şu kodla yalnızca isteğe bağlı bir yaklaşım göstermek için gösterilen.)
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
@@ -293,6 +297,8 @@ Daha fazla bilgi için bkz: [vs izleme. Hayır-izleme](https://docs.microsoft.co
 
 Artık Öğrenci varlıklar için basit CRUD işlemleri gerçekleştiren sayfaları eksiksiz bir kümesini var. İşlevlerini genişletmek sonraki öğreticide **dizin** sıralama, filtreleme ve disk belleği ekleyerek sayfası.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Önceki](intro.md)
-> [sonraki](sort-filter-page.md)  
+> [sonraki](sort-filter-page.md)

@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: ff2f4b4c2556e31d0261bc2c2ff47a4a6c7a1335
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 70f762f32a9e4fda01418a47e3eb7d7224639a0a
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291599"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092847"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında için filtre yöntemleri
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Razor sayfa filtreleri [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Razor kodu önce ve Razor sayfasını işleyici çalıştırıldıktan sonra çalıştırmak sayfaları olanak verir. Razor sayfa filtreleri benzer [ASP.NET Core MVC eylem filtrelerini](xref:mvc/controllers/filters#action-filters), tek tek sayfa işleyici yöntemlerine uygulanamaz dışında. 
 
@@ -29,7 +29,7 @@ Razor sayfa filtreleri:
 
 Kod sayfası Oluşturucusu veya ara yazılımı kullanarak bir işleyici yöntemi çalışır, ancak yalnızca Razor sayfa filtreleri erişiminiz önce çalıştırılabilir [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_HttpContext). Filtreleri bulunan bir [FilterContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.filtercontext?view=aspnetcore-2.0) erişim sağlayan parametre türetilmiş `HttpContext`. Örneğin, [bir filtre özniteliğini uygulamak](#ifa) örnek yanıt oluşturucular veya ara yazılımı ile yapılamaz bir şey için bir başlık ekler.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 Razor sayfa filtreleri genel olarak veya sayfa düzeyinde uygulanabilir aşağıdaki yöntemleri sağlar:
 

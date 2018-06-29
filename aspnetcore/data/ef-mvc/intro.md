@@ -5,18 +5,22 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 3c418cc4e331ad19b0ec1be3207fa2cc44bef041
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275677"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093133"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Entity Framework Çekirdek - 10 Öğreticisi 1 ile ASP.NET Core MVC
 
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
+
 Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
 Contoso University örnek web uygulaması Entity Framework (EF) çekirdek 2.0 ve Visual Studio 2017 kullanarak ASP.NET Core 2.0 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
 
@@ -31,7 +35,7 @@ EF çekirdek 2.0 EF en son sürümü ancak henüz EF tüm özelliklerini yok 6.x
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[! [] (~/İncludes/net-core-prereqs.md) içerir [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -104,7 +108,7 @@ Projeyi çalıştırın veya seçmek için CTRL + F5 tuşuna basın **hata ayık
 
 Bir projeye EF çekirdek desteği eklemek için hedeflemek istediğiniz veritabanı sağlayıcısı yükleyin. Bu öğreticide SQL Server kullanır ve sağlayıcı paketi [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Bu paket dahil [Microsoft.AspNetCore.All](xref:fundamentals/metapackage) yüklemek zorunda kalmamak için metapackage.
 
-Bu paketi ve bağımlılıklarını (`Microsoft.EntityFrameworkCore` ve `Microsoft.EntityFrameworkCore.Relational`) EF çalışma zamanı desteği sağlar. Bir araç paketi ekleyeceksiniz daha sonra [geçişler](migrations.md) Öğreticisi. 
+Bu paketi ve bağımlılıklarını (`Microsoft.EntityFrameworkCore` ve `Microsoft.EntityFrameworkCore.Relational`) EF çalışma zamanı desteği sağlar. Bir araç paketi ekleyeceksiniz daha sonra [geçişler](migrations.md) Öğreticisi.
 
 Entity Framework Çekirdek için kullanılabilir olan diğer veritabanı sağlayıcıları hakkında daha fazla bilgi için bkz: [veritabanı sağlayıcıları](https://docs.microsoft.com/ef/core/providers/).
 
@@ -358,6 +362,8 @@ Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek
 ## <a name="summary"></a>Özet
 
 Şimdi, depolamak ve verileri görüntülemek için Entity Framework Çekirdek ve SQL Server Express LocalDB kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD gerçekleştirme öğreneceksiniz (Oluştur, oku, Güncelleştir, Sil) işlemleri.
+
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Next](crud.md)

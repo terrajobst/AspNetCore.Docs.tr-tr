@@ -3,20 +3,19 @@ title: Razor sayfalarının ASP.NET Core - CRUD - 2 8'in EF çekirdek ile
 author: rick-anderson
 description: Oluşturma, okuma, güncelleştirme, EF çekirdek ile silmek nasıl gösterir
 ms.author: riande
-ms.date: 10/15/2017
+ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 157257d10306ded3456cd66c186a82edf0ba5d65
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: dfc79964cc4f15851b42822bb97d14800f54b878
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961327"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093016"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor sayfalarının ASP.NET Core - CRUD - 2 8'in EF çekirdek ile
 
-::: moniker range="= aspnetcore-2.0"
-Bu öğretici ASP.NET Core 2.0 sürümünü bulunabilir [bu PDF dosyası](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).
-::: moniker-end
+[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
+
 ::: moniker range=">= aspnetcore-2.1"
 
 Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
@@ -48,6 +47,7 @@ Oluşturulan kodun kullanan [FirstOrDefaultAsync](/dotnet/api/microsoft.entityfr
 * `FirstOrDefaultAsync` Filtre bölümü uyan birden fazla varlık ise throw değil.
 
 <a name="FindAsync"></a>
+
 ### <a name="findasync"></a>Zaman uyumsuz olarak bulur
 
 Çok kurulmuş kod [zaman uyumsuz olarak bulur](/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) yerine kullanılan `FirstOrDefaultAsync`.
@@ -57,8 +57,9 @@ Oluşturulan kodun kullanan [FirstOrDefaultAsync](/dotnet/api/microsoft.entityfr
 * Bir varlığın birincil anahtarının (PK) bulur. BA sahip bir varlık bağlamı tarafından izleniyorsa, Veritabanına bir isteği bu olmadan döndürülür.
 * Basit ve kısa olur.
 * Tek bir varlık aramak için optimize edilmiştir.
-* Bazı durumlarda perf avantajlara sahiptir, ancak nadiren normal web uygulamaları için oyuna geldikleri.
+* Bazı durumlarda performans açısından faydalı olabilir, ancak bunlar nadiren gerçekleşir normal web uygulamaları için.
 * Örtük olarak kullanan [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) yerine [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
+
 Ancak isterseniz `Include` diğer varlıklar, ardından `FindAsync` artık uygun değil. Bu abandon gerekebilir anlamına gelir `FindAsync` ve bir sorgu uygulama ilerledikçe taşıyın.
 
 ## <a name="customize-the-details-page"></a>Ayrıntılar sayfasını özelleştirme
@@ -114,6 +115,7 @@ Güncelleştirme `OnPostAsync` yönteminde *Pages/Students/Create.cshtml.cs* aş
 [!code-csharp[](intro/samples/cu21/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 <a name="TryUpdateModelAsync"></a>
+
 ### <a name="tryupdatemodelasync"></a>TryUpdateModelAsync
 
 İncelemek [TryUpdateModelAsync](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) kod:
@@ -124,10 +126,11 @@ Güncelleştirme `OnPostAsync` yönteminde *Pages/Students/Create.cshtml.cs* aş
 
 Önceki örnekte:
 
-* İkinci bağımsız değişken (` "student", // Prefix`) öneki değerleri aramak için kullanılır. Büyük küçük harfe duyarlı değildir.
+* İkinci bağımsız değişken (`"student", // Prefix`) öneki değerleri aramak için kullanılır. Büyük küçük harfe duyarlı değildir.
 * Gönderilen form değerleri türler dönüştürülür `Student` kullanarak model [model bağlama](xref:mvc/models/model-binding#how-model-binding-works).
 
 <a id="overpost"></a>
+
 ### <a name="overposting"></a>Overposting
 
 Kullanarak `TryUpdateModel` overposting engellediğinden alanları gönderilen değerlerle güncelleştirmek için bir güvenlik en iyi uygulamadır. Örneğin, Öğrenci varlık içerdiğini varsayın bir `Secret` , bu web sayfası ekleme veya döndürmemelidir güncelleştirme özelliği:
