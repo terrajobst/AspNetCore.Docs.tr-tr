@@ -1,6 +1,6 @@
 ::: moniker range=">= aspnetcore-2.1"
 
-Bu öğretici ASP.NET Core 2.1 yükseltilmedi. Bu öğretici ASP.NET Core 2.0 sürümünü seçilerek kullanılabilir **2.0** içindekiler veya sayfanın üst kısmındaki tablonun üstündeki:
+Bu öğretici ASP.NET Core 2.1 yükseltilmedi. Bu öğretici ASP.NET Core 2.0 sürümünü seçilerek kullanılabilir **ASP.NET Core 2.0** içindekiler veya sayfanın üst kısmındaki tablonun üstündeki:
 
 Bu öğretici ASP.NET Core 2.1 Razor sayfalarının sürümü 2.0 sürümünün üzerine birçok gelişme vardır.
 

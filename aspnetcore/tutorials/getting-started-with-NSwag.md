@@ -4,24 +4,29 @@ author: zuckerthoben
 description: Belgeleri oluşturmak ve ASP.NET Core web API'si için sayfa yardımcı olmak için NSwag kullanmayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 06/29/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: f4cc9ec1f32ef2bd0056ba8d0cbbbe9228834d85
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c0811593609b7d1e3529d5253e8b053f180281f3
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279210"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126280"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core kullanmaya başlama
 
 Tarafından [Christoph Nienaber](https://twitter.com/zuckerthoben) ve [Riko Suter](https://rsuter.com)
 
-::: moniker range="<= aspnetcore-2.0"
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
-::: moniker-end
 ::: moniker range=">= aspnetcore-2.1"
+
 [Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+
 ::: moniker-end
 
 Kullanarak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core ile ara yazılımı gerektirir [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Swagger kullanıcı arabirimini (v2 ve v3), bir Swagger oluşturucuyu paketi oluşur ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
@@ -194,19 +199,55 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkinleştirilir:
 
 # <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
 
+::: moniker range=">= aspnetcore-2.0"
+
+* ' Nde projeye sağ **Çözüm Gezgini** seçip **< project_name > .csproj Düzenle**.
+* Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
 * ' Nde projeye sağ **Çözüm Gezgini** seçip **özellikleri**
 * Denetleyin **XML belge dosyası** altında kutusunda **çıkış** bölümünü **yapı** sekmesi
 
+::: moniker-end
+
 # <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Mac için Visual Studio](#tab/visual-studio-mac-xml/)
+
+::: moniker range=">= aspnetcore-2.0"
+
+* Gelen *çözüm paneli*, basın **denetim** ve proje adına tıklayın. Gidin **Araçları** > **dosyasını düzenleyin**.
+* Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 * Açık **proje seçenekleri** iletişim > **yapı** > **derleyici**
 * Denetleme **xml belgeleri oluşturmak** altında kutusunda **Genel Seçenekler** bölümü
 
+::: moniker-end
+
 # <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 
-El ile eklemek için aşağıdaki kod parçacığını *.csproj* dosyası:
+Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/TodoApi.csproj?name=snippet_DocumentationFileElement&highlight=1-2,4)]
+
+::: moniker-end
 
 ---
 

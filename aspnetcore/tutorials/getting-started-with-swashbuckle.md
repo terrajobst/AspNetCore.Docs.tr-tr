@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/31/2018
+ms.date: 06/29/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 7a1fdad874211134308ea3feac3110ea38095d49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 70a1503a1ddbfe7f569d12b0034d967b220c9c44
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274462"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126254"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle ve ASP.NET Core kullanmaya başlama
 
@@ -126,19 +126,55 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkinleştirilebilir.
 
 # <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
 
-* ' Nde projeye sağ **Çözüm Gezgini** seçip **özellikleri**
-* Denetleyin **XML belge dosyası** altında kutusunda **çıkış** bölümünü **yapı** sekmesi
+::: moniker range=">= aspnetcore-2.0"
+
+* ' Nde projeye sağ **Çözüm Gezgini** seçip **< project_name > .csproj Düzenle**.
+* Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+* ' Nde projeye sağ **Çözüm Gezgini** seçip **özellikleri**.
+* Denetleyin **XML belge dosyası** altında kutusunda **çıkış** bölümünü **yapı** sekmesi.
+
+::: moniker-end
 
 # <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Mac için Visual Studio](#tab/visual-studio-mac-xml/)
+
+::: moniker range=">= aspnetcore-2.0"
+
+* Gelen *çözüm paneli*, basın **denetim** ve proje adına tıklayın. Gidin **Araçları** > **dosyasını düzenleyin**.
+* Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 * Açık **proje seçenekleri** iletişim > **yapı** > **derleyici**
 * Denetleme **xml belgeleri oluşturmak** altında kutusunda **Genel Seçenekler** bölümü
 
+::: moniker-end
+
 # <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 
-El ile eklemek için aşağıdaki kod parçacığını *.csproj* dosyası:
+Vurgulanan satırlar el ile eklemeniz *.csproj* dosyası:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=2)]
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
 
 ---
 
@@ -148,15 +184,25 @@ XML açıklamaları etkinleştirme belgelenmemiş genel türleri ve üyeleri iç
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Noktalı virgülle ayrılmış olarak yoksaymak için uyarı kodlarının listesini tanımlayarak uyarıları bastırma *.csproj* dosyası:
+Noktalı virgülle ayrılmış olarak yoksaymak için uyarı kodlarının listesini tanımlayarak uyarıları bastırma *.csproj* dosya. Uyarı kodları ekleyerek `$(NoWarn);` C# varsayılan değerleri çok uygular.
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
+::: moniker range=">= aspnetcore-2.0"
 
-Oluşturulan XML dosyasını kullanmak için Swagger yapılandırın. Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir. Örneğin, bir *TodoApi.XML* Windows ancak değil CentOS dosyanın geçerli olduğu.
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
+
+::: moniker-end
 
 ::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup1x.cs?name=snippet_ConfigureServices&highlight=30-32)]
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
+
+::: moniker-end
+
+Oluşturulan XML dosyasını kullanmak için Swagger yapılandırın. Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir. Örneğin, bir *TodoApi.XML* Windows ancak değil CentOS dosyanın geçerli olduğu.
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
 
 ::: moniker-end
 
@@ -166,13 +212,13 @@ Oluşturulan XML dosyasını kullanmak için Swagger yapılandırın. Linux veya
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range="<= aspnetcore-1.1"
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup1x.cs?name=snippet_ConfigureServices&highlight=30-32)]
 
 ::: moniker-end
 
-Önceki kod [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) , Web API projesi eşleşen bir XML dosya adı oluşturmak için kullanılır. Bu yaklaşım, oluşturulan XML dosya adı proje adının eşleşmesini sağlar. [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) özelliği XML dosyasının yolunu oluşturmak için kullanılır.
+Önceki kod [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) , Web API projesi eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) özelliği XML dosyasının yolunu oluşturmak için kullanılır.
 
 Bir eylem Üçlü eğik çizgi açıklama ekleme, Swagger kullanıcı arabirimini bölüm başlığı açıklama ekleyerek geliştirir. Ekleme bir [ \<Özet >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi yukarıdaki `Delete` eylem:
 

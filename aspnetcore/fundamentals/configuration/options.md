@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 1fe05fbc5035ffa2d01bc6be55436146f1434d17
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 96d7d2956fa9bf72706cde0532ee7f4ff753b72c
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278550"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126267"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -53,6 +53,20 @@ Uygulama çalıştırıldığında, sayfa modelinin `OnGet` yöntemi seçenek s�
 ```html
 option1 = value1_from_json, option2 = -1
 ```
+
+> [!NOTE]
+> Özel bir kullanırken [ConfigurationBuilder](/dotnet/api/system.configuration.configurationbuilder) seçenekleri yapılandırma ayarları dosyasından yüklemek için temel yolu doğru şekilde ayarlandığından emin olun:
+>
+> ```csharp
+> var configBuilder = new ConfigurationBuilder()
+>    .SetBasePath(Directory.GetCurrentDirectory())
+>    .AddJsonFile("appsettings.json", optional: true);
+> var config = configBuilder.Build();
+>
+> services.Configure<MyOptions>(config);
+> ```
+>
+> Taban yol açıkça ayarlama değil gerekli seçenekleri yapılandırma ayarları dosyasından yüklenirken [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Bir temsilci ile basit seçeneklerini yapılandırma
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 0149039f69539b7c69d7ba45efcf09d80ffcba79
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 718cc83bb29c0cff323853d22c107e00616b1dd1
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275104"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126241"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Bir Windows hizmetinde konak ASP.NET Çekirdeği
 
@@ -54,29 +54,39 @@ Bir hizmet olarak çalıştırmak üzere mevcut bir ASP.NET Core projeyi ayarlam
 
      ::: moniker-end
 
-1. Uygulamayı bir klasöre yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profili](xref:host-and-deploy/visual-studio-publish-profiles) bir klasöre yayımlar.
+1. Uygulamayı yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profili](xref:host-and-deploy/visual-studio-publish-profiles).
 
    Komut satırından örnek uygulamayı yayımlamak için proje klasöründen konsol penceresinde aşağıdaki komutu çalıştırın:
 
    ```console
-   dotnet publish --configuration Release --output c:\svc
+   dotnet publish --configuration Release
    ```
 
-1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı (`sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"`). `binPath` Yürütülebilir dosya adı içeren uygulamanın yürütülebilir dosya yolu bir değerdir. **Eşittir işareti ve yol başlatır tırnak karakteri arasındaki boşluğu gereklidir.**
+1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Yürütülebilir dosya adı içeren uygulamanın yürütülebilir dosya yolu bir değerdir. **Eşittir işareti ve yolun başlangıcında tırnak karakteri arasındaki boşluğu gereklidir.**
 
-   Örnek uygulama ve aşağıdaki komut, hizmet içindir:
+   ```console
+   sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
+   ```
+
+   Proje klasöründe yayımlanan bir hizmet için yolunu kullanın *yayımlama* hizmeti oluşturmak için klasör. Aşağıdaki örnekte hizmetidir:
 
    * Adlı **MyService**.
-   * Yayımlanan *c:\\svc* klasör.
-   * Sahip adlı bir uygulama yürütülebilir *AspNetCoreService.exe*.
+   * Yayımlanan *c:\\my_services\\AspNetCoreService\\bin\\sürüm\\&lt;TARGET_FRAMEWORK&gt;\\Yayımlama* klasör.
+   * Adlı bir uygulama tarafından yürütülebilir temsil *AspNetCoreService.exe*.
 
    Yönetici ayrıcalıklarıyla bir komut kabuğu'nu açın ve aşağıdaki komutu çalıştırın:
 
    ```console
-   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\my_services\aspnetcoreservice\bin\release\<TARGET_FRAMEWORK>\publish\aspnetcoreservice.exe"
    ```
-
-   **Alanı arasında mevcut olduğundan emin olun `binPath=` bağımsız değişkeni ve değeri.**
+   
+   > [!IMPORTANT]
+   > Alanı arasında mevcut olduğundan emin olun `binPath=` bağımsız değişkeni ve değeri.
+   
+   Yayımlama ve farklı bir klasör hizmetini başlatmak için:
+   
+   1. Kullanım [--çıkış &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneği `dotnet publish` komutu.
+   1. İle hizmet oluşturma `sc.exe` çıkış klasörü yolu kullanarak komutu. Sağlanan yol hizmetin yürütülebilir dosyanın adını dahil `binPath`.
 
 1. Hizmetle başlar `sc start <SERVICE_NAME>` komutu.
 
