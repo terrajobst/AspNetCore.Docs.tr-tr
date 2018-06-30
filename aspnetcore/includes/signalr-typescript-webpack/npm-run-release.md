@@ -1,0 +1,15 @@
+```console
+npm run release
+```
+
+<span data-ttu-id="2090d-101">Bu komut, uygulama çalışırken sunulması için istemci tarafı varlıklar verir.</span><span class="sxs-lookup"><span data-stu-id="2090d-101">This command yields the client-side assets to be served when running the app.</span></span> <span data-ttu-id="2090d-102">Varlıkları yerleştirilir *wwwroot* klasör.</span><span class="sxs-lookup"><span data-stu-id="2090d-102">The assets are placed in the *wwwroot* folder.</span></span>
+
+<span data-ttu-id="2090d-103">Webpack aşağıdaki görevleri tamamlandı:</span><span class="sxs-lookup"><span data-stu-id="2090d-103">Webpack completed the following tasks:</span></span>
+
+* <span data-ttu-id="2090d-104">İçeriğini temizlendi *wwwroot* dizin.</span><span class="sxs-lookup"><span data-stu-id="2090d-104">Purged the contents of the *wwwroot* directory.</span></span>
+* <span data-ttu-id="2090d-105">JavaScript TypeScript dönüştürülen&mdash;olarak da bilinen bir işlem *transpilation*.</span><span class="sxs-lookup"><span data-stu-id="2090d-105">Converted the TypeScript to JavaScript&mdash;a process known as *transpilation*.</span></span>
+* <span data-ttu-id="2090d-106">Dosya boyutunu azaltmak için oluşturulan JavaScript karıştırılmış&mdash;olarak da bilinen bir işlem *küçültme*.</span><span class="sxs-lookup"><span data-stu-id="2090d-106">Mangled the generated JavaScript to reduce file size&mdash;a process known as *minification*.</span></span>
+* <span data-ttu-id="2090d-107">İşlenen JavaScript, CSS ve HTML dosyaları kopyaladığınız *src* için *wwwroot* dizin.</span><span class="sxs-lookup"><span data-stu-id="2090d-107">Copied the processed JavaScript, CSS, and HTML files from *src* to the *wwwroot* directory.</span></span>
+* <span data-ttu-id="2090d-108">Aşağıdaki öğeler haline eklenen *wwwroot/index.html* dosyası:</span><span class="sxs-lookup"><span data-stu-id="2090d-108">Injected the following elements into the *wwwroot/index.html* file:</span></span>
+    * <span data-ttu-id="2090d-109">A `<link>` etiketi, başvuran *wwwroot/ana.\< karma\>.css* dosya.</span><span class="sxs-lookup"><span data-stu-id="2090d-109">A `<link>` tag, referencing the *wwwroot/main.\<hash\>.css* file.</span></span> <span data-ttu-id="2090d-110">Bu etiket hemen kapatmadan önce yerleştirilir `</head>` etiketi.</span><span class="sxs-lookup"><span data-stu-id="2090d-110">This tag is placed immediately before the closing `</head>` tag.</span></span>
+    * <span data-ttu-id="2090d-111">A `<script>` küçültülmüş başvuran etiketi *wwwroot/ana.\< karma\>.js* dosya.</span><span class="sxs-lookup"><span data-stu-id="2090d-111">A `<script>` tag, referencing the minified *wwwroot/main.\<hash\>.js* file.</span></span> <span data-ttu-id="2090d-112">Bu etiket hemen kapatmadan önce yerleştirilir `</body>` etiketi.</span><span class="sxs-lookup"><span data-stu-id="2090d-112">This tag is placed immediately before the closing `</body>` tag.</span></span>
