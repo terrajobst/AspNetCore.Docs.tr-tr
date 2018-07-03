@@ -1,39 +1,41 @@
 ---
-title: ASP.NET çekirdeği ile .NET (OWIN) için Web Arabirimi'ni açmak
+title: ASP.NET Core ile .NET (OWIN) için Web arabirimini açın
 author: ardalis
-description: ASP.NET Core açık Web arabirimi için .NET (hangi web uygulamalarının web sunucularından ayrılmış sağlar OWIN), nasıl desteklediği bulur.
+description: ASP.NET Core açık Web arabirimi için .NET (web sunucularından ölçeklendirilebilmeleri web apps sağlar OWIN), nasıl desteklediğini öğrenin.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 864580edd62032ad1409c1d3263cb5d464fa59fe
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273630"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144969"
 ---
-# <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET çekirdeği ile .NET (OWIN) için Web Arabirimi'ni açmak
+# <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET Core ile .NET (OWIN) için Web arabirimini açın
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core açık Web arabirimi .NET (OWIN) destekler. OWIN web uygulamalarının web sunucularından ayrılmış sağlar. Ardışık düzeninde istekleri ve ilişkili yanıtları işlemek için kullanılan ara yazılımı için standart bir biçimde tanımlar. ASP.NET Core uygulamaları ve ara yazılım OWIN tabanlı uygulamalar, sunucuları ve ara yazılımı ile çalışabilirler.
+ASP.NET Core, .NET (OWIN) için açık Web arabirimi destekler. OWIN web uygulamalarının web sunucularından ölçeklendirilebilmeleri sağlar. Bu, bir işlem hattında isteklerini ve yanıtlarını ilişkili işlemek için kullanılan ara yazılımı için standart bir biçimde tanımlar. ASP.NET Core uygulamaları ve ara yazılımlar OWIN tabanlı uygulamalar, sunucuları ve ara yazılım ile çalışabilirler.
 
-OWIN birlikte kullanılmak üzere farklı nesne modeline iki çerçeveleri izin veren bir decoupling katmanı sağlar. `Microsoft.AspNetCore.Owin` Paket iki bağdaştırıcı uygulamaları sağlar:
-- OWIN için ASP.NET Çekirdeği 
-- ASP.NET Core OWIN
+OWIN iki çerçeveleri ile birlikte kullanılmak üzere farklı nesne modeline izin veren bir decoupling katmanı sağlar. `Microsoft.AspNetCore.Owin` Paket iki bağdaştırıcı uygulamaları sağlar:
 
-Bir OWIN uyumlu sunucu/ana bilgisayar üstünde veya ASP.NET Core üzerinde çalıştırılacak diğer OWIN uyumlu bileşenlerine yönelik barındırılmasını ASP.NET Core sağlar.
+* OWIN için ASP.NET Core 
+* OWIN ASP.NET core'a
 
-Not: Bu bağdaştırıcılar kullanarak bir performans ile gelir. Yalnızca ASP.NET Core bileşenleri kullanan uygulamalar Owın paket ya da bağdaştırıcıları kullanmamalısınız.
+Bu, ASP.NET Core, ASP.NET Core üzerinde çalıştırılacak diğer OWIN uyumlu bileşenler için ya da bir OWIN uyumlu sunucusu/ana bilgisayar üzerinde barındırılması sağlar.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+> [!NOTE]
+> Bu bağdaştırıcılar kullanarak performans maliyetine ile birlikte gelir. Yalnızca ASP.NET Core bileşenlerini kullanarak uygulama olmamalıdır kullanın `Microsoft.AspNetCore.Owin` paketi veya bağdaştırıcıları.
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>ASP.NET ardışık düzeninde OWIN ara yazılımı çalıştırma
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-ASP.NET Core'nın OWIN destek parçası olarak dağıtılan `Microsoft.AspNetCore.Owin` paket. Bu paketi yüklerken projenize OWIN destek alabilirsiniz.
+## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>ASP.NET işlem hattında OWIN ara yazılımı çalıştırma
 
-OWIN ara yazılımı uyan için [OWIN belirtimi](http://owin.org/spec/spec/owin-1.0.0.html), gerektiren bir `Func<IDictionary<string, object>, Task>` arabirimi ve özel anahtarları ayarlanabilir (gibi `owin.ResponseBody`). Aşağıdaki basit OWIN ara yazılımı "Hello World" görüntüler:
+ASP.NET Core'nın OWIN desteği parçası olarak dağıtılan `Microsoft.AspNetCore.Owin` paket. Bu paketi yükleyerek projenize OWIN destek alabilirsiniz.
+
+OWIN ara yazılımı uygun şekilde [OWIN belirtimi](http://owin.org/spec/spec/owin-1.0.0.html), gerektiren bir `Func<IDictionary<string, object>, Task>` arabirimi ve özel anahtarları ayarlanabilir (gibi `owin.ResponseBody`). Aşağıdaki basit OWIN ara yazılımı "Hello World" görüntüler:
 
 ```csharp
 public Task OwinHello(IDictionary<string, object> environment)
@@ -52,9 +54,9 @@ public Task OwinHello(IDictionary<string, object> environment)
 }
 ```
 
-Örnek imza döndüren bir `Task` ve kabul eden bir `IDictionary<string, object>` OWIN gerektirdiği.
+Örnek imza döndürür bir `Task` ve kabul eden bir `IDictionary<string, object>` OWIN gerektirdiği.
 
-Aşağıdaki kodu nasıl ekleneceğini gösterir `OwinHello` (yukarıda için ASP.NET ardışık düzenini ile gösterilen) Ara `UseOwin` genişletme yöntemi.
+Aşağıdaki kod nasıl ekleneceğini gösterir `OwinHello` (yukarıda için ASP.NET ardışık düzeni ile gösterilen) bir ara yazılım `UseOwin` genişletme yöntemi.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -66,13 +68,13 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-OWIN ardışık düzenini içinde gerçekleşmesi için başka eylemler yapılandırabilirsiniz.
+OWIN ardışık düzenini içinde gerçekleşmesi için diğer eylemleri yapılandırabilirsiniz.
 
 > [!NOTE]
-> Yanıt Üstbilgileri yanıt akışa ilk Yazımdan önce yalnızca değiştirilmesi gerekir.
+> Yanıt üst bilgilerini yalnızca yanıt akışa ilk Yazımdan önce düzeltilmelidir.
 
 > [!NOTE]
-> Birden çok çağrılar `UseOwin` performans nedenleriyle önerilmez. OWIN bileşenleri bir arada gruplandırılmış, en iyi şekilde çalışır.
+> Birden çok çağrılar `UseOwin` Performans nedeniyle önerilmez. OWIN bileşenleri, gruplandırılmış, en iyi şekilde çalışır.
 
 ```csharp
 app.UseOwin(pipeline =>
@@ -90,13 +92,13 @@ app.UseOwin(pipeline =>
 
 ## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Bir OWIN tabanlı sunucu üzerinde kullanarak ASP.NET barındırma
 
-OWIN tabanlı sunucular ASP.NET uygulamalarını barındırabilir. Bu tür bir sunucu [Nowin](https://github.com/Bobris/Nowin), bir .NET OWIN web sunucusu. Bu makalede örnek t Nowin başvuruyor ve oluşturmak için kullandığı bir proje dahil ettiğiniz bir `IServer` ASP.NET Core kendi kendine barındırma yeteneğine sahip.
+OWIN tabanlı sunucular, ASP.NET uygulamaları barındırabilir. Bir sunucu [Nowin](https://github.com/Bobris/Nowin), bir .NET OWIN web sunucusu. Bu makalede örnek miyim Nowin atıfta bulunan ve oluşturmak için kullandığı bir proje dahil ettiğiniz bir `IServer` ASP.NET Core kendi kendine barındırma yeteneğine.
 
 [!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
 `IServer` gerektiren bir arabirim bir `Features` özelliği ve `Start` yöntemi.
 
-`Start` Yapılandırma ve bu durumda bir dizi IServerAddressesFeature Ayrıştırılan adreslerini ayarlamak fluent API çağrısı yoluyla yapılır sunucu başlangıç sorumludur. Unutmayın fluent yapılandırmasını `_builder` değişkeni belirtir istekleri tarafından işlenecek `appFunc` yöntemi önceden tanımlanmış. Bu `Func` her istekte gelen istekleri işlemek üzere çağrılır.
+`Start` Yapılandırma ve bu durumda bir dizi IServerAddressesFeature Ayrıştırılan adreslerini ayarlamak fluent API'si çağrısı yapılır sunucunun başlatmak için sorumludur. Unutmayın fluent yapılandırmasını `_builder` değişkeni, istek tarafından işleneceğini belirtir `appFunc` yönteminde tanımlanmış. Bu `Func` her istekte gelen istekleri işlemek için çağrılır.
 
 Ayrıca ekleyeceğiz bir `IWebHostBuilder` Nowin sunucu ekleme ve yapılandırma kolaylaştırmak için uzantı.
 
@@ -131,7 +133,7 @@ namespace Microsoft.AspNetCore.Hosting
 }
 ```
 
-Bu yerinde uzantı çağırma *Program.cs* bu özel sunucu kullanarak bir ASP.NET Core uygulamayı çalıştırmak için:
+Bu yerinde uzantı çağırmak *Program.cs* bu özel sunucu kullanarak ASP.NET Core uygulaması çalıştırmak için:
 
 ```csharp
 using System;
@@ -162,9 +164,9 @@ namespace NowinSample
 
 ASP.NET hakkında daha fazla bilgi [sunucuları](servers/index.md).
 
-## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>Bir OWIN tabanlı sunucu üzerinde ASP.NET Core çalıştırın ve WebSockets desteğini kullanın
+## <a name="run-aspnet-core-on-an-owin-based-server-and-use-its-websockets-support"></a>ASP.NET Core OWIN tabanlı bir sunucuda çalıştırın ve WebSockets desteğini kullanma
 
-OWIN tabanlı nasıl sunucularındaki özellikleri başka bir örneği tarafından yararlanılabilir ASP.NET çekirdeği WebSockets gibi özellikleri erişimi olur. Önceki örnekte kullanılan .NET OWIN web sunucusu Web, yerleşik olan bir ASP.NET Core uygulama tarafından yararlanılabilir yuva desteği vardır. Aşağıdaki örnek, Web yuvalarını destekliyorsa ve geri WebSockets aracılığıyla sunucuya gönderilen her şeyi görüntülemektedir bir basit bir web uygulaması gösterir.
+OWIN tabanlı nasıl sunucularının özelliklerinin başka bir örnek tarafından yararlanılabilir ASP.NET Core, WebSockets gibi özelliklere erişim. Önceki örnekte kullanılan .NET OWIN web sunucusunun Web yerleşik olan bir ASP.NET Core uygulaması tarafından yararlanılabilir yuva için destek sunar. Aşağıdaki örnek, Web yuvalarını destekliyorsa ve WebSockets üzerinden sunucusuna gönderilen her şeyi yankılayan basit web uygulaması gösterir.
 
 ```csharp
 public class Startup
@@ -212,13 +214,13 @@ public class Startup
 }
 ```
 
-Bu [örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) aynı kullanılarak yapılandırılmış `NowinServer` önceki bir - yalnızca nasıl uygulama yapılandırılan içinde farktır kendi `Configure` yöntemi. Kullanarak bir test [basit websocket istemci](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) uygulaması gösterir:
+Bu [örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) aynı kullanılarak yapılandırılan `NowinServer` nasıl uygulama yapılandırılan içinde önceki tek - tek fark, kendi `Configure` yöntemi. Kullanarak bir test [basit websocket istemcisi](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) uygulaması gösterir:
 
 ![Web yuvası Test İstemcisi](owin/_static/websocket-test.png)
 
 ## <a name="owin-environment"></a>OWIN ortamı
 
-Bir OWIN ortamı kullanarak oluşturabileceğiniz `HttpContext`.
+Bir OWIN ortamı kullanarak oluşturabilirsiniz `HttpContext`.
 
 ```csharp
 
@@ -228,7 +230,7 @@ Bir OWIN ortamı kullanarak oluşturabileceğiniz `HttpContext`.
 
 ## <a name="owin-keys"></a>OWIN anahtarları
 
-OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange genelinde bilgileri iletişim kurmak için nesne. ASP.NET Core aşağıda listelenen anahtarları uygular. Bkz: [birincil belirtimi, uzantıları](http://owin.org/#spec), ve [OWIN anahtarı kılavuzları ve ortak anahtarlar](http://owin.org/spec/spec/CommonKeys.html).
+OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange içinde bilgi iletişim kurmak için nesne. ASP.NET Core, aşağıda listelenen anahtarları uygular. Bkz: [birincil belirtimi, uzantıları](http://owin.org/#spec), ve [OWIN anahtar yönergeleri ve ortak anahtarları](http://owin.org/spec/spec/CommonKeys.html).
 
 ### <a name="request-data-owin-v100"></a>İstek verileri (OWIN v1.0.0)
 
@@ -241,7 +243,7 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | owin.RequestQueryString  | `String` | |    
 | owın. RequestProtocol  | `String` | |    
 | owın. RequestHeaders | `IDictionary<string,string[]>`  | |
-| owın. RequestBody | `Stream`  | |
+| owın. Includesearchresults: true | `Stream`  | |
 
 ### <a name="request-data-owin-v110"></a>İstek verileri (OWIN v1.1.0)
 
@@ -285,7 +287,7 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| sendfile. SendAsync | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
+| sendfile. SendAsync | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
 
 
 ### <a name="opaque-v030"></a>Donuk v0.3.0
@@ -293,8 +295,8 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | Donuk. Sürüm | `String` |  |
-| Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| Donuk. Akış | `Stream` |  |
+| Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| Donuk. Stream | `Stream` |  |
 | Donuk. CallCancelled | `CancellationToken` |  |
 
 
@@ -303,12 +305,12 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | websocket. Sürüm | `String` |  |
-| websocket. Kabul et | `WebSocketAccept` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
-| websocket. AcceptAlt |  | Olmayan belirtimi |
-| websocket. SubProtocol | `String` | Bkz: [RFC6455 bölüm 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) adım 5.5 |
-| websocket. SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imza](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket. Kabul et | `WebSocketAccept` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| websocket. AcceptAlt |  | Non-spec |
+| websocket. Geçersizdir | `String` | Bkz: [RFC6455 bölüm 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) adım 5.5 |
+| websocket. SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
 | websocket. CallCancelled | `CancellationToken` |  |
 | websocket. ClientCloseStatus | `int` | İsteğe Bağlı |
 | websocket.ClientCloseDescription | `String` | İsteğe Bağlı |
