@@ -1,139 +1,138 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
-title: Belirli bir yapı dağıtma | Microsoft Docs
+title: Belirli bir derlemeyi dağıtma | Microsoft Docs
 author: jrjlee
-description: Bu konuda, web paketleri ve hazırlık veya üretim ortamını gibi yeni bir hedefe belirli bir önceki yapıdan veritabanı komut dosyalarında dağıtmayı açıklar...
+description: Bu konuda, web paketleri ve bir hazırlık veya üretim ortamını gibi yeni bir hedef veritabanı komutları belirli bir önceki yapıdan dağıtmayı açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6d55497dbc13133aa9c8b8eaecca0f6915fd9ed0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880043"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388230"
 ---
-<a name="deploying-a-specific-build"></a>Belirli bir yapı dağıtma
+<a name="deploying-a-specific-build"></a>Belirli bir derlemeyi dağıtma
 ====================
 tarafından [Jason Lee](https://github.com/jrjlee)
 
-[PDF indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, web paketleri ve bir hazırlık veya üretim ortamı gibi yeni bir hedefe belirli bir önceki yapıdan veritabanı komut dosyalarında dağıtmayı açıklar.
+> Bu konuda, web paketleri ve bir hazırlık veya üretim ortamı gibi yeni bir hedef veritabanı komutları belirli bir önceki yapıdan dağıtmayı açıklar.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
-Bu öğreticileri merkezinde dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyası anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım süreci tarafından denetlenen içinde iki dosyaları proje&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir uygulama oluşturma yönergeleri içeren. Derleme zamanında ortama özgü proje dosyası oluşturma yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
+Bu öğreticileri temelini dağıtım yöntemi, açıklanan bölünmüş proje dosyası yaklaşım dayalı [proje dosyasını anlama](../web-deployment-in-the-enterprise/understanding-the-project-file.md), hangi derleme ve dağıtım işlemi tarafından denetlenir içinde iki proje dosyaları&#x2014;bir Her hedef ortam ve ortama özgü derleme ve dağıtım ayarları içeren bir geçerli derleme yönergeleri içeren. Derleme sırasında ortama özgü proje dosyası derleme yönergeleri eksiksiz bir kümesini oluşturmak için ortam belirsiz proje dosyasına birleştirilir.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
-Şimdiye kadar Bu öğretici kümedeki konular yapı, paket ve web uygulamaları ve veritabanlarını tek adımlı bir parçası olarak dağıtma odaklanan veya işlem otomatik. Ancak, bazı genel senaryolar bırakma klasörüne derlemelerde listesinden dağıttığınız kaynakları seçin istersiniz. Diğer bir deyişle, en son sürüme dağıtmak istediğiniz yapı olmayabilir.
+Şimdiye kadar Bu öğretici kümesinde konuları derleme, paketleme ve web uygulamaları ve veritabanlarının tek adımlı bir parçası olarak dağıtma konusunda odaklanmış veya işlem otomatik. Ancak, bazı yaygın senaryolarda, dağıttığınız kaynakları yapı bırakma klasöründe bir listeden seçmek isteyebilirsiniz. Diğer bir deyişle, dağıtmak istediğiniz derleme en son sürüme sahip olmayabilir.
 
-Önceki konu başlığı altında açıklanan sürekli tümleştirme (CI) senaryoyu göz önünde bulundurun [bir yapı tanımı olduğunu destekleyen dağıtım oluşturma](creating-a-build-definition-that-supports-deployment.md). Team Foundation Server (TFS) 2010 bir derleme tanımınız oluşturduğunuzu düşünün. Geliştirici kodunu TFS'ye denetler. her zaman, ekip kodunuzu yapı, web paketleri ve veritabanı komut dosyalarında yapılandırma işleminin bir parçası olarak, tüm birim testleri çalıştırma, oluşturup kaynaklarınızı bir test ortamına dağıtabilirsiniz. Yapı tanımı oluştururken yapılandırılmış bekletme ilkesi bağlı olarak, TFS belirli bir sayıda önceki yapıları korur.
+Önceki konu başlığında, sürekli tümleştirme (CI) senaryoyu göz önünde bulundurun [bir derleme tanımı, destekleyen dağıtım oluşturma](creating-a-build-definition-that-supports-deployment.md). Team Foundation Server (TFS) 2010 derleme tanımını oluşturdunuz. Bir geliştirici kod TFS'ye denetler. her zaman, ekip, kodunuzu derlemek, web paketleri ve veritabanı betikleri oluşturma işleminin bir parçası oluşturun, herhangi bir birim testleri çalıştırma ve kaynaklarınızın bir test ortamına dağıtın. Yapı tanımınızı oluştururken yapılandırılmış bekletme ilkesi bağlı olarak, TFS belirli bir önceki derleme sayısı korur.
 
 ![](deploying-a-specific-build/_static/image1.png)
 
-Şimdi, doğrulama gerçekleştirdiğiniz ve bunlardan birini karşı test doğrulama, test ortamınızda oluşturur ve hazırlama ortamına uygulamanızı dağıtmak hazır varsayalım. Bu arada, geliştiricilerin yeni kodda kullanıma. Çözümü yeniden derleyin ve hazırlama ortamına dağıtmak istediğiniz yoktur ve en son sürüme hazırlama ortamına dağıtmayı istemiyorum. Bunun yerine, doğrulandı ve test sunucularda doğrulanmış belirli yapı dağıtmak istediğiniz.
+Şimdi, doğrulama gerçekleştirdiğiniz doğrulama sınaması bunlardan birini karşı test ortamınızda oluşturur ve uygulamanızı bir hazırlama ortamına dağıtmak hazır olduğunu varsayalım. Bu arada, geliştiricilerin yeni kodu iade etmiş olabilir. Çözümü yeniden oluşturun ve hazırlama ortamına dağıtmak istemediğiniz ve en son sürüme hazırlama ortamına dağıtmak istemiyorsanız. Bunun yerine, doğrulanabilir ve test sunucuları doğrulanmış belirli yapı dağıtmak istediğiniz.
 
-Bunu başarmak için Microsoft Build Engine (MSBuild) web paketleri ve belirli bir yapı oluşturulan veritabanı komut dosyaları nerede bulacağını bildirir gerekir.
+Bunu yapmak için Microsoft Build Engine (MSBuild) web paketleri ve belirli bir yapıyı oluşturan veritabanı komut dosyaları nerede bulacağını söylemeniz gerekir.
 
 ## <a name="overriding-the-outputroot-property"></a>OutputRoot özelliği geçersiz kılma
 
-İçinde [örnek çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md), *Publish.proj* dosya adlı bir özelliği bildirir **OutputRoot**. Adı da anlaşılacağı gibi derleme işlemini oluşturan her şeyi içeren kök klasörü budur. İçinde *Publish.proj* dosya, gördüğünüz, **OutputRoot** tüm dağıtım kaynaklarını kök konumunu başvurduğu özelliği.
+İçinde [örnek çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md), *Publish.proj* dosya bildirir adlandırılmış bir özelliği **OutputRoot**. Adından da anlaşılacağı gibi yapı işleminin oluşturduğu her şeyi içeren kök klasörü budur. İçinde *Publish.proj* görebilirsiniz, dosya, **OutputRoot** özelliği tüm dağıtım kaynakları kök konumunu belirtir.
 
 > [!NOTE]
-> **OutputRoot** yaygın olarak kullanılan özellik adı. Visual C# ve Visual Basic proje dosyalarını da tüm yapı çıkışları kök konumunu depolamak için bu özelliği bildirin.
+> **OutputRoot** yaygın olarak kullanılan özellik adı. Visual C# ve Visual Basic proje dosyaları, tüm derleme çıktılarını kök konumunu depolamak için bu özellik ayrıca bildirin.
 
 
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Web paketleri dağıtmak ve komut dosyaları farklı bir konumdan veritabanı için proje dosyanızı istiyorsanız&#x2014;ister bir önceki TFS derlemesi çıkışları&#x2014;geçersiz kılmak yeterlidir **OutputRoot** özelliği. Özellik değeri ilgili derleme klasörüne ekip sunucuda ayarlamanız gerekir. MSBuild komut satırından çalışıyormuş için bir değer belirtebilirsiniz **OutputRoot** komut satırı bağımsız değişkeni olarak:
+Web paketleri dağıtma ve komut dosyaları farklı bir konumdan veritabanı için proje dosyanızı istiyorsanız&#x2014;ister bir önceki TFS derleme çıktıları&#x2014;geçersiz kılmak yeterlidir **OutputRoot** özelliği. İlgili yapı klasörüne özellik değeri ekip sunucusunda ayarlamanız gerekir. MSBuild komut satırından çalıştırmak için bir değer belirtebilirsiniz **OutputRoot** komut satırı bağımsız değişkeni olarak:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-Uygulamada, ancak aynı zamanda atlamak istediğiniz **yapı** hedef&#x2014;yapı çıktıları kullanmayı planlamıyorsanız, çözümü oluşturma içinde noktası yok. Bu komut satırından çalıştırmak istediğiniz hedefleri belirterek yapabilirsiniz:
+Uygulamada, ancak aynı zamanda atlamak istediğiniz **derleme** hedef&#x2014;yapı çıkışlarını kullanmayı planlamıyorsanız, çözümünüzü oluşturmaya noktası yok. Komut satırından yürütmek istediğiniz hedefleri belirleyerek bunu yapabilirsiniz:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
 
 
-Bununla birlikte, çoğu durumda, dağıtım mantığınızı TFS derleme tanımı oluşturmak istersiniz. Bu kullanıcılarla sağlar **sıraya derlemeleri** bağlantısı olan herhangi bir Visual Studio yüklemesi dağıtımından TFS sunucusuna tetiklemek için izni.
+Ancak, çoğu durumda, bir TFS yapı tanımına dağıtım mantığınızı oluşturmak isteyebilirsiniz. Bu kullanıcılarla sağlar **derlemeleri sıraya** izni TFS sunucusu bağlantısı olan herhangi bir Visual Studio yüklemesinden dağıtım tetikleyin.
 
-## <a name="creating-a-build-definition-to-deploy-specific-builds"></a>Dağıtmak için derleme tanımını özel oluşturma yapıları
+## <a name="creating-a-build-definition-to-deploy-specific-builds"></a>Belirli dağıtmak için bir yapı tanımı oluşturma yapıları
 
-Sonraki yordam, tetikleyici dağıtımları için hazırlama ortamında tek bir komutla kullanıcılara sağlayan bir derleme tanımınız oluşturmayı açıklar.
+Sonraki yordam, kullanıcıların tetikleyici dağıtımlar için tek bir komutla bir hazırlık ortamı için sağlayan bir yapı tanımı oluşturmak açıklar.
 
-Bu durumda, gerçekten her şeyi oluşturmak için derleme tanımını istemediğiniz&#x2014;yalnızca özel proje dosyanızda dağıtım mantığı yürütmek istediğiniz. *Publish.proj* dosyası atlar koşullu mantık içerir **yapı** dosya ekip çalışıyorsa, hedef. Bunu yerleşik değerlendirerek yapar **BuildingInTeamBuild** otomatik olarak ayarlamak için özellik **true** ekip içinde proje dosyanızı çalıştırırsanız. Sonuç olarak, yapı işlemi atlayın ve varolan bir yapıyı dağıtmak için proje dosyası çalıştırmanız yeterlidir.
+Bu durumda, gerçekte herhangi bir şey oluşturmak için yapı tanımını istemediğiniz&#x2014;özel proje dosyanızı dağıtım mantıksal yürütmek için yalnızca istediğiniz. *Publish.proj* dosya atlar koşullu mantık içerir **derleme** dosya takım yapısı'nda çalışır durumda değilse hedef. Bunu yerleşik değerlendirerek yapar **BuildingInTeamBuild** özelliği ayarlandığında otomatik olarak **true** takım yapısı'nda proje dosyanız çalıştırırsanız. Sonuç olarak, derleme işleminin atlayın ve varolan bir yapıyı dağıtmak için proje dosyasını çalıştırmanız yeterlidir.
 
-**El ile dağıtımı tetikleyecek bir yapı tanımı oluşturmak için**
+**Dağıtım el ile tetiklemek için bir yapı tanımı oluşturmak için**
 
-1. Visual Studio 2010 içinde **Takım Gezgini** penceresinde, takım projesi düğümünü genişletin, sağ **derlemeler**ve ardından **yeni yapı tanımı**.
+1. Visual Studio 2010 içinde **Takım Gezgini** penceresinde, takım projesi düğümünü genişletin, sağ **yapılar**ve ardından **yeni yapı tanımı**.
 
     ![](deploying-a-specific-build/_static/image2.png)
-2. Üzerinde **genel** sekmesinde, yapı tanımı bir ad verin (örneğin, **DeployToStaging**) ve isteğe bağlı bir açıklama.
-3. Üzerinde **tetikleyici** sekmesine **el ile – iadeler yeni bir yapı tetiklemez**.
-4. Üzerinde **Yapı Varsayılanları** sekmesinde **kopyalama yapı çıktısını aşağıdaki bırakma klasörüne** açılan klasörünüze Evrensel Adlandırma Kuralı (UNC) yolunu yazın (örneğin,  **\\TFSBUILD\Drops**).
+2. Üzerinde **genel** sekmesinde, derleme tanımı bir ad verin (örneğin, **DeployToStaging**) ve isteğe bağlı bir açıklama.
+3. Üzerinde **tetikleyici** sekmesinde **el ile-iadeler yeni bir derlemeyi tetiklemez**.
+4. Üzerinde **Yapı Varsayılanları** sekmesinde **yapı çıkış aşağıdaki bırakma klasörüne Kopyala** bırakma klasörünüz Evrensel Adlandırma Kuralı (UNC) yolunu yazın (örneğin,  **\\TFSBUILD\Drops**).
 
     ![](deploying-a-specific-build/_static/image3.png)
-5. Üzerinde **işlem** sekmesinde **derleme işlemi dosya** açılır listesinde, bırakın **DefaultTemplate.xaml** seçili. Bu, tüm yeni takım projeleri için eklenir varsayılan derleme işlem şablonları biridir.
-6. İçinde **oluşturma işlemi parametreleri** tablo, tıklatın **yapı öğelerine** satır ve ardından **üç nokta** düğmesi.
+5. Üzerinde **işlem** sekmesinde **yapı işlem dosyası** açılan listesinde, bırakın **DefaultTemplate.xaml** seçili. Bu, tüm yeni takım projelerine eklenin varsayılan derleme işlem şablonlarını biridir.
+6. İçinde **yapı işlemi parametreleri** tablo, tıklayın **yapı öğeleri** satır ve ardından **üç nokta** düğmesi.
 
     ![](deploying-a-specific-build/_static/image4.png)
-7. İçinde **yapı öğelerine** iletişim kutusu, tıklatın **Ekle**.
-8. İçinde **türdeki öğeleri** açılır listesinden, **MSBuild proje dosyalarını**.
+7. İçinde **yapı öğeleri** iletişim kutusu, tıklayın **Ekle**.
+8. İçinde **öğe türü** açılan listesinden **MSBuild proje dosyaları**.
 9. Hangi, dağıtım işlemini denetleyen, dosyayı seçin ve ardından özel Proje dosyasının konumuna göz atın **Tamam**.
 
     ![](deploying-a-specific-build/_static/image5.png)
-10. İçinde **yapı öğelerine** iletişim kutusu, tıklatın **Tamam**.
-11. İçinde **oluşturma işlemi parametreleri** tablo, genişletin **Gelişmiş** bölümü.
-12. İçinde **MSBuild bağımsız değişkenleri** satır, ortama özgü proje dosyasının konumunu belirtin ve yapı klasörünün konumu için bir yer tutucu ekleyin:
+10. İçinde **yapı öğeleri** iletişim kutusu, tıklayın **Tamam**.
+11. İçinde **yapı işlemi parametreleri** tablo, genişletme **Gelişmiş** bölümü.
+12. İçinde **MSBuild bağımsız değişkenleri** satır, ortama özgü proje dosyanızın konumunu belirtin ve yapı klasörünüzün konumu için bir yer tutucu ekleyin:
 
     [!code-console[Main](deploying-a-specific-build/samples/sample4.cmd)]
 
     ![](deploying-a-specific-build/_static/image6.png)
 
     > [!NOTE]
-    > Geçersiz kılma gerekir **OutputRoot** bir yapıyı sıraya her zaman değeri. Bu bir sonraki yordamda ele alınmıştır.
+    > Geçersiz kılmak ihtiyacınız olacak **OutputRoot** bir yapıyı sıraya her zaman değeri. Bu, bir sonraki yordamda ele alınmıştır.
 13. **Kaydet**'e tıklayın.
 
-Bir derlemeyi tetiklemeyi, güncelleştirmeniz gerekir **OutputRoot** dağıtmak istediğiniz yapı işaret edecek şekilde özelliği.
+Bir derleme tetiklemeyi, güncelleştirmeye gerek duyduğunuz **OutputRoot** dağıtmak istediğiniz yapıyı işaret edecek şekilde özelliği.
 
-**Bir derleme tanımınız belirli bir derlemeden dağıtmak için**
+**Belirli bir yapının bir yapı tanımından dağıtmak için**
 
-1. İçinde **Takım Gezgini** penceresinde, yapı tanımına sağ tıklayın ve ardından **yeni yapıyı sıraya al**.
+1. İçinde **Takım Gezgini** penceresinde derleme tanımı sağ tıklayın ve ardından **yeni derlemeyi sıraya koy**.
 
     ![](deploying-a-specific-build/_static/image7.png)
-2. İçinde **Yapıyı Sıraya Al** iletişim kutusundaki **parametreleri** sekmesinde, genişletin **Gelişmiş** bölümü.
-3. İçinde **MSBuild bağımsız değişkenleri** satır, değerini **OutputRoot** yapı klasörünün konumunu özelliğiyle. Örneğin:
+2. İçinde **derleme kuyruğu** iletişim kutusundaki **parametreleri** sekmesinde, genişletme **Gelişmiş** bölümü.
+3. İçinde **MSBuild bağımsız değişkenleri** satır, değiştirin **OutputRoot** derleme iş klasörünüzün konumu ile özelliği. Örneğin:
 
     [!code-console[Main](deploying-a-specific-build/samples/sample5.cmd)]
 
     ![](deploying-a-specific-build/_static/image8.png)
 
     > [!NOTE]
-    > Eğik yapı klasörünüzün yolunu sonunda eklediğinizden emin olun.
-4. Tıklatın **sıra**.
+    > Derleme iş klasörünüzün yolunu sonunda eğik eklediğinizden emin olun.
+4. Tıklayın **kuyruk**.
 
-Yapıyı sıraya, proje dosyası veritabanı komut dosyalarında dağıtır ve web paketler derleme bırakma klasöründen belirttiğiniz **OutputRoot** özelliği.
+Yapıyı kuyruğa alın, proje dosyası veritabanı betikleri dağıtır ve web, belirtilen yapı bırakma klasöründen paketleri **OutputRoot** özelliği.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda web paketleri ve veritabanı betikleri gibi dağıtım kaynaklarını yayınlamak için bölme proje dosyası dağıtım modelini kullanarak önceki belirli bir yapı açıklanmıştır. Geçersiz kılmak nasıl açıklandığı **OutputRoot** özelliği ve dağıtım mantığı bir TFS içerecek şekilde nasıl yapı tanımı.
+Bu konuda web paketleri ve veritabanı betikleri gibi dağıtım kaynakları yayımlama, önceki belirli bir bölünmüş proje dosyası dağıtım modelini kullanarak yapı açıklanmıştır. Geçersiz kılma açıklaması **OutputRoot** özelliği ve nasıl bir TFS'ye dağıtım mantığı eklemek derleme tanımı.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Derleme tanımları oluşturma hakkında daha fazla bilgi için bkz: [temel yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı derleme işlemi tanımlamak](https://msdn.microsoft.com/library/ms181715.aspx). Sıraya alma yapılar hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
+Derleme tanımı oluşturma hakkında daha fazla bilgi için bkz. [temel bir yapı tanımı oluşturma](https://msdn.microsoft.com/library/ms181716.aspx) ve [bilgisayarınızı yapı işlemi tanımlama](https://msdn.microsoft.com/library/ms181715.aspx). Derlemeler kuyruğa alınırken hakkında daha fazla yönergeler için bkz [bir yapıyı sıraya](https://msdn.microsoft.com/library/ms181722.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-build-definition-that-supports-deployment.md)
-> [sonraki](configuring-permissions-for-team-build-deployment.md)
+> [İleri](configuring-permissions-for-team-build-deployment.md)
