@@ -2,51 +2,50 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 title: Veritabanı oluşturma | Microsoft Docs
 author: shanselman
-description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
+description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: 742df67f-484d-4ef3-af6b-8c791e556b43
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: ff2a41803cd31ce50bbf79e630d827b6de441ba3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0e72359095e4c40ef7e56f1290a45ded257143c9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868080"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362362"
 ---
 <a name="creating-a-database"></a>Veritabanı oluşturma
 ====================
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
-> ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC öğrenme Merkezi](../../../index.md) diğer ASP.NET MVC öğreticiler ve örnekleri bulunamadı.
+> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
 
 
-Bu bölümde biz depolamak ve film verilerimizi almak için kullanacağınız yeni bir SQL Express veritabanı oluşturmak için adımıdır. Görünüm seçin ve Visual Web Developer IDE içinde | Sunucu Gezgini. Veri bağlantılarını sağ tıklayın ve bağlantı Ekle tıklatın...
+Bu bölümde, depolama ve alma film verilerimizi kullanacağız yeni bir SQL Express veritabanı oluşturmak için kullanacağız. Visual Web Developer IDE içinde görünümü seçin | Sunucu Gezgini. Veri bağlantılarını sağ tıklayın ve Bağlantısı Ekle...
 
 ![AddConnection](getting-started-with-mvc-part4/_static/image1.png)
 
-Veri Kaynağı Seç iletişim kutusunda, Microsoft SQL Server'ı seçin ve devam et seçin.
+Veri Kaynağı Seç iletişim kutusunda, Microsoft SQL Server'ı seçin ve devam'ı seçin.
 
 ![](getting-started-with-mvc-part4/_static/image2.png)
 
-Bağlantı Ekle iletişim kutusuna girin ". \SQLEXPRESS" sunucu adınızı ve "Filmler" Yeni veritabanı adı girin.
+Bağlantı Ekle iletişim kutusuna girin ". \SQLEXPRESS" sunucu adınız ve yeni veritabanınızın adı olarak "Filmler" girin.
 
-[![Bağlantı iletişim kutusu ekleme](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
+[![Bağlantısı Ekle iletişim kutusu](getting-started-with-mvc-part4/_static/image4.png)](getting-started-with-mvc-part4/_static/image3.png)
 
-Tamam'ı tıklatın ve bu veritabanını oluşturmak isteyip istemediğiniz sorulur. Evet'i seçin.
+Tamam'ı tıklatın ve o veritabanı oluşturmak istiyorsanız istenir. Evet'i seçin.
 
-[![Film oluşturulsun mu?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
+[![Filmler oluşturulsun mu?](getting-started-with-mvc-part4/_static/image6.png)](getting-started-with-mvc-part4/_static/image5.png)
 
-Artık sunucu Gezgini'nde boş bir veritabanı açıyor.
+Şimdi, boş bir veritabanı sunucu Gezgini'nde aradığınızı bulacaksınız.
 
-![Yeni tablo ekleme](getting-started-with-mvc-part4/_static/image7.png)
+![Yeni Tablo Ekle](getting-started-with-mvc-part4/_static/image7.png)
 
-Tablolarda sağ tıklatıp Tablo Ekle öğesini tıklatın. Tablo Tasarımcısı görünür. Sütun kimliği, başlık, ReleaseDate, tarzını ve fiyat ekleyin. Kimlik sütunu sağ tıklayın ve birincil anahtar tıklatın ayarlayın. Burada, gibi görünüyor hangi my tasarım alanlarda verilmiştir.
+Tablolarda sağ tıklayın ve Tablo Ekle'ı tıklatın. Tablo Tasarımcısı görüntülenir. Kimlik, başlık, ReleaseDate, tarz ve fiyat için sütunları ekleyin. Kimlik sütunu üzerinde sağ tıklayın ve birincil anahtar tıklatın ayarlayın. Gibi görünüyor hangi benim tasarım alanları aşağıda verilmiştir.
 
 [![Veritabanı Tablosu Düzenleyicisi](getting-started-with-mvc-part4/_static/image9.png)](getting-started-with-mvc-part4/_static/image8.png)
 
@@ -54,40 +53,40 @@ Ayrıca, kimlik sütunu seçin ve aşağıdaki sütun özellikleri altında "Kim
 
 [![IsIdentity - sütun özellikleri](getting-started-with-mvc-part4/_static/image11.png)](getting-started-with-mvc-part4/_static/image10.png)
 
-Bitti var olduğunda, araç çubuğunda Kaydet simgesine tıklayın veya dosyayı seçin | Menüden kaydedin ve tablonuzun adının "**film**" (tekil). Bir veritabanı ve tablo var ki!
+Bitti Başardınız, araç çubuğunda Kaydet simgesine tıklayın veya dosyayı seçin | Menüden kaydedin ve tablonuzun adı "**film**" (tekil). Bir veritabanı ve tablo yapılandırdığımıza göre!
 
 [![Bir ad seçin](getting-started-with-mvc-part4/_static/image13.png)](getting-started-with-mvc-part4/_static/image12.png)
 
-Sunucu Gezgini için geri dönün ve film tablo sağ tıklayın ve ardından "Tablo verileri göster." Veritabanımıza bazı veriler nedenle birkaç filmler girin.
+Sunucu Gezgini geri dönün ve film tablo sağ tıklayın ve ardından "Show tablo verilerini." Bazı veriler veritabanımızdaki sahip olması birkaç filmler girin.
 
-[![Veritabanı tablosu düzenleme](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
+[![Veritabanı tablo düzenleme](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
 ## <a name="creating-a-model"></a>Model oluşturma
 
-Şimdi, geçin geri IDE'nin sağ tarafındaki Çözüm Gezgini ve modeller klasörü sağ tıklatın ve Ekle | Yeni öğe.
+Artık, Çözüm Gezgini'nde IDE'nin sağ taraftaki geri dön geçin ve modeller klasörü sağ tıklatın ve Ekle'yi seçin | Yeni öğe.
 
 [![addnewmodelitem](getting-started-with-mvc-part4/_static/image17.png)](getting-started-with-mvc-part4/_static/image16.png)
 
-Bizim yeni veritabanından bir varlık modeli oluşturmak için yapacağız. Bu sınıf kümesi bize sorgulamak ve bizim veritabanındaki verileri işlemek daha kolay hale gelir Projemizin ekler. İletişim kutusunun sol taraftaki veri düğümü seçin ve ardından ADO.NET varlık veri modeli öğesi şablonu seçin. Movies.edmx adı.
+Yeni sunduğumuz veritabanından bir varlık modeli oluşturmak için ekleyeceğiz. Bu bizim veritabanımızdaki içinde veri sorgulama ve düzenleme için kolaylaştıran Projemizin sınıf kümesi ekleyeceksiniz. İletişim kutusunun sol tarafında veri düğümünü seçin ve ardından ADO.NET varlık veri modeli öğe şablonu seçin. Movies.edmx adlandırın.
 
 [![AddNewDataModel](getting-started-with-mvc-part4/_static/image19.png)](getting-started-with-mvc-part4/_static/image18.png)
 
-"Ekle" düğmesini tıklatın. Bu, ardından "varlık veri modeli Sihirbazı" başlatacak.
+"Ekle" düğmesine tıklayın. Bu, ardından "varlık veri modeli Sihirbazı" başlatılır.
 
-Açılır yeni iletişim kutusunda, veritabanından Oluştur'u seçin. Bir veritabanı yalnızca yaptık olduğundan, biz yalnızca Entity Framework bizim yeni bir veritabanı ve onun tablo hakkında söylememiz gerekir. Yanına bizim veritabanı bağlantısı bizim web uygulamasının yapılandırma Kaydet'i tıklatın. Şimdi, tablolar ve film denetle bitiş onay kutusunu ve'ı tıklatın.
+Açılan yeni iletişim kutusunda, veritabanından Oluştur'u seçin. Bir veritabanı yalnızca yaptık olduğundan, biz yalnızca Entity Framework sunduğumuz yeni bir veritabanı ve onun tablo hakkında söylemeniz gerekir. Yanındaki bizim sunduğumuz web uygulamanın yapılandırma veritabanı bağlantısında Kaydet'e tıklayın. Şimdi, tablolar ve film kontrol onay kutusuna tıklayın ve son.
 
 [![Varlık veri modeli Sihirbazı](getting-started-with-mvc-part4/_static/image21.png)](getting-started-with-mvc-part4/_static/image20.png)
 
-Şimdi biz bizim yeni Entity Framework Designer film tabloya bakın ve kodundan erişim.
+Şimdi biz Entity Framework Designer yeni film tablodaki bakın ve koddan erişebilirsiniz.
 
-[![Film - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
+[![Filmler - Microsoft Visual Web Developer 2010 Express](getting-started-with-mvc-part4/_static/image23.png)](getting-started-with-mvc-part4/_static/image22.png)
 
-Tasarım yüzeyine "Film" sınıfı görebilirsiniz. Bu sınıf Veritabanımıza "Film" tablosunda eşler ve tablo içeren bir sütuna içindeki her bir özellik eşler. "Film" sınıfın her örneği "Film" tablo içindeki satır karşılık gelir.
+Tasarım yüzeyinde, bir "Film" sınıf görebilirsiniz. Bu sınıf veritabanımızdaki "Film" tablosunda eşlenir ve içindeki her bir özellik bir sütun tablosu ile eşlenir. "Film" sınıfın her örneğini "Film" tablo içindeki satır karşılık gelir.
 
-Varsayılan adlandırma ve Entity Framework tarafından kullanılan kuralları eşleme hoşlanmıyorsanız, değiştirmek veya bunları özelleştirmek için Entity Framework Tasarımcısı'nı kullanabilirsiniz. Bu uygulama için biz varsayılanları kullanın ve yalnızca dosyası olarak Kaydet-değil.
+Varsayılan adlandırma ve Entity Framework tarafından kullanılan kuralları eşleme kullanmak istemiyorsanız, değiştirmek veya bunları özelleştirmek için Entity Framework designer'ı kullanabilirsiniz. Bu uygulama için biz varsayılan ayarları kullanın ve yeni dosyayı farklı kaydet-olduğu.
 
-Şimdi, şimdi bazı gerçek verilerle çalışmak!
+Şimdi, bazı gerçek verilerle birlikte çalışalım!
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-mvc-part3.md)
-> [sonraki](getting-started-with-mvc-part5.md)
+> [İleri](getting-started-with-mvc-part5.md)

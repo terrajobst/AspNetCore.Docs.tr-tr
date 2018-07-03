@@ -1,6 +1,6 @@
 ---
 uid: single-page-application/overview/templates/backbonejs-template
-title: Omurga şablon | Microsoft Docs
+title: Omurga şablonu | Microsoft Docs
 author: madskristensen
 description: Backbone.js SPA şablonu
 ms.author: aspnetcontent
@@ -9,104 +9,103 @@ ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 641e149155fbee2655024bec3b76dce5243e7d59
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26566310"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362511"
 ---
 <a name="backbone-template"></a>Omurga şablonu
 ====================
-tarafından [Kristensen Mads](https://github.com/madskristensen)
+tarafından [Mads Kristensen](https://github.com/madskristensen)
 
-> Omurga SPA şablonu Kazi Manzur Rashid tarafından yazıldı
+> Omurga SPA şablon Kazi Manzur Rashid tarafından yazılmıştır.
 > 
-> [Backbone.js SPA şablonunu yükle](https://go.microsoft.com/fwlink/?LinkId=293631)
+> [Backbone.js SPA şablonunu indirme](https://go.microsoft.com/fwlink/?LinkId=293631)
 
 
-Backbone.js SPA şablon hızlı bir şekilde kullanarak etkileşimli istemci tarafı web uygulamaları oluşturmaya başlamanıza yardımcı olmak için tasarlanmıştır [Backbone.js.](http://backbonejs.org/)
+Backbone.js SPA şablonu kullanarak etkileşimli istemci tarafı web uygulamalarını hızlı bir şekilde oluşturmaya başlamanıza yardımcı olmak üzere tasarlanmıştır [Backbone.js.](http://backbonejs.org/)
 
-Şablonu, bir ASP.NET MVC Backbone.js uygulama geliştirmek için ilk bir çatı sağlar. Kutudan çıktığında kullanıcı kaydolma, oturum açma, parola sıfırlama ve temel e-posta şablonları ile kullanıcı onayı dahil olmak üzere temel kullanıcı oturum açma işlevselliği sağlar.
+Şablon, bir ASP.NET MVC Backbone.js uygulama geliştirmek için ilk bir çatı sağlar. Kullanıma hazır, kullanıcı oturum açma, kaydolma, parola sıfırlama ve kullanıcı onayı ile temel bir e-posta şablonları da dahil olmak üzere temel kullanıcı oturum açma işlevselliği sağlar.
 
-Gereksinimleri:
+Gereksinimler:
 
 - [ASP.NET ve Web Araçları 2012.2 güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=282650)
 
-## <a name="create-a-backbone-template-project"></a>Bir omurga şablonu projesi oluşturma
+## <a name="create-a-backbone-template-project"></a>Omurga şablonu projesi oluşturma
 
-İndirin ve şablonu yukarıdaki karşıdan yükleme düğmesini tıklatarak yükleyin. Şablonu bir Visual Studio Uzantısı (VSIX) dosyası olarak paketlenir. Visual Studio yeniden başlatmanız gerekebilir.
+İndirin ve yukarıdaki indir düğmesine tıklayarak şablonu yükleyin. Şablon, Visual Studio Uzantısı (VSIX) dosyası olarak paketlenir. Visual Studio'yu yeniden başlatmanız gerekebilir.
 
-İçinde **şablonları** bölmesinde, **yüklü şablonlar** ve genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Proje adı ve'ı tıklatın **Tamam**.
+İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın ve tıklayın **Tamam**.
 
 ![](backbonejs-template/_static/image1.png)
 
-İçinde **yeni proje** Backbone.js SPA Proje Sihirbazı, seçin.
+İçinde **yeni proje** Backbone.js SPA proje seçin.
 
 ![](backbonejs-template/_static/image2.png)
 
-Derleme ve hata ayıklama olmadan uygulamayı çalıştırmak için CTRL-F5 tuşuna basın veya hata ayıklama ile çalıştırmak için F5 tuşuna basın.
+Derleme ve hata ayıklama olmadan uygulamayı çalıştırmak için CTRL-F5 tuşuna basın veya hata ayıklamayla çalıştırmak için F5 tuşuna basın.
 
 ![](backbonejs-template/_static/image3.png)
 
-"Hesabım" tıklatarak ayarlama oturum açma sayfası açar:
+"Hesabım" tıklayarak oturum açma sayfası sunar:
 
 ![](backbonejs-template/_static/image4.png)
 
 ## <a name="walkthrough-client-code"></a>İzlenecek yol: İstemci kodu
 
-Şimdi istemci tarafı ile başlar. İstemci uygulama betikler ~/Scripts/application klasöründe bulunur. Uygulama yazılmış [TypeScript](http://www.typescriptlang.org/) (.ts dosyaları) (.js dosyaları) JavaScript ile derlenen.
+Şimdi, istemci tarafı ile başlar. İstemci uygulama betiklerini ~/Scripts/application klasöründe bulunur. Uygulamanın yazıldığı [TypeScript](http://www.typescriptlang.org/) (.ts dosyalarını) JavaScript (.js dosyaları) ile derlenir.
 
 **Uygulama**
 
-`Application` Application.TS içinde tanımlanmıştır. Bu nesne, uygulama başlatır ve kök ad alanı olarak davranır. Kullanıcının oturum açtığı gibi uygulama arasında paylaşılacak yapılandırma ve durum bilgilerini tutar.
+`Application` Application.TS içinde tanımlanır. Bu nesne, uygulamayı başlatır ve kök ad alanı görev yapar. Kullanıcının oturum açtığı gibi uygulama arasında paylaşılan yapılandırma ve durum bilgilerini tutar.
 
-`application.start` Yöntemi kalıcı görünümler oluşturur ve kullanıcı oturum açma gibi uygulama düzeyindeki olayları için olay işleyicileri iliştirir. Ardından, varsayılan yönlendirici oluşturur ve herhangi bir istemci-tarafı URL belirtilen olup olmadığını denetler. Varsayılan URL'ye yeniden yönlendirilen değil, varsa (#! /).
+`application.start` Yöntemi kalıcı görünümler oluşturur ve kullanıcı oturum açma gibi uygulama düzeyinde olaylar için olay işleyicileri ekler. Ardından, varsayılan yönlendirici oluşturur ve herhangi bir istemci-tarafı URL belirtilen olup olmadığını denetler. Varsayılan URL'ye yeniden yönlendirilen değil, varsa (#! /).
 
 **Olaylar**
 
-Olaylar, her zaman geniş geliştirme bileşenleri bağlı olduğunda önemlidir. Uygulamalar genellikle birden çok yanıt olarak bir kullanıcı eylemi işlemleri. Omurga modeli, koleksiyon ve görünüm gibi bileşenlerle yerleşik olayları sağlar. Bu bileşenler arasında arası bağımlılıklar oluşturmak yerine, şablonu "pub/alt" modeli kullanır: `events` events.ts içinde tanımlanan nesne, olay hub'ı yayımlama ve uygulama olaylara abone olma görür. `events` Tek bir nesnedir. Aşağıdaki kod, bir olaya abone olmak ve olayı tetiklemek gösterilmektedir:
+Geliştirme gevşek bir şekilde eşlenen bileşenler olduğunda olayları her zaman önemlidir. Uygulamalar genellikle yanıt olarak bir kullanıcı eylemi birden çok işlem gerçekleştirin. Omurga bileşenleri gibi Model, koleksiyon ve görünüm ile yerleşik olayları sağlar. Bu bileşenler arasındaki arası bağımlılıklar oluşturmak yerine, şablon "pub/sub" modelini kullanır: `events` events.ts içinde tanımlanan nesne yayımlamak ve uygulama olaylara abone olma bir olay hub'ı olarak görev yapar. `events` Tek bir nesnedir. Aşağıdaki kod, bir olaya abone olun ve ardından olayı tetiklemek gösterilmektedir:
 
 [!code-csharp[Main](backbonejs-template/samples/sample1.cs)]
 
 **Yönlendirici**
 
-Backbone.js içinde bir yönlendirici istemci-tarafı sayfaları Yönlendirme ve eylemleri ve olayları bağlanmak için kullanılan yöntemler sağlar. Şablonu router.ts içinde tek bir yönlendirici tanımlar. Yönlendirici activable görünümler oluşturur ve görünüm geçiş yaparken durumunu korur. (Activable görünümleri sonraki bölümde açıklanmaktadır.) Başlangıçta, iki kukla görünümler, projenin içerdiğinden ev ve hakkında. Ayrıca, yol olmayan biliniyorsa görüntülenen bir NotFound görünüme sahiptir.
+Backbone.js yönlendirici istemci-tarafı sayfaları Yönlendirme ve bunları Eylemler ve olaylar bağlamak için yöntemler sağlar. Şablon router.ts içinde tek bir yönlendirici tanımlar. Yönlendirici activable görünümler oluşturur ve görünümler arasında geçiş yaparken durumu korur. (Activable görünümleri, sonraki bölümde açıklanmıştır.) Başlangıçta, proje işlevsiz iki görünüm sahip giriş ve ilgili. Ayrıca, yol olmayan biliniyorsa görüntülenen bir NotFound görünüme sahiptir.
 
 **Görünümler**
 
-Görünümleri ~/Scripts/application/görünümlerde tanımlanır. Görünümler, activable görünümleri ve kalıcı iletişim görünümleri iki tür vardır. Activable görünümleri yönlendirici tarafından çağrılır. Activable bir görünümü gösterilir, diğer tüm activable görünümleri etkin olur. Activable bir görünüm oluşturmak için görünümü ile genişletmek `Activable` nesnesi:
+Görünümleri ~/Scripts/application/görünümler içinde tanımlanır. Görünümler, activable görünümleri ve kalıcı bir iletişim görünümleri iki tür vardır. Activable görünümleri yönlendirici tarafından çağrılır. Bir activable görünümü gösterilirken, diğer activable görünümleri devre dışı olur. Görünüme activable bir görünüm oluşturmak için genişletme `Activable` nesnesi:
 
 [!code-javascript[Main](backbonejs-template/samples/sample2.js)]
 
-İle genişletme `Activable` iki yeni yöntemleri görünümüne ekler `activate` ve `deactivate`. Yönlendirici etkinleştirmek ve devre dışı görünümü için bu yöntemleri çağırır.
+İle genişletme `Activable` iki yeni yöntem görünümüne ekler `activate` ve `deactivate`. Yönlendirici etkinleştirmek ve görünüm kalmış devre dışı için bu yöntemleri çağırır.
 
-Kalıcı görünümleri olarak gerçekleştirilen [Twitter Bootstrap](http://twitter.github.com/bootstrap/) kalıcı iletişim kutuları. `Membership` Ve `Profile` kalıcı görünümleri görünümlerdir. Model görünümlerini herhangi bir uygulama olayları tarafından çağrılabilir. Örneğin, `Navigation` "Hesabım" bağlantısını tıklatarak Görünüm, gösterir ya da `Membership` görünüm veya `Profile` kullanıcının oturum açtığı bağlı olarak görüntüle. `Navigation` Ekler tıklatın sahip herhangi bir alt öğe olay işleyicilerine `data-command` özniteliği. HTML biçimlendirmesi şöyledir:
+Görünümleri kalıcı olarak gerçekleştirilen [Twitter Bootstrap](http://twitter.github.com/bootstrap/) kalıcı iletişim kutuları. `Membership` Ve `Profile` kalıcı görünümleri görünümleridir. Model görünümlerini herhangi bir uygulama olayları tarafından çağrılabilir. Örneğin, `Navigation` görünüm, "Hesabım" bağlantısını tıklatarak gösterir ya da `Membership` görünümü veya `Profile` görünümü, kullanıcının oturum açtığı bağlı olarak. `Navigation` Ekler tıklama olay işleyicileri olan alt öğeler için `data-command` özniteliği. HTML biçimlendirmesi şöyledir:
 
 [!code-html[Main](backbonejs-template/samples/sample3.html)]
 
-Olayları kanca navigation.ts kod aşağıdadır:
+Olayları yeteneklerinizi navigation.ts kod şöyledir:
 
 [!code-csharp[Main](backbonejs-template/samples/sample4.cs)]
 
 **Modelleri**
 
-Modelleri ~/Scripts/application/modellerinde tanımlanır. Tüm modelleri üç temel şey vardır: varsayılan öznitelikler, doğrulama kuralları ve bir sunucu tarafı bitiş noktası. Aşağıda, genel bir örnek verilmiştir:
+Modelleri ~/Scripts/application/modellerinde tanımlanır. Tüm modeller üç temel noktalar vardır: varsayılan öznitelikler, doğrulama kurallarını ve sunucu tarafı uç noktası. Tipik bir örnek aşağıda verilmiştir:
 
 [!code-javascript[Main](backbonejs-template/samples/sample5.js)]
 
 **Eklentiler**
 
-~/Scripts/application/lib klasörü birkaç kullanışlı jQuery eklentileri içerir. Form.ts dosyası biçiminde verilerle çalışmak için bir eklenti tanımlar. Genelde serileştirmek veya form verileri seri durumdan ve herhangi bir model doğrulama hatasını göstermek gerekir. Eklenti form.ts gibi yöntemlerine sahiptir `serializeFields`, `deserializeFields`, ve `showFieldErrors`. Aşağıdaki örnek, bir model için bir form serileştirmek gösterilmiştir.
+Bazı kullanışlı jQuery eklentileri ~/Scripts/application/lib klasör içeriyor. Form verileri ile çalışma için bir eklentiyi form.ts dosya tanımlar. Genelde serileştirmek veya form verilerinin serisini ve tüm model doğrulama hatalarını göster gerekir. Eklenti form.ts yöntemleri gibi sahip `serializeFields`, `deserializeFields`, ve `showFieldErrors`. Aşağıdaki örnek, bir form bir Modeli'ne serileştirmek gösterilmektedir.
 
 [!code-javascript[Main](backbonejs-template/samples/sample6.js)]
 
-Eklenti flashbar.ts kullanıcıya geri bildirim iletileri çeşitli sağlar. Yöntemler `$.showSuccessbar`, `$.showErrorbar` ve `$.showInfobar`. Arka planda sorunsuz şekilde animasyonlu iletileri göstermek için Twitter Bootstrap uyarıları kullanır.
+Eklenti flashbar.ts kullanıcıya geri bildirim iletileri çeşitli sağlar. Yöntemler `$.showSuccessbar`, `$.showErrorbar` ve `$.showInfobar`. Arka planda güzelce animasyonlu iletileri göstermek için Twitter Bootstrap uyarılar kullanır.
 
-Eklenti confirm.ts tarayıcının değiştirir API biraz farklı olmasına rağmen iletişim kutusunda, onaylayın:
+Tarayıcı eklentisi confirm.ts değiştirir API biraz farklı olmasına karşın, iletişim kutusunda onaylayın:
 
 [!code-javascript[Main](backbonejs-template/samples/sample7.js)]
 
@@ -116,24 +115,24 @@ Artık sunucu tarafında bakalım.
 
 **Denetleyiciler**
 
-Bir tek sayfalı uygulama sunucusu kullanıcı arabiriminde yalnızca küçük bir rol oynar. Genellikle, sunucunun başlangıç sayfası oluşturur ve ardından gönderir ve JSON verilerini alır.
+Bir tek sayfalı uygulamada, sunucu kullanıcı arabiriminde yalnızca küçük bir rol oynar. Genellikle, sunucu başlangıç sayfasını işler ve gönderir ve JSON verilerini alır.
 
-İki MVC denetleyicileri şablonunu sahiptir: `HomeController` başlangıç sayfasını işler ve `SupportsController` yeni kullanıcı hesapları onaylayın ve parola sıfırlama için kullanılır. Şablondaki tüm diğer denetleyicileri JSON veri gönderip ASP.NET Web API denetleyicilerinin etkilenir. Varsayılan olarak, denetleyicileri yeni kullanmak `WebSecurity` kullanıcıyla ilgili görevleri gerçekleştirmek için sınıf. Ancak, aynı zamanda bu görevler için temsilcileri geçirmenize olanak sağlayan isteğe bağlı oluşturucular sahiptirler. Bu işlem, testi kolaylaştırır ve değiştirmenizi sağlar `WebSecurity` IOC kapsayıcısını kullanarak başka bir şey ile. Aşağıda bir örnek verilmiştir:
+İki MVC denetleyicileri şablonda: `HomeController` ilk sayfasında, işler ve `SupportsController` yeni kullanıcı hesaplarını onaylamak ve parola sıfırlama için kullanılır. Tüm diğer şablonda, JSON veri göndermek ve almak, ASP.NET Web APİ'si denetleyicilerinin denetleyicileridir. Varsayılan olarak, yeni denetleyicileri kullanmak `WebSecurity` kullanıcı ile ilgili görevleri gerçekleştirmek için sınıf. Ancak, aynı zamanda bu görevler için varyans geçirmenize olanak sağlayan isteğe bağlı oluşturucular sahiptirler. Bu, testi kolaylaştırır ve değiştirmenizi sağlar `WebSecurity` IOC kapsayıcısını kullanarak başka bir şey ile. Aşağıda bir örnek verilmiştir:
 
 [!code-csharp[Main](backbonejs-template/samples/sample8.cs)]
 
 ## <a name="views"></a>Görünümler
 
-Görünümleri modüler olacak şekilde tasarlanmıştır: bir sayfanın her bölümünü kendi özel görünüme sahiptir. Bir tek sayfa uygulaması karşılık gelen bir denetleyici yok görünümleri de içerecek şekilde yaygındır. Bir görünüm çağırarak içerebilir `@Html.Partial('myView')`, ancak bu yorucu alır. Bu işlemi kolaylaştırmak için şablon bir yardımcı yöntem tanımlar `IncludeClientViews`, tüm belirtilen klasördeki görünümlerinin işleyen:
+Görünümler, modüler olmak tasarlanmıştır: kendi özel görünümü sayfasının her bölümüne sahip. Bir tek sayfalı uygulamada, karşılık gelen hiçbir denetleyici yoktur görünümleri de içerecek şekilde yaygındır. Çağırarak bir görünüm içerebilir `@Html.Partial('myView')`, ancak bu yorucu bir süreç alır. Bunu kolaylaştırmak için şablon bir yardımcı yöntem tanımlar `IncludeClientViews`, tüm belirtilen klasördeki görünümlerinin işleyen:
 
 [!code-cshtml[Main](backbonejs-template/samples/sample9.cshtml)]
 
-Klasör adı belirtilmezse, varsayılan klasör adı "ClientViews" olur. İstemci görünümünüzü kısmi görünümleri de kullanıyorsa, kısa çizgi karakteri ile kısmi görünüm adını (örneğin, `_SignUp`). `IncludeClientViews` Yöntemi adı alt çizgi ile başlayan tüm görünümleri dışlar. Kısmi görünüm istemci görünüme dahil etmek için arama `Html.ClientView('SignUp')` yerine `Html.Partial('_SignUp')`.
+Klasör adı belirtilmezse, varsayılan klasör adı "ClientViews" şeklindedir. İstemci görünümünüzü kısmi görünümler de kullanıyorsa, alt çizgi karakteri ile kısmi görünüm adını (örneğin, `_SignUp`). `IncludeClientViews` Yöntemi adı alt çizgi ile başlayan herhangi bir görünüm dahil değildir. Kısmi görünüm istemci Görünümü'nde eklemek için çağrı `Html.ClientView('SignUp')` yerine `Html.Partial('_SignUp')`.
 
 **E-posta gönderme**
 
-E-posta göndermek için şablonun kullanan [posta](http://aboutcode.net/postal). Ancak, posta kodu ile geri kalanından soyutlanır `IMailer` , başka bir uygulama ile kolayca yerini alabilecek şekilde arabirim. E-posta şablonlarını görünümler/e-postalar klasöründe bulunur. Gönderenin e-posta adresi web.config dosyasında belirtilen `sender.email` , anahtar **appSettings** bölümü. Ayrıca, ne zaman `debug="true"` web.config dosyasında, uygulama geliştirme hızlandırmak için kullanıcı e-posta onayı gerektirmez.
+E-posta göndermek için şablonu kullanan [posta](http://aboutcode.net/postal). Ancak, posta kodu ile geri kalanından soyutlanır `IMailer` arabirim için bunu kolaylıkla başka bir uygulama ile değiştirebilir. E-posta şablonları, görünümler/e-postaları klasöründe bulunur. Gönderenin e-posta adresi web.config dosyasında belirtilen `sender.email` anahtarı **appSettings** bölümü. Ayrıca, `debug="true"` web.config dosyasında, uygulama geliştirme sürecinizi hızlandırmak için kullanıcının e-posta onayı gerekli değildir.
 
 ## <a name="github"></a>GitHub
 
-Üzerinde Backbone.js SPA şablon da bulabilirsiniz [GitHub](https://github.com/kazimanzurrashid/AspNetMvcBackboneJsSpa).
+Üzerinde Backbone.js SPA şablonunu da bulabilirsiniz [GitHub](https://github.com/kazimanzurrashid/AspNetMvcBackboneJsSpa).

@@ -1,137 +1,136 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/create-a-database
-title: Bir veritabanı oluşturun | Microsoft Docs
+title: Veritabanı oluşturma | Microsoft Docs
 author: microsoft
-description: 2. adım Yemeği tümünün bulunduran bir veritabanı oluşturun ve veri NerdDinner uygulamamız için RSVP adımlarını gösterir.
+description: 2. adım, NerdDinner uygulamamız için veri LCV yanıtı gönderin ve tüm Akşam Yemeği tutan veritabanı oluşturma adımları gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 983f3ffa-08b8-4868-b8c9-aa34593fc683
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: ba28d671bf13ec54b83b876462e2c23f90310037
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 01c6d3c63780e492b97aa54a92f3982d4c18f9e5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869146"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371755"
 ---
 <a name="create-a-database"></a>Bir veritabanı oluşturun
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 2 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , yetenekte küçük bir yapı ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulamasına nasıl aracılığıyla.
+> Adım 2 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
 > 
-> 2. adım Yemeği tümünün bulunduran bir veritabanı oluşturun ve veri NerdDinner uygulamamız için RSVP adımlarını gösterir.
+> 2. adım, NerdDinner uygulamamız için veri LCV yanıtı gönderin ve tüm Akşam Yemeği tutan veritabanı oluşturma adımları gösterilmektedir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, izlemeniz önerilir [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticileri.
+> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
 
 
-## <a name="nerddinner-step-2-creating-the-database"></a>NerdDinner adım 2: veritabanı oluşturma
+## <a name="nerddinner-step-2-creating-the-database"></a>NerdDinner 2. adım: veritabanı oluşturma
 
-Biz bir veritabanı NerdDinner uygulamamız için tüm Yemeği ve RSVP verileri depolamak için kullanırsınız.
+Bir veritabanı NerdDinner uygulamamız için tüm Akşam Yemeği ve RSVP verileri depolamak için kullanacağız.
 
-Ücretsiz SQL Server Express edition'ı kullanarak veritabanı oluşturma adımları Göster (hangi V2 birini kullanarak kolayca yükleyebilirsiniz [Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)). SQL Server Express ve tam SQL Server ile tüm yazma kod çalışır.
+Ücretsiz SQL Server Express edition'ı kullanarak veritabanı oluşturma adımları Göster (V2 sürümleriyle kullanarak kolayca yükleyebilirsiniz [Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)). SQL Server Express ve tam SQL Server ile tüm kodlar yazma çalışır.
 
 ### <a name="creating-a-new-sql-server-express-database"></a>Yeni bir SQL Server Express veritabanı oluşturma
 
-Biz bizim web projeye sağ tıklayarak başlayın ve ardından **Ekle -&gt;yeni öğe** menü komutu:
+Biz bizim web proje üzerinde sağ tıklayarak başlayın ve ardından **Add -&gt;yeni öğe** menü komutu:
 
 ![](create-a-database/_static/image1.png)
 
-Bu, Visual Studio'nun "Yeni Öğe Ekle" iletişim kutusunu getirir. Biz "Data" kategoriye göre filtre ve "SQL Server veritabanı" öğe şablonu seçin:
+Bu, Visual Studio'nun "Yeni Öğe Ekle" iletişim kutusu getirir. Biz "Veri" kategoriye göre filtreleme ve "SQL Server veritabanı" öğe şablonu seçin:
 
 ![](create-a-database/_static/image2.png)
 
-Biz "NerdDinner.mdf" oluşturabilir ve Tamam isabet istiyoruz SQL Server Express veritabanı adı. Visual Studio sonra bize Biz bu dosya için bizim \App eklemek isteyip istemediğinizi sorar\_veri dizini (bir dizin zaten olduğu kurulum ile hem de okuma ve güvenlik ACL yazma):
+Biz "NerdDinner.mdf" oluşturun ve Tamam isabet istiyoruz SQL Server Express veritabanı adı. Visual Studio ardından bize Biz bu dosya için sunduğumuz \App eklemek isteyip istemediğinizi sorar\_veri dizini (zaten olan bir dizin hem okuma hem de ile Kurulum ve güvenlik ACL'leri yazma):
 
 ![](create-a-database/_static/image3.png)
 
-"Evet"'yi ve bizim yeni bir veritabanı oluşturulur ve bizim çözüm Gezgini'ne eklenir:
+"Evet"'yi ve müşterilerimize yeni bir veritabanı oluşturulur ve bizim çözüm Gezgini'ne eklenir:
 
 ![](create-a-database/_static/image4.png)
 
-### <a name="creating-tables-within-our-database"></a>Bizim veritabanındaki tabloları oluşturma
+### <a name="creating-tables-within-our-database"></a>Bizim veritabanı içinde tablo oluşturma
 
-Şimdi yeni bir boş veritabanı sunuyoruz. Bazı tablolar için ekleyelim.
+Artık yeni bir boş veritabanı var. Bazı tablolar için ekleyelim.
 
-Bunu yapmak için biz "Sunucu Gezgini" sekmesi penceresi bize veritabanları ve sunucuları yönetmek sağlayan Visual Studio içinde gitmek. SQL Server Express veritabanları \App depolanan\_uygulamamız veri klasörü otomatik olarak görünmesini sağlar Sunucu Gezgini içinde. Biz isteğe bağlı olarak "Connect to Database" simgesini "Sunucu Gezgini" pencerenin üst kısmında (yerel ve uzak) ek SQL Server veritabanları listesine eklemek için kullanabilirsiniz:
+Bunu yapmak için veritabanlarını ve sunucuları yönetmek bize sağlayan Visual Studio "Sunucu Gezgini" sekmesinde penceresine giderek. SQL Server Express veritabanı \App içinde depolanan\_uygulamamız veri klasörü otomatik olarak görünür Sunucu Gezgini içinde. İsteğe bağlı olarak "Veritabanına bağlan" simge "Sunucu Gezgini" penceresinin üst kısmındaki (yerel ve uzak) ek SQL Server veritabanlarını listesine eklemek için kullanabiliriz:
 
 ![](create-a-database/_static/image5.png)
 
-Bizim NerdDinner veritabanına – bizim azalma ve diğer kişilere RSVP kabul izlemek için depolamak için iki tablo ekleyeceğiz. Yeni tablolar Veritabanımıza içinde "Tablo" klasöre sağ tıklayarak ve "Yeni Tablo Ekle" menü komutu seçme oluşturabilirsiniz:
+Bizim NerdDinner veritabanı – bizim azalma ve diğer RSVP edenleri bunları izlemek üzere depolamak için iki tablo ekleyeceğiz. Yeni tablolar veritabanımızdaki içindeki "Tablo" klasöre sağ tıklayarak ve "Yeni Tablo Ekle" menü komutu seçme oluşturabilirsiniz:
 
 ![](create-a-database/_static/image6.png)
 
-Bu bizim tablonun şeması yapılandırma kurmamızı sağlayan bir Tablo Tasarımcısı açar. Bizim "Azalma" tablosu için 10 veri sütunlarının ekleyeceğiz:
+Bu kurmamızı tablomuza şemasını yapılandırmak bir Tablo Tasarımcısı açılır. 10 veri sütunlarının "Azalma" tablomuza ekleyeceğiz:
 
 ![](create-a-database/_static/image7.png)
 
-"DinnerID" sütun tablosu için benzersiz bir birincil anahtar olmasını istiyoruz. Biz "DinnerID" sütunu sağ tıklayıp "Birincil anahtarı Ayarla" menü öğesini seçerek yapılandırabilirsiniz:
+"DinnerID" sütunu tablo için benzersiz bir birincil anahtar olmasını istiyoruz. Biz "DinnerID" sütuna sağ tıklayıp "Birincil anahtarı Ayarla" menü öğesi'i seçerek yapılandırabilirsiniz:
 
 ![](create-a-database/_static/image8.png)
 
-Birincil anahtar DinnerID yapmanın yanı sıra da değeri otomatik olarak artar yeni veri satırları tabloya eklenen bir "kimlik" sütunu olarak yapılandırma istiyoruz (ilk eklenen Yemeği satıra 1 DinnerID olacaktır anlamına gelir, ikinci satır eklenir bir DinnerID sahip olur 2, vb.).
+Bir birincil anahtar DinnerID hale getirmenin yanı sıra, ayrıca değeri tabloya yeni satır veri eklendikçe otomatik olarak artırılır "kimlik" sütunu olarak yapılandırır istiyoruz (ilk eklenen Dinner satıra bir DinnerID 1 olacaktır anlamına gelir, ikinci satır eklendi bir DinnerID olacaktır 2, vb.).
 
-"DinnerID" sütun seçerek bunu ve "Evet" sütununa "(kimlik)" özelliğini ayarlamak için "Sütun özellikleri" Düzenleyicisi'ni kullanın. Standart kimlik Varsayılanları kullanacağız (1'den başlar ve her yeni Yemeği satırda 1 Artır):
+Bunu "DinnerID" sütun seçerek ve ardından "(kimlik mi)" özelliği "Evet" sütununda ayarlamak için "Sütun özellikleri" Düzenleyicisi'ni kullanın. Standart kimlik Varsayılanları kullanacağız (1'den başlar ve her yeni Dinner satırında 1 Artır):
 
 ![](create-a-database/_static/image9.png)
 
-Biz sonra bizim tablo kullanarak veya Ctrl-S yazarak kurtulmuş olursunuz **dosya -&gt;kaydetmek** menü komutu. Bu tablo adı için bize ister. Biz "Azalma" adlandırın:
+Biz ardından tablomuza kullanarak veya Ctrl-S yazarak kazanırsınız **File -&gt;Kaydet** menü komutu. Bu tablo adı için bize ister. Biz, bunu "Azalma" ad:
 
 ![](create-a-database/_static/image10.png)
 
-Bizim yeni azalma tablo sonra Veritabanımıza server Explorer'da içinde görünecektir.
+Yeni azalma tablomuza veritabanımızda yer Sunucu Gezgini içinde sonra görünür.
 
-Biz ardından yukarıdaki adımları yineleyin ve bir "RSVP" tablo oluşturun. Bu tablo ile 3 sütuna sahip. Biz birincil anahtar olarak RsvpID sütun Kurulum ve ayrıca bir kimlik sütunu yapar:
+Biz ardından yukarıdaki adımları yineleyin ve "RSVP" tablosu oluşturun. Bu tablo ile 3 sütun olması. Biz RsvpID sütun birincil anahtar olarak ayarlama ve ayrıca bir kimlik sütunu kolaylaştırır:
 
 ![](create-a-database/_static/image11.png)
 
-Biz kaydetmek ve "Cane" adını verin.
+Biz, kaydedin ve "RSVP" adını verin.
 
 ### <a name="setting-up-a-foreign-key-relationship-between-tables"></a>Tablolar arasında yabancı anahtar ilişkisi ayarlama
 
-Şimdi iki tablo Veritabanımıza içinde sunuyoruz. Böylece biz her Yemeği satır uygulayan sıfır veya daha fazla RSVP satır ilişkilendirebilir bizim son şema tasarım adımı – bu iki tablo arasında bir "bir-çok" ilişkisi kurmak için olacaktır. Bu "Azalma" tablosunda "DinnerID" sütunu için yabancı anahtar ilişkisi için RSVP tablonun "DinnerID" sütunu yapılandırarak gerçekleştiririz.
+Artık iki tablo veritabanımızdaki içinde var. Böylece her Akşam Yemeği satır biz buna sıfır veya daha fazla RSVP satır ile ilişkilendirebilirsiniz: Bu iki tablo arasında bir "bir-çok" ilişki kurmak için son şema tasarım adımımız olacaktır. RSVP tablonun "DinnerID" sütunun "Azalma" tablosunda "DinnerID" sütunu için yabancı anahtar ilişkisi yapılandırarak bunu.
 
-Bunu yapmak için şu Tablo Tasarımcısı'nda RSVP tablosu sunucu Gezgini'nde çift tıklayarak açacaksınız. Biz "DinnerID" sütun içerdiği, ardından seçersiniz sağ tıklatın ve "Relationshps..." i seçin bağlam menüsü komutu:
+Bunu yapmak için biz Tablo Tasarımcısı içine RSVP tablosunu sunucu Gezgini'nde çift tıklayarak açacaksınız. Ardından, "DinnerID" sütunda seçeneğini belirleyeceğiz sağ tıklayın ve "Relationshps..." bağlam menüsü komutu seçin:
 
 ![](create-a-database/_static/image12.png)
 
-Bu kurulum tablolar arasında ilişkiler için kullanabileceğiniz bir iletişim kutusu getirir:
+Bu tablolar arasındaki ilişkileri kurulumu için kullanabileceğiniz bir iletişim kutusu getirir:
 
 ![](create-a-database/_static/image13.png)
 
-Biz iletişim kutusuna yeni bir ilişki eklemek için "Ekle" düğmesini tıklatın. İlişki eklendikten sonra biz "Tablo ve sütun belirtimi" ağaç görünümü ve özellik ızgarasının içinde iletişim kutusunun sağında düğümünü ve sağındaki "..." düğmesini tıklatıp:
+İletişim kutusuna yeni bir ilişki eklemek için "Ekle" düğmesine tıkladıktan. İlişki eklendikten sonra biz iletişim kutusunun sağında özellik kılavuzunda "Tabloları ve sütun belirtimi" ağaç görünümü düğümü genişletin ve ardından sağındaki "..." düğmesine tıklayın:
 
 ![](create-a-database/_static/image14.png)
 
-"..." Düğmesini tıklatarak hangi tablolar ve sütunlar ilişkide bulunan, aynı zamanda ilişki adı etmemizi sağlayan belirtmeniz kurmamızı sağlayan başka bir iletişim kutusunu getirir.
+"..." Düğmesine tıklayarak, hangi tablolar ve sütunlar ilişkide bulunan, hem de ilişki adı olanak belirtmenizi sağlayan başka bir iletişim kutusu getirir.
 
-Biz "Azalma" olması için birincil anahtar tablosu değiştirin ve "DinnerID" sütun azalma tablodaki birincil anahtar olarak seçin. Bizim RSVP tablosu yabancı anahtar tablosu ve RSVP olacaktır. DinnerID sütun yabancı anahtar ilişkili olacaktır:
+Biz "Azalma" olarak birincil anahtar tablosu değiştirin ve birincil anahtar olarak azalma tablo içindeki "DinnerID" sütunu seçin. RSVP tablomuza yabancı anahtar tablosuna ve RSVP olacaktır. Yabancı anahtar DinnerID sütun ilişkilendirilecek:
 
 ![](create-a-database/_static/image15.png)
 
-Şimdi RSVP tablodaki her satır Yemeği tablosunda bir satırı ile ilişkilendirilir. SQL Server başvuru bütünlüğü bize – korumak ve bize geçerli Yemeği satır işaret etmiyorsa yeni RSVP satır ekleme engelleyebilirsiniz. Bu da bize hala kendisine başvuran satır RSVP varsa bir Yemeği satırın silinmesi engeller.
+RSVP tablodaki her satır Şimdi Akşam Yemeği tablosunda bir satıra ile ilişkili olacaktır. SQL Server, bizim için – başvurusal bütünlüğü korumak ve bize geçerli bir Akşam Yemeği satıra işaret etmemesi durumunda yeni RSVP satır eklemesini engellemek. Bu da bize varsa yine de ona başvuran satır RSVP Dinner satır silme engeller.
 
-### <a name="adding-data-to-our-tables"></a>Veri bizim tablolarına ekleme
+### <a name="adding-data-to-our-tables"></a>Bizim tablolarına veri ekleme
 
-Şimdi bizim azalma tabloya bazı örnek veri ekleyerek tamamlayın. Sunucu Gezgini içinde sağ tıklayarak ve "Tablo verileri göster" komutunu seçerek biz verileri bir tabloya ekleyebilirsiniz:
+Şimdi bazı örnek veriler azalma tablomuza ekleyerek tamamlayın. Sunucu Gezgini içinde sağ tıklayarak ve "Tablo verilerini Göster" komutunu seçerek bir tabloya veri ekleyebiliriz:
 
 ![](create-a-database/_static/image16.png)
 
-Biz daha sonra uygulamayı uygulama başlangıç olarak kullanabileceğiniz Yemeği veri birkaç satırı ekleyeceğiz:
+Daha sonra uygulamayı uygulama başlangıç olarak kullanabiliriz Dinner veri birkaç satırı ekleyeceğiz:
 
 ![](create-a-database/_static/image17.png)
 
 ### <a name="next-step"></a>Sonraki adım
 
-Biz Veritabanımıza oluşturma işlemini tamamladınız. Şimdi biz sorgulamak ve güncelleştirmek için kullanabileceğiniz modeli sınıfları oluşturalım.
+Size sunduğumuz veritabanı oluşturma işlemini tamamladınız. Artık sorgulamak ve güncelleştirmek için kullanabiliriz model sınıfları oluşturalım.
 
 > [!div class="step-by-step"]
 > [Önceki](create-a-new-aspnet-mvc-project.md)
-> [sonraki](build-a-model-with-business-rule-validations.md)
+> [İleri](build-a-model-with-business-rule-validations.md)

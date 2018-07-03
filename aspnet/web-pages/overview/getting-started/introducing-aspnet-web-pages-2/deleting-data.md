@@ -1,166 +1,165 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: ASP.NET Web sayfaları sunarak - veritabanı verilerini silme | Microsoft Docs
+title: ASP.NET Web sayfaları ile tanışın - veritabanı verilerini silme | Microsoft Docs
 author: tfitzmac
-description: Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Bu, veritabanı verilerde güncelleştirme ASP.NET Web Pa aracılığıyla serisini tamamladınız varsayar...
+description: Bu öğreticide tek veritabanı girdiyi Sil gösterilmektedir. Bu, veritabanı verilerinde güncelleştirmeyi ASP.NET Web Pa aracılığıyla serisi tamamladınız varsayar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 45cd3ed7fdcede05823ef28d7cc6c8da3922dad7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897450"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362096"
 ---
-<a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfaları sunarak - veritabanı verileri silme
+<a name="introducing-aspnet-web-pages---deleting-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini silme
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu öğretici bir tek tek veritabanı girişi silmek gösterilmiştir. Seri aracılığıyla tamamladığınızdan varsayar [güncelleştirme veritabanı veri ASP.NET Web Pages'de](updating-data.md).
+> Bu öğreticide tek veritabanı girdiyi Sil gösterilmektedir. Bu seriyi aracılığıyla bitirdiğinizi [veritabanı verilerini güncelleştirme ASP.NET Web Pages'de](updating-data.md).
 > 
 > Öğrenecekleriniz:
 > 
-> - Tek bir kaydın listesini kayıtları seçmek nasıl.
-> - Tek kayıtlı bir veritabanından silmek nasıl.
-> - Belirli bir düğme bir formda tıklandığını kontrol etme.
+> - Tek bir kayıtta kayıtların bir listeden seçmek nasıl.
+> - Nasıl bir veritabanından tek bir kaydı silinir.
+> - Belirli bir düğmeyi içinde bir formun tıklandığını nasıl kontrol edileceğini.
 >   
 > 
-> Özellikler/teknolojilerini ele alınan:
+> Ele alınan özelliklerin/teknolojiler:
 > 
 > - `WebGrid` Yardımcısı.
 > - SQL `Delete` komutu.
-> - `Database.Execute` Bir SQL çalıştırılacak yöntemi `Delete` komutu.
+> - `Database.Execute` SQL çalıştırılacak yöntemi `Delete` komutu.
 
 
-## <a name="what-youll-build"></a>Ne oluşturacağınız
+## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
-Önceki öğreticide, var olan bir veritabanı kaydını güncelleştirmek öğrendiniz. Kayıt güncelleme yerine onu silersiniz Bu öğretici, benzerdir. Bu öğretici kısa olacak şekilde silme daha basit, olması dışında işlemleri çok aynıdır.
+Önceki öğreticide, var olan bir veritabanı kaydını güncelleştirme öğrendiniz. Kaydı güncelleştirmek yerine bunu silersiniz dışında Bu öğreticide benzerdir. Bu öğreticide kısa olacak şekilde silme daha basit olması dışında işlemleri çok aynıdır.
 
-İçinde *filmler* update sayfasında, `WebGrid` onun görüntüler için yardımcı bir **silmek** eşlik etmek üzere her film yanındaki bağlantı **Düzenle** daha önce eklediğiniz bağlantı.
+İçinde *filmler* sayfasında, güncelleştirme `WebGrid` yardımcı olan görünmesi bir **Sil** eşlik eden her filmin yanındaki bağlantısını **Düzenle** daha önce eklediğiniz bağlantı.
 
-![Her film için Sil bağlantısını gösteren filmler sayfası](deleting-data/_static/image1.png)
+![Bir silme bağlantısı için her filmin gösteren filmler sayfası](deleting-data/_static/image1.png)
 
-Düzenleme gibi ile tıkladığınızda **silmek** bağlantı sürdüğünü, farklı bir sayfaya film bilgileri zaten bir formda olduğu:
+Düzenleme gibi ile tıkladığınızda **Sil** bağlantı sürer, başka bir sayfaya film bilgileri zaten bir biçimde olduğu:
 
-![Görüntülenen bir filmi film sayfayı silin](deleting-data/_static/image2.png)
+![Görüntülenen sahip bir film film sayfayı Sil](deleting-data/_static/image2.png)
 
-Ardından, kayıt kalıcı olarak silmek için düğmeyi tıklatabilirsiniz.
+Ardından, kaydı kalıcı olarak silmek için düğmeyi tıklatabilirsiniz.
 
-## <a name="adding-a-delete-link-to-the-movie-listing"></a>Film listenin Delete bağlantı ekleme
+## <a name="adding-a-delete-link-to-the-movie-listing"></a>Film listenin bir silme bağlantısı ekleme
 
-Ekleyerek başlayacaksınız bir **silmek** bağlantı `WebGrid` Yardımcısı. Bu bağlantıyı benzer **Düzenle** önceki öğreticide eklediğiniz bağlantı.
+Ekleyerek başlayacaksınız bir **Sil** bağlantı `WebGrid` Yardımcısı. Bu bağlantıyı benzer **Düzenle** bağlantı önceki bir öğreticide eklendi.
 
 Açık *Movies.cshtml* dosya.
 
-Değişiklik `WebGrid` bir sütunu ekleyerek sayfasının gövdesindeki biçimlendirme. Değiştirilen biçimlendirme aşağıdaki gibidir:
+Değişiklik `WebGrid` biçimlendirme içinde bir sütun ekleyerek sayfasının gövdesi. Değiştirilen biçimlendirmesi şöyledir:
 
 [!code-html[Main](deleting-data/samples/sample1.html?highlight=9-10)]
 
-Yeni bir sütun bu bilgisayardır:
+Bu yeni bir sütun verilmiştir:
 
 [!code-html[Main](deleting-data/samples/sample2.html)]
 
-Kılavuz yapılandırılır, yol **Düzenle** sütundur kılavuzda soldaki ve **silmek** en sağdaki sütun. (Sonra bir virgül `Year` şimdi sütun durumunda, fark etmemiştir.) Bu bağlantı sütunları nereye özel bir şey yoktur ve kolayca bunları birbirinin yanına yerleştirdiğiniz. Bu durumda, kullanıcılar bunları karma daha zor hale getirmek için ayrı.
+Kılavuz yapılandırılmış yolu **Düzenle** kılavuzunda en soldaki sütun ve **Sil** en sağdaki sütun. (Sonra bir virgül var. `Year` sütun şimdi durumda fark etmemiştir.) Bu bağlantı sütunlar nereye özel bir şey yoktur ve sizin gibi bir kolayca bunları birbirinin yanına yerleştirebilirsiniz. Bu durumda, bunlar karışmasına daha zor hale getirmek için ayrı.
 
-![Birbirinin yanına olmadıklarını olduğunu göstermek için filmler sayfa düzenleme ve ayrıntıları bağlantıları ile işaretlenmiş](deleting-data/_static/image3.png)
+![Düzenle ve ayrıntıları bağlantılarla filmler sayfası birbirinin yanına olmadıklarını olduğunu göstermek için işaretlenmiş](deleting-data/_static/image3.png)
 
-Yeni bir sütun bağlantıyı gösterir (`<a>` öğesi) "Delete" metnini söyler. Bağlantı hedefi (kendi `href` özniteliği) sonuçta bu URL şöyle ile çözümler kodu `id` her film için farklı bir değer:
+Yeni bir sütun bağlantıyı gösterir (`<a>` öğesi) metni "Sil" diyor. Bağlantının hedefi (kendi `href` özniteliği) sonuçta bu URL, benzer bir şey ile çözümler kodu `id` her filmin için farklı bir değer:
 
 [!code-css[Main](deleting-data/samples/sample3.css)]
 
-Bu bağlantıyı adlı bir sayfaya çağıracağı *DeleteMovie* ve seçtiğiniz film Kimliğini geçirin.
+Bu bağlantıyı adlı sayfanın çağıracağı *DeleteMovie* ve seçtiğiniz film kimliği geçirin.
 
-Neredeyse aynı olduğu için bu öğreticiyi bu bağlantıyı nasıl oluşturulur, ayrıntılı gitmesi olmaz **Düzenle** önceki öğretici bağlantısından ([güncelleştirme veritabanı veri ASP.NET Web Pages'de](updating-data.md)).
+Neredeyse aynı olduğundan, bu Öğreticide bu bağlantıyı nasıl oluşturulur, ilgili ayrıntıya gitmiyor **Düzenle** önceki öğreticide bağlantıdan ([veritabanı verilerini güncelleştirme ASP.NET Web Pages'de](updating-data.md)).
 
-## <a name="creating-the-delete-page"></a>Delete sayfası oluşturma
+## <a name="creating-the-delete-page"></a>Silme sayfası oluşturma
 
-Hedef olacaktır sayfası oluşturabilirsiniz artık **silmek** kılavuzunda bağlantı.
+Hedefi olan sayfanın oluşturabilirsiniz artık **Sil** kılavuzunda bağlantı.
 
 > [!NOTE] 
 > 
-> **Önemli** ilk silmek için bir kayıt seçerek ve sonra işlemi onaylamak için ayrı bir sayfa ve düğmesini kullanarak tekniği güvenlik için son derece önemlidir. Önceki eğitimlerine okuduğunuz gibi yapma *herhangi* tür değişiklik sitenizin gereken *her zaman* yapılması formu kullanarak &mdash; diğer bir deyişle, bir HTTP POST işlemini kullanarak. Site (GET işlemi kullanan) bir bağlantıya tıklayarak değiştirmek mümkün hale, kişiler, sitenize basit isteklerde ve verilerinizi silmek. Bile, sitenizin dizinini bir arama motoru Gezgin yalnızca aşağıdaki bağlantılar tarafından yanlışlıkla veri silinemedi.
+> **Önemli** ilk kez bir kaydı silmek için seçme ve ardından işlemini onaylamak için ayrı bir sayfa ve düğmesini kullanarak bir teknik güvenliği için son derece önemlidir. Önceki öğreticilerde makaleyi okudunuz, yaparak *herhangi* tür değişiklik sitenize gereken *her zaman* yapılması formu kullanarak &mdash; diğer bir deyişle, bir HTTP POST işlemi kullanarak. Site (bir alma işlemi kullanma) bir bağlantıya tıklayarak değiştirmek mümkün hale, kişilerin sitenize basit isteklerde ve verilerinizi silin. Hatta sitenizi dizin bir arama motoru Gezgin, yalnızca aşağıdaki bağlantılardan yanlışlıkla veri silebilir.
 > 
-> Uygulamanızı bir kaydı değiştirme kişiler sağlar, yine de düzenleme için kullanıcıya kaydı sunmak üzere vardır. Ancak, bir kaydın silinmesi için bu adımı atlamak için gerekebilir. Bu adım, ancak atlamayın. (Bu da kaydını görmek ve bunlar kayıt silmekte olduğunuz onaylamak kullanıcılar için yararlı olur.)
+> Uygulamanızı bir kaydı değiştirme kişilere izin verdiğinde, yine de düzenleme için kullanıcıya kayıt sunmak gerekir. Ancak, bir kaydı silmek için bu adımı atlamak için fikri size cazip olabilir. Bu adım, ancak atlamayın. (Bu da kaydını görmek ve bunlar kaydı silmekte olduğunuz onaylamak, kullanıcılar için yararlıdır.)
 > 
-> Bir sonraki öğretici kümesindeki bir kullanıcının bir kaydı silmeden önce oturum açması için oturum açma işlevselliği ekleme görürsünüz.
+> Bir sonraki öğretici kümesinde, bir kullanıcı bir kayıt silmeden önce oturum açmak bu nedenle oturum açma işlevselliği ekleme görürsünüz.
 
 
-Adlı bir sayfa oluşturma *DeleteMovie.cshtml* ve dosyasında, aşağıdaki biçimlendirme nedir değiştirin:
+Adlı bir sayfa oluşturun *DeleteMovie.cshtml* dosyasında aşağıdaki işaretlemeyle nedir değiştirin:
 
 [!code-cshtml[Main](deleting-data/samples/sample4.cshtml)]
 
-Bu biçimlendirme benzer *EditMovie* , metin kutuları yerine dışındaki sayfalara (`<input type="text">`), biçimlendirme içeren `<span>` öğeleri. Düzenlemek için burada şey yoktur. Yapmanız gereken tek şey böylece kullanıcılar sağ film silmekte olduğunuz emin olabilirsiniz film ayrıntıları görüntüle.
+Bu işaretleme benzer *EditMovie* sayfaları, metin kutuları yerine hariç (`<input type="text">`), biçimlendirme içeren `<span>` öğeleri. Düzenlemek için burada şey yoktur. Tek yapmanız gereken olan kullanıcıların doğru film silmekte olduğunuz emin yapabilmeleri için film ayrıntılarını görüntüler.
 
-İşaretleme film listeleme sayfaya dönmek kullanıcı olanak sağlayan bir bağlantı zaten var.
+Biçimlendirme film listesi sayfasına geri dönmek kullanıcının sağlayan bir bağlantı zaten var.
 
-Olarak *EditMovie* sayfası, seçilen film Kimliğini, gizli bir alan depolanır. (Bu sayfaya ilk başta bir sorgu dizesi değeri olarak geçirilir.) Var olan bir `Html.ValidationSummary` doğrulama hataları görüntüler çağrısı. Bu durumda, hata film kimliği yok sayfasına geçildi veya film kimliği geçersiz olabilir. Birisi bu sayfayı bir filmi seçmeden çalıştıracaksanız, bu durum oluşabilir *filmler* sayfası.
+Olarak *EditMovie* sayfasında, seçili film kimliği, gizli bir alanında saklanır. (Bu sayfaya ilk başta bir sorgu dizesi değeri geçirilir.) Var olan bir `Html.ValidationSummary` doğrulama hataları görüntüler çağrısı. Bu durumda, hata film kimliği yok sayfasına geçildi veya film kimliği geçersiz olabilir. Birisi bu sayfa içinde bir film seçmeden çalıştırdıysanız bu durum ortaya çıkabilir *filmler* sayfası.
 
-Düğme resim yazısı **silmek film**, ve kendi ad özniteliği kümesine `buttonDelete`. `name` Özniteliği formun gönderilen düğmeyi saptamak için kodda kullanılacak.
+Düğme başlık **Sil film**, ve onun name özniteliği kümesine `buttonDelete`. `name` Özniteliği formun gönderilen düğmeyi saptamak için kodda kullanılır.
 
-1) film Ayrıntıları sayfası görüntülendiğinde okumak için kod yazmak ve kullanıcı düğmesini tıklattığında film 2) gerçekten silmek gerekir.
+(1) film Ayrıntıları sayfası ilk görüntülendiğinde okumak için kod yazma ve kullanıcı düğmeye tıkladığında film 2) gerçekten silmek gerekecektir.
 
-## <a name="adding-code-to-read-a-single-movie"></a>Tek bir filmi okumak için kod ekleme
+## <a name="adding-code-to-read-a-single-movie"></a>Tek bir filmi okumayı kod ekleme
 
-Üstündeki *DeleteMovie.cshtml* sayfasında, aşağıdaki kod bloğunu ekleyin:
+Üst kısmındaki *DeleteMovie.cshtml* sayfasında, aşağıdaki kod bloğunu ekleyin:
 
 [!code-cshtml[Main](deleting-data/samples/sample5.cshtml)]
 
-Bu biçimlendirme karşılık gelen kodu aynıdır *EditMovie* sayfası. Sorgu dizesi dışında film Kimliğini alır ve bir kayıt veritabanından okumak için Kimliğini kullanır. Doğrulama testi kodu içerir (`IsInt()` ve `row != null`) sayfasına geçirilen film Kimliğinin geçerli olduğundan emin olmak için.
+Bu işaretleme ilgili kod içinde aynıdır *EditMovie* sayfası. Sorgu dizesi dışında film Kimliğini alır ve bir kayıt veritabanından okumak için Kimliğini kullanır. Doğrulama testi kodu içerir (`IsInt()` ve `row != null`) sayfasına geçirilen film Kimliğinin geçerli olduğundan emin olmak için.
 
-Bu kod, sayfa ilk çalıştığında yalnızca çalışması gerektiğini unutmayın. Kullanıcı tıklattığında film kaydı veritabanından yeniden okumak istemediğiniz **silmek film** düğmesi. Bu nedenle, okuma film içinde belirten bir test kodu `if(!IsPost)` &mdash; diğer bir deyişle, *isteği post işlemine (form gönderme) değilse,*.
+Bu kod yalnızca ilk kez çalıştırdığında sayfasında çalışması gerektiğini unutmayın. Kullanıcı tıkladığında veritabanından film kaydı yeniden okunuyorsa istemediğiniz **Sil film** düğmesi. Bu nedenle, film olduğunu bildiren bir test içinde okumayı kod `if(!IsPost)` &mdash; diğer bir deyişle, *isteği gönderme işlemi (form gönderme) değilse*.
 
 ## <a name="adding-code-to-delete-the-selected-movie"></a>Seçili film silmek için kod ekleme
 
-Kullanıcı düğmesini tıklattığında film silmek için aşağıdaki kodu kapanış ayracı yalnızca eklemek `@` engelle:
+Kullanıcı düğmeye tıkladığında film silmek için aşağıdaki kodu yalnızca kapanış ayracı Ekle `@` engelle:
 
 [!code-csharp[Main](deleting-data/samples/sample6.cs)]
 
-Bu, varolan bir kaydı güncelleştirmek için kod benzer, ancak daha basit kodudur. Kod temelde bir SQL çalışır `Delete` deyimi.
+Bu kod, varolan bir kaydı güncelleştirmek için koda benzer, ancak daha basit değildir. Kod temel olarak bir SQL çalışır `Delete` deyimi.
 
- Olarak *EditMovie* kod sayfası, konusu bir `if(IsPost)` bloğu. Bu süre, `if()` durumdur biraz daha karmaşık: 
+ Olarak *EditMovie* kod sayfası, konusu bir `if(IsPost)` blok. Bu kez, `if()` biraz daha karmaşık koşul: 
 
 [!code-csharp[Main](deleting-data/samples/sample7.cs)]
 
-Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğünüz gibi olan &mdash; `if(IsPost)`.
+Burada iki koşul vardır. Sayfa gönderiliyor olduğunu, ilk önce gördüğünüz gibi olduğu &mdash; `if(IsPost)`.
 
-İkinci koşulu `!Request["buttonDelete"].IsEmpty()`, istek adlı bir nesne olduğu anlamına gelen `buttonDelete`. Kuşkusuz bu formun hangi düğmesi gönderilen sınama bir dolaylı yoludur. Bir form birden çok düğmeleri içeriyorsa, istekte yalnızca tıklandığını düğmenin adı görüntülenir. Bu nedenle, mantıksal olarak, belirli bir düğmeyi adını istekte görünüp görünmeyeceğini &mdash; veya bu düğme boş değilse kodda belirtildiği gibi &mdash; formun gönderilen düğmesi olmasıdır.
+İkinci koşul `!Request["buttonDelete"].IsEmpty()`, istek adlı bir nesne olduğu anlamına gelen `buttonDelete`. Kuşkusuz, formun hangi düğmeden gönderilen test bir dolaylı yoludur. Bir form birden çok düğmeleri içeriyorsa, istekte yalnızca tıklandığını düğme adı görüntülenir. Bu nedenle, mantıksal olarak, belirli bir düğmeyi adını istekte görünüp görünmeyeceğini &mdash; veya bu düğmeyi boş değilse kod içinde belirtildiği gibi &mdash; formunu düğmesi olan.
 
-`&&` İşleci anlamına gelir "ve" (mantıksal AND). Bu nedenle tüm `if` koşul...
+`&&` İşleci anlamına gelir "ve" (mantıksal ve). Bu nedenle tüm `if` koşul...
 
-*Bu istek bir (ilk kez isteği değil) postasıdır*  
+*Bu isteği bir gönderi (ilk kez istek değil) olup*  
   
  AND  
   
 `buttonDelete`*Düğmesi formun gönderilen düğmesi oluştu.*
 
-Bu form (aslında, bu sayfayı) yalnızca bir düğme, bu nedenle içerir için ek sınama `buttonDelete` teknik gerekli değildir. Yine de, verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Böylece olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi yaptığınızdan emin olmak istiyor. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri kendisine eklenmiş olduğunu varsayalım. Yalnızca film siler kodu dahi sonra çalıştıracak `buttonDelete` düğmesine tıklanana.
+Bu formu (aslında bu sayfayı) yalnızca bir düğme şekilde içeren ek test için `buttonDelete` teknik olarak gerekli değildir. Yine de verileri kalıcı olarak kaldırır bir işlem gerçekleştirmek üzere olduğunuz. Bu nedenle olabildiğince yalnızca kullanıcının açıkça, istediği zaman işlemi gerçekleştiriyorsunuz emin olmak istersiniz. Örneğin, daha sonra bu sayfayı genişletilmiş ve diğer düğmeleri eklenmiş olduğunu varsayalım. Film silen kod yalnızca aşağıdaki durumlarda bile çalışır `buttonDelete` düğmeye tıkladı.
 
-Olarak *EditMovie* sayfasında kimliği gizli alanından almanıza ve ardından SQL komutunu çalıştırın. Sözdizimi `Delete` ifadesi:
+Olarak *EditMovie* sayfasından gizli alanı Kimliğini alın ve ardından SQL komutunu çalıştırın. Sözdizimi `Delete` deyimidir:
 
 `DELETE FROM table WHERE ID = value`
 
-Eklenecek önemlidir `WHERE` yan tümcesi ve kimliği. WHERE yan tümcesi bırakırsanız *tablosundaki tüm kayıtları silinecek*. Görülen, kimlik değeri SQL komutu için bir yer tutucu kullanarak geçirin.
+Dahil etmek için çok önemli `WHERE` yan tümcesi ve kimliği. WHERE yan tümcesi bırakırsanız *tablodaki tüm kayıtları silinen*. Sizin gördüğünüz gibi kimlik değeri SQL komutu bir yer tutucu kullanarak geçirin.
 
 ## <a name="testing-the-movie-delete-process"></a>Film silme işlemi test etme
 
-Artık test edebilirsiniz. Çalıştırma *filmler* sayfasında ve tıklayın **silmek** film yanındaki. Zaman *DeleteMovie* sayfası görüntülendikten sonra **silmek film**.
+Artık test edebilirsiniz. Çalıştırma *filmler* sayfasında ve tıklayın **Sil** film yanında. Zaman *DeleteMovie* sayfası görüntülendikten sonra **Sil film**.
 
-![Silme film düğmesi vurgulanmış filmi sayfayı silin](deleting-data/_static/image4.png)
+![Film Sil düğmesi vurgulanmış film sayfayı Sil](deleting-data/_static/image4.png)
 
-Düğmeye tıkladığınızda, kod filmler siler ve film listesini döndürür. Silinen film için arama vardır ve silinmiş onaylayın.
+Düğmeye tıkladığınızda, kod filmler siler ve film listeye döndürür. Silinen film arama vardır ve silinmiş onaylayın.
 
 ## <a name="coming-up-next"></a>Sıradaki gelen
 
-Sonraki öğretici ortak bir görünüm ve düzeni sitenizdeki tüm sayfaları koyduğunuzdan gösterilmiştir.
+Sonraki öğreticiye genel bir görünüm ve Düzen sitenizdeki tüm sayfaları bildirimde bulunma konusunda gösterir.
 
-## <a name="complete-listing-for-movie-page-updated-with-delete-links"></a>Tam listesi için (Delete bağlantılarıyla güncelleştirilmiş) film sayfası
+## <a name="complete-listing-for-movie-page-updated-with-delete-links"></a>Tam listesi için (Sil bağlantılarla güncelleştirilmiş) film sayfası
 
 [!code-cshtml[Main](deleting-data/samples/sample8.cshtml)]
 
@@ -170,9 +169,9 @@ Sonraki öğretici ortak bir görünüm ve düzeni sitenizdeki tüm sayfaları k
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [Razor sözdizimini kullanarak ASP.NET Web programlamaya giriş](../introducing-razor-syntax-c.md)
+- [ASP.NET Web programlama Razor söz dizimini kullanarak giriş](../introducing-razor-syntax-c.md)
 - [SQL DELETE deyimi](http://www.w3schools.com/sql/sql_delete.asp) W3Schools sitesinde
 
 > [!div class="step-by-step"]
 > [Önceki](updating-data.md)
-> [sonraki](layouts.md)
+> [İleri](layouts.md)

@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax451
-title: ASP.NET Web formları ve Ajax 4.5.1 | Microsoft Docs
+title: ASP.NET Web Forms ve Ajax 4.5.1 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 03/18/2015
 ms.topic: article
 ms.assetid: d7ec655d-49b0-4968-af5e-3064616aff9a
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/cdnajax451
 msc.type: content
-ms.openlocfilehash: 2a79786d1a9528b837c114d4fe163c0136a413f5
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 7e4fd7927b1f5084b673947c0a998e3c032afedf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30070657"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363351"
 ---
-<a name="aspnet-web-forms-and-ajax-451"></a>ASP.NET Web formları ve Ajax 4.5.1
+<a name="aspnet-web-forms-and-ajax-451"></a>ASP.NET Web Forms ve Ajax 4.5.1
 ====================
-Aşağıdaki dosyalar üzerinde CDN barındırılan:
+Aşağıdaki dosyalar, CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.debug.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/Date.HijriCalendar.js
@@ -60,6 +59,6 @@ Aşağıdaki dosyalar üzerinde CDN barındırılan:
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/WebUIValidation.js
 
-Not: Fr-FR.js gibi Genelleştirme komut dosyaları aşağıdaki klasörde bulunabilir:
+Not: Aşağıdaki klasörde, fr-FR.js gibi Genelleştirme komut bulunabilir:
 
 - https://ajax.aspnetcdn.com/ajax/4.5.1/1/globalization/

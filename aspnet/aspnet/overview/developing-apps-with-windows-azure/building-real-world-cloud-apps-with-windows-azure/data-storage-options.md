@@ -1,307 +1,306 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
-title: Veri depolama seçenekleri (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
+title: Veri depolama seçenekleri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
+description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 43e7a03f3bebcca820452ea10e13459d8d275b5a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879718"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363513"
 ---
-<a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure ile gerçek bulut uygulamaları derleme)
+<a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Veri depolama seçenekleri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [zel Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitap indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünya bulut uygulamalarını Azure ile** e-kitap Scott Guthrie tarafından geliştirilen bir sunu dayanır. 13 desenleri açıklar ve yardımcı olacak yöntemler bulutu için web uygulamaları geliştirme başarılı. E-kitap hakkında daha fazla bilgi için bkz: [ilk bölüm](introduction.md).
+> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
 
-Bir bulut uygulama tasarlarken, diğer veri depolama seçenekleri overlook eğilimindedir ve çoğu kişi ilişkisel veritabanları için kullanılır. Sonucu performansın, yüksek giderleri ya da kötü, çünkü olabilir [NoSQL](http://en.wikipedia.org/wiki/NoSQL) (ilişkisel olmayan) veritabanları işleyebilir bazı görevler ilişkisel veritabanları daha verimli. Müşteriler bize bir kritik veri depolama sorunu çözme konusunda yardım almak için söylediğinizde ilişkisel veritabanı nerede NoSQL seçeneklerden birini daha iyi çalıştıktan sahip oldukları için genellikle olur. Bu durumlarda müşteri bunlar uygulama üretime dağıtmadan önce NoSQL çözüm uygulandıktan iyi kapalı olacaktı.
+Çoğu kişi ilişkisel veritabanları için kullanılan ve diğer veri depolama seçenekleri, bulut uygulaması tasarlarken, kolayca gözden kaçabilir eğilimi gösterir. Sonucu performansın, yüksek masrafları ya da daha da kötüsü, çünkü olabilir [NoSQL](http://en.wikipedia.org/wiki/NoSQL) (ilişkisel olmayan) veritabanları işleyebilir bazı görevleri ilişkisel veritabanları daha etkili. Müşteriler bir kritik veri depolama sorununu çözmenize yardımcı olması için bize sorun, bir ilişkisel veritabanı burada NoSQL seçeneklerden birini daha iyi hakkında deneyimli olduğunuzu sahip oldukları için genellikle olur. Bu tür durumlarda müşteri uygulamayı üretim ortamına dağıtmadan önce NoSQL çözümünü hayata geçirdi iyi kapalı olacaktı.
 
-Öte yandan, bir NoSQL veritabanı her şeyi iyi veya yeterince iyi yapabilirsiniz olduğunu varsaymak hata da olabilir. Hiçbir tek en iyi veri yönetimi için seçim tüm veri depolama görevleri yoktur; farklı veri yönetimi çözümleri, farklı görevler için en iyi duruma getirilir. Çoğu gerçek bulut uygulamaları çeşitli veri depolama gereksinimlerine sahiptir ve genellikle birden çok veri depolama çözümleri birleşimiyle en iyi sunulur.
+Öte yandan, bir NoSQL veritabanı olan her şeyi iyi veya yeterince iyi yapabildiğinizi varsayar yanlış da olabilir. Hiçbir tek için en iyi veri yönetim seçenek tüm veri depolama görevlerini yoktur; farklı veri yönetimi çözümleri, farklı görevler için en iyi duruma getirilir. Çoğu gerçek hayatta kullanılan bulut uygulamaları, çeşitli veri depolama gereksinimleri vardır ve çoğunlukla birden çok veri depolama çözümleri birleşimiyle en iyi sunulur.
 
-Bir bulut uygulaması ve senaryonuza uygun olanları seçme hakkında temel bazı yönergeler için kullanılabilir veri depolama seçenekleri daha geniş bir fikir vermek için bu bölümün amacı budur. Kullanabileceğiniz seçenekler farkında olmanız ve uygulama geliştirme önce kendi güçlü ve zayıf hakkında düşünmek en iyisidir. Bir üretim uygulamasında veri depolama seçeneklerini değiştirerek düzlemi uçuş modunda iken jet altyapısı değiştirmek zorunda gibi oldukça zor olabilir.
+Bulut uygulaması ve senaryonuza uygun olanları seçmeyi hakkında bazı temel yönergeler kullanılabilir veri depolama seçenekleri daha kapsamlı bir fikir vermek için bu bölümün amacı olan. En iyi seçenekleri farkında olmanız ve uygulama geliştirme önce güçlü ve zayıf hakkında düşünün. Bir üretim uygulamasında veri depolama seçenekleri değiştirme düzlemi bekleyeceğinden ilgili olsa da, jet motoru değiştirmek zorunda gibi son derece zor olabilir.
 
 ## <a name="data-storage-options-on-azure"></a>Azure'da veri depolama seçenekleri
 
-Bulut ilişkisel çeşitli ve NoSQL veri depoları kullanmak görece olarak daha kolay hale getirir. Azure'da kullanabileceğiniz veri depolama platformları bazıları aşağıda verilmiştir.
+Bulut çeşitli ilişkisel ve NoSQL veri deposu kullanmayı daha kolay hale getirir. Azure'da kullanabileceğiniz veri depolama platformları bazıları aşağıda verilmiştir.
 
 ![](data-storage-options/_static/image1.png)
 
-Tabloda NoSQL veritabanları dört türü gösterilmektedir:
+Tablo, NoSQL veritabanları dört tür gösterir:
 
-- [Anahtar/değer veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec7) her anahtar değeri için tek bir serileştirilmiş nesne depolar. Büyük miktarda burada bir öğe için belirli bir anahtar değeri almak istediğiniz ve yoksa veriyi depolamak için iyi diğer özelliklerine göre öğe sorgulanamıyor.
+- [Anahtar/değer veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec7) tek serileştirilmiş nesne anahtarı her değeri depolar. Bunlar büyük hacimli burada belirli bir anahtar değeri için bir öğe almak istediğiniz ve yoksa verileri depolamak için iyi öğenin diğer özelliklerine bağlı sorgu için.
 
-    [Azure Blob Depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) dosya depolama için klasör ve dosya adları karşılık gelen anahtar değerleri ile bulutta benzer işlevler bir anahtar/değer veritabanıdır. Bir dosya, klasör ve dosya adı, dosya içeriğini değerlerinin arayarak değil alın.
+    [Azure Blob Depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) klasör ve dosya adları için karşılık gelen anahtar değerlerine sahip bir bulut dosya depolama gibi işlevler bir anahtar/değer veritabanıdır. Bir dosya, klasör ve dosya adı, dosya içeriğini değerleri arayarak değil alın.
 
-    [Azure Table storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) de anahtar/değer bir veritabanıdır. Her değer olarak adlandırılan bir *varlık* (bölüm anahtarı ve satır anahtarı tarafından tanımlanan bir satır benzer) ve birden çok içerir *özellikleri* (sütunları, benzer ancak aynı paylaşmak bir tablodaki tüm varlıkları sahip sütunları). Anahtar dışındaki sütunları sorgulama son derece verimli değildir ve kaçınılmalıdır. Örneğin, tek bir kullanıcı hakkında bilgi depolamak bir bölüm ile kullanıcı profili verilerini depolayabilir. Kullanıcı adı, parola karması, doğum tarihi ve benzeri, gibi verileri ayrı bir varlık özelliklerini veya aynı bölüme ayrı varlıklarda saklayabilirsiniz. Ancak Doğum tarihleri belirli bir dizi sahip tüm kullanıcılar için sorgu istemezsiniz ve profili tablonuz ve başka bir tablo arasında bir birleşim sorgu yürütülemiyor. Tablo depolama daha ölçeklenebilir ve ilişkisel veritabanı daha ucuz, ancak karmaşık sorgular veya birleştirmeler sağlamaz.
-- [Documentdatabases](https://msdn.microsoft.com/library/dn313285.aspx#sec8) değerler olan anahtar/değer veritabanları *belgeleri*. "Belge" Buraya Word veya Excel belgesi anlamda kullanılmaz, ancak adlandırılmış alanlar ve değerler, her biri bir alt belge olabilir koleksiyonu anlamına gelir. Örneğin, bir siparişi geçmişi tablosunda bir sipariş belge sipariş numarası, sipariş tarihi ve müşteri alanları olabilir; ve müşteri alanını ad ve adres alanları olabilir. Veritabanı alanı verileri XML, YAML, JSON veya BSON gibi biçiminde kodlar; veya düz metin kullanabilirsiniz. Anahtar/değer veritabanları dışında belge veritabanlarını ayarlar tek bir özelliği, anahtar olmayan alanlar sorgu ve sorgulama daha verimli hale getirmek için ikincil dizinler tanımlamak yeteneğidir. Bu özellik bir belge veritabanı belge anahtarını değerinden daha karmaşık ölçütlere göre veri almak için gereken uygulamalar için daha uygun hale getirir. Örneğin, bir satış siparişi geçmişi belge veritabanında ürün kimliği, Müşteri Kimliği, müşteri adı ve diğerleri gibi çeşitli alanlarda sorgulayabilir. [MongoDB](http://www.mongodb.org/) popüler belge veritabanıdır.
-- [Sütun ailesi veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec9) anahtar/değer sütun ailesi adlı ilgili sütunları koleksiyonlara yapısı veri depolama alanına etkinleştirmek veri depoları olan. Örneğin, bir census veritabanı sütunların kişinin adı için bir grup olabilir (ilk olarak, en son Orta), kişinin adresi için bir grup ve kişinin profil bilgilerini (DOB, cinsiyetiniz, vs.) için bir grup. Veritabanı sonra her sütun ailesi ayrı bir bölüm anahtarı aynı ilgili kişi verilerin tümünü tutarken depolayabilirsiniz. Tüm ad ve adres bilgilerini de okumak zorunda kalmadan sonra tüm profil bilgileri okuyabilir. [Cassandra](http://cassandra.apache.org/) popüler bir sütun ailesi veritabanıdır.
-- [Grafik veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec10) nesneleri ve ilişkileri koleksiyonu olarak bilgi depolamak. Bir grafik veritabanı amacı verimli bir şekilde ağ nesneleri ve ilişkileri, aralarında geçiş sorguları gerçekleştirmek bir uygulama sağlamaktır. Örneğin, çalışanlar bir insan kaynakları veritabanındaki nesneler olabilir ve bunu istemeyebilirsiniz kolaylaştırmak için sorguları gibi "doğrudan veya dolaylı olarak çalışan tüm çalışanlar için Scott bulun." [Neo4j](http://www.neo4j.org/) popüler grafik veritabanıdır.
+    [Azure tablo depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/) de anahtar/değer bir veritabanıdır. Her değer bir *varlık* (bölüm anahtarı ve satır anahtarı tarafından tanımlanan, bir satır benzer) ve birden çok içeren *özellikleri* (sütunlara benzer ancak bir tablodaki tüm varlıklar aynı paylaşın sütun). Anahtar dışındaki sütunları sorgulama, son derece verimsizdir ve kaçınılmalıdır. Örneğin, tek bir kullanıcı hakkında bilgi depolamak bir bölüme sahip kullanıcı profili verileri depolayabilirsiniz. Kullanıcı adı, parola karması, doğum tarihi ve benzeri, gibi veriler, ayrı bir varlık özelliklerini veya ayrı varlıklar aynı bölümde saklayabilirsiniz. Ancak Doğum tarihleri belirli bir aralığı olan tüm kullanıcılar için sorgu istemezsiniz ve profili tablonuz ve başka bir tablo arasında bir birleştirme sorgusu yürütülemiyor. Tablo depolama, daha fazla ölçeklenebilir olmasına ve ilişkisel bir veritabanı daha ucuz, ancak karmaşık sorgular veya birleştirmeler sağlamaz.
+- [Documentdatabases](https://msdn.microsoft.com/library/dn313285.aspx#sec8) değerleri olan anahtar/değer veritabanları *belgeleri*. "Belge" Buraya bir Word veya Excel belgesi anlamda kullanılmaz, ancak adlandırılmış alanlar ve değerler herhangi birinin bir alt belge olabilir, koleksiyonu anlamına gelir. Örneğin, bir siparişi geçmişi tablosunda bir sipariş belge sipariş numarası, sipariş tarihi ve müşteri alanları olabilir; ve müşteri alanını ad ve adres alanları olabilir. Veritabanı, XML, YAML, JSON veya BSON gibi bir biçim alanı verileri kodlar; veya düz metin kullanabilirsiniz. Anahtar/değer veritabanları dışında belge veritabanları ayarlayan bir anahtar olmayan alanları sorgulamak ve sorgulama daha verimli hale getirmek için ikincil dizinler tanımlama olanağı özelliğidir. Bu özelliği, bir belge veritabanı belge anahtarını değerinden daha karmaşık ölçütlere göre veri alması gereken uygulamalar için daha uygun hale getirir. Örneğin, bir satış siparişi geçmişi belge veritabanında ürün kimliği, Müşteri Kimliği, müşteri adı ve diğerleri gibi çeşitli alanlarda sorgulayabilir. [MongoDB](http://www.mongodb.org/) popüler belge veritabanıdır.
+- [Sütun ailesi veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec9) anahtar/değer veri depolama için sütun ailesi adlı ilgili sütunları koleksiyonlara sağlayan veri depolarıdır. Örneğin, görselleştirmenizdeki veritabanı sütunları bir kişinin adı için bir grup olabilir (ilk olarak, son Orta), kişinin adresi için bir grup ve kullanıcının profil bilgilerini (DOB, cinsiyet, vs.) için bir grup. Veritabanı sonra her sütun ailesi ayrı bir bölümde tek bir kişi aynı anahtar için ilgili verilerin tümünü korurken depolayabilirsiniz. Ardından, tüm ad ve adres bilgilerini de okumak zorunda kalmadan tüm profil bilgilerini okuyabilir. [Cassandra](http://cassandra.apache.org/) popüler bir sütun ailesi veritabanı.
+- [Graf veritabanları](https://msdn.microsoft.com/library/dn313285.aspx#sec10) bilgi nesneleri ve ilişkileri koleksiyonu depolayın. Bir grafik veritabanının amacı verimli bir şekilde nesneleri ve ilişkileri ağı arasında çapraz geçiş sorguları gerçekleştirmek için bir uygulamayı etkinleştirmektir. Örneğin, çalışan bir insan kaynakları veritabanındaki nesneler olabilir ve isteyebileceğiniz kolaylaştırmak için sorgular gibi "doğrudan veya dolaylı olarak çalışan tüm çalışanlar için Scott bulur." [Neo4j](http://www.neo4j.org/) bir popüler bir grafik veritabanıdır.
 
-İlişkisel veritabanları ile karşılaştırıldığında, çok daha fazla ölçeklenebilirlik ve düşük maliyet depolama ve yapılandırılmamış veri analizi için NoSQL seçenekleri sunar. Kolaylığını sağlam veri bütünlüğü özellikleri ilişkisel veritabanları ve zengin queryability sağlamıyorsa ' dir. Yüksek hacimli birleştirme sorgular için gerekli olan kapsar iyi IIS günlük verileri için NoSQL çalışır. NoSQL kadar iyi işlemleri, bankacılık için mutlak veri bütünlüğü gerektirir ve diğer hesabıyla ilgili verilere çok ilişkileri içerir çalışır değil.
+İlişkisel veritabanlarına kıyasla çok daha fazla ölçeklendirilebilirliğin ve depolama ve yapılandırılmamış veri çözümleme için NoSQL seçenekleri sunar. Artırabilen, ilişkisel veritabanlarının güçlü veri bütünlüğü özelliklerine ve zengin queryability sağlamayan ' dir. Yüksek hacimli gerek kalmaz JOIN sorgularını içerir de IIS günlük veriler için NoSQL işe yarar. NoSQL kadar iyi işlemler, bankacılık için mutlak veri bütünlüğü gerektirir ve diğer hesap ile ilgili verilere çok ilişkileri içerir çalışmaz.
 
-Adlı veritabanı platformun daha yeni bir kategori bulunmaktadır [NewSQL](http://en.wikipedia.org/wiki/NewSQL) , bir NoSQL veritabanı ölçeklenebilirliğini queryability ve ilişkisel veritabanı işlem bütünlüğünü ile birleştirir. NewSQL veritabanları dağıtılmış depolama ve genellikle "OldSQL" veritabanlarında uygulamak sabit sorgu işleme için tasarlanmıştır. [NuoDB](http://www.nuodb.com/) Azure üzerinde kullanılabilir bir NewSQL veritabanı örneğidir.
+Adlı veritabanı platformun daha yeni bir kategori de mevcuttur [NewSQL](http://en.wikipedia.org/wiki/NewSQL) , bir NoSQL veritabanı ölçeklenebilirliğini queryability ve güvenli işlemler gerçekleştirebilmek ilişkisel veritabanı ile birleştirir. NewSQL veritabanları, dağıtılmış depolama ve sorgu işleme, çoğunlukla "OldSQL" veritabanlarında uygulamak zor olduğu için tasarlanmıştır. [NuoDB](http://www.nuodb.com/) Azure'da kullanılabilen NewSQL veritabanı örneğidir.
 
 <a id="hadoop"></a>
-## <a name="hadoop-and-mapreduce"></a>Hadoop ve MapReduce
+## <a name="hadoop-and-mapreduce"></a>Hadoop ile MapReduce
 
-Yüksek miktarda NoSQL veritabanlarında depolayabilirsiniz veriyi verimli bir şekilde zamanında çözümlemek zor olabilir. Bir çerçeve gibi kullanabilirsiniz yapmak için [Hadoop](http://hadoop.apache.org/) hangi uygulayan [MapReduce](http://en.wikipedia.org/wiki/MapReduce) işlevselliği. Aslında bir MapReduce işlem yapar aşağıda verilmiştir:
+Yüksek hacimli NoSQL veritabanlarında depoladığınız verileri zamanında etkili bir şekilde analiz etmek zor olabilir. Gibi bir çerçeve kullanabileceğiniz yapmak için [Hadoop](http://hadoop.apache.org/) uygulayan [MapReduce](http://en.wikipedia.org/wiki/MapReduce) işlevselliği. Aslında bir MapReduce işlem yapar aşağıda verilmiştir:
 
-- Verileri seçerek işlenmesi için gereken veri boyutu yalnızca gerçekten çözümlemek için gereken verileri depolamak sınırı. Örneğin, kullanıcı profili veri deponuza dışında yalnızca Doğum yıl seçebilmek doğum yılına göre temel kullanıcı yapısıyla bilmek ister.
-- Veri parçalara bölmek ve işleme için farklı bilgisayarlara gönderin. Bilgisayar A hesaplar 1950 1959 tarihleri kişilerle sayısı, bilgisayar B yapar 1960-1969, vs. Bu bilgisayar grubu olarak adlandırılan bir *Hadoop kümesi*.
-- Bölümleri işlemini gerçekleştirdikten sonra her bölümü sonuçlarını geri birlikte yerleştirin. Artık daha kısa bir her Doğum yıl kaç kişi listesi vardır ve bu genel listedeki yüzdeleri hesaplama yönetilebilir bir görevdir.
+- Sınırı verileri seçerek işlenmesi gereken veri boyutu, yalnızca gerçekten analiz etmeniz veri depolayın. Örneğin, kullanıcı profili data store dışında yalnızca Doğum yıl seçmek için kullanıcının Doğum yıla göre temel düzenini bilmek istiyorsunuz.
+- Verileri parçalara bölmek ve işleme için farklı bilgisayarlara gönderin. Bilgisayarı 1950 1959 tarihleri kişilerin sayısını hesaplayan, bilgisayar B yapar 1960 1969, vs. Bu bilgisayar grubu olarak adlandırılan bir *Hadoop kümesi*.
+- İşlem bölümleri bittikten sonra her bölüm sonuçlarını geri birlikte yerleştirin. Artık her doğum yılı için kaç kişi görece kısa bir listesi vardır ve bu genel liste yüzdeler hesaplama yönetilebilir bir görevdir.
 
-Azure üzerinde [Hdınsight](https://azure.microsoft.com/services/hdinsight/) işlemek, çözümlemek ve Hadoop gücünü kullanarak büyük veri ilişkin yeni bilgiler elde etmek sağlar. Örneğin, web sunucusu günlüklerini çözümlemek için kullanabilirsiniz:
+Azure'da [HDInsight](https://azure.microsoft.com/services/hdinsight/) işlemeye, çözümlemeye ve Hadoop kullanarak büyük veri yeni Öngörüler elde etmenizi sağlar. Örneğin, web sunucusu günlükleri analiz etmek için kullanabilirsiniz:
 
-- Depolama hesabınız için Web sunucusu günlüğünü etkinleştirin. Bu, uygulamanıza her HTTP isteği için Blob hizmetine günlüklerini yazma izni Azure ayarlar. Blob hizmeti temelde bulut dosya depolama ve Hdınsight ile sorunsuz şekilde tümleşir. 
+- Web sunucusu günlüğü depolama hesabınıza etkinleştirin. Bu, Azure'ı uygulamanıza her HTTP isteği için Blob Hizmeti günlüklerini yazma izni ayarlar. Blob temel bulut dosya depolama hizmetidir ve HDInsight ile sorunsuz şekilde tümleştirilir. 
 
-    ![Blob Depolama için günlükleri](data-storage-options/_static/image2.png)
-- Uygulama trafiği alır gibi web sunucusu IIS günlüklerini Blob depolama alanına yazılır. 
+    ![Depolama BLOB günlükleri](data-storage-options/_static/image2.png)
+- Web sunucusu IIS günlükleri, uygulama trafiği alır gibi Blob depolama alanına yazılır. 
 
-    ![Web sunucu günlükleri](data-storage-options/_static/image3.png)
-- Portalı'nda tıklatın **yeni** - **Veri Hizmetleri** - **Hdınsight** - **hızlı Oluştur**, ve Hdınsight küme adı, küme boyutu (Hdınsight küme veri düğümleri sayısı) ve bir kullanıcı adı ve Hdınsight kümesi için parola belirtin. 
+    ![Web sunucusu günlükleri](data-storage-options/_static/image3.png)
+- Portalında **yeni** - **Data Services** - **HDInsight** - **hızlı Oluştur**, ve bir HDInsight kümesi adı, küme boyutu (HDInsight kümesini veri düğümü sayısı) ve bir kullanıcı adı ve HDInsight kümesi için parola belirtin. 
 
     ![HDInsight](data-storage-options/_static/image4.png)
 
-MapReduce işleri günlüklerinizi çözümlemek ve soruların yanıtlarını gibi almak için şimdi ayarlayabilirsiniz:
+MapReduce işleri günlüklerinizi analiz edin ve aşağıdakiler gibi soruların yanıtlarını alın artık ayarlayabilirsiniz:
 
-- Ne zaman günün Uygulamam çoğu ya da en az trafiği alma?
-- Hangi ülkelerde geldiği my trafiği mi?
-- My trafiği geldiği alanları ortalama Komşuları geliri nedir. (IP adresine göre Komşuları gelir sağlayan ortak bir veri kümesi yoktur ve web sunucusu günlüklerini IP adresi karşı eşleşebilir.)
-- Belirli sayfalara veya site ürünlerinde Komşuları gelir bağıntılı nasıl?
+- Günün hangi saatlerinde uygulamamı çoğu ya da en az trafiği elde?
+- Hangi ülkelerde geldiğini my trafiği mi?
+- My trafiği geldiği alanlarının ortalama Komşuları geliri nedir? (IP adresine göre Komşuları gelir sağlayan ortak bir veri kümesi yok ve web sunucusu günlüklerini IP adresi karşı eşleşebilir.)
+- Nasıl Komşuları gelir, belirli bir sayfa ya da sitedeki ürünleri bağıntılı mı?
 
-Ardından, bunları hedef reklamları bir müşteri ilginizi olasılığını göre veya belirli bir ürünü satın almak olası gibi sorulara yanıtlar kullanabilirsiniz.
+Sonra bunlar için bir müşteri ilginizi olasılığına göre veya belirli bir ürün satın alma olası hedef reklamlar gibi soruların yanıtlarını da kullanabilirsiniz.
 
-İçinde anlatıldığı gibi [her şeyi otomatikleştirmek bölüm](automate-everything.md)Portalı'nda gerçekleştirebileceğiniz birçok işlevini otomatikleştirilebilir ve ayarlama ve Hdınsight analiz işleri yürütülüyor içerir. Tipik bir Hdınsight betik aşağıdakileri içerebilir:
+İçinde anlatıldığı gibi [her şeyi otomatikleştirin bölüm](automate-everything.md)Portalı'nda gerçekleştirebileceğiniz birçok işlevini otomatikleştirilebilir ve ayarlama ve HDInsight analizi işlerini çalıştırma içerir. Tipik bir HDInsight betik aşağıdakileri içerebilir:
 
-- Hdınsight kümesi sağlamak ve Blob Depolama girdisi için depolama hesabınıza bağlayabilirsiniz.
-- MapReduce işi yürütülebilir dosyalar (.jar veya .exe dosyaları) Hdınsight kümesine yükleyin.
-- Blob depolama alanına çıktı verilerini depolayan bir MapReduce gönderin.
-- İşi tamamlamak bekleyin.
-- Hdınsight kümesi silin.
-- Çıktı Blob depolama alanından erişin.
+- Bir HDInsight kümesi sağlayın ve Blob Depolama girişi için depolama hesabınıza bağlayabilirsiniz.
+- MapReduce işi yürütülebilir dosyalar (.jar veya .exe dosyaları), HDInsight kümesine yükleyin.
+- Blob Depolama için çıktı verilerini depolayan bir MapReduce gönderin.
+- İşin tamamlanmasını bekleyin.
+- HDInsight küme silin.
+- Çıktı Blob depolama alanından erişebilirsiniz.
 
-Tüm bu bir komut dosyası çalıştırarak maliyetlerinizi azaltır Hdınsight küme sağlanır, süre miktarını en aza indirin.
+Tüm bu yapan bir betiği çalıştırarak, maliyetlerinizi azaltırken diğer yandan HDInsight küme sağlanır, süreyi en aza indirin.
 
 <a id="paasiaas"></a>
-## <a name="platform-as-a-service-paas-versus-infrastructure-as-a-service-iaas"></a>Hizmet olarak Platform (PaaS) altyapısı karşı bir hizmet (Iaas)
+## <a name="platform-as-a-service-paas-versus-infrastructure-as-a-service-iaas"></a>Hizmet olarak Platform (PaaS) ve altyapı (Iaas) olarak
 
-Daha önce listelenen veri depolama seçenekleri Platform olarak-hizmet (PaaS) ve altyapı olarak-hizmet (Iaas) çözümleri içerir. PaaS biz donanım ve yazılım altyapısını yönetmek ve yalnızca hizmeti kullandığınız anlamına gelir. SQL veritabanı Azure PaaS özelliğidir. Veritabanları için isteyin ve arka planda Azure ayarlayan ve sanal makineleri yapılandırır ve bunları veritabanlarına ayarlar. Doğrudan sanal makineleri erişiminiz yok ve bunları yönetmek zorunda değilsiniz. Iaas ayarlamak, yapılandırmak ve bizim veri merkezi altyapısına çalışan sanal makineleri yönetmek ve bunlar üzerinde istediğiniz put anlamına gelir. Ortak VM yapılandırmaları önceden yapılandırılmış VM görüntüleri Galerisi sunuyoruz. Örneğin, önceden yapılandırılmış VM görüntüleri yükleyebileceğiniz Windows Server 2008, Windows Server 2012, BizTalk Server, Oracle WebLogic Server, Oracle veritabanı vb. için.
+Daha önce listelenen veri depolama seçenekleri, hem olarak bir-hizmet Platform (PaaS) hem de-olarak-hizmet altyapı (Iaas) çözümleri içerir. PaaS, donanım ve yazılım altyapı yönetiyoruz ve hizmet yalnızca kullandığınız anlamına gelir. SQL veritabanı, Azure PaaS özelliğidir. Veritabanları için sorun ve arka planda Azure ayarlar ve Vm'leri yapılandırır ve bunları veritabanlarında ayarlar. Sanal makinelerin doğrudan erişime sahip olmadığından ve bunları yönetmenize gerek kalmaz. Iaas ayarlamak, yapılandırmak ve bizim veri merkezi altyapısında çalışan sanal makineleri yönetme ve bunlar üzerinde istediğiniz yerleştirdiğiniz anlamına gelir. Genel sanal makine yapılandırmaları için önceden yapılandırılmış VM görüntüleri bir galeri sunuyoruz. Örneğin, önceden yapılandırılmış VM görüntüleri yükleyebileceğiniz Windows Server 2008, Windows Server 2012, BizTalk Server, Oracle WebLogic Server, Oracle veritabanı, vb. için.
 
 Azure'un sunduğu PaaS veri çözümleri şunlardır:
 
-- Azure SQL veritabanı (önceki adıyla SQL Azure bilinir). SQL Server tabanlı bir bulut ilişkisel veritabanı.
-- Azure Table storage. Bir anahtar/değer NoSQL veritabanı.
+- Azure SQL veritabanı (eski adı SQL Azure da bilinir). SQL Server tabanlı bir bulut ilişkisel veritabanı.
+- Azure tablo depolama. Bir anahtar/değer NoSQL veritabanı.
 - Azure Blob Depolama. Dosya depolama bulutta.
 
 Iaas için örneğin bir VM yükleyebilir herhangi bir şey çalıştırabilirsiniz:
 
-- SQL Server, Oracle, MySQL, SQL Compact, SQLite veya Postgres gibi ilişkisel veritabanları.
-- Anahtar/değer veri Memcached, Redis, Cassandra ve Riak gibi depolar.
-- Sütun verileri HBase gibi depolar.
-- MongoDB, RavenDB ve CouchDB gibi belge veritabanları.
-- Grafik veritabanları Neo4j gibi.
+- SQL Server, Oracle, MySQL, SQL Compact, SQLite ve Postgres gibi ilişkisel veritabanları.
+- Memcached, Redis, Cassandra ve Riak gibi anahtar/değer veri deposu.
+- HBase gibi sütun verilerini depolar.
+- MongoDB ve RavenDB CouchDB gibi belge veritabanları.
+- Graf veritabanları Neo4j gibi.
 
 ![Azure'da veri depolama seçenekleri](data-storage-options/_static/image5.png)
 
-Iaas seçeneği neredeyse sınırsız veri depolama seçenekleri sunar ve önceden yapılandırılmış görüntüleri kullanarak VM'ler oluşturabileceğinden, bunların çoğu, özellikle kolaydır. Örneğin, Yönetim Portalı'nda Git **sanal makineleri**, tıklatın **görüntüleri** sekmesine ve tıklayın **VM deposuna Gözat**.
+Iaas seçeneği neredeyse sınırsız veri depolama seçenekleri sunar ve önceden yapılandırılmış görüntüleri kullanarak Vm'leri oluşturabildiğinden çoğu özellikle kolay kullanılır. Örneğin, Yönetim Portalı'nda Git **sanal makineler**, tıklayın **görüntüleri** sekmesine ve tıklayın **VM deposuna Gözat**.
 
 ![VM deposuna Gözat](data-storage-options/_static/image6.png)
 
-Ardından bir listesini görmek [önceden yapılandırılmış VM görüntüleri yüzlerce](http://www.hanselman.com/blog/Over400VirtualMachineImagesOfOpenSourceSoftwareStacksInTheVMDepotAzureGallery.aspx), ve bir VM oluşturma önceden yüklenmiş bir veritabanı yönetim sistemine sahip bir görüntüden, MongoDB, Neo4J, Redis, Cassandra veya CouchDB gibi:
+Ardından, bir listesini görmek [önceden yapılandırılmış VM görüntüleri yüzlerce](http://www.hanselman.com/blog/Over400VirtualMachineImagesOfOpenSourceSoftwareStacksInTheVMDepotAzureGallery.aspx), ve önceden yüklenmiş bir veritabanı yönetim sistemi olan bir görüntü, MongoDB, Neo4J, Redis, Cassandra ya da CouchDB gibi bir VM oluşturabilirsiniz:
 
-![VM deposu MongoDB](data-storage-options/_static/image7.png)
+![Sanal makine Deposu'nda MongoDB](data-storage-options/_static/image7.png)
 
-Azure Iaas veri depolama seçenekleri gibi kullanımı kolay mümkün hale getirir, ancak daha düşük maliyetli ve pek çok senaryoyla pratik hale birçok avantaj PaaS tekliflere sahiptir:
+Azure Iaas veri depolama seçenekleri kadar kullanımını mümkün olduğunca kolaylaştırır, ancak PaaS tekliflerini daha uygun maliyetli ve daha birçok senaryo için pratik hale birçok avantaj vardır:
 
-- VM'ler oluşturmak yoksa, yalnızca portal ya da bir komut dosyası bir veri deposu ayarladıktan için kullanırsınız. 200 terabayt veri deposu istiyorsanız, yalnızca bir düğmeyi tıklatın veya bir komut çalıştırmak ve saniye içinde kullanmak hazır.
-- Yönetmek veya hizmet tarafından kullanılan sanal makineleri düzeltme eki gerekmez; Microsoft yapar, sizin için otomatik olarak.-altyapı ölçeklendirme veya yüksek kullanılabilirlik için; ayarlama endişelenmenize gerek yoktur Microsoft, tüm bu sizin için işler.
-- Lisansını satın almanız gerekmez; Lisans ücretleri hizmet ücretlerini dahil edilir.
-- Yalnızca, kullanım için ödeme yaparsınız.
+- VM oluşturma zorunda kalmadan, yalnızca portalı veya komut dosyasını bir veri deposunu ayarlayın için kullanırsınız. 200 terabayt veri deposu istiyorsanız, yalnızca bir düğmeye tıklayın veya bir komut çalıştırın ve saniyeler içinde kullanmak hazır.
+- Yönetmek veya hizmet tarafından kullanılan sanal makineleri düzeltme eki gerekmez; Microsoft, sizin için yapar otomatik olarak.-; ölçeklendirme veya yüksek kullanılabilirlik için altyapı ayarlama endişelenmeniz gerekmez Microsoft, tüm bu sizin yerinize çözer.
+- Lisans satın almak zorunda değilsiniz; içinde hizmet ücretlerini lisans ücretleri dahildir.
+- Yalnızca kullandığınız kadarı için ödeme yaparsınız.
 
-PaaS veri depolama seçenekleri azure'da üçüncü taraf sağlayıcılar tarafından teklifleri içerir. Örneğin, seçebileceğiniz [MongoLab eklenti](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/) MongoDB veritabanı hizmet olarak sağlamak üzere Azure deposundan.
+Azure PaaS veri depolama seçenekleri, üçüncü taraf sağlayıcılar tarafından teklifler. Örneğin, seçebileceğiniz [MongoLab eklentisini](https://azure.microsoft.com/documentation/articles/store-mongolab-web-sites-dotnet-store-data-mongodb/) hizmet olarak MongoDB veritabanı sağlamak için Azure Store'dan.
 
-## <a name="choosing-a-data-storage-option"></a>Veri depolama seçeneği seçme
+## <a name="choosing-a-data-storage-option"></a>Bir veri depolama seçeneği belirleyerek
 
-Hiçbir bir yaklaşım tüm senaryoları için doğru olur. Herkes bu teknoloji yanıt olduğunu diyorsa, farklı çözümler farklı işlemler için en iyi duruma getirilir sormak için ilk şey "Soru nedir?", çünkü. İlişkisel modelin kesin faydası vardır; İşte bu nedenle geçici kadar uzun süre geçti. Ancak bir NoSQL çözümüyle çözülebilir SQL aşağı-kenarlara de vardır.
+Herhangi bir yaklaşım tüm senaryolar için doğru. Herkes bu teknoloji yanıt olduğunu söylüyor, farklı çözümler farklı işlemler için optimize edilmiş istemek için ilk şey "Sorusunu nedir?", olmasıdır. İlişkisel modeli kesin avantajları vardır; İşte bu çevresinde kadar uzun süre geçti. Ancak bir NoSQL çözümüne sahip çözülebilir SQL aşağı kenarlara de vardır.
 
-Genellikle ne biz iş en iyi compositional bir yaklaşım SQL ve NoSQL tek bir çözümde kullandığınız konusuna bakın. Hatta zaman kişiler bunlar benimsemenin NoSQL, bunlar genellikle yaptığınız işe ayrıntıya, birkaç farklı NoSQL çerçeveleri kullanıyorsanız Bul söyleyin: kullanmakta olduğunuz [CouchDB](http://wiki.apache.org/couchdb/Introduction), ve [Redis](http://redis.io/)ve [ Riak](http://basho.com/riak/) farklı işlemler için. NoSQL yaygın kullanır, hatta Facebook farklı NoSQL çerçeveleri hizmetinin farklı bölümleri için kullanır. Karışık ve veri depolama yaklaşımlar eşleştirmek için esneklik birden çok veri çözümleri kullanın ve bunları tek bir uygulamada tümleştirmek kolay olduğundan, bulut hakkında iyi şeyler biridir.
+Genellikle ne SQL ve NoSQL tek bir çözümde kullandığınız bileşimsel bir yaklaşım iş en iyi olduğunu görüyoruz. Bile zaman kişiler bunlar benimsemenin NoSQL, bunlar genellikle yaptığınız işlemlere ayrıntılarına giderseniz birkaç farklı NoSQL çerçeveler kullanmakta olduğunuz Bul düşünelim: kullanmakta olduğunuz [CouchDB](http://wiki.apache.org/couchdb/Introduction), ve [Redis](http://redis.io/)ve [ Riak](http://basho.com/riak/) için farklı şeyler. NoSQL yaygın olarak kullanan, hatta Facebook hizmet farklı kısımlarını farklı NoSQL çerçeveler kullanır. Karıştırın ve eşleştirin veri depolama yaklaşımları esnekliği birden çok veri çözümleri kullanın ve bunları tek bir uygulama olarak tümleştirmek kolay olduğundan bulut hakkında iyi şeylerden biridir.
 
-Aşağıda, bir yaklaşım zaman seçme hakkında düşünmek için bazı sorular verilmiştir:
+Bir yaklaşım zaman seçersiniz hakkında düşünmek bazı sorular şunlardır:
 
-| Veri anlam | -Çekirdek veri depolama ve veri erişim anlamsal nedir (ilişkisel veya yapılandırılmamış veriler depoluyorsanız)? Medya dosyaları gibi yapılandırılmamış verileri blob storage'da en uygun; ürünler, envanterleri, üreticiler, müşteri siparişleri, vb. gibi ilgili veri koleksiyonu, bir ilişkisel veritabanı en uygun. |
+| Semantik veri | -Çekirdek veri depolama ve veri erişim anlam nedir (ilişkisel veya yapılandırılmamış veriler depoladığını)? Medya dosyaları gibi yapılandırılmamış verileri blob depolama alanında en iyi uyan; ürünler, envanterler, tedarikçileri, müşteri siparişleri, vs. gibi ilgili veri koleksiyonu, ilişkisel bir veritabanında en uygun. |
 | --- | --- |
-| Sorgu desteği | -Bu verileri sorgulamak için ne kadar kolay mi? -Ne tür soruları verimli bir şekilde olabilir sorulan? Anahtar/değer veri depoları çok iyi bir anahtar değeri verilen tek bir satır alma sırasında ancak karmaşık sorgular için kadar sağlam değildir. Burada her zaman belirli bir kullanıcı için veri alma bir kullanıcı profili için veri deposu, bir anahtar/değer veri deposu de işe yarayabilir; çeşitli ürün özniteliklerini temel alarak farklı gruplandırmalar almak istediğiniz bir ürün kataloğu için bir ilişkisel veritabanı daha iyi çalışabilir. NoSQL veritabanları verimli bir şekilde, büyük miktarda veriyi depolayabilirsiniz ancak uygulama verileri nasıl sorgular geçici veritabanı yapısı gerekir ve bu geçici sorguları yapmasını zorlaştırır. Bir ilişkisel veritabanı ile neredeyse her türlü bir sorgu oluşturabilirsiniz. |
-| İşlev projeksiyonu | -Sorular, toplamalar, vb. yürütülen sunucu tarafı? SEÇİN sayım çalıştırırsanız (\*) SQL'de bir tablodan çok verimli bir şekilde sunucu üzerindeki tüm çalışma yapın ve dönüş sayı aradığım. Toplama desteklemeyen bir NoSQL veri deposundan aynı hesaplama istiyorsanız, bu bir verimsiz "sınırsız sorgu" ve muhtemelen zaman aşımına uğrar. Sorgu başarılı olsa bile istemciye tüm verileri sunucudan almak ve istemcide satırları sayma sahibim. -Hangi dil ya da ifade türleri kullanılabilir mi? İlişkisel veritabanı ile SQL kullanabilirim. Bazı Azure Table storage gibi NoSQL veritabanları ile ı kullanacağız [OData](http://www.odata.org/), ve tüm yapabilecekleri şeylerin filtre birincil anahtar ve projeksiyonlar (kullanılabilir alanlar kümesini seçin) alın. |
-| Kolay ölçeklenebilirlik | -Ne sıklıkta ve ne kadar olacak verileri ölçeklendirme gerekiyor? -Platform yerel genişleme uygulama mu? -Bu Kapasite (boyutu ve verimlilik) eklemek/kaldırmak için ne kadar kolay mi? Belirli sınırlamaları ötesinde zor şekilde ilişkisel veritabanlarını ve tabloları otomatik olarak bunları ölçeklenebilir hale getirmek için bölümlenmiş değil. Azure Table storage gibi NoSQL veri depolarına kendiliğinden her şeyi bölüm ve bölüm eklemek için neredeyse bir sınır yoktur. Table Storage 200 terabayta kadar kolayca ölçeklendirebilirsiniz ancak Azure SQL veritabanı için en fazla veritabanı boyutu 500 gigabayt. Birden çok veritabanlarına bölümleme tarafından ilişkisel veri ölçeklendirebilirsiniz, ancak bu modeli desteklemek için bir uygulamasını ayarlama iş programlama çok içerir. |
-| İzleme ve yönetilebilirlik | -İzleme, izlemek ve yönetmek için platform ne kadar kolay olduğunu? Ücretsiz, bir platform sunar hangi ölçümleri Önden bilmeniz gerekir böylece veri deponuza performansını ve sistem durumu hakkında haberdar gerekir ve hangi kendiniz geliştirmek sahip. |
-| İşlemler | -Azure üzerinde dağıtıp platform ne kadar kolay olduğunu? PaaS? IaaS? Linux? Table Storage ve SQL Database Azure üzerinde ayarlamak kolaydır. Yerleşik Azure PaaS çözümleri olmayan platformları daha fazla çaba gerektirir. |
-| API desteği | -Platform ile çalışmak kolaylaştırır bir API mi? Azure tablo hizmeti için bir SDK'sı ile .NET 4.5 zaman uyumsuz programlama modelini destekleyen bir .NET API yoktur. .NET uygulaması yazıyorsanız, yazma ve Azure tablo API yok ya da daha az kapsamlı bir sahip başka bir anahtar/değer sütun veri deposu platforma göre hizmetinin kodu test etmek çok daha kolay olacaktır. |
-| İşlem bütünlüğü ve veri tutarlılığı | -Platform veri tutarlılığı garanti için işlemleri desteklemek önemli mi? Gönderilen, performans ve düşük veri depolama maliyeti işlemleri veya veri Platform başvuru bütünlüğü otomatik desteğini daha önemli olabilir ve toplu e-postaların izlemek için Azure tablo hizmeti iyi bir seçimdir yapılıyor. Banka hesabı izlemek için dengeleyen veya siparişleri güçlü işlem garanti daha iyi bir seçim olacaktır sağlayan bir ilişkisel veritabanı platform satın alın. |
-| İş sürekliliği | -Yedekleme, geri yükleme ve olağanüstü durum kurtarma ne kadar kolay misiniz? Üretim verileri er geç bozuk ve bir geri alma işlevi gerekir. İlişkisel veritabanları, genelde zaman içinde bir noktaya geri yükleme yeteneği gibi daha fazla hassas geri yükleme özellikleri vardır. Düşünüyorsunuz platformlarının her birinde kullanılabilen geri yükleme özellikleri anlama, dikkate alınması gereken önemli bir faktördür. |
-| Maliyet | -Nasıl birden çok platform veri yükünüzü destekleyebiliyorsa, bunlar maliyeti karşılaştırması nedir? Örneğin, ASP.NET Identity kullanırsanız, Azure tablo hizmeti veya Azure SQL Database kullanıcı profili verilerini depolayabilir. SQL veritabanı'nın tesis sorgulama zengin gerekmiyorsa, çok maliyetleri olduğundan Azure tabloları kısmen seçeneğini tercih edebilirsiniz belirli bir depolama alanı miktarı için daha az. |
+| Sorgu desteği | -Verileri sorgulamak için ne kadar kolay olduğunu? -Ne tür soruları verimli bir şekilde olabilir sorulan? Anahtar/değer veri depoları verilen bir anahtar değeri tek bir satır alma daha olmuşuzdur, ancak karmaşık sorgular için kadar iyi değildir. Burada her zaman belirli bir kullanıcı için veriler alınırken bir kullanıcı profili veri deposu olarak bir anahtar/değer veri deposu iyi çalışabilir; çeşitli ürün özniteliklerine dayalı farklı gruplandırmaları almak istediğiniz bir ürün kataloğu için ilişkisel bir veritabanında daha iyi çalışabilir. NoSQL veritabanları büyük hacimli verileri verimli bir şekilde depolayabilirsiniz ancak uygulama verileri nasıl sorgular geçici veritabanı yapısı sahip ve bu geçici sorgular yapmak daha zor hale getirir. İlişkisel bir veritabanı ile neredeyse her türlü bir sorgu oluşturabilirsiniz. |
+| İşlevsel projeksiyonu | -Sorular, yürütülen sunucu tarafı toplamalar, vs. olabilir? Miyim seçin sayım çalıştırırsanız (\*) SQL tablosundan bu çok verimli bir şekilde sunucu üzerindeki tüm iş yapmak ve sayı aradığım döndürür. Toplama desteklemeyen bir NoSQL veri deposundan aynı olan hesaplamayı istersem, bu bir verimsiz "sınırsız" sorgusudur ve büyük olasılıkla zaman aşımına uğrar. Sorgu başarılı olsa bile tüm verileri sunucudan istemciye almak ve istemcide satırları Say sorgulamam gerekiyor. -Hangi dil ya da ifade türleri kullanılabilir mi? SQL ile ilişkisel bir veritabanı kullanabilirim. Bazı Azure tablo depolama gibi NoSQL veritabanları ile miyim kullanacaklardır [OData](http://www.odata.org/), ve yapmam filtre birincil anahtar ve tahminlerini (kullanılabilir alanların bir alt kümesini seçin) alın. |
+| Kolay ölçeklenebilirlik | -Ne sıklıkta ve ne kadar olacak veri ölçeklendirmeniz mi gerekiyor? -Platform, yerel olarak genişleme uyguluyor mu? -Kapasite (boyut ve aktarım hızı) eklemek/kaldırmak için ne kadar kolay olduğunu? Belirli sınırlamaları ötesinde zor olduğundan ilişkisel veritabanlarını ve tabloları otomatik olarak ölçeklenebilir hale getirmek için bölümlenmiş değildir. Azure Table storage gibi NoSQL veri deposu temelde her şeyi bölümlemek ve bölümleri ekleme için neredeyse sınırsız. Tablo depolama 200 terabayta kadar kolayca ölçeklendirebilirsiniz, ancak Azure SQL veritabanı için en büyük veritabanı boyutu 500 gigabayttır. Birden çok veritabanlarına bölümleme yoluyla ilişkisel veri ölçeklendirebilirsiniz, ancak uygulamanın o modelini desteklemek için ayarı çok sayıda iş programlama içerir. |
+| İzleme ve yönetilebilirlik | -İzleme, izlemek ve yönetmek için platform ne kadar kolay olduğunu? Kendinizi geliştirmek sahip olduğunuz ve ücretsiz, bir platform sunar hangi ölçümleri önceden bilmeniz gerekir böylece sistem durumunu ve performansını veri deponuz hakkında haberdar olmak ihtiyaç duyacaksınız. |
+| İşlemler | -Dağıtma ve Azure üzerinde çalıştırmak için platform ne kadar kolay olduğunu? PaaS mi? Iaas? Linux? Tablo depolama ve SQL veritabanı kolayca Azure üzerinde ayarlanabilir. Yerleşik Azure PaaS çözümleri olmayan platformlar için daha fazla çaba gerektirir. |
+| API desteği | -Platform ile çalışmak kolaylaştıran bir API kullanılabilir mi? Azure tablo hizmeti için .NET 4.5 zaman uyumsuz programlama modelini destekleyen .NET API'si ile bir SDK'sı yoktur. Bir .NET uygulaması yazıyorsanız, yazma ve kodu API yok ya da daha kapsamlı bir sahip başka bir anahtar/değer sütunu veri deposu platformuna göre Azure tablo hizmeti için test çok daha kolay olacaktır. |
+| İşlem bütünlüğü ve veri tutarlılığı | -Platform veri tutarlılık garantisi için işlemleri destekleyen önemlidir? Azure tablo hizmeti, performans ve düşük veri depolama maliyeti işlemleri veya bilgi tutarlılığını veri platformundaki otomatik desteğini daha önemli olabilir, gönderilen toplu e-postaları izlemek için iyi bir seçim yaparak. Banka hesabı izlemek için dengeleyen veya satın alma siparişleri güçlü işlemsel garanti daha iyi bir seçenek olacaktır sağlayan bir ilişkisel veritabanı platform. |
+| İş sürekliliği | -Yedekleme, geri yükleme ve olağanüstü durum kurtarma ne kadar kolay misiniz? Üretim verileri er ya da geç bozuk ve geri alma işlevi gerekir. İlişkisel veritabanları, genellikle bir noktaya geri yükleme yeteneği gibi daha fazla ayrıntılı geri yükleme özelliklerine sahiptir. Kullanılabiliyor platformlarının her birinde kullanılabilen geri yükleme özellikleri anlama, dikkate alınması gereken önemli bir faktördür. |
+| Maliyet | -Veri iş yükünüz birden fazla platformu destekler, maliyeti nasıl karşılaştırılabilir? Örneğin, ASP.NET Identity kullanırsanız, Azure tablo hizmeti veya Azure SQL veritabanı kullanıcı profili verileri depolayabilirsiniz. SQL veritabanı özelliklerini sorgulama zengin gerekmiyorsa, çok maliyetleri olduğundan, Azure tabloları kısmen tercih edebileceğiniz depolama belirli bir süre için daha az. |
 
-Ne genellikle veri depolama çözümleri seçmeden önce bu kategorilerin her birinde sorulara yanıt biliniyor öneririz.
+Hangi genel olarak, veri depolama çözümünü seçmeden önce bu kategorilerden her biri sorulara yanıt biliniyor öneririz.
 
-Ayrıca, iş yükünüzü bazı platformlar diğerlerinden daha iyi destekleyebilir belirli gereksinimleri olabilir. Örneğin:
+Ayrıca, iş yükünüz, bazı platformlarda diğerlerinden daha iyi destekleyebileceği belirli gereksinimleri olabilir. Örneğin:
 
-- Uygulama iste yetenekleri denetim mu?
-- Veri dayanıklılık gereksinimlerinizi nelerdir--Otomatik Arşiv veya temizleme özellikleri gerektiriyor mu?
-- Özel güvenlik gereksinimleri var mı? Örneğin, verileri PII (kişisel bilgi) içerir ancak PII sorgu sonuçlarındaki dışlandı emin olmak mümkün olması gerekir.
-- Düzenleyici ya da teknolojik nedenlerden dolayı buluttaki depolanamaz bazı verileriniz varsa, şirket içi depolama ile tümleştirme kolaylaştıran bir bulut veri depolama platformu gerekebilir.
+- Uygulama iste denetim özelliklerini mu?
+- Veri dayanıklılık gereksinimlerinizi nelerdir--otomatik arşivleme veya temizleme özellikleri ihtiyaç duyuyorsunuz?
+- Özel güvenlik gereksinimleri var mı? Örneğin, PII (kişisel bilgiler) verileri içerir, ancak, PII öğesinden gelen soru sonuçları hariç tutulduğu emin olmanız gerekir.
+- Düzenleyici ya da teknolojik nedeniyle bulutta depolanamaz bazı veriler varsa, şirket içi depolama ile tümleştirme kolaylaştıran bir bulut veri depolama platformu gerekebilir.
 
-## <a name="demo--using-sql-database-in-azure"></a>Gösteri – Azure SQL veritabanı kullanma
+## <a name="demo--using-sql-database-in-azure"></a>Tanıtım: Azure'da SQL veritabanı kullanma
 
-Düzelt uygulama ilişkisel veritabanı görevleri depolamak için kullanır. Gösterilen ortamı oluşturma Windows PowerShell komut dosyası [her şeyi otomatikleştirmek bölüm](automate-everything.md) iki SQL veritabanı örneği oluşturur. Bu Portalı'nda tıklayarak bkz **SQL veritabanları** sekmesi.
+Düzeltme uygulama görevleri depolamak için ilişkisel bir veritabanı kullanır. Gösterilen ortam oluşturma Windows PowerShell komut [her şeyi otomatikleştirin bölüm](automate-everything.md) iki SQL veritabanı örneği oluşturur. Bu portalda tıklayarak görebilirsiniz **SQL veritabanları** sekmesi.
 
-![Portalı'nda SQL veritabanları](data-storage-options/_static/image8.png)
+![Portalındaki SQL veritabanları](data-storage-options/_static/image8.png)
 
 Portalı kullanarak veritabanları oluşturmak kolaydır.
 
-Tıklatın **yeni--veri Hizmetleri** -- **SQL veritabanı** -- **hızlı Oluştur**, bir veritabanı adı girin, zaten hesabınızda bir sunucu seçin veya yeni bir tane oluşturun ve **SQL veritabanı oluşturma**.
+Tıklayın **yeni--veri Hizmetleri** -- **SQL veritabanı** -- **hızlı Oluştur**, bir veritabanı adı girin, hesabınızdaki zaten yüklü bir sunucu seçin veya yeni bir tane oluşturun ve **SQL veritabanı oluşturma**.
 
 ![Yeni SQL veritabanı](data-storage-options/_static/image9.png)
 
-Birkaç saniye bekleyin ve Azure kullanabilmeniz için hazır bir veritabanına sahip.
+Birkaç saniye bekleyin ve kullanımınıza hazır azure'daki bir veritabanına sahip.
 
 ![Yeni SQL veritabanı oluşturuldu](data-storage-options/_static/image10.png)
 
-Azure birkaç saniye için ne bunu, bir günü bulabilir veya haftanın veya şirket içi ortamda gerçekleştirmek için daha uzun. Ve kolayca veritabanları otomatik olarak bir komut dosyası veya yönetim API'si kullanarak oluşturabileceğiniz olduğundan, uygulamanız için programlanıncaya sürece, dinamik olarak birden çok < o: p > veritabanları arasında verilerinizi yayarak ölçeğini. < /o : p >
+Azure birkaç saniye için ne bunu, bir gün beklemeniz gerekebilir veya haftada veya şirket içi ortamda gerçekleştirmek için daha uzun. Ve bu yana kolayca veritabanları otomatik olarak bir komut dosyası veya bir API management kullanarak oluşturabileceğiniz için programlanmış uygulamanızı olduğu sürece dinamik olarak birden çok < o:p > veritabanlarında verilerinizi yayarak ölçeği genişletebilirsiniz. < /o : p >
 
-Bu, hizmet olarak Platform modelimizi örneğidir. Sunucuları yönetmek zorunda kalmadan, biz yapın. Yedekler hakkında endişelenmenize gerek yoktur, biz yapın. Yüksek kullanılabilirlik – çalıştığından veritabanındaki verileri üç sunucu arasında otomatik olarak çoğaltılır. Bir makine sonlandıktan, biz otomatik yük devri ve hiçbir veri kaybı. Sunucunun düzenli olarak düzeltme eki, hakkında endişelenmeniz gerekmez.
+Bu, hizmet olarak Platform modelimizi örneğidir. Sunucuları yönetmek zorunda kalmadan, biz yaparız. Yedeklemeler hakkında endişelenmeniz gerekmez, bunu desteklemiyoruz. Yüksek kullanılabilirlik – çalıştırdığı veritabanındaki verileri üç sunucular arasında otomatik olarak çoğaltılır. Bir makine sonlandıktan, biz otomatik olarak yük devretme ve hiçbir veri kaybı. Sunucu düzeltme eki düzenli olarak, bu konuda endişelenmeniz gerekmez.
 
-Bir düğmeye tıklayın ve gerekir ve hemen yeni bir veritabanı kullanmaya başlayabilmeniz için tam bağlantı dizesi alın.
+Bir düğmeye tıklayın ve yeni veritabanını kullanarak hemen başlayabilir ve gerekir tam bağlantı dizesini alın.
 
 ![Bağlantı dizeleri](data-storage-options/_static/image11.png)
 
-Pano bağlantısı geçmişi ve kullanılan depolama alanı miktarını gösterir.
+Pano, bağlantı geçmişi ve kullanılan depolama miktarını gösterir.
 
 ![SQL veritabanı Panosu](data-storage-options/_static/image12.png)
 
-SQL Server araçlarını kullanarak, önceden SQL Server Management Studio (SSMS) ve Visual Studio Araçları SQL Server Nesne Gezgini (SSOX) ve Sunucu Gezgini dahil olmak üzere, bilinen veya portal veritabanlarında yönetebilirsiniz.
+Portalı'nda veritabanlarını yönetebilir veya SQL Server araçlarını kullanarak, zaten alışık olduğunuz SQL Server Management Studio (SSMS) ve SQL Server Nesne Gezgini (SSOX) ve Sunucu Gezgini Visual Studio Araçları dahil olmak üzere,.
 
 ![SSOX](data-storage-options/_static/image13.png)
 
-Başka bir iyi fiyatlandırma modeli şeydir. Bir ücretsiz 20 MB veritabanıyla geliştirme başlayabilir ve bir üretim veritabanında yaklaşık $5 ayda başlar. Yalnızca gerçekten veritabanında, hizmetin maksimum kapasitesi depolamak veri miktarı için ücret ödersiniz. Bir lisans satın almak zorunda değilsiniz.
+Başka bir iyi fiyatlandırma modeli şeydir. Bir ücretsiz 20 MB'veritabanı ile geliştirme başlatabilir ve bir üretim veritabanında yaklaşık 5 ABD Doları / ay başlar. Hizmetin maksimum kapasitesi veritabanında gerçekten depoladığınız veri miktarı ödeme yaparsınız. Bir lisans satın almanız gerekmez.
 
-SQL veritabanı için ölçek kolaydır. Düzelt uygulaması için 1 GB bizim Otomasyon betiğini oluşturuyoruz veritabanı tutulabilir. En fazla 150 GB ölçeklendirmek istiyorsanız, yalnızca Portalı'na gidin ve bu ayarı değiştirebilir veya REST API'si komutu yürütün ve saniye verisine dağıtabilirsiniz bir 150 GB veritabanına sahip.
+SQL veritabanı, ölçeklendirme kolaydır. Bunu düzeltmek için uygulaması, Otomasyon betiğimizi oluştururuz veritabanı 1 GB ücret alınır. En fazla 150 GB ölçeklendirmek isterseniz, yeni Portalı'na gidin ve bu ayarı değiştirebilir veya REST API'si komutu yürütün ve saniyeler içinde verileri dağıtabileceğiniz bir 150 GB veritabanını sahip.
 
 ![SQL veritabanı sürümlerini ve boyutları](data-storage-options/_static/image14.png)
 
-Bulut altyapısını oluşturan hızla ve kolayca göze ve hemen kullanmaya başlamak için güç olmasıdır.
+Altyapıyı hızla ve kolayca ve hemen kullanmaya başlayın, bulutun gücünden olmasıdır.
 
-İki SQL veritabanları, biri üyelik (kimlik doğrulama ve yetkilendirme) için ve veriler için bir düzeltme uygulama kullanır ve tüm bu sağlamak ve ölçeklemek için yapmanız gereken budur. Daha önce gördüğünüzle Windows PowerShell komut ve Portalı ' ne kadar kolay olduğunu gördüğünüze göre veritabanlarını sağlama.
+İki SQL veritabanı, bir üyelik (kimlik doğrulaması ve yetkilendirme) için ve veriler için bir düzeltme uygulama kullanır ve tüm bu sağlama ve ölçeklemek için yapmanız gereken budur. Daha önce gördüğünüzle nasıl sağlayacağınızı veritabanları ve Windows PowerShell komut dosyalarıyla artık portalda yapmak için ne kadar kolay olduğunu gördünüz.
 
 ## <a name="entity-framework-versus-direct-database-access-using-adonet"></a>Entity Framework ADO.NET kullanarak doğrudan veritabanına erişimi karşılaştırması
 
-Entity Framework kullanarak bu veritabanları Düzelt uygulama erişirse, Microsoft'un ORM (nesne ilişkisel Eşleyici) .NET uygulamaları için önerilir. Bir ORM Geliştirici üretkenliği kolaylaştıran harika bir araçtır ancak performansın bazı senaryolarda ödün verme pahasına üretkenlik gelir. Gerçek bulut uygulamasında EF ADO.NET doğrudan kullanma arasında seçim yapma olmaz – her ikisi de kullanacaksınız. Çoğu zaman veritabanı ile çalışan kod yazıyorsanız zaman en yüksek performans alma kritik değildir ve Basitleştirilmiş kodlama ve Entity Framework ile alma sınama özelliklerden yararlanabilirsiniz. EF yükü kabul edilebilir performans neden olduğu durumlarda, yazma ve saklı yordamlar çağırarak ADO.NET, ideal olarak kullanarak kendi sorguları yürütün.
+Entity Framework kullanarak bu veritabanlarını Düzelt uygulamanın eriştiği, Microsoft'un .NET uygulamaları için ORM (nesne ilişkisel eşleyicidir) önerilir. Bir ORM Geliştirici üretkenliğini kolaylaştıran harika bir araçtır, ancak performansın bazı senaryolarda çoğaltamaz üretkenlik gelir. Gerçek hayatta kullanılan bulut uygulamasında EF doğrudan ADO.NET kullanma arasında bir seçim yaparak olmaz – hem de kullanmanız gerekir. Çoğu zaman veritabanı ile çalışan kod yazdığınız zaman en uygun performanstan kritik değildir ve Basitleştirilmiş kodlama ve Entity Framework ile alma test yararlanabilirsiniz. EF yükü kabul edilebilir performans neden olduğu durumlarda, yazma ve saklı yordamlar çağırarak ADO.NET, ideal olarak kullanarak kendi sorguları yürütün.
 
-"Chattiness" mümkün olduğunca en aza indirmek istediğiniz veritabanına erişmek için kullandığınız herhangi bir yöntem. Daha büyük bir sorgu sonuç düzinelerce veya küçük olanları yüzlerce yerine kümesinde gerek duyduğunuz tüm verileri alırsanız, diğer bir deyişle, bu genellikle tercih edilir. Örneğin, liste Öğrenciler ve içinde kaydolduktan kurslar ihtiyacınız varsa, tüm bir birleştirme sorgusu yerine tek bir sorguda Öğrenciler alma ve her öğrencinin kurslara ayrı sorguları yürütme verileri almak daha iyi olur.
+Veritabanına erişmek için kullandığınız yöntem "iletişim yoğunluğunu" mümkün olduğunca en aza indirmek istersiniz. Daha büyük bir sorgu sonuç düzinelerce, ister yüzlerce daha küçük depolara yerine kümesinde ihtiyacınız olan verileri alma, diğer bir deyişle, genellikle tercih edilir. Örneğin, liste Öğrenciler ve olarak kayıtlı olduğunuz kursları gerekiyorsa, tüm bir birleştirme sorgusu yerine tek bir sorguda Öğrenciler alma ve her öğrencinin Kurslar için ayrı sorgular yürütme verileri almak daha iyi.
 
 ## <a name="sql-databases-and-the-entity-framework-in-the-fix-it-app"></a>SQL veritabanları ve Entity Framework uygulamasında Düzelt
 
-Düzelt uygulamasında `FixItContext` Entity Framework türetilen sınıfı `DbContext` sınıfı, veritabanı tanımlar ve veritabanında tablolarda belirtir. Bağlam (tablo) görevler için bir varlık kümesini belirtir ve kod içinde bağlamına bağlantı dizesi adı geçirir. Bu ad Web.config dosyasında tanımlanmış bir bağlantı dizesi ifade eder.
+Düzelt uygulamasında `FixItContext` Entity Framework ' türetilen sınıfı `DbContext` sınıf, veritabanı tanımlar ve veritabanında tablolar belirtir. Bağlam (tablo) görevler için bir varlık kümesini belirtir ve kod içinde bağlamı için bağlantı dizesi adı geçirir. Bu ad Web.config dosyasında tanımlanan bir bağlantı dizesi ifade eder.
 
 [!code-csharp[Main](data-storage-options/samples/sample1.cs?highlight=4,8)]
 
-Bağlantı dizesinde *Web.config* dosyası (burada yerel geliştirme veritabanına işaret eden) appdb adlı:
+Bağlantı dizesinde *Web.config* appdb (burada yerel geliştirme veritabanına işaret) adlı dosyası:
 
 [!code-xml[Main](data-storage-options/samples/sample2.xml?highlight=3)]
 
-Entity Framework oluşturur bir *FixItTasks* dahil özellikleri temel tablo `FixItTask` varlık sınıfı. Devralınan değil veya bağımlılıkları Entity Framework sahip anlamı basit bir POCO (düz eski CLR nesnesi) sınıf budur. Ancak Entity Framework dayalı bir tablo oluşturmak nasıl bilir ve CRUD (Oluştur-okunur-güncelleştirme-Sil) işlemleri onunla yürütün.
+Entity Framework oluşturur bir *FixItTasks* dahil özelliklerini temel tablo `FixItTask` varlık sınıfı. Devralınan değil veya herhangi bir bağımlılığın Entity Framework'ü olması anlamına gelir basit bir POCO (düz eski CLR nesnesi) sınıfı budur. Ancak, Entity Framework temel alan bir tablo oluşturmak nasıl bilir ve onunla CRUD (oluşturma-okuma-güncelleştirme-silme) işlemlerinin.
 
 [!code-csharp[Main](data-storage-options/samples/sample3.cs)]
 
-![FixItTasks tablosu](data-storage-options/_static/image15.png)
+![FixItTasks tablo](data-storage-options/_static/image15.png)
 
-Düzelt uygulama veri deponuzla CRUD işlemleri için kullandığı bir depo arabirimi içerir.
+Düzeltme uygulama, veri deponuzla CRUD işlemleri için kullandığı bir depo arabirimi içerir.
 
 [!code-csharp[Main](data-storage-options/samples/sample4.cs)]
 
-Tüm veri erişimi tamamen zaman uyumsuz bir biçimde yapılabilir şekilde deposu yöntemleri tüm zaman uyumsuz olduğuna dikkat edin.
+Tüm veri erişimi tamamen zaman uyumsuz bir şekilde yapılması için depo yöntemleri tüm zaman uyumsuz olduğuna dikkat edin.
 
-Depo uygulaması çağrıları Entity Framework zaman uyumsuz yöntemleri de dahil olmak üzere verilerle çalışmak için LINQ de INSERT için olduğu gibi sorgular güncelleştirme ve silme işlemleri. Kod bir Düzelt görev aramak için bir örneği burada verilmiştir.
+Depo uygulama çağrıları Entity Framework zaman uyumsuz yöntemler de dahil olmak üzere verilerle çalışmak için güncelleştirme ve silme işlemleri LINQ ekleme için de sorgular. Arama Düzelt görev oluşturmak için kod örneği aşağıda verilmiştir.
 
 [!code-csharp[Main](data-storage-options/samples/sample5.cs)]
 
-Göreceksiniz ayrıca bazı zamanlama ve hata günlüğü kodu buraya, biz bu daha sonra göreceğiz [izleme ve Telemetri bölüm](monitoring-and-telemetry.md).
+Göreceksiniz ayrıca bazı zamanlama ve burada hata günlüğü kodu, bu bir daha sonra atacağız [izleme ve Telemetri bölüm](monitoring-and-telemetry.md).
 
 <a id="sqliaas"></a>
-## <a name="choosing-sql-database-paas-versus-sql-server-in-a-vm-iaas-in-azure"></a>SQL Server Azure VM'de (Iaas) karşılaştırması SQL veritabanı (PaaS) seçme
+## <a name="choosing-sql-database-paas-versus-sql-server-in-a-vm-iaas-in-azure"></a>Azure'da bir sanal makinede (Iaas) SQL Server ve SQL veritabanı (PaaS) seçme
 
-SQL Server ve Azure SQL veritabanı hakkında iyi bir şey çekirdek programlama modeli her ikisi için aynı olmasıdır. Her iki ortamlarında aynı yetenekleri çoğunu kullanabilirsiniz. Bulutta bile bir SQL Server veritabanı geliştirme ve SQL veritabanı örneği kullanabilirsiniz olduğu Düzelt uygulama nasıl ayarlanır.
+SQL Server ve Azure SQL veritabanı hakkında güzel bir şey çekirdek programlama modeli her ikisi için aynı olmasıdır. Her iki ortamlarda aynı yeteneklerin çoğunu kullanabilirsiniz. Bulutta geliştirme bir SQL Server veritabanı ve SQL veritabanı örneğinde bile kullanabilirsiniz olduğu Düzelt uygulamayı nasıl ayarlandığı.
 
-Alternatif olarak, Iaas Vm'leri üzerinde yükleyerek şirket içi çalıştırmak bulutta aynı SQL Server çalıştırabilirsiniz. Bazı eski uygulamaları için SQL Server çalıştıran bir VM'de daha iyi bir çözüm olabilir. Bir SQL Server veritabanı adanmış bir VM üzerinde çalıştığından, daha fazla kullanabileceği kaynakları paylaşılan bir sunucuda çalışan bir SQL veritabanı veritabanına daha sahiptir. SQL Server veritabanını daha büyük ve yine de gerçekleştirmek anlamına gelir. Genel olarak, daha küçük veritabanı boyutu ve tablo boyutunu daha iyi kullanım örneğini SQL (PaaS) veritabanı için çalışır.
+Alternatif olarak, şirket içi Iaas Vm'lerine yükleyerek çalıştırın aynı SQL Server bulutta çalıştırabilirsiniz. Bazı eski uygulamalar için SQL Server çalıştıran bir VM ile daha iyi bir çözüm olabilir. Bir SQL Server veritabanı adanmış bir VM üzerinde çalıştığından, paylaşılan bir sunucu üzerinde çalışan bir SQL veritabanı için kullanılabilir daha fazla kaynak var. Bu, bir SQL Server veritabanı, daha büyük ve yine de gerçekleştirmek anlamına gelir. Genel olarak, daha küçük veritabanı boyutu ve tablo boyutu daha iyi kullanım örneği için SQL veritabanı (PaaS) çalışır.
 
-İki modelleri arasında seçim yapma hakkında bazı yönergeler şunlardır.
+İki model arasında seçim yapma bazı Kılavuzlar şunlardır.
 
-| Azure SQL veritabanı (PaaS) | SQL Server sanal makine (Iaas) |
+| Azure SQL veritabanı (PaaS) | SQL Server (Iaas) sanal makine |
 | --- | --- |
-| **Uzmanları** -oluşturun veya sanal makineleri yönetmek, güncelleştirmek veya işletim sistemi veya SQL; düzeltme eki gerekmez Azure, sizin için yapar. -Yerleşik yüksek kullanılabilirlik, bir veritabanı düzeyi SLA ile. -Düşük sahip olma maliyeti (TCO), ödeme olduğundan yalnızca hangi için kullandığınız (lisans gerekiyor). -Çok sayıda küçük veritabanları işlemek için iyi (&lt;= 500 GB). -Dinamik olarak oluşturmak kolay etkinleştirmek için yeni veritabanları genişletme. | ***Uzmanları*** - özelliği ile şirket içi SQL Server ile uyumlu. -SQL Server uygulayabilirsiniz [AlwaysOn aracılığıyla yüksek kullanılabilirlik](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) 2 + VM'ler, VM düzeyinde SLA ile içinde. -SQL nasıl yönetileceğini tam kontrolüne sahip olursunuz. -Zaten sahip olduğunuz veya bir saate göre ödeme SQL lisansları yeniden kullanma. -Daha az işlemek için iyi ancak büyük (1 TB +) veritabanları. |
-| **Cons** -bazı özellik şirket içi SQL Server'a karşılaştırıldığında boşlukları (biri eksik [CLR tümleştirmesini](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [sıkıştırma desteği](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), vs.)-veritabanı boyut sınırına 500 GB. | ***Cons*** - güncelleştirmeleri/düzeltme (işletim sistemi ve SQL) sizin sorumluluğunuzdadır - oluşturma ve DBs yönetimini sizin sorumluluğunuzdadır - Disk yaklaşık 8000 (aracılığıyla 16 veri sürücüleri) sınırlı IOPS (saniye başına girdi/çıktı işlemleri). |
+| **Uzmanları** -oluşturmak veya Vm'leri yönetmek, güncelleştirmek veya işletim sistemi veya SQL; düzeltme eki gerekmez Azure, sizin için halleder. -Yerleşik yüksek kullanılabilirlik, bir veritabanı düzeyindeki HDS. -Yalnızca (lisans gerekir) kullandıklarınız için ödeme yaptığından toplam maliyetinin (TCO) düşük. -İşleme çok sayıda küçük veritabanları için iyi (&lt;= 500 GB). -Dinamik olarak oluşturmak kolayca yeni veritabanları etkinleştirmek için ölçek genişletme. | ***Uzmanları*** - şirket içi SQL Server ile özellik uyumlu. -SQL Server uygulayabilirsiniz [AlwaysOn Yüksek kullanılabilirlikli](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) 2 + vm'lerinde, VM düzeyinde SLA'sı ile. -SQL nasıl yönetilir üzerinde tam denetime sahiptir. -Zaten sahip olduğunuz veya bir saate göre ödeme SQL lisanslarını yeniden kullanabilir. -Daha az işleme için iyi ancak daha büyük (1 TB) veritabanları. |
+| **Cons** -bazı özellik şirket içi SQL Server'a kıyasla boşlukları (alınamadığından [CLR tümleştirme](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [sıkıştırma desteği](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), vs.)-500 GB'lık veritabanı boyutu sınırı. | ***Cons*** - güncelleştirme/düzeltme (işletim sistemi ve SQL) sizin sorumluluğunuzdadır - oluşturma ve yönetim kapasiteli DB - Disk IOPS (saniyede giriş/çıkış işlemi) yaklaşık 8000 (16 veri sürücüleri ile) sınırlı olmak üzere sizin sorumluluğunuzdadır. |
 
-Bir VM'de SQL Server kullanmak isterseniz, kendi SQL Server lisansınızı kullanabilirsiniz ya da bir saat için ödeme. Örneğin, portalı veya REST API aracılığıyla SQL sunucu görüntüsü kullanarak yeni bir VM oluşturabilirsiniz.
+Bir VM'de SQL Server kullanmak isterseniz, kendi SQL Server lisansınızı kullanabilirsiniz ya da bir saati için ödeme yapabilirsiniz. Örneğin, portalda veya REST API aracılığıyla SQL Server görüntüsünü kullanarak yeni bir VM oluşturabilirsiniz.
 
 ![SQL Server ile VM oluşturma](data-storage-options/_static/image16.png)
 
-![SQL Server VM görüntüleri listesi](data-storage-options/_static/image17.png)
+![SQL Server VM görüntüsü listesi](data-storage-options/_static/image17.png)
 
-VM bir SQL Server görüntüsüyle, biz profesyonel oranı SQL Server Lisans maliyet VM kullanımınıza bağlı saate göre oluşturduğunuzda. Yalnızca birkaç ay çalışmasına olmaya bir proje varsa, saat başına ödeme daha ucuzdur. Projeniz için son yıldır geçiyor düşünüyorsanız, normal şekilde lisansı satın daha ucuzdur.
+VM bir SQL Server görüntüsü ile dağıtırız SQL Server Lisans maliyeti, VM kullanımınıza göre saatine göre oluşturduğunuzda. Birkaç ay çalıştırmak için yalnızca giden bir projeniz varsa, saatlik olarak ödeme daha ucuzdur. Projeniz için son yıl boyunca geçiyor düşünüyorsanız, normalde yaptığınız gibi lisans satın almak ucuz.
 
 ## <a name="summary"></a>Özet
 
-Karışık pratik hale getiren Bulut ve en iyi eşleşme veri depolama yaklaşım, uygulamanızın gereksinimlerine uyacak. Yeni bir uygulama oluşturuyorsanız, iyi uygulamanız büyüdükçe çalışmaya devam edecek yaklaşım çekme için burada listelenen hakkında sorular dikkatlice düşünün. [Sonraki bölümde](data-partitioning-strategies.md) birden çok veri depolama yaklaşımı birleştirir için kullanabileceğiniz bazı bölümleme stratejiler açıklanmaktadır.
+Karıştırılacak pratik hale getiren Bulut ve uygulamanızın ihtiyaçlarını en iyi eşleşme veri depolama yaklaşımları uygun. Yeni bir uygulama oluşturuyorsanız, de uygulamanızı büyürken çalışmaya devam edecek yaklaşım çekme için burada listelenen soruları hakkında dikkatlice düşünün. [Sonraki bölümde](data-partitioning-strategies.md) birden çok veri depolama yaklaşımı birleştirir için kullanabileceğiniz bazı bölümleme stratejileri açıklayacak.
 
 ## <a name="resources"></a>Kaynaklar
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-Veritabanı platform seçme:
+Bir veritabanı platformu seçme:
 
-- [Veri erişimi için yüksek oranda ölçeklenebilir çözümler: SQL, NoSQL ve Polyglot Kalıcılık kullanarak](http://aka.ms/dag-doc). E-derinlemesine farklı veri türlerini giden kitap Microsoft Patterns and Practices tarafından bulut uygulamaları için kullanılabilir depolar.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/ff898430.aspx). Veri tutarlılığı Primer, veri çoğaltma ve eşitleme yönergeleri, dizin tablo deseni, gerçekleştirilip görünüm düzeni bakın.
-- [TABAN: Acid alternatif](http://queue.acm.org/detail.cfm?id=1394128). Veri tutarlılığı ve ölçeklenebilirlik arasındaki dengelemeden hakkında makalesi.
-- [Yedi hafta yedi veritabanlarında: Modern veritabanları ve NoSQL Taşıma Kılavuzu](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Defteri Eric Redmond ve Jim r Wilson tarafından. Veri depolama platformları günümüzün aralığına tanıtımı için kendiniz kesinlikle önerilir.
+- [Yüksek düzeyde ölçeklenebilir çözümler için veri erişimi: SQL, NoSQL ve Polyglot Persistence kullanma](http://aka.ms/dag-doc). -Ayrıntılı olarak farklı türlerde veri giden kitap Microsoft Patterns ve uygulamalar tarafından kullanılabilir bulut uygulamaları için depolar.
+- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/ff898430.aspx). Veri tutarlılığı temel bilgileri, veri çoğaltma ve eşitleme yönergeleri, dizin tablosu düzeni, gerçekleştirilmiş görünüm düzeni bakın.
+- [TEMEL: Acid alternatif](http://queue.acm.org/detail.cfm?id=1394128). Veri tutarlılığı ve ölçeklenebilirlik bir denge hakkında makalesi.
+- [Yedi veritabanlarını yedi hafta: Modern veritabanları ve NoSQL Taşıma Kılavuzu](https://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921). Eric Redmond ve Jim r Wilson kitabı. Günümüzün veri depolama platformları aralığına tanıtımı için kendiniz kesinlikle önerilir.
 
 SQL Server ve SQL veritabanı arasında seçim yapma:
 
-- [SQL veritabanı kılavuzu için Premium Önizleme](https://msdn.microsoft.com/library/windowsazure/dn369873.aspx). SQL veritabanı Premium ve ne zaman SQL veritabanı Web ve işletme sürümlerini seçin Kılavuzu giriş.
-- [Kuralları ve sınırlamaları (Azure SQL veritabanı)](https://msdn.microsoft.com/library/windowsazure/ff394102.aspx). SQL veritabanı sınırlamaları hakkındaki belgelere bağlantılar portal sayfasında, bu SQL veritabanını SQL Server özellikleri odaklanan bir de dahil olmak üzere desteklemiyor.
-- [Azure sanal makinelerde SQL Server](https://msdn.microsoft.com/library/windowsazure/jj823132.aspx). Azure'da SQL Server çalıştıran hakkındaki belgelere bağlantılar portal sayfası.
-- [Scott Guthrie açıklar Azure SQL veritabanlarında](https://azure.microsoft.com/documentation/videos/sql-in-azure-scottgu/). SQL veritabanı Scott Guthrie tarafından video giriş 6 dakika.
-- [Uygulama düzenleri ve Azure sanal makinelerde SQL Server için geliştirme stratejileri](https://msdn.microsoft.com/library/windowsazure/dn574746.aspx).
+- [SQL veritabanı kılavuzu için Premium Önizleme](https://msdn.microsoft.com/library/windowsazure/dn369873.aspx). SQL veritabanı Premium ve SQL veritabanı Web ve Business sürümleri üzerinde seçmek ne zaman kılavuzu için giriş.
+- [Kılavuzlar ve sınırlamalar (Azure SQL veritabanı)](https://msdn.microsoft.com/library/windowsazure/ff394102.aspx). SQL Database genel sınırlamaları hakkında belgeler için bağlantılar portal sayfasında, SQL veritabanı SQL sunucu özelliklere odaklanan bir dahil olmak üzere desteklemiyor.
+- [Azure sanal makineler'de SQL Server](https://msdn.microsoft.com/library/windowsazure/jj823132.aspx). Azure'da SQL Server çalıştıran hakkındaki belgelere bağlantılar, portal sayfası.
+- [Scott Guthrie, SQL veritabanları azure'daki açıklar](https://azure.microsoft.com/documentation/videos/sql-in-azure-scottgu/). Scott Guthrie tarafından SQL veritabanı 6 dakikalık video giriş.
+- [Uygulama desenleri ve geliştirme stratejileri Azure sanal makineler'de SQL Server için](https://msdn.microsoft.com/library/windowsazure/dn574746.aspx).
 
-Entity Framework ve SQL veritabanı bir ASP.NET Web uygulamasında kullanma
+Entity Framework ve SQL veritabanı, bir ASP.NET Web uygulamasında kullanma
 
-- [MVC 5 kullanarak EF 6 ile çalışmaya başlama](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Bir MVC uygulaması oluşturma sürecinde anlatan dokuz öğretici bölümlük EF kullanır ve Azure ve SQL veritabanı için veritabanı dağıtır.
-- [Visual Studio kullanarak ASP.NET Web dağıtımı](../../../../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). Bir veritabanı EF Code First kullanarak dağıtma hakkında daha fazla derinliği girmeyeceğini on iki bölümlü öğretici serisi.
-- [Güvenli ASP.NET MVC 5 uygulama üyeliği, OAuth ve SQL veritabanı ile bir Azure Web sitesine dağıtmak](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Bir web uygulaması oluşturma aracılığıyla anlatan adım adım öğretici kimlik doğrulaması kullanır, uygulama tabloları üyelik veritabanında depolar, veritabanı şemasını değiştirir ve Azure'a uygulamayı dağıtır.
-- [ASP.NET Data Access içerik haritası](https://go.microsoft.com/fwlink/p/?LinkId=282414). EF ve SQL veritabanı çalışma kaynaklarına bağlantılar.
+- [MVC 5 kullanarak EF 6 ile çalışmaya başlama](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Bir MVC uygulaması oluştururken size yol gösteren öğretici serisinin dokuz bölümü EF kullanır ve veritabanı, Azure ve SQL veritabanı'na dağıtır.
+- [Visual Studio kullanarak ASP.NET Web dağıtımı](../../../../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). EF Code First kullanarak bir veritabanı dağıtma hakkında daha fazla derinlik girmeyeceğini on iki bölümden öğretici serisi.
+- [Azure Web sitesi için bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 uygulaması dağıtın](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Bir web uygulaması oluşturma işleminde size adım adım öğretici kimlik doğrulaması kullanır, uygulama tablolarını üyelik veritabanında depolar, veritabanı şemasını değiştirir ve uygulamayı Azure'a dağıtır.
+- [ASP.NET Data Access içerik haritası](https://go.microsoft.com/fwlink/p/?LinkId=282414). EF ve SQL veritabanı ile çalışmaya yönelik kaynaklara bağlantılar.
 
-MongoDB, Azure üzerinde kullanma:
+Azure'da MongoDB kullanarak:
 
-- [MongoLab - MongoDB Azure üzerinde](http://msopentech.com/opentech-projects/mongolab-mongodb-on-windows-azure/). MongoDB Azure üzerinde çalışan hakkındaki belgelere için portal sayfası.
-- [Azure'da sanal makine üzerinde çalışan MongoDB bağlandığı bir Azure web sitesi oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/). Bir ASP.NET web uygulamasında bir MongoDB veritabanı kullanmayı gösterir adım adım öğretici.
+- [MongoLab - azure'da Mongodb'yi](http://msopentech.com/opentech-projects/mongolab-mongodb-on-windows-azure/). Azure'da MongoDB çalıştırmayla ilgili belgeler için portal sayfası.
+- [Azure'da bir sanal makinede çalışan mongodb'ye bağlanan Azure web sitesi oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-store-data-mongodb-vm/). Nasıl bir ASP.NET web uygulamasında bir MongoDB veritabanı kullanılacağını gösteren adım adım öğretici.
 
-Hdınsight (Hadoop Azure ile ilgili):
+HDInsight (Hadoop Azure üzerinde):
 
-- [Hdınsight](https://azure.microsoft.com/documentation/services/hdinsight/). Hdınsight belgeleri için Portal [Azure](https://azure.microsoft.com/) Web sitesi.
-- [Hadoop ve Hdınsight: azure'da büyük veri](https://msdn.microsoft.com/magazine/dn385705.aspx). MSDN dergisi makale Bruno Terkaly ve Hadoop azure'da Tanıtımı Attila Villalobos.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz: MapReduce düzeni.
+- [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/). HDInsight belgeleri portalınızda [Azure](https://azure.microsoft.com/) Web sitesi.
+- [Hadoop ve HDInsight: azure'da büyük veri](https://msdn.microsoft.com/magazine/dn385705.aspx). MSDN Magazine makalesini Bruno Terkaly ve Ricardo Villalobos, Azure üzerinde Hadoop ile tanışın.
+- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Bkz: MapReduce deseni.
 
 > [!div class="step-by-step"]
 > [Önceki](single-sign-on.md)
-> [sonraki](data-partitioning-strategies.md)
+> [İleri](data-partitioning-strategies.md)

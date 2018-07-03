@@ -1,171 +1,170 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
-title: Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
+title: Web geliştirme en iyi yöntemler (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
+description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f31798032c3b690fcb6dfa8326580255f3412826
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873527"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371044"
 ---
-<a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web geliştirme en iyi yöntemler (Azure ile gerçek bulut uygulamaları derleme)
+<a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Web geliştirme en iyi yöntemler (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [zel Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitap indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünya bulut uygulamalarını Azure ile** e-kitap Scott Guthrie tarafından geliştirilen bir sunu dayanır. 13 desenleri açıklar ve yardımcı olacak yöntemler bulutu için web uygulamaları geliştirme başarılı. E-kitap hakkında daha fazla bilgi için bkz: [ilk bölüm](introduction.md).
+> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
 
-İlk üç desenleri bir Çevik Geliştirme işlemi ayarlama vardı; rest mimarisi ve kod hakkında verilmiştir. Bu bir web geliştirme en iyi yöntemler koleksiyonudur:
+İlk üç desenler bir Çevik Geliştirme sürecinize ayarlama hakkında vardı; rest, mimari ve kod hakkında verilmiştir. Bu bir web geliştirme en iyi aşağıdakilerden oluşur:
 
-- [Durum bilgisiz web sunucuları](#stateless) akıllı yük dengeleyici arkasında.
-- [Oturum durumu kaçının](#sessionstate) (veya onu yoksayılamaz, veritabanı yerine dağıtılmış önbellek kullanın).
-- [CDN kullanan](#cdn) kenar önbellek statik dosya varlıklara (görüntüleri, komut dosyaları).
-- [.NET 4.5'in zaman uyumsuz destek kullanma](#async) çağrıları engellemekten kaçınacak şekilde.
+- [Durum bilgisi olmayan web sunucuları](#stateless) akıllı yük dengeleyicinin arkasına.
+- [Oturum durumu önlemek](#sessionstate) (veya bunu yoksayılamaz, bir veritabanı yerine dağıtılmış önbellek kullanın).
+- [CDN kullanan](#cdn) için edge önbelleği statik dosya varlıklarınızı (görüntüler, betikler).
+- [.NET 4.5'ın zaman uyumsuz desteği kullanan](#async) çağrıları engellemekten kaçınacak şekilde.
 
-Bu uygulamalar yalnızca bulut uygulamaları için tüm web geliştirme için geçerli olan, ancak özellikle bulut uygulamaları için önemli. Bunlar en iyi kullanımı bulut ortamı tarafından sunulan çok esnek ölçeklendirme yapmanıza yardımcı olmak için birlikte çalışır. Bu yöntemler takip etmiyorsa, uygulamanızın ölçeğini çalıştığınızda sınırlamaları çalıştıracaksınız.
+Bu yöntemler tüm web geliştirme, yalnızca bulut uygulamaları için geçerlidir, ancak bunlar özellikle bulut uygulamaları için önemli. Bunlar bulut ortamı tarafından sağlanan son derece esnek ölçeklendirme, en iyi kullanabilmesine yardımcı olmak için birlikte çalışır. Bu yöntemler takip etmiyorsa, uygulamanızı ölçeklendirmeyi çalıştığınızda sınırlamaları çalıştıracaksınız.
 
 <a id="stateless"></a>
-## <a name="stateless-web-tier-behind-a-smart-load-balancer"></a>Durum bilgisiz web katmanı akıllı yük dengeleyici arkasında
+## <a name="stateless-web-tier-behind-a-smart-load-balancer"></a>Bir akıllı yük dengeleyicinin arkasına durum bilgisi olmayan web katmanı
 
-*Durum bilgisiz web katmanı* web sunucusu bellek veya dosya sisteminde uygulama verilerini depolamak yok anlamına gelir. Web katmanı durum bilgisiz tutma, hem daha iyi bir müşteri deneyimi sağlar ve paradan tasarruf sağlar:
+*Durum bilgisi olmayan web katmanı* web sunucusu bellek veya dosya sistemindeki uygulama verilerini depolamak yok anlamına gelir. Durum bilgisi olmayan web katmanınızın saklama, hem daha iyi bir müşteri deneyimi sağlar ve paradan tasarruf etmenize olanak sağlar:
 
-- Web katmanı durum bilgisiz ise ve bir yük dengeleyicinin arkasına bulunur, hızlı bir şekilde uygulama trafiğini değişiklikleri dinamik olarak ekleyerek veya kaldırarak sunucuları yanıt verebilirsiniz. Bunları gerçekten kullandığınız sürece Burada, yalnızca sunucu kaynaklarını ödeme bulut ortamında talep değişikliklerine yanıt verme olanağı büyük tasarruflar çevirebilir.
-- Durum bilgisiz web katmanı uygulamanın ölçeğini genişletmek mimari çok daha kolaydır. Çok daha hızlı ölçeklemeye gereksinimlerini yanıt ve geliştirme ve test etme işleminde küçük para harcamanız sağlar.
-- Şirket içi sunucular gibi bulut sunucularına düzeltme eki ve bazen yeniden gerekir; ve web katmanı durum bilgisiz ise, bir sunucu geçici olarak devre dışı kaldığında trafiğin yeniden yönlendirilmesini hataları veya beklenmeyen davranışlara neden olmaz.
+- Durum bilgisi olmayan web katmanı ve bir yük dengeleyici arkasında bulunur, hızla uygulama trafiği değişiklikleri dinamik olarak ekleyerek veya kaldırarak sunucuları yanıt verebilirsiniz. Bulut ortamında, bunları gerçekten kullandığınız sürece burada yalnızca sunucu kaynakları için ödeme yaparsınız tasarruflardan talepte değişikliklerine yanıt verme becerisini çevirebilir.
+- Bir durum bilgisi olmayan web katmanı uygulamanın ölçeğini genişletmek mimari çok daha kolaydır. Bu çok daha hızlı bir şekilde ölçeklendirme gereksinimleri için'yanıt vermesine ve geliştirme ve test etme işleminde daha az para harcamanız sağlar.
+- Düzeltme eki ve zaman zaman yeniden şirket içi sunucular gibi bulut sunucularına gerekir; ve web katmanı ve durum bilgisi olmayan bir sunucu geçici olarak arızalandığında trafiğin yeniden yönlendirilmesini hataları veya beklenmeyen davranışlara neden olmaz.
 
-Çoğu gerçek uygulamalar için bir web oturum durumunu depolamak gerekir; Ana burada web sunucusunda depolamamayı noktasıdır. İstemcide tanımlama bilgilerini veya işlemi sunucu tarafı önbellek sağlayıcısını kullanarak ASP.NET oturum durumu gibi farklı yollarla durumu depolayabilirsiniz. Dosyaların depolanacağı [Windows Azure Blob Depolama](unstructured-blob-storage.md) yerine yerel dosya sistemi.
+Çoğu gerçek uygulamalar için bir web oturum durumunu depolamak gerekir; Burada temel nokta web sunucusunda depolamamayı sağlamaktır. İstemcide tanımlama bilgilerini veya işlemi sunucu tarafı önbelleği sağlayıcısı kullanarak ASP.NET oturum durumu gibi farklı yollarla durumu depolayabilirsiniz. Dosyalarında depolayabilir [Windows Azure Blob Depolama](unstructured-blob-storage.md) yerel dosya sistemi yerine.
 
-Web katmanı durum bilgisiz ise, bir uygulama Windows Azure Web sitelerini ölçeklendirir ne kadar kolay olduğunu bir örnek bkz **ölçek** sekmesinde bir Windows Azure Web sitesi için Yönetim Portalı'nda:
+Durum bilgisi olmayan web katmanınızın ise Windows Azure Web sitelerinde bir uygulamayı ölçeklendirme ne kadar kolay olduğunu bir örnek bkz **ölçek** sekmesinde bir Windows Azure Web sitesi için Yönetim Portalı'nda:
 
-![Ölçek sekmesi](web-development-best-practices/_static/image1.png)
+![Ölçek sekmesini](web-development-best-practices/_static/image1.png)
 
-Web sunucuları eklemek istiyorsanız, yalnızca örnek sayısı kaydırıcıyı sağa sürükleyebilirsiniz. 5 olarak ayarlayın ve tıklayın **kaydetmek**, ve saniye içinde Windows Azure web sitenizin trafiği işleme 5 web sunucuları sahiptir.
+Web sunucusu eklemek istiyorsanız, örnek sayısı kaydırıcıyı sağa yalnızca sürükleyebilirsiniz. 5 ayarlanmış ve tıklayın **Kaydet**, ve saniyeler içinde web sitenizin trafiği işleme Windows Azure'da 5 web sunucusuna sahip.
 
-![Beş örnekleri](web-development-best-practices/_static/image2.png)
+![Beş örnek](web-development-best-practices/_static/image2.png)
 
-Örnek sayısı 3 Aşağı kaydırın veya geri 1 aşağıya doğru kolayca ayarlayabilirsiniz. Geri ölçeklendirdiğinizde paradan tasarruf Başlat hemen Windows Azure olmayan saate göre dakikaya göre ücretlendirdiği.
+Örnek sayısı 3 aşağı veya geri 1 aşağı kolayca ayarlayabilirsiniz. Geri ölçeğini daralttığınızda, paradan tasarruf etmeye başlayın hemen Windows Azure değil saatlik olarak dakikaya göre ücretlendirdiği.
 
-Ayrıca, otomatik olarak artırın veya CPU kullanımına bağlı web sunucularının sayısını azaltmak için Windows Azure anlayabilirsiniz. Aşağıdaki örnekte, CPU kullanımı % 60 gittiğinde, web sunucularının sayısını en az 2 düşürür ve CPU kullanımı % 80 ' kalırsa, web sunucuları sayısı en fazla 4 kadar artırılır.
+Ayrıca, otomatik olarak artırın veya CPU kullanımına göre web sunucularının sayısını azaltmak için Windows Azure söyleyebilirsiniz. Aşağıdaki örnekte, CPU kullanımı % 60 gittiğinde, web sunucu sayısını en az 2 azaltır ve CPU kullanımı % 80'in kalırsa, web sunucularının sayısı en fazla 4 adede kadar artırılır.
 
-![CPU kullanımına göre ölçeklendirme](web-development-best-practices/_static/image3.png)
+![CPU kullanımına göre ölçeklendirin](web-development-best-practices/_static/image3.png)
 
-Veya ne sitenizi yalnızca çalışma saatleri içinde meşgul olacağını bildiğiniz? Birden çok sunucu sırasında daytime çalıştırmak ve tek bir sunucu nights, Akşamları ve hafta sonları azaltmak için Windows Azure anlayabilirsiniz. Aşağıdaki ekran görüntüleri bir dizi 8: 00'dan çalışma saatleri-17: 00 saatleri sırasında bir sunucuya dışı saatlerde ve 4 sunucuları çalıştırmak için web sitesi kurmak nasıl gösterir.
+Veya sitenizin yalnızca çalışma saatlerinde meşgul olacağını bilmeniz ne olur? Birden çok sunucu sırasında daytime çalıştırmak ve tek bir sunucu Akşamları, nights ve hafta sonları azaltmak için Windows Azure söyleyebilirsiniz. Aşağıdaki ekran görüntüleri bir dizi, web sitesinin yedeklenmesi sırasında iş saat 8: 00-17 mesai saatleri dışında bir sunucu ve 4 sunucu çalıştırılacak ayarlama işlemi gösterilmektedir.
 
-![Zamanlamaya göre ölçeklendirme](web-development-best-practices/_static/image4.png)
+![Zamanlamaya göre ölçeklendirin](web-development-best-practices/_static/image4.png)
 
 ![Zamanlama saatleri ayarlayın](web-development-best-practices/_static/image5.png)
 
-![Daytime zamanlama](web-development-best-practices/_static/image6.png)
+![Gündüz saatlerinde kullanılan zamanlama](web-development-best-practices/_static/image6.png)
 
-![Weeknight zamanlama](web-development-best-practices/_static/image7.png)
+![Weeknight zamanlaması](web-development-best-practices/_static/image7.png)
 
 ![Hafta sonu zamanlama](web-development-best-practices/_static/image8.png)
 
-Ve Elbette tüm komut dosyaları da portal olduğu gibi yapılabilir.
+Ve Elbette tüm portal olduğu gibi betik de yapılabilir.
 
-Dinamik olarak ekleme veya web katmanı durum bilgisiz tutarak server Vm'lerinin kaldırma engelleri kaçının sürece, uygulamanızın ölçeğini Windows Azure'da neredeyse sınırsız özelliğidir.
+Dinamik olarak ekleme ya da durum bilgisi olmayan web katmanı tutarak server Vm'leri kaldırma engelleri önlemek sürece, uygulamanızın ölçeğini genişletmek için Windows Azure üzerinde neredeyse sınırsız yeteneğidir.
 
 <a id="sessionstate"></a>
 ## <a name="avoid-session-state"></a>Oturum durumu kaçının
 
-Bunu önlemek için bir kullanıcı oturum durumu çeşit depolamak için bir gerçek bulut uygulamasında pratik çoğunlukla değildir, ancak bazı yaklaşımlar diğerlerinden daha fazla performans ve ölçeklenebilirliği etkileyen. Durumunu depolamak varsa, durum miktarını küçük tutun ve tanımlama bilgilerini depolamak için en iyi çözüm olur. Uygun değilse, ASP.NET oturum durumu için bir sağlayıcı ile kullanmak için sonraki en iyi çözüm olduğunu [dağıtılmış, bellek içi önbellek](distributed-caching.md#sessionstate). Kötü bir performans ve ölçeklenebilirlik açısından bir veritabanını kullanmak için oturum durumu sağlayıcısı yedeklenen çözümüdür.
+Bir kullanıcı oturumu için durum çeşit depolanmasını önlemek için bir gerçek hayatta kullanılan bulut uygulaması pratik değildir, ancak aşağıdaki yaklaşımlardan diğerlerinden daha fazla performans ve ölçeklenebilirlik etkisi. Durumunu depolamak varsa, durum miktarını küçük tutun ve tanımlama bilgilerini depolamak için en iyi çözüm olur. Bu uygun değilse, ASP.NET oturum durumu sağlayıcısı için kullanılacak sonraki en iyi çözüm olduğundan [dağıtılmış, bellek içi önbellek](distributed-caching.md#sessionstate). En kötü bir performans ve ölçeklenebilirlik açısından bir veritabanını kullanmak için oturum durumu sağlayıcısı desteklenen çözümdür.
 
 <a id="cdn"></a>
-## <a name="use-a-cdn-to-cache-static-file-assets"></a>Statik dosya varlıklarını önbelleğe almak için bir CDN kullanma
+## <a name="use-a-cdn-to-cache-static-file-assets"></a>Statik dosya varlıklarınızı önbelleğe almak için CDN kullanın
 
-CDN içerik teslim ağı için bir kısaltmasıdır. Bir CDN sağlayıcısına görüntüler ve komut dosyaları gibi statik dosya varlıklar sağlar ve böylece uygulamanız kişiler erişim olduğunda, oldukça hızlı yanıt ve düşük gecikme süresi için önbelleğe alınan elde sağlayıcı bu veri merkezlerinde dünyanın dosyaları önbelleğe varlıklar. Bu sitenin genel yükleme süresini hızlandırır ve web sunucuları üzerindeki yükü azaltır. CDN'ler yaygın coğrafi olarak dağıtılmış bir izleyici ulaşıyor durumunda özellikle önemlidir.
+CDN, Content Delivery Network için kısaltmasıdır. Bir CDN sağlayıcısına görüntülerini ve komut dosyaları gibi statik dosya varlıklarınızı sağlayın ve böylece insanların uygulamanızı erişmek her yerde, görece hızlı yanıt ve düşük gecikme süresi için önbelleğe alınan aldıkları sağlayıcı dünyanın dört bir yanındaki veri merkezlerinde bu dosyaları önbelleğe alır varlıklar. Bu sitenin genel yük zaman hızlandırır ve web sunucularınızdaki yükü azaltır. CDN'ler coğrafi olarak dağıtılmış geniş bir kitleye ulaşıyor, özellikle önemlidir.
 
-Windows Azure CDN sahiptir ve Windows Azure veya barındırma ortamı web çalışır bir uygulamada diğer CDN'ler kullanabilirsiniz.
+Windows Azure CDN sahiptir ve Windows Azure'da veya herhangi bir web barındırma ortamı içinde çalışan bir uygulama, diğer CDN'ler kullanabilirsiniz.
 
 <a id="async"></a>
-## <a name="use-net-45s-async-support-to-avoid-blocking-calls"></a>.NET 4.5'in zaman uyumsuz destek aramalarını engelleyip önlemek için kullanın
+## <a name="use-net-45s-async-support-to-avoid-blocking-calls"></a>.NET 4.5'ın zaman uyumsuz destek çağrıları engellemekten kaçınacak şekilde kullanın
 
-.NET 4.5 C# ve VB programlama dillerini görevleri zaman uyumsuz olarak işlemek daha kolay yapmak için geliştirilmiştir. Yalnızca aynı anda birden çok web hizmeti çağrıları devre dışı kazandırın istediğinizde gibi paralel işleme durumlar için zaman uyumsuz programlama yararı değil. Ayrıca daha verimli bir şekilde gerçekleştirmek, web sunucusu sağlar ve yüksek yük koşullarında güvenilir. Bir web sunucusu yalnızca sınırlı sayıda kullanılabilir iş parçacığına sahip ve tüm iş parçacıklarının kullanımda olduğunda yüksek yük koşullarında gelen istekleri yukarı serbest iş parçacığı kadar beklemek zorunda. Uygulama kodunuz zaman uyumsuz olarak veritabanı sorguları ve web hizmeti çağrıları gibi görevleri işleyemez, sunucunun bir g/ç yanıt bekleme sırasında birçok iş parçacığı gereksiz yere bağlıdır. Bu sunucunun yüksek yük koşullarında kabul edebileceği trafik miktarını sınırlar. Zaman uyumsuz programlama ile bir web hizmeti veya verileri döndürmek için veritabanı için bekleyen iş parçacığı kadar veri hizmeti yeni istekleri kadar kurtulurlar alınır. Meşgul web sunucusu, yüzlerce veya binlerce isteği sonra derhal, aksi takdirde yukarı boşaltılması için iş parçacığı bekliyor olabilir işlenebilir.
+.NET 4.5 C# ve VB programlama dillerine görevler zaman uyumsuz olarak işlemek çok daha kolay yapmak için geliştirilmiştir. Yalnızca aynı anda birden çok web hizmeti çağrıları devre dışı başlatmasını istediğinizde gibi paralel işleme durumlar için zaman uyumsuz programlama avantajlarını değil. Ayrıca, daha verimli bir şekilde gerçekleştirmek, web sunucusu sağlar ve yüksek yük koşullarında güvenilir. Bir web sunucusu, yalnızca sınırlı sayıda iş parçacığı kullanılabilir vardır ve tüm iş parçacıkları, kullanımda olduğunda yüksek yük koşullarında gelen istekleri iş parçacıkları serbest bırakılana kadar beklemek zorunda. Zaman uyumsuz olarak veritabanı sorguları ve web hizmeti çağrıları gibi görevleri, uygulama kodunu işlemezse, sunucunun bir g/ç yanıtı beklerken birçok iş parçacığı gereksiz yere bağlıdır. Bu sunucunun yüksek yük koşullarında işleyebilir trafik miktarını sınırlar. Zaman uyumsuz programlama ile bir web hizmeti veya veritabanı verileri döndürmek için bekleyen iş parçacıklarının veri dek kadar yeni isteklere hizmet kurtulurlar alınır. Meşgul bir web sunucusu, yüzlerce veya binlerce isteği daha sonra en kısa sürede hangi yukarı serbest iş parçacığı için bekleyeceğidir işlenebilir.
 
-Daha önce gördüğünüz gibi bunları artırmak için olduğu gibi web sitenizi işleme web sunucularının sayısını azaltmak kadar kolaydır. Bu nedenle bir sunucu büyük verimi elde edebilirsiniz, aksi takdirde yaptığınız daha az sayıda sunucu verilen trafik hacmi için gerektiğinden bunları ve birçoğu, maliyetlerinizi düşürebilir gibi ihtiyacınız yoktur.
+Daha önce bahsettiğim gibi web sunucuları, web sitenizi arttırmayı olduğu gibi işleme sayısını azaltmak oldukça kolaydır. Bir sunucu daha yüksek aktarım hızı elde edebilirsiniz, verilen trafik hacmi için başka bir duruma göre daha az sunucu gerektiğinden birçok bunları ve maliyetlerinizi azaltabilirsiniz olarak bu nedenle gerekmez.
 
-.NET 4.5 zaman uyumsuz programlama modeli için destek ASP.NET 4.5 Web formları, MVC ve Web API bulunmaktadır; Entity Framework 6 hem de [Windows Azure depolama API](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/07/12/introducing-storage-client-library-2-1-rc-for-net-and-windows-phone-8.aspx).
+.NET 4.5 zaman uyumsuz programlama modeli için destek ASP.NET 4.5 Web Forms, MVC ve Web API'si için dahildir; Entity Framework 6 hem de [Windows Azure depolama API](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/07/12/introducing-storage-client-library-2-1-rc-for-net-and-windows-phone-8.aspx).
 
 ### <a name="async-support-in-aspnet-45"></a>ASP.NET 4.5 içinde zaman uyumsuz desteği
 
-ASP.NET 4.5 içinde zaman uyumsuz programlama dili için yalnızca aynı zamanda MVC, Web formları ve Web API çerçeveleri eklendi desteği. Örneğin, bir ASP.NET MVC denetleyici eylem yöntemi bir web isteğinden verileri alır ve tarayıcıya gönderilecek olan HTML oluşturan bir görünüme veri geçirir. Sık eylem yöntemi bir web sayfasında görüntülemek için veya bir web sayfasında girilen verileri kaydetmek için bir veritabanı veya web hizmetinden veri al gerekiyor. Bu senaryolarda eylem yöntemini zaman uyumsuz hale kolaydır.: döndürme yerine bir *ActionResult* nesnesi, dönmek *görev&lt;ActionResult&gt;*  ve yöntemi işaretleyin ile *zaman uyumsuz* anahtar sözcüğü. Bekleme süresi içerir bir işlem bir kod satırı devreye zaman yönteminin içinde bekleme anahtar sözcüğü ile işaretleyin.
+ASP.NET 4.5 içinde zaman uyumsuz programlama dili için yalnızca aynı zamanda MVC, Web Forms ve Web API çerçeveleri eklendi desteği. Örneğin, bir ASP.NET MVC denetleyici eylem yöntemi bir web isteğinde verileri alır ve ardından tarayıcıya gönderilecek HTML oluşturan bir görünüme veri geçirir. Sıklıkla bir eylem yönteminin bir web sayfasında görüntülemek için veya bir web sayfasına girilen verileri kaydetmek için bir veritabanı veya web hizmetinden veri al gerekir. Bu senaryolarda zaman uyumsuz eylem yönteminin yapmak kadar kolay olduğunu: döndürmek yerine bir *actionresult öğesini* nesne, iade ettiğiniz *görev&lt;actionresult öğesini&gt;*  ve yöntem işaretleyin ile *zaman uyumsuz* anahtar sözcüğü. Bir kod satırı devreye bekleme zamanı içeren bir işlem devre dışı olduğunda bir yöntemde, await anahtar sözcüğü ile işaretleyin.
 
-Bir veritabanı sorgusu için depo yöntemini çağıran bir basit eylem yöntemi şöyledir:
+Bir veritabanı sorgusu için bir depo yöntemi çağıran basit bir eylem yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](web-development-best-practices/samples/sample1.cs)]
 
-Ve veritabanı çağrısı zaman uyumsuz olarak işler aynı yöntemi şöyledir:
+Ve veritabanı çağrısı zaman uyumsuz olarak işleyen aynı yöntem şu şekildedir:
 
 [!code-csharp[Main](web-development-best-practices/samples/sample2.cs?highlight=1,4)]
 
-Perde arkasında derleyici uygun zaman uyumsuz kod oluşturur. Ne zaman uygulamanın yaptığı çağrısı `FindTaskByIdAsync`, ASP.NET yapar `FindTask` isteği çalışan iş parçacığı unwinds ve başka bir isteği işlemek için kullanılabilir hale getirir. Zaman `FindTask` istek gerçekleştirilir, o çağrısından sonra gelen kod işleme devam etmek için bir iş parçacığı yeniden. Ne zaman arasında geçiş sırasında `FindTask` isteği başlatılır ve veri döndürüldüğünde, yanıt bekleme bağlanması Aksi takdirde, yararlı işlerini gerçekleştirmek kullanılabilir bir iş parçacığı vardır.
+Arka planda, derleyici uygun zaman uyumsuz kod oluşturur. Uygulamanın çağrısı ne zaman yaptığı `FindTaskByIdAsync`, ASP.NET yapar `FindTask` istemek için iş parçacığı geriye doğru izler ve başka bir isteği işlemek kullanılabilir hale getirir. Zaman `FindTask` isteği yapılır, bu çağrıdan sonra gelen kodu işleme devam etmek için bir iş parçacığı başlatılır. Ne zaman arasında geçiş sırasında `FindTask` istek başlatılır ve döndürülen veriler, yanıt bekleyen bağlanması Aksi halde, faydalı bir iş gerçekleştirmek için kullanılabilecek bir iş parçacığı vardır.
 
-Zaman uyumsuz kodu için bazı ek yoktur, ancak düşük yük koşullar altında bu ek yük, sırasında kullanılabilir iş parçacıkları için bekleyen tutulan isteklerini işlemek için yüksek yük koşullarında önemsizdir.
+Zaman uyumsuz kod için bazı ek yükler vardır, ancak düşük yük koşullarında, bu ek göz ardı edilebilir, çalışırken kadar kullanılabilir iş parçacığı bekleniyor tutulan istekleri işleyebilir yüksek yük koşullarında yüktür.
 
-Bu tür bir ASP.NET 1.1 sürümünden itibaren zaman uyumsuz programlama yapılması mümkün olmuştur, ancak yazmak zor, hatasız ve hata ayıklamak zordur. Bunun için ASP.NET 4.5 kodlama basitleştirdik, artık yapmaması için bir sebep yoktur.
+Bu tür bir ASP.NET 1.1 sürümünden itibaren zaman uyumsuz programlama yapmanız mümkün olmuştur, ancak zor yazmak, hata yapmaya açık ve hata ayıklamak zordur. Bunun için ASP.NET 4.5 içinde kodlama basitleştirdik, artık bunu için bir neden yoktur.
 
-### <a name="async-support-in-entity-framework-6"></a>Zaman uyumsuz destek Entity Framework 6
+### <a name="async-support-in-entity-framework-6"></a>Entity Framework 6 zaman uyumsuz desteği
 
-4.5 içinde zaman uyumsuz desteği bir parçası olarak biz web hizmeti çağrıları, yuva ve dosya sistemi g/ç için zaman uyumsuz destek sevk edilen ancak en yaygın Düzen web uygulamaları için bir veritabanı isabet yöneliktir ve bizim veri kitaplıkları zaman uyumsuz desteklemekteydi. Şimdi Entity Framework 6 veritabanı erişimi için async desteği ekler.
+4.5 içinde zaman uyumsuz destek bir parçası olarak şu web hizmeti çağrıları, yuva ve dosya sistemi g/ç için zaman uyumsuz destek sevk edilen ancak web uygulamaları için en yaygın desen, bir veritabanı isabet sağlamaktır ve bizim veri kitaplıkları zaman uyumsuz desteklemedi. Artık, Entity Framework 6 veritabanı erişimi için async desteği ekler.
 
-Entity Framework 6 sorgu veya komut veritabanına gönderilmesine neden tüm yöntemleri zaman uyumsuz sürümlere sahip. Örnek zaman uyumsuz sürümünü gösterir *Bul* yöntemi.
+Entity Framework 6'da bir sorgu veya veritabanına gönderilecek komutu neden tüm yöntemler, zaman uyumsuz sürümü bulunuyor. Örnek zaman uyumsuz sürümünü gösterir *Bul* yöntemi.
 
 [!code-csharp[Main](web-development-best-practices/samples/sample3.cs?highlight=8)]
 
-Ve bu zaman uyumsuz desteği yalnızca ekler, siler, güncelleştirmeleri ve basit bulur için çalışır, LINQ sorgularını ile de çalışır:
+Ve bu zaman uyumsuz destek yalnızca ekleme, silme, güncelleştirmeleri ve basit bulur için çalışır, ayrıca LINQ sorguları ile çalışır:
 
 [!code-csharp[Main](web-development-best-practices/samples/sample4.cs?highlight=7,10)]
 
-Var olan bir `Async` sürümü `ToList` yöntemi bu kodda, veritabanına gönderilmek üzere bir sorgu neden yöntemi olduğundan. `Where` Ve `OrderByDescending` yöntemlerini yalnızca sorgu yapılandırma sırasında `ToListAsync` yöntemi sorguyu çalıştırır ve yanıtta depolar `result` değişkeni.
+Var olan bir `Async` sürümünü `ToList` yöntemi bu kodda, veritabanına gönderilmek üzere bir sorgu neden yöntemi olduğundan. `Where` Ve `OrderByDescending` yöntemlerini sorgu yalnızca yapılandırma sırasında `ToListAsync` yöntemi sorguyu çalıştırır ve yanıtta depolar `result` değişkeni.
 
 ## <a name="summary"></a>Özet
 
-Tüm web programlama çerçevesi ve tüm bulut ortamı Burada özetlenen web geliştirme en iyi yöntemleri uygulayabilirsiniz, ancak kolaylaştırmak için ASP.NET ve Windows Azure Araçları sunuyoruz. Bu düzenleri izlerseniz, web katmanı genişletmek kolayca ölçeklendirebilirsiniz ve her sunucu daha fazla trafik işlemek mümkün olduğundan, harcamalarınızı en aza.
+Herhangi bir web çerçevesi ve herhangi bir bulut ortamında programlama Burada özetlenen web geliştirme en iyi yöntemleri uygulayabilirsiniz, ancak ASP.NET ve Windows Azure'da kolaylaştıran Araçlar sunuyoruz. Bu düzenleri izliyorsa, web katmanınızın kolayca ölçeklendirilebilir ve her sunucuda daha fazla trafik işlemek mümkün olacağından, harcamalarınızı en aza.
 
-[Sonraki bölümde](single-sign-on.md) nasıl bulut tek oturum açma senaryolara olanak sağlar arar.
+[Sonraki bölümde](single-sign-on.md) bulut tek oturum açma senaryoları nasıl sağladığını konumunda görünür.
 
 ## <a name="resources"></a>Kaynaklar
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
-Durum bilgisiz web sunucuları:
+Durum bilgisi olmayan web sunucuları:
 
-- [Microsoft Patterns and Practices - otomatik ölçeklendirmeyi Kılavuzu](https://msdn.microsoft.com/library/dn589774.aspx).
-- [Devre dışı bırakma ARR ait örnek benzeşimi Windows Azure Web siteleri,](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Blog gönderisi Erez Benari tarafından oturum benzeşimi Windows Azure Web siteleri açıklar.
+- [Microsoft Patterns ve uygulamaları - otomatik ölçeklendirme Kılavuzu](https://msdn.microsoft.com/library/dn589774.aspx).
+- [Devre dışı bırakma ARR'ın örnek benzeşimi Windows Azure Web sitelerinde](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/). Blog gönderisi Erez benari'nin oturum benzeşimi, Windows Azure Web siteleri açıklar.
 
 CDN:
 
-- [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Bölüm 3 1:34: 00'dan başlayarak, CDN tartışma bakın.
-- [Microsoft Patterns ve yöntemleri statik içerik barındırma düzeni](https://msdn.microsoft.com/library/dn589776.aspx)
-- [CDN incelemeler](http://www.cdnreviews.com/). Birçok CDN'ler genel bakış.
+- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden Ulrich Homann, Marc Mercuri ve Mark Simms'in video serisi. 3. Bölüm 1:34: 00'dan başlayarak, CDN tartışmalara bakın.
+- [Microsoft Patterns ve yöntemler statik içerik barındırma düzeni](https://msdn.microsoft.com/library/dn589776.aspx)
+- [CDN incelemeleri](http://www.cdnreviews.com/). Birçok CDN'ler genel bakış.
 
-Zaman uyumsuz programlama:
+Zaman uyumsuz programlama için:
 
-- [ASP.NET MVC 4'te zaman uyumsuz yöntemleri kullanarak](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Öğretici Rick Anderson tarafından.
-- [Zaman uyumsuz programlama ile Async ve Await (C# ve Visual Basic)](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). Zaman uyumsuz programlama için stratejinin, ASP.NET 4.5 içinde nasıl çalıştığı ve uygulamak için kodunun nasıl yazılacağını açıklayan MSDN teknik incelemesini.
-- [Entity Framework zaman uyumsuz sorgu ve kaydetme](https://msdn.microsoft.com/data/jj819165)
-- [Zaman uyumsuz kullanarak ASP.NET Web uygulamaları oluşturmak nasıl](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Video sunumu Rowan Mert tarafından. Grafik Tanıtımı içerir, ne zaman uyumsuz programlama yüksek yük koşullar altında web sunucusu verimliliği artışlar kolaylaştırabilir.
-- [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Zaman uyumsuz programlama ölçeklenebilirlik üzerinde etkisi hakkında daha fazla tartışma için bkz: Bölüm 4 ve bölüm 8.
-- [ASP.NET 4.5 yanı sıra önemli bir sorunu zaman uyumsuz yöntemler kullanma Sihirli](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). ASP.NET Web Forms uygulamalarında async kullanma hakkında öncelikle Blog Gönderisi Scott Hanselman tarafından.
+- [ASP.NET MVC 4'te zaman uyumsuz metotlar kullanma](../../../../mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4.md). Öğretici Rick Anderson tarafından.
+- [Zaman uyumsuz ile zaman uyumsuz programlama (C# ve Visual Basic) await](https://msdn.microsoft.com/library/vstudio/hh191443.aspx). Zaman uyumsuz programlama için gerekçe, ASP.NET 4.5 içinde nasıl çalıştığını ve uygulamak için kodun nasıl yazılacağını açıklayan MSDN teknik incelemesi.
+- [Entity Framework zaman uyumsuz sorgu ve tasarruf edin](https://msdn.microsoft.com/data/jj819165)
+- [Zaman uyumsuz kullanarak ASP.NET Web uygulamalarının nasıl oluşturulacağını](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/DEV-B337#fbid=tgkT4SR_DK7). Video sunumu Rowan Miller tarafından. Grafik bir örnek içerir, ne zaman uyumsuz programlama, web sunucusu aktarım hızı yüksek yük koşullarında artışlar kolaylaştırabilir.
+- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden Ulrich Homann, Marc Mercuri ve Mark Simms'in video serisi. Bölüm 4 ve 8. Bölüm ölçeklenebilirlik üzerinde zaman uyumsuz programlama etkisi hakkında daha fazla tartışma için bkz.
+- [ASP.NET 4.5 ve önemli bir sorunu zaman uyumsuz metotlar kullanma Sihirli](http://www.hanselman.com/blog/TheMagicOfUsingAsynchronousMethodsInASPNET45PlusAnImportantGotcha.aspx). Öncelikli olarak ASP.NET Web Forms uygulamalarında async kullanma hakkındaki Blog gönderisini Scott Hanselman tarafından.
 
-Ek web geliştirme en iyi yöntemler için aşağıdaki kaynaklara bakın:
+Ek web geliştirme en iyi uygulamalar için aşağıdaki kaynaklara bakın:
 
-- [Düzeltme uygulama - en iyi uygulamaları örnek](the-fix-it-sample-application.md#bestpractices). Bu e-kitap eke Düzelt uygulamada uygulanan en iyi yöntemler sayısını listeler.
+- [Düzelt örnek uygulaması - en iyi](the-fix-it-sample-application.md#bestpractices). Bu e-kitap ek Düzelt uygulamada uygulanan en iyi yöntemler sayısını listeler.
 - [Web geliştirici denetim listesi](http://webdevchecklist.com/asp.net)
 
 > [!div class="step-by-step"]
 > [Önceki](continuous-integration-and-continuous-delivery.md)
-> [sonraki](single-sign-on.md)
+> [İleri](single-sign-on.md)

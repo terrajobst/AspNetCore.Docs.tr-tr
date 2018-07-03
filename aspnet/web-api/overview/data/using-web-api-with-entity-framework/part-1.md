@@ -1,33 +1,32 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-1
-title: Entity Framework 6 ile Web API 2 kullanma | Microsoft Docs
+title: Web API 2 Entity Framework 6 ile kullanma | Microsoft Docs
 author: MikeWasson
-description: Bu öğreticide, ASP.NET Web API ile bir web uygulaması oluşturma temelleri arka uç öğretir. Öğretici veri yerleşim için Entity Framework 6 kullanır...
+description: Bu öğreticide arka ucu ASP.NET Web API'si ile bir web uygulaması oluşturma hakkındaki temel bilgileri sağlanır. Öğretici, verileri yerleşim için Entity Framework 6 kullanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 8e6d381509a121e3036ca3af91ea3b9bd0be33c2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4ab0ec8b9ccb652d9f28ab42d9333fcc90abb65
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871980"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362427"
 ---
-<a name="using-web-api-2-with-entity-framework-6"></a>Entity Framework 6 ile Web API 2 kullanma
+<a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 Entity Framework 6 ile kullanma
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-> Bu öğreticide, ASP.NET Web API ile bir web uygulaması oluşturma temelleri arka uç öğretir. Öğretici, istemci tarafı JavaScript uygulama için Entity Framework 6 veri katmanı ve Knockout.js için kullanır. Öğreticinin ayrıca Azure App Service Web Apps için uygulama dağıtmak nasıl gösterir.
+> Bu öğreticide arka ucu ASP.NET Web API'si ile bir web uygulaması oluşturma hakkındaki temel bilgileri sağlanır. Öğretici, istemci tarafı JavaScript uygulaması için Entity Framework 6 veri katmanı ve Knockout.js için kullanır. Öğreticide ayrıca uygulamasını Azure App Service Web Apps'e dağıtma gösterilmektedir.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - Web API 2.1
@@ -37,37 +36,37 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > - [Knockout.js](http://knockoutjs.com/) 3.1
 
 
-Bu öğretici, bir arka uç veritabanı işleyen bir web uygulaması oluşturmak için Entity Framework 6 ile ASP.NET Web API 2 kullanır. Oluşturacağınız uygulama ekran görüntüsü aşağıda verilmiştir.
+Bu öğreticide, bir arka uç veritabanı işleyen bir web uygulaması oluşturmak için Entity Framework 6 ile ASP.NET Web API 2 kullanılır. Oluşturacağınız uygulama ekran görüntüsü aşağıda verilmiştir.
 
 [![](part-1/_static/image2.png)](part-1/_static/image1.png)
 
-Uygulama bir tek sayfalı uygulama (SPA) tasarımı kullanır. "Tek sayfalı uygulama" tek bir HTML sayfası yükler ve ardından sayfanın dinamik olarak yeni sayfa yüklenirken yerine güncelleştiren bir web uygulaması için genel bir terimdir. İlk sayfa yükleme işleminden sonra uygulama AJAX istekleri aracılığıyla sunucusuyla alınmaktadır. AJAX UI güncelleştirmek için uygulamanın kullandığı dönüş JSON verilerini ister.
+Uygulama, bir tek sayfalı uygulama (SPA) tasarım kullanır. "Tek sayfalı uygulama" tek bir HTML sayfası yükler ve ardından sayfanın dinamik olarak yeni sayfa yükleniyor yerine güncelleştiren bir web uygulaması için genel bir terimdir. Başlangıç sayfası yüklemeden sonra uygulama AJAX istekleri aracılığıyla sunucusuyla anlatıyor. AJAX uygulamanın kullanıcı arabirimini güncelleştirmek için kullandığı dönüş JSON verilerini ister.
 
-AJAX yeni olmayan, ancak bugün oluşturmasına ve büyük ve karmaşık bir SPA uygulama korumasına kolaylaştırmak JavaScript çerçeveleri vardır. Bu öğretici kullanır [Knockout.js](http://knockoutjs.com/), ancak herhangi bir JavaScript istemci çerçevesini kullanabilirsiniz.
+AJAX yeni değildir, ancak bugün oluşturun ve büyük ve karmaşık bir SPA uygulama sürdürmek kolaylaştıran yeni JavaScript çerçevesi vardır. Bu öğreticide [Knockout.js](http://knockoutjs.com/), ancak herhangi bir JavaScript istemci çerçevesini kullanabilirsiniz.
 
-Bu uygulama için temel yapı taşlarını şunlardır:
+Bu uygulama için temel yapı taşları şunlardır:
 
-- ASP.NET MVC HTML sayfası oluşturur.
-- ASP.NET Web API AJAX isteği işler ve JSON verilerini döndürür.
-- Knockout.js verileri-HTML öğeleri JSON verilerini bağlar.
-- Entity Framework veritabanına alınmaktadır.
+- ASP.NET MVC, HTML sayfası oluşturur.
+- ASP.NET Web API AJAX istekleri işleyen ve JSON verilerini döndürür.
+- Knockout.js veri-HTML öğeleri için JSON verilerini bağlar.
+- Entity Framework veritabanı ile iletişim kuran.
 
 ## <a name="see-this-app-running-on-azure"></a>Azure üzerinde çalışan bu uygulamayı bakın
 
-Canlı web uygulaması çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeyi tıklatarak, uygulama tam sürümü Azure hesabınızda dağıtabilirsiniz.
+Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeye tıklayarak Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/BookService)
 
-Bu çözüm Azure'a dağıtmak için bir Azure hesabınız olmalıdır. Bir hesap zaten yoksa, aşağıdaki seçenekler vardır:
+Bu çözüm, Azure'a dağıtmak için bir Azure hesabına ihtiyacınız var. Bir hesap zaten yoksa, aşağıdaki seçenekleriniz:
 
-- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -KREDİLERİ edinin, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
 
 ## <a name="create-the-project"></a>Proje oluşturma
 
-Visual Studio'yu açın. Gelen **dosya** menüsünde, select **yeni**seçeneğini belirleyip **proje**. (Veya **yeni proje** başlangıç sayfasında.)
+Visual Studio'yu açın. Gelen **dosya** menüsünde **yeni**, ardından **proje**. (Veya **yeni proje** başlangıç sayfasında.)
 
-İçinde **yeni proje** iletişim kutusunda, tıklatın **Web** sol bölmede ve **ASP.NET Web uygulaması** Orta bölmede. BookService adını verin ve projeyi tıklatın **Tamam**.
+İçinde **yeni proje** iletişim kutusunda, tıklayın **Web** sol bölmede ve **ASP.NET Web uygulaması** orta bölmesinde. BookService Projeyi adlandırın ve tıklayın **Tamam**.
 
 [![](part-1/_static/image4.png)](part-1/_static/image3.png)
 
@@ -75,17 +74,17 @@ Visual Studio'yu açın. Gelen **dosya** menüsünde, select **yeni**seçeneğin
 
 [![](part-1/_static/image6.png)](part-1/_static/image5.png)
 
-Azure App Service'te projesini barındırmak istiyorsanız, bırak **bulutta Barındır** kutusunu işaretli.
+Projeye bir Azure App Service'te barındırmak istediğiniz tutulacaksa **bulutta Barındır** kutusunu işaretli.
 
-Tıklatın **Tamam** projesi oluşturmak için.
+Tıklayın **Tamam** projeyi oluşturmak için.
 
 ## <a name="configure-azure-settings-optional"></a>(İsteğe bağlı) Azure ayarlarını yapılandırma
 
-Bırakılırsa **buluttaki konağa** seçeneğinin işaretli, Visual Studio için Microsoft Azure oturum açmak için sorar
+Bırakılırsa **buluttaki konak** seçeneğinin işaretli, Visual Studio, Microsoft Azure'da oturum açmanızı ister
 
 [![](part-1/_static/image8.png)](part-1/_static/image7.png)
 
-Azure'da oturum açtıktan sonra Visual Studio web uygulamasını yapılandırma ister. Site için bir ad girin, Azure aboneliğinizi seçin ve bir coğrafi bölge seçin. Altında **veritabanı sunucusu**seçin **oluştur yeni sunucu**. Bir yönetici kullanıcı adı ve parola girin.
+Azure'da oturum açtıktan sonra Visual Studio web uygulamasını yapılandırmak isteyip istemediğinizi sorar. Site için bir ad girin, Azure aboneliğinizi seçin ve bir coğrafi bölge seçin. Altında **veritabanı sunucusu**seçin **yeni sunucu oluştur**. Bir yönetici kullanıcı adı ve parola girin.
 
 [![](part-1/_static/image10.png)](part-1/_static/image9.png)
 
