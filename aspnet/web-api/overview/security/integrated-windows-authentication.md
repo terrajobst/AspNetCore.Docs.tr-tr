@@ -2,43 +2,42 @@
 uid: web-api/overview/security/integrated-windows-authentication
 title: Tümleşik Windows kimlik doğrulaması | Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API'de tümleşik Windows kimlik doğrulaması kullanmayı açıklar.
+description: Tümleşik Windows kimlik doğrulaması ASP.NET Web API'sini kullanmayı açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/18/2012
 ms.topic: article
 ms.assetid: 71ee4c78-c500-4d1c-b761-b4e161a291b5
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/integrated-windows-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: bf5f55d98d61cdfdd246a847f41a6f1c65f00bfc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f11b9fe5d98118a252c6c00dd2997b2ee9a3da7a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566754"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37381609"
 ---
 <a name="integrated-windows-authentication"></a>Tümleşik Windows kimlik doğrulaması
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Tümleşik Windows kimlik doğrulaması, Kerberos veya NTLM kullanarak kendi Windows kimlik bilgileriyle oturum açmalarını sağlar. İstemci kimlik bilgileri yetkilendirme üst bilgi gönderir. Windows kimlik doğrulaması intranet ortamı için idealdir. Daha fazla bilgi için bkz: [Windows kimlik doğrulaması](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication).
+Tümleşik Windows kimlik doğrulaması, Kerberos veya NTLM kullanarak Windows kimlik bilgileriyle kullanıcıların oturum açmasına sağlar. İstemci kimlik bilgileri yetkilendirme üst bilgisinde gönderir. Windows kimlik doğrulaması intranet ortamı için idealdir. Daha fazla bilgi için [Windows kimlik doğrulaması](https://www.iis.net/configreference/system.webserver/security/authentication/windowsauthentication).
 
 | Yararları | Dezavantajlar |
 | --- | --- |
-| -IIS ile oluşturulmuş. -Kullanıcı kimlik bilgilerinin istekte göndermez. -İstemci bilgisayar (örneğin, intranet uygulama) etki alanına aitse, kullanıcı kimlik bilgilerini girmeniz gerekmez. | -Internet uygulamaları için önerilmez. -İstemci Kerberos veya NTLM desteği gerektirir. -İstemci Active Directory etki alanında olmalıdır. |
+| -IIS ile oluşturulmuş. -Kullanıcı kimlik bilgilerinin istekte göndermez. -İstemci bilgisayarı (örneğin, intranet uygulaması) etki alanı dahilse, kullanıcının kimlik bilgilerini girmeniz gerekmez. | -Internet uygulamaları için önerilmez. -İstemci Kerberos veya NTLM desteğini gerektirir. -İstemci, Active Directory etki alanında olmalıdır. |
 
 > [!NOTE]
-> Uygulamanızı Azure üzerinde barındırılan ve bir şirket içi Active Directory etki alanı varsa, şirket içi AD Azure Active Directory ile Federasyon göz önünde bulundurun. Böylece, kullanıcılar kendi şirket içi kimlik bilgileriyle oturum açabilir, ancak kimlik doğrulaması Azure AD tarafından gerçekleştirilir. Daha fazla bilgi için bkz: [Azure kimlik doğrulaması](../../../visual-studio/overview/2012/windows-azure-authentication.md).
+> Uygulamanızı Azure'da barındırılır ve bir şirket içi Active Directory etki alanı varsa, şirket içi AD'nizi Azure Active Directory ile Federasyon göz önünde bulundurun. Böylece, kullanıcılar kendi şirket içi kimlik bilgileriyle oturum açabilir, ancak kimlik doğrulaması, Azure AD tarafından gerçekleştirilir. Daha fazla bilgi için [Azure kimlik doğrulaması](../../../visual-studio/overview/2012/windows-azure-authentication.md).
 
 
-Tümleşik Windows kimlik doğrulaması kullanan bir uygulama oluşturmak için MVC 4 Proje Sihirbazı'nda "Intranet uygulaması" şablonunu seçin. Bu proje şablonu Web.config dosyasında aşağıdaki ayar yapar:
+Tümleşik Windows kimlik doğrulaması kullanan bir uygulama oluşturmak için MVC 4 Proje Sihirbazı'nda "Intranet uygulaması" şablonu seçin. Bu proje şablonu aşağıdaki ayarları Web.config dosyasına koyar:
 
 [!code-xml[Main](integrated-windows-authentication/samples/sample1.xml)]
 
-İstemci tarafında, tümleşik Windows kimlik doğrulamasını destekleyen bir tarayıcı ile çalışır [anlaş](http://www.ietf.org/rfc/rfc4559.txt) en önde gelen tarayıcılar içeren kimlik doğrulama düzeni. .NET istemci uygulamaları için **HttpClient** sınıfı, Windows kimlik doğrulamasını destekler:
+İstemci tarafında, tümleşik Windows kimlik doğrulamasını destekleyen bir tarayıcı ile çalışır. [anlaş](http://www.ietf.org/rfc/rfc4559.txt) çoğu bilinen tarayıcılar içeren kimlik doğrulama düzeni. .NET istemci uygulamaları için **HttpClient** sınıfı, Windows kimlik doğrulamasını destekler:
 
 [!code-csharp[Main](integrated-windows-authentication/samples/sample2.cs)]
 
-Windows kimlik doğrulaması için siteler arası istek sahteciliği (CSRF) saldırılarına karşı savunmasızdır. Bkz: [siteler arası istek sahtekarlığı (CSRF) saldırılarını önleme](preventing-cross-site-request-forgery-csrf-attacks.md).
+Windows kimlik doğrulaması için siteler arası istek sahteciliği (CSRF) saldırılarını karşı savunmasızdır. Bkz: [siteler arası istek sahteciliği (CSRF) saldırılarını önleme](preventing-cross-site-request-forgery-csrf-attacks.md).
