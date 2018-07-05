@@ -1,44 +1,43 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: Veri erişim senaryoları Gelişmiş | Microsoft Docs
+title: Gelişmiş veri erişimi senaryoları | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticileri saklı yordamları ve hesaplanan sütunlar ile nasıl çalışılacağı, veritabanı tablolarıyla birleştirmeler kullanmayı ve veri bağlantı bilgileri şifrelemek nasıl ele...
+description: Bu öğreticiler saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgileri şifrelemek nasıl ele...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
-ms.openlocfilehash: e773ced66465ab99e9b662d84e1cdb8e607918e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 910d2d65c7ea16b98e0fd5327a62ea70697f5727
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26567993"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364694"
 ---
-<a name="advanced-data-access-scenarios"></a>Gelişmiş Veri erişim senaryoları
+<a name="advanced-data-access-scenarios"></a>Gelişmiş veri erişimi senaryoları
 ====================
-> Bu öğreticiler saklı yordamları ve hesaplanan sütunlar ile nasıl çalışılacağı, veritabanı tablolarıyla birleştirmeler kullanmayı ve veri bağlantısı bilgilerini şifrelemek nasıl kapsar.
+> Bu öğretici, saklı yordamlar ve hesaplanan sütunlar ile çalışma konusunda, veritabanı tabloları ile birleştirme kullanma ve veri bağlantı bilgilerini şifrelemek nasıl kapsar.
 
 
-- [Yeni oluşturma saklı yordamlar için yazılan veri kümesi'nin TableAdapters (C#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-- [Varolanı kullanma saklı yordamlar için yazılan veri kümesi'nin TableAdapters (C#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-- [TableAdapter kullanımı için güncelleştirme (C#) birleştirir](updating-the-tableadapter-to-use-joins-cs.md)
-- [Ek DataTable sütunlar (C#) ekleme](adding-additional-datatable-columns-cs.md)
-- [Hesaplanan sütunlar (C#) ile çalışma](working-with-computed-columns-cs.md)
-- [Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (C#) yapılandırma](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
-- [Koruma bağlantı dizeleri ve diğer yapılandırma bilgileri (C#)](protecting-connection-strings-and-other-configuration-information-cs.md)
-- [Hata ayıklama saklı yordamlar (C#)](debugging-stored-procedures-cs.md)
-- [Saklı yordamlar ve yönetilen kod (C#) ile kullanıcı tanımlı işlevler oluşturma](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
-- [Türü belirtilmiş veri kümesi'nin TableAdapters (VB) için saklı yordamlar yeni oluşturma](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-- [Türü belirtilmiş veri kümesi'nin TableAdapters (VB) saklı yordamları Varolanı kullanma](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-- [TableAdapter kullanımı için güncelleştirme (VB) birleştirir](updating-the-tableadapter-to-use-joins-vb.md)
-- [Ek DataTable sütunlar (VB) ekleme](adding-additional-datatable-columns-vb.md)
-- [Hesaplanan sütunlar (VB) ile çalışma](working-with-computed-columns-vb.md)
-- [Veri erişim katmanın bağlantı ve komut düzeyi ayarlarını (VB) yapılandırma](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
-- [Bağlantı dizeleri ve diğer yapılandırma bilgileri (VB) koruma](protecting-connection-strings-and-other-configuration-information-vb.md)
-- [Saklı yordamlar (VB) hata ayıklama](debugging-stored-procedures-vb.md)
-- [Saklı yordamlar ve yönetilen kod (VB) ile kullanıcı tanımlı işlevler oluşturma](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+- [Türü Belirtilmiş DataSet'in TableAdapter’ları için Yeni Saklı Yordam Oluşturma (C#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+- [Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (C#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+- [TableAdapter’ı JOIN Kullanacak Biçimde Güncelleştirme (C#)](updating-the-tableadapter-to-use-joins-cs.md)
+- [Ek DataTable Sütunları Ekleme (C#)](adding-additional-datatable-columns-cs.md)
+- [Hesaplanan Sütunlar ile Çalışma (C#)](working-with-computed-columns-cs.md)
+- [Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (C#)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+- [Bağlantı Dizelerini ve Diğer Yapılandırma Bilgilerini Koruma (C#)](protecting-connection-strings-and-other-configuration-information-cs.md)
+- [Saklı Yordamların Hatalarını Ayıklama (C#)](debugging-stored-procedures-cs.md)
+- [Yönetilen Kod ile Saklı Yordamlar ve Kullanıcı Tanımlı İşlevler Oluşturma (C#)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
+- [Türü Belirtilmiş DataSet'in TableAdapter’ları için Yeni Saklı Yordam Oluşturma (VB)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+- [Türü Belirtilmiş DataSet'in TableAdapter’ları için Mevcut Saklı Yordamları Kullanma (VB)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+- [TableAdapter’ı JOIN Kullanacak Biçimde Güncelleştirme (VB)](updating-the-tableadapter-to-use-joins-vb.md)
+- [Ek DataTable Sütunları Ekleme (VB)](adding-additional-datatable-columns-vb.md)
+- [Hesaplanan Sütunlar ile Çalışma (VB)](working-with-computed-columns-vb.md)
+- [Veri Erişim Katmanının Bağlantısını ve Komut Düzeyi Ayarlarını Yapılandırma (VB)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
+- [Bağlantı Dizelerini ve Diğer Yapılandırma Bilgilerini Koruma (VB)](protecting-connection-strings-and-other-configuration-information-vb.md)
+- [Saklı Yordamların Hatalarını Ayıklama (VB)](debugging-stored-procedures-vb.md)
+- [Yönetilen Kod ile Saklı Yordamlar ve Kullanıcı Tanımlı İşlevler Oluşturma (VB)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

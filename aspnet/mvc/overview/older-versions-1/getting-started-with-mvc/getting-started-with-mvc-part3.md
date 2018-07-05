@@ -1,126 +1,125 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
-title: Bir görünümü ekleme | Microsoft Docs
+title: Görünüm ekleme | Microsoft Docs
 author: shanselman
-description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
+description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: e8f1515c-c277-47ff-a23e-224118f13f02
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 942d329cf0451101a24da4c3facd38b2813653d1
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30869601"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365678"
 ---
-<a name="adding-a-view"></a>Bir görünümü ekleme
+<a name="adding-a-view"></a>Görünüm ekleme
 ====================
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
-> ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC öğrenme Merkezi](../../../index.md) diğer ASP.NET MVC öğreticiler ve örnekleri bulunamadı.
+> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
 
 
-Bu bölümde biz nasıl biz düzgün bir şekilde bir istemciye oluşturma HTML yanıtları kapsülleyen bir görünüm şablon dosyası kullanmak bizim HelloWorldController sınıfı olabilir aramak için adımıdır.
+Bu bölümde nasıl biz düzgün bir şekilde oluşturma HTML yanıtları istemciye kapsüllemek için bir görünüm şablon dosyası kullanmak bizim HelloWorldController sınıfına sahip olabilir aramak için kullanacağız.
 
-Bizim dizin yöntemi ile bir görünüm şablonu kullanarak başlayalım. Bizim yöntemi dizin adı verilir ve bu HelloWorldController. Şu anda bizim İNDİS() yöntemi Controller sınıfı içinde kodlanmış olduğunu belirten bir ileti ile bir dize döndürür.
+Bizim dizin yöntemi ile bir şablonu görüntüleme kullanarak başlayalım. Index bizim yöntemi çağrılır ve HelloWorldController içinde olur. Şu anda bizim İNDİS() yöntemi Controller sınıfı içinde kodlanmış olduğunu belirten bir ileti ile bir dize döndürür.
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample1.cs)]
 
-Şimdi bunun yerine şuna için dizin yöntemi değiştirelim:
+Şimdi bunun yerine şuna benzeyecektir dizin yöntemi değiştirelim:
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample2.cs)]
 
-Şimdi bir görünüm şablonu bizim İNDİS() yöntemi için kullanırız bizim projesine ekleyelim. Bunu yapmak için dizin yöntemi ortasında bir yerde fareyi sağ tıklatıp Görünüm Ekle...
+Artık bir şablonu görüntüleme için bizim İNDİS() yöntemi kullanabiliriz Projemizin ekleyelim. Bunu yapmak için dizin yöntemi ortasında yere farenizle sağ tıklatıp Görünüm Ekle...
 
 ![görüntü](getting-started-with-mvc-part3/_static/image1.png)
 
-Bu, bize nasıl bizim dizin yöntemi tarafından kullanılan bir görünüm şablonu oluşturmak istiyoruz için bazı seçenekler sağlayan "Görünümü Ekle" iletişim kutusunu getirir. Şimdilik, yoksa değişikliği ve Ekle düğmesine tıklamanız yeterlidir.
+Bu bize nasıl bizim dizin yöntemi tarafından kullanılan bir görünüm şablonu oluşturmak istediğimiz bazı seçenekler sağlayan "Görünüm Ekle" iletişim kutusu çıkarır. Şimdilik, yoksa herhangi bir ayarı değiştirmek ve Ekle düğmesine tıklamanız yeterlidir.
 
 [![Görünüm Ekle iletişim kutusu](getting-started-with-mvc-part3/_static/image3.png)](getting-started-with-mvc-part3/_static/image2.png)
 
-Ekle tıkladıktan sonra yeni bir klasör ve yeni bir dosya çözüm klasöründe, burada görüldüğü gibi görünür. Şimdi bir HelloWorld klasör görünümleri ve Index.aspx dosyası altında bu klasöre sahibim.
+Ekle'ye tıklayın, sonra yeni bir klasör ve yeni bir dosya çözüm klasöründe, burada görüldüğü gibi görünür. Artık bir HelloWorld klasörü altında görünümleri ve Index.aspx dosyası bu klasörün içinde sahibim.
 
 [![solutionexplorerwithindex](getting-started-with-mvc-part3/_static/image5.png)](getting-started-with-mvc-part3/_static/image4.png)
 
-Yeni dizin dosyası da zaten açılmış ve düzenleme için hazır. İlk altında bazı metin eklemek &lt;h2&gt;dizin&lt;H2&gt; ister "Hello World."
+Yeni dizin dosyası ayrıca zaten açık ve düzenlemek için hazır. İlk metin ekleyin &lt;h2&gt;dizin&lt;H2&gt; ister "Hello World."
 
 [!code-html[Main](getting-started-with-mvc-part3/samples/sample3.html)]
 
-Uygulamanızı çalıştırın ve ziyaret [ `http://localhost:xx/HelloWorld` ](http://localhostxx) tarayıcınızda yeniden. Bu örnekte, denetleyici dizin yönteminde işlerinizi yapmak alamadık, ancak ", biz istemcisine geri yanıt işlemek için bir görünüm şablon dosyası kullanmak istediğinizi gösterilen dönüş View()" çağrısı. Kullanılacak görünüm şablonu dosyasının adı biz açıkça belirtmediğinden, ASP.NET MVC \Views\HelloWorld klasör içinde Index.aspx görünüm dosyası kullanarak varsayılan. Şimdi biz bizim görünümünde kodlanmış dize bakın.
+Uygulamanızı çalıştırın ve ziyaret [ `http://localhost:xx/HelloWorld` ](http://localhostxx) tarayıcınızda yeniden. Denetleyici bu örnekteki dizin yöntemi herhangi bir iş başarmadık, ancak "hangi istemcisine bir yanıt işlemek için bir görünüm şablon dosyası kullanılacak istedik belirtilen dönüş View()" çağrısı. Biz kullanılacak görünüm şablon dosyası adı açıkça belirtmediği için ASP.NET MVC \Views\HelloWorld klasördeki Index.aspx görünüm dosyası kullanmayı varsayılan olarak. Şimdi biz bizim görünümünde kodlanmış dize görüyoruz.
 
-[![Index - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
+[![Dizin - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image7.png)](getting-started-with-mvc-part3/_static/image6.png)
 
-Oldukça iyi görünür. Ancak, "Index" tarayıcının başlık diyor ve büyük başlık sayfasında "MVC Uygulamam." diyor dikkat edin Bu değiştirelim.
+Oldukça iyi görünüyor. Ancak, "Index" tarayıcının başlık diyor ve büyük başlığı sayfasında "MVC Uygulamam." ifadesini içeren dikkat edin Bu değiştirelim.
 
-### <a name="changing-views-and-master-pages"></a>Görünümleri ve ana sayfalar değiştirme
+### <a name="changing-views-and-master-pages"></a>Değişen görünümleri ve ana sayfalar
 
-İlk olarak, "MVC Uygulamam." metin değiştirelim Bu metin paylaşılır ve her sayfada görüntülenir. Bizim uygulamasında her sayfada olsa bile gerçekte bizim kodda, yalnızca tek bir yerde görünür. Çözüm Gezgini'nde /Views/Shared klasörüne gidin ve Site.Master dosyasını açın. Bu dosyayı bir ana sayfa adı verilir ve "bizim diğer sayfalarını kullanma paylaşılan Kabuğu" olur.
+İlk olarak, "MVC Uygulamam." metin değiştirelim Bu metin, paylaşılan ve her sayfada görüntülenir. Uygulamamızı her sayfasında olsa bile gerçekten kodumuz, yalnızca tek bir yerde görünür. Çözüm Gezgini'nde /Views/Shared klasörüne gidin ve Site.Master dosyasını açın. Bu dosya bir ana sayfa olarak adlandırılır ve "diğer tüm sayfalarımızın kullanan paylaşılan Kabuk" olur.
 
-ContentPlaceholder "MainContent" diyor bazı metinleri bu dosyada dikkat edin.
+ContentPlaceholder "MainContent" ifadesini içeren metin bu dosyada dikkat edin.
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample4.aspx)]
 
-Burada oluşturduğunuz tüm sayfaları, "ana sayfa Sarmalanan" gösterecektir bu tutucudur. Uygulamanızı çalıştırmak ve birden çok sayfaları ziyaret başlık değiştirmeyi deneyin. Bir değişiklik birden çok sayfada göründüğünü fark edeceksiniz.
+Burada oluşturduğunuz tüm sayfaları, "ana sayfasında Sarmalanan" gösterilir, tutucudur. Uygulamanızı çalıştırın ve birden çok sayfalarını ziyaret başlık değiştirmeyi deneyin. Bir değişikliğiniz birden çok sayfada göründüğünü fark edersiniz.
 
 [!code-html[Main](getting-started-with-mvc-part3/samples/sample5.html)]
 
-Her sayfada birincil başlık - sahip artık H1 - "Benim MVC film uygulaması." olmasıdır. Tüm sayfalar arasında paylaşılan üst var. beyaz metin işler.
+Her sayfanın birincil başlık - başlıkları olan H1 - "My MVC film uygulaması." Bu sayfalar arasında paylaşılan üst var. beyaz metinli işler.
 
-Bizim değiştirilen başlıkla bütünüyle Site.Master şöyledir:
+Değiştirilen başlık ile tamamen Site.Master şöyledir:
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample6.aspx)]
 
-Şimdi, dizin sayfasının başlığını değiştirelim.
+Şimdi, dizin sayfası başlığı değiştirelim.
 
-Open /HelloWorld/Index.aspx. Değiştirmek için iki yerde yoktur. İlk olarak, başlık tarayıcı, daha sonra H2 - da ikincil üstbilgisini - başlığında görüntülenir. Bunların her hangi bit kod görebilmeniz için biraz farklı uygulama hangi kısmına değişiklikler yapacağız.
+Open /HelloWorld/Index.aspx. Değiştirmek için iki yerde yoktur. İlk olarak, başlık, tarayıcı, daha sonra H2 - de ikincil üstbilgi - başlığında görüntülenir. Bunların her uygulamanın hangi parçası hangi bit kod görebilmeniz için biraz daha farklı değişiklikler yapacaksınız.
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 
-Uygulamanızı çalıştırın ve /Movies ziyaret edin. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. Büyük küçük değişikliklerle birlikte, uygulamanızda görünümünüze değişiklik kolaydır.
+Uygulamanızı çalıştırın ve /Movies ziyaret edin. Tarayıcı başlığı, başlığı birincil ve ikincil başlıklar değiştirildi dikkat edin. Büyük değişiklikler görünümünüzü uygulamanızda küçük değişiklikler yapmak kolay bir işlemdir.
 
 [![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image9.png)](getting-started-with-mvc-part3/_static/image8.png)
 
-Bizim az bitlik (Bu durumda "Hello World!" "veri" ileti), ancak kodlanmış sabit. Biz V (görünümler) aldınız ve biz C (denetleyicileri), ancak henüz hiçbir M (modeli) olduğuna. Size kısa süre içinde nasıl adım geçireceğiz bir veritabanı oluşturun ve model verileri alabilirsiniz.
+(Bu durumda "Hello World!", "veri" az bizim bit ileti), ancak kodlanmış zordu. V (görünümleri) yapılandırdığımıza göre ve C (denetleyiciler), ancak henüz hiçbir M (modeli) yapılandırdığımıza göre. Kısa bir süre içinde nasıl alacağız bir veritabanı oluşturur ve model verileri alabilirsiniz.
 
 ## <a name="passing-a-viewmodel"></a>Bir ViewModel geçirme
 
-Bir veritabanına gidin ve modelleri hakkında konuşun önce ancak şimdi ilk "ViewModels" hakkında konuşun Bunlar bir görünüm şablonu bir istemciye bir HTML yanıtı işlemek için gerektirir temsil eden nesnelerdir. Bunlar genellikle oluşturulur ve bir görünüm şablonu için bir denetleyici sınıfı tarafından geçirilen ve görünüm şablonu gerektirir - veri ve artık yalnızca içermelidir.
+Bir veritabanına gidin ve modelleri hakkında konuşmak önce ilk "Viewmodel'lar" hakkında konuşalım Şablonu Görüntüle bir HTML yanıtı istemciye işlenecek gerektirir temsil eden nesneleri şunlardır. Bunlar genellikle oluşturulur ve bir görünüm şablonu için bir denetleyici sınıfı tarafından geçirilen ve yalnızca görünüm şablonu gerektirir - veri ve artık içermelidir.
 
-Daha önce bizim HelloWorld örnek bizim Welcome() eylem yöntemi bir ad ve bir numTimes parametre sürdü ve tarayıcıya çıktı. Bu yanıt doğrudan işlemeye devam denetleyiciniz yerine, bunun yerine bu verileri tutun ve ardından bu geri kullanmadan HTML yanıtı işlemek için bir görünüm şablonu geçirin için küçük bir sınıf olalım. Denetleyici tek şey ve görünüm şablonu ile ilgili bu şekilde başka – bize temiz "ayrılması sorunları" uygulamamız içinde korumak etkinleştirme.
+Daha önce HelloWorld örneğimizi bizim Welcome() eylem yöntemi bir ad ve bir numTimes parametre sürdü ve tarayıcıya çıktı. Bu yanıt doğrudan işlemeye devam denetleyiciniz yerine, bunun yerine verileri tutmak ve ardından bunu kullanarak HTML yanıtını geri işlemek için bir görünüm şablonu geçirin için küçük bir sınıf olalım. Bu şekilde denetleyici bir şey ve şablonu görüntüleme ile ilgili başka-us "ayrılmasına" uygulamamız içinde korumak etkinleştiriliyor.
 
-HelloWorldController.cs dosyaya dönmek ve yeni bir "WelcomeViewModel" sınıf ekleyin ve Hoş Geldiniz yönteminin denetleyicinizi içinde değiştirin. Aynı dosyada yeni sınıf ile tam HelloWorldController.cs aşağıdadır.
+HelloWorldController.cs dosyasına dönün ve "WelcomeViewModel" yeni bir sınıf ekleyin ve sonra da denetleyicinizin Hoş Geldiniz bir yöntemde değiştirin. Yeni sınıfı aynı dosyada ile tam HelloWorldController.cs aşağıda verilmiştir.
 
 [!code-csharp[Main](getting-started-with-mvc-part3/samples/sample8.cs)]
 
-Birden çok satırda olmasına rağmen bizim Hoş Geldiniz gerçekten yalnızca iki kod deyimleri yöntemidir. İlk ifade ViewModel nesnesi ve ikinci geçişleri iki bizim parametrelerini görünümü elde edilen nesneye paketler.
+Bunu birden çok satırda olsa da, bizim Hoş Geldiniz aslında yalnızca iki kod deyimlerini yöntemidir. İlk deyim elde edilen nesnenin üzerine görünümü ViewModel nesnesi ve ikinci geçiş iki bizim parametrelerini paketler.
 
-Şimdi bir Hoş Geldiniz görünüm şablonu gerekiyor! Hoş Geldiniz yönteminde sağ tıklatın ve eklemek görünümü seçin. Bu süre, biz "Kesin türü belirtilmiş Görünüm Oluştur" denetleyin ve açılır listeden bizim WelcomeViewModel sınıfı seçin. Bu yeni görünüm yalnızca WelcomeViewModels ve diğer hiçbir nesne türlerini hakkında bilirsiniz.
+Şimdi bir Hoş Geldiniz görünüm şablonu gerekiyor! Hoş Geldiniz yönteminde sağ tıklayın ve Ekle görünümü seçin. Bu kez, biz "Kesin türü belirtilmiş Görünüm Oluştur" denetleyin ve açılır listeden bizim WelcomeViewModel sınıfı seçin. Bu yeni görünüm yalnızca WelcomeViewModels ve diğer hiçbir türde nesneler hakkında bilgi sahibi olacaktır.
 
-> *Not: Bir kez, WelcomeViewModel için aşağı açılan listeden görünmesine ekledikten sonra derlenmiş gerekir.*
+> *Not: Bir kez, WelcomeViewModel için aşağı açılan listeden görünmesini ekledikten sonra derlediğiniz gerekecektir.*
 
 
-İşte, Görünüm Ekle iletişim kutusu aşağıdaki gibi görünmelidir. Ekle düğmesine tıklayın. ![Görünüm yuvarlak içine alınmıştır ekleme](getting-started-with-mvc-part3/_static/image10.png)
+Burada, Görünüm Ekle iletişim aşağıdaki gibi görünmelidir. Ekle düğmesine tıklayın. ![Görünüm daire içinde ekleyin](getting-started-with-mvc-part3/_static/image10.png)
 
-Bu kodu altında ekleyin &lt;h2&gt; yeni Welcome.aspx içinde. Biz döngü yapmak ve sayıda olarak size gereken kullanıcı diyor Merhaba deyin!
+Bu kod ekleme &lt;h2&gt; , yeni Welcome.aspx içinde. Biz bir döngü yapmak ve sayıda olarak kullanıcı gelmiş diyor Merhaba deyin!
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample9.aspx)]
 
-Ayrıca, biz bu görünümü WelcomeViewModel hakkında söylediyse olduğundan, yazarken dikkat edin (Evli, unutmayın?) biz her zaman, biz başvuru bizim Model nesnesi ekran görüntüsü görülen olarak yararlı IntelliSense alın:
+Ayrıca, çünkü Biz bu görünümü WelcomeViewModel hakkında söyledi, yazarken dikkat edin (unutmayın, Evli oldukları?) her zaman, biz başvuru bizim Model nesnesi olarak aşağıdaki ekran görüntüsünde görülen yararlı IntelliSense aldığımız:
 
 [![NumTime kaynak kodu](getting-started-with-mvc-part3/_static/image12.png)](getting-started-with-mvc-part3/_static/image11.png)
 
-Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` yeniden. Veri URL'den yönlendiriyoruz artık bizim Denetleyicisi'nde otomatik olarak geçirilir, Denetleyicimizin bir ViewModel verileri paketleri ve söz konusu nesne bizim görünüm üzerine geçirir. Verileri HTML olarak kullanıcıya görüntüler daha görüntüleyin.
+Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` yeniden. Data URL'deki yönlendiriyoruz artık Denetleyicimizin otomatik olarak geçirilir, denetleyici bir ViewModel verileri paketleri ve bizim görünümü bu nesneye geçirir. Veriler kullanıcıya HTML olarak görüntülüyor görüntüleyin.
 
 [![Hoş Geldiniz - Windows Internet Explorer](getting-started-with-mvc-part3/_static/image14.png)](getting-started-with-mvc-part3/_static/image13.png)
 
-De, bir Model için bir "M" tür ancak veritabanı türü oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
+De, bir tür için Model "M", ancak veritabanı türü oluştu. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-mvc-part2.md)
-> [sonraki](getting-started-with-mvc-part4.md)
+> [İleri](getting-started-with-mvc-part4.md)

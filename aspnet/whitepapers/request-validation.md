@@ -1,99 +1,98 @@
 ---
 uid: whitepapers/request-validation
-title: İstek doğrulama - komut dosyası saldırılarını önleme | Microsoft Docs
+title: İstek doğrulama - betik saldırılarını önleme | Microsoft Docs
 author: rick-anderson
-description: Bu yazı, varsayılan olarak, uygulama kodlanmamış HTML içerik submitt işleme engellenmediği ASP.NET istek doğrulama özelliği açıklar...
+description: Bu incelemede, ASP.NET'in kodlanmamış HTML içerik submitt işlemesini varsayılan olarak, uygulama, engellenir istek doğrulama özelliği anlatılmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 783fb1ae27d88f9c6d6d3484d26d3e206e7f2fba
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28883561"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372935"
 ---
-<a name="request-validation---preventing-script-attacks"></a>İstek doğrulama - komut dosyası saldırılarını önleme
+<a name="request-validation---preventing-script-attacks"></a>İstek doğrulama - betik saldırılarını önleme
 ====================
-> Bu yazı, burada, varsayılan olarak, uygulama sunucuya gönderilen kodlanmamış HTML içerik işleme engellenmediği ASP.NET istek doğrulama özelliğini açıklar. Uygulama güvenle HTML verileri işlemek için tasarlanmış, bu istek doğrulama özelliği devre dışı bırakılabilir.
+> Bu incelemede, sunucuya gönderilen kodlanmamış HTML içeriğini işlemesini varsayılan olarak, uygulama, engellenir ASP.NET isteği doğrulama özelliği anlatılmaktadır. Uygulama HTML verileri güvenli bir şekilde işlemek için tasarlanmıştır, bu isteği doğrulama özelliği devre dışı bırakılabilir.
 > 
 > ASP.NET 1.1 ve ASP.NET 2.0 için geçerlidir.
 
 
-İstek doğrulama, bir ASP.NET özelliği sürüm 1.1 beri sunucunun içerik içeren beklemediğiniz kodlanmış HTML kabul etmesini engeller. Bu özellik, yapabildiği istemci komut dosyası kodu veya HTML bilmeden bir sunucuya gönderilen, depolanabilir ve diğer kullanıcılara sunulan bazı komut dosyası ekleme saldırıları önlemeye yardımcı olmak için tasarlanmıştır. Hala tüm giriş verilerini doğrulamak ve HTML kodlama, uygun olduğunda öneririz.
+İstek doğrulamanın, ASP.NET 1.1 sürümünden bir özelliği, sunucu içeren içerik beklemediğiniz kodlanmış HTML kabul etmesini önler. Bu özellik ile istemci komut dosyası kodu veya HTML farkında olmadan bir sunucuya gönderilen, depolanabilir ve ardından diğer kullanıcılara sunulan bazı betik ekleme saldırıları önlemeye yardımcı olmak için tasarlanmıştır. Yine de tüm giriş verilerini doğrulamak ve HTML kodlamasına da uygun olduğunda önerilir.
 
-Örneğin, bir kullanıcının e-posta adresi ve e-posta adresi bir veritabanında depolar ister bir Web sayfası oluşturun. Kullanıcı girerse &lt;BETİK&gt;uyarı komut dosyasından ("Merhaba")&lt;/SCRIPT&gt; verileri sunulduğunda, içeriği düzgün şekilde kodlanmamış, geçerli bir e-posta adresi yerine bu komut dosyası yürütülebilir. ASP.NET istek doğrulama özelliği bu oluşmasını engeller.
+Örneğin, bir kullanıcının e-posta adresini ve e-posta adresi bir veritabanında depolar ister bir Web sayfası oluşturun. Kullanıcı girerse &lt;BETİK&gt;uyarı komut dosyasından ("hello")&lt;/SCRIPT&gt; verileri sunulduğunda içeriği düzgün şekilde kodlanmamış, geçerli bir e-posta adresi yerine, bu betiği yürütülebilir. ASP.NET isteği doğrulama özelliği bu gerçekleşmesini önler.
 
 ## <a name="why-this-feature-is-useful"></a>Bu özellik neden yararlıdır
 
-Birçok site basit bir komut dosyası ekleme saldırılarına açıktır farkında değildir. Bu saldırıların amacı HTML görüntüleyerek site deface veya potansiyel olarak kullanıcı bir korsanın sitesine yönlendirmek için istemci komut dosyası yürütme olup, komut dosyası ekleme saldırıları Web geliştiricileri ile yüklüyorsa gereken bir sorun var.
+Basit betik ekleme saldırıları için açık olduklarından emin birçok sitelerini tanımaz. HTML görüntüleyerek site deface veya potansiyel olarak kullanıcıyı bir korsanın siteye yeniden yönlendirmek için istemci betiği yürütmek için bu saldırıların amacı olmasına bakılmaksızın, betik ekleme saldırılarını Web geliştiricileri ile azaltması gereken bir sorun var.
 
-ASP.NET, ASP veya diğer web geliştirme teknolojilerini kullandıkları olsa bile komut dosyası ekleme saldırıları tüm web geliştiricilerin, ilgili bir sorun değildir.
+ASP.NET, ASP veya diğer web geliştirme teknolojilerine kullananın betik ekleme saldırılarını tüm web geliştiricileri, bir sorun var.
 
-ASP.NET istek doğrulama özelliği Geliştirici içeriğin izin vermeye karar sürece sunucu tarafından işlenmek üzere kodlanmamış HTML içeriğine izin vermeyerek bu saldırıların proaktif olarak engeller.
+ASP.NET isteği doğrulama özelliği proaktif olarak o içeriğe izin vermek Geliştirici etmediğine karar vermedikçe, sunucu tarafından işlenecek kodlanmamış HTML içeriğini vermeyerek bu saldırıları engeller.
 
-## <a name="what-to-expect-error-page"></a>Beklenmesi gerekenler: hata sayfası
+## <a name="what-to-expect-error-page"></a>Beklenecekler: hata sayfası
 
-Aşağıdaki ekran bazı örnek ASP.NET kodu gösterir:
+Aşağıdaki ekran görüntüsünde, bazı örnek ASP.NET kodunu gösterir:
 
 ![](request-validation/_static/image1.png)
 
-Bu kod sonuçları metin kutusuna bazı metinler girmenizi sağlayan basit bir sayfa çalışan, düğmesini tıklatın ve etiket denetiminde metni görüntüle:
+Bu kod sonuçları metin kutusunda metin girmesini sağlayan basit bir sayfa çalışan, düğmeye tıklayın ve etiket denetiminde metin görüntüleme:
 
 ![](request-validation/_static/image2.png)
 
-Ancak, JavaScript, aşağıdaki gibi olan `<script>alert("hello!")</script>` girilmeli ve şu özel durum almak gönderilen için:
+Ancak, JavaScript, aşağıdaki gibi olan `<script>alert("hello!")</script>` girilmeli ve aldığımız bir özel durum gönderilen için:
 
 ![](request-validation/_static/image3.png)
 
-Hata iletisi 'değeri algılandı potansiyel olarak tehlikeli olabilecek Request.Form bir' ve tam olarak ne olduğunu ve davranışını değiştirmek nasıl açıklamasında daha fazla ayrıntı sağlar. Örneğin:
+Hata iletisi 'değeri algılandı tehlikeli Request.Form bir' ve tam olarak neler olduğunu ve davranışın nasıl değiştirildiğini açıklamasında daha fazla ayrıntı sağlar. Örneğin:
 
-İstek doğrulama potansiyel olarak tehlikeli olabilecek istemci giriş değeri algıladı ve isteğin işlenmesi iptal edildi. Bu değer siteler arası komut dosyası saldırısı gibi uygulamanızın güvenliğini tehlikeye yönelik bir girişim olduğunu gösterebilir. Ayarlayarak istek doğrulamayı devre dışı bırakabilirsiniz `validateRequest=false` sayfa yönergesi veya yapılandırma bölümü. Ancak, uygulamanızın açıkça tüm girişleri bu durumda denetlemenizi önemle tavsiye edilir.
+İstek doğrulamanın tehlikeli istemci giriş değeri algıladı ve isteğin işlenmesi iptal edildi. Bu değer, siteler arası betik saldırı gibi uygulamanızın güvenliğini tehlikeye bulunulduğunu gösterebilir. Ayarlayarak istek doğrulamayı devre dışı bırakabilirsiniz `validateRequest=false` sayfa yönergesi veya yapılandırma bölümü. Ancak, uygulamanız açıkça tüm girişleri bu durumda kontrol etmenizi önemle tavsiye edilir.
 
-## <a name="disabling-request-validation-on-a-page"></a>İstek doğrulama sayfasında devre dışı bırakma
+## <a name="disabling-request-validation-on-a-page"></a>Sayfasında istek doğrulamayı devre dışı bırakma
 
-İstek doğrulama ayarlamalısınız sayfasında devre dışı bırakmak için `validateRequest` sayfa yönergesi özniteliği `false`:
+İstek doğrulamanın ayarlamalısınız sayfasında devre dışı bırakmak için `validateRequest` özniteliği için sayfa yönergesi `false`:
 
 [!code-aspx[Main](request-validation/samples/sample1.aspx)]
 
 > [!CAUTION]
-> İstek doğrulamayı devre dışı bırakıldığında, içeriği bir sayfaya gönderilebilir; Bu, o içeriği sağlamak için sayfa Geliştirici sorumluluğunda düzgün şekilde kodlanmış veya işlenen gösterir.
+> İstek doğrulamayı devre dışı bırakıldığında, içeriği, sayfaya gönderilebilir; Bu, o içeriği sağlamak için sayfayı Geliştirici sorumluluğu düzgün şekilde kodlanmış veya işlenen olur.
 
 ## <a name="disabling-request-validation-for-your-application"></a>Uygulamanız için istek doğrulamayı devre dışı bırakma
 
-Uygulamanız için istek doğrulamayı devre dışı bırakmak için değiştirmek veya bir Web.config dosyası, uygulamanız için oluşturmalı ve validateRequest özniteliğini ayarlayın `<pages />` için bölüm `false`:
+Uygulamanız için istek doğrulamayı devre dışı bırakmak için değiştirmek veya uygulamanız için bir Web.config dosyası oluşturun ve gerekir validateRequest özniteliğini ayarlayın `<pages />` bölümünü `false`:
 
 [!code-xml[Main](request-validation/samples/sample2.xml)]
 
-Sunucunuzdaki tüm uygulamalar için istek doğrulamayı devre dışı bırakmak istiyorsanız, bu değişikliği Machine.config dosyanıza yapabilirsiniz.
+Sunucunuzdaki tüm uygulamalar için istek doğrulamayı devre dışı bırakmak istiyorsanız, bu değişikliği Machine.config dosyasına yapabilirsiniz.
 
 > [!CAUTION]
-> İstek doğrulamayı devre dışı bırakıldığında, içerik uygulamanıza gönderilebilir; Bu, o içeriği sağlamak için uygulama geliştiricisi sorumluluğunda düzgün şekilde kodlanmış veya işlenen gösterir.
+> İstek doğrulamanın devre dışı bırakıldığında, uygulamanıza içerik gönderilebilir; Bu içeriği sağlamak için uygulama geliştiricisinin sorumluluğundadır düzgün şekilde kodlanmış veya işlenen olur.
 
-Aşağıdaki kod, istek doğrulamayı devre dışı bırakma değiştirilir:
+Aşağıdaki kod, istek doğrulamayı açmak için değiştirilir:
 
 ![](request-validation/_static/image4.png)
 
-Şu JavaScript metin kutusuna girdiyseniz şimdi `<script>alert("hello!")</script>` sonuç olur:
+Şimdi aşağıdaki JavaScript TextBox'a girdiyseniz `<script>alert("hello!")</script>` sonucu:
 
 ![](request-validation/_static/image5.png)
 
-Bu, istek doğrulamayı devre dışı sahip olmaması için biz içeriği HTML olarak kodlamak.
+Bu, istek doğrulamayı devre dışı olan önlemek için biz içerik HTML kodlama.
 
-## <a name="how-to-html-encode-content"></a>HTML olarak nasıl içerik kodlama
+## <a name="how-to-html-encode-content"></a>Nasıl HTML içerik kodlama
 
-İstek doğrulamayı devre dışı bıraktıysanız, gelecekte kullanılmak üzere depolanır HTML olarak kodlanacak içeriğe iyi bir uygulama olur. HTML kodlaması otomatik olarak yerini alacak herhangi '&lt;'veya'&gt;' (birlikte birkaç diğer simge için) ilgili HTML ile kodlanmış gösterimi. Örneğin, '&lt;'ile değiştirilir'&amp;lt;' ve '&gt;'ile değiştirilir'&amp;gt;'. Tarayıcılar görüntülemek için bu özel kodları kullanın '&lt;'veya'&gt;' tarayıcıda.
+İstek doğrulamanın devre dışı bıraktıysanız, gelecekte kullanılmak üzere saklanacak HTML olarak kodlanacak içeriğe uygulamadır. HTML kodlaması otomatik olarak yerini alacak herhangi '&lt;'veya'&gt;' (birlikte, çeşitli diğer semboller için) ilgili HTML ile kodlanmış gösterimi. Örneğin, '&lt;'ile değiştirilir'&amp;lt;' ve '&gt;'ile değiştirilir'&amp;gt;'. Tarayıcılar görüntülemek için bu özel kodları kullanmak '&lt;'veya'&gt;' tarayıcıda.
 
-İçeriği kolayca HTML kullanarak sunucu üzerinde kodlu olabilir `Server.HtmlEncode(string)` API. İçerik de olabilir kolayca HTML-kodunu çözdü, diğer bir deyişle, geri standart HTML kullanmaya geri `Server.HtmlDecode(string)` yöntemi.
+İçeriği kolayca HTML kullanılarak sunucuda kodlu olabilir `Server.HtmlEncode(string)` API. İçeriği de olabilir kolayca HTML-çözülmüş, diğer bir deyişle, geri standart HTML kullanmaya geri `Server.HtmlDecode(string)` yöntemi.
 
 ![](request-validation/_static/image6.png)
 
-Bunun sonucunda:
+Výsledek:
 
 ![](request-validation/_static/image7.png)

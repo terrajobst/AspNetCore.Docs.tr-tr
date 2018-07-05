@@ -1,6 +1,6 @@
 ---
 uid: signalr/videos/index
-title: ASP.NET SignalR videolar | Microsoft Docs
+title: ASP.NET SignalR videoları | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,18 +9,17 @@ ms.date: 12/12/2012
 ms.topic: article
 ms.assetid: c0ea52a3-7497-4204-88c6-91591ac1a6b2
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos
 msc.type: book
-ms.openlocfilehash: c05938c415b1dd9eae60b865fc4434660b767579
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9da04aa8ee29d5c43117688ca7c25197e04734a0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565959"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37367754"
 ---
-<a name="aspnet-signalr-videos"></a>ASP.NET SignalR videolar
+<a name="aspnet-signalr-videos"></a>ASP.NET SignalR videoları
 ====================
-- [ASP.NET SignalR videolar](getting-started/index.md)
+- [ASP.NET SignalR Videoları](getting-started/index.md)
 
-    - [SignalR ve Web yuvaları](getting-started/signalr-and-web-sockets.md)
+    - [SignalR ve Web Yuvaları](getting-started/signalr-and-web-sockets.md)

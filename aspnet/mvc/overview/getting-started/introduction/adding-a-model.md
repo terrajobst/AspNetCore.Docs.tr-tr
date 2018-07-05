@@ -9,62 +9,61 @@ ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: 276552b5-f349-4fcf-8f40-6d042f7aa88e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 98b6693b07e4da318a649494649d9da83fe8a7d3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867456"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365142"
 ---
 <a name="adding-a-model"></a>Model ekleme
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-Bu bölümde bir veritabanında filmler yönetmek için bazı sınıfları ekleyeceksiniz. Bu sınıfların olacaktır &quot;modeli&quot; ASP.NET MVC uygulaması parçası.
+Bu bölümde, bir veritabanında filmler yönetmek için bazı sınıflar ekleyeceksiniz. Bu sınıflar olacaktır &quot;modeli&quot; ASP.NET MVC uygulaması bir parçası.
 
-Olarak bilinen bir .NET Framework veri erişimi teknoloji kullanacağınız [Entity Framework](https://docs.microsoft.com/ef/) tanımlamak ve bu modeli sınıfları ile çalışmak için. Bir geliştirme standardı adlı Entity Framework (genellikle EF adlandırılır) destekler *Code First*. Kod ilk model nesneleri basit sınıfları yazarak oluşturmanıza olanak sağlar. (Bu olarak da bilinen POCO sınıfları arasındadır &quot;düz eski CLR nesnelerini.&quot;) Ardından, çok temiz ve hızlı geliştirme iş akışı sağlayan anında, sınıflardan oluşturulan veritabanı olabilir. Veritabanını oluşturmak için önce gerekli olduğunda hala MVC ve EF uygulama geliştirme hakkında bilgi edinmek için bu öğreticiyi izleyebilirsiniz. Ardından zel Fizmakens izleyin [ASP.NET yapı İskelesi](xref:visual-studio/overview/2013/aspnet-scaffolding-overview) veritabanı ilk yaklaşımı kapsayan öğretici.
+Bir .NET Framework Veri erişim teknolojisi olarak bilinen kullanacağınız [Entity Framework](https://docs.microsoft.com/ef/) tanımlayın ve bu model sınıfları ile çalışmak için. Geliştirme paradigma adlı Entity Framework (genellikle EF adlandırılır) destekler *Code First*. Kod ilk basit sınıfları yazarak model nesneleri oluşturmanızı sağlar. (Bu olarak da bilinen POCO sınıfları arasındadır &quot;düz eski CLR nesnesi.&quot;) Ardından, bir çok temiz ve hızlı geliştirme iş akışını sağlayan çalışma sırasında sınıflardan oluşturduğunuz veritabanına sahip olabilir. İlk veritabanı oluşturmak için gerekli olduğunda, yine de MVC ve EF uygulama geliştirme hakkında bilgi edinmek için bu öğreticiyi takip edebilirsiniz. Ardından, Tom Fizmakens izleyebilirsiniz [ASP.NET iskeleti oluşturma](xref:visual-studio/overview/2013/aspnet-scaffolding-overview) veritabanı ilk yaklaşım kapsayan bir öğretici.
 
 ## <a name="adding-model-classes"></a>Model sınıfları ekleme
 
-İçinde **Çözüm Gezgini**, sağ tıklatın *modelleri* klasöründe seçin **Ekle**ve ardından **sınıfı**.
+İçinde **Çözüm Gezgini**, sağ tıklayın *modelleri* klasörüne **Ekle**ve ardından **sınıfı**.
 
 ![](adding-a-model/_static/image1.png)
 
 Girin *sınıfı* adı &quot;film&quot;.
 
-Aşağıdaki beş özellikleri ekleyin `Movie` sınıfı:
+Aşağıdaki beş özelliği Ekle `Movie` sınıfı:
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-Kullanacağız `Movie` bir veritabanında filmler temsil eden sınıf. Her bir örneğini bir `Movie` nesne bir veritabanı tablosu ve her bir özelliğinin içinde bir satır karşılık `Movie` sınıfı tablodaki bir sütun eşleme.
+Kullanacağız `Movie` filmler veritabanındaki temsil eden sınıf. Her bir örneği bir `Movie` nesne karşılık gelen bir veritabanı tablosu ve her bir özellik içinde bir satıra `Movie` sınıfı tablosunda bir sütun eşleme.
 
-Not: System.Data.Entity ve ilgili sınıfını kullanmak için yüklemeniz gerekir [Entity Framework NuGet paketi](https://www.nuget.org/packages/EntityFramework/). Daha fazla yönerge için bağlantıyı izleyin.
+Not: System.Data.Entity ve ilgili sınıf kullanmak için yüklemeniz gerekir [Entity Framework NuGet paketi](https://www.nuget.org/packages/EntityFramework/). Daha fazla yönerge için bağlantıyı izleyin.
 
-Aynı dosyada aşağıdakileri ekleyin `MovieDBContext` sınıfı:
+Aynı dosyada, aşağıdaki ekleyin `MovieDBContext` sınıfı:
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs?highlight=2,15-18)]
 
-`MovieDBContext` Sınıfı temsil eder getirme, depolama ve güncelleştirme işleme Entity Framework film veritabanı bağlamı `Movie` sınıfı bir veritabanı örneği. `MovieDBContext` Türetilen `DbContext` temel Entity Framework tarafından sağlanan sınıfı.
+`MovieDBContext` Sınıfı temsil eder, alma, depolama ve güncelleştirme işleme Entity Framework film veritabanı bağlamı `Movie` sınıfı bir veritabanında örnekleri. `MovieDBContext` Türetildiği `DbContext` temel Entity Framework tarafından sağlanan sınıfı.
 
-Başvuru için `DbContext` ve `DbSet`, aşağıdaki eklemeniz `using` deyimini dosyanın üst:
+Başvuru yapabilmek için `DbContext` ve `DbSet`, aşağıdaki eklemeniz `using` deyimini dosyanın üst:
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-Bunu kullanarak el ile ekleyerek yapabilirsiniz deyimi veya kırmızı dalgalı çizgiler getirin, tıklatın `Show potential fixes` ve'ı tıklatın `using System.Data.Entity;`
+Bunu kullanarak el ile ekleyerek yapabilirsiniz deyimi veya kırmızı dalgalı çizgiler gelin, tıklayın `Show potential fixes` tıklayın `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
-Not: Birkaç kullanılmayan `using` deyimleri kaldırıldı. Visual Studio kullanılmayan bağımlılıklarını gri renkte gösterilir. Gri bağımlılıkları gelerek kullanılmayan bağımlılıkları kaldırın, tıklatın `Show potential fixes` tıklatıp **kullanılmayan kullanımları kaldırma.**
+Not: Birkaç kullanılmayan `using` deyimleri kaldırıldı. Visual Studio kullanılmayan bağımlılıkları gri renkte gösterilir. Gri bağımlılıkları gelerek kullanılmayan bağımlılıkları kaldırın, tıklayın `Show potential fixes` tıklatıp **kullanılmayan kullanımları kaldırma.**
 
 ![](adding-a-model/_static/image3.png)
 
-Son olarak bir modeli (MVC M) ekledik. Sonraki bölümde veritabanı bağlantı dizesi ile çalışması.
+Son olarak bir modeli (M mvc'de) ekledik. Sonraki bölümde veritabanı bağlantı dizesi ile çalışırsınız.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-a-view.md)
-> [sonraki](creating-a-connection-string.md)
+> [İleri](creating-a-connection-string.md)

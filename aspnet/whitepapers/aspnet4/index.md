@@ -1,25 +1,24 @@
 ---
 uid: whitepapers/aspnet4/index
-title: ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış | Microsoft Docs
+title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış | Microsoft Docs
 author: rick-anderson
-description: Bu belgede, Visual Studio 2010 ve.NET Framework 4'te yer alan ASP.NET için yeni özelliklerin bir genel bakış sağlanır.
+description: Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: 6bea4655-b0a2-442a-b9c1-d323467befd8
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 6db056bf00fd6c6211d1751f25d117f50a6dc3df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ff2b396a39f6a95e8204401532216954520cc279
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573270"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364235"
 ---
-<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış
+<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış
 ====================
-- [ASP.NET 4 ve Visual Studio 2010 Web geliştirme genel bakış](overview.md)
-- [ASP.NET 4 önemli değişiklikler](breaking-changes.md)
+- [ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış](overview.md)
+- [ASP.NET 4 Sürümündeki Yeni Değişiklikler](breaking-changes.md)

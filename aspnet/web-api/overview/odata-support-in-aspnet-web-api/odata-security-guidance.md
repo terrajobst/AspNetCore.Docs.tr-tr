@@ -9,74 +9,73 @@ ms.date: 02/06/2013
 ms.topic: article
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 41b05f2a2f8247853d8358e6cc1246c8b438a6db
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 72aee37e715fa11ccfe5d02eef4e450dd747095a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868714"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378037"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Bu konuda bir veri kümesi OData aracılığıyla gösterme verirken düşünmesi gereken güvenlik sorunlardan bazıları açıklanmaktadır.
+Bu konuda bazı OData aracılığıyla bir veri kümesi gösterme, dikkate almanız gereken güvenlik konuları açıklanmaktadır.
 
 ## <a name="edm-security"></a>EDM güvenlik
 
-Sorgu semantiği, varlık veri modeli üzerinde (EDM), temel alınan model türleri değil temel alır. EDM bir özelliği dışarıda bırakabilirsiniz ve sorgu için görünür olmaz. Örneğin, bir çalışan türü maaş özelliğiyle modelinizi içerdiğini varsayın. Bu özellik istemcilerden gizlemek için EDM ayarlayacağım isteyebilirsiniz.
+Sorgu semantiği, varlık veri Modeli'ni temel (EDM), temel alınan model türleri değil temel alır. EDM bir özellik hariç tutabilir ve sorgu için görünür olmaz. Örneğin, bir çalışan türü maaş özelliğine sahip modelinizi içerdiğini varsayın. Bu özellik istemcilerden gizlemek için EDM dışlanacak isteyebilirsiniz.
 
-EDM özelliğinden exlude için iki yolu vardır. Ayarlayabileceğiniz **[IgnoreDataMember]** model sınıfı özelliğinde özniteliği:
+Bir EDM özelliği için exlude iki yolu vardır. Ayarlayabileceğiniz **[IgnoreDataMember]** model sınıfı özelliğinde özniteliği:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample1.cs)]
 
-Ayrıca özelliği EDM program aracılığıyla kaldırabilirsiniz:
+Ayrıca özelliği EDM programlı bir şekilde kaldırabilirsiniz:
 
 [!code-csharp[Main](odata-security-guidance/samples/sample2.cs)]
 
-## <a name="query-security"></a>Sorgu güvenlik
+## <a name="query-security"></a>Sorgu güvenliği
 
-Kötü amaçlı veya naïve istemci yürütmek için çok uzun süren bir sorgu oluşturmak mümkün olabilir. Kötü durumda bu, hizmete erişimi kesintiye uğratabilir.
+Kötü amaçlı veya naïve istemci yürütmek için çok uzun zaman alan bir sorgu oluşturmak mümkün olabilir. En kötü durumda bu, hizmete erişimi kesintiye uğratabilir.
 
-**[Queryable]** ayrıştırır, doğrular ve sorgu geçerli bir eylem filtresi bir özniteliktir. Filtre sorgu seçeneklerini bir LINQ ifadesine dönüştürür. OData denetleyicisi döndüğünde bir **Iqueryable** türü, **Iqueryable** LINQ sağlayıcısı LINQ ifadesi bir sorgu dönüştürür. Bu nedenle, performans kullanılan LINQ sağlayıcısı ve aynı zamanda dataset ya da veritabanı şemanızı belirli özelliklerine bağlıdır.
+**[Queryable]** özniteliktir ayrıştırır, doğrular ve sorgu geçerli bir eylem filtresi. Filtre sorgu seçeneklerini bir LINQ ifadesini dönüştürür. OData denetleyicisi döndürdüğünde bir **Iqueryable** türü **Iqueryable** LINQ sağlayıcısı bir sorguda LINQ ifadesi dönüştürür. Bu nedenle, performansı, kullanılan LINQ sağlayıcısı ve aynı zamanda veri kümesi veya veritabanı şemanızı belirli özelliklerine bağlıdır.
 
-ASP.NET Web API'de OData sorgu seçeneklerini kullanma hakkında daha fazla bilgi için bkz: [destekleyen OData sorgu seçeneklerini](supporting-odata-query-options.md).
+ASP.NET Web API OData sorgu seçenekleri kullanma hakkında daha fazla bilgi için bkz. [OData sorgu seçeneklerini destekleme](supporting-odata-query-options.md).
 
-Tüm istemciler (örneğin, bir kuruluş ortamında) güvenilir olduğunu biliyorsanız veya Veri kümenizi küçükse, sorgu performansı sorunu olmayabilir. Aksi takdirde, aşağıdaki önerileri göz önünde bulundurmalısınız.
+Tüm istemciler (örneğin, bir kuruluş ortamında) güvenilir biliyorsanız ya da veri kümeniz küçükse, sorgu performansı sorunu olmayabilir. Aksi takdirde, aşağıdaki önerileri göz önünde bulundurmalısınız.
 
-- Hizmetinizi çeşitli sorguları test edin ve DB profil.
-- Büyük bir veri kümesinin tek bir sorguda döndürme önlemek sunucu tabanlı disk belleği, etkinleştirin. Daha fazla bilgi için bkz: [Server-Driven disk belleği](supporting-odata-query-options.md#server-paging). 
+- Çeşitli sorgularla hizmetinizi test etme ve DB profil.
+- Büyük bir veri kümesi döndüren bir sorgu önlemek sunucu tabanlı disk belleği, etkinleştirin. Daha fazla bilgi için [Server-Driven sayfalama](supporting-odata-query-options.md#server-paging). 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample3.cs)]
-- $Filter ve $orderby gerekiyor mu? Bazı uygulamalar disk belleği, $top ve $skip kullanarak istemci izin ver, ancak diğer sorgu seçeneklerini devre dışı bırakın. 
+- $Filter ve $orderby gerekiyor mu? Bazı uygulamalar disk belleği, $top ve $skip kullanarak istemci izin ver, ancak başka sorgu seçenekleriyle devre dışı. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample4.cs)]
-- Kümelenmiş bir dizin özelliklerinde $orderby sınırlama göz önünde bulundurun. Kümelenmiş bir dizin olmadan büyük verileri sıralama yavaştır. 
+- Kümelenmiş bir dizin özelliklerinde $orderby kısıtlama göz önünde bulundurun. Kümelenmiş bir dizin olmadan büyük veri sıralama yavaştır. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample5.cs)]
-- En fazla düğüm sayısı: **MaxNodeCount** özelliği **[Queryable]** $filter sözdizimi ağacı izin verilen en büyük sayı düğümleri ayarlar. Varsayılan değer 100'dür, ancak çok sayıda düğümü derlemek yavaş olabilir çünkü daha düşük bir değere ayarlamak isteyebilirsiniz. LINQ nesnelerine (yani, bir ara LINQ sağlayıcısı kullanmadan bellekte bir koleksiyonda LINQ sorgularını) kullanıyorsanız, bu özellikle doğrudur. 
+- En yüksek düğüm sayısı: **MaxNodeCount** özelliği **[Queryable]** izin $filter sözdizimi ağacı maksimum düğüm sayısına ayarlar. Varsayılan değer 100'dür, ancak çok sayıda düğümü derlemek yavaş olabilir çünkü daha düşük bir değere ayarlamak isteyebilirsiniz. LINQ to Objects'in (yani, bir koleksiyonda Ara bir LINQ sağlayıcısı kullanmadan bellekte LINQ sorguları) kullanıyorsanız, bu özellikle doğrudur. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample6.cs)]
-- Bunlar yavaş olabilir olarak any() ve all() işlevlerini devre dışı bırakın. 
+- Bunlar yavaş olması gibi any() ve all() işlevler devre dışı bırakmayı düşünün. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Herhangi bir dize özelliği büyük dizeleri & #8212for örnek, bir ürün açıklaması veya blog girdisi & # dize işlevleri devre dışı bırakma 8212consider içeriyorsa. 
+- Herhangi bir dize özelliği büyük dizelerin & #8212for Örneğin, bir ürün açıklaması veya blog girişine & # dize işlevleri devre dışı bırakma 8212consider içeriyorsa. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
-- Gezinti özellikleri filtreleme vermemek göz önünde bulundurun. Gezinti özellikleri filtreleme veritabanı şemasına göre yavaş olabilir bir birleştirme neden olabilir. Aşağıdaki kod, gezinti özellikleri filtreleme engelleyen bir sorgu Doğrulayıcı gösterir. Sorgu doğrulayıcıları hakkında daha fazla bilgi için bkz: [sorgu doğrulama](supporting-odata-query-options.md#query-validation). 
+- Gezinti özellikleri filtreleme engelleyerek göz önünde bulundurun. Gezinti özellikleri filtreleme bağlı olarak, veritabanı şemasını yavaş olabilir bir birleştirme neden olabilir. Aşağıdaki kod, gezinti özellikleri filtreleme engelleyen bir sorgu Doğrulayıcı gösterir. Sorgu doğrulayıcıları hakkında daha fazla bilgi için bkz: [sorgu doğrulama](supporting-odata-query-options.md#query-validation). 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample9.cs)]
-- Veritabanınız için özelleştirilmiş bir doğrulayıcı yazarak $filter sorguları kısıtlamayı göz önünde bulundurun. Örneğin, bu iki sorgular göz önünde bulundurun: 
+- $Filter sorgu veritabanınız için özelleştirilmiş bir doğrulayıcı yazarak kısıtlamayı göz önünde bulundurun. Örneğin, bu iki sorguları göz önünde bulundurun: 
 
-  - Tüm filmler son adı 'A' ile başlayan aktörler ile.
-  - 1994'te yayımlanan tüm filmler.
+  - Aktörler son adı 'A' ile başlayan tüm filmlerle.
+  - Tüm filmlere 1994'te yayımlanan.
 
-    Film aktörler tarafından dizinlenen sürece, ilk sorguyu filmler tam listesini taramak için veritabanı altyapısı gerektirebilir. İkinci sorguyu kabul edilebilir gelirken, olduğunu varsayarak filmler yayım yılına göre dizinlenir.
+    İlk sorgu, filmler aktörler tarafından dizinlenen sürece filmler listesinin tümünü taramak üzere veritabanı altyapısı gerektirebilir. İkinci sorgu kabul edilebilir ise varsayılıyor filmler yayın yıla göre dizine eklenir.
 
-    Aşağıdaki kod "ReleaseYear" ve "Title" özellikleri ancak başka hiçbir özellik filtreleme izin veren bir doğrulayıcı gösterir.
+    Aşağıdaki kod, "ReleaseYear" ve "Title" özellikleri ancak başka hiçbir özellik filtrelemeye olanak tanır, Doğrulayıcıyı gösterir.
 
     [!code-csharp[Main](odata-security-guidance/samples/sample10.cs)]
-- Genel olarak, gerek duyduğunuz hangi $filter işlevleri göz önünde bulundurun. İstemcilerinizi $filter, tam anlamlılık ihtiyacınız yoksa, izin verilen işlevler sınırlayabilirsiniz.
+- Genel olarak, gereksinim duyduğunuz $filter işlev göz önünde bulundurun. $Filter, tam anlamlılık istemcilerinize ihtiyacınız yoksa, izin verilen işlevler sınırlayabilirsiniz.

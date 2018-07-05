@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
-title: '[Nasıl stop yaparım] JavaScript için bir ASP.NET sayfası ekleme | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Bir ASP.NET sayfasına JavaScript ekleme | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda Chris Pels JavaScript daha zengin ve daha güçlü bir kullanıcı deneyimi sağlamak için istemci sayfasında kullanmak için bir ASP.NET sayfası dahil etmek nasıl yapacağınızı gösterir...
+description: Bu videoda, daha güçlü ve zengin kullanıcı deneyimi sağlamak için istemci sayfasında kullanım için bir ASP.NET sayfasına JavaScript ekleme Chris piksel gösterilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: 55439d0f-e555-4537-97f3-0a7bc0a4bf5b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-add-javascript-to-an-aspnet-page
 msc.type: video
-ms.openlocfilehash: b75fca1153c7e13532780ed56717d551b2a67453
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 54742dbac5663e704db3eecbae0bfbc7151c356b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571971"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364594"
 ---
-<a name="how-do-i-add-javascript-to-an-aspnet-page"></a>[Nasıl stop yaparım] JavaScript için bir ASP.NET sayfası Ekle
+<a name="how-do-i-add-javascript-to-an-aspnet-page"></a>[Bunu nasıl yaparım:] Bir ASP.NET sayfasına JavaScript ekleme
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu videoda Chris Pels JavaScript daha zengin ve daha güçlü bir kullanıcı deneyimi sağlamak için istemci sayfasında kullanmak için bir ASP.NET sayfası dahil etmek nasıl yapacağınızı gösterir. İlk olarak, doğrudan bir ASP.NET sayfası içinde JavaScript içerme ve komut dosyasını HTML sayfası öğeleri içinde başvuru konusuna bakın. Ardından, tarayıcı tarafından önbelleğe alınması avantajı sunar ve birden çok sayfa tarafından kullanılan dış JavaScript dosyası için JavaScript soyut konusuna bakın. Son olarak, dinamik olarak belirli bir durum için komut dosyası da dahil olmak üzere avantajı sahip olduğu veya nerede denetim kodu gibi bilgileri çalışma zamanına kadar bilinmiyor çalışma zamanında bir sayfaya JavaScript ekleme öğrenin. Dinamik komut dosyasının bir parçası nasıl sayfa düğmesi denetimleri (düğme, LinkButton ve ImageButton) click olayını yanı sıra yüklendiğinde otomatik olarak çalıştırılabilir JavaScript eklemek örnek bakın.
+Bu videoda, daha güçlü ve zengin kullanıcı deneyimi sağlamak için istemci sayfasında kullanım için bir ASP.NET sayfasına JavaScript ekleme Chris piksel gösterilir. İlk olarak, doğrudan bir ASP.NET sayfası içinde JavaScript içerir ve betikten HTML sayfası öğeleri içinde başvuru konusuna bakın. Ardından, tarayıcı tarafından önbelleğe alınmasını avantajı sunar ve birden çok sayfa tarafından kullanılan dış bir JavaScript dosyası için JavaScript soyut konusuna bakın. Son olarak, dinamik olarak betik belirli bir durum da dahil olmak üzere avantajı olduğu veya nerede denetim kimliği gibi bilgiler çalışma zamanına kadar bilinmiyor çalışma zamanında bir sayfaya JavaScript ekleme konusunda bilgi edinin. Düğme denetimleri (düğme, LinkButton ve ImageButton) için tıklama olayı yanı sıra sayfa yüklendiğinde otomatik olarak yürütülüp JavaScript ekleme dinamik betiğinin bir parçası örneğine bakın.
 
-[&#9654; (24 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-javascript-to-an-aspnet-page)
+[&#9654;Videoyu (24 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-add-javascript-to-an-aspnet-page)

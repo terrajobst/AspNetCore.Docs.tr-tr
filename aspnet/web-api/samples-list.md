@@ -9,15 +9,14 @@ ms.date: 09/18/2012
 ms.topic: article
 ms.assetid: 8cbd9d7f-7027-4390-b098-cb81a63ecd6f
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/samples-list
 msc.type: content
-ms.openlocfilehash: 1e1f43bbeedfc052f0b3a3924f51b544a5a79dca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c9fff024df6c485b8d904d39cb0a4e5b5bf7e44
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28038995"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362570"
 ---
 <a name="web-api-samples-list"></a>Web API örnekleri listesi
 ====================
@@ -25,128 +24,128 @@ ms.locfileid: "28038995"
 
 **Bing Çevir örnek** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fBingTranslateSample%2fReadMe.txt)
 
-Nasıl çağrılacağını gösterir [Microsoft Translator hizmet](https://msdn.microsoft.com/library/ff512419.aspx) kullanarak **HttpClient** sınıfı. Microsoft Translator hizmeti API'si Azure belirteci sunucunun Çeviricisi hizmetine her istek için bir istek göndererek uygulama edinir OAuth belirteci gerektirir. Belirteç sunucunun sonucundan çeviri hizmete gönderilen istek uygulamasına gönderilir. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [uygulama anahtarı Azure Marketi'nden](https://msdn.microsoft.com/library/hh454950.aspx) ve AccessTokenMessageHandler örnek sınıfındaki bilgileri doldurun.
+Nasıl çağrılacağını gösterir [Microsoft Translator hizmeti](https://msdn.microsoft.com/library/ff512419.aspx) kullanarak **HttpClient** sınıfı. Microsoft Translator hizmeti API translator hizmeti için her istek için belirteci Azure sunucusuna bir istek göndererek uygulamayı alır. bir OAuth belirteci gerektirir. Belirteç sunucudan sonuç uygulamasına çevirisini hizmete gönderilen istek gönderilir. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [Azure Market'ten uygulama anahtarı](https://msdn.microsoft.com/library/hh454950.aspx) ve AccessTokenMessageHandler örnek sınıf bilgileri doldurun.
 
-**Google haritalar örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
+**Google haritalar örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/downloading-a-google-map-to-local-file.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fGoogleMapsSample%2fReadMe.txt)
 
-Kullanan **HttpClient** Redmond, WA haritasını indirmek için [Google haritalar API'si](https://developers.google.com/maps/), yerel bir dosya olarak kaydeder ve varsayılan görüntü Görüntüleyicisi'ni açar.
+Kullanan **HttpClient** Redmond, WA'dan haritasını indirmek için [Google haritalar API'si](https://developers.google.com/maps/), yerel dosya olarak kaydeder ve varsayılan resim görüntüleyici açar.
 
-**İstemci örnek twitter** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/16/extending-httpclient-with-oauth-to-access-twitter.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fTwitterSample%2fReadMe.txt)
+**İstemci örneği twitter** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/16/extending-httpclient-with-oauth-to-access-twitter.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fTwitterSample%2fReadMe.txt)
 
-Kullanarak basit bir Twitter istemcisini yazma gösterilmektedir **HttpClient**. Örnek kullanan bir **HttpMessageHandler** giden içine OAuth kimlik doğrulama bilgilerini eklemek için **HttpRequestMessage**. Twitter sonucundan JSON.NET kullanarak okunur. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [Twitter uygulama anahtarından](https://dev.twitter.com/)ve OAuthMessageHandler örnek sınıfındaki bilgileri doldurun.
+Kullanarak basit bir Twitter istemcisini yazma işlemi gösterilmektedir **HttpClient**. Örnek kullanan bir **HttpMessageHandler** içine giden OAuth kimlik doğrulama bilgilerini eklemek için **HttpRequestMessage**. JSON.NET kullanarak Twitter sonuç okunur. Bu örneği çalıştırmadan önce edinmeniz gerekir bir [uygulama anahtarı twitter'dan](https://dev.twitter.com/)ve OAuthMessageHandler örnek sınıf bilgileri doldurun.
 
-**Dünya Bank örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/16/httpclient-is-here.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fHttpClient%2fWorldBankSample%2fReadMe.txt) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fWorldBankSample%2fReadMe.txt)
+**Dünya banka örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/16/httpclient-is-here.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fHttpClient%2fWorldBankSample%2fReadMe.txt) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fHttpClient%2fWorldBankSample%2fReadMe.txt)
 
-Sonuç ayrıştırmak için JSON.NET kullanan World banka verileri site veritabanından veri almak nasıl gösterir.
+İstemcinin sonucu ayrıştırması için JSON.NET kullanan dünya banka veri siteden veri alma işlemi gösterilmektedir.
 
-## <a name="web-api-samples"></a>Web API'si örnekleri
+## <a name="web-api-samples"></a>Web API örnekleri
 
 **ASP.NET Web API'si ile çalışmaya başlama** | [VS 2012 kaynak](overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 
-Temel bir web API HTTP GET isteklerini destekler oluşturulacağını gösterir. Öğretici için kaynak kodunu içerir [bilgisayarınızı ilk ASP.NET Web API](overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
+Temel bir web API HTTP GET isteklerini destekleyen oluşturma işlemi gösterilmektedir. Öğretici için kaynak kodunu içeren [bilgisayarınızı ilk ASP.NET Web API](overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
 
-**ASP.NET Web API JavaScript senaryoları – açıklamaları** | [VS 2012 kaynak](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)
+**ASP.NET Web API JavaScript senaryoları açıklamaları** | [VS 2012 kaynak](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7)
 
-ASP.NET Web API web tarayıcı istemcileri destekleyen ve jQuery kullanılarak kolayca çağrılabilir API'ları oluşturmak için nasıl kullanılacağını gösterir.
+Web tarayıcı istemcileri desteklemek ve jQuery kullanılarak kolayca çağrılabilir API'leri oluşturmak için ASP.NET Web API'sini kullanma işlemi gösterilmektedir.
 
-**İlgili Kişi Yöneticisi** | [VS 2010 kaynak](https://code.msdn.microsoft.com/Contact-Manager-Web-API-0e8e373d)
+**Kişi Yöneticisi** | [VS 2010 kaynak](https://code.msdn.microsoft.com/Contact-Manager-Web-API-0e8e373d)
 
-Bu örnek, bir basit kişi manager uygulaması oluşturmak için ASP.NET Web API kullanır. Uygulamayı görüntülemek ve kişilerinizin listesini yönetmek için bir ASP.NET MVC uygulaması ve bir Windows Phone uygulama tarafından kullanılan bir kişi yöneticisi web API oluşur.
+Bu örnek, bir basit Kişi Yöneticisi uygulaması oluşturmak için ASP.NET Web API kullanır. Uygulamayı görüntülemek ve ilgili kişi listesini yönetmek için bir ASP.NET MVC uygulaması ve Windows Phone uygulama tarafından kullanılan bir kişi yöneticisi web API'den oluşur.
 
-**Toplu işlem örnek** | [ayrıntılı açıklama](http://trocolate.wordpress.com/2012/07/19/mitigate-issue-260-in-batching-scenario/) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fHostedBatchSample%2fReadMe.txt)
+**Örnek toplu işleme** | [ayrıntılı açıklama](http://trocolate.wordpress.com/2012/07/19/mitigate-issue-260-in-batching-scenario/) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fHostedBatchSample%2fReadMe.txt)
 
-HTTP ASP.NET içinde toplu işleme uygulamak gösterilmiştir. Toplu işleme sonra sunucuya bir HTTP POST olarak gönderilen tek bir MIME çok bölümlü Varlık gövdesi içinde birden çok HTTP isteklerini koyma oluşur. İstekleri ayrı ayrı işlenir ve yanıtları, istemciye döndürülen başka bir MIME çok bölümlü Varlık gövdesi içine konur.
+HTTP ASP.NET içinde toplu işleme uygulanması gösterilmektedir. Toplu işleme, birden çok HTTP istekleri sunucuya bir HTTP POST olarak gönderilmesi tek bir MIME çok bölümlü bir varlık gövdesi içinde koymak oluşur. İstekleri ayrı ayrı işlenir ve yanıt istemciye döndürülen başka bir MIME çok bölümlü varlık gövdesini içine yerleştirilir.
 
-**İçerik denetleyicisi örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/24/async-actions-in-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fContentControllerSample%2fReadMe.txt) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fContentControllerSample%2fReadMe.txt)
+**Denetleyici örneği içerik** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/24/async-actions-in-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fContentControllerSample%2fReadMe.txt) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fContentControllerSample%2fReadMe.txt)
 
-Okuma ve yazma zaman uyumsuz akışlar kullanarak istek ve yanıt varlıkları gösterilmektedir. Örnek denetleyicisi iki eylem vardır: İstek Varlık gövdesi zaman uyumsuz olarak okur ve yerel bir dosyada depolar PUT eylemi ve yerel dosyanın içeriğini döndüren alma işlemi.
+Okuma ve zaman uyumsuz olarak akış'ı kullanarak istek ve yanıt varlıkları yazma işlemi gösterilmektedir. Örnek denetleyicisi iki eylem vardır: İstek Varlık gövdesi zaman uyumsuz olarak okur ve yerel bir dosyada depolayan bir PUT eylem ve yerel dosya içeriğini döndürür bir alma işlemi.
 
 **Özel derleme Çözümleyicisi örnek** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fCustomAssemblyResolverSample%2fReadMe.txt)
 
-ASP.NET Web API denetleyicilerinin dinamik olarak yüklü olan kitaplık derlemesinden bulma destekleyecek şekilde değiştirmek gösterilmiştir. Özel bir örnek uygulayan **IAssembliesResolver** varsayılan uygulama çağırır ve sonra kitaplık derlemesinin varsayılan sonuçları ekler.
+Dinamik olarak yüklenen kitaplık derlemesine denetleyicilerinden bulunmasını desteklemek için ASP.NET Web API değiştirme işlemi gösterilmektedir. Örnek bir özel uygulayan **IAssembliesResolver** varsayılan uygulama çağırır ve ardından Kitaplık derlemesine varsayılan sonuçlara ekler.
 
-**Özel medya türü biçimlendiricisi örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/04/23/using-cookies-with-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fCustomMediaTypeFormatterSample%2fReadMe.txt)
+**Özel medya türü biçimlendiricisi örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/04/23/using-cookies-with-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fCustomMediaTypeFormatterSample%2fReadMe.txt)
 
-Kullanarak bir özel medya türü biçimlendiricisini oluşturmayı gösteren **BufferedMediaTypeFormatter** temel sınıfı. Taban sınıfı öncelikle kullanmak eşzamanlı okuma ve yazma işlemleri biçimlendiricileri için tasarlanmıştır. Ek olarak gösteren medya türü biçimlendiricisi, örnek bir parçası olarak kaydederek takma gösterilmektedir **HttpConfiguration** uygulamanız için. Bu ayrıca kullanmak mümkün olduğunu unutmayın **MediaTypeFormatter** temel sınıfı doğrudan, öncelikle zaman uyumsuz kullanan biçimlendiricileri okuma ve yazma işlemleri için.
+Kullanarak bir özel medya türü biçimlendiricisini oluşturulacağını gösterir **BufferedMediaTypeFormatter** temel sınıfı. Bu temel sınıf için öncelikle kullanmak zaman uyumlu okuma ve yazma işlemleri biçimlendiricileri yöneliktir. Medya türü biçimlendiricisi gösteren ek olarak, örnek bir parçası olarak kaydederek bağlama işlemi gösterilmektedir **HttpConfiguration** uygulamanız için. Ayrıca kullanmak mümkün unutmayın **MediaTypeFormatter** temel sınıfından doğrudan, öncelikli olarak zaman uyumsuz kullanan biçimlendiricileri okuma ve yazma işlemleri için.
 
 **Özel parametre bağlama örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fCustomParameterBinding%2fReadMe.txt)
 
-Bir istek bilgileri için eylem parametrelerini nasıl bağlı belirler işlemidir parametre bağlama işlemini nasıl özelleştireceğinizi gösterir. Bu örnekte, giriş denetleyicisi dört eylem vardır:
+Bir istekten daha fazla bilgi için eylem parametrelerini nasıl bağlı belirleyen işlem parametresi bağlama işleminin nasıl özelleştirileceğini gösterir. Bu örnekte, giriş denetleyicisine dört eylem vardır:
 
-1. BindPrincipal nasıl IPrincipal parametresi bir HTTP GET iletisi değil, özel genel sorumlu bağlanacağını gösterir;
-2. BindCustomComplexTypeFromUriOrBody nasıl ileti gövdesi ya da bir HTTP POST iletisi URI'sini isteğinden gelebilir bir karmaşık tür parametre bağlanacağını gösterir;
+1. BindPrincipal nasıl IPrincipal parametresi bir HTTP GET iletisi yerine özel bir genel kural bağlanacağını gösterir.
+2. BindCustomComplexTypeFromUriOrBody, ileti gövdesinin veya istek URI'SİNDEN bir HTTP POST iletisi gelebilir bir karmaşık tür parametre bağlama işlemi gösterilmektedir;
 3. BindCustomComplexTypeFromUriWithRenamedProperty shows how to bind a complex-type parameter with a renamed property which comes from the request URI of an HTTP POST message;
-4. PostMultipleParametersFromBody nasıl gövdesinden bir posta iletisi için birden çok parametre bağlanacağını gösterir;
+4. PostMultipleParametersFromBody POST iletinin gövdesinden birden çok parametre bağlama gösterilmektedir;
 
-**Örnek karşıya dosya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/03/01/file-upload-and-asp-net-web-api.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fFileUploadSample%2fReadMe.txt)
+**Dosya yükleme örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/03/01/file-upload-and-asp-net-web-api.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fFileUploadSample%2fReadMe.txt)
 
-Dosyaları yüklemeyi gösteren bir **ApiController** MIME çok bölümlü dosya karşıya yükleme ve ilerleme bildirimlerle kurma kullanarak **HttpClient** kullanarak **ProgressNotificationHandler**. Denetleyici HTML dosya karşıya yükleme içeriğini zaman uyumsuz olarak okur ve bir veya daha fazla gövde bölümü yerel bir dosyaya yazar. Yanıt karşıya yüklenen dosya (veya dosyaları) hakkında bilgi içerir.
+Dosyaları karşıya yükleme işlemini gösteren bir **ApiController** MIME çok bölümlü dosya karşıya yükleme ve ilerleme durumunu bildirimler ile kurma kullanarak **HttpClient** kullanarak **ProgressNotificationHandler**. Denetleyici bir HTML dosyası karşıya yükleme içeriğini zaman uyumsuz olarak okur ve bir veya daha fazla gövde bölümü yerel bir dosyaya yazar. Yanıt, karşıya yüklenen dosya (veya dosyaları) hakkında bilgi içerir.
 
-**Azure Blob Depolama örnek yüklenecek dosya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
+**Azure Blob Store Sample karşıya dosya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/yaohuang1/archive/2012/07/02/asp-net-web-api-and-azure-blob-storage.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/61dfed023e50#Samples%2fNet45%2fCS%2fWebApi%2fAzureBlobsFileUploadSample%2fReadMe.txt)
 
-Bu örnek dosya karşıya yükleme örneğe benzer, ancak yerel diskteki karşıya yüklenen dosyaların kaydetme yerine, bu zaman uyumsuz olarak dosyaları karşıya yükleme [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) kullanarak [.NET için Windows Azure SDK](https://www.windowsazure.com/develop/net/). Ayrıca, mevcut BLOB listeleme için bir mekanizma sağlar bir [Azure Blob Depolama kapsayıcısını](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Karşı çalışan örnek deneyebilirsiniz **Azure Storage öykünücüsü** Azure SDK ile birlikte gelir. Varsa bir [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), karşı gerçek depolama hizmetini de çalıştırabilirsiniz.
+Bu örnek için dosya yükleme örneği benzer, ancak yerel diskte karşıya yüklenen dosyaları kaydetmek yerine, bu zaman uyumsuz olarak dosyaları karşıya yükler [Azure Blob Store](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs) kullanarak [.NET için Windows Azure SDK'sı](https://www.windowsazure.com/develop/net/). Ayrıca şu anda mevcut blobları listelemek için bir mekanizma sağlar bir [Azure Blob Depolama kapsayıcısına](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs). Çalışan örnek deneyebilirsiniz **Azure Storage öykünücüsü** Azure SDK'sı ile birlikte gelir. Varsa bir [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs), karşı gerçek depolama hizmetini de çalıştırabilirsiniz.
 
-**HTTP ileti işleyicisi ardışık örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
+**HTTP ileti işleyicisi işlem hattı örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/08/07/httpclient-httpclienthandler-and-httpwebrequesthandler.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fHttpMessageHandlerPipelineSample%2fReadMe.txt)
 
-Yukarı wire gösterilmektedir **HttpMessageHandler** hem de istemci örnekleri (**HttpClient**) ve sunucu (ASP.NET Web API). Aşağıdaki örnekte istemci ve sunucu üzerinde aynı işleyici kullanılır. Her iki yerde de tam aynı işleyici çalıştırılır ender olsa da, nesne modeli istemci ve sunucu tarafında aynıdır.
+Yukarı wire gösterilmektedir **HttpMessageHandler** hem de istemci örnekleri (**HttpClient**) ve sunucu (ASP.NET Web API). Bu örnekte, aynı işleyici hem istemci hem de sunucu kullanılır. Tam aynı işleyici her iki yerde de çalışır nadirdir, ancak nesne modelini istemci ve sunucu tarafında aynıdır.
 
-**JSON karşıya örnek** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fJsonUploadSample%2fReadMe.txt)
+**JSON yükleme örneği** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fJsonUploadSample%2fReadMe.txt)
 
-Karşıya yükleme ve JSON için indirin gösterilmektedir bir **ApiController**. Örnek en az kullanır **ApiController** ve kullanarak erişir **HttpClient**.
+Karşıya yükleme ve JSON ve ondan indirme işlemini gösterir bir **ApiController**. En az bir örnek kullanır **ApiController** ve kullanarak eriştiği **HttpClient**.
 
-**Karma örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/03/03/async-mashups-using-asp-net-web-api.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fMashupSample%2fReadMe.txt)
+**Mashup örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/03/03/async-mashups-using-asp-net-web-api.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fMashupSample%2fReadMe.txt)
 
-Birden çok uzak siteleri zaman uyumsuz olarak içinden nasıl erişileceği gösterir bir **ApiController** eylem. Böylece iş parçacığı engellenen eylemi İsabeti, her zaman isteklerini zaman uyumsuz olarak gerçekleştirilir.
+Zaman uyumsuz olarak birden çok uzak siteleri içinden erişmek nasıl gösterir bir **ApiController** eylem. Böylece iş parçacığı engellenir eylemi tıklıyorum ve her zaman isteklerin zaman uyumsuz olarak gerçekleştirilir.
 
 **Bellek izleme örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/roncain/archive/2012/04/12/tracing-in-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fMemoryTracingSample%2fReadMe.txt)
 
-Bu örnek proje özel bellek içi izleme yazıcısı ASP.NET Web API uygulamaları yükleyecek bir Nuget paketi oluşturur.
+Bu örnek proje bir özel bellek içi izleme yazıcısı ASP.NET Web API uygulamaları yükleyecek bir Nuget paketi oluşturur.
 
 **MongoDB örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/19/using-web-api-with-mongodb.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fMongoSample%2fReadMe.txt)
 
-MongoDB için kalıcı deposu olarak kullanmak üzere nasıl gösterir bir **ApiController**, bir depo desen.
+MongoDB için kalıcı depolama olarak kullanma işlemini gösterir bir **ApiController**, bir depo deseni kullanılarak.
 
 **Yanıt gövdesi işlemci örnek** | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fResponseEntityProcessorSample%2fReadMe.txt)
 
-İstemciye iletilmeden önce yanıt varlık (diğer bir deyişle, bir HTTP yanıt gövdesi) yerel bir dosyaya kopyalayın ve ek bu dosyada zaman uyumsuz işlem gerçekleştirmek nasıl gösterir. Örnek uygulayan bir **HttpMessageHandler** her ikisi de yazdığını çıktısı normal olarak ve yerel bir dosya için kendisini yanıt varlık biriyle sarmalar.
+İstemciye aktarılmadan önce yanıt varlık (diğer bir deyişle, bir HTTP yanıt gövdesinde) yerel bir dosyaya kopyalayın ve ek söz konusu dosya üzerinde zaman uyumsuz işleme gerçekleştirmek nasıl gösterir. Örnek uygulayan bir **HttpMessageHandler** hem yazdığını normal olarak çıktı ve yerel bir dosyaya kendisini yanıt varlık biriyle sonuna geldik.
 
 **XDocument örnek karşıya** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/17/push-and-pull-streams-using-httpclient.aspx) | [VS 2012 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet45%2fCS%2fWebApi%2fUploadXDocumentSample%2fReadMe.txt)
 
-Bir XDocument'e yüklemeyi gösteren bir **ApiController** kullanarak **PushStreamContent** ve **HttpClient**.
+Bir XDocument için yüklemeyi gösteren bir **ApiController** kullanarak **PushStreamContent** ve **HttpClient**.
 
 **Doğrulama örnek** | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fValidationSample%2fReadMe.txt)
 
-Nasıl doğrulama öznitelikleri, ASP.NET Webapı modellerinde üzerinde HTTP isteğinin içeriğini doğrulamak için kullanabileceğiniz gösterir. Hem framework tanımlı kullanmayı ve özel doğrulama öznitelikleri modelinizde açıklama eklemek için gerektiği şekilde özellikleri işaretleyin ve hata yanıtları geçersiz model durumları için dönüş gösterir.
+Nasıl doğrulama özniteliklerinin, ASP.NET Webapı modellerinde üzerinde HTTP isteğinin içeriği doğrulamak için kullanabileceğiniz gösterilmektedir. Framework tarafından tanımlanan her ikisi de kullanmayı ve özel doğrulama öznitelikleri, model öğesine açıklama eklemek için gerektiği gibi özellikleri işaretleyin ve hata yanıtları geçersiz model durumu için döndürülecek gösterir.
 
 **Web formu örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/henrikn/archive/2012/02/23/using-asp-net-web-api-with-asp-net-web-forms.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fWebFormSample%2fReadMe.txt)
 
-Web Forms projeye eklenen bir ApiController gösterir.
+Bir Web Forms projesine eklenen bir ApiController gösterir.
 
 **[RestBugs örnek](https://github.com/howarddierking/RestBugs)**
 
-RestBugs, ASP.NET Web API ve yeni HTTP istemci kitaplığı iletilir güdümlü bir sistem oluşturmak için nasıl kullanılacağını gösteren uygulama izleme basit bir hatadır. Örnek, ASP.NET Web API kullanarak, istemci ve sunucu uygulamaları içerir. Sunucu, kaynak ifadeleri oluşturmak için özel bir Razor biçimlendirici kullanır. Örnek de iletilir Tasarım'ı kullanarak istemcileri ve sunucuları ayırırsınız gelen avantajları göstermek için bir node.js sunucusu sağlar.
+RestBugs ASP.NET Web API ve yeni HTTP istemci kitaplığı gösterimde temelli bir sistem oluşturmak için nasıl kullanılacağını gösteren uygulama izleme, basit bir hatadır. Örnek ASP.NET Web API'sini kullanarak, istemci ve sunucu uygulamaları içerir. Sunucu, kaynak ifadeleri oluşturmak için özel bir Razor biçimlendirici kullanır. Örnek ayrıca istemcileri ve sunucuları ayrıştırmak için bir hiper medya tasarım kullanarak gelen avantajların göstermek için bir node.js sunucusu sağlar.
 
-## <a name="web-api-extensions-preview-samples"></a>Web API Uzantıları Önizleme örnekleri
+## <a name="web-api-extensions-preview-samples"></a>Web API'si uzantıları Önizleme örnekleri
 
 **OData sorgulanabilir örnek** | [ayrıntılı açıklama](https://blogs.msdn.com/b/alexj/archive/2012/08/15/odata-support-in-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fODataQueryableSample%2fReadMe.txt)
 
-ASP.NET Web API kullanarak OData sorgularda tanıtmak gösterilmiştir `[Queryable]` kullanarak veya öznitelik **ODataQueryOptions** yürütülmekte olan önce sorgu el ile incelemek eylem sağlayan eylem parametresi.
+Kullanarak ASP.NET Web API OData sorgu konusunda gösterir `[Queryable]` kullanarak veya özniteliği **ODataQueryOptions** eylem parametresi, bir sorgu yürütülmekte olan önce el ile denetlemek bir eylem sağlar.
 
-[Queryable] özniteliğini kullanarak CustomerController gösterir ve OrderController ODataQueryOptions parametresinin nasıl kullanılacağını gösterir. ResponseController benzer CustomerController ancak döndürme alma işlemi yerine `IEnumerable<Customer>` döndürdüğü bir **httpresponsemessage öğesini**. Bu ek üstbilgi alanları eklemek için durum kodu, vb. hala sorgu işlevi kullanılırken işlemek için bize sağlar. Örnek, $orderby, $skip, $top, any(), all() ve $filter kullanarak sorguları gösterir.
+[Queryable] özniteliğini kullanarak CustomerController gösterir ve OrderController ODataQueryOptions parametrenin nasıl kullanılacağını gösterir. ResponseController benzer CustomerController ancak döndüren GET eylemi yerine `IEnumerable<Customer>` döndürür bir **HttpResponseMessage**. Bu ek üstbilgi alanlarını ekleyin, sorgu işlevselliği kullanmaya devam ederken durum kodu, vb. işleme olanak tanır. Örnek, $orderby, $skip, $top, any(), all() ve $filter kullanarak sorguları gösterir.
 
 **OData hizmet örneği** | [ayrıntılı açıklama](https://blogs.msdn.com/b/alexj/archive/2012/08/15/odata-support-in-asp-net-web-api.aspx) | [VS 2010 kaynak](http://aspnet.codeplex.com/SourceControl/changeset/view/15dfe7e0759f#Samples%2fNet4%2fCS%2fWebApi%2fODataServiceSample%2fReadMe.txt)
 
-Bu örnek üç varlık ve üç Web API denetleyicisi oluşan bir OData hizmetin nasıl oluşturulacağını gösterir. Denetleyicileri işlevsellik ortaya OData işlevselliği açısından çeşitli düzeylerini sağlar:
+Bu örnek, üç varlıkları ve üç Web APİ'si denetleyicilerinin oluşan bir OData hizmetinin nasıl oluşturulduğunu gösterir. Denetleyicileri çeşitli düzeylerde ortaya OData işlevsellik bakımından işlevleri sağlar:
 
-SupplierController sorgu dahil olmak üzere işlevlerinin bir alt kümesini gösterir, bu istekleri işleyerek anahtarı ve oluşturma, tarafından alın:
+SupplierController sorgu dahil olmak üzere işlevlerinin bir alt kümesini sunar, bu istekleri işleyerek anahtarı ile oluşturma, alma:
 
 - /Suppliers Al
 - /Suppliers(KEY) Al
 - GET /Suppliers? $filter =... &amp;$orderby =... &amp;$top =... &amp;$skip =...
 - POST /Suppliers
 
-ProductsController çıkarır Al koy sonrası SİLİN ve eylemi bu işlemlerin her biri için doğrudan uygulayarak düzeltme eki.
+ProductsController kullanıma sunan Al koy, gönderin, silme ve eylem bu işlemlerin her biri için doğrudan uygulayarak düzeltme eki.
 
-ProductFamilesController zengin bir OData hizmeti uygulamak için yararlı bir desen sunan EntitySetController temel sınıf yararlanır.
+Zengin bir OData hizmeti uygulamak için kullanışlı bir desen sunan EntitySetController temel sınıf ProductFamilesController yararlanır.
 
-Ayrıca tüketilen veri sağlayan bir $metadata belgesini OData hizmeti sunan WCF veri hizmeti istemciler ve $metadata biçimi kabul diğer istemciler tarafından.
+Ayrıca tüketilen veri sağlayan bir $metadata belge OData hizmeti sunan WCF veri hizmeti istemcileri ve $metadata biçimi kabul diğer istemciler tarafından.

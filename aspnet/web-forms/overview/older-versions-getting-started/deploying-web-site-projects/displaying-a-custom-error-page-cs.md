@@ -1,179 +1,178 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
-title: Bir özel hata sayfası (C#) görüntüleme | Microsoft Docs
+title: (C#) özel hata sayfası görüntüleme | Microsoft Docs
 author: rick-anderson
-description: Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı neleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma...
+description: Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı gördükleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırması...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
 ms.topic: article
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f01a0f3af3680d53639512d7a86ac1a8645d00e2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7f2e9165acf86ce62d51e7c8d67205684d68e214
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30889078"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362949"
 ---
 <a name="displaying-a-custom-error-page-c"></a>Bir özel hata sayfası (C#) görüntüleme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_CS.zip) veya [PDF indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_cs.pdf)
+[Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_11_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial11_CustomErrors_cs.pdf)
 
-> Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı neleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma. Varsayılan olarak, bir çalışma zamanı hatası oluştu proclaiming bir sayfanın sarı ekran kullanıcılara gösterilir. Bu öğretici, sitenizin görünüm eşleşen bir aesthetically güzel görünen özel hata sayfası için bu ayarları özelleştirmek nasıl gösterir.
+> Bir ASP.NET web uygulamasında bir çalışma zamanı hatası meydana geldiğinde kullanıcı gördükleri? Yanıt bağlıdır Web sitesinin &lt;customErrors&gt; yapılandırma. Varsayılan olarak, bir çalışma zamanı hatası oluştu proclaiming sayfanın bir sarı ekran kullanıcılara gösterilir. Bu öğreticide, sitenizin görünüme eşleşen görüntü aesthetically Hoş bir özel hata sayfası için bu ayarları özelleştirmek gösterilir.
 
 
 ## <a name="introduction"></a>Giriş
 
-İdeal şartlar altında hiç çalışma zamanı hataları olacaktır. Programcıları bir hata kodu ile n öğeli yazarsınız ve güçlü kullanıcı girdisi doğrulama ve dış veritabanı sunucuları ve e-posta sunucuları gibi kaynakları hiçbir zaman çevrimdışı. Elbette, gerçekte kaçınılmaz hatalardır. .NET Framework sınıfları, bir özel durum atma tarafından bir hata işaret eder. Örneğin, bir SqlConnection çağırma nesnesinin Open yöntemini bir bağlantı dizesi tarafından belirtilen veritabanına bir bağlantı kurar. Ancak, veritabanı çalışmıyorsa veya kimlik bilgileri bağlantı dizesinde geçersiz olduğunda sonra açık yöntemi atar bir `SqlException`. Özel durumlar tarafından kullanımını işlenebilir `try/catch/finally` engeller. Varsa içindeki kod bir `try` bloğu bir özel durum oluşturur, geliştirici hatadan kurtarmak burada deneyebilirsiniz denetim uygun catch bloğu ile aktarılır. Eşleşen hiçbir catch bloğu yok ya da bir özel durum belirtti kod bir try bloğu içinde değilse, özel durum çağrı yığını search, Yukarı percolates `try/catch/finally` engeller.
+Mükemmel bir dünyada hiçbir çalışma zamanı hataları olacaktır. Programcıların bir hata koduyla n öğeli yazarsınız ve güçlü kullanıcı girdisi doğrulama ve dış veritabanı sunucuları ve e-posta sunucuları gibi kaynakları hiçbir zaman çevrimdışı. Elbette, gerçekte hatalar kaçınılmazdır. .NET Framework sınıfları, bir özel durum ile bir hata sinyali vermek. Örneğin, bir SqlConnection çağırma açık yöntemi nesnenin bir bağlantı dizesi tarafından belirtilen veritabanına bir bağlantı kurar. Ancak, veritabanı kapalı olduğunda ya da bağlantı dizesinde kimlik bilgileri geçersiz olduğunda ardından açık çağırılıyorsa yöntem bir `SqlException`. Özel durum kullanımı tarafından işlenebilir `try/catch/finally` engeller. Kod içinde bir `try` blok bir özel durum oluşturursa, Denetim, uygun bir catch bloğunun Geliştirici burada hatadan kurtarmayı deneyebilir aktarılır. Hiç eşleşen bir catch bloğu yok ya da özel durum oluşturdu kodu bir try bloğu içinde değilse, özel durum çağrı yığınına search, percolates `try/catch/finally` engeller.
 
-İşlenen olmadan, tüm ASP.NET çalışma zamanı en fazla özel durum köpürür varsa [ `HttpApplication` sınıfı](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)'s [ `Error` olay](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) tetiklenir ve yapılandırılmış *hata sayfası*  görüntülenir. Varsayılan olarak, ASP.NET affectionately olarak adlandırılır bir hata sayfası görüntüler [Ölüm sarı bir ekran](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). YSOD iki sürümü vardır: bir uygulamada hata ayıklama geliştiricilere yararlı gösterir özel durum ayrıntıları, yığın izleme ve diğer bilgileri (bkz **Şekil 1**); diğer yalnızca bir çalışma zamanı hatası (bkz: olduğunubildiren **Şekil 2**).
+İşlenen olmadan, tüm ASP.NET çalışma zamanı en fazla özel durum Balonlar varsa [ `HttpApplication` sınıfı](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)'s [ `Error` olay](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) tetiklenir ve yapılandırılmış *hata sayfası*  görüntülenir. Varsayılan olarak, ASP.NET affectionately şeklinde adlandırılan bir hata sayfası görüntüler [Ölüm sarı bir ekran](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). YSOD iki sürümü vardır: bir uygulamada hata ayıklama geliştiricilere yararlı gösterir özel durum ayrıntıları, bir yığın izlemesi ve diğer bilgi (bkz **Şekil 1**); diğer yalnızca bir çalışma zamanı hatası (bkz: olduğunubildiren **Şekil 2**).
 
-Özel durum ayrıntıları YSOD uygulamada hata ayıklama geliştiriciler için oldukça faydalıdır, ancak son kullanıcılara bir YSOD gösteren tacky ve profesyonel. Bunun yerine, son kullanıcıların sitenin görünüm durumu açıklayan daha kullanıcı dostu bir yazı olabilir ile tutan bir hata sayfası dikkat edilmelidir. İyi haber böyle bir özel hata sayfası oluşturma oldukça kolay olmasıdır. Bu öğretici ASP göz başlar. NET'in farklı hata sayfaları. Ardından, kullanıcıların bir özel hata sayfası bir hata karşısında göstermek için web uygulamasının nasıl yapılandırılacağını gösterir.
+Özel durum ayrıntıları YSOD uygulamada hata ayıklama geliştiriciler için oldukça faydalıdır, ancak tacky ve okuyucunuz bir YSOD son kullanıcılara gösterme. Bunun yerine, son kullanıcıların sitenin görünüm durumu açıklayan daha kullanıcı dostu prose ile tutan bir hata sayfası için gerçekleştirilmelidir. Güzel bir haberimiz var böyle bir özel hata sayfası oluşturma oldukça kolay olmasıdır. Bu öğreticide ASP göz başlar. NET farklı hata sayfaları. Ardından, özel hata sayfası bir hata ile karşılaşıldığında kullanıcıları göstermek için web uygulamasının nasıl yapılandırılacağını gösterir.
 
-### <a name="examining-the-three-types-of-error-pages"></a>Hata sayfaları üç tür İnceleme
+### <a name="examining-the-three-types-of-error-pages"></a>Üç tür hata sayfaları İnceleme
 
-Bir ASP.NET uygulaması hata sayfaları üç tür birini işlenmeyen bir özel durum olduğunda ortaya görüntülenir:
+Ne zaman bir ASP.NET uygulamasında hata sayfalarının üç türlerden biri işlenmeyen bir özel durum ortaya çıkar görüntülenir:
 
 - Özel durum ayrıntıları sarı ekran, ölüm hata sayfası
-- Çalışma zamanı hata sarı ekran, ölüm hata sayfası veya
+- Çalışma zamanı hatası sarı ekran, ölüm hata sayfası veya
 - Özel hata sayfası
 
-Hata sayfası geliştiricileri ile özel durum ayrıntıları YSOD en bilinen'dır. Varsayılan olarak, bu sayfa yerel olarak ziyaret eden kullanıcılara gösterilir ve bu nedenle site geliştirme ortamında test edilirken bir hata oluştuğunda, gördüğünüz sayfasıdır. Adından da anlaşılacağı gibi özel durum ayrıntıları YSOD ayrıntılarını özel durum oluştu - türü, iletisi ve yığın izleme sağlar. Daha ASP.NET sayfanızın arka plandaki kod sınıfı kodda tarafından özel durumu oluştu ve uygulamanın hata ayıklama için yapılandırılmışsa, ardından özel durum ayrıntıları YSOD de bu satırı kodunu (ve birkaç satır kod yukarıdaki ve altındaki) gösterilir.
+Hata sayfası geliştiriciler ile özel durum ayrıntıları YSOD en tanıdık gelir. Varsayılan olarak, bu sayfada yerel olarak ziyaret eden kullanıcılara görüntülenir ve bu nedenle site geliştirme ortamında test edilirken bir hata meydana geldiğinde, gördüğünüz sayfasıdır. Adından da anlaşılacağı gibi özel durum ayrıntıları YSOD ayrıntılarını özel durum oluştu - türü, ileti ve yığın izlemesi sağlar. Daha özel durum, ASP.NET sayfa arka plan kod sınıfı içindeki kod tarafından tetiklendi ve uygulamayı hata ayıklama için yapılandırılmışsa, ardından özel durum ayrıntıları YSOD de bu satırı kodu (ve birkaç satır kod yukarıdaki ve altındaki) gösterilir.
 
-**Şekil 1** özel durum ayrıntıları YSOD sayfası gösterir. Tarayıcının adres penceresindeki URL'ye dikkat edin: `http://localhost:62275/Genre.aspx?ID=foo`. Sözcüğünün `Genre.aspx` sayfa içinde belirli bir tarzını Kitap incelemeleri listeler. Olmasını gerektirir `GenreId` değeri (bir `uniqueidentifier`) geçirilen sorgu dizesi; Örneğin, kurgu incelemeleri görüntülemek için uygun URL'dir `Genre.aspx?ID=7683ab5d-4589-4f03-a139-1c26044d0146`. Olmayan bir varsa`uniqueidentifier` değeri geçirilir, sorgu dizesi (örneğin, "foo") aracılığıyla bir özel durum oluşur.
+**Şekil 1** özel durum ayrıntıları YSOD sayfada gösterilir. Tarayıcının adres penceresinde URL'yi not alın: `http://localhost:62275/Genre.aspx?ID=foo`. Bu geri çağırma `Genre.aspx` sayfası, belirli bir türe kitap incelemelerde listeler. Olmasını gerektirir `GenreId` değeri (bir `uniqueidentifier`) geçirilecek sorgu dizesi; Örneğin, kurgu incelemeleri görüntülemek için uygun URL'dir `Genre.aspx?ID=7683ab5d-4589-4f03-a139-1c26044d0146`. Olmayan bir varsa`uniqueidentifier` değeri geçirilir, sorgu dizesini (örneğin, "foo") aracılığıyla bir özel durum oluşturulur.
 
 > [!NOTE]
-> Tanıtım web uygulamasındaki bu hatayı yeniden oluşturmaya yüklenebilir ya da ziyaret yapabilecekleriniz `Genre.aspx?ID=foo` doğrudan ya da "Çalışma zamanı hatası oluştur" bağlantıya tıklayın `Default.aspx`.
+> Demo web uygulamasında bu hatayı yeniden oluşturmaya indirilebilir ya da ziyaret yapabilecekleriniz `Genre.aspx?ID=foo` doğrudan ya da "Çalışma zamanı hatası oluştur" bağlantısını tıklatın `Default.aspx`.
 
 
-İçinde sunulan özel durum bilgilerini Not **Şekil 1**. Özel durum iletisi "dönüştürme bir karakter dizesinden benzersiz tanımlayıcıya dönüştürme yapılırken başarısız oldu" sayfanın en üstünde bulunur. Özel durumun türünü `System.Data.SqlClient.SqlException`, de listelenir. Yığın izleme yoktur.
+İçinde sunulan özel durum bilgilerini Not **Şekil 1**. Özel durum iletisi "dönüştürme bir karakter dizesinden uniqueidentifier değerine dönüştürme başarısız oldu" sayfasının en üstünde bulunur. Özel durumun türünü `System.Data.SqlClient.SqlException`, de listelenir. Yığın izlemesi yok.
 
 [![](displaying-a-custom-error-page-cs/_static/image2.png)](displaying-a-custom-error-page-cs/_static/image1.png)
 
-**Şekil 1**: özel durum ayrıntıları YSOD özel durumla ilgili bilgiler içerir  
- ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image3.png))
+**Şekil 1**: özel durum ayrıntıları YSOD özel durum hakkında bilgi içerir  
+ ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image3.png))
 
-YSOD başka türden çalışma zamanı hatası YSOD olduğu ve gösterilen **Şekil 2**. Çalışma zamanı hatası YSOD bir çalışma zamanı hatası oluştu ziyaretçi bilgilendirir, ancak oluşturulan özel durum hakkında hiçbir bilgi içermez. (Bunu ancak değiştirerek hata ayrıntılarını görünür yapmak nasıl yönergelerinizi `Web.config` profesyonel Ara YSOD kılan bir parçası olan dosya.)
+YSOD başka türde çalışma zamanı hatası YSOD olduğu ve gösterilen **Şekil 2**. Bir çalışma zamanı hatası oluştu ziyaretçi çalışma zamanı hatası YSOD bildirir, ancak oluşturulan özel durumla ilgili herhangi bir bilgi içermez. (Bu ancak değiştirerek hata ayrıntılarını görünür yapmak nasıl yönergelerinizi `Web.config` okuyucunuz Ara YSOD kılan bir parçası olan dosyası.)
 
-Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullanıcılara gösterilir (aracılığıyla http://www.yoursite.com)tarayıcının adres çubuğunda URL tarafından yi gibi **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Geliştiriciler hata ayrıntılarını bilmek ilgilenen ancak olası güvenlik açıkları ve diğer hassas bilgiler ziyaret herkes gösterebilir gibi bilgileri canlı sitede gösterilmiyor çünkü iki farklı YSOD ekranda var, Site.
+Varsayılan olarak, çalışma zamanı hatası YSOD uzaktan ziyaret eden kullanıcılara gösterilir (aracılığıyla http://www.yoursite.com)tarayıcının adres çubuğuna URL'yi tarafından yi gibi **Şekil 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Hata ayrıntılarını bilmekle isteyen geliştiriciler, ancak olası güvenlik açıklarını ve diğer hassas bilgiler herkes tarafından ziyaret gösterebilir gibi tür bilgilerin canlı sitede gösterilmeyecek iki farklı YSOD ekran var, Site.
 
 > [!NOTE]
-> Aşağıdaki ve DiscountASP.NET, web ana bilgisayarı olarak kullanıyorsanız, çalışma zamanı hatası YSOD Canlı sitesini ziyaret ederken görüntülemez fark edebilirsiniz. Özel durum ayrıntıları YSOD göstermek için varsayılan olarak yapılandırılan sunucularını DiscountASP.NET sahip olmasıdır. İyi haber ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz olan bir `<customErrors>` için bölüm, `Web.config` dosya. "Yapılandırma hata sayfası görüntülendiği" bölümü inceler `<customErrors>` ayrıntı bölümünde.
+> Aşağıdaki ve DiscountASP.NET uygulamanızın web ana bilgisayarı kullanıyorsanız, çalışma zamanı hatası YSOD Canlı siteyi ziyaret görüntülemez fark edebilirsiniz. Bu durum, özel durum ayrıntıları YSOD göstermek için varsayılan olarak yapılandırılmış sunucularından DiscountASP.NET sahip olmasıdır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz güzel bir haberimiz var olan bir `<customErrors>` bölümünü, `Web.config` dosya. "Yapılandırma hatası sayfasında görüntülenen" bölümünde inceler `<customErrors>` ayrıntısı bölümünde.
 
 
 [![](displaying-a-custom-error-page-cs/_static/image5.png)](displaying-a-custom-error-page-cs/_static/image4.png)
 
-**Şekil 2**: çalışma zamanı hatası YSOD tüm hata ayrıntılarını içermez  
- ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image6.png))
+**Şekil 2**: çalışma zamanı hatası YSOD herhangi bir hata ayrıntılarını içermez  
+ ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image6.png))
 
-Hata sayfasının üçüncü oluşturduğunuz bir web sayfası özel hata sayfası türüdür. Özel hata sayfasının sayfanın görünüm birlikte kullanıcıya görüntülenen bilgileri tam denetime sahip olursunuz avantajdır; özel hata sayfası, aynı ana sayfa ve stiller diğer sayfalar halinde kullanabilirsiniz. "Özel hata sayfası kullanma" bölümüne bir özel hata sayfası oluşturma ve işlenmeyen bir özel durum durumunda görüntülemek için yapılandırma anlatılmaktadır. **Şekil 3** bu özel hata sayfasının fişini yoğun sunar. Gördüğünüz gibi daha fazla profesyonel görünümlü sarı ekranlar, Şekil 1 ve 2'de gösterilen renkli kilitlenme ya da daha hata sayfasının Görünüm ve yapısını gereklidir.
+Üçüncü hata sayfası bir web sayfası özel hata sayfası türüdür. Özel hata sayfası avantajı, sayfanın görünüm yanı sıra kullanıcıya görüntülenen bilgileri üzerinde tam denetime sahip olur; özel hata sayfası, aynı ana sayfa ve stiller diğer sayfaları olarak kullanabilirsiniz. İşlenmeyen bir özel durum durumunda görüntülemek için yapılandırma ve özel hata sayfası oluşturma "Özel hata sayfasını kullanarak" bölümünde açıklanmaktadır. **Şekil 3** kısaca bir tepe bu özel hata sayfası sunar. Gördüğünüz gibi çok daha fazla profesyonel görünümlü Ölüm sarı ekranlar, rakamları 1 ve 2'de gösterilen ya da daha görünümünü hata sayfasının olur.
 
 [![](displaying-a-custom-error-page-cs/_static/image8.png)](displaying-a-custom-error-page-cs/_static/image7.png)
 
-**Şekil 3**: bir özel hata sayfası daha özel bir görünüm sunar  
- ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image9.png))
+**Şekil 3**: özel hata sayfası daha özel olarak uyarlanmış bir görünüm sunar.  
+ ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image9.png))
 
-Tarayıcının adres çubuğunda incelemek için bir dakikanızı ayırın **Şekil 3**. Adres çubuğunda özel hata sayfasının URL'sini gösterdiğine dikkat edin (`/ErrorPages/Oops.aspx`). Şekil 1 ve 2'de, sarı ekranlar ölüm hata kaynaklandığı aynı sayfa gösterilir (`Genre.aspx`). Özel hata sayfası hatanın oluştuğu aracılığıyla sayfasının URL'sini geçirilen `aspxerrorpath` sorgu dizesi parametresi.
+Tarayıcının adres çubuğunda incelemek için birkaç dakikanızı **Şekil 3**. Adres çubuğuna özel hata sayfasının URL'sini gösterdiğine dikkat edin (`/ErrorPages/Oops.aspx`). Şekil 1 ve 2'de, sarı ekranlar ölüm hata kaynaklandığı sayfanın gösterilir (`Genre.aspx`). Özel hata sayfası, hatanın oluştuğu aracılığıyla sayfasının URL'sini geçirilir `aspxerrorpath` sorgu dizesi parametresi.
 
-## <a name="configuring-which-error-page-is-displayed"></a>Hata sayfası yapılandırma görüntülenir
+## <a name="configuring-which-error-page-is-displayed"></a>Yapılandırma, hata sayfası görüntülenir
 
-Üç olası hata sayfalarının görüntülendiği iki değişkenine dayanır:
+Üç olası hata sayfalarında görüntülenen iki değişkenlerde dayanır:
 
-- Yapılandırma bilgilerini `<customErrors>` bölümünde ve
-- Olup kullanıcı yerel olarak veya uzaktan sitesinden değil.
+- Yapılandırma bilgileri `<customErrors>` bölümünde ve
+- Olup kullanıcı yerel olarak veya uzaktan sitesinden olduğu.
 
-[ `<customErrors>` Bölüm](https://msdn.microsoft.com/library/h0hfz6fc.aspx) içinde `Web.config` hangi hata sayfası gösterilir etkileyen iki özniteliklere sahiptir: `defaultRedirect` ve `mode`. `defaultRedirect` Özniteliği isteğe bağlıdır. Sağlanırsa, özel hata sayfasının URL'sini belirtir ve özel hata sayfası yerine çalışma zamanı hatası YSOD gösterilen olduğunu gösterir. `mode` Özniteliği gereklidir ve üç değerden birini kabul eder: `On`, `Off`, veya `RemoteOnly`. Bu değerler, aşağıdaki davranış vardır:
+[ `<customErrors>` Bölümü](https://msdn.microsoft.com/library/h0hfz6fc.aspx) içinde `Web.config` hangi hata sayfası gösterilir etkileyen iki öznitelikleri: `defaultRedirect` ve `mode`. `defaultRedirect` İsteğe bağlı öznitelik. Sağlanırsa, özel hata sayfasının URL'sini belirtir ve özel hata sayfası yerine çalışma zamanı hatası YSOD gösterileceğini belirtir. `mode` Özniteliği gereklidir ve üç değerden birini kabul eder: `On`, `Off`, veya `RemoteOnly`. Bu değerler aşağıdaki davranışa sahip:
 
-- `On` -özel hata sayfası veya çalışma zamanı hatası YSOD yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için gösterildiğini belirtir.
-- `Off` -Yerel veya uzak olup olmadıkları bağımsız olarak tüm ziyaretçiler için özel durum ayrıntıları YSOD görüntüleneceğini belirtir.
-- `RemoteOnly` -özel durum ayrıntıları YSOD yerel ziyaretçileri gösterilmese özel hata sayfası veya çalışma zamanı hatası YSOD uzak ziyaretçileri göründüğünü gösterir.
+- `On` -özel hata sayfası veya çalışma zamanı hatası YSOD yerel veya uzak olup olmadıkları bağımsız olarak tüm kullanıcılarına, gösterildiğini belirtir.
+- `Off` -Yerel veya uzak olup olmadıkları bağımsız olarak tüm kullanıcılarına, özel durum ayrıntıları YSOD görüntüleneceğini belirtir.
+- `RemoteOnly` -özel durum ayrıntıları YSOD yerel yayımlanacağını ve Ziyaretçiler gösterilmese özel hata sayfası veya çalışma zamanı hatası YSOD uzak ziyaretçileri gösterileceğini belirtir.
 
-Aksi belirtilmedikçe, mod özniteliği kümesine gibi ASP.NET davranır `RemoteOnly` ve belirtilmemiş bir `defaultRedirect` değeri. Diğer bir deyişle, varsayılan çalışma zamanı hatası YSOD uzak ziyaretçileri gösterilmese özel durum ayrıntıları YSOD yerel ziyaretçilerine görüntülenir davranıştır. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz bir `<customErrors>` web uygulamanızın bölümüne `Web.config file.`
+Aksi belirtilmedikçe, ASP.NET mod özniteliği kümesine yokmuş gibi davranan `RemoteOnly` ve belirtilmemiş bir `defaultRedirect` değeri. Diğer bir deyişle, varsayılan davranış, çalışma zamanı hatası YSOD uzak yayımlanacağını ve Ziyaretçiler gösterilmese özel durum ayrıntıları YSOD yerel ziyaretçilerine görüntülenir şeklindedir. Ekleyerek bu varsayılan davranışı geçersiz kılabilirsiniz bir `<customErrors>` , web uygulamanızın bölümüne `Web.config file.`
 
-## <a name="using-a-custom-error-page"></a>Özel hata sayfası kullanma
+## <a name="using-a-custom-error-page"></a>Özel hata sayfasını kullanarak
 
-Her web uygulaması bir özel hata sayfasının olması gerekir. Çalışma zamanı hatası YSOD daha profesyonel görünümlü bir alternatif sunar, oluşturmak kolaydır ve özel hata sayfası kullanmak için uygulamayı yapılandırma yalnızca birkaç dakika sürer. İlk adım, özel hata sayfası oluşturuyor. Adlı kitap incelemeleri uygulamaya yeni bir klasör eklediğiniz `ErrorPages` ve yeni bir ASP.NET sayfası adlı eklenen `Oops.aspx`. Otomatik olarak aynı görünüme ve hisse devralması sitenizdeki sayfaları geri kalanı olarak aynı ana sayfayı kullanan sayfa sahip olabilir.
+Her web uygulaması, özel hata sayfası olması gerekir. Çalışma zamanı hatası YSOD daha profesyonel görünümlü bir alternatif sağlayan, oluşturmak kolaydır ve özel hata sayfası kullanmak için uygulamayı yapılandırma yalnızca birkaç dakika sürer. İlk adım, özel hata sayfası oluşturuyor. Yeni bir klasör adlı kitabı incelemeleri uygulamaya eklediğiniz `ErrorPages` ve adlı yeni bir ASP.NET sayfasına eklenen `Oops.aspx`. Otomatik olarak aynı görünüme devralması sitenizdeki sayfaları geri kalanı gibi aynı ana sayfayı kullanmak sayfa vardır.
 
 [![](displaying-a-custom-error-page-cs/_static/image11.png)](displaying-a-custom-error-page-cs/_static/image10.png)
 
-**Şekil 4**: bir özel hata sayfası oluşturun
+**Şekil 4**: özel hata sayfası oluşturma
 
-Ardından, hata sayfası için içerik oluşturmak birkaç dakikanızı ayırın. Bunun yerine basit özel hata sayfası belirten bir ileti beklenmeyen bir hata oluştu ve bir bağlantı sitenin giriş sayfasına geri ile oluşturduğunuzu düşünün.
+Ardından, hata sayfası için içerik oluşturma birkaç dakikanızı ayırın. Bunun yerine basit özel hata sayfası belirten bir ileti beklenmeyen bir hata oluştu ve bağlantı sitenin giriş sayfasına geri ile oluşturmuş oldunuz.
 
 [![](displaying-a-custom-error-page-cs/_static/image13.png)](displaying-a-custom-error-page-cs/_static/image12.png)
 
-**Şekil 5**: özel hata sayfası tasarlama  
- ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image14.png))
+**Şekil 5**: tasarım, özel hata sayfası  
+ ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image14.png))
 
-Hata sayfası tamamlandı web uygulama çalışma zamanı hatası YSOD yerine özel hata sayfasını kullanmak üzere yapılandırın. Bu hata sayfasının URL'sini belirterek gerçekleştirilir `<customErrors>` bölümün `defaultRedirect` özniteliği. Aşağıdaki biçimlendirmede, uygulamanızın eklemek `Web.config` dosyası:
+Tamamlandı, hata sayfası ile web uygulaması çalışma zamanı hatası YSOD yerine özel hata sayfasını kullanacak şekilde yapılandırın. Bu hata sayfasının URL'sini belirterek gerçekleştirilir `<customErrors>` bölümün `defaultRedirect` özniteliği. Aşağıdaki işaretlemeyi ekleyin, uygulamanızın `Web.config` dosyası:
 
 [!code-xml[Main](displaying-a-custom-error-page-cs/samples/sample1.xml)]
 
-Yukarıdaki biçimlendirme yerel olarak uzaktan ziyaret bu kullanıcılar için özel hata sayfası Oops.aspx kullanırken ziyaret eden kullanıcılar için özel durum ayrıntıları YSOD göstermek üzere uygulamayı yapılandırır. Bu eylem görmek için Web sitenizi üretim ortamına dağıtma ve canlı sitede bir geçersiz sorgu dizesi değeri olan, daha sonra Genre.aspx sayfasını ziyaret edin. Özel hata sayfasını görmeniz gerekir (geri başvurmak **Şekil 3**).
+Yukarıdaki biçimlendirme yerel olarak uzaktan ziyaret söz konusu kullanıcılar için özel hata sayfası Oops.aspx kullanırken ziyaret eden kullanıcılara özel durum ayrıntıları YSOD göstermek üzere uygulamayı yapılandırır. Bu uygulamada görmek için Web sitenizi üretim ortamına dağıtın ve canlı sitede geçersiz querystring değerine sahip, ardından Genre.aspx sayfasını ziyaret edin. Özel hata sayfasını görmeniz gerekir (kiracıurl **Şekil 3**).
 
-Özel hata sayfası yalnızca uzak kullanıcılara gösterilen doğrulamak için ziyaret `Genre.aspx` geliştirme ortamından geçersiz bir sorgu dizesi sayfası. Özel durum ayrıntıları YSOD hala görmeniz gerekir (geri başvurmak **Şekil 1**). `RemoteOnly` Ayar sağlar özel durum ayrıntılarını görmek yerel olarak çalışan geliştiricilere devam ederken üretim ortamına siteyi ziyaret eden kullanıcıların özel hata sayfası konusuna bakın.
+Özel hata sayfası yalnızca uzak kullanıcılara gösterilen doğrulamak için ziyaret `Genre.aspx` geliştirme ortamından geçersiz bir sorgu dizesi içeren sayfa. Özel durum ayrıntıları YSOD hala görmeniz gerekir (kiracıurl **Şekil 1**). `RemoteOnly` Ayar, özel durumun ayrıntılarını görmek yerel olarak çalışan geliştiriciler devam ederken siteyi ziyaret ettiği üretim ortamına özel hata sayfası gördüğünüzü sağlar.
 
-## <a name="notifying-developers-and-logging-error-details"></a>Geliştiriciler bildirme ve hata ayrıntıları günlüğe kaydetme
+## <a name="notifying-developers-and-logging-error-details"></a>Geliştiriciler bildiren ve hata ayrıntılarını günlüğe kaydetme
 
-Geliştirme ortamında oluşan hataları kendi bilgisayarında durduğunu Geliştirici nedeni. Aynen özel durumun bilgiler özel durum ayrıntıları YSOD gösterilir ve aynen hata oluştuğu sırada aynen çalıştığını hangi adımların bilir. Ancak üretimde bir hata ortaya çıkarsa, geliştirici hiçbir bilgi sitesini ziyaret son kullanıcı hatası rapor Süren sürece bir hata oluştu. Ve kullanıcı bir hata oluştu, özel durum türü, ileti ve hatanın nedenini tanılayın, let alone Düzelt zor olabilir yığın izlemesi bilmeden geliştirme ekibi uyarı şekilde kendi dışında aşsa bile.
+Geliştirme ortamında gerçekleşen hataları kendi bilgisayar başında oturan Geliştirici kaynaklanan. İçinde özel durum ayrıntıları YSOD Filiz özel durumun bilgiler gösterilir ve kendisi bir hata oluştuğunda Filiz gerçekleştirmekte olduğu hangi adımların bilir. Ancak üretimde hata oluştuğunda, geliştirici sitesinden son kullanıcı hatası bildirmeye zaman sürece bir hata oluştu bilgisi sahiptir. Ve kullanıcı bir hata oluştu, özel durum türü, ileti ve yığın izlemesi sürelerde hatanın nedenini tanılayın, düzeltin etmek zor olabilir bilmeden geliştirme ekibi uyar şekilde kendi dışında kalsa bile.
 
-Bu nedenlerle, üretim ortamında herhangi bir hata bazı kalıcı depoya (örneğin, bir veritabanı) ve, oturum en önemli geliştiriciler bu hatadan uyarılırsınız. Özel hata sayfası, bu günlüğü ve bildirim yapmak için iyi bir yerdir gibi görünebilir. Ne yazık ki, özel hata sayfası hata ayrıntılarını erişiminiz yok ve bu nedenle bu bilgileri günlüğe kaydetmek için kullanılamaz. İyi haber çeşitli yollarla hata ayrıntılarını müdahale ve bunları açmak için vardır ve bu konuda daha ayrıntılı sonraki üç öğreticileri keşfedin ' dir.
+Bu nedenlerle, üretim ortamında herhangi bir hata bazı kalıcı depoya (örneğin, bir veritabanı) ve bu oturum üst düzey öneme geliştiriciler bu hata verilir. Özel hata sayfası, bu günlüğe kaydetme ve bildirim yapmak için iyi bir yer gibi görünebilir. Ne yazık ki, özel hata sayfası için hata ayrıntılarını erişimi yok ve bu bilgileri günlüğe kaydetmek için kullanılamaz. Güzel bir haberimiz var, çeşitli yollarla hata ayrıntılarını izlemesine ve bunları oturum vardır ve bu konuda daha fazla ayrıntı sonraki üç öğreticileri keşfedin ' dir.
 
-## <a name="using-different-custom-error-pages-for-different-http-error-statuses"></a>Farklı bir özel hata sayfaları için farklı bir HTTP hata durumları kullanma
+## <a name="using-different-custom-error-pages-for-different-http-error-statuses"></a>Farklı bir özel hata sayfaları için farklı HTTP hata durumları kullanma
 
-Bir özel durum ASP.NET sayfası tarafından oluşturulan ve değil gerçekleştirilir, özel durum yapılandırılmış hata sayfasını görüntüler ASP.NET çalışma kadar percolates. Bir isteği ASP.NET motoruna gelir ancak herhangi bir nedenle işlenemiyor - belki istenen dosya bulunamadı veya okunduğunda değil, izinler için dosyayı - devre dışı sonra ASP.NET altyapısı başlatır bir `HttpException`. ASP.NET sayfaları, oluşturulan özel durumlar gibi bu özel durumun görüntülenmesi uygun hata sayfasına neden çalışma kadar köpürür.
+Bir özel durum ASP.NET sayfası tarafından oluşturulur ve işlenmezse, yapılandırılmış bir hata sayfası görüntüleyen ASP.NET çalışma zamanı kadar özel durum percolates. Bir isteği ASP.NET motoruna gelir ancak herhangi bir nedenden dolayı işlenemiyor - belki istenen dosya bulunamadı veya okunduğunda değil, izinler için dosyayı - devre dışı sonra ASP.NET altyapısı başlatır bir `HttpException`. Bu özel durumun ortaya ASP.NET sayfaları, özel durumlar gibi uygun hata sayfasında görüntülenecek neden çalışma zamanının en fazla Balonlar.
 
-Bir kullanıcı özel hata sayfasını görürsünüz bulunamadı bir sayfa isterse üretim web uygulaması için yani olmasıdır. **Şekil 6** böyle bir örneği gösterir. İstek için bir mevcut olmayan sayfa olduğundan (`NoSuchPage.aspx`), bir `HttpException` oluşturulur ve özel hata sayfası görüntülenir (referansı Not `NoSuchPage.aspx` içinde `aspxerrorpath` sorgu dizesi parametresi).
+Bir kullanıcı özel hata sayfası görürsünüz, bulunmayan bir sayfa istediğinde üretim web uygulaması için bunun anlamı olmasıdır. **Şekil 6** bu tür bir örnek gösterilmektedir. İstek için bir mevcut olmayan sayfası olduğu için (`NoSuchPage.aspx`), bir `HttpException` oluşturulur ve özel hata sayfası görüntülenir (başvuru Not `NoSuchPage.aspx` içinde `aspxerrorpath` querystring parametresi).
 
 [![](displaying-a-custom-error-page-cs/_static/image16.png)](displaying-a-custom-error-page-cs/_static/image15.png)
 
-**Şekil 6**: ASP.NET çalışma zamanı yapılandırılmış hata sayfası içinde yanıt geçersiz bir istek için görüntüler ([tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image17.png))
+**Şekil 6**: yapılandırılmış hata sayfası, yanıtı geçersiz bir istek için ASP.NET çalışma zamanı görüntüler ([tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image17.png))
 
-Varsayılan olarak, tüm hata türleri görüntülenecek aynı özel hata sayfası neden. Bununla birlikte, belirli HTTP durum kodu kullanarak bir için farklı bir özel hata sayfası belirtebilirsiniz `<error>` içinde alt öğelerin `<customErrors>` bölümü. Örneğin, bir sayfa bulunamadı sahip bir HTTP durum kodu 404 hatası durumunda görüntülenen farklı hata sayfası için güncelleştirme `<customErrors>` bölümü aşağıdaki biçimlendirme eklenerek:
+Varsayılan olarak, tüm hata türleri görüntülenecek aynı özel hata sayfası neden. Bununla birlikte, belirli HTTP durum kodu kullanarak farklı özel hata sayfası belirtebilirsiniz `<error>` alt öğelerin hizalamasını `<customErrors>` bölümü. Örneğin, bir sayfa bulunamadı sahip bir HTTP durum kodu 404 hatası olması durumunda görüntülenen bir farklı hata sayfası için güncelleştirme `<customErrors>` bölümü aşağıdaki biçimlendirme eklemek için:
 
 [!code-xml[Main](displaying-a-custom-error-page-cs/samples/sample2.xml)]
 
-Uzaktan ziyaret eden bir kullanıcının var olmayan bir ASP.NET kaynağı istediğinde yerinde bu değişiklikle, bunlar yönlendirilecek `404.aspx` özel hata sayfası yerine `Oops.aspx`. Olarak **Şekil 7** gösterilmektedir, `404.aspx` sayfası, genel özel hata sayfası daha fazla belirli bir ileti içerebilir.
+Uzaktan ziyaret kullanıcı mevcut değil, bir ASP.NET kaynak istediğinde yerinde bu değişiklik, bunlar yönlendirilecek `404.aspx` özel hata sayfası yerine `Oops.aspx`. Olarak **Şekil 7** gösterir, `404.aspx` sayfasına, genel özel hata sayfası daha ayrıntılı bir ileti içerebilir.
 
 > [!NOTE]
-> Kullanıma [404 hata sayfaları, bir fazla kez](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) etkili 404 hata sayfaları oluşturma konusunda yönergeler için.
+> Kullanıma [404 hata sayfaları, bir fazla kez](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) etkili 404 hatası sayfaları oluşturma konusunda yönergeler için.
 
 
-[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası daha fazla hedeflenen bir ileti görüntüler `Oops.aspx`  
- ([Tam boyutlu görüntüyü görüntülemek için tıklatın](displaying-a-custom-error-page-cs/_static/image20.png)) 
+[![](displaying-a-custom-error-page-cs/_static/image19.png)](displaying-a-custom-error-page-cs/_static/image18.png)**Şekil 7**: Özel 404 hata sayfası değerinden daha hedefe bir ileti görüntüler. `Oops.aspx`  
+ ([Tam boyutlu görüntüyü görmek için tıklatın](displaying-a-custom-error-page-cs/_static/image20.png)) 
 
-Bildiğiniz için `404.aspx` sayfası kullanıcı bulunamadı bir sayfa için bir istek yaptığında, yalnızca ulaşıldığında, bu belirli tür hatalara yönelik kullanıcı yardımcı olmak için işlevsellik eklemek için bu özel hata sayfası geliştirebilirsiniz. Örneğin, hatalı URL'leri iyi URL'lere bilinen eşleşen bir veritabanı tablosu oluşturur ve ardından sahip `404.aspx` tablo ve kullanıcı çalışıyor olabilir ulaşması sayfaları önermek özel hata sayfası bir sorgu çalıştırın.
+Bildiğiniz `404.aspx` sayfası yalnızca ulaşıldığında kullanıcı bulunamadı bir sayfa için bir istekte bulunduğunda, bu belirli tür adres kullanıcının yardımcı olmak için işlevselliği eklemek için bu özel hata sayfası geliştirebilirsiniz. Örneğin, iyi URL'leri hatalı URL'ler bilinen eşleyen bir veritabanı tablosu oluşturun ve sonra `404.aspx` , tablo; bu sayfa kullanıcı çalışıyor olabilirsiniz ulaşmak için özel hata sayfası karşı bir sorgu çalıştırın.
 
 > [!NOTE]
-> Özel hata sayfası, yalnızca ASP.NET altyapısı tarafından işlenen bir kaynak için bir istek yapıldığında görüntülenir. Biz anlatıldığı gibi [arasındaki temel farklılıklar IIS ve ASP.NET Geliştirme Sunucusu](core-differences-between-iis-and-the-asp-net-development-server-cs.md) Öğreticisi, web sunucusu belirli isteklerini işlemek kendisi. Varsayılan olarak, IIS, ASP.NET altyapısı çağırmadan sunucu işlemleri istekleri görüntüler ve HTML dosyaları gibi statik içerik web. Mevcut olmayan görüntü dosyası kullanıcı isterse, sonuç olarak, bunlar geri ASP yerine IIS varsayılan 404 hata iletisi alırsınız. NET'in yapılandırılmış hata sayfası.
+> Özel hata sayfası, yalnızca ASP.NET altyapısı tarafından işlenen bir kaynağa bir istekte bulunulduğunda görüntülenir. Açıkladığımız gibi [arasındaki temel farklar IIS ve ASP.NET Geliştirme Sunucusu](core-differences-between-iis-and-the-asp-net-development-server-cs.md) Öğreticisi, web sunucusu belirli isteklerini işlemek kendisi. Varsayılan olarak, IIS, ASP.NET altyapısı çağırmadan sunucu işlemleri istekleri görüntüleri ve HTML dosyaları gibi statik içerik web. Kullanıcı mevcut olmayan görüntü dosyası isterse, sonuç olarak, geri ASP yerine IIS varsayılan 404 hata iletisi alırlar. Hata sayfası NET'in yapılandırılmış.
 
 
 ## <a name="summary"></a>Özet
 
-Bir ASP.NET uygulamasındaki işlenmeyen bir özel durum meydana geldiğinde kullanıcı üç hata sayfaları birini gösterilir: özel durum ayrıntıları sarı ekran, ölüm; çalışma zamanı hatası sarı renkli kilitlenme; ekranı veya bir özel hata sayfası. Hangi hata sayfası görüntülenir uygulamaya ait bağlıdır `<customErrors>` yapılandırması ve yerel olarak veya uzaktan kullanıcı ziyaret olup olmadığı. Özel durum ayrıntıları YSOD yerel ziyaretçileri ve çalışma zamanı hatası YSOD uzak ziyaretçileri göstermek için varsayılan davranıştır.
+Bir ASP.NET uygulamasında işlenmeyen bir özel durum ortaya çıktığında, kullanıcı üç hata sayfalardan biri görüntülenir: özel durum ayrıntıları sarı ekran, ölüm; çalışma zamanı hatası; ölüm ekran sarı veya bir özel hata sayfası. Uygulamanın üzerinde hangi hata sayfası görüntülenir bağlıdır `<customErrors>` yapılandırması ve yerel olarak veya uzaktan kullanıcı ziyaret olup olmadığı. Özel durum ayrıntıları YSOD yerel ziyaretçileri ve çalışma zamanı hatası YSOD uzak yayımlanacağını ve Ziyaretçiler göstermek için varsayılan davranıştır.
 
-Çalışma zamanı hatası YSOD hassas olabilecek hata bilgilerini sitesini ziyaret kullanıcıdan gizler olsa da, sitenizin görünüm keser ve buggy Ara uygulamanızı sağlar. Daha iyi bir yaklaşım kapsar oluşturma ve özel hata sayfası tasarlama ve onun URL belirterek bir özel hata sayfası kullanmaktır `<customErrors>` bölümün `defaultRedirect` özniteliği. Birden çok özel hata sayfaları farklı HTTP hata durumları için bile olabilir.
+Çalışma zamanı hatası YSOD hassas olabilecek hata bilgilerini sitesinden kullanıcıdan gizliyor ancak sitenizin görünüme ayırır ve buggy Ara uygulamanızı sağlar. Daha iyi bir yaklaşım kapsar oluşturma ve özel hata sayfası tasarlama ve kendi URL belirterek özel hata sayfası kullanmaktır `<customErrors>` bölümün `defaultRedirect` özniteliği. Birden çok özel hata sayfaları farklı HTTP hata durumları için bile olabilir.
 
-Özel hata sayfasını bir Web sitesi üretim stratejisi işleme kapsamlı bir hata ilk adımdır. Geliştiricisi hata, uyarı ve ayrıntılarını oturum de önemli adımlardır. Sonraki üç öğreticileri teknikler hata bildirimi ve günlüğe kaydetme için keşfedin.
+Özel hata sayfası işleme stratejisi üretim ortamında bir Web sitesi için kapsamlı bir hata ilk adımdır. Geliştiricisi hata, uyarı ve ayrıntılarını günlüğe kaydetme Ayrıca önemli adımlardır. Teknikleri hata bildirimi ve günlüğe kaydetme için sonraki üç öğreticileri keşfedin.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [Hata sayfaları, bir kez daha](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
 - [Özel Durumlar için Tasarım Yönergeleri](https://msdn.microsoft.com/library/ms229014.aspx)
-- [Kullanıcı dostu hata sayfaları](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
+- [Kullanımı kolay hata sayfaları](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
 - [İşleme ve özel durumları atma](https://msdn.microsoft.com/library/5b2yeyab.aspx)
-- [Özel hata sayfaları ASP.NET kullanılarak uygun şekilde](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
+- [Özel hata sayfaları ASP.NET'te düzgün bir şekilde kullanma](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](strategies-for-database-development-and-deployment-cs.md)
-> [sonraki](processing-unhandled-exceptions-cs.md)
+> [İleri](processing-unhandled-exceptions-cs.md)

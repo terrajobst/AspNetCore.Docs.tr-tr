@@ -1,122 +1,121 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5 | Microsoft Docs
+title: ASP.NET 4 Entity Framework 4.0 Database First çalışmaya başlama ve Web Forms - 5. Bölüm | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
+description: Contoso University örnek web uygulaması, Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamayı ediyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
 ms.topic: article
 ms.assetid: 24ad4379-3fb2-44dc-ba59-85fe0ffcb2ae
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d0ae8385af96cf5e5951ac85f5cf6ae3c201a4d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886517"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366682"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 5
+<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 5. Bölüm
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
 
-## <a name="working-with-related-data-continued"></a>İlgili verileri ile çalışma, devam
+## <a name="working-with-related-data-continued"></a>İlgili verileri ile çalışma, devam ettirildi
 
-Önceki öğreticide kullanmaya başladınız `EntityDataSource` ilgili verilerle çalışmak için denetim. Birden çok hiyerarşi düzeyi görüntülenir ve gezinti Özellikleri'nde veri düzenlenebilir. Bu öğreticide ekleme ve silme ilişkileri ve var olan bir varlığa bir ilişkisi olan yeni bir varlık ekleyerek ilgili verilerle çalışmaya devam edeceğiz.
+Önceki öğreticide kullanmaya başladınız `EntityDataSource` ilgili verilerle çalışmak için denetimi. Veri gezintisi özelliklerinde düzenlenebilir ve birden fazla hiyerarşi düzeyleri görüntülenen. Bu öğreticide ile ilgili verileri ekleyerek ve ilişkileri silme ve var olan bir varlığa yönelik bir ilişkisi olan yeni bir varlık ekleyerek çalışmaya devam ederler.
 
-Departmanlar için atanan kurslar ekler bir sayfa oluşturacaksınız. Departmanlar zaten var ve aynı zamanda yeni indirmelere oluşturduğunuzda, onu ve var olan bir bölüm arasında bir ilişki kurmak.
+Departmanlar için atanan kursları ekleyen bir sayfa oluşturacaksınız. Departmanlar zaten var ve aynı anda yeni bir kurs oluşturduğunuzda, var olan bir bölüm arasında ilişki kurmak.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image1.png)
 
-Ayrıca bir eğitmen (seçtiğiniz iki varlık arasında bir ilişki ekleme) indirmelere atayarak bir çoktan çoğa ilişki ile çalışan bir sayfa oluşturacaksınız veya bir eğitmen indirmelere kaldırma (iki varlık arasında bir ilişki kaldırma, seçin). Veritabanında bir eğitmen ve bir indirmelere arasında bir ilişki ekleme sonuçları için eklenmekte olan yeni bir satıra `CourseInstructor` ilişkilendirme tablo; bir ilişki içerir satırdan silme kaldırma `CourseInstructor` ilişkilendirme tablo. Ancak, Entity Framework başvurma olmadan Gezinti özellikleri ayarlayarak bunu `CourseInstructor` açıkça tablo.
+(Seçtiğiniz iki varlık arasında ilişki ekleme) bir kurs alıştırma atayarak bir çoktan çoğa ilişki ile çalışan bir sayfa da oluşturursunuz veya bir kurs bir eğitmen kaldırma (iki varlık arasında ilişki kaldırma, seçin). Veritabanına eklenen yeni bir satır sonuçlanıyor bir eğitmen ve bir kurs arasına ilişki ekleme `CourseInstructor` ilişkilendirme tablosu; bir ilişki içerir satırdan silinmesi kaldırma `CourseInstructor` ilişkilendirme tablo. Ancak, varlık Çerçevesi'nde başvuruda bulunmadan Gezinti özelliklerini ayarlayarak bunu `CourseInstructor` açıkça tablo.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image3.png)
 
-## <a name="adding-an-entity-with-a-relationship-to-an-existing-entity"></a>Var olan bir varlığa bir ilişkisi olan bir varlık ekleme
+## <a name="adding-an-entity-with-a-relationship-to-an-existing-entity"></a>Varolan bir varlık için varlık ilişkisi ekleme
 
-Adlı yeni bir web sayfası oluşturun *CoursesAdd.aspx* kullanan *Site.Master* ana sayfa ve aşağıdaki biçimlendirmeleri eklemek `Content` adlı Denetim `Content2`:
+Adlı yeni bir web sayfası oluşturma *CoursesAdd.aspx* kullanan *Site.Master* ana sayfa ve eklemek için aşağıdaki biçimlendirme `Content` adlı Denetim `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample1.aspx)]
 
-Bu biçimlendirme oluşturur bir `EntityDataSource` sağlayan ekleme ve bir işleyici belirten kursları seçen denetim `Inserting` olay. İşleyici güncelleştirmek için kullanacağınız `Department` yeni bir gezinti özelliği `Course` varlık oluşturulur.
+Bu biçimlendirme oluşturur bir `EntityDataSource` sağlayan ekleme ve bir işleyici belirten kursları seçtiği denetim `Inserting` olay. İşleyici, güncelleştirme için kullanacağınız `Department` yeni bir gezinti özelliği `Course` varlık oluşturulur.
 
-İşaretleme da oluşturur bir `DetailsView` yeni eklemek için kullanılacak denetim `Course` varlıklar. İşaretleme ilişkili alanları için kullandığı `Course` varlık özellikleri. Girmek zorunda `CourseID` bu bir sistem tarafından oluşturulan Kimliği alanı olmadığı için değer. Bunun yerine, onu indirmelere oluşturulduğunda, el ile belirtilmelidir indirmelere olan bir sayıdır.
+Biçimlendirme ayrıca oluşturur bir `DetailsView` yeni eklemek için kullanılacak denetim `Course` varlıklar. İşaretleme için ilişkili alanları kullanan `Course` varlık özellikleri. Girmek zorunda `CourseID` bir sistem tarafından oluşturulan Kimliği alanı olmadığından değer. Bunun yerine, bu kurs oluşturulduğunda el ile belirtilmelidir bir kurs sayıdır.
 
-Bir şablon alan için kullandığınız `Department` gezinti özelliği Gezinti özellikleri ile kullanılamadığından `BoundField` denetimleri. Şablon alanını departman seçmek için aşağı açılan listesini sağlar. Aşağı açılan liste bağlı `Departments` varlık kullanarak kümesi `Eval` yerine `Bind`, yeniden bunları güncelleştirmek için Gezinti özellikleri doğrudan bağlanamadığı için. İçin bir işleyici belirttiğiniz `DropDownList` denetimin `Init` Olay denetimi kullanmak için bir başvuru güncelleştirmeleri kodla depolayabileceğiniz `DepartmentID` yabancı anahtar.
+Bir şablon alan için kullandığınız `Department` gezinme özelliğinin Gezinti özellikleri kullanılamaz çünkü `BoundField` denetimleri. Şablon alanını bölümü seçmek için aşağı açılan listesini sağlar. Açılır listede bağlı `Departments` varlık kümesi kullanarak `Eval` yerine `Bind`, yeniden bunları güncelleştirmek için Gezinti özellikleri doğrudan bağlanamadığı için. İçin bir işleyici belirttiğiniz `DropDownList` denetimin `Init` olay güncelleştirmeleri kod tarafından denetim kullanmak için bir başvuru depolayabileceğiniz `DepartmentID` yabancı anahtar.
 
-İçinde *CoursesAdd.aspx.cs* kısmi sınıf bildiriminden hemen sonra bir başvuru tutmak için bir sınıf alanı ekleme `DepartmentsDropDownList` denetimi:
+İçinde *CoursesAdd.aspx.cs* kısmi sınıf bildiriminden hemen sonra bir başvuru tutmak için bir sınıf alanı eklemek `DepartmentsDropDownList` denetimi:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample2.cs)]
 
-İçin bir işleyici ekleyin `DepartmentsDropDownList` denetimin `Init` olay böylece denetimi başvuru depolayabilirsiniz. Bu kullanıcı girildikten değerini almak ve güncelleştirmek için kullanmanıza olanak tanır `DepartmentID` değerini `Course` varlık.
+İçin bir işleyici eklemek `DepartmentsDropDownList` denetimin `Init` olay böylece denetimine bir başvuru depolayabilirsiniz. Bu, kullanıcı girilen değer almak ve güncelleştirmek için kullanın sağlar `DepartmentID` değerini `Course` varlık.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample3.cs)]
 
-İçin bir işleyici ekleyin `DetailsView` denetimin `Inserting` olay:
+İçin bir işleyici eklemek `DetailsView` denetimin `Inserting` olay:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample4.cs)]
 
-Kullanıcı tıkladığında `Insert`, `Inserting` yeni kayıt eklenmeden önce olayı oluşturulur. İşleyici kod alır `DepartmentID` gelen `DropDownList` denetlemek ve için kullanılan değer ayarlamak için kullanan `DepartmentID` özelliği `Course` varlık.
+Kullanıcı tıkladığında `Insert`, `Inserting` yeni kayıt eklenmeden önce olayı oluşturulur. İşleyici kodu alır `DepartmentID` gelen `DropDownList` için kullanılacak değeri ayarlamak için kullanır ve Denetim `DepartmentID` özelliği `Course` varlık.
 
-Entity Framework almak için bu indirmelere ekleme belirleyeceğini `Courses` ilişkilendirilen gezinme özelliği `Department` varlık. Ayrıca departmanına ekler `Department` Gezinti özelliğinin `Course` varlık.
+Varlık Çerçevesi'Bu kursa ekleme ilgileniriz `Courses` ilişkilendirilen gezinme özelliğini `Department` varlık. Ayrıca bölümüne ekler `Department` gezinti özelliği `Course` varlık.
 
 Sayfayı çalıştırın.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-5/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image5.png)
 
-Bir kimliği, bir başlığı, kredisi sayısını girin ve bir bölüm seçin ve ardından **Ekle**.
+Kimlik, başlık, KREDİLERİ, bir dizi girin ve bir bölüm seçin ve ardından tıklayın **Ekle**.
 
-Çalıştırma *Courses.aspx* sayfasında ve yeni indirmelere görmek için aynı departmanı seçin.
+Çalıştırma *Courses.aspx* sayfasında ve yeni kurs görmek için aynı bölüm seçin.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-5/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image7.png)
 
-## <a name="working-with-many-to-many-relationships"></a>Çok-çok ilişkileri ile çalışma
+## <a name="working-with-many-to-many-relationships"></a>Çoktan çoğa ilişki ile çalışma
 
-Arasındaki ilişkiyi `Courses` varlık kümesini ve `People` varlık bir çok-çok ilişkisi kümesidir. A `Course` varlık sahip adlı bir gezinti özelliği `People` sıfır, bir veya daha fazla ilgili içerebilir `Person` varlıkları (Bu indirmelere öğretmeyi atanan Eğitmen temsil eder). Ve `Person` varlık sahip adlı bir gezinti özelliği `Courses` sıfır, bir veya daha fazla ilgili içerebilir `Course` varlıkları (kurslar temsil eden Bu eğitmen öğretmeyi atanır). Bir eğitmen birden çok kurslar öğretmek ve bir indirmelere tarafından birden çok Eğitmen öğrettin. Kılavuzun bu bölümünde, ekleyip arasındaki ilişkileri `Person` ve `Course` ilgili varlık Gezinti özellikleri güncelleştirerek varlıklar.
+Arasındaki ilişkiyi `Courses` varlık kümesi ve `People` varlık bir çoktan çoğa ilişki kümesidir. A `Course` varlığın yok adlı bir gezinti özelliği `People` sıfır, bir veya daha fazla ilgili içerebilir `Person` varlıklar (Bu kurs öğretmeyi atanan eğitmenler temsil eder). Ve `Person` varlığın yok adlı bir gezinti özelliği `Courses` sıfır, bir veya daha fazla ilgili içerebilir `Course` varlıklar (kursları temsil eden Bu eğitmen öğretmeyi atanır). Birden çok kursları bir eğitmen öğretin ve bir kurs birden çok Eğitmenler tarafından verilen. Kılavuzun bu bölümünde ekleyecek ve arasındaki ilişkilerin silinebileceğini `Person` ve `Course` ilgili varlıkları Gezinti özelliklerini güncelleştirerek varlık.
 
-Adlı yeni bir web sayfası oluşturun *InstructorsCourses.aspx* kullanan *Site.Master* ana sayfa ve aşağıdaki biçimlendirmeleri eklemek `Content` adlı Denetim `Content2`:
+Adlı yeni bir web sayfası oluşturma *InstructorsCourses.aspx* kullanan *Site.Master* ana sayfa ve eklemek için aşağıdaki biçimlendirme `Content` adlı Denetim `Content2`:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample5.aspx)]
 
-Bu biçimlendirme oluşturur bir `EntityDataSource` denetim adını alır ve `PersonID` , `Person` eğitmen için varlıklar. A `DropDrownList` denetimin bağlı `EntityDataSource` denetim. `DropDownList` Denetim için bir işleyici belirtir `DataBound` olay. Bu işleyici kurslar görüntülemek databind iki aşağı açılır listeler için kullanacaksınız.
+Bu biçimlendirme oluşturur bir `EntityDataSource` denetim adını alır ve `PersonID` , `Person` eğitmen için varlıklar. A `DropDrownList` denetimin bağlı `EntityDataSource` denetimi. `DropDownList` Denetimi için bir işleyici belirtir `DataBound` olay. Bu işleyici kursları görüntüle databind iki açılan listelere kullanacaksınız.
 
-Biçimlendirme bir indirmelere seçili eğitmen atamak için kullanılacak denetimleri aşağıdaki grubunu da oluşturur:
+Biçimlendirme da aşağıdaki grubunun bir kurs için seçili eğitmen atamak için kullanılacak denetimleri oluşturur:
 
-- A `DropDownList` atamak için bir indirmelere seçmek için denetim. Bu denetim, şu anda seçili Eğitmen atanmamış kurslar ile doldurulur.
+- A `DropDownList` atamak için bir kurs seçmek için denetim. Bu denetim, şu anda seçili eğitmen için atanmamış kurslar ile doldurulur.
 - A `Button` atama başlatmak için denetim.
-- A `Label` denetim atama başarısız olursa bir hata iletisi görüntüler.
+- A `Label` denetimi atama başarısız olursa bir hata iletisi görüntüler.
 
-Son olarak, işaretleme denetimlerin bir indirmelere seçili Eğitmen kaldırmak için kullanmak üzere bir grup oluşturur.
+Son olarak, biçimlendirme, ayrıca bir kurs seçili Eğitmen kaldırmak için kullanılacak denetimler grubu oluşturur.
 
 İçinde *InstructorsCourses.aspx.cs*, kullanarak bir ekleme deyimi:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample6.cs)]
 
-Kurslar görüntülemek iki açılan listeleri doldurmak için bir yöntem ekleyin:
+Kursları görüntüleyen açılan listelerini doldurmak için bir yöntem ekleyin:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample7.cs)]
 
-Bu kod tüm kursları alır `Courses` varlık ayarlamak ve kursları alır `Courses` Gezinti özelliğinin `Person` seçili Eğitmen varlık. Ardından hangi kurslar Bu eğitmen atanan belirler ve açılan listeleri uygun şekilde doldurur.
+Bu kod tüm kurslardan alır `Courses` varlık kümesi ve kurslardan alır `Courses` gezinti özelliği `Person` seçili eğitmen için varlık. Bu eğitmen için hangi kursları atanma şeklini belirleyen ve açılır listede uygun şekilde doldurur.
 
-İçin bir işleyici ekleyin `Assign` düğmenin `Click` olay:
+İçin bir işleyici eklemek `Assign` düğmenin `Click` olay:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample8.cs)]
 
-Bu kod alır `Person` seçili Eğitmen varlığı alır `Course` seçili Elbette, varlık ve seçili indirmelere ekler `Courses` Eğitmen gezinme özelliğinin `Person` varlık. Değişiklikler veritabanına kaydeder ve sonuçları hemen görülebilir için aşağı açılır listeler yeniden doldurur.
+Bu kod alır `Person` seçili Eğitmen varlığı alır `Course` seçili kursa, varlık ve seçili kursa ekler `Courses` Eğitmen gezinti özelliği `Person` varlık. Değişiklikleri veritabanına kaydeder ve sonuçları hemen görülebilir şekilde açılan listeler yeniden doldurur.
 
-İçin bir işleyici ekleyin `Remove` düğmenin `Click` olay:
+İçin bir işleyici eklemek `Remove` düğmenin `Click` olay:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample9.cs)]
 
-Bu kod alır `Person` seçili Eğitmen varlığı alır `Course` seçili Elbette, varlık ve seçili indirmelere alanından kaldırır `Person` varlığın `Courses` gezinti özelliği. Değişiklikler veritabanına kaydeder ve sonuçları hemen görülebilir için aşağı açılır listeler yeniden doldurur.
+Bu kod alır `Person` seçili Eğitmen varlığı alır `Course` seçili kursa, varlık ve seçili kursuna kaldırır `Person` varlığın `Courses` gezinme özelliği. Değişiklikleri veritabanına kaydeder ve sonuçları hemen görülebilir şekilde açılan listeler yeniden doldurur.
 
-Kodu ekleyin `Page_Load` hata iletileri emin olur yöntemi görülemez rapor ve işleyicileri eklemek için hata olduğunda `DataBound` ve `SelectedIndexChanged` kurslar açılan listeleri doldurmak için Eğitmen aşağı açılan listesinin olayları:
+Kodu `Page_Load` hata iletileri xenapp'i yöntemi görünür değildir rapor ve işleyicileri eklemek için herhangi bir hata olduğunda `DataBound` ve `SelectedIndexChanged` kursları açılan listeler doldurmak için Eğitmenler aşağı açılan listesinin olayları:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-5/samples/sample10.cs)]
 
@@ -124,10 +123,10 @@ Sayfayı çalıştırın.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Bir eğitmen seçin. <strong>Bir indirmelere atamak</strong> aşağı açılan liste Eğitmen öğretmek değildir, kurslar görüntüler ve <strong>bir indirmelere kaldırmak</strong> aşağı açılan liste Eğitmen zaten atandığı kurslar görüntüler. İçinde <strong>bir indirmelere atamak</strong> bölümünde, bir indirmelere seçin ve ardından <strong>atamak</strong>. İndirmelere taşır <strong>bir indirmelere kaldırmak</strong> aşağı açılan liste. Bir indirmelere seçin <strong>bir indirmelere kaldırmak</strong> 'ye tıklayın <strong>kaldırmak</strong><em>.</em> İndirmelere taşır <strong>bir indirmelere atamak</strong> aşağı açılan liste.
+Bir eğitmen seçin. <strong>Kurs atama</strong> aşağı açılan liste görüntüler Eğitmen öğretmek değildir, kursları ve <strong>kurs kaldırmak</strong> Eğitmen zaten atanan kursları aşağı açılan liste görüntüler. İçinde <strong>kurs atama</strong> bölümünde bir kurs seçin ve ardından <strong>atama</strong>. Kursu taşır <strong>kurs kaldırmak</strong> aşağı açılan listesi. Kurs seçin <strong>kurs kaldırmak</strong> 'ye tıklayın <strong>Kaldır</strong><em>.</em> Kursu taşır <strong>kurs atama</strong> aşağı açılan listesi.
 
-Şimdi ilgili verilerle çalışmak için bazı yöntemlerle gördünüz. Aşağıdaki öğreticide devralma veri modelinde uygulamanızın devamlılığını iyileştirmek için nasıl kullanılacağını öğreneceksiniz.
+Şimdi, ilgili verilerle çalışmak için bazı daha yollarını öğrendiniz. Aşağıdaki öğreticide devralma veri modelinde sürdürülebilirliği uygulamanızı geliştirmek için nasıl kullanılacağını öğreneceksiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](the-entity-framework-and-aspnet-getting-started-part-4.md)
-> [sonraki](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [İleri](the-entity-framework-and-aspnet-getting-started-part-6.md)

@@ -1,31 +1,30 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
-title: Eylemler ve OData v4 işlevleri kullanarak ASP.NET Web API 2.2 | Microsoft Docs
+title: Eylemler ve OData v4 sürümünde işlevleri kullanarak ASP.NET Web API 2.2 | Microsoft Docs
 author: MikeWasson
-description: OData, eylemleri ve işlevleri kolayca CRUD işlemleri varlıklar üzerinde olarak tanımlanmamış olan sunucu tarafı davranışları eklemek için bir yoldur. Bu öğreticide gösterilmiştir nasıl...
+description: OData, eylemleri ve işlevleri varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yoludur. Bu öğreticide gösterilmiştir nasıl yapılır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/27/2014
 ms.topic: article
 ms.assetid: 0e6fb03c-b16d-4bb0-ab0b-552bd2b6ece1
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
-ms.openlocfilehash: 532362f0c0faaaf0cb0c04726856f0497e5261b5
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: c78a9acabcb346b33a4fe53aa0d18ef67ddcaf33
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26566775"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371969"
 ---
-<a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Eylemleri ve işlevleri OData v4 ASP.NET Web API 2.2 kullanma
+<a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Eylemler ve OData v4 sürümünde işlevleri kullanarak ASP.NET Web API 2.2
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-> OData, eylemleri ve işlevleri kolayca CRUD işlemleri varlıklar üzerinde olarak tanımlanmamış olan sunucu tarafı davranışları eklemek için bir yoldur. Bu öğretici eylemleri ve işlevleri Web API 2.2 kullanarak bir OData v4 uç noktaya nasıl ekleneceğini gösterir. Öğretici öğreticiyi derlemeler [OData v4 uç nokta kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md)
+> OData, eylemleri ve işlevleri varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yoludur. Bu öğreticide, Web API 2.2 kullanan bir OData v4 uç noktasına, eylemleri ve işlevleri eklemek gösterilir. Öğretici öğreticiyi genişletip yapılar [OData v4 uç noktası kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md)
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - Web API 2.2
@@ -34,112 +33,112 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > - .NET 4.5
 > 
 > 
-> ## <a name="tutorial-versions"></a>Eğitmen sürümleri
+> ## <a name="tutorial-versions"></a>Öğretici sürümleri
 > 
-> OData sürüm 3 için bkz: [ASP.NET Web API 2 OData Eylemler](../odata-v3/odata-actions.md).
+> OData sürüm 3 için bkz: [ASP.NET Web API 2'de OData eylemleri](../odata-v3/odata-actions.md).
 
 
-Arasındaki farkı *Eylemler* ve *işlevleri* Eylemler yan etkileri olabilir ve işlevleri yapın. Eylemleri ve işlevleri veri döndürebilir. Bazı eylemler kullanımları şunları içerir:
+Arasındaki fark *eylemleri* ve *işlevleri* Eylemler, yan etkileri olabilir ve İşlevler yapın. Hem Eylemler hem de işlevleri veri döndürebilir. Bazı eylemler kullanımları şunlardır:
 
 - Karmaşık işlemleri.
-- Aynı anda birden fazla varlıkların düzenleme.
-- Bir varlığın belirli özellikleri için yalnızca güncelleştirmelere izin verme.
-- Bir varlık olmayan veriler gönderme.
+- Çeşitli varlıklar aynı anda işleniyor.
+- Güncelleştirmeleri yalnızca belirli özellikleri bir varlığın izin verme.
+- Bir varlık değil veri gönderiliyor.
 
-İşlevler, doğrudan bir varlık veya koleksiyonuna karşılık gelmediğinden bilgileri döndürmek için faydalıdır.
+İşlevler, bir varlık veya koleksiyon için gelmediğinden bilgilerini döndürmek için yararlıdır.
 
-Bir eylem (veya işlevi) tek bir varlık veya bir koleksiyon hedefleyebilirsiniz. OData terminolojisinde budur *bağlama*. Ayrıca olabilir &quot;ilişkisiz&quot; hizmetteki statik işlemleri olarak adlandırılır Eylemler/İşlevler,.
+Bir eylem (ya da işlevin) tek bir varlık veya koleksiyon hedefleyebilirsiniz. Bu OData terminolojisinde, *bağlama*. Bulundurabilirsiniz &quot;ilişkisiz&quot; hizmetteki işlemleri statik olarak adlandırılan Eylemler/İşlevler.
 
 ## <a name="example-adding-an-action"></a>Örnek: bir eylem ekleme
 
 Şimdi bir ürün derecelendirmek için bir eylem tanımlayın.
 
 > [!NOTE]
-> Bu öğretici öğreticiyi derlemeler [OData v4 uç nokta kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md)
+> Bu öğreticide öğreticiyi genişletip yapılar [OData v4 uç noktası kullanarak ASP.NET Web API 2 oluşturma](create-an-odata-v4-endpoint.md)
 
 
-İlk olarak, ekleyin bir `ProductRating` derecelendirmeleri temsil etmek için model.
+İlk olarak, ekleme bir `ProductRating` derecelendirmeleri temsil etmek için model.
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample1.cs)]
 
-Ayrıca bir **DbSet** için `ProductsContext` sınıf böylece EF veritabanında bir derecelendirme tablo oluşturur.
+Ayrıca bir **olan DB** için `ProductsContext` EF veritabanında bir derecelendirme tablo oluşturacaksınız böylece sınıf.
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample2.cs)]
 
-### <a name="add-the-action-to-the-edm"></a>Eylem için EDM ekleme
+### <a name="add-the-action-to-the-edm"></a>EDM için eylem ekleme
 
 WebApiConfig.cs içinde aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample3.cs)]
 
-**EntityTypeConfiguration.Action** yöntemi, varlık veri modeli (EDM) için bir eylem ekler. **Parametresi** yöntemi eylemi için belirtilmiş bir parametre belirtir.
+**EntityTypeConfiguration.Action** yöntemi, varlık veri modeli (EDM) için bir eylem ekler. **Parametre** yöntemi eylemi için belirtilmiş bir parametre belirtir.
 
-Bu kod, ad alanı için EDM da ayarlar. Ad alanı URI eylem için eylem tam adı içerdiğinden önemlidir:
+Bu kod, ad alanı için EDM de ayarlar. Ad alanı URI eylem için eylem tam olarak nitelenmiş adını içerdiğinden önemlidir:
 
 [!code-console[Main](odata-actions-and-functions/samples/sample4.cmd)]
 
 > [!NOTE]
-> Tipik bir IIS yapılandırması bu URL'de nokta Hata 404 döndürmek üzere IIS neden olur. Bunu, aşağıdaki bölümü Web.Config dosyasına ekleyerek çözümleyebilirsiniz:
+> Tipik bir IIS yapılandırması bu URL'de nokta 404 hatası döndürmek IIS neden olur. Aşağıdaki bölümü Web.Config dosyasına ekleyerek bunu çözebilirsiniz:
 
 [!code-xml[Main](odata-actions-and-functions/samples/sample5.xml)]
 
-### <a name="add-a-controller-method-for-the-action"></a>Eylem için bir denetleyici yöntemi ekleme
+### <a name="add-a-controller-method-for-the-action"></a>Bir denetleyici yöntemi için eylem ekleme
 
-Etkinleştirmek için &quot;oranı&quot; eylem, aşağıdaki yöntemi ekleyin `ProductsController`:
+Etkinleştirmek için &quot;oranı&quot; eylemi, aşağıdaki yöntemi ekleyin `ProductsController`:
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample6.cs)]
 
-Yöntem adı eylem adı ile eşleşen dikkat edin. **[HttpPost]** özniteliği, yöntemdir bir HTTP POST yöntemini belirtir.
+Yöntem adı eylem adı eşleştiğine dikkat edin. **[HttpPost]** özniteliği belirtir yöntemi bir HTTP POST yöntemidir.
 
-Eylemi çağırmak için istemci aşağıdaki gibi bir HTTP POST isteği gönderir:
+Bir eylemi çağırmak için istemci aşağıdaki gibi bir HTTP POST isteği gönderir:
 
 [!code-console[Main](odata-actions-and-functions/samples/sample7.cmd)]
 
-&quot;Oranı&quot; eylem eylemi için URI URI varlığa eklenen tam eylem adı olacak şekilde ürün örneklerine bağlı. (Biz EDM ad alanı ayarlamak geri çağırma &quot;ProductService&quot;tam eylem adı gelir &quot;ProductService.Rate&quot;.)
+&quot;Oranı&quot; eylem URI eylem için varlık URI eklenmiş tam eylem adı, bu nedenle ürün örneklerine bağlı. (Biz EDM ad alanı ayarlama geri çağırma &quot;ProductService&quot;, tam olarak nitelenmiş eylem adı, bu nedenle &quot;ProductService.Rate&quot;.)
 
-İstek gövdesini bir JSON yükü olarak eylem parametrelerini içerir. Web API otomatik olarak dönüştürür JSON yükü bir **ODataActionParameters** yalnızca parametre değerleri sözlüğü nesne. Denetleyici yönteminin parametrelerinde erişmek için bu sözlük kullanın.
+İstek gövdesi JSON yükü olarak eylem parametrelerini içerir. Web API'si, JSON yükü için otomatik olarak dönüştürür bir **ODataActionParameters** yalnızca parametre değerleri sözlüğü nesne. Bu sözlük, parametreleri, denetleyici yöntemi erişmek için kullanın.
 
-İstemcisi yanlış eylem parametrelerini gönderirse biçimi, değeri **ModelState.IsValid** false olur. Bu bayrak, denetleyici yönteminde denetleyin ve hata döndürür **IsValid** false olur.
+İstemci yanlış eylem parametrelerini gönderirse biçimi, değerini **ModelState.IsValid** false'tur. Bu bayrak denetleyicisi yönteminizde denetleyin ve hata döndürür **IsValid** false'tur.
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample8.cs)]
 
-## <a name="example-adding-a-function"></a>Örnek: işlev ekleme
+## <a name="example-adding-a-function"></a>Örnek: bir işlev ekleme
 
-Şimdi en pahalı ürün döndüren bir OData işlevini ekleyelim. Önce ilk adım işlevi için EDM ekleme gibi. WebApiConfig.cs içinde aşağıdaki kodu ekleyin.
+Şimdi en pahalı ürün döndüren bir OData işlevini ekleyelim. Önce ilk adımı için EDM işlevi ekleme olduğu gibi. WebApiConfig.cs içinde aşağıdaki kodu ekleyin.
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample9.cs)]
 
-Bu durumda, işlevi ürünleri koleksiyon yerine tek tek ürün örnekleri bağlıdır. İstemciler, bir GET isteği göndererek işlevi çağırır:
+Bu durumda, işlev ürünleri koleksiyonu yerine tek tek ürün örneklerine bağlıdır. İstemciler bir GET isteği göndererek bu işlevi çağırın:
 
 [!code-console[Main](odata-actions-and-functions/samples/sample10.cmd)]
 
-Bu işlev için denetleyici yöntemi şöyledir:
+Bu işlev için denetleyici yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample11.cs)]
 
-Yöntem adı işlevi adıyla eşleşen dikkat edin. **[HttpGet]** özniteliği, yöntemdir bir HTTP GET yöntemi belirtir.
+Yöntem adı işlev adı eşleştiğine dikkat edin. **[HttpGet]** özniteliği, yöntemdir bir HTTP GET yöntemini belirtir.
 
-HTTP yanıtı şöyledir:
+HTTP yanıtı aşağıda verilmiştir:
 
 [!code-console[Main](odata-actions-and-functions/samples/sample12.cmd)]
 
 ## <a name="example-adding-an-unbound-function"></a>Örnek: ilişkisiz bir işlev ekleme
 
-Önceki örnekte, bir koleksiyona bağlı bir işlev oluştu. Bu sonraki örnekte oluşturacağız bir *ilişkisiz* işlevi. İlişkisiz işlevleri hizmetteki statik işlemleri olarak adlandırılır. Bu örnekte işlevi verilen bir posta kodu için satış vergi döndürür.
+Önceki örnekte, bir koleksiyona bağlı bir işlev oluştu. Bu sonraki örnekte oluşturacağız bir *ilişkisiz* işlevi. İlişkisiz işlevleri statik hizmetteki işlemleri olarak adlandırılır. Bu örnekte işlevi verilen bir posta kodu için vergi döndürür.
 
-WebApiConfig dosyasında EDM işlevi ekleyin:
+WebApiConfig dosyasında için EDM işlevi ekleyin:
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample13.cs)]
 
-Numaralı telefonu bildirimi **işlevi** doğrudan üzerinde **ODataModelBuilder**, varlık türü veya koleksiyon yerine. Bu model oluşturucu işlevi ilişkisiz olduğunu söyler.
+Çağrı yaptığınız dikkat edin **işlevi** doğrudan üzerinde **ODataModelBuilder**, varlık türünün veya koleksiyon yerine. Bu, model oluşturucu işlevi ilişkisiz olduğunu bildirir.
 
-İşlev uygulayan denetleyici yöntemi şöyledir:
+İşlev uygular denetleyici yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](odata-actions-and-functions/samples/sample14.cs)]
 
-Bu yöntemde yerleştirin hangi Web API denetleyicisi önemli değildir. Bunu içine `ProductsController`, veya ayrı bir denetleyici tanımlayın. **[ODataRoute]** özniteliği işlevi için URI şablonunu tanımlar.
+Bu yöntemde yerleştirdiğiniz hangi Web API denetleyicisi önemli değildir. İçine girdiğiniz `ProductsController`, veya ayrı denetleyicisinin tanımlayın. **[ODataRoute]** özniteliği, işlev için URI şablonu tanımlar.
 
-Bir örnek istemci isteği şöyledir:
+Bir örnek istemci isteği şu şekildedir:
 
 [!code-console[Main](odata-actions-and-functions/samples/sample15.cmd)]
 

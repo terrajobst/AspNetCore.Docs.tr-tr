@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-enable-inline-gridview-editing
-title: Satır içi düzenleme GridView nasıl etkinleştirebilirim? | Microsoft Docs
+title: Satır içi GridView düzenlemeyi nasıl etkinleştirebilirim? | Microsoft Docs
 author: shanselman
-description: Nasıl bir site düzenleme ve ayrıntıları görünümlerle oluşturduğunuza göre bir GridView denetiminde satır içi düzenleme etkinleştirmeyin? Bu videoyu touc nasıl ve aynı zamanda gösterir...
+description: Nasıl bir site ile düzenleme ve Ayrıntılar görünümleri oluşturduktan sonra satır içi GridView denetiminde düzenlemeyi etkinleştir? Bu videoda touc nasıl ve aynı zamanda gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
 ms.topic: article
 ms.assetid: 026e7932-aea4-42c9-8661-c1392407dc4f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-enable-inline-gridview-editing
 msc.type: video
-ms.openlocfilehash: 8301b3456ad814e6bdc71dd1556e0ab1fbe26ff0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 804203c7c1d8b739b58f02f74daf01a3aa4a5179
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883631"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364662"
 ---
-<a name="how-do-i-enable-inline-gridview-editing"></a>Satır içi düzenleme GridView nasıl etkinleştirebilirim?
+<a name="how-do-i-enable-inline-gridview-editing"></a>Satır içi GridView düzenlemeyi nasıl etkinleştirebilirim?
 ====================
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
-Bir site düzenleme ve ayrıntıları görünümlerle oluşturduğunuza göre nasıl etkinleştirmeniz içinde satır içi düzenleme bir **GridView** denetim? Bu video nasıl ve ayrıca rötuşları yönlendirme üzerinde gösterir.
+Düzenleme ve Ayrıntılar görünümleri ile oluşturduğunuz bir site,, nasıl olanak içinde satır içi düzenleme bir **GridView** denetim? Bu video, nasıl ve ayrıca dokunmalar yönlendirme üzerinde gösterir.
 
-[&#9654;(6 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-inline-gridview-editing)
+[&#9654;(6 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-inline-gridview-editing)
 
 > [!div class="step-by-step"]
 > [Önceki](your-first-scaffold-and-what-is-dynamic-data.md)
-> [sonraki](how-do-i-change-how-my-fields-render.md)
+> [İleri](how-do-i-change-how-my-fields-render.md)

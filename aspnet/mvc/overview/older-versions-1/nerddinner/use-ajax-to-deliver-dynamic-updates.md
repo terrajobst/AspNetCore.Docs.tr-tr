@@ -1,102 +1,101 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: Dinamik güncelleştirmeleri göndermek için AJAX kullanma | Microsoft Docs
+title: AJAX dinamik güncelleştirmeler sunma | Microsoft Docs
 author: microsoft
-description: Adım 10 Implements oturum açan kullanıcılar için RSVP içinde Yemeği ayrıntı tümleşik bir Ajax tabanlı yaklaşımı kullanarak, bir Yemeği katılan içinde kendi ilgi destek...
+description: 10. adım uygular RSVP oturum açmış kullanıcıların ilgilendiklerini bir Şimdi Akşam Yemeği ayrıntı içinde tümleşik bir Ajax tabanlı yaklaşımı kullanarak, katılan destek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 789c9880dc43c5d15ee510d9856a4c4378019b71
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870186"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372337"
 ---
-<a name="use-ajax-to-deliver-dynamic-updates"></a>Dinamik güncelleştirmeleri göndermek için AJAX kullanma
+<a name="use-ajax-to-deliver-dynamic-updates"></a>AJAX dinamik güncelleştirmeler sunma
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Bu 10 ücretsiz bir adımdır ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , yetenekte küçük bir yapı ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulamasına nasıl aracılığıyla.
+> Adım 10 ücretsiz / budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
 > 
-> Adım 10 Implements oturum açan kullanıcılar için RSVP Yemeği Ayrıntıları sayfasında tümleşik bir Ajax tabanlı yaklaşımı kullanarak, bir Yemeği katılan içinde kendi ilgi destekler.
+> 10. adım uygular RSVP oturum açmış kullanıcıların ilgilendiklerini bir Şimdi Akşam Yemeği Ayrıntıları sayfasında tümleştirilmiş bir Ajax tabanlı yaklaşımı kullanarak, katılan destekler.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, izlemeniz önerilir [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticileri.
+> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
 
 
-## <a name="nerddinner-step-10-ajax-enabling-rsvps-accepts"></a>NerdDinner 10. adım: LCV'ler etkinleştirme AJAX kabul eder
+## <a name="nerddinner-step-10-ajax-enabling-rsvps-accepts"></a>NerdDinner adım 10: AJAX LCV'ler etkinleştirme kabul eder.
 
-Şimdi bir Yemeği katılan içinde kendi ilgi RSVP oturum açan kullanıcılar için destek şimdi uygulayın. Biz bu Yemeği Ayrıntıları sayfasında tümleşik bir AJAX tabanlı yaklaşım kullanarak etkinleştirin.
+Şimdi bir Akşam Yemeği katılan ilgilendiklerini RSVP oturum açmış kullanıcılar için destek hemen uygulayın. Biz, Şimdi Akşam Ayrıntıları sayfasında tümleştirilmiş bir AJAX tabanlı yaklaşımı kullanarak etkinleştirirsiniz.
 
 ### <a name="indicating-whether-the-user-is-rsvpd"></a>Kullanıcı RSVP'd olup olmadığını belirten
 
-Kullanıcıların ziyaret */Dinners/Ayrıntılar / [kimliği*] belirli Yemeği ayrıntılarını görmek için URL:
+Kullanıcılar */Dinners/Ayrıntılar / [kimliği*] belirli bir Akşam Yemeği ilgili ayrıntıları görmek için URL:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image1.png)
 
-Eylem yöntemi uygulanır Details() sözlüğüdür:
+Eylem yöntemi gerçekleştirilir Details() şu şekilde:
 
 [!code-csharp[Main](use-ajax-to-deliver-dynamic-updates/samples/sample1.cs)]
 
-RSVP destek uygulamak için ilk adım, bir "IsUserRegistered(username)" yardımcı yöntem bizim Yemeği nesnesiyle (daha önce oluşturduğumuz Dinner.cs parçalı sınıf) eklemek için olacaktır. True veya false kullanıcı yemeği için geçerli olup olmadığını RSVP'd bağlı olarak bu yardımcı yöntemini döndürür:
+RSVP destek uygulamak için ilk adımımız, bizim Dinner nesnesiyle (daha önce oluşturduğumuz Dinner.cs kısmi sınıf) bir "IsUserRegistered(username)" yardımcı yöntem eklemek için olacaktır. True veya false kullanıcı Akşam Yemeği için geçerli olup olmadığını RSVP'd bağlı olarak bu yardımcı yöntemini döndürür:
 
 [!code-csharp[Main](use-ajax-to-deliver-dynamic-updates/samples/sample2.cs)]
 
-Biz sonra aşağıdaki kodu kullanıcı kayıtlı olup olmadığını belirten bir uygun iletisi görüntülenecek bizim Details.aspx şablonu görüntüleme veya olay için ekleyebilirsiniz:
+Biz sonra aşağıdaki kodu kullanıcının kayıtlı olup olmadığını belirten bir uygun bir ileti görüntülemek için sunduğumuz Details.aspx görünüm şablonu veya olay için ekleyebilirsiniz:
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample3.html)]
 
-Ve artık kullanıcı için kayıtlı bir Yemeği ziyaret ettiğinde, bu iletiyi görürsünüz:
+Ve artık bir kullanıcı için kayıtlı bir Akşam Yemeği ziyaret ettiğinde, bu iletiyi görürsünüz:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image2.png)
 
-Ve bunlar kaydedilmedi bunlar görürsünüz için yemeği ziyaret ettiğinizde ileti altında:
+Ve bunlar kaydedilmedi görürler için bir Akşam Yemeği ziyaret ettikleri zaman aşağıdaki ileti:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image3.png)
 
-### <a name="implementing-the-register-action-method"></a>Kayıt eylemi yöntemi uygulama
+### <a name="implementing-the-register-action-method"></a>Uygulama kayıt eylemi yöntemi
 
-Artık kullanıcıların bir Yemeği RSVP için Ayrıntılar sayfasından etkinleştirmek için gereken işlevleri ekleyelim.
+Artık kullanıcılar bir akşam yemeği için RSVP için Ayrıntılar sayfasından etkinleştirmek için gereken işlevselliği ekleyelim.
 
-Bu uygulama için yeni bir "RSVPController" sınıf \Controllers dizinde sağ tıklayıp seçerek Ekle - oluşturacağız&gt;denetleyicisi menü komutu.
+Bunu gerçekleştirmek için yeni bir "RSVPController" sınıf \Controllers dizinde sağ tıklayıp Ekle - i seçerek oluşturacağız&gt;denetleyicisi menü komutu.
 
-"Register" eylem yöntemi için bağımsız değişken olarak bir Yemeği kimliği alır, uygun Yemeği nesnesine oturum açma kullanıcı şu an için kayıtlı kullanıcıların listesini kullanılıyorsa ve bakar alır yeni RSVPController sınıf içinde uygulamak RSVP nesneyi bunları ekler değil:
+Biz bir "Register" eylem yöntemi için bağımsız değişken olarak bir Akşam Yemeği bir kimliği alır, oturum açan kullanıcı için kayıtlı kullanıcılar listesinde şu anda ise ve bakar uygun Dinner nesnesini alır yeni RSVPController sınıf içinde uygulayacaksınız RSVP nesne için bunları ekler değil:
 
 [!code-csharp[Main](use-ajax-to-deliver-dynamic-updates/samples/sample4.cs)]
 
-Nasıl biz basit bir dize eylem yönteminin çıkışını iade ettiğiniz dikkat edin. Biz bu iletiyi bir görünüm şablonu içinde– katıştırılmış ancak kadar küçük olduğundan yalnızca Content() yardımcı yöntem denetleyicisi temel sınıf ve dize ileti gibi yukarıda return kullanacağız.
+Nasıl biz basit bir dize eylem yönteminin çıkışını iade ettiğiniz dikkat edin. Biz bu iletiyi bir görünüm şablonu – içindeki katıştırılmış ancak kadar küçük olduğundan yalnızca Content() yardımcı yöntem denetleyicisi temel sınıf ve return gibi bir dize iletisi yukarıda kullanacağız.
 
-### <a name="calling-the-rsvpforevent-action-method-using-ajax"></a>AJAX kullanarak RSVPForEvent eylem yöntemini çağırma
+### <a name="calling-the-rsvpforevent-action-method-using-ajax"></a>AJAX kullanarak RSVPForEvent eylem yöntemi çağırma
 
-Bizim Ayrıntıları görünümünden kayıt eylemi yöntemi çağırmak için AJAX kullanacağız. Bu uygulama oldukça kolaydır. İlk iki komut dosyası kitaplığı başvuru ekleyeceğiz:
+Bizim Ayrıntıları görünümünde kayıt eylemi yöntemi çağırmak için AJAX kullanacağız. Bu uygulama oldukça kolaydır. İlk iki komut dosyası kitaplığı başvurularını ekleyeceğiz:
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample5.html)]
 
-İlk kitaplığı çekirdek ASP.NET AJAX istemci tarafı komut dosyası kitaplığı başvurur. Bu dosya, yaklaşık 24 k (sıkıştırılmış) boyutu ve çekirdek istemci tarafı AJAX işlevselliği içerir. İkinci kitaplığı (kısa bir süre sonra kullanacağız) ASP.NET MVC'ın yerleşik AJAX yardımcı yöntemler ile tümleştirmenize yardımcı işlevlerini içerir.
+İlk kitaplığı çekirdek ASP.NET AJAX istemci tarafı komut dosyası kitaplığı başvuruyor. Bu dosya, yaklaşık 24 k (sıkıştırılmış) boyutu ve çekirdek istemci tarafı AJAX işlevselliği içerir. İkinci kitaplık (kısa bir süre sonra kullanacağız) ASP.NET MVC'nin yerleşik AJAX Yardımcısı yöntemleri ile tümleştirmenize yardımcı programını işlevleri içerir.
 
-Bizim RSVP denetleyicisinde bizim RSVPForEvent eylem yöntemini çağırır bir AJAX çağrısı güncelleştirme outputing ", bu olay için kayıtlı olmayan" iletisi yerine biz bunun yerine bir bağlantı, basıldığında işlemek için daha önce eklediğimiz görünüm şablonu kodu gerçekleştirir sonra geçebiliriz ve kullanıcı RSVPs:
+Güncelleştirme outputing bir ", bu olay için kaydedilmeyen" iletisi yerine, biz bunun yerine bir bağlantı, zamanla gönderdiğiniz işlemek için daha önce eklediğimiz kodu görüntüle şablon RSVP denetleyicimizin bizim RSVPForEvent eylem yöntemini çağıran bir AJAX çağrısı gerçekleştirir biz seçebilir ve kullanıcı RSVPs:
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample6.aspx)]
 
-Yukarıda kullanılan Ajax.ActionLink() yardımcı yöntemi yerleşik-ASP.NET MVC ve bağlantı tıklatıldığında standart gezinti gerçekleştirmek yerine eylem yöntemi için bir AJAX çağrısı kolaylaştırır Html.ActionLink() yardımcı yöntemine benzerdir. Yukarıdaki biz "RSVP" denetleyicisinde "Register" eylem yöntemini çağırma ve "id" parametresi olarak kendisine DinnerID geçirme. Eylem yönteminden döndürülen içeriği almak ve HTML güncelleştirmek istiyoruz geçirme son AjaxOptions parametre gösterir &lt;div&gt; kimliğine sahip "rsvpmsg" sayfasında öğesi.
+Yukarıda kullanılan Ajax.ActionLink() yardımcı yöntem ASP.NET MVC'nda yerleşik olarak bulunan, bağlantıya tıklandığında bir standart gezinti gerçekleştirmek yerine eylem yöntemi için bir AJAX çağrısı kolaylaştırır Html.ActionLink() yardımcı yöntemine benzer. Yukarıdaki biz "RSVP" denetleyicide "Register" eylem yöntemini çağırarak ve DinnerID için "id" parametresi olarak geçirerek. Biz kaçı AjaxOptions parametresi son eylem yönteminden döndürülen içeriği alıp HTML güncelleştirme istiyoruz gösterir &lt;div&gt; sayfasında "rsvpmsg" kimliğine sahip öğe.
 
-Ve şimdi bir kullanıcı bir Yemeği attığında için kayıtlı değil henüz RSVP onun için bir bağlantı göreceksiniz:
+Ve Şimdi Akşam Yemeği için bir kullanıcı attığında için kayıtlı değil henüz RSVP onun için bir bağlantı görürler:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image4.png)
 
-"Bu olay için RSVP" bağlantısına tıklarsanız kayıt eylem yöntemi için bir AJAX çağrısı RSVP denetleyicisinde yaptıkları ve tamamlandığında güncelleştirilmiş bir ileti görürsünüz aşağıdaki gibi:
+"Bu olayın RSVP" Bağlantısı'na tıklarsanız, kayıt eylem yöntemi için bir AJAX çağrısı RSVP denetleyicisinde yapacaksınız ve tamamlandığında güncelleştirilmiş bir ileti görürler aşağıdaki gibi:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image5.png)
 
-Ağ bant genişliği ve trafik bu AJAX çağrısı yaparak gerçekten hafif olduğunda söz konusu. Kullanıcı "RSVP bu olay için" bağlantısına tıkladığında, küçük bir HTTP POST ağ isteği yapılan */Dinners/Register/1* kablo aşağıdaki gibi görünen URL'si:
+Bu AJAX çağrısı yaparken ilgili trafik ve ağ bant genişliği gerçekten basit. Kullanıcı "RSVP bu olay için" bağlantısına tıkladığında, küçük bir HTTP POST ağ isteği yapılan */Dinners/Register/1* kablo aşağıdaki gibi görünür URL'si:
 
 [!code-console[Main](use-ajax-to-deliver-dynamic-updates/samples/sample7.cmd)]
 
@@ -104,56 +103,56 @@ Ve bizim kayıt eylemi yöntemi yanıttan yeterlidir:
 
 [!code-console[Main](use-ajax-to-deliver-dynamic-updates/samples/sample8.cmd)]
 
-Bu basit aramayı hızlıdır ve hatta bir yavaş ağ üzerinden çalışır.
+Bu basit bir çağrı, hızlı ve daha yavaş bir ağ üzerinden çalışır.
 
-### <a name="adding-a-jquery-animation"></a>JQuery animasyon ekleme
+### <a name="adding-a-jquery-animation"></a>JQuery bir animasyon ekleme
 
-Biz uygulanan AJAX işlevselliği, düzgün ve hızlı bir şekilde çalışır. Bazen hızlı, yine de bir kullanıcı yeni metinle RSVP bağlantı değiştirildi fark etmeyebilirsiniz emin olabilir. Sonucu biraz daha belirgin yapmak için güncelleştirme iletisi dikkat çekmek için basit bir animasyon ekleyebilirsiniz.
+Uyguladık AJAX işlevselliği iyi ve hızlı bir şekilde çalışır. Bazen hızlı, ancak, bir kullanıcı RSVP bağlantı ile yeni metin değiştirildiğini fark etmeyebilirsiniz emin olabilir. Sonucu biraz daha belirgin hale getirmek için güncelleştirme iletisi dikkat çekmek için basit bir animasyon ekleyebilirsiniz.
 
-ASP.NET MVC proje şablonu varsayılan jQuery – ayrıca Microsoft tarafından desteklenen bir mükemmel (ve çok yaygın) açık kaynak JavaScript kitaplığı içerir. jQuery iyi bir HTML DOM seçimi ve etkileri kitaplığı gibi özellikleri de sağlar.
+' % S'varsayılan ASP.NET MVC proje şablonu, jQuery – da Microsoft tarafından desteklenen bir mükemmel (ve çok popüler) açık kaynak JavaScript kitaplığı içerir. bir dizi özellik, iyi bir HTML DOM seçimi ve etkileri kitaplığı dahil olmak üzere jQuery sağlar.
 
-JQuery kullanmak için öncelikle bir komut dosyası başvuru ekleyeceğiz. JQuery yerler, çeşitli içinde sitemizi içinde kullanılmasını kalacaklarını olduğundan, tüm sayfaları kullanabilmesi komut dosyası başvurusunu bizim Site.master ana sayfa dosyası içinde ekleyeceğiz.
+JQuery kullanmak için önce bir komut dosyası başvuru ekleyeceğiz. JQuery içinde çeşitli yerlerde sitemizi içinde kullanılmasını kullanacağız çünkü tüm sayfaları kullanabilmesi betik başvurusu bizim Site.master ana sayfa dosyası içinde ekleyeceğiz.
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*İpucu: VS 2008 SP1'de, JavaScript dosyaları (jQuery dahil) için daha zengin IntelliSense desteği sağlayan JavaScript IntelliSense düzeltmesinin yüklü olup olmadığını denetleyin. Buradan indirebilirsiniz: http://tinyurl.com/vs2008javascripthotfix*
+*İpucu: VS 2008 SP1'de JavaScript dosyaları (jQuery dahil) için daha zengin IntelliSense desteği sağlayan JavaScript IntelliSense düzeltme yüklediğinizden emin olun. Buradan indirebilirsiniz: http://tinyurl.com/vs2008javascripthotfix*
 
-JQuery genellikle kullanılarak yazılan kodu kullanan bir genel "$ ()" bir CSS seçicisini kullanarak bir veya daha fazla HTML öğeleri alır JavaScript yöntemi. Örneğin, <em>$("#rsvpmsg")</em> rsvpmsg, kimliği herhangi bir HTML öğesi seçer sırada <em>$(".something")</em> şeyle "" CSS tüm öğeleri seçeceğiniz sınıf adı. "Tüm checked radyo düğmeleri return"gibi daha gelişmiş sorgular da yazabilirsiniz gibi bir seçici sorgu kullanarak: <em>$("Giriş [@typeradyo =] [@checked]")</em>.
+Genellikle, JQuery kullanılarak yazılmış kod bir genel "$ ()" kullanan bir CSS seçicisini kullanarak bir veya daha fazla HTML öğeleri alır bir JavaScript yöntemini. Örneğin, <em>$("#rsvpmsg")</em> herhangi bir HTML öğesi kimliği rsvpmsg, seçer sırada <em>$(".something")</em> "şey" CSS tüm öğelerle seçeceğiniz sınıf adı. Ayrıca, "tüm işaretli radyo düğmeleri return gibi" daha gelişmiş sorgular yazabilirsiniz gibi bir seçici sorgu kullanarak: <em>$("Giriş [@typeradyo =] [@checked]")</em>.
 
-Öğeleri seçtikten sonra kendilerine gizleyip gibi eyleme geçmek için yöntemleri çağırabilirsiniz: *$("#rsvpmsg").hide();*
+Öğeleri seçtikten sonra bunlardaki gizlemeden gibi eylemler gerçekleştiren yöntemleri çağırabilirsiniz: *$("#rsvpmsg").hide();*
 
-RSVP senaryomuz için biz "" rsvpmsg"seçer AnimateRSVPMessage" adlı basit bir JavaScript işlevi tanımlarsınız &lt;div&gt; ve metin içeriğini boyutunu canlandırır. Kod, metni küçük ve daha sonra nedenleri başlatır, 400 milisaniye zaman çerçevesi içinde artırmak için:
+RSVP senaryomuz için biz ","rsvpmsg"seçer AnimateRSVPMessage" adlı basit bir JavaScript işlevi tanımlama olasılığınız &lt;div&gt; ve metin içeriğini boyutunu canlandırın. Aşağıdaki kodu küçük metin ve ardından nedenleri başlar, bir 400 milisaniyeden zaman çerçevesi içinde artırmak için:
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample10.html)]
 
-Biz sonra kablo bizim Ajax.ActionLink() yardımcı yöntem adını geçirerek bizim AJAX çağrısı başarıyla tamamlandıktan sonra çağrılacak bu JavaScript işlevi Yukarı ("OnSuccess" AjaxOptions aracılığıyla olay özellik):
+Biz ardından kablo bu JavaScript işlevi için sunduğumuz Ajax.ActionLink() yardımcı yöntem adını geçirerek müşterilerimizin AJAX çağrısı başarıyla tamamlandıktan sonra çağrılacak Yukarı ("OnSuccess" AjaxOptions aracılığıyla olay özellik):
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample11.aspx)]
 
-Ve şimdi "RSVP bu olay için" Bağlantı tıklatıldığında ve bizim AJAX çağrısı gönderilen içerik ileti başarıyla tamamlandığında, geri hale getirmeyi ve büyük büyütmeyi:
+Ve artık "Bu olayın RSVP" bağlantısına tıkladı ve bizim AJAX çağrısı gönderilen içerik ileti başarıyla tamamlar arka animasyon ekleme ve büyük büyütmeyi:
 
 ![](use-ajax-to-deliver-dynamic-updates/_static/image6.png)
 
-Bir "OnSuccess" olay sağlamanın yanı sıra, AjaxOptions nesne (çeşitli diğer özellikleri ve yararlı seçenekleri ile birlikte) işleyebilir OnBegin, OnFailure ve OnComplete olayları gösterir.
+"OnSuccess" olay sağlamanın yanı sıra AjaxOptions nesne (çeşitli diğer özellikleri ve kullanışlı seçenekleri ile birlikte) işleyebileceği OnBegin OnFailure ve OnComplete olayları gösterir.
 
-### <a name="cleanup---refactor-out-a-rsvp-partial-view"></a>Temizleme - RSVP kısmi görünüm çıkışı düzenleme
+### <a name="cleanup---refactor-out-a-rsvp-partial-view"></a>Temizlik - out RSVP kısmi görünüm yeniden düzenleme
 
-Bizim Ayrıntılar görünümü şablon biraz uzun almak hangi mesai anlamak biraz daha zor yapacak başlatılıyor. Kodun okunabilirliğini artırmak için şimdi tüm ayrıntıları sayfamızı RSVP görünüm kodunu kapsülleyen bir kısmi görünüm – RSVPStatus.ascx – oluşturarak sonlandırın.
+Bizim şablonu ayrıntıları görüntüleme biraz uzun almak hangi mesai bunu anlamak biraz daha zor hale getirecek başlatılıyor. Kodun okunabilirliğini geliştirmek için şimdi tüm ayrıntıları sayfamıza RSVP görünümü kodu kapsülleyen bir kısmi görünüm – RSVPStatus.ascx – oluşturarak sonlandırın.
 
-Bu \Views\Dinners klasöre sağ tıklayarak ve ardından Ekle - yapabiliriz&gt;görüntülemek menü komutu. Biz bunu Yemeği nesnesi, kesin türü belirtilmiş ViewModel olarak ele sahip olacaksınız. Biz sonra kopyalayıp RSVP içerik içine bizim Details.aspx görünümünden yapıştırın.
+\Views\Dinners klasörü sağ tıklatın ve sonra Add - seçerek bunu yapabilirsiniz&gt;görüntüle menü komutu. Biz Şimdi Akşam nesnesi, kesin türü belirtilmiş ViewModel olarak kazandığını sahip olacaksınız. Biz ardından kopyalama/RSVP içeriği bizim Details.aspx görünümünden içine yapıştırma.
 
-Biz yaptıktan sonra ayrıca bizim düzenleme ve silme bağlantı Görünüm Kodu yalıtır başka bir kısmi görünüm – EditAndDeleteLinks.ascx - oluşturalım. Biz de Yemeği nesnesi, kesin türü belirtilmiş ViewModel olarak alın ve kopyalayıp yapıştırın bizim Details.aspx görünümüne, düzenleme ve silme mantığından sahip olacaksınız.
+Biz yaptıktan sonra ayrıca bizim düzenleme ve silme bağlantısı görünümü kodu kapsülleyen başka bir kısmi görünüm – EditAndDeleteLinks.ascx - oluşturalım. Biz de bunu bir Akşam Yemeği nesnesi, kesin türü belirtilmiş ViewModel olarak yararlanın ve Kopyala/Yapıştır, bizim Details.aspx görünümüne düzenleme ve silme mantığından sahip olacaksınız.
 
 Bizim ayrıntıları şablon can görüntüleyin. ardından hemen altındaki iki Html.RenderPartial() yöntemi çağrılarını içerir:
 
 [!code-aspx[Main](use-ajax-to-deliver-dynamic-updates/samples/sample12.aspx)]
 
-Bu kod okuyun ve korumak için Temizleyici hale getirir.
+Bu kod okunması ve düzenlenmesi daha temiz olmasını sağlar.
 
 ### <a name="next-step"></a>Sonraki adım
 
-Şimdi nasıl biz AJAX daha kullanın ve uygulamamız için etkileşimli eşleme desteği eklemek bakalım.
+Şimdi nasıl biz AJAX daha da kullanabilir ve uygulamamıza etkileşimli eşleme desteği eklendi göz atalım.
 
 > [!div class="step-by-step"]
 > [Önceki](secure-applications-using-authentication-and-authorization.md)
-> [sonraki](use-ajax-to-implement-mapping-scenarios.md)
+> [İleri](use-ajax-to-implement-mapping-scenarios.md)

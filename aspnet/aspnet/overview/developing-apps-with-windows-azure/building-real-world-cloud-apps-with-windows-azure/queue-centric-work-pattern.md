@@ -1,181 +1,180 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
-title: Kuyruk merkezli çalışma deseni (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
+title: Kuyruk merkezli çalışma deseni (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
+description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: cc1ad51b-40c3-4c68-8620-9aaa0fd1f6cf
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 124e673206ecea2eac5efb8c2802a32a690fa104
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd8f9165de333d22bed0001bb932d7bab8430672
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875441"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370264"
 ---
-<a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Kuyruk merkezli çalışma deseni (Azure ile gerçek bulut uygulamaları derleme)
+<a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Kuyruk merkezli çalışma deseni (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [zel Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitap indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünya bulut uygulamalarını Azure ile** e-kitap Scott Guthrie tarafından geliştirilen bir sunu dayanır. 13 desenleri açıklar ve yardımcı olacak yöntemler bulutu için web uygulamaları geliştirme başarılı. E-kitap hakkında daha fazla bilgi için bkz: [ilk bölüm](introduction.md).
+> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
 
-Birden çok hizmetlerini kullanarak uygulamanın etkili SLA olduğu bir "bileşik" SLA'da sonuçlanabilir daha önce gördüğümüz *ürün* tek tek SLA'ları. Örneğin, Web siteleri, depolama ve SQL veritabanı Düzelt uygulama kullanır. Bu hizmetlerden herhangi biri başarısız olursa, uygulama kullanıcıya bir hata döndürür.
+Daha önce birden çok hizmeti kullanarak etkin SLA'sı uygulamanın bulunduğu bir "bileşik" SLA'da sonuçlanabilir gördüğünüz *ürün* ayrı ayrı Sla'lardan biri. Örneğin, düzeltme uygulama, Web siteleri, depolama ve SQL veritabanı kullanır. Bu hizmetlerden herhangi biri başarısız olursa, uygulama kullanıcıya bir hata döndürür.
 
-Önbelleğe alma, salt okunur içerik için geçici hataları işlemek için iyi bir yoludur. Ancak, uygulamanızın ne çalışması gerekir? Örneğin, kullanıcı yeni bir Düzelt görev gönderdiğinde, uygulama görevi yalnızca önbelleğe yerleştirin. Uygulama işleme alınacak şekilde Düzelt görev kalıcı veri deposuna yazması gerekir.
+Önbelleğe alma, salt okunur içerik için geçici hataları işlemek için iyi bir yoludur. Ancak uygulamanızın çalışması gereken ne olur? Kullanıcı yeni bir Düzelt görev gönderdiğinde, örneğin, uygulamayı yalnızca görev önbelleğine konulamaz. Uygulamanın, işleyebileceğiniz şekilde Düzelt görev bir kalıcı bir veri deposuna yazma gerekir.
 
-Kuyruk merkezli çalışma deseni nereden geldiğini olmasıdır. Bu desen web katmanı ve arka uç hizmeti arasındaki bu sıkı bağ sağlar.
+Bu, kuyruk merkezli çalışma deseni burada devreye girer. Bu düzen, bir web katmanı ve arka uç hizmeti arasındaki bu sıkı bağ sağlar.
 
-İşte düzeni nasıl çalışır. Uygulama bir istek aldığında, bir iş öğesi bir sıraya koyar ve hemen yanıtı döndürür. Daha sonra ayrı arka uç işlemi sıranın iş öğelerinden çeker ve çalışır.
+İşte deseni nasıl çalışır. Uygulamaya bir istek aldığında, bir iş öğesi bir sıraya koyar ve hemen yanıtı döndürür. Ardından ayrı arka uç işlemi, sıranın iş öğelerini çeker ve çalışır.
 
 Kuyruk merkezli çalışma deseni için yararlıdır:
 
-- Uzun süren (yüksek gecikme süresi) çalışma.
-- Her zaman kullanılamayabilir bir dış hizmet gerektirir çalışın.
-- Yani iş yoğun kaynak (yüksek CPU).
-- (Tabi ani yük WINS'e) Dengeleme kurundan yararlanabileceğini çalışın.
+- Bu iş zaman alıcı (yüksek gecikme süresi).
+- Her zaman kullanılabilir olmayabilir bir dış hizmet gerektiren iş.
+- Yani çalışma kaynak kullanımı yoğun (yüksek CPU).
+- Bu iş oranı (yük ani artışları tabidir) Dengeleme yararlı.
 
 ## <a name="reduced-latency"></a>Düşük gecikme süresi
 
-Kuyruklar, uzun süren iş yapmakta olduğunuz dilediğiniz zaman yararlıdır. Bir görev birkaç saniye sürer veya artık, son kullanıcı engelleme yerine iş öğesi bir kuyruğa koymak varsa. Kullanıcı "Üzerinde çalışıyoruz" söyleyin ve sonra görev arka planda işlemek için bir kuyruk dinleyicisini kullanın.
+Kuyruklar, zaman harcayan iş yaptığı her zaman yararlıdır. Bir görevi birkaç saniye veya daha uzun sürerse, bunun yerine son kullanıcı engelleme iş öğesini kuyruğa yerleştirin. Kullanıcı "Üzerinde çalışıyoruz" söyleyin ve arka plan görevi işlemek için bir kuyruk dinleyicisini kullanın.
 
-Örneğin, bir çevrimiçi satıcısı konumundaki bir şey satın aldığınızda, web sitesini hemen siparişinizi onaylar. Ancak, öğelerinizi zaten teslim edilen bir kamyonu olduğu anlamına gelmez. Bir görev sıraya koyarlar ve arka planda öğelerinizi dağıtımı için hazırlama kredi kontrolü işleminden olduğundan ve benzeri.
+Örneğin, bir çevrimiçi satış şirketi, bir şey satın aldığınızda, web sitesinin hemen siparişinizi onaylar. Ancak bu öğelerinizi zaten teslim edilen bir kamyon içinde olduğu anlamına gelmez. Bunlar bir görev bir kuyruğa koymak ve arka planda bunlar öğelerinizi dağıtımı için hazırlama kredi kontrolü yapmak ve VS.
 
-Kısa bir gecikme süresi ile senaryoları için toplam uçtan uca süre görevi eşzamanlı olarak yapılması ile karşılaştırıldığında, bir sıra kullanarak daha uzun olabilir. Ancak daha sonra diğer ağır bu dezavantajı basıyor.
+Kısa bir gecikme süresi senaryoları için toplam uçtan uca zaman zaman uyumlu olarak görev yapan ile karşılaştırıldığında, bir kuyruk kullanma uzun olabilir. Ancak diğer avantajları bu olumsuz bile daha fazla olabilir.
 
 ## <a name="increased-reliability"></a>Daha fazla güvenilirlik
 
-Sürümünde düzeltin, biz kadarki bakarak bu, ön uç web SQL veritabanı uç ile sıkı şekilde bağlı. SQL veritabanı hizmeti kullanılamıyorsa, kullanıcı hata alır. Yeniden deneme işe yaramazsa (diğer bir deyişle, birden fazla geçici hatasıdır), bir hata gösterebilir ve daha sonra yeniden denemek için kullanıcıya sor yapabileceğiniz tek şey.
+Sürümü düzeltin, biz, şimdiye arıyorsunuz içinde web ön ucu SQL veritabanı arka ucu ile sıkı şekilde bağlı. SQL veritabanı hizmeti kullanılamıyorsa, kullanıcı hata alır. Yeniden deneme işe yaramazsa (diğer bir deyişle, hatanın geçici'den fazla), gerçekleştirebilirsiniz yalnızca hata Göster ve daha sonra yeniden denemek için kullanıcıya sor şeydir.
 
-![Diyagram gösteren web SQL veritabanı arka uç başarısız olduğunda başarısız olan ön uç](queue-centric-work-pattern/_static/image1.png)
+![Diyagram gösteren web ön uç SQL veritabanı uç başarısız olduğunda başarısız oluyor](queue-centric-work-pattern/_static/image1.png)
 
-Bir kullanıcı bir Düzelt görev gönderdiğinde kuyrukları kullanma, uygulama kuyruğa bir ileti yazar. İleti yükü bir [JSON](http://json.org/) görev gösterimi. İleti sıraya yazılan hemen uygulama döndürür ve hemen kullanıcıya bir başarı iletisi gösterilir.
+Kuyruklar, bir kullanıcı bir Düzelt görev gönderdiğinde kullanarak uygulamayı kuyruğa bir ileti yazar. İleti yükü bir [JSON](http://json.org/) Görev temsili. İleti sıraya yazılan hemen sonra uygulama döndürür ve hemen kullanıcıya bir başarı iletisi gösterilir.
 
-Arka uç hizmetlerini – gibi SQL veritabanı veya sıra dinleyicisi--çevrimdışı kalırsa, kullanıcı hala Düzelt yeni görevler gönderebilirsiniz. Arka uç hizmetlerini yeniden kullanılabilir kadar iletileri yalnızca sıraya koyar. Bu noktada, arka uç hizmetlerini biriktirme listesi üzerinde Yakala.
+Herhangi bir arka uç Hizmetleri – gibi SQL veritabanı veya kuyruk dinleyici--çevrimdışı ise kullanıcıların Düzelt yeni görevler yine de gönderebilirsiniz. Arka uç hizmetleri yeniden kullanılabilir kadar iletileri yalnızca kuyruğa ekler. Bu noktada, arka uç Hizmetleri biriktirme listesi üzerinde Kaçırdığınız.
 
-![Web ön uç bir SQL veritabanı hatası olduğunda çalışmaya devam eden gösteren diyagram](queue-centric-work-pattern/_static/image2.png)
+![Web ön uç bir SQL veritabanı hatası olduğunda çalışmaya devam etmesini gösteren diyagram](queue-centric-work-pattern/_static/image2.png)
 
-Üstelik artık daha fazla arka uç mantığı ön ucu dayanıklılık hakkında endişelenmeden ekleyebilirsiniz. Örneğin, bir yeni düzeltin, kendine atanan her sahibine bir e-posta veya SMS mesajı göndermek isteyebilirsiniz. E-posta veya SMS hizmeti kullanılamaz duruma gelirse, şey işlemek ve ardından e-posta/SMS iletileri göndermek için ayrı bir sıraya bir ileti yerleştirin.
+Üstelik, artık daha fazla arka uç mantığınızı ön uç dayanıklılığı hakkında endişelenmeden ekleyebilirsiniz. Örneğin, her bir yeni düzeltme atandıktan sahibine bir e-posta veya SMS mesajı göndermek isteyebilirsiniz. E-posta veya SMS hizmeti kullanılamaz duruma gelirse, diğer her şey işleyebilir ve ardından e-posta/SMS mesajları göndermek için ayrı bir kuyruğa bir ileti yerleştirin.
 
-Daha önce Web uygulamaları bizim etkili SLA edildi &times; depolama &times; SQL veritabanı = %99.7. (Bkz [hatalarına karşı korur tasarım](design-to-survive-failures.md).)
+Daha önce Web uygulamaları etkili SLA'mız olan &times; depolama &times; SQL veritabanı %99.7 =. (Bkz [hatalara karşı tasarım](design-to-survive-failures.md).)
 
-Biz bir sıra kullanmak üzere uygulamayı değiştirdiğinizde, web ön uç, yalnızca Web uygulamaları ve depolama, bir bileşik %99.8 SLA bağlıdır. (Blob depolama aynı SLA dahil edilir şekilde sıralar Azure depolama hizmetinin bir parçası olduğunu unutmayın.)
+Bir sıra kullanmak için uygulamayı değiştirdiğimizde, web ön uç Web uygulamaları ve depolama, yalnızca bir bileşik SLA'sı % 99,8 bağlıdır. (Blob depolama aynı SLA'ya dahil edilir şekilde sıralar Azure depolama hizmetinin bir parçası olduğunu unutmayın.)
 
-%99.8 daha da iyi gerekiyorsa, iki farklı bölgelerde iki sıralar da oluşturabilirsiniz. Birincil ve diğeri de bir ikincil olarak belirleyin. Birincil kuyruk kullanılabilir değilse, uygulamanızda ikincil kuyruğuna yük devri. Her iki olma kullanılamaz aynı anda fırsat çok küçük.
+Daha da iyi % 99,8 gerekiyorsa, iki farklı bölgelerde iki kuyruk oluşturabilirsiniz. Birincil ve diğer olarak ikincil olarak belirleyin. Birincil kuyruk kullanılabilir değilse, uygulamanızda ikincil kuyruğa yük devretme. Her iki olma kullanılamaz aynı anda fırsat son derece düşüktür.
 
-## <a name="rate-leveling-and-independent-scaling"></a>Oranı Dengeleme ve bağımsız ölçeklendirme
+## <a name="rate-leveling-and-independent-scaling"></a>Dengeleme oranı ve bağımsız olarak ölçeklendirme
 
-Kuyruklar adlı bir şey için yararlı de *oranı Dengeleme* veya *Yük Dengeleme*.
+Kuyruk adı verilen bir şeyler için kullanışlı ayrıca *oranı Dengeleme* veya *Yük Dengeleme*.
 
-Web uygulamaları genellikle trafiğinin ani WINS'e maruz kalabilir. Artan web trafiğini işlemek için web sunucuları otomatik olarak eklemek için otomatik ölçeklendirmeyi kullanabilirsiniz, ancak otomatik ölçeklendirmeyi ani artışlarını yük için yeterince hızlı tepki mümkün olmayabilir. Web sunucuları bir sıraya bir ileti yazarak yapmak için sahip oldukları iş bazıları boşaltabileceği varsa, bunlar daha fazla trafiği işleyebilir. Bir arka uç hizmeti sıradaki iletileri okumak ve bunları işlemek. Sıra Derinliği büyütür veya gelen Yük hacmi değiştikçe küçültür.
+Web apps, trafik ani artışları için genellikle açıktır. Artan web trafiğini işlemek için web sunucuları otomatik olarak eklemek için otomatik ölçeklendirme kullanabilmenize karşın, otomatik ölçeklendirme ani artış yükü işlemek için yeterince hızlı tepki vermek mümkün olmayabilir. Web sunucuları, bir kuyruğa bir ileti yazarak yapmak için sahip oldukları işinin bir kısmını boşaltabilirsiniz, daha fazla trafik işlemek. Arka uç hizmeti kuyruktan iletileri okumak ve bunları işleyin. Kuyruğun derinliği büyütür veya gelen yük değiştikçe Daralt.
 
-Bir arka uç hizmetine off-loaded zaman çalışmasını çoğunu ile web katmanı daha kolay trafiğinin ani ani yanıt verebilir. Ve daha az web sunucuları tarafından verilen tüm trafik miktarı işlenebilir çünkü paradan tasarruf.
+Büyük bir arka uç hizmetine off-loaded zaman harcayan iş ile web katmanı ve daha kolay ani artışlar yanıt verebilir. Ve herhangi bir verilen trafik miktarını daha az web sunucuları tarafından işlenebilen çünkü tasarruf edin.
 
-Web katmanı ve arka uç hizmeti bağımsız olarak ölçeklendirebilirsiniz. Örneğin, yalnızca bir sunucu işleme sırası iletiler ancak üç web sunucuları gerekebilir. Veya arka planda işlem yoğunluklu görev çalıştırıyorsanız, daha fazla arka uç sunucularına gerekebilir.
+Web katmanı ve arka uç hizmeti bağımsız olarak ölçeklendirebilirsiniz. Örneğin, üç web sunucuları, ancak yalnızca bir sunucu Kuyruk iletilerini işleme gerekebilir. Veya arka planda yoğun işlem gücü kullanımlı görev çalıştırma, daha fazla arka uç sunucularına ihtiyacınız olabilir.
 
 ![](queue-centric-work-pattern/_static/image3.png)
 
-Otomatik ölçeklendirmeyi arka uç hizmetleriyle ve aynı zamanda web katmanı ile çalışır. Ölçeği artırma veya arka uç VM'ler CPU kullanımına dayalı sırasındaki görevlerin işleme VM'ler ölçeğini. Veya, bir kuyruktaki öğe sayısını göre otomatik ölçekleme yapabilirsiniz. Örneğin, en fazla 10 öğe sırada tutmaya çalışın için otomatik ölçeklendirme anlayabilirsiniz. Sıra birden fazla 10 öğe varsa, otomatik ölçeklendirme sanal makineleri ekleyin. Catch olduğunda otomatik ölçeklendirme fazladan VM'ler kesmeden.
+Otomatik ölçeklendirme, arka uç Hizmetleri ile yanı sıra web katmanı ile çalışır. Ölçeği artırma veya görevleri arka uç VM'lerin CPU kullanımına göre sıradan işleme VM sayısının ölçeğini. Ya da kuyrukta ne kadar öğe olmasına göre otomatik ölçeklendirme yapabilirsiniz. Örneğin sırada en fazla 10 öğe tutmak denemek için otomatik ölçeklendirme söyleyebilirsiniz. Sıranın 10'dan fazla öğe varsa, otomatik ölçeklendirme Vm'leri ekler. Otomatik ölçeklendirme, catch, ek VM'ler yıkılıp.
 
 ## <a name="adding-queues-to-the-fix-it-application"></a>Ekleme kuyruklar düzeltmesi, uygulama
 
-Sıra desen uygulamak için biz Düzelt uygulama için iki değişiklikler yapmanız gerekir.
+Kuyruk düzeni uygulamak için biz Düzelt uygulama için iki değişiklik yapmanız gerekir.
 
-- Bir kullanıcı yeni bir Düzelt görev gönderdiğinde, görev sırasındaki veritabanına yazmak yerine, yerleştirin.
+- Bir kullanıcı yeni bir Düzelt görev gönderdiğinde, görev veritabanına yazmak yerine sıranın yerleştirin.
 - Sıradaki iletileri işleyen bir arka uç hizmeti oluşturun.
 
 Sıra için kullanacağız [Azure kuyruk depolama hizmeti](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Başka bir seçenek kullanmaktır [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
-Hangi kuyruk hizmetini kullanacak biçimde karar vermek için nasıl uygulamanızın ileti gönderme ve sıraya alma gerektiğini göz önünde bulundurun:
+Kullanılacak kuyruk hizmeti karar vermek üzere nasıl gönderin ve ileti kuyruğa almak uygulamanız gereken göz önünde bulundurun:
 
-- Birlikte çalışan üreticileri ve rakip tüketiciye varsa, Azure kuyruk depolama hizmeti kullanmayı düşünün. "Cooperating üreticileri" birden çok işlem iletileri kuyruğa eklemekte olduğunuz anlamına gelir. Birden çok işlem iletileri işlemek için sıra dışı çekme, ancak belirli bir ileti yalnızca "tüketici tarafından." işlenebilir "Rekabet tüketicileri" anlamına gelir İle tek bir sıraya yapabileceğinizden daha fazla verimlilik gerekiyorsa, ek kuyruklar ve/veya ek depolama hesapları kullanın.
-- Gerekirse bir [Yayınla/Abone ol modeli](http://en.wikipedia.org/wiki/Publish/subscribe), Azure Service Bus kuyruklarını kullanmayı düşünün.
+- Kurduğuna ilişkin üreticileri ve rakip tüketiciler varsa, Azure kuyruk depolama hizmetini kullanarak göz önünde bulundurun. "Cooperating üreticileri", birden çok işlem iletileri kuyruğa eklemekte olduğunuz anlamına gelir. Kuyruk iletilerini işlemek için birden çok işlem çeken, ancak belirli bir ileti yalnızca bir "tüketicisi. tarafından" işleme "Rakip tüketiciler" anlamına gelir İle tek bir kuyruk yapabileceğinizden daha fazla performans gerekiyorsa ek kuyruklar ve/veya ek depolama hesapları kullanın.
+- Gerekirse bir [yayımlama/abone olma modeli](http://en.wikipedia.org/wiki/Publish/subscribe), Azure Service Bus kuyruklarını kullanmayı düşünün.
 
-Düzelt uygulama için birlikte çalışan üreticileri ve rakip tüketiciye modeli uygun.
+Düzeltme uygulama kurduğuna ilişkin üreticileri ve rakip tüketiciler modeli için en uygun.
 
-Uygulama kullanılabilirliği başka bir konudur. Kuyruk depolama hizmeti kullanmaya bizim SLA üzerinde hiçbir etkisi yoktur, blob depolama için kullanmakta olduğunuz aynı hizmeti bir parçasıdır. Azure hizmet veri yolu, kendi SLA ile ayrı bir hizmettir. Hizmet veri yolu kuyrukları kullansaydık, biz ek bir SLA yüzdesi faktörü gerekirdi ve bizim bileşik SLA daha düşük olacaktır. Sıra Hizmeti seçerken uygulama kullanılabilirliği tercih ettiğiniz etkilerini anladığınızdan emin olun. Daha fazla bilgi için bkz: [kaynakları](#resources) bölümü.
+Uygulama kullanılabilirliği başka bir husustur. Kuyruk depolama hizmetini kullanmaya SLA'mız etkisi yoktur, blob depolama için kullandığımız aynı hizmeti bir parçasıdır. Azure Service Bus, kendi SLA'sı ile farklı bir hizmettir. Hizmet veri yolu kuyrukları kullandık, biz ek bir SLA yüzdesi faktörü gerekirdi ve bileşik SLA'mız daha düşük olacaktır. Kuyruk hizmeti seçerken, seçtiğiniz uygulama kullanılabilirliği üzerindeki etkisini anladığınızdan emin olun. Daha fazla bilgi için [kaynakları](#resources) bölümü.
 
-## <a name="creating-queue-messages"></a>İletileri kuyruğa oluşturma
+## <a name="creating-queue-messages"></a>Kuyruk iletileri oluşturuluyor
 
-Düzelt görev sırasına koymak için web ön uç aşağıdaki adımları gerçekleştirir:
+Düzelt göreve sıraya koymak için web ön ucu aşağıdaki adımları gerçekleştirir:
 
-1. Oluşturma bir [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) örneği. `CloudQueueClient` Örneği sıra hizmeti isteklerini yürütmek için kullanılır.
-2. Henüz yoksa kuyruk oluşturun.
-3. Düzelt görev serileştirir.
-4. Çağrı [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) ileti sıranın yerleştirilecek.
+1. Oluşturma bir [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) örneği. `CloudQueueClient` Örneği, istekler kuyruk hizmeti yürütmek için kullanılır.
+2. Henüz yoksa bir kuyruk oluşturun.
+3. Düzeltme görev serileştirir.
+4. Çağrı [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) kuyruğuna bir ileti yerleştirmek için.
 
 Biz bu iş oluşturucuda gerçekleştirirsiniz ve `SendMessageAsync` yöntemi yeni bir `FixItQueueManager` sınıfı.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample1.cs?highlight=11-12,16,18-25)]
 
-Burada kullanıyoruz [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) Düzelt JSON biçiminde seri hale getirmek için kitaplık. Tercih ettiğiniz herhangi bir seri hale getirme yaklaşım kullanabilirsiniz. JSON XML daha az ayrıntılı devam ederken okunabilir, olma avantajına sahiptir.
+Burada kullandığımız [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) Düzelt JSON biçiminde seri hale getirmek için kitaplığı. Tercih ettiğiniz hangi serileştirme yaklaşımı kullanabilirsiniz. JSON, XML daha az ayrıntılı olmanın yanı sıra okunabilir, olma avantajına sahiptir.
 
-Üretim kaliteli kod hata işleme mantığı ekleme, veritabanı kullanılamaz hale geldiyse duraklatmak, kurtarmayı daha düzgün bir şekilde işlemek, sıra üzerinde uygulama başlatma oluşturmak ve yönetmek "[zarar" iletileri](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Zararlı bir ileti herhangi bir nedenden dolayı işlenemeyen bir iletidir. Kuyrukta, burada çalışan rolü sürekli işlenecekleri, başarısız, yeniden deneyin, başarısız ve benzeri dener sit zarar iletileri istemediğiniz.)
+Üretim kalitesinde kod hata işleme mantığı ekleyin, veritabanı kullanılamaz duruma geldi, duraklatma, Kurtarma daha temiz bir şekilde işlemek, üzerinde uygulama başlatma kuyruk oluşturma ve yönetme "[zehirli" iletileri](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Zehirli ileti, herhangi bir nedenden dolayı işlenemeyen bir iletidir. Burada çalışan rolü sürekli olarak işlemeye, başarısız, yeniden deneyin, başarısız ve benzeri dener kuyrukta oturmak zehirli iletiler istemediğiniz.)
 
-Ön uç MVC uygulamasındaki size yeni bir görev oluşturur kodu güncelleştirmeniz gerekir. Görev depoya koyma yerine çağrı `SendMessageAsync` yukarıda gösterilen yöntemi.
+Ön uç MVC uygulamasında, size yeni bir görev oluşturan kodu güncelleştirmeniz gerekir. Görev depoya almak yerine çağrı `SendMessageAsync` yukarıda gösterilen yöntemi.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample2.cs?highlight=10)]
 
-## <a name="processing-queue-messages"></a>İletileri işleme
+## <a name="processing-queue-messages"></a>Kuyruk iletilerini işleme
 
-Sıradaki iletileri işlemek için bir arka uç hizmeti oluşturacağız. Arka uç hizmetine aşağıdaki adımları gerçekleştirir sonsuz bir döngüde çalışır:
+Sıradaki iletileri işlemek için arka uç hizmeti oluşturacağız. Arka uç hizmeti, aşağıdaki adımları gerçekleştirir sonsuz bir döngüye çalıştırılır:
 
 1. Sonraki iletiyi sıradan alın.
-2. Bir Düzelt görevi seri durumdan çıkarır.
-3. Düzelt görev veritabanına yazar.
+2. İletiyi Düzelt göreve seri durumdan çıkarır.
+3. Düzeltme görev veritabanına yazın.
 
-Arka uç hizmetine barındırmak için Azure bulut hizmeti içeren oluşturacağız bir *çalışan rolü*. Çalışan rolü, arka uç işleme yapmak için bir veya daha fazla VM oluşur. Bu Vm'lerde çalışan bir kod kullanılabilir olduklarında sırasından ileti çeker. Her ileti için şu JSON yükü seri durumdan ve daha önce web katmanında kullandık aynı deponun kullanarak düzeltme bu görev varlık örneği veritabanına yazma.
+Arka uç hizmeti barındırmak için Azure bulut hizmeti içeren oluşturacağız bir *çalışan rolü*. Bir çalışan rolü, arka uç işleme yapmak için bir veya daha fazla sanal makinelerin oluşur. Bu Vm'lerde çalışan kodu iletileri kullanıma sunuldukça kuyruğundan çeker. Her ileti için şu JSON yükü seri durumdan ve düzeltin, görev varlığı örneği web katmanından daha önce kullandığımız aynı depoyu kullanarak veritabanına yazma.
 
-Aşağıdaki adımlar, standart web projesi bulunduğu bir çözümü rolü projesine bir çalışan ekleme gösterir. Bu adımları yükleyebileceğiniz Düzelt projede zaten yapılmış.
+Aşağıdaki adımları ekleme bir çalışan rolü projesi standart bir web projesine sahip bir çözüme gösterir. Bu adımları indirebileceğiniz Düzelt projede zaten yaptınız.
 
-Önce bir bulut hizmeti projesini Visual Studio çözümü ekleyin. Çözüme sağ tıklayın ve seçin **Ekle**, ardından **yeni proje**. Sol bölmede **Visual C#** seçip **bulut**.
+İlk bulut hizmeti projesi için Visual Studio çözümünü ekleyin. Çözüme sağ tıklayıp **Ekle**, ardından **yeni proje**. Sol bölmede genişletin **Visual C#** seçip **bulut**.
 
 [![](queue-centric-work-pattern/_static/image5.png)](queue-centric-work-pattern/_static/image4.png)
 
-İçinde **yeni Azure bulut hizmeti** iletişim kutusunda, genişletin **Visual C#** sol bölmedeki düğüm. Seçin **çalışan rolü** ve sağ ok simgesine tıklayın.
+İçinde **yeni Azure bulut hizmeti** iletişim kutusunda Genişlet **Visual C#** sol bölmedeki düğüm. Seçin **çalışan rolü** ve sağ ok simgesine tıklayın.
 
 ![](queue-centric-work-pattern/_static/image6.png)
 
-(Ayrıca ekleyebileceğiniz bildirimi bir *web rolü*. Biz düzeltin, bir Azure Web sitesini çalıştırmak yerine aynı bulut hizmetinde ön uç çalıştırabilir. Ön uç ve arka uç arasındaki bağlantıları koordine kolaylaştırma içinde bazı avantajları vardır. Ancak, bu demo basit tutmak için biz ön uç bir Azure App Service Web uygulaması tutulması ve yalnızca arka uç bulut hizmetinde çalışan.)
+(De ekleyebilirsiniz bildirim bir *web rolü*. Düzeltme yerine bir Azure Web sitesinde çalışan aynı bulut hizmetinde ön uç çalıştıralım. Bu, ön uç ve arka uç arasındaki bağlantıları koordine kolaylaştırma içinde bazı avantajları vardır. Ancak bu tanıtımda basit tutmak için biz bir Azure App Service Web uygulamasında ön uç tutma ve yalnızca arka uç bulut hizmetinde çalışan.)
 
-Varsayılan ad çalışan rolü atanır. Adını değiştirmek için fareyi sağ bölmede çalışan rolü üzerine gelin ve Kalem simgesine tıklayın.
+Varsayılan bir ad çalışan rolüne atanır. Adını değiştirmek için sağ taraftaki bölmede çalışan rolü fareyi üzerine gelin ve Kalem simgesine tıklayın.
 
 ![](queue-centric-work-pattern/_static/image7.png)
 
-Tıklatın **Tamam** iletişim tamamlamak için. Bu iki proje için Visual Studio çözümü ekler.
+Tıklayın **Tamam** iletişim tamamlanması. Bu, Visual Studio çözümü iki proje ekler.
 
 - bir Azure projesi yapılandırma bilgilerini de dahil olmak üzere bulut hizmetini tanımlar.
-- Çalışan rolü tanımlayan çalışan rolü projesi.
+- Çalışan rolü tanımlayan bir çalışan rolü projesi.
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Daha fazla bilgi için bkz: [Visual Studio ile bir Azure projesi oluşturma.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
+Daha fazla bilgi için [Visual Studio ile bir Azure projesi oluşturma.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
-Çalışan rolü biz iletileri çağırarak yoklamak `ProcessMessageAsync` yöntemi `FixItQueueManager` daha önce gördüğümüz sınıfı.
+Çalışan rolü içinde biz iletileri çağırarak yoklama `ProcessMessageAsync` yöntemi `FixItQueueManager` daha önce gördüğümüz sınıfı.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample3.cs?highlight=25)]
 
-`ProcessMessagesAsync` Yöntemi bir ileti bekleme olup olmadığını denetler. Varsa, iletisine çıkarır bir `FixItTask` varlık ve varlık veritabanına kaydeder. Sıranın boş olmadığı sürece döngüye girer.
+`ProcessMessagesAsync` Yöntemi, bir ileti bekletme olup olmadığını denetler. Varsa, iletisine çıkarır. bir `FixItTask` varlığı ve varlığın veritabanına kaydeder. Sıranın boş olduğundan kadar döngüde kalır.
 
 [!code-csharp[Main](queue-centric-work-pattern/samples/sample4.cs)]
 
-İletileri kuyruğa doğurur için küçük bir işlem yoklama gider, bunu işlenmek üzere bekleyen bir ileti olduğunda çalışan rolün `RunAsync` yöntemi bekler yoklama önce ikinci bir yeniden çağırarak `Task.Delay(1000)`.
+Küçük bir işlem doğurur kuyruk iletileri için yoklama ücretlendirme, işlenmeyi bekleyen herhangi bir ileti olduğunda bunu çalışan rolün `RunAsync` yöntemi bekler ikinci bir yoklama önce tekrar çağırarak `Task.Delay(1000)`.
 
-IIS sınırlı iş parçacığı havuzu yönetir çünkü bir web projesi zaman uyumsuz kod ekleme otomatik olarak performansı artırabilir. Çalışan rolü projesi durumda değil. Çalışan rolü ölçeklenebilirliği artırmak için çok iş parçacıklı kod yazmak veya uygulamak için zaman uyumsuz kodu kullanın [paralel programlama](https://msdn.microsoft.com/library/ff963553.aspx). Örnek paralel programlama uygulamaz ancak paralel programlama uygulamak için kod zaman uyumsuz nasıl yapılacağını gösterir.
+IIS sınırlı iş parçacığı havuzu yönettiğinden web projesinde, zaman uyumsuz kod ekleyerek otomatik olarak performansı artırabilir. Bir çalışan rolü projesi durumda değil. Çalışan rolünün ölçeklenebilirliği geliştirmek için çok iş parçacıklı kod yazın veya zaman uyumsuz kod uygulamak için kullanma [paralel programlama](https://msdn.microsoft.com/library/ff963553.aspx). Örnek paralel programlama uygulamaz ancak paralel programlama uygulayabilmesi kodu zaman uyumsuz nasıl yapılacağını gösterir.
 
 ## <a name="summary"></a>Özet
 
 Bu bölümde kuyruk merkezli çalışma deseni uygulayarak uygulama yanıt hızını, güvenilirliğini ve ölçeklenebilirliğini artırmak öğrendiniz.
 
-Bu e-kitap içinde kapsanan 13 desenleri son budur ancak yardımcı olacak yöntemler başarılı bulut uygulamaları derleme ve diğer birçok desenleri Elbette vardır. [Son bölüm](more-patterns-and-guidance.md) bu 13 düzenleri kapsamdaki henüz konular için kaynaklara bağlantılar sağlanmaktadır.
+Bu e-kitap, kapsamdaki 13 desenlerinin son budur ancak Elbette diğer birçok desen vardır ve yardımcı olabilecek uygulamalar başarılı bulut uygulamaları oluşturun. [Son bölüm](more-patterns-and-guidance.md) 13 bu desenleri kapsamdaki henüz konular için kaynaklara bağlantılar sağlanmaktadır.
 
 <a id="resources"></a>
 ## <a name="resources"></a>Kaynaklar
@@ -184,17 +183,17 @@ Kuyruklar hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın.
 
 Belgeler:
 
-- [Microsoft Azure depolama kuyrukları bölüm 1: Başlarken](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Latin Schacherl makalesiyle.
-- [Arka plan görevleri çalıştırma](https://msdn.microsoft.com/library/ff803365.aspx), bölüm 5 [3 bulut uygulamalarını taşıma](https://msdn.microsoft.com/library/ff728592.aspx) Microsoft Patterns ve yöntemleri. (Özellikle, bölüm ["Azure depolama kuyruklarını kullanarak"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
-- [Ölçeklenebilirlik ve sıra tabanlı Mesajlaşma çözümü Azure üzerinde maliyet verimliliğini en üst düzeye çıkarma için en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Teknik incelemesi Valery Mizonov tarafından.
-- [Azure kuyruklar ve hizmet veri yolu kuyrukları karşılaştırma](https://msdn.microsoft.com/magazine/jj159884.aspx). MSDN dergisi makale kullanmak için hangi sıra hizmeti seçmenize yardımcı olabilecek ek bilgiler sağlar. Makale, Service Bus ACS kullanılamadığında SB sıraları kullanılamaz durumda olurdu anlamına gelir kimlik doğrulaması için üzerinde ACS bağımlı olduğunu tanımlamıştır. Makalenin yazıldığı olduğundan, ancak SB kullanmanızı sağlamak üzere değiştirilmiştir [SAS belirteci](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) alternatif ACS'nin olarak.
-- [Microsoft Patterns and Practices - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Zaman uyumsuz Mesajlaşma primer, Kanallar ve filtreleri düzeni, karşılayan işlem düzeni, rekabet tüketicileri düzeni, CQRS düzeni bakın.
-- [CQRS Journey](https://msdn.microsoft.com/library/jj554200). E-kitap Microsoft desenleri ve uygulamalar tarafından CQRS hakkında.
+- [Microsoft Azure depolama kuyrukları 1. Bölüm: Başlarken](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Roman Schacherl makalesiyle.
+- [Arka plan görevleri yürütme](https://msdn.microsoft.com/library/ff803365.aspx), bölüm 5 [uygulamaları bulutta, 3 taşıma](https://msdn.microsoft.com/library/ff728592.aspx) Microsoft Patterns ve yöntemler. (Özellikle, bölüm ["Kullanarak Azure depolama kuyrukları"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Ölçeklenebilirlik ve maliyet verimliliğini azure'da kuyruk tabanlı Mesajlaşma çözümleri, en üst düzeye en iyi uygulamalar](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Valery'nin Mizonov tarafından teknik incelemesinde yanıtlanmıştır.
+- [Azure kuyrukları ve Service Bus kuyrukları karşılaştırma](https://msdn.microsoft.com/magazine/jj159884.aspx). MSDN Magazine makalesini kullanılacak kuyruk hizmeti seçmenize yardımcı olabilecek ek bilgiler sağlar. Bu makalede hizmet veri yolu ACS kullanılamadığında SB Kuyruklarınızı kullanılabilir olacağı anlamına gelir kimlik doğrulaması için ACS üzerinde bağlı olduğundan bahseder. Makale yazılmış olduğundan, ancak SB kullanmanızı sağlamak üzere değiştirildi [SAS belirteçlerini](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) ACS alternatif olarak.
+- [Microsoft desenler ve uygulamalar - Azure Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx). Zaman uyumsuz Mesajlaşma temel bilgileri, Kanallar ve filtreler düzeni, telafi işlemi düzeni, rakip tüketiciler düzeni, CQRS düzeni bakın.
+- [CQRS yolculuğu](https://msdn.microsoft.com/library/jj554200). E-kitabı Microsoft desenler ve uygulamalar tarafından CQRS hakkında.
 
 Video:
 
-- [Hatasız: Ölçeklenebilir ve esnek bulut Hizmetleri derleme](https://channel9.msdn.com/Series/FailSafe). Ulrich Homann, Marc Mercuri ve işareti SIMM'lerinin video serisi dokuz bölümü. Üst düzey kavramlarını ve mimari ilkeler çok erişilebilir ve ilginç yolla, Microsoft Müşteri danışma ekibi (CAT) deneyiminde gerçek müşterilerle çizilmiş hikayeleri sunar. Kuyruklar ve Azure depolama hizmeti için bir giriş için bkz: Bölüm 5 35:13 başlatma.
+- [Hatasız: Ölçeklenebilir, dayanıklı bulut hizmetleri oluşturmaya](https://channel9.msdn.com/Series/FailSafe). Dokuz bölümden Ulrich Homann, Marc Mercuri ve Mark Simms'in video serisi. Üst düzey kavramlarını ve mimari ilkeleri gerçek müşterilerle Microsoft Müşteri danışma ekibi (CAT) deneyiminden çizilmiş hikayeleri çok erişilebilir ve ilgi çekici bir biçimde sunar. Bölüm 5 35:13 başlayan kuyrukları ve Azure depolama hizmeti için bir giriş için bkz.
 
 > [!div class="step-by-step"]
 > [Önceki](distributed-caching.md)
-> [sonraki](more-patterns-and-guidance.md)
+> [İleri](more-patterns-and-guidance.md)

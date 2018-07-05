@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-datatables/cdnjquerydatatables104
-title: jQuery DataTables 1.10.4 | Microsoft Docs
+title: jQuery DataTable 1.10.4 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,19 +9,18 @@ ms.date: 01/15/2015
 ms.topic: article
 ms.assetid: a313fb9c-93c8-40ef-9c81-e1651ecaffa3
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables104
 msc.type: content
-ms.openlocfilehash: 82fcc813b6126d62744a06719a057277d5a336f7
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: 76cb02071ae734ef41ff7a931c054ac53da7f9b2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2018
-ms.locfileid: "30071440"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375758"
 ---
-<a name="jquery-datatables-1104"></a>jQuery DataTables 1.10.4
+<a name="jquery-datatables-1104"></a>jQuery DataTable 1.10.4
 ====================
-Aşağıdaki dosyalar jQuery DataTables eklentileri için CDN üzerinde barındırılan:
+Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.10.4/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.10.4/jquery.dataTables.min.js

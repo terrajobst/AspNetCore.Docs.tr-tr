@@ -1,36 +1,35 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/index
-title: Entity Framework 6 ile Web API 2 kullanma | Microsoft Docs
+title: Web API 2 Entity Framework 6 ile kullanma | Microsoft Docs
 author: rick-anderson
-description: Entity Framework veritabanı kalıcılığını kullanan bir Web API uygulaması oluşturma
+description: Veritabanı Kalıcılık için Entity Framework kullanan bir Web API'si uygulaması oluşturma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/03/2012
 ms.topic: article
 ms.assetid: 6c3c4f27-2fa3-49dc-bcaf-1ee3ef620f8e
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework
 msc.type: chapter
-ms.openlocfilehash: 560a12f2625366947efa2afd00bbb184d9060e1e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db9cb0fd8607748102d8aec6ae9692ef8e5a1fd8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566301"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370503"
 ---
-<a name="using-web-api-2-with-entity-framework-6"></a>Entity Framework 6 ile Web API 2 kullanma
+<a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 Entity Framework 6 ile kullanma
 ====================
-> Entity Framework veritabanı kalıcılığını kullanan bir Web API uygulaması oluşturma
+> Veritabanı Kalıcılık için Entity Framework kullanan bir Web API'si uygulaması oluşturma
 
 
-- [Proje oluşturma](part-1.md)
-- [Modelleri ve denetleyicileri ekleyin](part-2.md)
-- [Çekirdek veritabanı](part-3.md)
-- [İşleme varlık ilişkileri](part-4.md)
-- [Veri aktarımı nesne (DTOs) oluşturma](part-5.md)
-- [JavaScript istemci oluşturma](part-6.md)
-- [Görünüm (UI) oluşturun](part-7.md)
-- [Görüntü öğe ayrıntıları](part-8.md)
-- [Veritabanına yeni bir öğe ekleyin](part-9.md)
-- [Azure Web siteleri için uygulamayı yayımlama](part-10.md)
+- [Projeyi Oluşturma](part-1.md)
+- [Model ve Denetleyici Ekleme](part-2.md)
+- [Veritabanının Çekirdeğini Oluşturma](part-3.md)
+- [Varlık İlişkilerini İşleme](part-4.md)
+- [Veri Aktarımı Nesneleri (DTO) Oluşturma](part-5.md)
+- [JavaScript İstemcisini Oluşturma](part-6.md)
+- [Görünümü (Kullanıcı Arabirimi) Oluşturma](part-7.md)
+- [Öğe Ayrıntılarını Görüntüleme](part-8.md)
+- [Veritabanına Yeni Öğe Ekleme](part-9.md)
+- [Uygulamayı Azure Web Sitelerine Yayımlama](part-10.md)

@@ -9,15 +9,14 @@ ms.date: 06/25/2013
 ms.topic: article
 ms.assetid: 646edfc7-dc62-4fa0-84c2-926996c92aeb
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013
 msc.type: chapter
-ms.openlocfilehash: fad379374814c794754605a2aab193ec625e2182
-ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
+ms.openlocfilehash: fb80ba2657e9a43b6cc7c0669f823fba1882eca5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
-ms.locfileid: "27980169"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370843"
 ---
 <a name="aspnet-and-visual-studio-2013"></a>ASP.NET ve Visual Studio 2013
 ====================
@@ -35,6 +34,6 @@ ms.locfileid: "27980169"
 - [Visual Studio 2013’te ASP.NET İskeleti Oluşturma](aspnet-scaffolding-overview.md)
 - [Tarayıcı Bağlantısı](using-browser-link.md)
 - [Visual Studio 2013 için ASP.NET and Web Tools Sürüm Notları](release-notes.md)
-- [ASP.NET ve Web Araçları 2013.2 Visual Studio 2013 sürüm notları](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
+- [İçin ASP.NET and Web Tools 2013.2 Visual Studio 2013 sürüm notları](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md)
 - [Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları](visual-studio-2013-web-tools.md)
 - [Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’yi Tümleştirme](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md)

@@ -2,159 +2,158 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 title: Toplu güncelleştirme (C#) | Microsoft Docs
 author: rick-anderson
-description: Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek üzere öğrenin. Kullanıcı arabirimi katmanda her satır düzenlenebilir olduğu GridView oluşturun. Veri...
+description: Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek hakkında bilgi edinin. Kullanıcı arabirimi katmanda her satırı düzenlenebilir olduğu GridView ekleriz. Veri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
 ms.topic: article
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9f1bad4f0b58175a8437ebfedf161db057bb2bd2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bd8a8f4bc56867da1668fda32b42efcf3a629cdf
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888558"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366814"
 ---
 <a name="batch-updating-c"></a>Toplu güncelleştirme (C#)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_64_CS.zip) veya [PDF indirin](batch-updating-cs/_static/datatutorial64cs1.pdf)
+[Kodu indir](http://download.microsoft.com/download/3/9/f/39f92b37-e92e-4ab3-909e-b4ef23d01aa3/ASPNET_Data_Tutorial_64_CS.zip) veya [PDF olarak indirin](batch-updating-cs/_static/datatutorial64cs1.pdf)
 
-> Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek üzere öğrenin. Kullanıcı arabirimi katmanda her satır düzenlenebilir olduğu GridView oluşturun. Veri erişim katmanı'ndaki tüm güncelleştirmeleri başarılı veya tüm güncelleştirmeler geri emin olmak için bir işlem içinde birden çok güncelleştirme işlemleri alın.
+> Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek hakkında bilgi edinin. Kullanıcı arabirimi katmanda her satırı düzenlenebilir olduğu GridView ekleriz. Veri erişim katmanındaki tüm güncelleştirmeleri başarılı olması veya tüm güncelleştirmeleri geri alınacak emin olmak için bir işlem içinde birden çok güncelleştirme işlemi biz kaydır.
 
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [önceki öğretici](wrapping-database-modifications-within-a-transaction-cs.md) veritabanı işlemleri için destek eklemek için veri erişim katmanı genişletmek nasıl gördük. Veritabanı işlemleri güvence altına veri değişikliği deyimleri bir dizi değişikliklerden başarısız olur veya tüm başarılı olur sağlayan bir atomik işlem olarak kabul edilir. Bu alt düzey DAL işlevleri ile göz önünden, biz re toplu veri değişikliği arabirimler oluşturma için uygulamamızla etkinleştirmek için hazır.
+İçinde [önceki öğretici](wrapping-database-modifications-within-a-transaction-cs.md) veritabanı işlemleri için destek eklemek için veri erişim katmanı genişletme gördük. Veritabanı işlemleri, bir dizi veri değişikliği deyim tüm değişiklikler yapamaz veya tüm başarılı olur sağlayan bir atomik işlem olarak kabul edilir olduğunu garanti. Bu alt düzey DAL işlevleri ile ortada, biz re toplu veri değişikliği arabirimleri oluşturmaya uygulamamızla etkinleştirmek için hazır.
 
-Bu öğreticide biz her satır düzenlenebilir (bkz: Şekil 1) olduğu GridView yapı. Her satır bir sütunu Düzenle gerek yoktur düzenleme arabirimi içinde orada s işlenmeden olduğundan, Güncelleştir ve İptal düğmeleri. Bunun yerine, iki güncelleştirme ürünleri düğme vardır sayfasında, tıklatıldığında GridView satırları numaralandırmak ve veritabanını güncelleyin.
+Bu öğreticide her satırı düzenlenebilir (bkz. Şekil 1) olduğu GridView oluşturacağız. Her satır bir düzenleme sütununun gerek düzenleme arabirimi içinde orada s işlenen olduğundan, Güncelleştir ve İptal düğmeleri. Bunun yerine, iki Update ürünleri düğme sayfada olduğunu, tıklandığında GridView satırları listeleme ve veritabanını güncelleştir.
 
 
-[![Her satırda bir GridView düzenlenebilir değil](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
+[![Her GridView satırında düzenlenebilir olduğunu](batch-updating-cs/_static/image1.gif)](batch-updating-cs/_static/image1.png)
 
-**Şekil 1**: GridView her satır olacak düzenlenebilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image2.png))
+**Şekil 1**: her GridView satırında düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image2.png))
 
 
 Let s başlayın!
 
 > [!NOTE]
-> İçinde [gerçekleştirme toplu güncelleştirmeler](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) oluşturduğumuz toplu düzenleme öğretici arabirim DataList denetimini kullanma. Bu öğretici, birinde kullanımdır GridView farklıdır ve toplu güncelleştirme bir işlem kapsamı içinde gerçekleştirilir. Bu öğreticiyi tamamladıktan sonra ı önceki öğreticiye geri dönün ve önceki öğreticide eklenen veritabanı işlem ilgili işlevselliğini kullanacak şekilde güncelleştirmek için öneririz.
+> İçinde [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) öğreticide oluşturduğumuz bir toplu düzenleme arabirim DataList denetimi kullanarak. Bu öğreticide, bir kullanımdır GridView farklıdır ve toplu güncelleştirme bir işlem kapsamında gerçekleştirilir. Bu öğreticiyi tamamladıktan sonra önceki öğreticiye geri dönün ve önceki öğreticide eklenen veritabanı işlem ile ilgili işlevselliğini kullanacak şekilde güncelleştirmek geçmenizi öneriyoruz.
 
 
-## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Tüm GridView satırları düzenlenebilir yapma adımları inceleniyor
+## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Tüm GridView satır düzenlenebilir yapma adımları İnceleme
 
-' Da anlatıldığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) öğretici, GridView, satır başına temelinde temel alınan verileri düzenleme için yerleşik destek sunar. Dahili olarak, hangi satır aracılığıyla düzenlenebilir GridView Notlar kendi [ `EditIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). GridView kendi veri kaynağına bağlı olarak, her satır satırın dizini değerini eşitse görmek için denetler `EditIndex`. Bu durumda, o satırdaki alanları kendi düzenleme kullanılarak işlenir s arabirimleri. BoundFields için düzenleme TextBox arabirimidir olan `Text` özelliği BoundField s tarafından belirtilen veri alanının değeri atanan `DataField` özelliği. TemplateFields için `EditItemTemplate` yerine kullanılan `ItemTemplate`.
+Bölümünde açıklandığı gibi [, bir genel bakış ekleme, güncelleştirme ve silme veri](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) öğreticide GridView satır başına temelinde, temel alınan verileri düzenleme için yerleşik destek sunar. Dahili olarak, hangi satır yoluyla düzenlenebilir GridView notları kendi [ `EditIndex` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). GridView kendi veri kaynağına bağlı olarak, her satır, satır dizinini değeri eşitse görmek için denetler `EditIndex`. Bu durumda, bu satır s alanları düzenleme kendi kullanılarak işlenir arabirimleri. BoundFields için düzenleme TextBox arabirimidir olan `Text` özelliği BoundField s tarafından belirtilen veri alanının değeri atanır `DataField` özelliği. TemplateField için `EditItemTemplate` yerine kullanılan `ItemTemplate`.
 
-Bir kullanıcı bir satır s Düzenle düğmesine tıkladığında düzenleme iş akışı başlayacağını geri çağırma. Bu geri gönderimin neden olur, GridView s ayarlar `EditIndex` özelliğini tıklatılan satır s dizini ve rebinds kılavuza veri. Ne zaman bir satır s iptal düğmesine tıklandığında, geri göndermede `EditIndex` değerine ayarlanmış `-1` kılavuza veri kira önce. GridView s satırları sıfırda Dizinlemeyi Başlat olduğundan, ayar `EditIndex` için `-1` GridView salt okunur modda görüntüleme etkisi vardır.
+Bir kullanıcı bir satır s Düzenle düğmesine tıkladığında düzenleme iş akışı başlatan geri çağırma. Bu geri göndermeye neden olur, GridView s ayarlar `EditIndex` tıklanan satır s dizini ve rebinds kılavuza veri özelliği. Ne zaman bir satır s iptal düğmesine tıklandığında, geri göndermede `EditIndex` değerine ayarlanmış `-1` kılavuza veriler yeniden bağlama önce. Sıfırdan dizin GridView s satırları başlangıcından itibaren ayarlama `EditIndex` için `-1` GridView salt okunur modunda görüntüleme etkisi vardır.
 
-`EditIndex` Özelliği satır içi düzenleme için iyi çalışır, ancak toplu düzenleme için tasarlanmamıştır. Tüm GridView düzenlenebilir yapmak için kimliğinizi düzenleme arabirimini kullanarak işlemek her satır olması gerekiyor. Bunu yapmanın en kolay yolu TemplateField düzenleme arabirimi ile tanımlandığı şekilde her düzenlenebilir bir alanı burada uygulanan oluşturmaktır `ItemTemplate`.
+`EditIndex` Özelliği de satır içi düzenleme için çalışır, ancak toplu düzenleme için tasarlanmamıştır. Tüm GridView düzenlenebilir hale getirmek için düzenleme, arabirim kullanılarak her satır ihtiyacımız var. Bunu yapmanın en kolay yolu, düzenleme arabirimiyle bir TemplateField tanımlandığı gibi her düzenlenebilir bir alanı burada uygulanan oluşturmaktır `ItemTemplate`.
 
-Sonraki birkaç adım tamamen düzenlenebilir GridView oluşturacağız. 1. adımda biz GridView ve onun ObjectDataSource oluşturarak başlayın ve kendi BoundFields ve CheckBoxField TemplateFields dönüştürme. Adım 2 ve 3'te biz düzenleme arabirimleri TemplateFields taşırsınız `EditItemTemplate` s kendi `ItemTemplate` s.
+Sonraki birkaç adım tamamen düzenlenebilir GridView oluşturacağız. 1. adımda biz GridView ve kendi ObjectDataSource oluşturarak başlayın ve CheckBoxField ve BoundFields TemplateField dönüştürün. Adım 2 ve 3 düzenleme arabirimleri TemplateField geçeceğiz `EditItemTemplate` s kendi `ItemTemplate` s.
 
 ## <a name="step-1-displaying-product-information"></a>1. adım: Ürün bilgilerini görüntüleme
 
-GridView oluşturma hakkında endişelenmeniz önce satırları nerede düzenlenebilir, ürün bilgilerini görüntüleyerek Başlat s olanak tanır. Açık `BatchUpdate.aspx` sayfasındaki `BatchData` klasörü ve araç tasarımcıya GridView sürükleyin. GridView s ayarlamak `ID` için `ProductsGrid` ve adlı yeni bir ObjectDataSource bağlamak akıllı etiketten seçin `ProductsDataSource`. Kendi verilerin alınacağı ObjectDataSource yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi.
+GridView oluşturma hakkında endişe önce satır nerede düzenlenebilir, ürün bilgilerini görüntüleyerek Başlat s olanak tanır. Açık `BatchUpdate.aspx` sayfasını `BatchData` klasörü ve GridView tasarımcı araç kutusundan sürükleyin. GridView s ayarlamak `ID` için `ProductsGrid` ve adlı yeni bir ObjectDataSource bağlamak, akıllı etiketten seçin `ProductsDataSource`. ObjectDataSource, verileri almak için yapılandırma `ProductsBLL` s sınıfı `GetProducts` yöntemi.
 
 
 [![ObjectDataSource ProductsBLL sınıfını kullanmak için yapılandırma](batch-updating-cs/_static/image2.gif)](batch-updating-cs/_static/image3.png)
 
-**Şekil 2**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image4.png))
+**Şekil 2**: ObjectDataSource kullanılacak yapılandırma `ProductsBLL` sınıfı ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image4.png))
 
 
-[![GetProducts yöntemini kullanarak ürün verilerini alma](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
+[![GetProducts yöntemi kullanarak ürün verileri alma](batch-updating-cs/_static/image3.gif)](batch-updating-cs/_static/image5.png)
 
-**Şekil 3**: Ürün kullanarak verileri almak `GetProducts` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image6.png))
-
-
-GridView gibi ObjectDataSource s değişiklik özelliklerini bir satır başına temelinde çalışmak üzere tasarlanmıştır. Bir kayıt kümesini güncelleştirmek için şu verileri toplu işlemleri ve BLL aktaran ASP.NET sayfası s arka plandaki kod sınıfı biraz kod yazmaya gerekir. Bu nedenle, açılan listeleri ObjectDataSource s güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
+**Şekil 3**: Ürün kullanarak verileri almak `GetProducts` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image6.png))
 
 
-[![Güncelleştirme, ekleme, açılan listeleri ayarlayın ve sekmeleri (hiçbiri) silme](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
-
-**Şekil 4**: aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image8.png))
+GridView gibi ObjectDataSource s değişiklik özelliklerini satır içi olarak çalışacak şekilde tasarlanmıştır. Kayıt kümesini güncelleştirmek için biz verilerin toplu işlemleri ve BLL için aktaran ASP.NET sayfası s arka plan kod sınıfı bir bit kod yazma gerekir. Bu nedenle, açılan listeler, UPDATE, INSERT ve DELETE sekmeler (hiçbiri) ObjectDataSource s'te ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
 
 
-Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra ObjectDataSource s bildirim temelli biçimlendirme aşağıdaki gibi görünmelidir:
+[![Güncelleştirme, ekleme, açılan listeler ayarlayın ve sekmeleri (hiçbiri) silme](batch-updating-cs/_static/image4.gif)](batch-updating-cs/_static/image7.png)
+
+**Şekil 4**: aşağı açılan listeler güncelleştirme, ekleme ve silme sekmeler (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image8.png))
+
+
+Veri Kaynağı Yapılandırma Sihirbazı'nı tamamladıktan sonra ObjectDataSource s bildirim temelli biçimlendirmeyi aşağıdaki gibi görünmelidir:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample1.aspx)]
 
-Veri Kaynağı Yapılandırma Sihirbazı Tamamlanıyor ayrıca BoundFields ve ürün veri alanları için CheckBoxField GridView oluşturmak Visual Studio neden olur. Bu öğreticide, yalnızca ürün adı, kategori, fiyat ve devam etmeyen durumunu görüntüleyin ve düzenleyin kullanıcıya izin ver s olanak tanır. Kaldırma dışındaki tüm `ProductName`, `CategoryName`, `UnitPrice`, ve `Discontinued` alanları ve yeniden adlandırma `HeaderText` ilk üç özelliklerini ürün, kategori ve fiyat, sırasıyla alanları. Son olarak, GridView s akıllı etiket etkinleştirmek disk belleği ve etkinleştirme sıralama onay kutularını kontrol edin.
+Veri Kaynağı Yapılandırma Sihirbazı Tamamlanıyor ayrıca BoundFields ve ürün veri alanları için bir CheckBoxField GridView içinde oluşturmak Visual Studio neden olur. Bu öğreticide, yalnızca ürün adı, kategori, fiyat ve artık sağlanmayan durumunu görüntüleyin ve düzenleyin kullanıcıya izin s olanak tanır. Kaldırma dışındaki tüm `ProductName`, `CategoryName`, `UnitPrice`, ve `Discontinued` alanları ve yeniden adlandırma `HeaderText` ilk üç özelliklerini alanları ürün, kategori ve fiyat, sırasıyla. Son olarak, GridView s akıllı etiket etkinleştirme sayfalama ve sıralamayı etkinleştir onay kutularını işaretleyin.
 
-Bu noktada GridView üç BoundFields sahip (`ProductName`, `CategoryName`, ve `UnitPrice`) ve bir CheckBoxField (`Discontinued`). Bu dört alanları TemplateFields dönüştürün ve ardından düzenleme arabirimi TemplateField s'den taşımak ihtiyacımız `EditItemTemplate` için kendi `ItemTemplate`.
+Bu noktada GridView üç BoundFields sahiptir (`ProductName`, `CategoryName`, ve `UnitPrice`) ve bir CheckBoxField (`Discontinued`). Bu dört alan TemplateField dönüştürmek ve ardından düzenleme arabirimi TemplateField s taşımak ihtiyacımız `EditItemTemplate` için kendi `ItemTemplate`.
 
 > [!NOTE]
-> Biz oluşturma ve TemplateFields içinde özelleştirme incelediniz [veri değişikliği arabirimi özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Öğreticisi. Biz BoundFields ve CheckBoxField TemplateFields dönüştürme adımlarda size yol ve bunların düzenleme tanımlama arabirimleri kendi `ItemTemplate` s, ancak takılmış veya Yenileyici, tan t önceki Bu öğreticinin geri başvurmak için istemeyebilir.
+> Biz oluşturma ve özelleştirme içinde TemplateField incelediniz [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) öğretici. TemplateField BoundFields ve CheckBoxField dönüştürme adımları gösterilecektir ve bunların düzenleme tanımlama arabirimleri kendi `ItemTemplate` s, ancak takılı kalarak veya bilgilerinizi tazelemeniz rsquo; bu önceki öğreticiye geri başvurmak için istemeyebilir.
 
 
 GridView s akıllı etiketten alanları iletişim kutusunu açmak için sütunları Düzenle bağlantısına tıklayın. Ardından, her bir alan seçin ve bu alan dönüştürme TemplateField bağlantıya tıklayın.
 
 
-![Varolan BoundFields ve CheckBoxField TemplateField dönüştürme](batch-updating-cs/_static/image5.gif)
+![Mevcut BoundFields ve CheckBoxField TemplateField dönüştürün](batch-updating-cs/_static/image5.gif)
 
-**Şekil 5**: Varolan BoundFields ve CheckBoxField TemplateField dönüştürme
+**Şekil 5**: CheckBoxField ve mevcut BoundFields TemplateField dönüştürün
 
 
-Her bir alan bir TemplateField eder, gelen biz düzenleme taşımak için hazır re arabirim `EditItemTemplate` s `ItemTemplate` s.
+Her alanın bir TemplateField olduğuna göre gelen biz yeniden düzenleme taşımaya hazır arabirim `EditItemTemplate` s `ItemTemplate` s.
 
 ## <a name="step-2-creating-theproductnameunitprice-anddiscontinuedediting-interfaces"></a>2. adım: Oluşturma`ProductName`,`UnitPrice`, ve`Discontinued`arabirimleri düzenleme
 
-Oluşturma `ProductName`, `UnitPrice`, ve `Discontinued` arabirimleri düzenleme bu adımın konu ve her bir arabirime zaten TemplateField s içinde tanımlanan oldukça basit `EditItemTemplate`. Oluşturma `CategoryName` arabirimini düzenleme biraz daha karmaşık DropDownList geçerli kategorilerin oluşturmak gerektiği. Bu `CategoryName` arabirimini düzenleme adım 3'te tackled.
+Oluşturma `ProductName`, `UnitPrice`, ve `Discontinued` arabirimleri düzenleme bu adımın konu ve her arabirim zaten TemplateField s'te tanımlanan oldukça basittir `EditItemTemplate`. Oluşturma `CategoryName` arabirimini düzenleme biraz daha karmaşık bir DropDownList ilgili kategorilerin oluşturmak gerektiğinden. Bu `CategoryName` arabirimini düzenleme 3. adımda tackled.
 
-S başlamalı ve izin `ProductName` TemplateField. GridView s akıllı etiket Şablonları Düzenle bağlantısından tıklayın ve detayına gitmek `ProductName` TemplateField s `EditItemTemplate`. TextBox seçin, panoya kopyalayın ve yapıştırın kendisine `ProductName` TemplateField s `ItemTemplate`. TextBox s değiştirme `ID` özelliğine `ProductName`.
+İle başlayan s izin `ProductName` TemplateField. GridView s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayın ve için detaya gidin `ProductName` TemplateField s `EditItemTemplate`. Metin kutusunu seçin, panoya kopyalayın ve ardından ona yapıştırın `ProductName` TemplateField s `ItemTemplate`. TextBox s değiştirme `ID` özelliğini `ProductName`.
 
-Ardından, bir RequiredFieldValidator eklemek `ItemTemplate` kullanıcı her ürün s adı için bir değer sağlar emin olmak için. Ayarlama `ControlToValidate` ProductName, özelliğine `ErrorMessage` size özelliği ürün adı sağlamanız gerekir. ve `Text` özelliğine \*. Bu eklemeler yaptıktan sonra `ItemTemplate`, ekranınızın Şekil 6 benzer görünmelidir.
-
-
-[![Metin kutusu ve bir RequiredFieldValidator ProductName TemplateField şimdi içerir](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
-
-**Şekil 6**: `ProductName` TemplateField şimdi içeren bir metin kutusu ve RequiredFieldValidator bir ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image10.png))
+Ardından, bir RequiredFieldValidator için ekleme `ItemTemplate` kullanıcı her ürün s adı için bir değer sağladığından emin olmak için. Ayarlama `ControlToValidate` ProductName, özelliğini `ErrorMessage` , özelliğe ürün adı sağlamalısınız. ve `Text` özelliğini \*. Bu eklemeler yaptıktan sonra `ItemTemplate`, Şekil 6'ekranınızın benzemelidir.
 
 
-İçin `UnitPrice` arabirimini düzenleme, metin kopyalayarak Başlat `EditItemTemplate` için `ItemTemplate`. Ardından, $ TextBox ve kümesi önüne yerleştirin, `ID` UnitPrice özelliğine ve kendi `Columns` 8 özelliği.
+[![Bir metin kutusu ve bir RequiredFieldValidator ProductName TemplateField şimdi içerir](batch-updating-cs/_static/image6.gif)](batch-updating-cs/_static/image9.png)
 
-Ayrıca bir CompareValidator ekleyin `UnitPrice` s `ItemTemplate` kullanıcı tarafından girilen değer geçerli para birimi değeri $0,00 eşit veya daha büyük olduğundan emin olmak için. Doğrulayıcı s ayarlamak `ControlToValidate` UnitPrice, özelliğine kendi `ErrorMessage` , özelliğine geçerli para birimi değeri girmelisiniz. Lütfen atlayın. herhangi bir para birimi sembolleri, kendi `Text` özelliğine \*, kendi `Type` özelliğine `Currency`, kendi `Operator` özelliğine `GreaterThanEqual`ve kendi `ValueToCompare` özelliğinin 0.
-
-
-[![Negatif olmayan para birimi değeri fiyat girilen emin olmak için bir CompareValidator ekleyin](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
-
-**Şekil 7**: girilen fiyat emin olmak için bir CompareValidator negatif olmayan para birimi değeri ekleyin ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image12.png))
+**Şekil 6**: `ProductName` TemplateField artık içeren bir metin kutusu ve RequiredFieldValidator ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image10.png))
 
 
-İçin `Discontinued` TemplateField kullanabileceğiniz zaten tanımlanmış onay kutusunu `ItemTemplate`. Basitçe, `ID` Üretimi Durdurulmuş için ve kendi `Enabled` özelliğine `true`.
+İçin `UnitPrice` TextBox'dan kopyalayarak arabirimi düzenleme, başlangıç `EditItemTemplate` için `ItemTemplate`. Ardından, metin kutusu ve kümesi önünde bir $'nı koyun, `ID` UnitPrice özelliğini ve kendi `Columns` 8 özelliği.
+
+Ayrıca bir CompareValidator'la ekleme `UnitPrice` s `ItemTemplate` kullanıcı tarafından girilen değer geçerli bir para birimi değeri büyüktür veya eşittir 0,00 ABD Doları olduğundan emin olmak için. Doğrulayıcı s ayarlamak `ControlToValidate` özelliğini UnitPrice, kendi `ErrorMessage` özelliği size geçerli para birimi değerini girmeniz gerekmektedir. Lütfen bir para birimi sembolleri, numarayı atlayın. kendi `Text` özelliğini \*, kendi `Type` özelliğini `Currency`, kendi `Operator` özelliğini `GreaterThanEqual`ve onun `ValueToCompare` özelliğinin 0.
+
+
+[![Para birimi değeri negatif olmayan bir CompareValidator fiyat girilen emin olmak için ekleyin](batch-updating-cs/_static/image7.gif)](batch-updating-cs/_static/image11.png)
+
+**Şekil 7**: girilen fiyat emin olmak için bir CompareValidator negatif olmayan bir para birimi değeri eklemek ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image12.png))
+
+
+İçin `Discontinued` TemplateField kullanabileceğiniz önceden tanımlanmış onay `ItemTemplate`. Ayarlamanız yeterlidir, `ID` artık Üretilmiyor için ve kendi `Enabled` özelliğini `true`.
 
 ## <a name="step-3-creating-thecategorynameediting-interface"></a>3. adım: Oluşturma`CategoryName`arabirimini düzenleme
 
-Düzenleme arabiriminde `CategoryName` TemplateField s `EditItemTemplate` değerini gösteren bir metin kutusu içeren `CategoryName` veri alanı. Bu olası kategorilerini listeler bir DropDownList ile değiştirmeniz gerekir.
+Düzenleme arabiriminde `CategoryName` TemplateField s `EditItemTemplate` değerini gösteren bir metin kutusu içeren `CategoryName` veri alanı. Bu olası kategorileri listeleyen bir DropDownList ile değiştirilecek ihtiyacımız var.
 
 > [!NOTE]
-> [Veri değişikliği arabirimi özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) öğretici içeren metin kutusu aksine DropDownList dahil etmek için bir şablonu özelleştirme hakkında daha kapsamlı ve eksiksiz bir tartışma. Adımlar burada tam olsa da, bunlar tersely sunulur. Oluşturma ve kategorilere DropDownList yapılandırma bir daha derinlemesine bakış için geri başvurmak [veri değişikliği arabirimi özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) Öğreticisi.
+> [Veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) öğretici TextBox'ın aksine bir DropDownList dahil etmek için bir şablonu özelleştirme hakkında daha kapsamlı ve eksiksiz bir tartışma içerir. Buradaki adımları tam olsa da, bunlar tersely sunulur. Oluşturma ve yapılandırma DropDownList kategoriler bir daha derinlemesine bakış için kiracıurl [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) öğretici.
 
 
-Araç kutusu üzerine bir DropDownList sürükleyin `CategoryName` TemplateField s `ItemTemplate`, ayar kendi `ID` için `Categories`. Bu noktada biz genellikle kendi akıllı etiket üzerinden DropDownLists s veri kaynağına yeni ObjectDataSource oluşturma tanımlayın. Ancak, bu içinde ObjectDataSource ekler `ItemTemplate`, her GridView satır için oluşturulan ObjectDataSource örneğindeki neden. Bunun yerine, GridView s TemplateFields dışında ObjectDataSource oluşturmak s olanak tanır. Şablon düzenleme sonlandırmak ve bir ObjectDataSource tasarımcıya araç çubuğuna sürükleyin `ProductsDataSource` ObjectDataSource. Yeni ObjectDataSource ad `CategoriesDataSource` ve kullanacak şekilde yapılandırın `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
+Bir DropDownList araç kutusundan sürükleyin `CategoryName` TemplateField s `ItemTemplate`, ayar, `ID` için `Categories`. Bu noktada biz genellikle akıllı etiketinde aracılığıyla DropDownList s veri kaynağına yeni ObjectDataSource oluşturma tanımlarsınız. Ancak, bu içinde ObjectDataSource ekler `ItemTemplate`, her GridView satır için oluşturulan bir ObjectDataSource örneğinde neden olur. Bunun yerine, GridView s TemplateField dışında ObjectDataSource oluşturma s olanak tanır. Şablon düzenleme sonlandırmak ve bir ObjectDataSource tasarımcı araç kutusundan sürükleyin `ProductsDataSource` ObjectDataSource. Yeni ObjectDataSource ad `CategoriesDataSource` ve kullanacak şekilde yapılandırma `CategoriesBLL` s sınıfı `GetCategories` yöntemi.
 
 
-[![ObjectDataSource CategoriesBLL Clas kullanacak şekilde yapılandırma](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
+[![ObjectDataSource CategoriesBLL Clas kullanmak için yapılandırma](batch-updating-cs/_static/image8.gif)](batch-updating-cs/_static/image13.png)
 
-**Şekil 8**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` Clas ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image14.png))
-
-
-[![GetCategories yöntemini kullanarak kategori verilerini alma](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
-
-**Şekil 9**: Kategori kullanarak verileri almak `GetCategories` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image16.png))
+**Şekil 8**: ObjectDataSource kullanılacak yapılandırma `CategoriesBLL` Clas ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image14.png))
 
 
-Bu ObjectDataSource yalnızca verileri almak için kullanıldığından, aşağı açılır listeler UPDATE ve DELETE sekmeler (hiçbiri) olarak ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
+[![Kategori veri GetCategories yöntemi](batch-updating-cs/_static/image9.gif)](batch-updating-cs/_static/image15.png)
+
+**Şekil 9**: Kategori kullanarak verileri almak `GetCategories` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image16.png))
 
 
-[![Ayarlama güncelleştirme ve silme sekmelerde (hiçbiri) aşağı açılır listeler](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
+Bu ObjectDataSource yalnızca verileri almak için kullanıldığından, açılan listeler UPDATE ve DELETE sekmeler (yok) olarak ayarlayın. Sihirbazı tamamlamak için Son'u tıklatın.
 
-**Şekil 10**: aşağı açılan listeler güncelleştirme ve silme sekmeler (yok) olarak ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image18.png))
+
+[![Kümesi açılan listeler güncelleştirme ve silme sekmelerde (yok)](batch-updating-cs/_static/image10.gif)](batch-updating-cs/_static/image17.png)
+
+**Şekil 10**: aşağı açılan listeler güncelleştirme ve silme sekmeler (yok) olarak ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image18.png))
 
 
 Sihirbazı tamamladıktan sonra `CategoriesDataSource` s bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
@@ -162,140 +161,140 @@ Sihirbazı tamamladıktan sonra `CategoriesDataSource` s bildirim temelli biçim
 
 [!code-aspx[Main](batch-updating-cs/samples/sample2.aspx)]
 
-İle `CategoriesDataSource` oluşturduktan ve yapılandırdıktan, geri dönüp `CategoryName` TemplateField s `ItemTemplate` ve DropDownList s akıllı etiketten veri kaynağı Seç bağlantıyı tıklatın. Veri Kaynağı Yapılandırma Sihirbazı'nda seçin `CategoriesDataSource` seçeneğini ilk açılan listeden ve tercih `CategoryName` görüntülemek için kullanılan ve `CategoryID` değeri olarak.
+İle `CategoriesDataSource` oluşturulan ve yapılandırılan dönmek `CategoryName` TemplateField s `ItemTemplate` ve DropDownList s akıllı etiketten veri kaynağı Seç bağlantıya tıklayın. Veri Kaynağı Yapılandırma Sihirbazı'nda seçin `CategoriesDataSource` seçeneği ilk açılan listeden ve seçtiğiniz `CategoryName` görüntülemek için kullanılan ve `CategoryID` değeri.
 
 
-[![DropDownList CategoriesDataSource bağlama](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
+[![Bir DropDownList CategoriesDataSource için bağlama](batch-updating-cs/_static/image11.gif)](batch-updating-cs/_static/image19.png)
 
-**Şekil 11**: DropDownList bağlamak `CategoriesDataSource` ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image20.png))
-
-
-Bu noktada `Categories` DropDownList tüm kategorilerini listeler, ancak değil henüz otomatik olarak GridView satıra bağlı ürün için uygun kategoriyi seçin. Bunu ayarlamak için ihtiyacımız gerçekleştirmek için `Categories` DropDownList s `SelectedValue` s ürününe `CategoryID` değeri. DropDownList s akıllı etiket veri bağlamaları Düzenle bağlantısından tıklayın ve ilişkilendirmek `SelectedValue` özelliğiyle `CategoryID` veri alan Şekil 12'de gösterildiği gibi.
+**Şekil 11**: DropDownList'e bağlama `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image20.png))
 
 
-![Ürün s adlı kullanıcı, Categoryıd'si değeri DropDownList s SelectedValue özelliği Bağla](batch-updating-cs/_static/image12.gif)
-
-**Şekil 12**: s ürün bağlamak `CategoryID` DropDownList s değerine `SelectedValue` özelliği
+Bu noktada `Categories` DropDownList kategorilerin tümünü listeler, ancak değil ancak otomatik olarak GridView satır ilişkili ürün için uygun kategoriyi seçin. Bunu ayarlamak için ihtiyacımız gerçekleştirmek için `Categories` DropDownList s `SelectedValue` s ürüne `CategoryID` değeri. DropDownList s akıllı etiketinde veri bağlamaları Düzenle bağlantısına tıklayın ve ilişkilendirmek `SelectedValue` özelliğiyle `CategoryID` veri alanı Şekil 12'de gösterildiği gibi.
 
 
-Bir son sorun kalır: Ürün içermiyor t varsa bir `CategoryID` değeri belirtilen sonra Veri bağlamada bildirimi `SelectedValue` bir özel durum neden olur. DropDownList yalnızca kategorileri öğelerini içerir ve bir seçenek olan bu ürünler için sunmaz Bunun nedeni bir `NULL` veritabanı için değer `CategoryID`. Bu sorunu gidermek için DropDownList s ayarlamak `AppendDataBoundItems` özelliğine `true` ve DropDownList için yeni bir öğe eklemek atlama `Value` Tanımlayıcı Sözdizimi özelliğinden. Diğer bir deyişle, olduğundan emin olun `Categories` DropDownList s tanımlayıcı sözdizimi aşağıdaki gibi görünür:
+![Ürün s CategoryID değeri DropDownList s SelectedValue özelliği Bağla](batch-updating-cs/_static/image12.gif)
+
+**Şekil 12**: s ürün bağlama `CategoryID` DropDownList s değerine `SelectedValue` özelliği
+
+
+Son bir sorun kalır: Ürün eklenmemişse t varsa bir `CategoryID` değeri belirtilen sonra veri bağlama ifadesi `SelectedValue` bir özel durumu oluşur. DropDownList kategorileri için yalnızca belirli bir öğe içeriyor ve bir seçenek olan bu ürünlere yönelik sunmaz nedeni bir `NULL` veritabanı için değer `CategoryID`. Bu sorunu gidermek için DropDownList s ayarlamak `AppendDataBoundItems` özelliğini `true` ve DropDownList'e yeni bir öğe eklemek atlama `Value` bildirim temelli söz dizimi özelliği. Diğer bir deyişle, emin `Categories` DropDownList s bildirim temelli söz dizimi aşağıdaki gibi görünür:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample3.aspx)]
 
-Not nasıl `<asp:ListItem Value="">` --seçin bir--sahip kendi `Value` özniteliğini açıkça boş bir dize olarak ayarlayın. Geri başvurmak [veri değişikliği arabirimi özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) işlemek için bu ek DropDownList madde neden gerekli üzerinde daha kapsamlı bir tartışma için öğretici `NULL` çalışması ve neden atamasının `Value` boş bir dize özelliği gereklidir.
+Not nasıl `<asp:ListItem Value="">` --bir seçin--sahip kendi `Value` özniteliği boş bir dize olarak açıkça ayarlayın. Kiracıurl [veri değişikliği arabirimini özelleştirme](../editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs.md) işlemek için bu ek DropDownList öğesi neden gerekli üzerinde daha kapsamlı bir tartışma için öğretici `NULL` durum ve neden atamasını `Value` boş bir dize özelliğini büyük/küçük harf önemlidir.
 
 > [!NOTE]
-> Tümleştirilmediği olan bir olası performans ve ölçeklenebilirlik sorunu burada yoktur. Her satır kullanan bir DropDownList olduğundan `CategoriesDataSource` kendi veri kaynağı olarak `CategoriesBLL` s sınıfı `GetCategories` yöntemi çağrılabilir *n* sayfa başına kez ziyaret edin, burada *n* sayısı GridView satır. Bunlar *n* çağrılar `GetCategories` neden *n* veritabanına sorgular. İstek başına önbelleğinde veya bağımlılık veya çok kısa bir süre tabanlı bir sona erme önbelleğe alma SQL kullanarak önbelleğe alma katmanı ile döndürülen kategorilerde önbelleğe alarak Bu etkiyi veritabanında kısılmış. İstek başına hakkında daha fazla bilgi için bkz, önbelleğe [ `HttpContext.Items` başına istek önbelleği deposu](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
+> Bu söz olası bir performans ve ölçeklenebilirlik sorun burada yoktur. Her satır kullanan bir DropDownList olduğundan `CategoriesDataSource` kendi veri kaynağı olarak `CategoriesBLL` s sınıfı `GetCategories` yöntemin çağrılacağı *n* ziyaret başına sayfa burada *n* sayısı GridView satır. Bunlar *n* çağrılar `GetCategories` neden *n* veritabanını sorgular. İstek başına önbellek veya bir SQL bağımlılık veya bir çok kısa zamana bağlı süre sonu önbellek kullanarak önbelleğe alma katmanı aracılığıyla döndürülen kategorileri önbelleğe alarak Bu etkiyi veritabanında lessened. Önbelleği seçeneğini, istek başına daha fazla bilgi için bkz: [ `HttpContext.Items` istek başına önbellek Store](http://aspnet.4guysfromrolla.com/articles/060904-1.aspx).
 
 
 ## <a name="step-4-completing-the-editing-interface"></a>4. adım: düzenleme arabirimi Tamamlanıyor
 
-Biz ullanıcı yapılan değişiklik sayısı GridView s şablonların bizim ilerleme durumunu görüntülemek için duraklatmadan. Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 13 gösterildiği gibi her satır kullanılarak işlenir kendi `ItemTemplate`, arabirimini düzenleme hücre s içerir.
+Biz ve yapılan bir dizi değişiklik GridView s şablonlara ilerlememizin görüntülemek için duraklatmadan. Bir tarayıcı aracılığıyla bizim ilerleme durumunu görüntülemek için bir dakikanızı ayırın. Şekil 13 gösterildiği gibi her satır kullanılarak işlenir, `ItemTemplate`, arabirimini düzenleme hücre s içerir.
 
 
-[![Düzenlenebilir her GridView satırıdır](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
+[![Her GridView satır düzenlenebilir olduğunu](batch-updating-cs/_static/image13.gif)](batch-updating-cs/_static/image21.png)
 
-**Şekil 13**: düzenlenebilir her GridView satırıdır ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image22.png))
-
-
-Bu noktada ilgilenebilmek birkaç Önemsiz biçimlendirme sorunları vardır. İlk olarak, unutmayın `UnitPrice` değeri dört ondalık basamak içerir. Bu sorunu gidermek için dönmek `UnitPrice` TemplateField s `ItemTemplate` ve TextBox s akıllı etiketten veri bağlamaları Düzenle bağlantısına tıklayın. Ardından, belirten `Text` özelliği bir sayı olarak biçimlendirilmelidir.
+**Şekil 13**: her GridView satır düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image22.png))
 
 
-![Bir sayı olarak format metin özelliği](batch-updating-cs/_static/image14.gif)
-
-**Şekil 14**: biçimi `Text` bir sayı olarak özelliği
+Biz bu noktada ilgileniriz birkaç küçük biçimlendirme sorunları vardır. İlk olarak, dikkat `UnitPrice` değerini dört ondalık noktası içerir. Bu sorunu gidermek için iade `UnitPrice` TemplateField s `ItemTemplate` ve metin kutusu s akıllı etiketten veri bağlamaları Düzenle bağlantısına tıklayın. Ardından, belirten `Text` özelliği, bir sayı olarak biçimlendirilmelidir.
 
 
-İkinci olarak, onay kutusuna merkezi let s `Discontinued` sütun (yerine onu sola hizalı). GridView s akıllı etiketten Düzenle sütunlarda tıklayın ve `Discontinued` TemplateField sol alt köşedeki alanlarında listesinden. İçinde ayrıntıya `ItemStyle` ve `HorizontalAlign` Şekil 15'te gösterildiği gibi Merkezi özelliğine.
+![Metin özelliğini bir sayı olarak Biçimlendir](batch-updating-cs/_static/image14.gif)
+
+**Şekil 14**: biçim `Text` bir sayı olarak özelliği
 
 
-![Merkezi devam etmeyen onay kutusu](batch-updating-cs/_static/image15.gif)
+İkinci olarak, onay kutusuna merkezi let s `Discontinued` sütun (yerine bunu sola hizalanmış). GridView s akıllı etiketi Düzenle sütunlarda'ı tıklatın ve seçin `Discontinued` TemplateField sol alt köşedeki alanlar listesinden. Detaya `ItemStyle` ayarlayıp `HorizontalAlign` Şekil 15'te gösterildiği gibi Merkezi'ne özelliği.
+
+
+![Kullanımdan Kaldırılan onay merkezi](batch-updating-cs/_static/image15.gif)
 
 **Şekil 15**: Merkezi `Discontinued` onay kutusu
 
 
-Ardından, bir ValidationSummary denetimi sayfasına ekleyin ve ayarlayın, `ShowMessageBox` özelliğine `true` ve kendi `ShowSummary` özelliğine `false`. Ayrıca tıklatıldığında düğmesi Web, denetimleri ekleme, kullanıcı s değişiklikleri güncelleştirir. Özellikle, iki düğmesi Web denetimleri, GridView yukarıdaki ve her iki denetimleri ayarlama bir altındaki eklemeniz `Text` güncelleştirme ürünleri özellikleri.
+Ardından, ValidationSummary denetimi sayfaya ekleyip ayarlayın, `ShowMessageBox` özelliğini `true` ve kendi `ShowSummary` özelliğini `false`. Ayrıca tıklandığında düğmesi Web, denetimleri ekleme, kullanıcı s değişiklikleri güncelleştirir. Özellikle, iki düğme Web denetimleri, bir GridView yukarıda ve her iki denetim ayarı bir altındaki eklemeniz `Text` Update ürünleri özellikleri.
 
-Bu yana GridView s arabirimini düzenleme kendi TemplateFields tanımlanan `ItemTemplate` s, `EditItemTemplate` s gereksiz ve silinmiş.
+GridView s beri arabirimini düzenleme kendi TemplateField içinde tanımlanır `ItemTemplate` s, `EditItemTemplate` s gereksiz ve silinebilir.
 
-Yukarıdaki yapmadan biçimlendirme değişiklikleri bahsedilen sonra düğmesi denetimleri ekleme ve gereksiz kaldırma `EditItemTemplate` s, sayfa s bildirim temelli söz dizimini görünmelidir aşağıdakine benzer:
+Yukarıdaki yapmadan biçimlendirme değişikliklerini belirtilen sonra düğme denetimleri ekleme ve kaldırma gereksiz `EditItemTemplate` s, sayfa s bildirim temelli söz dizimi görünmelidir aşağıdakine benzer:
 
 
 [!code-aspx[Main](batch-updating-cs/samples/sample4.aspx)]
 
-Şekil 16 düğmesi Web denetimleri ekledikten sonra bir tarayıcıdan görüntülendiğinde bu sayfayı ve biçimlendirme değişikliklerinin gösterir.
+Şekil 16 düğmesi Web denetimleri eklendikten sonra bir tarayıcıdan görüntülendiğinde bu sayfada ve biçimlendirme değişiklikleri gösterir.
 
 
-[![Sayfa şimdi iki güncelleştirme ürünleri düğmelerini içerir](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
+[![Sayfa artık iki güncelleştirme ürünleri düğmeleri içerir](batch-updating-cs/_static/image16.gif)](batch-updating-cs/_static/image23.png)
 
-**Şekil 16**: sayfa şimdi içeren iki güncelleştirme ürünleri düğmelerini ([tam boyutlu görüntüyü görüntülemek için tıklatın](batch-updating-cs/_static/image24.png))
+**Şekil 16**: sayfa artık içeren iki güncelleştirme ürünleri düğmeler ([tam boyutlu görüntüyü görmek için tıklatın](batch-updating-cs/_static/image24.png))
 
 
 ## <a name="step-5-updating-the-products"></a>5. adım: ürünleri güncelleştiriliyor
 
-Bir kullanıcı bu sayfayı ziyaret ettiğinde bunlar kendi değişiklikleri yapın ve sonra iki güncelleştirme ürünleri düğmeleri birini tıklatın. Bu noktada şekilde her bir satır için kullanıcı tarafından girilen değerlerini kaydetmek ihtiyacımız bir `ProductsDataTable` örneği ve daha sonra, ardından geçer BLL yönteme geçirin `ProductsDataTable` DAL s örneğine `UpdateWithTransaction` yöntemi. `UpdateWithTransaction` İçinde oluşturduğumuz yöntemi [önceki öğretici](wrapping-database-modifications-within-a-transaction-cs.md), toplu değişiklikler atomik bir işlem olarak güncelleştirilecek sağlar.
+Bir kullanıcı bu sayfayı ziyaret ettiğinde bunlar kendi değişiklikleri yapın ve iki Update ürünleri düğmelerden birine tıklayın. Bu noktada şekilde her bir satır için kullanıcı tarafından girilen değerler kaydetmek ihtiyacımız bir `ProductsDataTable` örnek ve ardından, daha sonra geçer BLL yönteme geçirin `ProductsDataTable` DAL s örneğine `UpdateWithTransaction` yöntemi. `UpdateWithTransaction` , Oluşturduğumuz yöntemi [önceki öğretici](wrapping-database-modifications-within-a-transaction-cs.md), toplu değişiklikler atomik işlem güncelleştirilecek sağlar.
 
 Adlı bir yöntem oluşturma `BatchUpdate` içinde `BatchUpdate.aspx.cs` ve aşağıdaki kodu ekleyin:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Bu yöntem ürünlerin tamamı alarak başlar geri bir `ProductsDataTable` BLL s çağrısıyla `GetProducts` yöntemi. Ardından numaralandırır `ProductGrid` GridView s [ `Rows` koleksiyonu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Koleksiyonu içeren bir [ `GridViewRow` örneği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) GridView görüntülenen her satır için. Biz sayfasında, GridView s başına en fazla on satır gösteren beri `Rows` koleksiyonu, en fazla on öğe olacaktır.
+Bu yöntem tüm ürünleri alarak başlar geri bir `ProductsDataTable` BLL s çağrısıyla `GetProducts` yöntemi. Ardından numaralandırır `ProductGrid` GridView s [ `Rows` koleksiyon](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). `Rows` Koleksiyonu içeren bir [ `GridViewRow` örneği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) GridView içinde görüntülenen her satır için. Biz sayfasında GridView s başına en fazla on satır gösteren bu yana `Rows` koleksiyonu, en fazla on öğe olacaktır.
 
-Her satır için `ProductID` gelen gerçekleşti `DataKeys` toplama ve uygun `ProductsRow` seçilir `ProductsDataTable`. Dört TemplateField giriş denetimlerini programlı olarak başvurulan ve değerlerine atandığı `ProductsRow` örnek s özellikleri. Sonra her GridView satır s değerleri güncelleştirmek için kullanılan `ProductsDataTable`, onu s geçirilen BLL s `UpdateWithTransaction` önceki öğreticide gördüğümüz gibi sadece DAL s çağırır yöntemi `UpdateWithTransaction` yöntemi.
+Her satır için `ProductID` gelen yakaladı `DataKeys` toplama ve uygun `ProductsRow` seçilir `ProductsDataTable`. Dört TemplateField giriş denetimlerini programlı olarak başvurulur ve değerlerine atandığı `ProductsRow` örnek s özellikleri. Sonra her GridView satır s değerleri güncelleştirmek için kullanılmış olan `ProductsDataTable`, onu s geçirilen BLL s `UpdateWithTransaction` önceki öğreticide gördüğümüz gibi yalnızca DAL s ile çağırır yöntemi `UpdateWithTransaction` yöntemi.
 
-Bu öğretici için toplu güncelleştirme algoritmadan her satır güncelleştirmeleri `ProductsDataTable` karşılık gelen ürün s bilgileri olup değişti bağımsız olarak GridView, bir satır. Bu tür blind geçekleştirilen t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse bunlar gereksiz kayıtları yol açabilir. Geri [gerçekleştirme toplu güncelleştirmeler](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) arabirimi ile DataList güncelleştiriliyor bir batch incelediniz ve kullanıcı tarafından gerçekten değiştirilen kayıtları yalnızca güncelleştirecektir kod eklenen öğretici. Teknikleri çekinmeyin [gerçekleştirme toplu güncelleştirmeler](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) isterseniz bu öğreticide, kod güncelleştirilecek.
+Bu öğreticide kullanılan toplu güncelleştirme algoritması her satırı güncelleştirir `ProductsDataTable` karşılık gelen bir satıra s ürün bilgisi değiştirildi mi bakılmaksızın GridView. Böyle blind dahilse t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Geri [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) DataList'i ile arabirimini güncelleştirme toplu incelediniz ve gerçekte kullanıcı tarafından değiştirilmiş olan kayıtları yalnızca güncelleştirilecek kodunu eklenmiş Öğreticisi. Teknikleri araştırmalarında [toplu güncelleştirmeler gerçekleştirme](../editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs.md) isterseniz bu öğreticide, kod güncelleştirilecek.
 
 > [!NOTE]
-> GridView, akıllı etiket aracılığıyla veri kaynağına bağlanırken, Visual Studio veri kaynağı s birincil anahtar değerlerinin GridView s otomatik olarak atar. `DataKeyNames` özelliği. ObjectDataSource GridView s akıllı etiket aracılığıyla GridView için 1. adımda özetlenen bağlanamadı sonra GridView s el ile ayarlamanız gerekir `DataKeyNames` erişmek için ProductID özelliğine `ProductID` her satır için değer `DataKeys` koleksiyonu.
+> GridView akıllı etiketinde aracılığıyla veri kaynağına bağlanırken, Visual Studio GridView s için veri kaynağı s birincil anahtar değerlerini otomatik olarak atar. `DataKeyNames` özelliği. ObjectDataSource GridView aracılığıyla GridView s akıllı etiket için 1. adımda açıklandığı bağlanmadı sonra GridView s el ile ayarlamak ihtiyacınız olacak `DataKeyNames` özelliğine erişmek için ProductID `ProductID` her satırı için değer `DataKeys` koleksiyonu.
 
 
-İçinde kullanılan kod `BatchUpdate` BLL s kullanılan benzer `UpdateProduct` yöntemleri, giriş olan temel fark `UpdateProduct` yöntemleri yalnızca tek bir `ProductRow` örneği mimarisinden alınır. Özelliklerini atar kod `ProductRow` arasında aynı `UpdateProducts` yöntemler ve kod içinde `foreach` içinde döngü `BatchUpdate`genel deseni gibi.
+Uygulamasında kullanılan kodlar `BatchUpdate` BLL s'te kullanılan benzer `UpdateProduct` yöntemleri, temel fark, olan `UpdateProduct` yöntemleri yalnızca tek bir `ProductRow` örneği mimariden alınır. Özelliklerini atar kod `ProductRow` arasında aynı `UpdateProducts` yöntemleri ve içindeki kod `foreach` içinde döngü `BatchUpdate`genel desen gibi.
 
-Bu öğreticiyi tamamlamak için ihtiyacımız `BatchUpdate` yöntemi çağrıldıktan güncelleştirme ürünleri düğmelerin ya da tıklandığında. Olay işleyicileri oluşturma `Click` bu iki olayları düğmesi denetimleri ve olay işleyicileri aşağıdaki kodu ekleyin:
+Bu öğreticiyi tamamlamak için sağlamak ihtiyacımız `BatchUpdate` yöntemini çağırmış ya da Update ürünleri düğme tıklandığında. Olay işleyicileri `Click` olayları bu iki düğme denetimleri ve olay işleyicileri aşağıdaki kodu ekleyin:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample6.cs)]
 
-İlk için bir çağrı yapılır `BatchUpdate`. Ardından, `ClientScript property` ürünleri güncelleştirilmiş okuyan messagebox görüntüler JavaScript eklemesine kullanılır.
+İlk için bir çağrı yapılır `BatchUpdate`. Ardından, `ClientScript property` ürünleri güncelleştirilmiş okuyan bir messagebox görüntüler JavaScript ekleme için kullanılır.
 
-Bu kodu test etmek için bir dakikanızı ayırın. Ziyaret `BatchUpdate.aspx` bir tarayıcı aracılığıyla satır sayısını düzenleyin ve güncelleştirme ürünleri düğmelerden birini tıklatın. Giriş doğrulaması hatalar yoktur varsayıldığında, güncelleştirilen ürünler okuyan messagebox görmeniz gerekir. Güncelleştirme kararlılık doğrulamak için bir rastgele eklemeyi düşünün `CHECK` gibi izin vermez bir kısıtlama `UnitPrice` 1234.56 değerleri. Öğesinden sonra `BatchUpdate.aspx`, birkaç s ürün ayarlayın emin kayıtların Düzenle `UnitPrice` değerini yasaklanmış değerle (1234.56). Bu toplu işlem sırasında diğer değişikliklerle güncelleştirme ürünleri tıklatarak özgün değerlerine döndürülmesine olduğunda bu hataya neden olur.
+Bu kodu test etmek için bir dakikanızı ayırın. Ziyaret `BatchUpdate.aspx` tarayıcısından, satır sayısı düzenleyin ve Update ürünleri düğmelerden birine tıklayın. Hiçbir giriş doğrulama hataları var. varsayıldığında, güncelleştirilen ürünler okuyan bir messagebox görmeniz gerekir. Güncelleştirme kararlılık doğrulamak için rastgele bir sıra eklemeyi göz önünde bulundurun `CHECK` kısıtlaması, bir izin vermiyor gibi `UnitPrice` 1234,56 değerleri. Öğesinden sonra `BatchUpdate.aspx`, bir dizi kaydı, bir ürünün s emin Düzenle `UnitPrice` Yasak değere (1234,56) değeri. Update ürünleri, toplu işlem sırasında diğer değişikliklerle tıklayarak özgün değerlerine döndürülmesine olduğunda bu hataya neden olur.
 
 ## <a name="an-alternativebatchupdatemethod"></a>Alternatif`BatchUpdate`yöntemi
 
-`BatchUpdate` Biz yalnızca yöntemi incelenmesi alır *tüm* BLL s ürünlerin `GetProducts` yöntemi ve GridView görünür yalnızca bu kayıtları güncelleştirir. Bu yaklaşım GridView disk belleği kullanmaz, ancak aşması durumunda olabilir yüzlerce, binlerce ya da binlerce ürünleri, ancak yalnızca on satırlarda GridView idealdir. Böyle bir durumda, tüm ürünleri yalnızca 10 bunları değiştirmek için veritabanından alma değerinden idealdir.
+`BatchUpdate` Biz yalnızca yöntemi incelenirken alır *tüm* BLL s ürünlerin `GetProducts` yöntemi ve ardından GridView içinde görünen yalnızca kayıtları güncelleştirir. Bu yaklaşım, disk belleği GridView kullanmaz, ancak aşması durumunda olabilir yüzlerce, binlerce veya on binlerce ürünleri, ancak yalnızca on satır GridView idealdir. Böyle bir durumda, tüm ürünlerin ve bunların 10 tanesinin yalnızca değiştirmek için veritabanından alma küçüktür idealdir.
 
-Bu durumlarda türleri için aşağıdaki kullanmayı `BatchUpdateAlternate` yöntemi bunun yerine:
+Bu tür durumlar için aşağıdaki kullanmayı `BatchUpdateAlternate` yöntemi bunun yerine:
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate` Yeni ve boş bir oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlara `Rows` koleksiyonu ve her satırın BLL s kullanarak belirli bir ürün bilgilerini alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneği sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak alınan içine satır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate` Yeni bir boş oluşturarak başlar `ProductsDataTable` adlı `products`. Ardından GridView s adımlarını `Rows` koleksiyonu ve BLL s kullanarak belirli bir ürün bilgileri her bir satır alır için `GetProductByProductID(productID)` yöntemi. Alınan `ProductsRow` örneğine sahip aynı şekilde güncelleştirilmiş özelliklerini `BatchUpdate`, ancak satır içine alınır güncelleştirdikten sonra `products``ProductsDataTable` DataTable s aracılığıyla [ `ImportRow(DataRow)` yöntemi](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
-Sonra `foreach` döngüsü tamamlandıktan, `products` içeriyor `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), sizi doğrudan kendisine başarılı olursa `UpdateWithTransaction` yöntemi `ProductsTableAdatper` her kayıtlar veritabanına eklemek çalışacaktır. Bunun yerine, biz bu satırların her biri (eklenmedi) değiştirilmiş olduğunu belirtmeniz gerekir.
+Sonra `foreach` döngüsü tamamlandıktan `products` içerir `ProductsRow` GridView her satır için örneği. Her biri bu yana `ProductsRow` örnekleri eklenmiştir `products` (yerine güncelleştirilmiş), biz körüne geçirin, `UpdateWithTransaction` yöntemi `ProductsTableAdatper` veritabanına kayıtların her birinde eklemeye çalışacaktır. Bunun yerine, ki bu satırların her biri (eklenmez) değiştirildiğini belirtmeniz gerekir.
 
-Bu yeni bir yöntem adlı BLL ekleyerek gerçekleştirilebilir `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, aşağıda gösterilen kümeleri `RowState` her birinin `ProductsRow` içinde örnekleri `ProductsDataTable` için `Modified` ve daha sonra geçirir `ProductsDataTable` DAL s `UpdateWithTransaction` yöntemi.
+Bu yeni bir yöntem adlı BLL ekleyerek gerçekleştirilebilir `UpdateProductsWithTransaction`. `UpdateProductsWithTransaction`, aşağıda gösterilen kümeleri `RowState` her birinin `ProductsRow` içinde örnekler `ProductsDataTable` için `Modified` geçirir `ProductsDataTable` DAL s `UpdateWithTransaction` yöntemi.
 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample8.cs)]
 
 ## <a name="summary"></a>Özet
 
-GridView, satır başına yerleşik düzenleme yetenekleri sağlar ancak tam olarak düzenlenebilir arabirimler oluşturma desteği eksik. Biz bu öğreticide gördüğünüz gibi bu tür arabirimleri mümkündür, ancak iş bir bit gerektirir. Her satır olduğu düzenlenebilir GridView oluşturmak için GridView s alanları TemplateFields dönüştürmek ve düzenleme arabirimde tanımlamak ihtiyacımız `ItemTemplate` s. Ayrıca, güncelleştirme tüm - düğmesi Web denetimleri türü sayfasında, GridView ayrı eklenmelidir. Bu düğme `Click` olay işleyicileri gereksinim GridView s Numaralandırılacak `Rows` koleksiyonu, değişiklikleri saklamak bir `ProductsDataTable`ve güncelleştirilmiş bilgileri uygun BLL yönteme geçirin.
+GridView satır başına yerleşik düzenleme yetenekleri sağlar, ancak tam olarak düzenlenebilir arabirimleri oluşturmak için bunlara dönülemiyor. Biz bu öğreticide gördüğünüz gibi bu tür arabirimleri mümkündür, ancak iş bir bit gerektirir. Her satır olduğu düzenlenebilir GridView oluşturmak için GridView s alanları TemplateField dönüştürmek ve düzenleme arabiriminden tanımlamak ihtiyacımız `ItemTemplate` s. Ayrıca, güncelleştirme tüm - düğmesi Web denetimleri türü GridView ayrı sayfaya eklenmesi gerekir. Bu düğmeler `Click` GridView s listeleme gereken olay işleyicileri `Rows` koleksiyonu değişiklikleri depolamak bir `ProductsDataTable`ve güncelleştirilmiş bilgileri uygun BLL metoduna geçirin.
 
-Sonraki öğreticide toplu silme için bir arabirim oluşturma göreceğiz. Her GridView satır özellikle ve bir onay kutusu eklemek yerine Tümünü Güncelleştir-yazın düğmeleri, seçili satırları silme düğmeleri sahip olacaksınız.
+Sonraki öğreticide batch silmek için bir arabirim oluşturma göreceğiz. Her GridView satır özellikle ve bir onay kutusu eklemek yerine tüm güncelleştirme-yazın düğmeleri, biz seçili satırları sil düğmeleri sahip olacaksınız.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Teresa Murphy ve David Suru yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Teresa Murphy ve David Suru yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](wrapping-database-modifications-within-a-transaction-cs.md)
-> [sonraki](batch-deleting-cs.md)
+> [İleri](batch-deleting-cs.md)

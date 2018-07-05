@@ -1,29 +1,28 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları | Microsoft Docs
+title: ASP.NET ve Visual Studio 2012 Web Araçları 2013.1 sürüm notları | Microsoft Docs
 author: microsoft
-description: Bu belgede, ASP.NET ve Web Araçları 2013.1 sürümü için Visual Studio 2012 açıklanmaktadır.
+description: Bu belgede ASP.NET ve Web Araçları 2013.1 sürüm Visual Studio 2012 için açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 85cd45c25e0f2ad3c8d6d6de73a1a493533e7f7b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "28036433"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374266"
 ---
-<a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET ve Web Araçları 2013.1 için Visual Studio 2012 için sürüm notları
+<a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET ve Visual Studio 2012 Web Araçları 2013.1 sürüm notları
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> Bu belgede, ASP.NET ve Web Araçları 2013.1 sürümü için Visual Studio 2012 açıklanmaktadır.
+> Bu belgede ASP.NET ve Web Araçları 2013.1 sürüm Visual Studio 2012 için açıklanmaktadır.
 
 
 ## <a name="contents"></a>İçindekiler
@@ -32,44 +31,44 @@ tarafından [Microsoft](https://github.com/microsoft)
 - [Yazılım gereksinimleri](#requirements)
 - ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
-    - [önyükleme](#bootstrap)
+    - [Önyükleme](#bootstrap)
     - [Şablonlar](#templates)
 
         - [ASP.NET MVC 5 şablonu](#mvc5template)
-        - [ASP.NET Web API 2 şablonu](#apitemplate)
+        - [ASP.NET Web API 2 şablon](#apitemplate)
         - [Öğe şablonları](#itemtemplate)
     - [Entity Framework 6](#ef6)
-    - [ASP.NET İskele](#scaffold)
+    - [ASP.NET iskeleti oluşturma](#scaffold)
     - [Razor Düzenleyicisi](#razor)
     - [NuGet 2.7](#nuget)
 - Bilinen sorunlar ve yeni değişiklikler
 
-    - [ASP.NET İskele](#issuescaffolding)
+    - [ASP.NET iskeleti oluşturma](#issuescaffolding)
 
-        - [MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası](#404issue)
-        - [Visual Studio Express 2012 için Web iskele kurulmuş öğe sonra çalışmayı durdurur.](#expressissue)
+        - [MVC ve Web APİ'si yapı iskelesini - HTTP 404 bulunamadı hatası](#404issue)
+        - [Visual Studio Express 2012 Web için iskele kurulmuş öğe ekledikten sonra çalışmayı durduruyor.](#expressissue)
     - [ASP.NET Razor 3](#issuerazor)
 
-        - [Gözat ile ya da F5 cshtml dosyasını görüntüleyerek bir sunucu hatasına neden oluyor](#browseissue)
+        - [Şununla Gözat veya F5 ile cshtml dosyasını görüntüleyerek bir sunucu hatasına neden olur](#browseissue)
         - [URL yeniden yazma ve Tilde(~)](#rewriteissue)
     - [Şablonlar](#templateissue)
 
 <a id="install"></a>
 ## <a name="installation-notes"></a>Yükleme notları
 
-[Yükleme](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WebNode11Pack.appids) ASP.NET ve Web Araçları Visual Studio 2012 için 2013.1.
+[Yükleme](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WebNode11Pack.appids) ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için.
 
 <a id="requirements"></a>
 ## <a name="software-requirements"></a>Yazılım Gereksinimleri
 
-Visual Studio 2012 veya Visual Studio Express 2012 için Web olması gerekir.
+Visual Studio 2012 veya Visual Studio Express 2012 için Web olmalıdır.
 
 ## <a name="new-features-in-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için yeni özellikler
 
 <a id="bootstrap"></a>
-### <a name="bootstrap"></a>önyükleme
+### <a name="bootstrap"></a>Önyükleme
 
-MVC 5 denetleyicileri ve görünümler iskele kurduğunuzda görünümleri için biçimlendirme kullanan [önyükleme](http://getbootstrap.com/).
+MVC 5 denetleyicileri ve görünümleri iskelesini görünümleri için biçimlendirme kullanır [önyükleme](http://getbootstrap.com/).
 
 <a id="templates"></a>
 ### <a name="templates"></a>Şablonlar
@@ -77,91 +76,91 @@ MVC 5 denetleyicileri ve görünümler iskele kurduğunuzda görünümleri için
 <a id="mvc5template"></a>
 #### <a name="aspnet-mvc-5-template"></a>ASP.NET MVC 5 şablonu
 
-Yeni bir MVC 5 şablonu eklediğimiz. Son MVC 5 NuGet paketlerini başvurur ve yapı iskelesi denetleyicileri ve görünümleri eklemek için kullanabilirsiniz.
+Yeni bir MVC 5 şablon ekledik. MVC 5 NuGet paketlerini en son başvuruyor ve yapı iskelesinde denetleyicileri ve görünümleri eklemek için kullanabilirsiniz.
 
 <a id="apitemplate"></a>
-#### <a name="aspnet-web-api-2-template"></a>ASP.NET Web API 2 şablonu
+#### <a name="aspnet-web-api-2-template"></a>ASP.NET Web API 2 şablon
 
-Yeni bir Web API 2 şablonu eklediğimiz. En son Web API 2 NuGet paketleri başvurur ve yapı iskelesi denetleyicileri ve görünümleri eklemek için kullanabilirsiniz.
+Yeni bir Web API 2 şablonu ekledik. En son Web API 2 NuGet paket başvuruları ve yapı iskelesinde denetleyicileri ve görünümleri eklemek için kullanabilirsiniz.
 
 <a id="itemtemplate"></a>
 #### <a name="item-templates"></a>Öğe şablonları
 
-MVC 5 görünümleri, Web sayfaları (Razor 3) ve Web API 2 denetleyicisi için yeni öğe şablonları eklediğimiz. Bunlar ilgili NuGet paketlerini projeye yeni öğeleri eklenirken yükler.
+MVC 5 görünüm, Web sayfaları (Razor 3) ve Web API 2 denetleyicileri için yeni bir öğe şablonları ekledik. Bunlar ilgili NuGet paketleri projeye yeni öğeleri eklenirken yükler.
 
 <a id="ef6"></a>
 ### <a name="entity-framework-6"></a>Entity Framework 6
 
-Entity Framework kullanarak bir MVC veya Web API denetleyicisi iskele kurduğunuzda Framework 6 kullanırız. Entity Framework hakkında daha fazla bilgi için bkz: [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
+Entity Framework kullanarak bir MVC veya Web API denetleyicisi iskelesini, Framework 6 kullanırız. Entity Framework hakkında daha fazla bilgi için bkz: [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
 
-Ayrıca, indirin ve Visual Studio 2012 için Entity Framework 6 araçlarını yükleyin. Bkz: [alma Entity Framework](https://msdn.com/data/ee712906#tooling).
+Ayrıca, indirin ve Visual Studio 2012 için Entity Framework 6 Tools yükleyin. Bkz: [alın, varlık çerçevesi](https://msdn.com/data/ee712906#tooling).
 
 <a id="scaffold"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET iskeleti oluşturma
 
-ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
+ASP.NET iskeleti oluşturma bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bu, ortak kod projenize bir veri modeli ile etkileşim eklemek kolaylaştırır.
 
-Visual Studio'nun önceki sürümleri yapı iskelesi ASP.NET MVC projelerine sınırlı. Bu güncelleştirmeyle, artık Web Forms dahil olmak üzere tüm ASP.NET projesi için yapı iskelesi kullanabilirsiniz. Bu güncelleştirme için bir Web Forms projesi oluşturma sayfaları desteklemez, ancak yapı iskelesi ile Web Forms projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmaya yönelik destek gelecek bir güncelleştirmede eklenir.
+Visual Studio'nun önceki sürümlerinde, ASP.NET MVC projeleri için yapı iskelesi sınırlıydı. Bu güncelleştirmeyle, artık Web Forms dahil olmak üzere tüm ASP.NET proje için yapı iskelesi kullanabilirsiniz. Bu güncelleştirme için bir Web formları projesi oluşturma sayfaları desteklemez, ancak yapı iskelesi Web Forms ile projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmak için destek, gelecek güncelleştirmelerden birinde eklenecektir.
 
-Yapı iskelesi kullanırken, tüm gerekli bağımlılıkların projede yüklü olduğundan emin olun. Bir ASP.NET Web Forms projeyle başlatın ve sonra bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, gerekli NuGet paket ve başvuruları projenize otomatik olarak eklenir.
+Yapı iskelesi kullanırken, gerekli tüm bağımlılıkların projede yüklü olduğundan emin olun. Bir ASP.NET Web formları projesi ile başlayın ve ardından bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, başvurular ve gerekli NuGet paketlerini projenize otomatik olarak eklenir.
 
-Bir Web Forms projeye MVC yapı iskelesi eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC iskele için iki seçenek vardır; Minimal ve tam. En az seçerseniz, yalnızca NuGet paketlerini ve ASP.NET MVC için başvuruları projenize eklenir. Tam seçeneğini belirlerseniz MVC projesinde gerekli içerik dosyaların yanı sıra en az bağımlılıkları eklenir.
+MVC yapı iskelesi Web Forms projesine eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC yapı iskelesini oluşturmak için iki seçenek vardır; Minimal ve tam. En az seçerseniz, yalnızca NuGet paketleri ve ASP.NET MVC için başvuruları projenize eklenir. Tam seçeneği seçerseniz bir MVC projesi için gerekli içerik dosyalarının yanı sıra en az bağımlılıklar eklenir.
 
-Zaman uyumsuz denetleyicileri iskele desteği yeni Entity Framework 6 zaman uyumsuz özelliklerini kullanır.
+Zaman uyumsuz denetleyicilerinin yapı iskelesini oluşturmak için destek, Entity Framework 6 yeni zaman uyumsuz özelliklerini kullanır.
 
-Daha fazla bilgi ve öğreticiler için bkz: [ASP.NET yapı İskelesi genel bakış](../2013/aspnet-scaffolding-overview.md). Bu öğreticiler yapı iskelesi ile Visual Studio 2013 gösterir, ancak ayrıca ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için geçerli olan.
+Daha fazla bilgi ve eğitimler için bkz. [ASP.NET yapı İskelesi genel bakış](../2013/aspnet-scaffolding-overview.md). Bu öğreticiler Visual Studio 2013 ile yapı iskelesi gösterir, ancak aynı zamanda ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için geçerli olan.
 
 <a id="razor"></a>
 ### <a name="razor-editor"></a>Razor Düzenleyicisi
 
-Bu güncelleştirmeyle, Visual Studio 2012 şimdi Razor 3 araçları/düzenlemeyi destekler.
+Bu güncelleştirme ile Visual Studio 2012, Razor 3 araç veya düzenleme artık desteklemektedir.
 
 <a id="nuget"></a>
 ### <a name="nuget-27"></a>NuGet 2.7
 
-NuGet 2.7 yakından açıklanan yeni özellikleri zengin bir dizi içeren [NuGet 2.7 Sürüm Notları](http://docs.nuget.org/docs/release-notes/nuget-2.7).
+NuGet 2.7 adresinde ayrıntılı olarak açıklanan yeni özellikleri zengin bir dizi içeren [NuGet 2.7 Sürüm Notları](http://docs.nuget.org/docs/release-notes/nuget-2.7).
 
-NuGet bu sürümü eksik paketleri geri yüklemek için NuGet açıkça izin verilen kullanıcı gereksinimini ortadan kaldırır. NuGet 2.7 yüklerken, kullanıcıların örtük olarak eksik paketleri otomatik olarak geri yüklemek için onay. Kullanıcılar, Visual Studio'da NuGet ayarları aracılığıyla paket geri yükleme dışında açıkça seçebilirsiniz. Bu değişiklik, paket geri yükleme şeklini basitleştirir.
+NuGet'ın bu sürümü eksik paketleri geri yüklemek için NuGet açıkça izin verilen kullanıcı gereksinimini kaldırır. Örtük olarak NuGet 2.7, kullanıcılar yükleme sırasında otomatik olarak eksik paketleri geri yüklemek için onay vermiş olursunuz. Kullanıcılar, Visual Studio'da NuGet ayarları aracılığıyla paket geri yükleme dışında açıkça tercih edebilirsiniz. Bu değişiklik, paket geri yükleme şeklini basitleştirir.
 
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
 
 <a id="issuescaffolding"></a>
-### <a name="aspnet-scaffolding"></a>ASP.NET İskele
+### <a name="aspnet-scaffolding"></a>ASP.NET iskeleti oluşturma
 
 <a id="404issue"></a>
-#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web API yapı İskelesi - HTTP 404 bulunamadı hatası
+#### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web APİ'si yapı iskelesini - HTTP 404 bulunamadı hatası
 
-Bir projeye iskele kurulmuş öğe olduğunda hatayla karşılaşırsanız, projenizin tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılan değişiklikler geri alınacak ancak yüklü NuGet paketleri gibi diğer değişiklikler geri alınacak değil. Yönlendirme yapılandırması değişiklikler geri alınır, gezinme öğeleri iskele kurulmuş kullanıcılar bir HTTP 404 hata alır.
+İskele kurulmuş öğe projeye eklenirken bir hatayla karşılaşırsanız, projenizi tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılacak değişiklikler geri alınır ancak yüklü NuGet paketleri gibi diğer değişiklikleri geri alınmaz. Yönlendirme yapılandırma değişikliklerini geri giderek iskele kurulmuş öğe olduğunda kullanıcıların bu HTTP 404 hatası alırsınız.
 
-MVC için bu hatayı düzeltmek için yeni iskele kurulmuş Öğe Ekle ve MVC 5 bağımlılıkları seçin (en az veya tam). Bu işlem tüm gerekli değişiklikleri projenize ekleyin.
+MVC için bu hatayı düzeltmek için yeni iskele kurulmuş öğe ekleme ve MVC 5 bağımlılıkları seçin (en az veya tam). Bu işlem tüm gerekli değişiklikleri projenize ekleyin.
 
-Web API için bu hatayı düzeltmek için:
+Web API'si için bu hatayı düzeltmek için:
 
 1. Aşağıdaki WebApiConfig sınıfı projenize ekleyin.
 
     [!code-csharp[Main](aspnet-and-web-tools-20131-for-visual-studio-2012/samples/sample1.cs)]
 
     [!code-vb[Main](aspnet-and-web-tools-20131-for-visual-studio-2012/samples/sample2.vb)]
-2. Uygulamada WebApiConfig.Register yapılandırma\_yöntemi Global.asax dosyasında şu şekilde başlatın:
+2. WebApiConfig.Register yapılandırın\_yöntemi Global.asax dosyasında şu şekilde başlatın:
 
     [!code-csharp[Main](aspnet-and-web-tools-20131-for-visual-studio-2012/samples/sample3.cs)]
 
     [!code-vb[Main](aspnet-and-web-tools-20131-for-visual-studio-2012/samples/sample4.vb)]
 
 <a id="expressissue"></a>
-#### <a name="visual-studio-express-2012-for-web-stops-working-after-adding-a-scaffolded-item"></a>Visual Studio Express 2012 için Web iskele kurulmuş öğe sonra çalışmayı durdurur.
+#### <a name="visual-studio-express-2012-for-web-stops-working-after-adding-a-scaffolded-item"></a>Visual Studio Express 2012 Web için iskele kurulmuş öğe ekledikten sonra çalışmayı durduruyor.
 
-Visual Studio Express 2012 için Web iskele kurulmuş öğe Entity Framework (örneğin, Web API 2 denetleyici Entity Framework kullanarak Eylemler ile) sonra çalışmayı durdurursa, Visual Studio Express yerel görüntü Derleme yüklenemedi, mümkündür System.Web.Extensions bağlıdır.
+Visual Studio Express 2012 için Web (örneğin, Web API 2 denetleyici Entity Framework kullanarak Eylemler ile) Entity Framework iskele kurulmuş öğe ekledikten sonra çalışmayı durdurursa, Visual Studio Express bir derlemenin yerel görüntüsünü yüklenemedi, mümkündür System.Web.Extensions bağlıdır.
 
 Bu sorunu düzeltmek için System.Web.Extensions MSIL görüntüsü ile çalışmak için Visual Studio Express yapılandırın:
 
-1. Komut istemini yönetici modunda açın.
-2. %ProgramFiles%\Microsoft Visual Studio 11.0\Common7\IDE veya % ProgramFiles(x86) %\Microsoft Visual Studio 11.0\Common7\IDE (için 64-bit Windows) gidin.
+1. Yönetici modunda komut istemini açın.
+2. %ProgramFiles%\Microsoft Visual Studio 11.0\Common7\IDE ya da (64 bit Windows için) % ProgramFiles(x86) %\Microsoft Visual Studio 11.0\Common7\IDE gidin.
 3. VWDExpress.exe.config bir metin düzenleyicisinde açın.
-4. Altında aşağıdaki satırı ekleyin &lt;yapılandırma&gt;/&lt;çalışma zamanı&gt; öğe:  
+4. Altında aşağıdaki satırı ekleyin &lt;yapılandırma&gt;/&lt;çalışma zamanı&gt; öğesi:  
 
     [!code-xml[Main](aspnet-and-web-tools-20131-for-visual-studio-2012/samples/sample5.xml)]
-5. Web için yeniden başlatma Visual Studio Express 2012.
+5. Web için Express 2012 Visual Studio'yu yeniden başlatın.
 
 <a id="issuerazor"></a>
 ### <a name="aspnet-razor-3"></a>ASP.NET Razor 3
@@ -169,34 +168,34 @@ Bu sorunu düzeltmek için System.Web.Extensions MSIL görüntüsü ile çalış
 <a id="browseissue"></a>
 #### <a name="viewing-cshtml-file-withbrowse-withorf5causes-a-server-error"></a>Bir sunucu hatası cshtml dosyası withBrowse WithorF5causes görüntüleme
 
-Visual Studio 2012 (veya Visual Studio 2013'te oluşturulan Visual Studio 2012 bir MVC 5 Proje Aç) bir MVC 5 projesi oluşturduğunuzda ve Gözat ile ya da F5 kullanarak cshtml dosyasını görüntüleme girişiminde durumları - hatayla karşılaşırsınız **sunucu hatası '/' Uygulama**. Sunucu gitmek çalışır `http://localhost:XXXX/Views/../XXXX.cshtml`
+Visual Studio 2012 (veya Visual Studio 2013'te oluşturulan Visual Studio 2012 MVC 5 Proje Aç) bir MVC 5 projesi oluşturun ve cshtml dosyası ile Gözat veya F5'i kullanarak görüntülemeye çalışmak bildiren - hata alırsınız **sunucu hatası '/' Uygulama**. Gitmek sunucunun çalışır `http://localhost:XXXX/Views/../XXXX.cshtml`
 
-Bu sorunu çözmek için değiştirme **eylemi Başlat** projenize ayarını **belirli sayfa**. Sayfa için bir değer sağlamanız gerekmez.
+Bu sorunu çözmek için değiştirme **başlatma eylemi** projenize ayarını **belirli sayfa**. Sayfa için bir değer sağlamanız gerekmez.
 
 ![](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image1.png)
 
-Bu değişikliği yaptıktan sonra F5 seçerek gider, uygulamanızın kök dizinine (`http://localhost:XXXX`). Bu davranış Visual Studio 2013'te MVC 5 projeleri için davranış aynı değil nerede **geçerli sayfa** ayarı sayfasını aç başlatır.
+Bu değişikliği yaptıktan sonra F5'i seçerek gider, uygulamanızın kök dizinine (`http://localhost:XXXX`). Bu davranışı Visual Studio 2013'te MVC 5 projeleri için davranışı aynı değildir burada **geçerli sayfa** ayarı açık sayfanın başlatır.
 
 <a id="rewriteissue"></a>
 #### <a name="url-rewrite-and-tilde"></a>URL yeniden yazma ve Tilde(~)
 
-URL yeniden yazdırmaya kullanıyorsanız, ASP.NET Razor 3 veya ASP.NET MVC 5'e yükselttikten sonra tilde(~) gösterimi artık doğru çalışmayabilir. URL yeniden yazma gibi HTML öğeleri tilde(~) gösterimde etkiler &lt;A /&gt;, &lt;komut dosyası /&gt;, &lt;bağlantı /&gt;, ve bunun sonucunda tilde kök dizinine artık eşler.
+URL yeniden yazma işlemleri kullanıyorsanız, ASP.NET Razor 3 veya ASP.NET MVC 5'e yükselttikten sonra tilde(~) gösterimi artık doğru şekilde çalışmayabilir. URL yeniden yazma gibi HTML öğeleri tilde(~) gösteriminde etkiler &lt;A /&gt;, &lt;BETİK /&gt;, &lt;bağlantı /&gt;, ve bunun sonucunda tilde kök dizinine artık eşler.
 
-Örneğin, istek için yeniden **asp.net/content** için **asp.net**, href özniteliği &lt;A href = "~/content/" /&gt; çözümler **/content/ İçerik /** yerine **/**. Bu değişiklik gizlemek için ayarlayabileceğiniz **IIS\_WasUrlRewritten** false her Web sayfası veya bağlam **uygulama\_BeginRequest** Global.asax içinde.
+Örneğin, istek için yeniden **asp.net/content** için **asp.net**, href özniteliği &lt;bir href = "~/content/" /&gt; çözümler **/content/ İçerik /** yerine **/**. Bu değişiklik bastırmak için ayarlayabileceğiniz **IIS\_WasUrlRewritten** false her Web sayfasını veya bağlam **uygulama\_BeginRequest** içindeki.
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Şablonlar
 
-ASP.NET MVC projeleri Visual Studio 2012 Windows 8.1 veya Windows Server 2012 R2, Visual Studio ile oluşturduğunuzda "Yapılandırma Web [url] için ASP.NET 4.5 başarısız oldu." bildiren bir hata iletisi görüntüler
+ASP.NET MVC projeleri Visual Studio 2012 Windows 8.1 veya Windows Server 2012 R2, Visual Studio ile oluşturduğunuzda "Yapılandırma Web [url] için ASP.NET 4.5 başarısız oldu." diyen bir hata iletisi görüntüler
 
-![Yapılandırma hatası](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
+![yapılandırma hatası](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-Bu Windows sürümlerini yüklediğinizde Visual Studio 2012 ASP.NET 4.5 özelliğini etkinleştirmez olduğundan, bu hatayı görürsünüz. ASP.NET 4.5 etkinleştirmek için açıklanan adımları gerçekleştirmek [kapatma Windows özelliklerini aç veya Kapat](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
+Visual Studio 2012 ASP.NET 4.5 özelliğini etkinleştirmez, bu Windows sürümleri üzerinde yüklü olduğunda dolayı bu hatayı görebilirsiniz. ASP.NET 4.5 etkinleştirmek için açıklanan adımları uygulayın. [kapatma Windows özelliklerini aç veya Kapat](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
 
 ![Windows özelliklerini açma veya kapatma](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 
-Alternatif olarak, komut satırı kullanarak ASP.NET 4.5 etkinleştirebilirsiniz.
+Alternatif olarak, komut satırı aracılığıyla ASP.NET 4.5 etkinleştirebilirsiniz.
 
-1. Komut istemini yönetici modunda açın.
+1. Yönetici modunda komut istemini açın.
 2. ASP.NET 4.5 etkinleştirmek için aşağıdaki komutu çalıştırın.  
     `dism /Online /Enable-Feature /FeatureName:NetFx4Extended-ASPNET45 /Quiet /NoRestart`

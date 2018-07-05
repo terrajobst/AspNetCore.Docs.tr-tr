@@ -1,40 +1,41 @@
 ---
 title: ASP.NET Core WebSockets desteği
 author: rick-anderson
-description: ASP.NET Core WebSockets kullanmaya başlayacağınızı öğrenin.
+description: ASP.NET core'da WebSockets kullanmaya başlama hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: ee529f1aaadb6b6062bed56003c51f161eae7e72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a9fe13ef7895ea3ab43257dbbaf4521f883c0804
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273803"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433993"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
-Tarafından [zel Dykstra](https://github.com/tdykstra) ve [Barış Stanton-Nurse](https://github.com/anurse)
+Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Andrew Stanton-Nurse](https://github.com/anurse)
 
-Bu makalede, ASP.NET Core WebSockets kullanmaya başlama açıklanmaktadır. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)), TCP bağlantıları üzerinden kalıcı iki yönlü iletişim kanalları sağlayan bir protokoldür. Sohbet, Pano ve oyun uygulamaları gibi hızlı, gerçek zamanlı iletişim yararlı uygulamalarda kullanılır.
+Bu makalede, WebSockets içinde ASP.NET Core ile çalışmaya başlama açıklanmaktadır. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) üzerinden TCP bağlantıları kalıcı iki yönlü iletişim kanalı sağlayan bir protokoldür. Sohbet, Pano ve oyun uygulamaları gibi hızlı, gerçek zamanlı iletişim yararlanan uygulamalarda kullanılır.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)). Bkz: [sonraki adımlar](#next-steps) daha fazla bilgi için bölüm.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)). Bkz: [sonraki adımlar](#next-steps) bölümünde daha fazla bilgi için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* ASP.NET Core 1.1 veya üstü
-* ASP.NET Core destekleyen herhangi bir işletim sistemi:
+* ASP.NET Core 1.1 veya üzeri
+* ASP.NET Core destekleyen tüm işletim Sistemleri:
   
-  * Windows 7 / Windows Server 2008 veya üzeri
+  * Windows 7 / Windows Server 2008 veya üstü
   * Linux
   * MacOS
   
-* Uygulama IIS ile Windows üzerinde çalışıyorsa:
+* IIS ile Windows uygulama çalışıyorsa:
 
   * Windows 8 / Windows Server 2012 veya üzeri
   * IIS 8 / 8 IIS Express
-  * WebSockets, IIS'de etkin olması gerekir (bkz [IIS/IIS Express Destek](#iisiis-express-support) bölüm.)
+  * IIS WebSockets etkinleştirildi (bkz [IIS/IIS Express Destek](#iisiis-express-support) bölümüne.)
   
 * Uygulama çalışıyorsa [HTTP.sys](xref:fundamentals/servers/httpsys):
 
@@ -42,83 +43,76 @@ Bu makalede, ASP.NET Core WebSockets kullanmaya başlama açıklanmaktadır. [We
 
 * Desteklenen tarayıcılar için bkz: https://caniuse.com/#feat=websockets.
 
-## <a name="when-to-use-websockets"></a>WebSockets kullanma zamanı
+## <a name="when-to-use-websockets"></a>Ne zaman WebSockets kullanılır?
 
-WebSockets, doğrudan bir yuva bağlantısı ile çalışmak için kullanın. Örneğin, gerçek zamanlı oyun ile olası en iyi performansı için WebSockets kullanın.
+WebSockets, doğrudan bir yuva bağlantı ile çalışması için kullanın. Örneğin, gerçek zamanlı oyun ile mümkün olan en iyi performansı için WebSockets kullanın.
 
-[ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) daha zengin bir uygulama modeli gerçek zamanlı işlevselliği sağlar, ancak bunun için ASP.NET yalnızca çalışır 4.x, ASP.NET Core. SignalR ASP.NET Core sürümü, ASP.NET Core 2.1 sürümüyle için zamanlandı. Bkz: [ASP.NET Core 2.1 üst düzey planlama](https://github.com/aspnet/Announcements/issues/288).
+[ASP.NET Core SignalR](xref:signalr/introduction) , uygulamalara gerçek zamanlı web işlevselliği ekleme basitleştiren bir kitaplık. Mümkün olduğunda WebSockets kullanır.
 
-SignalR Core serbest kadar WebSockets kullanılabilir. Ancak, SignalR sağladığı özellikleri sağlanan ve gerekir geliştirici tarafından desteklenir. Örneğin:
-
-* Geniş bir alternatif taşıma yöntemleri için otomatik geri dönüş kullanarak tarayıcı sürümleri için destek.
-* Bir bağlantı düştüğünde otomatik yeniden bağlanma.
-* Sunucuda veya yöntemleri çağırma istemciler için destek.
-* Birden çok sunucuya ölçeklendirme desteği.
-
-## <a name="how-to-use-it"></a>Nasıl kullanılacağını
+## <a name="how-to-use-websockets"></a>WebSockets kullanma
 
 * Yükleme [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) paket.
 * Ara yazılımını yapılandırın.
-* WebSocket istekleri kabul edin.
-* İleti gönderme ve alma.
+* WebSocket isteklerini kabul etmek.
+* İletileri gönderip yeniden açın.
 
 ### <a name="configure-the-middleware"></a>Ara yazılımını yapılandırma
 
-WebSockets Ara yazılımında eklemek `Configure` yöntemi `Startup` sınıfı:
+WebSockets Ara yazılımında ekleme `Configure` yöntemi `Startup` sınıfı:
 
 [!code-csharp[](websockets/sample/Startup.cs?name=UseWebSockets)]
 
 Aşağıdaki ayarlar yapılandırılabilir:
 
-* `KeepAliveInterval` -Sık "ping" çerçevelerine proxy'leri emin olmak için istemci bağlantıyı açık tutmak göndermek nasıl.
-* `ReceiveBufferSize` -Veri almak için kullanılan arabellek boyutu. İleri düzey kullanıcılar, bu veri boyutuna göre performans ayarlaması için değiştirmeniz gerekebilir.
+* `KeepAliveInterval` -Nasıl "ping" çerçeveler proxy'leri emin olmak için istemci bağlantıyı açık tutma genellikle gönderilecek.
+* `ReceiveBufferSize` -Veri almak için kullanılan arabellek boyutu. Gelişmiş kullanıcılar, bu verilerin boyutunu temel alan performans ayarı için değiştirmeniz gerekebilir.
 
 [!code-csharp[](websockets/sample/Startup.cs?name=UseWebSocketsOptions)]
 
-### <a name="accept-websocket-requests"></a>WebSocket istekleri kabul
+### <a name="accept-websocket-requests"></a>WebSocket isteklerini kabul etmek
 
-İstek yaşam döngüsü devamındaki herhangi bir yerde (daha sonra `Configure` yöntemi veya bir MVC eylem, örneğin) bir Web yuvası isteği olup olmadığını denetleyin ve WebSocket isteğini kabul et.
+İsteği yaşam döngüsünün sonraki yere (daha sonra `Configure` yöntemi veya örneğin bir MVC eylemi) bir Web yuvası isteği olup olmadığını denetleyin ve WebSocket isteğini kabul edin.
 
-Aşağıdaki örnek alanından daha sonra kullanımda `Configure` yöntemi:
+Aşağıdaki örnek daha sonra buna dandır `Configure` yöntemi:
 
 [!code-csharp[](websockets/sample/Startup.cs?name=AcceptWebSocket&highlight=7)]
 
-Web yuvası isteğini üzerinde herhangi bir URL adresi gelebilir, ancak bu örnek kod yalnızca isteklerini kabul `/ws`.
+Web yuvası isteğini herhangi bir URL gelebilir, ancak bu örnek kod, yalnızca isteklerini kabul eder `/ws`.
 
-### <a name="send-and-receive-messages"></a>İleti gönderme ve alma
+### <a name="send-and-receive-messages"></a>İleti gönderin ve alın
 
-`AcceptWebSocketAsync` Yöntemi TCP bağlantısı WebSocket bağlantı yükseltir ve sağlayan bir [WebSocket](/dotnet/core/api/system.net.websockets.websocket) nesnesi. Kullanım `WebSocket` ileti gönderme ve alma için nesne.
+`AcceptWebSocketAsync` Yöntemi TCP bağlantısı WebSocket bağlantısı yükseltir ve sağlayan bir [WebSocket](/dotnet/core/api/system.net.websockets.websocket) nesne. Kullanım `WebSocket` ileti göndermek ve almak için nesne.
 
-Web yuvası isteğini kabul eden daha önce gösterilen kod iletir `WebSocket` nesnesine bir `Echo` yöntemi. Kod bir ileti alır ve hemen aynı iletiyi gönderir. Gönderilen ve istemci bağlantı kapatana kadar bir döngüde alınan ileti:
+Web yuvası isteğini kabul eden daha önce gösterilen kod geçirir `WebSocket` nesnesini bir `Echo` yöntemi. Kod, bir ileti alır ve hemen aynı iletiyi gönderir. Gönderilen ve istemci bağlantı kapatana kadar bir döngüde alınan ileti:
 
 [!code-csharp[](websockets/sample/Startup.cs?name=Echo)]
 
-Döngü başlamadan önce WebSocket bağlantısı kabul ederek, ara yazılım ardışık düzenini sona erer. Yuva kapatma sırasında ardışık düzen unwinds. Diğer bir deyişle, istek ardışık düzeninde WebSocket kabul edildiğinde ilerleyen durdurur. Döngü tamamlandı ve yuvanın kapalı olduğunda, isteği yeniden ardışık düzen devam eder.
+Döngü başlamadan önce WebSocket bağlantısı kabul ederek, ara yazılım ardışık düzenini sona erer. Yuva kapatıldıktan sonra işlem hattını geriye doğru izler. Diğer bir deyişle, işlem hattı, WebSocket kabul edildiğinde ilerletme isteğini durdurur. Döngü tamamlandıktan ve yuva kapalı olduğunda, isteği yeniden işlem hattı devam eder.
 
 ## <a name="iisiis-express-support"></a>IIS/IIS Express desteği
 
-Windows Server 2012 veya üzeri ve Windows 8 veya üzeri ile IIS/IIS Express 8 veya üzeri WebSocket protokolü için desteği vardır.
+Windows Server 2012 veya üzeri ve Windows 8 veya üzeri ile IIS/IIS Express 8 veya üzeri, WebSocket protokolü için desteği vardır.
 
-Windows Server 2012 veya sonraki sürümlerde WebSocket protokolü için desteği etkinleştirmek için:
+Windows Server 2012 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştirmek için:
 
-1. Kullanım **rol ve Özellik Ekle** gelen Sihirbazı **Yönet** menüsü veya bağlantıyı **Sunucu Yöneticisi'ni**.
+1. Kullanım **rol ve Özellik Ekle** Sihirbazı'ndan **Yönet** menüsü ya da bağlantı **Sunucu Yöneticisi**.
 1. Seçin **rol tabanlı veya özellik tabanlı yükleme**. Seçin **sonraki**.
 1. (Yerel sunucu varsayılan olarak seçilidir) uygun sunucuyu seçin. Seçin **sonraki**.
-1. Genişletme **Web sunucusu (IIS)** içinde **rolleri** ağaç, genişletin **Web sunucusu**, genişletin ve ardından **uygulama geliştirme**.
+1. Genişletin **Web sunucusu (IIS)** içinde **rolleri** ağacında, genişletme **Web sunucusu**ve ardından **uygulama geliştirme**.
 1. Seçin **WebSocket Protokolü**. Seçin **sonraki**.
-1. Ek özellikleri olmayan gerekirse seçin **sonraki**.
+1. Ek özelliklere ihtiyaç duyulmayan, seçin **sonraki**.
 1. **Yükle**'yi seçin.
 1. Yükleme tamamlandığında seçin **Kapat** sihirbazdan çıkmak için.
 
-Windows 8 veya sonraki sürümlerde WebSocket protokolü için desteği etkinleştirmek için:
+Windows 8 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştirmek için:
 
-1. Gidin **Denetim Masası** > **programları** > **programlar ve Özellikler** > **kapatma Windows özellikleri ya da kapalı** (sol tarafında ekranı).
+1. Gidin **Denetim Masası** > **programlar** > **programlar ve Özellikler** > **kapatma Windows özellikleri hakkında ya da kapalı** (ekranın sol).
 1. Aşağıdaki düğümler açın: **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**.
 1. Seçin **WebSocket Protokolü** özelliği. Seçin **Tamam**.
 
-**WebSocket Socket.IO üzerinde node.js kullanırken devre dışı bırak**
+**Socket.io, node.js dosyasını kullanırken WebSocket devre dışı bırak**
 
-WebSocket desteği kullanıyorsanız [Socket.IO](https://socket.io/) üzerinde [Node.js](https://nodejs.org/), varsayılan IIS WebSocket modülü kullanılarak devre dışı bırakma `webSocket` öğesinde *web.config* veya *applicationHost.config*. Bu adımda gerçekleştirilen değil WebSocket iletişim yerine Node.js ve uygulamayı işlemek IIS WebSocket modülü çalışır.
+WebSocket desteği kullanıyorsanız [socket.io](https://socket.io/) üzerinde [Node.js](https://nodejs.org/), varsayılan IIS WebSocket modülünü kullanarak devre dışı bırak `webSocket` öğesinde *web.config* veya *applicationHost.config*. Bu adım yapılamaz ve iletişim WebSocket yerine Node.js uygulaması işlemek IIS WebSocket modülü çalışır.
 
 ```xml
 <system.webServer>
@@ -128,10 +122,10 @@ WebSocket desteği kullanıyorsanız [Socket.IO](https://socket.io/) üzerinde [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) bu eşlik makaledir Yankı uygulama. WebSocket bağlantılar sağlayan bir web sayfasına sahip ve sunucunun aldığı iletileri istemciye yeniden gönderir. (Bunu ayarlanmamış yukarı IIS Express ile Visual Studio'dan çalıştırmak için) bir komut isteminden uygulamayı çalıştırın ve gidin http://localhost:5000. Web sayfasının sol üst bağlantı durumunu gösterir:
+[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/websockets/sample) bu eşlik Yankı uygulama makaledir. WebSocket bağlantılarını sağlayan bir web sayfasına sahip ve sunucu istemciye herhangi bir ileti aldıktan sonra yeniden gönderir. (Bunu ayarlanmadı IIS Express ile Visual Studio'dan çalıştırmak için) bir komut isteminden uygulamayı çalıştırın ve gidin http://localhost:5000. Web sayfasının sol üst bağlantı durumunu gösterir:
 
 ![Web sayfasının ilk durumu](websockets/_static/start.png)
 
-Seçin **Bağlan** gösterilen URL'yi bir Web yuvası isteğini göndermek için. Sınama iletisi girin ve **Gönder**. İşiniz bittiğinde, seçin **Kapat yuva**. **İletişim günlük** bölüm raporları her açık, gönderme ve kapatma eylemi olarak gerçekleşir.
+Seçin **Connect** gösterilen URL'yi bir Web yuvası isteğini göndermek için. Test iletisi girin ve seçin **Gönder**. İşiniz bittiğinde, seçin **Kapat yuva**. **İletişim günlük** bölüm açık, her gönderme bildirir ve kapatma eylemi,'olmuyor.
 
 ![Web sayfasının ilk durumu](websockets/_static/end.png)

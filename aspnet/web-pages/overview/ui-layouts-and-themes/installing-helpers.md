@@ -1,36 +1,35 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: Bir yardımcı yükleme bir ASP.NET Web sayfaları (Razor) Site | Microsoft Docs
+title: Bir yardımcıyı yükleme bir ASP.NET Web sayfaları (Razor) sitesinde | Microsoft Docs
 author: tfitzmac
-description: Bu makalede, bir yardımcı bir ASP.NET Web sayfaları (Razor) Web sitesi yüklemeyi açıklar. Bir yardımcı kod ve başına biçimlendirme içeren yeniden kullanılabilir bir bileşenidir...
+description: Bu makalede, nasıl bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı yükleneceği açıklanır. Bir yardımcı kod ve işaretlemede başına içeren yeniden kullanılabilir bir bileşen olan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
 ms.topic: article
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 38290fd47355e7893eddd1f867f47b113b54ca7e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896789"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361812"
 ---
-<a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde bir yardımcı yükleme
+<a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde bir yardımcıyı yükleme
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, bir yardımcı bir ASP.NET Web sayfaları (Razor) Web sitesi yüklemeyi açıklar. A *yardımcı* kod ve sıkıcı veya karmaşık olabilir bir görevi gerçekleştirmek için biçimlendirme içeren yeniden kullanılabilir bir bileşendir.
+> Bu makalede, nasıl bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı yükleneceği açıklanır. A *Yardımcısı* kod ve yorucu bir süreç veya karmaşık olabilir bir görevi gerçekleştirmek için biçimlendirme içeren yeniden kullanılabilir bir bileşendir.
 > 
 > Öğrenecekleriniz:
 > 
-> - Yardımcıyı WebMatrix 3 kullanılarak oluşturulan bir Web sitesinin yükleme.
+> - Nasıl yardımcı WebMatrix 3'ü kullanarak oluşturulan bir Web sitesine yüklenir.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - WebMatrix 3
@@ -38,31 +37,31 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="overview-of-helpers"></a>Yardımcıları genel bakış
 
-Kişiler genellikle web sayfalarında yapmak istediğiniz bazı görevleri çok fazla kod zorunlu veya ek bilgi gerektirir. Veri için bir grafik görüntüleme örnekler; bir Twitter "İzle" düğmesine bir sayfada koyma; gönderen e-posta, Web sitesinden; Kırpma veya görüntüleri yeniden boyutlandırma; PayPal siteniz için kullanma. Bu tür bir şeyler yapın kolaylaştırmak için ASP.NET Web sayfaları kullanmanıza olanak sağlayan *Yardımcıları*. Bileşenleri ve olanak sağlayan bir site için yüklediğiniz tipik yalnızca bir çizgi veya iki Razor kodunun kullanarak görevleri yardımcılardır.
+Kişiler genellikle web sayfalarında yapmak istediğiniz bazı görevler bir sürü kod gerektiren veya ek bilgi gerektirir. Veriler için bir grafik görüntüleme verilebilir; bir Twitter "İzle" düğmesine bir sayfa koyarak; gönderen e-posta, Web sitesinden; Kırpma veya görüntüleri yeniden boyutlandırmayı; PayPal, siteniz için kullanma. Bu tür bir şeyler yapmasını kolaylaştırır, ASP.NET Web Pages kullanmanıza olanak sağlar. *Yardımcıları*. Bileşenleri ve olanak sağlayan bir site için yüklediğiniz tipik bir çizgi veya iki Razor kodunun kullanarak görevleri yardımcılardır.
 
-ASP.NET Web sayfaları birkaç Yardımcıları yerleşik olarak sahiptir. Bununla birlikte, birçok Yardımcıları NuGet Paket Yöneticisi'ni kullanarak sağlanan paketlerinde (eklentiler) kullanılabilir. NuGet yüklemek için bir paket seçmenize olanak sağlar ve ardından bunu yükleme tüm ayrıntılarını mvc'deki.
+ASP.NET Web Pages birkaç Yardımcıları yerleşik olarak sahiptir. Ancak, birçok Yardımcıları NuGet Paket Yöneticisi'ni kullanarak sağlanan paketleri (add-INS) kullanılabilir. NuGet paketini yüklemek için seçmenize olanak sağlar ve ardından bu yükleme tüm ayrıntılarını üstlenir.
 
-## <a name="installing-a-helper-in-webmatrix-3"></a>WebMatrix 3 yardımcıyı yükleme
+## <a name="installing-a-helper-in-webmatrix-3"></a>WebMatrix 3 ' bir yardımcıyı yükleme
 
 1. WebMatrix 3'te tıklatın **NuGet** düğmesi.
 
-    ![WebMatrix, NuGet Galerisi'nin iletişim kutusu](installing-helpers/_static/image1.png)
-2. Bu, NuGet Paket Yöneticisi'ni başlatır ve kullanılabilir paketler görüntüler. Arama kutusuna, yüklemek istediğiniz Yardımcısı için bir anahtar sözcüğü girin.
+    ![WebMatrix, NuGet galerisindeki iletişim kutusu](installing-helpers/_static/image1.png)
+2. Bu, NuGet Paket Yöneticisi'ni başlatır ve kullanılabilir paketler görüntüler. Arama kutusuna Yardımcısını yüklemek istediğiniz bir anahtar sözcüğü girin.
 
-    ![WebMatrix, NuGet Galerisi'nin iletişim kutusu](installing-helpers/_static/image2.png)
-3. Paketi seçin ve ardından **yükleme**. Tıklatın **Evet** paket yüklemek ve koşullarını kabul ettiğinizi belirtmek isteyip istemediğiniz sorulduğunda.
+    ![WebMatrix, NuGet galerisindeki iletişim kutusu](installing-helpers/_static/image2.png)
+3. Paketi seçin ve ardından **yükleme**. Tıklayın **Evet** paketi yükleyin ve koşullarını kabul ettiğinizi belirtmek isteyip istemediğiniz sorulduğunda.
 
-     Yardımcıyı yüklediğiniz ilk kez kullanıyorsanız, NuGet klasörleri Web siteniz için Yardımcısı yapar kodu oluşturur.
-4. Yardımcıyı kaldırmak için tıklatın **galeri** düğmesini tıklatın, **yüklü** sekmesini tıklatın ve kaldırmak istediğiniz paketi seçin.
+     Bu yardımcı yüklediğiniz ilk kez kullanıyorsanız, NuGet klasörleri Web siteniz için yardımcı yapan kod oluşturur.
+4. Bir yardımcı kaldırmak için tıklayın **galeri** düğmesini tıklatın, **yüklü** sekmesini ve kaldırmak istediğiniz paketi seçin.
 
-## <a name="installing-the-twitter-helper"></a>Twitter Yardımcısı yükleniyor
+## <a name="installing-the-twitter-helper"></a>Twitter Yardımcısı'nı yükleme
 
-Twitter API'si en son sürümünü NuGet yükleme Twitter Yardımcısı ile uyumlu değil. Bunun yerine bkz [Twitter Yardımcısı WebMatrix ile](twitter-helper.md) projenizdeki Twitter Yardımcısı ayarlama hakkında bilgi için konu.
+En son sürümünü Twitter API'si NuGet yükleme için Twitter Yardımcısı ile uyumlu değil. Bunun yerine bkz [WebMatrix ile Twitter Yardımcısı](twitter-helper.md) için Twitter Yardımcısı, projenizdeki ayarlama hakkında bilgi için konu.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 
-[2 - Programlama temelleri ile tanışın ASP.NET Web sayfaları](../getting-started/introducing-razor-syntax-c.md)
+[Karşınızda ASP.NET Web sayfaları 2 - Programlama temelleri](../getting-started/introducing-razor-syntax-c.md)
 
 [WebMatrix ile twitter Yardımcısı](twitter-helper.md)

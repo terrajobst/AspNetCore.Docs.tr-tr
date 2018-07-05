@@ -1,48 +1,47 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
-title: DropShadow (C#) Z-Index ayarlama | Microsoft Docs
+title: (C#) bir dropshadow'un Z dizinini ayarlama | Microsoft Docs
 author: wenz
-description: AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge bazen yükleme konumu için diğer denetimleri çakışıyor...
+description: AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge bazen diğer denetimlerle yükleme konumu için çakışan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 14133833-e518-4347-87b9-6b6f71f14a77
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/adjusting-the-z-index-of-a-dropshadow-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 82add8427c8e574b213b67315e69bb4c28846095
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 22732bc44a56819a2ec73346dc32659d027eaee0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868288"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369576"
 ---
-<a name="adjusting-the-z-index-of-a-dropshadow-c"></a>DropShadow (C#) Z-Index ayarlama
+<a name="adjusting-the-z-index-of-a-dropshadow-c"></a>(C#) bir dropshadow'un Z dizinini ayarlama
 ====================
 tarafından [Christian Wenz](https://github.com/wenz)
 
-[Kodu indirme](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.cs.zip) veya [PDF indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1CS.pdf)
+[Kodu indir](http://download.microsoft.com/download/5/1/6/51652a81-500b-4f6b-88d3-617103e7941e/DropShadow1.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/dropshadow1CS.pdf)
 
-> AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, diğer denetimler örneği için ASP.NET menü denetimi çakışıyor. Ne zaman bir menü girişi, gölge göründüğü açılır.
+> AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, örneğin ASP.NET menü denetimi diğer denetimlerle çakışıyor. Ne zaman menüsü girişi, gölge görünür açılır.
 
 
 ## <a name="overview"></a>Genel Bakış
 
-AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, diğer denetimler örneği için ASP.NET menü denetimi çakışıyor. Ne zaman bir menü girişi, gölge göründüğü açılır.
+AJAX Denetim Araç Seti DropShadow denetiminde gölge paneliyle genişletir. Ancak bu gölge, örneğin ASP.NET menü denetimi diğer denetimlerle çakışıyor. Ne zaman menüsü girişi, gölge görünür açılır.
 
 ## <a name="steps"></a>Adımlar
 
-Bölmenin görünür olmasını etkisi için yeterince metin içeren yeterli metni içeren paneli kendisi ile kod gönderir:
+Kod paneli görünür olmasını etkisi için yeterli metni içeren yeterli metin içeren Panel'i kendisi ile başlar:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample1.aspx)]
 
-Başka bir panel hemen öncesine yerleştirilir `panelShadow` paneli. Üzerinden menü girişlerini görünmesini sağlayacak şekilde yatay yönlendirme menüsüyle içerir (veya bunun yerine: altında) `dropShadow` Masası):
+Başka bir panel hemen öncesine yerleştirilir `panelShadow` paneli. Yatay yönlendirme sahip bir menüyü menü girişlerini üzerinde görünmesini sağlayacak şekilde içerdiği (veya bunun yerine: altında) `dropShadow` paneli):
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample2.aspx)]
 
-Ardından, `DropShadowExtender` genişletmek için eklenen `panelShadow` gölge efekti paneliyle:
+Ardından, `DropShadowExtender` genişletmek için eklenen `panelShadow` panel gölge etkisi ile:
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample3.aspx)]
 
@@ -50,24 +49,24 @@ Son olarak, ASP.NET AJAX `ScriptManager` denetimi çalışmak Denetim Araç Seti
 
 [!code-aspx[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample4.aspx)]
 
-Bu komut dosyasını çalıştırdığınızda menü girişlerini paneli altında görünür. Ancak menü CSS sınıfı kullanır `panel` yalnızca olduğu öğelerin önünde diğer paneli görünür yapmak için iki şey tanımlamak:
+Bu komut dosyasını çalıştırdığınızda, menü girişlerini bölmenin altında görünür. Ancak menü CSS sınıfı kullanır `panel` yalnızca sahip olduğunuz öğeleri diğer panel önünde görünür yapmak için iki şey tanımlamak:
 
-- Göreli konumlandırma
-- Pozitif z-index
+- Göreli konum
+- Bir pozitif z dizinini ayarlama
 
 [!code-css[Main](adjusting-the-z-index-of-a-dropshadow-cs/samples/sample5.css)]
 
-Ardından, `DropShadowExtender` denetim çakışıp artık menü denetimi ile.
+Ardından, `DropShadowExtender` denetimi değil çakışan artık ile menü denetimi.
 
 
-[![Önce: Menü girişi görünür değil](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
+[![Önce: Menüsü girişi görünür değil](adjusting-the-z-index-of-a-dropshadow-cs/_static/image2.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image1.png)
 
-Önce: Menü girişi görünür değil ([tam boyutlu görüntüyü görüntülemek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))
+Önce: Menüsü girişi görünür değil ([tam boyutlu görüntüyü görmek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image3.png))
 
 
 [![Sonra: Menü giriş görüntülenir.](adjusting-the-z-index-of-a-dropshadow-cs/_static/image5.png)](adjusting-the-z-index-of-a-dropshadow-cs/_static/image4.png)
 
-Sonra: Menü girişi görünür ([tam boyutlu görüntüyü görüntülemek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
+Sonra: Menüsü girişi görünür ([tam boyutlu görüntüyü görmek için tıklatın](adjusting-the-z-index-of-a-dropshadow-cs/_static/image6.png))
 
 > [!div class="step-by-step"]
 > [Next](manipulating-dropshadow-properties-from-client-code-cs.md)

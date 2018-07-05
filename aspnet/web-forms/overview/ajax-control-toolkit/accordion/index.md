@@ -2,29 +2,28 @@
 uid: web-forms/overview/ajax-control-toolkit/accordion/index
 title: Accordion | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide bunlardan biri aynı anda görüntülemek kullanıcılar birden fazla bölme içerir ve Accordion denetiminin nasıl kullanılacağını gösterir.
+description: Bu öğreticide, birden fazla bölme içeren ve bunlardan biri aynı anda görüntüleme olanağı Accordion denetimi kullanma işlemini gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2011
 ms.topic: article
 ms.assetid: afd41278-b4c5-43ee-9845-2b665932dcff
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion
 msc.type: chapter
-ms.openlocfilehash: 6d21104c82419da4a6445d505fab549eba686efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29f3197a6e5b72faffa1c5aedc8f4a7ce9abfeb7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26567027"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362732"
 ---
 <a name="accordion"></a>Accordion
 ====================
-> Bu öğreticide bunlardan biri aynı anda görüntülemek kullanıcılar birden fazla bölme içerir ve Accordion denetiminin nasıl kullanılacağını gösterir.
+> Bu öğreticide, birden fazla bölme içeren ve bunlardan biri aynı anda görüntüleme olanağı Accordion denetimi kullanma işlemini gösterir.
 
 
-- [Veri bağlama için bir Accordion (C#)](databinding-to-an-accordion-cs.md)
-- [Dinamik olarak Accordion bölmesi (C#) ekleme](dynamically-adding-an-accordion-pane-cs.md)
-- [Veri bağlama için bir Accordion (VB)](databinding-to-an-accordion-vb.md)
-- [Dinamik olarak Accordion bölmesi (VB) ekleme](dynamically-adding-an-accordion-pane-vb.md)
+- [Bir Accordion’a Veri Bağlama (C#)](databinding-to-an-accordion-cs.md)
+- [Dinamik Olarak Accordion Bölmesi Ekleme (C#)](dynamically-adding-an-accordion-pane-cs.md)
+- [Bir Accordion’a Veri Bağlama (VB)](databinding-to-an-accordion-vb.md)
+- [Dinamik Olarak Accordion Bölmesi Ekleme (VB)](dynamically-adding-an-accordion-pane-vb.md)

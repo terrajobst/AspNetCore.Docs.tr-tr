@@ -2,28 +2,27 @@
 uid: visual-studio/overview/2013/release-notes
 title: ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları | Microsoft Docs
 author: microsoft
-description: Bu belgede, ASP.NET ve Web Araçları Visual Studio 2013 için sürüm açıklanmaktadır.
+description: Bu belgede, Visual Studio 2013 için ASP.NET and Web Tools sürümü açıklanmaktadır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 94050d752348cadf4ed1044e6d8f96834ec981d8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30877807"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370571"
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> Bu belgede, ASP.NET ve Web Araçları Visual Studio 2013 için sürüm açıklanmaktadır.
+> Bu belgede, Visual Studio 2013 için ASP.NET and Web Tools sürümü açıklanmaktadır.
 
 
 ## <a name="contents"></a>İçindekiler
@@ -36,7 +35,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 
 - [One ASP.NET](#TOC6)
 - [Yeni Web projesi deneyimi](#newproj)
-- [ASP.NET Scaffolding](#scaffold)
+- [ASP.NET iskeleti oluşturma](#scaffold)
 - [Tarayıcı Bağlantısı](#browser-link)
 - [Visual Studio Web Düzenleyicisi geliştirmeleri](#web-editor)
 - [Visual Studio'da Azure App Service Web Apps desteği](#waws)
@@ -46,7 +45,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 - [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)
-- [ASP.NET kimliği](#TOC8)
+- [ASP.NET kimlik](#TOC8)
 - [Microsoft OWIN bileşenleri](#TOC7)
 - [Entity Framework 6](#ef6)
 - [ASP.NET Razor 3](#TOC14)
@@ -56,12 +55,12 @@ tarafından [Microsoft](https://github.com/microsoft)
 <a id="TOC1"></a>
 ## <a name="installation-notes"></a>Yükleme notları
 
-ASP.NET ve Web Araçları Visual Studio 2013 için ana yükleyicisinde paketlenmiştir ve indirilebilir [burada](https://www.asp.net/downloads).
+ASP.NET ve Web Araçları Visual Studio 2013 için ana yükleyicide paketlenir ve indirilebilir [burada](https://www.asp.net/downloads).
 
 <a id="TOC2"></a>
 ## <a name="documentation"></a>Belgeler
 
-Öğreticiler ve Visual Studio 2013 için ASP.NET ve Web Araçları hakkında diğer bilgi web'da [ASP.NET web sitesi](https://www.asp.net/).
+Öğreticiler ve diğer bilgileri ASP.NET ve Web Araçları Visual Studio 2013 için sunulan [ASP.NET web sitesi](https://www.asp.net/).
 
 <a id="TOC4"></a>
 ## <a name="software-requirements"></a>Yazılım Gereksinimleri
@@ -71,303 +70,303 @@ ASP.NET ve Web Araçları, Visual Studio 2013 gerektirir.
 <a id="TOC5"></a>
 ## <a name="new-features-in-aspnet-and-web-tools-for-visual-studio-2013"></a>ASP.NET ve Web Araçları Visual Studio 2013 için yeni özellikler
 
-Aşağıdaki bölümlerde sürümünde tanıtılan özellikleri açıklanmaktadır.
+Aşağıdaki bölümlerde sürümünde sunulan özellikler açıklanmaktadır.
 
 <a id="TOC6"></a>
-## <a name="one-aspnet"></a>One ASP.NET
+## <a name="one-aspnet"></a>Tek ASP.NET
 
-Visual Studio 2013 sürümüyle, biz kolayca karıştırmak ve istediğiniz olanlarla eşleşmesi ASP.NET teknolojilerini kullanarak deneyimi birleştirin doğru bir adım gerçekleştirmişsiniz. Örneğin, MVC kullanarak bir proje başlatın ve kolayca Web formları sayfaları daha sonra projeye ekleyin veya bir Web Forms proje ile Web API iskelesi. Bir ASP.NET tümünü sizin için ASP.NET sevdiğiniz şeyleri gerçekleştirmek için bir geliştirici olarak kolaylaştırarak hakkında ' dir. Seçtiğiniz hangi teknoloji olsun, bir ASP.NET arka plandaki güvenilen çerçevesinin oluşturmakta olduğunuz güvenirlik olabilir.
+Visual Studio 2013'ün yayımlanmasıyla birlikte, biz, böylece kolayca karıştırın ve eşleştirin ihtiyacınız olanları ASP.NET teknolojilerini kullanarak deneyimini birleştirme bilgilerinizin yönlendirdik. Örneğin, MVC kullanarak bir proje başlatın ve kolayca projeye Web formları sayfaları ekleyin, daha sonra veya bir Web Forms projesinde Web API'leri iskelesini. Bir ASP.NET tüm, ASP.NET'te sevdiğiniz şeyleri bir geliştirici olarak kolaylaştırarak hakkında ' dir. Seçtiğiniz hangi teknolojisi ne olursa olsun, bir ASP.NET arka plandaki güvenilen çerçevesinin derlemekte olduğunuz çalışacağından emin olabilir.
 
 <a id="newproj"></a>
 ## <a name="new-web-project-experience"></a>Yeni Web projesi deneyimi
 
-Biz, Visual Studio 2013'te yeni web projeleri oluşturma deneyimi Gelişmiş. İçinde **yeni ASP.NET Web projesi** iletişim, istediğiniz, herhangi bir bileşimini teknolojileri (Web Forms, MVC, Web API) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak ve birim testi projesi eklemek proje türü seçebilirsiniz.
+Visual Studio 2013'te yeni web projeleri oluşturma deneyimini geliştirdik. İçinde **yeni ASP.NET Web projesi** iletişim, istediğiniz herhangi bir birleşimini teknolojileri (Web formları, MVC, Web API'si) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak ve birim testi projesi ekleyin proje türü seçebilirsiniz.
 
-![New ASP.NET Project](release-notes/_static/image1.png)
+![Yeni ASP.NET projesi](release-notes/_static/image1.png)
 
-Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web Forms projesi oluşturduğunuzda, aşağıdaki seçeneklerden birini seçebilirsiniz:
+Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web formları projesi oluşturduğunuzda, aşağıdaki seçeneklerden herhangi birini seçebilirsiniz:
 
-- Kimlik doğrulaması yok
-- Bireysel kullanıcı hesapları (ASP.NET üyelik veya sosyal sağlayıcısı günlüğüne)
-- Kurumsal hesaplar (Internet uygulamasını Active Directory'de)
-- Windows kimlik doğrulaması (Active Directory içinde bir intranet uygulaması)
+- Kimlik doğrulama yok
+- Bireysel kullanıcı hesapları (ASP.NET üyeliği veya sosyal sağlayıcılar oturum açma)
+- Kurumsal hesaplar (Active Directory'de bir Internet uygulaması)
+- Windows kimlik doğrulaması (Active Directory'de bir intranet uygulaması)
 
 ![Kimlik doğrulama seçenekleri](release-notes/_static/image2.png)
 
-Web projeleri oluşturmak için yeni işlem hakkında daha fazla bilgi için bkz: [Visual Studio 2013'da ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET Identity](#TOC8) belgesinde.
+Web projeleri oluşturmak için yeni süreci hakkında daha fazla bilgi için bkz. [Visual Studio 2013'te ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [ASP.NET Identity](#TOC8) bu belgenin devamındaki.
 
 <a id="scaffold"></a>
-## <a name="aspnet-scaffolding"></a>ASP.NET Scaffolding
+## <a name="aspnet-scaffolding"></a>ASP.NET iskeleti oluşturma
 
-ASP.NET İskele bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bir veri modeli ile etkileşime giren projeniz Demirbaş kod eklemek kolaylaştırır.
+ASP.NET iskeleti oluşturma bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bu, ortak kod projenize bir veri modeli ile etkileşim eklemek kolaylaştırır.
 
-Visual Studio'nun önceki sürümleri yapı iskelesi ASP.NET MVC projelerine sınırlı. Visual Studio 2013 ile Web Forms dahil olmak üzere tüm ASP.NET projesi için yapı iskelesi artık kullanabilirsiniz. Visual Studio 2013 oluşturma sayfaları şu anda Web Forms projesi için desteklemiyor, ancak yapı iskelesi ile Web Forms projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmaya yönelik destek gelecek bir güncelleştirmede eklenir.
+Visual Studio'nun önceki sürümlerinde, ASP.NET MVC projeleri için yapı iskelesi sınırlıydı. Visual Studio 2013 ile Web Forms dahil olmak üzere tüm ASP.NET proje için yapı iskelesi artık kullanabilirsiniz. Visual Studio 2013'ün oluşturma sayfaları şu anda Web formları projesi desteklemiyor, ancak yapı iskelesi Web Forms ile projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmak için destek, gelecek güncelleştirmelerden birinde eklenecektir.
 
-Yapı iskelesi kullanırken, tüm gerekli bağımlılıkların projede yüklü olduğundan emin olun. Bir ASP.NET Web Forms projeyle başlatın ve sonra bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, gerekli NuGet paket ve başvuruları projenize otomatik olarak eklenir.
+Yapı iskelesi kullanırken, gerekli tüm bağımlılıkların projede yüklü olduğundan emin olun. Bir ASP.NET Web formları projesi ile başlayın ve ardından bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, başvurular ve gerekli NuGet paketlerini projenize otomatik olarak eklenir.
 
-Bir Web Forms projeye MVC yapı iskelesi eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC iskele için iki seçenek vardır; Minimal ve tam. En az seçerseniz, yalnızca NuGet paketlerini ve ASP.NET MVC için başvuruları projenize eklenir. Tam seçeneğini belirlerseniz MVC projesinde gerekli içerik dosyaların yanı sıra en az bağımlılıkları eklenir.
+MVC yapı iskelesi Web Forms projesine eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC yapı iskelesini oluşturmak için iki seçenek vardır; Minimal ve tam. En az seçerseniz, yalnızca NuGet paketleri ve ASP.NET MVC için başvuruları projenize eklenir. Tam seçeneği seçerseniz bir MVC projesi için gerekli içerik dosyalarının yanı sıra en az bağımlılıklar eklenir.
 
-Zaman uyumsuz denetleyicileri iskele desteği yeni Entity Framework 6 zaman uyumsuz özelliklerini kullanır.
+Zaman uyumsuz denetleyicilerinin yapı iskelesini oluşturmak için destek, Entity Framework 6 yeni zaman uyumsuz özelliklerini kullanır.
 
-Daha fazla bilgi ve öğreticiler için bkz: [ASP.NET yapı İskelesi genel bakış](aspnet-scaffolding-overview.md).
+Daha fazla bilgi ve eğitimler için bkz. [ASP.NET yapı İskelesi genel bakış](aspnet-scaffolding-overview.md).
 
 <a id="browser-link"></a>
-## <a name="browser-link--signalr-channel-between-browser-and-visual-studio"></a>Tarayıcı bağlantısı – tarayıcı ve Visual Studio arasında SignalR kanal
+## <a name="browser-link--signalr-channel-between-browser-and-visual-studio"></a>Tarayıcı bağlantısı-tarayıcı ve Visual Studio arasında SignalR kanalı
 
-Yeni [tarayıcı bağlantısı](using-browser-link.md) özelliği, birden çok tarayıcı Visual Studio'ya bağlanın ve tüm bir araç çubuğu düğmesini tıklatarak yenileme olanak tanır. Birden çok tarayıcı mobil öykünücülerinden dahil olmak üzere, geliştirme siteye bağlayabilir ve tüm aynı anda tüm tarayıcılar yenileme için Yenile'yi tıklatın. Tarayıcı bağlantısı da geliştiricilerin tarayıcı bağlantısı uzantıları yazmak için bir API sunar.
+Yeni [tarayıcı bağlantısı](using-browser-link.md) birden çok tarayıcı Visual Studio'ya bağlanın ve araç çubuğundaki bir düğmeye tıklayarak yenileme özelliği sağlar. Birden çok tarayıcı, mobil öykünücüleri dahil olmak üzere, geliştirme siteye bağlanmak ve yenileme için yenileme tüm tarayıcıların tümü aynı anda tıklayın. Tarayıcı bağlantısı, ayrıca geliştiricilerin, tarayıcı bağlantısı uzantıları yazmak için bir API sunar.
 
 ![](release-notes/_static/image3.png)
 
-Tarayıcı bağlantısı API'sini yararlanmak geliştiricilere etkinleştirerek, Visual Studio ile bağlı herhangi bir tarayıcıda arasında sınırları kestiği çok Gelişmiş senaryolar oluşturmak mümkün olur. Web Essentials Visual Studio ve tarayıcının geliştirici araçları, mobil öykünücülerinden ve çok daha fazlasını denetleme uzak arasında tümleşik bir deneyim oluşturmak için API avantajlarından yararlanır.
+Tarayıcı bağlantısı API'sini yararlanmak geliştiricilerinin etkinleştirerek, Visual Studio ile bağlı olduğu tüm tarayıcılar arasında sınırları aştığında çok Gelişmiş senaryolar oluşturmak mümkün olur. Web Essentials, Visual Studio ve tarayıcının geliştirici araçları, uzak mobil öykünücüleri ve çok daha fazlasını denetleme arasında tümleşik bir deneyim oluşturmak için API avantajlarından yararlanır.
 
 <a id="web-editor"></a>
 ## <a name="visual-studio-web-editor-enhancements"></a>Visual Studio Web Düzenleyicisi geliştirmeleri
 
-Visual Studio 2013 Razor dosyaları ve HTML dosyaları için yeni bir HTML düzenleyicisi web uygulamalarını içerir. Yeni HTML düzenleyicisi üzerinde HTML5 dayalı tek bir birleşik şema sağlar. Otomatik küme parantezi tamamlama, jQuery UI ve IntelliSense özniteliği, IntelliSense gruplandırma, kimlik ve sınıf adı IntelliSense ve daha iyi performans, biçimlendirme dahil olmak üzere diğer geliştirmeler özniteliği AngularJS sahiptir ve akıllı etiketler.
+Visual Studio 2013, web uygulamalarında Razor dosyaları ve HTML dosyaları için yeni bir HTML düzenleyicisi içerir. Yeni HTML Düzenleyici üzerinde HTML5 tabanlı tek bir birleştirilmiş şema sağlar. Otomatik küme ayracı tamamlama ve jQuery kullanıcı Arabirimi IntelliSense öznitelik, öznitelik IntelliSense gruplandırma, kimlik ve sınıf adı IntelliSense ve daha iyi performans, biçimlendirme dahil olmak üzere diğer iyileştirmeler AngularJS sahiptir ve akıllı etiketler.
 
-Aşağıdaki ekran görüntüsü, önyükleme özniteliği IntelliSense HTML Düzenleyicisi'ni kullanarak gösterir.
+Aşağıdaki ekran görüntüsünde, HTML düzenleyicide IntelliSense önyükleme özniteliği kullanmayı gösterir.
 
-![HTML Düzenleyicisi'nde IntelliSense](release-notes/_static/image4.png)
+![HTML düzenleyicisinde IntelliSense](release-notes/_static/image4.png)
 
-Visual Studio 2013 de yerleşik düzenleyicileri daha az hem CoffeeScript ile birlikte gelir. LESS düzenleyici ile tüm harika özellikler CSS Düzenleyicisi'nden gelen ve değişkenleri ve mixins için belirli IntelliSense belgelerde daha az sahip @import zinciri.
+Visual Studio 2013'de her iki CoffeeScript ve yerleşik düzenleyicileri daha az gelir. LESS Düzenleyicisi harika özelliklerle CSS Düzenleyicisi'nden gelir ve daha az işlemdeki tüm belgelerde değişkenleri ve mixin'ler belirli IntelliSense sahip @import zinciri.
 
 <a id="waws"></a>
 ## <a name="azure-app-service-web-apps-support-in-visual-studio"></a>Visual Studio'da Azure App Service Web Apps desteği
 
-Visual Studio 2013'te .NET 2.2 için Azure SDK'sı ile kullandığınız **Sunucu Gezgini** doğrudan uzak web uygulamalarınızı ile etkileşim kurmak için. Azure hesabınızda oturum açın, yeni web uygulamaları oluşturmak, uygulama yapılandırma, gerçek zamanlı günlükleri ve daha fazla bilgi görüntüleyin. SDK 2.2 hemen sonra gelen yayımlanan, Azure'nın uzaktan hata ayıklama modunda çalıştırmak kullanabileceksiniz. .NET için Azure SDK'sının geçerli sürüm yüklediğinizde, Azure App Service Web Apps için yeni özelliklerin çoğunu Visual Studio 2012'de de çalışır.
+Visual Studio 2013'te .NET 2.2 için Azure SDK'sı ile kullanabileceğiniz **Sunucu Gezgini** doğrudan uzak web uygulamalarınızla etkileşmek için. Azure hesabınızda oturum açın, yeni web uygulamaları oluşturun, uygulama yapılandırma, gerçek zamanlı günlükleri ve daha fazlasını görüntüleyin. SDK 2.2 hemen sonra gelen yayımlanan, azure'da uzaktan hata ayıklama modunda çalıştırmak mümkün olacaktır. .NET için Azure SDK'ın geçerli sürümüne yüklediğinizde, Azure App Service Web Apps için yeni özelliklerin çoğu Visual Studio 2012'de de çalışır.
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
-- [Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Azure App Service'te ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Web yayımlama geliştirmeleri
 
 Visual Studio 2013 yeni ve geliştirilmiş Web yayımlama özellikleri içerir. Birkaç tanesi aşağıda verilmiştir:
 
-- Kolayca [Web.config dosyasını şifreleme otomatikleştirmek](https://go.microsoft.com/fwlink/?LinkId=325529). (Bu bağlantı ve aşağıdaki iki kadar günde 10/17 aşamalarda kullanılamayabilir MSDN'de belgelerin üzerine gelin.)
-- Kolayca [uygulama dağıtımı sırasında çevrimdışı duruma getirmeden otomatikleştirmek](https://go.microsoft.com/fwlink/?LinkId=325530).
-- Web dağıtımı için yapılandırma [son değiştirilen tarihi yerine dosya sağlama toplamı kullanmak](https://go.microsoft.com/fwlink/?LinkId=325531) hangi dosyaların sunucusuna kopyalanması belirlemek için.
-- Hızlı bir şekilde (Web.config dahil) tek tek seçilen dosyaları FTP kullanıyorsanız veya dosya sistemi yayımladığınızda yöntemleri yanı sıra Web dağıtımı ile yayımlayın.
+- Kolayca [Web.config dosyası şifreleme otomatikleştirmek](https://go.microsoft.com/fwlink/?LinkId=325529). (Bu bağlantı ve aşağıdaki iki sonlarında, 10/17 gün kadar kullanılabilir olmayabilir MSDN'de belgelerin üzerine gelin.)
+- Kolayca [bir uygulamayı çevrimdışı dağıtımı sırasında alma otomatikleştirmek](https://go.microsoft.com/fwlink/?LinkId=325530).
+- Web dağıtımı için yapılandırma [son değiştirilme tarihi yerine dosya sağlama toplamı kullanın](https://go.microsoft.com/fwlink/?LinkId=325531) hangi dosyaların sunucusuna kopyalanması belirlemek için.
+- Hızlı bir şekilde tek tek seçilen dosyaları (Web.config dahil), FTP kullanıyorsanız veya dosya sistemi yayımladığınızda yöntemleri yanı sıra Web dağıtımı ile yayımlayın.
 
-ASP.NET web dağıtımı hakkında daha fazla bilgi için bkz: [ASP.NET sitesi](https://go.microsoft.com/fwlink/?LinkId=322027).
+ASP.NET web dağıtımı hakkında daha fazla bilgi için bkz. [ASP.NET sitesi](https://go.microsoft.com/fwlink/?LinkId=322027).
 
 <a id="nuget"></a>
 ## <a name="nuget-27"></a>NuGet 2.7
 
-NuGet 2.7 yakından açıklanan yeni özellikleri zengin bir dizi içeren [NuGet 2.7 Sürüm Notları](http://docs.nuget.org/docs/release-notes/nuget-2.7).
+NuGet 2.7 adresinde ayrıntılı olarak açıklanan yeni özellikleri zengin bir dizi içeren [NuGet 2.7 Sürüm Notları](http://docs.nuget.org/docs/release-notes/nuget-2.7).
 
-Bu sürümü NuGet paketlerini indirmek NuGet paket geri yükleme özelliği için açık izin sağlamak için gereken de kaldırır. İzin (ve ilişkili onay NuGet Tercihleri iletişim kutusuna) NuGet yükleyerek şimdi verilir. Şimdi paket geri yükleme, yalnızca varsayılan olarak çalışır.
+Bu sürümü NuGet paketleri indirmek NuGet paket geri yükleme özelliği için açık izin vermeniz gereken de kaldırır. Onay (ve ilişkili onay NuGet Tercihleri iletişim kutusuna) artık NuGet yükleyerek verilir. Şimdi paket geri yükleme, yalnızca varsayılan olarak çalışır.
 
 <a id="TOC9"></a>
 ## <a name="aspnet-web-forms"></a>ASP.NET Web Forms
 
-### <a name="one-aspnet"></a>One ASP.NET
+### <a name="one-aspnet"></a>Tek ASP.NET
 
-Web Forms proje şablonları ile yeni bir ASP.NET deneyimi sorunsuz şekilde tümleşir. MVC ve Web API Web Forms projenize destekler ve bir ASP.NET proje oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırabilirsiniz ekleyebilirsiniz. Daha fazla bilgi için bkz: [Visual Studio 2013'da ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md).
+Web Forms proje şablonları yeni bir ASP.NET deneyimiyle sorunsuzca tümleştirin. MVC ve Web API'si, Web Forms projesine destekler ve bir ASP.NET projesi oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırabilirsiniz ekleyebilirsiniz. Daha fazla bilgi için [Visual Studio 2013'te ASP.NET Web projeleri oluşturma](creating-web-projects-in-visual-studio.md).
 
 ### <a name="aspnet-identity"></a>ASP.NET Kimlik
 
-Web Forms proje şablonları yeni ASP.NET Identity framework desteği. Ayrıca, şablonları artık Web Forms Intranet projesi oluşturulmasını destekler. Daha fazla bilgi için bkz: [kimlik doğrulama yöntemleri](creating-web-projects-in-visual-studio.md#auth) içinde **Visual Studio 2013'da ASP.NET Web projeleri oluşturma**.
+Web Forms proje şablonları, yeni ASP.NET Identity framework destekler. Ayrıca, şablonları artık bir Web Forms Intranet projesi oluşturulmasını destekler. Daha fazla bilgi için [kimlik doğrulama yöntemleri](creating-web-projects-in-visual-studio.md#auth) içinde **Visual Studio 2013'te ASP.NET Web projeleri oluşturma**.
 
-### <a name="bootstrap"></a>önyükleme
+### <a name="bootstrap"></a>Önyükleme
 
-Web Forms şablonlarını kullanma [önyükleme](http://twitter.github.io/bootstrap/) bir şık ve esnek kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için bkz: [Visual Studio 2013 web projesi şablonları önyükleme](creating-web-projects-in-visual-studio.md#bootstrap).
+Web Forms şablonlarında kullanmak [önyükleme](http://twitter.github.io/bootstrap/) bir zarif ve hızlı yanıt veren kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için [Bootstrap Visual Studio 2013 web proje şablonlarında](creating-web-projects-in-visual-studio.md#bootstrap).
 
 <a id="TOC10"></a>
 ## <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 
-### <a name="one-aspnet"></a>One ASP.NET
+### <a name="one-aspnet"></a>Tek ASP.NET
 
-Web MVC proje şablonları ile yeni bir ASP.NET deneyimi sorunsuz şekilde tümleşir. MVC projenizi özelleştirebilir ve bir ASP.NET proje oluşturma Sihirbazı'nı kullanarak kimlik doğrulaması yapılandırın. Bir tanıtım öğretici ASP.NET MVC 5 bulunabilir [ASP.NET MVC 5 ile çalışmaya başlama](../../../mvc/overview/getting-started/introduction/getting-started.md).
+Web MVC proje şablonları yeni bir ASP.NET deneyimiyle sorunsuzca tümleştirin. MVC projenizi özelleştirmek ve kimlik doğrulaması kullanarak bir ASP.NET projesi oluşturma Sihirbazı'nı yapılandırın. ASP.NET MVC 5 için giriş niteliğindeki bir eğitim şu yolda bulunabilir: [ASP.NET MVC 5 ile çalışmaya başlama](../../../mvc/overview/getting-started/introduction/getting-started.md).
 
-MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+MVC 5 MVC 4 projelerini yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projelerini ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
 ### <a name="aspnet-identity"></a>ASP.NET Kimlik
 
-MVC proje şablonları, ASP.NET Identity kimlik doğrulama ve kimlik yönetimi için kullanmak üzere güncelleştirilmiştir. Facebook ve Google kimlik doğrulama ve yeni üyelik API'si gösteren bir öğretici bulunabilir [Facebook ve Google OAuth2 ve Openıd oturum açma ile bir ASP.NET MVC 5 uygulaması oluşturmak](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) ve [auth ile bir ASP.NET MVC uygulaması oluşturma ve SQL DB ve Azure App Service'e dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+MVC proje şablonları, kimlik ve kimlik yönetimi için ASP.NET Identity kullanacak şekilde güncelleştirildi. Facebook ve Google kimlik doğrulama ve yeni üyelik API'si gösteren bir öğretici bulabilirsiniz [Facebook ve Google OAuth2 ve Openıd oturum açma ile ASP.NET MVC 5 uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) ve [kimlik doğrulaması ile ASP.NET MVC uygulaması oluşturma ve SQL veritabanı ve Azure App Service'e dağıtma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
-### <a name="bootstrap"></a>önyükleme
+### <a name="bootstrap"></a>Önyükleme
 
-MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://getbootstrap.com/) bir şık ve esnek kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için bkz: [Visual Studio 2013 web projesi şablonları önyükleme](creating-web-projects-in-visual-studio.md#bootstrap).
+MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://getbootstrap.com/) bir zarif ve hızlı yanıt veren kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için [Bootstrap Visual Studio 2013 web proje şablonlarında](creating-web-projects-in-visual-studio.md#bootstrap).
 
-### <a name="authentication-filters"></a>Kimlik doğrulaması filtreleri
+### <a name="authentication-filters"></a>Kimlik doğrulama filtreleri
 
-Kimlik doğrulaması filtreleri olan yeni bir ASP.NET MVC ardışık düzenine yetkilendirme filtreleri önce çalıştıran ve kimlik doğrulama mantığı başına-eylemi belirtmenize olanak veren ASP.NET MVC filtre tür başına denetleyicisi, veya genel olarak tüm denetleyicileri için. Kimlik doğrulaması filtreleri kimlik bilgileri isteği işlemek ve karşılık gelen asıl sağlayın. Kimlik doğrulaması filtreleri, kimlik doğrulama sınaması yetkisiz isteklerine yanıt olarak da ekleyebilirsiniz.
+Kimlik doğrulama filtreleri olan yeni bir ASP.NET MVC, ASP.NET MVC ardışık düzende yetkilendirme filtreleri önce çalışan ve kimlik doğrulama mantığı eylem başına, belirtmenizi sağlar bir filtrede tür başına denetleyici, veya genel olarak tüm denetleyicileri için. Kimlik doğrulama filtreleri, kimlik bilgileri isteği işlemek ve karşılık gelen sorumlu sağlayın. Kimlik doğrulama filtreleri kimlik doğrulama sınaması, yetkisiz istekleri için yanıt de ekleyebilirsiniz.
 
-### <a name="filter-overrides"></a>Filtre geçersiz kılar
+### <a name="filter-overrides"></a>Filtresi geçersiz kılmaları
 
-Şimdi bir geçersiz kılma filtresi belirterek belirli bir eylem yöntemini veya denetleyicileri için hangi filtre uygulamak geçersiz kılabilirsiniz. Geçersiz kılma filtreleri verilen kapsam (eylem veya denetleyici) için çalıştırılmamalıdır filtre türleri kümesi belirtin. Bu genel olarak geçerli ancak ardından belirli eylemler veya denetleyicileri uygulama bazı genel filtreleri hariç filtreleri yapılandırmanıza olanak sağlar.
+Artık, bir geçersiz kılma filtresi belirterek bir belirtilen eylem yöntemini veya denetleyicileri hangi Filtreleri Uygula geçersiz kılabilirsiniz. Geçersiz kılma filtreler bir belirtilen kapsamın (eylem veya denetleyici) çalıştırılmamalıdır filtre türleri kümesi belirtin. Bu, dünya çapında geçerli, ancak belirli eylemler veya denetleyicileri uygulanmasından bazı genel filtreleri sonra Dışla filtreleri yapılandırmanıza olanak sağlar.
 
 ### <a name="attribute-routing"></a>Öznitelik yönlendirme
 
-ASP.NET MVC şimdi destekleyen bir katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin yorumlama yollarınızı belirtebilirsiniz.
+ASP.NET MVC destekleyen bir katkı Tim McCall, yazarı tarafından sağlanan öznitelik yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin açıklama ekleyerek yollarınızı belirtebilirsiniz.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
 ### <a name="attribute-routing"></a>Öznitelik yönlendirme
 
-ASP.NET Web API artık destekliyor katkı Tim McCall, yazarı tarafından sayesinde özniteliği yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile Web API yollarınızı eylemleri ve bu gibi denetleyicileri yorumlama belirtebilirsiniz:
+ASP.NET Web API artık destekleyen bir katkı Tim McCall, yazarı tarafından sağlanan öznitelik yönlendirme [ http://attributerouting.net ](http://attributerouting.net). Öznitelik yönlendirme ile eylemlerin ve denetleyicilerin böyle açıklama ekleyerek, Web API yolları belirtebilirsiniz:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
-Öznitelik yönlendirme, web API URI'ler üzerinde daha fazla denetim sağlar. Örneğin, tek bir API denetleyicisi kullanarak bir kaynak hiyerarşi kolayca tanımlayabilirsiniz:
+Öznitelik yönlendirme, web API'nize bir URI'leri üzerinde daha fazla denetim sağlar. Örneğin, tek bir API denetleyicisi kullanarak bir kaynak hiyerarşi kolayca tanımlayabilirsiniz:
 
 [!code-csharp[Main](release-notes/samples/sample2.cs)]
 
-Özniteliği de yönlendirme, isteğe bağlı parametreler, varsayılan değerleri ve rota kısıtlamaları belirtmek için kullanışlı bir sözdizimi sağlar:
+De öznitelik yönlendirme, isteğe bağlı parametreler, varsayılan değerleri ve rota kısıtlamaları belirtmek için kullanışlı bir söz dizimi sağlar:
 
 [!code-csharp[Main](release-notes/samples/sample3.cs)]
 
-Öznitelik yönlendirme hakkında daha fazla bilgi için bkz: [özniteliği yönlendirme Web API 2'deki](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md).
+Öznitelik yönlendirme hakkında daha fazla bilgi için bkz. [Web API 2'de öznitelik yönlendirme](../../../web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2.md).
 
 ### <a name="oauth-20"></a>OAuth 2.0
 
-Web API ve tek sayfa uygulaması proje şablonları artık OAuth 2.0 kullanarak yetkilendirmeyi destekler. OAuth 2.0 korunan kaynakları'na istemci erişimini yetkilendirmek için bir çerçevedir. Çeşitli tarayıcılar ve mobil cihazlar dahil olmak üzere istemciler için çalışır.
+Web API ve tek sayfalı uygulama proje şablonları, OAuth 2.0 kullanarak Yetkilendirme artık desteklenmektedir. OAuth 2.0 istemci korumalı kaynaklara erişimi yetkilendirmek için bir çerçevedir. Bu istemciler tarayıcılar ve mobil cihazlar dahil olmak üzere birçok istemci için çalışır.
 
-Destek için OAuth 2.0 taşıyıcı kimlik doğrulaması için Microsoft OWIN bileşenleri tarafından sağlanan ve yetkilendirme sunucusu rolünü uygulama yeni güvenlik ara yazılım üzerinde temel alır. Alternatif olarak, istemciler Azure Active Directory veya ADFS Windows Server 2012 R2 gibi bir kuruluş yetkilendirme sunucusu kullanarak yetki verilebilir.
+OAuth 2.0 desteğiyle Microsoft OWIN bileşenleri tarafından sağlanan için taşıyıcı kimlik doğrulaması ve yetkilendirme sunucusu rolünü uygulama yeni güvenlik ara yazılım üzerinde temel alır. Alternatif olarak, istemciler, Azure Active Directory veya ADFS Windows Server 2012 R2 gibi bir kuruluş yetkilendirme sunucusu kullanarak yetkilendirilebilir.
 
 ### <a name="odata-improvements"></a>OData geliştirmeleri
 
-**$Select, $ desteği'ni genişletin, $batch ve $value**
+**$Batch ve $value $select, $ desteği genişletin**
 
-ASP.NET Web API OData $select için artık tam destek sahiptir, $'ni genişletin ve $value. Toplu işleme ve değişiklik kümesi işleme isteği için $batch de kullanabilirsiniz.
+$Expand, ASP.NET Web API Odata'da $select için tam destek sunuyor ve $value. $Batch değişiklik kümesini işleme ve toplu işleme istek için de kullanabilirsiniz.
 
-$Select ve $expand seçeneklerini genişletin olanak sağlayan bir OData uç noktadan döndürülen verileri şeklini değiştirin. Daha fazla bilgi için bkz: [Introducing $select ve $expand genişletin Web API OData desteği](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md).
+$Select ve $expand seçeneklerini genişletin bir OData uç noktadan döndürülen verinin şeklini değiştirmek sağlar. Daha fazla bilgi için [Introducing $select ve $expand genişletin Web API OData desteği](../../../web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value.md).
 
-**Geliştirilmiş genişletilebilirliği**
+**Gelişmiş genişletilebilirlik**
 
-OData biçimlendiricilerini genişletilebilir. Atom girişi meta verileri ekleme, adlandırılmış akış ve medya bağlantısı girişler destekleyen, örneği ek açıklama ekleyin ve bağlantıları nasıl oluşturulduğu özelleştirme.
+OData biçimlendiricilerini genişletilebilir. Atom girişi meta verileri eklemek, adlandırılmış stream ve medya bağlantı giriş destekler, örnek ek açıklamalarının ekleyin ve bağlantıları nasıl oluşturulacağını özelleştirin.
 
-**Türü daha az desteği**
+**Türü olmayan destek**
 
-CLR türleri, varlık türleri için tanımlamak gerek kalmadan OData Hizmetleri artık oluşturabilirsiniz. Bunun yerine, OData denetleyicilerinizi alın veya dönüş örneklerini **IEdmObject**, hangi serileştirme/seri durumdan OData biçimlendiricilerini şunlardır.
+OData hizmetlerini artık kendi varlık türleri için CLR Türleri tanımlamak gerek kalmadan da oluşturabilirsiniz. Bunun yerine, OData denetleyicilerinizi alabilir veya dönüş örneklerini **IEdmObject**, serileştirme/seri durumdan OData biçimlendiricilerini olan.
 
-**Varolan modeli yeniden kullanma**
+**Mevcut bir modeli yeniden kullanma**
 
-Var olan bir varlık veri modeli (EDM) zaten varsa, şimdi onu doğrudan yeni bir tane oluşturmak zorunda kalmadan yerine tekrar kullanabilirsiniz. Örneğin, Entity Framework kullanıyorsanız, EF sizin için oluşturur EDM kullanabilirsiniz.
+Var olan bir varlık veri modeli (EDM) zaten varsa, artık onu doğrudan yeni bir tane oluşturmak zorunda kalmadan yerine tekrar kullanabilirsiniz. Örneğin, Entity Framework kullanıyorsanız EF derlemeleri EDM kullanabilirsiniz.
 
 ### <a name="request-batching"></a>Toplu işleme istek
 
-Toplu işleme istek ağ trafiğini azaltmak ve daha az chatty kullanıcı arabirimi bir yumuşak sağlamak için tek bir HTTP POST isteği, birden çok işleme birleştirir. ASP.NET Web API isteği toplu işleme için birkaç stratejileri artık destekler:
+İstek toplu işlem, ağ trafiğini azaltmak ve daha sık iletişim kuran kullanıcı arabiriminde daha az bir düzgün sağlamak için tek bir HTTP POST isteği, birden fazla işlemi birleştirir. ASP.NET Web API isteği toplu işleme için çeşitli stratejileri artık destekler:
 
-- OData hizmetine $batch uç noktasını kullanın.
-- Birden çok istek tek bir MIME çok bölümlü istek paketi.
-- Özel bir toplu işleme biçimini kullanın.
+- Bir OData hizmeti $batch uç noktasını kullanın.
+- Birden çok isteği tek bir MIME çok bölümlü istek paketi.
+- Özel bir toplu işlem biçimini kullanın.
 
-Toplu işleme istek etkinleştirmek için bir yol toplu işleyici ile Web API yapılandırmanızı ekleyin:
+Toplu işleme istek etkinleştirmek için bir yol toplu işleyici ile Web API yapılandırmanıza ekleyin:
 
 [!code-csharp[Main](release-notes/samples/sample4.cs)]
 
-Ayrıca denetleyebilirsiniz olup olmadığını istekleri veya sıralı olarak ya da herhangi bir sırada yürütülür.
+De denetleyebilirsiniz olmadığını ister veya sıralı olarak veya herhangi bir sırayla yürütülür.
 
-### <a name="portable-aspnet-web-api-client"></a>Taşınabilir ASP.NET Web API istemcisi
+### <a name="portable-aspnet-web-api-client"></a>Taşınabilir bir ASP.NET Web API istemcisi
 
-ASP.NET Web API İstemci artık Windows mağazası ve Windows Phone 8 uygulamalar arasında iş taşınabilir sınıf kitaplıkları oluşturmak için de kullanabilirsiniz. İstemci ile sunucu arasında paylaşılabilir taşınabilir biçimlendiricileri de oluşturabilirsiniz.
+ASP.NET Web API istemcisi artık, Windows Store ve Windows Phone 8 uygulamalarında çalışan taşınabilir sınıf kitaplıkları oluşturmak için de kullanabilirsiniz. Ayrıca, istemci ve sunucu arasında paylaşılan taşınabilir biçimlendiricileri oluşturabilirsiniz.
 
-### <a name="improved-testability"></a>Geliştirilmiş Test Edilebilirlik
+### <a name="improved-testability"></a>Gelişmiş Test Edilebilirlik
 
-Web API 2 yapar birimine çok daha kolay test API denetleyicisi. Yalnızca istek iletisi ve yapılandırma ile API denetleyicisi oluşturma ve test etmek istediğiniz eylem yöntemini çağırın. Mock kolaydır **UrlHelper** bağlantı oluşturma gerçekleştiren eylem yöntemleri için sınıf.
+Web API 2 yaptığı API denetleyicilerinizi test birimine çok daha kolaydır. Yalnızca istek iletisi ve yapılandırma ile bir API denetleyicisi oluşturmak ve test etmek istediğiniz eylem yöntemini çağırın. Sahte kolaydır **UrlHelper** bağlama oluşturmayı gerçekleştiren eylem yöntemleri için bir sınıf.
 
 ### <a name="ihttpactionresult"></a>IHttpActionResult
 
-Şimdi Web API eylem yöntemleri sonucunu kapsülleyen Ihttpactionresult uygulayabilirsiniz. Bir Web API eylem yönteminden döndürülen Ihttpactionresult sonuç yanıt iletisi oluşturmak için ASP.NET Web API çalışma zamanı tarafından yürütülür. Bir Ihttpactionresult birim basitleştirmek için tüm Web API eylemden döndürülebilecek Web API uygulamanızı test etme. Özel durum kodları döndürme için sonuçları dahil olmak üzere kutusu dışında Ihttpactionresult uygulamaları sayısı sağlanan kolaylık olması için içerik veya içerik anlaşması yanıtlarını biçimlendirilmiş.
+Şimdi, Web API'si eylem yöntemleri sonucunu yalıtılacak Ihttpactionresult uygulayabilirsiniz. Bir Web API'sini eylem yönteminden döndürülen bir Ihttpactionresult sonuç yanıt iletisi oluşturmak için ASP.NET Web API çalışma zamanı tarafından yürütülür. Bir Ihttpactionresult birim basitleştirmek için bir Web API'sini eylemden döndürülebilir Web API uygulamanız, test etme. Bir dizi Ihttpactionresult uygulamaları belirli durum kodlarıyla döndürmek için sonuçları dahil olmak üzere hazır sağlanan kolaylık sağlamak için içerik veya içerik anlaşması yanıtları biçimlendirilmiş.
 
 ### <a name="httprequestcontext"></a>HttpRequestContext
 
-Yeni **HttpRequestContext** isteğe bağlıdır ancak istekten hemen kullanılabilir olmayan herhangi bir durum izler. Örneğin, kullanabileceğiniz **HttpRequestContext** rota verileri, istemci sertifikası, istekle ilişkili asıl almak için **UrlHelper** ve sanal yol kökü. Kolayca oluşturabileceğiniz bir **HttpRequestContext** için birim testi amaçlar.
+Yeni **HttpRequestContext** isteğe bağlıdır, ancak istekte hemen kullanılamıyorsa, herhangi bir durumu izler. Örneğin, kullanabileceğiniz **HttpRequestContext** istemci sertifikası istekle ilişkili sorumlusu rota verilerini almak için **UrlHelper** ve sanal yol kökünü. Kolayca oluşturabileceğiniz bir **HttpRequestContext** için birim testi amacıyla.
 
-İstek için asıl güvenmek yerine istekle akıtılan çünkü **Thread.CurrentPrincipal**, Web API ardışık düzeninde olsa asıl artık istek ömrü kullanılabilir durumdadır.
+Asıl isteğinin güvenmek yerine isteği ile aktarılan çünkü **Thread.CurrentPrincipal**, Web API işlem hattında olsa asıl isteğinin yaşam süresi kullanıma sunuldu.
 
 ### <a name="cors"></a>CORS
 
-Brock Allen alanından başka bir harika katkı sayesinde ASP.NET artık tam olarak arası kaynak isteği Paylaşımı (CORS) destekler.
+Brock Allen alanından başka bir önemli katkı sayesinde ASP.NET artık tam olarak çapraz kaynak isteği Paylaşımı (CORS) destekler.
 
-Tarayıcı güvenlik bir web sayfası AJAX istekleri başka bir etki alanına yapmasını engeller. [CORS](http://www.w3.org/TR/cors/) sunucusunun aynı kaynak İlkesi hafifletin sağlar W3C standardıdır. CORS kullanarak, bir sunucu açıkça bazı cross-origin istekleri başkalarının reddetme çalışırken izin verebilirsiniz.
+Tarayıcı Güvenliği, bir web sayfası, başka bir etki alanına AJAX istekleri yapmasını engeller. [CORS](http://www.w3.org/TR/cors/) gevşek bir aynı çıkış noktası ilkesi izin veren bir W3C standardıdır. CORS kullanarak, bir sunucu açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini.
 
-Web API 2 CORS denetim öncesi isteklerde otomatik işlenmesini de dahil olmak üzere, artık destekler. Daha fazla bilgi için bkz: [ASP.NET Web API çıkış noktaları arası istekleri etkinleştirme](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md).
+Web API 2 CORS denetim öncesi isteği otomatik olarak işlenmesi dahil olmak üzere, artık desteklemektedir. Daha fazla bilgi için [ASP.NET Web API çıkış noktaları arası istekleri etkinleştirme](../../../web-api/overview/security/enabling-cross-origin-requests-in-web-api.md).
 
-### <a name="authentication-filters"></a>Kimlik doğrulaması filtreleri
+### <a name="authentication-filters"></a>Kimlik doğrulama filtreleri
 
-Kimlik doğrulaması filtreleri olan yeni bir ASP.NET Web API ardışık düzeninde yetkilendirme filtreleri önce çalıştıran ve kimlik doğrulama mantığı başına-eylemi belirtmenize olanak veren ASP.NET Web API filtrede tür başına denetleyicisi, veya genel olarak tüm denetleyicileri için. Kimlik doğrulaması filtreleri kimlik bilgileri isteği işlemek ve karşılık gelen asıl sağlayın. Kimlik doğrulaması filtreleri, kimlik doğrulama sınaması yetkisiz isteklerine yanıt olarak da ekleyebilirsiniz.
+Kimlik doğrulama filtreleri olan yeni bir ASP.NET Web API, ASP.NET Web API ardışık düzeninde yetkilendirme filtreleri önce çalışan ve kimlik doğrulama mantığı eylem başına, belirtmenizi sağlar bir filtrede tür başına denetleyici, veya genel olarak tüm denetleyicileri için. Kimlik doğrulama filtreleri, kimlik bilgileri isteği işlemek ve karşılık gelen sorumlu sağlayın. Kimlik doğrulama filtreleri kimlik doğrulama sınaması, yetkisiz istekleri için yanıt de ekleyebilirsiniz.
 
 ### <a name="filter-overrides"></a>Filtre geçersiz kılma
 
-Şimdi bir geçersiz kılma filtresi belirterek bir belirtilen eylem yöntemini veya denetleyicileri, hangi filtre uygulamak geçersiz kılabilirsiniz. Geçersiz kılma filtreleri verilen kapsam (eylem veya denetleyici) için çalıştırmamalısınız filtre türleri kümesi belirtin. Bu, genel filtreler ekleyin, ama bazı belirli eylemleri veya denetleyicileri hariç olanak sağlar.
+Artık, bir geçersiz kılma filtresi belirterek bir belirtilen eylem yöntemini veya denetleyici, hangi filtreler uygulamak geçersiz kılabilirsiniz. Geçersiz kılma filtreler bir belirtilen kapsamın (eylem veya denetleyici) çalıştırmamalısınız filtre türleri kümesi belirtin. Bu, genel filtreleri ekleyin, ancak bazı özel eylemler veya denetleyicileri hariç sağlar.
 
 ### <a name="owin-integration"></a>OWIN tümleştirme
 
-ASP.NET Web API artık tam olarak OWIN destekler ve herhangi bir OWIN özellikli ana üzerinde çalıştırılabilir. De dahil olduğu bir **HostAuthenticationFilter** OWIN kimlik doğrulama sistemi ile tümleştirme sağlar.
+ASP.NET Web API artık tam olarak OWIN destekler ve OWIN uyumlu ana bilgisayarda çalıştırılabilir. Ayrıca yer alan bir **HostAuthenticationFilter** OWIN kimlik doğrulama sistemi ile tümleştirme sağlar.
 
-OWIN Tümleştirmesi ile Web API SignalR gibi diğer OWIN ara yazılımı yanı sıra kendi işleminde kendi kendine barındırabilir. Daha fazla bilgi için bkz: [Self-Host ASP.NET Web API kullanımı OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
+OWIN tümleştirmesiyle, Web API'si SignalR gibi diğer OWIN ara yazılımı yanı sıra kendi işleminizde Self barındırabilirsiniz. Daha fazla bilgi için [Self-Host ASP.NET Web API kullanımı OWIN](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="TOC13"></a>
 ## <a name="aspnet-signalr-20"></a>ASP.NET SignalR 2.0
 
-Aşağıdaki bölümlerde SignalR 2.0 özellikleri açıklanmaktadır.
+Aşağıdaki bölümlerde, SignalR 2.0 özellikleri açıklanmaktadır.
 
 - [OWIN üzerinde oluşturulmuş](#builtonowin)
 - [MapHubs ve MapConnection MapSignalR sunulmuştur](#MapSignalR)
-- [Etki alanları arası desteği](#crossdomain)
-- [iOS ve Android MonoTouch ve MonoDroid aracılığıyla desteği](#mobile)
+- [Etki alanları arası destek](#crossdomain)
+- [MonoTouch ve MonoDroid iOS ve Android desteği](#mobile)
 - [Taşınabilir .NET istemcisi](#portable)
-- [Yeni paket kendini barındırma](#selfhost)
+- [Yeni paket barındırma](#selfhost)
 - [Geriye dönük olarak uyumlu sunucu desteği](#backwardcompat)
 - [.NET 4.0 için sunucu desteği kaldırıldı](#remove40)
-- [İstemciler ve gruplar listesine ileti gönderme](#messagelist)
-- [Belirli bir kullanıcı için bir ileti gönderme](#sendtouser)
+- [İstemciler ve grupların listesini ileti gönderme](#messagelist)
+- [Belirli bir kullanıcıya bir ileti gönderme](#sendtouser)
 - [Daha iyi hata işleme desteği](#errorhandling)
-- [Daha kolay birim hub'ları test etme](#unittesting)
+- [Daha kolay birim test hub'ları](#unittesting)
 - [JavaScript hata işleme](#javascripterror)
 
-Mevcut bir 1.x projesini SignalR 2.0 sürümüne yükseltmek nasıl bir örnek için bkz: [bir SignalR yükseltme 1.x proje](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md).
+Mevcut bir 1.x proje SignalR 2.0 sürümüne yükseltmek nasıl bir örnek için bkz [yükseltme bir SignalR 1.x proje](../../../signalr/overview/releases/upgrading-signalr-1x-projects-to-20.md).
 
 <a id="builtonowin"></a>
 ### <a name="built-on-owin"></a>OWIN üzerinde oluşturulmuş
 
-SignalR 2.0 tamamen üzerinde kurulu [OWIN (.NET için açık Web arabirimi)](http://owin.org/). Bu değişiklik Kurulum işlemi için SignalR web barındırılan ve kendi kendini barındıran SignalR uygulamalar arasında çok daha tutarlı hale getirir, ancak ayrıca bir dizi API değişiklikleri istedi.
+SignalR 2.0 tamamen açık yerleşik [OWIN (.NET için açık Web arabirimi)](http://owin.org/). Bu değişiklik, Kurulum işlemi için SignalR web barındırılan ve şirket içinde barındırılan SignalR uygulamalar arasında çok daha tutarlı hale getirir, ancak bir dizi API değişiklik de gerekli.
 
 <a id="MapSignalR"></a>
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs ve MapConnection MapSignalR sunulmuştur
 
-OWIN standartları ile uyumluluk için bu yöntemleri için yeniden adlandırıldığı `MapSignalR`. `MapSignalR` parametreleri tüm hub'ları eşler olmadan adlı (olarak `MapHubs` sürümünde mu 1.x); tek tek eşlemek için **PersistentConnection** nesneleri, tür parametresi ve bağlantı olarak URL uzantısı olarak bağlantı türünü belirtin ilk bağımsız değişken.
+OWIN standartlarıyla uyumluluğu sağlamak için bu yöntemleri için yeniden adlandırıldığı `MapSignalR`. `MapSignalR` Tüm hub'ları eşleme parametreleri olmadan çağırılır (olarak `MapHubs` sürümünde vermiyor 1.x); bireysel eşlemek için **PersistentConnection** nesneleri, tür parametresi ve bağlantı için URL uzantısına bağlantı türü belirtin ilk bağımsız değişken.
 
-`MapSignalR` Yöntemi, bir Owın başlangıç sınıfı çağrılır. Visual Studio 2013 Owın başlangıç sınıfı için yeni bir şablon içerir; Bu şablonu kullanmak için aşağıdakileri yapın:
+`MapSignalR` Yöntemi Owın başlangıç sınıfı çağrılır. Visual Studio 2013'ün Owın başlangıç sınıfı için yeni bir şablonu içerir. Bu şablonu kullanmak için aşağıdakileri yapın:
 
 1. Projeye sağ tıklayın
 2. Seçin **ekleme**, **yeni öğe...**
-3. Seçin **Owın başlangıç sınıfı**. Yeni sınıf **haline**.
+3. Seçin **Owın başlangıç sınıfı**. Yeni bir sınıf adı **Startup.cs**.
 
-İçinde bir **Web uygulaması,** Owın başlangıç sınıfı içeren `MapSignalR` aşağıda gösterildiği gibi Web.Config dosyası uygulama ayarları düğümünde bir giriş kullanılarak Owın'ın başlatma işlemi yöntemi daha sonra eklenen.
+İçinde bir **Web uygulaması,** Owın başlangıç sınıfı içeren `MapSignalR` aşağıda gösterildiği gibi bir giriş Web.Config dosyasındaki uygulama ayarları düğümünde kullanarak Owın'ın başlatma işlemi yöntemi daha sonra eklenen.
 
-İçinde bir **uygulama'kendi kendini barındıran**, başlangıç sınıfı türü parametresi olarak geçirilen `WebApp.Start` yöntemi.
+İçinde bir **uygulama barındırabileceğiniz**, başlangıç sınıfı türü parametresi olarak geçirilir `WebApp.Start` yöntemi.
 
 **Hub'ları ve SignalR bağlantıları eşleme 1.x (bir web uygulaması genel uygulama dosyasından):** 
 
 [!code-csharp[Main](release-notes/samples/sample5.cs)]
 
-**Eşleme hub'ları ve bağlantıları SignalR 2.0 (dosyadan bir Owın başlangıç sınıfı):** 
+**Eşleme hub'ları ve SignalR 2. 0 ' (dosyadan bir Owın başlangıç sınıfı) bağlantılar:** 
 
 [!code-csharp[Main](release-notes/samples/sample6.cs)]
 
-İçinde bir **uygulama'kendi kendini barındıran**, başlangıç sınıfı için tür parametre olarak geçirilen `WebApp.Start` aşağıda gösterildiği gibi yöntemi.
+İçinde bir **uygulama barındırabileceğiniz**, başlangıç sınıfı türü parametresi olarak geçirilir `WebApp.Start` aşağıda gösterildiği gibi yöntemi.
 
 [!code-csharp[Main](release-notes/samples/sample7.cs)]
 
 <a id="crossdomain"></a>
 
-### <a name="cross-domain-support"></a>Etki alanları arası desteği
+### <a name="cross-domain-support"></a>Etki alanları arası destek
 
-Etki alanı istekleri arası 1.x tek EnableCrossDomain tarafından kontrol SignalR bayrak. Bu bayrak JSONP ve CORS isteklerini denetlenir. Daha fazla esneklik için tüm CORS desteği SignalR sunucu bileşeninden kaldırıldı (JavaScript lients kullanmaya devam CORS normalde tarayıcı onu destekleyen algılanırsa), ve yeni OWIN ara yazılımı sağlandıktan bu senaryoları desteklemek kullanılabilir.
+SignalR 1.x, etki alanı istekleri çapraz tek bir EnableCrossDomain tarafından kontrol bayrağını. Bu bayrak hem JSONP hem de CORS istekleri denetlenir. Daha fazla esneklik için tüm CORS desteği SignalR sunucu bileşeninden kaldırıldı (JavaScript lients kullanmaya devam CORS normalde tarayıcı onu desteklediğini algılanırsa), ve yeni OWIN ara yazılımı yapılan bu senaryoları desteklemek kullanılabilir.
 
-SignalR 2. 0'da, (etki alanları arası istekleri eski tarayıcılarda desteklemek için), istemcide varsa JSONP gereklidir, açıkça ayarlayarak etkinleştirilmesi gerekir `EnableJSONP` üzerinde `HubConfiguration` nesnesine `true`, aşağıda gösterildiği gibi. CORS az güvenlidir JSONP varsayılan olarak devre dışıdır.
+SignalR 2. 0 ', (eski tarayıcılarda etki alanları arası istekleri desteklemek için), istemcide, JSONP gereklidir, ayarlayarak açıkça etkinleştirilmesi gerekecektir `EnableJSONP` üzerinde `HubConfiguration` nesnesini `true`, aşağıda gösterildiği gibi. CORS az güvenli olsa da JSONP varsayılan olarak devre dışıdır.
 
-SignalR 2. 0 ' yeni CORS Ara eklemek için Ekle `Microsoft.Owin.Cors` projenizi ve çağrı kitaplığa `UseCors` aşağıdaki bölümde gösterildiği gibi SignalR Ara önce.
+SignalR 2.0 sürümünde yeni bir CORS ara yazılım eklemek için Ekle `Microsoft.Owin.Cors` kitaplık projesi ve çağrı `UseCors` bölümünde gösterildiği gibi SignalR ara yazılım önce.
 
-**Microsoft.Owin.Cors projenize ekleme**: Bu Kitaplığı'nı yüklemek için Paket Yöneticisi konsolunda aşağıdaki komutu çalıştırın:
+**Microsoft.Owin.Cors projenize ekleme**: Bu kitaplığını yüklemek için Paket Yöneticisi konsolunda aşağıdaki komutu çalıştırın:
 
 [!code-powershell[Main](release-notes/samples/sample8.ps1)]
 
@@ -375,68 +374,68 @@ Bu komut 2.0.0 ekleyeceksiniz projenize paketin sürümü.
 
 **UseCors çağırma**
 
-Aşağıdaki kod parçacıkları nasıl SignalR öğesinde etki alanları arası bağlantılar uygulandığını gösteren 1.x ve 2. 0.
+Aşağıdaki kod parçacıkları etki alanları arası bağlantıları SignalR öğesinde kullanılmasını göstermek 1.x ve 2.0.
 
-**SignalR öğesinde etki alanları arası istekleri uygulama 1.x (genel uygulama dosyadan)**
+**Etki alanları arası istek uygulama içinde SignalR 1.x (genel uygulama dosyadan)**
 
 [!code-csharp[Main](release-notes/samples/sample9.cs)]
 
 **Uygulama etki alanları arası isteklerde SignalR 2. 0 (C# kod dosyası)**
 
-Aşağıdaki kod, CORS veya JSONP SignalR 2.0 projede etkinleştirme gösterilmiştir. Bu kod örneği kullanan `Map` ve `RunSignalR` yerine `MapSignalR`, CORS desteği gerektiren SignalR istekleri için CORS Ara çalışır (yerine belirtilen yoldaki tüm trafik için `MapSignalR`.) `Map` belirli bir URL öneki için yerine tüm uygulama için çalıştırmak için gereken diğer tüm ara yazılımı için de kullanılabilir.
+Aşağıdaki kod bir SignalR 2.0 projesinde CORS veya JSONP etkinleştirme gösterir. Bu kod örneği kullanan `Map` ve `RunSignalR` yerine `MapSignalR`, böylece CORS desteği gerektiren SignalR istekleri için CORS ara yazılımı çalıştırır (yerine tüm trafiği yolda belirtilen `MapSignalR`.) `Map` uygulamanın tamamı yerine belirli bir URL ön eki için çalıştırması gereken diğer tüm ara yazılımı için de kullanılabilir.
 
 [!code-csharp[Main](release-notes/samples/sample10.cs)]
 
 <a id="mobile"></a>
 
-### <a name="ios-and-android-support-via-monotouch-and-monodroid"></a>iOS ve Android MonoTouch ve MonoDroid aracılığıyla desteği
+### <a name="ios-and-android-support-via-monotouch-and-monodroid"></a>MonoTouch ve MonoDroid iOS ve Android desteği
 
-İOS ve MonoTouch ve MonoDroid bileşenlerini kullanan Android istemciler için destek eklenmiştir [Xamarin Kitaplığı](https://xamarin.com/). Bunların nasıl kullanılacağını hakkında daha fazla bilgi için bkz: [kullanarak Xamarin bileşen](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Bu bileşenlerin kullanılabilir olması [Xamarin mağazasında](https://store.xamarin.com/) SignalR RTW yayın olduğunda kullanılabilir.
+İOS ve Android istemciler MonoTouch ve MonoDroid bileşenlerini kullanma için destek eklenmiştir [Xamarin Kitaplığı](https://xamarin.com/). Bunların nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [kullanarak Xamarin bileşenleri](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Bu bileşenler kullanıma sunulacak [Xamarin Store](https://store.xamarin.com/) SignalR RTW sürüm ne zaman kullanılabilir.
 
 <a id="portable"></a> ### Taşınabilir .NET istemcisi
 
-Platformlar arası geliştirme, Silverlight, WinRT daha iyi kolaylaştırmak ve Windows Phone istemcileri, aşağıdaki platformları destekleyen bir tek taşınabilir .NET istemcisi ile değiştirilmiştir:
+Daha iyi platformlar arası geliştirme, Silverlight, WinRT kolaylaştırmak ve Windows Phone istemcileri aşağıdaki platformları destekler, tek bir taşınabilir .NET istemci ile değiştirilmiştir:
 
 - NET 4.5
 - Silverlight 5
-- WinRT (Windows mağazası uygulamaları için .NET)
+- WinRT (Windows Store uygulamaları için .NET)
 - Windows Phone 8
 
 <a id="selfhost"></a>
 
-### <a name="new-self-host-package"></a>Yeni paket kendini barındırma
+### <a name="new-self-host-package"></a>Yeni paket barındırma
 
-SignalR kendi kendini barındıran (bir işlemde barındırılan SignalR uygulamalarını veya başka bir uygulamanın yerine bir web sunucusunda barındırılan) kullanmaya başlama kolaylaştırmak için bir NuGet paketi artık yoktur. SignalR ile yerleşik bir kendi kendini barındıran proje yükseltmek için 1.x, Microsoft.AspNet.SignalR.Owin paketini kaldırın ve Microsoft.AspNet.SignalR.SelfHost paketi ekleyin. Kendini barındırma paketi ile çalışmaya başlama hakkında daha fazla bilgi için bkz: [Öğreticisi: SignalR kendini barındırma](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
+Şirket içinde SignalR barındırma (bir işlemde barındırılan SignalR uygulamalarını diğer uygulama yerine veya bir web sunucusunda barındırılan) kullanmaya başlama daha kolay hale getirmek için bir NuGet paketi artık yok. SignalR ile oluşturulan ve barındırılan bir projeyi yükseltmesine 1.x, Microsoft.AspNet.SignalR.Owin paketini kaldırın ve Microsoft.AspNet.SignalR.SelfHost paketi ekleyin. Barındırılan paket ile çalışmaya başlama hakkında daha fazla bilgi için bkz: [öğretici: SignalR barındırma](../../../signalr/overview/deployment/tutorial-signalr-self-host.md).
 
 <a id="backwardcompat"></a>
 
 ### <a name="backward-compatible-server-support"></a>Geriye dönük olarak uyumlu sunucu desteği
 
-' In önceki sürümlerinde SignalR, istemcide kullanılan SignalR paket ve aynı olması için gereken sunucu sürümleri. Güncelleştirme zor olurdu kalın istemci uygulamalarını desteklemek için eski bir istemciyi daha yeni bir sunucu sürümünü kullanarak SignalR 2.0 artık destekler. **Not: SignalR 2.0 yeni istemcilerle eski sürümleriyle oluşturulan sunucularını desteklemez.**
+Önceki sürümlerinde SignalR, SignalR paket istemcide kullanılan ve aynı olması için gerekli sunucu sürümleri. Güncelleştirilecek zor olurdu kalın istemci uygulamaları desteklemek için yeni bir sunucu sürümü eski bir istemciyi kullanarak SignalR 2.0 artık desteklemektedir. **Not: SignalR 2.0 ile yeni istemcilerden daha eski sürümleriyle oluşturulmuş sunucularını desteklemez.**
 
 <a id="remove40"></a>
 
 ### <a name="removed-server-support-for-net-40"></a>.NET 4.0 için sunucu desteği kaldırıldı
 
-SignalR 2.0, .NET 4.0 ile sunucu birlikte çalışabilirlik için destek bıraktı. .NET 4.5 SignalR 2.0 sunucularıyla kullanılması gerekir. SignalR 2.0 için bir .NET 4.0 istemci hala var.
+SignalR 2.0, .NET 4.0 ile sunucu birlikte çalışabilirlik için destek bıraktı. .NET 4.5, SignalR 2.0 sunucularıyla kullanılmalıdır. SignalR 2.0 için .NET 4.0 istemci hala yoktur.
 
 <a id="messagelist"></a>
 
-### <a name="sending-a-message-to-a-list-of-clients-and-groups"></a>İstemciler ve gruplar listesine ileti gönderme
+### <a name="sending-a-message-to-a-list-of-clients-and-groups"></a>İstemciler ve grupların listesini ileti gönderme
 
-SignalR 2. 0'da, istemci ve grup kimlikleri listesini kullanarak ileti göndermek mümkündür. Aşağıdaki kod parçacıkları bunun nasıl yapılacağı gösterilmektedir.
+SignalR 2. 0'da, istemci ve Grup kimliklerinin bir listesini kullanarak ileti göndermek mümkündür. Aşağıdaki kod parçacıkları, bunun nasıl yapılacağı gösterilmektedir.
 
 **İstemcileri ve PersistentConnection kullanarak grupları listesine ileti gönderme**
 
 [!code-csharp[Main](release-notes/samples/sample11.cs)]
 
-**İstemcileri ve hub'ları kullanarak grupları listesine ileti gönderme**
+**İstemcileri ve hub'ı kullanarak grupları listesine ileti gönderme**
 
 [!code-csharp[Main](release-notes/samples/sample12.cs)]
 
 <a id="sendtouser"></a>
 
-### <a name="sending-a-message-to-a-specific-user"></a>Belirli bir kullanıcı için bir ileti gönderme
+### <a name="sending-a-message-to-a-specific-user"></a>Belirli bir kullanıcıya bir ileti gönderme
 
 Bu özellik, USERID belirtmek kullanıcılara bir Irequest IUserIdProvider yeni arabirimi aracılığıyla göre:
 
@@ -444,11 +443,11 @@ Bu özellik, USERID belirtmek kullanıcılara bir Irequest IUserIdProvider yeni 
 
 [!code-csharp[Main](release-notes/samples/sample13.cs)]
 
-Varsayılan olarak kullanıcının IPrincipal.Identity.Name kullanıcı adı olarak kullandığı uygulaması olacaktır.
+Varsayılan olarak kullanıcının IPrincipal.Identity.Name kullanıcı adı olarak kullanan bir uygulama olacaktır.
 
-Hub'ları, bu kullanıcılara yeni bir API aracılığıyla iletileri göndermek kullanabileceksiniz:
+Hub'ları, bu kullanıcılara yeni bir API aracılığıyla iletileri göndermek mümkün olacaktır:
 
-**API Clients.User kullanma**
+**' % S ' Clients.User API kullanma**
 
 [!code-csharp[Main](release-notes/samples/sample14.cs)]
 
@@ -456,11 +455,11 @@ Hub'ları, bu kullanıcılara yeni bir API aracılığıyla iletileri göndermek
 
 ### <a name="better-error-handling-support"></a>Daha iyi hata işleme desteği
 
-Kullanıcılar şimdi throw **HubException** herhangi bir hub çağrısının gelen. Oluşturucusunun **HubException** dize ileti ve nesneyi alabilir ek hata verileri. SignalR otomatik-özel durum seri hale getirmek ve burada bu reddetme/hub yöntemi çağrısının başarısız kullanılacak istemciye göndermek.
+Kullanıcılar artık throw **HubException** herhangi bir hub çağrısının öğesinden. Oluşturucusuna **HubException** bir dize iletisi ve bir nesne gerçekleştirebileceğiniz ek hata verileri. SignalR, özel durum otomatik olarak serileştirmek ve burada, reddetme/hub yöntemi çağrısının başarısız kullanılacak istemciye göndermek.
 
-**Ayrıntılı hub'ı özel durumlar Göster** ayarı var. şifrelemeyle **HubException** veya değil; istemciye gönderilen her zaman gönderildi.
+**Ayrıntılı hubs özel durumları Göster** ayarı sahip hiçbir seçtiğiniz **HubException** veya değil; istemciye gönderilen her zaman gönderildiğini.
 
-**Sunucu tarafı kodu bir HubException istemciye gönderme gösterme**
+**Sunucu tarafı kodu gösteren bir HubException istemciye gönderme**
 
 [!code-csharp[Main](release-notes/samples/sample15.cs)]
 
@@ -468,15 +467,15 @@ Kullanıcılar şimdi throw **HubException** herhangi bir hub çağrısının ge
 
 [!code-html[Main](release-notes/samples/sample16.html)]
 
-**Sunucudan gönderilen bir HubException yanıtlama gösteren .NET istemci kodu**
+**.NET istemci kodu gösteren sunucudan gönderilen bir HubException yanıtlama**
 
 [!code-csharp[Main](release-notes/samples/sample17.cs)]
 
 <a id="unittesting"></a>
 
-### <a name="easier-unit-testing-of-hubs"></a>Daha kolay birim hub'ları test etme
+### <a name="easier-unit-testing-of-hubs"></a>Daha kolay birim test hub'ları
 
-SignalR 2.0 içerir adlı bir arabirim `IHubCallerConnectionContext` sahte istemci tarafı çağrılarını oluşturmak kolaylaştırır hub'ları üzerinde. Aşağıdaki kod parçacıkları popüler test harnesses ile bu arabirimi kullanarak göstermek [xUnit.net](https://github.com/xunit/xunit) ve [moq](https://code.google.com/p/moq/).
+SignalR 2.0 içerir adlı bir arabirim `IHubCallerConnectionContext` sahte istemci tarafı çağrılarını oluşturmayı kolaylaştırması hub'ları üzerinde. Popüler test harnesses ile bu arabirimi kullanılarak aşağıdaki kod parçacıkları göstermek [xUnit.net](https://github.com/xunit/xunit) ve [moq](https://code.google.com/p/moq/).
 
 **Birim SignalR ile xUnit.net testi**
 
@@ -490,136 +489,136 @@ SignalR 2.0 içerir adlı bir arabirim `IHubCallerConnectionContext` sahte istem
 
 ### <a name="javascript-error-handling"></a>JavaScript hata işleme
 
-SignalR 2. 0'da, tüm JavaScript hata işleme geri aramalar ham dizeler yerine JavaScript hata nesneleri döndürür. Bu hata işleyicileri için daha zengin bilgi akışı SignalR sağlar. İç özel duruma gelen alabilirsiniz `source` hata özelliğidir.
+SignalR 2. 0'da, tüm JavaScript hata işleme geri çağırmaları ham dizeler yerine JavaScript hata nesneleri döndürür. Bu SignalR hata İşleyicileriniz için daha zengin bilgi akışına olanak sağlar. İç özel durumu alabilirsiniz `source` hata özelliğidir.
 
-**Start.Fail özel durumu işler JavaScript istemci kodu**
+**JavaScript istemci Start.Fail özel durumu işleyen bir kodu**
 
 [!code-javascript[Main](release-notes/samples/sample20.js)]
 
 <a id="TOC8"></a>
 ## <a name="aspnet-identity"></a>ASP.NET Kimlik
 
-### <a name="new-aspnet-membership-system"></a>Yeni ASP.NET üyelik sistemini
+### <a name="new-aspnet-membership-system"></a>Yeni ASP.NET üyelik sistemi
 
-ASP.NET, ASP.NET uygulamaları için yeni üyelik sistemi kimliğidir. ASP.NET Identity, kullanıcı özel profil verileri uygulama verileriyle tümleştirmeyi kolaylaştırır. ASP.NET Identity Kalıcılık modeli kullanıcı profilleri için uygulamanızda seçmenize olanak sağlar. Verileri bir SQL Server veritabanına veya Azure depolama tabloları gibi NoSQL veri depolarına dahil olmak üzere başka bir veri deposu depolayabilirsiniz. Daha fazla bilgi için bkz: [tek tek kullanıcı hesaplarını](creating-web-projects-in-visual-studio.md#indauth) içinde **Visual Studio 2013'da ASP.NET Web projeleri oluşturma**.
+ASP.NET, ASP.NET uygulamaları için yeni üyelik sistemini kimliğidir. ASP.NET Identity kullanıcı özel profil verileri uygulama verileriyle tümleştirmeyi kolaylaştırır. ASP.NET Identity kullanıcı profilleri için Kalıcılık modeli uygulamanızda seçmenize olanak sağlar. SQL Server veritabanı veya Azure depolama tabloları gibi NoSQL veri deposu dahil olmak üzere başka bir veri deposuna verileri depolayabilirsiniz. Daha fazla bilgi için [bireysel kullanıcı hesapları](creating-web-projects-in-visual-studio.md#indauth) içinde **Visual Studio 2013'te ASP.NET Web projeleri oluşturma**.
 
 ### <a name="claims-based-authentication"></a>Beyana dayalı kimlik doğrulama
 
-ASP.NET, şimdi burada kullanıcının kimliğini güvenilir verene gelen talepler kümesi olarak temsil edilir talep tabanlı kimlik doğrulaması, destekler. Kullanıcılar, kimliği doğrulanmış bir kullanıcı adı ve parola bir uygulama veritabanında tutulan veya sosyal kimlik sağlayıcısı kullanarak olabilir (örneğin: Microsoft Accounts, Facebook, Google, Twitter), veya Azure Active Directory kuruluş hesaplarıyla kullanarak veya Active Directory Federasyon Hizmetleri (ADFS).
+ASP.NET, şimdi burada kullanıcının kimliğini güvenilen veren gelen talepler kümesi olarak temsil edilen talep tabanlı kimlik doğrulaması, destekler. Kullanıcılar, kimliği doğrulanmış bir kullanıcı adı ve parolayı bir uygulamanın veritabanında tutulan veya sosyal kimlik sağlayıcılarını kullanarak olabilir (örneğin: Microsoft Accounts, Facebook, Google, Twitter), veya Azure Active Directory aracılığıyla Kurumsal hesaplarını kullanan veya Active Directory Federasyon Hizmetleri (ADFS).
 
 ### <a name="integration-with-azure-active-directory-and-windows-server-active-directory"></a>Azure Active Directory ve Windows Server Active Directory ile tümleştirme
 
-Artık Azure Active Directory veya Windows Server Active Directory (AD) kimlik doğrulaması için kullanmak ASP.NET projeleri oluşturabilirsiniz. Daha fazla bilgi için bkz: [Kurumsal hesaplar](creating-web-projects-in-visual-studio.md#orgauth) içinde **Visual Studio 2013'da ASP.NET Web projeleri oluşturma**.
+Artık Azure Active Directory veya Windows Server Active Directory (AD) için kimlik doğrulaması kullanan ASP.NET projeleri oluşturabilirsiniz. Daha fazla bilgi için [Kurumsal hesaplar](creating-web-projects-in-visual-studio.md#orgauth) içinde **Visual Studio 2013'te ASP.NET Web projeleri oluşturma**.
 
 ### <a name="owin-integration"></a>OWIN tümleştirme
 
-ASP.NET kimlik doğrulaması şimdi tüm OWIN tabanlı ana bilgisayarda kullanılan OWIN ara yazılımı temel alır. OWIN hakkında daha fazla bilgi için aşağıdakilere bakın [Microsoft OWIN bileşenleri](#TOC7) bölümü.
+ASP.NET kimlik doğrulaması, artık tüm OWIN tabanlı ana bilgisayarda kullanılan OWIN ara yazılımı dayanır. OWIN hakkında daha fazla bilgi için aşağıdakilere bakın [Microsoft OWIN bileşenleri](#TOC7) bölümü.
 
 <a id="TOC7"></a>
 ## <a name="microsoft-owin-components"></a>Microsoft OWIN bileşenleri
 
-[.NET için Web Arabirimi'ni açmak](http://owin.org/) (OWIN) .NET web sunucuları ve web uygulamaları arasındaki bir Özet tanımlar. OWIN web uygulamaları konak belirsiz yapmadan sunucu web uygulamasından ayrıştırır. Örneğin, IIS'de bir OWIN tabanlı web uygulaması konağı ya da özel bir işlem olarak kendini barındırma.
+[.NET için açık Web arabirimi](http://owin.org/) (OWIN) .NET web sunucuları ve web uygulaması arasında bir Özet tanımlar. OWIN sunucusu web uygulamasından web uygulamaları konak belirsiz hale ayırır. Örneğin, bir OWIN tabanlı web uygulamasının IIS'deki konak veya özel bir işlemde kendiliğinden konak.
 
-Microsoft OWIN bileşenleri (Katana proje olarak da bilinir) sunulan değişiklikler, yeni sunucu ve ana bileşenlerini, yeni yardımcı kitaplıkları ve ara yazılımı ve yeni kimlik doğrulaması ara yazılımı içerir.
+Microsoft OWIN bileşenleri (Katana proje olarak da bilinir) sunulan değişiklikler, yeni sunucu ve ana bileşenleri, yeni Yardımcısı kitaplıkları ve ara yazılım ve yeni kimlik doğrulaması ara yazılımı içerir.
 
 OWIN ve Katana hakkında daha fazla bilgi için bkz: [OWIN ve Katana yenilikler](../../../aspnet/overview/owin-and-katana/index.md).
 
-**Not: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) uygulamalar IIS Klasik modda çalışamaz; tümleşik modunda çalıştırılması gerekir.**
+**Not: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) uygulamalar, IIS Klasik modda çalışamaz; tümleşik modunda çalıştırılmalıdır.**
 
-**Not: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) uygulamalarını tam güvende çalıştırmanız gerekir.**
+**Not: [OWIN](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md) uygulamalarını tam güvende çalıştırılması gerekir.**
 
-### <a name="new-servers-and-hosts"></a>Yeni sunucuları ve ana bilgisayarlar
+### <a name="new-servers-and-hosts"></a>Yeni sunucular ve konakları
 
-Bu sürümle birlikte, kendi kendini barındıran senaryoları etkinleştirmek için yeni bileşenler eklendi. Bu bileşenler aşağıdaki NuGet paketleri şunlardır:
+Bu sürümle birlikte, yeni bileşenler barındırma senaryolarını etkinleştirmek için eklendi. Bu bileşenleri aşağıdaki NuGet paketlerini içerir:
 
-- **Microsoft.Owin.Host.HttpListener**. Kullanan bir OWIN sunucusu sağlar **HttpListener** HTTP isteklerini dinlemeye ve OWIN ardışık düzenine yönlendirir.
-- **Microsoft.Owin.Hosting** bir konsol uygulaması veya Windows hizmeti gibi özel bir işlemde bir OWIN ardışık kendini barındırma isteyen geliştiriciler için bir kitaplık sağlar.
-- **OwinHost**. Tek başına yürütülebilir dosya sarmalar sağlar `Microsoft.Owin.Hosting` ve bir özel ana bilgisayar uygulaması yazmak zorunda kalmadan bir OWIN ardışık kendini barındırma olanak tanır.
+- **Microsoft.Owin.Host.HttpListener**. Kullanan bir OWIN sunucusu sağlar **HttpListener** HTTP isteklerini dinlemek ve bunları OWIN ardışık düzenine yönlendirir.
+- **Microsoft.Owin.Hosting** bir OWIN ardışık düzenine bir konsol uygulaması veya Windows hizmeti gibi özel bir işlemde barındırılan isteyen geliştiriciler için bir kitaplık sağlar.
+- **OwinHost**. Sarmalayan bir tek başına yürütülebilir dosya sağlar `Microsoft.Owin.Hosting` ve bir OWIN ardışık düzenini özel bir Windows uygulaması yazmak zorunda kalmadan Self barındırmanıza olanak tanır.
 
-Ayrıca, `Microsoft.Owin.Host.SystemWeb` paket şimdi için ipuçları sağlamak üzere ara yazılım sağlar **SystemWeb** sunucu, belirli bir ASP.NET ardışık düzen aşaması sırasında ara yazılımın çağrılması gerektiğini belirten. Bu özellik, erken ASP.NET ardışık düzeninde çalışması gerektiğini kimlik doğrulaması ara yazılımı için özellikle yararlıdır.
+Ayrıca, `Microsoft.Owin.Host.SystemWeb` paket artık derleyiciye sağlamak bir ara yazılım sağlar **SystemWeb** belirli ASP.NET ardışık düzen aşamaları sırasında ara yazılımın çağrılması gerektiğini belirten bir sunucu. Bu özellik, erken ASP.NET işlem hattı çalışması gereken kimlik doğrulaması ara yazılımı için özellikle yararlıdır.
 
-### <a name="helper-libraries-and-middleware"></a>Yardımcı kitaplıkları ve Ara
+### <a name="helper-libraries-and-middleware"></a>Yardımcısı kitaplıkları ve ara yazılım
 
-Yalnızca işlev ve tür tanımları OWIN belirtiminden kullanarak OWIN bileşenlerini yazabilirsiniz olsa da yeni `Microsoft.Owin` paket soyutlamalar daha kullanıcı dostu kümesi sağlar. Çeşitli önceki paketler bu pakete birleştirir (örn., `Owin.Extensions`, `Owin.Types`) bir tek, iyi yapılandırılmış nesne modeline daha sonra kolayca diğer OWIN bileşenleri tarafından kullanılabilir. Aslında, Microsoft OWIN bileşenlerin çoğunun şimdi bu paketi kullanan.
-
-> [!NOTE]
-> [OWIN](http://www.owin.org) uygulamalar IIS Klasik modda çalışamaz; tümleşik modunda çalıştırılması gerekir.
+OWIN belirtiminden yalnızca işlevi ve türü tanımlarını kullanarak OWIN bileşenlerini yazabilirsiniz, ancak yeni `Microsoft.Owin` paket soyutlama daha kullanıcı dostu kümesi sağlar. Bu paketi çeşitli önceki paketler birleştirir (örneğin, `Owin.Extensions`, `Owin.Types`) sonra kolayca diğer OWIN bileşenleri tarafından kullanılabilecek bir tek ve iyi yapılandırılmış nesne modelini. Aslında, Microsoft OWIN bileşenleri çoğunu artık kullanın Bu paket.
 
 > [!NOTE]
-> [OWIN](http://www.owin.org) uygulamalarını tam güvende çalıştırmanız gerekir.
+> [OWIN](http://www.owin.org) uygulamalar, IIS Klasik modda çalışamaz; tümleşik modunda çalıştırılmalıdır.
 
-Bu sürüm, çalışan bir OWIN uygulama doğrulamak için ara yazılım artı hataları araştırmanıza yardımcı olması için hata sayfası ara yazılımını içeren Microsoft.Owin.Diagnostics paketi de içerir.
+> [!NOTE]
+> [OWIN](http://www.owin.org) uygulamalarını tam güvende çalıştırılması gerekir.
 
-### <a name="authentication-components"></a>Kimlik doğrulaması bileşenleri
+Bu sürüm ayrıca hataları araştırmanıza yardımcı olması için hata sayfası ara yazılımını yanı sıra çalışan bir OWIN uygulama doğrulamak için bir ara yazılım içeren Microsoft.Owin.Diagnostics paketini içerir.
+
+### <a name="authentication-components"></a>Kimlik doğrulama bileşenleri
 
 Aşağıdaki kimlik doğrulama bileşenleri kullanılabilir.
 
 - **Microsoft.Owin.Security.ActiveDirectory**. Şirket içi veya bulut tabanlı dizin hizmetlerini kullanarak kimlik doğrulamasını etkinleştirir.
-- **Microsoft.Owin.Security.Cookies** etkinleştirir kimlik doğrulaması tanımlama bilgileri kullanma. Bu paketi daha önce adlı `Microsoft.Owin.Security.Forms`.
-- **Microsoft.Owin.Security.Facebook** Facebook'ın OAuth tabanlı hizmet kullanarak etkinleştirir kimlik doğrulaması.
-- **Microsoft.Owin.Security.Google** etkinleştirir kimlik doğrulaması kullanarak Google Openıd tabanlı hizmet.
-- **Microsoft.Owin.Security.Jwt** JWT belirteçleri kullanarak etkinleştirir kimlik doğrulaması.
-- **Microsoft.Owin.Security.MicrosoftAccount** Enables authentication using Microsoft accounts.
-- **Microsoft.Owin.Security.OAuth**. Ara yazılım yanı sıra bir OAuth yetkilendirme sunucusu taşıyıcı belirteçlerin kimlik doğrulamasını sağlar.
-- **Microsoft.Owin.Security.Twitter** Twitter'ın OAuth tabanlı hizmet kullanarak etkinleştirir kimlik doğrulaması.
+- **Microsoft.Owin.Security.Cookies** tanımlama bilgilerini kullanarak kimlik doğrulamayı etkinleştirir. Bu paket daha önce adlı `Microsoft.Owin.Security.Forms`.
+- **Microsoft.Owin.Security.Facebook** Facebook'ın OAuth tabanlı hizmetini kullanarak kimlik doğrulamayı etkinleştirir.
+- **Microsoft.Owin.Security.Google** Google Openıd tabanlı hizmetini kullanarak kimlik doğrulamayı etkinleştirir.
+- **Microsoft.Owin.Security.Jwt** JWT belirteçleri kullanarak kimlik doğrulamayı etkinleştirir.
+- **Microsoft.Owin.Security.MicrosoftAccount** Microsoft hesaplarını kullanarak kimlik doğrulamayı etkinleştirir.
+- **Microsoft.Owin.Security.OAuth**. Taşıyıcı belirteç kimlik doğrulaması için bir OAuth yetkilendirme sunucusu yanı sıra ara yazılım sağlar.
+- **Microsoft.Owin.Security.Twitter** Twitter'ın OAuth tabanlı hizmetini kullanarak kimlik doğrulamayı etkinleştirir.
 
-Bu sürüm ayrıca içerir `Microsoft.Owin.Cors` çıkış noktaları arası HTTP isteklerini işlemek için ara yazılımı içeren paket.
+Bu sürüm ayrıca içerir `Microsoft.Owin.Cors` çıkış noktaları arası HTTP isteklerini işlemek için bir ara yazılım içeren paket.
 
 > [!NOTE]
-> Visual Studio 2013'ın son sürümünde JWT imzalama desteği kaldırılmıştır.
+> Visual Studio 2013'ün son sürümde JWT imzalamak için destek kaldırılmıştır.
 
 <a id="ef6"></a>
 ## <a name="entity-framework-6"></a>Entity Framework 6
 
-Yeni özellikler ve diğer değişiklikler Entity Framework 6 listesi için bkz: [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
+Yeni özellikler ve Entity Framework 6 diğer değişiklikler listesi için bkz. [Entity Framework sürüm geçmişi](https://msdn.com/data/jj574253).
 
 <a id="TOC14"></a>
 ## <a name="aspnet-razor-3"></a>ASP.NET Razor 3
 
-ASP.NET Razor 3 aşağıdaki yeni özellikleri içerir:
+ASP.NET Razor 3, aşağıdaki yeni özellikler içerir:
 
-- Sekme düzenleme desteği. Preivously, **belgeyi Biçimlendir** komutu, otomatik girintileme ve Visual Studio'da biçimlendirme otomatik işe doğru kullanırken **sekmeleri tut** seçeneği. Bu değişiklik, Visual Studio için biçimlendirme sekmesini Razor kodu biçimlendirme düzeltir.
-- Bağlantıları oluşturulurken URL yeniden yazma kuralı desteği.
-- Güvenliği saydam öznitelik kaldırma.
+- İçin sekmesinde düzenleme desteği. Preivously, **belgeyi Biçimlendir** komutu, otomatik girintileme ve biçimlendirme Visual Studio'da otomatik çalışmadığı doğru kullanırken **sekmeleri tut** seçeneği. Bu değişiklik, Visual Studio için sekmesinde biçimlendirme Razor kodu biçimlendirme düzeltir.
+- Bağlantılar oluşturulurken URL yeniden yazma kuralları için destek.
+- Saydam güvenlik özniteliğine kaldırılması.
   > [!NOTE]
-  > Bu önemli bir değişiklik ve Razor 2 MVC5 veya MVC5 karşı derlenmiş derlemeler ile uyumsuz durumdayken Razor 3 MVC4 ve önceki sürümlerinde, uyumsuz hale getirir.
+  > Bu bölünmesi farklıdır ve Razor 2 MVC5 veya MVC5 karşı derlenen derlemeler ile uyumlu olduğu sürece Razor 3 MVC4 ve önceki sürümleri uyumsuz hale getiriyor.
 
-Visual Studio 2013'te yayın öncesi sürümlerinden sabit razor 3 sorunları bulunabilir [burada](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Yayın öncesi sürümlerinden Visual Studio 2013'te düzeltilen razor 3 sorunlara bulunabilir [burada](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
 <a id="TOC15"></a>
 ## <a name="aspnet-app-suspend"></a>ASP.NET uygulama askıya alma
 
-ASP.NET uygulama askıya alma tüketicisinin kullanıcı deneyimi ve çok sayıda tek bir makinede ASP.NET siteleri barındırmak için ekonomik model değişiklikleri .NET Framework 4.5.1'deki oyun değiştirme bir özelliktir. Daha fazla bilgi için bkz: [ASP.NET uygulama Askıya Al – esnek paylaşılan .NET web barındırma](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx).
+ASP.NET uygulama askıya alma çok sayıda ASP.NET siteleri tek bir makinede barındırma için ekonomik bir model ve kullanıcı deneyimini önemli ölçüde değişir .NET Framework 4.5.1 oyunun kurallarını değiştiren bir özelliğidir. Daha fazla bilgi için [ASP.NET uygulama askıya alma – hızlı yanıt veren paylaşılan .NET web barındırma](https://blogs.msdn.com/b/dotnet/archive/2013/10/09/asp-net-app-suspend-responsive-shared-net-web-hosting.aspx).
 
 <a id="knownissues"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
 
-Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçları önemli değişiklikler açıklanmaktadır.
+Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçları'ndaki önemli değişiklikler açıklanmaktadır.
 
 ### <a name="nuget"></a>NuGet
 
-- [SLN dosyasını kullanırken, yeni paket geri yüklemesi üzerinde Mono işe yaramazsa](https://nuget.codeplex.com/workitem/3596) – bir yaklaşan nuget.exe indirme düzeltilecektir ve [NuGet.CommandLine paket](http://www.nuget.org/packages/NuGet.CommandLine/) güncelleştirin.
-- [Yeni paket geri yüklemesi Wix projelerle işe yaramazsa](https://nuget.codeplex.com/workitem/3598) – bir yaklaşan nuget.exe indirme düzeltilecektir ve [NuGet.CommandLine paket](http://www.nuget.org/packages/NuGet.CommandLine/) güncelleştirin.
-- [Otomatik paket geri yüklemesi çözüm klasörünün altında projeleri için işe yaramazsa](https://nuget.codeplex.com/workitem/3625) – NuGet 2.8 düzeltilecektir.
+- [Yeni paket geri yükleme, Mono üzerinde çalışmaz, SLN dosyasını kullanırken](https://nuget.codeplex.com/workitem/3596) – bir gelecek nuget.exe indirmesinde düzeltilecektir ve [NuGet.CommandLine paket](http://www.nuget.org/packages/NuGet.CommandLine/) güncelleştirin.
+- [Yeni paket geri yükleme, Wix projeleriyle çalışmıyor](https://nuget.codeplex.com/workitem/3598) – bir gelecek nuget.exe indirmesinde düzeltilecektir ve [NuGet.CommandLine paket](http://www.nuget.org/packages/NuGet.CommandLine/) güncelleştirin.
+- [Otomatik paket geri yükleme projelerin bir çözüm klasörü altında çalışmaz](https://nuget.codeplex.com/workitem/3625) – NuGet 2.8 düzeltilecektir.
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` döndürmez `IQueryable<T>` desteği eklediğimiz olarak her zaman `$select` ve `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` döndürmüyor `IQueryable<T>` için destek ekledik olarak her zaman `$select` ve `$expand`.
 
-    Önceki örneklerimizi `ODataQueryOptions<T>` her zaman Integer dönüş değeri `ApplyTo` için `IQueryable<T>`. Bu sorgu seçenekleri olduğundan daha önce çalışan biz daha önce desteklenen (`$filter`, `$orderby`, `$skip`, `$top`) şekli sorgusunun değiştirmeyin. Destekliyoruz göre `$select` ve `$expand` yönteminden döndürülen değer `ApplyTo` değişmeyecek `IQueryable<T>` her zaman.
+    Önceki örneklerimizi `ODataQueryOptions<T>` her zaman Integer dönüş değeri `ApplyTo` için `IQueryable<T>`. Bu sorgu seçeneği için daha önce çalışan biz daha önce desteklenen (`$filter`, `$orderby`, `$skip`, `$top`) sorgu şeklini değiştirmeyin. Destekliyoruz göre `$select` ve `$expand` dönüş değeri `ApplyTo` değişmeyecek `IQueryable<T>` her zaman.
 
     [!code-csharp[Main](release-notes/samples/sample21.cs)]
 
-    Örnek kodu daha önce kullanıyorsanız, istemci değil gönderirseniz, çalışmaya devam eder `$select` ve `$expand`. Ancak, desteklemek istiyorsanız `$select` ve `$expand` için bu kodu değiştirmeniz gerekir.
+    Daha önce'nden örnek kodu kullanıyorsanız, istemciyi değil gönderirseniz, çalışmaya devam eder `$select` ve `$expand`. Ancak, desteklemek istediğiniz `$select` ve `$expand` için bu kodu değiştirmek zorunda.
 
     [!code-csharp[Main](release-notes/samples/sample22.cs)]
-2. **Request.Url veya RequestContext.Url toplu isteği sırasında null**
+2. **Toplu istek sırasında Request.Url veya RequestContext.Url null**
 
-    Bir toplu senaryosunda **UrlHelper** erişilen zaman null **Request.Url** veya **RequestContext.Url**.
+    Bir toplu işlem senaryosunda **UrlHelper** den erişildiğinde null **Request.Url** veya **RequestContext.Url**.
 
     Bu sorun şu anda burada izlenir: [BatchRequestContext.Url isteği toplu işleme için null](http://aspnetwebstack.codeplex.com/workitem/1301).
 
-    Yeni bir örneğini oluşturmak için bu sorun için geçici çözüm olan **UrlHelper**, aşağıdaki örnekte olduğu gibi:
+    Yeni bir örneğini oluşturmak için bu sorunun geçici çözümü olan **UrlHelper**, aşağıdaki örnekte olduğu gibi:
 
     **UrlHelper yeni bir örneğini oluşturma**
 
@@ -627,13 +626,13 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
 
 ### <a name="aspnet-mvc"></a>ASP.NET MVC
 
-1. Veri görünümüne duyurduğumuzda AntiForgerToken doğrulama yapmak görünümler varsa MVC5 ve OrgAuth, kullanırken, aşağıdaki hata arasında gelebilir:
+1. Görünüm veri göndermek zaman AntiForgerToken doğrulama yapmak görünümler varsa MVC5 ve OrgAuth, kullanırken, şu hatayı arasında gelebilir:
 
     **Hata**:
 
     *'/' Uygulamasında sunucu hatası.*
 
-    <em>Bir talep türü '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'veya'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' üzerinde sağlanan Claimsıdentity yoktu. Talep tabanlı kimlik doğrulaması ile sahteciliğe karşı koruma belirteci desteğini etkinleştirmek için lütfen yapılandırılmış Talep sağlayıcı ürettiği Claimsıdentity örneklerinde bu talepler her ikisi de sağladığını doğrulayın. Yapılandırılmış Talep sağlayıcı yerine farklı bir talep türüyle benzersiz bir tanımlayıcı olarak kullanıyorsa, AntiForgeryConfig.UniqueClaimTypeIdentifier statik özelliği ayarlanarak yapılandırılabilir.</em>
+    <em>Bir talep türü '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'veya'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' üzerinde sağlanan Claimsıdentity yoktu. Talep tabanlı kimlik doğrulaması ile sahteciliğe karşı koruma belirteci desteğini etkinleştirmek için lütfen yapılandırılan talep sağlayıcısı hem de bu talepler ürettiği Claimsıdentity örneklerinde sağladığını doğrulayın. Yapılandırılmış Talep sağlayıcı benzersiz bir tanımlayıcı olarak bunun yerine farklı talep türü kullanıyorsa, statik AntiForgeryConfig.UniqueClaimTypeIdentifier özelliği ayarlanarak yapılandırılabilir.</em>
 
     **Geçici çözüm**:
 
@@ -641,69 +640,69 @@ Bu bölümde, Visual Studio 2013 için bilinen sorunlar ve ASP.NET ve Web Araçl
 
     `AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;`
 
-    Bu, bir sonraki sürümde düzeltilecektir.
-2. MVC4 uygulaması için MVC5 yükseltme yaptıktan sonra çözümü oluşturun ve başlatın. Aşağıdaki hata görmeniz gerekir:
+    Bu, sonraki sürümde düzeltilecektir.
+2. MVC4 uygulaması için MVC5 yükseltme yaptıktan sonra çözümü oluşturun ve başlatın. Şu hatayı göreceksiniz:
 
-    [A]System.Web.WebPages.Razor.Configuration.HostSection cannot be cast to [B]System.Web.WebPages.Razor.Configuration.HostSection. Tür A kaynaklanan ' System.Web.WebPages.Razor, sürüm 2.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'. Tür B kaynaklanan ' System.Web.WebPages.Razor, sürüm 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamda ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'.
+    [A] [İçin B]System.Web.WebPages.Razor.Configuration.HostSection. System.Web.WebPages.Razor.Configuration.HostSection atanamaz Tür A kaynaklanan ' System.Web.WebPages.Razor, sürüm 2.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamında ' C:\windows\Microsoft.Net\assembly\GAC\_MSIL\System.Web.WebPages.Razor\ v4.0\_2.0.0.0\_\_31bf3856ad364e35\System.Web.WebPages.Razor.dll'. Tür B kaynaklanan ' System.Web.WebPages.Razor, sürüm 3.0.0.0, Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' konumunda ' Default' bağlamında ' C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\6d05bbd0\ e8b5908e\assembly\dl3\c9cbca63\f8910382\_6273ce01\System.Web.WebPages.Razor.dll'.
 
-    Yukarıdaki hatayı düzeltmek için açık *tüm* (görünümler klasöründe olanlar dahil) Web.config dosyasında projenizi ve aşağıdakileri yapın:
+    Yukarıdaki hatayı düzeltmek için açık *tüm* (görünümleri klasöründe Devralınanlar da dahil) Web.config dosyalarından proje ve aşağıdakileri yapın:
 
-   1. Sürümüne "4.0.0.0" "System.Web.Mvc" "5.0.0.0" tüm oluşumlarını güncelleştirin.
-   2. "System.Web.Helpers", "2.0.0.0" sürümünü tüm oluşumlarını güncelleştirme &quot;System.Web.WebPages&quot; ve &quot;System.Web.WebPages.Razor&quot; "3.0.0.0" için
+   1. Tüm oluşumlarını sürümü "4.0.0.0" "System.Web.Mvc" için "5.0.0.0" güncelleştirin.
+   2. "System.Web.Helpers", "2.0.0.0" sürümünün tüm oluşumları güncelleştirme &quot;System.Web.WebPages&quot; ve &quot;System.Web.WebPages.Razor&quot; "3.0.0.0" için
 
-      Örneğin, yukarıdaki değişiklikleri yaptıktan sonra derleme bağlamaları aşağıdaki gibi görünmelidir:
+      Örneğin, yukarıdaki değişiklikler yaptıktan sonra derleme bağlamaları şu şekilde görünmelidir:
 
       [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-      MVC 4 projeleri MVC 5'e yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
-3. İstemci tarafı doğrulama örtük doğrulama jQuery ile kullanırken, doğrulama iletisi bazen türüne sahip bir HTML input öğesi için geçersiz = 'number'. Doğrulama hatasını gerekli değeri ("Yaş alanı gereklidir") geçersiz bir sayı geçerli bir sayı gerekli olduğunu doğru ileti yerine girildiğinde gösterilir.
+      MVC 5 MVC 4 projelerini yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projelerini ASP.NET MVC 5 ve Web API 2'ye yükseltme](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+3. İstemci tarafı doğrulama jQuery örtük doğrulaması ile kullanırken, doğrulama iletisi bazen türüne sahip bir HTML input öğesi için yanlış = 'number'. Doğrulama hatası için gerekli bir değer ("Yaş alan gerekiyor") dataValues geçerli bir sayı gerekli olduğunu doğru iletisi yerine girildiğinde gösterilir.
 
-    Bu sorun sık kurulmuş kodu ile oluşturma ve düzenleme görünümleri bir tamsayı özelliği ile bir model için bulunamadı.
+    Bu sorun için bir model oluşturma ve düzenleme görünümlerde bir tamsayı özelliği ile iskele kurulmuş kodu ile yaygın olarak bulunur.
 
-    Bu sorunu çözmek için gelen Düzenleyicisi yardımcı değiştirin:
+    Bu sorunu çözmek için gelen Düzenleyicisi Yardımcısı değiştirin:
 
     `@Html.EditorFor(person => person.Age)`
 
     Hedef:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 artık kısmi güven destekler. MVC veya Webapı ikili dosyaları bağlama projeleri kaldırmalısınız [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) özniteliği ve [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) özniteliği. Bu öznitelikler kaldırma derleyici hataları aşağıdaki gibi ortadan kaldırır.
+4. ASP.NET MVC 5 kısmi güven artık destekler. MVC veya Webapı ikili dosyalar için bağlama projeleri kaldırmalısınız [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) özniteliği ve [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) özniteliği. Bu öznitelikleri kaldırma, aşağıdaki gibi derleyici hatalarını ortadan kaldırır.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 
-    > Not, bir yan etkisi Bu, aynı uygulamada 4.0 ve 5.0 derlemeleri kullanamazsınız. Bunların tümünün 5.0 güncelleştirmeniz gerekir.
+    > Not, bir yan etkisi Bu, aynı uygulamada 4.0 ve 5.0 derlemeleri kullanamazsınız. Tümünü 5.0 güncelleştirmeniz gerekir.
 
-### <a name="spa-template-with-facebook-authorization-may-cause-instability-in-ie-while-the-web-site-is-hosted-in-intranet-zone"></a>Web sitesi intranet bölgesinde barındırılmasına karşın Facebook yetkilendirme SPA şablonla IE kararsızlığına neden olabilir
+### <a name="spa-template-with-facebook-authorization-may-cause-instability-in-ie-while-the-web-site-is-hosted-in-intranet-zone"></a>Web sitesi intranet bölgesinde barındırılıyor olsa Facebook yetkilendirme SPA şablonuyla IE'de kararsız hale gelmesine neden
 
-SPA şablonu Facebook dış oturum sağlar. Şablon kullanılarak oluşturulan projeyi yerel olarak çalıştırırken, oturum açma IE çökmesine neden olabilir.
+SPA şablon Facebook dış oturum sağlar. Oturum açma, şablonla oluşturulan projeyi yerel olarak çalışırken, IE çökmesine neden olabilir.
 
 Çözüm:
 
-1. Web sitesi Internet bölgesinde barındırması; veya
+1. İnternet bölgesi web sitesinde barındırmak; veya
 
-2. IE dışında bir tarayıcıda senaryosunu sınayın.
+2. Senaryo, IE dışındaki bir tarayıcıda test edin.
 
-### <a name="web-forms-scaffolding"></a>Web Forms Scaffolding
+### <a name="web-forms-scaffolding"></a>Yapı İskelesi Web formları
 
-Web Forms İskele VS2013 kaldırıldı ve Visual Studio için gelecekteki bir güncelleştirme kullanıma sunulacaktır. Ancak, MVC bağımlılıkları ekleyerek ve yapı iskelesi MVC için oluşturma Web Forms projedeki yapı iskelesi kullanabilirsiniz. Projenizi Web Forms ve MVC bir birleşimini içerir.
+Web Forms yapı İskelesi VS2013 ' kaldırıldı ve Visual Studio için gelecekte yapılacak bir güncelleştirmenin kullanıma sunulacak. Ancak bir Web Forms projesindeki yapı iskelesi MVC bağımlılıkları ekleyerek ve yapı iskelesi MVC için oluşturma kullanmaya devam edebilirsiniz. WebForms ve MVC proje içerir.
 
-MVC Web Forms projenize eklemek için yeni iskele kurulmuş Öğe Ekle ve seçin **MVC 5 bağımlılıkları**. En az veya betikleri gibi içerik tüm dosyaların gerekmediğini bağlı olarak tam seçin. Ardından, görünümler ve denetleyicisi projenizde oluşturacak MVC için kurulmuş öğe ekleyin.
+MVC Web Forms projenize eklemek için yeni iskele kurulmuş öğe ekleme ve seçin **MVC 5 bağımlılıkları**. En az ya da tam tüm betikler gibi içerik dosyaları ihtiyacınız olup olmadığına bağlı olarak seçin. Ardından, projenizde görünümleri ve denetleyici oluşturur, MVC için iskele kurulmuş öğe ekleyin.
 
-### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC and Web API Scaffolding - HTTP 404, Not Found error
+### <a name="mvc-and-web-api-scaffolding---http-404-not-found-error"></a>MVC ve Web APİ'si yapı iskelesini - HTTP 404 bulunamadı hatası
 
-Bir projeye iskele kurulmuş öğe olduğunda hatayla karşılaşırsanız, projenizin tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılan değişiklikler geri alınacak ancak yüklü NuGet paketleri gibi diğer değişiklikler geri alınacak değil. Yönlendirme yapılandırması değişiklikler geri alınır, gezinme öğeleri iskele kurulmuş kullanıcılar bir HTTP 404 hata alır.
+İskele kurulmuş öğe projeye eklenirken bir hatayla karşılaştı, projenizi tutarsız bir durumda bırakılır mümkündür. Bazı yapı iskelesi yapılacak değişiklikler geri alınır ancak yüklü NuGet paketleri gibi diğer değişiklikleri geri alınmaz. Yönlendirme yapılandırma değişikliklerini geri giderek iskele kurulmuş öğe olduğunda kullanıcıların bu HTTP 404 hatası alırsınız.
 
 Geçici çözüm:
 
-- MVC için bu hatayı düzeltmek için yeni iskele kurulmuş Öğe Ekle ve MVC 5 bağımlılıkları seçin (en az veya tam). Bu işlem tüm gerekli değişiklikleri projenize ekleyin.
-- Web API için bu hatayı düzeltmek için:
+- MVC için bu hatayı düzeltmek için yeni iskele kurulmuş öğe ekleme ve MVC 5 bağımlılıkları seçin (en az veya tam). Bu işlem tüm gerekli değişiklikleri projenize ekleyin.
+- Web API'si için bu hatayı düzeltmek için:
 
   1. WebApiConfig sınıfı projenize ekleyin.
 
       [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
       [!code-vb[Main](release-notes/samples/sample26.vb)]
-  2. Uygulamada WebApiConfig.Register yapılandırma\_yöntemi Global.asax dosyasında şu şekilde başlatın:
+  2. WebApiConfig.Register yapılandırın\_yöntemi Global.asax dosyasında şu şekilde başlatın:
 
       [!code-csharp[Main](release-notes/samples/sample27.cs)]
 

@@ -1,68 +1,67 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
-title: '9. Kısım: Kayıt ve Checkout | Microsoft Docs'
+title: '9. Bölüm: Kayıt ve kullanıma alma | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 9 kayıt ve Checkout kapsar.
+description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 9. Bölüm kayıt ve kasa işlemleri kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: e7e83b70f2508b6dfc0c078b992747a76e4d0ff2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 935729be0dce790c6fce2e2e982ee063318d64dd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870121"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37367016"
 ---
-<a name="part-9-registration-and-checkout"></a>9. Kısım: Kayıt ve kullanıma alma
+<a name="part-9-registration-and-checkout"></a>9. Bölüm: Kayıt ve kasa işlemleri
 ====================
 tarafından [Jon Galloway](https://github.com/jongalloway)
 
-> MVC müzik deposu tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağı hakkında adım adım anlatan öğretici bir uygulamadır.  
+> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
 >   
-> MVC müzik deposu çevrimiçi müzik albümlerini sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliği uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
-> Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölümü 9 kayıt ve Checkout kapsar.
+> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 9. Bölüm kayıt ve kasa işlemleri kapsar.
 
 
-Bu bölümde, biz alışveriş yapanların adresini ve ödeme bilgilerini toplayan bir CheckoutController oluşturmaya olursunuz. Biz bu denetleyici yetkilendirme gerektirecek şekilde kullanıma, önce sitemizi ile kaydetmek kullanıcıların gerektirir.
+Bu bölümde, size, platformumuz'ın adresini ve ödeme bilgilerini toplarız CheckoutController oluşturma. Biz sitemizi kullanıma, önce bu denetleyici yetkilendirme gerektirecek şekilde kaydedin açmasına gerektirir.
 
-Kullanıcılar için kullanıma alma işlemi, kendi Alışveriş sepetinden "Checkout" düğmesine tıklayarak gidin.
+Kullanıcıların kullanıma alma işlemi için bunların alışveriş sepetini "Kullanıma Al" düğmesine tıklayarak gidin.
 
 ![](mvc-music-store-part-9/_static/image1.jpg)
 
-Kullanıcı günlüğe kaydedilmezse için istenir.
+Kullanıcı oturum açmadığı, için istenir.
 
 ![](mvc-music-store-part-9/_static/image1.png)
 
-Oturum açma başarılı olduğunda, kullanıcı ardından adresinizi ve ödeme görünümü gösterilir.
+Başarıyla oturum açtıktan sonra kullanıcı ardından adresinizi ve ödeme görünümü gösterilir.
 
 ![](mvc-music-store-part-9/_static/image2.png)
 
-Formun doldurulmuş varsa ve sırasını gönderilen sonra sipariş onay ekranında gösterilir.
+Formu doldurduğunuzda varsa ve siparişi gönderen sonra siparişi onay ekranında gösterilir.
 
 ![](mvc-music-store-part-9/_static/image3.png)
 
-Mevcut olmayan sipariş veya size ait olmayan bir sırada görüntüleme girişiminde hata görünümü gösterilir.
+Mevcut olmayan bir sipariş ya da size ait olmayan bir sırada görüntülemeye çalıştığınızda hata görünümü gösterilir.
 
 ![](mvc-music-store-part-9/_static/image4.png)
 
-## <a name="migrating-the-shopping-cart"></a>Alışveriş sepeti geçirme
+## <a name="migrating-the-shopping-cart"></a>Alışveriş sepetini geçirme
 
-Kullanıcı Checkout düğmesine tıkladığında bir alışveriş işlemi anonim, olsa da, bunlar kaydetmeniz gerekir ve oturum açma. Kullanıcıların kendi alışveriş sepeti bilgilerini ziyaretleri kayıt veya oturum açma tamamladığınızda alışveriş sepeti bilgilerin bir kullanıcıyla ilişkilendirmek ihtiyacımız şekilde korur beklediğiniz.
+Kullanıcı kullanıma alma düğmeye tıkladığında bir alışveriş işlemi anonim, olsa da, bunlar kaydetme gerekecektir ve oturum açın. Kullanıcıların, alışveriş sepeti bilgilerine ziyaretleri kayıt veya oturum açma tamamlandığında, alışveriş sepeti bilgileri bir kullanıcıyla ilişkilendirmek ihtiyacımız şekilde korur beklediğiniz.
 
-Bizim ShoppingCart sınıfı, geçerli sepetteki tüm öğeleri bir kullanıcı adı ile ilişkilendireceğiniz bir yöntem taşıdığından Bunu yapmak gerçekten çok kolaydır. Biz yalnızca bir kullanıcı kaydı veya oturum açma işlemi tamamlandığında bu yöntemi çağırmanız gerekir.
+Bizim ShoppingCart sınıfı, geçerli Sepeti tüm öğeleri bir kullanıcı adı ile ilişkilendireceğiniz bir yöntem olduğundan Bunu yapmak gerçekten çok kolaydır. Biz yalnızca bir kullanıcı kaydı veya oturum açma tamamlandığında bu yöntemi çağırmanız gerekir.
 
-Açık **AccountController** biz üyeliği ve yetkilendirme ayarlama yükleyen eklediğimiz sınıfı. Ekleme bir MvcMusicStore.Models, başvuran deyimiyle sonra aşağıdaki MigrateShoppingCart yöntemi ekleyin:
+Açık **AccountController** biz üyelik ve yetkilendirme ayarlama yükleyen ekledik sınıfı. Ekleme bir using deyimi başvuran MvcMusicStore.Models, ardından aşağıdaki MigrateShoppingCart yöntemi ekleyin:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample1.cs)]
 
-Ardından, kullanıcı doğrulandıktan sonra aşağıda gösterildiği gibi MigrateShoppingCart çağırmak için oturum açma sonrası eylemi değiştirin:
+Ardından, kullanıcının kimliği doğrulandıktan sonra aşağıda gösterildiği gibi MigrateShoppingCart çağırmak için oturum açma sonrası eylemi değiştirin:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample2.cs)]
 
@@ -70,100 +69,100 @@ Kullanıcı hesabı başarıyla oluşturulduktan hemen sonra eylem sonrası ayn�
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample3.cs)]
 
-Anonim bir alışveriş sepeti başarılı kaydı veya oturum açma sırasında bir kullanıcı hesabına otomatik olarak aktarılacaktır şimdi onu - olur.
+Bunu - olan artık anonim bir alışveriş sepeti başarılı kayıt veya oturum açma sırasında kullanıcı hesabına otomatik olarak aktarılır.
 
 ## <a name="creating-the-checkoutcontroller"></a>CheckoutController oluşturma
 
-Denetleyicileri klasörü sağ tıklatın ve yeni bir denetleyici boş denetleyicisi şablonu kullanarak CheckoutController adlı projeye ekleyin.
+Denetleyicileri klasörü sağ tıklatın ve boş denetleyici şablonu kullanarak CheckoutController adlı projeye yeni bir denetleyici ekleyeceksiniz.
 
 ![](mvc-music-store-part-9/_static/image5.png)
 
-İlk olarak, Authorize öznitelik checkout önce kaydetmek kullanıcıların denetleyicisi sınıf bildiriminin üstüne ekleyin:
+İlk olarak, kullanıma alma önce kaydolmalarını iste için denetleyici sınıf bildiriminin üstüne Authorize özniteliği ekleyin:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample4.cs)]
 
-*Not: Bu biz StoreManagerController daha önce yaptığınız değişiklikleri benzer, ancak bu durumda kullanıcının yönetici rolünde olması Authorize özniteliği gerekli. Checkout denetleyicisi, kullanıcı oturum açmış olmanız biz gerektiren ancak yöneticileri olmaları gerektiren değil.*
+*Not: Bu StoreManagerController için daha önce yaptığımız değişiklik benzer, ancak bu durumda kullanıcı bir yönetici rolünde olmanız Authorize özniteliği gerekli. Kullanıma alma denetleyicide, kullanıcının oturum açmış olmanız biz gerektiren ancak yöneticileri olmaları zorunlu değildir.*
 
-Basitleştirmek amacıyla, biz Bu öğreticide ödeme bilgilerle ilgilenen olmaz. Bunun yerine, biz kullanıcıların bir promosyon kodu kullanarak kullanıma izin vermiş olursunuz. Bu promosyon kodu PromoCode adlı bir sabit kullanarak depolarız.
+Basitleştirmek amacıyla, biz Bu öğreticide ödeme bilgilerle uğraşıyor olmaz. Bunun yerine, biz kullanıcıların bir promosyon kodu kullanarak kullanıma izin vermiş olursunuz. Bu promosyon kodu PromoCode adlı bir sabit kullanarak depolarız.
 
-StoreController olduğu gibi biz storeDB adlı MusicStoreEntities sınıfının bir örneği tutmak için bir alan belirtmesi. Yapmak için MusicStoreEntities sınıfını kullanmak, biz kullanarak bir eklemeniz gerekir MvcMusicStore.Models ad alanı bildirimi. Bizim Checkout denetleyicisi üstündeki aşağıda yer almaktadır.
+StoreController olduğu gibi biz storeDB adlı MusicStoreEntities sınıfının bir örneğini tutacak bir alan bildirmeniz. Yapmak için MusicStoreEntities sınıfı kullanın, biz kullanarak bir eklemeniz gerekecektir MvcMusicStore.Models ad alanı bildirimi. Kullanıma alma denetleyicimizin en altında görünür.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample5.cs)]
 
-CheckoutController aşağıdaki denetleyici eylemleri olacaktır:
+Şu denetleyici eylemleri CheckoutController olacaktır:
 
-**AddressAndPayment (GET method)** bilgilerini girmesini izin vermek için bir form görüntüleyecek.
+**AddressAndPayment (GET method)** bilgilerini girmesini izin vermek için bir form görüntüler.
 
-**AddressAndPayment (POST yöntemini)** giriş doğrulamak ve siparişi işleme.
+**AddressAndPayment (POST yöntemi)** girişini doğrulamak ve siparişi işleme.
 
-**Tam** bir kullanıcı teslim alma işlemi başarıyla tamamlandıktan sonra gösterilir. Bu görünüm kullanıcının sipariş numarası, onay içerir.
+**Tam** kullanıcı kullanıma alma işlemi başarıyla tamamlandıktan sonra gösterilir. Bu görünüm, kullanıcının sipariş numarası da onay olarak dahil edilir.
 
-İlk olarak, şimdi (biz denetleyicisini oluşturduğunuzda oluşturulan) dizin denetleyici eylemi için AddressAndPayment yeniden adlandırın. Bu denetleyici eylemi yalnızca checkout formun görüntüler, böylece herhangi bir model bilgi gerektirmez.
+İlk olarak, şimdi AddressAndPayment için (denetleyici oluşturduğumuz bağlandığınızda oluşturuldu) dizin denetleyici eylemini yeniden adlandırın. Herhangi bir model bilgi gerektirmez, dolayısıyla bu denetleyici eylemi yalnızca kullanıma alma form görüntüler.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample6.cs)]
 
-Bizim AddressAndPayment POST yöntemini StoreManagerController kullandık aynı düzeni izler: form gönderme kabul etmek ve sırasını tamamlamak deneyecek ve başarısız olursa formu yeniden görüntüleyin.
+Bizim AddressAndPayment POST yöntemi içinde StoreManagerController kullandık aynı düzeni izler: form gönderme kabul edin ve sırasını tamamlamak deneyecek ve başarısız olursa formu yeniden görüntüleyin.
 
-Form girişi doğrulama sipariş bizim doğrulama gereksinimlerini karşılayan sonra biz PromoCode form değer doğrudan denetler. Her şeyi güncelleştirilmiş bilgileri siparişle kaydedecek doğru olduğunu varsayarak, sipariş sürecini tamamlayıp tam eyleme yönlendirmek için ShoppingCart nesne söyleyin.
+Form girişini doğrulama sipariş bizim doğrulama gereksinimlerini karşılayan sonra biz doğrudan PromoCode form değeri kontrol eder. Her şeyin doğru olduğunu varsayarsak, biz güncelleştirilmiş bilgileri siparişle kaydedebilir, sipariş işlemini tamamlayıp tamamlama eyleminde olduğu için yeniden yönlendirme ShoppingCart söylemek.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample7.cs)]
 
-Kullanıma alma işlemi başarıyla tamamlandıktan sonra kullanıcılar için tam denetleyici eylemi yönlendirilir. Bu eylem, sipariş gerçekten oturum açmış kullanıcıya bir onay olarak sipariş numarası gösterilmeden önce ait olduğunu doğrulamak için basit bir denetim gerçekleştirir.
+Kullanıma alma işlemi işlemin başarıyla tamamlanmasından sonra kullanıcılar için eksiksiz bir denetleyici eylemini yönlendirilirsiniz. Bu eylem sırasını gerçekten oturum açmış kullanıcıya bir onay olarak sipariş numarası göstermeden önce ait olduğunu doğrulamak için basit bir denetim gerçekleştirir.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample8.cs)]
 
-*Not: biz proje başladığındaki hata Görünüm otomatik olarak bize /Views/Shared klasöründe oluşturuldu.*
+*Not: şu projenin başladığında hata görünümünün otomatik olarak bizim için /Views/Shared klasöründe oluşturulur.*
 
 Tam CheckoutController kod aşağıdaki gibidir:
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample9.cs)]
 
-## <a name="adding-the-addressandpayment-view"></a>AddressAndPayment görünümü ekleme
+## <a name="adding-the-addressandpayment-view"></a>AddressAndPayment görünüm ekleme
 
-Şimdi, AddressAndPayment görünüm oluşturalım. AddressAndPayment denetleyici eylemleri birine sağ tıklayın ve aşağıda gösterildiği gibi bir sırada kesin türü belirtilmiş ve Düzen şablonunu kullanan AddressAndPayment adlı bir görünüm ekleyin.
+Şimdi, AddressAndPayment görünüm oluşturalım. AddressAndPayment denetleyici eylemleri birine sağ tıklayın ve aşağıda gösterildiği gibi bir sırada kesin ve düzenleme şablonu kullanıldığı AddressAndPayment adlı bir görünüm ekleyin.
 
 ![](mvc-music-store-part-9/_static/image6.png)
 
-Bu görünüm yapacak iki biz Aranan adresindeki StoreManagerEdit görünüm oluşturulurken yöntemlerden birini kullanın:
+Bu görünüm hale getirecek iki incelemiştik adresindeki StoreManagerEdit görünümü oluştururken tekniklerden birini kullanın:
 
-- Html.EditorForModel() sipariş modeli için form alanlarını görüntülemek için kullanacağız
-- Doğrulama kuralları ile doğrulama öznitelikleri bir sipariş sınıfı kullanarak özelliğinden yararlanır
+- Sipariş modeli için form alanlarını görüntülemek için Html.EditorForModel() kullanacağız
+- Bir sipariş sınıfı ile doğrulama öznitelikleri kullanarak doğrulama kuralları yararlanılacaktır.
 
-Promosyon kodu için ek bir metin kutusu tarafından izlenen Html.EditorForModel() kullanmak için form kodu güncelleştirerek başlayacağız. AddressAndPayment görünüm için tam kod aşağıda verilmiştir.
+Html.EditorForModel(), ek bir textbox tarafından izlenen promosyon kodunu kullanmak için form kodu güncelleştirerek başlayacağız. AddressAndPayment görünümü için tam kod aşağıda gösterilmiştir.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample10.cshtml)]
 
 ## <a name="defining-validation-rules-for-the-order"></a>Sipariş için doğrulama kurallarını tanımlama
 
-Bizim görünüm ayarlamak, albüm modeli için daha önce yaptığımız gibi biz doğrulama kurallarını sipariş modelimiz için ayarlar. Modeller klasörü sağ tıklatın ve sipariş adlı bir sınıf ekleyin. Daha önce albüm için kullandık doğrulama özniteliklerinin yanı sıra, biz de normal bir ifade kullanıcının e-posta adresini doğrulamak için kullanır.
+Bizim görünümü ayarlamak, albüm modeli için daha önce yaptığımız gibi doğrulama kuralları sipariş modelimizi ayarlayacağız. Modeller klasörü sağ tıklatın ve sipariş adlı bir sınıf ekleyin. Albüm için daha önce kullandığımız doğrulama özniteliklerinin yanı sıra, biz de normal bir ifade kullanıcının e-posta adresinizi doğrulamak için kullanır.
 
 [!code-csharp[Main](mvc-music-store-part-9/samples/sample11.cs)]
 
-Çalışılıyor eksik formu göndermeden veya geçersiz bilgiler şimdi istemci tarafı doğrulama kullanırken hata iletisi gösterir.
+Çalışılıyor formunun eksik olan veya geçersiz bilgileri artık kullanarak istemci tarafı doğrulama hata iletisi gösterir.
 
 ![](mvc-music-store-part-9/_static/image7.png)
 
-Tamam, biz kullanıma alma işlemi için sabit işlerin çoğunu yaptıktan; Biz yalnızca birkaç büyük olasılıkla ve tamamlanması uçları sahip. İki basit görünüm eklemek ihtiyacımız ve oturum açma işlemi sırasında Sepeti bilgi iletimi ilişkin halletmeniz gerekir.
+Tamam, çoğunu sabit kullanıma alma işlemi için uyguladığımız güncelleştirmede; yalnızca birkaç ekledikçe ve tamamlanması uçları sahibiz. İki basit görünüm eklemek ihtiyacımız ve oturum açma işlemi sırasında sepet bilgi iletimi ölçeklendirilmesini gerekiyor.
 
-## <a name="adding-the-checkout-complete-view"></a>Checkout tam görünümü ekleme
+## <a name="adding-the-checkout-complete-view"></a>Kullanıma alma tam görünüm ekleme
 
-Yalnızca sipariş kimliği görüntülenecek gereksinimleriniz değiştikçe Checkout tam görünümü oldukça basit bir işlemdir Tam denetleyici eylemini sağ tıklayın ve bir tamsayı kesin türü belirtilmiş tam adlı bir görünüm ekleyin
+Yalnızca sipariş kimliği görüntülenecek gereksinimleriniz değiştikçe kullanıma alma tam görünümü oldukça basit Tam denetleyici eylemini sağ tıklayıp, bir tamsayı kesin tam olarak adlandırılan bir görünümü Ekle
 
 ![](mvc-music-store-part-9/_static/image8.png)
 
-Aşağıda gösterildiği gibi sipariş kimliği, görüntülemek için görünümü kodu şimdi güncelleştireceğiz.
+Aşağıda gösterildiği gibi sipariş kimliği görüntülenecek görünüm kodu artık güncelleştireceğiz.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample12.cshtml)]
 
 ## <a name="updating-the-error-view"></a>Hatanın görünüm güncelleştiriliyor
 
-Varsayılan şablonu, bir hata görünümü paylaşılan görünümler klasöründe içerir, başka bir sitede yeniden kullanılabilir. Bu hata görünümü çok basit bir hata içerir ve biz güncelleştireceğim şekilde sitemizi düzeni kullanmaz.
+Böylece, başka bir site için yeniden kullanılabilir varsayılan şablonu paylaşılan görünümler klasöründe bir hata görünümü içerir. Bu hata görünüm çok basit bir hata içeriyor ve bu güncelleştireceğiz şekilde sitemizi düzeni kullanmaz.
 
-Bu genel bir hata sayfası olduğundan, içeriği çok kolaydır. Bir ileti ve bağlantı kullanıcı kendi eylem yeniden denemek isterse geçmişi önceki sayfaya gitmek için eklediğimiz.
+Bu genel bir hata sayfası olduğundan, içeriği çok kolaydır. Bir ileti ve bir bağlantı kullanıcı kendi eylemini yeniden denemek isterse geçmişinde önceki sayfaya gitmek için yer alacak.
 
 [!code-cshtml[Main](mvc-music-store-part-9/samples/sample13.cshtml)]
 
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-8.md)
-> [sonraki](mvc-music-store-part-10.md)
+> [İleri](mvc-music-store-part-10.md)

@@ -2,35 +2,34 @@
 uid: single-page-application/index
 title: ASP.NET tek sayfa uygulaması | Microsoft Docs
 author: rick-anderson
-description: ASP.NET sonbaharda 2012 güncelleştirmeyi indirin ve önemli istemci tarafı etkileşimler JavaScrip kullanarak uygulamaları oluşturmak için daha iyi bir uçtan uca deneyim sahibi...
+description: ASP.NET Fall 2012 güncelleştirmesini indirin ve önemli istemci tarafı etkileşimler JavaScrip kullanarak uygulamaları oluşturmaya yönelik daha iyi bir uçtan uca deneyim sahibi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2012
 ms.topic: article
 ms.assetid: 4760328c-3d73-4757-a36f-ab80a5b3f611
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /single-page-application
 msc.type: categoryindex
-ms.openlocfilehash: 459af328c37edd0ac38ddd51bc7eb6e705690df5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e625bdecf185ef6eed74e40d10429c3956aea1de
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565995"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369770"
 ---
-<a name="aspnet-single-page-application"></a>ASP.NET tek sayfa uygulaması
+<a name="aspnet-single-page-application"></a>ASP.NET tek sayfalı uygulama
 ====================
 - [Genel bakış](overview/index.md)
 
     - [Giriş](overview/introduction/index.md)
 
-        - [Tek sayfa uygulaması: Çakıştırmaları şablonu](overview/introduction/knockoutjs-template.md)
-        - [Bir kitaplık Boşaltılan dışında biliyor musunuz?](overview/introduction/other-libraries.md)
-    - [Şablonları](overview/templates/index.md)
+        - [Tek Sayfalı Uygulama: KnockoutJS şablonu](overview/introduction/knockoutjs-template.md)
+        - [Knockout dışında bir kitaplık biliyor musunuz?](overview/introduction/other-libraries.md)
+    - [Şablonlar](overview/templates/index.md)
 
-        - [Omurga şablonu](overview/templates/backbonejs-template.md)
-        - [Kolay/Angular şablonu](overview/templates/breezeangular-template.md)
-        - [Kolay/Boşaltılan şablonu](overview/templates/breezeknockout-template.md)
+        - [Omurga Şablonu](overview/templates/backbonejs-template.md)
+        - [Breeze/Angular şablonu](overview/templates/breezeangular-template.md)
+        - [Breeze/Knockout şablonu](overview/templates/breezeknockout-template.md)
         - [EmberJS şablonu](overview/templates/emberjs-template.md)
-        - [Sık kullanılan havlu şablonu](overview/templates/hottowel-template.md)
+        - [Hot Towel şablonu](overview/templates/hottowel-template.md)

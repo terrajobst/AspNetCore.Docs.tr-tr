@@ -1,28 +1,27 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
-title: Özel düğme eylemleri DataList ve yineleyici | Microsoft Docs
+title: DataList ve Repeater ile özel düğme eylemleri | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler düğmeleri özel işlevsellik eklemek için DataList ve yineleyici denetimlerin için nasıl ekleneceğini gösterir.
+description: Bu öğreticiler özel işlevsellik eklemek DataList ve Repeater denetimleri için düğme eklemek nasıl gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: d017f36f-0152-43c7-ac44-6c7c755ea79a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: b9ec5df400ce445e703119b398e9f7a26d3f5446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82fd55664ae3c8e835903316e2eda3dee0a1e6e5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26568110"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364691"
 ---
-<a name="custom-button-actions-with-the-datalist-and-repeater"></a>Yineleyici ve DataList Özel düğme eylemleri
+<a name="custom-button-actions-with-the-datalist-and-repeater"></a>DataList ve Repeater ile özel düğme eylemleri
 ====================
-> Bu öğreticiler düğmeleri özel işlevsellik eklemek için DataList ve yineleyici denetimlerin için nasıl ekleneceğini gösterir.
+> Bu öğreticiler özel işlevsellik eklemek DataList ve Repeater denetimleri için düğme eklemek nasıl gösterir.
 
 
-- [Özel düğmeler DataList ve yineleyici (C#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
-- [Özel düğmeler DataList ve yineleyici (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)
+- [DataList ve Repeater’daki Özel Düğmeler (C#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
+- [DataList ve Repeater’daki Özel Düğmeler (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)

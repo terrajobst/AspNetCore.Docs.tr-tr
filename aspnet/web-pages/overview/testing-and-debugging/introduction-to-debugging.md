@@ -1,34 +1,33 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: Giriş hata ayıklama ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
+title: Giriş hata ayıklama ASP.NET Web sayfaları (Razor) siteler | Microsoft Docs
 author: tfitzmac
-description: Hata ayıklama hataları bulma ve kod sayfalarınızda düzeltme işlemidir. Bu bölümde bazı araçları ve hata ayıklama için kullanabileceğiniz teknikleri gösterir ve analyz...
+description: Hata ayıklama hataları bulma ve kod sayfalarınıza düzeltme işlemidir. Bu bölümde bazı araçlar ve hata ayıklamak için kullanabileceğiniz teknikleri gösterir ve analyz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
 ms.topic: article
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0d189eb8640346ca7850d9013961cbf45aaefd6f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897511"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375868"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>(Razor) giriş hata ayıklama ASP.NET Web sayfaları
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sayfalarında hata ayıklamak için çeşitli yollar açıklanmaktadır. Hata ayıklama hataları bulma ve kod sayfalarınızda düzeltme işlemidir.
+> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sayfalarında hata ayıklamak için çeşitli yollar açıklanmaktadır. Hata ayıklama hataları bulma ve kod sayfalarınıza düzeltme işlemidir.
 > 
 > **Öğrenecekleriniz:** 
 > 
-> - Yardımcı olacak bilgileri görüntülemek nasıl çözümlemek ve sayfaları hata ayıklama.
-> - Hata ayıklama kullanmayı Visual Studio Araçları.
+> - Yardımcı olacak bilgileri görüntülemek nasıl analiz edin ve hata ayıklama sayfaları.
+> - Visual Studio'da hata ayıklama kullanmayı araçları.
 >   
 > 
 > Bu makalede sunulan ASP.NET özellikleri şunlardır:
@@ -44,101 +43,101 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > - Visual Studio 2013
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır. WebMatrix 3 kullanabilirsiniz ancak tümleşik hata ayıklayıcı desteklenmiyor.
+> Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır. WebMatrix 3'ü kullanabilirsiniz ancak tümleşik hata ayıklayıcı desteklenmiyor.
 
 
-İlk başta önlemek için sorun giderme hataları ve sorunları kodunuzdaki önemli bir durum değil. Bunu hatalarla karşılaşırsanız neden olabilecek kodunuzu bölümlerini koyarak yapabilirsiniz `try/catch` engeller. Daha fazla bilgi için hataları işleme bölümüne bakın [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890).
+Hataları ve sorunları kodunuzda sorun giderme işlemlerinin önemli bir yönüdür bunları ilk başta önlemek içindir. Hatalarla karşılaşırsanız neden olabilecek kod bölümlerini koyarak bunu yapabilirsiniz `try/catch` engeller. Hataları işleme hakkında daha fazla bilgi için bölüm bakın [giriş kullanımına ASP.NET Web programlama Razor söz dizimi](https://go.microsoft.com/fwlink/?LinkId=202890).
 
-`ServerInfo` Yardımcı olan bir bakış sayfanıza barındıran web sunucusu ortamı hakkındaki bilgileri içeren bir tanı aracı. Ayrıca, bir tarayıcı sayfa istediğinde, gönderilen HTTP isteği bilgilerini gösterir. `ServerInfo` Yardımcı görüntüler geçerli bir kullanıcı kimliği, istekte tarayıcı türü ve benzeri. Bu tür bilgileri sık karşılaşılan sorunları gidermenize yardımcı olabilir.
+`ServerInfo` Yardımcı olan bir genel bakış sayfanız barındıran web sunucusu ortamı hakkındaki bilgileri sunan bir tanı aracıdır. Ayrıca, bir tarayıcı sayfa istediğinde gönderilen HTTP isteği bilgilerini gösterir. `ServerInfo` Yardımcısı görüntüler geçerli bir kullanıcı kimliği, istekte tarayıcı türü ve benzeri. Bu tür bilgiler genel sorunları gidermenize yardımcı olabilir.
 
-1. Adlı yeni bir web sayfası oluşturun *ServerInfo.cshtml*.
-2. Sayfa sonunda, yalnızca kapatmadan önce `</body>` etiketi, add `@ServerInfo.GetHtml()`:
+1. Adlı yeni bir web sayfası oluşturma *ServerInfo.cshtml*.
+2. Sayfasının sonunda, yeni kapatmadan önce `</body>` etiketinde, ekleyin `@ServerInfo.GetHtml()`:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample1.cshtml)]
 
-    Ekleyebileceğiniz `ServerInfo` sayfa başka bir yerindeki kod. Ancak sonunda ekleme çıktısını okuması daha kolay hale getiren, diğer sayfa içeriği, ayrı tutar.
+    Ekleyebileceğiniz `ServerInfo` kod sayfası herhangi bir yerindeki. Ancak, sonunda ekleme çıktısını kolay okunur hale getiren, diğer sayfa içeriği, ayrı tutar.
 
     > [!NOTE] 
     > 
-    > **Önemli** web sayfaları için bir üretim sunucusu taşımadan önce herhangi bir tanılama kod, web sayfalarından kaldırmanız gerekir. Bu uygulandığı `ServerInfo` bir sayfaya kod ekleme ile ilgili diğer tanılama bu makaledeki teknikleri yanı sıra Yardımcısı. Bu tür bilgiler kötü amaçlı kişilerin yararlı olabileceği için sunucu adı, kullanıcı adları, yollar hakkında bilgi, sunucu ve benzer ayrıntıları görmek için Web sitenizin ziyaretçileri istemezsiniz.
-3. Sayfayı kaydedin ve tarayıcıda çalıştırın.
+    > **Önemli** bir üretim sunucusu için web sayfaları geçmeden önce web sayfalarınızdan herhangi bir tanılama kodu kaldırmanız gerekir. Bu durum geçerlidir `ServerInfo` bir sayfaya kod ekleme, hatalı durumdaki diğer tanılama teknikler bu makaledeki yanı sıra Yardımcısı. Bu tür bilgiler kötü amaçlı kişilerin yararlı olabileceği için sunucu ve benzer ayrıntıları, sunucu adı, kullanıcı adları, yollar hakkındaki bilgileri görmek için Web sitenizin ziyaretçileri istemezsiniz.
+3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın.
 
-    ![Hata ayıklama 1](introduction-to-debugging/_static/image1.jpg)
+    ![Hata ayıklama-1](introduction-to-debugging/_static/image1.jpg)
 
-    `ServerInfo` Yardımcısı sayfasında dört tablonun bilgileri görüntüler:
+    `ServerInfo` Yardımcısı sayfasında dört tablo bilgileri görüntüler:
 
-   - Sunucu yapılandırması. Bu bölüm, bilgisayar adı, çalıştırmakta olduğunuz ASP.NET, etki alanı adı ve sunucu zaman sürümü de dahil olmak üzere barındıran web sunucusu hakkında bilgi sağlar.
-   - ASP.NET sunucu değişkenleri. Bu bölüm, birçok HTTP protokol ayrıntılarını (çağrılan HTTP değişkenler) hakkında ayrıntılı bilgi sağlar ve bu değerleri her web sayfası isteği bir parçasıdır.
-   - HTTP çalışma zamanı bilgileri. Bu bölümde, web sayfanızın altında çalışan Microsoft .NET Framework, yol, önbellek vb. ayrıntıları sürümü ayrıntıları. (İçinde öğrenilen [ASP.NET Web programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), Razor sözdizimini kendisini kapsamlı bir yazılımı yerleşik olan Microsoft ASP.NET web sunucu teknolojisi üzerinde oluşturulan kullanarak ASP.NET Web sayfaları Geliştirme kitaplığı .NET Framework olarak adlandırılır.)
-   - Ortam değişkenleri. Bu bölümde, web sunucusundaki tüm yerel ortam değişkenlerini ve değerleri listesi sağlar.
+   - Sunucu yapılandırması. Bu bölümde, bilgisayar adı, çalıştırmakta olduğunuz ASP.NET, etki alanı adı ve sunucu sürümü dahil olmak üzere barındırma web sunucusu hakkında bilgi sağlar.
+   - ASP.NET sunucu değişkenleri. Bu bölümde, birçok HTTP protokolü ayrıntıları (çağrılan HTTP değişkenler) hakkında ayrıntılı bilgi sağlar ve bu değerleri her web sayfa isteğinde bir parçasıdır.
+   - HTTP çalışma zamanı bilgileri. Bu bölüm, ayrıntıları, sürümü, web sayfanızın altında çalışan Microsoft .NET Framework, yol, önbellek vb. hakkında ayrıntılar sağlar. (İçinde öğrenilen [kullanımına ASP.NET Web programlama Razor söz dizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), Razor sözdizimi kendisini kapsamlı bir yazılım üzerinde oluşturulmuş olan Microsoft ASP.NET web sunucusu teknolojileri olanakları kullanan ASP.NET Web sayfaları .NET Framework adlı geliştirme kitaplığını.)
+   - Ortam değişkenleri. Bu bölümde web sunucusundaki tüm yerel ortam değişkenlerini ve değerleri listesi sağlar.
 
-     Tüm sunucu ve istek bilgilerinin tam bir açıklaması bu makalenin kapsamı dışındadır olmakla birlikte, gördüğünüz `ServerInfo` Yardımcısı çok miktarda bir tanı bilgilerini döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenleri](https://technet.microsoft.com/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
+     Tüm sunucu ve istek bilgileri tam açıklamasını bu makalenin kapsamı dışındadır, ancak gördüğünüz gibi `ServerInfo` Yardımcısı, çok miktarda tanılama bilgileri döndürür. Değerler hakkında daha fazla bilgi için `ServerInfo` döndürür, bkz: [tanınan ortam değişkenlerini](https://technet.microsoft.com/library/dd560744(WS.10).aspx) Microsoft TechNet Web sitesinde ve [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) MSDN Web sitesinde.
 
-## <a name="embedding-output-expressions-to-display-page-values"></a>Sayfa değerlerini görüntülemek için katıştırma çıktı ifadeleri
+## <a name="embedding-output-expressions-to-display-page-values"></a>Sayfa değerleri görüntülemek için ekleme çıkış ifadeleri
 
-Kodunuzda neler olduğunu görmek için başka bir çıktı ifadeleri sayfasına katıştırmak için yoludur. Bildiğiniz gibi doğrudan bir değişkenin değerini şöyle ekleyerek çıkarabilirsiniz `@myVariable` veya `@(subTotal * 12)` sayfası. Hata ayıklama için bu çıkış ifadeleri stratejik noktalarda kodunuzda yerleştirebilirsiniz. Bu, sayfa çalıştığında anahtar değişkenleri veya hesaplama sonucu değerini görmenize olanak sağlar. Bitirdiğinizde hata ayıklama, ifadeler kaldırma veya bunları açıklama. Bu yordam bir sayfaya hata ayıklama yardımcı olmak için katıştırılmış ifadeler kullanmak için tipik bir yol gösterir.
+Kodunuzda neler olduğunu görmek için başka bir sayfaya çıkış ifade katıştırma yöntemdir. Bildiğiniz gibi doğrudan bir değişkenin değerini aşağıdakine benzer ekleyerek çıkarabilirsiniz `@myVariable` veya `@(subTotal * 12)` sayfası. Hata ayıklama için kodunuzda bu çıkış ifadeler stratejik noktalarda yerleştirebilirsiniz. Bu, sayfa çalıştığında anahtar değişkenleri veya hesaplama sonucu değerini görmenize olanak sağlar. Bitirdiğinizde, hata ayıklama ifadeleri kaldırabilir veya yorum gönderin. Bu yordam, bir sayfa hataları ayıklamanıza yardımcı için katıştırılmış ifadeleri kullanma için tipik bir yol gösterir.
 
-1. Adlı yeni bir WebMatrix sayfa oluşturma *OutputExpression.cshtml*.
+1. Adlı yeni bir WebMatrix sayfası oluşturma *OutputExpression.cshtml*.
 2. Sayfa içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](introduction-to-debugging/samples/sample2.html)]
 
-    Örnek kullanan bir `switch` değerini denetlemek için deyimi `weekday` değişkeni ve haftanın hangi gününe bağlı olarak farklı çıktı iletisi olmasından sonra görüntüleme. Örnekte, `if` ilk kod bloğu blokta rasgele bir gün geçerli hafta içi günü değerine ekleyerek haftanın günü değiştirir. Bu gösterim amaçları için sunulan bir hatadır.
-3. Sayfayı kaydedin ve tarayıcıda çalıştırın.
+    Örnekte bir `switch` değerini denetlemek için bildirimi `weekday` değişkeni ve sonra görünen bir haftanın gününü bağlı olarak farklı çıkış iletisinin. Örnekte, `if` blok ilk kod bloğu içinde rastgele bir gün için geçerli haftanın gününü değeri ekleyerek haftanın günü değiştirir. Bu gösterim amacıyla sunulan bir hatadır.
+3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın.
 
-    Sayfa için yanlış günün haftanın iletisi görüntülenir. Haftanın hangi günü gerçekte olduğundan, daha sonra bir günlük iletisi görürsünüz. Bu durumda, (kod kasıtlı olarak hatalı günü değeri ayarlar) neden ileti devre dışı olduğundan bildiğiniz olsa da, gerçekte, genellikle burada şeyler kodu yanlış kalacaklarını bilmek zordur. Hata ayıklama için anahtar nesneleri ve değişkenlerin değerine gibi olanlar çıkışı bulmanız gereken `weekday`.
-4. Çıktı ifadeleri ekleyerek ekleyin `@weekday` kod açıklamaları tarafından gösterilen iki yerde de gösterildiği gibi. Bu çıktı ifadeleri değişkeni değerleri bu noktada kod yürütülmesine görüntüler.
+    Sayfa yanlış haftanın günü için iletisi görüntülenir. Haftanın her günü gerçekten olduğundan, daha sonra bir günlük iletisi görürsünüz. Bu durumda, (kod bilerek yanlış day değeri ayarlar nedeniyle) neden ileti kapalı olduğunu ancak, gerçekte, genellikle şeyleri burada kodda yanlış kalacaklarını bilmek zordur. Hata ayıklamak için değeri olarak anahtar nesneler ve değişkenler gibi neler olup bittiğine bulmanız gereken `weekday`.
+4. Çıkış ifadeleri ekleyerek ekleyin `@weekday` kod açıklamaları tarafından gösterilen iki yerde gösterildiği gibi. Bu çıkış ifadeler değişkeni değerlerini o noktada kod yürütme görüntüler.
 
     [!code-csharp[Main](introduction-to-debugging/samples/sample3.cs?highlight=2-3,15-16)]
-5. Kaydedip sayfasını bir tarayıcıda çalıştırın.
+5. Kaydedin ve sayfanın tarayıcıda çalıştırın.
 
-    Gerçek haftanın ilk sayfasını görüntüler ve ardından güncelleştirilmiş haftanın gününü sonuçlarının bir gün ve sonuçta elde edilen iletiden ekleme `switch` deyimi. İki değişken ifadeleri çıktısını (`@weekday`) herhangi bir HTML ekleyemiyor çünkü gün arasında boşluk içermeyen `<p>` çıkış; etiketleri yalnızca sınama ifadelerini.
+    Gerçek haftanın gününü, ilk sayfasını görüntüler ve ardından güncelleştirilmiş haftanın sonuçlarının bir gün ve sonuçta elde edilen iletiden eklemesini `switch` deyimi. İki değişken ifadeleri çıktısı (`@weekday`) gün arasında bir boşluk olmayan herhangi bir HTML eklemediğim sahip `<p>` ; çıkış etiketleri yalnızca test için ifadelerdir.
 
-    ![Hata ayıklama 2](introduction-to-debugging/_static/image2.jpg)
+    ![Hata ayıklama-2](introduction-to-debugging/_static/image2.jpg)
 
-    Şimdi hata olduğu görebilirsiniz. İlk görüntülediğinizde `weekday` değişken kodda, bunu doğru günü gösterir. Görüntülediğinizde, ikincisinde ise, sonra `if` kodda engellemek, kapalı bir günüdür. Bir hafta içi günü değişkeni birinci ve ikinci görünüm arasında gecikmesi olduğunu bilmesi. Bu gerçek bir hata varsa, bu tür bir yaklaşım soruna neden olan kod konum daraltmaya yardımcı olacaktır.
-6. Kod sayfasında eklediğiniz iki çıktı ifadeleri kaldırarak ve haftanın günü değişiklikleri kod kaldırma düzeltin. Kod kalan, tam bloğunu aşağıdaki gibi görünür:
+    Şimdi hatanın nerede görebilirsiniz. İlk kez görüntülediğinizde `weekday` değişken kodda, doğru günü gösterir. Görüntülediğinizde, ikincisinde ise, sonra `if` kodda engelleme, kapalı bir gündür. Bu nedenle bir şey haftanın günü değişkeni birinci ve ikinci görünümünü arasında oluştuğunu bildirin. Bu tür bir yaklaşım, bu gerçek bir hata varsa, soruna neden olan kod konumunu sınırlandırmanıza yardımcı olacaktır.
+6. Kodu, eklediğiniz iki çıkış ifadeleri kaldırma ve haftanın günü değişiklikleri kod kaldırma sayfasında düzeltin. Kalan, tam kod bloğunu aşağıdaki örnekteki gibi görünür:
 
     [!code-cshtml[Main](introduction-to-debugging/samples/sample4.cshtml)]
-7. Bir tarayıcıda. Sayfayı çalıştırın. Bu saati gerçek haftanın günü için görüntülenen doğru iletisini görürsünüz.
+7. Sayfanın tarayıcıda çalıştırın. Bu süre, gerçek haftanın günü için görüntülenen doğru iletisini görürsünüz.
 
-## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Nesne değerlerini görüntülemek için ObjectInfo Yardımcısını kullanma
+## <a name="using-the-objectinfo-helper-to-display-object-values"></a>Nesne değerleri görüntülemek için ObjectInfo Yardımcısını kullanma
 
-`ObjectInfo` Yardımcısı, türü ve kendisine geçirdiğiniz her nesnenin değerini görüntüler. Değişkenleri ve nesneleri değerini kodunuzu (çıktı ifadelerle önceki örnekte olduğu gibi) görüntülemek için kullanın ve ayrıca veri nesnesi hakkında bilgi türü görebilirsiniz.
+`ObjectInfo` Yardımcısı, türü ve kendisine geçirdiğiniz her bir nesnenin değerini görüntüler. (Önceki örnekte çıkış ifadelerle yaptığınız gibi), kodunuzda değişkenler ve nesneler değerini görüntülemek için kullanın yanı sıra veri nesnesi hakkında bilgi türü görebilirsiniz.
 
 1. Adlı dosyayı açın *OutputExpression.cshtml* daha önce oluşturduğunuz.
-2. Sayfadaki tüm kod aşağıdaki kod bloğunu ile değiştirin:
+2. Tüm kod sayfasında, aşağıdaki kod bloğunu ile değiştirin:
 
     [!code-html[Main](introduction-to-debugging/samples/sample5.html)]
-3. Kaydedip sayfasını bir tarayıcıda çalıştırın.
+3. Kaydedin ve sayfanın tarayıcıda çalıştırın.
 
-    ![Hata ayıklama 4](introduction-to-debugging/_static/image3.jpg)
+    ![Hata ayıklama-4](introduction-to-debugging/_static/image3.jpg)
 
-    Bu örnekte, `ObjectInfo` Yardımcısı iki öğe görüntüler:
+    Bu örnekte, `ObjectInfo` Yardımcısı iki öğeleri görüntüler:
 
-   - Tür. İlk değişken için türüdür `DayOfWeek`. İkinci değişken için türüdür `String`.
-   - Değer. Sayfasında zaten Tebrik değişkenin değerini görüntülemek için değişkeni geçirdiğinizde bu durumda, değer yeniden görüntülenir `ObjectInfo`.
+   - Tür. Birinci değişken için olan türdür `DayOfWeek`. İkinci değişken için olan türdür `String`.
+   - Değer. Sayfada zaten Karşılama değişkenin değerini görüntülemek için değişkenine geçirdiğinizde bu durumda, yeniden görüntülenmesi `ObjectInfo`.
 
-     Daha karmaşık nesneler için `ObjectInfo` Yardımcısı, daha fazla bilgi görüntüleyebilir &#8212; temelde, onu türlerini ve değerlerini tüm nesnenin özelliklerini görüntüleyebilirsiniz.
+     Daha karmaşık nesneler için `ObjectInfo` Yardımcısı, daha fazla bilgi görüntüleyebilir &#8212; temel olarak, bu türleri ve değerleri tüm bir nesnenin özelliklerini görüntüleyebilirsiniz.
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio'da hata ayıklama araçlarını kullanarak
 
-Daha kapsamlı bir hata ayıklama deneyimini için Visual Studio 2013 veya ücretsiz kullanmak [için Visual Studio Express 2013 Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Visual Studio ile kodunuzda incelemek istediğiniz satırında bir kesme noktası ayarlayabilirsiniz.
+Daha kapsamlı bir hata ayıklama deneyimi için Visual Studio 2013 veya ücretsiz kullanmak [Visual Studio Express 2013 Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Visual Studio ile incelemek istediğiniz satırı kodunuzda bir kesme noktası ayarlayabilirsiniz.
 
-![Kesme noktası ayarlama](introduction-to-debugging/_static/image1.png)
+![kesme noktası Ayarla](introduction-to-debugging/_static/image1.png)
 
-Web sitesi test ettiğinizde, yürütme kodu kesme noktasında durur.
+Web sitesi test ettiğinizde, kodu yürütürken kesme noktasında durur.
 
-![kesme noktası ulaşmak](introduction-to-debugging/_static/image2.png)
+![kesme noktası ulaşın](introduction-to-debugging/_static/image2.png)
 
-Değişkenleri ve kod satırının satır ilerleyebilirsiniz geçerli değerlerini inceleyebilirsiniz.
+Değişkenler ve kod satırının satır adımlayın geçerli değerlerini inceleyebilirsiniz.
 
 ![değerler bakın](introduction-to-debugging/_static/image3.png)
 
-ASP.NET Razor sayfalarının hata ayıklamak için Visual Studio tümleşik hata ayıklayıcıyı kullanma hakkında daha fazla bilgi için bkz: [programlama ASP.NET Web sayfaları (Razor) kullanarak Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
+ASP.NET Razor sayfaları hata ayıklamak için Visual Studio'da tümleşik hata ayıklayıcısı hakkında daha fazla bilgi için bkz. [programlama ASP.NET Web sayfaları (Razor) kullanarak Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama](https://go.microsoft.com/fwlink/?LinkId=205854)
 - [IIS Sunucu değişkenleri](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
-- [Ortam değişkenleri kabul](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)
+- [Ortam değişkenlerini tanınan](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

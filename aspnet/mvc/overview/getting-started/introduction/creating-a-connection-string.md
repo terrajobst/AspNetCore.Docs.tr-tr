@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/creating-a-connection-string
-title: Bağlantı dizesi oluşturma ve SQL Server yerel veritabanı ile çalışma | Microsoft Docs
+title: Bağlantı dizesi oluşturma ve SQL Server LocalDB ile çalışma | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,62 +9,61 @@ ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 6127804d-c1a9-414d-8429-7f3dd0f56e97
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/creating-a-connection-string
 msc.type: authoredcontent
-ms.openlocfilehash: edbd46ef8a03670f0cb7527142babe9bd5846c7a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d6e04de9b1d71a77b4b56b04417d6d4bc24cbd72
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867924"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361674"
 ---
-<a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Bağlantı dizesi oluşturma ve SQL Server yerel veritabanı ile çalışma
+<a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Bağlantı dizesi oluşturma ve SQL Server LocalDB ile çalışma
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Bağlantı dizesi oluşturma ve SQL Server yerel veritabanı ile çalışma
+## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Bağlantı dizesi oluşturma ve SQL Server LocalDB ile çalışma
 
-`MovieDBContext` Sınıfı, oluşturduğunuz görev veritabanına bağlanırken ve eşleme işler `Movie` veritabanı kayıtlarını nesnelere. Bir soru sorabilirsiniz. yine de bu bağlanacağı veritabanını belirtmek şeklidir. Gerçekten de kullanmak için veritabanını belirtmek zorunda kalmadan, Entity Framework varsayılan olarak kullanmaya [LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb). Bu bölümde açıkça bir bağlantı dizesinde ekleyeceğiz *Web.config* uygulamanın dosya.
+`MovieDBContext` Sınıfı, oluşturduğunuz veritabanına bağlanma ve eşleme görevi işler `Movie` veritabanı kayıtlarını nesneleri. Bir soru sorabilirsiniz. ancak, listede bağlantı kurulacak veritabanını belirtmek şeklidir. Gerçekten de kullanmak için veritabanını belirtmek zorunda kalmadan, Entity Framework kullanarak varsayılan [LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb). Bu bölümde açıkça bir bağlantı dizesinde ekleyeceğiz *Web.config* uygulamanın dosya.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-[Yerel veritabanı](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) basit bir sürümü SQL Server Express Veritabanı Altyapısı'nın, isteğe bağlı olarak başlatılır ve kullanıcı modunda çalışır. Özel yürütme modunu veritabanları ile çalışmanıza olanak tanır SQL Server Express LocalDB çalışan *.mdf* dosyaları. Genellikle, yerel veritabanı veritabanı dosyaları saklanmaz *uygulama\_veri* bir web projesi klasörü.
+[LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb) SQL Server Express Veritabanı Altyapısı'nın, isteğe bağlı olarak başlar ve kullanıcı modunda çalışan basit bir sürümüdür. Bir özel yürütme modu veritabanları ile çalışmanıza olanak tanır SQL Server Express LocalDB çalışan *.mdf* dosyaları. Genellikle, LocalDB veritabanı dosyaları saklanmaz *uygulama\_veri* web projesinin klasörüne.
 
-SQL Server Express, üretim web uygulamalarında kullanım için önerilmez. IIS ile çalışmak üzere tasarlanmadı çünkü LocalDB özellikle bir web uygulaması ile üretim için kullanılmamalıdır. Ancak, bir LocalDB veritabanına kolayca SQL Server veya SQL Azure geçirilebilir.
+SQL Server Express, üretim web uygulamalarında kullanım için önerilmez. IIS ile çalışmak üzere tasarlanmamıştır, çünkü LocalDB özellikle bir web uygulaması ile üretim için kullanılmamalıdır. Ancak, bir LocalDB veritabanına kolayca SQL Server veya SQL Azure geçirilebilir.
 
-Visual Studio 2017 içinde LocalDB Visual Studio ile varsayılan olarak yüklenir.
+Visual Studio 2017'de LocalDB, Visual Studio ile varsayılan olarak yüklenir.
 
-Varsayılan olarak, Entity Framework nesne bağlamı sınıf ile aynı adlı bir bağlantı dizesi arar (`MovieDBContext` bu proje için). Daha fazla bilgi için bkz: [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/library/jj653752.aspx).
+Varsayılan olarak Entity Framework nesne bağlamı sınıfı ile aynı adlı bir bağlantı dizesi arar. (`MovieDBContext` bu proje için). Daha fazla bilgi için [ASP.NET Web uygulamaları için SQL Server bağlantı dizelerini](https://msdn.microsoft.com/library/jj653752.aspx).
 
-Uygulama kök açmak *Web.config* aşağıda gösterilen dosya. (Değil *Web.config* dosyasını *görünümleri* klasörü.)
+Uygulama kökü açın *Web.config* aşağıda gösterilen dosya. (Değil *Web.config* dosyası *görünümleri* klasör.)
 
 ![](creating-a-connection-string/_static/image1.png)
 
-Bul `<connectionStrings>` öğe:
+Bulma `<connectionStrings>` öğesi:
 
 ![](creating-a-connection-string/_static/image2.png)
 
-Aşağıdaki bağlantı dizesine eklemek `<connectionStrings>` öğesinde *Web.config* dosya.
+Aşağıdaki bağlantı dizesi Ekle `<connectionStrings>` öğesinde *Web.config* dosya.
 
 [!code-xml[Main](creating-a-connection-string/samples/sample1.xml)]
 
-Aşağıdaki örnek, bir kısmı gösterir *Web.config* dosyasıyla eklenen yeni bağlantı dizesi:
+Aşağıdaki örnek bir bölümü gösterilmektedir *Web.config* dosyasıyla eklenen yeni bağlantı dizesi:
 
 [!code-xml[Main](creating-a-connection-string/samples/sample2.xml)]
 
-İki bağlantı dizesini çok benzer. İlk bağlantı dizesi adlı `DefaultConnection` ve üyelik veritabanı uygulama kimlerin erişebileceğini denetlemek için kullanılır. Adlı bir yerel veritabanı veritabanı eklediğiniz bağlantı dizesini belirtir *Movie.mdf* bulunan *uygulama\_veri* klasör. Biz olmaz üyelik veritabanının üyeliği, kimlik doğrulaması ve güvenlik hakkında daha fazla bilgi için Bu öğreticide, my öğretici bkz [auth ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
+İki bağlantı dizelerine çok benzer. İlk bağlantı dizesi adlı `DefaultConnection` ve uygulamaya erişebilmesi için Denetim üyelik veritabanına için kullanılır. Adlı bir LocalDB veritabanına eklediğiniz bağlantı dizesini belirtir *Movie.mdf* bulunan *uygulama\_veri* klasör. Biz üyelik veritabanının üyelik, kimlik doğrulama ve güvenlik hakkında daha fazla bilgi için bu öğreticideki kullanın, my öğretici bkz olmaz [kimlik denetimi ve SQL DB ile bir ASP.NET MVC uygulaması oluşturma ve Azure App Service'e dağıtma](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data).
 
-Bağlantı dizesinin adını adı eşleşmelidir [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) sınıfı.
+Bağlantı dizesinin adını adıyla eşleşmelidir [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) sınıfı.
 
 [!code-csharp[Main](creating-a-connection-string/samples/sample3.cs?highlight=15)]
 
-Gerçekten de eklemenize gerek yoktur `MovieDBContext` bağlantı dizesi. Bir bağlantı dizesi belirtmezseniz, Entity Framework LocalDB veritabanına tam adı ile kullanıcılar dizinde oluşturacak [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) sınıfı (Bu durumda `MvcMovie.Models.MovieDBContext`). Bunu olduğu sürece, veritabanı istediğiniz adı verebilirsiniz *. MDF* soneki. Örneğin, biz veritabanı adlandırabilirsiniz *MyFilms.mdf*.
+Gerçekten de eklemenize gerek yoktur `MovieDBContext` bağlantı dizesi. Bir bağlantı dizesi belirtmezseniz, Entity Framework bir LocalDB veritabanına tam ada sahip kullanıcılar dizine oluşturacaktır [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.103).aspx) sınıfı (Bu durumda `MvcMovie.Models.MovieDBContext`). Sahip olduğu sürece, veritabanı, istediğiniz şekilde adlandırabilirsiniz *. MDF* soneki. Örneğin, biz veritabanı adlandırabilirsiniz *MyFilms.mdf*.
 
-Ardından, yeni oluşturacağınız `MoviesController` film verileri görüntülemek ve kullanıcıların yeni film listeleri oluşturmasına izin vermek için kullanabileceğiniz sınıfı.
+Ardından, yeni bir oluşturacaksınız `MoviesController` film verileri görüntülemek ve kullanıcıların yeni film listeleri oluşturmak için kullanabileceğiniz sınıfı.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-a-model.md)
-> [sonraki](accessing-your-models-data-from-a-controller.md)
+> [İleri](accessing-your-models-data-from-a-controller.md)

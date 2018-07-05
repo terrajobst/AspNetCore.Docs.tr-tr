@@ -1,163 +1,162 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
-title: İçerik kaynak denetimine ekleme | Microsoft Docs
+title: Kaynak denetimine içerik ekleme | Microsoft Docs
 author: jrjlee
-description: Bu konuda, kaynak denetimine Team Foundation Server (TFS) 2010 içeriği eklemek açıklanmaktadır. Çözümler ve projeler için bir takım proje ekleneceğini açıklar...
+description: Bu konuda, kaynak denetimi Team Foundation Server (TFS) 2010 için içerik ekleme açıklanmaktadır. Bu projeler ve çözümler için takım proje ekleyeceğinizi açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 86c14aab-c2dd-4f73-b40c-c6d52fa44950
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: c9c3a506d2745a6793661453a293732429d3e46e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4cbe16915919bcdbabcc3f9769beb15720af5eb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890440"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363001"
 ---
-<a name="adding-content-to-source-control"></a>İçerik kaynak denetimine ekleme
+<a name="adding-content-to-source-control"></a>Kaynak denetimine içerik ekleme
 ====================
 tarafından [Jason Lee](https://github.com/jrjlee)
 
-[PDF indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, kaynak denetimine Team Foundation Server (TFS) 2010 içeriği eklemek açıklanmaktadır. Çözümler ve projeler TFS takım projesinde nasıl ekleneceğini açıklar ve çerçeveleri veya derlemeler gibi dış bağımlılıklar kaynak denetimine ekleme konusunda açıklanmaktadır.
+> Bu konuda, kaynak denetimi Team Foundation Server (TFS) 2010 için içerik ekleme açıklanmaktadır. TFS'de bir takım projesine çözümler ve projeler ekleme açıklar ve çerçeveleri veya derlemeleri gibi dış bağımlılıklar kaynak denetimine ekleme açıklanmaktadır.
 
 
-Bu konuda eğitim serileri Fabrikam Ltd. adlı kurgusal bir şirket kurumsal dağıtım gereksinimleri dayalı parçası formlar Bu öğretici seri kullanan örnek bir çözüm&#x2014; [Contact Manager çözüm](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;bir ASP.NET MVC 3 uygulama, bir Windows Communication dahil olmak üzere karmaşıklıkta gerçekçi düzeyine sahip bir web uygulaması temsil etmek için Foundation (WCF) hizmetini ve veritabanı projesi.
+Bu konuda öğreticileri, Fabrikam, Inc. adlı kurgusal bir şirkete kurumsal dağıtım gereksinimleri bir dizi parçası oluşturur. Bu öğretici serisinin kullanan örnek bir çözüm&#x2014; [Kişi Yöneticisi çözümü](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;karmaşıklık bir ASP.NET MVC 3 uygulama, bir Windows iletişim dahil olmak üzere, gerçekçi bir düzeyi ile bir web uygulaması temsil etmek için Foundation (WCF) hizmet ve bir veritabanı projesi.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
-Çoğu durumda, her geliştirici ekip üyesi içerik kaynak denetimine ekleyebilirsiniz olmalıdır. TFS kaynak denetiminde bir çözüm eklemek için üst düzey adımları tamamlamanız gerekir:
+Çoğu durumda, içerik kaynak denetimine ekleyebilmek için geliştirici ekibinin her bir üyesi olmalıdır. TFS'de kaynak denetimine çözüm ekleme için üst düzey adımları tamamlamanız gerekir:
 
-- Bir takım projesine bağlanma.
-- Takım projesi klasör yapısı sunucu üzerindeki bir klasör yapısı, yerel bilgisayarınızda eşleyin.
-- Kaynak denetimine çözüm ve içeriği ekleyin.
-- Dış bağımlılıkları kaynak denetimine ekleyin.
+- Bir takım projesine bağlanın.
+- Sunucu üzerindeki takım projesi klasör yapısı, yerel bilgisayarınızda bir klasör yapısı eşleyin.
+- Çözümün ve içeriklerinin kaynak denetimine ekleyin.
+- Herhangi bir dış bağımlılığın kaynak denetimine ekleyin.
 
-Bu konuda bu yordamları gerçekleştirmek nasıl yapacağınızı gösterir.
+Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir.
 
-Görevleri ve bu konudaki yönergeler içeriğinizi yönetmek için yeni bir TFS ekip projesi zaten oluşturduğunuzu varsayalım. Yeni takım projesi oluşturma hakkında daha fazla bilgi için bkz: [TFS'de takım projesi oluşturma](creating-a-team-project-in-tfs.md).
+Görevler ve bu konudaki yönergeler içeriğinizi yönetmek için yeni bir TFS takım projesi zaten oluşturduğunuzu varsayar. Yeni takım projesi oluşturma hakkında daha fazla bilgi için bkz. [TFS'de takım projesi oluşturma](creating-a-team-project-in-tfs.md).
 
-### <a name="who-performs-these-procedures"></a>Kim, bu yordamları gerçekleştirir mi?
+### <a name="who-performs-these-procedures"></a>Kimler bu yordamları gerçekleştirir?
 
-Çoğu durumda, her geliştirici ekip üyesi eklemek ve belirli bir takım projeleri içinde içerik değiştirmek mümkün olmalıdır.
+Çoğu durumda, her takım elemanının, geliştirici ekleme ve belirli takım projelerine içeriği değiştirebilirsiniz olmalıdır.
 
-## <a name="connect-to-a-team-project-and-create-a-folder-mapping"></a>Bir takım projesine bağlama ve klasör eşlemesi oluşturma
+## <a name="connect-to-a-team-project-and-create-a-folder-mapping"></a>Bir takım projesine bağlanın ve bir klasörü eşlemesini oluşturma
 
-Kaynak denetimi için herhangi bir içerik eklemeden önce bir takım projesine bağlanma ve yerel makinenizde sunucudaki klasör yapısını ve dosya sistemi arasında bir eşleme oluşturmanız gerekir.
+Herhangi bir içerik kaynak denetimine eklemeden önce bir takım projesine bağlanın ve yerel makinenizde sunucuda klasör yapısını ve dosya sistemi arasında bir eşleme oluşturmak gerekir.
 
-**Bir takım projesine bağlanma ve bir yerel yol eşlemek için**
+**Bir takım projesine bağlanın ve yerel bir yol eşlemek için**
 
 1. Geliştirici iş istasyonunuza, Visual Studio 2010'u açın.
 2. Visual Studio'da üzerinde **takım** menüsünde tıklatın **Team Foundation Server'a Bağlan**.
 
     > [!NOTE]
-    > TFS sunucusu bağlantısı zaten yapılandırdıysanız, 3-6 adımları atlayabilirsiniz.
-3. İçinde **takım projesine bağlantı** iletişim kutusu, tıklatın **sunucuları**.
-4. İçinde **Ekle/Kaldır Team Foundation Server** iletişim kutusu, tıklatın **Ekle**.
-5. İçinde **Team Foundation Server Ekle** iletişim kutusu, TFS örneğinizi ayrıntılarını sağlayın ve ardından **Tamam**.
+    > TFS sunucusuna bir bağlantı yapılandırdıysanız, 3-6. adımları atlayabilirsiniz.
+3. İçinde **bağlantı takım projesine** iletişim kutusu, tıklayın **sunucuları**.
+4. İçinde **Team Foundation Server Ekle/Kaldır** iletişim kutusu, tıklayın **Ekle**.
+5. İçinde **Team Foundation Server Ekle** iletişim kutusunda, TFS örneğiniz ayrıntılarını sağlayın ve ardından **Tamam**.
 
     ![](adding-content-to-source-control/_static/image1.png)
-6. İçinde **Ekle/Kaldır Team Foundation Server** iletişim kutusu, tıklatın **Kapat**.
-7. İçinde **takım projesine Bağlan** iletişim kutusu, select takım seçmek için bağlanmak istediğiniz TFS örnek proje koleksiyonu, eklemek istediğiniz takım projesini seçin ve ardından **Bağlan**.
+6. İçinde **Team Foundation Server Ekle/Kaldır** iletişim kutusu, tıklayın **Kapat**.
+7. İçinde **takım projesine Bağlan** takım seçmek için bağlanmak istediğiniz TFS örneği seçin iletişim kutusunda, proje koleksiyonu, eklemek istediğiniz takım projesini seçin ve ardından **Connect**.
 
     ![](adding-content-to-source-control/_static/image2.png)
-8. İçinde **Takım Gezgini** penceresinde, takım projenizi genişletin ve ardından **kaynak denetimi**.
+8. İçinde **Takım Gezgini** penceresinde, takım projenizi genişletin ve ardından çift **kaynak denetimi**.
 
     ![](adding-content-to-source-control/_static/image3.png)
-9. Üzerinde **Kaynak Denetim Gezgini** sekmesini tıklatın, **eşlenmedi**.
+9. Üzerinde **Kaynak Denetim Gezgini** sekmesinde **eşlenmedi**.
 
     ![](adding-content-to-source-control/_static/image4.png)
-10. İçinde **harita** iletişim kutusunda **yerel klasör** kutusunda, göz atın (veya oluşturma) takım projesi için kök klasör olarak davranmasına ve ardından yerel bir klasöre **harita**.
+10. İçinde **harita** iletişim kutusundaki **yerel klasör** kutusunda göz atın (veya oluşturma) takım projesi için kök klasör olarak davranır ve ardından yerel bir klasöre **harita**.
 
     ![](adding-content-to-source-control/_static/image5.png)
-11. Kaynak dosyalarını indirmek üzere istendiğinde tıklatın **Evet**.
+11. Kaynak dosyalarını indirmek üzere istendiğinde tıklayın **Evet**.
 
     ![](adding-content-to-source-control/_static/image6.png)
 
-Bu noktada, yerel bir klasöre Geliştirici istasyonunuzda takım projesi için sunucu tarafı klasörünün eşledikten. Ayrıca, varolan içeriğin takım projesi yerel klasör yapınız indirdiğiniz. Kaynak denetimi için kendi içerik eklemek şimdi başlayabilirsiniz.
+Bu noktada, bir yerel klasör, geliştirici çalışma alanınız için takım projesi için sunucu tarafı klasörü eşlediğiniz. Ayrıca, takım projesinden yerel klasör yapınız varolan içeriği indirdikten. Artık kendi içerik kaynak denetimine eklemeye başlayabilirsiniz.
 
-## <a name="add-projects-and-solutions-to-source-control"></a>Projeler ve çözümler kaynak denetimine ekleme
+## <a name="add-projects-and-solutions-to-source-control"></a>Projeleri ve çözümleri kaynak denetimine Ekle
 
-Projeler ve çözümler için kaynak denetimi eklemek için önce bunları takım projesine eşlenmiş klasörünü yerel makinenizde taşımak gerekir. Ardından, eklemeler sunucusu ile eşitlemek için içerik kontrol edebilirsiniz.
+Projeleri ve çözümleri kaynak denetimine eklemek için önce onları takım projesi için eşlenen klasörü yerel makinenizde taşımak gerekir. İçerik ekleme sunucusu ile eşitlemek için kontrol edebilirsiniz.
 
-**Kaynak denetimi projeleri eklemek için**
+**Projeler kaynak denetimine eklemek için**
 
-1. Geliştirici iş istasyonunuza, projeler ve çözümler takım projesine eşlenmiş klasörü yapısı içinde uygun bir konuma taşıyın.
+1. Geliştirici iş istasyonunuza, projeler ve çözümler takım projesi için eşlenen klasörü yapısı içinde uygun bir konuma taşıyın.
 
     > [!NOTE]
-    > Birçok kuruluş, projeler ve çözümler kaynak denetiminde nasıl düzenlenmelidir bir tercih edilen yaklaşım sahip olur. Yapı klasörlere konusunda yönergeler için bkz [nasıl yapılır: Yapı bilgisayarınızı kaynak denetim klasörlerine Team Foundation Server'da](https://msdn.microsoft.com/library/bb668992.aspx).
+    > Çoğu kuruluş, projeleri ve çözümleri kaynak denetimine nasıl düzenlenmelidir tercih edilen bir yaklaşım olacaktır. Yapı klasörlere ilişkin yönergeler için bkz [nasıl yapılır: Yapı uygulamanızın kaynak denetimi klasörleri Team Foundation Server'da](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Çözümü Visual Studio 2010'da açın.
-3. İçinde **Çözüm Gezgini** penceresinde, çözüme sağ tıklayın ve ardından **kaynak denetimine Çözüm Ekle**.
+3. İçinde **Çözüm Gezgini** penceresi, çözüme sağ tıklayın ve ardından **kaynak denetimine Çözüm Ekle**.
 
     ![](adding-content-to-source-control/_static/image7.png)
 
     > [!NOTE]
-    > Kuruluşunuz TFS, yapısı içeriği nasıl istemeyebilir bağlı olarak bazı durumlarda tek tek kaynak kodunuzu nasıl düzenlendiğini üzerinde daha hassas bir denetim sağlamak için kaynak denetimi projeleri eklemeniz gerekebilir.
+    > Kuruluşunuz, tfs'deki yapısı içeriği nasıl düşünmeyi bağlı olarak bazı durumlarda projeleri kaynak denetimine ayrı ayrı kaynak kodunuzu nasıl düzenlendiğini üzerinde daha hassas bir denetim sağlamak için eklemeniz gerekebilir.
 4. Doğrulayın **Kaynak Denetim Gezgini** sekmesi, takım projesi için sunucu klasörü yapısı içinde eklediğiniz içeriği görüntüler.
 
     ![](adding-content-to-source-control/_static/image8.png)
 
     > [!NOTE]
-    > **Kaynak Denetim Gezgini** sekmesi eşlenmiş bir klasör yerel dosya sisteminde çözümünüzü eklenmiş olduğundan başka isteyen ile içeriğinizi görüntüler. Çözümünüzü eşlenmemiş bir konumda varsa, TFS hem yerel dosya sisteminizi klasör konumlarını belirtin istenir.
+    > **Kaynak Denetim Gezgini** sekmesi, Hayır, daha fazla istemde bulunulmaması ile eşlenmiş bir klasör yerel dosya sisteminde, çözüm eklediği için içeriğinizi görüntüler. Çözümünüzü eşlenmemiş bir konuma olduysa, hem TFS hem de yerel dosya sisteminize klasör konumlarını belirtin istenir.
 5. Üzerinde **Kaynak Denetim Gezgini** sekmesinde **klasörleri** bölmesinde, takım projesine sağ tıklayın (örneğin, **ContactManager**) ve ardından **iade et Bekleyen değişiklikler**.
-6. İçinde **iade et – kaynak dosyaları** iletişim kutusu, bir açıklama yazın ve ardından **iade**.
+6. İçinde **iade – kaynak dosyaları** iletişim kutusu, bir açıklama yazın ve ardından **iade**.
 
     ![](adding-content-to-source-control/_static/image9.png)
 
-Bu noktada çözümünüzün TFS kaynak denetiminde eklediniz.
+Bu noktada çözümünüzün TFS'de kaynak denetimi eklediniz.
 
-## <a name="add-external-dependencies-to-source-control"></a>Dış bağımlılıkları kaynak denetimine ekleme
+## <a name="add-external-dependencies-to-source-control"></a>Dış bağımlılıklar kaynak denetimine Ekle
 
-Kaynak denetimi için bir proje ya da çözüm eklediğinizde, tüm dosya ve klasörler proje ya da çözüm içinde de eklenir. Bununla birlikte, içinde çok sayıda durumlarda, projeler ve çözümler de düzgün çalışması için yerel derlemeler gibi dış bağımlılıklar kullanır. Bu tür bir kaynaklar ekip ve diğer geliştirici ekibi üyelerinin izin vermek için kaynak denetimi için kodunuzu başarıyla yapı eklemeniz gerekir.
+Tüm dosya ve klasörler, proje veya çözüm içindeki bir proje veya çözüm kaynak denetimi eklediğinizde de eklenir. Ancak çok sayıda durumlarda, projeler ve çözümler aynı zamanda düzgün çalışması için yerel bütünleştirilmiş kod gibi dış bağımlılıkları yararlanmaktadır. Bu tür bir kaynaklar kaynak denetimine Team Build ve diğer geliştirici ekibi üyelerinin izin vermek için kodunuzu başarıyla derleme eklemeniz gerekir.
 
-Örneğin, kişinin Yöneticisi örnek çözümü için klasör yapısı paketleri adlı bir klasör içerir. Bu seçenek, derleme ve çeşitli destekleyici kaynakları için ADO.NET Entity Framework 4.1 içerir. Paketler klasörü Contact Manager çözümün bir parçası değil, ancak olmadan çözüm başarıyla oluşturmaz. Çözümü derlemek ekip etkinleştirmek için kaynak denetimine paketler klasörü eklemeniz gerekir.
+Örneğin, örnek Kişi Yöneticisi çözümü klasör yapısını paketleri adlı bir klasör içerir. Bu, ADO.NET varlık çerçevesi 4.1 için derleme ve çeşitli destekleyici kaynakları içerir. Packages klasörünü Kişi Yöneticisi çözümünü parçası değil, ancak bu olmadan çözüm başarıyla oluşturmaz. Çözümü derlemek Team Build'ı etkinleştirmek için kaynak denetimine packages klasörünü eklemeniz gerekir.
 
 > [!NOTE]
-> Paketler klasörü Visual Studio 2010 için NuGet uzantısını kullanarak, çözümünüz için Entity Framework veya benzer kaynakları eklediğinizde ne olur tipik eklenmesidir.
+> Bir paket klasörüne çözümünüze NuGet uzantısı için Visual Studio 2010 kullanarak Entity Framework veya benzer kaynakları eklediğinizde ne olur tipik eklenmesidir.
 
 
-**Kaynak denetimi proje olmayan içerik eklemek için**
+**Proje-olmayan içeriği kaynak denetimine eklemek için**
 
-1. (Örneğin, paketler klasörü) eklemek istediğiniz öğeleri yerel dosya sistemine eşlenen bir klasördeki uygun bir konumda olduğundan emin olun.
-2. Visual Studio 2010 içinde **Takım Gezgini** penceresinde, takım projenizi genişletin ve ardından **kaynak denetimi**.
+1. (Örneğin, packages klasörünü) eklemek istediğiniz öğeleri yerel dosya sisteminize eşlenen bir klasördeki uygun bir konumda olduğundan emin olun.
+2. Visual Studio 2010 içinde **Takım Gezgini** penceresinde, takım projenizi genişletin ve ardından çift **kaynak denetimi**.
 
     ![](adding-content-to-source-control/_static/image10.png)
-3. Üzerinde **Kaynak Denetim Gezgini** sekmesinde **klasörleri** eklemek istediğiniz öğeyi içeren veya öğeleri klasörü bölmesinde seçin.
-4. Tıklatın **klasöre öğe ekleme** düğmesi.
+3. Üzerinde **Kaynak Denetim Gezgini** sekmesinde **klasörleri** eklemek istediğiniz öğeyi içeren veya maddeleri klasörü bölmesinde seçin.
+4. Tıklayın **öğeleri klasöre Ekle** düğmesi.
 
     ![](adding-content-to-source-control/_static/image11.png)
-5. İçinde **eklemek için kaynak denetimi** iletişim kutusunda, klasör veya ekleyin ve ardından istediğiniz öğeleri seçin **sonraki**.
+5. İçinde **kaynak denetimine Ekle** iletişim kutusunda, klasör veya ekleyin ve ardından istediğiniz öğeleri seçin **sonraki**.
 
     ![](adding-content-to-source-control/_static/image12.png)
-6. Üzerinde **öğeleri dışarıda** sekmesinde, otomatik olarak (örneğin, derlemeler) dışarıda ve ardından gereken öğeleri seçin **öğeleri dahil**.
+6. Üzerinde **öğeyi hariç Tuttu** sekmesinde, otomatik olarak (örneğin, derlemeleri) dışarıda ve ardından gerekli öğeleri seçin **öğeleri dahil et**.
 
     ![](adding-content-to-source-control/_static/image13.png)
-7. Üzerinde **eklemek için öğeleri** sekmesinde, dahil etmek istediğiniz tüm dosyaları listelenir ve ardından doğrulayın **son**.
+7. Üzerinde **eklenecek öğeler** sekmesinde, eklemek istediğiniz tüm dosyaları listelenir ve ardından doğrulayın **son**.
 
     ![](adding-content-to-source-control/_static/image14.png)
-8. İçinde **Kaynak Denetim Gezgini** penceresinde tıklatın **iade** düğmesi.
+8. İçinde **Kaynak Denetim Gezgini** penceresinde tıklayın **iade** düğmesi.
 
     ![](adding-content-to-source-control/_static/image15.png)
-9. İçinde **iade et – kaynak dosyaları** iletişim kutusu, bir açıklama yazın ve ardından **iade**.
+9. İçinde **iade – kaynak dosyaları** iletişim kutusu, bir açıklama yazın ve ardından **iade**.
 
-Bu noktada, çözümünüz için kaynak denetimi için dış bağımlılıklar eklediniz.
+Bu noktada, çözümünüz için dış bağımlılıklar için kaynak denetimi eklediniz.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu konuda bir takım projesine bağlanma, bir klasör yapısı harita ve içerik kaynak denetimine ekleme açıklanmıştır. Kaynak denetimindeki öğeleri ile çalışma konusunda daha fazla bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
+Bu konuda bir takım projesine bağlanın, klasör yapısını ve kaynak denetimine içerik ekleme açıklanmıştır. Kaynak denetimi altındaki öğelerle çalışma konusunda daha fazla bilgi için bkz. [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
 
-Sonraki konuyu [TFS yapı bir sunucu için Web dağıtımı yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md), bir TFS ekip sunucusu oluşturmak ve çözümünüzü dağıtmak için hazırlamayı açıklar.
+Bir sonraki konu [bir TFS derleme sunucusunu Web dağıtımı için yapılandırma](configuring-a-tfs-build-server-for-web-deployment.md), derlemek ve çözümünüzü dağıtmak için bir TFS takım yapı sunucunuzu hazırlama işlemini açıklamaktadır.
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Kaynak denetimi TFS ile çalışma hakkında daha kapsamlı bilgi için bkz: [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
+Kaynak denetimi, TFS ile çalışma hakkında daha kapsamlı bilgi için bkz. [kullanarak sürüm denetimi](https://msdn.microsoft.com/library/ms181368.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-team-project-in-tfs.md)
-> [sonraki](configuring-a-tfs-build-server-for-web-deployment.md)
+> [İleri](configuring-a-tfs-build-server-for-web-deployment.md)

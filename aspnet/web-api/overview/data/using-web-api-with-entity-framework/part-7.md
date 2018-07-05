@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-7
-title: Görünüm (UI) oluşturma | Microsoft Docs
+title: Görünümü (UI) oluşturma | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,52 +9,51 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: b2445062-a1fe-4133-8994-f510280f6d9a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 5052d7cca4a5c12a9ea56eb929d4794b19e82603
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e9ebe60f88ecbf65a6f8d04de9a23d72a72fda83
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878808"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364987"
 ---
-<a name="create-the-view-ui"></a>Görünüm (UI) oluşturun
+<a name="create-the-view-ui"></a>Görünümü (UI) oluşturma
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-Bu bölümde, uygulama için HTML tanımlamak ve HTML ve görünüm modeli arasında veri bağlama eklemek başlar.
+Bu bölümde, uygulama için HTML tanımlayın ve HTML ve görünüm modeli arasında veri bağlaması Ekle başlar.
 
 Views/Home/Index.cshtml dosyasını açın. Bu dosyanın tüm içeriğini aşağıdakiyle değiştirin.
 
 [!code-cshtml[Main](part-7/samples/sample1.cshtml)]
 
-Çoğu `div` öğeleri bulunduğundan için [önyükleme](http://getbootstrap.com/) stil oluşturma. Raporlarla önemli öğeleridir `data-bind` öznitelikleri. Bu öznitelik HTML görünüm modeli bağlar.
+Çoğu `div` öğeleri bulunduğundan için [önyükleme](http://getbootstrap.com/) stil oluşturma. En önemli öğeler `data-bind` öznitelikleri. Bu öznitelik HTML görünümü modeline bağlar.
 
 Örneğin:
 
 [!code-html[Main](part-7/samples/sample2.html)]
 
-Bu örnekte, &quot; `text` &quot; nedenler bağlama `<p>` değerini göstermek için öğesi `error` görünüm modeli özelliğinden. Sözcüğünün `error` olarak bildirilen bir `ko.observable`:
+Bu örnekte, &quot; `text` &quot; nedenler bağlamayı `<p>` değerini gösterilecek öğe `error` özelliğinden görünüm modeli. Bu geri çağırma `error` olarak bildirilen bir `ko.observable`:
 
 [!code-javascript[Main](part-7/samples/sample3.js)]
 
-Her yeni bir değer atanması `error`, çakıştırma güncelleştirmeleri metinde `<p>` öğesi.
+Her yeni bir değer atanır `error`, Knockout güncelleştirmeleri metinde `<p>` öğesi.
 
-`foreach` Bağlama içeriğini döngü Boşaltılan söyler `books` dizi. Dizideki her öğe için çakıştırma yeni bir oluşturur &lt;li&gt; öğesi. Bağlamaları bağlamı içinde `foreach` dizi öğenin özelliklerini bakın. Örneğin:
+`foreach` Bağlama içeriğini döngü Knockout söyler `books` dizisi. Knockout dizideki her öğe için yeni bir oluşturur &lt;li&gt; öğesi. Bağlama bağlamı içinde `foreach` dizideki özelliklere bakın. Örneğin:
 
 [!code-html[Main](part-7/samples/sample4.html)]
 
-Burada `text` bağlama her rehberi Yazar özelliği okur.
+Burada `text` bağlama her kitabın Yazar özelliği okur.
 
-Uygulamayı şimdi çalıştırırsanız, aşağıdaki gibi görünmelidir:
+Uygulamayı şimdi çalıştırırsanız, şu şekilde görünmelidir:
 
 ![](part-7/_static/image1.png)
 
-Sayfa yüklendikten sonra defterleri listesi zaman uyumsuz olarak yükler. Şimdi &quot;ayrıntıları&quot; Bağlantılar işlevsel değildir. Bu işlevsellik sonraki bölümde ekleyeceğiz.
+Kitap listesi, Sayfa yüklendikten sonra zaman uyumsuz olarak yükler. Şu anda &quot;ayrıntıları&quot; Bağlantılar işlevsel değildir. Sonraki bölümde bu işlevselliğini ekleyeceğiz.
 
 > [!div class="step-by-step"]
 > [Önceki](part-6.md)
-> [sonraki](part-8.md)
+> [İleri](part-8.md)

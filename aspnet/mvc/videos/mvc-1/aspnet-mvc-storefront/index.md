@@ -1,27 +1,26 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
-title: ASP.NET MVC mağaza | Microsoft Docs
+title: ASP.NET MVC Storefront | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC Storefront Starter Kit
+description: ASP.NET MVC Storefront başlangıç Seti
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: 296b3a7a-483d-4937-ba2f-3f9c1319616a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront
 msc.type: chapter
-ms.openlocfilehash: 78b42135d38918fb1d5c1d7a9dcdae1da9b660f1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9dcd17dc7599e9a38ebf72b32c1cb1df63ad1973
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153248"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368550"
 ---
 <a name="aspnet-mvc-storefront"></a>ASP.NET MVC Storefront
 ====================
-> ASP.NET MVC Storefront Starter Kit
+> ASP.NET MVC Storefront başlangıç Seti
 
 
 - [ASP.NET MVC Storefront 1. Bölüm: Mimari Tartışma ve Genel Bakış](aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
@@ -42,7 +41,7 @@ ms.locfileid: "29153248"
 - [ASP.NET MVC Storefront 16. Bölüm: OpenID ile Üyelik Yineleme](aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 - [ASP.NET MVC Storefront 17. Bölüm: Jeff Atwood ile Kasa İşlemleri](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 - [ASP.NET MVC Storefront 18. Bölüm: Deneyimi Oluşturma](aspnet-mvc-storefront-part-18-creating-an-experience.md)
-- [ASP.NET MVC Storefront bölümü 19: İşleme siparişleri Windows iş akışı](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+- [ASP.NET MVC Storefront 19. Bölüm: Windows Workflow ile Siparişleri İşleme](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 - [ASP.NET MVC Storefront 19a Bölümü: Windows Workflow izleme](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 - [ASP.NET MVC Storefront 20. Bölüm: Günlüğe Kaydetme](aspnet-mvc-storefront-part-20-logging.md)
 - [ASP.NET MVC Storefront 21. Bölüm: Sipariş Yöneticisi ve Kişiselleştirme](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

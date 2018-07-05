@@ -1,32 +1,32 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/twitter-helper
-title: Twitter Yardımcısı ASP.NET Web sayfaları ile | Microsoft Docs
+title: Twitter ile ASP.NET Web sayfaları Yardımcısı | Microsoft Docs
 author: tfitzmac
-description: Bu konu ve uygulama Twitter Yardımcısı, WebMatrix 3 projenize eklemek nasıl gösterir. Twitter Yardımcısı kodunu içerir ve yardımcı çağrısının nasıl gerçekleştireceğini...
+description: Bu konu başlığında ve uygulama bir Twitter Yardımcısı, WebMatrix 3'ü projenize ekleme işlemini göstermektedir. Twitter Yardımcısı kodunu içerir ve yardımcı çağırma gösterilmektedir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
 ms.topic: article
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 07d9c4d485c42b78a42c54c9740af5f67cb44763
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 2c84a986a39f6802a78df53510847cb70efbb0f2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373029"
 ---
 <a name="twitter-helper-with-aspnet-web-pages"></a>ASP.NET Web sayfaları ile twitter Yardımcısı
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu konu ve uygulama Twitter Yardımcısı, WebMatrix 3 projenize eklemek nasıl gösterir. Twitter Yardımcısı kodunu içerir ve nasıl yardımcı yöntemler çağrılacağını gösterir.
+> Bu konu başlığında ve uygulama bir Twitter Yardımcısı, WebMatrix 3'ü projenize ekleme işlemini göstermektedir. Twitter Yardımcısı kodunu içerir ve yardımcı yöntemleri çağırma gösterilmektedir.
 > 
 > Twitter.cshtml dosyası için bu kodu tarafından geliştirilmiştir **Tian Pan** Microsoft.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
@@ -37,15 +37,15 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="introduction"></a>Giriş
 
-Bu konuda, bir Twitter Yardımcısı uygulamanıza ekleyin ve yardımcı yöntemleri çağırmak için Razor sözdizimini kullanan gösterilmiştir. Twitter Yardımcısı Twitter düğmeleri ve pencere öğeleri, uygulamanızda eklemenizi kolaylaştırır. Bir Twitter pencere, bir kullanıcının zaman çizelgesi veya bir hashtag için arama sonuçlarını gibi kullanmak için önce oluşturmanız gerekir [Twitter'da pencere öğesi](https://twitter.com/settings/widgets). Pencere öğesi oluşturduktan sonra bir pencere öğesi kimliği alırsınız. Bu pencere öğesi kimliği pencere öğesi Göster yardımcı yöntemler çağırırken parametre olarak geçirin.
+Bu konuda, bir Twitter Yardımcısı uygulamanıza ekleyin ve yardımcı yöntemlerini çağırmak için Razor sözdizimini kullanan gösterilmektedir. Twitter Yardımcısı, Twitter düğmeler ve uygulamanızdaki pencere öğeleri bir araya kolaylaştırır. Bir kullanıcının zaman çizelgesinde veya diyez etiketi için arama sonuçları gibi bir Twitter pencere öğesini kullanmak için öncelikle oluşturmanız gerekir [pencere öğesi Twitter'da](https://twitter.com/settings/widgets). Pencere öğenizi oluşturduktan sonra bir pencere öğesi kimliği alırsınız. Pencere öğesi Göster yardımcı yöntemler ararken Bu pencere öğesi kimliği bir parametre olarak geçiriyoruz.
 
-Bu konu, Twitter API'si 1.1 sürümünü yazıldı. Projenize doğrudan Twitter Yardımcısı kodu ekleyerek, Twitter API'si değişirse yardımcı kodu güncelleştirebilirsiniz.
+Bu konu başlığında, Twitter API'si 1.1 sürümü alınmaktadır. Projenize doğrudan Twitter Yardımcısı kod ekleyerek, Twitter API'si değişirse yardımcı kod güncelleştirebilirsiniz.
 
-WebMatrix yükleme hakkında daha fazla bilgi için bkz: [Tanıtımı ASP.NET Web sayfaları Başlarken 2 -](../getting-started/introducing-aspnet-web-pages-2/getting-started.md).
+Webmatrix'i yükleme hakkında daha fazla bilgi için bkz: [Karşınızda ASP.NET Web sayfaları Başlarken 2 -](../getting-started/introducing-aspnet-web-pages-2/getting-started.md).
 
-## <a name="add-twitter-helper-to-your-project"></a>Twitter Yardımcısı projenize ekleyin
+## <a name="add-twitter-helper-to-your-project"></a>Twitter Yardımcısı projenize ekleyin.
 
-Twitter Yardımcısı eklemek için ilk olarak, adında bir klasör ekleyin **uygulama\_kod** projenize. Ardından, adlı bir dosya oluşturun **Twitter.cshtml**.
+Twitter Yardımcısı eklemek için ilk olarak, adlı bir klasör ekleyin **uygulama\_kod** projenize. Adlı bir dosya oluşturup **Twitter.cshtml**.
 
 ![App_Code klasörü](twitter-helper/_static/image1.png)
 
@@ -53,38 +53,38 @@ Twitter.cshtml varsayılan kodu aşağıdaki kodla değiştirin.
 
 [!code-cshtml[Main](twitter-helper/samples/sample1.cshtml)]
 
-## <a name="call-twitter-methods-from-your-web-pages"></a>Web sayfalarından twitter yöntemlerini çağırın
+## <a name="call-twitter-methods-from-your-web-pages"></a>Web sayfalarınızdan twitter yöntemlerini çağırın
 
-Aşağıdaki örnek projenizde sayfasından Twitter Yardımcısı yöntemleri kullanmayı gösterir. Projenizde, gereksinimlerinize uygun değerlerle parametre değerlerini değiştirmeniz isteyeceksiniz. Yöntemleri nasıl çalıştığını keşfetmek için sağlanan pencere kimlikleri kullanabilirsiniz, ancak kendi pencere öğelerinizi projeniz için oluşturmak istersiniz.
+Aşağıdaki örnek, projenizde sayfasından Twitter yardımcı yöntemler kullanmayı gösterir. Projenizde, ihtiyaçlarınıza uygun olan değerleri içeren parametre değerlerini değiştirmek istersiniz. Yöntemleri nasıl keşfetmek için sağlanan pencere öğesi kimlikleri kullanabilirsiniz, ancak projeniz için kendi pencere öğelerinizi oluşturmak isteyeceksiniz.
 
-Aşağıda gösterilen parametreler hepsi gereklidir. İsteğe bağlı parametreler düğmesini veya pencere öğesi nasıl görüntüleneceğini özelleştirmek için kullanılır. Örneğin, izleyin düğmesi izlemek için kullanıcı adı yalnızca gerektiriyor, ancak örnek followers sayısını içerir ve nasıl düğmesi ve dil boyutunu belirtmek nasıl gösterir.
+Aşağıda gösterilen parametrelerin tümü gereklidir. İsteğe bağlı parametreler, bir düğme veya pencere öğesi nasıl görüntüleneceğini özelleştirmek için kullanılır. Örneğin, İzle düğmesine izlemek için kullanıcı adı yalnızca gerektiriyor, ancak örnek takipçi sayısı eklemek nasıl düğmesi ve dilin boyutunu belirlemek nasıl gösterir.
 
 [!code-html[Main](twitter-helper/samples/sample2.html)]
 
-## <a name="see-the-results"></a>Sonuçları görüntüleyin
+## <a name="see-the-results"></a>Sonuçları göster
 
-Yukarıdaki kod aşağıdaki düğmeler ve pencere öğeleri oluşturur. Bu düğmelerin ve pencere öğeleri tam işlevsel, ekran görüntüleri değil. Dil parametresi olarak ayarlanmış olduğu için İspanyolca izleyin düğmesi görüntülenir **es**.
+Yukarıdaki kod, aşağıdaki düğmeler ve pencere öğeleri oluşturur. Bu düğmeler ve pencere öğeleri tam işlevsel, ekran görüntüleri değil. Dili için parametre olarak ayarlanmış olduğu için İspanyolca izleyin düğmesi görüntülenir **es**.
 
 ### <a name="follow-button"></a>Düğme izleyin
 
-[İzleyin @aspnet)](https://twitter.com/aspnet)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+[İzleyin @aspnet)](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>`
 
 ### <a name="tweet-button"></a>Tweet düğmesi
 
-[Tweet](https://twitter.com/share)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+[Tweet](https://twitter.com/share)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>`
 
-### <a name="user-timeline-profile"></a>Kullanıcı zaman çizelgesi (Profil)
+### <a name="user-timeline-profile"></a>Kullanıcı zaman çizelgesini (Profil)
 
-[Tweet'leri tarafından @aspnet](https://twitter.com/aspnet)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+[Seçtiği tweet'ler: @aspnet](https://twitter.com/aspnet)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
 ### <a name="favorites"></a>Sık Kullanılanlar
 
-[Sık kullanılan Tweet'leri tarafından @Microsoft](https://twitter.com/Microsoft/favorites)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+[Sık kullanılan seçtiği Tweet'ler: @Microsoft](https://twitter.com/Microsoft/favorites)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
 ### <a name="list"></a>List
 
-[Gelen tweet'leri @Microsoft/MS \_tüketici\_bantlar](https://twitter.com/microsoft/ms-consumer-brands/)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+[Gelen bir tweet @Microsoft/MS \_tüketici\_bantları](https://twitter.com/microsoft/ms-consumer-brands/)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`
 
 ### <a name="search"></a>Ara
 
-[İlgili tweet'leri &quot;#asp.net&quot;](https://twitter.com/search?q=%23asp.net)<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+[İlgili bir tweet &quot;#asp.net&quot;](https://twitter.com/search?q=%23asp.net)`<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>`

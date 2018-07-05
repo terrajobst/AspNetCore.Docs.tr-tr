@@ -1,211 +1,210 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
-title: TemplateFields DetailsView denetiminde (C#) kullanarak | Microsoft Docs
+title: DetailsView denetiminde TemplateField (C#) kullanma | Microsoft Docs
 author: rick-anderson
-description: GridView ile kullanılabilen aynı TemplateFields özellikleri de DetailsView denetimi ile kullanılabilir. Bu öğreticide biz bir ürün görüntülersiniz...
+description: GridView ile sunulan aynı TemplateField özellikleri ile DetailsView denetiminde de mevcuttur. Bu öğreticide bir ürün görüntüleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
 ms.topic: article
 ms.assetid: 83efb21f-b231-446e-9356-f4c6cbcc6713
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f1d2e8312451c0bd1b3aba448963317f5fe06029
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 33f8e86ad15559440b31b975f9db565d7f331fed
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368450"
 ---
-<a name="using-templatefields-in-the-detailsview-control-c"></a>TemplateFields DetailsView denetiminde (C#) kullanma
+<a name="using-templatefields-in-the-detailsview-control-c"></a>DetailsView denetiminde TemplateField (C#) kullanma
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_13_CS.exe) veya [PDF indirin](using-templatefields-in-the-detailsview-control-cs/_static/datatutorial13cs1.pdf)
+[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/6/9/969e5c94-dfb6-4e47-9570-d6d9e704c3c1/ASPNET_Data_Tutorial_13_CS.exe) veya [PDF olarak indirin](using-templatefields-in-the-detailsview-control-cs/_static/datatutorial13cs1.pdf)
 
-> GridView ile kullanılabilen aynı TemplateFields özellikleri de DetailsView denetimi ile kullanılabilir. Bu öğreticide biz TemplateFields içeren bir DetailsView kullanarak aynı anda bir ürün görüntülersiniz.
+> GridView ile sunulan aynı TemplateField özellikleri ile DetailsView denetiminde de mevcuttur. Bu öğreticide TemplateField içeren bir DetailsView kullanarak aynı anda bir ürün görüntüleyeceğiz.
 
 
 ## <a name="introduction"></a>Giriş
 
-TemplateField BoundField, CheckBoxField, HyperLinkField ve diğer veri alan denetimleri daha yüksek bir dereceye verilerini işleme esneklik sunar. İçinde [önceki öğretici](using-templatefields-in-the-gridview-control-cs.md) için GridView içinde TemplateField kullanarak Aranan:
+TemplateField daha yüksek bir işleme veri esneklik derecesini BoundField, CheckBoxField, HyperLinkField ve diğer veri alan denetimleri daha sunar. İçinde [önceki öğreticide](using-templatefields-in-the-gridview-control-cs.md) GridView'a TemplateField kullanma Aranan:
 
-- Bir sütunda birden çok veri alan değerlerini görüntüler. Özellikle, her ikisi de `FirstName` ve `LastName` alanları tek bir GridView sütunda birleştirilmiş.
-- Bir veri alanı değeri ifade etmek için alternatif bir Web denetimi kullanın. Nasıl gösterileceğini gördüğümüz `HiredDate` bir Takvim denetimi kullanarak değer.
-- Temel alınan verileri temel alan durum bilgilerini gösterir. Sırada `Employees` tablo bir çalışan işi süredir gün sayısını döndürür bir sütun içermiyor, TemplateField ve biçimlendirme yöntemini kullanarak önceki öğreticideki GridView örnekte gibi bilgileri görüntülemek bulduk.
+- Bir sütunda birden çok veri alan değerlerini görüntüler. Özellikle, her ikisi de `FirstName` ve `LastName` alanları bir GridView Sütun birleştirilmiş.
+- Veri alanı değeri express için alternatif bir Web denetimi kullanın. Nasıl gösterileceğini gördüğümüz `HiredDate` takvim denetimini kullanarak değer.
+- Temel alınan verileri temel alan durum bilgilerini gösterir. Sırada `Employees` tablo, bir çalışan işin oluştu gün sayısını döndüren bir sütun içermediğinden, ki TemplateField ve biçimlendirme yöntemi kullanarak önceki öğreticide GridView örnekte gibi bilgileri görüntüleyebilirsiniz.
 
-GridView ile kullanılabilen aynı TemplateFields özellikleri de DetailsView denetimi ile kullanılabilir. Bu öğreticide şu iki TemplateFields içeren bir DetailsView kullanarak aynı anda bir ürün görüntülersiniz. İlk TemplateField birleştirir `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` bir DetailsView satıra veri alanları. İkinci TemplateField değerini görüntüler `Discontinued` alan, ancak bir biçimlendirme yöntemi "Evet" görüntülenmesi için kullanacağı `Discontinued` olan `true`ve "Hayır" Aksi takdirde.
+GridView ile sunulan aynı TemplateField özellikleri ile DetailsView denetiminde de mevcuttur. Bu öğreticide iki TemplateField içeren bir DetailsView kullanarak aynı anda bir ürün görüntüleyeceğiz. İlk TemplateField birleştirecek `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` bir DetailsView satır içine veri alanları. İkinci TemplateField değerini görüntüler `Discontinued` alan, ancak "Evet" durumunda görüntülemek için bir biçimlendirme yöntemi kullanacak `Discontinued` olduğu `true`ve "Hayır" Aksi takdirde.
 
 
-[![İki TemplateFields görüntüsünü özelleştirmek için kullanılır](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
+[![İki TemplateField görüntüsünü özelleştirmek için kullanılır](using-templatefields-in-the-detailsview-control-cs/_static/image2.png)](using-templatefields-in-the-detailsview-control-cs/_static/image1.png)
 
-**Şekil 1**: iki TemplateFields görüntüsünü özelleştirmek için kullanılır ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image3.png))
+**Şekil 1**: iki TemplateField görüntüsünü özelleştirmek için kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image3.png))
 
 
 Haydi başlayalım!
 
-## <a name="step-1-binding-the-data-to-the-detailsview"></a>1. adım: DetailsView'a veri bağlama
+## <a name="step-1-binding-the-data-to-the-detailsview"></a>1. adım: DetailsView için veri bağlama
 
-Yalnızca BoundFields içeren DetailsView denetimi oluşturarak başlayın ve ardından yeni TemplateFields eklemek veya mevcut BoundFields TemplateFields dönüştürmek genellikle kolayıdır TemplateFields ile çalışırken, önceki öğreticide anlatıldığı gibi gerekli . Bu nedenle, bu sayfanın Tasarımcısı aracılığıyla bir DetailsView ekleme ve ürünlerin listesini döndürür bir ObjectDataSource bağlayarak başlangıç Öğreticisi. Bu adımları bir DetailsView her ürünün Boole olmayan değer alanları ve bir Boolean değeri alan (Üretimi Durdurulmuş) için bir CheckBoxField BoundFields ile oluşturur.
+Genellikle yalnızca BoundFields içeren DetailsView denetiminde oluşturarak başlayın ve ardından yeni TemplateField eklemek veya mevcut BoundFields TemplateField dönüştürmek kolay TemplateField ile çalışırken önceki öğreticide açıklandığı gibi gerekli . Bu nedenle, bu sayfaya tasarımcı aracılığıyla bir DetailsView ekleyerek ve ürünlerin listesini döndüren bir ObjectDataSource bağlama başlangıç Öğreticisi. Bu adımları her ürünün Boole olmayan değer alanları ve bir Boole değeri alan (artık Üretilmiyor) için bir CheckBoxField BoundFields ile bir DetailsView oluşturur.
 
-Açık `DetailsViewTemplateField.aspx` sayfasında ve bir DetailsView tasarımcıya araç çubuğuna sürükleyin. Çağıran yeni bir ObjectDataSource denetimi eklemek DetailsView'un akıllı etiketten seçin `ProductsBLL` sınıfının `GetProducts()` yöntemi.
-
-
-[![Yeni ObjectDataSource GetProducts() yöntemini çağıran bir denetim ekleme](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
-
-**Şekil 2**: yeni bir ObjectDataSource Denetimi o başlatır eklemek `GetProducts()` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image6.png))
+Açık `DetailsViewTemplateField.aspx` sayfa ve bir DetailsView tasarımcı araç kutusundan sürükleyin. Akıllı etiketi DetailsView'ın çağıran yeni bir ObjectDataSource denetimi eklemek seçin `ProductsBLL` sınıfın `GetProducts()` yöntemi.
 
 
-Bu rapor için kaldırma `ProductID`, `SupplierID`, `CategoryID`, ve `ReorderLevel` BoundFields. Ardından, BoundFields yeniden sıralamak için `CategoryName` ve `SupplierName` BoundFields görünür hemen sonra `ProductName` BoundField. Ayarlanacak çekinmeyin `HeaderText` özellikleri ve yazarken BoundFields biçimlendirme özelliklerini uygun gördüğünüz. Gibi GridView ile bu BoundField düzeyi düzenlemeler alanları iletişim kutusu (DetailsView'un akıllı etiket alanları Düzenle bağlantıya tıklayarak erişilebilir) veya bildirim temelli söz dizimi aracılığıyla gerçekleştirilebilir. Son olarak, DetailsView'un temizleyin `Height` ve `Width` DetailsView izin vermek üzere özellik değerlerini görüntülenen verileri tabanlı genişletmek için denetlemek ve akıllı etiket içinde etkinleştirmek disk belleği onay kutusunu işaretleyin.
+[![GetProducts() yöntemini çağıran yeni ObjectDataSource denetim ekleme](using-templatefields-in-the-detailsview-control-cs/_static/image5.png)](using-templatefields-in-the-detailsview-control-cs/_static/image4.png)
 
-Bu değişiklikleri yaptıktan sonra DetailsView denetiminizin bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+**Şekil 2**: yeni bir ObjectDataSource Denetimi, Invoke'lar Ekle `GetProducts()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image6.png))
+
+
+Bu rapor için kaldırma `ProductID`, `SupplierID`, `CategoryID`, ve `ReorderLevel` BoundFields. Ardından, BoundFields yeniden sıralamak için `CategoryName` ve `SupplierName` BoundFields görünür hemen sonra `ProductName` BoundField. Ayarlama çekinmeyin `HeaderText` özellikleri ve biçimlendirme özellikleri BoundFields sizin için uygun gördüğünüz. Gibi GridView ile bu BoundField düzeyi düzenlemeler alanları iletişim kutusu (DetailsView'ın akıllı etiket alanları Düzenle bağlantısına tıklayarak erişilebilir) ya da bildirim temelli söz dizimi aracılığıyla gerçekleştirilebilir. Son olarak, DetailsView ait Temizle `Height` ve `Width` DetailsView izin vermek üzere özellik değerlerini görüntülenen veriler temel alınarak genişletmek için Denetim ve akıllı etiketinde sayfalama etkinleştir onay kutusunu işaretleyin.
+
+Bu değişiklikleri yaptıktan sonra bildirim temelli biçimlendirme DetailsView denetiminizin aşağıdakine benzer görünmelidir:
 
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample1.aspx)]
 
-Bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Bu noktada ürün adı, kategori, tedarikçi, fiyat, stok, sipariş birimlerde ve devam etmeyen durumunu gösteren satırlarla listelenen tek bir ürün (Chai) görmeniz gerekir.
+Bir tarayıcı aracılığıyla sayfasını görüntülemek için bir dakikanızı ayırın. Bu noktada listelenen tek bir ürün (Chai) ile ürün adı, kategori, tedarikçi, fiyat, stoktaki birimleri, sipariş birimlerde ve artık sağlanmayan durumunu gösteren satırları görmeniz gerekir.
 
 
-[![Ürün Ayrıntıları BoundFields bir dizi kullanarak gösterilir](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
+[![Bir dizi BoundFields kullanarak ürün ayrıntıları gösterilir](using-templatefields-in-the-detailsview-control-cs/_static/image8.png)](using-templatefields-in-the-detailsview-control-cs/_static/image7.png)
 
-**Şekil 3**: ürünün Ayrıntılar, bir seri BoundFields kullanarak gösterilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image9.png))
-
-
-## <a name="step-2-combining-the-price-units-in-stock-and-units-on-order-into-one-row"></a>2. adım: bir satıra fiyat, stok ve sipariş birimlerde birleştirme
-
-DetailsView için bir satır var `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` alanları. Biz bu veri alanları tek bir satıra TemplateField ile yeni bir TemplateField ekleyerek veya var olan bir dönüştürme birleştirebilirsiniz `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` bir TemplateField içine BoundFields. Kişisel varolan BoundFields dönüştürme tercih ediyorum olsa da, yeni TemplateField ekleyerek uygulama yapalım.
-
-Alanları iletişim kutusu çağrılırken DetailsView'un akıllı etiket alanları Düzenle bağlantıya tıklayarak başlatın. Ardından, yeni TemplateField ekleyin ve ayarlayın, `HeaderText` özelliğini "Fiyat ve stok" ve taşıma onun yukarıda konumlandırılmış şekilde yeni TemplateField `UnitPrice` BoundField.
+**Şekil 3**: Ürün uygulamasının Ayrıntılar, bir seri BoundFields kullanarak gösterilir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image9.png))
 
 
-[![Yeni bir TemplateField denetimini ekleme](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
+## <a name="step-2-combining-the-price-units-in-stock-and-units-on-order-into-one-row"></a>2. adım: bir satıra fiyat, stoktaki birimleri ve sipariş birimlerde birleştirme
 
-**Şekil 4**: yeni TemplateField denetimini ekleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image12.png))
+Bir satır için DetailsView sahip `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` alanları. Biz bu veri alanları tek bir satıra bir TemplateField yeni TemplateField ekleyerek veya var olan birini dönüştürerek birleştirebilirsiniz `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` içine bir TemplateField BoundFields. Kişisel mevcut BoundFields dönüştürme istiyorum, ancak yeni TemplateField ekleyerek uygulama yapalım.
 
-
-Bu yeni TemplateField şu anda görüntülenen değerler içerecek beri `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` BoundFields, şimdi bunları kaldırın.
-
-Bu adım için son görev tanımlamaktır `ItemTemplate` fiyat ve olabilir stok TemplateField için biçimlendirme DetailsView'un şablon denetimin bildirim temelli söz dizimi arabirimi Tasarımcı veya el ile düzenleme aracılığıyla gerçekleştirilir. GridView olduğu gibi ile DetailsView'un şablon düzenleme arabirimi akıllı etiket Şablonları Düzenle bağlantıya tıklayarak erişilebilir. Buradan, aşağı açılan listeden düzenlemek ve Web denetimleri Araç Kutusu'ndan eklemek için şablonu seçebilirsiniz.
-
-Bu öğretici için fiyat ve stok TemplateField'ın bir etiket denetimi ekleyerek başlayın `ItemTemplate`. Ardından, etiket Web denetimin akıllı etiket veri bağlamaları Düzenle bağlantısından tıklayın ve bağlama `Text` özelliğine `UnitPrice` alan.
+Akıllı Etiket alanları iletişim kutusu çağrılırken DetailsView'ın alanları Düzenle bağlantısına tıklayarak başlayın. Ardından, yeni TemplateField ekleyip ayarlayın, `HeaderText` "Fiyat ve stok" ve onun yukarıda konumlandırılmış şekilde yeni TemplateField taşıma özelliğini `UnitPrice` BoundField.
 
 
-[![Etiketin metin özelliğini UnitPrice veri alanına bağlayın](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
+[![Yeni bir TemplateField DetailsView denetimi ekleme](using-templatefields-in-the-detailsview-control-cs/_static/image11.png)](using-templatefields-in-the-detailsview-control-cs/_static/image10.png)
 
-**Şekil 5**: etiketin bağlamak `Text` özelliğine `UnitPrice` veri alanı ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image15.png))
-
-
-## <a name="formatting-the-price-as-a-currency"></a>Para birimi olarak fiyat biçimlendirme
-
-Bu eklenmesiyle etiket Web denetimi fiyat ve stok TemplateField artık yalnızca seçilen ürün fiyatını görüntüler. Şekil 6 bizim ilerleme ekran görüntüsü bugüne kadarki bir tarayıcıdan görüntülendiğinde gösterir.
+**Şekil 4**: yeni TemplateField DetailsView denetimi ekleyin ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image12.png))
 
 
-[![Fiyat ve stok TemplateField fiyat gösterir](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
+Bu yeni TemplateField şu anda görüntülenen değerleri içerecek beri `UnitPrice`, `UnitsInStock`, ve `UnitsOnOrder` BoundFields, kaldıralım.
 
-**Şekil 6**: Fiyat ve stok TemplateField fiyat gösterir ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image18.png))
+Tanımlamak için bu adım için son görevdir; `ItemTemplate` biçimlendirme olabilir Envanter TemplateField ve fiyat için denetimin bildirim temelli söz dizimi aracılığıyla arabirimi Tasarımcısı'nda veya el ile düzenleme DetailsView'ın şablon aracılığıyla gerçekleştirilir. Bir GridView olduğu gibi ile DetailsView'ın şablon düzenleme arabirimi akıllı etiketinde Şablonları Düzenle bağlantısına tıklayarak erişilebilir. Buradan aşağı açılan listeden düzenleyin ve ardından araç kutusundan herhangi bir Web denetim eklemek için şablonu seçebilirsiniz.
 
-
-Ürünün fiyat para birimi olarak biçimlendirilmemiş unutmayın. Bir BoundField ile biçimlendirme ayarlayarak mümkündür `HtmlEncode` özelliğine `false` ve `DataFormatString` özelliğine `{0:formatSpecifier}`. Bir TemplateField, ancak tüm biçimlendirme yönergeleri databinding sözdiziminde veya herhangi bir yerde (ASP.NET sayfa arka plandaki kod sınıfı olduğu gibi) uygulamanın kodunu içinde tanımlanan bir biçimlendirme yöntemi kullanılarak belirtilmesi gerekir.
-
-Etiket Web denetiminde kullanılan databinding söz dizimi biçimlendirme belirtmek için etiketin akıllı etiket veri bağlamaları Düzenle bağlantısından tıklayarak veri bağlamaları iletişim kutusuna dönmek. Biçimlendirme yönergeleri doğrudan biçimi aşağı açılan listesinde yazın veya tanımlı biçim dizeleri birini seçin. BoundField ile 's gibi `DataFormatString` özelliği, biçimlendirmeyi kullanarak belirtilen `{0:formatSpecifier}`.
-
-İçin `UnitPrice` alan para birimi biçimlendirme belirtilen uygun aşağı açılan liste değeri seçerek veya yazarak kullanım `{0:C}` el ile.
+Bu öğretici için fiyat ve envanter TemplateField'ın bir etiket denetimi ekleyerek başlayın `ItemTemplate`. Ardından, akıllı etiket Web denetimin etiketinde veri bağlamaları Düzenle bağlantısına tıklayın ve bağlama `Text` özelliğini `UnitPrice` alan.
 
 
-[![Para birimi olarak fiyat biçimlendirme](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
+[![Etiketin metin özelliği UnitPrice veri alanına bağlama](using-templatefields-in-the-detailsview-control-cs/_static/image14.png)](using-templatefields-in-the-detailsview-control-cs/_static/image13.png)
 
-**Şekil 7**: Fiyat bir para birimi olarak biçimlendirmek ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image21.png))
+**Şekil 5**: etiketin bağlama `Text` özelliğini `UnitPrice` veri alanı ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image15.png))
 
 
-İkinci bir parametresi olarak biçimlendirme belirtimi bildirimli olarak, belirtilen `Bind` veya `Eval` yöntemleri. Bildirim temelli biçimlendirmede aşağıdaki databinding ifadesinde Tasarımcısı sonucundan yaptığınız ayarları:
+## <a name="formatting-the-price-as-a-currency"></a>Fiyat para birimi olarak biçimlendirme
+
+Bu eklenmesiyle, etiket Web denetimi fiyat ve envanter TemplateField artık yalnızca seçili ürün için fiyat görüntülenir. Şekil 6 ilerlememizin ekran görüntüsü şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
+
+
+[![Fiyat ve envanter TemplateField fiyatı gösterir](using-templatefields-in-the-detailsview-control-cs/_static/image17.png)](using-templatefields-in-the-detailsview-control-cs/_static/image16.png)
+
+**Şekil 6**: Fiyat ve envanter TemplateField fiyatı gösterir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image18.png))
+
+
+Ürünün fiyatı bir para birimi olarak biçimlendirilmemiş unutmayın. Bir BoundField ile biçimlendirme ayarlayarak mümkündür `HtmlEncode` özelliğini `false` ve `DataFormatString` özelliğini `{0:formatSpecifier}`. Bir TemplateField için veri bağlama söz dizimi veya uygulamanın kodu (olduğu gibi ASP.NET sayfa arka plan kod sınıfı gibi) bir yerde tanımlanmış bir biçimlendirme yöntemi kullanarak tüm biçimlendirme yönergeleri ancak belirtilmelidir.
+
+Kullanılan Web etiket denetiminde veri bağlama söz dizimi biçimlendirme belirtmek için etiketin akıllı etiketinde veri bağlamaları Düzenle bağlantısına tıklayarak DataBindings iletişim kutusuna dönmek. Biçimlendirme yönergeleri biçimi aşağı açılan listeden doğrudan girebilir veya tanımlı biçim dizeleri birini seçin. BoundField ile ın gibi `DataFormatString` özelliği, biçimlendirmeyi kullanarak belirtilen `{0:formatSpecifier}`.
+
+İçin `UnitPrice` alan açılır listede uygun değer seçerek ya da yazarak belirtilen para birimi biçimlendirme kullanın `{0:C}` el ile.
+
+
+[![Fiyat para birimi olarak Biçimlendir](using-templatefields-in-the-detailsview-control-cs/_static/image20.png)](using-templatefields-in-the-detailsview-control-cs/_static/image19.png)
+
+**Şekil 7**: fiyatı bir para birimi olarak Biçimlendir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image21.png))
+
+
+Bildirimli olarak, biçimlendirme belirtimi ikinci parametre olarak belirtilen `Bind` veya `Eval` yöntemleri. Bildirim temelli biçimlendirmede aşağıdaki veri bağlama ifadesinde Tasarımcısı sonuçlarından yaptığınız ayarları:
 
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample2.aspx)]
 
-## <a name="adding-the-remaining-data-fields-to-the-templatefield"></a>TemplateField kalan veri alanları ekleme
+## <a name="adding-the-remaining-data-fields-to-the-templatefield"></a>TemplateField için kalan veri alanları ekleme
 
-Bu noktada biz görüntülenen biçimlendirilmiş ve yapılandırdığınız `UnitPrice` veri alan Fiyat ve stok TemplateField, ancak yine de görüntülenecek gerekir `UnitsInStock` ve `UnitsOnOrder` alanları. Şimdi bu fiyat aşağıda ve parantez içinde satırındaki görüntü. Şablon düzenleme arabirimden Tasarımcısı'nda, bu tür biçimlendirme imlecinizi şablonu içindeki konumlandırma ve yalnızca görüntülenecek metni yazarak eklenebilir. Alternatif olarak, bu biçimlendirme doğrudan bildirim temelli sözdiziminde girilebilir.
+Bu noktada biz görüntülenen biçimlendirilmiş ve `UnitPrice` veri alanı Fiyat ve envanter TemplateField, ancak yine görüntüleme `UnitsInStock` ve `UnitsOnOrder` alanları. Şimdi bu bir satırda aşağıdaki fiyat ve parantez içindeki görüntü. Şablon içinde imleci konumlandırma ve yalnızca görüntülenecek metni yazarak gibi biçimlendirme Tasarımcısı'nda şablon düzenleme arabiriminden eklenebilir. Alternatif olarak, bu işaretleme, bildirim temelli söz diziminde doğrudan girilebilir.
 
-Fiyat ve stok TemplateField görüntüler için fiyat ve stok bilgileri static işaretleme, etiket Web denetimleri ve Veri bağlamada sözdizimi ekleyin sözlüğüdür:
+Fiyat ve envanter bilgileri fiyat ve envanter TemplateField görüntüler. böylece static işaretleme, etiket Web denetimleri ve veri bağlama söz dizimi ekleme şu şekilde:
 
 *UnitPrice*  
 (**Stoktaki / sipariş:** *unitsInStock* / *SiparişBirimleri*)
 
-Bu görev gerçekleştirdikten sonra DetailsView'un bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Bu görev gerçekleştirdikten sonra DetailsView'ın bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
 
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample3.aspx)]
 
-Bu değişikliklerle biz fiyat ve stok bilgileri tek bir DetailsView satır içine birleştirilmiş.
+Bu değişikliklerle fiyat ve envanter bilgileri tek bir DetailsView satır içine birleştirilmiştir.
 
 
-[![Envanter bilgileri ve fiyat tek satırda görüntülenir](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
+[![Fiyat ve envanter bilgileri tek bir satır görüntülenir](using-templatefields-in-the-detailsview-control-cs/_static/image23.png)](using-templatefields-in-the-detailsview-control-cs/_static/image22.png)
 
-**Şekil 8**: Fiyat ve envanter bilgileri tek satırda görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image24.png))
-
-
-## <a name="step-3-customizing-the-discontinued-field-information"></a>3. adım: devam etmeyen alan bilgilerini özelleştirme
-
-`Products` Tablonun `Discontinued` ürün ermiştir olup olmadığını gösteren bir bit değeri bir sütundur. Boole değeri alanları DetailsView (veya GridView) bir veri kaynağı denetimi ile bağlanırken, ister `Discontinued`, Boole olmayan değer alanları, ancak CheckBoxFields uygulanan `ProductID`, `ProductName`ve benzeri olarak uygulanır BoundFields. CheckBoxField veri alanın değeri True ve unchecked Aksi durumda ise, denetlenir devre dışı bırakılmış bir onay işler.
-
-CheckBoxField görüntülemek yerine biz ürün kesilir olup olmadığına bakılmaksızın yerine metin belirten görüntülemek isteyebilirsiniz. Bunu gerçekleştirmek için şu CheckBoxField DetailsView kaldırın ve ardından bir BoundField ekleyin, `DataField` özelliği ayarlandığı `Discontinued`. Bunu yapmak için bir dakikanızı ayırın. Bu değişiklikten sonra DetailsView metni "True" devam etmeyen ürünleri ve "False" için hala etkin olan ürünler için gösterir.
+**Şekil 8**: Fiyat ve envanter bilgileri tek bir satır görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image24.png))
 
 
-[![Dizeleri True ve False devam etmeyen durumunu görüntülemek için kullanılır](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
+## <a name="step-3-customizing-the-discontinued-field-information"></a>3. adım: kullanımdan kaldırılan alan bilgilerini özelleştirme
 
-**Şekil 9**: dizeleri True ve False kullanılan üretimi durdurulmuş durumunu görüntülemek için ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image27.png))
+`Products` Tablonun `Discontinued` ürün durdurmuştur olup olmadığını belirten bir bit değeri bir sütundur. Bir DetailsView (veya GridView) bir veri kaynak denetimine bağlanırken, Boole değeri alanlar ister `Discontinued`, Boole olmayan değer alanları, oysa CheckBoxFields uygulanan `ProductID`, `ProductName`ve benzeri olarak uygulanır BoundFields. CheckBoxField veri alanın değeri True ve unchecked yanlışsa, işaretli bir devre dışı onay kutusu işler.
+
+CheckBoxField görüntülemek yerine biz ürün kesilir olup olmadığını yerine belirten metin görüntülemek isteyebilirsiniz. Bunu gerçekleştirmek için biz CheckBoxField DetailsView kaldırın ve ardından bir BoundField ekleyin, `DataField` özelliğinin ayarlandığı `Discontinued`. Bunu yapmak için bir dakikanızı ayırın. Bu değişiklikten sonra DetailsView metni "True" Artık üretilmeyen ürünler ve "False" için hala etkin olan ürünleri gösterir.
 
 
-"Evet" ve "Hayır", bunun yerine kullanılacak dizeler "True" veya "False" istemediğinize düşünün. Bu tür özelleştirme bir TemplateField ve biçimlendirme yöntemi Etkinleştirici ile gerçekleştirilebilir. Biçimlendirme yöntemi herhangi bir sayıda giriş parametreleri alabilir, ancak HTML şablonuna eklemesine (bir dize olarak) döndürmesi gerekir.
+[![Dizeleri artık sağlanmayan durumunu görüntülemek için kullanılır True ve False](using-templatefields-in-the-detailsview-control-cs/_static/image26.png)](using-templatefields-in-the-detailsview-control-cs/_static/image25.png)
 
-Biçimlendirme bir yöntem ekleyin `DetailsViewTemplateField.aspx` adlı sayfanın arka plandaki kod sınıfı `DisplayDiscontinuedAsYESorNO` bir Boole değeri giriş parametresi olarak kabul eder ve bir dize döndürür. Önceki öğretici, bu yöntem anlatıldığı gibi *gerekir* olarak işaretlenmelidir `protected` veya `public` şablondan erişilebilir olması için.
+**Şekil 9**: dizeleri True ve False kullanılan artık Üretilmiyor durumunu görüntülemek için ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image27.png))
+
+
+"Evet" ve "Hayır", bunun yerine kullanılacak dizeleri "True" veya "False" istemedik düşünün. Bu tür özelleştirme ürettiği bir TemplateField ve bir biçimlendirme yöntemi ile gerçekleştirilebilir. Bir biçimlendirme yöntemi, herhangi bir sayıda giriş parametreleri alabilir, ancak şablonuna eklenecek HTML (bir dize olarak) döndürmesi gerekir.
+
+Bir biçimlendirme yöntemi ekleyin `DetailsViewTemplateField.aspx` sayfa arka plan kod sınıf adlı `DisplayDiscontinuedAsYESorNO` Boole giriş parametresi olarak kabul eder ve bir dize döndürür. Bu yöntemin önceki öğreticide açıklandığı gibi *gerekir* olarak işaretlenmiş `protected` veya `public` şablondan erişilebilir olması için.
 
 
 [!code-csharp[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample4.cs)]
 
-Bu yöntem giriş parametresi denetler (`discontinued`) ve onu ise "Evet" döndürür `true`, aksi takdirde "Hayır".
+Bu yöntem giriş parametresi denetler (`discontinued`) ve "YES" ise döndürür `true`, aksi halde "Hayır".
 
 > [!NOTE]
-> İçerebilecek bir veri alanını geçirme önceki öğretici geri çağırma incelenmesi biçimlendirme yönteminde `NULL` s ve bu nedenle denetlemek gereken çalışanın `HiredDate` özellik değeri olan bir veritabanı `NULL` önce değer erişme `EmployeesRow`'s `HiredDate` özelliği. Bu tür bir denetimi burada bu yana gerekli değildir `Discontinued` sütun hiç veritabanı sahip `NULL` değerler atanır. Yöntem bir Boole değeri giriş kabul etmek zorunda yerine parametre kabul Ayrıca, bu yüzden bir `ProductsRow` örneği veya türünde bir parametre `object`.
+> Biz içerebilecek bir veri alanına geçirme önceki öğretici geri çağırma içinde incelenirken biçimlendirme yönteminin `NULL` s ve bu nedenle olmadığını denetlemek gereken çalışanın `HiredDate` özellik değeri olan bir veritabanı `NULL` sonraki değer erişim `EmployeesRow`'s `HiredDate` özelliği. Bu tür bir denetimi bu yana burada gerekmiyor `Discontinued` sütunu hiçbir zaman veritabanı sahip `NULL` atanan değerler. Ayrıca, bu nedenle, yöntem bir Boole parametresi yerine kabul etmek giriş kabul edebilir, bir `ProductsRow` örneği veya türünde bir parametre `object`.
 
 
-Bu biçimlendirme yöntemi ile tam kalan tek şey TemplateField 's çağırmak için `ItemTemplate`. TemplateField kaldırın veya oluşturmak için `Discontinued` BoundField ve yeni TemplateField eklemek veya dönüştürmek `Discontinued` bir TemplateField içine BoundField. Çağıran bir ItemTemplate içeren bildirim temelli biçimlendirme görünümünden TemplateField sonra düzenleme `DisplayDiscontinuedAsYESorNO` geçerli değerinde geçirerek yöntemini `ProductRow` örneğinin `Discontinued` özelliği. Bu aracılığıyla erişilebilen `Eval` yöntemi. Özellikle, TemplateField'ın biçimlendirme gibi görünmelidir:
+Bu biçimlendirme yöntemi ile tam kalan tek şey TemplateField 's çağırmaya `ItemTemplate`. TemplateField kaldırabilir ya da oluşturmak için `Discontinued` BoundField yeni TemplateField eklemek veya dönüştürmek `Discontinued` içine bir TemplateField BoundField. Ardından, bildirim temelli biçimlendirme görünümünden TemplateField Düzenle çağıran bir ItemTemplate içeren `DisplayDiscontinuedAsYESorNO` yöntemi geçerli değerini geçirir, `ProductRow` örneğinin `Discontinued` özelliği. Bu, aracılığıyla erişilebilir `Eval` yöntemi. Özellikle, TemplateField'ın biçimlendirme gibi görünmelidir:
 
 
 [!code-aspx[Main](using-templatefields-in-the-detailsview-control-cs/samples/sample5.aspx)]
 
-Bu neden olacak `DisplayDiscontinuedAsYESorNO` DetailsView işlenirken çağrılacak yöntem tümleştirilmesidir `ProductRow` örneğinin `Discontinued` değeri. Bu yana `Eval` yöntemi türünde bir değer döndürür `object`, ancak `DisplayDiscontinuedAsYESorNO` yöntemi bekliyor türünde bir giriş parametresi `bool`, biz cast `Eval` yöntemleri dönüş değeri için `bool`. `DisplayDiscontinuedAsYESorNO` Yöntemi sonra döndürür "Evet" veya "Hayır" değerine bağlı olarak alır. Bu DetailsView'da görüntülenenleri döndürülen değer: (bkz. Şekil 10) satır.
+Bu neden `DisplayDiscontinuedAsYESorNO` DetailsView işlenirken çağrılacak yöntem tümleştirilmesidir `ProductRow` örneğinin `Discontinued` değeri. Bu yana `Eval` türünde bir değer döndürür `object`, ancak `DisplayDiscontinuedAsYESorNO` yöntemi türünde bir giriş parametresi bekliyor `bool`, biz cast `Eval` yöntemleri dönüş değeri için `bool`. `DisplayDiscontinuedAsYESorNO` Yöntemi ardından döndürür "Evet" veya "Hayır" değere göre alır. Döndürülen değerdir bu DetailsView görüntülenen satır (bkz. Şekil 10).
 
 
-[![Şimdi gösterilen Üretimi Durdurulmuş satırda Evet veya Hayır değerler:](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
+[![Evet veya Hayır değerler artık Üretilmiyor sıradaki artık gösterilmektedir:](using-templatefields-in-the-detailsview-control-cs/_static/image29.png)](using-templatefields-in-the-detailsview-control-cs/_static/image28.png)
 
-**Şekil 10**: Evet veya Hayır değerlerdir şimdi gösterilen Üretimi Durdurulmuş satırda ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image30.png))
+**Şekil 10**: Evet veya Hayır değerler artık gösterilen artık Üretilmiyor satırında ([tam boyutlu görüntüyü görmek için tıklatın](using-templatefields-in-the-detailsview-control-cs/_static/image30.png))
 
 
 ## <a name="summary"></a>Özet
 
-Bir diğer alan denetimleriyle kullanılabilir ve durumlarda idealdir çok verileri görüntüleme esneklik daha yüksek derecede DetailsView denetiminde TemplateField sağlar burada:
+DetailsView denetiminde TemplateField daha ileri düzeyde bir değerinden başka bir alan denetimlerle birlikte kullanılabilir ve durumlar için ideal olan verileri görüntüleme esneklik sağlar burada:
 
-- Birden çok veri alanları bir GridView sütununda görüntülenen gerekir
-- Verileri bir Web denetimi düz metin yerine en iyi ifade
+- Birden çok veri alanları bir GridView sütunu görüntülenmesi gerekir
+- Veri en iyi şekilde düz metin yerine bir Web denetimi kullanılarak ifade edilir
 - Temel alınan verileri, meta veri görüntüleme gibi veya verileri yeniden biçimlendirme çıkış bağlıdır
 
-Büyük ölçüde DetailsView'un temel alınan veri işleme esneklik için TemplateFields izin verirken, her bir alan bir HTML bir satır olarak işlenen DetailsView çıkış hala biraz boxy hissi `<table>`.
+Büyük ölçüde esneklik DetailsView'ın temel alınan verilerin işlenmesi için TemplateField olanak tanırken, her bir alan bir HTML bir satır olarak işlenen DetailsView çıktı hala bir bit boxy hissettirir `<table>`.
 
-FormView denetimini büyük oranda işlenmiş çıkış yapılandırmada esneklik sunar. FormView alanlar ancak bunun yerine yalnızca bir dizi şablonları içermiyor (`ItemTemplate`, `EditItemTemplate`, `HeaderTemplate`, vb.). FormView bizim sonraki öğreticide işlenmiş düzeni daha fazla denetim elde etmek için nasıl kullanılacağını göreceğiz.
+FormView denetimi, yüksek düzeyde işlenen çıkışı yapılandırma esneklik sunar. FormView alanları ancak bunun yerine yalnızca bir dizi şablon içermiyor (`ItemTemplate`, `EditItemTemplate`, `HeaderTemplate`, vb.). Sonraki müşterilerimize öğreticide işlenmiş düzenini daha fazla denetim elde etmenizi FormView kullanmayı göreceğiz.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Dan Jagers oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Dan Jagers oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](using-templatefields-in-the-gridview-control-cs.md)
-> [sonraki](using-the-formview-s-templates-cs.md)
+> [İleri](using-the-formview-s-templates-cs.md)

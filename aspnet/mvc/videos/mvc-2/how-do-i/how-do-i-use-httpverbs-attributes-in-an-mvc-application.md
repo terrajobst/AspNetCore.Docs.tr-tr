@@ -1,32 +1,31 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application
-title: Nasıl Yaparım MVC uygulamasındaki kullanım HttpVerbs öznitelikleri? | Microsoft Docs
+title: Nasıl Yaparım Bir MVC uygulamasında kullanmak HttpVerbs özniteliklerini? | Microsoft Docs
 author: rick-anderson
-description: Bu video Chris Pels HttpVerbs öznitelikleri MVC Eylemler erişimi denetlemek için nasıl kullanılacağını gösterir. İlk olarak, bir örnek uygulama ile bir varsayılan ortak oluşturulur...
+description: Bu video Chris piksel, MVC eylemleri erişimi denetlemek için HttpVerbs özniteliklerini kullanma işlemi gösterilmektedir. İlk olarak, örnek bir uygulama ile bir varsayılan ortak oluşturuldu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/30/2009
 ms.topic: article
 ms.assetid: d2488a1d-0f3f-4994-8fbe-4f59b8c9503e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 42817e712db0489f277ac65250b9c0f102088c0a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7319c89e01b2316c37c9d4bfc101ce9dd0f7c2ee
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869536"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379040"
 ---
-<a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>Nasıl Yaparım MVC uygulamasındaki kullanım HttpVerbs öznitelikleri?
+<a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>Nasıl Yaparım Bir MVC uygulamasında kullanmak HttpVerbs özniteliklerini?
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels HttpVerbs öznitelikleri MVC Eylemler erişimi denetlemek için nasıl kullanılacağını gösterir. İlk olarak, örnek bir uygulama, bir varsayılan denetleyicisi ve bilgileri düzenleme görünümü ile oluşturulur. Ardından, ikinci bir dizin eylem yalnızca HTTP POST kullanıldığında çağrılır için bir HttpPost özniteliği olan denetleyicisi eklenir. Bir izleme AcceptVerbs() özniteliği için Visual Studio 2008 alternatif bir sözdizimi uygulanır. Bir HTTP GET delete bir bağlantıdan kullanarak gerçekleştirmek için ile ilişkili güvenlik riskleri engellemek için HttpVerbs kullanımını daha sonra ele alınmıştır.
+Bu video Chris piksel, MVC eylemleri erişimi denetlemek için HttpVerbs özniteliklerini kullanma işlemi gösterilmektedir. İlk olarak, örnek bir uygulama, bir varsayılan denetleyici ve bilgileri düzenleme görünümü ile oluşturulur. Ardından, ikinci bir dizin eylem yalnızca HTTP POST kullanıldığında çağrılan için bir HttpPost özniteliği olan denetleyicisi eklenir. Bir ek, Visual Studio 2008 farklı bir sözdizimi AcceptVerbs() öznitelik uygulanır. Bağlantı silme gerçekleştirmek için bir HTTP GET kullanmaya ilişkili güvenlik riski engelleyen bir kullanımını HttpVerbs ele alınmıştır.
 
-[&#9654;(16 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-httpverbs-attributes-in-an-mvc-application)
+[&#9654;Videoyu (16 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-httpverbs-attributes-in-an-mvc-application)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-work-with-model-binders-in-an-mvc-application.md)
-> [sonraki](mvc2-html-encoding.md)
+> [İleri](mvc2-html-encoding.md)

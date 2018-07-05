@@ -1,153 +1,152 @@
 ---
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
-title: HTML5 ve jQuery UI Datepicker Popup Calendar ASP.NET MVC - bölüm 2 ile kullanma | Microsoft Docs
+title: ASP.NET MVC - bölüm 2 ile HTML5 ve jQuery UI Datepicker Popup Calendar kullanarak | Microsoft Docs
 author: Rick-Anderson
-description: Bu öğretici Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar ASP.NET MV içinde çalışmak nasıl temellerini öğretmek...
+description: Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar, ASP.NET MV ile çalışmaya ilişkin temel bilgileri sağlanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/29/2011
 ms.topic: article
 ms.assetid: 21a178de-4c5a-4211-8a9c-74ec576c0f30
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 84112316a9ace732cb7d75d7cbaeb071c72de822
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2818e69f912509a6392333bad8f5a1afa55884f6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875454"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375295"
 ---
-<a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ASP.NET MVC - bölüm 2 ile kullanma
+<a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-2"></a>ASP.NET MVC - bölüm 2 ile HTML5 ve jQuery UI Datepicker Popup Calendar kullanma
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Bu öğretici Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar bir ASP.NET MVC Web uygulamasında çalışmak nasıl temellerini öğretmek.
+> Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar'içinde bir ASP.NET MVC Web uygulaması ile çalışmaya ilişkin temel bilgileri sağlanır.
 
 
 ## <a name="adding-an-automatic-datetime-template"></a>Otomatik bir DateTime şablonu ekleme
 
-Bu öğreticinin ilk bölümü nasıl biçimlendirme açıkça belirtmek için modeli için öznitelikler ekleyebilirsiniz ve nasıl açıkça modeli işlemek için kullanılan şablonu belirtebilirsiniz gördünüz. Örneğin, [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) aşağıdaki kodu açıkça özniteliğinde belirtir için biçimlendirme `ReleaseDate` özelliği.
+Bu öğreticinin ilk bölümünde öznitelikleri biçimlendirme açıkça belirtmek için modeli nasıl ekleyebileceğinizi ve modeli oluşturmak için kullanılan şablonu nasıl açıkça belirtebilirsiniz gördünüz. Örneğin, [DisplayFormat](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) aşağıdaki kodu açıkça özniteliği belirtir için biçimlendirme `ReleaseDate` özelliği.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample1.cs)]
 
-Aşağıdaki örnekte, [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliğini kullanarak `Date` numaralandırma, belirtir tarih şablonu modeli işlemek için kullanılmalıdır. Yerleşik tarih şablonu projenizde tarih şablon ise kullanılır.
+Aşağıdaki örnekte, [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) özniteliği kullanarak `Date` numaralandırma tarih şablonu modeli işlemek için kullanılması gerektiğini belirtir. Projenizdeki herhangi bir tarih şablon varsa, yerleşik tarih şablonu kullanılır.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample2.cs)]
 
-Ancak, ASP. MVC türüyle eşleşen bir tür adıyla eşleşen bir şablon bakarak kuralı-üzerinden-Yapılandırması'nı kullanarak gerçekleştirebilirsiniz. Bu öznitelik ya da kod hiç kullanmadan verileri otomatik olarak biçimlendirir bir şablonu oluşturmanıza olanak sağlar. Model türü özelliklerine otomatik olarak uygulanan bir şablon oluşturmak için bu bölümü öğreticinin [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Şablon türü tüm özelliklerde modeli işlemek için kullanılması gerektiğini belirtmek için bir öznitelik veya diğer yapılandırma kullanmanız gerekmez [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx).
+Ancak, ASP. MVC için bir tür adıyla eşleşen bir şablon bakarak kuralı-devretme-yapılandırmayı kullanarak türüyle eşleşen gerçekleştirebilirsiniz. Bu otomatik olarak herhangi bir öznitelik veya kod kullanmadan veri diskini biçimlendiren bir şablonu oluşturmanıza olanak sağlar. Öğreticinin bu bölümünde, model türü özelliklerine otomatik olarak uygulanan bir şablon oluşturursunuz [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx). Şablon türünün tüm model özelliklerini işlemek için kullanılması gerektiğini belirtmek için bir öznitelik veya diğer Yapılandırması'nı kullanmanız gerekmez [DateTime](https://msdn.microsoft.com/library/system.datetime.aspx).
 
-Ayrıca, tek tek özellikleri veya hatta tek tek alanların görüntüsünü özelleştirmek için bir yol da öğreneceksiniz.
+Ayrıca, özellikler veya hatta ayrı ayrı alanları görüntüsünü özelleştirmek için bir yol da öğreneceksiniz.
 
-Başlamak için şimdi varolan biçimlendirme bilgilerini kaldırın ve uygulamada tam tarihlerini görüntüler.
+Başlamak için şimdi mevcut biçimlendirme bilgileri kaldırın ve tam tarihleri uygulamada görüntülemek.
 
-Açık *Movie.cs* çıkışı açıklamadan çıkarın ve dosya `DataType` özniteliği `ReleaseDate` özelliği:
+Açık *Movie.cs* dosya ve açıklama `DataType` özniteliği `ReleaseDate` özelliği:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample3.cs)]
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın.
 
-Dikkat `ReleaseDate` özelliği şimdi görüntüler tarih ve saat biçimlendirme hiçbir bilgi sağlandığında, varsayılan olduğundan.
+Dikkat `ReleaseDate` özelliği artık görüntüler tarih ve saati biçimlendirme bilgisi yok sağlandığında, varsayılan olduğundan.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image1.png)
 
 ### <a name="adding-css-styles-for-testing-new-templates"></a>CSS stilleri yeni şablonlar test etmek için ekleme
 
-Tarihleri biçimlendirmek için bir şablonu oluşturmadan önce yeni şablonlar uygulayabilirsiniz birkaç CSS stil kurallarını ekleyeceksiniz. Bu, işlenen sayfa yeni şablonu kullandığından emin olun yardımcı olur.
+Tarihleri biçimlendirmek için bir şablon oluşturmadan önce yeni şablonlar için uygulayabileceğiniz bazı CSS stil kuralları ekleyeceksiniz. Bu, yeni şablonun işlenen sayfa kullandığından emin olun yardımcı olur.
 
-Açık *Content\Site.cs*s dosya ve aşağıdaki CSS kuralları dosyasının en altına ekleyin:
+Açık *Content\Site.cs*s dosyasını açıp aşağıdaki CSS kurallarını dosyasının alt kısmına ekleyin:
 
 [!code-css[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample4.css)]
 
 ### <a name="adding-datetime-display-templates"></a>DateTime görüntüleme şablonları ekleme
 
-Artık yeni şablonu oluşturabilirsiniz. İçinde *Views\Movies* klasörü oluşturmak bir *DisplayTemplates* klasör.
+Artık yeni şablonu oluşturabilirsiniz. İçinde *Views\Movies* klasör oluşturma bir *DisplayTemplates* klasör.
 
-İçinde *görünümler/paylaşılan* klasörü oluşturmak bir *DisplayTemplates* klasör ve bir *EditorTemplates* klasör.
+İçinde *görünümler/paylaşılan* klasör oluşturma bir *DisplayTemplates* klasör ve bir *EditorTemplates* klasör.
 
-Ekran şablonları *views\shared\displaytemplates konumunda* klasörü tüm denetleyicileri tarafından kullanılır. Ekran şablonları *Views\Movie\DisplayTemplates* klasörü yalnızca kullanılacak `Movie` denetleyicisi. (Şablonda her iki klasörde aynı ada sahip bir şablon görünüyorsa, *Views\Movie\DisplayTemplates* klasörü — diğer bir deyişle, daha özel şablonu — tarafından döndürülen görünümler için önceliklidir `Movie` denetleyici.)
+Ekran şablonları *views\shared\displaytemplates konumunda* klasörü tüm denetleyicileri tarafından kullanılır. Ekran şablonları *Views\Movie\DisplayTemplates* klasör yalnızca kullanılacak `Movie` denetleyicisi. (Aynı ada sahip bir şablon iki klasörü, şablonda görünürse *Views\Movie\DisplayTemplates* klasör — diğer bir deyişle, daha özel şablonu — tarafından döndürülen görünümler için öncelik kazanır `Movie` denetleyici.)
 
-İçinde **Çözüm Gezgini**, genişletin *görünümleri* klasörünü genişletin *paylaşılan* klasörünü ve ardından sağ tıklayarak *views\shared\displaytemplates konumunda* klasör.
+İçinde **Çözüm Gezgini**, genişletme *görünümleri* klasörünü genişletin *paylaşılan* klasörünü açın ve ardından sağ *views\shared\displaytemplates konumunda* klasör.
 
-Tıklatın **Ekle** ve ardından **Görünüm**. **Görünüm Ekle** iletişim kutusu görüntülenir.
+Tıklayın **Ekle** ve ardından **görünümü**. **Görünüm Ekle** iletişim kutusu görüntülenir.
 
-İçinde **Görünüm adı** kutusuna `DateTime`. (, Bu ad türünün adını eşleştirmek için kullanmanız gerekir.)
+İçinde **Görünüm adı** kutusuna `DateTime`. (Bu ad tür adını eşleşmesi için kullanmanız gerekir.)
 
-Seçin **kısmi görünüm olarak oluştur** onay kutusu. Olduğundan emin olun **düzen veya ana sayfa kullanmak** ve **kesin türü belirtilmiş görünüm oluşturmak** onay kutularının seçili değil.
+Seçin **kısmi görünüm olarak oluştur** onay kutusu. Emin olun **düzeni veya ana sayfayı kullan** ve **kesin türü belirtilmiş görünüm oluşturmak** onay kutuları seçili.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image2.png)
 
-**Ekle**'yi tıklatın. A *DateTime.cshtml* şablonu oluşturulur *views\shared\displaytemplates konumunda*.
+**Ekle**'yi tıklatın. A *DateTime.cshtml* şablon oluşturuldu *views\shared\displaytemplates konumunda*.
 
-Aşağıdaki resimde gösterildiği *görünümleri* klasöründe **Çözüm Gezgini** sonra `DateTime` görüntüleme ve düzenleyici şablonları oluşturulur.
+Aşağıdaki görüntüde *görünümleri* klasöründe **Çözüm Gezgini** sonra `DateTime` görüntüleme ve düzenleyici şablonları oluşturulur.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image3.png)
 
-Açık *Views\Shared\DisplayTemplates\DateTime.cshtml* dosya ve kullandığı aşağıdaki biçimlendirmeleri eklemek [String.Format](https://msdn.microsoft.com/library/system.string.format.aspx) özelliği bir tarih saat olmadan olarak biçimlendirmek için yöntem. ( `{0:d}` Biçimi kısa tarih biçimi belirtir.)
+Açık *Views\Shared\DisplayTemplates\DateTime.cshtml* kullanan aşağıdaki işaretlemeyi ekleyin ve dosya [String.Format](https://msdn.microsoft.com/library/system.string.format.aspx) özelliği bir tarih saat olmadan biçimlendirmek için yöntemi. ( `{0:d}` Biçimini kısa tarih biçimini belirtir.)
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample5.cs)]
 
-Oluşturmak için bu adımı yineleyin bir `DateTime` şablonunda *Views\Movie\DisplayTemplates* klasör. Aşağıdaki kodda kullanmak *Views\Movie\DisplayTemplates\DateTime.cshtml* dosya.
+Oluşturmak için bu adımı yineleyin bir `DateTime` şablonunda *Views\Movie\DisplayTemplates* klasör. Aşağıdaki kodu kullanın *Views\Movie\DisplayTemplates\DateTime.cshtml* dosya.
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample6.cs)]
 
-`loud-1` CSS sınıfı tarihi kırmızı kalın metin olarak görünen neden olur. Eklediğiniz `loud-1` ne zaman bu özel şablonu kullanılıyor kolayca görebilmek için yalnızca bir geçici önlemi olarak CSS sınıfı.
+`loud-1` CSS sınıfı tarihi kırmızı vurgulanmış olarak ekran neden olur. Eklediğiniz `loud-1` olduğunda bu özel şablonu kullanılıyor kolayca görebilmeniz için yalnızca bir geçici önlem olarak CSS sınıfı.
 
-Neler yaptığınızı oluşturulur ve ASP.NET tarihleri görüntülemek için kullanacağı şablonları özelleştirilebilir. Daha fazla genel şablonu (içinde *views\shared\displaytemplates konumunda* klasörü) basit bir kısa tarih görüntüler. Özellikle olan şablon `Movie` denetleyici (içinde *Views\Movies\DisplayTemplates* klasörü) de biçimlendirilen tarih kırmızı kalın metin olarak görüntüler.
+Ne yaptığınızı oluşturulur ve ASP.NET tarihleri görüntülemek için kullanacağı şablonları özelleştirilebilir. Daha fazla genel şablon (içinde *views\shared\displaytemplates konumunda* klasör) basit bir kısa tarih görüntüler. Özellikle olan şablon `Movie` denetleyici (içinde *Views\Movies\DisplayTemplates* klasör) da biçimlendirilmiş tarih kırmızı kalın metin olarak görüntüler.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın. Tarayıcı uygulaması için Index görünümünü işler.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Tarayıcı uygulaması için Index görünümünü işler.
 
-`ReleaseDate` Özelliği artık tarihi görüntüler süresi olmadan koyu kırmızı yazı tipi. Bu, onaylayın yardımcı olur `DateTime` şablonlu yardımcı *Views\Movies\DisplayTemplates* klasörü üzerinde seçili `DateTime` paylaşılan klasörde şablonlu Yardımcısı (*Views\Shared\ DisplayTemplates*).
+`ReleaseDate` Özelliği artık tarihi görüntüler kırmızı kalın yazı tipinde süresini kapsamayan işlem süresi. Böylece onaylayın `DateTime` şablonlu yardımcı *Views\Movies\DisplayTemplates* klasörü üzerinde seçili `DateTime` paylaşılan klasörde şablonlu Yardımcısı (*Views\Shared\ DisplayTemplates*).
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image4.png)
 
-Şimdi yeniden adlandırmak *Views\Movies\DisplayTemplates\DateTime.cshtml* dosya *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*.
+Şimdi Yeniden Adlandır *Views\Movies\DisplayTemplates\DateTime.cshtml* dosyasını *Views\Movies\DisplayTemplates\LoudDateTime.cshtml*.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın.
 
-Bu süre `ReleaseDate` özelliği bir tarih saat ve kalın kırmızı yazı tipi olmadan görüntüler. Veri adına sahip bir şablon türünün, bu gösterir (Bu durumda `DateTime`) otomatik olarak bu türdeki tüm model özelliklerini görüntülemek için kullanılır. Sonra yeniden adlandırılmış *DateTime.cshtml* dosya *LoudDateTime.cshtml*, ASP.NET artık bulunan bir şablonda *Views\Movies\DisplayTemplates* kullanılabilmesi için klasör *DateTime.cshtml* şablondan * Views\Movies\Shared\* klasör.
+Bu süre `ReleaseDate` özelliği bir tarih saat ve koyu kırmızı yazı tipi olmadan görüntüler. Verilerin adına sahip bir şablon türünün, bunu göstermektedir (Bu durumda `DateTime`) otomatik olarak bu türdeki tüm model özelliklerini görüntülemek için kullanılır. Sonra yeniden adlandırılmış *DateTime.cshtml* dosyasını *LoudDateTime.cshtml*, ASP.NET, artık bir şablon bulunamadı *Views\Movies\DisplayTemplates* kullanıldıkları şekilde klasörü *DateTime.cshtml* şablondan * Views\Movies\Shared\* klasör.
 
-(Tüm büyük/küçük harf ile şablon dosyası adı oluşturulan şablon eşleştirme büyük küçük harf duyarsız olduğundan. For example, *DATETIME.chstml, datetime.cshtml*, ve *DaTeTiMe.cshtml* tüm eşleşir `DateTime` türü.)
+(Tüm büyük/küçük harf ile şablon dosyasının adı oluşturulan böylece eşleşen şablon büyük/küçük harfe duyarlı. For example, *DATETIME.chstml, datetime.cshtml*, ve *DaTeTiMe.cshtml* tüm BC `DateTime` türü.)
 
-Gözden geçirmek için: Bu noktada, `ReleaseDate` alanı görüntülenir kullanarak *Views\Movies\DisplayTemplates\DateTime.cshtml* verileri kısa tarih biçimini kullanarak görüntüler, ancak Aksi durumda özel bir biçime ekler şablonu.
+Gözden geçirmek için: Bu noktada, `ReleaseDate` alan görüntüleniyor kullanarak *Views\Movies\DisplayTemplates\DateTime.cshtml* kısa tarih biçimini kullanarak verileri görüntüler, ancak Aksi halde özel bir biçime ekler, şablon.
 
-### <a name="using-uihint-to-specify-a-display-template"></a>Bir görüntü şablonu belirtmek için UIHint kullanma
+### <a name="using-uihint-to-specify-a-display-template"></a>Bir ekran şablonu belirtmek için UIHint kullanma
 
-Çoğu web uygulamanız varsa, `DateTime` alanları ve varsayılan olarak tüm veya çoğu salt tarih biçiminde görüntülemek istediğiniz *DateTime.cshtml* iyi bir yaklaşım şablonudur. Ancak, birkaç tarihleri tam tarihi ve saati görüntülemek istediğiniz yoksa ne? Sorun değil. Ek bir şablon oluşturma ve kullanma [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) tam tarih ve saat için biçimlendirme belirtmek için özniteliği. Bu şablon seçerek geçerli olabilir. Kullanabileceğiniz [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliği model düzeyinde veya, şablon bir görünüm içindeki belirtebilirsiniz. Bu bölümde, nasıl kullanılacağını görürsünüz `UIHint` tarih-saat alanları için bazı örnekler biçimlendirme seçmeli olarak değiştirmek için öznitelik.
+Web uygulamanızın birçok varsa `DateTime` alanları ve varsayılan olarak yalnızca tarih biçiminde tüm veya çoğu, görüntülemek istediğiniz *DateTime.cshtml* iyi bir yaklaşım şablonudur. Ancak, varsa ne tam tarihi ve saati görüntülemek istediğiniz birkaç tarihleri olur? Sorun değil. Ek bir şablon oluşturma ve kullanma [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) tam tarih ve saat için biçimlendirme belirtmek için özniteliği. Bu şablon daha sonra seçici olarak uygulayabilirsiniz. Kullanabileceğiniz [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliği model düzeyinde veya, şablon bir görünüm içinde belirtebilirsiniz. Bu bölümde, nasıl kullanılacağını göreceğiniz `UIHint` tarih-saat alanları için bazı örnekleri biçimlendirme seçmeli olarak değiştirmek için özniteliği.
 
-Açık *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* dosya ve var olan kodu aşağıdakilerle değiştirin:
+Açık *Views\Movies\DisplayTemplates\LoudDateTime.cshtml* dosya ve varolan kodu aşağıdakiyle değiştirin:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample7.cshtml)]
 
-Bu tam tarih ve saat görüntülenmesine neden olur ve yeşil ve büyük metni CSS sınıfı ekler.
+Bu, tam tarih ve saat görüntülenmesine neden olur ve yeşil ve büyük metni CSS sınıfı ekler.
 
-Açık *Movie.cs* dosya ve ekleme [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliğini `ReleaseDate` özelliği, aşağıdaki örnekte gösterildiği gibi:
+Açık *Movie.cs* dosya ve ekleme [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) özniteliğini `ReleaseDate` aşağıdaki örnekte gösterildiği gibi özelliği:
 
 [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample8.cs)]
 
-Ne zaman bu ASP.NET MVC, bildirir `ReleaseDate` özelliği (özellikle ve yalnızca hiçbir `DateTime` nesnesi), kullanması gereken *LoudDateTime.cshtml* şablonu.
+Ne zaman bu ASP.NET MVC, bildirir `ReleaseDate` özelliği (özellikle ve yalnızca hiçbir `DateTime` nesne), kullanması gereken *LoudDateTime.cshtml* şablonu.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın.
 
-Dikkat `ReleaseDate` özelliği şimdi tarih ve saat büyük yeşil yazı tipiyle görüntüler.
+Dikkat `ReleaseDate` özelliği artık tarih ve saat büyük yeşil yazı tipiyle görüntüler.
 
-Dönün `UIHint` özniteliğini *Movie.cs* dosyası ve yorum teslim böylece *LoudDateTime.cshtml* şablonu olmaz kullanılabilir. Uygulamayı yeniden çalıştırın. Yayın tarihi büyük ve yeşil görüntülenmez. Bu doğrular *Views\Shared\DisplayTemplates\DateTime.cshtml* şablon dizini ve ayrıntıları görünümlerinde kullanılır.
+Geri dönüp `UIHint` özniteliğini *Movie.cs* dosyası ve yorum teslim böylece *LoudDateTime.cshtml* şablon olmaz kullanılabilir. Uygulamayı yeniden çalıştırın. Yayın tarihi, büyük ve yeşil görüntülenmez. Bu doğrular *Views\Shared\DisplayTemplates\DateTime.cshtml* şablon dizini ve ayrıntıları görünümlerinde kullanılır.
 
-Daha önce belirtildiği gibi aynı zamanda bazı verileri tek bir örneğini Şablonu Uygula olanak sağlayan bir görünümde bir şablon uygulanabilir. Açık *Views\Movies\Details.cshtml* görünümü. Ekleme `"LoudDateTime"` ikinci parametre olarak [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) çağrısı `ReleaseDate` alan. Tamamlanan kodu şöyle görünür:
+Daha önce bahsedildiği gibi bir şablonda şablon bazı verileri tek bir örneğini geçerli olanak sağlayan bir görünüm de uygulayabilirsiniz. Açık *Views\Movies\Details.cshtml* görünümü. Ekleme `"LoudDateTime"` ikinci parametre olarak [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) çağrısı `ReleaseDate` alan. Tamamlanan kodu şöyle görünür:
 
 [!code-cshtml[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/samples/sample9.cshtml)]
 
-Bu belirleyen `LoudDateTime` şablonu, hangi özeliklerin modeline uygulanan bağımsız olarak model özelliği görüntülemek için kullanılmalıdır.
+Bu belirten `LoudDateTime` şablonu, modele hangi özniteliklerin uygulanan bağımsız olarak model özelliği görüntülemek için kullanılmalıdır.
 
-Uygulamayı çalıştırmak için CTRL + F5 tuşuna basın.
+Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın.
 
-Film dizin sayfası kullandığını doğrulayın *Views\Shared\DisplayTemplates\DateTime.cshtml* şablonu (kırmızı kalın) ve *Movie\Details* sayfasını kullanarak *Views\Movies\ DisplayTemplates\LoudDateTime.cshtml* şablonu (büyük ve yeşil).
+Film dizin sayfası kullandığını doğrulamak *Views\Shared\DisplayTemplates\DateTime.cshtml* şablonu (koyu kırmızı) ve *Movie\Details* sayfasını kullanarak *Views\Movies\ DisplayTemplates\LoudDateTime.cshtml* şablonu (büyük ve yeşil).
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2/_static/image5.png)
 
-Sonraki bölümde, karmaşık bir tür için bir şablon oluşturacaksınız.
+Sonraki bölümde, bir karmaşık tür için bir şablon oluşturacaksınız.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-> [sonraki](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)
+> [İleri](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3.md)

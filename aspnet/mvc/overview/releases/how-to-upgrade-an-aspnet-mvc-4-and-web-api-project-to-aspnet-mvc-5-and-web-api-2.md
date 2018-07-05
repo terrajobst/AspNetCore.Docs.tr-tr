@@ -1,53 +1,52 @@
 ---
 uid: mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
-title: Bir ASP.NET MVC 4 yükseltme ve Web API projesi ASP.NET MVC 5 ve Web API 2 | Microsoft Docs
+title: Nasıl bir ASP.NET MVC 4 yükseltin ve Web API projesini ASP.NET MVC 5 ve Web API 2 | Microsoft Docs
 author: Rick-Anderson
-description: ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin.
+description: ASP.NET MVC 5 ve Web API 2'öznitelik yönlendirme, kimlik doğrulama filtreleri ve çok daha fazlası dahil olmak üzere yeni özelliklerin bir ana bilgisayarınızı getirin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f61502933a5ba92896ee97cef9cff915fe23831d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7ccdc1bf7a1b1b8d5d9c5906eeeab9535b26df6c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874736"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369253"
 ---
-<a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Bir ASP.NET MVC 4 ve Web API projesi ASP.NET MVC 5 ve Web API 2'ye yükseltme yapma
+<a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Bir ASP.NET MVC 4 ve Web API projelerini ASP.NET MVC 5 ve Web API 2 sürümüne yükseltme yapmayı
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-> ASP.NET MVC 5 ve Web API 2 yeni özelliklerin özniteliği yönlendirme, kimlik doğrulaması filtreleri ve çok daha fazlasını içeren bir ana bilgisayar duruma getirin. Bkz: [ https://www.asp.net/vnext ](https://www.asp.net/core) daha fazla ayrıntı için.
+> ASP.NET MVC 5 ve Web API 2'öznitelik yönlendirme, kimlik doğrulama filtreleri ve çok daha fazlası dahil olmak üzere yeni özelliklerin bir ana bilgisayarınızı getirin. Bkz: [ https://www.asp.net/vnext ](https://www.asp.net/core) daha fazla ayrıntı için.
 > 
-> Bu kılavuz, uygulamanızın en son sürüme yükseltmek için gerekli adımları size yol gösterecektir.  
+> Bu izlenecek yol, uygulamanızın en son sürüme yükseltmek için gerekli adımlarla size yol gösterir.  
 > 
 > > [!NOTE]
-> > Lütfen bakın [ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları için](../../../visual-studio/overview/2013/release-notes.md) MVC 4 ve Web API sonraki sürümü için önemli değişiklikler hakkında bilgi için.
+> > Lütfen [için ASP.NET and Web Tools Visual Studio 2013 sürüm notları](../../../visual-studio/overview/2013/release-notes.md) MVC 4 ve Web API sonraki sürümü için önemli değişiklikler hakkında bilgi.
 > 
 >   
 > 
-> Bu makalede Youngjune Hong ve Rick Anderson tarafından yazılan ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
+> Bu makale Youngjune Hong Rick Anderson ile yazılmış ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
 
 
 ## <a name="upgrade-steps"></a>Yükseltme adımları
 
-1. Projenizi yedekleme. Bu kılavuz, proje dosyasını, paket yapılandırmanızı ve web.config dosyalarında değişiklik yapmanızı gerektirir.
-2. Web API Web API 2'ye, global.asax dosyasında, yükseltme için değiştirin:
+1. Projenizi yedekleyin. Bu izlenecek yol, proje dosyasını, paket yapılandırmasını ve web.config dosyalarından değişiklikler yapmanızı gerektirir.
+2. Web API'si, global.asax dosyasında Web API 2'ye yükseltme için değiştirin:
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample1.cs)]
 
    to
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample2.cs)]
-3. Projelerinizi kullanan tüm paketler MVC 5 ve Web API 2 ile uyumlu olduğundan emin olun. Aşağıdaki tabloda gösterildiği MVC 4 ve Web API paketleri değiştirilmesi gereken daha ilgili. Lütfen aşağıda listelenen paketlerden birini bağlı bir paket varsa, MVC 5 ve Web API 2 ile uyumlu olan daha yeni sürümlerini almak için yayımcılar başvurun. Bu paket için kaynak kodu varsa, MVC 5 ve Web API 2 yeni derlemeler ile derlemeniz.   
+3. Projelerinizi kullanan tüm paketleri Web API 2 ve MVC 5 ile uyumlu olduğundan emin olun. Aşağıdaki tabloda gösterilen MVC 4 ve Web API paketleri değiştirilmesi gereken daha ilgili. Aşağıdaki paketlerden birini bağımlı olduğu bir paketiniz varsa, Web API 2 ve MVC 5 ile uyumlu olan daha yeni sürümlerini almak için yayımcılar'ne başvurun. Bu paket için kaynak kodu varsa, yeni derlemeler Web API 2 ve MVC 5 ile derlemeniz.   
 
-    | **Paket kimliği** | **Eski sürümü** | **Yeni sürüm** |
+    | **Paket kimliği** | **Eski sürüm** | **Yeni sürüm** |
     | --- | --- | --- |
     | Microsoft.AspNet.Razor | 2.0.x.x | 3.0.0 |
     | Microsoft.AspNet.WebPages | 2.0.x.x | 3.0.0 |
@@ -67,73 +66,73 @@ tarafından [Rick Anderson](https://github.com/Rick-Anderson)
     | Microsoft.Data.OData | 5.2.x | 5.6.x |
     | System.Spatial | 5.2.x | 5.6.x |
     | Microsoft.Data.Edm | 5.2.x | 5.6.x |
-    | Microsoft.AspNet.Mvc.FixedDisplayModes | < o: >< / o: p > | Kaldırıldı |
-    | Microsoft.AspNet.WebPages.Administration | < o: >< / o: p > | Kaldırıldı |
-    | Microsoft-Web-Helpers | < o: >< / o: p > | Microsoft.AspNet.WebHelpers |
+    | Microsoft.AspNet.Mvc.FixedDisplayModes | < o:p >< / o:p > | Kaldırıldı |
+    | Microsoft.AspNet.WebPages.Administration | < o:p >< / o:p > | Kaldırıldı |
+    | Microsoft Web Yardımcıları | < o:p >< / o:p > | Microsoft.AspNet.WebHelpers |
 
     > [!NOTE]
-    > Microsoft Web Yardımcıları Microsoft.AspNet.WebHelpers ile değiştirilmiştir. Eski paketi kaldırın ve sonra yeni paketi yükleyin.   
+    > Microsoft Web Yardımcıları Microsoft.AspNet.WebHelpers ile değiştirilmiştir. İlk olarak eski paketi kaldırın ve sonra yeni paketi yükleyin.   
     >   
-    > Önde gelen ASP.NET paketler arasında hiçbir çapraz sürüm uyumluluk yoktur. Örneğin, MVC 5 yalnızca Razor 3 ve değil Razor 2 ile uyumludur.
+    > Önemli ASP.NET paketleri arasında hiçbir çapraz sürüm uyumluluğu yoktur. Örneğin, MVC 5 yalnızca Razor 3 ve değil Razor 2 ile uyumludur.
 4. Projenizi Visual Studio 2013'te açın.
-5. Yüklü olan aşağıdaki ASP.NET NuGet paketlerinden birini kaldırın. Bu paket Yöneticisi Konsolu (PMC) kullanarak kaldırır. PMC açmak için seçin **Araçları** menüsüne ve ardından **kitaplık Paket Yöneticisi** seçip **Paket Yöneticisi Konsolu**. Projenizi bunların tümünü içermeyebilir.
+5. Yüklenen aşağıdaki ASP.NET NuGet paketlerinden birini kaldırın. Bu paket Yöneticisi Konsolu (PMC'yi) kullanarak kaldırır. PMC'yi açın, seçin **Araçları** menüsünü ve ardından **kitaplık Paket Yöneticisi** seçip **Paket Yöneticisi Konsolu**. Projenizi bunların hepsini içermeyebilir.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
-   Bu paket, MVC 3 ile MVC 4'e yükseltme yaparken genellikle eklenir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paket, MVC 3'ten MVC 4'e yükseltirken genellikle eklenir. Kaldırmak için PMC'de aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft.AspNet.WebPages.Administration`
     2. `Microsoft-Web-Helpers`   
-   Bu paket olarak rebranded `Microsoft.AspNet.WebHelpers`. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paketi olarak yeni marka adları verilmiştir `Microsoft.AspNet.WebHelpers`. Kaldırmak için PMC'de aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft-Web-Helpers`
     3. `Microsoft.AspNet.Mvc.FixedDisplayMode`  
-   Bu paket, MVC 5'te düzeltilen MVC 4'te bir hata için geçici bir çözüm içerir. Kaldırmak için PMC aşağıdaki komutu çalıştırın:  
+   Bu paket, geçici bir çözüm için MVC 4, MVC 5'te düzeltilen bir hata içeriyor. Kaldırmak için PMC'de aşağıdaki komutu çalıştırın:  
         `Uninstall-Package -Id Microsoft.AspNet.Mvc.FixedDisplayModes`
-6. PMC kullanarak tüm ASP.NET NuGet paketleri yükseltin. PMC içinde aşağıdaki komutu çalıştırın:  
+6. PMC kullanarak tüm ASP.NET NuGet paketlerini yükseltin. PMC'de, aşağıdaki komutu çalıştırın:  
     `Update-Package`  
-   `Update-Package` Herhangi bir parametre her paketi güncelleştirir olmadan komutu. Paketleri kimliği bağımsız değişkeni kullanarak tek tek güncelleştirebilirsiniz. Güncelleştirme komut hakkında daha fazla bilgi için Çalıştır `get-help update-package` .
+   `Update-Package` Herhangi bir parametre, her paketi güncelleştirir olmadan komutu. Paket kimliği bağımsız değişkenini kullanarak ayrı ayrı güncelleştirebilirsiniz. Güncelleştirme komut hakkında daha fazla bilgi için `get-help update-package` .
 
 ## <a name="update-the-application-webconfig-file"></a>Uygulama güncelleştirmesi *web.config* dosyası
 
-Uygulamada bu değişiklikler yapmaya dikkat edin *web.config* dosyası değil, *web.config* dosyasını *görünümleri* klasör.
+Uygulamada bu değişiklikleri yapmak mutlaka *web.config* dosya değil *web.config* dosyası *görünümleri* klasör.
 
 Bulun `<runtime>/<assemblyBinding>` bölümünde ve aşağıdaki değişiklikleri yapın:
 
-1. Öğelerle name özniteliği "System.Web.Mvc", "4.0.0.0" "5.0.0.0" için sürüm numarasını değiştirin. (Bu öğesinde iki değişiklikleri.)
-2. Ad özniteliği olan öğeleri &quot;System.Web.Helpers "ve &quot;System.Web.WebPages&quot; "2.0.0.0""3.0.0.0"için sürüm numarasını değiştirin. Dört değişiklikleri gerçekleşir, iki öğelerin her biri.
+1. Öğesinde ad özniteliği "System.Web.Mvc" ile "5.0.0.0" için "4.0.0.0" sürüm numarasını değiştirin. (Bu öğe içinde iki değişiklik.)
+2. Ad özniteliği ile öğelerinde &quot;System.Web.Helpers "ve &quot;System.Web.WebPages&quot; "3.0.0.0"için"2.0.0.0"sürüm numarasını değiştirin. Dört değişiklikleri oluşur, her iki.
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample3.xml?highlight=6,10,14)]
 3. Bulun `<appSettings>` bölümünde ve 2.0.0.0.0 gelen webpages:version 3.0.0.0 için aşağıda gösterildiği gibi güncelleştirin:
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample4.xml?highlight=2)]
-4. Tam dışındaki tüm güven düzeyleri kaldırın. Örneğin:
+4. Tam dışındaki herhangi bir güven düzeyleri kaldırın. Örneğin:
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample5.xml?highlight=2)]
 
-## <a name="update-the-webconfig-files-under-the-views-folder"></a>Güncelleştirme *web.config* görünümleri klasör altındaki dosyalar
+## <a name="update-the-webconfig-files-under-the-views-folder"></a>Güncelleştirme *web.config* görünümleri klasörü altındaki dosyaları
 
-Uygulamanızı alanları kullanıyorsa, ayrıca her güncelleştirmeniz gerekecektir *web.config* dosyasını *görünümleri* her alanı klasörünün alt klasörü.
+Uygulamanızı alanları kullanıyorsa, ayrıca her güncelleştirmeniz gerekecektir *web.config* dosyası *görünümleri* her alanı klasörünün alt klasörü.
 
-1. "System.Web.Mvc" Sürüm "5.0.0.0" "4.0.0.0" sürümünden içeren tüm öğeleri güncelleştirin.  
+1. "4.0.0.0" sürümünden "5.0.0.0" Sürüm "System.Web.Mvc" içeren tüm öğeleri güncelleştirin.  
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample6.xml?highlight=2)]
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample7.xml?highlight=4-6,8)]
-2. "System.Web.WebPages.Razor" Sürüm "3.0.0.0" "2.0.0.0" sürümünden içeren tüm öğeleri güncelleştirin. Bu bölüm, "System.Web.WebPages" içerir, bu öğelerden 2.0.0.0 veya sonraki "" "3.0.0.0" sürümüne güncelleştirin.  
+2. "System.Web.WebPages.Razor" sürümü "2.0.0.0" Sürüm "3.0.0.0" içeren tüm öğeleri güncelleştirin. Bu bölümde "System.Web.WebPages" içeriyorsa, bu öğelerden "2.0.0.0" Sürüm "3.0.0.0" sürümüne güncelleştirin  
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample8.xml?highlight=3-5)]
-3. Kaldırdıysanız `Microsoft-Web-Helpers` bir önceki adımda NuGet paket yüklemesi `Microsoft.AspNet.WebHelpers` ile PMC de aşağıdaki komutu çalıştırın:  
+3. Kaldırdıysanız `Microsoft-Web-Helpers` önceki bir adımda NuGet paketini yüklemek `Microsoft.AspNet.WebHelpers` PMC'yi içinde aşağıdaki komutla:  
     `Install-Package -Id Microsoft.AspNet.WebHelpers`
-4. Uygulamanız kullanıyorsa [User.IsInRole()](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.isinrole(v=vs.110).aspx) yöntemi, aşağıdakileri ekleyin *Web.config* dosya.
+4. Uygulamanız kullanıyorsa [User.IsInRole()](https://msdn.microsoft.com/en-us/library/system.web.security.roleprincipal.isinrole(v=vs.110).aspx) yöntemi ekleyin *Web.config* dosya.
 
     [!code-xml[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample9.xml)]
 
 ## <a name="final-steps"></a>Son adımlar
 
-Derleme ve uygulamayı test etme.
+Derleme ve uygulamayı test edin.
 
-MVC 4 proje türü GUID proje dosyalarını kaldırın.
+MVC 4 proje türü GUID konumundan proje dosyaları kaldırın.
 
 1. Çözüm Gezgini'nde proje adına sağ tıklayın ve ardından **projeyi**.
-2. Projeye sağ tıklayın ve düzenlemek ProjectName.csproj seçin.
+2. Projeye sağ tıklayıp Düzen ProjectName.csproj seçin.
 3. Bulun `ProjectTypeGuids` öğesini ve ardından Kaldır MVC 4 Proje GUID, `{E3E379DF-F4C6-4180-9B81-6769533ABE47}`.
-4. Proje Aç dosyasını kaydedip kapatın.
-5. Projeye sağ tıklayın ve seçin **projeyi yeniden yükle**.
+4. Açık proje dosyasını kaydedip kapatın.
+5. Projeye sağ tıklayıp **projeyi**.

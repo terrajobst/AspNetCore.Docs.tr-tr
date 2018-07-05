@@ -1,127 +1,126 @@
 ---
 uid: web-api/overview/advanced/dependency-injection
-title: ASP.NET Web API 2 bağımlılık ekleme | Microsoft Docs
+title: ASP.NET Web API 2'de bağımlılık ekleme | Microsoft Docs
 author: MikeWasson
-description: Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları eklemesine gösterilmiştir. Eğitmen Web API 2 Unity uygulama bloğunda kullanılan yazılım sürümleri...
+description: Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları ekleme işlemi gösterilmektedir. Eğitmen Web API 2 Unity uygulama bloğunda kullanılan yazılım sürümleri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 7f64cc83e36c80b0ffd53edfc629557c0847b200
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92ce5eadc7f371540295c1c4279f817dba09f8e3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036521"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369178"
 ---
-<a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2 bağımlılık ekleme
+<a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de bağımlılık ekleme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-Tutorial-468ee148)
 
-> Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları eklemesine gösterilmiştir.
+> Bu öğreticide, ASP.NET Web API denetleyicinizde bağımlılıkları ekleme işlemi gösterilmektedir.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - Web API 2
 > - [Unity uygulama bloğu](https://www.nuget.org/packages/Unity/)
-> - Entity Framework 6 (sürüm 5 de çalışır)
+> - Entity Framework 6 (sürüm 5 de kullanılabilir)
 
 
 ## <a name="what-is-dependency-injection"></a>Bağımlılık ekleme nedir?
 
-A *bağımlılık* , başka bir nesnenin gerektiren herhangi bir nesne. Örneğin, tanımlamak için ortak bir [depo](http://martinfowler.com/eaaCatalog/repository.html) veri erişimi işler. Şimdi ile bir örnek gösterilmektedir. Öncelikle, biz etki alanı modeli tanımlamanız:
+A *bağımlılık* olan başka bir nesneye gerektiren herhangi bir nesne. Örneğin, tanımlamak için ortak bir [depo](http://martinfowler.com/eaaCatalog/repository.html) işleyen veri erişimi. Şimdi içeren bir örnek gösterilmektedir. İlk olarak, bir etki alanı modeli tanımlarız:
 
 [!code-csharp[Main](dependency-injection/samples/sample1.cs)]
 
-Öğeleri Entity Framework kullanarak bir veritabanında depolayan bir basit havuz sınıf İşte.
+Öğeleri Entity Framework kullanarak bir veritabanında depolar. bir basit bir depo sınıfına aşağıda verilmiştir.
 
 [!code-csharp[Main](dependency-injection/samples/sample2.cs)]
 
-Şimdi şimdi GET isteklerini destekleyen bir Web API denetleyicisi tanımlamak `Product` varlıklar. (T POST ve Basitlik için diğer yöntemleri bırakmak.) İlk denemesi şöyledir:
+Artık GET isteklerini destekleyen bir Web API denetleyicisi tanımlayalım `Product` varlıklar. (Ben POST ve kolaylık sağlaması için diğer yöntemleri bırakarak.) İlk denemesi şu şekildedir:
 
 [!code-csharp[Main](dependency-injection/samples/sample3.cs)]
 
-Denetleyici sınıfı bağlıdır bildirimi `ProductRepository`, ve biz oluşturmak denetleyicisi izin vererek `ProductRepository` örneği. Ancak, çeşitli nedenlerle sabit koda bu şekilde bağımlılık hatalı bir fikir olabilir.
+Denetleyici sınıfı bağımlı bildirimi `ProductRepository`, ve biz denetleyici oluşturma izni vermiş olursunuz `ProductRepository` örneği. Ancak, çeşitli nedenlerle sabit koda bağımlılık bu şekilde, hatalı bir fikir olabilir.
 
 - Değiştirmek istiyorsanız `ProductRepository` farklı bir uygulama ile aynı zamanda denetleyici sınıfı değiştirmeniz gerekir.
-- Varsa `ProductRepository` bağımlılıklara sahiptir, bu denetleyici içinde yapılandırmanız gerekir. Birden çok denetleyicileriyle büyük projesi için yapılandırma kodunuzu projeniz dağılmış haline gelir.
-- Denetleyici sorgu veritabanı sabit kodlanmış olduğundan birim testi için zordur. Birim testi için currect tasarım ile mümkün olmayan bir mock veya saplama deposu kullanmanız gerekir.
+- Varsa `ProductRepository` bağımlılıklara sahiptir, bu denetleyici içinde yapılandırmanız gerekir. İçin büyük bir projenin birden fazla denetleyicileriyle yapılandırma kodunuzu projenizi arasında dağılmış olur.
+- Denetleyici veritabanı sorgulamak için sabit kodlanmış olduğundan birim testine zordur. Birim testi için currect tasarım ile mümkün olmayan bir saplama sahte veya depo kullanmalıdır.
 
-Bu sorunları ele alabileceği *injecting* denetleyicisi depoya. İlk olarak, yeniden düzenlemeniz `ProductRepository` bir arabirim sınıfına:
+Bu sorunları ele *ekleme* denetleyici depoya. İlk olarak, yeniden düzenleme `ProductRepository` bir arabirim sınıfına:
 
 [!code-csharp[Main](dependency-injection/samples/sample4.cs)]
 
-Ardından sağlayın `IProductRepository` Oluşturucusu parametre olarak:
+Ardından sağlayın `IProductRepository` Oluşturucu parametresi olarak:
 
 [!code-csharp[Main](dependency-injection/samples/sample5.cs)]
 
-Bu örnekte [Oluşturucu ekleme](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Aynı zamanda *ayarlayıcı ekleme*, bağımlılık ayarlayıcı yöntemi veya özelliği aracılığıyla ayarladığınız.
+Bu örnekte [Oluşturucu ekleme](http://www.martinfowler.com/articles/injection.html#FormsOfDependencyInjection). Ayrıca *ayarlayıcı ekleme*, ayarlayıcı yöntemi veya özelliği aracılığıyla bağımlılık ayarladığınız yerdir.
 
-Ancak artık bir sorun olduğundan, uygulamanızın denetleyicisi doğrudan oluşturmaz olduğundan. Web API denetleyici istek yönlendirir ve Web API değil bildiğiniz bir şey hakkında oluşturur `IProductRepository`. Web API bağımlılık çözümleyiciyi nereden geldiğini budur.
+Ancak artık bir sorunu, uygulamanızı denetleyici doğrudan çünkü. Web API denetleyici oluşturur isteği yönlendirir ve Web API'si değil bilmeniz herhangi bir şey hakkında `IProductRepository`. Bu, Web API'si bağımlılık çözümleyiciyi nerede devreye girer.
 
-## <a name="the-web-api-dependency-resolver"></a>Web API bağımlılık Çözümleyicisi
+## <a name="the-web-api-dependency-resolver"></a>Web API bağımlılık çözümleyici
 
-Web API tanımlar **Idependencyresolver** bağımlılıkları çözümleniyor için arabirim. Arabirim tanımı aşağıda verilmiştir:
+Web API tanımlar **Idependencyresolver** bağımlılıkları çözümlemek için arabirim. Arabirim tanımı aşağıda verilmiştir:
 
 [!code-csharp[Main](dependency-injection/samples/sample6.cs)]
 
 **IDependencyScope** arabirimi iki yöntem vardır:
 
-- **GetService** bir türünün bir örneğini oluşturur.
-- **GetServices** belirtilen türdeki nesneleri koleksiyonu oluşturur.
+- **GetService** bir türün bir örneğini oluşturur.
+- **GetServices** belirtilen bir türün nesnelerinin bir koleksiyonunu oluşturur.
 
-**Idependencyresolver** yöntemi devralır **IDependencyScope** ve ekler **BeginScope** yöntemi. Daha sonra Bu öğreticide kapsamları hakkında konuşun.
+**Idependencyresolver** yöntemi devralan **IDependencyScope** ve ekler **BeginScope** yöntemi. Kapsamlar hakkında bu öğreticinin sonraki bölümlerinde ele alacağız.
 
-Web API denetleyici örneği oluşturduğunda, önce çağırır **IDependencyResolver.GetService**, geçen denetleyici türü. Bu genişletilebilirlik kanca tüm bağımlılıkları çözümleniyor denetleyicisi oluşturmak için kullanabilirsiniz. Varsa **GetService** null değerini döndürür, Web API denetleyicisi sınıfı parametresiz bir kurucusu arar.
+Web API denetleyici örneği oluşturduğunda, ilk çağrı **IDependencyResolver.GetService**, geçen denetleyici türü. Bu genişletilebilirlik kanca tüm bağımlılıkları çözümleniyor denetleyicisi oluşturmak için kullanabilirsiniz. Varsa **GetService** null döndürür, Web API denetleyici sınıfı üzerinde parametresiz bir oluşturucu arar.
 
 ## <a name="dependency-resolution-with-the-unity-container"></a>Unity kapsayıcısı ile bağımlılık çözümlemesi
 
-Bir tam yazabilirsiniz rağmen **Idependencyresolver** sıfırdan arabirimi uygulaması Web API ve varolan IOC kapsayıcıları arasında köprü olarak davranmak üzere tasarlanmış gerçekten.
+Eksiksiz bir yazabilirsiniz rağmen **Idependencyresolver** sıfırdan arabirimi uygulaması Web API'si ve mevcut IOC kapsayıcılar arasında köprü olarak davranmak üzere gerçekten tasarlanmıştır.
 
-Bağımlılıklar yönetmekten sorumlu bir yazılım bileşeni bir IOC kapsayıcıdır. Kapsayıcıyla türleri kaydetmek ve nesneleri oluşturmak için kapsayıcı kullanın. Kapsayıcı otomatik olarak bağımlılık ilişkileri rakamlar. Birçok IOC kapsayıcıları nesne ömrü ve kapsam gibi denetlemenize izin.
+IOC kapsayıcı bağımlılıkları yönetmekten sorumlu olan bir yazılım bileşenidir. Türleri ile kapsayıcı kayıt ve sonra da kapsayıcı nesneleri oluşturmak için kullanın. Kapsayıcı bağımlılık ilişkileri otomatik olarak belirler. Çok sayıda IOC kapsayıcı nesne yaşam süresi ve kapsamı gibi denetlemenize izin.
 
 > [!NOTE]
-> "IoC" anlamına gelir "tersine çevirme denetimi için", olduğu genel bir desen olduğu bir çerçeve uygulama kodu çağırır. IOC kapsayıcı nesnelerinizi sizin için hangi "Normal akış denetimi tersine çevirir" oluşturur.
+> "IoC" anlamına gelir "tersine çevirme denetimi için", burada bir çerçeve koduna çağrı genel düzen olduğu. IOC kapsayıcı nesnelerinizi sizin için "Normal denetim akışını tersine çevirir" oluşturur.
 
 
-Bu öğretici için kullanacağız [Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns gelen &amp; yöntemler. (Diğer popüler kitaplıkları dahil [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), ve [StructureMap ](http://docs.structuremap.net/).) Unity yüklemek için NuGet Paket Yöneticisi'ni kullanabilirsiniz. Gelen **Araçları** menü Visual Studio'da seçin **kitaplık Paket Yöneticisi**seçeneğini belirleyip **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu yazın:
+Bu öğreticide, kullanacağız [Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns gelen &amp; yöntemler. (Diğer popüler kitaplıkları içerir [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), ve [StructureMap ](http://docs.structuremap.net/).) Instalovat Unity için NuGet Paket Yöneticisi'ni kullanabilirsiniz. Gelen **Araçları** Visual Studio'da seçim menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu yazın:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 
-Uygulaması işte **Idependencyresolver** Unity kapsayıcı sarmalar.
+Uygulanışı işte **Idependencyresolver** Unity kapsayıcı sonuna geldik.
 
 [!code-csharp[Main](dependency-injection/samples/sample8.cs)]
 
 > [!NOTE]
-> Varsa **GetService** yöntemi bir türü çözmek olamaz, döndürme zorunluluğu **null**. Varsa **GetServices** yöntemi bir türü çözmek olamaz, boş koleksiyon nesneyi döndürmelidir. Bilinmeyen türleri için özel durumlar durum yok.
+> Varsa **GetService** yöntemi bir türünü çözümleyemiyor, döndürme zorunluluğu **null**. Varsa **GetServices** yöntemi, bir tür çözümleyemiyor, boş bir koleksiyon nesnesi döndürmelidir. Bilinmeyen türleri için özel durumlar yok.
 
 
 ## <a name="configuring-the-dependency-resolver"></a>Bağımlılık çözümleyiciyi yapılandırma
 
-Bağımlılık çözümleyiciyi Ayarla **DependencyResolver** genel özelliğinin **HttpConfiguration** nesnesi.
+Bağımlılık çözümleyiciyi ayarlamak **DependencyResolver** genel özellik **HttpConfiguration** nesne.
 
-Aşağıdaki kod yazmaçlar `IProductRepository` arabirim ile Unity ve ardından oluşturan bir `UnityResolver`.
+Aşağıdaki kod kayıtları `IProductRepository` Unity ile arabirim ve ardından oluşturan bir `UnityResolver`.
 
 [!code-csharp[Main](dependency-injection/samples/sample9.cs)]
 
-## <a name="dependency-scope-and-controller-lifetime"></a>Bağımlılık kapsamı ve denetleyici yaşam süresi
+## <a name="dependency-scope-and-controller-lifetime"></a>Bağımlılık kapsamı ve denetleyici ömrü
 
-Denetleyicileri istek başına oluşturulur. Nesne yaşam süresi, yönetmek için **Idependencyresolver** kavramını kullanan bir *kapsam*.
+Denetleyicileri, istek başına oluşturulur. Nesne ömrü yönetmek için **Idependencyresolver** kavramını kullanır bir *kapsam*.
 
-Bağımlılık çözümleyiciyi bağlı **HttpConfiguration** nesne genel kapsama sahip. Web API bir denetleyici oluşturduğunda, çağıran **BeginScope**. Bu yöntem bir **IDependencyScope** temsil eden bir alt kapsamı.
+Bağımlılık çözümleyiciyi bağlı **HttpConfiguration** nesnenin genel kapsam vardır. Web API denetleyici oluşturduğunda, çağrı **BeginScope**. Bu yöntem döndürür bir **IDependencyScope** temsil eden bir alt kapsamı.
 
-Daha sonra Web API çağrılarının **GetService** denetleyicisi oluşturmak için alt kapsamında. İstek tamamlandıktan sonra Web API çağrılarının **Dispose** alt kapsamında. Kullanım **Dispose** denetleyicinin bağımlılıklarını dispose yöntemi.
+Ardından Web API çağrılarının **GetService** denetleyicisi oluşturmak için alt kapsamda. İstek tamamlandıktan sonra Web API çağrılarının **Dispose** alt kapsamda. Kullanım **Dispose** denetleyicinin bağımlılıklarını atmayı yöntemi.
 
-Nasıl uygulayacağınıza **BeginScope** IOC kapsayıcısında bağlıdır. Unity için kapsam için bir alt kapsayıcıdaki karşılık gelir:
+Nasıl uygulayacağınıza **BeginScope** IOC kapsayıcıdaki bağlıdır. Unity için kapsam için bir alt kapsayıcı karşılık gelmektedir:
 
 [!code-csharp[Main](dependency-injection/samples/sample10.cs)]
 
-Çoğu IOC kapsayıcıları benzer eşdeğerleri.
+Çoğu IOC kapsayıcıları benzer eşdeğerleri vardır.

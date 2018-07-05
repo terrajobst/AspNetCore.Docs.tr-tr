@@ -1,56 +1,55 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
-title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölümü 8 | Microsoft Docs
+title: ASP.NET 4 Entity Framework 4.0 Database First çalışmaya başlama ve Web Forms - 8. Bölüm | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
+description: Contoso University örnek web uygulaması, Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamayı ediyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
 ms.topic: article
 ms.assetid: aaadd9bb-5508-448c-ad57-5497dff90e13
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 035cce022d1b3697b825a96487529dbc9675d90e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f5ad2c1caf6036a0d8ee2ebbd07de60009090f1b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887895"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374058"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölümü 8
+<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 8. Bölüm
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
 
-## <a name="using-dynamic-data-functionality-to-format-and-validate-data"></a>Biçimlendirmek ve verileri doğrulamak için dinamik veri işlevlerini kullanma
+## <a name="using-dynamic-data-functionality-to-format-and-validate-data"></a>Biçimlendirmek ve verileri doğrulamak için dinamik veri işlevini kullanma
 
-Önceki öğreticide saklı yordamlar uygulanmadı. Bu öğretici nasıl dinamik veri işlevlerini aşağıdaki faydaları sağlayabilir gösterir:
+Önceki öğreticide saklı yordamlar uygulanır. Bu öğreticide nasıl dinamik veri işlevselliğini aşağıdaki faydaları sağlayabilir gösterilecek:
 
 - Alanlar, kendi veri türüne göre görüntülemek için otomatik olarak biçimlendirilir.
-- Alanları otomatik olarak kendi veri türüne göre doğrulanır.
-- Meta veri biçimlendirmeyi ve doğrulama davranışını özelleştirmek için veri modeli ekleyebilirsiniz. Bunu yapmak için yalnızca tek bir yerde biçimlendirmeyi ve doğrulama kuralları ekleyebilirsiniz ve bunlar otomatik olarak her yerde uygulanan zaman dinamik veri denetimleri kullanarak alanlara erişim.
+- Alanlar, kendi veri türüne göre otomatik olarak doğrulanır.
+- Meta veri biçimlendirme ve doğrulama davranışını özelleştirmek için veri modeline ekleyebilirsiniz. Bunu, biçimlendirme ve doğrulama kurallarını yalnızca tek bir yerde ekleyebilirsiniz ve otomatik olarak her yerde uygulandıkları kullanarak dinamik veri denetimlerine alanları erişin.
 
-Bunun nasıl çalıştığını görmek için kullandığınız görüntülemek ve varolan alanları düzenlemek için denetimleri değiştireceğiz *Students.aspx* sayfası ve ekleyeceğiz biçimlendirmeyi ve doğrulama meta verileri için ad ve tarih alanlarını `Student` varlık türü.
+Bunun nasıl çalıştığını görmek için kullandığınız görüntülemek ve varolan alanları düzenlemek için denetimleri değiştireceksiniz *Students.aspx* sayfası, ekleyin ve biçimlendirme ve doğrulama meta verileri için ad ve tarih alanlarını `Student` varlık türü.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-8/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image1.png)
 
 ## <a name="using-dynamicfield-and-dynamiccontrol-controls"></a>DynamicField ve DynamicControl denetimleri kullanma
 
-Açık *Students.aspx* sayfa ve `StudentsGridView` denetimi Değiştir **adı** ve **kayıt tarihi** `TemplateField` aşağıdaki biçimlendirme ile öğeleri:
+Açık *Students.aspx* sayfası ve `StudentsGridView` denetimi Değiştir **adı** ve **kayıt tarihi** `TemplateField` aşağıdaki işaretlemeyle öğeleri:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample1.aspx)]
 
-Bu biçimlendirme kullanan `DynamicControl` yerine denetimleri `TextBox` ve `Label` Öğrenci denetimlerinde şablon alan adı ve kullanır bir `DynamicField` denetimi için kayıt tarihi. Biçim dizeleri belirtilir.
+Bu işaretleme kullanır `DynamicControl` yerine denetimleri `TextBox` ve `Label` Öğrenci denetimlerinde şablon alan adı ve kullandığı bir `DynamicField` denetimi için kayıt tarihi. Belirtilen biçim dizesi yok.
 
-Ekleme bir `ValidationSummary` sonra Denetim `StudentsGridView` denetim.
+Ekleme bir `ValidationSummary` sonra Denetim `StudentsGridView` denetimi.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample2.aspx)]
 
-İçinde `SearchGridView` denetim değiştirmek için biçimlendirme **adı** ve **kayıt tarihi** sütunları, olarak yaptığınız `StudentsGridView` atlayın dışında kontrol `EditItemTemplate` öğesi. `Columns` Öğesinin `SearchGridView` denetimi şimdi aşağıdaki biçimlendirme içerir:
+İçinde `SearchGridView` denetimi değiştirmek için biçimlendirme **adı** ve **kayıt tarihi** sütunlar halinde, yaptığınız `StudentsGridView` atlamak dışındaki denetlemek `EditItemTemplate` öğesi. `Columns` Öğesinin `SearchGridView` denetimi artık aşağıdaki biçimlendirme içerir:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample3.aspx)]
 
@@ -58,11 +57,11 @@ Açık *Students.aspx.cs* ve aşağıdakileri ekleyin `using` deyimi:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample4.cs)]
 
-Sayfa için bir işleyici ekleyin `Init` olay:
+Sayfa için bir işleyici eklemek `Init` olay:
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample5.cs)]
 
-Bu kod dinamik veri biçimlendirme ve bu verilere bağlı denetimler alanları için doğrulama sağlayacak belirtir `Student` varlık. Sayfa çalıştırdığınızda, aşağıdaki örneğe benzer bir hata iletisi alırsanız, bu genellikle çağırmayı unuttunuz anlamına gelir `EnableDynamicData` yönteminde `Page_Init`:
+Bu kod, dinamik veri biçimlendirme ve bu verilere bağlı denetimler alanları için doğrulama sağlayacaktır belirtir `Student` varlık. Sayfa çalıştırdığınızda, aşağıdaki örneğe benzer bir hata iletisi alırsanız, bu genellikle çağrılacak Unutulan anlamına gelir `EnableDynamicData` yönteminde `Page_Init`:
 
 `Could not determine a MetaTable. A MetaTable could not be determined for the data source 'StudentsEntityDataSource' and one could not be inferred from the request URL.`
 
@@ -70,67 +69,67 @@ Sayfayı çalıştırın.
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-8/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image3.png)
 
-İçinde **kayıt tarihi** sütun, özellik türü olduğundan süresi tarihi ile birlikte görüntülenir `DateTime`. Daha sonra düzeltmesi.
+İçinde **kayıt tarihi** sütun, özellik türü olduğundan saati tarih ile birlikte görüntülenir `DateTime`. Daha sonra değiştireceğiz.
 
-Şu an için dinamik veri otomatik olarak temel veri doğrulama sağlar dikkat edin. Örneğin, **Düzenle**, tarih alanını temizleyin, tıklatın **güncelleştirme**, ve değeri veri modelinde boş değer atanabilir olmadığından dinamik veri otomatik olarak bu gerekli bir alan sağlar, bkz. Alan ve bir hata iletisi sonra yıldız sayfasını görüntüler `ValidationSummary` denetimi:
+Şimdilik, dinamik verileri otomatik olarak temel veri doğrulama sağlayan dikkat edin. Örneğin, **Düzenle**, tarih alanı temizleyin, tıklayın **güncelleştirme**, değeri veri modelinde null yapılabilir olmadığından dinamik verileri otomatik olarak bu gerekli bir alan aklınızdan görürsünüz. Alan ve bir hata iletisi sonra yıldız sayfası görüntüler `ValidationSummary` denetimi:
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-8/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image5.png)
 
-Atlayın `ValidationSummary` denetim fare işaretçisini hata iletisini görmek için yıldız tutabilir çünkü:
+Atlarsanız `ValidationSummary` denetim fare işaretçisi hata iletisini görmek için yıldız işareti tutabilen çünkü:
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-8/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image7.png)
 
-Dinamik veri de girilen verilerin doğrulama **kayıt tarihi** alandır geçerli bir tarih:
+Dinamik veri de girilen verilerin doğrulama **kayıt tarihi** geçerli bir tarih alanıdır:
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-8/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image9.png)
 
-Gördüğünüz gibi genel bir hata iletisi budur. Sonraki bölümde iletileri yanı sıra doğrulama ve biçimlendirme kuralları nasıl özelleştirileceği görürsünüz.
+Gördüğünüz gibi genel bir hata iletisi budur. Sonraki bölümde, doğrulama ve biçimlendirme kuralları yanı sıra iletileri özelleştirmek nasıl öğreneceksiniz.
 
-## <a name="adding-metadata-to-the-data-model"></a>Veri modeli için meta veri ekleme
+## <a name="adding-metadata-to-the-data-model"></a>Meta verileri veri modeline ekleme
 
-Genellikle, dinamik veri tarafından sağlanan işlevleri özelleştirmek istediğiniz. Örneğin, verilerin nasıl görüntüleneceğini ve hata iletileri içeriği değiştirebilirsiniz. Genellikle ayrıca dinamik veri sağladıkları'den daha fazla işlevsellik sağlamak için veri doğrulama kuralları otomatik olarak veri türlerine göre özelleştirin. Bunu yapmak için varlık türleri için karşılık gelen kısmi sınıflar oluşturun.
+Genellikle, dinamik veri tarafından sağlanan işlevselliği özelleştirmek istediğiniz. Örneğin, verilerin nasıl görüntüleneceğini ve hata iletileri içeriğini değişebilir. Genellikle de dinamik veri sağlanan korumanın değerinden daha fazla işlevsellik sağlamak için veri doğrulama kuralları otomatik olarak veri türlerine göre özelleştirin. Bunu yapmak için varlık türlerine karşılık gelen kısmi sınıflar oluşturun.
 
-İçinde **Çözüm Gezgini**, sağ **ContosoUniversity** proje, select **Başvuru Ekle**ve bir başvuru ekleyin `System.ComponentModel.DataAnnotations`.
+İçinde **Çözüm Gezgini**, sağ **ContosoUniversity** proje, select **Başvuru Ekle**, bir başvuru ekleyin `System.ComponentModel.DataAnnotations`.
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
 
-İçinde *DAL* klasörü, yeni bir sınıf dosyası oluşturun, adlandırın *Student.cs*ve şablon kodu aşağıdaki kodla değiştirin.
+İçinde *DAL* klasöründe yeni bir sınıf dosyası oluşturun, adlandırın *Student.cs*, şablonu kodu aşağıdaki kodla değiştirin.
 
 [!code-csharp[Main](the-entity-framework-and-aspnet-getting-started-part-8/samples/sample6.cs)]
 
-Bu kod için bir parçalı sınıf oluşturur `Student` varlık. `MetadataType` Bu sınıfa uygulanan öznitelik meta verileri belirtmek için kullandığınız sınıfı tanımlar. Meta veri sınıfının herhangi bir ad olabilir, ancak varlık adı artı "Meta veri" kullanarak yaygın bir uygulamadır.
+Bu kod için bir parçalı sınıf oluşturur `Student` varlık. `MetadataType` Bu kısmi sınıfa uygulanan öznitelik meta verileri belirtmek için kullanmakta olduğunuz sınıfı tanımlar. Meta veri sınıfının herhangi bir ad olabilir, ancak varlık adının yanı sıra "Metadata" kullanarak yaygın bir uygulamadır.
 
-Meta veri sınıfının özelliklerine uygulanan öznitelikleri biçimlendirme, doğrulama, kuralları ve hata iletileri belirtin. Burada gösterilen öznitelikleri aşağıdaki sonuçları olacaktır:
+Biçimlendirme, doğrulama, kuralları ve hata iletileri için meta veri sınıfının özelliklerinde uygulanan öznitelikleri belirtin. Burada gösterilen öznitelikler aşağıdaki sonuçları olacaktır:
 
-- `EnrollmentDate` Tarih (olmadan bir saat) olarak görüntüler.
-- Daha düşük bir değer uzunluğu ve bir özel hata iletisi sağlanan veya her iki ad alanlarını 25 karakter olmalıdır.
-- Her iki ad alanları gereklidir ve bir özel hata iletisi sağlanır.
+- `EnrollmentDate` bir tarih (olmadan, bir saat) olarak görüntülenir.
+- Küçük uzunluğu ve özel hata iletisi sağlanan veya her iki ad alanlarını 25 karakter olmalıdır.
+- Her iki ad alanları gereklidir ve bir özel hata iletisi sağlandı.
 
-Çalıştırma *Students.aspx* yeniden sayfasında ve tarihleri kez şimdi görüntülenen bakın:
+Çalıştırma *Students.aspx* yeniden sayfasında ve tarihleri, zamanları artık görüntülendiğini görürsünüz:
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-8/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image13.png)
 
-Bir satır düzenleyin ve ad alanlarının temizlemek deneyin. Tıklatmadan önce bir alanı bırakın hemen alan hataları belirten bir yıldız işareti görünür **güncelleştirme**. Tıkladığınızda **güncelleştirme**, belirttiğiniz hata iletisi metni sayfasını görüntüler.
+Bir satırı düzenleyin ve ad alanlarındaki değerleri temizlemek deneyin. Tıklatmadan önce bir alan bırakın hemen sonra alan hataları belirten yıldız görünür **güncelleştirme**. Tıkladığınızda **güncelleştirme**, sayfasında belirtilen hata iletisi metni görüntülenir.
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-8/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image15.png)
 
-25 karakterden daha uzun ad girmeyi deneyin, tıklatın **güncelleştirme**, ve belirttiğiniz hata iletisi metni sayfasını görüntüler.
+25 karakterden uzun adlara girmeyi deneyin, tıklayın **güncelleştirme**, ve sayfasında belirtilen hata iletisi metni görüntülenir.
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-8/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image17.png)
 
-Bu biçimlendirmeyi ve doğrulama kuralları veri modelinin meta verilerindeki kurdu, kullandığınız sürece otomatik olarak bu alanlara değişikliğe izin verdiğinden ya da görüntüleyen her sayfada uygulanacak kurallar `DynamicControl` veya `DynamicField` kontrol eder. Bu programlama ve sınamayı daha kolay hale getirir, yedekli kod yazmak zorunda miktarını azaltır ve veri biçimlendirmeyi ve doğrulama bir uygulama genelinde tutarlı olmasını sağlar.
+Bu biçimlendirme ve doğrulama kurallarını veri modelinin meta verilerindeki ayarladığınız, kullandığınız sürece kuralları otomatik olarak her sayfada görüntüler veya bu alanlara değişikliklere izin uygulanacak `DynamicControl` veya `DynamicField` kontrol eder. Bu programlama ve sınamayı daha kolay hale getirir, yazmanız gereken gereksiz kod miktarını azaltır ve veri biçimlendirme ve doğrulama bir uygulamanın tamamında tutarlı olmasını güvence altına alır.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-Bu öğretici Entity Framework ile çalışmaya başlama dizi sonlanır. Entity Framework kullanmayı öğrenmenize yardımcı olacak daha fazla kaynak için devam [sonraki Entity Framework öğretici serideki ilk öğreticide](../continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md) veya aşağıdaki siteleri ziyaret edin:
+Bu öğretici serisinde, Entity Framework ile çalışmaya başlama hakkında burada sona eriyor. Entity Framework kullanmayı öğrenmenize yardımcı olacak daha fazla kaynak için devam [sonraki Entity Framework öğretici serisinin ilk öğreticide](../continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md) veya aşağıdaki siteleri ziyaret edin:
 
 - [Entity Framework ile ilgili SSS](http://www.ef-faq.org/introduction.html)
 - [Entity Framework ekip blogu](https://blogs.msdn.com/b/adonet/)
-- [MSDN Kitaplığı'nda Entity Framework](https://msdn.microsoft.com/library/bb399572.aspx)
-- [Entity Framework MSDN veri Geliştirici Merkezi](https://msdn.microsoft.com/data/ef.aspx)
+- [MSDN Kitaplığı'nda varlık çerçevesi](https://msdn.microsoft.com/library/bb399572.aspx)
+- [Varlık çerçevesi veri MSDN Geliştirici Merkezi](https://msdn.microsoft.com/data/ef.aspx)
 - [MSDN Kitaplığı'nda EntityDataSource Web sunucusu denetimine genel bakış](https://msdn.microsoft.com/library/cc488502.aspx)
 - [EntityDataSource denetim MSDN Kitaplığı'nda API Başvurusu](https://msdn.microsoft.com/library/system.web.ui.webcontrols.entitydatasource.aspx)
-- [MSDN'de Entity Framework forumları](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
+- [Entity Framework MSDN Forumlarında](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Julie Lerman'ın blogu](http://thedatafarm.com/blog/)
 
 > [!div class="step-by-step"]

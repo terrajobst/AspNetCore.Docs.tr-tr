@@ -9,69 +9,68 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: e15f89ba98acef68279e51b278e3c7045569607a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "28038055"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373236"
 ---
-<a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 özniteliği yönlendirme
+<a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de öznitelik yönlendirme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-*Yönlendirme* bir eylem için bir URI Web API'sini nasıl eşleştirir. Web API 2 destekleyen yeni bir tür yönlendirme biri olarak adlandırılan *özniteliği yönlendirme*. Adından da anlaşılacağı gibi özniteliği yönlendirme rotaları tanımlamak için özniteliklerini kullanır. Öznitelik yönlendirme, web API URI'ler üzerinde daha fazla denetim sağlar. Örneğin, kaynak hiyerarşileri tanımlayan URI kolayca oluşturabilirsiniz.
+*Yönlendirme* Web API'sini bir eylem için bir URI nasıl eşleştirir. Web API 2 destekleyen yeni bir tür adı yönlendirme *öznitelik yönlendirme*. Adından da anlaşılacağı gibi öznitelik yönlendirme yollarını tanımlamak için öznitelikleri kullanır. Öznitelik yönlendirme, web API'nize bir URI'leri üzerinde daha fazla denetim sağlar. Örneğin, kaynak hiyerarşileri açıklayan bir URI'leri kolayca oluşturabilirsiniz.
 
-Kurala dayalı olarak adlandırılan yönlendirme, önceki stili yönlendirme, hala tam olarak desteklenmektedir. Aslında, her iki tekniği aynı projede de birleştirebilirsiniz.
+Adlı kural tabanlı yönlendirme, önceki stil yönlendirme, yine de tam olarak desteklenir. Aslında, aynı projede iki tekniği birleştirebilirsiniz.
 
-Bu konu, öznitelik yönlendirme etkinleştirme gösterir ve öznitelik yönlendirme çeşitli seçenekler açıklanmaktadır. Öznitelik yönlendirmesi kullanan bir uçtan uca öğretici için bkz [özniteliği yönlendirme Web API 2'deki bir REST API'si oluşturma](create-a-rest-api-with-attribute-routing.md).
+Bu konu, öznitelik yönlendirme etkinleştirme gösterir ve öznitelik yönlendirme için çeşitli seçenekler açıklanmaktadır. Öznitelik yönlendirme kullanan bir uçtan uca öğretici için bkz [Web API 2'de öznitelik yönlendirme ile REST API oluşturma](create-a-rest-api-with-attribute-routing.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional veya Enterprise Edition
 
-Alternatif olarak, gerekli paketleri yüklemek için NuGet paket yöneticisini kullanın. Gelen **Araçları** menü Visual Studio'da seçin **kitaplık Paket Yöneticisi**seçeneğini belirleyip **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsol penceresinde aşağıdaki komutu girin:
+Alternatif olarak, gerekli paketleri yüklemek için NuGet paket yöneticisini kullanın. Gelen **Araçları** Visual Studio'da seçim menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu girin:
 
 `Install-Package Microsoft.AspNet.WebApi.WebHost`
 
 <a id="why"></a>
 ## <a name="why-attribute-routing"></a>Neden yönlendirme özniteliği?
 
-Web API kullanılan ilk sürümünü *kurala dayalı* yönlendirme. Yönlendirme bu tür, temel daha fazla yol şablon dizeleri parametreli veya bir tanımlar. Çerçeve bir istek aldığında, rota şablonu karşı URI eşleşir. (Kurala dayalı yönlendirme hakkında daha fazla bilgi için bkz: [ASP.NET Web API'de yönlendirme](routing-in-aspnet-web-api.md).
+Web API kullanılan ilk sürümü *kural tabanlı* yönlendirme. Yönlendirme, bu tür bir tane tanımlayacaksınız veya temel olarak daha fazla rota şablonlarının dizeleri parametreli. Framework, bir istek aldığında, rota şablonu karşı URI ile eşleşir. (Kural tabanlı yönlendirme hakkında daha fazla bilgi için bkz. [ASP.NET Web API'de yönlendirme](routing-in-aspnet-web-api.md).
 
-Kurala dayalı yönlendirme bir avantajı, şablonları tek bir yerde tanımlanır ve yönlendirme kurallarını tüm denetleyicilerinde tutarlı bir şekilde uygulandığından olmasıdır. Ne yazık ki, kurala dayalı yönlendirme sabit RESTful API'leri ortak olan belirli URI desenleri desteklemesini sağlar. Örneğin, kaynak alt kaynakları genellikle içerir: müşterilerin sahip siparişleri, filmler sahip aktörler, books yazarlarının vardır ve benzeri. Bu ilişkileri yansıtacak URI oluşturmak için doğal şöyledir:
+Kural tabanlı yönlendirme bir avantajı, tek bir yerde tanımlanmış şablonları ve yönlendirme kurallarını tüm denetleyicileri arasında tutarlı bir şekilde uygulandığından olmasıdır. Ne yazık ki, kural tabanlı yönlendirme RESTful API'leri ortak olan belirli bir URI düzenleri desteği zorlaştırır. Genellikle alt kaynakları gibi kaynakları içeren: imajlarını siparişler, filmler aktörler sahip, books Yazar sahip ve VS. Bu ilişkileri yansıtan bir URI'leri oluşturmak için doğal bir:
 
 `/customers/1/orders`
 
-Bu tür bir URI, kurala dayalı yönlendirme kullanarak oluşturduğunuz zordur. Yapılabilir rağmen iyi birçok denetleyicileri veya kaynak türleri varsa sonuçları ölçeklendirmeyin.
+Bu tür bir URI, kural tabanlı yönlendirme kullanarak oluşturmak zordur. Bu yapılabilir olsa da, sonuçları da birçok denetleyicileri veya kaynak türleri varsa ölçeklendirilemediği.
 
-Öznitelik yönlendirme ile bir rota için bu URI tanımlamak için kısmı oldukça kolaydır. Yalnızca denetleyici eylemi bir özniteliği ekleyin:
+Öznitelik yönlendirme ile basit bir iş bir rota için bu URI tanımlar. Denetleyici eylemi için yalnızca bir özniteliği ekleyin:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample1.cs)]
 
-Burada, yönlendirme yapar kolay özniteliği bazı bir desenleri bulunmaktadır.
+Öznitelik yönlendirme yapar kolay bazı diğer desenleri aşağıda verilmiştir.
 
 **API sürümü oluşturma**
 
-Bu örnekte, "/ v1/api/ürünleri" olacaktır farklı bir denetleyici yönlendirilmiş "/ v2/api/ürünleri".
+Bu örnekte, "/ v1/API/ürünleri" olacaktır farklı bir denetleyicisine yönlendirilen "/ v2/API/ürünleri".
 
 `/api/v1/products`  
 `/api/v2/products`
 
-**Aşırı yüklenmiş URI parçaları**
+**Aşırı yüklenmiş URI segmentleri**
 
-Bu örnekte, "1" bir sıra numarasıdır, ancak "bekliyor" bir koleksiyona eşler.
+Bu örnekte, "1" sipariş numarası olduğu halde "bekliyor" bir koleksiyona eşler.
 
 `/orders/1`  
 `/orders/pending`
 
 **Birden çok parametre türleri**
 
-Bu örnekte, "1" bir sıra numarasıdır, ancak "06/2013/16" bir tarihi belirtir.
+Bu örnekte, "1" sipariş numarası olduğu halde "06/2013/16" bir tarihi belirtir.
 
 `/orders/1`  
 `/orders/2013/06/16`
@@ -79,39 +78,39 @@ Bu örnekte, "1" bir sıra numarasıdır, ancak "06/2013/16" bir tarihi belirtir
 <a id="enable"></a>
 ## <a name="enabling-attribute-routing"></a>Öznitelik yönlendirmeyi etkinleştirme
 
-Öznitelik yönlendirmeyi etkinleştirmek için arama **MapHttpAttributeRoutes** yapılandırma sırasında. Bu uzantı metodu tanımlanan **System.Web.Http.HttpConfigurationExtensions** sınıfı.
+Öznitelik yönlendirmeyi etkinleştirmek için çağrı **MapHttpAttributeRoutes** yapılandırma sırasında. Bu genişletme yöntemi tanımlanan **System.Web.Http.HttpConfigurationExtensions** sınıfı.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample2.cs)]
 
-İle öznitelik yönlendirme birleştirilebilir [kurala dayalı](routing-in-aspnet-web-api.md) yönlendirme. Kurala dayalı rotaları tanımlamak için arama **MapHttpRoute** yöntemi.
+İle öznitelik yönlendirme birleştirilebilir [kural tabanlı](routing-in-aspnet-web-api.md) yönlendirme. Kural tabanlı rotaları tanımlamak için çağrı **MapHttpRoute** yöntemi.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample3.cs)]
 
-Web API yapılandırma hakkında daha fazla bilgi için bkz: [yapılandırma ASP.NET Web API 2](../advanced/configuring-aspnet-web-api.md).
+Web API'sini yapılandırma hakkında daha fazla bilgi için bkz. [ASP.NET Web API 2 yapılandırma](../advanced/configuring-aspnet-web-api.md).
 
 <a id="config"></a>
 ### <a name="note-migrating-from-web-api-1"></a>Not: Web API 1 ' geçiş
 
-Web API 2 önce Web API projesi şablonları aşağıdakine benzer bir kod oluşturulur:
+Web API 2 önce Web API proje şablonları aşağıdakine benzer bir kod oluşturuldu:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample4.cs)]
 
-Öznitelik yönlendirme etkinse, bu kod bir özel durum oluşturur. Öznitelik yönlendirmeyi kullanmak için mevcut bir Web API projesini yükseltirseniz, bu yapılandırma kodunu aşağıdaki güncelleştirdiğinizden emin olun:
+Bu kod, öznitelik yönlendirme etkinse, bir özel durum oluşturur. Öznitelik yönlendirmeyi kullanmak için mevcut bir Web API projesini yükseltirseniz, bu yapılandırma kodu aşağıdakine güncelleştirmeyi unutmayın:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample5.cs?highlight=4)]
 
 > [!NOTE]
-> Daha fazla bilgi için bkz: [ASP.NET barındırma ile Web API yapılandırma](../advanced/configuring-aspnet-web-api.md#webhost).
+> Daha fazla bilgi için [barındırma ASP.NET ile Web API'sini yapılandırma](../advanced/configuring-aspnet-web-api.md#webhost).
 
 
 <a id="add-routes"></a>
-## <a name="adding-route-attributes"></a>Rota öznitelikleri ekleme
+## <a name="adding-route-attributes"></a>Rota özniteliklerini ekleme
 
-Bir öznitelik kullanılarak tanımlanmış bir yol bir örneği burada verilmiştir:
+Bir rotanın bir özniteliği kullanılarak tanımlanan bir örnek aşağıda verilmiştir:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample6.cs)]
 
-Dize &quot;müşteriler / {CustomerID} / siparişleri&quot; rota için URI şablonudur. Web API, istek URI'si şablon eşleştirmeyi dener. Bu örnekte, "müşteriler" ve "Siparişler" değişmez değer kesimleri olan ve "{CustomerID}" değişken bir parametredir. Bu şablon aşağıdaki URI'ler eşleşir:
+Dize &quot;müşteriler / {CustomerID} / orders&quot; rota için URI şablonudur. Web API'si, ' % s'istek URI'SİNDEN şablon eşleştirmeyi dener. Bu örnekte, "Müşteri" ve "Siparişler" değişmez değer segmentler ve "{CustomerID}" bir değişken bir parametredir. Bu şablon aşağıdaki bir URI'leri eşleşir:
 
 - `http://localhost/customers/1/orders`
 - `http://localhost/customers/bob/orders`
@@ -119,19 +118,19 @@ Dize &quot;müşteriler / {CustomerID} / siparişleri&quot; rota için URI şabl
 
 Kullanarak eşleşen kısıtlayabilirsiniz [kısıtlamaları](#constraints), bu konunun ilerleyen bölümlerinde açıklanmıştır.
 
-Dikkat &quot;{CustomerID}&quot; rota şablonu parametresinde eşleşen adını *CustomerID* yöntemi parametresi. Web API denetleyici eylemi çalıştırdığında, rota parametrelerinin bağlamaya çalışır. Örneğin, URI ise `http://example.com/customers/1/orders`, "1" değeri bağlamak Web API dener *CustomerID* eylem parametresi.
+Dikkat &quot;{CustomerID}&quot; rota şablonu parametre adı ile eşleşen *CustomerID* yöntem parametresi. Web API denetleyici eylemini çalıştırdığında, rota parametrelerine bağlamak çalışır. Örneğin, URI ise `http://example.com/customers/1/orders`, Web API'sini çalışır değerini "1" bağlamak *CustomerID* eylem parametresi.
 
-Bir URI şablonunu birkaç parametre sahip olabilir:
+Bir URI şablonu, birkaç parametre sahip olabilir:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample7.cs)]
 
-Bir rota özniteliğine sahip olmayan herhangi bir denetleyici yöntemin kurala dayalı yönlendirme kullanın. Bu şekilde, her iki tür aynı projede yönlendirme birleştirebilirsiniz.
+Kural tabanlı yönlendirme, yol özniteliğine sahip olmayan herhangi bir denetleyici yöntemin kullanın. Böylece, her iki tür aynı projede yönlendirme birleştirebilirsiniz.
 
 ## <a name="http-methods"></a>HTTP yöntemleri
 
-Web API (GET, POST, vb.) İstek HTTP yöntemine dayalı eylemleri de seçer. Varsayılan olarak, Web API denetleyicisi yöntem adı başlangıcı küçük harf olarak eşleşen arar. Örneğin, adlandırılmış bir denetleyici yöntemi `PutCustomers` bir HTTP PUT İsteği eşleşir.
+Web API'si işlemleri (GET, POST, vb.) isteğin HTTP yöntemine dayalı seçilmesini sağlar. Varsayılan olarak, Web API denetleyicisi yöntem adı başlangıcını harf olarak eşleşen arar. Örneğin, adında bir denetleyici yöntemi `PutCustomers` eşleşen bir HTTP PUT İsteği.
 
-Aşağıdaki öznitelikler herhangi bir yöntemle tasarlayarak bu kuralı kılabilirsiniz:
+Aşağıdaki özniteliklerden herhangi bir yöntemle tasarlayarak bu kuralı kılabilirsiniz:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -141,139 +140,139 @@ Aşağıdaki öznitelikler herhangi bir yöntemle tasarlayarak bu kuralı kılab
 - **[HttpPost]**
 - **[HttpPut]**
 
-Aşağıdaki örnek CreateBook yöntemini HTTP POST isteklerini eşler.
+Aşağıdaki örnek, HTTP POST istekleri CreateBook yöntemi eşleştirir.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample8.cs)]
 
-Standart olmayan yöntemleri de dahil olmak üzere tüm diğer HTTP yöntemleri kullanmak için **AcceptVerbs** özniteliği HTTP yöntemlerinin listesini alır.
+Standart olmayan yöntemler de dahil olmak üzere tüm diğer HTTP yöntemleri kullanmak için **AcceptVerbs** özniteliği HTTP yöntemlerinin listesini alır.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample9.cs)]
 
 <a id="prefixes"></a>
-## <a name="route-prefixes"></a>Rota önekleri
+## <a name="route-prefixes"></a>Yol ön ekleri
 
-Genellikle, yollar tüm aynı önekiyle başlayan bir denetleyici. Örneğin:
+Genellikle, tümü aynı önekiyle başlayan bir denetleyici yolları. Örneğin:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample10.cs)]
 
-Tüm bir denetleyici için ortak bir önek kullanarak ayarlayabilirsiniz **[routeprefix öğesi]** özniteliği:
+Tüm bir denetleyici için ortak bir öneki kullanarak ayarlayabilirsiniz **[routeprefix öğesi]** özniteliği:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample11.cs)]
 
-Bir tilde (~) yöntemi öznitelikte rota öneki geçersiz kılmak için kullanın:
+Bir tilde (~) üzerinde method özniteliği rota öneki geçersiz kılmak için kullanın:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample12.cs)]
 
-Rota öneki parametreleri içerebilir:
+Rota öneki parametreleri şunları içerebilir:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample13.cs)]
 
 <a id="constraints"></a>
 ## <a name="route-constraints"></a>Rota kısıtlamaları
 
-Rota kısıtlamalarını, rota şablonu parametrelerinde nasıl eşleştirilir kısıtlamanıza olanak sağlar. Genel sözdizimi &quot;{parametresi: kısıtlaması}&quot;. Örneğin:
+Rota kısıtlamalarını nasıl yol şablonunda parametreler olarak eşleştirilir kısıtlamanıza olanak tanır. Genel söz dizimi &quot;{parametresi: kısıtlaması}&quot;. Örneğin:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample14.cs)]
 
-Burada, ilk yol yalnızca durumunda seçilecektir &quot;kimliği&quot; URI parçası olan bir tamsayı. Aksi takdirde, ikinci yol seçilir.
+Burada, ilk yolun yalnızca, seçili olur &quot;kimliği&quot; URI parçası olan bir tamsayı. Aksi takdirde, ikinci rota seçilir.
 
-Aşağıdaki tabloda, desteklenen kısıtlamaları listeler.
+Aşağıdaki tablo desteklenen kısıtlamaları listeler.
 
 | Kısıtlama | Açıklama | Örnek |
 | --- | --- | --- |
-| Alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {x: alfa} |
-| bool | Bir Boole değeri ile eşleşir. | {x: bool} |
+| alfa | Eşleşme büyük veya küçük harf Latin alfabesi karakterler (a-z, A-Z) | {alpha: x} |
+| bool | Bir Boolean değeri eşler. | {x: bool} |
 | datetime | Eşleşen bir **DateTime** değeri. | {x:datetime} |
-| decimal | Ondalık bir değeri ile eşleşir. | {x:decimal} |
-| çift | 64-bit kayan nokta değeri eşleşir. | {x:double} |
-| float | 32 bit kayan nokta değeri eşleşir. | {x: float} |
-| GUID | GUID değeri eşleşir. | {x: GUID} |
-| int | 32 bit tamsayı değeri eşleşir. | {x:int} |
-| length | Belirtilen uzunluğa sahip veya uzunlukları belirtilen aralığı içinde bir dizeyle eşleşir. | {x: length(6)} {x: length(1,20)} |
-| long | 64 bit tamsayı değeri eşleşir. | {x: uzun} |
-| max | Tamsayı bir maksimum değer ile eşleşir. | {x:max(10)} |
+| decimal | Ondalık bir değeri eşler. | {x:decimal} |
+| çift | Bir 64-bit kayan nokta değeri eşler. | {x:double} |
+| float | Bir 32-bit kayan nokta değeri eşler. | x: kayan {} |
+| GUID | Bir GUID değeri eşler. | {x: GUID} |
+| int | Bir 32-bit tamsayı değeri eşler. | {x:int} |
+| length | Belirtilen uzunlukta veya uzunluklarının belirtilen bir aralık içindeki bir dizeyle eşleşir. | {x: length(6)} {x: length(1,20)} |
+| long | Bir 64-bit tamsayı değeri eşler. | {x: uzun} |
+| max | Bir tamsayı en yüksek bir değerle eşleşir. | {x:max(10)} |
 | MaxLength | En fazla bir dizeyle eşleşir. | {x:maxlength(10)} |
-| min | Tamsayı en az bir değerle eşleşir. | {x: min(10)} |
+| min | Bir tamsayı en az bir değerle eşleşir. | {x: min(10)} |
 | MinLength | Minimum uzunluk bir dizeyle eşleşir. | {x: minlength(10)} |
 | aralık | Tamsayı değerleri aralığı içinde eşleşir. | {x: range(10,50)} |
-| Regex | Normal ifadeyle eşleşir. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| Normal ifade | Normal bir ifadeyle eşleşiyor. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
-Bildirimi, bazı kısıtlamaları gibi &quot;min&quot;, bağımsız değişkenleri parantez içine alır. Virgülle ayrılmış bir parametre birden çok kısıtlama uygulayabilirsiniz.
+Bildirimi, bazı kısıtlamaları gibi &quot;min&quot;, parantez içine bağımsız değişken almaz. Virgül ile ayrılmış bir parametre, birden çok kısıtlaması uygulayabilirsiniz.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample15.cs)]
 
 ### <a name="custom-route-constraints"></a>Özel rota kısıtlamaları
 
-Özel rota kısıtlamaları uygulayarak oluşturabileceğiniz **IHttpRouteConstraint** arabirimi. Örneğin, aşağıdaki kısıtlama parametre sıfır tamsayı değerine kısıtlar.
+Özel rota kısıtlamalarını uygulayarak oluşturabilirsiniz **IHttpRouteConstraint** arabirimi. Örneğin, aşağıdaki kısıtlaması bir parametre sıfır olmayan bir tamsayı değerine kısıtlar.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample16.cs)]
 
-Aşağıdaki kod kısıtlaması nasıl gösterir:
+Aşağıdaki kod, kısıtlama kaydettirmek gösterilmektedir:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample17.cs)]
 
-Şimdi yollarınızı kısıtlaması uygulayabilirsiniz:
+Artık yollarınızı kısıtlaması uygulayabilirsiniz:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample18.cs)]
 
-Ayrıca tüm değiştirin **DefaultInlineConstraintResolver** uygulayarak sınıfı **IInlineConstraintResolver** arabirimi. Bunun yapılması yerini alacak tüm yerleşik kısıtlamalar sürece uygulamanıza **IInlineConstraintResolver** özellikle bunları ekler.
+Ayrıca tüm değiştirebilirsiniz **DefaultInlineConstraintResolver** uygulayarak sınıfı **IInlineConstraintResolver** arabirimi. Bunun yapılması yerini alacak tüm yerleşik kısıtlamalar sürece uygulamanıza **IInlineConstraintResolver** özellikle ekler.
 
 <a id="optional"></a>
 ## <a name="optional-uri-parameters-and-default-values"></a>İsteğe bağlı URI parametreleri ve varsayılan değerler
 
-Bir URI parametre isteğe bağlı bir soru işareti rota parametresini ekleyerek yapabilirsiniz. Bir rota parametresini isteğe bağlı ise, yöntem parametresi için varsayılan bir değer tanımlamanız gerekir.
+Bir soru işareti için bir rota parametresini ekleyerek bir URI parametresinin isteğe bağlı yapabilirsiniz. Bir rota parametresini isteğe bağlı ise, yöntem parametresi için varsayılan bir değer tanımlamanız gerekir.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample19.cs)]
 
 Bu örnekte, `/api/books/locale/1033` ve `/api/books/locale` aynı kaynak döndürür.
 
-Alternatif olarak, varsayılan değer rota şablonu içinde aşağıdaki gibi belirtebilirsiniz:
+Alternatif olarak, rota şablonu içinde bir varsayılan değer şu şekilde belirtebilirsiniz:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample20.cs)]
 
-Bu neredeyse önceki örnekle aynıdır, ancak varsayılan değer uygulandığında küçük bir fark davranış olduğu.
+Bu hemen önceki örnekle aynıdır, ancak varsayılan değer uygulandığında izinlerde davranış olduğu.
 
-- Parametresi bu tam değerine sahip şekilde ilk örnekte ("{LCID?}") 1033 varsayılan değerini doğrudan yöntem parametresi için atanır.
-- İkinci örnekte ("{LCID 1033 =}"), "1033" varsayılan değerini model bağlama süreci devam ettiği. Varsayılan model bağlayıcısını "1033" 1033 sayısal değerine dönüştürür. Ancak, farklı bir şey yapabilecek özel model bağlayıcı içinde takın.
+- Parametresi bu değere sahiptir; bu nedenle ilk örnekte ("{LCID?}"), doğrudan yöntem parametresi için 1033 varsayılan değeri atanır.
+- İkinci örnekte ("{lcid = 1033}"), "1033" varsayılan değeri model bağlama işlemi boyunca geçer. Varsayılan model bağlayıcısını "1033" 1033 sayısal değerine dönüştürür. Ancak, farklı bir şey yapabilir ve özel bir model bağlayıcı eklenebilecek.
 
-(Özel model bağlayıcıları, ardışık düzeninde yoksa çoğu durumda, iki biçim eşdeğer olacaktır.)
+(Özel model bağlayıcıları, işlem hattınızda olmadığı sürece çoğu durumda, iki eşdeğer olacaktır.)
 
 <a id="route-names"></a>
-## <a name="route-names"></a>Yol adları
+## <a name="route-names"></a>Rota adları
 
-Web API'de her rotanın bir adı vardır. Böylece bir HTTP yanıt olarak bir bağlantı ekleyebilirsiniz rota adları bağlantıları oluşturmak için faydalıdır.
+Web API'de her yol bir adı vardır. Bir HTTP yanıtında bir bağlantı ekleyebilirsiniz, böylece rota adları, bağlantı oluşturmak için kullanışlıdır.
 
-Rota adını belirtmek için ayarlayın **adı** öznitelik özelliği. Aşağıdaki örnek, rota adı ayarlama ve ayrıca bağlantı oluştururken rota adı kullanmayı gösterir.
+Rota adını belirtmek için ayarlayın **adı** öznitelik özelliği. Aşağıdaki örnek nasıl ayarlanacağı rota adı ve rota adını, bağlantı oluşturulurken kullanılacak nasıl gösterir.
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample21.cs)]
 
 <a id="order"></a>
 ## <a name="route-order"></a>Rota sırası
 
-URI'sı bir yol ile eşleşecek şekilde framework çalıştığında, belirli bir sırada yollar değerlendirir. Sıra belirtmek üzere ayarlayın **RouteOrder** rota özniteliğinin özelliği. Düşük değerler önce değerlendirilir. Varsayılan sıra değeri sıfır olur.
+Framework bir URI bir rotayla eşleşen çalıştığında, belirli bir sırada yolları değerlendirir. Sıra belirtmek için ayarlanmış **RouteOrder** rota özniteliğinin özelliği. Düşük değerler, ilk olarak değerlendirilir. Varsayılan sıra değeri sıfırdır.
 
-İşte toplam sıralama nasıl belirlenir:
+Toplam sıralama nasıl belirlendiğini aşağıda verilmiştir:
 
-1. Karşılaştırma **RouteOrder** rota özniteliğinin özelliği.
-2. Rota şablonu her URI kesimdeki bakın. Her segment için aşağıdaki gibi sipariş: 
+1. Karşılaştırma **RouteOrder** rota özniteliğinin bir özelliğidir.
+2. Rota şablonu içinde her bir URI segmenti bakın. Her bir kesim için şu şekilde sıralayın: 
 
     1. Değişmez değer kesimi.
-    2. Rota parametrelerine kısıtlamalarına sahip.
-    3. Rota parametrelerine kısıtlamaları olmadan.
+    2. Rota parametrelerinin kısıtlamaları.
+    3. Rota parametrelerinin kısıtlamaları olmadan.
     4. Joker karakter parametresi kesimleri kısıtlamalarına sahip.
     5. Joker karakter parametresi kesimleri kısıtlamaları olmadan.
-3. Bağ durumunda yollar büyük küçük harf duyarsız sıralı dize karşılaştırma tarafından sıralanır ([Ordinalıgnorecase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) rota şablonu.
+3. Bağ olması durumunda, yolların bir büyük küçük harf duyarsız sıralı dize karşılaştırmasına göre sıralanır ([Ordinalıgnorecase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) rota şablonu.
 
-Aşağıda bir örnek vardır. Aşağıdaki denetleyicisiyle tanımladığınız varsayın:
+Aşağıda bir örnek vardır. Aşağıdaki denetleyicisi tanımladığınız varsayalım:
 
 [!code-csharp[Main](attribute-routing-in-web-api-2/samples/sample22.cs)]
 
 Bu yolları şu şekilde sıralanır.
 
 1. Sipariş/Ayrıntıları
-2. siparişleri / {id}
-3. siparişleri / {customerName}
-4. siparişleri / {\*tarih}
-5. siparişleri / beklemede
+2. Siparişler / {id}
+3. Siparişler / {customerName}
+4. Siparişler / {\*tarih}
+5. Siparişler / beklemede
 
-"Ayrıntılar" değişmez değer kesimi ise ve "{id}" önce görünür ancak "bekliyor" son görünür, çünkü bildirimi **RouteOrder** 1 bir özelliktir. (Bu örnekte "Ayrıntılar" adlı hiçbir müşterinin var. varsayılır veya "bekliyor". Belirsiz yollar önlemek genel olarak, deneyin. Bu örnekte, daha iyi bir yol şablonu için `GetByCustomer` olan "müşteriler / {customerName}")
+"Details" bir değişmez değer kesimi ve önce "{id}" görünür ancak "bekliyor" son görünür, çünkü bildirimi **RouteOrder** özelliği 1'dir. (Bu örnekte "details" adlı hiçbir müşterinin var. varsayılır veya "bekliyor". Genel olarak, belirsiz yollar kaçınmaya çalışın. Bu örnekte, daha iyi bir rota şablonu için `GetByCustomer` olan "müşteriler / {customerName}")

@@ -1,41 +1,40 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
-title: Bir .NET İstemci'den (C#) bir OData hizmeti çağırma | Microsoft Docs
+title: Bir .NET istemcisinden (C#) bir OData hizmeti çağırma | Microsoft Docs
 author: MikeWasson
-description: Bu öğretici, C# istemci uygulamasından OData hizmetine çağrı gösterilmektedir. Eğitmen Visual Studio 2013 (Visual S. çalışır.. kullanılan yazılım sürümleri
+description: Bu öğretici, C# istemci uygulamasından bir OData hizmeti çağırma işlemi gösterilmektedir. Öğretici Visual Studio 2013 (çalışır Visual s... kullanılan yazılım sürümleri
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
 ms.topic: article
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 497102cfa98680f2156a56ff9e36d84b7c820020
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: d987e7fbe737055b3e2b690ef3e8de5ca7e2b937
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "28042400"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369789"
 ---
-<a name="calling-an-odata-service-from-a-net-client-c"></a>Bir OData hizmeti çağrılırken bir .NET İstemci'den (C#)
+<a name="calling-an-odata-service-from-a-net-client-c"></a>Bir OData hizmeti çağırmak bir .NET istemcisinden (C#)
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
-> Bu öğretici, C# istemci uygulamasından OData hizmetine çağrı gösterilmektedir.
+> Bu öğretici, C# istemci uygulamasından bir OData hizmeti çağırma işlemi gösterilmektedir.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 ile çalışır)
+> - [Visual Studio 2013'ün](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 ile çalışır)
 > - [WCF Veri Hizmetleri İstemci Kitaplığı](https://msdn.microsoft.com/library/cc668772.aspx)
-> - Web API 2. (OData hizmeti örnek Web API 2 kullanılarak oluşturulur, ancak istemci uygulamasının Web API bağlı değildir.)
+> - Web API 2. (OData hizmeti örnek Web API 2 kullanılarak derlendi ancak istemci uygulaması Web API'ye bağlı değildir.)
 
 
-Bu öğreticide, ı OData hizmetine çağıran bir istemci uygulaması oluşturmada size yol. OData hizmeti aşağıdaki varlıklar sunar:
+Bu öğreticide, ben bir OData hizmetine çağrı yapan bir istemci uygulaması oluşturmada size yardımcı olacağız. Aşağıdaki varlıkların OData hizmeti sunar:
 
 - `Product`
 - `Supplier`
@@ -43,7 +42,7 @@ Bu öğreticide, ı OData hizmetine çağıran bir istemci uygulaması oluşturm
 
 ![](calling-an-odata-service-from-a-net-client/_static/image1.png)
 
-Aşağıdaki makaleler Web API'de OData hizmeti uygulama açıklar. (Bu öğretici, ancak anlamak için bunları okuyun gerekmez.)
+Aşağıdaki makaleler, Web API OData hizmeti uygulamak açıklanmaktadır. (Bu öğreticide, ancak anlamak için bunları okumak gerekmez.)
 
 - [Web API 2 OData uç noktası oluşturma](creating-an-odata-endpoint.md)
 - [Web API 2 OData varlık ilişkileri](working-with-entity-relations.md)
@@ -51,16 +50,16 @@ Aşağıdaki makaleler Web API'de OData hizmeti uygulama açıklar. (Bu öğreti
 
 ## <a name="generate-the-service-proxy"></a>Hizmet proxy'si oluştur
 
-İlk adım, bir hizmeti proxy'si oluşturmaktır. Hizmet proxy'si OData hizmetine erişmek için yöntemler tanımlayan bir .NET sınıfıdır. Proxy HTTP istek yöntemi çağrılarını çevirir.
+İlk adım, bir hizmeti proxy'si oluşturmaktır. Hizmet proxy'si OData hizmetine erişim yöntemleri tanımlayan bir .NET sınıfıdır. Ara sunucu HTTP isteklerinin yöntemi çağrılarını çevirir.
 
 ![](calling-an-odata-service-from-a-net-client/_static/image2.png)
 
-Visual Studio'da OData hizmeti projesi açarak başlayın. IIS Express'te hizmeti yerel olarak çalıştırmak için CTRL + F5 tuşuna basın. Visual Studio atar bağlantı noktası numarasını da dahil olmak üzere yerel adres unutmayın. Proxy oluşturduğunuzda bu adresi gerekir.
+OData hizmet proje Visual Studio'da açarak işleme başlayın. IIS Express'te URL'i hizmeti yerel olarak çalıştırmak için CTRL + F5 tuşlarına basın. Visual Studio atadığı bağlantı noktası numarasını da dahil olmak üzere, yerel adres unutmayın. Proxy oluşturduğunuzda bu adresi gerekir.
 
-Ardından, Visual Studio başka bir örneği açın ve konsol uygulama projesi oluşturun. Konsol uygulaması OData istemci uygulamamız olacaktır. (Ayrıca projenin hizmet olarak aynı çözüme ekleyebileceğiniz.)
+Ardından, Visual Studio'nun başka bir örneğini açın ve bir konsol uygulama projesi oluşturun. Konsol uygulaması OData istemci uygulamamız olacaktır. (, Ayrıca projeyi hizmet olarak aynı çözüme ekleyebilirsiniz.)
 
 > [!NOTE]
-> Geri kalan adımları konsol projesi bakın.
+> Konsol projesi kalan adımlara bakın.
 
 
 Çözüm Gezgini'nde sağ **başvuruları** seçip **hizmet Başvurusu Ekle**.
@@ -75,59 +74,59 @@ Burada *bağlantı noktası* bağlantı noktası numarasıdır.
 
 [![](calling-an-odata-service-from-a-net-client/_static/image5.png)](calling-an-odata-service-from-a-net-client/_static/image4.png)
 
-İçin **Namespace**, "ProductService" yazın. Bu seçenek proxy sınıfının ad alanını tanımlar.
+İçin **Namespace**, "ProductService" yazın. Bu seçenek, ad alanı proxy sınıfını tanımlar.
 
-tıklatın **Git**. Visual Studio hizmet varlıkları bulmak için OData meta veri belgesini okur.
+Tıklayın **Git**. Visual Studio service varlıklarda bulmak için OData meta veri belgesini okur.
 
 [![](calling-an-odata-service-from-a-net-client/_static/image7.png)](calling-an-odata-service-from-a-net-client/_static/image6.png)
 
-Tıklatın **Tamam** proxy sınıfı projenize eklemek için.
+Tıklayın **Tamam** proxy sınıfı projenize eklenecek.
 
 ![](calling-an-odata-service-from-a-net-client/_static/image8.png)
 
-## <a name="create-an-instance-of-the-service-proxy-class"></a>Hizmeti Proxy sınıfı örneği oluşturun
+## <a name="create-an-instance-of-the-service-proxy-class"></a>Hizmeti Proxy sınıfı bir örneğini oluşturun
 
-İçinde `Main` yöntemi, proxy sınıfının yeni bir örneğini gibi oluşturun:
+İçinde `Main` yöntemi, proxy sınıfının yeni bir örneğini şu şekilde oluşturun:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample2.cs)]
 
-Yeniden hizmetinizi çalıştığı gerçek bağlantı noktası numarasını kullanın. Hizmetinizi dağıttığınızda, Canlı hizmet URI'sini kullanır. Proxy güncelleştirme gerek yoktur.
+Hizmet uygulamanızın nerede çalıştığına yeniden gerçek bağlantı noktası numarasını kullanın. Hizmetinizi dağıttığınızda, Canlı hizmeti URI'si kullanır. Proxy güncelleştirmek gerekmez.
 
-Aşağıdaki kod, istek URI konsol penceresine yazdırır bir olay işleyicisi ekler. Bu adım gerekli değildir, ancak her sorgu için URI görmek ilginç olacaktır.
+Aşağıdaki kod, istek URI konsol penceresine yazdırır bir olay işleyicisi ekler. Bu adım gerekli değildir, ancak her sorgu için bir URI'leri görmek ilginç.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample3.cs)]
 
 ## <a name="query-the-service"></a>Hizmet sorgulama
 
-Aşağıdaki kod OData hizmetinden ürünlerin listesini alır.
+Aşağıdaki kod, OData hizmeti ürünlerin listesini alır.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample4.cs)]
 
-HTTP isteği göndermek veya yanıtı ayrıştırılamadı için herhangi bir kodun yazılması gerekmez dikkat edin. Ne zaman, listeleme proxy sınıfı bu otomatik olarak mu `Container.Products` koleksiyonunda **foreach** döngü.
+HTTP isteği göndermek veya yanıtları ayrıştırmak için herhangi bir kod yazmanız gerekmez dikkat edin. Numaralandırma, proxy sınıfı bu otomatik olarak yapar `Container.Products` koleksiyonda **foreach** döngü.
 
 Uygulamayı çalıştırdığınızda, çıktı aşağıdaki gibi görünmelidir:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample5.cmd)]
 
-Bir varlığı Kimliğe göre almak için bir `where` yan tümcesi.
+Kimliğe göre varlık almak için kullanmak bir `where` yan tümcesi.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample6.cs)]
 
-Bu konunun geri kalanı için t tüm göstermeyecektir `Main` işlev, hizmeti çağırmak için gerekli olan kodu.
+Bu konunun geri kalanı için ı tamamını gösterilmez `Main` işlev, yalnızca hizmeti çağırmak için gereken kodu.
 
-## <a name="apply-query-options"></a>Sorgu Seçenekleri Uygula
+## <a name="apply-query-options"></a>Geçerli sorgu seçenekleri
 
-OData tanımlar [sorgu seçenekleri](../supporting-odata-query-options.md) kullanılabilecek filtre, sıralama, sayfa verilerine ve benzeri. Hizmet proxy'si çeşitli LINQ ifadeleri kullanarak bu seçenekleri uygulayabilirsiniz.
+OData tanımlar [sorgu seçenekleri](../supporting-odata-query-options.md) kullanılabilen filtre, sıralama, sayfa verileri ve benzeri. Hizmet ara sunucu, çeşitli LINQ ifadelerini kullanarak bu seçenekleri uygulayabilirsiniz.
 
-Bu bölümde, ı kısa örnekler göstereceğiz. Daha fazla ayrıntı için Ek Yardım konusuna [LINQ konuları (WCF Veri Hizmetleri)](https://msdn.microsoft.com/library/ee622463.aspx) MSDN'de.
+Bu bölümde, ı kısa örnekler göstereceğiz. Daha fazla bilgi için Ek Yardım konusuna [LINQ konuları (WCF Data Services)](https://msdn.microsoft.com/library/ee622463.aspx) MSDN'de.
 
 ### <a name="filtering-filter"></a>Filtreleme ($filter)
 
-Filtrelemek için kullanmak bir `where` yan tümcesi. Aşağıdaki örnek filtreleri ürün kategorisine göre.
+Filtre uygulamak için kullanmak bir `where` yan tümcesi. Aşağıdaki örnek filtreler ürün kategorisine göre.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample7.cs)]
 
-Bu kod, aşağıdaki OData sorgu karşılık gelir.
+Bu kod, aşağıdaki OData sorgu için karşılık gelir.
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample8.cmd)]
 
@@ -135,65 +134,65 @@ Proxy dönüştürür bildirimi `where` yan tümcesine bir OData `$filter` ifade
 
 ### <a name="sorting-orderby"></a>Sıralama ($orderby)
 
-Sıralamak için kullanmak bir `orderby` yan tümcesi. Aşağıdaki örnek yüksekten en düşüğe fiyat göre sıralar.
+Sıralamak için kullanmak bir `orderby` yan tümcesi. Aşağıdaki örnek, yüksekten en düşüğe fiyata göre sıralar.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample9.cs)]
 
-Burada, karşılık gelen OData isteği verilmiştir.
+Karşılık gelen OData isteği aşağıda verilmiştir.
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample10.cmd)]
 
-### <a name="client-side-paging-skip-and-top"></a>İstemci-tarafı disk belleği ($skip ve $top)
+### <a name="client-side-paging-skip-and-top"></a>İstemci tarafı sayfalama ($skip ve $top)
 
-Büyük varlık kümeleri için istemci sonuç sayısını sınırlamak isteyebilirsiniz. Örneğin, bir istemci bir kerede 10 girişleri gösterebilir. Bu adlı *istemci-tarafı disk belleği*. (Ayrıca [sunucu tarafı disk belleği](../supporting-odata-query-options.md#server-paging), burada sunucu sonuçları sayısını sınırlar.) İstemci-tarafı disk belleği gerçekleştirmek için LINQ kullanın **atla** ve **ele** yöntemleri. Aşağıdaki örnek ilk 40 sonuçları atlar ve sonraki 10 alır.
+Büyük varlık kümeleri için istemci sonuçları sayısını sınırlamak isteyebilirsiniz. Örneğin, bir istemci aynı anda 10 girişleri gösterebilir. Bu adlandırılır *istemci-tarafı sayfalama*. (Ayrıca [sunucu tarafı sayfalama](../supporting-odata-query-options.md#server-paging), burada sunucu sonuçları sayısını sınırlar.) İstemci tarafı sayfalama gerçekleştirmek için LINQ kullanma **atla** ve **ele** yöntemleri. Aşağıdaki örnek, ilk 40 sonuçları atlar ve sonraki 10 alır.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample11.cs)]
 
-Karşılık gelen OData isteği şöyledir:
+Karşılık gelen OData isteği şu şekildedir:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample12.cmd)]
 
-### <a name="select-select-and-expand-expand"></a>($Select) seçin ve genişletin ($expand)
+### <a name="select-select-and-expand-expand"></a>($Select) seçme ve genişletme ($expand)
 
-İlgili varlık eklemek için kullanın `DataServiceQuery<t>.Expand` yöntemi. Örneğin, dahil etmek için `Supplier` her `Product`:
+İlişkili varlıkları içermesi için kullanın `DataServiceQuery<t>.Expand` yöntemi. Örneğin, dahil etmek için `Supplier` her `Product`:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample13.cs)]
 
-Karşılık gelen OData isteği şöyledir:
+Karşılık gelen OData isteği şu şekildedir:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample14.cmd)]
 
-Yanıt şeklini değiştirmek için LINQ kullanın **seçin** yan tümcesi. Aşağıdaki örnekte, yalnızca başka hiçbir özellik ile her ürünün adını alır.
+Yanıtın şeklini değiştirmek için LINQ kullanma **seçin** yan tümcesi. Aşağıdaki örnek, yalnızca başka hiçbir özellik ile her ürün adını alır.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample15.cs)]
 
-Karşılık gelen OData isteği şöyledir:
+Karşılık gelen OData isteği şu şekildedir:
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample16.cmd)]
 
-Select yan tümcesi ilgili varlık içerebilir. Bu durumda, çağırmayın **genişletme**; bu durumda, otomatik olarak içeren genişletme proxy. Aşağıdaki örnekte, her ürünün sağlayıcısına ve adını alır.
+Bir select yan tümcesi, ilgili varlıklar içerebilir. Bu durumda, çağırmayın **genişletme**; bu durumda, otomatik olarak içerir genişletme proxy. Aşağıdaki örnek, her ürünün Tedarikçi ve adını alır.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample17.cs)]
 
-Burada, karşılık gelen OData isteği verilmiştir. İçerdiği bildirimi **$expand** seçeneği.
+Karşılık gelen OData isteği aşağıda verilmiştir. İçerdiği bildirimi **$expand** seçeneği.
 
 [!code-console[Main](calling-an-odata-service-from-a-net-client/samples/sample18.cmd)]
 
-$Select ve $expand hakkında daha fazla bilgi için ' ni genişletin, bkz: [$select kullanarak $genişletin ve Web API 2'deki $value](../using-select-expand-and-value.md).
+$Select ve $expand hakkında daha fazla bilgi için genişletme, bkz: [$select kullanarak $expand ve Web API 2 $value](../using-select-expand-and-value.md).
 
-## <a name="add-a-new-entity"></a>Yeni bir varlık ekleme
+## <a name="add-a-new-entity"></a>Yeni varlık Ekle
 
-Bir varlık kümesine yeni bir varlık eklemek için arama `AddToEntitySet`, burada *EntitySet* varlık kümesinin adı. Örneğin, `AddToProducts` yeni ekler `Product` için `Products` varlık kümesi. Proxy oluşturduğunuzda, WCF veri hizmetleri otomatik olarak bu kesin türü belirtilmiş oluşturur **AddTo** yöntemleri.
+Bir varlık kümesi için yeni bir varlık eklemek için çağrı `AddToEntitySet`burada *EntitySet* varlık kümesinin adı. Örneğin, `AddToProducts` yeni ekler `Product` için `Products` varlık kümesi. Ara sunucu oluşturduğunuzda, WCF veri hizmetleri otomatik olarak bu türü kesin belirlenmiş oluşturur **AddTo** yöntemleri.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample19.cs)]
 
-İki varlık arasında bir bağlantı eklemek için kullanın **AddLink** ve **SetLink** yöntemleri. Aşağıdaki kod yeni bir sağlayıcının ve yeni bir ürün ekler ve ardından bunları arasındaki bağlantıları oluşturur.
+İki varlık arasında bir bağlantı eklemek için **AddLink** ve **SetLink** yöntemleri. Aşağıdaki kod, yeni bir tedarikçi ve yeni bir ürün ekler ve ardından aralarındaki bağlantıları oluşturur.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample20.cs)]
 
-Kullanım **AddLink** gezinti özelliği bir koleksiyon olduğunda. Bu örnekte, bir ürün ekliyoruz `Products` sağlayıcı koleksiyonu.
+Kullanım **AddLink** gezinme özelliği, bir koleksiyon olduğunda. Bu örnekte, bir ürün ekliyoruz `Products` sağlayıcı koleksiyonu.
 
-Kullanım **SetLink** gezinti özelliği tek bir varlık olduğunda. Bu örnekte, biz ayarlıyorsanız `Supplier` ürün özelliği.
+Kullanım **SetLink** gezinti özelliği tek bir varlık olduğunda. Biz bu örnekte, ayarladığınız `Supplier` ürün özelliği.
 
 ## <a name="update--patch"></a>Güncelleştirme / düzeltme eki
 
@@ -201,10 +200,10 @@ Bir varlığı güncelleştirmek için çağrı **UpdateObject** yöntemi.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample21.cs)]
 
-Çağırdığınızda güncelleştirme yapılmadan **SaveChanges**. Varsayılan olarak, WCF HTTP birleştirme isteği gönderir. **PatchOnUpdate** seçenek bir HTTP PATCH yerine göndermek için WCF söyler.
+Güncelleştirme yapılmadan çağırdığınızda **SaveChanges**. Varsayılan olarak, WCF, bir HTTP birleştirme isteği gönderir. **PatchOnUpdate** seçeneği, bunun yerine bir HTTP PATCH göndermek için WCF söyler.
 
 > [!NOTE]
-> Neden karşı birleştirme düzeltme eki? Özgün HTTP 1.1 belirtimini ([RCF 2616](http://tools.ietf.org/html/rfc2616)) "kısmi güncelleştirme" semantiği ile herhangi bir HTTP yöntemini tanımlamıyor. Kısmi güncelleştirmeler desteklemek için birleştirme yöntemi OData belirtimi tanımlı. 2010'da, [RFC 5789](http://tools.ietf.org/html/rfc5789) kısmi güncelleştirmeler için düzeltme eki yöntemi tanımlı. Bu geçmiş bazıları okuyabilirsiniz [blog gönderisi](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) WCF Veri Hizmetleri blogunda. Bugün, düzeltme eki üzerinden birleştirme tercih edilir. Web API yapı iskelesi tarafından oluşturulan OData denetleyicisi her iki yöntemi destekler.
+> Neden birleştirme düzeltme eki? Özgün HTTP 1.1 belirtimini ([RCF 2616](http://tools.ietf.org/html/rfc2616)) herhangi bir HTTP yöntemi "kısmi güncelleştirme" semantiğine sahip tanımlamıyor. Kısmi güncelleştirmeleri desteklemek için OData belirtiminden birleştirme yöntemi olarak tanımlanır. 2010'da, [RFC 5789](http://tools.ietf.org/html/rfc5789) kısmi güncelleştirmeler için PATCH yöntemini tanımlanmış. Bu geçmiş bazıları edinebilirsiniz [blog gönderisi](https://blogs.msdn.com/b/astoriateam/archive/2008/05/20/merge-vs-replace-semantics-for-update-operations.aspx) WCF Veri Hizmetleri blogunda. Bugün, düzeltme eki üzerinden birleştirme tercih edilir. Web APİ'si yapı iskelesini tarafından oluşturulan OData denetleyicisi her iki yöntemi destekler.
 
 
 Tüm varlık (PUT semantiği) değiştirmek istiyorsanız, belirtin **ReplaceOnUpdate** seçeneği. Bu, bir HTTP PUT isteği göndermek WCF neden olur.
@@ -213,22 +212,22 @@ Tüm varlık (PUT semantiği) değiştirmek istiyorsanız, belirtin **ReplaceOnU
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
 
-Bir varlığı silmek için çağrı **DeleteObject**.
+Bir varlığı silmek için çağrı **NesneSil**.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample23.cs)]
 
 ## <a name="invoke-an-odata-action"></a>Bir OData eylemini çağırma
 
-Odata'da, [Eylemler](odata-actions.md) kolayca CRUD işlemleri varlıklar üzerinde olarak tanımlanmamış olan sunucu tarafı davranışları eklemek için bir yoldur.
+Odata'da, [eylemleri](odata-actions.md) varlıkları CRUD işlemleri olarak kolayca tanımlanmayan bir sunucu tarafı davranışları eklemek için bir yol sağlar.
 
-OData meta veri belgesi eylemleri açıklansa da, proxy sınıfı herhangi kesin türü belirtilmiş bir yöntem bunları oluşturmaz. Genel kullanarak bir OData eylemini hala çağırabileceği **yürütme** yöntemi. Ancak, parametreler ve dönüş değeri veri türlerini bilmeniz gerekir.
+OData meta veri belgesi eylemleri açıklar ancak proxy sınıfı kesin türü belirtilmiş yöntemler için bunları oluşturmaz. Genel kullanarak bir OData eylemini yine de çağırabilirsiniz **yürütme** yöntemi. Ancak, parametreler ve dönüş değeri veri türlerini bilmeniz gerekir.
 
-Örneğin, `RateProduct` eylemde türü "derecesi" adlı parametre `Int32` ve döndüren bir `double`. Aşağıdaki kod bu eylemi çağırmak nasıl gösterir.
+Örneğin, `RateProduct` parametre türü "derecesi" adlı bir eylemde `Int32` ve döndüren bir `double`. Aşağıdaki kod bu eylemi çağırmak nasıl gösterir.
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample24.cs)]
 
-Daha fazla bilgi için bkz:[hizmet işlemlerini çağırma ve eylemleri](https://msdn.microsoft.com/library/hh230677.aspx).
+Daha fazla bilgi için[hizmet işlemlerini çağırma ve eylemleri](https://msdn.microsoft.com/library/hh230677.aspx).
 
-Bir seçenektir genişletmek için **kapsayıcı** sınıfı eylemi çağırır kesin türü belirtilmiş bir yöntem sunar:
+Bir seçenektir genişletmek için **kapsayıcı** eylemi çağırır kesin türü belirtilmiş bir yöntem sağlar sınıfını:
 
 [!code-csharp[Main](calling-an-odata-service-from-a-net-client/samples/sample25.cs)]

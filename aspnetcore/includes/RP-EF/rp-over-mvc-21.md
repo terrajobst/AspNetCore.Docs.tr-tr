@@ -1,17 +1,17 @@
 ::: moniker range=">= aspnetcore-2.1"
 
-Bu öğretici ASP.NET Core 2.1 yükseltilmedi. Bu öğretici ASP.NET Core 2.0 sürümünü seçilerek kullanılabilir **ASP.NET Core 2.0** içindekiler veya sayfanın üst kısmındaki tablonun üstündeki:
+Bu öğreticide, ASP.NET Core 2.1 için yükseltilmedi. Bu öğreticide ASP.NET Core 2.0 sürümünü seçerek kullanılabilir **ASP.NET Core 2.0** içindekiler veya sayfanın üst kısmındaki tablonun üstündeki:
 
-Bu öğretici ASP.NET Core 2.1 Razor sayfalarının sürümü 2.0 sürümünün üzerine birçok gelişme vardır.
+Bu öğreticide, ASP.NET Core 2.1 Razor sayfaları sürümü 2.0 sürümünün üzerine birçok geliştirme vardır.
 
-2.0 öğretici ASP.NET Core MVC ve Entity Framework Çekirdek denetleyicileri ve görünümler ile öğretir. Razor sayfalarının web kullanıcı Arabirimi daha kolay ve daha üretken yapı sağlayan bir sayfa tabanlı programlama modeli olur. Öneririz [Razor sayfalarının](xref:data/ef-rp/intro) MVC sürüm üzerinden Öğreticisi. Razor sayfalarının öğretici:
+Görünümleri ve denetleyicileri ile ASP.NET Core MVC ve Entity Framework Core 2.0 Öğreticisi öğretir. Razor sayfaları, sayfa tabanlı ve web kullanıcı Arabirimi daha kolay ve üretken bir hale getiren bir programlama modeli olur. Öneririz [Razor sayfaları](xref:data/ef-rp/intro) MVC sürüm üzerinden öğretici. Razor sayfaları öğretici:
 
 * İzlemek daha kolay olur. Örneğin, iskele kurma kodu önemli ölçüde basitleştirilmiştir.
-* Daha fazla EF çekirdek en iyi yöntemler sağlar.
-* Daha verimli sorgularını kullanır.
-* Son API ile daha fazla geçerli değil.
+* Daha fazla EF Core en iyi uygulamalar sağlanır.
+* Daha verimli sorgular kullanır.
+* En yeni API ile daha güncel değil.
 * Daha fazla özellikleri kapsar.
 * Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
 
-Üzerinden Bu öğretici seçerseniz [Razor sayfalarının](xref:data/ef-rp/intro) sürümü, bize bunun nedenini de bilmeniz izin [bu GitHub tartışma](https://github.com/aspnet/Docs/issues/6146).
+Bu öğreticide üzerinden seçerseniz [Razor sayfaları](xref:data/ef-rp/intro) sürüm, bunun nedenini de bize izin [bu GitHub tartışma](https://github.com/aspnet/Docs/issues/6146).
 ::: moniker-end

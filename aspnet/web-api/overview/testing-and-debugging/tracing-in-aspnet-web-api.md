@@ -1,31 +1,30 @@
 ---
 uid: web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
-title: ASP.NET Web API 2 izleme | Microsoft Docs
+title: ASP.NET Web API 2'de izleme | Microsoft Docs
 author: MikeWasson
-description: ASP.NET Web API izlemenin nasıl etkinleştirileceği gösterir.
+description: ASP.NET Web API'de izlemenin nasıl etkinleştirileceği gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
 ms.topic: article
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f9c33e62a1d04bc7851be13560a2bd39e997448f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28044214"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37366870"
 ---
-<a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 izleme
+<a name="tracing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de izleme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-> Web tabanlı bir uygulama hata ayıklama çalışırken izleme günlükleri iyi bir dizi için geçerli olur. Bu öğreticide, ASP.NET Web API izlemenin nasıl etkinleştirileceği gösterilmiştir. Web API çerçevesi önce ve sonra denetleyiciyi çağıran yaptıklarını izlemek için bu özelliği kullanın. Kendi kodunuzu izlemek için de kullanabilirsiniz.
+> Web tabanlı bir uygulamanın hatalarını ayıklama çalışırken izleme günlüklerini iyi bir dizi için geçerli olur. Bu öğreticide, ASP.NET Web API'de izlemenin nasıl etkinleştirileceği gösterilmektedir. Bu özellik, Web API çerçevesi önce ve sonra denetleyiciyi çağıran yaptığı izlemek için kullanabilirsiniz. Kendi kodunuzu izlemek için de kullanabilirsiniz.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - [Visual Studio 2017](https://www.visualstudio.com/downloads/) (Visual Studio 2015 ile de çalışır)
@@ -33,104 +32,104 @@ tarafından [CAN Wasson](https://github.com/MikeWasson)
 > - [Microsoft.AspNet.WebApi.Tracing](http://www.nuget.org/packages/Microsoft.AspNet.WebApi.Tracing)
 
 
-## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Web API izleme System.Diagnostics etkinleştir
+## <a name="enable-systemdiagnostics-tracing-in-web-api"></a>Web API'si izleme System.Diagnostics etkinleştir
 
-İlk olarak, yeni bir ASP.NET Web uygulaması projesi oluşturacağız. Visual Studio'da gelen **dosya** menüsünde, select **yeni**, ardından **proje**. Altında **şablonları**, **Web**seçin **ASP.NET Web uygulaması**.
+İlk olarak, yeni bir ASP.NET Web uygulaması projesi oluşturacağız. Visual Studio'da gelen **dosya** menüsünde **yeni**, ardından **proje**. Altında **şablonları**, **Web**seçin **ASP.NET Web uygulaması**.
 
 [![](tracing-in-aspnet-web-api/_static/image2.png)](tracing-in-aspnet-web-api/_static/image1.png)
 
-Web API projesi şablonunu seçin.
+Web API proje şablonunu seçin.
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi**, ardından **paket yönetmek konsol**.
+Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**, ardından **paket yönetme Konsolu**.
 
-Paket Yöneticisi konsolu penceresinde aşağıdaki komutları yazın.
+Paket Yöneticisi konsolu penceresinde, aşağıdaki komutları yazın.
 
 [!code-console[Main](tracing-in-aspnet-web-api/samples/sample1.cmd)]
 
-İlk komut, en son Web API izleme paketini yükler. Ayrıca, çekirdek Web API paketleri güncelleştirir. İkinci komut WebApi.WebHost paketi en son sürüme güncelleştirir.
+İlk komut, en son Web API'sini izleme paketini yükler. Ayrıca, core Web API'si paketleri güncelleştirir. İkinci komut, en son sürüme WebApi.WebHost paketini güncelleştirir.
 
 > [!NOTE]
-> Belirli bir Web API sürümünü hedeflemek istediğiniz kullanırsanız izleme paketi yüklediğinizde sürüm bayrağı.
+> Belirli bir Web API sürümünü hedeflemek istiyorsanız, kullanma izleme paketi yüklediğinizde sürüm bayrağı.
 
 
-Uygulamada WebApiConfig.cs dosyasını açın\_başlangıç klasörü. Aşağıdaki kodu ekleyin **kaydetmek** yöntemi.
+Uygulamada WebApiConfig.cs dosya açma\_başlangıç klasörü. Aşağıdaki kodu ekleyin **kaydetme** yöntemi.
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Bu kod ekler [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Web API ardışık düzene sınıfı. **SystemDiagnosticsTraceWriter** sınıfı Yazar izlemeleri için [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
+Bu kod ekler [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) Web API ardışık düzeni için sınıf. **SystemDiagnosticsTraceWriter** sınıfı Yazar izlemelere [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
-İzlemelerini görmek için hata ayıklayıcısı'ndaki uygulamayı çalıştırın. Tarayıcıda gidin `/api/values`.
+İzlemelerini görmek için hata ayıklayıcıda uygulamayı çalıştırın. Tarayıcıda gidin `/api/values`.
 
 ![](tracing-in-aspnet-web-api/_static/image5.png)
 
-İzleme deyimleri için Visual Studio çıktı penceresinde yazılır. (Gelen **Görünüm** menüsünde, select **çıkış**).
+İzleme Deyimleri Visual Studio çıktı penceresinde yazılır. (Gelen **görünümü** menüsünde **çıkış**).
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Çünkü **SystemDiagnosticsTraceWriter** izlemeler için Yazar **System.Diagnostics.Trace**, ek izleme dinleyicileri kaydedebilirsiniz; Örneğin, yazmak için izler bir günlük dosyasına. İzleme yazıcılarının hakkında daha fazla bilgi için bkz: [izleme dinleyicileri](https://msdn.microsoft.com/library/4y5y10s7.aspx) MSDN'de konu.
+Çünkü **SystemDiagnosticsTraceWriter** izlemeleri için Yazar **System.Diagnostics.Trace**, ek izleme dinleyicileri kaydedebilirsiniz; Örneğin, yazma için izler bir günlük dosyasına. İzleme yazıcılar hakkında daha fazla bilgi için bkz. [izleme dinleyicilerine](https://msdn.microsoft.com/library/4y5y10s7.aspx) MSDN'de konu.
 
-### <a name="configuring-systemdiagnosticstracewriter"></a>Configuring SystemDiagnosticsTraceWriter
+### <a name="configuring-systemdiagnosticstracewriter"></a>SystemDiagnosticsTraceWriter yapılandırma
 
-Aşağıdaki kod, izleme yazıcısı yapılandırma gösterilmektedir.
+Aşağıdaki kod, izleme yazıcısı yapılandırma işlemi gösterilmektedir.
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample3.cs)]
 
-Kontrol edebilirsiniz iki ayarı vardır:
+Denetleyebileceğiniz iki ayarı vardır:
 
-- IsVerbose: false ise, en düşük miktarda bilgiyi her izlemeyi içerir. TRUE ise, izlemeleri daha fazla bilgi içerir.
-- MinimumLevel: minimum izleme düzeyini ayarlar. Hata ayıklama, bilgi, uyar, hata ve önemli sırada izleme düzeyleri verilebilir.
+- IsVerbose: false ise, en düşük miktarda bilgiyi her bir izleme içerir. TRUE ise izlemeleri daha fazla bilgi içerir.
+- MinimumLevel: minimum izleme düzeyini ayarlar. İzleme düzeylerini, sırasıyla, hata ayıklama, bilgi, uyarı, hata ve önemli olan.
 
-## <a name="adding-traces-to-your-web-api-application"></a>Web API uygulamanıza izlemeleri ekleme
+## <a name="adding-traces-to-your-web-api-application"></a>Web API uygulamanızı izlemeleri ekleme
 
-İzleme yazıcısı ekleme Web API ardışık düzen tarafından oluşturulan izlemeleri anında erişim sağlar. Kendi kodunuzu izlemek için izleme yazıcısı de kullanabilirsiniz:
+Bir izleme yazıcısı ekleme Web API ardışık düzeni tarafından oluşturulan izlemeleri anında erişim sağlar. Kendi kodunuzu izlemek için izleme yazıcısı de kullanabilirsiniz:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample4.cs)]
 
-İzleme yazıcısı almak için arama **HttpConfiguration.Services.GetTraceWriter**. Bu yöntem bir denetleyicisinden üzerinden erişilebilir **ApiController.Configuration** özelliği.
+İzleme yazıcısı almak için arama **HttpConfiguration.Services.GetTraceWriter**. Bu yöntem bir denetleyiciden üzerinden erişilebilir **ApiController.Configuration** özelliği.
 
-Bir izleme yazmak için çağırabilirsiniz **ITraceWriter.Trace** yöntemi doğrudan, ancak [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) sınıfı daha kolay bazı genişletme yöntemleri tanımlar. Örneğin, **bilgisi** yukarıda gösterilen yöntemi ile izleme düzeyi izleme oluşturur **bilgisi**.
+Bir izleme yazmak için çağırabilirsiniz **ITraceWriter.Trace** yöntemi doğrudan, ancak [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) sınıfı daha kolay olan bazı genişletme yöntemleri tanımlar. Örneğin, **bilgisi** yukarıda gösterilen yöntemi oluşturur bir izleme ile izleme düzeyini **bilgisi**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Web API izleme altyapısı
 
-Bu bölüm, özel izleme yazıcısı Web API'si yazma açıklar.
+Bu bölümde, bir Web API'si için özel izleme yazıcısı yazma açıklar.
 
-Microsoft.AspNet.WebApi.Tracing paketi Web API'sinde daha genel izlemenin altyapısının en üstünde yerleşik olarak bulunur. Microsoft.AspNet.WebApi.Tracing kullanmak yerine, ayrıca bazı diğer izleme/oturum Kitaplığı'nda, aşağıdaki gibi ekleyebilirsiniz [NLog](http://nlog-project.org/) veya [log4net](http://logging.apache.org/log4net/).
+Web API'de daha genel bir izleme altyapısının en üstünde Microsoft.AspNet.WebApi.Tracing paket oluşturulur. Microsoft.AspNet.WebApi.Tracing kullanmak yerine, ayrıca bazı diğer izleme/günlüklerinizden çıkarmanız Kitaplığı'nda, aşağıdaki gibi takabilirsiniz [NLog](http://nlog-project.org/) veya [log4net](http://logging.apache.org/log4net/).
 
 İzlemeleri toplamak için uygulama **ITraceWriter** arabirimi. Basit bir örnek aşağıda verilmiştir:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample5.cs)]
 
-**ITraceWriter.Trace** yöntemi, bir izleme oluşturur. Çağıran bir kategori ve izleme düzeyini belirtir. Kategori herhangi bir kullanıcı tarafından tanımlanan dize olabilir. Uygulamanıza **izleme** aşağıdakileri yapmanız gerekir:
+**ITraceWriter.Trace** yöntemi, bir izleme oluşturur. Arayan bir kategori ve izleme düzeyini belirtir. Kategori herhangi bir kullanıcı tanımlı dize olabilir. Uygulamanıza **izleme** aşağıdakileri yapmalıdır:
 
 1. Yeni bir **TraceRecord**. Bu istek, kategori ve izleme düzeyi ile gösterildiği gibi başlatın. Bu değerler, çağıran tarafından sağlanır.
-2. Çağırma *traceAction* temsilci. Bu temsilci içinde çağıran içinde kalan doldurması beklenir **TraceRecord**.
-3. Yazma **TraceRecord**, istediğiniz herhangi bir günlük teknik kullanma. Burada gösterilen örnek içine basitçe çağırır **System.Diagnostics.Trace**.
+2. Çağırma *traceAction* temsilci. Bu temsilci içinde çağırana geri kalanında doldurması beklenir **TraceRecord**.
+3. Yazma **TraceRecord**, istediğiniz herhangi bir günlük teknik kullanarak. İçine burada gösterilen örnek yalnızca yapılan çağrılar **System.Diagnostics.Trace**.
 
 ## <a name="setting-the-trace-writer"></a>İzleme yazıcısı ayarlama
 
-İzlemeyi etkinleştirmek için Web API'ı kullanacak şekilde yapılandırmanız gerekir, **ITraceWriter** uygulaması. Bunu aracılığıyla **HttpConfiguration** aşağıdaki kodda gösterildiği gibi nesnesi:
+İzlemeyi etkinleştirmek için Web API'ı kullanmak için yapılandırmanız gerekir, **ITraceWriter** uygulaması. Bunu aracılığıyla **HttpConfiguration** nesne, aşağıdaki kodda gösterildiği gibi:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample6.cs)]
 
-Yalnızca bir izleme yazıcısı etkin olabilir. Varsayılan olarak, Web API ayarlar bir &quot;yok&quot; hiçbir şey yapmaz İzleyici. ( &quot;Yok&quot; İzleyici var. böylece izleme yazıcısı olup olmadığını denetlemek izleme kodu yok **null** izleme yazmadan önce.)
+Yalnızca bir izleme yazıcısı etkin olabilir. Varsayılan olarak, Web API kümelerini bir &quot;İşlemsiz&quot; hiçbir şey yapmaz İzleyici. ( &quot;İşlemsiz&quot; İzleyici mevcut izleme yazıcısı olup olmadığını denetlemek izleme kodu yok böylece **null** izleme yazmadan önce.)
 
-## <a name="how-web-api-tracing-works"></a>Nasıl Web API'si Works izleme
+## <a name="how-web-api-tracing-works"></a>Nasıl çalıştığını izleme API Web
 
-İçinde bir Web API'sini kullanan Web API'sini kullanır izleme bir *cephesi* Desen: izleme etkinleştirildiğinde izleme çağrıları gerçekleştirmek sınıflarıyla istek ardışık düzenini çeşitli kısımlarını Web API sarmalar.
+İçinde bir Web API'sini kullanan Web API'sini kullanır izleme bir *cephe* Desen: izleme etkinleştirildiğinde, Web API'sini izleme çağrıları gerçekleştirmek sınıflarla istek ardışık düzenini çeşitli bölümlerini sarmalar.
 
-Örneğin, bir denetleyici seçerken, ardışık düzen kullanır **IHttpControllerSelector** arabirimi. İzleme etkin pipleline uygulayan bir sınıf ekler **IHttpControllerSelector** ancak gerçek uygulamaya çağrıları üzerinden:
+Örneğin, bir denetleyici seçerken, işlem hattı kullanır **IHttpControllerSelector** arabirimi. İzleme etkin pipleline uygulayan bir sınıf ekler **IHttpControllerSelector** ancak çağrıları üzerinden gerçek uygulama:
 
-![Web API izlemesi cephesi desen kullanır.](tracing-in-aspnet-web-api/_static/image8.png)
+![Web API izlemesi cephe deseni kullanır.](tracing-in-aspnet-web-api/_static/image8.png)
 
-Bu tasarımın avantajları şunlardır:
+Bu tasarım avantajları şunlardır:
 
-- İzleme yazıcısı eklemezseniz izleme bileşenleri değil örneği ve performansını etkilemez.
-- Varsayılan Hizmetleri gibi değiştirirseniz **IHttpControllerSelector** izleme sarmalayıcı nesne tarafından yapıldığından kendi özel bir uygulama ile izleme, etkilenmez.
+- İzleme yazıcısı eklemezseniz izleme bileşenleri değil örneği oluşturulur ve performansını etkilemez.
+- Varsayılan hizmetler gibi değiştirirseniz **IHttpControllerSelector** izleme sarmalayıcısı nesne tarafından yapıldığı için kendi özel uygulamasıyla izleme etkilenmez.
 
-Varsayılan değiştirerek kendi özel framework ile tüm Web API izleme çerçevesini değiştirebilir **ITraceManager** hizmeti:
+Varsayılan değiştirerek kendi özel framework ile tüm Web API izleme çerçevesini değiştirebilirsiniz **ITraceManager** hizmeti:
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample7.cs)]
 
-Uygulama **ITraceManager.Initialize** izleme sisteminizi başlatılamadı. Bu değiştirir unutmayın *tüm* tüm Web API yerleşik izleme kodu da dahil olmak üzere, izleme framework.
+Uygulama **ITraceManager.Initialize** izleme sisteminizi başlatılamadı. Bu değiştirir unutmayın *tüm* tüm Web API'sine yerleşik izleme kodu da dahil olmak üzere, izleme framework.

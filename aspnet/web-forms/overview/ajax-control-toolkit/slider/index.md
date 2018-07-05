@@ -2,29 +2,28 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/index
 title: Kaydırıcı | Microsoft Docs
 author: rick-anderson
-description: Bu öğretici kaydırıcı denetimi kullanıcılar fareyle denetleyebilir grafik bir kaydırıcı görüntülemek için nasıl kullanılacağını gösterir.
+description: Bu öğreticide kullanıcılar fareyi kullanarak denetimi grafik bir kaydırıcı görüntülemek için bir kaydırıcı denetimi kullanmayı gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
 ms.topic: article
 ms.assetid: fd7812d1-55d7-4e4a-96c8-1614b375db56
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider
 msc.type: chapter
-ms.openlocfilehash: 52b6fda01b6ef9931c3557b57b5ebd216a7f2eda
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8183e1c2d0f9cfb311e073a1fbc428ac19d2aacb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26567795"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382863"
 ---
 <a name="slider"></a>Kaydırıcı
 ====================
-> Bu öğretici kaydırıcı denetimi kullanıcılar fareyle denetleyebilir grafik bir kaydırıcı görüntülemek için nasıl kullanılacağını gösterir.
+> Bu öğreticide kullanıcılar fareyi kullanarak denetimi grafik bir kaydırıcı görüntülemek için bir kaydırıcı denetimi kullanmayı gösterir.
 
 
-- [Kaydırıcı denetimi ile geri otomatik-gönderme (C#)](using-the-slider-control-with-auto-postback-cs.md)
-- [Veri bağlama kaydırıcı denetimi (C#)](databinding-the-slider-control-cs.md)
-- [Otomatik geri gönderme (VB) ile kaydırıcı denetimi](using-the-slider-control-with-auto-postback-vb.md)
-- [Veri bağlama (VB) kaydırıcı denetimi](databinding-the-slider-control-vb.md)
+- [Otomatik Geri Gönderme Özellikli Kaydırıcı Denetimi (C#)](using-the-slider-control-with-auto-postback-cs.md)
+- [Kaydırıcı Denetiminde Veri Bağlama (C#)](databinding-the-slider-control-cs.md)
+- [Otomatik Geri Gönderme Özellikli Kaydırıcı Denetimi (VB)](using-the-slider-control-with-auto-postback-vb.md)
+- [Kaydırıcı Denetiminde Veri Bağlama (VB)](databinding-the-slider-control-vb.md)
