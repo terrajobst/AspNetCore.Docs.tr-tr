@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Azure Azure App Service'e uygulama yayımlama | Microsoft Docs
+title: Azure App Service'e Azure uygulama yayımlama | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,54 +9,53 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0290b392c1b292d0f3cc080dbfa25ec6103b2751
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867820"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400810"
 ---
-<a name="publish-the-app-to-azure-azure-app-service"></a><span data-ttu-id="38e90-102">Azure Azure App Service'e uygulamayı yayımlama</span><span class="sxs-lookup"><span data-stu-id="38e90-102">Publish the App to Azure Azure App Service</span></span>
+<a name="publish-the-app-to-azure-azure-app-service"></a><span data-ttu-id="14608-102">Uygulamayı Azure Azure App Service'e yayımlama</span><span class="sxs-lookup"><span data-stu-id="14608-102">Publish the App to Azure Azure App Service</span></span>
 ====================
-<span data-ttu-id="38e90-103">tarafından [CAN Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="38e90-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="14608-103">tarafından [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="14608-103">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-[<span data-ttu-id="38e90-104">Tamamlanan projenizi indirin</span><span class="sxs-lookup"><span data-stu-id="38e90-104">Download Completed Project</span></span>](https://github.com/MikeWasson/BookService)
+[<span data-ttu-id="14608-104">Projeyi yükle</span><span class="sxs-lookup"><span data-stu-id="14608-104">Download Completed Project</span></span>](https://github.com/MikeWasson/BookService)
 
-<span data-ttu-id="38e90-105">Son adım olarak, uygulamayı Azure'a yayımlayacak.</span><span class="sxs-lookup"><span data-stu-id="38e90-105">As the last step, you will publish the application to Azure.</span></span> <span data-ttu-id="38e90-106">Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="38e90-106">In Solution Explorer, right-click the project and select **Publish**.</span></span>
+<span data-ttu-id="14608-105">Son adım olarak, uygulamayı azure'a yayımlayacaksınız.</span><span class="sxs-lookup"><span data-stu-id="14608-105">As the last step, you will publish the application to Azure.</span></span> <span data-ttu-id="14608-106">Çözüm Gezgini'nde projeye sağ tıklayıp seçin **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="14608-106">In Solution Explorer, right-click the project and select **Publish**.</span></span>
 
 ![](part-10/_static/image1.png)
 
-<span data-ttu-id="38e90-107">Tıklatarak **Yayımla** çağırır **Web'i Yayımla** iletişim.</span><span class="sxs-lookup"><span data-stu-id="38e90-107">Clicking **Publish** invokes the **Publish Web** dialog.</span></span> <span data-ttu-id="38e90-108">İşaretlendiğinde, **buluttaki konağa** zaman ilk proje sonra bağlantı oluşturulur ve ayarlar zaten yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="38e90-108">If you checked **Host in Cloud** when you first created the project, then the connection and settings are already configured.</span></span> <span data-ttu-id="38e90-109">Bu durumda, yalnızca tıklatın **ayarları** sekmesinde ve denetleyin &quot;Code First Migrations yürütme&quot;.</span><span class="sxs-lookup"><span data-stu-id="38e90-109">In that case, just click the **Settings** tab and check &quot;Execute Code First Migrations&quot;.</span></span> <span data-ttu-id="38e90-110">(Onay kaydetmedi **buluttaki konağa** başında sonra adımları [sonraki bölümde](#new-website).)</span><span class="sxs-lookup"><span data-stu-id="38e90-110">(If you didn't check **Host in Cloud** at the beginning, then follow the steps in the [next section](#new-website).)</span></span>
+<span data-ttu-id="14608-107">Tıklayarak **Yayımla** çağırır **Web'i Yayımla** iletişim.</span><span class="sxs-lookup"><span data-stu-id="14608-107">Clicking **Publish** invokes the **Publish Web** dialog.</span></span> <span data-ttu-id="14608-108">İşaretlediyseniz **buluttaki konak** zaman önce proje sonra bağlantı oluşturduğunuz ve ayarları zaten yapılandırıldı.</span><span class="sxs-lookup"><span data-stu-id="14608-108">If you checked **Host in Cloud** when you first created the project, then the connection and settings are already configured.</span></span> <span data-ttu-id="14608-109">Bu durumda, tıklamanız yeterlidir **ayarları** denetleyin ve sekme &quot;yürütme Code First Migrations&quot;.</span><span class="sxs-lookup"><span data-stu-id="14608-109">In that case, just click the **Settings** tab and check &quot;Execute Code First Migrations&quot;.</span></span> <span data-ttu-id="14608-110">(Siz işaretlerseniz **buluttaki konak** başında, ardından adımları izleyin [sonraki bölümde](#new-website).)</span><span class="sxs-lookup"><span data-stu-id="14608-110">(If you didn't check **Host in Cloud** at the beginning, then follow the steps in the [next section](#new-website).)</span></span>
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-<span data-ttu-id="38e90-111">Uygulama dağıtmak için **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="38e90-111">To deploy the app, click **Publish**.</span></span> <span data-ttu-id="38e90-112">Yayımlama sürüyor görüntüleyebilirsiniz **Web yayımlama etkinliğini** penceresi.</span><span class="sxs-lookup"><span data-stu-id="38e90-112">You can view the publishing progress in the **Web Publish Activity** window.</span></span> <span data-ttu-id="38e90-113">(Gelen **Görünüm** menüsünde, select **diğer pencereler**seçeneğini belirleyip **Web yayımlama etkinliğini**.)</span><span class="sxs-lookup"><span data-stu-id="38e90-113">(From the **View** menu, select **Other Windows**, then select **Web Publish Activity**.)</span></span>
+<span data-ttu-id="14608-111">Uygulamayı dağıtmak için **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="14608-111">To deploy the app, click **Publish**.</span></span> <span data-ttu-id="14608-112">Yayımlama ilerleme durumunu görüntüleyebileceğiniz **Web yayımlama etkinliği** penceresi.</span><span class="sxs-lookup"><span data-stu-id="14608-112">You can view the publishing progress in the **Web Publish Activity** window.</span></span> <span data-ttu-id="14608-113">(Gelen **görünümü** menüsünde **diğer Windows**, ardından **Web yayımlama etkinliği**.)</span><span class="sxs-lookup"><span data-stu-id="14608-113">(From the **View** menu, select **Other Windows**, then select **Web Publish Activity**.)</span></span>
 
 ![](part-10/_static/image4.png)
 
-<span data-ttu-id="38e90-114">Visual Studio uygulama dağıtma sona erdiğinde, varsayılan tarayıcı otomatik olarak dağıtılan Web sitesinin URL'sini açar ve oluşturduğunuz uygulama bulutta şu anda çalışıyor.</span><span class="sxs-lookup"><span data-stu-id="38e90-114">When Visual Studio finishes deploying the app, the default browser automatically opens to the URL of the deployed website, and the application that you created is now running in the cloud.</span></span> <span data-ttu-id="38e90-115">Tarayıcı adres çubuğundaki URL'yi site Internet'ten yüklü olduğunu gösterir.</span><span class="sxs-lookup"><span data-stu-id="38e90-115">The URL in the browser address bar shows that the site is being loaded from the Internet.</span></span>
+<span data-ttu-id="14608-114">Visual Studio uygulama dağıtımı tamamlandığında, varsayılan tarayıcı otomatik olarak dağıtılan Web sitesinin URL'sini açar ve oluşturduğunuz uygulama artık bulutta çalışıyor.</span><span class="sxs-lookup"><span data-stu-id="14608-114">When Visual Studio finishes deploying the app, the default browser automatically opens to the URL of the deployed website, and the application that you created is now running in the cloud.</span></span> <span data-ttu-id="14608-115">Tarayıcı adres çubuğundaki URL, Internet'ten site yüklendiği gösterir.</span><span class="sxs-lookup"><span data-stu-id="14608-115">The URL in the browser address bar shows that the site is being loaded from the Internet.</span></span>
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
-## <a name="deploying-to-a-new-website"></a><span data-ttu-id="38e90-116">Yeni bir Web sitesine dağıtma</span><span class="sxs-lookup"><span data-stu-id="38e90-116">Deploying to a New Website</span></span>
+## <a name="deploying-to-a-new-website"></a><span data-ttu-id="14608-116">Yeni bir Web sitesine dağıtma</span><span class="sxs-lookup"><span data-stu-id="14608-116">Deploying to a New Website</span></span>
 
-<span data-ttu-id="38e90-117">Değil onay **buluttaki konağa** ilk proje oluşturduğunuzda, yeni bir web uygulaması artık yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38e90-117">If you did not check **Host in Cloud** when you first created the project, you can configure a new web app now.</span></span> <span data-ttu-id="38e90-118">Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="38e90-118">In Solution Explorer, right-click the project and select **Publish**.</span></span> <span data-ttu-id="38e90-119">Seçin **profil** sekmesinde **Microsoft Azure Web siteleri**.</span><span class="sxs-lookup"><span data-stu-id="38e90-119">Select the **Profile** tab and click **Microsoft Azure Websites**.</span></span> <span data-ttu-id="38e90-120">Azure için şu anda imzalı değil, oturum açmak için istenir.</span><span class="sxs-lookup"><span data-stu-id="38e90-120">If you aren't currently signed in to Azure, you will be prompted to sign in.</span></span>
+<span data-ttu-id="14608-117">Değil kontrol ettiniz, **buluttaki konak** proje ilk oluşturulduğunda, yeni bir web uygulaması artık yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="14608-117">If you did not check **Host in Cloud** when you first created the project, you can configure a new web app now.</span></span> <span data-ttu-id="14608-118">Çözüm Gezgini'nde projeye sağ tıklayıp seçin **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="14608-118">In Solution Explorer, right-click the project and select **Publish**.</span></span> <span data-ttu-id="14608-119">Seçin **profili** sekmesine **Microsoft Azure Web siteleri**.</span><span class="sxs-lookup"><span data-stu-id="14608-119">Select the **Profile** tab and click **Microsoft Azure Websites**.</span></span> <span data-ttu-id="14608-120">Azure'da şu anda oturum açmadıysanız, oturum açmanız istenir.</span><span class="sxs-lookup"><span data-stu-id="14608-120">If you aren't currently signed in to Azure, you will be prompted to sign in.</span></span>
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-<span data-ttu-id="38e90-121">İçinde **mevcut Web siteleri** iletişim kutusunda, tıklatın **yeni**.</span><span class="sxs-lookup"><span data-stu-id="38e90-121">In the **Existing Websites** dialog, click **New**.</span></span>
+<span data-ttu-id="14608-121">İçinde **var olan Web siteleri** iletişim kutusunda, tıklayın **yeni**.</span><span class="sxs-lookup"><span data-stu-id="14608-121">In the **Existing Websites** dialog, click **New**.</span></span>
 
 ![](part-10/_static/image9.png)
 
-<span data-ttu-id="38e90-122">Bir site adı girin.</span><span class="sxs-lookup"><span data-stu-id="38e90-122">Enter a site name.</span></span> <span data-ttu-id="38e90-123">Azure aboneliğinizi ve bölge seçin.</span><span class="sxs-lookup"><span data-stu-id="38e90-123">Select your Azure subscription and the region.</span></span> <span data-ttu-id="38e90-124">Altında **veritabanı sunucusu**seçin **Create New Server**, var olan bir sunucu veya seçin.</span><span class="sxs-lookup"><span data-stu-id="38e90-124">Under **Database server**, select **Create New Server**, or select an existing server.</span></span> <span data-ttu-id="38e90-125">**Oluştur**'u tıklatın.</span><span class="sxs-lookup"><span data-stu-id="38e90-125">Click **Create**.</span></span>
+<span data-ttu-id="14608-122">Bir site adı girin.</span><span class="sxs-lookup"><span data-stu-id="14608-122">Enter a site name.</span></span> <span data-ttu-id="14608-123">Azure aboneliğinizi ve bölgeyi seçin.</span><span class="sxs-lookup"><span data-stu-id="14608-123">Select your Azure subscription and the region.</span></span> <span data-ttu-id="14608-124">Altında **veritabanı sunucusu**seçin **yeni sunucu oluşturma**, veya mevcut bir sunucu seçin.</span><span class="sxs-lookup"><span data-stu-id="14608-124">Under **Database server**, select **Create New Server**, or select an existing server.</span></span> <span data-ttu-id="14608-125">**Oluştur**'u tıklatın.</span><span class="sxs-lookup"><span data-stu-id="14608-125">Click **Create**.</span></span>
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-<span data-ttu-id="38e90-126">' I tıklatın **ayarları** sekmesinde ve denetleme &quot;Code First Migrations yürütme&quot;.</span><span class="sxs-lookup"><span data-stu-id="38e90-126">Click the **Settings** tab and check &quot;Execute Code First Migrations&quot;.</span></span> <span data-ttu-id="38e90-127">Ardından **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="38e90-127">Then click **Publish**.</span></span>
+<span data-ttu-id="14608-126">Tıklayın **ayarları** denetleyin ve sekme &quot;Code First Migrations yürütme&quot;.</span><span class="sxs-lookup"><span data-stu-id="14608-126">Click the **Settings** tab and check &quot;Execute Code First Migrations&quot;.</span></span> <span data-ttu-id="14608-127">Ardından **Yayımla**.</span><span class="sxs-lookup"><span data-stu-id="14608-127">Then click **Publish**.</span></span>
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="38e90-128">Önceki</span><span class="sxs-lookup"><span data-stu-id="38e90-128">Previous</span></span>](part-9.md)
+> [<span data-ttu-id="14608-128">Önceki</span><span class="sxs-lookup"><span data-stu-id="14608-128">Previous</span></span>](part-9.md)
