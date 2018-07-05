@@ -1,28 +1,27 @@
 ---
 uid: web-pages/videos/introduction/publish-a-website-to-the-internet-using-webmatrix
-title: Webmatrix'i kullanarak Internet'e bir Web sitesi yayımlama | Microsoft Docs
+title: WebMatrix kullanarak Internet'e bir Web sitesi yayımlama | Microsoft Docs
 author: rick-anderson
-description: Bölümü 9 Webmatrix'i kullanarak Internet'e sitenizi yayımlamak nasıl gösterir.
+description: 9. Bölüm Webmatrix'i kullanarak Internet'e sitenizi yayımlama gösterir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
 ms.topic: article
 ms.assetid: 090f5500-1124-49a7-a295-db97ef739c6a
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/introduction/publish-a-website-to-the-internet-using-webmatrix
 msc.type: video
-ms.openlocfilehash: d593efade08f45b6d5dd22baee3ff45d3f7f3310
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0c9278cbf1bac3cf43b396fcf24259dd047ce596
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573258"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391728"
 ---
-<a name="publish-a-website-to-the-internet-using-webmatrix"></a><span data-ttu-id="7e8e4-103">Webmatrix'i kullanarak Internet'e bir Web sitesi yayımlama</span><span class="sxs-lookup"><span data-stu-id="7e8e4-103">Publish a Website to the Internet Using WebMatrix</span></span>
+<a name="publish-a-website-to-the-internet-using-webmatrix"></a><span data-ttu-id="eb106-103">WebMatrix kullanarak Internet'e bir Web sitesi yayımlama</span><span class="sxs-lookup"><span data-stu-id="eb106-103">Publish a Website to the Internet Using WebMatrix</span></span>
 ====================
-<span data-ttu-id="7e8e4-104">tarafından [Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="7e8e4-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
+<span data-ttu-id="eb106-104">tarafından [Advaiya](https://twitter.com/Advaiyasolns)</span><span class="sxs-lookup"><span data-stu-id="eb106-104">by [Advaiya](https://twitter.com/Advaiyasolns)</span></span>
 
-<span data-ttu-id="7e8e4-105">Bölümü 9 Webmatrix'i kullanarak Internet'e sitenizi yayımlamak nasıl gösterir.</span><span class="sxs-lookup"><span data-stu-id="7e8e4-105">Part 9 shows you how to publish your site to the internet using WebMatrix.</span></span>
+<span data-ttu-id="eb106-105">9. Bölüm Webmatrix'i kullanarak Internet'e sitenizi yayımlama gösterir.</span><span class="sxs-lookup"><span data-stu-id="eb106-105">Part 9 shows you how to publish your site to the internet using WebMatrix.</span></span>
 
-[<span data-ttu-id="7e8e4-106">&#9654; (4 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="7e8e4-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/publish-a-website-to-the-internet-using-webmatrix)
+[<span data-ttu-id="eb106-106">&#9654;(4 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="eb106-106">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/publish-a-website-to-the-internet-using-webmatrix)

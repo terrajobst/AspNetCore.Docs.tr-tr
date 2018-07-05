@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
-title: ASP.NET dinamik veri uygulamalarda satır içi düzenleme etkinleştirme | Microsoft Docs
+title: ASP.NET dinamik veri uygulamalarında satır içi düzenlemeyi etkinleştir | Microsoft Docs
 author: JoeStagner
-description: Bu videoda, ASP.NET dinamik veri uygulamanızda satır içi düzenleme etkinleştirmek için URL yönlendirmeyi kullanma gösterilmektedir.
+description: Bu videoda ASP.NET dinamik veri uygulamasında satır içi düzenlemeyi etkinleştirmek için URL yönlendirmeyi kullanarak gösterilecektir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2008
 ms.topic: article
 ms.assetid: a22201df-c031-4505-b3bf-9a0a9667d62b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 1e248df1f78c360f0d92633b5c14c523983c2966
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 16fc853e652f0235b1e669748b93981c4617bb1a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884574"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387156"
 ---
-<a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="079c9-103">ASP.NET dinamik veri uygulamalarda satır içi düzenlemeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="079c9-103">Enable In-Line Editing in ASP.NET Dynamic Data Applications</span></span>
+<a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="71815-103">ASP.NET dinamik veri uygulamalarında satır içi düzenlemeyi etkinleştir</span><span class="sxs-lookup"><span data-stu-id="71815-103">Enable In-Line Editing in ASP.NET Dynamic Data Applications</span></span>
 ====================
-<span data-ttu-id="079c9-104">tarafından [CAN Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="079c9-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="71815-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="71815-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="079c9-105">Bu videoda, ASP.NET dinamik veri uygulamanızda satır içi düzenleme etkinleştirmek için URL yönlendirmeyi kullanma gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="079c9-105">This video will demonstrate using URL Routing to enable In-Line editing in your ASP.NET Dynamic Data Application.</span></span>
+<span data-ttu-id="71815-105">Bu videoda ASP.NET dinamik veri uygulamasında satır içi düzenlemeyi etkinleştirmek için URL yönlendirmeyi kullanarak gösterilecektir.</span><span class="sxs-lookup"><span data-stu-id="71815-105">This video will demonstrate using URL Routing to enable In-Line editing in your ASP.NET Dynamic Data Application.</span></span>
 
-[<span data-ttu-id="079c9-106">&#9654;(13 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="079c9-106">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/enable-in-line-editing-in-aspnet-dynamic-data-applications)
+[<span data-ttu-id="71815-106">&#9654;Videoyu (13 dakika)</span><span class="sxs-lookup"><span data-stu-id="71815-106">&#9654; Watch video (13 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/enable-in-line-editing-in-aspnet-dynamic-data-applications)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="079c9-107">[Önceki](begin-modifying-dynamic-data-applications-with-url-routing.md)
-> [sonraki](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)</span><span class="sxs-lookup"><span data-stu-id="079c9-107">[Previous](begin-modifying-dynamic-data-applications-with-url-routing.md)
+> <span data-ttu-id="71815-107">[Önceki](begin-modifying-dynamic-data-applications-with-url-routing.md)
+> [İleri](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)</span><span class="sxs-lookup"><span data-stu-id="71815-107">[Previous](begin-modifying-dynamic-data-applications-with-url-routing.md)
 [Next](how-to-enable-table-specific-routing-in-dynamic-data-applications.md)</span></span>

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
-title: '[Nasıl stop yaparım] Depolamak ve istemci tarafı bilgileri işlemek için gizli bir alan kullanma | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda Chris Pels bir yaklaşım basit durum yönetimi için bir ASP.NET sayfası ve istemci tarafı iletişim için gizli bir alan kullanmak nasıl yapacağınızı gösterir...
+description: Bu videoda, Chris piksel gizli bir alan bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve istemci tarafı iletişim kurmak için olarak nasıl kullanılacağını gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
 ms.topic: article
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 2d20082329859ca1529aa6202244c97271ff9c1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 83aeef1b7331dfeab727139ca9031cb5b8305e31
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571830"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385936"
 ---
-<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a><span data-ttu-id="88538-103">[Nasıl stop yaparım] Gizli bir alan depolamak ve istemci tarafı bilgilerini yönetmek için kullanın</span><span class="sxs-lookup"><span data-stu-id="88538-103">[How Do I:] Use a Hidden Field to Store and Manipulate Client-Side Information</span></span>
+<a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a><span data-ttu-id="c8ec3-103">[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın</span><span class="sxs-lookup"><span data-stu-id="c8ec3-103">[How Do I:] Use a Hidden Field to Store and Manipulate Client-Side Information</span></span>
 ====================
-<span data-ttu-id="88538-104">tarafından [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="88538-104">by [Chris Pels](https://twitter.com/chrispels)</span></span>
+<span data-ttu-id="c8ec3-104">tarafından [Chris piksel](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="c8ec3-104">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 
-<span data-ttu-id="88538-105">Bu videoda Chris Pels tarafı işleme bilgileri gizli bir alan bir yaklaşım basit durum yönetimi için bir ASP.NET sayfası ve iletişim kuran istemci olarak kullanmak üzere nasıl yapacağınızı gösterir.</span><span class="sxs-lookup"><span data-stu-id="88538-105">In this video Chris Pels will show how to use a hidden field as one approach to simple state management on an ASP.NET page and for communicating client side processing information.</span></span> <span data-ttu-id="88538-106">İlk olarak, bir ASP.NET HiddenField sunucu denetimi kullanarak bir sayfaya gizli bir alan eklemek nasıl görebilir ve sunucu tarafı kodu gizli alanı değerini sonra sonrası geri almak.</span><span class="sxs-lookup"><span data-stu-id="88538-106">First, see how to add a hidden field to a page using an ASP.NET HiddenField server control and retrieve the value of the hidden field in server-side code after a post-back.</span></span> <span data-ttu-id="88538-107">Ardından, istemci tarafı komut dosyası gizli alanı değerini işlemek öğrenin ve sonra sunucu tarafı kodu değiştirilmiş değeri alır.</span><span class="sxs-lookup"><span data-stu-id="88538-107">Next, learn how to manipulate the value of the hidden field in client-side script, and then retrieve the modified value in server-side code.</span></span> <span data-ttu-id="88538-108">Son olarak, birkaç gizli alanlar geri sunucu işleme için gönderilebilir istemci tarafı işleme bilgileri depolamak için nasıl kullanılacağını örneğine bakın.</span><span class="sxs-lookup"><span data-stu-id="88538-108">Finally, see an example of how to use several hidden fields to store information from client-side processing that can be posted back for server processing.</span></span>
+<span data-ttu-id="c8ec3-105">Bu videoda, Chris piksel bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve iletişim kuran istemci için gizli bir alan kullanmayı tarafı işleme bilgileri gösterilir.</span><span class="sxs-lookup"><span data-stu-id="c8ec3-105">In this video Chris Pels will show how to use a hidden field as one approach to simple state management on an ASP.NET page and for communicating client side processing information.</span></span> <span data-ttu-id="c8ec3-106">İlk olarak, bir Hiddenfield'i ASP.NET sunucu denetimi kullanarak bir sayfaya gizli bir alan eklemek nasıl ve sunucu tarafı kodunda gizli alan değerini sonra bir geri alma.</span><span class="sxs-lookup"><span data-stu-id="c8ec3-106">First, see how to add a hidden field to a page using an ASP.NET HiddenField server control and retrieve the value of the hidden field in server-side code after a post-back.</span></span> <span data-ttu-id="c8ec3-107">Ardından, istemci tarafı betikte gizli alan değerini işlemek nasıl öğrenin ve sonra sunucu tarafı kodunuzda değiştirilen değerini alır.</span><span class="sxs-lookup"><span data-stu-id="c8ec3-107">Next, learn how to manipulate the value of the hidden field in client-side script, and then retrieve the modified value in server-side code.</span></span> <span data-ttu-id="c8ec3-108">Son olarak, sunucu işlemini geri gönderilen istemci tarafı işleme bilgileri depolamak için çeşitli gizli alanları kullanmaya ilişkin bir örnek bakın.</span><span class="sxs-lookup"><span data-stu-id="c8ec3-108">Finally, see an example of how to use several hidden fields to store information from client-side processing that can be posted back for server processing.</span></span>
 
-[<span data-ttu-id="88538-109">&#9654; (24 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="88538-109">&#9654; Watch video (24 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)
+[<span data-ttu-id="c8ec3-109">&#9654;Videoyu (24 dakika)</span><span class="sxs-lookup"><span data-stu-id="c8ec3-109">&#9654; Watch video (24 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information)

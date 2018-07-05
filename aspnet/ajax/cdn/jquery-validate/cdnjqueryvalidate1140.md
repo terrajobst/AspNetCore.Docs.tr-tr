@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate1140
-title: jQuery doğrulama 1.14.0 | Microsoft Docs
+title: jQuery doğrulaması 1.14.0 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,22 +9,21 @@ ms.date: 07/26/2015
 ms.topic: article
 ms.assetid: 291287b9-14d0-40de-acff-3e038737825b
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate1140
 msc.type: content
-ms.openlocfilehash: fa7eb47cd99336a2639a0fbb60af9ffddb23fabf
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2d1867af942c1f0746a5ec09721d1a2590c0694e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30070491"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399983"
 ---
-<a name="jquery-validation-1140"></a><span data-ttu-id="5e4c5-102">jQuery Validation 1.14.0</span><span class="sxs-lookup"><span data-stu-id="5e4c5-102">jQuery Validation 1.14.0</span></span>
+<a name="jquery-validation-1140"></a><span data-ttu-id="0bd04-102">jQuery doğrulaması 1.14.0</span><span class="sxs-lookup"><span data-stu-id="0bd04-102">jQuery Validation 1.14.0</span></span>
 ====================
-<span data-ttu-id="5e4c5-103">Aşağıdaki dosyalar üzerinde CDN barındırılan:</span><span class="sxs-lookup"><span data-stu-id="5e4c5-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="0bd04-103">Aşağıdaki dosyalar, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="0bd04-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js
-- <span data-ttu-id="5e4c5-104">Yerelleştirme dosyaları adresindeki https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/localization/messages \_## .js burada ## loc kodudur.</span><span class="sxs-lookup"><span data-stu-id="5e4c5-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/localization/messages\_##.js where ## is the loc code.</span></span>
+- <span data-ttu-id="0bd04-104">Yerelleştirme dosyalarının https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/localization/messages\_##.js nerede ## loc kodudur.</span><span class="sxs-lookup"><span data-stu-id="0bd04-104">Localization Files at https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/localization/messages\_##.js where ## is the loc code.</span></span>

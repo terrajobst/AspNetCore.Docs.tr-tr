@@ -1,33 +1,32 @@
 ---
 uid: web-forms/videos/vs-2005/the-effects-of-caching
-title: Önbelleğe alma etkileri | Microsoft Docs
+title: Önbelleğe almanın etkileri | Microsoft Docs
 author: rick-anderson
-description: Bir veritabanındaki verilere erişmek bugün neredeyse her Web uygulaması gerekiyor, ancak bu ortak işlem genel performansı üzerinde gerçek bir etkisi olabilir bir...
+description: Günümüzde neredeyse tüm Web uygulaması bir veritabanından veri erişim gerekiyor, ancak bu ortak işlem üzerinde genel performansını gerçek bir etkisi olabilir bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2007
 ms.topic: article
 ms.assetid: 806acc93-7f97-4ba1-92a5-f90146bd51f8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/the-effects-of-caching
 msc.type: video
-ms.openlocfilehash: 54f81d1a0e44fbe67d490ff2152565b2124f1161
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b993accea77aa1d70ea119f220da74f53ee929fb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895158"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396802"
 ---
-<a name="the-effects-of-caching"></a><span data-ttu-id="9b378-103">Önbelleğe alma etkileri</span><span class="sxs-lookup"><span data-stu-id="9b378-103">The Effects of Caching</span></span>
+<a name="the-effects-of-caching"></a><span data-ttu-id="27fc1-103">Önbelleğe almanın etkileri</span><span class="sxs-lookup"><span data-stu-id="27fc1-103">The Effects of Caching</span></span>
 ====================
-<span data-ttu-id="9b378-104">Eric Lee tarafından</span><span class="sxs-lookup"><span data-stu-id="9b378-104">by Eric Lee</span></span>
+<span data-ttu-id="27fc1-104">Eric Lee tarafından</span><span class="sxs-lookup"><span data-stu-id="27fc1-104">by Eric Lee</span></span>
 
-<span data-ttu-id="9b378-105">Bir veritabanındaki verilere erişmek bugün neredeyse her Web uygulaması gerekiyor, ancak bu ortak işlem uygulama genel performansı üzerinde gerçek bir etkisi olabilir.</span><span class="sxs-lookup"><span data-stu-id="9b378-105">Nearly every Web application today needs to access data from a database, but this common operation can have a real impact on the overall performance of the application.</span></span> <span data-ttu-id="9b378-106">Bu videoda, Visual Studio Team System uygulamanız veritabanına yedek çağrıları yapma ve ASP.NET 2.0 önbelleğe alma işlevinin yedekli çağrıları ortadan kaldırmak için veri kaynağı nasıl uygulayabileceğiniz gösterir olup olmadığını belirlemeniz nasıl yardımcı olabileceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="9b378-106">This video illustrates how Visual Studio Team System can help you identify whether your application is making redundant calls to the database, and then demonstrates how you can employ ASP.NET 2.0 DataSource caching functionality to eliminate the redundant calls.</span></span>
+<span data-ttu-id="27fc1-105">Günümüzde neredeyse tüm Web uygulaması, bir veritabanından veri erişim gerekiyor, ancak ortak bu işlem, uygulamanın genel performansı üzerinde gerçek bir etkisi olabilir.</span><span class="sxs-lookup"><span data-stu-id="27fc1-105">Nearly every Web application today needs to access data from a database, but this common operation can have a real impact on the overall performance of the application.</span></span> <span data-ttu-id="27fc1-106">Bu videoda, Visual Studio Team System, uygulamanızı veritabanına fazlalık çağrıları yapma ve ardından ASP.NET 2.0 önbelleğe alma işlevinin fazlalık çağrıları ortadan kaldırmak için veri kaynağı nasıl dağıtabileceklerinizle anlatılır olup olmadığını belirlemenize nasıl yardımcı olabileceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="27fc1-106">This video illustrates how Visual Studio Team System can help you identify whether your application is making redundant calls to the database, and then demonstrates how you can employ ASP.NET 2.0 DataSource caching functionality to eliminate the redundant calls.</span></span>
 
-[<span data-ttu-id="9b378-107">&#9654;(15 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="9b378-107">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/the-effects-of-caching)
+[<span data-ttu-id="27fc1-107">&#9654;Videoyu (15 dakika)</span><span class="sxs-lookup"><span data-stu-id="27fc1-107">&#9654; Watch video (15 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/the-effects-of-caching)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="9b378-108">[Önceki](custom-extraction-rules-and-coded-web-tests.md)
-> [sonraki](using-the-load-test-agent.md)</span><span class="sxs-lookup"><span data-stu-id="9b378-108">[Previous](custom-extraction-rules-and-coded-web-tests.md)
+> <span data-ttu-id="27fc1-108">[Önceki](custom-extraction-rules-and-coded-web-tests.md)
+> [İleri](using-the-load-test-agent.md)</span><span class="sxs-lookup"><span data-stu-id="27fc1-108">[Previous](custom-extraction-rules-and-coded-web-tests.md)
 [Next](using-the-load-test-agent.md)</span></span>

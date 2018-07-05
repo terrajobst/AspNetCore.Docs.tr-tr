@@ -2,32 +2,31 @@
 uid: web-forms/videos/aspnet-35/visual-studio-editor/javascript-debugging-in-visual-studio-2008
 title: Visual Studio 2008'de JavaScript hata ayıklama | Microsoft Docs
 author: JoeStagner
-description: Mevcut bir web uygulamasını kullanarak, t, Visual Studio 2008 JavaScript bir web uygulamasında hata ayıklama için nasıl kullanılacağını gösterir.
+description: Mevcut bir web uygulamasını kullanarak, ı, JavaScript web uygulamasında hata ayıklamak için Visual Studio 2008 kullanma gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: 8b726bc6-b718-43a8-b019-7ea7f26944ca
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/javascript-debugging-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 9663992bbaae720dc7b192ad32f480c4e3842e24
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d5de13e8605b45f3d18603dd88b2d18041c2a2f7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882546"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392077"
 ---
-<a name="javascript-debugging-in-visual-studio-2008"></a><span data-ttu-id="c3657-103">Visual Studio 2008'de JavaScript hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="c3657-103">JavaScript Debugging in Visual Studio 2008</span></span>
+<a name="javascript-debugging-in-visual-studio-2008"></a><span data-ttu-id="95082-103">Visual Studio 2008'de JavaScript hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="95082-103">JavaScript Debugging in Visual Studio 2008</span></span>
 ====================
-<span data-ttu-id="c3657-104">tarafından [CAN Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c3657-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="95082-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="95082-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="c3657-105">Mevcut bir web uygulamasını kullanarak, t, Visual Studio 2008 JavaScript bir web uygulamasında hata ayıklama için nasıl kullanılacağını gösterir.</span><span class="sxs-lookup"><span data-stu-id="c3657-105">Using an existing web application, I will show you how to use Visual Studio 2008 to debug JavaScript in a web application.</span></span>
+<span data-ttu-id="95082-105">Mevcut bir web uygulamasını kullanarak, ı, JavaScript web uygulamasında hata ayıklamak için Visual Studio 2008 kullanma gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="95082-105">Using an existing web application, I will show you how to use Visual Studio 2008 to debug JavaScript in a web application.</span></span>
 
-[<span data-ttu-id="c3657-106">&#9654;(9 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="c3657-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/javascript-debugging-in-visual-studio-2008)
+[<span data-ttu-id="95082-106">&#9654;Videoyu (9 dakika)</span><span class="sxs-lookup"><span data-stu-id="95082-106">&#9654; Watch video (9 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/javascript-debugging-in-visual-studio-2008)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c3657-107">[Önceki](javascript-intellisense-support-in-visual-studio-2008.md)
-> [sonraki](multi-targeting-support-in-visual-studio-2008.md)</span><span class="sxs-lookup"><span data-stu-id="c3657-107">[Previous](javascript-intellisense-support-in-visual-studio-2008.md)
+> <span data-ttu-id="95082-107">[Önceki](javascript-intellisense-support-in-visual-studio-2008.md)
+> [İleri](multi-targeting-support-in-visual-studio-2008.md)</span><span class="sxs-lookup"><span data-stu-id="95082-107">[Previous](javascript-intellisense-support-in-visual-studio-2008.md)
 [Next](multi-targeting-support-in-visual-studio-2008.md)</span></span>

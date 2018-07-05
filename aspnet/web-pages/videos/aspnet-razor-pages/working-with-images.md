@@ -1,33 +1,32 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/working-with-images
-title: İmajlarla çalışma | Microsoft Docs
+title: Görüntülerle çalışma | Microsoft Docs
 author: JoeStagner
-description: Video accompaniment görüntüleri öğretici çalışmak için
+description: Video isteyenler için görüntüleri öğretici ile çalışma
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: 38e21ba3-9b08-4397-a8ab-45d0e45448af
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-images
 msc.type: video
-ms.openlocfilehash: 711d0c980e08ee134abe0c8ae0ce64240b5dce6b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: afa9bfa1303e15679a26a7fdf90d69191d84aab9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896201"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401198"
 ---
-<a name="working-with-images"></a><span data-ttu-id="a83e6-103">İmajlarla çalışma</span><span class="sxs-lookup"><span data-stu-id="a83e6-103">Working with Images</span></span>
+<a name="working-with-images"></a><span data-ttu-id="9fa92-103">Görüntülerle çalışma</span><span class="sxs-lookup"><span data-stu-id="9fa92-103">Working with Images</span></span>
 ====================
-<span data-ttu-id="a83e6-104">tarafından [CAN Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="a83e6-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="9fa92-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="9fa92-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="a83e6-105">Video accompaniment görüntüleri öğretici çalışmak için</span><span class="sxs-lookup"><span data-stu-id="a83e6-105">Video accompaniment to the Working with Images tutorial</span></span>
+<span data-ttu-id="9fa92-105">Video isteyenler için görüntüleri öğretici ile çalışma</span><span class="sxs-lookup"><span data-stu-id="9fa92-105">Video accompaniment to the Working with Images tutorial</span></span>
 
-[<span data-ttu-id="a83e6-106">&#9654;(26 dakika) videoyu izleyin</span><span class="sxs-lookup"><span data-stu-id="a83e6-106">&#9654; Watch video (26 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-images)
+[<span data-ttu-id="9fa92-106">&#9654;Videoyu (26 dakika)</span><span class="sxs-lookup"><span data-stu-id="9fa92-106">&#9654; Watch video (26 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/working-with-images)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="a83e6-107">[Önceki](working-with-files.md)
-> [sonraki](working-with-video.md)</span><span class="sxs-lookup"><span data-stu-id="a83e6-107">[Previous](working-with-files.md)
+> <span data-ttu-id="9fa92-107">[Önceki](working-with-files.md)
+> [İleri](working-with-video.md)</span><span class="sxs-lookup"><span data-stu-id="9fa92-107">[Previous](working-with-files.md)
 [Next](working-with-video.md)</span></span>
